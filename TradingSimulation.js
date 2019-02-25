@@ -52,6 +52,7 @@
     let smileyHappy;
     let smileySad;
     let smileyGhost;
+    let smileyMonkeyEyes;
 
 
     return thisObject;
@@ -97,6 +98,7 @@
             smileyHappy = loadEmoji("Smiley/Emoji Smiley-51.png");
             smileySad = loadEmoji("Smiley/Emoji Smiley-26.png");
             smileyGhost = loadEmoji("Objects/Emoji Objects-12.png");
+            smileyMonkeyEyes = loadEmoji("Smiley/Emoji Smiley-85.png");
 
             function loadEmoji(pPath) {
 
@@ -540,45 +542,40 @@
 
                     let recordPoint2 = {
                         x: record.begin + (record.end - record.begin) / 2,
-                        y: record.rate + record.rate * 0.05 * direction
+                        y: 0
                     };
 
                     let recordPoint3 = {
-                        x: record.begin + (record.end - record.begin) / 2,
-                        y: record.rate + record.rate * 0.05 * direction
-                    };
-
-                    let recordPoint4 = {
                         x: record.begin,
                         y: record.stopLoss
                     };
 
-                    let recordPoint5 = {
+                    let recordPoint4 = {
                         x: record.end,
                         y: record.stopLoss
                     };
 
                     if (record.stopLoss === 0) { // Put these points out of range if stopLoss is zero.
 
+                        recordPoint3.x = 0;
                         recordPoint4.x = 0;
-                        recordPoint5.x = 0;
 
                     }
 
-                    let recordPoint6 = {
+                    let recordPoint5 = {
                         x: record.begin,
                         y: record.sellRate
                     };
 
-                    let recordPoint7 = {
+                    let recordPoint6 = {
                         x: record.end,
                         y: record.sellRate
                     };
 
                     if (record.sellRate === 0) { // Put these points out of range if sellRate is zero.
 
+                        recordPoint5.x = 0;
                         recordPoint6.x = 0;
-                        recordPoint7.x = 0;
 
                     }
 
@@ -588,7 +585,6 @@
                     recordPoint4 = timeLineCoordinateSystem.transformThisPoint(recordPoint4);
                     recordPoint5 = timeLineCoordinateSystem.transformThisPoint(recordPoint5);
                     recordPoint6 = timeLineCoordinateSystem.transformThisPoint(recordPoint6);
-                    recordPoint7 = timeLineCoordinateSystem.transformThisPoint(recordPoint7);
 
                     recordPoint1 = transformThisPoint(recordPoint1, thisObject.container);
                     recordPoint2 = transformThisPoint(recordPoint2, thisObject.container);
@@ -596,11 +592,12 @@
                     recordPoint4 = transformThisPoint(recordPoint4, thisObject.container);
                     recordPoint5 = transformThisPoint(recordPoint5, thisObject.container);
                     recordPoint6 = transformThisPoint(recordPoint6, thisObject.container);
-                    recordPoint7 = transformThisPoint(recordPoint7, thisObject.container);
 
                     if (recordPoint1.x < viewPort.visibleArea.bottomLeft.x || recordPoint1.x > viewPort.visibleArea.bottomRight.x) {
                         continue;
                     }
+
+                    recordPoint2.y = recordPoint1.y - 150 * direction;
 
                     recordPoint1 = viewPort.fitIntoVisibleArea(recordPoint1);
                     recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
@@ -608,14 +605,13 @@
                     recordPoint4 = viewPort.fitIntoVisibleArea(recordPoint4);
                     recordPoint5 = viewPort.fitIntoVisibleArea(recordPoint5);
                     recordPoint6 = viewPort.fitIntoVisibleArea(recordPoint6);
-                    recordPoint7 = viewPort.fitIntoVisibleArea(recordPoint7);
 
                     /* Next we are drawing the stopLoss floor / ceilling */
 
                     browserCanvasContext.beginPath();
 
-                    browserCanvasContext.moveTo(recordPoint4.x, recordPoint4.y);
-                    browserCanvasContext.lineTo(recordPoint5.x, recordPoint5.y);
+                    browserCanvasContext.moveTo(recordPoint3.x, recordPoint3.y);
+                    browserCanvasContext.lineTo(recordPoint4.x, recordPoint4.y);
 
                     browserCanvasContext.closePath();
 
@@ -637,8 +633,8 @@
 
                     browserCanvasContext.beginPath();
 
-                    browserCanvasContext.moveTo(recordPoint6.x, recordPoint6.y);
-                    browserCanvasContext.lineTo(recordPoint7.x, recordPoint7.y);
+                    browserCanvasContext.moveTo(recordPoint5.x, recordPoint5.y);
+                    browserCanvasContext.lineTo(recordPoint6.x, recordPoint6.y);
 
                     browserCanvasContext.closePath();
 
@@ -655,6 +651,10 @@
 
                     browserCanvasContext.lineWidth = 1
                     browserCanvasContext.stroke()
+
+
+
+
 
                     /* Continue with the pins */
 
@@ -708,6 +708,14 @@
                         let line1;
                         let line2;
 
+                        if (record.signal === 'Pre-Sell') {
+
+                            line1 = 'Time to Sell!';
+                            line2 = '';
+
+                            imageToDraw = smileyGhost;
+                        }
+
                         if (record.type === 'Buy') {
 
                             line1 = 'Buying back.';
@@ -729,7 +737,7 @@
                             line1 = 'Sold because ';
                             line2 = 'market reversed.';
 
-                            imageToDraw = smileyHappy;
+                            imageToDraw = smileyMonkeyEyes;
                         }
                         if (record.type === 'Sell-2') {
 
@@ -738,32 +746,26 @@
 
                             imageToDraw = smileyHappy;
                         }
-                        if (record.signal === 'Pre-Sell') {
 
-                            line1 = 'Time to Sell!';
-                            line2 = '';
-
-                            imageToDraw = smileyGhost;
-                        }
 
                         if (smileyHappy.isLoaded === true) {
-                            browserCanvasContext.drawImage(imageToDraw, recordPoint3.x - imageSize / 2, recordPoint3.y - imageSize / 2, imageSize, imageSize);
+                            browserCanvasContext.drawImage(imageToDraw, recordPoint2.x - imageSize / 2, recordPoint2.y - imageSize / 2, imageSize, imageSize);
                         }
 
 
                         if (
-                            recordPoint3.x < viewPort.visibleArea.topLeft.x + 250
+                            recordPoint2.x < viewPort.visibleArea.topLeft.x + 250
                             ||
-                            recordPoint3.x > viewPort.visibleArea.bottomRight.x - 250
+                            recordPoint2.x > viewPort.visibleArea.bottomRight.x - 250
                             ||
-                            recordPoint3.y > viewPort.visibleArea.bottomRight.y - 150
+                            recordPoint2.y > viewPort.visibleArea.bottomRight.y - 100
                             ||
-                            recordPoint3.y < viewPort.visibleArea.topLeft.y + 150
+                            recordPoint2.y < viewPort.visibleArea.topLeft.y + 100
                         ) {
                             // we do not write any text
                         } else {
-                            printLabel(line1, recordPoint3.x + imageSize / 2 + 5, recordPoint3.y + 0, '0.50');
-                            printLabel(line2, recordPoint3.x + imageSize / 2 + 5, recordPoint3.y + 15, '0.50');
+                            printLabel(line1, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 0, '0.50');
+                            printLabel(line2, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 15, '0.50');
                         }
 
 
@@ -840,6 +842,8 @@
         }
     }
 }
+
+
 
 
 

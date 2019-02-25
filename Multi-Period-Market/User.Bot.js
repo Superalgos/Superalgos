@@ -370,6 +370,12 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> buildRecords -> Entering function."); }
 
+                                    /* Initial Values */
+
+                                    let lastOperation = 'Buy';
+                                    let initialDate = new Date("2018-08-01");
+                                    let initialBalanceA = 1;
+
                                     /* Building records */
 
                                     let stopLossPercentage = 1.5;
@@ -379,10 +385,7 @@
                                     let stopLossDecay = 0;
                                     let stopLossDecayIncrement = 0.06;
 
-                                    let initialBalanceA = 1;
                                     let record;
-                                    let lastOperation = 'Buy';
-                                    let initialDate = new Date("2018-08-01");
                                     let balanceAssetA = initialBalanceA;
                                     let balanceAssetB = 0;
                                     let profit = 0;
@@ -400,11 +403,14 @@
                                     let days = 0;
                                     let anualizedRateOfReturn = 0;
                                     let type = '""';
+                                    let signal = '""';
                                     let rate = 0;
                                     
-                                    let pBOK = false;
+                                    let presellModeIsActive = false;
 
                                     let initialBuffer = 3;
+
+                                    /* Main Simulation Loop: We go thourgh all the candles at this time period. */
 
                                     for (let i = 0 + initialBuffer; i < candles.length; i++) {
 
@@ -412,9 +418,7 @@
                                         let percentgeBandwidth = percentgeBandwidthMap.get(candle.begin);
                                         let band = bollingerBandsMap.get(candle.begin);
                                         
-
-                                        if (percentgeBandwidth === undefined) { continue;}
-
+                                        if (percentgeBandwidth === undefined) { continue;} // percentageBandwidth might start after the first few candles.
                                         if (candle.begin < initialDate.valueOf()) { continue; }
 
                                         periods++;
@@ -427,31 +431,39 @@
                                         let percentgeBandwidth2 = percentgeBandwidthMap.get(candles[i - 2].begin);
                                         let percentgeBandwidth3 = percentgeBandwidthMap.get(candles[i - 3].begin);
 
-                                        /* PB Coming Down from the roof enables condition to sell */
+                                        /* Strategy #1: Range Trading. */
 
+                                        /* 
+                                        Strategy Summary: Once Percentage Bandwidth (PB) moving average is going dow and
+                                        it is abobe 70%, we enter into Pre-Sell mode, which means that we are ready to
+                                        sell as soon as the trend starts going down. The trend should be measured by the
+                                        Bollinger Bands moving average.
+                                        */
+                                        
                                         if (
                                             percentgeBandwidth.value >= 70 &&
                                             lastOperation === 'Buy' &&
-                                            (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage )
+                                            (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) &&
+                                            presellModeIsActive === false
                                         ) {
-                                            type = '"Pre-Sell"';
-                                            pBOK = true;
+                                            signal = '"Pre-Sell"';
+                                            presellModeIsActive = true;
 
                                         };
 
-                                        let mustSell = false;
+                                        let sellSignalActivated = false;
 
                                         /* Sell Condition #1 */
 
                                         if (
-                                            pBOK === true &&
+                                            presellModeIsActive === true &&
                                             band2.movingAverage > band1.movingAverage &&
                                             band1.movingAverage > band.movingAverage &&
                                             lastOperation === 'Buy'
                                         ) {
 
                                             type = '"Sell-1"';
-                                            mustSell = true;
+                                            sellSignalActivated = true;
                                         }
 
                                         /* Sell Condition #2 */
@@ -465,11 +477,11 @@
                                         ) {
 
                                             type = '"Sell-2"';
-                                            mustSell = true;
+                                            sellSignalActivated = true;
 
                                         }
 
-                                        if (mustSell === true) {
+                                        if (sellSignalActivated === true) {
 
                                             previousBalanceAssetA = balanceAssetA;
                                             lastProfit = 0;
@@ -484,12 +496,12 @@
                                             stopLoss = sellRate + sellRate * stopLossPercentage / 100;
 
                                             lastOperation = 'Sell';
-                                            pBOK = false;
+                                            presellModeIsActive = false;
                                             stopLossDecay = 0;
 
                                             addRecord();
 
-                                            mustSell = false;
+                                            sellSignalActivated = false;
                                             continue;
                                         }
 
@@ -499,39 +511,44 @@
                                             candle.max < band.movingAverage &&
                                             lastOperation === 'Sell' &&
                                             band1.movingAverage  > band.movingAverage &&
-                                            (candle.min < band.movingAverage - band.deviation)
+                                            candle.min < band.movingAverage - band.deviation
                                             ) {
 
                                             trailingStop = true;
                                             
                                         }
 
+                                        /* Stop Loss Management: Initially it is tied to the sell rate but when it enters
+                                        into trailing mode it follows the moving average of the band.*/
+
+                                        let newStopLoss;
+
                                         if (trailingStop === true) {
-
-                                            let newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
-
-                                            if (newStopLoss < previousStopLoss) {
-                                                stopLoss = newStopLoss;
-                                            } else {
-                                                stopLoss = previousStopLoss;
-                                            }
+                                            newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
                                         } else {
-                                            stopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
+                                            newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
+                                        }
+                                        /* A trailing stop loss can never go higher. */
+
+                                        if (newStopLoss < previousStopLoss) {
+                                            stopLoss = newStopLoss;
+                                        } else {
+                                            stopLoss = previousStopLoss;
                                         }
 
-                                        /* Stop Loss condition */
+                                        /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                                        let mustBuy = false;
+                                        let buySignalActivated = false;
 
                                         if (candle.max >= stopLoss && lastOperation === 'Sell') {
 
                                             balanceAssetA = balanceAssetB / stopLoss;
                                             balanceAssetB = 0;
                                             rate = stopLoss;
-                                            mustBuy = true;
+                                            buySignalActivated = true;
                                         }
 
-                                        if (mustBuy === true) {
+                                        if (buySignalActivated === true) {
 
                                             stopLoss = 0;
                                             sellRate = 0;
@@ -590,7 +607,8 @@
                                                 days: days,
                                                 anualizedRateOfReturn: anualizedRateOfReturn,
                                                 sellRate: sellRate,
-                                                lastProfitPercent: lastProfitPercent
+                                                lastProfitPercent: lastProfitPercent,
+                                                signal: signal
                                             }
 
                                             recordsArray.push(record);
@@ -604,6 +622,7 @@
                                             }
                                             
                                             type = '""';
+                                            signal = '""';
 
                                         }
                                     }
@@ -651,7 +670,8 @@
                                             record.days + "," +
                                             record.anualizedRateOfReturn + "," +
                                             record.sellRate + "," +
-                                            record.lastProfitPercent + "]";
+                                            record.lastProfitPercent + "," +
+                                            record.signal + "]";
 
                                         if (separator === "") { separator = ","; }
 

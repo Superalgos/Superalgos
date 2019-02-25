@@ -519,6 +519,7 @@
             if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
 
             let record;
+            lastImage = 0;
 
             if (records.length > 0) {
 
@@ -660,6 +661,16 @@
 
                     if (record.type !== '' || record.signal !== '') {
 
+                        let noText = false;
+
+                        if (lastImage < 5) {
+                            noText = true; // we avoid image texts to overlap.
+                        } else {
+                            noText = false;
+                            lastImage = 0;
+                        }
+
+
                         /* Next we are drawing the stick */
 
                         browserCanvasContext.beginPath();
@@ -764,8 +775,10 @@
                         ) {
                             // we do not write any text
                         } else {
-                            printLabel(line1, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 0, '0.50');
-                            printLabel(line2, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 15, '0.50');
+                            if (noText === false) {
+                                printLabel(line1, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 0, '0.50');
+                                printLabel(line2, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 15, '0.50');
+                            }
                         }
 
 
@@ -786,6 +799,8 @@
 
                         }
 
+                    } else {
+                        lastImage++;
                     }
                 }
             }

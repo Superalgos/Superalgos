@@ -377,7 +377,7 @@
                                     let trailingStop = false;
                                     let stopLoss = 0;
                                     let stopLossDecay = 0;
-                                    let stopLossDecayIncrement = 0.05;
+                                    let stopLossDecayIncrement = 0.06;
 
                                     let initialBalanceA = 1;
                                     let record;
@@ -543,7 +543,8 @@
                                         }
 
                                         /* Not a buy or sell condition */
-                                        
+
+                                        rate = candle.close;
                                         addRecord();
 
                                         function addRecord() {
@@ -566,14 +567,20 @@
                                                 ROI: ROI,
                                                 periods: periods,
                                                 days: days,
-                                                anualizedRateOfReturn: anualizedRateOfReturn
+                                                anualizedRateOfReturn: anualizedRateOfReturn,
+                                                sellRate: sellRate
                                             }
 
                                             recordsArray.push(record);
 
                                             previousStopLoss = stopLoss;
-                                            stopLossDecay = stopLossDecay + stopLossDecayIncrement;
 
+                                            if (bollingerBandsMap.get(candles[i - 1].begin).movingAverage < band.movingAverage) {
+                                                stopLossDecay = stopLossDecay + stopLossDecayIncrement * 2;
+                                            } else {
+                                                stopLossDecay = stopLossDecay - stopLossDecayIncrement / 2;
+                                            }
+                                            
                                             type = '""';
 
                                         }
@@ -620,7 +627,8 @@
                                             record.ROI + "," +
                                             record.periods + "," +
                                             record.days + "," +
-                                            record.anualizedRateOfReturn + "]";
+                                            record.anualizedRateOfReturn + "," +
+                                            record.sellRate + "]";
 
                                         if (separator === "") { separator = ","; }
 

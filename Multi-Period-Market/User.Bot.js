@@ -326,9 +326,7 @@
 
                                 try {
 
-                                    let initialBuffer = 3;
-
-                                    for (let i = 0 + initialBuffer; i < marketFile.length; i++) {
+                                    for (let i = 0; i < marketFile.length; i++) {
 
                                         let candle = {
                                             open: undefined,
@@ -395,14 +393,13 @@
                                     let anualizedRateOfReturn = 0;
                                     let type = '';
                                     let rate = 0;
-                                    let previousPBMovingAverage = 0;
-                                    let previousPreviousPBMovingAverage = 0;
-                                    let previousBandMovingAverage = 0;
                                     let previousStopLoss = 0;
                                     let trailingStop = false;
                                     let pBOK = false;
 
-                                    for (let i = 0; i < candles.length; i++) {
+                                    let initialBuffer = 3;
+
+                                    for (let i = 0 + initialBuffer; i < candles.length; i++) {
 
                                         let candle = candles[i];
                                         let percentgeBandwidth = percentgeBandwidthMap.get(candle.begin);
@@ -420,8 +417,8 @@
                                         if (
                                             percentgeBandwidth.value >= 70 &&
                                             lastOperation === 'Buy' &&
-                                            (previousPreviousPBMovingAverage > previousPBMovingAverage) &&
-                                            (previousPBMovingAverage > percentgeBandwidth.movingAverage )
+                                            (percentgeBandwidthMap.get(candles[i - 2].begin).movingAverage > percentgeBandwidthMap.get(candles[i - 1].begin).movingAverage) &&
+                                            (percentgeBandwidthMap.get(candles[i - 1].begin).movingAverage > percentgeBandwidth.movingAverage )
                                         ) {
 
                                             pBOK = true;
@@ -432,7 +429,8 @@
 
                                         if (
                                             pBOK === true &&
-                                            previousBandMovingAverage > band.movingAverage &&
+                                            bollingerBandsMap.get(candles[i - 2].begin).movingAverage > bollingerBandsMap.get(candles[i - 1].begin).movingAverage  && 
+                                            bollingerBandsMap.get(candles[i - 1].begin).movingAverage > band.movingAverage &&
                                             lastOperation === 'Buy' 
                                         ) {
 
@@ -459,7 +457,7 @@
                                         if (
                                             candle.max < band.movingAverage &&
                                             lastOperation === 'Sell' &&
-                                            (previousBandMovingAverage > band.movingAverage) &&
+                                            (bollingerBandsMap.get(candles[i - 1].begin).movingAverage  > band.movingAverage) &&
                                             (candle.min < band.movingAverage - band.deviation)
                                             ) {
 
@@ -561,9 +559,6 @@
 
                                             recordsArray.push(record);
 
-                                            previousPreviousPBMovingAverage = previousPBMovingAverage
-                                            previousPBMovingAverage = percentgeBandwidth.movingAverage;
-                                            previousBandMovingAverage = band.movingAverage;
                                             previousStopLoss = stopLoss;
                                         }
                                     }

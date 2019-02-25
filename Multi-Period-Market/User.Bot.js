@@ -398,7 +398,7 @@
                                     let periods = 0;
                                     let days = 0;
                                     let anualizedRateOfReturn = 0;
-                                    let type = '';
+                                    let type = '""';
                                     let rate = 0;
                                     
                                     let pBOK = false;
@@ -423,7 +423,7 @@
                                         if (
                                             percentgeBandwidth.value >= 70 &&
                                             lastOperation === 'Buy' &&
-                                            (percentgeBandwidthMap.get(candles[i - 2].begin).movingAverage > percentgeBandwidthMap.get(candles[i - 1].begin).movingAverage) &&
+                                           // (percentgeBandwidthMap.get(candles[i - 2].begin).movingAverage > percentgeBandwidthMap.get(candles[i - 1].begin).movingAverage) &&
                                             (percentgeBandwidthMap.get(candles[i - 1].begin).movingAverage > percentgeBandwidth.movingAverage )
                                         ) {
                                             type = '"Pre-Sell"';

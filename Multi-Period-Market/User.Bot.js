@@ -372,7 +372,7 @@
 
                                     /* Building records */
 
-                                    let stopLossPercentage = 1;
+                                    let stopLossPercentage = 1.5;
                                     let previousStopLoss = 0;
                                     let trailingStop = false;
                                     let stopLoss = 0;

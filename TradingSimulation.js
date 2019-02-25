@@ -1,5 +1,4 @@
-﻿function newAAMastersPlottersTradingSimulationTradingSimulation ()
-{
+﻿function newAAMastersPlottersTradingSimulationTradingSimulation() {
 
     const MODULE_NAME = "Simulation Plotter";
     const INFO_LOG = false;
@@ -18,11 +17,11 @@
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
         draw: draw,
-        recalculateScale: recalculateScale, 
+        recalculateScale: recalculateScale,
 
         /* Events declared outside the plotter. */
 
-        onDailyFileLoaded: onDailyFileLoaded, 
+        onDailyFileLoaded: onDailyFileLoaded,
 
         // Secondary functions and properties.
 
@@ -49,6 +48,11 @@
     /* these are module specific variables: */
 
     let records = [];                   // Here we keep the records to be ploted every time the Draw() function is called by the AAWebPlatform.
+
+    let smileyHappy;
+    let smileySad;
+    let smileyGhost;
+
 
     return thisObject;
 
@@ -87,6 +91,28 @@
             /* Get ready for plotting. */
 
             recalculate();
+
+            /* Loading a few icons */
+
+            smileyHappy = loadEmoji("Smiley/Emoji Smiley-51.png");
+            smileySad = loadEmoji("Smiley/Emoji Smiley-26.png");
+            smileyGhost = loadEmoji("Objects/Emoji Objects-12.png");
+
+            function loadEmoji(pPath) {
+
+                let newImage;
+
+                newImage = new Image();
+                newImage.onload = onImageLoaded;
+
+                function onImageLoaded() {
+                    newImage.isLoaded = true;
+                }
+
+                newImage.src = window.canvasApp.urlPrefix + "Images/Emoji/" + pPath;
+
+                return newImage;
+            }
 
             callBackFunction();
 
@@ -384,7 +410,8 @@
                     days: undefined,
                     anualizedRateOfReturn: undefined,
                     sellRate: undefined,
-                    lastProfitPercent: undefined
+                    lastProfitPercent: undefined,
+                    signal: undefined
                 };
 
                 record.begin = marketFile[i][0];
@@ -407,6 +434,7 @@
                 record.anualizedRateOfReturn = marketFile[i][17];
                 record.sellRate = marketFile[i][18];
                 record.lastProfitPercent = marketFile[i][19];
+                record.signal = marketFile[i][20];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -503,7 +531,7 @@
                     if (record.type === 'Buy') { direction = -1; }
                     if (record.type === 'Sell-1') { direction = +1; }
                     if (record.type === 'Sell-2') { direction = +1; }
-                    if (record.type === 'Pre-Sell') { direction = +1; }
+                    if (record.signal === 'Pre-Sell') { direction = +1; }
 
                     let recordPoint1 = {
                         x: record.begin + (record.end - record.begin) / 2,
@@ -599,7 +627,7 @@
 
                             /* highlight the current record */
                             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
-                        } 
+                        }
                     }
 
                     browserCanvasContext.lineWidth = 1
@@ -630,7 +658,7 @@
 
                     /* Continue with the pins */
 
-                    if (record.type !== '') {
+                    if (record.type !== '' || record.signal !== '') {
 
                         /* Next we are drawing the stick */
 
@@ -660,7 +688,7 @@
                             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
                         }
 
-                        browserCanvasContext.setLineDash([4, 2])
+                        browserCanvasContext.setLineDash([4, 3])
                         browserCanvasContext.lineWidth = 0.2
                         browserCanvasContext.stroke()
                         browserCanvasContext.setLineDash([0, 0])
@@ -670,54 +698,91 @@
                         let radius = 5;
                         let color = UI_COLOR.DARK;
 
-                        if (record.type === 'Buy') { color = UI_COLOR.GREEN; }
-                        if (record.type === 'Sell-1') { color = UI_COLOR.RUSTED_RED; }
-                        if (record.type === 'Sell-2') { color = UI_COLOR.MANGANESE_PURPLE; }
-                        if (record.type === 'Pre-Sell') { color = UI_COLOR.GOLDEN_ORANGE; }
+
 
                         browserCanvasContext.beginPath();
 
-                        // browserCanvasContext.moveTo(recordPoint3.x, recordPoint3.y);
-                        browserCanvasContext.arc(recordPoint3.x, recordPoint3.y, radius, 0, Math.PI * 2, true);
+                        let imageSize = 20;
+                        let imageToDraw;
 
-                        browserCanvasContext.closePath();
+                        let line1;
+                        let line2;
 
-                        if (datetime !== undefined) {
-                            let dateValue = datetime.valueOf();
-                            if (dateValue >= record.begin && dateValue <= record.end) {
-                                /* highlight the current record */
-                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
+                        if (record.type === 'Buy') {
+
+                            line1 = 'Buying back.';
+
+                            if (record.lastProfit < 0) {
+
+                                line2 = 'Lost ' + (record.lastProfit * 100).toFixed(2) + ' %';
+                                imageToDraw = smileySad;
+
                             } else {
-                                browserCanvasContext.fillStyle = 'rgba(' + color + ', 1)';
+
+                                line2 = 'Won ' + (record.lastProfit * 100).toFixed(2) + ' %';
+                                imageToDraw = smileyHappy;
                             }
-                        } else {
-                            browserCanvasContext.fillStyle = 'rgba(' + color + ', 1)';
+
                         }
+                        if (record.type === 'Sell-1') {
+
+                            line1 = 'Sold because ';
+                            line2 = 'market reversed.';
+
+                            imageToDraw = smileyHappy;
+                        }
+                        if (record.type === 'Sell-2') {
+
+                            line1 = 'Sold because ';
+                            line2 = 'resistance collapsed.';
+
+                            imageToDraw = smileyHappy;
+                        }
+                        if (record.signal === 'Pre-Sell') {
+
+                            line1 = 'Time to Sell!';
+                            line2 = '';
+
+                            imageToDraw = smileyGhost;
+                        }
+
+                        if (smileyHappy.isLoaded === true) {
+                            browserCanvasContext.drawImage(imageToDraw, recordPoint3.x - imageSize / 2, recordPoint3.y - imageSize / 2, imageSize, imageSize);
+                        }
+
 
                         if (
-                            recordPoint1.x < viewPort.visibleArea.topLeft.x + 50
+                            recordPoint3.x < viewPort.visibleArea.topLeft.x + 250
                             ||
-                            recordPoint1.x > viewPort.visibleArea.bottomRight.x - 50
+                            recordPoint3.x > viewPort.visibleArea.bottomRight.x - 250
+                            ||
+                            recordPoint3.y > viewPort.visibleArea.bottomRight.y - 150
+                            ||
+                            recordPoint3.y < viewPort.visibleArea.topLeft.y + 150
                         ) {
-                            // we leave this candles without fill.
+                            // we do not write any text
                         } else {
-                            browserCanvasContext.fill();
+                            printLabel(line1, recordPoint3.x + imageSize / 2 + 5, recordPoint3.y + 0, '0.50');
+                            printLabel(line2, recordPoint3.x + imageSize / 2 + 5, recordPoint3.y + 15, '0.50');
                         }
 
-                        if (datetime !== undefined) {
-                            let dateValue = datetime.valueOf();
-                            if (dateValue >= record.begin && dateValue <= record.end) {
-                                /* highlight the current record */
-                                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
-                            } else {
-                                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
-                            }
-                        } else {
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
-                        }
 
-                        browserCanvasContext.lineWidth = 0.2;
-                        browserCanvasContext.stroke();
+
+                        function printLabel(labelToPrint, x, y, opacity) {
+
+                            let labelPoint;
+                            let fontSize = 12;
+
+                            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
+
+                            let label = '' + labelToPrint;
+
+                            let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
+
+                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
+                            browserCanvasContext.fillText(label, x, y);
+
+                        }
 
                     }
                 }
@@ -775,4 +840,6 @@
         }
     }
 }
+
+
 

@@ -153,7 +153,7 @@ class Queried extends React.Component {
               <div className='container'>
                 <Paper className={classes.paperRoot}>
                   <Typography className={classes.typography} variant='h5' gutterBottom>
-                    Create a new event
+                    Edit an event
                   </Typography>
                   {value === 0 && <TabContainer>
                     <Basic

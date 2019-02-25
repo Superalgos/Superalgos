@@ -25,7 +25,7 @@ class Basic extends React.Component {
     return (
       <React.Fragment>
         <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-          These are the basic information you need to input in order to create an event.
+          These are the basic information you need to input in order to edit an event.
           There might be some heavy changes in the near future as the application is still at a very early stage.
         </Typography>
 
@@ -55,12 +55,6 @@ class Basic extends React.Component {
             className={classes.inputField}
             onChange={newVal => edit('description', newVal.target.value)}
           />
-
-        <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-          The dates are purely indicative, as it is important for you to make sure everything is
-          ready before manually triggering the beginning and end of the event.
-          If you are confident use the scheduler to start it for you(incoming).
-        </Typography>
 
         <FormGroup row className={classes.inputField}>
           <Grid container justify='space-around' >
@@ -105,7 +99,7 @@ class Basic extends React.Component {
               Go to technical tab
             </Button>
             <Button className={classes.bottomButton} onClick={() => saveChanges()} variant='contained' color='secondary'>
-              Or Create event
+              Or Edit event
             </Button>
           </Grid>
         </Grid>

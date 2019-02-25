@@ -492,6 +492,8 @@ function onBrowserRequest(request, response) {
 
                 }
 
+                path = unescape(path);
+
                 respondWithImage(path, response);
 
             }

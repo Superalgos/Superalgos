@@ -372,7 +372,7 @@
 
                                     /* Building records */
 
-                                    let stopLossPercentage = 2;
+                                    let stopLossPercentage = 1;
                                     let previousStopLoss = 0;
                                     let trailingStop = false;
                                     let stopLoss = 0;
@@ -387,6 +387,7 @@
                                     let balanceAssetB = 0;
                                     let profit = 0;
                                     let lastProfit = 0;
+                                    let lastProfitPercent = 0;
                                     let sellRate = 0;
                                     
                                     let previousBalanceAssetA = 0;
@@ -418,48 +419,78 @@
 
                                         periods++;
 
+                                        let band1 = bollingerBandsMap.get(candles[i - 1].begin);
+                                        let band2 = bollingerBandsMap.get(candles[i - 2].begin);
+                                        let band3 = bollingerBandsMap.get(candles[i - 3].begin);
+
+                                        let percentgeBandwidth1 = percentgeBandwidthMap.get(candles[i - 1].begin);
+                                        let percentgeBandwidth2 = percentgeBandwidthMap.get(candles[i - 2].begin);
+                                        let percentgeBandwidth3 = percentgeBandwidthMap.get(candles[i - 3].begin);
+
                                         /* PB Coming Down from the roof enables condition to sell */
 
                                         if (
                                             percentgeBandwidth.value >= 70 &&
                                             lastOperation === 'Buy' &&
-                                           // (percentgeBandwidthMap.get(candles[i - 2].begin).movingAverage > percentgeBandwidthMap.get(candles[i - 1].begin).movingAverage) &&
-                                            (percentgeBandwidthMap.get(candles[i - 1].begin).movingAverage > percentgeBandwidth.movingAverage )
+                                            (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage )
                                         ) {
                                             type = '"Pre-Sell"';
                                             pBOK = true;
 
                                         };
 
-                                        /* Sell Condition */
+                                        let mustSell = false;
+
+                                        /* Sell Condition #1 */
 
                                         if (
                                             pBOK === true &&
-                                            bollingerBandsMap.get(candles[i - 2].begin).movingAverage > bollingerBandsMap.get(candles[i - 1].begin).movingAverage  && 
-                                            bollingerBandsMap.get(candles[i - 1].begin).movingAverage > band.movingAverage &&
+                                            band2.movingAverage > band1.movingAverage &&
+                                            band1.movingAverage > band.movingAverage &&
+                                            lastOperation === 'Buy'
+                                        ) {
+
+                                            type = '"Sell-1"';
+                                            mustSell = true;
+                                        }
+
+                                        /* Sell Condition #2 */
+
+                                        if (
+                                            candles[i - 3].min < band3.movingAverage - band3.deviation &&
+                                            candles[i - 2].min < band2.movingAverage - band2.deviation  && 
+                                            candles[i - 1].min < band1.movingAverage - band1.deviation &&
+                                            candle.min < band.movingAverage - band.deviation &&
                                             lastOperation === 'Buy' 
                                         ) {
 
+                                            type = '"Sell-2"';
+                                            mustSell = true;
+
+                                        }
+
+                                        if (mustSell === true) {
+
                                             previousBalanceAssetA = balanceAssetA;
                                             lastProfit = 0;
+                                            lastProfitPercent = 0;
 
                                             balanceAssetB = balanceAssetA * candle.close;
                                             balanceAssetA = 0;
-                                            
+
                                             rate = candle.close;
                                             sellRate = rate;
 
                                             stopLoss = sellRate + sellRate * stopLossPercentage / 100;
 
-                                            type = '"Sell"';
                                             lastOperation = 'Sell';
                                             pBOK = false;
                                             stopLossDecay = 0;
 
                                             addRecord();
 
+                                            mustSell = false;
                                             continue;
-
                                         }
 
                                         /* Start Trailing Stop Condition */
@@ -467,7 +498,7 @@
                                         if (
                                             candle.max < band.movingAverage &&
                                             lastOperation === 'Sell' &&
-                                            (bollingerBandsMap.get(candles[i - 1].begin).movingAverage  > band.movingAverage) &&
+                                            band1.movingAverage  > band.movingAverage &&
                                             (candle.min < band.movingAverage - band.deviation)
                                             ) {
 
@@ -500,17 +531,6 @@
                                             mustBuy = true;
                                         }
 
-                                        /* Buy condition */
-                                        /*
-                                        if (percentgeBandwidth.value <= 50 && lastOperation === 'Sell' && mustBuy === false) {
-
-                                            balanceAssetA = balanceAssetB / candle.close;
-                                            balanceAssetB = 0;
-                                            rate = candle.close;
-                                            mustBuy = true;
-                                        };
-                                        */
-
                                         if (mustBuy === true) {
 
                                             stopLoss = 0;
@@ -519,6 +539,7 @@
                                      
                                             roundtrips++;
                                             lastProfit = balanceAssetA - previousBalanceAssetA;
+                                            lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
                                             profit = profit + lastProfit;
                                             ROI = (initialBalanceA + profit) / initialBalanceA - 1;
 
@@ -568,7 +589,8 @@
                                                 periods: periods,
                                                 days: days,
                                                 anualizedRateOfReturn: anualizedRateOfReturn,
-                                                sellRate: sellRate
+                                                sellRate: sellRate,
+                                                lastProfitPercent: lastProfitPercent
                                             }
 
                                             recordsArray.push(record);
@@ -628,7 +650,8 @@
                                             record.periods + "," +
                                             record.days + "," +
                                             record.anualizedRateOfReturn + "," +
-                                            record.sellRate + "]";
+                                            record.sellRate + "," +
+                                            record.lastProfitPercent + "]";
 
                                         if (separator === "") { separator = ","; }
 

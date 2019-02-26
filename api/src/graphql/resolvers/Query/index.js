@@ -3,6 +3,7 @@ import { logger } from '../../../logger'
 import { member, owner } from './Member'
 import { teams, teamById, teamsByIds, teamByName, teamBySlug, teamWithRole, teamAuthorization, teamsByOwner, teamsByRole } from './Team'
 import{ fbByTeamMember } from './TeamMember'
+import{ fbByFbId } from './FinancialBeing'
 
 export const resolvers = {
   Query: {
@@ -17,6 +18,7 @@ export const resolvers = {
     teamsByOwner: (parent, arg, ctx, info) => teamsByOwner(parent, arg, ctx, info),
     teamsByRole: (parent, arg, ctx, info) => teamsByRole(parent, arg, ctx, info),
     owner: (parent, arg, ctx, info) => owner(parent, arg, ctx, info),
-    fbByTeamMember: (parent, arg, ctx, info) => fbByTeamMember(parent, arg, ctx, info)
+    fbByTeamMember: (parent, arg, ctx, info) => fbByTeamMember(parent, arg, ctx, info),
+    fbByFbId: (parent, arg, ctx, info) => fbByFbId(parent, arg, ctx, info)
   }
 }

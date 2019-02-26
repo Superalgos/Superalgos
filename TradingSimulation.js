@@ -518,8 +518,10 @@
 
             if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
 
+            let direction
             let record;
-            lastImage = 0;
+            let lastImageUp = 0;
+            let lastImageDown = 0;
 
             if (records.length > 0) {
 
@@ -529,7 +531,7 @@
 
                     record = records[i];
 
-                    let direction = 0;
+                    direction = 0;
 
                     if (record.type === 'Buy') { direction = -1; }
                     if (record.type === 'Sell-1') { direction = +1; }
@@ -661,14 +663,25 @@
 
                     if (record.type !== '' || record.signal !== '') {
 
-                        let noText = false;
+                        let noTextUp = false;
+                        let noTextDown = false;
 
-                        if (lastImage < 5) {
-                            noText = true; // we avoid image texts to overlap.
+                        if (direction > 0) {
+                            if (lastImageUp < 5) {
+                                noTextUp = true; // we avoid image texts to overlap.
+                            } else {
+                                noTextUp = false;
+                                lastImageUp = 0;
+                            }
                         } else {
-                            noText = false;
-                            lastImage = 0;
+                            if (lastImageDown < 5) {
+                                noTextDown = true; // we avoid image texts to overlap.
+                            } else {
+                                noTextDown = false;
+                                lastImageDown = 0;
+                            }
                         }
+
 
 
                         /* Next we are drawing the stick */
@@ -775,7 +788,10 @@
                         ) {
                             // we do not write any text
                         } else {
-                            if (noText === false) {
+                            if (
+                                (direction > 0 && noTextUp === false) ||
+                                (direction < 0 && noTextDown === false)
+                            ) {
                                 printLabel(line1, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 0, '0.50');
                                 printLabel(line2, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 15, '0.50');
                             }
@@ -800,7 +816,9 @@
                         }
 
                     } else {
-                        lastImage++;
+
+                            lastImageUp++;
+                            lastImageDown++;
                     }
                 }
             }

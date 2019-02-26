@@ -181,6 +181,7 @@ function newLogin() {
         const apolloClientEvents = new Apollo.lib.ApolloClient({
             networkInterface: networkInterfaceEvents,
             connectToDevTools: true,
+            addTypename: false
         });
 
         const EVENTS = Apollo.gql`
@@ -191,13 +192,15 @@ function newLogin() {
                 startDatetime
                 endDatetime
                 participants{
-                  participant{
-                    name
-                    profile{
-                      avatar
+                    clone{
+                        id
+                        team{
+                            name
+                        }
+                        bot{
+                            name
+                        }
                     }
-                  }
-                  operationId
                 }
             }
         }

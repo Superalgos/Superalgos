@@ -7,6 +7,68 @@
         initialize: initialize
     };
 
+    const ecosystemBase =
+    [{
+        "codeName": "AAArena",
+        "displayName": "AA Arena",
+        "competitions": [{
+            "codeName": "Weekend-Deathmatch",
+            "description": "First AA Internal Competition. Bots will be trading during 3 days at the USDT/BTC market of Poloniex to see who can make the gratest return over investment (ROI).",
+            "displayName": "AA Internal Challenge",
+            "startDatetime": "2018-11-05T16:00:00.000Z",
+            "finishDatetime": "2018-11-07T16:59:59.999Z",
+            "formula": "ROI",
+            "plotter": {
+                "codeName": "PlottersROI",
+                "host": "AAArena",
+                "repo": "Plotters-ROI",
+                "moduleName": "CombinedProfits"
+            },
+            "participants": [],
+            "repo": "Weekend-Deathmatch",
+            "configFile": "this.competition.config.json"
+        }],
+        "plotters": [{
+            "displayName": "Plotters ROI",
+            "codeName": "PlottersROI",
+            "devTeam": "AAMasters",
+            "modules": [{
+                "codeName": "CombinedProfits",
+                "moduleName": "CombinedProfits",
+                "description": "Plots participants of a competition by the ROI each one had over time.",
+                "panels": []
+            }],
+            "repo": "Plotters-ROI",
+            "configFile": "this.plotter.config.json"
+        }]
+    }];
+    window.localStorage.setItem('ecosystemEventsHack', JSON.stringify(ecosystemBase));
+
+    function buildEcosystemEventsHack() {
+        if (localStorage.getItem("ecosystemEventsHack") === null) {
+            window.localStorage.setItem('ecosystemEventsHack', JSON.stringify(ecosystemBase));
+            dashboard.start();
+        } else {
+            let hackedEcosystem = ecosystemBase;
+
+            let ecosysTemp = window.localStorage.getItem('currentEventObject');
+            if (!(ecosysTemp === null || ecosysTemp === "[]" || ecosysTemp === "")) {
+                let parsedEcosysTemp = JSON.parse(ecosysTemp);
+                hackedEcosystem[0].competitions[0].startDatetime = new Date(parsedEcosysTemp.startDatetime*1000).toISOString();
+                hackedEcosystem[0].competitions[0].finishDatetime = new Date(parsedEcosysTemp.endDatetime*1000).toISOString();
+                parsedEcosysTemp.participants.forEach(function(participant) {
+                    hackedEcosystem[0].competitions[0].participants.push({
+                        devTeam: participant.clone.team.name.replace(/\s+/g, '-').toLowerCase(),
+                        bot: participant.clone.bot.name.replace(/\s+/g, '-').toLowerCase()+"-"+participant.clone.id,
+                        release: "1.0.0"
+                    });
+                });
+            }
+
+            window.localStorage.setItem('ecosystemEventsHack', JSON.stringify(hackedEcosystem));
+        }
+    }
+
     let container = newContainer();
     container.initialize();
     thisObject.container = container;
@@ -49,6 +111,7 @@
             window.CURRENT_EVENT_TITLE = storedEvents[sharedStatus.currentEventIndex].title;
             label = "Event - " + storedEvents[sharedStatus.currentEventIndex].title;
             window.localStorage.setItem('currentEventObject', JSON.stringify(storedEvents[sharedStatus.currentEventIndex]));
+            buildEcosystemEventsHack();
             sharedStatus.eventHandler.raiseEvent('Event Changed');
         }
 
@@ -79,6 +142,8 @@
             window.CURRENT_EVENT_TITLE = storedEvents[sharedStatus.currentEventIndex].title;
             label = "Event - " + storedEvents[sharedStatus.currentEventIndex].title;
             window.localStorage.setItem('currentEventObject', JSON.stringify(storedEvents[sharedStatus.currentEventIndex]));
+            buildEcosystemEventsHack();
+            dashboard.start();
             sharedStatus.eventHandler.raiseEvent('Event Changed');
             return;
         }
@@ -89,6 +154,8 @@
             window.CURRENT_EVENT_TITLE = storedEvents[sharedStatus.currentEventIndex].title;
             label = "Event - " + storedEvents[sharedStatus.currentEventIndex].title;
             window.localStorage.setItem('currentEventObject', JSON.stringify(storedEvents[sharedStatus.currentEventIndex]));
+            buildEcosystemEventsHack();
+            dashboard.start();
             sharedStatus.eventHandler.raiseEvent('Event Changed');
             return;
         }

@@ -480,6 +480,7 @@
                                             ) {
                                                 signal = '"Pre-Sell"';
                                                 presellModeIsActive = true;
+                                                strategyPhase = 1;
 
                                             };
 
@@ -496,6 +497,7 @@
 
                                                 type = '"Sell-1"';
                                                 sellSignalActivated = true;
+                                                strategyPhase = 2;
                                             }
 
                                             /* Sell Condition #2 */
@@ -510,7 +512,7 @@
 
                                                 type = '"Sell-2"';
                                                 sellSignalActivated = true;
-
+                                                strategyPhase = 2;
                                             }
 
                                             if (sellSignalActivated === true) {
@@ -546,6 +548,7 @@
                                                 candle.min < band.movingAverage - band.deviation
                                             ) {
 
+                                                strategyPhase = 3;
                                                 trailingStop = true;
 
                                             }
@@ -627,6 +630,7 @@
 
                                             type = '"Buy"';
                                             lastOperation = 'Buy';
+                                            strategy = 0;
 
                                             addRecord();
 
@@ -663,8 +667,8 @@
                                                 sellRate: sellRate,
                                                 lastProfitPercent: lastProfitPercent,
                                                 signal: signal,
-                                                strategy: 0,
-                                                strategyPhase: 0
+                                                strategy: strategy,
+                                                strategyPhase: strategyPhase
                                             }
 
                                             recordsArray.push(record);

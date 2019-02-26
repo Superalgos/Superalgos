@@ -53,6 +53,7 @@
     let smileySad;
     let smileyGhost;
     let smileyMonkeyEyes;
+    let smileyMonkeyEars;
     let imageStrategy;
     let imageStrategyPhase;
 
@@ -100,6 +101,7 @@
             smileySad = loadEmoji("Smiley/Emoji Smiley-26.png");
             smileyGhost = loadEmoji("Objects/Emoji Objects-12.png");
             smileyMonkeyEyes = loadEmoji("Smiley/Emoji Smiley-85.png");
+            smileyMonkeyEars = loadEmoji("Smiley/Emoji Smiley-86.png");
             imageStrategy = loadEmoji("Places/Emoji Orte-90.png");
             imageStrategyPhase = loadEmoji("Places/Emoji Orte-91.png");
 
@@ -918,7 +920,7 @@
                         line1 = 'Sold because ';
                         line2 = 'resistance collapsed.';
 
-                        imageToDraw = smileyHappy;
+                        imageToDraw = smileyMonkeyEars;
                     }
 
                     if (imageToDraw !== undefined) {

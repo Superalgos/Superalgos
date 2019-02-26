@@ -376,6 +376,11 @@
                                     let initialDate = new Date("2018-08-01");
                                     let initialBalanceA = 1;
 
+                                    /* Strategy and Phases */
+
+                                    let strategy = 0;
+                                    let strategyPhase = 0;
+
                                     /* Building records */
 
                                     let stopLossPercentage = 1.5;
@@ -431,110 +436,159 @@
                                         let percentgeBandwidth2 = percentgeBandwidthMap.get(candles[i - 2].begin);
                                         let percentgeBandwidth3 = percentgeBandwidthMap.get(candles[i - 3].begin);
 
-                                        /* Strategy #1: Range Trading. */
+                                        if (strategy === 0) {
 
-                                        /* 
-                                        Strategy Summary: Once Percentage Bandwidth (PB) moving average is going dow and
-                                        it is abobe 70%, we enter into Pre-Sell mode, which means that we are ready to
-                                        sell as soon as the trend starts going down. The trend should be measured by the
-                                        Bollinger Bands moving average.
-                                        */
-                                        
-                                        if (
-                                            percentgeBandwidth.value >= 70 &&
-                                            lastOperation === 'Buy' &&
-                                            (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) &&
-                                            presellModeIsActive === false
-                                        ) {
-                                            signal = '"Pre-Sell"';
-                                            presellModeIsActive = true;
+                                            /*
+                                            Here we need to pick a strategy, or if there is not suitable strategy for the current
+                                            market conditions, we pass until the next period.
 
-                                        };
+                                            To pick a new strategy we will need a new indicator called Bollinger Channels,
+                                            which I dont have right now, so for the time being, I will choose the strategy
+                                            manually.
+                                            */
 
-                                        let sellSignalActivated = false;
-
-                                        /* Sell Condition #1 */
-
-                                        if (
-                                            presellModeIsActive === true &&
-                                            band2.movingAverage > band1.movingAverage &&
-                                            band1.movingAverage > band.movingAverage &&
-                                            lastOperation === 'Buy'
-                                        ) {
-
-                                            type = '"Sell-1"';
-                                            sellSignalActivated = true;
+                                            strategy = 1;
                                         }
 
-                                        /* Sell Condition #2 */
+                                        if (strategy === 1) {
 
-                                        if (
-                                            candles[i - 3].min < band3.movingAverage - band3.deviation &&
-                                            candles[i - 2].min < band2.movingAverage - band2.deviation  && 
-                                            candles[i - 1].min < band1.movingAverage - band1.deviation &&
-                                            candle.min < band.movingAverage - band.deviation &&
-                                            lastOperation === 'Buy' 
-                                        ) {
+                                            /* Strategy #1: Trend Following. */
 
-                                            type = '"Sell-2"';
-                                            sellSignalActivated = true;
+                                            /* 
+                                            Strategy Summary:
+    
+                                            Once Percentage Bandwidth (PB) moving average is going down and
+                                            it is abobe 70%, we enter into Pre-Sell mode, which means that we are ready to
+                                            sell as soon as the trend starts going down. The trend should be measured by the
+                                            Bollinger Bands moving average.
+    
+                                            Once the band's moving average starts going down we Sell and we set the stop loss,
+                                            which initially is static or going down if the prices starts going up too.
+    
+                                            Once the candles minimun goes out of the lower Bollinger band, we enter into stop loss
+                                            trailing mode, which means that the stop loss will follow the band's moving average
+                                            from there on, getting closer or farther from it depending on the slope of the moving average
+                                            itself.
+    
+                                            */
 
-                                        }
+                                            if (
+                                                percentgeBandwidth.value >= 70 &&
+                                                lastOperation === 'Buy' &&
+                                                (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) &&
+                                                presellModeIsActive === false
+                                            ) {
+                                                signal = '"Pre-Sell"';
+                                                presellModeIsActive = true;
 
-                                        if (sellSignalActivated === true) {
+                                            };
 
-                                            previousBalanceAssetA = balanceAssetA;
-                                            lastProfit = 0;
-                                            lastProfitPercent = 0;
+                                            let sellSignalActivated = false;
 
-                                            balanceAssetB = balanceAssetA * candle.close;
-                                            balanceAssetA = 0;
+                                            /* Sell Condition #1 */
 
-                                            rate = candle.close;
-                                            sellRate = rate;
-
-                                            stopLoss = sellRate + sellRate * stopLossPercentage / 100;
-
-                                            lastOperation = 'Sell';
-                                            presellModeIsActive = false;
-                                            stopLossDecay = 0;
-
-                                            addRecord();
-
-                                            sellSignalActivated = false;
-                                            continue;
-                                        }
-
-                                        /* Start Trailing Stop Condition */
-
-                                        if (
-                                            candle.max < band.movingAverage &&
-                                            lastOperation === 'Sell' &&
-                                            band1.movingAverage  > band.movingAverage &&
-                                            candle.min < band.movingAverage - band.deviation
+                                            if (
+                                                presellModeIsActive === true &&
+                                                band2.movingAverage > band1.movingAverage &&
+                                                band1.movingAverage > band.movingAverage &&
+                                                lastOperation === 'Buy'
                                             ) {
 
-                                            trailingStop = true;
-                                            
+                                                type = '"Sell-1"';
+                                                sellSignalActivated = true;
+                                            }
+
+                                            /* Sell Condition #2 */
+
+                                            if (
+                                                candles[i - 3].min < band3.movingAverage - band3.deviation &&
+                                                candles[i - 2].min < band2.movingAverage - band2.deviation &&
+                                                candles[i - 1].min < band1.movingAverage - band1.deviation &&
+                                                candle.min < band.movingAverage - band.deviation &&
+                                                lastOperation === 'Buy'
+                                            ) {
+
+                                                type = '"Sell-2"';
+                                                sellSignalActivated = true;
+
+                                            }
+
+                                            if (sellSignalActivated === true) {
+
+                                                previousBalanceAssetA = balanceAssetA;
+                                                lastProfit = 0;
+                                                lastProfitPercent = 0;
+
+                                                balanceAssetB = balanceAssetA * candle.close;
+                                                balanceAssetA = 0;
+
+                                                rate = candle.close;
+                                                sellRate = rate;
+
+                                                stopLoss = sellRate + sellRate * stopLossPercentage / 100;
+
+                                                lastOperation = 'Sell';
+                                                presellModeIsActive = false;
+                                                stopLossDecay = 0;
+
+                                                addRecord();
+
+                                                sellSignalActivated = false;
+                                                continue;
+                                            }
+
+                                            /* Start Trailing Stop Condition */
+
+                                            if (
+                                                candle.max < band.movingAverage &&
+                                                lastOperation === 'Sell' &&
+                                                band1.movingAverage > band.movingAverage &&
+                                                candle.min < band.movingAverage - band.deviation
+                                            ) {
+
+                                                trailingStop = true;
+
+                                            }
+
+                                            /* Stop Loss Management: Initially it is tied to the sell rate but when it enters
+                                            into trailing mode it follows the moving average of the band.*/
+
+                                            let newStopLoss;
+
+                                            if (trailingStop === true) {
+                                                newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
+                                            } else {
+                                                newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
+                                            }
+                                            /* A trailing stop loss can never go higher. */
+
+                                            if (newStopLoss < previousStopLoss) {
+                                                stopLoss = newStopLoss;
+                                            } else {
+                                                stopLoss = previousStopLoss;
+                                            }
+
                                         }
 
-                                        /* Stop Loss Management: Initially it is tied to the sell rate but when it enters
-                                        into trailing mode it follows the moving average of the band.*/
+                                        if (strategy === 2) {
 
-                                        let newStopLoss;
+                                            /* Strategy #2: Range Trading. */
 
-                                        if (trailingStop === true) {
-                                            newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
-                                        } else {
-                                            newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
+                                            /* 
+                                            Strategy Summary:
+
+                                            Once the candles maximun gets above the Bollinger Upper Band we wait until the B% moving average points
+                                            downward and then we Sell.
+
+                                            We keep our buy order just below the the Bollinger Bands moving average.
+
+                                            */
                                         }
-                                        /* A trailing stop loss can never go higher. */
+ 
 
-                                        if (newStopLoss < previousStopLoss) {
-                                            stopLoss = newStopLoss;
-                                        } else {
-                                            stopLoss = previousStopLoss;
-                                        }
+
+
+                                        /* Common Logic */
 
                                         /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
@@ -608,7 +662,9 @@
                                                 anualizedRateOfReturn: anualizedRateOfReturn,
                                                 sellRate: sellRate,
                                                 lastProfitPercent: lastProfitPercent,
-                                                signal: signal
+                                                signal: signal,
+                                                strategy: 0,
+                                                strategyPhase: 0
                                             }
 
                                             recordsArray.push(record);
@@ -671,7 +727,9 @@
                                             record.anualizedRateOfReturn + "," +
                                             record.sellRate + "," +
                                             record.lastProfitPercent + "," +
-                                            record.signal + "]";
+                                            record.signal + "," +
+                                            record.strategy + "," +
+                                            record.strategyPhase + "]";
 
                                         if (separator === "") { separator = ","; }
 

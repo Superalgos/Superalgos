@@ -53,7 +53,8 @@
     let smileySad;
     let smileyGhost;
     let smileyMonkeyEyes;
-
+    let imageStrategy;
+    let imageStrategyPhase;
 
     return thisObject;
 
@@ -99,6 +100,9 @@
             smileySad = loadEmoji("Smiley/Emoji Smiley-26.png");
             smileyGhost = loadEmoji("Objects/Emoji Objects-12.png");
             smileyMonkeyEyes = loadEmoji("Smiley/Emoji Smiley-85.png");
+            imageStrategy = loadEmoji("Places/Emoji Orte-90.png");
+            imageStrategyPhase = loadEmoji("Places/Emoji Orte-91.png");
+
 
             function loadEmoji(pPath) {
 
@@ -413,7 +417,9 @@
                     anualizedRateOfReturn: undefined,
                     sellRate: undefined,
                     lastProfitPercent: undefined,
-                    signal: undefined
+                    signal: undefined,
+                    strategy: undefined,
+                    strategyPhase: undefined
                 };
 
                 record.begin = marketFile[i][0];
@@ -437,6 +443,8 @@
                 record.sellRate = marketFile[i][18];
                 record.lastProfitPercent = marketFile[i][19];
                 record.signal = marketFile[i][20];
+                record.strategy = marketFile[i][21];
+                record.strategyPhase = marketFile[i][22];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -518,107 +526,271 @@
 
             if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
 
-            let direction
+            let directionShort;
+            let directionLong;
+
             let record;
-            let lastImageUp = 0;
-            let lastImageDown = 0;
+            let lastShortImageUp = 0;
+            let lastShortImageDown = 0;
+            let lastLongImageUp = 0;
+            let lastLongImageDown = 0;
 
-            if (records.length > 0) {
+            /* Now we calculate and plot the records */
 
-                /* Now we calculate and plot the records */
+            for (let i = 1; i < records.length; i++) { // We do not start in 0 so as to be able to read the previous record i - 1
 
-                for (let i = 0; i < records.length; i++) {
+                record = records[i];
+                directionShort = 0;
+                let strategy = 0;
+                let strategyPhase = 0;
 
-                    record = records[i];
+                if (record.strategy !== records[i - 1].strategy) { // When a change in the strategy field is detected, it is time to plot it.
+                    strategy = record.strategy;
+                }
 
-                    direction = 0;
+                if (record.strategyPhase !== records[i - 1].strategyPhase) { // When a change in the strategy phase field is detected, it is time to plot it.
+                    strategyPhase = record.strategyPhase;
+                }
 
-                    if (record.type === 'Buy') { direction = -1; }
-                    if (record.type === 'Sell-1') { direction = +1; }
-                    if (record.type === 'Sell-2') { direction = +1; }
-                    if (record.signal === 'Pre-Sell') { direction = +1; }
+                if (record.type === 'Buy') { directionShort = -1; }
+                if (record.type === 'Sell-1') { directionShort = +1; }
+                if (record.type === 'Sell-2') { directionShort = +1; }
+                if (record.signal === 'Pre-Sell') { directionShort = +1; }
 
-                    let recordPoint1 = {
-                        x: record.begin + (record.end - record.begin) / 2,
-                        y: record.rate
-                    };
+                if (strategyPhase > 0) {
+                    if (strategyPhase % 2 !== 0) { //Depending if the phase is oddd or even goes above or below.
+                        directionLong = 1;
+                    } else {
+                        directionLong = -1;
+                    }
+                }
 
-                    let recordPoint2 = {
-                        x: record.begin + (record.end - record.begin) / 2,
-                        y: 0
-                    };
+                if (strategy > 0) {
+                    directionLong = -1;
+                }
 
-                    let recordPoint3 = {
-                        x: record.begin,
-                        y: record.stopLoss
-                    };
+                let recordPoint1 = {
+                    x: record.begin + (record.end - record.begin) / 2,
+                    y: record.rate
+                };
 
-                    let recordPoint4 = {
-                        x: record.end,
-                        y: record.stopLoss
-                    };
+                let recordPoint2 = {    // Long Stick Head
+                    x: record.begin + (record.end - record.begin) / 2,
+                    y: 0
+                };
 
-                    if (record.stopLoss === 0) { // Put these points out of range if stopLoss is zero.
+                let recordPoint3 = {    // Short Stick Head
+                    x: record.begin + (record.end - record.begin) / 2,
+                    y: 0
+                };
 
-                        recordPoint3.x = 0;
-                        recordPoint4.x = 0;
+                let recordPoint4 = {
+                    x: record.begin,
+                    y: record.stopLoss
+                };
 
+                let recordPoint5 = {
+                    x: record.end,
+                    y: record.stopLoss
+                };
+
+                if (record.stopLoss === 0) { // Put these points out of range if stopLoss is zero.
+
+                    recordPoint4.x = 0;
+                    recordPoint5.x = 0;
+
+                }
+
+                let recordPoint6 = {
+                    x: record.begin,
+                    y: record.sellRate
+                };
+
+                let recordPoint7 = {
+                    x: record.end,
+                    y: record.sellRate
+                };
+
+                if (record.sellRate === 0) { // Put these points out of range if sellRate is zero.
+
+                    recordPoint6.x = 0;
+                    recordPoint7.x = 0;
+
+                }
+
+                recordPoint1 = timeLineCoordinateSystem.transformThisPoint(recordPoint1);
+                recordPoint2 = timeLineCoordinateSystem.transformThisPoint(recordPoint2);
+                recordPoint3 = timeLineCoordinateSystem.transformThisPoint(recordPoint3);
+                recordPoint4 = timeLineCoordinateSystem.transformThisPoint(recordPoint4);
+                recordPoint5 = timeLineCoordinateSystem.transformThisPoint(recordPoint5);
+                recordPoint6 = timeLineCoordinateSystem.transformThisPoint(recordPoint6);
+                recordPoint7 = timeLineCoordinateSystem.transformThisPoint(recordPoint7);
+
+                recordPoint1 = transformThisPoint(recordPoint1, thisObject.container);
+                recordPoint2 = transformThisPoint(recordPoint2, thisObject.container);
+                recordPoint3 = transformThisPoint(recordPoint3, thisObject.container);
+                recordPoint4 = transformThisPoint(recordPoint4, thisObject.container);
+                recordPoint5 = transformThisPoint(recordPoint5, thisObject.container);
+                recordPoint6 = transformThisPoint(recordPoint6, thisObject.container);
+                recordPoint7 = transformThisPoint(recordPoint7, thisObject.container);
+
+                if (recordPoint1.x < viewPort.visibleArea.bottomLeft.x || recordPoint1.x > viewPort.visibleArea.bottomRight.x) {
+                    continue;
+                }
+
+                recordPoint2.y = recordPoint1.y - 250 * directionLong;
+                recordPoint3.y = recordPoint1.y - 150 * directionShort;
+
+                recordPoint1 = viewPort.fitIntoVisibleArea(recordPoint1);
+                recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
+                recordPoint3 = viewPort.fitIntoVisibleArea(recordPoint3);
+                recordPoint4 = viewPort.fitIntoVisibleArea(recordPoint4);
+                recordPoint5 = viewPort.fitIntoVisibleArea(recordPoint5);
+                recordPoint6 = viewPort.fitIntoVisibleArea(recordPoint6);
+                recordPoint7 = viewPort.fitIntoVisibleArea(recordPoint7);
+
+                /* Next we are drawing the stopLoss floor / ceilling */
+
+                browserCanvasContext.beginPath();
+
+                browserCanvasContext.moveTo(recordPoint4.x, recordPoint4.y);
+                browserCanvasContext.lineTo(recordPoint5.x, recordPoint5.y);
+
+                browserCanvasContext.closePath();
+
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
+
+                if (datetime !== undefined) {
+                    let dateValue = datetime.valueOf();
+                    if (dateValue >= record.begin && dateValue <= record.end) {
+
+                        /* highlight the current record */
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
+                    }
+                }
+
+                browserCanvasContext.lineWidth = 1
+                browserCanvasContext.stroke()
+
+                /* Next we are drawing the sellRate */
+
+                browserCanvasContext.beginPath();
+
+                browserCanvasContext.moveTo(recordPoint6.x, recordPoint6.y);
+                browserCanvasContext.lineTo(recordPoint7.x, recordPoint7.y);
+
+                browserCanvasContext.closePath();
+
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)';
+
+                if (datetime !== undefined) {
+                    let dateValue = datetime.valueOf();
+                    if (dateValue >= record.begin && dateValue <= record.end) {
+
+                        /* highlight the current record */
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
+                    }
+                }
+
+                browserCanvasContext.lineWidth = 1
+                browserCanvasContext.stroke()
+
+
+                /* Continue with the pins --> Next stuff is to avoid text overlapping. */
+
+                let noShortTextUp = false;
+                let noShortTextDown = false;
+
+                if (
+                    record.type !== '' ||
+                    record.signal !== ''
+                ) {
+
+                    if (directionShort > 0) {
+                        if (lastShortImageUp < 5) {
+                            noShortTextUp = true; // we avoid image texts to overlap.
+                        } else {
+                            noShortTextUp = false;
+                            lastShortImageUp = 0;
+                        }
+                    } else {
+                        if (lastShortImageDown < 5) {
+                            noShortTextDown = true; // we avoid image texts to overlap.
+                        } else {
+                            noShortTextDown = false;
+                            lastShortImageDown = 0;
+                        }
                     }
 
-                    let recordPoint5 = {
-                        x: record.begin,
-                        y: record.sellRate
-                    };
+                } else {
 
-                    let recordPoint6 = {
-                        x: record.end,
-                        y: record.sellRate
-                    };
+                    lastShortImageUp++;
+                    lastShortImageDown++;
+                }
 
-                    if (record.sellRate === 0) { // Put these points out of range if sellRate is zero.
+                let noLongTextUp = false;
+                let noLongTextDown = false;
 
-                        recordPoint5.x = 0;
-                        recordPoint6.x = 0;
+                if (
+                    strategy > 0 ||
+                    strategyPhase > 0
+                ) {
 
+                    if (directionLong > 0) {
+                        if (lastLongImageUp < 5) {
+                            noLongTextUp = true; // we avoid image texts to overlap.
+                        } else {
+                            noLongTextUp = false;
+                            lastLongImageUp = 0;
+                        }
+                    } else {
+                        if (lastLongImageDown < 3) {
+                            noLongTextDown = true; // we avoid image texts to overlap.
+                        } else {
+                            noLongTextDown = false;
+                            lastLongImageDown = 0;
+                        }
                     }
 
-                    recordPoint1 = timeLineCoordinateSystem.transformThisPoint(recordPoint1);
-                    recordPoint2 = timeLineCoordinateSystem.transformThisPoint(recordPoint2);
-                    recordPoint3 = timeLineCoordinateSystem.transformThisPoint(recordPoint3);
-                    recordPoint4 = timeLineCoordinateSystem.transformThisPoint(recordPoint4);
-                    recordPoint5 = timeLineCoordinateSystem.transformThisPoint(recordPoint5);
-                    recordPoint6 = timeLineCoordinateSystem.transformThisPoint(recordPoint6);
+                } else {
 
-                    recordPoint1 = transformThisPoint(recordPoint1, thisObject.container);
-                    recordPoint2 = transformThisPoint(recordPoint2, thisObject.container);
-                    recordPoint3 = transformThisPoint(recordPoint3, thisObject.container);
-                    recordPoint4 = transformThisPoint(recordPoint4, thisObject.container);
-                    recordPoint5 = transformThisPoint(recordPoint5, thisObject.container);
-                    recordPoint6 = transformThisPoint(recordPoint6, thisObject.container);
+                    lastLongImageUp++;
+                    lastLongImageDown++;
+                }
 
-                    if (recordPoint1.x < viewPort.visibleArea.bottomLeft.x || recordPoint1.x > viewPort.visibleArea.bottomRight.x) {
-                        continue;
-                    }
 
-                    recordPoint2.y = recordPoint1.y - 150 * direction;
+                if (
+                    strategy > 0 ||
+                    strategyPhase > 0
+                ) {
 
-                    recordPoint1 = viewPort.fitIntoVisibleArea(recordPoint1);
-                    recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
-                    recordPoint3 = viewPort.fitIntoVisibleArea(recordPoint3);
-                    recordPoint4 = viewPort.fitIntoVisibleArea(recordPoint4);
-                    recordPoint5 = viewPort.fitIntoVisibleArea(recordPoint5);
-                    recordPoint6 = viewPort.fitIntoVisibleArea(recordPoint6);
+                    /* Next we are drawing the LONG stick */
 
-                    /* Next we are drawing the stopLoss floor / ceilling */
+                    drawStick(recordPoint2);
+
+                }
+
+                if (
+                    record.type !== '' ||
+                    record.signal !== ''
+                ) {
+
+                    /* Next we are drawing the SHORT stick */
+
+                    drawStick(recordPoint3);
+
+                }
+
+                function drawStick(headPoint) {
 
                     browserCanvasContext.beginPath();
 
-                    browserCanvasContext.moveTo(recordPoint3.x, recordPoint3.y);
-                    browserCanvasContext.lineTo(recordPoint4.x, recordPoint4.y);
+                    browserCanvasContext.moveTo(recordPoint1.x, recordPoint1.y);
+                    browserCanvasContext.lineTo(headPoint.x, headPoint.y);
 
                     browserCanvasContext.closePath();
 
-                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.25)';
 
                     if (datetime !== undefined) {
                         let dateValue = datetime.valueOf();
@@ -626,202 +798,182 @@
 
                             /* highlight the current record */
                             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
+
+                            let currentRecord = {
+                                innerRecord: record
+                            };
+                            thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);
                         }
                     }
 
-                    browserCanvasContext.lineWidth = 1
+                    browserCanvasContext.setLineDash([4, 3])
+                    browserCanvasContext.lineWidth = 0.2
                     browserCanvasContext.stroke()
+                    browserCanvasContext.setLineDash([0, 0])
 
-                    /* Next we are drawing the sellRate */
+                }
 
-                    browserCanvasContext.beginPath();
+                //browserCanvasContext.beginPath();
 
-                    browserCanvasContext.moveTo(recordPoint5.x, recordPoint5.y);
-                    browserCanvasContext.lineTo(recordPoint6.x, recordPoint6.y);
+                let imageSize = 20;
+                let imageToDraw;
 
-                    browserCanvasContext.closePath();
+                let line1;
+                let line2;
 
-                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)';
+                longPinHead();
+                shortPinHead();
 
-                    if (datetime !== undefined) {
-                        let dateValue = datetime.valueOf();
-                        if (dateValue >= record.begin && dateValue <= record.end) {
+                function longPinHead() {
 
-                            /* highlight the current record */
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
-                        }
+                    if (strategyPhase > 0) {
+
+                        line1 = 'Entering into ';
+                        line2 = 'Phase ' + strategyPhase;
+
+                        imageToDraw = imageStrategyPhase;
+                    }
+                    if (strategy === 1) {
+
+                        line1 = 'Trend Following ';
+                        line2 = 'strategy started.';
+
+                        imageToDraw = imageStrategy;
+                    }
+                    if (strategy === 2) {
+
+                        line1 = 'Range Trading ';
+                        line2 = 'strategy started.';
+
+                        imageToDraw = imageStrategy;
                     }
 
-                    browserCanvasContext.lineWidth = 1
-                    browserCanvasContext.stroke()
+                    if (imageToDraw !== undefined) {
 
-
-
-
-
-                    /* Continue with the pins */
-
-                    if (record.type !== '' || record.signal !== '') {
-
-                        let noTextUp = false;
-                        let noTextDown = false;
-
-                        if (direction > 0) {
-                            if (lastImageUp < 5) {
-                                noTextUp = true; // we avoid image texts to overlap.
-                            } else {
-                                noTextUp = false;
-                                lastImageUp = 0;
-                            }
-                        } else {
-                            if (lastImageDown < 5) {
-                                noTextDown = true; // we avoid image texts to overlap.
-                            } else {
-                                noTextDown = false;
-                                lastImageDown = 0;
-                            }
-                        }
-
-
-
-                        /* Next we are drawing the stick */
-
-                        browserCanvasContext.beginPath();
-
-                        browserCanvasContext.moveTo(recordPoint1.x, recordPoint1.y);
-                        browserCanvasContext.lineTo(recordPoint2.x, recordPoint2.y);
-
-                        browserCanvasContext.closePath();
-
-
-                        if (datetime !== undefined) {
-                            let dateValue = datetime.valueOf();
-                            if (dateValue >= record.begin && dateValue <= record.end) {
-
-                                /* highlight the current record */
-                                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
-
-                                let currentRecord = {
-                                    innerRecord: record
-                                };
-                                thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);
-                            } else {
-                                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
-                            }
-                        } else {
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
-                        }
-
-                        browserCanvasContext.setLineDash([4, 3])
-                        browserCanvasContext.lineWidth = 0.2
-                        browserCanvasContext.stroke()
-                        browserCanvasContext.setLineDash([0, 0])
-
-                        /* We will draw a circle */
-
-                        let radius = 5;
-                        let color = UI_COLOR.DARK;
-
-
-
-                        browserCanvasContext.beginPath();
-
-                        let imageSize = 20;
-                        let imageToDraw;
-
-                        let line1;
-                        let line2;
-
-                        if (record.signal === 'Pre-Sell') {
-
-                            line1 = 'Time to Sell!';
-                            line2 = '';
-
-                            imageToDraw = smileyGhost;
-                        }
-
-                        if (record.type === 'Buy') {
-
-                            line1 = 'Buying back.';
-
-                            if (record.lastProfit < 0) {
-
-                                line2 = 'Lost ' + (record.lastProfit * 100).toFixed(2) + ' %';
-                                imageToDraw = smileySad;
-
-                            } else {
-
-                                line2 = 'Won ' + (record.lastProfit * 100).toFixed(2) + ' %';
-                                imageToDraw = smileyHappy;
-                            }
-
-                        }
-                        if (record.type === 'Sell-1') {
-
-                            line1 = 'Sold because ';
-                            line2 = 'market reversed.';
-
-                            imageToDraw = smileyMonkeyEyes;
-                        }
-                        if (record.type === 'Sell-2') {
-
-                            line1 = 'Sold because ';
-                            line2 = 'resistance collapsed.';
-
-                            imageToDraw = smileyHappy;
-                        }
-
-
-                        if (smileyHappy.isLoaded === true) {
+                        if (imageToDraw.isLoaded === true) {
                             browserCanvasContext.drawImage(imageToDraw, recordPoint2.x - imageSize / 2, recordPoint2.y - imageSize / 2, imageSize, imageSize);
+                            imageToDraw = undefined;
                         }
+                    }
 
+                    if (
+                        recordPoint2.x < viewPort.visibleArea.topLeft.x + 250
+                        ||
+                        recordPoint2.x > viewPort.visibleArea.bottomRight.x - 250
+                        ||
+                        recordPoint2.y > viewPort.visibleArea.bottomRight.y - 100
+                        ||
+                        recordPoint2.y < viewPort.visibleArea.topLeft.y + 100
+                    ) {
+                        // we do not write any text
+                    } else {
+                        if (line1 !== undefined) {
 
-                        if (
-                            recordPoint2.x < viewPort.visibleArea.topLeft.x + 250
-                            ||
-                            recordPoint2.x > viewPort.visibleArea.bottomRight.x - 250
-                            ||
-                            recordPoint2.y > viewPort.visibleArea.bottomRight.y - 100
-                            ||
-                            recordPoint2.y < viewPort.visibleArea.topLeft.y + 100
-                        ) {
-                            // we do not write any text
-                        } else {
                             if (
-                                (direction > 0 && noTextUp === false) ||
-                                (direction < 0 && noTextDown === false)
+                                (directionLong > 0 && noLongTextUp === false) ||
+                                (directionLong < 0 && noLongTextDown === false)
                             ) {
                                 printLabel(line1, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 0, '0.50');
                                 printLabel(line2, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 15, '0.50');
                             }
                         }
-
-
-
-                        function printLabel(labelToPrint, x, y, opacity) {
-
-                            let labelPoint;
-                            let fontSize = 12;
-
-                            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
-
-                            let label = '' + labelToPrint;
-
-                            let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
-
-                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
-                            browserCanvasContext.fillText(label, x, y);
-
-                        }
-
-                    } else {
-
-                            lastImageUp++;
-                            lastImageDown++;
                     }
                 }
+
+                function shortPinHead() {
+
+                    if (record.signal === 'Pre-Sell') {
+
+                        line1 = 'Sell as soon as Bollinger';
+                        line2 = 'moving average heads down.';
+
+                        imageToDraw = smileyGhost;
+                    }
+
+                    if (record.type === 'Buy') {
+
+                        line1 = 'Buying back.';
+
+                        if (record.lastProfit < 0) {
+
+                            line2 = 'Lost ' + (record.lastProfit * 100).toFixed(2) + ' %';
+                            imageToDraw = smileySad;
+
+                        } else {
+
+                            line2 = 'Won ' + (record.lastProfit * 100).toFixed(2) + ' %';
+                            imageToDraw = smileyHappy;
+                        }
+
+                    }
+                    if (record.type === 'Sell-1') {
+
+                        line1 = 'Sold because ';
+                        line2 = 'market reversed.';
+
+                        imageToDraw = smileyMonkeyEyes;
+                    }
+                    if (record.type === 'Sell-2') {
+
+                        line1 = 'Sold because ';
+                        line2 = 'resistance collapsed.';
+
+                        imageToDraw = smileyHappy;
+                    }
+
+                    if (imageToDraw !== undefined) {
+
+                        if (imageToDraw.isLoaded === true) {
+                            browserCanvasContext.drawImage(imageToDraw, recordPoint3.x - imageSize / 2, recordPoint3.y - imageSize / 2, imageSize, imageSize);
+                            imageToDraw = undefined;
+                        }
+                    }
+
+                    if (
+                        recordPoint3.x < viewPort.visibleArea.topLeft.x + 250
+                        ||
+                        recordPoint3.x > viewPort.visibleArea.bottomRight.x - 250
+                        ||
+                        recordPoint3.y > viewPort.visibleArea.bottomRight.y - 100
+                        ||
+                        recordPoint3.y < viewPort.visibleArea.topLeft.y + 100
+                    ) {
+                        // we do not write any text
+                    } else {
+                        if (line1 !== undefined) {
+                            if (
+                                (directionShort > 0 && noShortTextUp === false) ||
+                                (directionShort < 0 && noShortTextDown === false)
+                            ) {
+                                printLabel(line1, recordPoint3.x + imageSize / 2 + 5, recordPoint3.y + 0, '0.50');
+                                printLabel(line2, recordPoint3.x + imageSize / 2 + 5, recordPoint3.y + 15, '0.50');
+                            }
+                        }
+                    }
+                }
+
+
+                /* This is how we write the text */
+
+                function printLabel(labelToPrint, x, y, opacity) {
+
+                    let labelPoint;
+                    let fontSize = 12;
+
+                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
+
+                    let label = '' + labelToPrint;
+
+                    let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
+
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
+                    browserCanvasContext.fillText(label, x, y);
+
+                }
+
+
             }
+
 
         } catch (err) {
 
@@ -875,6 +1027,8 @@
         }
     }
 }
+
+
 
 
 

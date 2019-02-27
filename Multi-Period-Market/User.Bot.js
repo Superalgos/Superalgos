@@ -637,207 +637,212 @@
                             buySignalActivated = true;
                         }
 
+                        if (buySignalActivated === false) {
 
-                        if (strategy === 1) {
+                            if (strategy === 1) {
 
-                            /* Strategy #1: Trend Following. */
+                                /* Strategy #1: Trend Following. */
 
-                            /* 
-                            Strategy Summary:
-             
-                            Once Percentage Bandwidth (PB) moving average is going down and
-                            it is abobe 70%, we enter into Pre-Sell mode, which means that we are ready to
-                            sell as soon as the trend starts going down. The trend should be measured by the
-                            Bollinger Bands moving average.
-             
-                            Once the band's moving average starts going down we Sell and we set the stop loss,
-                            which initially is static or going down if the prices starts going up too.
-             
-                            Once the candles minimun goes out of the lower Bollinger band, we enter into stop loss
-                            trailing mode, which means that the stop loss will follow the band's moving average
-                            from there on, getting closer or farther from it depending on the slope of the moving average
-                            itself.
-             
-                            */
-
-                            if (
-                                percentgeBandwidth.value >= 70 &&
-                                lastOperation === 'Buy' &&
-                                (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) &&
-                                presellModeIsActive === false
-                            ) {
-                                signal = '"Pre-Sell"';
-                                presellModeIsActive = true;
-                                strategyPhase = 1;
-
-                            };
-
-                            let sellSignalActivated = false;
-
-                            /* Sell Condition #1 */
-
-                            if (
-                                presellModeIsActive === true &&
-                                band2.movingAverage > band1.movingAverage &&
-                                band1.movingAverage > band.movingAverage &&
-                                lastOperation === 'Buy'
-                            ) {
-
-                                type = '"Sell-1"';
-                                sellSignalActivated = true;
-                                strategyPhase = 2;
-                            }
-
-                            /* Sell Condition #2 */
-
-                            if (
-                                candles[i - 3].min < band3.movingAverage - band3.deviation &&
-                                candles[i - 2].min < band2.movingAverage - band2.deviation &&
-                                candles[i - 1].min < band1.movingAverage - band1.deviation &&
-                                candle.min < band.movingAverage - band.deviation &&
-                                lastOperation === 'Buy'
-                            ) {
-
-                                type = '"Sell-2"';
-                                sellSignalActivated = true;
-                                strategyPhase = 2;
-                            }
-
-                            if (strategyPhase === 2) {
-
-                                buyOrderDecay = buyOrderDecay + buyOrderDecayIncrement;
-
-                                buyOrder = band.movingAverage - band.standardDeviation * 10; //+ band.movingAverage - band.standardDeviation * 4 * (buyOrderPercentage + buyOrderDecay) / 100;
-
-                                newStopLoss = newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
-
-                                if (newStopLoss < previousStopLoss) {
-                                    stopLoss = newStopLoss;
-                                } else {
-                                    stopLoss = previousStopLoss;
-                                }
+                                /* 
+                                Strategy Summary:
+                 
+                                Once Percentage Bandwidth (PB) moving average is going down and
+                                it is abobe 70%, we enter into Pre-Sell mode, which means that we are ready to
+                                sell as soon as the trend starts going down. The trend should be measured by the
+                                Bollinger Bands moving average.
+                 
+                                Once the band's moving average starts going down we Sell and we set the stop loss,
+                                which initially is static or going down if the prices starts going up too.
+                 
+                                Once the candles minimun goes out of the lower Bollinger band, we enter into stop loss
+                                trailing mode, which means that the stop loss will follow the band's moving average
+                                from there on, getting closer or farther from it depending on the slope of the moving average
+                                itself.
+                 
+                                */
 
                                 if (
-                                    candle.max < band.movingAverage &&
-                                    lastOperation === 'Sell' &&
+                                    percentgeBandwidth.value >= 70 &&
+                                    lastOperation === 'Buy' &&
+                                    (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) &&
+                                    presellModeIsActive === false
+                                ) {
+                                    signal = '"Pre-Sell"';
+                                    presellModeIsActive = true;
+                                    strategyPhase = 1;
+
+                                };
+
+                                let sellSignalActivated = false;
+
+                                /* Sell Condition #1 */
+
+                                if (
+                                    presellModeIsActive === true &&
+                                    band2.movingAverage > band1.movingAverage &&
                                     band1.movingAverage > band.movingAverage &&
-                                    candle.min < band.movingAverage - band.deviation
+                                    lastOperation === 'Buy'
                                 ) {
 
-                                    strategyPhase = 3;
-
+                                    type = '"Sell-1"';
+                                    sellSignalActivated = true;
+                                    strategyPhase = 2;
                                 }
-                            }
 
-                            if (strategyPhase === 3) {
-
-                                buyOrder = band.movingAverage - band.standardDeviation * 10;
-
-                                newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
-
-                                if (newStopLoss < previousStopLoss) {
-                                    stopLoss = newStopLoss;
-                                } else {
-                                    stopLoss = previousStopLoss;
-                                }
+                                /* Sell Condition #2 */
 
                                 if (
-                                    percentgeBandwidth1.movingAverage < percentgeBandwidth.movingAverage &&
-                                    percentgeBandwidth.movingAverage > 0
+                                    candles[i - 3].min < band3.movingAverage - band3.deviation &&
+                                    candles[i - 2].min < band2.movingAverage - band2.deviation &&
+                                    candles[i - 1].min < band1.movingAverage - band1.deviation &&
+                                    candle.min < band.movingAverage - band.deviation &&
+                                    lastOperation === 'Buy'
+                                ) {
+
+                                    type = '"Sell-2"';
+                                    sellSignalActivated = true;
+                                    strategyPhase = 2;
+                                }
+
+                                if (strategyPhase === 2) {
+
+                                    buyOrderDecay = buyOrderDecay + buyOrderDecayIncrement;
+
+                                    buyOrder = band.movingAverage - band.standardDeviation * 10; //+ band.movingAverage - band.standardDeviation * 4 * (buyOrderPercentage + buyOrderDecay) / 100;
+
+                                    newStopLoss = newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
+
+                                    if (newStopLoss < previousStopLoss) {
+                                        stopLoss = newStopLoss;
+                                    } else {
+                                        stopLoss = previousStopLoss;
+                                    }
+
+                                    if (
+                                        candle.max < band.movingAverage &&
+                                        lastOperation === 'Sell' &&
+                                        band1.movingAverage > band.movingAverage &&
+                                        candle.min < band.movingAverage - band.deviation
                                     ) {
-                                    strategyPhase = 4;
+
+                                        strategyPhase = 3;
+
+                                    }
+                                }
+
+                                if (strategyPhase === 3) {
+
+                                    buyOrder = band.movingAverage - band.standardDeviation * 10;
+
+                                    newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
+
+                                    if (newStopLoss < previousStopLoss) {
+                                        stopLoss = newStopLoss;
+                                    } else {
+                                        stopLoss = previousStopLoss;
+                                    }
+
+                                    if (
+                                        percentgeBandwidth1.movingAverage < percentgeBandwidth.movingAverage &&
+                                        percentgeBandwidth.movingAverage > 0
+                                    ) {
+                                        strategyPhase = 4;
+                                    }
+                                }
+
+                                if (strategyPhase === 4) {
+
+                                    buyOrder = band.movingAverage - band.standardDeviation * 4;
+
+                                    newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
+
+                                    if (newStopLoss < previousStopLoss) {
+                                        stopLoss = newStopLoss;
+                                    } else {
+                                        stopLoss = previousStopLoss;
+                                    }
+
+                                    if (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) {
+                                        strategyPhase = 5;
+                                    }
+                                }
+
+                                if (strategyPhase === 5) {
+
+                                    buyOrder = band.movingAverage - band.standardDeviation * 3;
+
+                                    newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
+
+                                    if (newStopLoss < previousStopLoss) {
+                                        stopLoss = newStopLoss;
+                                    } else {
+                                        stopLoss = previousStopLoss;
+                                    }
+
+                                    if (
+                                        percentgeBandwidth1.movingAverage < percentgeBandwidth.movingAverage &&
+                                        percentgeBandwidth.movingAverage > 30
+                                    ) {
+                                        strategyPhase = 6;
+                                    }
+                                }
+
+                                if (strategyPhase === 6) {
+
+                                    buyOrder = band.movingAverage - band.standardDeviation * 2;
+
+                                    newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
+
+                                    if (newStopLoss < previousStopLoss) {
+                                        stopLoss = newStopLoss;
+                                    } else {
+                                        stopLoss = previousStopLoss;
+                                    }
+                                }
+
+                                if (sellSignalActivated === true) {
+
+                                    previousBalanceAssetA = balanceAssetA;
+                                    lastProfit = 0;
+                                    lastProfitPercent = 0;
+
+                                    balanceAssetB = balanceAssetA * candle.close;
+                                    balanceAssetA = 0;
+
+                                    rate = candle.close;
+                                    sellRate = rate;
+
+                                    stopLoss = sellRate + sellRate * stopLossPercentage / 100;
+
+                                    lastOperation = 'Sell';
+                                    presellModeIsActive = false;
+                                    stopLossDecay = 0;
+
+                                    addRecord();
+
+                                    sellSignalActivated = false;
+                                    continue;
                                 }
                             }
 
-                            if (strategyPhase === 4) {
+                            if (strategy === 2) {
 
-                                buyOrder = band.movingAverage - band.standardDeviation * 4;
+                                /* Strategy #2: Range Trading. */
 
-                                newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
-
-                                if (newStopLoss < previousStopLoss) {
-                                    stopLoss = newStopLoss;
-                                } else {
-                                    stopLoss = previousStopLoss;
-                                }
-
-                                if (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) {
-                                    strategyPhase = 5;
-                                }
+                                /* 
+                                Strategy Summary:
+                
+                                Once the candles maximun gets above the Bollinger Upper Band we wait until the B% moving average points
+                                downward and then we Sell.
+                
+                                We keep our buy order just below the the Bollinger Bands moving average.
+                
+                                */
                             }
 
-                            if (strategyPhase === 5) {
-
-                                buyOrder = band.movingAverage - band.standardDeviation * 3;
-
-                                newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
-
-                                if (newStopLoss < previousStopLoss) {
-                                    stopLoss = newStopLoss;
-                                } else {
-                                    stopLoss = previousStopLoss;
-                                }
-
-                                if (
-                                    percentgeBandwidth1.movingAverage < percentgeBandwidth.movingAverage &&
-                                    percentgeBandwidth.movingAverage > 30
-                                ) {
-                                    strategyPhase = 6;
-                                }
-                            }
-
-                            if (strategyPhase === 6) {
-
-                                buyOrder = band.movingAverage - band.standardDeviation * 2;
-
-                                newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
-
-                                if (newStopLoss < previousStopLoss) {
-                                    stopLoss = newStopLoss;
-                                } else {
-                                    stopLoss = previousStopLoss;
-                                }
-                            }
-
-                            if (sellSignalActivated === true) {
-
-                                previousBalanceAssetA = balanceAssetA;
-                                lastProfit = 0;
-                                lastProfitPercent = 0;
-
-                                balanceAssetB = balanceAssetA * candle.close;
-                                balanceAssetA = 0;
-
-                                rate = candle.close;
-                                sellRate = rate;
-
-                                stopLoss = sellRate + sellRate * stopLossPercentage / 100;
-
-                                lastOperation = 'Sell';
-                                presellModeIsActive = false;
-                                stopLossDecay = 0;
-
-                                addRecord();
-
-                                sellSignalActivated = false;
-                                continue;
-                            }
                         }
 
-                        if (strategy === 2) {
 
-                            /* Strategy #2: Range Trading. */
-
-                            /* 
-                            Strategy Summary:
-            
-                            Once the candles maximun gets above the Bollinger Upper Band we wait until the B% moving average points
-                            downward and then we Sell.
-            
-                            We keep our buy order just below the the Bollinger Bands moving average.
-            
-                            */
-                        }
 
 
 
@@ -845,11 +850,6 @@
                         /* Here we define what to do if the conditions to buy were activated. */
 
                         if (buySignalActivated === true) {
-
-                            stopLoss = 0;
-                            sellRate = 0;
-                            buyOrder = 0;
-                            strategyPhase = 0;
 
                             roundtrips++;
                             lastProfit = balanceAssetA - previousBalanceAssetA;
@@ -874,9 +874,14 @@
                             anualizedRateOfReturn = ROI / days * 365;
 
                             lastOperation = 'Buy';
-                            strategy = 0;
-
+                            
                             addRecord();
+
+                            strategy = 0;
+                            stopLoss = 0;
+                            sellRate = 0;
+                            buyOrder = 0;
+                            strategyPhase = 0;
 
                             continue;
 

@@ -590,12 +590,12 @@
                 };
 
                 let recordPoint4 = {
-                    x: record.begin,
+                    x: record.begin + timePeriod,
                     y: record.stopLoss
                 };
 
                 let recordPoint5 = {
-                    x: record.end,
+                    x: record.end + timePeriod,
                     y: record.stopLoss
                 };
 
@@ -606,12 +606,12 @@
                 }
 
                 let recordPoint6 = {
-                    x: record.begin,
+                    x: record.begin + timePeriod,
                     y: record.sellRate
                 };
 
                 let recordPoint7 = {
-                    x: record.end,
+                    x: record.end + timePeriod,
                     y: record.sellRate
                 };
 
@@ -622,12 +622,12 @@
                 }
 
                 let recordPoint8 = {
-                    x: record.begin,
+                    x: record.begin + timePeriod,
                     y: record.buyOrder
                 };
 
                 let recordPoint9 = {
-                    x: record.end,
+                    x: record.end + timePeriod,
                     y: record.buyOrder
                 };
 
@@ -878,7 +878,7 @@
                     if (strategyPhase > 0) {
 
                         line1 = '';
-                        line2 = strategyPhase; 
+                        line2 = strategyPhase;
 
                         imageToDraw = imageStrategyPhase;
                     }
@@ -949,15 +949,15 @@
 
                             line1 = 'Buying at Buy Order.';
                         }
-                        
+
                         if (record.lastProfit < 0) {
 
-                            line2 = 'Lost ' + (record.lastProfit * 100).toFixed(2) + ' %';
+                            line2 = 'Lost ' + (record.lastProfitPercent).toFixed(2) + ' %';
                             imageToDraw = smileySad;
 
                         } else {
 
-                            line2 = 'Won ' + (record.lastProfit * 100).toFixed(2) + ' %';
+                            line2 = 'Won ' + (record.lastProfitPercent).toFixed(2) + ' %';
                             imageToDraw = smileyHappy;
                         }
 
@@ -1083,6 +1083,7 @@
         }
     }
 }
+
 
 
 

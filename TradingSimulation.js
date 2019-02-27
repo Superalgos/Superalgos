@@ -421,7 +421,8 @@
                     lastProfitPercent: undefined,
                     signal: undefined,
                     strategy: undefined,
-                    strategyPhase: undefined
+                    strategyPhase: undefined,
+                    buyOrder: undefined
                 };
 
                 record.begin = marketFile[i][0];
@@ -447,6 +448,7 @@
                 record.signal = marketFile[i][20];
                 record.strategy = marketFile[i][21];
                 record.strategyPhase = marketFile[i][22];
+                record.buyOrder = marketFile[i][23];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -554,7 +556,8 @@
                     strategyPhase = record.strategyPhase;
                 }
 
-                if (record.type === 'Buy') { directionShort = -1; }
+                if (record.type === 'Buy@BuyOrder') { directionShort = -1; }
+                if (record.type === 'Buy@StopLoss') { directionShort = 1; }
                 if (record.type === 'Sell-1') { directionShort = +1; }
                 if (record.type === 'Sell-2') { directionShort = +1; }
                 if (record.signal === 'Pre-Sell') { directionShort = +1; }
@@ -600,7 +603,6 @@
 
                     recordPoint4.x = 0;
                     recordPoint5.x = 0;
-
                 }
 
                 let recordPoint6 = {
@@ -617,7 +619,22 @@
 
                     recordPoint6.x = 0;
                     recordPoint7.x = 0;
+                }
 
+                let recordPoint8 = {
+                    x: record.begin,
+                    y: record.buyOrder
+                };
+
+                let recordPoint9 = {
+                    x: record.end,
+                    y: record.buyOrder
+                };
+
+                if (record.buyOrder === 0) { // Put these points out of range if buyOrder is zero.
+
+                    recordPoint8.x = 0;
+                    recordPoint9.x = 0;
                 }
 
                 recordPoint1 = timeLineCoordinateSystem.transformThisPoint(recordPoint1);
@@ -627,6 +644,8 @@
                 recordPoint5 = timeLineCoordinateSystem.transformThisPoint(recordPoint5);
                 recordPoint6 = timeLineCoordinateSystem.transformThisPoint(recordPoint6);
                 recordPoint7 = timeLineCoordinateSystem.transformThisPoint(recordPoint7);
+                recordPoint8 = timeLineCoordinateSystem.transformThisPoint(recordPoint8);
+                recordPoint9 = timeLineCoordinateSystem.transformThisPoint(recordPoint9);
 
                 recordPoint1 = transformThisPoint(recordPoint1, thisObject.container);
                 recordPoint2 = transformThisPoint(recordPoint2, thisObject.container);
@@ -635,6 +654,8 @@
                 recordPoint5 = transformThisPoint(recordPoint5, thisObject.container);
                 recordPoint6 = transformThisPoint(recordPoint6, thisObject.container);
                 recordPoint7 = transformThisPoint(recordPoint7, thisObject.container);
+                recordPoint8 = transformThisPoint(recordPoint8, thisObject.container);
+                recordPoint9 = transformThisPoint(recordPoint9, thisObject.container);
 
                 if (recordPoint1.x < viewPort.visibleArea.bottomLeft.x || recordPoint1.x > viewPort.visibleArea.bottomRight.x) {
                     continue;
@@ -650,6 +671,8 @@
                 recordPoint5 = viewPort.fitIntoVisibleArea(recordPoint5);
                 recordPoint6 = viewPort.fitIntoVisibleArea(recordPoint6);
                 recordPoint7 = viewPort.fitIntoVisibleArea(recordPoint7);
+                recordPoint8 = viewPort.fitIntoVisibleArea(recordPoint8);
+                recordPoint9 = viewPort.fitIntoVisibleArea(recordPoint9);
 
                 /* Next we are drawing the stopLoss floor / ceilling */
 
@@ -683,6 +706,31 @@
 
                 browserCanvasContext.closePath();
 
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)';
+
+                if (datetime !== undefined) {
+                    let dateValue = datetime.valueOf();
+                    if (dateValue >= record.begin && dateValue <= record.end) {
+
+                        /* highlight the current record */
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
+                    }
+                }
+
+                browserCanvasContext.setLineDash([1, 4])
+                browserCanvasContext.lineWidth = 1
+                browserCanvasContext.stroke()
+                browserCanvasContext.setLineDash([0, 0])
+
+                /* Next we are drawing the Buy Order */
+
+                browserCanvasContext.beginPath();
+
+                browserCanvasContext.moveTo(recordPoint8.x, recordPoint8.y);
+                browserCanvasContext.lineTo(recordPoint9.x, recordPoint9.y);
+
+                browserCanvasContext.closePath();
+
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)';
 
                 if (datetime !== undefined) {
@@ -696,7 +744,6 @@
 
                 browserCanvasContext.lineWidth = 1
                 browserCanvasContext.stroke()
-
 
                 /* Continue with the pins --> Next stuff is to avoid text overlapping. */
 
@@ -830,22 +877,22 @@
 
                     if (strategyPhase > 0) {
 
-                        line1 = 'Entering into ';
-                        line2 = 'Phase ' + strategyPhase;
+                        line1 = '';
+                        line2 = strategyPhase; 
 
                         imageToDraw = imageStrategyPhase;
                     }
                     if (strategy === 1) {
 
-                        line1 = 'Trend Following ';
-                        line2 = 'strategy started.';
+                        line1 = 'Trend Following';
+                        line2 = '';
 
                         imageToDraw = imageStrategy;
                     }
                     if (strategy === 2) {
 
-                        line1 = 'Range Trading ';
-                        line2 = 'strategy started.';
+                        line1 = 'Range Trading';
+                        line2 = '';
 
                         imageToDraw = imageStrategy;
                     }
@@ -892,10 +939,17 @@
                         imageToDraw = smileyGhost;
                     }
 
-                    if (record.type === 'Buy') {
+                    if (record.type === 'Buy@StopLoss' || record.type === 'Buy@BuyOrder') {
 
-                        line1 = 'Buying back.';
+                        if (record.type === 'Buy@StopLoss') {
 
+                            line1 = 'Buying at Stop Loss.';
+
+                        } else {
+
+                            line1 = 'Buying at Buy Order.';
+                        }
+                        
                         if (record.lastProfit < 0) {
 
                             line2 = 'Lost ' + (record.lastProfit * 100).toFixed(2) + ' %';
@@ -1029,6 +1083,7 @@
         }
     }
 }
+
 
 
 

@@ -606,6 +606,38 @@
                             strategy = 1;
                         }
 
+                        /* Checking what happened since the last execution. We need to know if the Stop Loss
+                         or our Buy Order were hit. */
+
+                        /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
+
+                        let buySignalActivated = false;
+
+                        if (candle.max >= stopLoss && lastOperation === 'Sell') {
+
+                            balanceAssetA = balanceAssetB / stopLoss;
+                            //if (isNaN(balanceAssetA)) { balanceAssetA = 0; }
+
+                            balanceAssetB = 0;
+                            rate = stopLoss;
+                            type = '"Buy@StopLoss"';
+                            buySignalActivated = true;
+                        }
+
+                        /* Buy Order condition: Here we verify if the Buy Order was filled or not. */
+
+                        if (candle.min <= buyOrder && lastOperation === 'Sell' && buySignalActivated === false) {
+
+                            balanceAssetA = balanceAssetB / buyOrder;
+                            //if (isNaN(balanceAssetA)) { balanceAssetA = 0; }
+
+                            balanceAssetB = 0;
+                            rate = buyOrder;
+                            type = '"Buy@BuyOrder"';
+                            buySignalActivated = true;
+                        }
+
+
                         if (strategy === 1) {
 
                             /* Strategy #1: Trend Following. */
@@ -810,33 +842,7 @@
 
 
 
-                        /* Common Logic */
-
-                        /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
-
-                        let buySignalActivated = false;
-
-                        if (candle.max >= stopLoss && lastOperation === 'Sell') {
-
-                            balanceAssetA = balanceAssetB / stopLoss;
-                            //if (isNaN(balanceAssetA)) { balanceAssetA = 0; }
-
-                            balanceAssetB = 0;
-                            rate = stopLoss;
-                            type = '"Buy@StopLoss"';
-                            buySignalActivated = true;
-                        }
-
-                        if (candle.min <= buyOrder && lastOperation === 'Sell' && buySignalActivated === false) {
-
-                            balanceAssetA = balanceAssetB / buyOrder;
-                            //if (isNaN(balanceAssetA)) { balanceAssetA = 0; }
-
-                            balanceAssetB = 0;
-                            rate = buyOrder;
-                            type = '"Buy@BuyOrder"';
-                            buySignalActivated = true;
-                        }
+                        /* Here we define what to do if the conditions to buy were activated. */
 
                         if (buySignalActivated === true) {
 
@@ -914,7 +920,7 @@
 
                             previousStopLoss = stopLoss;
 
-                            if (bollingerBandsMap.get(candles[i - 1].begin).movingAverage < band.movingAverage) {
+                            if (band1.movingAverage < band.movingAverage) {
                                 stopLossDecay = stopLossDecay + stopLossDecayIncrement * 2;
                             } else {
                                 stopLossDecay = stopLossDecay - stopLossDecayIncrement / 2;

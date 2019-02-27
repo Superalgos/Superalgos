@@ -403,7 +403,9 @@
                                             record.signal + "," +
                                             record.strategy + "," +
                                             record.strategyPhase + "," +
-                                            record.buyOrder + "]";
+                                            record.buyOrder + "," +
+                                            record.stopLossPhase + "," +
+                                            record.buyOrderPhase + "]";
 
                                         if (separator === "") { separator = ","; }
 
@@ -534,6 +536,7 @@
                     let stopLoss = 0;
                     let stopLossDecay = 0;
                     let stopLossDecayIncrement = 0.06;
+                    let stopLossPhase = 0;
 
                     /* Buy Order Management */
 
@@ -542,6 +545,7 @@
                     let buyOrder = 0;
                     let buyOrderDecay = 0;
                     let buyOrderDecayIncrement = 0.01;
+                    let buyOrderPhase = 0;
 
                     /* Building records */
 
@@ -661,6 +665,9 @@
                  
                                 */
 
+
+
+
                                 if (
                                     percentgeBandwidth.value >= 70 &&
                                     lastOperation === 'Buy' &&
@@ -687,6 +694,8 @@
                                     type = '"Sell-1"';
                                     sellSignalActivated = true;
                                     strategyPhase = 2;
+                                    stopLossPhase = 1;
+                                    buyOrderPhase = 1;
                                 }
 
                                 /* Sell Condition #2 */
@@ -702,13 +711,11 @@
                                     type = '"Sell-2"';
                                     sellSignalActivated = true;
                                     strategyPhase = 2;
+                                    stopLossPhase = 1;
+                                    buyOrderPhase = 1;
                                 }
 
-                                if (strategyPhase === 2) {
-
-                                    buyOrderDecay = buyOrderDecay + buyOrderDecayIncrement;
-
-                                    buyOrder = band.movingAverage - band.standardDeviation * 10; //+ band.movingAverage - band.standardDeviation * 4 * (buyOrderPercentage + buyOrderDecay) / 100;
+                                if (stopLossPhase === 1) {
 
                                     newStopLoss = newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
 
@@ -721,18 +728,15 @@
                                     if (
                                         candle.max < band.movingAverage &&
                                         lastOperation === 'Sell' &&
-                                        band1.movingAverage > band.movingAverage &&
-                                        candle.min < band.movingAverage - band.deviation
+                                        band1.movingAverage > band.movingAverage 
                                     ) {
 
-                                        strategyPhase = 3;
+                                        stopLossPhase = 2;
 
                                     }
                                 }
 
-                                if (strategyPhase === 3) {
-
-                                    buyOrder = band.movingAverage - band.standardDeviation * 10;
+                                if (stopLossPhase === 2) {
 
                                     newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
 
@@ -741,63 +745,83 @@
                                     } else {
                                         stopLoss = previousStopLoss;
                                     }
+
+                                    if (
+                                        candle.max < band.movingAverage - band.deviation
+                                    ) {
+                                        stopLossPhase = 3;
+                                    }
+                                }
+
+                                if (stopLossPhase === 3) {
+
+                                    newStopLoss = band.movingAverage;
+
+                                    if (newStopLoss < previousStopLoss) {
+                                        stopLoss = newStopLoss;
+                                    } else {
+                                        stopLoss = previousStopLoss;
+                                    }              
+                                }
+
+
+
+
+                                if (buyOrderPhase === 1) {
+
+                                    buyOrderDecay = buyOrderDecay + buyOrderDecayIncrement;
+
+                                    buyOrder = band.movingAverage - band.standardDeviation * 10; //+ band.movingAverage - band.standardDeviation * 4 * (buyOrderPercentage + buyOrderDecay) / 100;
+
+                                    if (
+                                        candle.max < band.movingAverage &&
+                                        lastOperation === 'Sell' &&
+                                        band1.movingAverage > band.movingAverage &&
+                                        candle.min < band.movingAverage - band.deviation
+                                    ) {
+
+                                        buyOrderPhase = 2;
+
+                                    }
+                                }
+
+                                if (buyOrderPhase === 2) {
+
+                                    buyOrder = band.movingAverage - band.standardDeviation * 10;
 
                                     if (
                                         percentgeBandwidth1.movingAverage < percentgeBandwidth.movingAverage &&
                                         percentgeBandwidth.movingAverage > 0
                                     ) {
-                                        strategyPhase = 4;
+                                        buyOrderPhase = 3;
                                     }
                                 }
 
-                                if (strategyPhase === 4) {
+                                if (buyOrderPhase === 3) {
 
                                     buyOrder = band.movingAverage - band.standardDeviation * 4;
 
-                                    newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
-
-                                    if (newStopLoss < previousStopLoss) {
-                                        stopLoss = newStopLoss;
-                                    } else {
-                                        stopLoss = previousStopLoss;
-                                    }
-
                                     if (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) {
-                                        strategyPhase = 5;
+                                        buyOrderPhase = 4;
                                     }
                                 }
 
-                                if (strategyPhase === 5) {
+                                if (buyOrderPhase === 4) {
 
                                     buyOrder = band.movingAverage - band.standardDeviation * 3;
-
-                                    newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
-
-                                    if (newStopLoss < previousStopLoss) {
-                                        stopLoss = newStopLoss;
-                                    } else {
-                                        stopLoss = previousStopLoss;
-                                    }
 
                                     if (
                                         percentgeBandwidth1.movingAverage < percentgeBandwidth.movingAverage &&
                                         percentgeBandwidth.movingAverage > 30
                                     ) {
-                                        strategyPhase = 6;
+                                        buyOrderPhase = 5;
                                     }
                                 }
 
-                                if (strategyPhase === 6) {
+                                if (buyOrderPhase === 5) {
 
                                     buyOrder = band.movingAverage - band.standardDeviation * 2;
 
-                                    newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
-
-                                    if (newStopLoss < previousStopLoss) {
-                                        stopLoss = newStopLoss;
-                                    } else {
-                                        stopLoss = previousStopLoss;
-                                    }
                                 }
 
                                 if (sellSignalActivated === true) {
@@ -882,6 +906,8 @@
                             sellRate = 0;
                             buyOrder = 0;
                             strategyPhase = 0;
+                            stopLossPhase = 0;
+                            buyOrderPhase = 0;
 
                             continue;
 
@@ -918,7 +944,9 @@
                                 signal: signal,
                                 strategy: strategy,
                                 strategyPhase: strategyPhase,
-                                buyOrder: buyOrder
+                                buyOrder: buyOrder,
+                                stopLossPhase: stopLossPhase,
+                                buyOrderPhase: buyOrderPhase
                             }
 
                             recordsArray.push(record);

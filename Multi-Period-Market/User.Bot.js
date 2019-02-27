@@ -402,7 +402,8 @@
                                             record.lastProfitPercent + "," +
                                             record.signal + "," +
                                             record.strategy + "," +
-                                            record.strategyPhase + "]";
+                                            record.strategyPhase + "," +
+                                            record.buyOrder + "]";
 
                                         if (separator === "") { separator = ","; }
 
@@ -526,14 +527,23 @@
                     let strategy = 0;
                     let strategyPhase = 0;
 
-                    /* Building records */
+                    /* Stop Loss Management */
 
                     let stopLossPercentage = 1.5;
                     let previousStopLoss = 0;
-                    let trailingStop = false;
                     let stopLoss = 0;
                     let stopLossDecay = 0;
                     let stopLossDecayIncrement = 0.06;
+
+                    /* Buy Order Management */
+
+                    let buyOrderPercentage = 1;
+                    let previousBuyOrder = 0;
+                    let buyOrder = 0;
+                    let buyOrderDecay = 0;
+                    let buyOrderDecayIncrement = 0.01;
+
+                    /* Building records */
 
                     let record;
                     let balanceAssetA = initialBalanceA;
@@ -555,6 +565,7 @@
                     let type = '""';
                     let signal = '""';
                     let rate = 0;
+                    let newStopLoss;
 
                     let presellModeIsActive = false;
 
@@ -660,6 +671,102 @@
                                 strategyPhase = 2;
                             }
 
+                            if (strategyPhase === 2) {
+
+                                buyOrderDecay = buyOrderDecay + buyOrderDecayIncrement;
+
+                                buyOrder = band.movingAverage - band.standardDeviation * 10; //+ band.movingAverage - band.standardDeviation * 4 * (buyOrderPercentage + buyOrderDecay) / 100;
+
+                                newStopLoss = newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
+
+                                if (newStopLoss < previousStopLoss) {
+                                    stopLoss = newStopLoss;
+                                } else {
+                                    stopLoss = previousStopLoss;
+                                }
+
+                                if (
+                                    candle.max < band.movingAverage &&
+                                    lastOperation === 'Sell' &&
+                                    band1.movingAverage > band.movingAverage &&
+                                    candle.min < band.movingAverage - band.deviation
+                                ) {
+
+                                    strategyPhase = 3;
+
+                                }
+                            }
+
+                            if (strategyPhase === 3) {
+
+                                buyOrder = band.movingAverage - band.standardDeviation * 10;
+
+                                newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
+
+                                if (newStopLoss < previousStopLoss) {
+                                    stopLoss = newStopLoss;
+                                } else {
+                                    stopLoss = previousStopLoss;
+                                }
+
+                                if (
+                                    percentgeBandwidth1.movingAverage < percentgeBandwidth.movingAverage &&
+                                    percentgeBandwidth.movingAverage > 0
+                                    ) {
+                                    strategyPhase = 4;
+                                }
+                            }
+
+                            if (strategyPhase === 4) {
+
+                                buyOrder = band.movingAverage - band.standardDeviation * 4;
+
+                                newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
+
+                                if (newStopLoss < previousStopLoss) {
+                                    stopLoss = newStopLoss;
+                                } else {
+                                    stopLoss = previousStopLoss;
+                                }
+
+                                if (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) {
+                                    strategyPhase = 5;
+                                }
+                            }
+
+                            if (strategyPhase === 5) {
+
+                                buyOrder = band.movingAverage - band.standardDeviation * 3;
+
+                                newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
+
+                                if (newStopLoss < previousStopLoss) {
+                                    stopLoss = newStopLoss;
+                                } else {
+                                    stopLoss = previousStopLoss;
+                                }
+
+                                if (
+                                    percentgeBandwidth1.movingAverage < percentgeBandwidth.movingAverage &&
+                                    percentgeBandwidth.movingAverage > 30
+                                ) {
+                                    strategyPhase = 6;
+                                }
+                            }
+
+                            if (strategyPhase === 6) {
+
+                                buyOrder = band.movingAverage - band.standardDeviation * 2;
+
+                                newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
+
+                                if (newStopLoss < previousStopLoss) {
+                                    stopLoss = newStopLoss;
+                                } else {
+                                    stopLoss = previousStopLoss;
+                                }
+                            }
+
                             if (sellSignalActivated === true) {
 
                                 previousBalanceAssetA = balanceAssetA;
@@ -683,39 +790,6 @@
                                 sellSignalActivated = false;
                                 continue;
                             }
-
-                            /* Start Trailing Stop Condition */
-
-                            if (
-                                candle.max < band.movingAverage &&
-                                lastOperation === 'Sell' &&
-                                band1.movingAverage > band.movingAverage &&
-                                candle.min < band.movingAverage - band.deviation
-                            ) {
-
-                                strategyPhase = 3;
-                                trailingStop = true;
-
-                            }
-
-                            /* Stop Loss Management: Initially it is tied to the sell rate but when it enters
-                            into trailing mode it follows the moving average of the band.*/
-
-                            let newStopLoss;
-
-                            if (trailingStop === true) {
-                                newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
-                            } else {
-                                newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
-                            }
-                            /* A trailing stop loss can never go higher. */
-
-                            if (newStopLoss < previousStopLoss) {
-                                stopLoss = newStopLoss;
-                            } else {
-                                stopLoss = previousStopLoss;
-                            }
-
                         }
 
                         if (strategy === 2) {
@@ -745,8 +819,22 @@
                         if (candle.max >= stopLoss && lastOperation === 'Sell') {
 
                             balanceAssetA = balanceAssetB / stopLoss;
+                            //if (isNaN(balanceAssetA)) { balanceAssetA = 0; }
+
                             balanceAssetB = 0;
                             rate = stopLoss;
+                            type = '"Buy@StopLoss"';
+                            buySignalActivated = true;
+                        }
+
+                        if (candle.min <= buyOrder && lastOperation === 'Sell' && buySignalActivated === false) {
+
+                            balanceAssetA = balanceAssetB / buyOrder;
+                            //if (isNaN(balanceAssetA)) { balanceAssetA = 0; }
+
+                            balanceAssetB = 0;
+                            rate = buyOrder;
+                            type = '"Buy@BuyOrder"';
                             buySignalActivated = true;
                         }
 
@@ -754,13 +842,19 @@
 
                             stopLoss = 0;
                             sellRate = 0;
-                            trailingStop = false;
+                            buyOrder = 0;
+                            strategyPhase = 0;
 
                             roundtrips++;
                             lastProfit = balanceAssetA - previousBalanceAssetA;
+
                             lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
+                            if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
+
                             profit = profit + lastProfit;
+
                             ROI = (initialBalanceA + profit) / initialBalanceA - 1;
+                            //if (isNaN(ROI)) { ROI = 0; }
 
                             if (lastProfit > 0) {
                                 hits++;
@@ -773,7 +867,6 @@
                             days = periods * outputPeriod / miliSecondsPerDay;
                             anualizedRateOfReturn = ROI / days * 365;
 
-                            type = '"Buy"';
                             lastOperation = 'Buy';
                             strategy = 0;
 
@@ -813,7 +906,8 @@
                                 lastProfitPercent: lastProfitPercent,
                                 signal: signal,
                                 strategy: strategy,
-                                strategyPhase: strategyPhase
+                                strategyPhase: strategyPhase,
+                                buyOrder: buyOrder
                             }
 
                             recordsArray.push(record);

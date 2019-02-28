@@ -80,8 +80,8 @@ const resolve = (parent,
                           teamId: "${participantId}"
                           processName: "Trading-Process"
                           keyId: "${keyId}"
-                          beginDatetime: "${event.startDatetime}"
-                          endDatetime: "${event.endDatetime}"
+                          beginDatetime: ${event.startDatetime}
+                          endDatetime: ${event.endDatetime}
                         }
                       ) {
                         id

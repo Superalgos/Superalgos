@@ -9,7 +9,7 @@ function newFileCloud() {
 
     /*
 
-    This is the module in the system that actually connects to the cloud storage and grabs from there the needed files. 
+    This is the module in the system that actually connects to the cloud storage and grabs from there the needed files.
 
     */
 
@@ -38,7 +38,7 @@ function newFileCloud() {
         }
     }
 
-    function getFile(pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
+    function getFile(pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction, pOperationsId) {
 
         try {
 
@@ -46,9 +46,14 @@ function newFileCloud() {
 
             const MAX_RETRIES = 3;
 
-            getFileRecursively(0, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
 
-            function getFileRecursively(pRetryCounter, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
+            if (pOperationsId !== undefined ) {
+                getFileRecursively(0, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction, pOperationsId)
+            } else {
+                getFileRecursively(0, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
+            }
+
+            function getFileRecursively(pRetryCounter, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction, pOperationsId) {
 
                 try {
 
@@ -111,7 +116,11 @@ function newFileCloud() {
 
                     if (pBot !== undefined) {
 
-                        filePath = filePath.replace("@Bot", pBot.codeName);
+                        if (pOperationsId !== undefined ) {
+                            filePath = filePath.replace("@Bot", pBot.codeName + "-" + pOperationsId);
+                        } else {
+                            filePath = filePath.replace("@Bot", pBot.codeName);
+                        }
                     }
 
                     if (pExchange !== undefined) {

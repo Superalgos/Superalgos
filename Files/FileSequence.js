@@ -55,7 +55,7 @@ function newFileSequence() {
         }
     }
 
-    function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
+    function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction, pOperationsId) {
 
         try {
 
@@ -70,7 +70,7 @@ function newFileSequence() {
 
             }
 
-            intervalHandle = setInterval(updateFiles, _1_MINUTE_IN_MILISECONDS); 
+            intervalHandle = setInterval(updateFiles, _1_MINUTE_IN_MILISECONDS);
 
             if (INFO_LOG === true) { logger.write("[INFO] initialize -> intervalHandle = " + intervalHandle); }
 
@@ -85,7 +85,7 @@ function newFileSequence() {
 
             /* First we will get the sequence max number */
 
-            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, "Sequence", undefined, onSequenceFileReceived);
+            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, "Sequence", undefined, onSequenceFileReceived, pOperationsId);
 
             function onSequenceFileReceived(err, file) {
 
@@ -142,7 +142,7 @@ function newFileSequence() {
 
                     for (let i = 0; i <= maxSequence; i++) {
 
-                        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived);
+                        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived, pOperationsId);
 
                         function onFileReceived(err, file) {
 
@@ -234,7 +234,7 @@ function newFileSequence() {
             if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> bot = " + bot.codeName); }
             if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> thisSet = " + thisSet.codeName); }
 
-            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, "Sequence", undefined, onSequenceFileReceived);
+            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, "Sequence", undefined, onSequenceFileReceived, pOperationsId);
 
             function onSequenceFileReceived(err, file) {
 
@@ -287,7 +287,7 @@ function newFileSequence() {
 
                         if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> onSequenceFileReceived -> i = " + i); }
 
-                        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived);
+                        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived, pOperationsId);
 
                         function onFileReceived(err, file) {
 

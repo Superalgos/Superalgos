@@ -15,8 +15,8 @@
             "codeName": "Weekend-Deathmatch",
             "description": "First AA Internal Competition. Bots will be trading during 3 days at the USDT/BTC market of Poloniex to see who can make the gratest return over investment (ROI).",
             "displayName": "AA Internal Challenge",
-            "startDatetime": "2018-11-05T16:00:00.000Z",
-            "finishDatetime": "2018-11-07T16:59:59.999Z",
+            "startDatetime": "2019-03-05T16:00:00.000Z",
+            "finishDatetime": "2019-02-07T16:59:59.999Z",
             "formula": "ROI",
             "plotter": {
                 "codeName": "PlottersROI",
@@ -24,7 +24,8 @@
                 "repo": "Plotters-ROI",
                 "moduleName": "CombinedProfits"
             },
-            "participants": [],
+            "participants": [
+            ],
             "repo": "Weekend-Deathmatch",
             "configFile": "this.competition.config.json"
         }],
@@ -47,6 +48,7 @@
     function buildEcosystemEventsHack() {
         if (localStorage.getItem("ecosystemEventsHack") === null) {
             window.localStorage.setItem('ecosystemEventsHack', JSON.stringify(ecosystemBase));
+            ecosystem.setEvent(ecosystemBase);
             dashboard.start();
         } else {
             let hackedEcosystem = ecosystemBase;
@@ -58,14 +60,16 @@
                 hackedEcosystem[0].competitions[0].finishDatetime = new Date(parsedEcosysTemp.endDatetime*1000).toISOString();
                 parsedEcosysTemp.participants.forEach(function(participant) {
                     hackedEcosystem[0].competitions[0].participants.push({
-                        devTeam: participant.clone.team.name.replace(/\s+/g, '-').toLowerCase(),
-                        bot: participant.clone.bot.name.replace(/\s+/g, '-').toLowerCase()+"-"+participant.clone.id,
+                        devTeam: participant.clone.team.slug,
+                        bot: participant.clone.bot.slug,
+                        pOperationsId: participant.clone.id,
                         release: "1.0.0"
                     });
                 });
             }
 
             window.localStorage.setItem('ecosystemEventsHack', JSON.stringify(hackedEcosystem));
+            ecosystem.setEvent(hackedEcosystem);
         }
     }
 

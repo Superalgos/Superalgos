@@ -195,10 +195,10 @@ function newLogin() {
                     clone{
                         id
                         team{
-                            name
+                            slug
                         }
                         bot{
-                            name
+                            slug
                         }
                     }
                 }

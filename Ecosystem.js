@@ -1,4 +1,4 @@
-﻿
+
 function newEcosystem() {
 
     let thisObject = {
@@ -13,16 +13,21 @@ function newEcosystem() {
         getPlotter: getPlotter,
         getPlotterModule: getPlotterModule,
         getStoragePermissions: getStoragePermissions,
+        setEvent: setEvent,
         initialize: initialize
     }
- 
-    const ECOSYSTEM = "@ecosystem.json@";
+
+    let ECOSYSTEM = "@ecosystem.json@";
 
     return thisObject;
 
     function initialize() {
 
 
+    }
+
+    function setEvent(input) {
+        ECOSYSTEM.hosts = input;
     }
 
     function getStoragePermissions() {
@@ -140,4 +145,3 @@ function newEcosystem() {
 
     return false;
 }
-

@@ -1,4 +1,6 @@
-﻿function newAppLoader() {
+let dashboard;
+
+function newAppLoader() {
 
     const MODULE_NAME = "App Loader";
     const INFO_LOG = false;
@@ -36,6 +38,7 @@
                 "BottomSpace/PlayStopButton.js",
 
                 "TopSpace/CompanyLogo.js",
+                "TopSpace/CurrentEvent.js",
                 "TopSpace/CurrentStartMode.js",
                 "TopSpace/CurrentProcess.js",
                 "TopSpace/CurrentBot.js",
@@ -140,7 +143,7 @@
 
                             if (INFO_LOG === true) { logger.write("[INFO] loadModules -> onRequired -> Starting Advanced Algos Platform."); }
 
-                            let dashboard = newDashboard();
+                            dashboard = newDashboard();
 
                             dashboard.start();
                         }

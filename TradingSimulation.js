@@ -56,6 +56,8 @@
     let smileyMonkeyEars;
     let imageStrategy;
     let imageStrategyPhase;
+    let imageStopLossPhase;
+    let imageBuyOrderPhase;
 
     return thisObject;
 
@@ -104,7 +106,8 @@
             smileyMonkeyEars = loadEmoji("Smiley/Emoji Smiley-86.png");
             imageStrategy = loadEmoji("Places/Emoji Orte-90.png");
             imageStrategyPhase = loadEmoji("Places/Emoji Orte-91.png");
-
+            imageStopLossPhase = loadEmoji("Objects/Emoji Objects-55.png");
+            imageBuyOrderPhase = loadEmoji("Objects/Emoji Objects-114.png");
 
             function loadEmoji(pPath) {
 
@@ -422,7 +425,9 @@
                     signal: undefined,
                     strategy: undefined,
                     strategyPhase: undefined,
-                    buyOrder: undefined
+                    buyOrder: undefined,
+                    stopLossPhase: undefined,
+                    buyOrderPhase: undefined
                 };
 
                 record.begin = marketFile[i][0];
@@ -449,6 +454,8 @@
                 record.strategy = marketFile[i][21];
                 record.strategyPhase = marketFile[i][22];
                 record.buyOrder = marketFile[i][23];
+                record.stopLossPhase = marketFile[i][24];
+                record.buyOrderPhase = marketFile[i][25];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -547,13 +554,23 @@
                 directionShort = 0;
                 let strategy = 0;
                 let strategyPhase = 0;
+                let stopLossPhase = 0;
+                let buyOrderPhase = 0;
 
                 if (record.strategy !== records[i - 1].strategy) { // When a change in the strategy field is detected, it is time to plot it.
                     strategy = record.strategy;
                 }
 
-                if (record.strategyPhase !== records[i - 1].strategyPhase) { // When a change in the strategy phase field is detected, it is time to plot it.
+                if (record.strategyPhase !== records[i - 1].strategyPhase) {
                     strategyPhase = record.strategyPhase;
+                }
+
+                if (record.stopLossPhase !== records[i - 1].stopLossPhase) {
+                    stopLossPhase = record.stopLossPhase;
+                }
+
+                if (record.buyOrderPhase !== records[i - 1].buyOrderPhase) {
+                    buyOrderPhase = record.buyOrderPhase;
                 }
 
                 if (record.type === 'Buy@BuyOrder') { directionShort = -1; }
@@ -590,12 +607,12 @@
                 };
 
                 let recordPoint4 = {
-                    x: record.begin + timePeriod,
+                    x: record.begin,
                     y: record.stopLoss
                 };
 
                 let recordPoint5 = {
-                    x: record.end + timePeriod,
+                    x: record.end,
                     y: record.stopLoss
                 };
 
@@ -606,12 +623,12 @@
                 }
 
                 let recordPoint6 = {
-                    x: record.begin + timePeriod,
+                    x: record.begin,
                     y: record.sellRate
                 };
 
                 let recordPoint7 = {
-                    x: record.end + timePeriod,
+                    x: record.end,
                     y: record.sellRate
                 };
 
@@ -622,12 +639,12 @@
                 }
 
                 let recordPoint8 = {
-                    x: record.begin + timePeriod,
+                    x: record.begin,
                     y: record.buyOrder
                 };
 
                 let recordPoint9 = {
-                    x: record.end + timePeriod,
+                    x: record.end,
                     y: record.buyOrder
                 };
 
@@ -674,29 +691,6 @@
                 recordPoint8 = viewPort.fitIntoVisibleArea(recordPoint8);
                 recordPoint9 = viewPort.fitIntoVisibleArea(recordPoint9);
 
-                /* Next we are drawing the stopLoss floor / ceilling */
-
-                browserCanvasContext.beginPath();
-
-                browserCanvasContext.moveTo(recordPoint4.x, recordPoint4.y);
-                browserCanvasContext.lineTo(recordPoint5.x, recordPoint5.y);
-
-                browserCanvasContext.closePath();
-
-                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
-
-                if (datetime !== undefined) {
-                    let dateValue = datetime.valueOf();
-                    if (dateValue >= record.begin && dateValue <= record.end) {
-
-                        /* highlight the current record */
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
-                    }
-                }
-
-                browserCanvasContext.lineWidth = 1
-                browserCanvasContext.stroke()
-
                 /* Next we are drawing the sellRate */
 
                 browserCanvasContext.beginPath();
@@ -722,6 +716,37 @@
                 browserCanvasContext.stroke()
                 browserCanvasContext.setLineDash([0, 0])
 
+                let imageSize = 20;
+                let imageToDraw;
+
+                /* Next we are drawing the stopLoss floor / ceilling */
+
+                browserCanvasContext.beginPath();
+
+                browserCanvasContext.moveTo(recordPoint4.x, recordPoint4.y);
+                browserCanvasContext.lineTo(recordPoint5.x, recordPoint5.y);
+
+                browserCanvasContext.closePath();
+
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
+
+                if (datetime !== undefined) {
+                    let dateValue = datetime.valueOf();
+                    if (dateValue >= record.begin && dateValue <= record.end) {
+
+                        /* highlight the current record */
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
+                    }
+                }
+
+                browserCanvasContext.lineWidth = 1
+                browserCanvasContext.stroke()
+
+                if (imageStopLossPhase.isLoaded === true && stopLossPhase > 0) {
+                    browserCanvasContext.drawImage(imageStopLossPhase, recordPoint5.x - imageSize, recordPoint5.y - imageSize, imageSize, imageSize);
+                    printLabel(stopLossPhase, recordPoint5.x, recordPoint5.y - 2, '0.50');
+                }
+
                 /* Next we are drawing the Buy Order */
 
                 browserCanvasContext.beginPath();
@@ -744,6 +769,11 @@
 
                 browserCanvasContext.lineWidth = 1
                 browserCanvasContext.stroke()
+
+                if (imageBuyOrderPhase.isLoaded === true && buyOrderPhase > 0) {
+                    browserCanvasContext.drawImage(imageBuyOrderPhase, recordPoint9.x - imageSize, recordPoint9.y + imageSize / 4, imageSize, imageSize);
+                    printLabel(buyOrderPhase, recordPoint9.x - imageSize / 2, recordPoint9.y + imageSize * 1.75, '0.50');
+                }
 
                 /* Continue with the pins --> Next stuff is to avoid text overlapping. */
 
@@ -864,9 +894,6 @@
 
                 //browserCanvasContext.beginPath();
 
-                let imageSize = 20;
-                let imageToDraw;
-
                 let line1;
                 let line2;
 
@@ -922,8 +949,8 @@
                                 (directionLong > 0 && noLongTextUp === false) ||
                                 (directionLong < 0 && noLongTextDown === false)
                             ) {
-                                printLabel(line1, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 0, '0.50');
-                                printLabel(line2, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 15, '0.50');
+                                printLabel(line1, recordPoint2.x + imageSize / 2, recordPoint2.y + 0, '0.50');
+                                printLabel(line2, recordPoint2.x + imageSize / 2, recordPoint2.y + 15, '0.50');
                             }
                         }
                     }
@@ -1083,6 +1110,9 @@
         }
     }
 }
+
+
+
 
 
 

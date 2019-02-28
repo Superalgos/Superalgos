@@ -194,9 +194,19 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         printLabel((currentRecord.innerRecord.lastProfitPercent).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50');
 
         y = y + increment;
+        printLabel('Sell Rate', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
+        y = y + increment;
+        printLabel(currentRecord.innerRecord.sellRate, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50');
+
+        y = y + increment;
         printLabel('Stop Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
         printLabel(currentRecord.innerRecord.stopLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50');
+
+        y = y + increment;
+        printLabel('Buy Order', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
+        y = y + increment;
+        printLabel(currentRecord.innerRecord.buyOrder, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50');
 
         y = y + increment;
         printLabel('Roundtrips', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');

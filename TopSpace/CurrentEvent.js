@@ -1,4 +1,4 @@
-﻿function newCurrentEvent() {
+function newCurrentEvent() {
 
     let thisObject = {
         container: undefined,
@@ -43,7 +43,6 @@
             "configFile": "this.plotter.config.json"
         }]
     }];
-    window.localStorage.setItem('ecosystemEventsHack', JSON.stringify(ecosystemBase));
 
     function buildEcosystemEventsHack() {
         if (localStorage.getItem("ecosystemEventsHack") === null) {

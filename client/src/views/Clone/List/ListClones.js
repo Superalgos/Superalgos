@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { tradingStartModes, indicatorStartModes } from '../../../GraphQL/models'
+import { tradingStartModesList, indicatorStartModes } from '../../../GraphQL/models'
 import { isDefined, toLocalTime } from '../../../utils'
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
@@ -43,7 +43,7 @@ class ListClones extends Component {
           </div>
           <div className={classes.heading}>
             <Typography className={classes.heading}>
-              { clone.processName } / { clone.botType === 'TRADER' ? tradingStartModes[clone.mode] : indicatorStartModes[clone.mode] }
+              { clone.processName } / { clone.botType === 'TRADER' ? tradingStartModesList[clone.mode] : indicatorStartModes[clone.mode] }
             </Typography>
           </div>
         </ExpansionPanelSummary>

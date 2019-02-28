@@ -6,6 +6,12 @@ const tradingStartModes = {
   backtest: 'Backtest'
 }
 
+const tradingStartModesList = {
+  live: 'Live',
+  backtest: 'Backtest',
+  competition: 'Competition'
+}
+
 const indicatorStartModes = {
   allMonths: 'All Months',
   oneMonth: 'One Month',
@@ -19,4 +25,4 @@ const exchanges = [
   }
 ]
 
-export { tradingStartModes, exchanges, indicatorStartModes, availableMonths }
+export { tradingStartModes, tradingStartModesList, exchanges, indicatorStartModes, availableMonths }

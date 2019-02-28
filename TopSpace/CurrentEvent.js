@@ -44,31 +44,28 @@ function newCurrentEvent() {
         }]
     }];
 
-    function buildEcosystemEventsHack() {
-        if (localStorage.getItem("ecosystemEventsHack") === null) {
-            window.localStorage.setItem('ecosystemEventsHack', JSON.stringify(ecosystemBase));
-            ecosystem.setEvent(ecosystemBase);
-            dashboard.start();
-        } else {
-            let hackedEcosystem = ecosystemBase;
+    function buildEcosystemEventsHack(reload) {
+        let hackedEcosystem = ecosystemBase;
 
-            let ecosysTemp = window.localStorage.getItem('currentEventObject');
-            if (!(ecosysTemp === null || ecosysTemp === "[]" || ecosysTemp === "")) {
-                let parsedEcosysTemp = JSON.parse(ecosysTemp);
-                hackedEcosystem[0].competitions[0].startDatetime = new Date(parsedEcosysTemp.startDatetime*1000).toISOString();
-                hackedEcosystem[0].competitions[0].finishDatetime = new Date(parsedEcosysTemp.endDatetime*1000).toISOString();
-                parsedEcosysTemp.participants.forEach(function(participant) {
-                    hackedEcosystem[0].competitions[0].participants.push({
-                        devTeam: participant.clone.team.slug,
-                        bot: participant.clone.bot.slug,
-                        pOperationsId: participant.clone.id,
-                        release: "1.0.0"
-                    });
+        let ecosysTemp = window.localStorage.getItem('currentEventObject');
+        if (!(ecosysTemp === null || ecosysTemp === "[]" || ecosysTemp === "")) {
+            let parsedEcosysTemp = JSON.parse(ecosysTemp);
+            hackedEcosystem[0].competitions[0].startDatetime = new Date(parsedEcosysTemp.startDatetime*1000).toISOString();
+            hackedEcosystem[0].competitions[0].finishDatetime = new Date(parsedEcosysTemp.endDatetime*1000).toISOString();
+            parsedEcosysTemp.participants.forEach(function(participant) {
+                hackedEcosystem[0].competitions[0].participants.push({
+                    devTeam: participant.clone.team.slug,
+                    bot: participant.clone.bot.slug,
+                    pOperationsId: participant.clone.id,
+                    release: "1.0.0"
                 });
-            }
+            });
+        }
 
-            window.localStorage.setItem('ecosystemEventsHack', JSON.stringify(hackedEcosystem));
-            ecosystem.setEvent(hackedEcosystem);
+        window.localStorage.setItem('ecosystemEventsHack', JSON.stringify(hackedEcosystem));
+        ecosystem.setEvent(hackedEcosystem);
+        if (reload) {
+            dashboard.start();
         }
     }
 
@@ -108,13 +105,18 @@ function newCurrentEvent() {
             window.EVENTS = "";
             window.CURRENT_EVENT_TITLE = "";
             label = NOT_FOUND;
+        } else if (sharedStatus.currentEventIndex === -1){
+            storedEvents = JSON.parse(storedEvents)
+            window.EVENTS = storedEvents;
+            window.CURRENT_EVENT_TITLE = "";
+            label = "Select an event";
         } else {
             storedEvents = JSON.parse(storedEvents)
             window.EVENTS = storedEvents;
             window.CURRENT_EVENT_TITLE = storedEvents[sharedStatus.currentEventIndex].title;
             label = "Event - " + storedEvents[sharedStatus.currentEventIndex].title;
             window.localStorage.setItem('currentEventObject', JSON.stringify(storedEvents[sharedStatus.currentEventIndex]));
-            buildEcosystemEventsHack();
+            buildEcosystemEventsHack(false);
             sharedStatus.eventHandler.raiseEvent('Event Changed');
         }
 
@@ -145,8 +147,7 @@ function newCurrentEvent() {
             window.CURRENT_EVENT_TITLE = storedEvents[sharedStatus.currentEventIndex].title;
             label = "Event - " + storedEvents[sharedStatus.currentEventIndex].title;
             window.localStorage.setItem('currentEventObject', JSON.stringify(storedEvents[sharedStatus.currentEventIndex]));
-            buildEcosystemEventsHack();
-            dashboard.start();
+            buildEcosystemEventsHack(true);
             sharedStatus.eventHandler.raiseEvent('Event Changed');
             return;
         }
@@ -157,8 +158,7 @@ function newCurrentEvent() {
             window.CURRENT_EVENT_TITLE = storedEvents[sharedStatus.currentEventIndex].title;
             label = "Event - " + storedEvents[sharedStatus.currentEventIndex].title;
             window.localStorage.setItem('currentEventObject', JSON.stringify(storedEvents[sharedStatus.currentEventIndex]));
-            buildEcosystemEventsHack();
-            dashboard.start();
+            buildEcosystemEventsHack(true);
             sharedStatus.eventHandler.raiseEvent('Event Changed');
             return;
         }

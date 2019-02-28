@@ -219,15 +219,12 @@ function newLogin() {
                 window.localStorage.setItem('currentEvents', JSON.stringify(response.data.events_Events));
                 currentEvent = window.localStorage.getItem('currentEventObject');
                 if (currentEvent === null || currentEvent === "[]" || currentEvent === "") {
-                    sharedStatus.currentEventIndex = 0;
+                    sharedStatus.currentEventIndex = -1;
                 } else {
                     currentEvent = JSON.parse(currentEvent);
                     sharedStatus.currentEventIndex = response.data.events_Events.findIndex(function(element) {
                         return element.id == currentEvent.id;
                     });
-                    if ( sharedStatus.currentEventIndex === -1 ) {
-                        sharedStatus.currentEventIndex = 0;
-                    }
                 }
                 resolve({ currentEvents: response.data.events_Events})
             })

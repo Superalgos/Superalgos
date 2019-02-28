@@ -66,7 +66,7 @@ const authLink = setContext((_, { headers }) => {
   }
 })
 
-const cache = new InMemoryCache().restore(window.__APOLLO_STATE__)
+const cache = new InMemoryCache({ addTypename: false }).restore(window.__APOLLO_STATE__)
 
 const defaultOptions = {
   watchQuery: {

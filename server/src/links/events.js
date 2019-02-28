@@ -132,12 +132,12 @@ export const resolver = (usersSchema, teamsSchema, operationsSchema) => ({
     },
     clone: {
       fragment: `fragment CloneFragment on events_Participant{operationId}`,
-      resolve ({operationId : cloneIdList}, args, context, info) {
+      resolve ({operationId: cloneId}, args, context, info) {
         return info.mergeInfo.delegateToSchema({
           schema: operationsSchema,
           operation: 'query',
-          fieldName: 'operations_GetClones',
-          args: { cloneIdList },
+          fieldName: 'operations_GetClone',
+          args: { cloneId },
           context,
           info
         })

@@ -86,7 +86,7 @@ const operationsMenus = {
 const allMenus = [
   usersMenus,
   teamsMenus,
-  // eventsMenus,
+  eventsMenus,
   // financialBeingsMenus,
   keyvaultMenus,
   operationsMenus

@@ -8,7 +8,7 @@ import jwksRsa from 'jwks-rsa'
 import axios from 'axios'
 
 import { createTransformedRemoteSchema } from './createRemoteSchema'
-import { teams, events } from './links'
+import { teams, events, operations } from './links'
 
 import logger from './logger'
 
@@ -99,6 +99,10 @@ async function run () {
   }
   if (transformedOperationsSchema) {
     schemas.push(transformedOperationsSchema)
+    if (transformedTeamsSchema) {
+      schemas.push(operations.linkSchemaDefs)
+      resolvers = Object.assign(resolvers, operations.resolver(transformedTeamsSchema))
+    }
   }
   if (transformedNotificationsSchema) {
     schemas.push(transformedNotificationsSchema)

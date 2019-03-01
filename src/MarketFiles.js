@@ -1,4 +1,4 @@
-
+ ﻿
 function newMarketFiles () {
   const MODULE_NAME = 'Market Files'
   const INFO_LOG = false

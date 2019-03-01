@@ -1,4 +1,4 @@
- ﻿
+
 function newFileCloud () {
   const MODULE_NAME = 'File Cloud'
   const INFO_LOG = false
@@ -33,15 +33,19 @@ function newFileCloud () {
     }
   }
 
-  function getFile (pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
+  function getFile (pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction, pOperationsId) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] getFile -> Entering function.') }
 
       const MAX_RETRIES = 3
 
-      getFileRecursively(0, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
+      if (pOperationsId !== undefined) {
+        getFileRecursively(0, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction, pOperationsId)
+      } else {
+        getFileRecursively(0, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
+      }
 
-      function getFileRecursively (pRetryCounter, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
+      function getFileRecursively (pRetryCounter, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction, pOperationsId) {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> Entering function.') }
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> key = ' + pDevTeam.codeName + '-' + pBot.codeName + '-' + pSet.filePath + '-' + pSet.fileName) }
@@ -92,7 +96,11 @@ function newFileCloud () {
           }
 
           if (pBot !== undefined) {
-            filePath = filePath.replace('@Bot', pBot.codeName)
+            if (pOperationsId !== undefined) {
+              filePath = filePath.replace('@Bot', pBot.codeName + '-' + pOperationsId)
+            } else {
+              filePath = filePath.replace('@Bot', pBot.codeName)
+            }
           }
 
           if (pExchange !== undefined) {
@@ -153,7 +161,6 @@ function newFileCloud () {
 
                 if (err.message === 'XHR error') {
                   if (pRetryCounter < MAX_RETRIES) {
-
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> Retrying to get this file. ') }
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> MAX_RETRIES = ' + MAX_RETRIES) }
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> pRetryCounter = ' + pRetryCounter) }
@@ -161,7 +168,6 @@ function newFileCloud () {
                     getFileRecursively(pRetryCounter + 1, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
                     return
                   } else {
-
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> Could not get this file from storage. ') }
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> MAX_RETRIES = ' + MAX_RETRIES) }
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> pRetryCounter = ' + pRetryCounter) }

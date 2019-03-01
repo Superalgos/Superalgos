@@ -1,4 +1,4 @@
- ﻿
+
 function newCurrentStartMode () {
   var thisObject = {
     container: undefined,
@@ -34,7 +34,7 @@ function newCurrentStartMode () {
   }
 
   function resize () {
-    container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 3
+    container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 4
     container.frame.position.y = viewPort.visibleArea.bottomLeft.y
   }
 

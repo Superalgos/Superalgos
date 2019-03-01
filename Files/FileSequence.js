@@ -1,4 +1,4 @@
- ﻿
+
 function newFileSequence () {
   const MODULE_NAME = 'File Sequence'
   const INFO_LOG = false
@@ -50,7 +50,7 @@ function newFileSequence () {
     }
   }
 
-  function initialize (pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
+  function initialize (pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction, pOperationsId) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDevTeam.codeName + '-' + pBot.codeName + '-' + pProduct.codeName) }
@@ -76,7 +76,11 @@ function newFileSequence () {
 
             /* First we will get the sequence max number */
 
-      fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
+      if (pOperationsId !== undefined) {
+        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived, pOperationsId)
+      } else {
+        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
+      }
 
       function onSequenceFileReceived (err, file) {
         try {
@@ -125,26 +129,27 @@ function newFileSequence () {
                     /* Now we will get the sequence of files */
 
           for (let i = 0; i <= maxSequence; i++) {
-            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
+            if (pOperationsId !== undefined) {
+              fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived, pOperationsId)
+            } else {
+              fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
+            }
 
             function onFileReceived (err, file) {
               try {
                 switch (err.result) {
                   case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received OK Response.') }
                     break
                   }
 
                   case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received FAIL Response.') }
                     callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
                     return
                   }
 
                   case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received CUSTOM FAIL Response.') }
                     if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> err.message = ' + err.message) }
 
@@ -153,7 +158,6 @@ function newFileSequence () {
                   }
 
                   default: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received Unexpected Response.') }
                     callBackFunction(err)
                     return
@@ -207,7 +211,11 @@ function newFileSequence () {
       if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> bot = ' + bot.codeName) }
       if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> thisSet = ' + thisSet.codeName) }
 
-      fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
+      if (pOperationsId !== undefined) {
+        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived, pOperationsId)
+      } else {
+        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
+      }
 
       function onSequenceFileReceived (err, file) {
         try {
@@ -252,32 +260,32 @@ function newFileSequence () {
           for (let i = currentMaxSequence; i <= maxSequence; i++) {
             if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> i = ' + i) }
 
-            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
+            if (pOperationsId !== undefined) {
+              fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived, pOperationsId)
+            } else {
+              fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
+            }
 
             function onFileReceived (err, file) {
               try {
                 switch (err.result) {
                   case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Received OK Response.') }
                     break
                   }
 
                   case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Received FAIL Response.') }
                     return
                   }
 
                   case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Received CUSTOM FAIL Response.') }
                     if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> err.message = ' + err.message) }
                     return
                   }
 
                   default: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Received Unexpected Response.') }
                     return
                   }

@@ -1,4 +1,4 @@
- ﻿
+
 function newPlayStopButton () {
   var thisObject = {
     container: undefined,
@@ -56,7 +56,7 @@ function newPlayStopButton () {
   }
 
   function resize () {
-    container.frame.position.x = viewPort.visibleArea.topLeft.x + 150 * 4
+    container.frame.position.x = viewPort.visibleArea.topLeft.x + 150 * 5
     container.frame.position.y = viewPort.visibleArea.bottomLeft.y
   }
 

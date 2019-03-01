@@ -28,9 +28,8 @@
    function getTicker (pMarket, callBackFunction) {
      let authToken = window.localStorage.getItem('access_token')
 
-     let path = SERVER_URL
-            + CURRENT_BOT_CODE_NAME + '/'
-            + 'getTicker' + '/'
+        let path = SERVER_URL
+            + "getTicker" + "/"
             + authToken
 
      callServer(undefined, path + '/NO-LOG', onServerResponse)
@@ -48,31 +47,54 @@
    function getOpenPositions (pMarket, callBackFunction) {
      let authToken = window.localStorage.getItem('access_token')
 
-     let path = SERVER_URL
-            + CURRENT_BOT_CODE_NAME + '/'
-            + 'getOpenPositions' + '/'
+        let authToken = window.localStorage.getItem('access_token');
+
+        let path = SERVER_URL
+            + "getOpenPositions" + "/"
             + authToken
 
-     callServer(undefined, path + '/NO-LOG', onServerResponse)
+        function onServerResponse(pServerResponse) {
+            let response = JSON.parse(pServerResponse);
+            if (response.result === window.DEFAULT_FAIL_RESPONSE.result)
+                callBackFunction(window.DEFAULT_FAIL_RESPONSE);
+            else
+                callBackFunction(window.DEFAULT_OK_RESPONSE, response);
+        }
+    }
 
-     function onServerResponse (pServerResponse) {
-       let response = JSON.parse(pServerResponse)
-       if (response.result === window.DEFAULT_FAIL_RESPONSE.result) {
-         callBackFunction(window.DEFAULT_FAIL_RESPONSE)
-       } else {
-         callBackFunction(window.DEFAULT_OK_RESPONSE, response)
-       }
-     }
-   }
+    function getExecutedTrades(pPositionId, callBackFunction) {
 
-   function getExecutedTrades (pPositionId, callBackFunction) {
-     let authToken = window.localStorage.getItem('access_token')
+        let authToken = window.localStorage.getItem('access_token');
 
-     let path = SERVER_URL
-            + CURRENT_BOT_CODE_NAME + '/'
-            + 'getExecutedTrades' + '/'
-            + authToken + '/'
+        let path = SERVER_URL
+            + "getExecutedTrades" + "/"
+            + authToken + "/"
             + pPositionId
+            ;
+
+        callServer(undefined, path + "/NO-LOG", onServerResponse);
+
+        function onServerResponse(pServerResponse) {
+            let response = JSON.parse(pServerResponse);
+            if (response.result === window.DEFAULT_FAIL_RESPONSE.result)
+                callBackFunction(window.DEFAULT_FAIL_RESPONSE);
+            else
+                callBackFunction(window.DEFAULT_OK_RESPONSE, response);
+        }
+    }
+    
+    function putPosition(pMarket, pType, pRate, pAmountA, pAmountB, callBackFunction) {
+
+        let authToken = window.localStorage.getItem('access_token');
+
+        let path = SERVER_URL
+            + "putPosition" + "/"
+            + authToken + "/"
+            + pType + "/"
+            + pRate + "/"
+            + pAmountA + "/"
+            + pAmountB
+            ;
 
      callServer(undefined, path + '/NO-LOG', onServerResponse)
 
@@ -98,27 +120,11 @@
             + pAmountA + '/'
             + pAmountB
 
-     callServer(undefined, path + '/NO-LOG', onServerResponse)
-
-     function onServerResponse (pServerResponse) {
-       let response = JSON.parse(pServerResponse)
-       if (response.result === window.DEFAULT_FAIL_RESPONSE.result) {
-         callBackFunction(window.DEFAULT_FAIL_RESPONSE)
-       } else {
-         callBackFunction(window.DEFAULT_OK_RESPONSE, response)
-       }
-     }
-   }
-
-   function movePosition (pPositionId, pNewRate, pPositionAmountB, callBackFunction) {
-     let authToken = window.localStorage.getItem('access_token')
-
-     let path = SERVER_URL
-            + CURRENT_BOT_CODE_NAME + '/'
-            + 'movePosition' + '/'
-            + authToken + '/'
-            + pPositionId + '/'
-            + pNewRate + '/'
+        let path = SERVER_URL
+            + "movePosition" + "/"
+            + authToken + "/"
+            + pPositionId + "/"
+            + pNewRate + "/"
             + pPositionAmountB
 
      callServer(undefined, path + '/NO-LOG', onServerResponse)
@@ -145,11 +151,21 @@
 
      callServer(undefined, path + '/NO-LOG', onServerResponse)
 
-     function onServerResponse (pServerResponse) {
-       let response = JSON.parse(pServerResponse)
-       if (response.result === window.DEFAULT_FAIL_RESPONSE.result) {
-         callBackFunction(window.DEFAULT_FAIL_RESPONSE)
-       } else { callBackFunction(window.DEFAULT_OK_RESPONSE, response) }
-     }
-   }
- }
+        let path = SERVER_URL
+            + "getPublicTradeHistory" + "/"
+            + authToken + "/"
+            + startTime + "/"
+            + endTime
+            ;
+
+        callServer(undefined, path + "/NO-LOG", onServerResponse);
+
+        function onServerResponse(pServerResponse) {
+            let response = JSON.parse(pServerResponse);
+            if (response.result === window.DEFAULT_FAIL_RESPONSE.result)
+                callBackFunction(window.DEFAULT_FAIL_RESPONSE);
+            else
+                callBackFunction(window.DEFAULT_OK_RESPONSE, response);
+        }
+    }
+}

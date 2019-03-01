@@ -1,4 +1,4 @@
- ﻿
+
 function newLogin () {
   let thisObject = {
     container: undefined,
@@ -26,9 +26,11 @@ function newLogin () {
 
   return thisObject
 
-  function initialize (callBackFunction) {
+  function initialize (pSharedStatus, callBackFunction) {
     const accessToken = window.localStorage.getItem('access_token')
     let user = window.localStorage.getItem('user')
+
+    sharedStatus = pSharedStatus
 
     if (user === null) {
             // if there is no user that means that we are logged off, which means it is time to clean the local storage of things from the last log in.
@@ -165,10 +167,73 @@ function newLogin () {
       })
     }
 
+        // Gettings events
+
+    const networkInterfaceEvents = Apollo.lib.createNetworkInterface({
+      uri: window.canvasApp.graphQL.masterAppApiUrl
+    })
+
+    const apolloClientEvents = new Apollo.lib.ApolloClient({
+      networkInterface: networkInterfaceEvents,
+      connectToDevTools: true,
+      addTypename: false
+    })
+
+    const EVENTS = Apollo.gql`
+        query events($maxStartDate: Int, $minEndDate: Int){
+            events_Events(maxStartDate: $maxStartDate, minEndDate: $minEndDate){
+                id
+                title
+                startDatetime
+                endDatetime
+                participants{
+                    clone{
+                        id
+                        team{
+                            slug
+                        }
+                        bot{
+                            slug
+                        }
+                    }
+                }
+            }
+        }
+    `
+
+    const getCurrentEvents = () => {
+      var d = new Date()
+      var nowSeconds = Math.round(d.getTime() / 1000)
+      var twoWeeksAgoSeconds = nowSeconds - 1209600
+      return new Promise((resolve, reject) => {
+        apolloClientEvents.query({
+          query: EVENTS,
+          variables: { maxStartDate: nowSeconds, minEndDate: twoWeeksAgoSeconds }
+        })
+            .then(response => {
+              window.localStorage.setItem('currentEvents', JSON.stringify(response.data.events_Events))
+              currentEvent = window.localStorage.getItem('currentEventObject')
+              if (currentEvent === null || currentEvent === '[]' || currentEvent === '') {
+                sharedStatus.currentEventIndex = -1
+              } else {
+                currentEvent = JSON.parse(currentEvent)
+                sharedStatus.currentEventIndex = response.data.events_Events.findIndex(function (element) {
+                  return element.id == currentEvent.id
+                })
+              }
+              resolve({ currentEvents: response.data.events_Events})
+            })
+            .catch(error => {
+              console.log('apolloClient error getting current events', error)
+              reject(error)
+            })
+      })
+    }
+
         // To avoid race conditions, add asynchronous fetches to array
     let fetchDataPromises = []
 
-    fetchDataPromises.push(getUser(), getTeamByOwner())
+    fetchDataPromises.push(getUser(), getTeamByOwner(), getCurrentEvents())
 
         // When all asynchronous fetches resolve, authenticate user or throw error.
     Promise.all(fetchDataPromises).then(result => {

@@ -1,4 +1,4 @@
- ﻿
+
 function newCurrentProcess () {
   let thisObject = {
     container: undefined,
@@ -49,7 +49,7 @@ function newCurrentProcess () {
   }
 
   function resize () {
-    container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 2
+    container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 3
     container.frame.position.y = viewPort.visibleArea.bottomLeft.y
   }
 

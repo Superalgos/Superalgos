@@ -1,4 +1,3 @@
- ﻿
 function newDevTeam () {
   let thisObject = {
     container: undefined,

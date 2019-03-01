@@ -1,4 +1,4 @@
- ﻿
+
 function newCurrentBot () {
   let thisObject = {
     container: undefined,

@@ -7,7 +7,6 @@ import {
   BugReport,
   People,
   Group,
-  // Adb,
   VpnKey,
   Home,
   AddCircleOutline
@@ -43,47 +42,46 @@ const eventsMenus = {
   icon: Home,
   submenus: [
     { title: 'Directory', to: '/events', icon: ImportContacts },
-    { title: 'Your events', to: '/events/my', icon: GamepadRounded, authenticated: true },
     { title: 'Your hosted events', to: '/events/host', icon: AccessibilityNew, authenticated: true },
     { title: 'Host an event', to: '/events/create', icon: LibraryAdd, authenticated: true },
-    { title: 'Report a Bug', to: 'https://github.com/Superalgos/UsersModule/issues/new', icon: BugReport, externalLink: true }
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/EventsClientModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
 const keyvaultMenus = {
-  title: 'Key Vault',
-  to: '/key-vault',
+  title: 'Keys',
+  to: '/keys',
   icon: Home,
   authenticated: true,
   submenus: [
-    { title: 'Your keys', to: '/key-vault/browse', icon: VpnKey },
-    { title: 'Add key', to: '/key-vault/addKey', icon: AddCircleOutline },
+    { title: 'Your keys', to: '/keys/browse', icon: VpnKey },
+    { title: 'Add key', to: '/keys/addKey', icon: AddCircleOutline },
     { title: 'Report a Bug', to: 'https://github.com/Superalgos/KeyVaultModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
 const operationsMenus = {
-  title: 'Operations',
-  to: '/operations',
+  title: 'Clones',
+  to: '/clones',
   icon: Home,
   authenticated: true,
   submenus: [
-    { title: 'Active clones', to: '/operations/browse', icon: ImportContacts },
-    { title: 'History', to: '/operations/history', icon: LibraryAdd },
-    { title: 'Clone a bot', to: '/operations/add', icon: AddCircleOutline },
+    { title: 'Active Clones', to: '/clones/browse', icon: ImportContacts },
+    { title: 'History Clones', to: '/clones/history', icon: LibraryAdd },
+    { title: 'Create Clone', to: '/clones/add', icon: AddCircleOutline },
     { title: 'Report a Bug', to: 'https://github.com/Superalgos/OperationsModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
-const financialBeingsMenus = {
-  title: 'FBs',
-  to: '/financial-beings',
-  icon: Home,
-  authenticated: false,
-  submenus: [
-    { title: 'Directory', to: '/financial-beings', icon: ImportContacts }
-  ]
-}
+// const financialBeingsMenus = {
+//   title: 'FBs',
+//   to: '/financial-beings',
+//   icon: Home,
+//   authenticated: false,
+//   submenus: [
+//     { title: 'Directory', to: '/financial-beings', icon: ImportContacts }
+//   ]
+// }
 
 const allMenus = [
   usersMenus,

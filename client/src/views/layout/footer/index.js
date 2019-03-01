@@ -34,9 +34,9 @@ class Footer extends Component {
             className={classes.footerContainer}
           >
             <Grid item xs={12} sm={4} md={4}>
-              <NavLink to='/'>
+              <a target='_blank' href='https://superalgos.org/' className={classes.linkStrong}>
                 <img alt='' src={aalogo} width={'100%'} height={'auto'} className={classes.footerLogo} />
-              </NavLink>
+              </a>
               <Grid container className={classes.descriptionLeft} direction='column'>
                 <Typography className={classNames(classes.textLight, classes.descriptionText)} ><strong>Superalgos Ltd.</strong></Typography>
                 <Typography className={classNames(classes.textLight, classes.descriptionText)} gutterBottom>Ground Floor, Palace Court, Church Street,<br />St. Julians&nbsp;STJ3049, Malta</Typography>

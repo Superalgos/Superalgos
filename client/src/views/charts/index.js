@@ -25,6 +25,10 @@ const styles = theme => ({
 
 class Charts extends Component {
   componentDidMount () {
+    if (window.canvasApp.visible === undefined) {
+      loadCanvas() // This happens only once.
+    }
+
     window.canvasApp.visible = true
     let body = document.getElementById('body')
     body.style = 'margin: 0px; padding: 0px; border: 0px; overflow:hidden;'

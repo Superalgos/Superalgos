@@ -8,7 +8,7 @@ import jwksRsa from 'jwks-rsa'
 import axios from 'axios'
 
 import { createTransformedRemoteSchema } from './createRemoteSchema'
-import { teams, events } from './links'
+import { teams, events, operations } from './links'
 
 import logger from './logger'
 
@@ -76,9 +76,9 @@ async function run () {
 
   if (transformedTeamsSchema) {
     schemas.push(transformedTeamsSchema)
-    if (transformedUsersSchema) {
+    if (transformedUsersSchema && transformedEventsSchema) {
       schemas.push(teams.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema))
+      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema, transformedEventsSchema))
     }
   }
   if (transformedUsersSchema) {
@@ -86,9 +86,9 @@ async function run () {
   }
   if (transformedEventsSchema) {
     schemas.push(transformedEventsSchema)
-    if (transformedUsersSchema && transformedTeamsSchema) {
+    if (transformedUsersSchema && transformedTeamsSchema && transformedOperationsSchema) {
       schemas.push(events.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, events.resolver(transformedUsersSchema, transformedTeamsSchema))
+      resolvers = Object.assign(resolvers, events.resolver(transformedUsersSchema, transformedTeamsSchema, transformedOperationsSchema))
     }
   }
   if (transformedKeyVaultSchema) {
@@ -99,6 +99,10 @@ async function run () {
   }
   if (transformedOperationsSchema) {
     schemas.push(transformedOperationsSchema)
+    if (transformedTeamsSchema) {
+      schemas.push(operations.linkSchemaDefs)
+      resolvers = Object.assign(resolvers, operations.resolver(transformedTeamsSchema))
+    }
   }
   if (transformedNotificationsSchema) {
     schemas.push(transformedNotificationsSchema)
@@ -166,8 +170,8 @@ async function run () {
     schema,
     context,
     formatError: error => {
-      logger.error(`An error ocurred inside a module: ${JSON.stringify(error)}`)
-      return error
+      logger.error('An error ocurred inside a module: %s', error.message)
+      return error.message
     },
     formatResponse: response => {
       logger.debug('Response from Apollo Server: ' + response)
@@ -181,29 +185,6 @@ async function run () {
     }
   })
 
-  const whitelist = [
-    process.env.PROJECT_SITE_URL,
-    process.env.PLATFORM_URL,
-    process.env.GRAPHQL_API_URL,
-    process.env.TEAMS_API_URL,
-    process.env.USERS_API_URL,
-    process.env.EVENTS_API_URL,
-    process.env.KEYVAULT_API_URL,
-    process.env.FINANCIAL_BEINGS_API_URL,
-    process.env.NOTIFICATIONS_API_URL
-  ]
-
-  const corsOptionsDelegate = (req, callback) => {
-    let corsOptions
-    if (whitelist.indexOf(req.header('Origin')) !== -1) {
-      corsOptions = { origin: true, credentials: true }
-    } else {
-      corsOptions = { origin: false, credentials: true }
-    }
-    callback(null, corsOptions)
-  }
-
-  // server.applyMiddleware({ app, cors: corsOptionsDelegate })
   server.applyMiddleware({ app, cors: { origin: true, credentials: true, methods:'GET,PUT,POST,DELETE,OPTIONS'}})
 
   app.listen(4100)

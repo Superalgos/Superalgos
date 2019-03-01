@@ -47,8 +47,9 @@ export const defaultOptions = {
     primaryColor: '#e3493c'
   },
   languageDictionary: {
-    title: 'Platform Dev'
-  }
+    title: 'Superalgos Platform'
+  },
+  avatar:null
 }
 
 export const inviteOptions = {
@@ -180,9 +181,6 @@ class Auth {
         alias: authResult.idTokenPayload.nickname
       }
       setItem('user', JSON.stringify(user))
-      if (window.location.href.includes(`callback`)) {
-        // window.location.href = '/dashboard'
-      }
       return true
     }
   }
@@ -200,9 +198,7 @@ class Auth {
         alias: response.data.users_Authenticate.alias
       }
       setItem('user', JSON.stringify(user))
-      if (window.location.href.includes(`callback`)) {
-        window.location.href = '/'
-      }
+      window.location.href = '/'
       return response.data
     } catch (err) {
       return console.log('Sign in or create account error: ', err)

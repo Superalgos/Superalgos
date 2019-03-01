@@ -70,6 +70,10 @@ async function run () {
     'notifications_',
     process.env.NOTIFICATIONS_API_URL,
     process.env.NOTIFICATIONS_API_PRESHARED)
+  const transformedLogsSchema = await createTransformedRemoteSchema(
+    'logs_',
+    process.env.LOGS_API_URL,
+    process.env.LOGS_API_PRESHARED)
 
   var schemas = []
   var resolvers = {}
@@ -107,7 +111,10 @@ async function run () {
   if (transformedNotificationsSchema) {
     schemas.push(transformedNotificationsSchema)
   }
-
+  if (transformedLogsSchema) {
+    schemas.push(transformedLogsSchema)
+  }
+  
   const schema = mergeSchemas({
     schemas,
     resolvers

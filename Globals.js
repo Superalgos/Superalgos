@@ -1,4 +1,4 @@
-﻿/* User Interface Colors */
+ ﻿/* User Interface Colors */
 
 UI_COLOR = {
     DARK: "48, 48, 54",

@@ -1,81 +1,64 @@
-﻿
-/* 
+ ﻿
+/*
 
-We call displacement to the offset we can produce to the object which the displcement object is is a child from. 
-The displacement is a vector that displaces everything static drawn on on the context of the parent object. 
-    
+We call displacement to the offset we can produce to the object which the displcement object is is a child from.
+The displacement is a vector that displaces everything static drawn on on the context of the parent object.
+
 */
 
-function newDisplacement() {
+function newDisplacement () {
+  var displacement = {
+    containerName: '',                      // This is for debugging purposes only.
+    parentDisplacement: undefined,          // Here we store the displacement object of the parent cointainer, if exists.
+    container: undefined,
+    x: 0,                                   // This is the actual x displacement.
+    y: 0,                                   // This is the actual y displacement.
+    displace: displace,
+    undisplaceThisPoint: undisplaceThisPoint,
+    displaceThisPoint: displaceThisPoint
+  }
 
-    var displacement = {
-        containerName: "",                      // This is for debugging purposes only.
-        parentDisplacement: undefined,          // Here we store the displacement object of the parent cointainer, if exists. 
-        container: undefined,
-        x: 0,                                   // This is the actual x displacement.
-        y: 0,                                   // This is the actual y displacement.
-        displace: displace,
-        undisplaceThisPoint: undisplaceThisPoint,
-        displaceThisPoint: displaceThisPoint
-    };
+  return displacement
 
-    return displacement;
-
-
-    function displace(amountX, amountY) {
-
+  function displace (amountX, amountY) {
         /* First we check if by allowing this displacement we would produce the current frame to be beyond its limit. */
 
-        tempDisplacement = newDisplacement();
-        tempDisplacement.x = amountX;
-        tempDisplacement.y = amountY;
+    tempDisplacement = newDisplacement()
+    tempDisplacement.x = amountX
+    tempDisplacement.y = amountY
 
-        if (this.container.frame.canYouMoveHere(tempDisplacement)) {
-
+    if (this.container.frame.canYouMoveHere(tempDisplacement)) {
             /* Now we displace */
 
-            displacement.x = displacement.x + amountX;
-            displacement.y = displacement.y + amountY;
+      displacement.x = displacement.x + amountX
+      displacement.y = displacement.y + amountY
 
-            return true;
-        }
-
-        return false;
+      return true
     }
 
-    function displaceThisPoint(point) {
+    return false
+  }
 
-        if (this.parentDisplacement !== undefined) {
-
-            point = this.parentDisplacement.displaceThisPoint(point);
-
-        } 
-
-        point.x = point.x + displacement.x;
-        point.y = point.y + displacement.y;
-
-        return point;
+  function displaceThisPoint (point) {
+    if (this.parentDisplacement !== undefined) {
+      point = this.parentDisplacement.displaceThisPoint(point)
     }
 
-    function undisplaceThisPoint(point) {
+    point.x = point.x + displacement.x
+    point.y = point.y + displacement.y
 
-        if (this.parentDisplacement !== undefined) {
+    return point
+  }
 
-            point = this.parentDisplacement.undisplaceThisPoint(point);
-
-        }
-
-        point.x = point.x - displacement.x;
-        point.y = point.y - displacement.y;
-
-        return point;
+  function undisplaceThisPoint (point) {
+    if (this.parentDisplacement !== undefined) {
+      point = this.parentDisplacement.undisplaceThisPoint(point)
     }
 
+    point.x = point.x - displacement.x
+    point.y = point.y - displacement.y
+
+    return point
+  }
 }
-
-
-
-
-
-
 

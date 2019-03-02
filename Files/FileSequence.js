@@ -139,20 +139,17 @@ function newFileSequence () {
               try {
                 switch (err.result) {
                   case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received OK Response.') }
                     break
                   }
 
                   case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received FAIL Response.') }
                     callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
                     return
                   }
 
                   case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received CUSTOM FAIL Response.') }
                     if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> err.message = ' + err.message) }
 
@@ -161,7 +158,6 @@ function newFileSequence () {
                   }
 
                   default: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received Unexpected Response.') }
                     callBackFunction(err)
                     return
@@ -274,26 +270,22 @@ function newFileSequence () {
               try {
                 switch (err.result) {
                   case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Received OK Response.') }
                     break
                   }
 
                   case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Received FAIL Response.') }
                     return
                   }
 
                   case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Received CUSTOM FAIL Response.') }
                     if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> err.message = ' + err.message) }
                     return
                   }
 
                   default: {
-
                     if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Received Unexpected Response.') }
                     return
                   }

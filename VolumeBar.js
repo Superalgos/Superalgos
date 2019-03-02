@@ -1,12 +1,10 @@
-﻿function newVolumeBar() {
+ ﻿function newVolumeBar () {
+   var volumeBar = {
+     amountBuy: 0,
+     amountSell: 0,
+     begin: undefined,
+     end: undefined
+   }
 
-    var volumeBar = {
-        amountBuy: 0,
-        amountSell: 0,
-        begin: undefined,
-        end: undefined
-    };
-
-    return volumeBar;
-
-}
+   return volumeBar
+ }

@@ -10,7 +10,8 @@ function newCompetitionStorage (pName) {
 
     competitorsSequences: [],
     eventHandler: undefined,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
 
   }
 
@@ -23,6 +24,23 @@ function newCompetitionStorage (pName) {
   let fileSequences = []
 
   return thisObject
+
+  function finalize () {
+    try {
+      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
+
+      if (thisObject.fileSequences !== undefined) {
+        for (let i = 0; i < thisObject.fileSequences.length; i++) {
+          let fileSequence = thisObject.fileSequences[i]
+          fileSequence.finalize()
+        }
+      }
+
+      thisObject.fileSequences = undefined
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+    }
+  }
 
   function initialize (pHost, pCompetition, pExchange, pMarket, callBackFunction) {
     try {

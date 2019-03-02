@@ -22,10 +22,21 @@ function newAnimation () {
     stop: stop,
     addCallBackFunction: addCallBackFunction,
     removeCallBackFunction: removeCallBackFunction,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   return thisObject
+
+  function finalize () {
+    try {
+      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
+
+      thisObject.stop()
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+    }s
+  }
 
   function initialize (callBackFunction) {
     try {

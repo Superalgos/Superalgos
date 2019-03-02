@@ -20,7 +20,8 @@ function newTimeMachine () {
     draw: draw,
     charts: [],
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   let container = newContainer()
@@ -35,6 +36,19 @@ function newTimeMachine () {
   let productsPanelHandle            // ... also to request a reference to the object for the cases we need it.
 
   return thisObject
+
+  function finalize () {
+    try {
+      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
+
+      for (let i = 0; i < thisObject.charts.length; i++) {
+        let chart = thisObject.charts[i]
+        chart.finalize()
+      }
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+    }
+  }
 
   function initialize (callBackFunction) {
     if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }

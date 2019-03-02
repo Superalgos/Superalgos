@@ -68,14 +68,14 @@ function newProductStorage (pName) {
         dailyFile.finalize()
       }
 
-      thisObject.dailyFile = undefined
+      thisObject.dailyFiles = undefined
 
       for (let i = 0; i < thisObject.fileSequences.length; i++) {
         let fileSequence = thisObject.fileSequences[i]
         fileSequence.finalize()
       }
 
-      thisObject.dailyFile = undefined
+      thisObject.fileSequences = undefined
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
     }

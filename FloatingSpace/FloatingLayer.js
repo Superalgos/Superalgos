@@ -28,7 +28,8 @@ function newFloatingLayer () {
     isInside: isInside,
     isInsideFloatingObject: isInsideFloatingObject,
     changeTargetRepulsion: changeTargetRepulsion,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
     /*
@@ -64,6 +65,18 @@ function newFloatingLayer () {
   let currentHandle = 0
 
   return thisObject
+
+  function finalize () {
+    try {
+      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
+
+      invisibleFloatingObjects = []
+      visibleFloatingObjects = []
+      dyingFloatingObjects = []
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+    }
+  }
 
   function initialize (callBackFunction) {
     try {

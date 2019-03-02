@@ -9,6 +9,7 @@ changes, then all charts in it are replotted with the corresponging data.
 function newChartSpace () {
   const MODULE_NAME = 'Chart Space'
   const INFO_LOG = false
+  const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
@@ -17,7 +18,8 @@ function newChartSpace () {
     draw: draw,
     timeMachines: [],
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   var container = newContainer()
@@ -36,6 +38,19 @@ function newChartSpace () {
   container.isDraggeable = false
 
   return thisObject
+
+  function finalize () {
+    try {
+      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
+
+      for (let i = 0; i < thisObject.timeMachines.length; i++) {
+        let timeMachine = thisObject.timeMachines[i]
+        timeMachine.finalize()
+      }
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+    }
+  }
 
   function initialize (callBackFunction) {
     if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }

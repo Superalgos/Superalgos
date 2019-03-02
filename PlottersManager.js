@@ -19,7 +19,8 @@ function newPlottersManager () {
     container: undefined,
     draw: draw,
     getContainer: getContainer,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   let container = newContainer()
@@ -34,6 +35,67 @@ function newPlottersManager () {
   let productsPanel
 
   return thisObject
+
+  function finalize (callBackFunction) {
+    try {
+      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
+
+      for (let i = 0; i < productPlotters.length; i++) {
+        if (productPlotters[i].profile !== undefined) {
+          canvas.floatingSpace.profileBalls.destroyProfileBall(productPlotters[i].profile)
+        }
+                    /* Destroyd the Note Set */
+
+        canvas.floatingSpace.noteSets.destroyNoteSet(productPlotters[i].noteSet)
+
+                    /* Then the panels. */
+
+        for (let j = 0; j < productPlotters[i].panels.length; j++) {
+          canvas.panelsSpace.destroyPanel(productPlotters[i].panels[j])
+        }
+
+                    /* Finally the Storage Objects */
+
+        productPlotters[i].storage.finalize()
+
+        if (productPlotters[i].plotter.finalize !== undefined) {
+          productPlotters[i].plotter.finalize()
+        }
+
+        productPlotters.splice(i, 1) // Delete item from array.
+      }
+
+      for (let i = 0; i < competitionPlotters.length; i++) {
+        if (competitionPlotters[i].profile !== undefined) {
+          canvas.floatingSpace.profileBalls.destroyProfileBall(competitionPlotters[i].profile)
+        }
+                    /* Destroyd the Note Set */
+
+        canvas.floatingSpace.noteSets.destroyNoteSet(competitionPlotters[i].noteSet)
+
+                    /* Then the panels. */
+
+        if (competitionPlotters[i].panels !== undefined) {
+          for (let j = 0; j < competitionPlotters[i].panels.length; j++) {
+            canvas.panelsSpace.destroyPanel(competitionPlotters[i].panels[j])
+          }
+        }
+
+                    /* Finally the Storage Objects */
+
+        competitionPlotters[i].storage.finalize()
+
+        if (competitionPlotters[i].plotter.finalize !== undefined) {
+          competitionPlotters[i].plotter.finalize()
+        }
+
+        competitionPlotters.splice(i, 1) // Delete item from array.
+      }
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+    }
+  }
 
   function initialize (pProductsPanel, callBackFunction) {
     try {
@@ -570,7 +632,7 @@ function newPlottersManager () {
     }
 
     if (pProductCard.status === PRODUCT_CARD_STATUS.OFF) {
-            /* If the plotter of this card is on our Active Plotters list, then we remove it. */
+            /* If the plotter of this card is not on our Active Plotters list, then we remove it. */
 
       for (let i = 0; i < productPlotters.length; i++) {
         if (productPlotters[i].productCard.code === pProductCard.code) {
@@ -686,4 +748,3 @@ function newPlottersManager () {
     }
   }
 }
-

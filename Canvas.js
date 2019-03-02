@@ -38,7 +38,8 @@ function newCanvas () {
     panelsSpace: undefined,
     bottomSpace: undefined,
     animation: undefined,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   thisObject.eventHandler = newEventHandler()
@@ -77,6 +78,33 @@ function newCanvas () {
     |
     ---> bottomSpace
 */
+
+  function finalize () {
+    try {
+      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
+
+      thisObject.chartSpace.finalize()
+      thisObject.floatingSpace.finalize()
+
+      browserCanvas.removeEventListener('mousedown', onMouseDown, false)
+      browserCanvas.removeEventListener('mouseup', onMouseUp, false)
+      browserCanvas.removeEventListener('mousemove', onMouseMove, false)
+      browserCanvas.removeEventListener('click', onMouseClick, false)
+
+            /* Mouse wheel events. */
+
+      if (browserCanvas.removeEventListener) {
+                // IE9, Chrome, Safari, Opera
+        browserCanvas.removeEventListener('mousewheel', onMouseWheel, false)
+                // Firefox
+        browserCanvas.removeEventListener('DOMMouseScroll', onMouseWheel, false)
+      }
+            // IE 6/7/8
+      else browserCanvas.detachEvent('onmousewheel', onMouseWheel)
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+    }
+  }
 
   function initialize (callBackFunction) {
     try {

@@ -16,7 +16,8 @@
      container: undefined,
      draw: draw,
      getContainer: getContainer,
-     initialize: initialize
+     initialize: initialize,
+     finalize: finalize
    }
 
    let container = newContainer()
@@ -46,6 +47,16 @@
    let plotterManager
 
    return thisObject
+
+   function finalize () {
+     try {
+       if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
+
+       plotterManager.finalize()
+     } catch (err) {
+       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+     }
+   }
 
    function initialize (pProductsPanel, callBackFunction) {
      try {
@@ -467,4 +478,3 @@
      viewPort.displace(displaceVector)
    }
  }
-

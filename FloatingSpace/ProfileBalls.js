@@ -16,13 +16,24 @@ function newProfileBalls () {
 
     createNewProfileBall: createNewProfileBall,
     destroyProfileBall: destroyProfileBall,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
 
   }
 
   let floatingLayer
 
   return thisObject
+
+  function finalize () {
+    try {
+      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
+
+      floatingLayer.finalize()
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+    }
+  }
 
   function initialize (pFloatingLayer, callBackFunction) {
     try {

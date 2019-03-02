@@ -27,7 +27,11 @@ function newDashboard () {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] start -> Entering function.') }
 
-            /* Here we will setup the global eventHandler that will enable the Canvas App to react to events happening outside its execution scope. */
+      /* If this method is executed for a second time, it should finalize the current execution structure */
+
+      if (canvas !== undefined) { canvas.finalize() }
+
+      /* Here we will setup the global eventHandler that will enable the Canvas App to react to events happening outside its execution scope. */
 
       window.canvasApp.eventHandler = newEventHandler()
       window.canvasApp.eventHandler.listenToEvent('User Profile Changed', userProfileChanged)
@@ -265,4 +269,3 @@ function newDashboard () {
     }
   }
 }
-

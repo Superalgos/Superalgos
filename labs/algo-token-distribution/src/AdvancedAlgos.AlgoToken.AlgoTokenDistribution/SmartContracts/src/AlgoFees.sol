@@ -1,4 +1,4 @@
-pragma solidity 0.4.24;
+pragma solidity 0.5.4;
 
 import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
 import "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol";
@@ -39,7 +39,7 @@ contract AlgoFees is ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeamRole {
         
         uint8 minerCategory = algoMiner.getCategory();
 
-        require(minerCategory >= 0 && minerCategory <= 5);
+        require(minerCategory <= 5);
 
         _minersByAddress[minerAddress] = _miners.length;
         _miners.push(minerAddress);
@@ -51,8 +51,7 @@ contract AlgoFees is ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeamRole {
         if(_miners.length == 2) {
         
             // Just remove the only registered miner...
-            delete _miners[1];
-            _miners.length = 1;
+            _miners.pop();
             delete _minersByAddress[minerAddress];
         
         } else {
@@ -62,8 +61,7 @@ contract AlgoFees is ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeamRole {
                 _miners[_minersByAddress[minerAddress]] = _miners[_miners.length - 1];
             }
 
-            delete _miners[_miners.length - 1];
-            _miners.length--;
+            _miners.pop();
             delete _minersByAddress[minerAddress];
         }
     }
@@ -77,8 +75,9 @@ contract AlgoFees is ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeamRole {
 
         // Count how many ENABLED miners we have for each category...
         uint256[6] memory miners;
+        uint256 minerCount = _miners.length;
 
-        for(uint256 i = 1; i < _miners.length; i++) {
+        for(uint256 i = 1; i < minerCount; i++) {
             IAlgoMiner algoMiner = IAlgoMiner(_miners[i]);
 
             if(!algoMiner.isMining()) continue;
@@ -118,12 +117,12 @@ contract AlgoFees is ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeamRole {
         feePerMiner[5] = currentFeesBalance * CAT_5_VALUE_PROPORTION / totalProportion;
 
         // Transfer the fees to ENABLED miners...
-        for(i = 1; i < _miners.length; i++) {
-            algoMiner = IAlgoMiner(_miners[i]);
+        for(uint256 i = 1; i < minerCount; i++) {
+            IAlgoMiner algoMiner = IAlgoMiner(_miners[i]);
 
             if(!algoMiner.isMining()) continue;
 
-            minerCategory = algoMiner.getCategory();
+            uint8 minerCategory = algoMiner.getCategory();
 
 			_token.safeTransfer(algoMiner.getMiner(), feePerMiner[minerCategory]);
         }

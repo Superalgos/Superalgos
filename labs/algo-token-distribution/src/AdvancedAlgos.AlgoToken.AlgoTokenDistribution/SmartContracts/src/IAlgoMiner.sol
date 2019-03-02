@@ -1,4 +1,4 @@
-pragma solidity 0.4.24;
+pragma solidity 0.5.4;
 
 contract IAlgoMiner {
     function isAlgoMiner() public pure returns (bool);

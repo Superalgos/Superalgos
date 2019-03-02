@@ -1,4 +1,4 @@
-pragma solidity 0.4.24;
+pragma solidity 0.5.4;
 
 import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
 import "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol";
@@ -35,7 +35,7 @@ contract AlgoPool is AlgoCommon, ERC20TokenHolder, AlgoCoreTeamRole {
         
         uint8 minerCategory = algoMiner.getCategory();
 
-        require(minerCategory >= 0 && minerCategory <= 5);
+        require(minerCategory <= 5);
 
         uint256 value = getCapacityByCategory(minerCategory);
 

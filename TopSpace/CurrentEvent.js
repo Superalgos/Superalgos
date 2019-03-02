@@ -6,8 +6,8 @@ function newCurrentEvent () {
     initialize: initialize
   }
 
-  const ecosystemBase =
-    [{
+  function buildEcosystemEventsHack (reload) {
+    let hackedEcosystem = [{
       'codeName': 'AAArena',
       'displayName': 'AA Arena',
       'competitions': [{
@@ -42,9 +42,6 @@ function newCurrentEvent () {
         'configFile': 'this.plotter.config.json'
       }]
     }]
-
-  function buildEcosystemEventsHack (reload) {
-    let hackedEcosystem = ecosystemBase
 
     let ecosysTemp = window.localStorage.getItem('currentEventObject')
     if (!(ecosysTemp === null || ecosysTemp === '[]' || ecosysTemp === '')) {

@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Algoteers/MasterApp#readme",
   "devDependencies": {
+    "@superalgos/logs-client": "0.0.1",
     "@superalgos/events-client": "0.0.2",
     "@advancedalgos/financial-beings-client": "0.0.5",
     "@superalgos/operations-client": "0.0.17",

@@ -1,4 +1,4 @@
-pragma solidity 0.4.24;
+pragma solidity 0.5.4;
 
 import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
 import "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol";
@@ -45,7 +45,7 @@ contract AlgoMiner is AlgoCommon, ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeam
         AlgoSupervisorRole()
         public {
         
-        require(category >= 0 && category <= 5);
+        require(category <= 5);
         require(minerAccountAddress != address(0));
 
         if(minerType == MinerType.PoolBased) {

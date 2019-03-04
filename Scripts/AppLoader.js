@@ -70,10 +70,11 @@ function newAppLoader() {
                 "FloatingSpace/FloatingLayer.js",
 
                 "Exchange/ExchangeAPI.js",
-                "CloudVM/CloudSupport.js",
-                "CloudVM/CloudRequire.js",
-                "CloudVM/WebFS.js",
-                "CloudVM/CloudVM.js",
+
+                "CloudAppWrapper/CloudSupport.js",
+                "CloudAppWrapper/CloudRequire.js",
+                "CloudAppWrapper/WebFS.js",
+                "CloudAppWrapper/BrowserRun.js",
 
                 "Scales/ChartGrid.js",
                 "Scales/RightScale.js",

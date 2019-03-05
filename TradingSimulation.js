@@ -578,6 +578,7 @@
                 if (record.type === 'Sell-1') { directionShort = +1; }
                 if (record.type === 'Sell-2') { directionShort = +1; }
                 if (record.signal === 'Pre-Sell') { directionShort = +1; }
+                if (record.signal === 'Pre-Sell-Cancelled') { directionShort = -1; }
 
                 if (strategyPhase > 0) {
                     if (strategyPhase % 2 !== 0) { //Depending if the phase is oddd or even goes above or below.
@@ -960,7 +961,15 @@
 
                     if (record.signal === 'Pre-Sell') {
 
-                        line1 = 'Get ready';
+                        line1 = 'Ready';
+                        line2 = 'to SELL.';
+
+                        imageToDraw = smileyGhost;
+                    }
+
+                    if (record.signal === 'Pre-Sell-Cancelled') {
+
+                        line1 = 'Not ready';
                         line2 = 'to SELL.';
 
                         imageToDraw = smileyGhost;
@@ -1110,6 +1119,7 @@
         }
     }
 }
+
 
 
 

@@ -267,14 +267,15 @@
                                                         movingAverage = movingAverage + value;
                                                         movingAverage = movingAverage / (numberOfPreviousPeriods + 1);
 
+                                                        let bandwidth = (upperBB- lowerBB) / band.movingAverage;
+
                                                         let percentageBandwidth = {
                                                             begin: candles[i].begin,
                                                             end: candles[i].end,
                                                             value: value,
-                                                            movingAverage: movingAverage
+                                                            movingAverage: movingAverage,
+                                                            bandwidth: bandwidth
                                                         };
-
-                                                        /* Will only add to the array the pBs of the current day */
 
                                                         pBArray.push(percentageBandwidth);
                                                     }
@@ -377,7 +378,8 @@
                                                             pB.begin + "," +
                                                             pB.end + "," +
                                                             pB.value + "," +
-                                                            pB.movingAverage + "]";
+                                                            pB.movingAverage + "," +
+                                                            pB.bandwidth + "]"; 
 
                                                         if (separator === "") { separator = ","; }
 

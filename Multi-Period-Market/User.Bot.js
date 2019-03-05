@@ -286,7 +286,7 @@
 
                                     let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                    let filePathRoot = bot.devTeam + "/" + "AAChris" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.devTeam + "/" + "AAPaula" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + BOLLINGER_CHANNELS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
                                     chrisStorage.getTextFile(filePath, fileName, onFileReceived, true);
@@ -364,7 +364,7 @@
 
                                     let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                    let filePathRoot = bot.devTeam + "/" + "AAChris" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.devTeam + "/" + "AAPaula" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + BOLLINGER_SUB_CHANNELS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
                                     chrisStorage.getTextFile(filePath, fileName, onFileReceived, true);
@@ -681,7 +681,15 @@
                 }
             }
 
-            function runSimulation(candles, bollingerBandsMap, percentgeBandwidthMap, recordsArray, outputPeriod, callback) {
+            function runSimulation(
+                candles,
+                bollingerBandsMap,
+                percentgeBandwidthMap,
+                bollingerChannelsArray,
+                bollingerSubChannelsArray,
+                recordsArray,
+                outputPeriod,
+                callback) {
 
                 try {
 
@@ -1027,6 +1035,10 @@
                                 We keep our buy order just below the the Bollinger Bands moving average.
                 
                                 */
+
+                                let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
+
+
                             }
 
                         }

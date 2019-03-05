@@ -386,7 +386,7 @@
 
                                             marketFile = JSON.parse(text);
 
-                                            buildBollingerChannelsArray();
+                                            buildBollingerSubChannelsArray();
 
 
                                         }
@@ -792,7 +792,7 @@
                         /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
                         if (candle.max >= stopLoss &&
-                            strategyPhase === 2) {
+                            strategyPhase === 3) {
 
                             balanceAssetA = balanceAssetB / stopLoss;
                             //if (isNaN(balanceAssetA)) { balanceAssetA = 0; }
@@ -806,7 +806,7 @@
                         /* Buy Order condition: Here we verify if the Buy Order was filled or not. */
 
                         if (candle.min <= buyOrder &&
-                            strategyPhase === 2) {
+                            strategyPhase === 3) {
 
                             balanceAssetA = balanceAssetB / buyOrder;
                             //if (isNaN(balanceAssetA)) { balanceAssetA = 0; }
@@ -817,7 +817,7 @@
                             strategyPhase = 4;
                         }
 
-                        if (strategyPhase < 3) {
+                        if (strategyPhase < 4) { // A buy condition has not been detected.
 
                             if (strategy === 1) {
 
@@ -844,17 +844,7 @@
 
 
 
-                                if (
-                                    strategyPhase === 0 &&
-                                    percentgeBandwidth.value >= 70 &&                                    
-                                    (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) &&
-                                    presellModeIsActive === false
-                                ) {
-                                    signal = '"Pre-Sell"';
-                                    presellModeIsActive = true;
-                                    strategyPhase = 1;
 
-                                };
 
                                 /* Sell Condition #1 */
 
@@ -889,24 +879,30 @@
                                     buyOrderPhase = 1;
                                 }
 
-                                if (stopLossPhase === 1) {
+                                /* Signal to be ready to Sell */
 
-                                    newStopLoss = newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
+                                if (
+                                    strategyPhase === 0 &&
+                                    percentgeBandwidth.value >= 70 &&
+                                    (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) &&
+                                    presellModeIsActive === false
+                                ) {
+                                    signal = '"Pre-Sell"';
+                                    presellModeIsActive = true;
+                                    strategyPhase = 1;
+
+                                };
+
+                                /* Stop Loss Management */
+
+                                if (stopLossPhase === 3) {
+
+                                    newStopLoss = band.movingAverage;
 
                                     if (newStopLoss < previousStopLoss) {
                                         stopLoss = newStopLoss;
                                     } else {
                                         stopLoss = previousStopLoss;
-                                    }
-
-                                    if (
-                                        strategyPhase === 2 &&
-                                        candle.max < band.movingAverage &&
-                                        band1.movingAverage > band.movingAverage 
-                                    ) {
-
-                                        stopLossPhase = 2;
-
                                     }
                                 }
 
@@ -927,35 +923,53 @@
                                     }
                                 }
 
-                                if (stopLossPhase === 3) {
+                                if (stopLossPhase === 1) {
 
-                                    newStopLoss = band.movingAverage;
+                                    newStopLoss = newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
 
                                     if (newStopLoss < previousStopLoss) {
                                         stopLoss = newStopLoss;
                                     } else {
                                         stopLoss = previousStopLoss;
-                                    }              
-                                }
-
-
-
-
-                                if (buyOrderPhase === 1) {
-
-                                    buyOrderDecay = buyOrderDecay + buyOrderDecayIncrement;
-
-                                    buyOrder = band.movingAverage - band.standardDeviation * 10; //+ band.movingAverage - band.standardDeviation * 4 * (buyOrderPercentage + buyOrderDecay) / 100;
+                                    }
 
                                     if (
-                                        strategyPhase === 2 &&
+                                        strategyPhase === 3 &&
                                         candle.max < band.movingAverage &&
-                                        band1.movingAverage > band.movingAverage &&
-                                        candle.min < band.movingAverage - band.deviation
+                                        band1.movingAverage > band.movingAverage 
                                     ) {
 
-                                        buyOrderPhase = 2;
+                                        stopLossPhase = 2;
 
+                                    }
+                                }
+
+                                /* Buy Orders Management */
+
+                                if (buyOrderPhase === 5) {
+
+                                    buyOrder = band.movingAverage - band.standardDeviation * 2;
+
+                                }
+
+                                if (buyOrderPhase === 4) {
+
+                                    buyOrder = band.movingAverage - band.standardDeviation * 3;
+
+                                    if (
+                                        percentgeBandwidth1.movingAverage < percentgeBandwidth.movingAverage &&
+                                        percentgeBandwidth.movingAverage > 30
+                                    ) {
+                                        buyOrderPhase = 5;
+                                    }
+                                }
+
+                                if (buyOrderPhase === 3) {
+
+                                    buyOrder = band.movingAverage - band.standardDeviation * 4;
+
+                                    if (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) {
+                                        buyOrderPhase = 4;
                                     }
                                 }
 
@@ -971,34 +985,28 @@
                                     }
                                 }
 
-                                if (buyOrderPhase === 3) {
+                                if (buyOrderPhase === 1) {
 
-                                    buyOrder = band.movingAverage - band.standardDeviation * 4;
+                                    buyOrderDecay = buyOrderDecay + buyOrderDecayIncrement;
 
-                                    if (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) {
-                                        buyOrderPhase = 4;
-                                    }
-                                }
-
-                                if (buyOrderPhase === 4) {
-
-                                    buyOrder = band.movingAverage - band.standardDeviation * 3;
+                                    buyOrder = band.movingAverage - band.standardDeviation * 10; //+ band.movingAverage - band.standardDeviation * 4 * (buyOrderPercentage + buyOrderDecay) / 100;
 
                                     if (
-                                        percentgeBandwidth1.movingAverage < percentgeBandwidth.movingAverage &&
-                                        percentgeBandwidth.movingAverage > 30
+                                        strategyPhase === 3 &&
+                                        candle.max < band.movingAverage &&
+                                        band1.movingAverage > band.movingAverage &&
+                                        candle.min < band.movingAverage - band.deviation
                                     ) {
-                                        buyOrderPhase = 5;
+
+                                        buyOrderPhase = 2;
+
                                     }
                                 }
 
-                                if (buyOrderPhase === 5) {
 
-                                    buyOrder = band.movingAverage - band.standardDeviation * 2;
+                                /* Check if a Sell condition was found. */
 
-                                }
-
-                                if (strategyPhase === 2) {
+                                if (strategyPhase === 2) { 
 
                                     previousBalanceAssetA = balanceAssetA;
                                     lastProfit = 0;

@@ -639,7 +639,7 @@
 
                             n++;
 
-                            if (n < global.marketFilesPeriods.length) {
+                            if (n < global.marketFilesPeriods.length - 1) {
 
                                 loopBody();
 
@@ -781,7 +781,7 @@
                             manually.
                             */
 
-                            strategy = 1;
+                            strategy = 2;
                         }
 
                         /* Checking what happened since the last execution. We need to know if the Stop Loss
@@ -817,7 +817,7 @@
 
                         if (strategyPhase < 4) { // A buy condition has not been detected.
 
-                            if (strategy === 2) {
+                            if (strategy === 1) {
 
                                 /* Strategy #1: Trend Following. */
 
@@ -998,30 +998,6 @@
                                     }
                                 }
 
-
-                                /* Check if a Sell condition was found. */
-
-                                if (strategyPhase === 2) { 
-
-                                    previousBalanceAssetA = balanceAssetA;
-                                    lastProfit = 0;
-                                    lastProfitPercent = 0;
-
-                                    balanceAssetB = balanceAssetA * candle.close;
-                                    balanceAssetA = 0;
-
-                                    rate = candle.close;
-                                    sellRate = rate;
-
-                                    stopLoss = sellRate + sellRate * stopLossPercentage / 100;
-
-                                    stopLossDecay = 0;
-
-                                    addRecord();
-
-                                    strategyPhase = 3;
-                                    continue;
-                                }
                             }
 
                             if (strategy === 2) {
@@ -1040,8 +1016,23 @@
 
                                 let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
 
-                                /* Signal to be ready to Sell */
 
+
+                                /* Sell Condition #1 */
+
+                                if (
+                                    strategyPhase === 1 &&
+                                    candle.max > band.movingAverage + band.deviation 
+                                ) {
+
+                                    type = '"Sell-1"';
+
+                                    strategyPhase = 2;
+                                    stopLossPhase = 1;
+                                    buyOrderPhase = 1;
+                                }
+
+                                /* Signal to be ready to Sell */
 
                                 if (
                                     strategyPhase === 0 &&
@@ -1057,14 +1048,53 @@
                                     strategyPhase = 1;
 
                                 }
-                            }
 
+                                /* Stop Loss Management */
+
+                                if (stopLossPhase === 1) {
+
+                                    newStopLoss = newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
+
+                                    if (newStopLoss < previousStopLoss) {
+                                        stopLoss = newStopLoss;
+                                    } else {
+                                        stopLoss = previousStopLoss;
+                                    }
+                                }
+
+                                /* Buy Orders Management */
+
+                                if (buyOrderPhase === 1) {
+
+                                    buyOrder = band.movingAverage;
+
+                                }
+                            }
                         }
 
+                        /* Check if a Sell condition was found. */
 
+                        if (strategyPhase === 2) {
 
+                            previousBalanceAssetA = balanceAssetA;
+                            lastProfit = 0;
+                            lastProfitPercent = 0;
 
+                            balanceAssetB = balanceAssetA * candle.close;
+                            balanceAssetA = 0;
 
+                            rate = candle.close;
+                            sellRate = rate;
+
+                            stopLoss = sellRate + sellRate * stopLossPercentage / 100;
+
+                            stopLossDecay = 0;
+
+                            addRecord();
+
+                            strategyPhase = 3;
+                            continue;
+                        }
 
                         /* Here we define what to do if the conditions to buy were activated. */
 
@@ -1162,14 +1192,22 @@
 
                     function getElement(pArray, begin, end) {
 
+                        let element;
+
                         for (let i = 0; i < pArray.length; i++) {
 
-                            let element = pArray[i];
+                            element = pArray[i];
 
                             if (begin >= element.begin && end <= element.end) {
                                 return element
                             }
                         }
+
+                        element = {
+                            direction: 'unknown',
+                            slope: 'unknown'
+                        };
+                        return element;
                     }
                 }
                 catch (err) {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
+import {withRouter} from "react-router-dom";
 import { clones } from '../../../GraphQL/Calls'
 import {
   Typography, Button, TextField, Dialog, DialogContent,
@@ -144,6 +145,12 @@ class ListClones extends Component {
                 className={classes.buttonList}
                 variant='contained' color='secondary' size='small'
                 onClick={() => this.setState({ isLogsDialogOpen: true })}>
+                View Process Output
+              </Button>
+              <Button
+                className={classes.buttonList}
+                variant='contained' color='secondary' size='small'
+                onClick={() => this.showCloneLogs(clone)}>
                 View Logs
               </Button>
               <Button
@@ -226,6 +233,10 @@ class ListClones extends Component {
     )
   }
 
+  showCloneLogs(clone) {
+    this.props.history.push("/logs/show/"+clone.botSlug+"-"+clone.id+".1.0");
+  }
+
   canStopClone(){
     const state = JSON.parse(this.props.currentClone.state)
     if(isDefined(state) && state.hasOwnProperty("running")){
@@ -277,5 +288,6 @@ class ListClones extends Component {
 
 export default compose(
   graphql(clones.OPERATIONS_REMOVE_CLONE),
-  withStyles(styles)
+  withStyles(styles),
+  withRouter
 )(ListClones)

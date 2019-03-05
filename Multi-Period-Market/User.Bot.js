@@ -747,8 +747,6 @@
                     let rate = 0;
                     let newStopLoss;
 
-                    let presellModeIsActive = false;
-
                     let initialBuffer = 3;
 
                     /* Main Simulation Loop: We go thourgh all the candles at this time period. */
@@ -819,7 +817,7 @@
 
                         if (strategyPhase < 4) { // A buy condition has not been detected.
 
-                            if (strategy === 1) {
+                            if (strategy === 2) {
 
                                 /* Strategy #1: Trend Following. */
 
@@ -850,7 +848,6 @@
 
                                 if (
                                     strategyPhase === 1 &&
-                                    presellModeIsActive === true &&
                                     band2.movingAverage > band1.movingAverage &&
                                     band1.movingAverage > band.movingAverage
                                 ) {
@@ -884,11 +881,9 @@
                                 if (
                                     strategyPhase === 0 &&
                                     percentgeBandwidth.value >= 70 &&
-                                    (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) &&
-                                    presellModeIsActive === false
+                                    (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage)
                                 ) {
                                     signal = '"Pre-Sell"';
-                                    presellModeIsActive = true;
                                     strategyPhase = 1;
 
                                 };
@@ -1020,7 +1015,6 @@
 
                                     stopLoss = sellRate + sellRate * stopLossPercentage / 100;
 
-                                    presellModeIsActive = false;
                                     stopLossDecay = 0;
 
                                     addRecord();
@@ -1046,7 +1040,23 @@
 
                                 let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
 
+                                /* Signal to be ready to Sell */
 
+
+                                if (
+                                    strategyPhase === 0 &&
+                                    subChannel.direction === 'Up' &&
+                                    (
+                                        subChannel.slope === 'Side' ||
+                                        subChannel.slope === 'Gentle' ||
+                                        subChannel.slope === 'Medium' 
+                                        )
+                                    ) {
+
+                                    signal = '"Pre-Sell"';
+                                    strategyPhase = 1;
+
+                                }
                             }
 
                         }

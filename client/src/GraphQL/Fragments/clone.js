@@ -31,5 +31,6 @@ export const clone = gql`
     teamAvatar
     processName
     keyId
+    botSlug
   }
 `

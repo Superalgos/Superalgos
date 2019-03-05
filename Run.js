@@ -80,7 +80,7 @@ function readExecutionConfiguration() {
                 backtest: backtest,
                 competition: competition
             }
-        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Extractor') {
+        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Extraction') {
             let allMonths = {
                 run: "false",
                 minYear: process.env.MIN_YEAR,
@@ -136,8 +136,6 @@ function readExecutionConfiguration() {
 }
 
 function readStoragePermissions() {
-    let filePath;
-
     try {
         console.log( "[INFO] Run -> readStoragePermissions -> Entering function. ");
 
@@ -187,10 +185,8 @@ function readStoragePermissions() {
             startRoot();
 
         }
-    }
-    catch (err) {
+    } catch (err) {
         console.log("[ERROR] Run -> readStoragePermissions -> err = " + err.message);
-        console.log("[HINT] Run -> readStoragePermissions -> You need to have a file at this path -> " + filePath);
     }
 }
 

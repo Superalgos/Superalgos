@@ -119,7 +119,7 @@
 
                             let marketFile;
 
-                            let percentgeBandwidthMap = new Map();
+                            let percentageBandwidthMap = new Map();
                             let bollingerBandsMap = new Map();
                             let bollingerChannelsArray = [];
                             let bollingerSubChannelsArray = [];
@@ -183,14 +183,14 @@
 
                                     for (let i = 0; i < marketFile.length; i++) {
 
-                                        let percentgeBandwidth = {
+                                        let percentageBandwidth = {
                                             begin: marketFile[i][0],
                                             end: marketFile[i][1],
                                             value: marketFile[i][2],
                                             movingAverage: marketFile[i][3]
                                         };
 
-                                        percentgeBandwidthMap.set(percentgeBandwidth.begin, percentgeBandwidth);
+                                        percentageBandwidthMap.set(percentageBandwidth.begin, percentageBandwidth);
 
                                     }
 
@@ -519,7 +519,7 @@
                                     runSimulation(
                                         candles,
                                         bollingerBandsMap,
-                                        percentgeBandwidthMap,
+                                        percentageBandwidthMap,
                                         bollingerChannelsArray,
                                         bollingerSubChannelsArray,
                                         recordsArray,
@@ -639,7 +639,7 @@
 
                             n++;
 
-                            if (n < global.marketFilesPeriods.length - 1) {
+                            if (n < global.marketFilesPeriods.length) {
 
                                 loopBody();
 
@@ -684,7 +684,7 @@
             function runSimulation(
                 candles,
                 bollingerBandsMap,
-                percentgeBandwidthMap,
+                percentageBandwidthMap,
                 bollingerChannelsArray,
                 bollingerSubChannelsArray,
                 recordsArray,
@@ -754,10 +754,10 @@
                     for (let i = 0 + initialBuffer; i < candles.length; i++) {
 
                         let candle = candles[i];
-                        let percentgeBandwidth = percentgeBandwidthMap.get(candle.begin);
+                        let percentageBandwidth = percentageBandwidthMap.get(candle.begin);
                         let band = bollingerBandsMap.get(candle.begin);
 
-                        if (percentgeBandwidth === undefined) { continue; } // percentageBandwidth might start after the first few candles.
+                        if (percentageBandwidth === undefined) { continue; } // percentageBandwidth might start after the first few candles.
                         if (candle.begin < initialDate.valueOf()) { continue; }
 
                         periods++;
@@ -766,9 +766,9 @@
                         let band2 = bollingerBandsMap.get(candles[i - 2].begin);
                         let band3 = bollingerBandsMap.get(candles[i - 3].begin);
 
-                        let percentgeBandwidth1 = percentgeBandwidthMap.get(candles[i - 1].begin);
-                        let percentgeBandwidth2 = percentgeBandwidthMap.get(candles[i - 2].begin);
-                        let percentgeBandwidth3 = percentgeBandwidthMap.get(candles[i - 3].begin);
+                        let percentageBandwidth1 = percentageBandwidthMap.get(candles[i - 1].begin);
+                        let percentageBandwidth2 = percentageBandwidthMap.get(candles[i - 2].begin);
+                        let percentageBandwidth3 = percentageBandwidthMap.get(candles[i - 3].begin);
 
                         if (strategy === 0) {
 
@@ -880,8 +880,8 @@
 
                                 if (
                                     strategyPhase === 0 &&
-                                    percentgeBandwidth.value >= 70 &&
-                                    (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage)
+                                    percentageBandwidth.value >= 70 &&
+                                    (percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage)
                                 ) {
                                     signal = '"Pre-Sell"';
                                     strategyPhase = 1;
@@ -903,6 +903,12 @@
 
                                 if (stopLossPhase === 2) {
 
+                                    if (band1.movingAverage < band.movingAverage) {
+                                        stopLossDecay = stopLossDecay + stopLossDecayIncrement * 2;
+                                    } else {
+                                        stopLossDecay = stopLossDecay - stopLossDecayIncrement / 2;
+                                    }
+
                                     newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
 
                                     if (newStopLoss < previousStopLoss) {
@@ -919,6 +925,12 @@
                                 }
 
                                 if (stopLossPhase === 1) {
+
+                                    if (band1.movingAverage < band.movingAverage) {
+                                        stopLossDecay = stopLossDecay + stopLossDecayIncrement * 2;
+                                    } else {
+                                        stopLossDecay = stopLossDecay - stopLossDecayIncrement / 2;
+                                    }
 
                                     newStopLoss = newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
 
@@ -952,8 +964,8 @@
                                     buyOrder = band.movingAverage - band.standardDeviation * 3;
 
                                     if (
-                                        percentgeBandwidth1.movingAverage < percentgeBandwidth.movingAverage &&
-                                        percentgeBandwidth.movingAverage > 30
+                                        percentageBandwidth1.movingAverage < percentageBandwidth.movingAverage &&
+                                        percentageBandwidth.movingAverage > 30
                                     ) {
                                         buyOrderPhase = 5;
                                     }
@@ -963,7 +975,7 @@
 
                                     buyOrder = band.movingAverage - band.standardDeviation * 4;
 
-                                    if (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) {
+                                    if (percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage) {
                                         buyOrderPhase = 4;
                                     }
                                 }
@@ -973,8 +985,8 @@
                                     buyOrder = band.movingAverage - band.standardDeviation * 10;
 
                                     if (
-                                        percentgeBandwidth1.movingAverage < percentgeBandwidth.movingAverage &&
-                                        percentgeBandwidth.movingAverage > 0
+                                        percentageBandwidth1.movingAverage < percentageBandwidth.movingAverage &&
+                                        percentageBandwidth.movingAverage > 0
                                     ) {
                                         buyOrderPhase = 3;
                                     }
@@ -1022,7 +1034,9 @@
 
                                 if (
                                     strategyPhase === 1 &&
-                                    candle.max > band.movingAverage + band.deviation 
+                                    percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage &&
+                                    percentageBandwidth1.movingAverage > 100
+                                    
                                 ) {
 
                                     type = '"Sell-1"';
@@ -1041,11 +1055,25 @@
                                         subChannel.slope === 'Side' ||
                                         subChannel.slope === 'Gentle' ||
                                         subChannel.slope === 'Medium' 
-                                        )
+                                    ) &&
+                                    candle.max > band.movingAverage + band.deviation 
                                     ) {
 
                                     signal = '"Pre-Sell"';
                                     strategyPhase = 1;
+
+                                }
+
+                                if (
+                                    strategyPhase === 1 &&
+                                    (subChannel.direction === 'Down' ||
+                                        subChannel.slope === 'Steep' ||
+                                        subChannel.slope === 'Extreme' 
+                                        ) 
+                                ) {
+
+                                    signal = '"Pre-Sell-Cancelled"';
+                                    strategyPhase = 0;
 
                                 }
 
@@ -1066,7 +1094,7 @@
 
                                 if (buyOrderPhase === 1) {
 
-                                    buyOrder = band.movingAverage;
+                                    buyOrder = band.movingAverage - band.standardDeviation;
 
                                 }
                             }
@@ -1175,12 +1203,6 @@
                             recordsArray.push(record);
 
                             previousStopLoss = stopLoss;
-
-                            if (band1.movingAverage < band.movingAverage) {
-                                stopLossDecay = stopLossDecay + stopLossDecayIncrement * 2;
-                            } else {
-                                stopLossDecay = stopLossDecay - stopLossDecayIncrement / 2;
-                            }
 
                             type = '""';
                             signal = '""';

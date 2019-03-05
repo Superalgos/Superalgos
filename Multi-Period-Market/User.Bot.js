@@ -696,7 +696,7 @@
                     /* Strategy and Phases */
 
                     let strategy = 0;
-                    let strategyPhase = 0;
+                    let strategyPhase = 0;  // So far we will consider 3 possible phases: 0 = Initial state, 1 = Signal to buy, 2 = Buy, 3 = Sell.
 
                     /* Stop Loss Management */
 
@@ -776,7 +776,7 @@
                             manually.
                             */
 
-                            strategy = 1;
+                            strategy = 2;
                         }
 
                         /* Checking what happened since the last execution. We need to know if the Stop Loss
@@ -784,9 +784,9 @@
 
                         /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                        let buySignalActivated = false;
-
-                        if (candle.max >= stopLoss && lastOperation === 'Sell') {
+                        if (candle.max >= stopLoss &&
+                            lastOperation === 'Sell' &&
+                            strategyPhase === 2) {
 
                             balanceAssetA = balanceAssetB / stopLoss;
                             //if (isNaN(balanceAssetA)) { balanceAssetA = 0; }
@@ -794,12 +794,14 @@
                             balanceAssetB = 0;
                             rate = stopLoss;
                             type = '"Buy@StopLoss"';
-                            buySignalActivated = true;
+                            strategyPhase = 3;
                         }
 
                         /* Buy Order condition: Here we verify if the Buy Order was filled or not. */
 
-                        if (candle.min <= buyOrder && lastOperation === 'Sell' && buySignalActivated === false) {
+                        if (candle.min <= buyOrder &&
+                            lastOperation === 'Sell' &&
+                            strategyPhase === 2) {
 
                             balanceAssetA = balanceAssetB / buyOrder;
                             //if (isNaN(balanceAssetA)) { balanceAssetA = 0; }
@@ -807,10 +809,10 @@
                             balanceAssetB = 0;
                             rate = buyOrder;
                             type = '"Buy@BuyOrder"';
-                            buySignalActivated = true;
+                            strategyPhase = 3;
                         }
 
-                        if (buySignalActivated === false) {
+                        if (strategyPhase < 3) {
 
                             if (strategy === 1) {
 
@@ -1042,7 +1044,7 @@
 
                         /* Here we define what to do if the conditions to buy were activated. */
 
-                        if (buySignalActivated === true) {
+                        if (strategyPhase === 3) {
 
                             roundtrips++;
                             lastProfit = balanceAssetA - previousBalanceAssetA;

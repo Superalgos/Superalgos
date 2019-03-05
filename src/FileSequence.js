@@ -61,7 +61,12 @@ function newFileSequence () {
         throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDevTeam.codeName = ' + pDevTeam.codeName + ', pBot.codeName = ' + pBot.codeName + ', pProduct.codeName = ' + pProduct.codeName + ', pExchange = ' + pExchange
       }
 
-      intervalHandle = setInterval(updateFiles, _1_MINUTE_IN_MILISECONDS)
+
+      if (pOperationsId !== undefined) {
+        intervalHandle = setInterval(function () { updateFiles(pOperationsId) }, _1_MINUTE_IN_MILISECONDS)
+      } else {
+        intervalHandle = setInterval(updateFiles, _1_MINUTE_IN_MILISECONDS)
+      }
 
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> intervalHandle = ' + intervalHandle) }
 
@@ -186,7 +191,7 @@ function newFileSequence () {
     }
   }
 
-  function updateFiles () {
+  function updateFiles (pOperationsId) {
     try {
       let updateFiles = 0
 

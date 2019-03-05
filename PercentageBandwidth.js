@@ -295,13 +295,15 @@
                             begin: undefined,
                             end: undefined,
                             value: undefined,
-                            movingAverage: undefined
+                            movingAverage: undefined,
+                            bandwidth: undefined
                         };
 
                         percentageBandwidth.begin = dailyFile[i][0];
                         percentageBandwidth.end = dailyFile[i][1];
                         percentageBandwidth.value = dailyFile[i][2];
                         percentageBandwidth.movingAverage = dailyFile[i][3];
+                        percentageBandwidth.bandwidth = dailyFile[i][4];
 
                         if (percentageBandwidth.begin >= farLeftDate.valueOf() && percentageBandwidth.end <= farRightDate.valueOf()) {
 
@@ -370,13 +372,15 @@
                     begin: undefined,
                     end: undefined,
                     value: undefined,
-                    movingAverage: undefined
+                    movingAverage: undefined,
+                    bandwidth: undefined
                 };
 
                 percentageBandwidth.begin = marketFile[i][0];
                 percentageBandwidth.end = marketFile[i][1];
                 percentageBandwidth.value = marketFile[i][2];
                 percentageBandwidth.movingAverage = marketFile[i][3];
+                percentageBandwidth.bandwidth = marketFile[i][4];
 
                 if (percentageBandwidth.begin >= leftDate.valueOf() && percentageBandwidth.end <= rightDate.valueOf()) {
 
@@ -520,6 +524,9 @@
                     let currentMovingAverage = percentageBandwidth.movingAverage * pbChartHeight / 100;
                     let previousMovingAverage = previousBand.movingAverage * pbChartHeight / 100;
 
+                    let currentBandwidth = percentageBandwidth.bandwidth * pbChartHeight / 100;
+                    let previousBandwidth = previousPercentBandwidth.bandwidth * pbChartHeight / 100;
+
                     let pbPoint1;
                     let pbPoint2;
                     let pbPoint3;
@@ -528,6 +535,7 @@
                     let pbPoint6;
                     let pbPoint7;
                     let pbPoint8;
+                    let pbPoint9;
 
                     function calculateCoordinates(plot, height) {
 
@@ -575,6 +583,18 @@
                             y: currentMovingAverage + pbOffset
                         };
 
+                        /* Bandwidth */
+
+                        pbPoint9 = {
+                            x: percentageBandwidth.begin,
+                            y: previousBandwidth + pbOffset
+                        };
+
+                        pbPoint10 = {
+                            x: percentageBandwidth.end,
+                            y: currentBandwidth + pbOffset
+                        };
+
                         pbPoint1 = plot.transformThisPoint(pbPoint1);
                         pbPoint2 = plot.transformThisPoint(pbPoint2);
 
@@ -586,6 +606,9 @@
                         pbPoint7 = plot.transformThisPoint(pbPoint7);
                         pbPoint8 = plot.transformThisPoint(pbPoint8);
 
+                        pbPoint9 = plot.transformThisPoint(pbPoint9);
+                        pbPoint10 = plot.transformThisPoint(pbPoint10);
+
                         pbPoint1 = transformThisPoint(pbPoint1, thisObject.container);
                         pbPoint2 = transformThisPoint(pbPoint2, thisObject.container);
 
@@ -596,6 +619,9 @@
 
                         pbPoint7 = transformThisPoint(pbPoint7, thisObject.container);
                         pbPoint8 = transformThisPoint(pbPoint8, thisObject.container);
+
+                        pbPoint9 = transformThisPoint(pbPoint9, thisObject.container);
+                        pbPoint10 = transformThisPoint(pbPoint10, thisObject.container);
 
                         if (pbPoint1.x < viewPort.visibleArea.bottomLeft.x || pbPoint2.x > viewPort.visibleArea.bottomRight.x) {
                             return false;
@@ -626,6 +652,9 @@
                         pbPoint7.y = viewPort.visibleArea.bottomRight.y - (previousMovingAverage + pbOffset) * plotAreaViewport.scale.y;
                         pbPoint8.y = viewPort.visibleArea.bottomRight.y - (currentMovingAverage + pbOffset) * plotAreaViewport.scale.y;
 
+                        pbPoint9.y = viewPort.visibleArea.bottomRight.y - (previousBandwidth + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint10.y = viewPort.visibleArea.bottomRight.y - (currentBandwidth + pbOffset) * plotAreaViewport.scale.y;
+
                     }
 
                     /* Everything must fit within the visible area */
@@ -640,6 +669,9 @@
 
                     pbPoint7 = viewPort.fitIntoVisibleArea(pbPoint7);
                     pbPoint8 = viewPort.fitIntoVisibleArea(pbPoint8);
+
+                    pbPoint9 = viewPort.fitIntoVisibleArea(pbPoint9);
+                    pbPoint10 = viewPort.fitIntoVisibleArea(pbPoint10);
 
 
                     /* Now the drawing of the lines */
@@ -796,6 +828,30 @@
                     browserCanvasContext.lineWidth = 0.2;
                     browserCanvasContext.stroke();
 
+                    /* Now the drawing of the bandwidth*/
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(pbPoint9.x, pbPoint9.y);
+                    browserCanvasContext.lineTo(pbPoint10.x, pbPoint10.y);
+
+                    browserCanvasContext.closePath();
+
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)';
+
+                    if (datetime !== undefined) {
+
+                        let dateValue = datetime.valueOf();
+
+                        if (dateValue >= percentageBandwidth.begin && dateValue <= percentageBandwidth.end) {
+                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
+                        }
+                    }
+
+                    browserCanvasContext.setLineDash([1, 4])
+                    browserCanvasContext.lineWidth = 1
+                    browserCanvasContext.stroke()
+                    browserCanvasContext.setLineDash([0, 0])
                 }
             }
 

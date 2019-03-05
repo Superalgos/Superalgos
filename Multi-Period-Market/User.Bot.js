@@ -689,14 +689,13 @@
 
                     /* Initial Values */
 
-                    let lastOperation = 'Buy';
                     let initialDate = new Date("2018-08-01");
                     let initialBalanceA = 1;
 
                     /* Strategy and Phases */
 
                     let strategy = 0;
-                    let strategyPhase = 0;  // So far we will consider 3 possible phases: 0 = Initial state, 1 = Signal to buy, 2 = Buy, 3 = Sell.
+                    let strategyPhase = 0;  // So far we will consider 5 possible phases: 0 = Initial state, 1 = Signal to buy, 2 = Buy, 3 = After Buy, 4 = Sell.
 
                     /* Stop Loss Management */
 
@@ -776,7 +775,7 @@
                             manually.
                             */
 
-                            strategy = 2;
+                            strategy = 1;
                         }
 
                         /* Checking what happened since the last execution. We need to know if the Stop Loss
@@ -785,7 +784,6 @@
                         /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
                         if (candle.max >= stopLoss &&
-                            lastOperation === 'Sell' &&
                             strategyPhase === 2) {
 
                             balanceAssetA = balanceAssetB / stopLoss;
@@ -794,13 +792,12 @@
                             balanceAssetB = 0;
                             rate = stopLoss;
                             type = '"Buy@StopLoss"';
-                            strategyPhase = 3;
+                            strategyPhase = 4;
                         }
 
                         /* Buy Order condition: Here we verify if the Buy Order was filled or not. */
 
                         if (candle.min <= buyOrder &&
-                            lastOperation === 'Sell' &&
                             strategyPhase === 2) {
 
                             balanceAssetA = balanceAssetB / buyOrder;
@@ -809,7 +806,7 @@
                             balanceAssetB = 0;
                             rate = buyOrder;
                             type = '"Buy@BuyOrder"';
-                            strategyPhase = 3;
+                            strategyPhase = 4;
                         }
 
                         if (strategyPhase < 3) {
@@ -840,8 +837,8 @@
 
 
                                 if (
-                                    percentgeBandwidth.value >= 70 &&
-                                    lastOperation === 'Buy' &&
+                                    strategyPhase === 0 &&
+                                    percentgeBandwidth.value >= 70 &&                                    
                                     (percentgeBandwidth1.movingAverage > percentgeBandwidth.movingAverage) &&
                                     presellModeIsActive === false
                                 ) {
@@ -851,19 +848,17 @@
 
                                 };
 
-                                let sellSignalActivated = false;
-
                                 /* Sell Condition #1 */
 
                                 if (
+                                    strategyPhase === 1 &&
                                     presellModeIsActive === true &&
                                     band2.movingAverage > band1.movingAverage &&
-                                    band1.movingAverage > band.movingAverage &&
-                                    lastOperation === 'Buy'
+                                    band1.movingAverage > band.movingAverage
                                 ) {
 
                                     type = '"Sell-1"';
-                                    sellSignalActivated = true;
+
                                     strategyPhase = 2;
                                     stopLossPhase = 1;
                                     buyOrderPhase = 1;
@@ -872,15 +867,15 @@
                                 /* Sell Condition #2 */
 
                                 if (
+                                    strategyPhase <= 1 &&
                                     candles[i - 3].min < band3.movingAverage - band3.deviation &&
                                     candles[i - 2].min < band2.movingAverage - band2.deviation &&
                                     candles[i - 1].min < band1.movingAverage - band1.deviation &&
-                                    candle.min < band.movingAverage - band.deviation &&
-                                    lastOperation === 'Buy'
+                                    candle.min < band.movingAverage - band.deviation 
                                 ) {
 
                                     type = '"Sell-2"';
-                                    sellSignalActivated = true;
+
                                     strategyPhase = 2;
                                     stopLossPhase = 1;
                                     buyOrderPhase = 1;
@@ -897,8 +892,8 @@
                                     }
 
                                     if (
+                                        strategyPhase === 2 &&
                                         candle.max < band.movingAverage &&
-                                        lastOperation === 'Sell' &&
                                         band1.movingAverage > band.movingAverage 
                                     ) {
 
@@ -945,8 +940,8 @@
                                     buyOrder = band.movingAverage - band.standardDeviation * 10; //+ band.movingAverage - band.standardDeviation * 4 * (buyOrderPercentage + buyOrderDecay) / 100;
 
                                     if (
+                                        strategyPhase === 2 &&
                                         candle.max < band.movingAverage &&
-                                        lastOperation === 'Sell' &&
                                         band1.movingAverage > band.movingAverage &&
                                         candle.min < band.movingAverage - band.deviation
                                     ) {
@@ -995,7 +990,7 @@
 
                                 }
 
-                                if (sellSignalActivated === true) {
+                                if (strategyPhase === 2) {
 
                                     previousBalanceAssetA = balanceAssetA;
                                     lastProfit = 0;
@@ -1009,13 +1004,12 @@
 
                                     stopLoss = sellRate + sellRate * stopLossPercentage / 100;
 
-                                    lastOperation = 'Sell';
                                     presellModeIsActive = false;
                                     stopLossDecay = 0;
 
                                     addRecord();
 
-                                    sellSignalActivated = false;
+                                    strategyPhase = 3;
                                     continue;
                                 }
                             }
@@ -1044,7 +1038,7 @@
 
                         /* Here we define what to do if the conditions to buy were activated. */
 
-                        if (strategyPhase === 3) {
+                        if (strategyPhase === 4) {
 
                             roundtrips++;
                             lastProfit = balanceAssetA - previousBalanceAssetA;
@@ -1067,8 +1061,6 @@
                             let miliSecondsPerDay = 24 * 60 * 60 * 1000;
                             days = periods * outputPeriod / miliSecondsPerDay;
                             anualizedRateOfReturn = ROI / days * 365;
-
-                            lastOperation = 'Buy';
                             
                             addRecord();
 

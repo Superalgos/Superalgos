@@ -28,7 +28,7 @@
     "@superalgos/logs-client": "0.0.1",
     "@superalgos/events-client": "0.0.2",
     "@advancedalgos/financial-beings-client": "0.0.5",
-    "@superalgos/operations-client": "0.0.17",
+    "@superalgos/operations-client": "0.0.18",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",

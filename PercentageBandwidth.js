@@ -1,4 +1,4 @@
-﻿function newAAMastersPlottersBollingerBandsPercentageBandwidth () {
+﻿function newAAMastersPlottersBollingerBandsPercentageBandwidth() {
 
     const MODULE_NAME = "Bands Plotter";
     const INFO_LOG = false;
@@ -97,7 +97,7 @@
         }
     }
 
-    function recalculateScale () {
+    function recalculateScale() {
 
         recalculateScaleY();
         recalculateScaleX();
@@ -524,8 +524,8 @@
                     let currentMovingAverage = percentageBandwidth.movingAverage * pbChartHeight / 100;
                     let previousMovingAverage = previousBand.movingAverage * pbChartHeight / 100;
 
-                    let currentBandwidth = percentageBandwidth.bandwidth * pbChartHeight / 100;
-                    let previousBandwidth = previousPercentBandwidth.bandwidth * pbChartHeight / 100;
+                    let currentBandwidth = percentageBandwidth.bandwidth * 100 * pbChartHeight / 100;
+                    let previousBandwidth = previousBand.bandwidth * 100 * pbChartHeight / 100;
 
                     let pbPoint1;
                     let pbPoint2;
@@ -536,6 +536,7 @@
                     let pbPoint7;
                     let pbPoint8;
                     let pbPoint9;
+                    let pbPoint10;
 
                     function calculateCoordinates(plot, height) {
 
@@ -822,8 +823,8 @@
 
                         if (dateValue >= percentageBandwidth.begin && dateValue <= percentageBandwidth.end) {
                             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
-                        } 
-                    } 
+                        }
+                    }
 
                     browserCanvasContext.lineWidth = 0.2;
                     browserCanvasContext.stroke();
@@ -907,4 +908,5 @@
         }
     }
 }
+
 

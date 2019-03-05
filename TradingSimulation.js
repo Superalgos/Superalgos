@@ -960,8 +960,8 @@
 
                     if (record.signal === 'Pre-Sell') {
 
-                        line1 = 'Sell as soon as Bollinger';
-                        line2 = 'moving average heads down.';
+                        line1 = 'Get ready';
+                        line2 = 'to SELL.';
 
                         imageToDraw = smileyGhost;
                     }
@@ -970,36 +970,36 @@
 
                         if (record.type === 'Buy@StopLoss') {
 
-                            line1 = 'Buying at Stop Loss.';
+                            line1 = 'Stop Loss hit.';
 
                         } else {
 
-                            line1 = 'Buying at Buy Order.';
+                            line1 = 'Buy Order hit.';
                         }
 
                         if (record.lastProfit < 0) {
 
-                            line2 = 'Lost ' + (record.lastProfitPercent).toFixed(2) + ' %';
+                            line2 = 'Loss: ' + (record.lastProfitPercent).toFixed(2) + ' %';
                             imageToDraw = smileySad;
 
                         } else {
 
-                            line2 = 'Won ' + (record.lastProfitPercent).toFixed(2) + ' %';
+                            line2 = 'Profit: ' + (record.lastProfitPercent).toFixed(2) + ' %';
                             imageToDraw = smileyHappy;
                         }
 
                     }
                     if (record.type === 'Sell-1') {
 
-                        line1 = 'Sold because ';
-                        line2 = 'market reversed.';
+                        line1 = 'Sold on';
+                        line2 = 'condition 1.';
 
                         imageToDraw = smileyMonkeyEyes;
                     }
                     if (record.type === 'Sell-2') {
 
-                        line1 = 'Sold because ';
-                        line2 = 'resistance collapsed.';
+                        line1 = 'Sold on';
+                        line2 = 'condition 2.';
 
                         imageToDraw = smileyMonkeyEars;
                     }
@@ -1110,6 +1110,7 @@
         }
     }
 }
+
 
 
 

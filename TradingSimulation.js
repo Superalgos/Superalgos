@@ -422,7 +422,6 @@
                     anualizedRateOfReturn: undefined,
                     sellRate: undefined,
                     lastProfitPercent: undefined,
-                    signal: undefined,
                     strategy: undefined,
                     strategyPhase: undefined,
                     buyOrder: undefined,
@@ -450,12 +449,11 @@
                 record.anualizedRateOfReturn = marketFile[i][17];
                 record.sellRate = marketFile[i][18];
                 record.lastProfitPercent = marketFile[i][19];
-                record.signal = marketFile[i][20];
-                record.strategy = marketFile[i][21];
-                record.strategyPhase = marketFile[i][22];
-                record.buyOrder = marketFile[i][23];
-                record.stopLossPhase = marketFile[i][24];
-                record.buyOrderPhase = marketFile[i][25];
+                record.strategy = marketFile[i][20];
+                record.strategyPhase = marketFile[i][21];
+                record.buyOrder = marketFile[i][22];
+                record.stopLossPhase = marketFile[i][23];
+                record.buyOrderPhase = marketFile[i][24];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -552,7 +550,7 @@
 
                 record = records[i];
                 directionShort = 0;
-                let strategy = 0;
+                let strategy;
                 let strategyPhase = 0;
                 let stopLossPhase = 0;
                 let buyOrderPhase = 0;
@@ -577,8 +575,6 @@
                 if (record.type === 'Buy@StopLoss') { directionShort = 1; }
                 if (record.type === 'Sell-1') { directionShort = +1; }
                 if (record.type === 'Sell-2') { directionShort = +1; }
-                if (record.signal === 'Pre-Sell') { directionShort = +1; }
-                if (record.signal === 'Pre-Sell-Cancelled') { directionShort = -1; }
 
                 if (strategyPhase > 0) {
                     if (strategyPhase % 2 !== 0) { //Depending if the phase is oddd or even goes above or below.
@@ -588,8 +584,12 @@
                     }
                 }
 
-                if (strategy > 0) {
+                if (strategy === 0) {
                     directionLong = -1;
+                }
+
+                if (strategy > 0) {
+                    directionLong = 1;
                 }
 
                 let recordPoint1 = {
@@ -679,8 +679,8 @@
                     continue;
                 }
 
-                recordPoint2.y = recordPoint1.y - 250 * directionLong;
-                recordPoint3.y = recordPoint1.y - 150 * directionShort;
+                recordPoint2.y = recordPoint1.y - 200 * directionLong;
+                recordPoint3.y = recordPoint1.y - 100 * directionShort;
 
                 recordPoint1 = viewPort.fitIntoVisibleArea(recordPoint1);
                 recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
@@ -782,8 +782,7 @@
                 let noShortTextDown = false;
 
                 if (
-                    record.type !== '' ||
-                    record.signal !== ''
+                    record.type !== ''
                 ) {
 
                     if (directionShort > 0) {
@@ -840,8 +839,7 @@
 
 
                 if (
-                    strategy > 0 ||
-                    strategyPhase > 0
+                    strategy !== undefined
                 ) {
 
                     /* Next we are drawing the LONG stick */
@@ -851,8 +849,7 @@
                 }
 
                 if (
-                    record.type !== '' ||
-                    record.signal !== ''
+                    record.type !== ''
                 ) {
 
                     /* Next we are drawing the SHORT stick */
@@ -903,26 +900,26 @@
 
                 function longPinHead() {
 
-                    if (strategyPhase > 0) {
+                    if (strategy === 0) {
 
-                        line1 = '';
-                        line2 = strategyPhase;
+                        line1 = 'Strategy';
+                        line2 = 'Exit';
 
-                        imageToDraw = imageStrategyPhase;
+                        imageToDraw = smileyGhost;
                     }
                     if (strategy === 1) {
 
-                        line1 = 'Trend Following';
-                        line2 = '';
+                        line1 = 'Trend';
+                        line2 = 'Following';
 
-                        imageToDraw = imageStrategy;
+                        imageToDraw = smileyGhost;
                     }
                     if (strategy === 2) {
 
-                        line1 = 'Range Trading';
-                        line2 = '';
+                        line1 = 'Range';
+                        line2 = 'Trading';
 
-                        imageToDraw = imageStrategy;
+                        imageToDraw = smileyGhost;
                     }
 
                     if (imageToDraw !== undefined) {
@@ -950,30 +947,14 @@
                                 (directionLong > 0 && noLongTextUp === false) ||
                                 (directionLong < 0 && noLongTextDown === false)
                             ) {
-                                printLabel(line1, recordPoint2.x + imageSize / 2, recordPoint2.y + 0, '0.50');
-                                printLabel(line2, recordPoint2.x + imageSize / 2, recordPoint2.y + 15, '0.50');
+                                printLabel(line1, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 0, '0.50');
+                                printLabel(line2, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 15, '0.50');
                             }
                         }
                     }
                 }
 
                 function shortPinHead() {
-
-                    if (record.signal === 'Pre-Sell') {
-
-                        line1 = 'Ready';
-                        line2 = 'to SELL.';
-
-                        imageToDraw = smileyGhost;
-                    }
-
-                    if (record.signal === 'Pre-Sell-Cancelled') {
-
-                        line1 = 'Not ready';
-                        line2 = 'to SELL.';
-
-                        imageToDraw = smileyGhost;
-                    }
 
                     if (record.type === 'Buy@StopLoss' || record.type === 'Buy@BuyOrder') {
 
@@ -1119,6 +1100,7 @@
         }
     }
 }
+
 
 
 

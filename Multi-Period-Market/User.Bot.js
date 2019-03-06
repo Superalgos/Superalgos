@@ -116,12 +116,12 @@
 
                             const outputPeriod = global.marketFilesPeriods[n][0];
                             const timePeriod = global.marketFilesPeriods[n][1];
-
+                            /*
                             if (timePeriod !== '01-hs') {
                                 controlLoop();
                                 return;
                             }
-
+                            */
                             let marketFile;
 
                             let percentageBandwidthMap = new Map();
@@ -810,8 +810,27 @@
 
                         newCondition(
                             "Candles Min going down",
-                            (candles[i - 2].min < candles[i - 1].min &&
-                                candles[i - 1].min < candle.min)
+                            (candles[i - 2].min > candles[i - 1].min &&
+                                candles[i - 1].min > candle.min)
+                        );
+
+                        newCondition(
+                            "Sub-Channel going up",
+                            (subChannel.direction === 'Up')
+                        );
+
+                        newCondition(
+                            "Sub-Channel Side|Gentle|Medium",
+                            (
+                                subChannel.slope === 'Side' ||
+                                subChannel.slope === 'Gentle' ||
+                                subChannel.slope === 'Medium'
+                            )
+                        );
+
+                        newCondition(
+                            "Candle Close above Lower Band",
+                            (candle.close > band.movingAverage + band.deviation)
                         );
 
                         function newCondition(name, value) {
@@ -871,13 +890,9 @@
 
                             if (
                                 strategyPhase === 0 &&
-                                subChannel.direction === 'Up' &&
-                                (
-                                    subChannel.slope === 'Side' ||
-                                    subChannel.slope === 'Gentle' ||
-                                    subChannel.slope === 'Medium'
-                                ) &&
-                                candle.close > band.movingAverage + band.deviation
+                                conditions.get("Sub-Channel going up").value &&
+                                conditions.get("Sub-Channel Side|Gentle|Medium").value &&
+                                conditions.get("Candle Close above Lower Band").value
                             ) {
                                 strategyPhase = 1;
                                 strategy = 2;

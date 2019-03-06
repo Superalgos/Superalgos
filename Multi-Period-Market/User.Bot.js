@@ -550,9 +550,19 @@
 
                                     let fileContent = "";
 
-                                    for (i = 0; i < recordsArray.length; i++) {
+                                    for (let i = 0; i < recordsArray.length; i++) {
 
                                         let record = recordsArray[i];
+
+                                        let conditions = "[";
+                                        let conditionsSeparator = "";
+
+                                        for (let j = 0; j < record.conditions.length; j++) {
+                                            conditions = conditions + conditionsSeparator + record.conditions[j];
+                                            if (conditionsSeparator === "") { conditionsSeparator = ","; }
+                                        }
+
+                                        conditions = conditions + "]";
 
                                         fileContent = fileContent + separator + '[' +
                                             record.begin + "," +
@@ -579,7 +589,8 @@
                                             record.strategyPhase + "," +
                                             record.buyOrder + "," +
                                             record.stopLossPhase + "," +
-                                            record.buyOrderPhase + "]";
+                                            record.buyOrderPhase + "," +
+                                            conditions + "]";
 
                                         if (separator === "") { separator = ","; }
 
@@ -753,10 +764,13 @@
                     let newStopLoss;
 
                     let initialBuffer = 3;
+                    let conditionsHeadersSent = false;
 
                     /* Main Simulation Loop: We go thourgh all the candles at this time period. */
 
                     for (let i = 0 + initialBuffer; i < candles.length; i++) {
+
+                        /* Update all the data objects available for the simulation. */
 
                         let candle = candles[i];
                         let percentageBandwidth = percentageBandwidthMap.get(candle.begin);
@@ -777,6 +791,55 @@
 
                         let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
 
+                        let conditions = new Map;
+                        let conditionsArray = [];
+
+                        /* We define and evaluate all conditions to be used later during the simulation loop. */
+
+                        newCondition(
+                            "%B Moving Average going up",
+                            (percentageBandwidth2.movingAverage > percentageBandwidth1.movingAverage &&
+                                percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage)
+                        );
+
+                        newCondition(
+                            "%B Bandwidth going up",
+                            (percentageBandwidth2.bandwidth < percentageBandwidth1.bandwidth &&
+                                percentageBandwidth1.bandwidth < percentageBandwidth.bandwidth)
+                        );
+
+                        newCondition(
+                            "Candles Min going down",
+                            (candles[i - 2].min < candles[i - 1].min &&
+                                candles[i - 1].min < candle.min)
+                        );
+
+                        function newCondition(name, value) {
+
+                            let condition;
+
+                            condition = {
+                                name: name,
+                                value: value
+                            };
+
+                            conditions.set(condition.name, condition);
+
+                            if (conditionsHeadersSent === false) {
+                                conditionsArray.push('"' + condition.name + '"');                                
+                            } else {
+                                if (condition.value) {
+                                    conditionsArray.push(1);
+                                } else {
+                                    conditionsArray.push(0);
+                                }                                
+                            }
+                        }
+
+                        conditionsHeadersSent = true;
+
+                        /* While we are outside all strategies, we evaluate whether it is time to enter one or not. */
+
                         if (strategy === 0 &&
                             balanceAssetA > minimunBalanceA) {
 
@@ -795,12 +858,9 @@
 
                             if (
                                 strategyPhase === 0 &&
-                                percentageBandwidth2.movingAverage > percentageBandwidth1.movingAverage &&
-                                percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage &&
-                                percentageBandwidth2.bandwidth < percentageBandwidth1.bandwidth &&
-                                percentageBandwidth1.bandwidth < percentageBandwidth.bandwidth &&
-                                candles[i - 2].min < candles[i - 1].min  &&
-                                candles[i - 1].min < candle.min 
+                                conditions.get("%B Moving Average going up").value &&
+                                conditions.get("%B Bandwidth going up").value &&
+                                conditions.get("Candles Min going down").value
                             ) {
                                 strategyPhase = 1;
                                 strategy = 1;
@@ -1206,7 +1266,8 @@
                                 strategyPhase: strategyPhase,
                                 buyOrder: buyOrder,
                                 stopLossPhase: stopLossPhase,
-                                buyOrderPhase: buyOrderPhase
+                                buyOrderPhase: buyOrderPhase,
+                                conditions: conditionsArray
                             }
 
                             recordsArray.push(record);

@@ -569,7 +569,6 @@
                                             record.anualizedRateOfReturn + "," +
                                             record.sellRate + "," +
                                             record.lastProfitPercent + "," +
-                                            record.signal + "," +
                                             record.strategy + "," +
                                             record.strategyPhase + "," +
                                             record.buyOrder + "," +
@@ -699,6 +698,7 @@
 
                     let initialDate = new Date("2018-08-01");
                     let initialBalanceA = 1;
+                    let minimunBalanceA = 0.5;
 
                     /* Strategy and Phases */
 
@@ -743,7 +743,6 @@
                     let days = 0;
                     let anualizedRateOfReturn = 0;
                     let type = '""';
-                    let signal = '""';
                     let rate = 0;
                     let newStopLoss;
 
@@ -770,52 +769,84 @@
                         let percentageBandwidth2 = percentageBandwidthMap.get(candles[i - 2].begin);
                         let percentageBandwidth3 = percentageBandwidthMap.get(candles[i - 3].begin);
 
-                        if (strategy === 0) {
+                        let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
+
+                        if (strategy === 0 &&
+                            balanceAssetA > minimunBalanceA) {
 
                             /*
                             Here we need to pick a strategy, or if there is not suitable strategy for the current
                             market conditions, we pass until the next period.
             
-                            To pick a new strategy we will need a new indicator called Bollinger Channels,
-                            which I dont have right now, so for the time being, I will choose the strategy
-                            manually.
+                            To pick a new strategy we will evaluate what we call an entering condition. Once we enter
+                            into one strategy, we will ignore market conditions for others. However there is also
+                            a strategy exit condition which can be hit before entering into a trade. If hit, we would
+                            be outside a strategy again and looking for the condition to enter all over again.
+
                             */
 
-                            strategy = 2;
+                            /* Strategy 1 Entering Condition */
+
+                            if (
+                                strategyPhase === 0 &&
+                                percentageBandwidth2.movingAverage > percentageBandwidth1.movingAverage &&
+                                percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage &&
+                                percentageBandwidth2.bandwidth < percentageBandwidth1.bandwidth &&
+                                percentageBandwidth1.bandwidth < percentageBandwidth.bandwidth
+                            ) {
+                                strategyPhase = 1;
+                                strategy = 1;
+
+                            };
+
+                            /* Strategy 2 Entering Condition */
+
+                            if (
+                                strategyPhase === 0 &&
+                                subChannel.direction === 'Up' &&
+                                (
+                                    subChannel.slope === 'Side' ||
+                                    subChannel.slope === 'Gentle' ||
+                                    subChannel.slope === 'Medium'
+                                ) &&
+                                candle.close > band.movingAverage + band.deviation
+                            ) {
+                                strategyPhase = 1;
+                                strategy = 2;
+                            }
                         }
 
-                        /* Checking what happened since the last execution. We need to know if the Stop Loss
-                         or our Buy Order were hit. */
+                        if (strategyPhase === 3) {
 
-                        /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
+                            /* Checking what happened since the last execution. We need to know if the Stop Loss
+                                or our Buy Order were hit. */
 
-                        if (candle.max >= stopLoss &&
-                            strategyPhase === 3) {
+                            /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                            balanceAssetA = balanceAssetB / stopLoss;
-                            //if (isNaN(balanceAssetA)) { balanceAssetA = 0; }
+                            if (candle.max >= stopLoss) {
 
-                            balanceAssetB = 0;
-                            rate = stopLoss;
-                            type = '"Buy@StopLoss"';
-                            strategyPhase = 4;
+                                balanceAssetA = balanceAssetB / stopLoss;
+
+                                balanceAssetB = 0;
+                                rate = stopLoss;
+                                type = '"Buy@StopLoss"';
+                                strategyPhase = 4;
+                            }
+
+                            /* Buy Order condition: Here we verify if the Buy Order was filled or not. */
+
+                            if (candle.min <= buyOrder) {
+
+                                balanceAssetA = balanceAssetB / buyOrder;
+
+                                balanceAssetB = 0;
+                                rate = buyOrder;
+                                type = '"Buy@BuyOrder"';
+                                strategyPhase = 4;
+                            }
                         }
 
-                        /* Buy Order condition: Here we verify if the Buy Order was filled or not. */
-
-                        if (candle.min <= buyOrder &&
-                            strategyPhase === 3) {
-
-                            balanceAssetA = balanceAssetB / buyOrder;
-                            //if (isNaN(balanceAssetA)) { balanceAssetA = 0; }
-
-                            balanceAssetB = 0;
-                            rate = buyOrder;
-                            type = '"Buy@BuyOrder"';
-                            strategyPhase = 4;
-                        }
-
-                        if (strategyPhase < 4) { // A buy condition has not been detected.
+                        if (strategyPhase < 4) { // When a buy condition has not been detected yet.
 
                             if (strategy === 1) {
 
@@ -839,13 +870,18 @@
                  
                                 */
 
+                                /* Strategy Exit Condition */
 
-
-
-
+                                if (
+                                    strategyPhase === 1 &&
+                                    candle.close > band.movingAverage 
+                                ) {
+                                    strategyPhase = 0;
+                                    strategy = 0;
+                                };
 
                                 /* Sell Condition #1 */
-
+                                /*
                                 if (
                                     strategyPhase === 1 &&
                                     band2.movingAverage > band1.movingAverage &&
@@ -858,12 +894,11 @@
                                     stopLossPhase = 1;
                                     buyOrderPhase = 1;
                                 }
-
+                                */
                                 /* Sell Condition #2 */
 
                                 if (
-                                    strategyPhase <= 1 &&
-                                    candles[i - 3].min < band3.movingAverage - band3.deviation &&
+                                    strategyPhase === 1 &&
                                     candles[i - 2].min < band2.movingAverage - band2.deviation &&
                                     candles[i - 1].min < band1.movingAverage - band1.deviation &&
                                     candle.min < band.movingAverage - band.deviation 
@@ -875,18 +910,6 @@
                                     stopLossPhase = 1;
                                     buyOrderPhase = 1;
                                 }
-
-                                /* Signal to be ready to Sell */
-
-                                if (
-                                    strategyPhase === 0 &&
-                                    percentageBandwidth.value >= 70 &&
-                                    (percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage)
-                                ) {
-                                    signal = '"Pre-Sell"';
-                                    strategyPhase = 1;
-
-                                };
 
                                 /* Stop Loss Management */
 
@@ -1009,7 +1032,6 @@
 
                                     }
                                 }
-
                             }
 
                             if (strategy === 2) {
@@ -1026,16 +1048,27 @@
                 
                                 */
 
-                                let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
+                                /* Exist Strategy Condition */
 
+                                if (
+                                    strategyPhase === 1 &&
+                                    (subChannel.direction === 'Down' ||
+                                        subChannel.slope === 'Steep' ||
+                                        subChannel.slope === 'Extreme'
+                                    )
+                                ) {
 
+                                    strategyPhase = 0;
+                                    strategy = 0;
+
+                                }
 
                                 /* Sell Condition #1 */
 
                                 if (
                                     strategyPhase === 1 &&
                                     percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage &&
-                                    percentageBandwidth1.movingAverage > 100
+                                    percentageBandwidth1.movingAverage > 90
                                     
                                 ) {
 
@@ -1044,37 +1077,6 @@
                                     strategyPhase = 2;
                                     stopLossPhase = 1;
                                     buyOrderPhase = 1;
-                                }
-
-                                /* Signal to be ready to Sell */
-
-                                if (
-                                    strategyPhase === 0 &&
-                                    subChannel.direction === 'Up' &&
-                                    (
-                                        subChannel.slope === 'Side' ||
-                                        subChannel.slope === 'Gentle' ||
-                                        subChannel.slope === 'Medium' 
-                                    ) &&
-                                    candle.max > band.movingAverage + band.deviation 
-                                    ) {
-
-                                    signal = '"Pre-Sell"';
-                                    strategyPhase = 1;
-
-                                }
-
-                                if (
-                                    strategyPhase === 1 &&
-                                    (subChannel.direction === 'Down' ||
-                                        subChannel.slope === 'Steep' ||
-                                        subChannel.slope === 'Extreme' 
-                                        ) 
-                                ) {
-
-                                    signal = '"Pre-Sell-Cancelled"';
-                                    strategyPhase = 0;
-
                                 }
 
                                 /* Stop Loss Management */
@@ -1124,7 +1126,7 @@
                             continue;
                         }
 
-                        /* Here we define what to do if the conditions to buy were activated. */
+                        /* Check if a Buy condition was found. */
 
                         if (strategyPhase === 4) {
 
@@ -1192,7 +1194,6 @@
                                 anualizedRateOfReturn: anualizedRateOfReturn,
                                 sellRate: sellRate,
                                 lastProfitPercent: lastProfitPercent,
-                                signal: signal,
                                 strategy: strategy,
                                 strategyPhase: strategyPhase,
                                 buyOrder: buyOrder,
@@ -1205,7 +1206,6 @@
                             previousStopLoss = stopLoss;
 
                             type = '""';
-                            signal = '""';
 
                         }
                     }

@@ -13,6 +13,7 @@
     const BOLLINGER_SUB_CHANNELS_FOLDER_NAME = "Bollinger-Sub-Channels";
     const CANDLES_FOLDER_NAME = "Candles";
     const SIMULATED_RECORDS_FOLDER_NAME = "Trading-Simulation";
+    const CONDITIONS_FOLDER_NAME = "Simulation-Conditions";
 
     const commons = COMMONS.newCommons(bot, logger, UTILITIES);
 
@@ -131,6 +132,7 @@
 
                             let candles = [];
                             let recordsArray = [];
+                            let conditionsArray = [];
 
                             nextPercentageBandwidth();
 
@@ -529,6 +531,7 @@
                                         bollingerChannelsArray,
                                         bollingerSubChannelsArray,
                                         recordsArray,
+                                        conditionsArray,
                                         outputPeriod,
                                         writeRecordsFile)
 
@@ -553,16 +556,6 @@
                                     for (let i = 0; i < recordsArray.length; i++) {
 
                                         let record = recordsArray[i];
-
-                                        let conditions = "[";
-                                        let conditionsSeparator = "";
-
-                                        for (let j = 0; j < record.conditions.length; j++) {
-                                            conditions = conditions + conditionsSeparator + record.conditions[j];
-                                            if (conditionsSeparator === "") { conditionsSeparator = ","; }
-                                        }
-
-                                        conditions = conditions + "]";
 
                                         fileContent = fileContent + separator + '[' +
                                             record.begin + "," +
@@ -589,8 +582,7 @@
                                             record.strategyPhase + "," +
                                             record.buyOrder + "," +
                                             record.stopLossPhase + "," +
-                                            record.buyOrderPhase + "," +
-                                            conditions + "]";
+                                            record.buyOrderPhase + "]";
 
                                         if (separator === "") { separator = ","; }
 
@@ -625,7 +617,7 @@
 
                                             }
 
-                                            controlLoop();
+                                            writeConditionsFile();
 
                                         }
                                         catch (err) {
@@ -636,6 +628,79 @@
                                 }
                                 catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeRecordsFile -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function writeConditionsFile() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> writeConditionsFile -> Entering function."); }
+
+                                    let separator = "";
+                                    let fileRecordCounter = 0;
+
+                                    let fileContent = "";
+
+                                    for (let i = 0; i < conditionsArray.length; i++) {
+
+                                        let record = conditionsArray[i];
+
+                                        let conditions = "";
+                                        let conditionsSeparator = "";
+
+                                        for (let j = 0; j < record.length; j++) {
+                                            conditions = conditions + conditionsSeparator + record[j];
+                                            if (conditionsSeparator === "") { conditionsSeparator = ","; }
+                                        }
+
+                                        fileContent = fileContent + separator + '[' + conditions + "]";
+
+                                        if (separator === "") { separator = ","; }
+
+                                        fileRecordCounter++;
+
+                                    }
+
+                                    fileContent = "[" + fileContent + "]";
+
+                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+
+                                    jasonStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                    function onFileCreated(err) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> writeConditionsFile -> onFileCreated -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> writeConditionsFile -> onFileCreated -> fileContent = " + fileContent); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeConditionsFile -> onFileCreated -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeConditionsFile -> onFileCreated -> filePath = " + filePath);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeConditionsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+
+                                                callBackFunction(err);
+                                                return;
+
+                                            }
+
+                                            controlLoop();
+
+                                        }
+                                        catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeConditionsFile -> onFileCreated -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeConditionsFile -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -704,6 +769,7 @@
                 bollingerChannelsArray,
                 bollingerSubChannelsArray,
                 recordsArray,
+                conditionsArray,
                 outputPeriod,
                 callback) {
 
@@ -792,9 +858,12 @@
                         let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
 
                         let conditions = new Map;
-                        let conditionsArray = [];
+                        let conditionsArrayRecord = [];
 
                         /* We define and evaluate all conditions to be used later during the simulation loop. */
+
+                        conditionsArrayRecord.push(candle.begin);
+                        conditionsArrayRecord.push(candle.end);
 
                         newCondition(
                             "%B Moving Average going up",
@@ -845,12 +914,12 @@
                             conditions.set(condition.name, condition);
 
                             if (conditionsHeadersSent === false) {
-                                conditionsArray.push('"' + condition.name + '"');                                
+                                conditionsArrayRecord.push('"' + condition.name + '"');                                
                             } else {
                                 if (condition.value) {
-                                    conditionsArray.push(1);
+                                    conditionsArrayRecord.push(1);
                                 } else {
-                                    conditionsArray.push(0);
+                                    conditionsArrayRecord.push(0);
                                 }                                
                             }
                         }
@@ -1281,8 +1350,7 @@
                                 strategyPhase: strategyPhase,
                                 buyOrder: buyOrder,
                                 stopLossPhase: stopLossPhase,
-                                buyOrderPhase: buyOrderPhase,
-                                conditions: conditionsArray
+                                buyOrderPhase: buyOrderPhase
                             }
 
                             recordsArray.push(record);
@@ -1290,6 +1358,8 @@
                             previousStopLoss = stopLoss;
 
                             type = '""';
+
+                            conditionsArray.push(conditionsArrayRecord);
 
                         }
                     }

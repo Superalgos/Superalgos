@@ -117,6 +117,11 @@
                             const outputPeriod = global.marketFilesPeriods[n][0];
                             const timePeriod = global.marketFilesPeriods[n][1];
 
+                            if (timePeriod !== '01-hs') {
+                                controlLoop();
+                                return;
+                            }
+
                             let marketFile;
 
                             let percentageBandwidthMap = new Map();
@@ -187,7 +192,8 @@
                                             begin: marketFile[i][0],
                                             end: marketFile[i][1],
                                             value: marketFile[i][2],
-                                            movingAverage: marketFile[i][3]
+                                            movingAverage: marketFile[i][3],
+                                            bandwidth: marketFile[i][4]
                                         };
 
                                         percentageBandwidthMap.set(percentageBandwidth.begin, percentageBandwidth);
@@ -792,7 +798,9 @@
                                 percentageBandwidth2.movingAverage > percentageBandwidth1.movingAverage &&
                                 percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage &&
                                 percentageBandwidth2.bandwidth < percentageBandwidth1.bandwidth &&
-                                percentageBandwidth1.bandwidth < percentageBandwidth.bandwidth
+                                percentageBandwidth1.bandwidth < percentageBandwidth.bandwidth &&
+                                candles[i - 2].min < candles[i - 1].min  &&
+                                candles[i - 1].min < candle.min 
                             ) {
                                 strategyPhase = 1;
                                 strategy = 1;

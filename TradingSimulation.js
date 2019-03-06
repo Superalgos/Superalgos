@@ -426,7 +426,8 @@
                     strategyPhase: undefined,
                     buyOrder: undefined,
                     stopLossPhase: undefined,
-                    buyOrderPhase: undefined
+                    buyOrderPhase: undefined,
+                    conditions: undefined
                 };
 
                 record.begin = marketFile[i][0];
@@ -454,6 +455,11 @@
                 record.buyOrder = marketFile[i][22];
                 record.stopLossPhase = marketFile[i][23];
                 record.buyOrderPhase = marketFile[i][24];
+                record.conditions = marketFile[i][25];
+
+                if (i === 0) { // The first record contains headers needed to be printed.
+                    records.push(record);
+                }
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -875,11 +881,6 @@
 
                             /* highlight the current record */
                             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
-
-                            let currentRecord = {
-                                innerRecord: record
-                            };
-                            thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);
                         }
                     }
 
@@ -1025,6 +1026,20 @@
                     }
                 }
 
+                /* Send the current record to the panel */
+
+                if (datetime !== undefined) {
+                    let dateValue = datetime.valueOf();
+                    if (dateValue >= record.begin && dateValue <= record.end) {
+
+                        let currentRecord = {
+                            conditionsNames: records[0].conditions,
+                            conditionsValues: record.conditions,
+                            innerRecord: record
+                        };
+                        thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);
+                    }
+                }
 
                 /* This is how we write the text */
 

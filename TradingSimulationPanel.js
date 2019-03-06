@@ -23,7 +23,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
     function initialize() {
 
         thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL;
-        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1.5;
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2;
 
         thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 1;
         thisObject.container.frame.position.y = viewPort.visibleArea.topRight.y;
@@ -166,7 +166,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
 
         let y = 0;
-        let increment = 0.03;
+        let increment = 0.025;
 
         y = y + increment;
         printLabel('Balance A', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
@@ -247,6 +247,20 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         printLabel('Anualized Rate of Return', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
         printLabel((currentRecord.innerRecord.anualizedRateOfReturn * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50');
+
+        y = y + increment;
+        y = y + increment;
+
+        for (let i = 0; i < currentRecord.conditionsNames.length; i++) {
+            y = y + increment;
+            let opacity;
+            if (currentRecord.conditionsValues[i] === 1) {
+                opacity = '1.00'
+            } else {
+                opacity = '0.50';
+            }
+            printLabel(currentRecord.conditionsNames[i], X_AXIS, frameTitleHeight + frameBodyHeight * y, opacity);
+        }
 
         function printLabel(labelToPrint, x, y, opacity) {
 

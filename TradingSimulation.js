@@ -573,8 +573,7 @@
 
                 if (record.type === 'Buy@BuyOrder') { directionShort = -1; }
                 if (record.type === 'Buy@StopLoss') { directionShort = 1; }
-                if (record.type === 'Sell-1') { directionShort = +1; }
-                if (record.type === 'Sell-2') { directionShort = +1; }
+                if (record.type === 'Sell') { directionShort = +1; }                
 
                 if (strategyPhase > 0) {
                     if (strategyPhase % 2 !== 0) { //Depending if the phase is oddd or even goes above or below.
@@ -974,19 +973,12 @@
                         }
 
                     }
-                    if (record.type === 'Sell-1') {
+                    if (record.type === 'Sell') {
 
-                        line1 = 'Sold on';
-                        line2 = 'condition 1.';
+                        line1 = 'Sold';
+                        line2 = '';
 
                         imageToDraw = smileyMonkeyEyes;
-                    }
-                    if (record.type === 'Sell-2') {
-
-                        line1 = 'Sold on';
-                        line2 = 'condition 2.';
-
-                        imageToDraw = smileyMonkeyEars;
                     }
 
                     if (imageToDraw !== undefined) {

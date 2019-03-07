@@ -22,10 +22,10 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
     function initialize() {
 
-        thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL;
-        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1;
+        thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL * 2;
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2;
 
-        thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 2;
+        thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - UI_PANEL.WIDTH.NORMAL * 3;
         thisObject.container.frame.position.y = viewPort.visibleArea.topRight.y;
 
     }
@@ -74,13 +74,14 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
         const frameBodyHeight = thisObject.container.frame.getBodyHeight();
         const frameTitleHeight = thisObject.container.frame.height - frameBodyHeight;
 
-        const X_AXIS = thisObject.container.frame.width / 2;
+        const X_AXIS = thisObject.container.frame.width * 1 / 10;
         const Y_AXIS = frameTitleHeight + frameBodyHeight / 2;
 
         let y = 0;
-        let increment = 0.06;
+        let increment = 0.03;
         let opacity;
         let label;
+        let indent = 5;
 
         browserCanvasContext.beginPath();
 
@@ -99,36 +100,63 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
             y = y + increment;
             opacity = '0.50';
-            label = 'Entry Point';
-            printLabel(label, X_AXIS, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+            label = 'Entry Points';
+            printLabel(label, X_AXIS + indent * 1, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
 
             for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
 
                 let situation = strategy.entryPoint.situations[k];
+                processSituation(situation);
+            }
+
+            y = y + increment;
+            opacity = '0.50';
+            label = 'Exit Points';
+            printLabel(label, X_AXIS + indent * 1, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+
+            for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
+
+                let situation = strategy.exitPoint.situations[k];
+                processSituation(situation);
+            }
+
+            y = y + increment;
+            opacity = '0.50';
+            label = 'Sell Points';
+            printLabel(label, X_AXIS + indent * 1, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+
+            for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
+
+                let situation = strategy.sellPoint.situations[k];
+                processSituation(situation);
+            }
+        }
+
+        function processSituation(situation) {
+
+            y = y + increment;
+            opacity = '0.50';
+            label = 'Situation: ' + situation.name;
+            printLabel(label, X_AXIS + indent * 2, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+
+            for (let m = 0; m < situation.conditions.length; m++) {
+
+                let condition = situation.conditions[m];
+                let color;
 
                 y = y + increment;
-                opacity = '0.50';
-                label = 'Situation: ' + situation.name;
-                printLabel(label, X_AXIS, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
-
-                for (let m = 0; m < situation.conditions.length; m++) {
-
-                    let condition = situation.conditions[m];
-                    let color;
-
-                    y = y + increment;
-                    if (currentRecord.conditionsValues[conditionIndex] === 1) {
-                        opacity = '0.50'
-                        color = UI_COLOR.PATINATED_TURQUOISE;
-                    } else {
-                        opacity = '0.50';
-                        color = UI_COLOR.RUSTED_RED;
-                    }
-                    conditionIndex++;
-                    label = condition.name;
-                    printLabel(label, X_AXIS, frameTitleHeight + frameBodyHeight * y, opacity, color);
+                if (currentRecord.conditionsValues[conditionIndex] === 1) {
+                    opacity = '0.50'
+                    color = UI_COLOR.PATINATED_TURQUOISE;
+                } else {
+                    opacity = '0.50';
+                    color = UI_COLOR.RUSTED_RED;
                 }
+                conditionIndex++;
+                label = condition.name;
+                printLabel(label, X_AXIS + indent * 3, frameTitleHeight + frameBodyHeight * y, opacity, color);
             }
+
         }
 
         function printLabel(labelToPrint, x, y, opacity, color) {
@@ -145,7 +173,7 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
             let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
 
             labelPoint = {
-                x: x - xOffset,
+                x: x,
                 y: y
             };
 
@@ -163,6 +191,8 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
 
 }
+
+
 
 
 

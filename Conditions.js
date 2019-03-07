@@ -48,6 +48,7 @@
     /* these are module specific variables: */
 
     let conditions = [];
+    let headers;
 
     let smileyHappy;
     let smileySad;
@@ -390,8 +391,9 @@
             rightDate = new Date(rightDate.valueOf() + dateDiff * 1.5);
 
             conditions = [];
+            headers = marketFile[0];
 
-            for (let i = 0; i < marketFile.length; i++) {
+            for (let i = 0; i < marketFile[1].length; i++) {
 
                 let record = {
                     begin: undefined,
@@ -399,13 +401,9 @@
                     conditions: undefined
                 };
 
-                record.begin = marketFile[i][0];
-                record.end = marketFile[i][1];
-                record.conditions = marketFile[i];
-
-                if (i === 0) { // The first record contains headers needed to be printed.
-                    conditions.push(record);
-                }
+                record.begin = marketFile[1][i][0];
+                record.end = marketFile[1][i][1];
+                record.conditions = marketFile[1][i];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -500,7 +498,7 @@
                     if (dateValue >= conditionRecord.begin && dateValue <= conditionRecord.end) {
 
                         let currentRecord = {
-                            conditionsNames: conditions[0].conditions,
+                            conditionsNames: headers,
                             conditionsValues: conditionRecord.conditions
                         };
                         thisObject.container.eventHandler.raiseEvent("Current Condition Record Changed", currentRecord);
@@ -560,6 +558,7 @@
         }
     }
 }
+
 
 
 

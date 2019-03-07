@@ -79,21 +79,59 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
         let y = 0;
         let increment = 0.06;
+        let opacity;
+        let label;
 
         browserCanvasContext.beginPath();
 
-        for (let i = 2; i < currentRecord.conditionsNames.length; i++) { // Jump the first 2 items since they are the .begin and the .end of the record.
+        let simulationLogic = currentRecord.conditionsNames;
+        let conditionIndex = 2;  // Jump the first 2 items since they are the .begin and the .end of the record.
+
+        for (let j = 0; j < simulationLogic.strategies.length; j++) {
+
+            let strategy = simulationLogic.strategies[j];
+
             y = y + increment;
-            let opacity;
-            if (currentRecord.conditionsValues[i] === 1) {
-                opacity = '1.00'
-            } else {
+            y = y + increment;
+            opacity = '1.00';
+            label = 'Strategy: ' + strategy.name;
+            printLabel(label, X_AXIS, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+
+            y = y + increment;
+            opacity = '0.50';
+            label = 'Entry Point';
+            printLabel(label, X_AXIS, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+
+            for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
+
+                let situation = strategy.entryPoint.situations[k];
+
+                y = y + increment;
                 opacity = '0.50';
+                label = 'Situation: ' + situation.name;
+                printLabel(label, X_AXIS, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+
+                for (let m = 0; m < situation.conditions.length; m++) {
+
+                    let condition = situation.conditions[m];
+                    let color;
+
+                    y = y + increment;
+                    if (currentRecord.conditionsValues[conditionIndex] === 1) {
+                        opacity = '0.50'
+                        color = UI_COLOR.PATINATED_TURQUOISE;
+                    } else {
+                        opacity = '0.50';
+                        color = UI_COLOR.RUSTED_RED;
+                    }
+                    conditionIndex++;
+                    label = condition.name;
+                    printLabel(label, X_AXIS, frameTitleHeight + frameBodyHeight * y, opacity, color);
+                }
             }
-            printLabel(currentRecord.conditionsNames[i], X_AXIS, frameTitleHeight + frameBodyHeight * y, opacity);
         }
 
-        function printLabel(labelToPrint, x, y, opacity) {
+        function printLabel(labelToPrint, x, y, opacity, color) {
 
             let labelPoint;
             let fontSize = 10;
@@ -113,7 +151,7 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
             labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
-            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
+            browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + opacity + ')';
             browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
         }

@@ -1003,6 +1003,19 @@
                                     newCondition(key, condition.code);
                                 }
                             }
+
+                            for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
+
+                                let situation = strategy.sellPoint.situations[k];
+
+                                for (let m = 0; m < situation.conditions.length; m++) {
+
+                                    let condition = situation.conditions[m];
+                                    let key = strategy.name + '-' + situation.name + '-' + condition.name
+
+                                    newCondition(key, condition.code);
+                                }
+                            }
                         }
 
                         function newCondition(key, code) {
@@ -1110,6 +1123,45 @@
                             }
                         }
 
+                        /* Strategy Sell Condition */
+
+                        if (strategyPhase === 1) {
+
+                            checkSellPoints();
+
+                            function checkSellPoints() {
+
+                                let strategy = simulationLogic.strategies[strategyNumber - 1];
+
+                                for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
+
+                                    let situation = strategy.sellPoint.situations[k];
+                                    let passed = true;
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = strategy.name + '-' + situation.name + '-' + condition.name
+
+                                        let value = conditions.get(key).value;
+
+                                        if (value === false) { passed = false; }
+                                    }
+
+                                    if (passed) {
+
+                                        type = '"Sell"';
+
+                                        strategyPhase = 2;
+                                        stopLossPhase = 1;
+                                        buyOrderPhase = 1;
+
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+
                         if (strategyPhase === 3) {
 
                             /* Checking what happened since the last execution. We need to know if the Stop Loss
@@ -1163,37 +1215,6 @@
                                 itself.
                  
                                 */
-
-                                /* Sell Condition #1 */
-                                /*
-                                if (
-                                    strategyPhase === 1 &&
-                                    band2.movingAverage > band1.movingAverage &&
-                                    band1.movingAverage > band.movingAverage
-                                ) {
-
-                                    type = '"Sell-1"';
-
-                                    strategyPhase = 2;
-                                    stopLossPhase = 1;
-                                    buyOrderPhase = 1;
-                                }
-                                */
-                                /* Sell Condition #2 */
-
-                                if (
-                                    strategyPhase === 1 &&
-                                    candles[i - 2].min < band2.movingAverage - band2.deviation &&
-                                    candles[i - 1].min < band1.movingAverage - band1.deviation &&
-                                    candle.min < band.movingAverage - band.deviation 
-                                ) {
-
-                                    type = '"Sell-2"';
-
-                                    strategyPhase = 2;
-                                    stopLossPhase = 1;
-                                    buyOrderPhase = 1;
-                                }
 
                                 /* Stop Loss Management */
 
@@ -1332,22 +1353,6 @@
                 
                                 */
 
-
-                                /* Sell Condition #1 */
-
-                                if (
-                                    strategyPhase === 1 &&
-                                    percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage &&
-                                    percentageBandwidth1.movingAverage > 90
-                                    
-                                ) {
-
-                                    type = '"Sell-1"';
-
-                                    strategyPhase = 2;
-                                    stopLossPhase = 1;
-                                    buyOrderPhase = 1;
-                                }
 
                                 /* Stop Loss Management */
 

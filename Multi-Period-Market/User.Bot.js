@@ -133,6 +133,7 @@
                             let candles = [];
                             let recordsArray = [];
                             let conditionsArray = [];
+                            let simulationLogic = {};
 
                             nextPercentageBandwidth();
 
@@ -532,6 +533,7 @@
                                         bollingerSubChannelsArray,
                                         recordsArray,
                                         conditionsArray,
+                                        simulationLogic,
                                         outputPeriod,
                                         writeRecordsFile)
 
@@ -664,7 +666,7 @@
                                     }
 
                                     fileContent = "[" + fileContent + "]";
-
+                                    fileContent = "[" + JSON.stringify(simulationLogic) + "," + fileContent + "]";    
                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
@@ -770,6 +772,7 @@
                 bollingerSubChannelsArray,
                 recordsArray,
                 conditionsArray,
+                simulationLogic,
                 outputPeriod,
                 callback) {
 
@@ -830,61 +833,58 @@
                     let newStopLoss;
 
                     let initialBuffer = 3;
-                    let conditionsHeadersSent = false;
 
-                    const simulationLogic = {
-                        strategies: [
-                            {
-                                name: "Trend Following",
-                                entryPoint: {
-                                    situations: [
-                                        {
-                                            name: "Price Collapsing",
-                                            conditions: [
-                                                {
-                                                    name: "%B Moving Average going up",
-                                                    code: "percentageBandwidth2.movingAverage > percentageBandwidth1.movingAverage && percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage"
-                                                },
-                                                {
-                                                    name: "%B Bandwidth going up",
-                                                    code: "percentageBandwidth2.bandwidth < percentageBandwidth1.bandwidth && percentageBandwidth1.bandwidth < percentageBandwidth.bandwidth"
-                                                },
-                                                {
-                                                    name: "Candles Min going down",
-                                                    code: "candles[i - 2].min > candles[i - 1].min && candles[i - 1].min > candle.min"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                name: "Range Trading",
-                                entryPoint: {
-                                    situations: [
-                                        {
-                                            name: "Gentle Up Trend",
-                                            conditions: [
-                                                {
-                                                    name: "Sub-Channel going up",
-                                                    code: "subChannel.direction === 'Up'"
-                                                },
-                                                {
-                                                    name: "Sub-Channel Side|Gentle|Medium",
-                                                    code: "subChannel.slope === 'Side' || subChannel.slope === 'Gentle' || subChannel.slope === 'Medium'"
-                                                },
-                                                {
-                                                    name: "Candle Close above Lower Band",
-                                                    code: "candle.close > band.movingAverage + band.deviation"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
+                    simulationLogic.strategies = [
+                        {
+                            name: "Trend Following",
+                            entryPoint: {
+                                situations: [
+                                    {
+                                        name: "Price Collapsing",
+                                        conditions: [
+                                            {
+                                                name: "%B Moving Average going up",
+                                                code: "percentageBandwidth2.movingAverage > percentageBandwidth1.movingAverage && percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage"
+                                            },
+                                            {
+                                                name: "%B Bandwidth going up",
+                                                code: "percentageBandwidth2.bandwidth < percentageBandwidth1.bandwidth && percentageBandwidth1.bandwidth < percentageBandwidth.bandwidth"
+                                            },
+                                            {
+                                                name: "Candles Min going down",
+                                                code: "candles[i - 2].min > candles[i - 1].min && candles[i - 1].min > candle.min"
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
-                        ]
-                    };
-
+                        },
+                        {
+                            name: "Range Trading",
+                            entryPoint: {
+                                situations: [
+                                    {
+                                        name: "Gentle Up Trend",
+                                        conditions: [
+                                            {
+                                                name: "Sub-Channel going up",
+                                                code: "subChannel.direction === 'Up'"
+                                            },
+                                            {
+                                                name: "Sub-Channel Side|Gentle|Medium",
+                                                code: "subChannel.slope === 'Side' || subChannel.slope === 'Gentle' || subChannel.slope === 'Medium'"
+                                            },
+                                            {
+                                                name: "Candle Close above Lower Band",
+                                                code: "candle.close > band.movingAverage + band.deviation"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ];
+                    
                     /* Main Simulation Loop: We go thourgh all the candles at this time period. */
 
                     for (let i = 0 + initialBuffer; i < candles.length; i++) {
@@ -947,18 +947,12 @@
 
                             conditions.set(condition.key, condition);
 
-                            if (conditionsHeadersSent === false) {
-                                conditionsArrayRecord.push('"' + condition.key + '"');                                
+                            if (condition.value) {
+                                conditionsArrayRecord.push(1);
                             } else {
-                                if (condition.value) {
-                                    conditionsArrayRecord.push(1);
-                                } else {
-                                    conditionsArrayRecord.push(0);
-                                }                                
-                            }
+                                conditionsArrayRecord.push(0);
+                            }   
                         }
-
-                        conditionsHeadersSent = true;
 
                         /* While we are outside all strategies, we evaluate whether it is time to enter one or not. */
 

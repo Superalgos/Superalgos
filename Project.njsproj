@@ -17,6 +17,12 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Compile Include="Conditions.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConditionsPanel.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TradingSimulationPanel.js" />
     <Compile Include="TradingSimulation.js" />
   </ItemGroup>

@@ -426,8 +426,7 @@
                     strategyPhase: undefined,
                     buyOrder: undefined,
                     stopLossPhase: undefined,
-                    buyOrderPhase: undefined,
-                    conditions: undefined
+                    buyOrderPhase: undefined 
                 };
 
                 record.begin = marketFile[i][0];
@@ -455,11 +454,6 @@
                 record.buyOrder = marketFile[i][22];
                 record.stopLossPhase = marketFile[i][23];
                 record.buyOrderPhase = marketFile[i][24];
-                record.conditions = marketFile[i][25];
-
-                if (i === 0) { // The first record contains headers needed to be printed.
-                    records.push(record);
-                }
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -1033,8 +1027,6 @@
                     if (dateValue >= record.begin && dateValue <= record.end) {
 
                         let currentRecord = {
-                            conditionsNames: records[0].conditions,
-                            conditionsValues: record.conditions,
                             innerRecord: record
                         };
                         thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);

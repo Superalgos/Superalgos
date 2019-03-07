@@ -857,6 +857,32 @@
                                         ]
                                     }
                                 ]
+                            },
+                            exitPoint: {
+                                situations: [
+                                    {
+                                        name: "Market Reversing",
+                                        conditions: [
+                                            {
+                                                name: "Close above Band Moving Average",
+                                                code: "candle.close > band.movingAverage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            sellPoint: {
+                                situations: [
+                                    {
+                                        name: "Min below lower band.",
+                                        conditions: [
+                                            {
+                                                name: "3 Candles MIN below Lower Band",
+                                                code: "candles[i - 2].min < band2.movingAverage - band2.deviation && candles[i - 1].min < band1.movingAverage - band1.deviation && candle.min < band.movingAverage - band.deviation"
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         },
                         {
@@ -881,10 +907,40 @@
                                         ]
                                     }
                                 ]
+                            },
+                            exitPoint: {
+                                situations: [
+                                    {
+                                        name: "Outside Sub-Channel",
+                                        conditions: [
+                                            {
+                                                name: "Going down or too Steep",
+                                                code: "subChannel.direction === 'Down' || subChannel.slope === 'Steep' || subChannel.slope === 'Extreme'"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            sellPoint: {
+                                situations: [
+                                    {
+                                        name: "Min below lower band.",
+                                        conditions: [
+                                            {
+                                                name: "%B Moving Average going down",
+                                                code: "percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage"
+                                            },
+                                            {
+                                                name: "%B Moving Average above 90",
+                                                code: "percentageBandwidth1.movingAverage > 90"
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         }
                     ];
-                    
+
                     /* Main Simulation Loop: We go thourgh all the candles at this time period. */
 
                     for (let i = 0 + initialBuffer; i < candles.length; i++) {
@@ -930,6 +986,19 @@
 
                                     let condition = situation.conditions[m];
                                     let key = strategy.name + '-' + situation.name + '-' + condition.name 
+
+                                    newCondition(key, condition.code);
+                                }
+                            }
+
+                            for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
+
+                                let situation = strategy.exitPoint.situations[k];
+
+                                for (let m = 0; m < situation.conditions.length; m++) {
+
+                                    let condition = situation.conditions[m];
+                                    let key = strategy.name + '-' + situation.name + '-' + condition.name
 
                                     newCondition(key, condition.code);
                                 }
@@ -1005,6 +1074,42 @@
                             }
                         }
 
+                        /* Strategy Exit Condition */
+
+                        if (strategyPhase === 1) {
+
+                            checkExitPoints();
+
+                            function checkExitPoints() {
+
+                                let strategy = simulationLogic.strategies[strategyNumber - 1];
+
+                                for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
+
+                                    let situation = strategy.exitPoint.situations[k];
+                                    let passed = true;
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = strategy.name + '-' + situation.name + '-' + condition.name
+
+                                        let value = conditions.get(key).value;
+
+                                        if (value === false) { passed = false; }
+                                    }
+
+                                    if (passed) {
+
+                                        strategyPhase = 0;
+                                        strategyNumber = 0;
+
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+
                         if (strategyPhase === 3) {
 
                             /* Checking what happened since the last execution. We need to know if the Stop Loss
@@ -1058,16 +1163,6 @@
                                 itself.
                  
                                 */
-
-                                /* Strategy Exit Condition */
-
-                                if (
-                                    strategyPhase === 1 &&
-                                    candle.close > band.movingAverage 
-                                ) {
-                                    strategyPhase = 0;
-                                    strategyNumber = 0;
-                                };
 
                                 /* Sell Condition #1 */
                                 /*
@@ -1237,20 +1332,6 @@
                 
                                 */
 
-                                /* Exist Strategy Condition */
-
-                                if (
-                                    strategyPhase === 1 &&
-                                    (subChannel.direction === 'Down' ||
-                                        subChannel.slope === 'Steep' ||
-                                        subChannel.slope === 'Extreme'
-                                    )
-                                ) {
-
-                                    strategyPhase = 0;
-                                    strategyNumber = 0;
-
-                                }
 
                                 /* Sell Condition #1 */
 

@@ -785,7 +785,7 @@
 
                     /* Strategy and Phases */
 
-                    let strategy = 0;
+                    let strategyNumber = 0;
                     let strategyPhase = 0;  // So far we will consider 5 possible phases: 0 = Initial state, 1 = Signal to buy, 2 = Buy, 3 = After Buy, 4 = Sell.
 
                     /* Stop Loss Management */
@@ -832,6 +832,59 @@
                     let initialBuffer = 3;
                     let conditionsHeadersSent = false;
 
+                    const simulationLogic = {
+                        strategies: [
+                            {
+                                name: "Trend Following",
+                                entryPoint: {
+                                    situations: [
+                                        {
+                                            name: "Price Collapsing",
+                                            conditions: [
+                                                {
+                                                    name: "%B Moving Average going up",
+                                                    code: "percentageBandwidth2.movingAverage > percentageBandwidth1.movingAverage && percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage"
+                                                },
+                                                {
+                                                    name: "%B Bandwidth going up",
+                                                    code: "percentageBandwidth2.bandwidth < percentageBandwidth1.bandwidth && percentageBandwidth1.bandwidth < percentageBandwidth.bandwidth"
+                                                },
+                                                {
+                                                    name: "Candles Min going down",
+                                                    code: "candles[i - 2].min > candles[i - 1].min && candles[i - 1].min > candle.min"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                name: "Range Trading",
+                                entryPoint: {
+                                    situations: [
+                                        {
+                                            name: "Gentle Up Trend",
+                                            conditions: [
+                                                {
+                                                    name: "Sub-Channel going up",
+                                                    code: "subChannel.direction === 'Up'"
+                                                },
+                                                {
+                                                    name: "Sub-Channel Side|Gentle|Medium",
+                                                    code: "subChannel.slope === 'Side' || subChannel.slope === 'Gentle' || subChannel.slope === 'Medium'"
+                                                },
+                                                {
+                                                    name: "Candle Close above Lower Band",
+                                                    code: "candle.close > band.movingAverage + band.deviation"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    };
+
                     /* Main Simulation Loop: We go thourgh all the candles at this time period. */
 
                     for (let i = 0 + initialBuffer; i < candles.length; i++) {
@@ -865,56 +918,37 @@
                         conditionsArrayRecord.push(candle.begin);
                         conditionsArrayRecord.push(candle.end);
 
-                        newCondition(
-                            "%B Moving Average going up",
-                            (percentageBandwidth2.movingAverage > percentageBandwidth1.movingAverage &&
-                                percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage)
-                        );
+                        for (let j = 0; j < simulationLogic.strategies.length; j++) {
 
-                        newCondition(
-                            "%B Bandwidth going up",
-                            (percentageBandwidth2.bandwidth < percentageBandwidth1.bandwidth &&
-                                percentageBandwidth1.bandwidth < percentageBandwidth.bandwidth)
-                        );
+                            let strategy = simulationLogic.strategies[j];
 
-                        newCondition(
-                            "Candles Min going down",
-                            (candles[i - 2].min > candles[i - 1].min &&
-                                candles[i - 1].min > candle.min)
-                        );
+                            for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
 
-                        newCondition(
-                            "Sub-Channel going up",
-                            (subChannel.direction === 'Up')
-                        );
+                                let situation = strategy.entryPoint.situations[k];
 
-                        newCondition(
-                            "Sub-Channel Side|Gentle|Medium",
-                            (
-                                subChannel.slope === 'Side' ||
-                                subChannel.slope === 'Gentle' ||
-                                subChannel.slope === 'Medium'
-                            )
-                        );
+                                for (let m = 0; m < situation.conditions.length; m++) {
 
-                        newCondition(
-                            "Candle Close above Lower Band",
-                            (candle.close > band.movingAverage + band.deviation)
-                        );
+                                    let condition = situation.conditions[m];
+                                    let key = strategy.name + '-' + situation.name + '-' + condition.name 
 
-                        function newCondition(name, value) {
+                                    newCondition(key, condition.code);
+                                }
+                            }
+                        }
+
+                        function newCondition(key, code) {
 
                             let condition;
 
                             condition = {
-                                name: name,
-                                value: value
+                                key: key,
+                                value: eval(code)
                             };
 
-                            conditions.set(condition.name, condition);
+                            conditions.set(condition.key, condition);
 
                             if (conditionsHeadersSent === false) {
-                                conditionsArrayRecord.push('"' + condition.name + '"');                                
+                                conditionsArrayRecord.push('"' + condition.key + '"');                                
                             } else {
                                 if (condition.value) {
                                     conditionsArrayRecord.push(1);
@@ -928,7 +962,7 @@
 
                         /* While we are outside all strategies, we evaluate whether it is time to enter one or not. */
 
-                        if (strategy === 0 &&
+                        if (strategyNumber === 0 &&
                             balanceAssetA > minimunBalanceA) {
 
                             /*
@@ -942,29 +976,38 @@
 
                             */
 
-                            /* Strategy 1 Entering Condition */
+                            checkEntryPoints();
 
-                            if (
-                                strategyPhase === 0 &&
-                                conditions.get("%B Moving Average going up").value &&
-                                conditions.get("%B Bandwidth going up").value &&
-                                conditions.get("Candles Min going down").value
-                            ) {
-                                strategyPhase = 1;
-                                strategy = 1;
+                            function checkEntryPoints() {
 
-                            };
+                                for (let j = 0; j < simulationLogic.strategies.length; j++) {
 
-                            /* Strategy 2 Entering Condition */
+                                    let strategy = simulationLogic.strategies[j];
 
-                            if (
-                                strategyPhase === 0 &&
-                                conditions.get("Sub-Channel going up").value &&
-                                conditions.get("Sub-Channel Side|Gentle|Medium").value &&
-                                conditions.get("Candle Close above Lower Band").value
-                            ) {
-                                strategyPhase = 1;
-                                strategy = 2;
+                                    for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
+
+                                        let situation = strategy.entryPoint.situations[k];
+                                        let passed = true;
+
+                                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                                            let condition = situation.conditions[m];
+                                            let key = strategy.name + '-' + situation.name + '-' + condition.name
+
+                                            let value = conditions.get(key).value;
+
+                                            if (value === false) { passed = false; }
+                                        }
+
+                                        if (passed) {
+
+                                            strategyPhase = 1;
+                                            strategyNumber = j + 1;
+
+                                            return;
+                                        }
+                                    }
+                                }
                             }
                         }
 
@@ -1000,7 +1043,7 @@
 
                         if (strategyPhase < 4) { // When a buy condition has not been detected yet.
 
-                            if (strategy === 1) {
+                            if (strategyNumber === 1) {
 
                                 /* Strategy #1: Trend Following. */
 
@@ -1029,7 +1072,7 @@
                                     candle.close > band.movingAverage 
                                 ) {
                                     strategyPhase = 0;
-                                    strategy = 0;
+                                    strategyNumber = 0;
                                 };
 
                                 /* Sell Condition #1 */
@@ -1186,7 +1229,7 @@
                                 }
                             }
 
-                            if (strategy === 2) {
+                            if (strategyNumber === 2) {
 
                                 /* Strategy #2: Range Trading. */
 
@@ -1211,7 +1254,7 @@
                                 ) {
 
                                     strategyPhase = 0;
-                                    strategy = 0;
+                                    strategyNumber = 0;
 
                                 }
 
@@ -1306,7 +1349,7 @@
                             
                             addRecord();
 
-                            strategy = 0;
+                            strategyNumber = 0;
                             stopLoss = 0;
                             sellRate = 0;
                             buyOrder = 0;
@@ -1346,7 +1389,7 @@
                                 anualizedRateOfReturn: anualizedRateOfReturn,
                                 sellRate: sellRate,
                                 lastProfitPercent: lastProfitPercent,
-                                strategy: strategy,
+                                strategy: strategyNumber,
                                 strategyPhase: strategyPhase,
                                 buyOrder: buyOrder,
                                 stopLossPhase: stopLossPhase,

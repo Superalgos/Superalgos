@@ -883,6 +883,50 @@
                                         ]
                                     }
                                 ]
+                            },
+                            stopLoss: {
+                                phases: [
+                                    {
+                                        name: "Following Sell Rate",
+                                        code: "newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100",
+                                        situations: [
+                                            {
+                                                name: "Candle below Moving Average",
+                                                conditions: [
+                                                    {
+                                                        name: "Candle fully below Band Moving Average",
+                                                        code: "candle.max < band.movingAverage"
+                                                    },
+                                                    {
+                                                        name: "Band Moving Average going down",
+                                                        code: "band1.movingAverage > band.movingAverage"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: "Above Bands Moving Average",
+                                        code: "newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100",
+                                        situations: [
+                                            {
+                                                name: "Candle below Moving Average",
+                                                conditions: [
+                                                    {
+                                                        name: "Candle MAX below lower band",
+                                                        code: "candle.max < band.movingAverage - band.deviation"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: "At Bands Moving Average",
+                                        code: "newStopLoss = band.movingAverage",
+                                        situations: [                                           
+                                        ]
+                                    }
+                                ]
                             }
                         },
                         {
@@ -937,6 +981,16 @@
                                         ]
                                     }
                                 ]
+                            },
+                            stopLoss: {
+                                phases: [
+                                    {
+                                        name: "Following Sell Rate",
+                                        code: "newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100",
+                                        situations: [                                           
+                                        ]
+                                    }
+                                ]
                             }
                         }
                     ];
@@ -985,7 +1039,7 @@
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
                                     let condition = situation.conditions[m];
-                                    let key = strategy.name + '-' + situation.name + '-' + condition.name 
+                                    let key = strategy.name + '-' + situation.name + '-' + condition.name;
 
                                     newCondition(key, condition.code);
                                 }
@@ -998,7 +1052,7 @@
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
                                     let condition = situation.conditions[m];
-                                    let key = strategy.name + '-' + situation.name + '-' + condition.name
+                                    let key = strategy.name + '-' + situation.name + '-' + condition.name;
 
                                     newCondition(key, condition.code);
                                 }
@@ -1011,9 +1065,27 @@
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
                                     let condition = situation.conditions[m];
-                                    let key = strategy.name + '-' + situation.name + '-' + condition.name
+                                    let key = strategy.name + '-' + situation.name + '-' + condition.name;
 
                                     newCondition(key, condition.code);
+                                }
+                            }
+
+                            for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
+
+                                let phase = strategy.stopLoss.phases[p];
+
+                                for (let k = 0; k < phase.situations.length; k++) {
+
+                                    let situation = phase.situations[k];
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name;
+
+                                        newCondition(key, condition.code);
+                                    }
                                 }
                             }
                         }
@@ -1123,6 +1195,36 @@
                             }
                         }
 
+                        if (strategyPhase === 3) {
+
+                            /* Checking what happened since the last execution. We need to know if the Stop Loss
+                                or our Buy Order were hit. */
+
+                            /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
+
+                            if (candle.max >= stopLoss) {
+
+                                balanceAssetA = balanceAssetB / stopLoss;
+
+                                balanceAssetB = 0;
+                                rate = stopLoss;
+                                type = '"Buy@StopLoss"';
+                                strategyPhase = 4;
+                            }
+
+                            /* Buy Order condition: Here we verify if the Buy Order was filled or not. */
+
+                            if (candle.min <= buyOrder) {
+
+                                balanceAssetA = balanceAssetB / buyOrder;
+
+                                balanceAssetB = 0;
+                                rate = buyOrder;
+                                type = '"Buy@BuyOrder"';
+                                strategyPhase = 4;
+                            }
+                        }
+
                         /* Strategy Sell Condition */
 
                         if (strategyPhase === 1) {
@@ -1162,33 +1264,48 @@
                             }
                         }
 
+                        /* Stop Loss Management */
+
                         if (strategyPhase === 3) {
 
-                            /* Checking what happened since the last execution. We need to know if the Stop Loss
-                                or our Buy Order were hit. */
+                            checkStopLoss();
 
-                            /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
+                            function checkStopLoss() {
 
-                            if (candle.max >= stopLoss) {
+                                let strategy = simulationLogic.strategies[strategyNumber - 1];
+                                 
+                                let phase = strategy.stopLoss.phases[stopLossPhase - 1];
 
-                                balanceAssetA = balanceAssetB / stopLoss;
+                                eval(phase.code); // Here is where we apply the formula given for the stop loss for this phase.
 
-                                balanceAssetB = 0;
-                                rate = stopLoss;
-                                type = '"Buy@StopLoss"';
-                                strategyPhase = 4;
-                            }
+                                if (newStopLoss < previousStopLoss) {
+                                    stopLoss = newStopLoss;
+                                } else {
+                                    stopLoss = previousStopLoss;
+                                }
 
-                            /* Buy Order condition: Here we verify if the Buy Order was filled or not. */
+                                for (let k = 0; k < phase.situations.length; k++) {
 
-                            if (candle.min <= buyOrder) {
+                                    let situation = phase.situations[k];
+                                    let passed = true;
 
-                                balanceAssetA = balanceAssetB / buyOrder;
+                                    for (let m = 0; m < situation.conditions.length; m++) {
 
-                                balanceAssetB = 0;
-                                rate = buyOrder;
-                                type = '"Buy@BuyOrder"';
-                                strategyPhase = 4;
+                                        let condition = situation.conditions[m];
+                                        let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name
+
+                                        let value = conditions.get(key).value;
+
+                                        if (value === false) { passed = false; }
+                                    }
+
+                                    if (passed) {
+                                            
+                                        stopLossPhase++; 
+                                            
+                                        return;
+                                    }
+                                }                                 
                             }
                         }
 
@@ -1217,7 +1334,7 @@
                                 */
 
                                 /* Stop Loss Management */
-
+                                /*
                                 if (stopLossPhase === 3) {
 
                                     newStopLoss = band.movingAverage;
@@ -1260,7 +1377,7 @@
                                         stopLossDecay = stopLossDecay - stopLossDecayIncrement / 2;
                                     }
 
-                                    newStopLoss = newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
+                                    newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
 
                                     if (newStopLoss < previousStopLoss) {
                                         stopLoss = newStopLoss;
@@ -1278,7 +1395,7 @@
 
                                     }
                                 }
-
+                                */
                                 /* Buy Orders Management */
 
                                 if (buyOrderPhase === 5) {
@@ -1355,7 +1472,7 @@
 
 
                                 /* Stop Loss Management */
-
+                                /*
                                 if (stopLossPhase === 1) {
 
                                     newStopLoss = newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
@@ -1366,7 +1483,7 @@
                                         stopLoss = previousStopLoss;
                                     }
                                 }
-
+                                */
                                 /* Buy Orders Management */
 
                                 if (buyOrderPhase === 1) {

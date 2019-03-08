@@ -805,8 +805,7 @@
                     let buyOrderPercentage = 1;
                     let previousBuyOrder = 0;
                     let buyOrder = 0;
-                    let buyOrderDecay = 0;
-                    let buyOrderDecayIncrement = 0.01;
+                    let buyOrderDecay = 0;                  
                     let buyOrderPhase = 0;
 
                     /* Building records */
@@ -931,15 +930,19 @@
                             buyOrder: {
                                 phases: [
                                     {
-                                        name: "Following Sell Rate",
-                                        code: "newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100",
+                                        name: "12 times standard deviation",
+                                        code: "buyOrder = band.movingAverage - band.standardDeviation * 12",
                                         situations: [
                                             {
-                                                name: "Candle below Moving Average",
+                                                name: "Candle cut by lower band",
                                                 conditions: [
                                                     {
-                                                        name: "Candle fully below Band Moving Average",
-                                                        code: "candle.max < band.movingAverage"
+                                                        name: "Max above lower band",
+                                                        code: "candle.max > band.movingAverage - band.deviation"
+                                                    },
+                                                    {
+                                                        name: "MIN below lower band",
+                                                        code: "candle.min < band.movingAverage - band.deviation"
                                                     },
                                                     {
                                                         name: "Band Moving Average going down",
@@ -950,23 +953,61 @@
                                         ]
                                     },
                                     {
-                                        name: "Above Bands Moving Average",
-                                        code: "newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100",
+                                        name: "10 times standard deviation",
+                                        code: "buyOrder = band.movingAverage - band.standardDeviation * 10",
                                         situations: [
                                             {
-                                                name: "Candle below Moving Average",
+                                                name: "%B starting to revert",
                                                 conditions: [
                                                     {
-                                                        name: "Candle MAX below lower band",
-                                                        code: "candle.max < band.movingAverage - band.deviation"
+                                                        name: "%B Moving Average going up",
+                                                        code: "percentageBandwidth1.movingAverage < percentageBandwidth.movingAverage"
+                                                    },
+                                                    {
+                                                        name: "%B Moving Average above 0",
+                                                        code: "percentageBandwidth.movingAverage > 0"
                                                     }
                                                 ]
                                             }
                                         ]
                                     },
                                     {
-                                        name: "At Bands Moving Average",
-                                        code: "newStopLoss = band.movingAverage",
+                                        name: "4 times standard deviation",
+                                        code: "buyOrder = band.movingAverage - band.standardDeviation * 4",
+                                        situations: [
+                                            {
+                                                name: "%B going down again",
+                                                conditions: [
+                                                    {
+                                                        name: "%B Moving Average going down",
+                                                        code: "percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: "3 times standard deviation",
+                                        code: "buyOrder = band.movingAverage - band.standardDeviation * 3",
+                                        situations: [
+                                            {
+                                                name: "%B going up and above 30",
+                                                conditions: [
+                                                    {
+                                                        name: "%B Moving Average going up",
+                                                        code: "percentageBandwidth1.movingAverage < percentageBandwidth.movingAverag"
+                                                    },
+                                                    {
+                                                        name: "%B Moving Average above 30",
+                                                        code: "percentageBandwidth.movingAverage > 30"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: "At lower band",
+                                        code: "buyOrder = band.movingAverage - band.standardDeviation * 2",
                                         situations: [
                                         ]
                                     }
@@ -1032,6 +1073,16 @@
                                         name: "Following Sell Rate",
                                         code: "newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100",
                                         situations: [                                           
+                                        ]
+                                    }
+                                ]
+                            },
+                            buyOrder: {
+                                phases: [ 
+                                    {
+                                        name: "Between Band Moving Average and Lower Band",
+                                        code: "buyOrder = band.movingAverage - band.standardDeviation",
+                                        situations: [
                                         ]
                                     }
                                 ]
@@ -1118,6 +1169,24 @@
                             for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
 
                                 let phase = strategy.stopLoss.phases[p];
+
+                                for (let k = 0; k < phase.situations.length; k++) {
+
+                                    let situation = phase.situations[k];
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name;
+
+                                        newCondition(key, condition.code);
+                                    }
+                                }
+                            }
+
+                            for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
+
+                                let phase = strategy.buyOrder.phases[p];
 
                                 for (let k = 0; k < phase.situations.length; k++) {
 
@@ -1353,111 +1422,41 @@
                             }
                         }
 
-                        if (strategyPhase < 4) { // When a buy condition has not been detected yet.
+                        /* Buy Order Management */
 
-                            if (strategyNumber === 1) {
+                        if (strategyPhase === 3) {
 
-                                /* Strategy #1: Trend Following. */
+                            checkBuyOrder();
 
-                                /* 
-                                Strategy Summary:
-                 
-                                Once Percentage Bandwidth (PB) moving average is going down and
-                                it is abobe 70%, we enter into Pre-Sell mode, which means that we are ready to
-                                sell as soon as the trend starts going down. The trend should be measured by the
-                                Bollinger Bands moving average.
-                 
-                                Once the band's moving average starts going down we Sell and we set the stop loss,
-                                which initially is static or going down if the prices starts going up too.
-                 
-                                Once the candles minimun goes out of the lower Bollinger band, we enter into stop loss
-                                trailing mode, which means that the stop loss will follow the band's moving average
-                                from there on, getting closer or farther from it depending on the slope of the moving average
-                                itself.
-                 
-                                */
+                            function checkBuyOrder() {
 
-  
-                                /* Buy Orders Management */
+                                let strategy = simulationLogic.strategies[strategyNumber - 1];
 
-                                if (buyOrderPhase === 5) {
+                                let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
 
-                                    buyOrder = band.movingAverage - band.standardDeviation * 2;
+                                eval(phase.code); // Here is where we apply the formula given for the buy order at this phase.
 
-                                }
+                                for (let k = 0; k < phase.situations.length; k++) {
 
-                                if (buyOrderPhase === 4) {
+                                    let situation = phase.situations[k];
+                                    let passed = true;
 
-                                    buyOrder = band.movingAverage - band.standardDeviation * 3;
+                                    for (let m = 0; m < situation.conditions.length; m++) {
 
-                                    if (
-                                        percentageBandwidth1.movingAverage < percentageBandwidth.movingAverage &&
-                                        percentageBandwidth.movingAverage > 30
-                                    ) {
-                                        buyOrderPhase = 5;
+                                        let condition = situation.conditions[m];
+                                        let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name
+
+                                        let value = conditions.get(key).value;
+
+                                        if (value === false) { passed = false; }
                                     }
-                                }
 
-                                if (buyOrderPhase === 3) {
+                                    if (passed) {
 
-                                    buyOrder = band.movingAverage - band.standardDeviation * 4;
+                                        buyOrderPhase++;
 
-                                    if (percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage) {
-                                        buyOrderPhase = 4;
+                                        return;
                                     }
-                                }
-
-                                if (buyOrderPhase === 2) {
-
-                                    buyOrder = band.movingAverage - band.standardDeviation * 10;
-
-                                    if (
-                                        percentageBandwidth1.movingAverage < percentageBandwidth.movingAverage &&
-                                        percentageBandwidth.movingAverage > 0
-                                    ) {
-                                        buyOrderPhase = 3;
-                                    }
-                                }
-
-                                if (buyOrderPhase === 1) {
-
-                                    buyOrderDecay = buyOrderDecay + buyOrderDecayIncrement;
-
-                                    buyOrder = band.movingAverage - band.standardDeviation * 10; //+ band.movingAverage - band.standardDeviation * 4 * (buyOrderPercentage + buyOrderDecay) / 100;
-
-                                    if (
-                                        strategyPhase === 3 &&
-                                        candle.max < band.movingAverage &&
-                                        band1.movingAverage > band.movingAverage &&
-                                        candle.min < band.movingAverage - band.deviation
-                                    ) {
-
-                                        buyOrderPhase = 2;
-
-                                    }
-                                }
-                            }
-
-                            if (strategyNumber === 2) {
-
-                                /* Strategy #2: Range Trading. */
-
-                                /* 
-                                Strategy Summary:
-                
-                                Once the candles maximun gets above the Bollinger Upper Band we wait until the B% moving average points
-                                downward and then we Sell.
-                
-                                We keep our buy order just below the the Bollinger Bands moving average.
-                
-                                */
-
-                                /* Buy Orders Management */
-
-                                if (buyOrderPhase === 1) {
-
-                                    buyOrder = band.movingAverage - band.standardDeviation;
-
                                 }
                             }
                         }

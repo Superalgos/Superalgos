@@ -927,6 +927,50 @@
                                         ]
                                     }
                                 ]
+                            },
+                            buyOrder: {
+                                phases: [
+                                    {
+                                        name: "Following Sell Rate",
+                                        code: "newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100",
+                                        situations: [
+                                            {
+                                                name: "Candle below Moving Average",
+                                                conditions: [
+                                                    {
+                                                        name: "Candle fully below Band Moving Average",
+                                                        code: "candle.max < band.movingAverage"
+                                                    },
+                                                    {
+                                                        name: "Band Moving Average going down",
+                                                        code: "band1.movingAverage > band.movingAverage"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: "Above Bands Moving Average",
+                                        code: "newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100",
+                                        situations: [
+                                            {
+                                                name: "Candle below Moving Average",
+                                                conditions: [
+                                                    {
+                                                        name: "Candle MAX below lower band",
+                                                        code: "candle.max < band.movingAverage - band.deviation"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: "At Bands Moving Average",
+                                        code: "newStopLoss = band.movingAverage",
+                                        situations: [
+                                        ]
+                                    }
+                                ]
                             }
                         },
                         {
@@ -1333,69 +1377,7 @@
                  
                                 */
 
-                                /* Stop Loss Management */
-                                /*
-                                if (stopLossPhase === 3) {
-
-                                    newStopLoss = band.movingAverage;
-
-                                    if (newStopLoss < previousStopLoss) {
-                                        stopLoss = newStopLoss;
-                                    } else {
-                                        stopLoss = previousStopLoss;
-                                    }
-                                }
-
-                                if (stopLossPhase === 2) {
-
-                                    if (band1.movingAverage < band.movingAverage) {
-                                        stopLossDecay = stopLossDecay + stopLossDecayIncrement * 2;
-                                    } else {
-                                        stopLossDecay = stopLossDecay - stopLossDecayIncrement / 2;
-                                    }
-
-                                    newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
-
-                                    if (newStopLoss < previousStopLoss) {
-                                        stopLoss = newStopLoss;
-                                    } else {
-                                        stopLoss = previousStopLoss;
-                                    }
-
-                                    if (
-                                        candle.max < band.movingAverage - band.deviation
-                                    ) {
-                                        stopLossPhase = 3;
-                                    }
-                                }
-
-                                if (stopLossPhase === 1) {
-
-                                    if (band1.movingAverage < band.movingAverage) {
-                                        stopLossDecay = stopLossDecay + stopLossDecayIncrement * 2;
-                                    } else {
-                                        stopLossDecay = stopLossDecay - stopLossDecayIncrement / 2;
-                                    }
-
-                                    newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
-
-                                    if (newStopLoss < previousStopLoss) {
-                                        stopLoss = newStopLoss;
-                                    } else {
-                                        stopLoss = previousStopLoss;
-                                    }
-
-                                    if (
-                                        strategyPhase === 3 &&
-                                        candle.max < band.movingAverage &&
-                                        band1.movingAverage > band.movingAverage 
-                                    ) {
-
-                                        stopLossPhase = 2;
-
-                                    }
-                                }
-                                */
+  
                                 /* Buy Orders Management */
 
                                 if (buyOrderPhase === 5) {
@@ -1470,20 +1452,6 @@
                 
                                 */
 
-
-                                /* Stop Loss Management */
-                                /*
-                                if (stopLossPhase === 1) {
-
-                                    newStopLoss = newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
-
-                                    if (newStopLoss < previousStopLoss) {
-                                        stopLoss = newStopLoss;
-                                    } else {
-                                        stopLoss = previousStopLoss;
-                                    }
-                                }
-                                */
                                 /* Buy Orders Management */
 
                                 if (buyOrderPhase === 1) {

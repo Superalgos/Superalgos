@@ -652,12 +652,14 @@
                                         let conditions = "";
                                         let conditionsSeparator = "";
 
-                                        for (let j = 0; j < record.length; j++) {
+                                        for (let j = 0; j < record.length - 1; j++) {
                                             conditions = conditions + conditionsSeparator + record[j];
                                             if (conditionsSeparator === "") { conditionsSeparator = ","; }
                                         }
 
-                                        fileContent = fileContent + separator + '[' + conditions + "]";
+                                        conditions = conditions + conditionsSeparator + '[' + record[record.length - 1] + ']';   // The last item contains an Array of condition values.
+
+                                        fileContent = fileContent + separator + '[' + conditions + ']';
 
                                         if (separator === "") { separator = ","; }
 
@@ -1115,8 +1117,9 @@
 
                         let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
 
-                        let conditions = new Map;
-                        let conditionsArrayRecord = [];
+                        let conditions = new Map;       // Here we store the conditions values that will be use in the simulator for decision making.
+                        let conditionsArrayRecord = []; // These are the records that will be saved in a file for the plotter to consume.
+                        let conditionsArrayValues = []; // Here we store the conditions values that will be written on file for the plotter.
 
                         /* We define and evaluate all conditions to be used later during the simulation loop. */
 
@@ -1215,9 +1218,9 @@
                             conditions.set(condition.key, condition);
 
                             if (condition.value) {
-                                conditionsArrayRecord.push(1);
+                                conditionsArrayValues.push(1);
                             } else {
-                                conditionsArrayRecord.push(0);
+                                conditionsArrayValues.push(0);
                             }   
                         }
 
@@ -1461,7 +1464,7 @@
                             }
                         }
 
-                        /* Check if a Sell condition was found. */
+                        /* Check if we need to sell. */
 
                         if (strategyPhase === 2) {
 
@@ -1485,7 +1488,7 @@
                             continue;
                         }
 
-                        /* Check if a Buy condition was found. */
+                        /* Check if we need to buy. */
 
                         if (strategyPhase === 4) {
 
@@ -1565,6 +1568,12 @@
                             previousStopLoss = stopLoss;
 
                             type = '""';
+
+                            conditionsArrayRecord.push(strategyNumber);
+                            conditionsArrayRecord.push(strategyPhase);
+                            conditionsArrayRecord.push(stopLossPhase);
+                            conditionsArrayRecord.push(buyOrderPhase);
+                            conditionsArrayRecord.push(conditionsArrayValues);
 
                             conditionsArray.push(conditionsArrayRecord);
 

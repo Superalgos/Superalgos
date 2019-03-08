@@ -23,7 +23,7 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
     function initialize() {
 
         thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL * 2;
-        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2;
+        thisObject.container.frame.height = viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y;
 
         thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - UI_PANEL.WIDTH.NORMAL * 3;
         thisObject.container.frame.position.y = viewPort.visibleArea.topRight.y;

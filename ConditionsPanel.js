@@ -86,7 +86,7 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
         browserCanvasContext.beginPath();
 
         let simulationLogic = currentRecord.conditionsNames;
-        let conditionIndex = 2;  // Jump the first 2 items since they are the .begin and the .end of the record.
+        let conditionIndex = 0; 
 
         for (let j = 0; j < simulationLogic.strategies.length; j++) {
 

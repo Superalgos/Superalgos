@@ -403,7 +403,11 @@
 
                 record.begin = marketFile[1][i][0];
                 record.end = marketFile[1][i][1];
-                record.conditions = marketFile[1][i];
+                record.strategyNumber = marketFile[1][i][2];
+                record.strategyPhase = marketFile[1][i][3];
+                record.stopLossPhase = marketFile[1][i][4];
+                record.buyOrderPhase = marketFile[1][i][5];
+                record.conditions = marketFile[1][i][6];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -487,7 +491,7 @@
 
             let conditionRecord;
 
-            for (let i = 1; i < conditions.length; i++) { // We do not start in 0 because there we have the headers.
+            for (let i = 0; i < conditions.length; i++) { 
 
                 conditionRecord = conditions[i];
 
@@ -499,6 +503,10 @@
 
                         let currentRecord = {
                             conditionsNames: headers,
+                            strategyNumber: conditionRecord.strategyNumber,
+                            strategyPhase: conditionRecord.strategyPhase,
+                            stopLossPhase: conditionRecord.stopLossPhase,
+                            buyOrderPhase: conditionRecord.buyOrderPhase,
                             conditionsValues: conditionRecord.conditions
                         };
                         thisObject.container.eventHandler.raiseEvent("Current Condition Record Changed", currentRecord);

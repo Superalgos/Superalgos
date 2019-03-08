@@ -78,7 +78,7 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
         const Y_AXIS = frameTitleHeight + frameBodyHeight / 2;
 
         let y = 0;
-        let increment = 0.03;
+        let increment = 0.02;
         let opacity;
         let label;
         let indent = 5;
@@ -92,7 +92,6 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
             let strategy = simulationLogic.strategies[j];
 
-            y = y + increment;
             y = y + increment;
             opacity = '1.00';
             label = 'Strategy: ' + strategy.name;
@@ -150,7 +149,27 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
                     let situation = phase.situations[k];
                     processSituation(situation);
                 }
+            }
 
+            y = y + increment;
+            opacity = '0.50';
+            label = 'Buy Order Management';
+            printLabel(label, X_AXIS + indent * 1, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+
+            for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
+
+                let phase = strategy.buyOrder.phases[p];
+
+                y = y + increment;
+                opacity = '0.50';
+                label = 'Phase: ' + phase.name;
+                printLabel(label, X_AXIS + indent * 1, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+
+                for (let k = 0; k < phase.situations.length; k++) {
+
+                    let situation = phase.situations[k];
+                    processSituation(situation);
+                }
             }
         }
 
@@ -213,6 +232,7 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
 
 }
+
 
 
 

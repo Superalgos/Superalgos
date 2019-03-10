@@ -788,7 +788,21 @@
                             return;
                         }
 
-                        callBack(global.DEFAULT_OK_RESPONSE);
+                        writeDataRange(contextVariables.firstTradeFile, processDate, PERCENTAGE_BANDWIDTH_FOLDER_NAME, onPercentageBandwidthDataRangeWritten);
+
+                        function onPercentageBandwidthDataRangeWritten(err) {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onBandsBandsDataRangeWritten -> onPercentageBandwidthDataRangeWritten -> err = " + err.message);
+                                callBack(err);
+                                return;
+                            }
+
+                            callBack(global.DEFAULT_OK_RESPONSE);
+
+                        }
 
                     }
                 }

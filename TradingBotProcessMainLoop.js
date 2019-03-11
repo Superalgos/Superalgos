@@ -904,27 +904,11 @@
                         }
                     }
 
-                    async function saveContext() {
+                    function saveContext() {
 
                         try {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> saveContext ->  Entering function."); }
-
-                            if (global.CURRENT_EXECUTION_AT === "Cloud") {
-                                // Update operations module with latest context
-                                let lastExecution = context.newHistoryRecord
-                                let date = lastExecution.date / 1000 | 0
-                                let buyAvgRate = lastExecution.buyAvgRate
-                                let sellAvgRate = lastExecution.sellAvgRate
-                                let marketRate = lastExecution.marketRate
-                                let combinedProfitsA = lastExecution.combinedProfitsA
-                                let combinedProfitsB = lastExecution.combinedProfitsB
-
-                                await operationsIntegration.updateExecutionResults(date, buyAvgRate, sellAvgRate,
-                                    marketRate, combinedProfitsA, combinedProfitsB)
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> saveContext ->  Execution Results updated."); }
-                            }
 
                             context.saveThemAll(onFinished);
 
@@ -938,7 +922,7 @@
                                         case global.DEFAULT_OK_RESPONSE.result: {
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> saveContext -> onFinished -> Execution finished well."); }
                                             nextWaitTime = 'Normal';
-                                            loopControl(nextWaitTime);
+                                            updateClonesModule();
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
@@ -994,6 +978,41 @@
                             clearTimeout(checkLoopHealthHandle);
                             bot.enableCheckLoopHealth = false;
                             callBackFunction(err);
+                        }
+                    }
+
+                    async function updateClonesModule() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> updateClonesModule ->  Entering function."); }
+
+                            if (global.CURRENT_EXECUTION_AT === "Cloud") {
+
+                                // Update clones module with latest context informations
+
+                                let lastExecution = context.newHistoryRecord
+                                let date = lastExecution.date / 1000 | 0
+                                let buyAvgRate = lastExecution.buyAvgRate
+                                let sellAvgRate = lastExecution.sellAvgRate
+                                let marketRate = lastExecution.marketRate
+                                let combinedProfitsA = lastExecution.combinedProfitsA
+                                let combinedProfitsB = lastExecution.combinedProfitsB
+
+                                await operationsIntegration.updateExecutionResults(date, buyAvgRate, sellAvgRate,
+                                    marketRate, combinedProfitsA, combinedProfitsB)
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> updateClonesModule ->  Clones Module Updated."); }
+                            }
+
+                            nextWaitTime = 'Normal';
+                            loopControl(nextWaitTime);
+                            
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> updateClonesModule -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> updateClonesModule -> Execution will continue anyways. ");
+                            nextWaitTime = 'Normal';
+                            loopControl(nextWaitTime);
                         }
                     }
 

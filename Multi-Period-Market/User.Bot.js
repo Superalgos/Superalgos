@@ -298,6 +298,14 @@
                                             bandwidth: marketFile[i][4]
                                         };
 
+                                        if (previous !== undefined) {
+
+                                            if (previous.movingAverage > percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'down'; }
+                                            if (previous.movingAverage < percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'up'; }
+                                            if (previous.movingAverage === percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'side'; }
+
+                                        }
+
                                         percentageBandwidth.previous = previous;
 
                                         percentageBandwidthMap.set(percentageBandwidth.begin, percentageBandwidth);
@@ -370,7 +378,7 @@
 
                                     for (let i = 0; i < marketFile.length; i++) {
 
-                                        let bollingerBands = {
+                                        let bollingerBand = {
                                             begin: marketFile[i][0],
                                             end: marketFile[i][1],
                                             movingAverage: marketFile[i][2],
@@ -378,11 +386,19 @@
                                             deviation: marketFile[i][4]
                                         };
 
-                                        bollingerBands.previous = previous;
+                                        if (previous !== undefined) {
 
-                                        bollingerBandsMap.set(bollingerBands.begin, bollingerBands);
+                                            if (previous.movingAverage > bollingerBand.movingAverage) { bollingerBand.direction = 'down'; }
+                                            if (previous.movingAverage < bollingerBand.movingAverage) { bollingerBand.direction = 'up'; }
+                                            if (previous.movingAverage === bollingerBand.movingAverage) { bollingerBand.direction = 'side'; }
 
-                                        previous = bollingerBands;
+                                        }
+
+                                        bollingerBand.previous = previous;
+
+                                        bollingerBandsMap.set(bollingerBand.begin, bollingerBand);
+
+                                        previous = bollingerBand;
                                     }
 
                                     nextBollingerChannels();
@@ -959,7 +975,7 @@
                                         conditions: [
                                             {
                                                 name: "%B Moving Average going up",
-                                                code: "percentageBandwidth.previous.previous.movingAverage > percentageBandwidth.previous.movingAverage && percentageBandwidth.previous.movingAverage > percentageBandwidth.movingAverage"
+                                                code: "percentageBandwidth.previous.direction === 'down' && percentageBandwidth.direction === 'down'"
                                             },
                                             {
                                                 name: "%B Bandwidth going up",
@@ -1014,7 +1030,7 @@
                                                     },
                                                     {
                                                         name: "Band Moving Average going down",
-                                                        code: "bollingerBand.previous.movingAverage > bollingerBand.movingAverage"
+                                                        code: "bollingerBand.direction === 'down'"
                                                     }
                                                 ]
                                             }
@@ -1077,7 +1093,7 @@
                                                 conditions: [
                                                     {
                                                         name: "%B Moving Average going up",
-                                                        code: "percentageBandwidth.previous.movingAverage < percentageBandwidth.movingAverage"
+                                                        code: "percentageBandwidth.direction === 'up'"
                                                     },
                                                     {
                                                         name: "%B Moving Average above 0",
@@ -1096,7 +1112,7 @@
                                                 conditions: [
                                                     {
                                                         name: "%B Moving Average going down",
-                                                        code: "percentageBandwidth.previous.movingAverage > percentageBandwidth.movingAverage"
+                                                        code: "percentageBandwidth.direction === 'down'"
                                                     }
                                                 ]
                                             }
@@ -1111,7 +1127,7 @@
                                                 conditions: [
                                                     {
                                                         name: "%B Moving Average going up",
-                                                        code: "percentageBandwidth.previous.movingAverage < percentageBandwidth.movingAverag"
+                                                        code: "percentageBandwidth.direction === 'up'"
                                                     },
                                                     {
                                                         name: "%B Moving Average above 30",

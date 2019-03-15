@@ -15,7 +15,7 @@
 
     return thisObject;
 
-    function initializeStorage(chrisStorage, jasonStorage, oliviaStorage, callBackFunction) {
+    function initializeStorage(chrisStorage, jasonStorage, oliviaStorage, gaussStorage, callBackFunction) {
 
         try {
 
@@ -48,10 +48,27 @@
 
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                        initializeOliviaStorage();
+                        initializeGaussStorage();
 
                     } else {
                         logger.write(MODULE_NAME, "[ERROR] initializeStorage -> initializeChrisStorage -> onChrisInizialized -> err = " + err.message);
+                        callBackFunction(err);
+                    }
+                }
+            }
+
+            function initializeGaussStorage() {
+
+                gaussStorage.initialize("AAVikings", onGaussInizialized);
+
+                function onGaussInizialized(err) {
+
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                        initializeOliviaStorage();
+
+                    } else {
+                        logger.write(MODULE_NAME, "[ERROR] initializeStorage -> initializeGaussStorage -> onChrisInizialized -> err = " + err.message);
                         callBackFunction(err);
                     }
                 }
@@ -73,6 +90,7 @@
                     }
                 }
             }
+            
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initializeStorage -> err = " + err.message);

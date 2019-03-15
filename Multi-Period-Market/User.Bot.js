@@ -7,6 +7,7 @@
 
     const EXCHANGE_NAME = "Poloniex";
 
+    const LRC_FOLDER_NAME = "LRC-Points";
     const PERCENTAGE_BANDWIDTH_FOLDER_NAME = "Percentage-Bandwidth";
     const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands";
     const BOLLINGER_CHANNELS_FOLDER_NAME = "Bollinger-Channels";
@@ -22,6 +23,7 @@
         start: start
     };
 
+    let gaussStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
     let chrisStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
     let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
     let jasonStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
@@ -43,7 +45,7 @@
 
             statusDependencies = pStatusDependencies;
 
-            commons.initializeStorage(chrisStorage, jasonStorage, oliviaStorage, onInizialized);
+            commons.initializeStorage(chrisStorage, jasonStorage, oliviaStorage, gaussStorage, onInizialized);
 
             function onInizialized(err) {
 
@@ -125,6 +127,7 @@
                             */
                             let marketFile;
 
+                            let LRCMap = new Map();
                             let percentageBandwidthMap = new Map();
                             let bollingerBandsMap = new Map();
                             let bollingerChannelsArray = [];
@@ -135,7 +138,101 @@
                             let conditionsArray = [];
                             let simulationLogic = {};
 
-                            nextPercentageBandwidth();
+                            nextLRC();
+
+                            function nextLRC() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextLRC -> Entering function."); }
+
+                                    let fileName = market.assetA + '_' + market.assetB + ".json";
+
+                                    let filePathRoot = "AAVikings" + "/" + "AAGauss" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + LRC_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+
+                                    gaussStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                                    function onFileReceived(err, text) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextLRC -> onFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextLRC -> onFileReceived -> text = " + text); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextLRC -> onFileReceived -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+
+                                            }
+
+                                            marketFile = JSON.parse(text);
+
+                                            buildLRC();
+
+
+                                        }
+                                        catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextLRC -> onFileReceived -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextLRC -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function buildLRC() {
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> buildLRC -> Entering function."); }
+
+                                try {
+
+                                    let previousLRC;
+
+                                    for (let i = 0; i < marketFile.length; i++) {
+
+                                        let LRC = {
+                                            begin: marketFile[i][0],
+                                            end: marketFile[i][1],
+                                            _15: marketFile[i][2],
+                                            _30: marketFile[i][3],
+                                            _60: marketFile[i][4]
+                                        };
+
+                                        if (previousLRC !== undefined) {
+
+                                            if (previousLRC._15 > LRC._15) { LRC.direction15 = 'down'; }
+                                            if (previousLRC._15 < LRC._15) { LRC.direction15 = 'up'; }
+                                            if (previousLRC._15 === LRC._15) { LRC.direction15 = 'side'; }
+
+                                            if (previousLRC._30 > LRC._30) { LRC.direction30 = 'down'; }
+                                            if (previousLRC._30 < LRC._30) { LRC.direction30 = 'up'; }
+                                            if (previousLRC._30 === LRC._30) { LRC.direction30 = 'side'; }
+
+                                            if (previousLRC._60 > LRC._60) { LRC.direction60 = 'down'; }
+                                            if (previousLRC._60 < LRC._60) { LRC.direction60 = 'up'; }
+                                            if (previousLRC._60 === LRC._60) { LRC.direction60 = 'side'; }
+
+                                        }
+
+                                        LRCMap.set(LRC.begin, LRC);
+
+                                        previousLRC = LRC;
+                                    }
+
+                                    nextPercentageBandwidth();
+
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> buildLRC -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
 
                             function nextPercentageBandwidth() {
 
@@ -529,6 +626,7 @@
                                         candles,
                                         bollingerBandsMap,
                                         percentageBandwidthMap,
+                                        LRCMap,
                                         bollingerChannelsArray,
                                         bollingerSubChannelsArray,
                                         recordsArray,
@@ -770,6 +868,7 @@
                 candles,
                 bollingerBandsMap,
                 percentageBandwidthMap,
+                LRCMap,
                 bollingerChannelsArray,
                 bollingerSubChannelsArray,
                 recordsArray,
@@ -854,6 +953,10 @@
                                             {
                                                 name: "Candles Min going down",
                                                 code: "candles[i - 2].min > candles[i - 1].min && candles[i - 1].min > candle.min"
+                                            },
+                                            {
+                                                name: "Impossible",
+                                                code: " 1 === 2"
                                             }
                                         ]
                                     }
@@ -1034,6 +1137,10 @@
                                             {
                                                 name: "Candle Close above Lower Band",
                                                 code: "candle.close > band.movingAverage + band.deviation"
+                                            },
+                                            {
+                                                name: "Impossible",
+                                                code: " 1 === 2"
                                             }
                                         ]
                                     }
@@ -1090,6 +1197,96 @@
                                 ]
                             }
                         }
+                        ,
+                        {
+                            name: "LRC Strategy",
+                            entryPoint: {
+                                situations: [
+                                    {
+                                        name: "Lines in the right order",
+                                        conditions: [
+                                            {
+                                                name: "60 > 30",
+                                                code: "LRC._60 > LRC._30"
+                                            },
+                                            {
+                                                name: "30 > 15",
+                                                code: "LRC._30 > LRC._15"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            exitPoint: {
+                                situations: [
+                                    {
+                                        name: "Lines out of order",
+                                        conditions: [
+                                            {
+                                                name: "60 < 30 or 30 < 15",
+                                                code: "LRC._60 < LRC._30 || LRC._30 < LRC._15 "
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            sellPoint: {
+                                situations: [
+                                    {
+                                        name: "All lines going down",
+                                        conditions: [
+                                            {
+                                                name: "60 going down",
+                                                code: "LRC.direction60 === 'down'"
+                                            },
+                                            {
+                                                name: "30 going down",
+                                                code: "LRC.direction30 === 'down'"
+                                            },
+                                            {
+                                                name: "15 going down",
+                                                code: "LRC.direction15 === 'down'"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            stopLoss: {
+                                phases: [
+                                    {
+                                        name: "Following Sell Rate",
+                                        code: "newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100",
+                                        situations: [
+                                            {
+                                                name: "Stop Loss < 60",
+                                                conditions: [
+                                                    {
+                                                        name: "Stop Loss < 60",
+                                                        code: "stopLoss < LRC._60"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: "Following 60",
+                                        code: "newStopLoss = LRC._60",
+                                        situations: [
+                                        ]
+                                    }
+                                ]
+                            },
+                            buyOrder: {
+                                phases: [
+                                    {
+                                        name: "Between Band Moving Average and Lower Band",
+                                        code: "buyOrder = band.movingAverage - band.standardDeviation * 4",
+                                        situations: [
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
                     ];
 
                     /* Main Simulation Loop: We go thourgh all the candles at this time period. */
@@ -1101,7 +1298,9 @@
                         let candle = candles[i];
                         let percentageBandwidth = percentageBandwidthMap.get(candle.begin);
                         let band = bollingerBandsMap.get(candle.begin);
+                        let LRC = LRCMap.get(candle.begin);
 
+                        if (LRC === undefined) { continue; } 
                         if (percentageBandwidth === undefined) { continue; } // percentageBandwidth might start after the first few candles.
                         if (candle.begin < initialDate.valueOf()) { continue; }
 

@@ -192,7 +192,7 @@
 
                                 try {
 
-                                    let previousLRC;
+                                    let previous;
 
                                     for (let i = 0; i < marketFile.length; i++) {
 
@@ -204,25 +204,25 @@
                                             _60: marketFile[i][4]
                                         };
 
-                                        if (previousLRC !== undefined) {
+                                        if (previous !== undefined) {
 
-                                            if (previousLRC._15 > LRC._15) { LRC.direction15 = 'down'; }
-                                            if (previousLRC._15 < LRC._15) { LRC.direction15 = 'up'; }
-                                            if (previousLRC._15 === LRC._15) { LRC.direction15 = 'side'; }
+                                            if (previous._15 > LRC._15) { LRC.direction15 = 'down'; }
+                                            if (previous._15 < LRC._15) { LRC.direction15 = 'up'; }
+                                            if (previous._15 === LRC._15) { LRC.direction15 = 'side'; }
 
-                                            if (previousLRC._30 > LRC._30) { LRC.direction30 = 'down'; }
-                                            if (previousLRC._30 < LRC._30) { LRC.direction30 = 'up'; }
-                                            if (previousLRC._30 === LRC._30) { LRC.direction30 = 'side'; }
+                                            if (previous._30 > LRC._30) { LRC.direction30 = 'down'; }
+                                            if (previous._30 < LRC._30) { LRC.direction30 = 'up'; }
+                                            if (previous._30 === LRC._30) { LRC.direction30 = 'side'; }
 
-                                            if (previousLRC._60 > LRC._60) { LRC.direction60 = 'down'; }
-                                            if (previousLRC._60 < LRC._60) { LRC.direction60 = 'up'; }
-                                            if (previousLRC._60 === LRC._60) { LRC.direction60 = 'side'; }
+                                            if (previous._60 > LRC._60) { LRC.direction60 = 'down'; }
+                                            if (previous._60 < LRC._60) { LRC.direction60 = 'up'; }
+                                            if (previous._60 === LRC._60) { LRC.direction60 = 'side'; }
 
                                         }
 
                                         LRCMap.set(LRC.begin, LRC);
 
-                                        previousLRC = LRC;
+                                        previous = LRC;
                                     }
 
                                     nextPercentageBandwidth();
@@ -298,7 +298,7 @@
                                             bandwidth: marketFile[i][4]
                                         };
 
-                                        percentageBandwidth.previous = percentageBandwidth;
+                                        percentageBandwidth.previous = previous;
 
                                         percentageBandwidthMap.set(percentageBandwidth.begin, percentageBandwidth);
 

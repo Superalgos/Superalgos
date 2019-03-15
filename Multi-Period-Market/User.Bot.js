@@ -593,6 +593,8 @@
 
                                 try {
 
+                                    let previous;
+
                                     for (let i = 0; i < marketFile.length; i++) {
 
                                         let candle = {
@@ -618,8 +620,11 @@
                                         if (candle.open < candle.close) { candle.direction = 'up'; }
                                         if (candle.open === candle.close) { candle.direction = 'side'; }
 
+                                        candle.previous = previous;
+
                                         candles.push(candle);
 
+                                        previous = candle;
                                     }
 
                                     runSimulation(
@@ -952,11 +957,7 @@
                                             },
                                             {
                                                 name: "Candles Min going down",
-                                                code: "candles[i - 2].min > candles[i - 1].min && candles[i - 1].min > candle.min"
-                                            },
-                                            {
-                                                name: "Impossible",
-                                                code: " 1 === 2"
+                                                code: "candle.previous.previous.min > candle.previous.min && candle.previous.min > candle.min"
                                             }
                                         ]
                                     }
@@ -982,7 +983,7 @@
                                         conditions: [
                                             {
                                                 name: "3 Candles MIN below Lower Band",
-                                                code: "candles[i - 2].min < band2.movingAverage - band2.deviation && candles[i - 1].min < band1.movingAverage - band1.deviation && candle.min < band.movingAverage - band.deviation"
+                                                code: "candle.previous.previous.min < band2.movingAverage - band2.deviation && candle.previous.min < band1.movingAverage - band1.deviation && candle.min < band.movingAverage - band.deviation"
                                             }
                                         ]
                                     }
@@ -1212,6 +1213,10 @@
                                             {
                                                 name: "30 > 15",
                                                 code: "LRC._30 > LRC._15"
+                                            },
+                                            {
+                                                name: "Impossible",
+                                                code: " 1 === 2"
                                             }
                                         ]
                                     }
@@ -1306,13 +1311,13 @@
 
                         periods++;
 
-                        let band1 = bollingerBandsMap.get(candles[i - 1].begin);
-                        let band2 = bollingerBandsMap.get(candles[i - 2].begin);
-                        let band3 = bollingerBandsMap.get(candles[i - 3].begin);
+                        let band1 = bollingerBandsMap.get(candle.previous.begin);
+                        let band2 = bollingerBandsMap.get(candle.previous.previous.begin);
+                        let band3 = bollingerBandsMap.get(candle.previous.previous.previous.begin);
 
-                        let percentageBandwidth1 = percentageBandwidthMap.get(candles[i - 1].begin);
-                        let percentageBandwidth2 = percentageBandwidthMap.get(candles[i - 2].begin);
-                        let percentageBandwidth3 = percentageBandwidthMap.get(candles[i - 3].begin);
+                        let percentageBandwidth1 = percentageBandwidthMap.get(candle.previous.begin);
+                        let percentageBandwidth2 = percentageBandwidthMap.get(candle.previous.previous.begin);
+                        let percentageBandwidth3 = percentageBandwidthMap.get(candle.previous.previous.previous.begin);
 
                         let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
 

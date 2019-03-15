@@ -220,6 +220,8 @@
 
                                         }
 
+                                        LRC.previous = previous;
+
                                         LRCMap.set(LRC.begin, LRC);
 
                                         previous = LRC;
@@ -462,6 +464,8 @@
 
                                 try {
 
+                                    let previous;
+
                                     for (let i = 0; i < marketFile.length; i++) {
 
                                         let bollingerChannel = {
@@ -475,8 +479,11 @@
                                             lastDeviation: marketFile[i][7]
                                         };
 
+                                        bollingerChannel.previous = previous;
+
                                         bollingerChannelsArray.push(bollingerChannel);
 
+                                        previous = bollingerChannel;
                                     }
 
                                     nextBollingerSubChannels();
@@ -540,6 +547,8 @@
 
                                 try {
 
+                                    let previous;
+
                                     for (let i = 0; i < marketFile.length; i++) {
 
                                         let bollingerSubChannel = {
@@ -554,8 +563,11 @@
                                             lastDeviation: marketFile[i][8]
                                         };
 
+                                        bollingerSubChannel.previous = previous;
+
                                         bollingerSubChannelsArray.push(bollingerSubChannel);
 
+                                        previous = bollingerSubChannel;
                                     }
 
                                     nextCandlesFile();

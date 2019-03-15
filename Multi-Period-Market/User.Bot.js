@@ -286,6 +286,8 @@
 
                                 try {
 
+                                    let previous;
+
                                     for (let i = 0; i < marketFile.length; i++) {
 
                                         let percentageBandwidth = {
@@ -296,8 +298,11 @@
                                             bandwidth: marketFile[i][4]
                                         };
 
+                                        percentageBandwidth.previous = percentageBandwidth;
+
                                         percentageBandwidthMap.set(percentageBandwidth.begin, percentageBandwidth);
 
+                                        previous = percentageBandwidth;
                                     }
 
                                     nextBollingerBands();
@@ -361,6 +366,8 @@
 
                                 try {
 
+                                    let previous;
+
                                     for (let i = 0; i < marketFile.length; i++) {
 
                                         let bollingerBands = {
@@ -371,8 +378,11 @@
                                             deviation: marketFile[i][4]
                                         };
 
+                                        bollingerBands.previous = previous;
+
                                         bollingerBandsMap.set(bollingerBands.begin, bollingerBands);
 
+                                        previous = bollingerBands;
                                     }
 
                                     nextBollingerChannels();
@@ -949,11 +959,11 @@
                                         conditions: [
                                             {
                                                 name: "%B Moving Average going up",
-                                                code: "percentageBandwidth2.movingAverage > percentageBandwidth1.movingAverage && percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage"
+                                                code: "percentageBandwidth.previous.previous.movingAverage > percentageBandwidth.previous.movingAverage && percentageBandwidth.previous.movingAverage > percentageBandwidth.movingAverage"
                                             },
                                             {
                                                 name: "%B Bandwidth going up",
-                                                code: "percentageBandwidth2.bandwidth < percentageBandwidth1.bandwidth && percentageBandwidth1.bandwidth < percentageBandwidth.bandwidth"
+                                                code: "percentageBandwidth.previous.previous.bandwidth < percentageBandwidth.previous.bandwidth && percentageBandwidth.previous.bandwidth < percentageBandwidth.bandwidth"
                                             },
                                             {
                                                 name: "Candles Min going down",
@@ -970,7 +980,7 @@
                                         conditions: [
                                             {
                                                 name: "Close above Band Moving Average",
-                                                code: "candle.close > band.movingAverage"
+                                                code: "candle.close > bollingerBand.movingAverage"
                                             }
                                         ]
                                     }
@@ -979,11 +989,11 @@
                             sellPoint: {
                                 situations: [
                                     {
-                                        name: "Min below lower band.",
+                                        name: "Min below lower bollingerBand.",
                                         conditions: [
                                             {
                                                 name: "3 Candles MIN below Lower Band",
-                                                code: "candle.previous.previous.min < band2.movingAverage - band2.deviation && candle.previous.min < band1.movingAverage - band1.deviation && candle.min < band.movingAverage - band.deviation"
+                                                code: "candle.previous.previous.min < bollingerBand.previous.previous.movingAverage - bollingerBand.previous.previous.deviation && candle.previous.min < bollingerBand.previous.movingAverage - bollingerBand.previous.deviation && candle.min < bollingerBand.movingAverage - bollingerBand.deviation"
                                             }
                                         ]
                                     }
@@ -1000,11 +1010,11 @@
                                                 conditions: [
                                                     {
                                                         name: "Candle fully below Band Moving Average",
-                                                        code: "candle.max < band.movingAverage"
+                                                        code: "candle.max < bollingerBand.movingAverage"
                                                     },
                                                     {
                                                         name: "Band Moving Average going down",
-                                                        code: "band1.movingAverage > band.movingAverage"
+                                                        code: "bollingerBand.previous.movingAverage > bollingerBand.movingAverage"
                                                     }
                                                 ]
                                             }
@@ -1012,14 +1022,14 @@
                                     },
                                     {
                                         name: "Above Bands Moving Average",
-                                        code: "newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100",
+                                        code: "newStopLoss = bollingerBand.movingAverage + bollingerBand.movingAverage * (stopLossPercentage - stopLossDecay) / 100",
                                         situations: [
                                             {
                                                 name: "Candle below Moving Average",
                                                 conditions: [
                                                     {
                                                         name: "Candle MAX below lower band",
-                                                        code: "candle.max < band.movingAverage - band.deviation"
+                                                        code: "candle.max < bollingerBand.movingAverage - bollingerBand.deviation"
                                                     }
                                                 ]
                                             }
@@ -1027,7 +1037,7 @@
                                     },
                                     {
                                         name: "At Bands Moving Average",
-                                        code: "newStopLoss = band.movingAverage",
+                                        code: "newStopLoss = bollingerBand.movingAverage",
                                         situations: [                                           
                                         ]
                                     }
@@ -1037,22 +1047,22 @@
                                 phases: [
                                     {
                                         name: "12 times standard deviation",
-                                        code: "buyOrder = band.movingAverage - band.standardDeviation * 12",
+                                        code: "buyOrder = bollingerBand.movingAverage - bollingerBand.standardDeviation * 12",
                                         situations: [
                                             {
                                                 name: "Candle cut by lower band",
                                                 conditions: [
                                                     {
                                                         name: "Max above lower band",
-                                                        code: "candle.max > band.movingAverage - band.deviation"
+                                                        code: "candle.max > bollingerBand.movingAverage - bollingerBand.deviation"
                                                     },
                                                     {
                                                         name: "MIN below lower band",
-                                                        code: "candle.min < band.movingAverage - band.deviation"
+                                                        code: "candle.min < bollingerBand.movingAverage - bollingerBand.deviation"
                                                     },
                                                     {
                                                         name: "Band Moving Average going down",
-                                                        code: "band1.movingAverage > band.movingAverage"
+                                                        code: "bollingerBand.previous.movingAverage > bollingerBand.movingAverage"
                                                     }
                                                 ]
                                             }
@@ -1060,14 +1070,14 @@
                                     },
                                     {
                                         name: "10 times standard deviation",
-                                        code: "buyOrder = band.movingAverage - band.standardDeviation * 10",
+                                        code: "buyOrder = bollingerBand.movingAverage - bollingerBand.standardDeviation * 10",
                                         situations: [
                                             {
                                                 name: "%B starting to revert",
                                                 conditions: [
                                                     {
                                                         name: "%B Moving Average going up",
-                                                        code: "percentageBandwidth1.movingAverage < percentageBandwidth.movingAverage"
+                                                        code: "percentageBandwidth.previous.movingAverage < percentageBandwidth.movingAverage"
                                                     },
                                                     {
                                                         name: "%B Moving Average above 0",
@@ -1079,14 +1089,14 @@
                                     },
                                     {
                                         name: "4 times standard deviation",
-                                        code: "buyOrder = band.movingAverage - band.standardDeviation * 4",
+                                        code: "buyOrder = bollingerBand.movingAverage - bollingerBand.standardDeviation * 4",
                                         situations: [
                                             {
                                                 name: "%B going down again",
                                                 conditions: [
                                                     {
                                                         name: "%B Moving Average going down",
-                                                        code: "percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage"
+                                                        code: "percentageBandwidth.previous.movingAverage > percentageBandwidth.movingAverage"
                                                     }
                                                 ]
                                             }
@@ -1094,14 +1104,14 @@
                                     },
                                     {
                                         name: "3 times standard deviation",
-                                        code: "buyOrder = band.movingAverage - band.standardDeviation * 3",
+                                        code: "buyOrder = bollingerBand.movingAverage - bollingerBand.standardDeviation * 3",
                                         situations: [
                                             {
                                                 name: "%B going up and above 30",
                                                 conditions: [
                                                     {
                                                         name: "%B Moving Average going up",
-                                                        code: "percentageBandwidth1.movingAverage < percentageBandwidth.movingAverag"
+                                                        code: "percentageBandwidth.previous.movingAverage < percentageBandwidth.movingAverag"
                                                     },
                                                     {
                                                         name: "%B Moving Average above 30",
@@ -1113,7 +1123,7 @@
                                     },
                                     {
                                         name: "At lower band",
-                                        code: "buyOrder = band.movingAverage - band.standardDeviation * 2",
+                                        code: "buyOrder = bollingerBand.movingAverage - bollingerBand.standardDeviation * 2",
                                         situations: [
                                         ]
                                     }
@@ -1137,7 +1147,7 @@
                                             },
                                             {
                                                 name: "Candle Close above Lower Band",
-                                                code: "candle.close > band.movingAverage + band.deviation"
+                                                code: "candle.close > bollingerBand.movingAverage + bollingerBand.deviation"
                                             },
                                             {
                                                 name: "Impossible",
@@ -1163,15 +1173,15 @@
                             sellPoint: {
                                 situations: [
                                     {
-                                        name: "Min below lower band.",
+                                        name: "Min below lower bollingerBand.",
                                         conditions: [
                                             {
                                                 name: "%B Moving Average going down",
-                                                code: "percentageBandwidth1.movingAverage > percentageBandwidth.movingAverage"
+                                                code: "percentageBandwidth.previous.movingAverage > percentageBandwidth.movingAverage"
                                             },
                                             {
                                                 name: "%B Moving Average above 90",
-                                                code: "percentageBandwidth1.movingAverage > 90"
+                                                code: "percentageBandwidth.previous.movingAverage > 90"
                                             }
                                         ]
                                     }
@@ -1191,7 +1201,7 @@
                                 phases: [ 
                                     {
                                         name: "Between Band Moving Average and Lower Band",
-                                        code: "buyOrder = band.movingAverage - band.standardDeviation",
+                                        code: "buyOrder = bollingerBand.movingAverage - bollingerBand.standardDeviation",
                                         situations: [
                                         ]
                                     }
@@ -1285,7 +1295,7 @@
                                 phases: [
                                     {
                                         name: "Between Band Moving Average and Lower Band",
-                                        code: "buyOrder = band.movingAverage - band.standardDeviation * 4",
+                                        code: "buyOrder = bollingerBand.movingAverage - bollingerBand.standardDeviation * 4",
                                         situations: [
                                         ]
                                     }
@@ -1302,7 +1312,7 @@
 
                         let candle = candles[i];
                         let percentageBandwidth = percentageBandwidthMap.get(candle.begin);
-                        let band = bollingerBandsMap.get(candle.begin);
+                        let bollingerBand = bollingerBandsMap.get(candle.begin);
                         let LRC = LRCMap.get(candle.begin);
 
                         if (LRC === undefined) { continue; } 
@@ -1310,14 +1320,6 @@
                         if (candle.begin < initialDate.valueOf()) { continue; }
 
                         periods++;
-
-                        let band1 = bollingerBandsMap.get(candle.previous.begin);
-                        let band2 = bollingerBandsMap.get(candle.previous.previous.begin);
-                        let band3 = bollingerBandsMap.get(candle.previous.previous.previous.begin);
-
-                        let percentageBandwidth1 = percentageBandwidthMap.get(candle.previous.begin);
-                        let percentageBandwidth2 = percentageBandwidthMap.get(candle.previous.previous.begin);
-                        let percentageBandwidth3 = percentageBandwidthMap.get(candle.previous.previous.previous.begin);
 
                         let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
 

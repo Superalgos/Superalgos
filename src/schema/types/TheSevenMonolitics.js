@@ -7,7 +7,7 @@ import {
   PhaseType,
 } from './index';
 
-// ConditionBased
+// SituationBased
 
 const EntryPointType = new GraphQLObjectType({
   name: 'EntryPoint',

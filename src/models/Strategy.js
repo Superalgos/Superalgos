@@ -4,6 +4,8 @@ const strategySchema = new Schema({
   fbId: {
     type: String,
     required: true,
+    unique: true,
+    dropDups: true,
   },
   subStrategies: [{
     name: {

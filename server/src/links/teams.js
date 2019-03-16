@@ -24,7 +24,7 @@ export const resolver = (usersSchema, eventsSchema, strategizerSchema) => ({
       fragment: `fragment StrategyFragment on teams_FinancialBeings{id}`,
       resolve ({id: fbId}, args, context, info) {
         return info.mergeInfo.delegateToSchema({
-          schema: usersSchema,
+          schema: strategizerSchema,
           operation: 'query',
           fieldName: 'strategizer_StrategyByFb',
           args: { fbId },

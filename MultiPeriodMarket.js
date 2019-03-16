@@ -1,9 +1,9 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE, USER_BOT_MODULE, COMMONS_MODULE) {
+﻿exports.newMultiPeriodMarket = function newMultiPeriodMarket(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE, USER_BOT_MODULE, COMMONS_MODULE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
-    const MODULE_NAME = "User Bot";
+    const MODULE_NAME = "Multi Period Market";
 
     const EXCHANGE_NAME = "Poloniex";
 
@@ -37,7 +37,7 @@
             statusDependencies = pStatusDependencies;
             dataDependencies = pDataDependencies;
 
-            for (let i = 0; i < dataDependencies.length; i++) {
+            for (let i = 0; i < dataDependencies.dataSets.Entries.length; i++) {
 
                 let key;
                 let storage;

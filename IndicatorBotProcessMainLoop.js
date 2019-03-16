@@ -9,6 +9,7 @@
     let COMMONS_MODULE;
 
     const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
+    const MULTI_PERIOD_MARKET = require(ROOT_DIR + 'MultiPeriodMarket');
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -190,6 +191,7 @@
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
                     let userBot;
+                    let multiPeriodMarket;
                     let statusDependencies;
                     let dataDependencies;
 
@@ -291,7 +293,16 @@
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well."); }
-                                            initializeUserBot();
+
+                                            /* If the process is configured to run inside a framework, we continue there, otherwise we run the bot directly. */
+
+                                            switch (processConfig.framework) {
+                                                case 'Multi-Period-Market': {
+                                                    intitializeMultiPeriodMarket();
+                                                    break;
+                                                }
+                                                default: { initializeUserBot();}
+                                            }
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
@@ -354,7 +365,7 @@
                             
                             usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE);
 
-                            usertBot.initialize(statusDependencies, pMonth, pYear, onInizialized, dataDependencies);
+                            usertBot.initialize(statusDependencies, pMonth, pYear, onInizialized);
 
                             function onInizialized(err) {
 
@@ -568,6 +579,237 @@
 
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> err = " + err.message);
+                            logger.persist();
+                            clearInterval(fixedTimeLoopIntervalHandle);
+                            clearTimeout(nextLoopTimeoutHandle);
+                            clearTimeout(checkLoopHealthHandle);
+                            bot.enableCheckLoopHealth = false;
+                            callBackFunction(err);
+                        }
+                    }
+
+                    function intitializeMultiPeriodMarket() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeMultiPeriodMarket ->  Entering function."); }
+
+                            multiPeriodMarket = MULTI_PERIOD_MARKET.newMultiPeriodMarket(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE);
+
+                            multiPeriodMarket.initialize(statusDependencies, dataDependencies, pMonth, pYear, onInizialized, dataDependencies);
+
+                            function onInizialized(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeMultiPeriodMarket ->  onInizialized -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeMultiPeriodMarket -> onInizialized -> Execution finished well.");
+                                            startMultiPeriodMarket();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket -> onInizialized -> Operation Failed. Aborting the process.");
+                                            logger.persist();
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
+                                            bot.enableCheckLoopHealth = false;
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        case global.CUSTOM_OK_RESPONSE.result: {
+
+                                            switch (err.message) {
+                                                case "Too far in the future.": {
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> intitializeMultiPeriodMarket -> onInizialized > Too far in the future. This Loop will enter in coma.");
+                                                    nextWaitTime = 'Coma';
+                                                    loopControl(nextWaitTime);
+                                                    return;
+                                                }
+                                                case "Not needed now, but soon.": {
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> intitializeMultiPeriodMarket -> onInizialized > Not needed now, but soon. This Loop will continue with Normal wait time.");
+                                                    nextWaitTime = 'Normal';
+                                                    loopControl(nextWaitTime);
+                                                    return;
+                                                }
+                                                default: {
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket -> onInizialized > Unhandled custom response received. -> err.message = " + err.message);
+                                                    logger.persist();
+                                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                                    clearTimeout(nextLoopTimeoutHandle);
+                                                    clearTimeout(checkLoopHealthHandle);
+                                                    bot.enableCheckLoopHealth = false;
+                                                    callBackFunction(err);
+                                                    return;
+                                                }
+                                            }
+                                        }
+                                        default: {
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            logger.persist();
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
+                                            bot.enableCheckLoopHealth = false;
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket ->  onInizialized -> err = " + err.message);
+                                    logger.persist();
+                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                    clearTimeout(nextLoopTimeoutHandle);
+                                    clearTimeout(checkLoopHealthHandle);
+                                    bot.enableCheckLoopHealth = false;
+                                    callBackFunction(err);
+                                }
+                            }
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket -> err = " + err.message);
+                            logger.persist();
+                            clearInterval(fixedTimeLoopIntervalHandle);
+                            clearTimeout(nextLoopTimeoutHandle);
+                            clearTimeout(checkLoopHealthHandle);
+                            bot.enableCheckLoopHealth = false;
+                            callBackFunction(err);
+                        }
+                    }
+
+                    function startMultiPeriodMarket() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startMultiPeriodMarket ->  Entering function."); }
+
+                            multiPeriodMarket.start(onFinished);
+
+                            function onFinished(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startMultiPeriodMarket -> onFinished -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> startMultiPeriodMarket -> onFinished -> Execution finished well.");
+                                            nextWaitTime = 'Normal';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> onFinished -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> onFinished -> Operation Failed. Aborting the process.");
+                                            logger.persist();
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
+                                            bot.enableCheckLoopHealth = false;
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        case global.CUSTOM_OK_RESPONSE.result: {
+
+                                            switch (err.message) {
+                                                case "Dependency does not exist.": {
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startMultiPeriodMarket -> onFinished -> Dependency does not exist. This Loop will go to sleep.");
+                                                    nextWaitTime = 'Sleep';
+                                                    loopControl(nextWaitTime);
+                                                    return;
+                                                }
+                                                case "Dependency not ready.": {
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startMultiPeriodMarket -> onFinished -> Dependency not ready. This Loop will go to sleep.");
+                                                    nextWaitTime = 'Sleep';
+                                                    loopControl(nextWaitTime);
+                                                    return;
+                                                }
+                                                case "Month before it is needed.": {
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startMultiPeriodMarket -> onFinished -> Month before it is needed. This Loop will be terminated.");
+                                                    logger.persist();
+                                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                                    clearTimeout(nextLoopTimeoutHandle);
+                                                    clearTimeout(checkLoopHealthHandle);
+                                                    bot.enableCheckLoopHealth = false;
+                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                    return;
+                                                }
+                                                case "Month fully processed.": {
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startMultiPeriodMarket -> onFinished -> Month fully processed. This Loop will be terminated.");
+                                                    logger.persist();
+                                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                                    clearTimeout(nextLoopTimeoutHandle);
+                                                    clearTimeout(checkLoopHealthHandle);
+                                                    bot.enableCheckLoopHealth = false;
+                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                    return;
+                                                }
+                                                case "End of the month reached.": {
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startMultiPeriodMarket -> onFinished -> End of the month reached. This Loop will be terminated.");
+                                                    logger.persist();
+                                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                                    clearTimeout(nextLoopTimeoutHandle);
+                                                    clearTimeout(checkLoopHealthHandle);
+                                                    bot.enableCheckLoopHealth = false;
+                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                    return;
+                                                }
+                                                default: {
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> onFinished -> Unhandled custom response received. -> err.message = " + err.message);
+                                                    logger.persist();
+                                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                                    clearTimeout(nextLoopTimeoutHandle);
+                                                    clearTimeout(checkLoopHealthHandle);
+                                                    bot.enableCheckLoopHealth = false;
+                                                    callBackFunction(err);
+                                                    return;
+                                                }
+                                            }
+                                        }
+                                        default: {
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> onFinished -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            logger.persist();
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
+                                            bot.enableCheckLoopHealth = false;
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> onFinished -> err = " + err.message);
+                                    logger.persist();
+                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                    clearTimeout(nextLoopTimeoutHandle);
+                                    clearTimeout(checkLoopHealthHandle);
+                                    bot.enableCheckLoopHealth = false;
+                                    callBackFunction(err);
+                                }
+                            }
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> err = " + err.message);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);

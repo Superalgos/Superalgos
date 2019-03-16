@@ -138,8 +138,7 @@
 
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                            let filePathRoot = dependency.devTeam + "/" + dependency.bot + "." + dependency.botVersion.major + "." + dependency.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + dependency.dataSetVersion;
-                                            let filePath = filePathRoot + "/Output/" + dependency.product + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                                            let filePath = dependency.product + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
                                             storage.getTextFile(filePath, fileName, onFileReceived, true);
 
@@ -153,16 +152,16 @@
                                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
                                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.message);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> filePath = " + filePath);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> fileName = " + fileName);
                                                         callBackFunction(err);
                                                         return;
-
                                                     }
 
                                                     let marketFile = JSON.parse(text);
                                                     marketFiles.push(marketFile);
-                                                    fileCount++;
 
-                                                    callTheBot();
+                                                    dependencyControlLoop();
 
                                                 }
                                                 catch (err) {
@@ -217,7 +216,7 @@
                                     const outputPeriod = global.marketFilesPeriods[n][0];
                                     const timePeriod = global.marketFilesPeriods[n][1];
 
-                                    usertBot.initialize(marketFiles, outputPeriod, timePeriod, callBackFunction);
+                                    usertBot.start(marketFiles, outputPeriod, timePeriod, callBackFunction);
 
                                     function onBotFinished(err) {
 

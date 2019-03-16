@@ -54,14 +54,14 @@
         }
     }
 
-    function start(marketFiles, outputPeriod, timePeriod, callBackFunction) {
+    function start(dataFiles, outputPeriod, timePeriod, callBackFunction) {
 
         try {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             let market = global.MARKET;
-            let marketFile;
+            let dataFile;
 
             let recordsArray = [];
             let conditionsArray = [];
@@ -72,32 +72,32 @@
             for (let i = 0; i < dataDependencies.config.length; i++) {
 
                 let dependency = dataDependencies.config[i];
-                marketFile = marketFiles[i];
+                dataFile = dataFiles[i];
 
                 switch (i) {
 
                     case 0: {
-                        commons.buildLRC(marketFile);
+                        commons.buildLRC(dataFile);
                         break;
                     }
                     case 1: {
-                        commons.buildPercentageBandwidthMap(marketFile);
+                        commons.buildPercentageBandwidthMap(dataFile);
                         break;
                     }
                     case 2: {
-                        commons.buildBollingerBandsMap(marketFile);
+                        commons.buildBollingerBandsMap(dataFile);
                         break;
                     }
                     case 3: {
-                        commons.buildBollingerChannelsArray(marketFile);
+                        commons.buildBollingerChannelsArray(dataFile);
                         break;
                     }
                     case 4: {
-                        commons.buildBollingerSubChannelsArray(marketFile);
+                        commons.buildBollingerSubChannelsArray(dataFile);
                         break;
                     }
                     case 5: {
-                        commons.buildCandles(marketFile);
+                        commons.buildCandles(dataFile);
                         break;
                     }
                 }

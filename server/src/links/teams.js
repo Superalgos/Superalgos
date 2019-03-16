@@ -13,9 +13,27 @@ export const linkSchemaDefs =
         maxEndDate: Int
         ): [events_Event]
     }
+    extend type teams_FinancialBeings {
+      strategy: strategizer_Strategy
+    }
   `
 
-export const resolver = (usersSchema, eventsSchema) => ({
+export const resolver = (usersSchema, eventsSchema, strategizerSchema) => ({
+  teams_FinancialBeings: {
+    strategy: {
+      fragment: `fragment StrategyFragment on teams_FinancialBeings{id}`,
+      resolve ({id: fbId}, args, context, info) {
+        return info.mergeInfo.delegateToSchema({
+          schema: usersSchema,
+          operation: 'query',
+          fieldName: 'strategizer_StrategyByFb',
+          args: { fbId },
+          context,
+          info
+        })
+      }
+    }
+  },
   teams_Team: {
     ownerUser: {
       fragment: `fragment UserFragment on teams_Team{owner}`,

@@ -5,7 +5,7 @@ const strategySchema = new Schema({
     type: String,
     required: true,
   },
-  strategies: [{
+  subStrategies: [{
     name: {
       type: String,
       default: '',

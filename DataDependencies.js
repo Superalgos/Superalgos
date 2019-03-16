@@ -23,6 +23,13 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
+            if (pDataDependenciesConfig === undefined) {
+
+                // We allow old indicators not to declare their data dependencies.
+
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                return;
+            }
             /*
 
             For each dependency declared at the bot config, we will initialize a DataSet as part of this initialization process.

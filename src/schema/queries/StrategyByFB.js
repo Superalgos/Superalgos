@@ -11,16 +11,16 @@ const args = {
 };
 
 const resolve = (parent, { fbId }) => new Promise((res, rej) => {
-  Strategy.findOne({ fbId }).exec((err, event) => {
+  Strategy.findOne({ fbId }).exec((err, strategy) => {
     if (err) {
       rej(err);
       return;
     }
-    if (!event) {
+    if (!strategy) {
       rej(new DatabaseError('None of the strategy are linked to that fbId'));
       return;
     }
-    res(event);
+    res(strategy);
   });
 });
 

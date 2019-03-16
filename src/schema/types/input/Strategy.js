@@ -5,8 +5,8 @@ import {
 import SubStrategyType from './SubStrategy';
 
 const Type = new GraphQLInputObjectType({
-  name: 'EventInput',
-  description: 'Payload for event input',
+  name: 'StrategyInput',
+  description: 'Payload for strategy input',
   fields: () => ({
     subStrategies: { type: new GraphQLList(SubStrategyType) },
   }),

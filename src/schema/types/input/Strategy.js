@@ -2,13 +2,13 @@ import {
   GraphQLInputObjectType,
   GraphQLList,
 } from 'graphql';
-import SubStrategyType from './SubStrategy';
+import { SubStrategyInputType } from './index';
 
 const Type = new GraphQLInputObjectType({
   name: 'StrategyInput',
   description: 'Payload for strategy input',
   fields: () => ({
-    subStrategies: { type: new GraphQLList(SubStrategyType) },
+    subStrategies: { type: new GraphQLList(SubStrategyInputType) },
   }),
 });
 

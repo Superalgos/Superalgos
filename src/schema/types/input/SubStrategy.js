@@ -10,7 +10,7 @@ import {
   StopLossInputType,
   BuyOrderInputType,
   SellOrderInputType,
-} from './TheSevenMonolitics';
+} from './index';
 
 const Type = new GraphQLInputObjectType({
   name: 'SubStrategyInput',

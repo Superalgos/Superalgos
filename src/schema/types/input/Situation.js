@@ -3,14 +3,14 @@ import {
   GraphQLInputObjectType,
   GraphQLList,
 } from 'graphql';
-import InputConditionType from './Condition';
+import { ConditionInputType } from './index';
 
 const Type = new GraphQLInputObjectType({
   name: 'SituationInput',
   description: 'Payload for situation input',
   fields: () => ({
     name: { type: GraphQLString },
-    conditions: { type: new GraphQLList(InputConditionType) },
+    conditions: { type: new GraphQLList(ConditionInputType) },
   }),
 });
 

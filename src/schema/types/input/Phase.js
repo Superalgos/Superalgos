@@ -3,7 +3,7 @@ import {
   GraphQLInputObjectType,
   GraphQLList,
 } from 'graphql';
-import InputSituationType from './Situation';
+import { SituationInputType } from './index';
 
 const Type = new GraphQLInputObjectType({
   name: 'PhaseInput',
@@ -11,7 +11,7 @@ const Type = new GraphQLInputObjectType({
   fields: () => ({
     name: { type: GraphQLString },
     code: { type: GraphQLString },
-    situations: { type: new GraphQLList(InputSituationType) },
+    situations: { type: new GraphQLList(SituationInputType) },
   }),
 });
 

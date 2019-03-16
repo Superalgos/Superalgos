@@ -74,15 +74,19 @@ async function run () {
     'logs_',
     process.env.LOGS_API_URL,
     process.env.LOGS_API_PRESHARED)
+  const transformeStrategizerSchema = await createTransformedRemoteSchema(
+    'strategizer_',
+    process.env.STRATEGIZER_API_URL,
+    process.env.STRATEGIZER_API_PRESHARED)
 
   var schemas = []
   var resolvers = {}
 
   if (transformedTeamsSchema) {
     schemas.push(transformedTeamsSchema)
-    if (transformedUsersSchema && transformedEventsSchema) {
+    if (transformedUsersSchema && transformedEventsSchema && transformeStrategizerSchema) {
       schemas.push(teams.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema, transformedEventsSchema))
+      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema, transformedEventsSchema, transformeStrategizerSchema))
     }
   }
   if (transformedUsersSchema) {
@@ -114,7 +118,10 @@ async function run () {
   if (transformedLogsSchema) {
     schemas.push(transformedLogsSchema)
   }
-  
+  if (transformeStrategizerSchema) {
+    schemas.push(transformeStrategizerSchema)
+  }
+
   const schema = mergeSchemas({
     schemas,
     resolvers

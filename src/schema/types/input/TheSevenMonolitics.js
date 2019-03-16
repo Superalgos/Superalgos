@@ -44,7 +44,7 @@ const StopLossInputType = new GraphQLInputObjectType({
   name: 'StopLossTypeInput',
   description: 'Payload for stopLossType input',
   fields: () => ({
-    situations: { type: new GraphQLList(PhaseInputType) },
+    phases: { type: new GraphQLList(PhaseInputType) },
   }),
 });
 
@@ -52,7 +52,7 @@ const BuyOrderInputType = new GraphQLInputObjectType({
   name: 'BuyOrderTypeInput',
   description: 'Payload for buyOrderType input',
   fields: () => ({
-    situations: { type: new GraphQLList(PhaseInputType) },
+    phases: { type: new GraphQLList(PhaseInputType) },
   }),
 });
 
@@ -60,7 +60,7 @@ const SellOrderInputType = new GraphQLInputObjectType({
   name: 'SellOrderTypeInput',
   description: 'Payload for sellOrderType input',
   fields: () => ({
-    situations: { type: new GraphQLList(PhaseInputType) },
+    phases: { type: new GraphQLList(PhaseInputType) },
   }),
 });
 

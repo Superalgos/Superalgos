@@ -1,9 +1,6 @@
-import Plotter from './plotter';
-import Event from './event';
-import Formula from './formula';
+/* eslint-disable import/prefer-default-export */
+import Strategy from './strategy';
 
 export {
-  Event,
-  Plotter,
-  Formula,
+  Strategy,
 };

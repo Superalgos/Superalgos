@@ -10,7 +10,8 @@ import {
   // Adb,
   VpnKey,
   Home,
-  AddCircleOutline
+  AddCircleOutline,
+  ViewModule
 } from '@material-ui/icons'
 
 const usersMenus = {
@@ -85,13 +86,25 @@ const financialBeingsMenus = {
   ]
 }
 
+const strategizerMenus = {
+  title: 'Strategizer',
+  to: '/strategizer',
+  icon: Home,
+  authenticated: false,
+  submenus: [
+    { title: 'Your strategies', to: '/strategizer/manage-strategies', icon: ViewModule, authenticated: false },
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/StrategizerClientModule/issues/new', icon: BugReport, externalLink: true }
+  ]
+}
+
 const allMenus = [
   usersMenus,
   teamsMenus,
   // eventsMenus,
   // financialBeingsMenus,
   keyvaultMenus,
-  operationsMenus
+  operationsMenus,
+  strategizerMenus
 ]
 
 export default allMenus

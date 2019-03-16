@@ -7,8 +7,8 @@ const Type = new GraphQLObjectType({
   name: 'Condition',
   description: 'Condition definition',
   fields: () => ({
-    name: GraphQLString,
-    code: GraphQLString,
+    name: { type: GraphQLString },
+    code: { type: GraphQLString },
   }),
 });
 

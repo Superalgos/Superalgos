@@ -12,8 +12,8 @@ const Type = new GraphQLObjectType({
   name: 'Strategy',
   description: 'Everything you need to know about a strategy',
   fields: () => ({
-    id: GraphQLID,
-    fbId: GraphQLString,
+    id: { type: GraphQLID },
+    fbId: { type: GraphQLString },
     subStrategies: {
       type: new GraphQLList(SubStrategyType),
       resolve(parent) {

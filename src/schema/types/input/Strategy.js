@@ -8,7 +8,7 @@ const Type = new GraphQLInputObjectType({
   name: 'StrategyInput',
   description: 'Payload for strategy input',
   fields: () => ({
-    subStrategies: new GraphQLList(SubStrategyInputType),
+    subStrategies: { type: new GraphQLList(SubStrategyInputType) },
   }),
 });
 

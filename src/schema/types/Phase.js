@@ -11,8 +11,8 @@ const Type = new GraphQLObjectType({
   name: 'Phase',
   description: 'Phase definition',
   fields: () => ({
-    name: GraphQLString,
-    code: GraphQLString,
+    name: { type: GraphQLString },
+    code: { type: GraphQLString },
     situations: {
       type: new GraphQLList(SituationType),
       resolve(parent) {

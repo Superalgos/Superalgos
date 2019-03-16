@@ -7,8 +7,8 @@ const Type = new GraphQLInputObjectType({
   name: 'ConditionInput',
   description: 'Payload for condition input',
   fields: () => ({
-    name: GraphQLString,
-    code: GraphQLString,
+    name: { type: GraphQLString },
+    code: { type: GraphQLString },
   }),
 });
 

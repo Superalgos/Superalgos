@@ -11,7 +11,7 @@ const Type = new GraphQLObjectType({
   name: 'Situation',
   description: 'Situation definition',
   fields: () => ({
-    name: GraphQLString,
+    name: { type: GraphQLString },
     conditions: {
       type: new GraphQLList(ConditionType),
       resolve(parent) {

@@ -63,6 +63,50 @@
         },
         {
           "devTeam": "AAMasters",
+          "bot": "AAChris",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Percentage-Bandwidth",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAChris",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Bands",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAPaula",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Channels",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAPaula",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Sub-Channels",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
           "bot": "AAOlivia",
           "botVersion": {
             "major": 1,
@@ -72,7 +116,8 @@
           "dataSetVersion": "dataSet.V1",
           "dataSet": "Multi-Period-Market"
         }
-      ]
+      ],
+      "framework": "Multi-Period-Market"
     },
     {
       "name": "Multi-Period-Daily",

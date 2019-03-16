@@ -18,6 +18,7 @@
     };
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
+    let jasonStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
     let dataDependencies;
 
@@ -34,8 +35,19 @@
 
             dataDependencies = pDataDependencies;
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            jasonStorage.initialize(bot.devTeam, onStorageInizialized);
 
+            function onStorageInizialized(err) {
+
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                } else {
+                    logger.write(MODULE_NAME, "[ERROR] initializeStorage -> onStorageInizialized -> err = " + err.message);
+                    callBackFunction(err);
+                }
+            }
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -48,6 +60,7 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
+            let market = global.MARKET;
             let marketFile;
 
             let LRCMap = new Map();
@@ -61,43 +74,35 @@
             let conditionsArray = [];
             let simulationLogic = {};
 
-            let fileCounter = 0;
+            for (let i = 0; i < dataDependencies.config.length; i++) {
 
-            for (let i = 0; i < dataDependencies.length; i++) {
-
-                let dependency = dataDependencies[i];
+                let dependency = dataDependencies.config[i];
                 marketFile = marketFiles[i];
 
                 switch (i) {
 
                     case 0: {
                         buildLRC();
-                        fileCounter++;
                         break;
                     }
                     case 1: {
                         buildPercentageBandwidthMap();
-                        fileCounter++;
                         break;
                     }
                     case 2: {
                         buildBollingerBandsMap();
-                        fileCounter++;
                         break;
                     }
                     case 3: {
                         buildBollingerChannelsArray();
-                        fileCounter++;
                         break;
                     }
                     case 4: {
                         buildBollingerSubChannelsArray();
-                        fileCounter++;
                         break;
                     }
                     case 5: {
                         buildCandles();
-                        fileCounter++;
                         break;
                     }
                 }

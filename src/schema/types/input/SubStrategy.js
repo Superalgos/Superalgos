@@ -1,37 +1,29 @@
 import {
   GraphQLString,
   GraphQLInputObjectType,
-  GraphQLList,
 } from 'graphql';
-import InputSituationType from './Situation';
-import InputPhaseType from './Phase';
+import {
+  EntryPointInputType,
+  ExitPointInputType,
+  SellPointInputType,
+  BuyPointInputType,
+  StopLossInputType,
+  BuyOrderInputType,
+  SellOrderInputType,
+} from './TheSevenMonolitics';
 
 const Type = new GraphQLInputObjectType({
   name: 'SubStrategyInput',
   description: 'Payload for subStrategy input',
   fields: () => ({
     name: { type: GraphQLString },
-    entryPoint: {
-      situations: { type: new GraphQLList(InputSituationType) },
-    },
-    exitPoint: {
-      situations: { type: new GraphQLList(InputSituationType) },
-    },
-    sellPoint: {
-      situations: { type: new GraphQLList(InputSituationType) },
-    },
-    buyPoint: {
-      situations: { type: new GraphQLList(InputSituationType) },
-    },
-    stopLoss: {
-      phases: { type: new GraphQLList(InputPhaseType) },
-    },
-    buyOrder: {
-      phases: { type: new GraphQLList(InputPhaseType) },
-    },
-    sellOrder: {
-      phases: { type: new GraphQLList(InputPhaseType) },
-    },
+    entryPoint: { type: EntryPointInputType },
+    exitPoint: { type: ExitPointInputType },
+    sellPoint: { type: SellPointInputType },
+    buyPoint: { type: BuyPointInputType },
+    stopLoss: { type: StopLossInputType },
+    buyOrder: { type: BuyOrderInputType },
+    sellOrder: { type: SellOrderInputType },
   }),
 });
 

@@ -8,21 +8,40 @@
     const GMT_SECONDS = ':00.000 GMT+0000';
 
     let thisObject = {
-        runSimulation: runSimulation
+        initializeData: initializeData,
+        runSimulation: runSimulation,
+        buildLRC: buildLRC,
+        buildPercentageBandwidthMap: buildPercentageBandwidthMap,
+        buildBollingerBandsMap: buildBollingerBandsMap,
+        buildBollingerChannelsArray: buildBollingerChannelsArray,
+        buildBollingerSubChannelsArray: buildBollingerSubChannelsArray,
+        buildCandles: buildCandles
     };
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
+    let LRCMap = new Map();
+    let percentageBandwidthMap = new Map();
+    let bollingerBandsMap = new Map();
+    let bollingerChannelsArray = [];
+    let bollingerSubChannelsArray = [];
+
+    let candles = [];
+
     return thisObject;
 
+    function initializeData() {
+
+        LRCMap = new Map();
+        percentageBandwidthMap = new Map();
+        bollingerBandsMap = new Map();
+        bollingerChannelsArray = [];
+        bollingerSubChannelsArray = [];
+
+        candles = [];
+    }
 
     function runSimulation(
-        candles,
-        bollingerBandsMap,
-        percentageBandwidthMap,
-        LRCMap,
-        bollingerChannelsArray,
-        bollingerSubChannelsArray,
         recordsArray,
         conditionsArray,
         simulationLogic,
@@ -947,6 +966,246 @@
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] runSimulation -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function buildLRC(dataFile) {
+
+        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildLRC -> Entering function."); }
+
+        try {
+
+            let previous;
+
+            for (let i = 0; i < dataFile.length; i++) {
+
+                let LRC = {
+                    begin: dataFile[i][0],
+                    end: dataFile[i][1],
+                    _15: dataFile[i][2],
+                    _30: dataFile[i][3],
+                    _60: dataFile[i][4]
+                };
+
+                if (previous !== undefined) {
+
+                    if (previous._15 > LRC._15) { LRC.direction15 = 'down'; }
+                    if (previous._15 < LRC._15) { LRC.direction15 = 'up'; }
+                    if (previous._15 === LRC._15) { LRC.direction15 = 'side'; }
+
+                    if (previous._30 > LRC._30) { LRC.direction30 = 'down'; }
+                    if (previous._30 < LRC._30) { LRC.direction30 = 'up'; }
+                    if (previous._30 === LRC._30) { LRC.direction30 = 'side'; }
+
+                    if (previous._60 > LRC._60) { LRC.direction60 = 'down'; }
+                    if (previous._60 < LRC._60) { LRC.direction60 = 'up'; }
+                    if (previous._60 === LRC._60) { LRC.direction60 = 'side'; }
+
+                }
+
+                LRC.previous = previous;
+
+                LRCMap.set(LRC.begin, LRC);
+
+                previous = LRC;
+            }
+        }
+        catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] buildLRC -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function buildPercentageBandwidthMap(dataFile) {
+
+        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildPercentageBandwidthMap -> Entering function."); }
+
+        try {
+
+            let previous;
+
+            for (let i = 0; i < dataFile.length; i++) {
+
+                let percentageBandwidth = {
+                    begin: dataFile[i][0],
+                    end: dataFile[i][1],
+                    value: dataFile[i][2],
+                    movingAverage: dataFile[i][3],
+                    bandwidth: dataFile[i][4]
+                };
+
+                if (previous !== undefined) {
+
+                    if (previous.movingAverage > percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'down'; }
+                    if (previous.movingAverage < percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'up'; }
+                    if (previous.movingAverage === percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'side'; }
+
+                }
+
+                percentageBandwidth.previous = previous;
+
+                percentageBandwidthMap.set(percentageBandwidth.begin, percentageBandwidth);
+
+                previous = percentageBandwidth;
+            }
+        }
+        catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] buildPercentageBandwidthMap -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function buildBollingerBandsMap(dataFile) {
+
+        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildBollingerBandsMap -> Entering function."); }
+
+        try {
+
+            let previous;
+
+            for (let i = 0; i < dataFile.length; i++) {
+
+                let bollingerBand = {
+                    begin: dataFile[i][0],
+                    end: dataFile[i][1],
+                    movingAverage: dataFile[i][2],
+                    standardDeviation: dataFile[i][3],
+                    deviation: dataFile[i][4]
+                };
+
+                if (previous !== undefined) {
+
+                    if (previous.movingAverage > bollingerBand.movingAverage) { bollingerBand.direction = 'down'; }
+                    if (previous.movingAverage < bollingerBand.movingAverage) { bollingerBand.direction = 'up'; }
+                    if (previous.movingAverage === bollingerBand.movingAverage) { bollingerBand.direction = 'side'; }
+
+                }
+
+                bollingerBand.previous = previous;
+
+                bollingerBandsMap.set(bollingerBand.begin, bollingerBand);
+
+                previous = bollingerBand;
+            }
+        }
+        catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] buildBollingerBandsMap -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function buildBollingerChannelsArray(dataFile) {
+
+        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildBollingerChannelsArray -> Entering function."); }
+
+        try {
+
+            let previous;
+
+            for (let i = 0; i < dataFile.length; i++) {
+
+                let bollingerChannel = {
+                    begin: dataFile[i][0],
+                    end: dataFile[i][1],
+                    direction: dataFile[i][2],
+                    period: dataFile[i][3],
+                    firstMovingAverage: dataFile[i][4],
+                    lastMovingAverage: dataFile[i][5],
+                    firstDeviation: dataFile[i][6],
+                    lastDeviation: dataFile[i][7]
+                };
+
+                bollingerChannel.previous = previous;
+
+                bollingerChannelsArray.push(bollingerChannel);
+
+                previous = bollingerChannel;
+            }
+        }
+        catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] buildBollingerChannelsArray -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function buildBollingerSubChannelsArray(dataFile) {
+
+        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildBollingerSubChannelsArray -> Entering function."); }
+
+        try {
+
+            let previous;
+
+            for (let i = 0; i < dataFile.length; i++) {
+
+                let bollingerSubChannel = {
+                    begin: dataFile[i][0],
+                    end: dataFile[i][1],
+                    direction: dataFile[i][2],
+                    slope: dataFile[i][3],
+                    period: dataFile[i][4],
+                    firstMovingAverage: dataFile[i][5],
+                    lastMovingAverage: dataFile[i][6],
+                    firstDeviation: dataFile[i][7],
+                    lastDeviation: dataFile[i][8]
+                };
+
+                bollingerSubChannel.previous = previous;
+
+                bollingerSubChannelsArray.push(bollingerSubChannel);
+
+                previous = bollingerSubChannel;
+            }
+        }
+        catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] buildBollingerSubChannelsArray -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function buildCandles(dataFile) {
+
+        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildCandles -> Entering function."); }
+
+        try {
+
+            let previous;
+
+            for (let i = 0; i < dataFile.length; i++) {
+
+                let candle = {
+                    open: undefined,
+                    close: undefined,
+                    min: 10000000000000,
+                    max: 0,
+                    begin: undefined,
+                    end: undefined,
+                    direction: undefined
+                };
+
+                candle.min = dataFile[i][0];
+                candle.max = dataFile[i][1];
+
+                candle.open = dataFile[i][2];
+                candle.close = dataFile[i][3];
+
+                candle.begin = dataFile[i][4];
+                candle.end = dataFile[i][5];
+
+                if (candle.open > candle.close) { candle.direction = 'down'; }
+                if (candle.open < candle.close) { candle.direction = 'up'; }
+                if (candle.open === candle.close) { candle.direction = 'side'; }
+
+                candle.previous = previous;
+
+                candles.push(candle);
+
+                previous = candle;
+            }
+        }
+        catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] buildCandles -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

@@ -63,16 +63,11 @@
             let market = global.MARKET;
             let marketFile;
 
-            let LRCMap = new Map();
-            let percentageBandwidthMap = new Map();
-            let bollingerBandsMap = new Map();
-            let bollingerChannelsArray = [];
-            let bollingerSubChannelsArray = [];
-
-            let candles = [];
             let recordsArray = [];
             let conditionsArray = [];
+
             let simulationLogic = {};
+            commons.initializeData();
 
             for (let i = 0; i < dataDependencies.config.length; i++) {
 
@@ -82,284 +77,38 @@
                 switch (i) {
 
                     case 0: {
-                        buildLRC();
+                        commons.buildLRC(marketFile);
                         break;
                     }
                     case 1: {
-                        buildPercentageBandwidthMap();
+                        commons.buildPercentageBandwidthMap(marketFile);
                         break;
                     }
                     case 2: {
-                        buildBollingerBandsMap();
+                        commons.buildBollingerBandsMap(marketFile);
                         break;
                     }
                     case 3: {
-                        buildBollingerChannelsArray();
+                        commons.buildBollingerChannelsArray(marketFile);
                         break;
                     }
                     case 4: {
-                        buildBollingerSubChannelsArray();
+                        commons.buildBollingerSubChannelsArray(marketFile);
                         break;
                     }
                     case 5: {
-                        buildCandles();
+                        commons.buildCandles(marketFile);
                         break;
                     }
                 }
             }
 
             commons.runSimulation(
-                candles,
-                bollingerBandsMap,
-                percentageBandwidthMap,
-                LRCMap,
-                bollingerChannelsArray,
-                bollingerSubChannelsArray,
                 recordsArray,
                 conditionsArray,
                 simulationLogic,
                 outputPeriod,
                 writeRecordsFile)
-
-            function buildLRC() {
-
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRC -> Entering function."); }
-
-                try {
-
-                    let previous;
-
-                    for (let i = 0; i < marketFile.length; i++) {
-
-                        let LRC = {
-                            begin: marketFile[i][0],
-                            end: marketFile[i][1],
-                            _15: marketFile[i][2],
-                            _30: marketFile[i][3],
-                            _60: marketFile[i][4]
-                        };
-
-                        if (previous !== undefined) {
-
-                            if (previous._15 > LRC._15) { LRC.direction15 = 'down'; }
-                            if (previous._15 < LRC._15) { LRC.direction15 = 'up'; }
-                            if (previous._15 === LRC._15) { LRC.direction15 = 'side'; }
-
-                            if (previous._30 > LRC._30) { LRC.direction30 = 'down'; }
-                            if (previous._30 < LRC._30) { LRC.direction30 = 'up'; }
-                            if (previous._30 === LRC._30) { LRC.direction30 = 'side'; }
-
-                            if (previous._60 > LRC._60) { LRC.direction60 = 'down'; }
-                            if (previous._60 < LRC._60) { LRC.direction60 = 'up'; }
-                            if (previous._60 === LRC._60) { LRC.direction60 = 'side'; }
-
-                        }
-
-                        LRC.previous = previous;
-
-                        LRCMap.set(LRC.begin, LRC);
-
-                        previous = LRC;
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> buildLRC -> err = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
-            function buildPercentageBandwidthMap() {
-
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildPercentageBandwidthMap -> Entering function."); }
-
-                try {
-
-                    let previous;
-
-                    for (let i = 0; i < marketFile.length; i++) {
-
-                        let percentageBandwidth = {
-                            begin: marketFile[i][0],
-                            end: marketFile[i][1],
-                            value: marketFile[i][2],
-                            movingAverage: marketFile[i][3],
-                            bandwidth: marketFile[i][4]
-                        };
-
-                        if (previous !== undefined) {
-
-                            if (previous.movingAverage > percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'down'; }
-                            if (previous.movingAverage < percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'up'; }
-                            if (previous.movingAverage === percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'side'; }
-
-                        }
-
-                        percentageBandwidth.previous = previous;
-
-                        percentageBandwidthMap.set(percentageBandwidth.begin, percentageBandwidth);
-
-                        previous = percentageBandwidth;
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> buildPercentageBandwidthMap -> err = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
-            function buildBollingerBandsMap() {
-
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBollingerBandsMap -> Entering function."); }
-
-                try {
-
-                    let previous;
-
-                    for (let i = 0; i < marketFile.length; i++) {
-
-                        let bollingerBand = {
-                            begin: marketFile[i][0],
-                            end: marketFile[i][1],
-                            movingAverage: marketFile[i][2],
-                            standardDeviation: marketFile[i][3],
-                            deviation: marketFile[i][4]
-                        };
-
-                        if (previous !== undefined) {
-
-                            if (previous.movingAverage > bollingerBand.movingAverage) { bollingerBand.direction = 'down'; }
-                            if (previous.movingAverage < bollingerBand.movingAverage) { bollingerBand.direction = 'up'; }
-                            if (previous.movingAverage === bollingerBand.movingAverage) { bollingerBand.direction = 'side'; }
-
-                        }
-
-                        bollingerBand.previous = previous;
-
-                        bollingerBandsMap.set(bollingerBand.begin, bollingerBand);
-
-                        previous = bollingerBand;
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> buildBollingerBandsMap -> err = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
-            function buildBollingerChannelsArray() {
-
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBollingerChannelsArray -> Entering function."); }
-
-                try {
-
-                    let previous;
-
-                    for (let i = 0; i < marketFile.length; i++) {
-
-                        let bollingerChannel = {
-                            begin: marketFile[i][0],
-                            end: marketFile[i][1],
-                            direction: marketFile[i][2],
-                            period: marketFile[i][3],
-                            firstMovingAverage: marketFile[i][4],
-                            lastMovingAverage: marketFile[i][5],
-                            firstDeviation: marketFile[i][6],
-                            lastDeviation: marketFile[i][7]
-                        };
-
-                        bollingerChannel.previous = previous;
-
-                        bollingerChannelsArray.push(bollingerChannel);
-
-                        previous = bollingerChannel;
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> buildBollingerChannelsArray -> err = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
-            function buildBollingerSubChannelsArray() {
-
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBollingerSubChannelsArray -> Entering function."); }
-
-                try {
-
-                    let previous;
-
-                    for (let i = 0; i < marketFile.length; i++) {
-
-                        let bollingerSubChannel = {
-                            begin: marketFile[i][0],
-                            end: marketFile[i][1],
-                            direction: marketFile[i][2],
-                            slope: marketFile[i][3],
-                            period: marketFile[i][4],
-                            firstMovingAverage: marketFile[i][5],
-                            lastMovingAverage: marketFile[i][6],
-                            firstDeviation: marketFile[i][7],
-                            lastDeviation: marketFile[i][8]
-                        };
-
-                        bollingerSubChannel.previous = previous;
-
-                        bollingerSubChannelsArray.push(bollingerSubChannel);
-
-                        previous = bollingerSubChannel;
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> buildBollingerSubChannelsArray -> err = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
-            function buildCandles() {
-
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> Entering function."); }
-
-                try {
-
-                    let previous;
-
-                    for (let i = 0; i < marketFile.length; i++) {
-
-                        let candle = {
-                            open: undefined,
-                            close: undefined,
-                            min: 10000000000000,
-                            max: 0,
-                            begin: undefined,
-                            end: undefined,
-                            direction: undefined
-                        };
-
-                        candle.min = marketFile[i][0];
-                        candle.max = marketFile[i][1];
-
-                        candle.open = marketFile[i][2];
-                        candle.close = marketFile[i][3];
-
-                        candle.begin = marketFile[i][4];
-                        candle.end = marketFile[i][5];
-
-                        if (candle.open > candle.close) { candle.direction = 'down'; }
-                        if (candle.open < candle.close) { candle.direction = 'up'; }
-                        if (candle.open === candle.close) { candle.direction = 'side'; }
-
-                        candle.previous = previous;
-
-                        candles.push(candle);
-
-                        previous = candle;
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> err = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
 
             function writeRecordsFile() {
 

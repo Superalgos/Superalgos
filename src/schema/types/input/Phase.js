@@ -9,9 +9,9 @@ const Type = new GraphQLInputObjectType({
   name: 'PhaseInput',
   description: 'Payload for phase input',
   fields: () => ({
-    name: { type: GraphQLString },
-    code: { type: GraphQLString },
-    situations: { type: new GraphQLList(SituationInputType) },
+    name: GraphQLString,
+    code: GraphQLString,
+    situations: new GraphQLList(SituationInputType),
   }),
 });
 

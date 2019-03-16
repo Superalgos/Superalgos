@@ -17,7 +17,7 @@ const Type = new GraphQLObjectType({
   name: 'SubStrategy',
   description: 'SubStrategy composing a strategy',
   fields: () => ({
-    name: { type: GraphQLString },
+    name: GraphQLString,
     entryPoint: {
       type: new GraphQLList(EntryPointType),
       resolve(parent) {

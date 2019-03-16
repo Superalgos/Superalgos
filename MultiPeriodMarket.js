@@ -19,7 +19,7 @@
     let statusDependencies;
     let dataDependencies;
     let storages = [];
-    let marketFiles = [];
+    let dataFiles = [];
 
     let usertBot;
 
@@ -159,7 +159,7 @@
                                                     }
 
                                                     let marketFile = JSON.parse(text);
-                                                    marketFiles.push(marketFile);
+                                                    dataFiles.push(marketFile);
 
                                                     dependencyControlLoop();
 
@@ -216,7 +216,7 @@
                                     const outputPeriod = global.marketFilesPeriods[n][0];
                                     const timePeriod = global.marketFilesPeriods[n][1];
 
-                                    usertBot.start(marketFiles, outputPeriod, timePeriod, callBackFunction);
+                                    usertBot.start(dataFiles, outputPeriod, timePeriod, callBackFunction);
 
                                     function onBotFinished(err) {
 

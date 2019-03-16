@@ -4,8 +4,13 @@ import {
   GraphQLList,
 } from 'graphql';
 import {
-  SituationType,
-  PhaseType,
+  EntryPointType,
+  ExitPointType,
+  SellPointType,
+  BuyPointType,
+  StopLossType,
+  BuyOrderType,
+  SellOrderType,
 } from './index';
 
 const Type = new GraphQLObjectType({
@@ -14,59 +19,45 @@ const Type = new GraphQLObjectType({
   fields: () => ({
     name: { type: GraphQLString },
     entryPoint: {
-      situations: {
-        type: new GraphQLList(SituationType),
-        resolve(parent) {
-          return parent.situations;
-        },
+      type: new GraphQLList(EntryPointType),
+      resolve(parent) {
+        return parent.entryPoint;
       },
     },
     exitPoint: {
-      situations: {
-        type: new GraphQLList(SituationType),
-        resolve(parent) {
-          return parent.situations;
-        },
+      type: new GraphQLList(ExitPointType),
+      resolve(parent) {
+        return parent.exitPoint;
       },
     },
     sellPoint: {
-      situations: {
-        type: new GraphQLList(SituationType),
-        resolve(parent) {
-          return parent.situations;
-        },
+      type: new GraphQLList(SellPointType),
+      resolve(parent) {
+        return parent.sellPoint;
       },
     },
     buyPoint: {
-      situations: {
-        type: new GraphQLList(SituationType),
-        resolve(parent) {
-          return parent.situations;
-        },
+      type: new GraphQLList(BuyPointType),
+      resolve(parent) {
+        return parent.buyPoint;
       },
     },
     stopLoss: {
-      phases: {
-        type: new GraphQLList(PhaseType),
-        resolve(parent) {
-          return parent.phases;
-        },
+      type: new GraphQLList(StopLossType),
+      resolve(parent) {
+        return parent.stopLoss;
       },
     },
     buyOrder: {
-      phases: {
-        type: new GraphQLList(PhaseType),
-        resolve(parent) {
-          return parent.phases;
-        },
+      type: new GraphQLList(BuyOrderType),
+      resolve(parent) {
+        return parent.buyOrder;
       },
     },
     sellOrder: {
-      phases: {
-        type: new GraphQLList(PhaseType),
-        resolve(parent) {
-          return parent.phases;
-        },
+      type: new GraphQLList(SellOrderType),
+      resolve(parent) {
+        return parent.sellOrder;
       },
     },
   }),

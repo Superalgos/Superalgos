@@ -9,8 +9,8 @@ import {
 } from './index';
 
 const Type = new GraphQLObjectType({
-  name: 'Event',
-  description: 'Everything you need to know about an event',
+  name: 'Strategy',
+  description: 'Everything you need to know about a strategy',
   fields: () => ({
     id: { type: GraphQLID },
     fbId: { type: GraphQLString },

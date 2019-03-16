@@ -117,6 +117,8 @@
                             const timePeriod = global.marketFilesPeriods[n][1];
 
                             let dependencyIndex = 0;
+                            dataFiles = [];
+
                             dependencyLoopBody();
 
                             function dependencyLoopBody() {
@@ -158,8 +160,8 @@
                                                         return;
                                                     }
 
-                                                    let marketFile = JSON.parse(text);
-                                                    dataFiles.push(marketFile);
+                                                    let dataFile = JSON.parse(text);
+                                                    dataFiles.push(dataFile);
 
                                                     dependencyControlLoop();
 
@@ -216,7 +218,7 @@
                                     const outputPeriod = global.marketFilesPeriods[n][0];
                                     const timePeriod = global.marketFilesPeriods[n][1];
 
-                                    usertBot.start(dataFiles, outputPeriod, timePeriod, callBackFunction);
+                                    usertBot.start(dataFiles, outputPeriod, timePeriod, onBotFinished);
 
                                     function onBotFinished(err) {
 

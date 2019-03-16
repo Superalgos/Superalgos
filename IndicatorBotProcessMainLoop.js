@@ -594,7 +594,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeMultiPeriodMarket ->  Entering function."); }
 
-                            multiPeriodMarket = MULTI_PERIOD_MARKET.newMultiPeriodMarket(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE);
+                            multiPeriodMarket = MULTI_PERIOD_MARKET.newMultiPeriodMarket(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE, USER_BOT_MODULE, COMMONS_MODULE);
 
                             multiPeriodMarket.initialize(statusDependencies, dataDependencies, pMonth, pYear, onInizialized, dataDependencies);
 

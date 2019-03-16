@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE, USER_BOT_MODULE, COMMONS_MODULE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -7,15 +7,6 @@
 
     const EXCHANGE_NAME = "Poloniex";
 
-    const LRC_FOLDER_NAME = "LRC-Points";
-    const PERCENTAGE_BANDWIDTH_FOLDER_NAME = "Percentage-Bandwidth";
-    const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands";
-    const BOLLINGER_CHANNELS_FOLDER_NAME = "Bollinger-Channels";
-    const BOLLINGER_SUB_CHANNELS_FOLDER_NAME = "Bollinger-Sub-Channels";
-    const CANDLES_FOLDER_NAME = "Candles";
-    const SIMULATED_RECORDS_FOLDER_NAME = "Trading-Simulation";
-    const CONDITIONS_FOLDER_NAME = "Simulation-Conditions";
-
     const commons = COMMONS.newCommons(bot, logger, UTILITIES);
 
     thisObject = {
@@ -23,17 +14,14 @@
         start: start
     };
 
-    let gaussStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-    let chrisStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-    let jasonStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let statusDependencies;
     let dataDependencies;
     let storages = [];
     let marketFiles = [];
+
+    let usertBot;
 
     return thisObject;
 
@@ -67,7 +55,8 @@
 
             }
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE);
+            usertBot.initialize(dataDependencies, pMonth, pYear, callBackFunction);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);

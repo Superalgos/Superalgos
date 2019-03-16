@@ -42,14 +42,11 @@
         }
     }
 
-    function start(marketFiles, callBackFunction) {
+    function start(marketFiles, outputPeriod, timePeriod, callBackFunction) {
 
         try {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
-
-            const outputPeriod = global.marketFilesPeriods[n][0];
-            const timePeriod = global.marketFilesPeriods[n][1];
 
             let marketFile;
 

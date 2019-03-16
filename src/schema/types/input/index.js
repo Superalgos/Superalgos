@@ -1,13 +1,13 @@
-import PlotterInputType from './Plotter';
-import PrizeInputType from './Prize';
-import FormulaInputType from './Formula';
-import EventInputType from './Event';
-import SubPrizeInputType from './SubPrize';
+import StrategyInputType from './Strategy';
+import SubStrategyInputType from './SubStrategy';
+import ConditionInputType from './Condition';
+import SituationInputType from './Situation';
+import PhaseInputType from './Phase';
 
 export {
-  PlotterInputType,
-  PrizeInputType,
-  FormulaInputType,
-  EventInputType,
-  SubPrizeInputType,
+  StrategyInputType,
+  SubStrategyInputType,
+  ConditionInputType,
+  SituationInputType,
+  PhaseInputType,
 };

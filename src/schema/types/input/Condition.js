@@ -1,14 +1,14 @@
 import {
-  GraphQLNonNull,
   GraphQLString,
   GraphQLInputObjectType,
 } from 'graphql';
 
 const Type = new GraphQLInputObjectType({
-  name: 'FormulaInput',
-  description: 'Payload for formula input',
+  name: 'ConditionInput',
+  description: 'Payload for condition input',
   fields: () => ({
-    name: { type: new GraphQLNonNull(GraphQLString) },
+    name: { type: GraphQLString },
+    code: { type: GraphQLString },
   }),
 });
 

@@ -359,7 +359,7 @@
                                 conditions: [
                                     {
                                         name: "Sub-Channel going up",
-                                        code: "subChannel.direction === 'Up'"
+                                        code: "subChannel.direction === 'up'"
                                     },
                                     {
                                         name: "Sub-Channel Side|Gentle|Medium",

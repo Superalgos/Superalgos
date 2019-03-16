@@ -64,14 +64,6 @@
         }
     }
 
-    /*
-    
-    This process is going to do the following:
-    
-    Read the bands from Chris and produce daily files with bollinger trades.
-    
-    */
-
     function start(callBackFunction) {
 
         try {
@@ -317,229 +309,615 @@
 
                             const timePeriod = global.dailyFilePeriods[n][1];
 
-                            let bands = [];                   // Here we will put all the bands of the 2 files read.
+                            let marketFile;
 
-                            let previousDayFile;
-                            let processDayFile;
+                            let LRCMap = new Map();
+                            let percentageBandwidthMap = new Map();
+                            let bollingerBandsMap = new Map();
+                            let bollingerChannelsArray = [];
+                            let bollingerSubChannelsArray = [];
 
-                            getPreviousDayFile();
+                            let candles = [];
+                            let recordsArray = [];
+                            let conditionsArray = [];
+                            let simulationLogic = {};
 
-                            function getPreviousDayFile() {
+                            nextLRC();
 
-                                try {
-
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> getPreviousDayFile -> Entering function."); }
-
-                                    let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                                    let fileName = market.assetA + '_' + market.assetB + ".json"
-
-                                    let filePathRoot = bot.devTeam + "/" + "AAChris" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
-
-                                    chrisStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
-
-                                    function onCurrentDayFileReceived(err, text) {
-
-                                        try {
-
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> Entering function."); }
-                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> text = " + text); }
-
-                                            previousDayFile = JSON.parse(text);
-                                            getProcessDayFile()
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> err = " + err.message);
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
-
-                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                        }
-                                    }
-
-                                } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getPreviousDayFile -> err = " + err.message);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                }
-                            }
-
-                            function getProcessDayFile() {
+                            function nextLRC() {
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> getProcessDayFile -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextLRC -> Entering function."); }
 
-                                    let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
+                                    let dateForPath = fileDate.getUTCFullYear() + '/' + utilities.pad(fileDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(fileDate.getUTCDate(), 2);
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                                    let filePathRoot = bot.devTeam + "/" + "AAChris" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
 
-                                    chrisStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
 
-                                    function onCurrentDayFileReceived(err, text) {
+
+                                    let fileName = market.assetA + '_' + market.assetB + ".json";
+
+                                    let filePathRoot = "AAVikings" + "/" + "AAGauss" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + LRC_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+
+                                    gaussStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                                    function onFileReceived(err, text) {
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> Entering function."); }
-                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> text = " + text); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextLRC -> onFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextLRC -> onFileReceived -> text = " + text); }
 
-                                            processDayFile = JSON.parse(text);
-                                            buildTrades();
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                        } catch (err) {
-
-                                            if (processDate.valueOf() > contextVariables.maxTradeFile.valueOf()) {
-
-                                                processDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
-                                                buildTrades();
-
-                                            } else {
-
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.message);
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
-
-                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextLRC -> onFileReceived -> err = " + err.message);
+                                                callBackFunction(err);
                                                 return;
+
                                             }
+
+                                            marketFile = JSON.parse(text);
+
+                                            buildLRC();
+
+
                                         }
-                                    }
-
-                                } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getProcessDayFile -> err = " + err.message);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                }
-                            }
-
-                            function buildTrades() {
-
-                                try {
-
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> buildTrades -> Entering function."); }
-
-                                    addBandsToSingleArray(previousDayFile);
-                                    addBandsToSingleArray(processDayFile);
-                                    calculateTrades();
-
-                                    function addBandsToSingleArray(bandsFile) {
-
-                                        try {
-
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> buildTrades -> addBandsToSingleArray -> Entering function."); }
-
-                                            for (let i = 0; i < bandsFile.length; i++) {
-
-                                                let band = {
-                                                    open: undefined,
-                                                    close: undefined,
-                                                    min: 10000000000000,
-                                                    max: 0,
-                                                    begin: undefined,
-                                                    end: undefined,
-                                                    direction: undefined
-                                                };
-
-                                                band.min = bandsFile[i][0];
-                                                band.max = bandsFile[i][1];
-
-                                                band.open = bandsFile[i][2];
-                                                band.close = bandsFile[i][3];
-
-                                                band.begin = bandsFile[i][4];
-                                                band.end = bandsFile[i][5];
-
-                                                if (band.open > band.close) { band.direction = 'down'; }
-                                                if (band.open < band.close) { band.direction = 'up'; }
-                                                if (band.open === band.close) { band.direction = 'side'; }
-
-                                                bands.push(band);
-                                            }
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> buildTrades -> addBandsToSingleArray -> err = " + err.message);
+                                        catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextLRC -> onFileReceived -> err = " + err.message);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
                                         }
                                     }
-
-                                } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> buildTrades -> err = " + err.message);
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextLRC -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
                             }
 
-                            function calculateTrades() {
+                            function buildLRC() {
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> buildLRC -> Entering function."); }
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> calculateTrades -> Entering function."); }
+                                    let previous;
 
-                                    let tradesArray = [];
-                                    let numberOfPeriods = 20;
+                                    for (let i = 0; i < marketFile.length; i++) {
 
-                                    /* Building trades */
-
-                                    let trade;
-
-                                    for (let i = numberOfPeriods - 1; i < bands.length; i++) { // Go through all the bands to generate a trade segment for each of them.
-
-                                        let movingAverage = 0;
-                                        for (let j = i - numberOfPeriods + 1; j < i + 1; j++) { // go through the last n bands to calculate the moving average.
-                                            movingAverage = movingAverage + bands[j].close;
-                                        }
-                                        movingAverage = movingAverage / numberOfPeriods;
-
-                                        let standardDeviation = 0;
-                                        for (let j = i - numberOfPeriods + 1; j < i + 1; j++) { // go through the last n bands to calculate the standard deviation.
-                                            standardDeviation = standardDeviation + Math.pow(bands[j].close - movingAverage, 2);
-                                        }
-                                        standardDeviation = standardDeviation / numberOfPeriods;
-                                        standardDeviation = Math.sqrt(standardDeviation);
-
-                                        trade = {
-                                            begin: bands[i].begin,
-                                            end: bands[i].end,
-                                            movingAverage: movingAverage,
-                                            standardDeviation: standardDeviation
+                                        let LRC = {
+                                            begin: marketFile[i][0],
+                                            end: marketFile[i][1],
+                                            _15: marketFile[i][2],
+                                            _30: marketFile[i][3],
+                                            _60: marketFile[i][4]
                                         };
 
-                                        /* Will only add to the array the trades of the current day */
+                                        if (previous !== undefined) {
 
-                                        if (trade.begin >= processDate.valueOf()) { tradesArray.push(trade); }
-                                        
+                                            if (previous._15 > LRC._15) { LRC.direction15 = 'down'; }
+                                            if (previous._15 < LRC._15) { LRC.direction15 = 'up'; }
+                                            if (previous._15 === LRC._15) { LRC.direction15 = 'side'; }
+
+                                            if (previous._30 > LRC._30) { LRC.direction30 = 'down'; }
+                                            if (previous._30 < LRC._30) { LRC.direction30 = 'up'; }
+                                            if (previous._30 === LRC._30) { LRC.direction30 = 'side'; }
+
+                                            if (previous._60 > LRC._60) { LRC.direction60 = 'down'; }
+                                            if (previous._60 < LRC._60) { LRC.direction60 = 'up'; }
+                                            if (previous._60 === LRC._60) { LRC.direction60 = 'side'; }
+
+                                        }
+
+                                        LRC.previous = previous;
+
+                                        LRCMap.set(LRC.begin, LRC);
+
+                                        previous = LRC;
                                     }
 
-                                    writeFile(tradesArray);
+                                    nextPercentageBandwidth();
 
-                                } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> calculateTrades -> err = " + err.message);
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> buildLRC -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
                             }
 
-                            function writeFile(pTrades, callback) {
+                            function nextPercentageBandwidth() {
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> writeTradeTradesFile -> writeFile -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextPercentageBandwidth -> Entering function."); }
+
+                                    let fileName = market.assetA + '_' + market.assetB + ".json";
+
+                                    let filePathRoot = bot.devTeam + "/" + "AAChris" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+
+                                    chrisStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                                    function onFileReceived(err, text) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextPercentageBandwidth -> onFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextPercentageBandwidth -> onFileReceived -> text = " + text); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextPercentageBandwidth -> onFileReceived -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+
+                                            }
+
+                                            marketFile = JSON.parse(text);
+
+                                            buildPercentageBandwidthMap();
+
+
+                                        }
+                                        catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextPercentageBandwidth -> onFileReceived -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextPercentageBandwidth -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function buildPercentageBandwidthMap() {
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> buildPercentageBandwidthMap -> Entering function."); }
+
+                                try {
+
+                                    let previous;
+
+                                    for (let i = 0; i < marketFile.length; i++) {
+
+                                        let percentageBandwidth = {
+                                            begin: marketFile[i][0],
+                                            end: marketFile[i][1],
+                                            value: marketFile[i][2],
+                                            movingAverage: marketFile[i][3],
+                                            bandwidth: marketFile[i][4]
+                                        };
+
+                                        if (previous !== undefined) {
+
+                                            if (previous.movingAverage > percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'down'; }
+                                            if (previous.movingAverage < percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'up'; }
+                                            if (previous.movingAverage === percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'side'; }
+
+                                        }
+
+                                        percentageBandwidth.previous = previous;
+
+                                        percentageBandwidthMap.set(percentageBandwidth.begin, percentageBandwidth);
+
+                                        previous = percentageBandwidth;
+                                    }
+
+                                    nextBollingerBands();
+
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> buildPercentageBandwidthMap -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function nextBollingerBands() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextBollingerBands -> Entering function."); }
+
+                                    let fileName = market.assetA + '_' + market.assetB + ".json";
+
+                                    let filePathRoot = bot.devTeam + "/" + "AAChris" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+
+                                    chrisStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                                    function onFileReceived(err, text) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextBollingerBands -> onFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextBollingerBands -> onFileReceived -> text = " + text); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextBollingerBands -> onFileReceived -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+
+                                            }
+
+                                            marketFile = JSON.parse(text);
+
+                                            buildBollingerBandsMap();
+
+
+                                        }
+                                        catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextBollingerBands -> onFileReceived -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextBollingerBands -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function buildBollingerBandsMap() {
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> buildBollingerBandsMap -> Entering function."); }
+
+                                try {
+
+                                    let previous;
+
+                                    for (let i = 0; i < marketFile.length; i++) {
+
+                                        let bollingerBand = {
+                                            begin: marketFile[i][0],
+                                            end: marketFile[i][1],
+                                            movingAverage: marketFile[i][2],
+                                            standardDeviation: marketFile[i][3],
+                                            deviation: marketFile[i][4]
+                                        };
+
+                                        if (previous !== undefined) {
+
+                                            if (previous.movingAverage > bollingerBand.movingAverage) { bollingerBand.direction = 'down'; }
+                                            if (previous.movingAverage < bollingerBand.movingAverage) { bollingerBand.direction = 'up'; }
+                                            if (previous.movingAverage === bollingerBand.movingAverage) { bollingerBand.direction = 'side'; }
+
+                                        }
+
+                                        bollingerBand.previous = previous;
+
+                                        bollingerBandsMap.set(bollingerBand.begin, bollingerBand);
+
+                                        previous = bollingerBand;
+                                    }
+
+                                    nextBollingerChannels();
+
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> buildBollingerBandsMap -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function nextBollingerChannels() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextBollingerChannels -> Entering function."); }
+
+                                    let fileName = market.assetA + '_' + market.assetB + ".json";
+
+                                    let filePathRoot = bot.devTeam + "/" + "AAPaula" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + BOLLINGER_CHANNELS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+
+                                    chrisStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                                    function onFileReceived(err, text) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextBollingerChannels -> onFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextBollingerChannels -> onFileReceived -> text = " + text); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextBollingerChannels -> onFileReceived -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+
+                                            }
+
+                                            marketFile = JSON.parse(text);
+
+                                            buildBollingerChannelsArray();
+
+
+                                        }
+                                        catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextBollingerChannels -> onFileReceived -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextBollingerChannels -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function buildBollingerChannelsArray() {
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> buildBollingerChannelsArray -> Entering function."); }
+
+                                try {
+
+                                    let previous;
+
+                                    for (let i = 0; i < marketFile.length; i++) {
+
+                                        let bollingerChannel = {
+                                            begin: marketFile[i][0],
+                                            end: marketFile[i][1],
+                                            direction: marketFile[i][2],
+                                            period: marketFile[i][3],
+                                            firstMovingAverage: marketFile[i][4],
+                                            lastMovingAverage: marketFile[i][5],
+                                            firstDeviation: marketFile[i][6],
+                                            lastDeviation: marketFile[i][7]
+                                        };
+
+                                        bollingerChannel.previous = previous;
+
+                                        bollingerChannelsArray.push(bollingerChannel);
+
+                                        previous = bollingerChannel;
+                                    }
+
+                                    nextBollingerSubChannels();
+
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> buildBollingerChannelsArray -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function nextBollingerSubChannels() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextBollingerSubChannels -> Entering function."); }
+
+                                    let fileName = market.assetA + '_' + market.assetB + ".json";
+
+                                    let filePathRoot = bot.devTeam + "/" + "AAPaula" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + BOLLINGER_SUB_CHANNELS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+
+                                    chrisStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                                    function onFileReceived(err, text) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextBollingerSubChannels -> onFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextBollingerSubChannels -> onFileReceived -> text = " + text); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextBollingerSubChannels -> onFileReceived -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+
+                                            }
+
+                                            marketFile = JSON.parse(text);
+
+                                            buildBollingerSubChannelsArray();
+
+
+                                        }
+                                        catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextBollingerSubChannels -> onFileReceived -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextBollingerSubChannels -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function buildBollingerSubChannelsArray() {
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> buildBollingerSubChannelsArray -> Entering function."); }
+
+                                try {
+
+                                    let previous;
+
+                                    for (let i = 0; i < marketFile.length; i++) {
+
+                                        let bollingerSubChannel = {
+                                            begin: marketFile[i][0],
+                                            end: marketFile[i][1],
+                                            direction: marketFile[i][2],
+                                            slope: marketFile[i][3],
+                                            period: marketFile[i][4],
+                                            firstMovingAverage: marketFile[i][5],
+                                            lastMovingAverage: marketFile[i][6],
+                                            firstDeviation: marketFile[i][7],
+                                            lastDeviation: marketFile[i][8]
+                                        };
+
+                                        bollingerSubChannel.previous = previous;
+
+                                        bollingerSubChannelsArray.push(bollingerSubChannel);
+
+                                        previous = bollingerSubChannel;
+                                    }
+
+                                    nextCandlesFile();
+
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> buildBollingerSubChannelsArray -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function nextCandlesFile() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextCandlesFile -> Entering function."); }
+
+                                    let fileName = market.assetA + '_' + market.assetB + ".json";
+
+                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+
+                                    oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                                    function onFileReceived(err, text) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextCandlesFile -> onFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextCandlesFile -> onFileReceived -> text = " + text); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextCandlesFile -> onFileReceived -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+
+                                            }
+
+                                            marketFile = JSON.parse(text);
+
+                                            buildCandles();
+
+
+                                        }
+                                        catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextCandlesFile -> onFileReceived -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextCandlesFile -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function buildCandles() {
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> buildCandles -> Entering function."); }
+
+                                try {
+
+                                    let previous;
+
+                                    for (let i = 0; i < marketFile.length; i++) {
+
+                                        let candle = {
+                                            open: undefined,
+                                            close: undefined,
+                                            min: 10000000000000,
+                                            max: 0,
+                                            begin: undefined,
+                                            end: undefined,
+                                            direction: undefined
+                                        };
+
+                                        candle.min = marketFile[i][0];
+                                        candle.max = marketFile[i][1];
+
+                                        candle.open = marketFile[i][2];
+                                        candle.close = marketFile[i][3];
+
+                                        candle.begin = marketFile[i][4];
+                                        candle.end = marketFile[i][5];
+
+                                        if (candle.open > candle.close) { candle.direction = 'down'; }
+                                        if (candle.open < candle.close) { candle.direction = 'up'; }
+                                        if (candle.open === candle.close) { candle.direction = 'side'; }
+
+                                        candle.previous = previous;
+
+                                        candles.push(candle);
+
+                                        previous = candle;
+                                    }
+
+                                    commons.runSimulation(
+                                        candles,
+                                        bollingerBandsMap,
+                                        percentageBandwidthMap,
+                                        LRCMap,
+                                        bollingerChannelsArray,
+                                        bollingerSubChannelsArray,
+                                        recordsArray,
+                                        conditionsArray,
+                                        simulationLogic,
+                                        outputPeriod,
+                                        writeRecordsFile)
+
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> buildCandles -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function writeRecordsFile() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> writeRecordsFile -> Entering function."); }
 
                                     let separator = "";
                                     let fileRecordCounter = 0;
 
                                     let fileContent = "";
 
-                                    for (i = 0; i < pTrades.length; i++) {
+                                    for (let i = 0; i < recordsArray.length; i++) {
 
-                                        let trade = pTrades[i];
+                                        let record = recordsArray[i];
 
                                         fileContent = fileContent + separator + '[' +
-                                            trade.begin + "," +
-                                            trade.end + "," +
-                                            trade.movingAverage + "," +
-                                            trade.standardDeviation + "]";
+                                            record.begin + "," +
+                                            record.end + "," +
+                                            record.type + "," +
+                                            record.rate + "," +
+                                            record.amount + "," +
+                                            record.balanceA + "," +
+                                            record.balanceB + "," +
+                                            record.profit + "," +
+                                            record.lastProfit + "," +
+                                            record.stopLoss + "," +
+                                            record.roundtrips + "," +
+                                            record.hits + "," +
+                                            record.fails + "," +
+                                            record.hitRatio + "," +
+                                            record.ROI + "," +
+                                            record.periods + "," +
+                                            record.days + "," +
+                                            record.anualizedRateOfReturn + "," +
+                                            record.sellRate + "," +
+                                            record.lastProfitPercent + "," +
+                                            record.strategy + "," +
+                                            record.strategyPhase + "," +
+                                            record.buyOrder + "," +
+                                            record.stopLossPhase + "," +
+                                            record.buyOrderPhase + "]";
 
                                         if (separator === "") { separator = ","; }
 
@@ -549,11 +927,10 @@
 
                                     fileContent = "[" + fileContent + "]";
 
-                                    let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                    let filePath = filePathRoot + "/Output/" + SIMULATED_TRADES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+                                    let filePath = filePathRoot + "/Output/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
                                     jasonStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
@@ -561,34 +938,110 @@
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> writeTradeTradesFile -> writeFile -> onFileCreated -> Entering function."); }
-
-                                            if (LOG_FILE_CONTENT === true) {
-                                                logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> writeTradeTradesFile -> writeFile -> onFileCreated ->  Content written = " + fileContent);
-                                            }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> writeRecordsFile -> onFileCreated -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> writeRecordsFile -> onFileCreated -> fileContent = " + fileContent); }
 
                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> loopBody -> writeTradeTradesFile -> writeFile -> onFileCreated -> err = " + err.message);
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeRecordsFile -> onFileCreated -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeRecordsFile -> onFileCreated -> filePath = " + filePath);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeRecordsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+
                                                 callBackFunction(err);
                                                 return;
+
                                             }
 
-                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> writeTradeTradesFile -> writeFile -> onFileCreated -> " + logText); }
+                                            writeConditionsFile();
 
-                                            controlLoop();
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> writeTradeTradesFile -> writeFile -> onFileCreated -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                        }
+                                        catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeRecordsFile -> onFileCreated -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
-
-                                } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> writeTradeTradesFile -> writeFile -> err = " + err.message);
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeRecordsFile -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
+
+                            function writeConditionsFile() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> writeConditionsFile -> Entering function."); }
+
+                                    let separator = "";
+                                    let fileRecordCounter = 0;
+
+                                    let fileContent = "";
+
+                                    for (let i = 0; i < conditionsArray.length; i++) {
+
+                                        let record = conditionsArray[i];
+
+                                        let conditions = "";
+                                        let conditionsSeparator = "";
+
+                                        for (let j = 0; j < record.length - 1; j++) {
+                                            conditions = conditions + conditionsSeparator + record[j];
+                                            if (conditionsSeparator === "") { conditionsSeparator = ","; }
+                                        }
+
+                                        conditions = conditions + conditionsSeparator + '[' + record[record.length - 1] + ']';   // The last item contains an Array of condition values.
+
+                                        fileContent = fileContent + separator + '[' + conditions + ']';
+
+                                        if (separator === "") { separator = ","; }
+
+                                        fileRecordCounter++;
+
+                                    }
+
+                                    fileContent = "[" + fileContent + "]";
+                                    fileContent = "[" + JSON.stringify(simulationLogic) + "," + fileContent + "]";
+                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+
+                                    jasonStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                    function onFileCreated(err) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> writeConditionsFile -> onFileCreated -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> writeConditionsFile -> onFileCreated -> fileContent = " + fileContent); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeConditionsFile -> onFileCreated -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeConditionsFile -> onFileCreated -> filePath = " + filePath);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeConditionsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+
+                                                callBackFunction(err);
+                                                return;
+
+                                            }
+
+                                            controlLoop();
+
+                                        }
+                                        catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeConditionsFile -> onFileCreated -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> writeConditionsFile -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
 
           
 

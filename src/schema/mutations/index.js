@@ -2,14 +2,14 @@ import {
   GraphQLObjectType,
 } from 'graphql';
 
-import CreateEventMutation from './CreateEvent';
-import ChangeEventStateMutation from './ChangeEventState';
+import CreateStrategyMutation from './CreateStrategy';
+import EditStrategyMutation from './EditStrategy';
 
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: Object.assign(
-    CreateEventMutation,
-    ChangeEventStateMutation,
+    CreateStrategyMutation,
+    EditStrategyMutation,
   ),
 });
 

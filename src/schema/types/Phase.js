@@ -7,7 +7,7 @@ import {
   SituationType,
 } from './index';
 
-const PhaseType = new GraphQLObjectType({
+const Type = new GraphQLObjectType({
   name: 'Phase',
   code: 'Phase',
   description: 'Phase definition',
@@ -22,4 +22,4 @@ const PhaseType = new GraphQLObjectType({
   }),
 });
 
-export default PhaseType;
+export default Type;

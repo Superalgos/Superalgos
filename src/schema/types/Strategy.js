@@ -8,7 +8,7 @@ import {
   SubStrategyType,
 } from './index';
 
-const EventType = new GraphQLObjectType({
+const Type = new GraphQLObjectType({
   name: 'Event',
   description: 'Everything you need to know about an event',
   fields: () => ({
@@ -23,4 +23,4 @@ const EventType = new GraphQLObjectType({
   }),
 });
 
-export default EventType;
+export default Type;

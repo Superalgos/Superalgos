@@ -3,7 +3,7 @@ import {
   GraphQLString,
 } from 'graphql';
 
-const ConditionType = new GraphQLObjectType({
+const Type = new GraphQLObjectType({
   name: 'Condition',
   description: 'Condition definition',
   fields: () => ({
@@ -12,4 +12,4 @@ const ConditionType = new GraphQLObjectType({
   }),
 });
 
-export default ConditionType;
+export default Type;

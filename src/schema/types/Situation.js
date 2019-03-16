@@ -7,7 +7,7 @@ import {
   ConditionType,
 } from './index';
 
-const SituationType = new GraphQLObjectType({
+const Type = new GraphQLObjectType({
   name: 'Situation',
   description: 'Situation definition',
   fields: () => ({
@@ -21,4 +21,4 @@ const SituationType = new GraphQLObjectType({
   }),
 });
 
-export default SituationType;
+export default Type;

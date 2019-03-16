@@ -8,7 +8,7 @@ import {
   PhaseType,
 } from './index';
 
-const SubStrategyType = new GraphQLObjectType({
+const Type = new GraphQLObjectType({
   name: 'SubStrategy',
   description: 'SubStrategy composing a strategy',
   fields: () => ({
@@ -72,4 +72,4 @@ const SubStrategyType = new GraphQLObjectType({
   }),
 });
 
-export default SubStrategyType;
+export default Type;

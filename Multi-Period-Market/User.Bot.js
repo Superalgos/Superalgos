@@ -18,7 +18,7 @@
     };
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
-    let jasonStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+    let thisBotStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
     let dataDependencies;
 
@@ -35,7 +35,7 @@
 
             dataDependencies = pDataDependencies;
 
-            jasonStorage.initialize(bot.devTeam, onStorageInizialized);
+            thisBotStorage.initialize(bot.devTeam, onStorageInizialized);
 
             function onStorageInizialized(err) {
 
@@ -54,7 +54,7 @@
         }
     }
 
-    function start(dataFiles, outputPeriod, timePeriod, callBackFunction) {
+    function start(dataFiles, timePeriod, outputPeriodLabel, callBackFunction) {
 
         try {
 
@@ -77,27 +77,27 @@
                 switch (i) {
 
                     case 0: {
-                        commons.buildLRC(dataFile);
+                        commons.buildLRC(dataFile, callBackFunction);
                         break;
                     }
                     case 1: {
-                        commons.buildPercentageBandwidthMap(dataFile);
+                        commons.buildPercentageBandwidthMap(dataFile, callBackFunction);
                         break;
                     }
                     case 2: {
-                        commons.buildBollingerBandsMap(dataFile);
+                        commons.buildBollingerBandsMap(dataFile, callBackFunction);
                         break;
                     }
                     case 3: {
-                        commons.buildBollingerChannelsArray(dataFile);
+                        commons.buildBollingerChannelsArray(dataFile, callBackFunction);
                         break;
                     }
                     case 4: {
-                        commons.buildBollingerSubChannelsArray(dataFile);
+                        commons.buildBollingerSubChannelsArray(dataFile, callBackFunction);
                         break;
                     }
                     case 5: {
-                        commons.buildCandles(dataFile);
+                        commons.buildCandles(dataFile, callBackFunction);
                         break;
                     }
                 }
@@ -107,7 +107,7 @@
                 recordsArray,
                 conditionsArray,
                 simulationLogic,
-                outputPeriod,
+                timePeriod,
                 writeRecordsFile)
 
             function writeRecordsFile() {
@@ -163,9 +163,9 @@
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                    let filePath = filePathRoot + "/Output/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                    let filePath = filePathRoot + "/Output/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
 
-                    jasonStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -238,9 +238,9 @@
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                    let filePath = filePathRoot + "/Output/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                    let filePath = filePathRoot + "/Output/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
 
-                    jasonStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

@@ -153,12 +153,12 @@
             "major": 1,
             "minor": 0
           },
-          "process": "Poloniex-Historic-Records",
+          "process": "Poloniex-Historic-Trades",
           "dataSetVersion": "dataSet.V1"
         },
         {
           "devTeam": "AAMasters",
-          "bot": "AAChris",
+          "bot": "AAOlivia",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -177,6 +177,8 @@
           "dataSetVersion": "dataSet.V1"
         }
       ],
+      "statusDependenciesIndexBegingOfMarket": 0,
+      "statusDependenciesIndexEndOfMarket": 1,
       "dataDependencies": [
         {
           "devTeam": "AAVikings",
@@ -187,7 +189,51 @@
           },
           "product": "LRC-Points",
           "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Daily"
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAChris",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Percentage-Bandwidth",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAChris",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Bands",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAPaula",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Channels",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAPaula",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Sub-Channels",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
         },
         {
           "devTeam": "AAMasters",
@@ -198,7 +244,7 @@
           },
           "product": "Candles",
           "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Daily"
+          "dataSet": "Multi-Period-Market"
         }
       ],
       "framework": "Multi-Period-Daily"

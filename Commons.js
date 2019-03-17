@@ -45,7 +45,7 @@
         recordsArray,
         conditionsArray,
         simulationLogic,
-        outputPeriod,
+        timePeriod,
         callback) {
 
         try {
@@ -873,7 +873,7 @@
                     hitRatio = hits / roundtrips;
 
                     let miliSecondsPerDay = 24 * 60 * 60 * 1000;
-                    days = periods * outputPeriod / miliSecondsPerDay;
+                    days = periods * timePeriod / miliSecondsPerDay;
                     anualizedRateOfReturn = ROI / days * 365;
 
                     addRecord();
@@ -970,7 +970,7 @@
         }
     }
 
-    function buildLRC(dataFile) {
+    function buildLRC(dataFile, callBackFunction) {
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildLRC -> Entering function."); }
 
@@ -1017,7 +1017,7 @@
         }
     }
 
-    function buildPercentageBandwidthMap(dataFile) {
+    function buildPercentageBandwidthMap(dataFile, callBackFunction) {
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildPercentageBandwidthMap -> Entering function."); }
 
@@ -1056,7 +1056,7 @@
         }
     }
 
-    function buildBollingerBandsMap(dataFile) {
+    function buildBollingerBandsMap(dataFile, callBackFunction) {
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildBollingerBandsMap -> Entering function."); }
 
@@ -1095,7 +1095,7 @@
         }
     }
 
-    function buildBollingerChannelsArray(dataFile) {
+    function buildBollingerChannelsArray(dataFile, callBackFunction) {
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildBollingerChannelsArray -> Entering function."); }
 
@@ -1129,7 +1129,7 @@
         }
     }
 
-    function buildBollingerSubChannelsArray(dataFile) {
+    function buildBollingerSubChannelsArray(dataFile, callBackFunction) {
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildBollingerSubChannelsArray -> Entering function."); }
 
@@ -1164,7 +1164,7 @@
         }
     }
 
-    function buildCandles(dataFile) {
+    function buildCandles(dataFile, callBackFunction) {
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildCandles -> Entering function."); }
 

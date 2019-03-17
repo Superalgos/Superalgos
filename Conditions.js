@@ -310,16 +310,18 @@
             let currentDate = new Date(farLeftDate.valueOf());
 
             conditions = [];
+            headers = dailyFile[0];
+            let lastObjects = dailyFile[1]; // Here we get the values of the last 5 objects
 
             while (currentDate.valueOf() <= farRightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
 
                 let stringDate = currentDate.getFullYear() + '-' + pad(currentDate.getMonth() + 1, 2) + '-' + pad(currentDate.getDate(), 2);
 
-                let dailyFile = fileCursor.files.get(stringDate);
+                let dailyFile[2] = fileCursor.files.get(stringDate);
 
-                if (dailyFile !== undefined) {
+                if (dailyFile[2] !== undefined) {
 
-                    for (let i = 0; i < dailyFile.length; i++) {
+                    for (let i = 0; i < dailyFile[2].length; i++) {
 
                         let record = {
                             begin: undefined,
@@ -327,9 +329,13 @@
                             conditions: undefined
                         };
 
-                        record.begin = dailyFile[i][0];
-                        record.end = dailyFile[i][1];
-                        record.conditions = dailyFile[i];
+                        record.begin = dailyFile[2][i][0];
+                        record.end = dailyFile[2][i][1];
+                        record.strategyNumber = dailyFile[2][i][2];
+                        record.strategyPhase = dailyFile[2][i][3];
+                        record.stopLossPhase = dailyFile[2][i][4];
+                        record.buyOrderPhase = dailyFile[2][i][5];
+                        record.conditions = dailyFile[2][i][6];
 
                         if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
 
@@ -392,8 +398,9 @@
 
             conditions = [];
             headers = marketFile[0];
+            let lastObjects = marketFile[1]; // Here we get the values of the last 5 objects
 
-            for (let i = 0; i < marketFile[1].length; i++) {
+            for (let i = 0; i < marketFile[2].length; i++) {
 
                 let record = {
                     begin: undefined,
@@ -401,13 +408,13 @@
                     conditions: undefined
                 };
 
-                record.begin = marketFile[1][i][0];
-                record.end = marketFile[1][i][1];
-                record.strategyNumber = marketFile[1][i][2];
-                record.strategyPhase = marketFile[1][i][3];
-                record.stopLossPhase = marketFile[1][i][4];
-                record.buyOrderPhase = marketFile[1][i][5];
-                record.conditions = marketFile[1][i][6];
+                record.begin = marketFile[2][i][0];
+                record.end = marketFile[2][i][1];
+                record.strategyNumber = marketFile[2][i][2];
+                record.strategyPhase = marketFile[2][i][3];
+                record.stopLossPhase = marketFile[2][i][4];
+                record.buyOrderPhase = marketFile[2][i][5];
+                record.conditions = marketFile[2][i][6];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 

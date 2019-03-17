@@ -2,7 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 
 const strategySchema = new Schema(
   {
-    fbId: {
+    fbSlug: {
       type: String,
       required: true,
       unique: true,

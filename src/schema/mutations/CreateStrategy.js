@@ -7,12 +7,12 @@ import { Strategy } from '../../models';
 import { StrategyInputType } from '../types/input';
 
 export const args = {
-  fbId: { type: new GraphQLNonNull(GraphQLString) },
+  fbSlug: { type: new GraphQLNonNull(GraphQLString) },
   strategy: { type: StrategyInputType },
 };
 
-const resolve = (parent, { fbId, strategy }) => {
-  strategy.fbId = fbId;
+const resolve = (parent, { fbSlug, strategy }) => {
+  strategy.fbSlug = fbSlug;
   const newStrategy = new Strategy(strategy);
 
   return new Promise((res, rej) => {

@@ -10,6 +10,7 @@
 
     const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
     const MULTI_PERIOD_MARKET = require(ROOT_DIR + 'MultiPeriodMarket');
+    const MULTI_PERIOD_DAILY = require(ROOT_DIR + 'MultiPeriodDaily');
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -191,7 +192,7 @@
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
                     let userBot;
-                    let multiPeriodMarket;
+                    let processFramework;
                     let statusDependencies;
                     let dataDependencies;
 
@@ -298,7 +299,13 @@
 
                                             switch (processConfig.framework) {
                                                 case 'Multi-Period-Market': {
-                                                    intitializeMultiPeriodMarket();
+                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE, USER_BOT_MODULE, COMMONS_MODULE);
+                                                    intitializeProcessFramework();
+                                                    break;
+                                                }
+                                                case 'Multi-Period-Daily': {
+                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE, USER_BOT_MODULE, COMMONS_MODULE);
+                                                    intitializeProcessFramework();
                                                     break;
                                                 }
                                                 default: { initializeUserBot();}
@@ -588,36 +595,34 @@
                         }
                     }
 
-                    function intitializeMultiPeriodMarket() {
+                    function intitializeProcessFramework() {
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeMultiPeriodMarket ->  Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeProcessFramework ->  Entering function."); }
 
-                            multiPeriodMarket = MULTI_PERIOD_MARKET.newMultiPeriodMarket(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE, USER_BOT_MODULE, COMMONS_MODULE);
-
-                            multiPeriodMarket.initialize(statusDependencies, dataDependencies, pMonth, pYear, onInizialized, dataDependencies);
+                            processFramework.initialize(statusDependencies, dataDependencies, onInizialized, dataDependencies);
 
                             function onInizialized(err) {
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeMultiPeriodMarket ->  onInizialized -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeProcessFramework ->  onInizialized -> Entering function."); }
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeMultiPeriodMarket -> onInizialized -> Execution finished well.");
-                                            startMultiPeriodMarket();
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeProcessFramework -> onInizialized -> Execution finished well.");
+                                            startProcessFramework();
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket -> onInizialized -> Operation Failed. Aborting the process.");
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
@@ -630,19 +635,19 @@
 
                                             switch (err.message) {
                                                 case "Too far in the future.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> intitializeMultiPeriodMarket -> onInizialized > Too far in the future. This Loop will enter in coma.");
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> intitializeProcessFramework -> onInizialized > Too far in the future. This Loop will enter in coma.");
                                                     nextWaitTime = 'Coma';
                                                     loopControl(nextWaitTime);
                                                     return;
                                                 }
                                                 case "Not needed now, but soon.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> intitializeMultiPeriodMarket -> onInizialized > Not needed now, but soon. This Loop will continue with Normal wait time.");
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> intitializeProcessFramework -> onInizialized > Not needed now, but soon. This Loop will continue with Normal wait time.");
                                                     nextWaitTime = 'Normal';
                                                     loopControl(nextWaitTime);
                                                     return;
                                                 }
                                                 default: {
-                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket -> onInizialized > Unhandled custom response received. -> err.message = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized > Unhandled custom response received. -> err.message = " + err.message);
                                                     logger.persist();
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
@@ -654,8 +659,8 @@
                                             }
                                         }
                                         default: {
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -668,7 +673,7 @@
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket ->  onInizialized -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework ->  onInizialized -> err = " + err.message);
                                     logger.persist();
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
@@ -679,7 +684,7 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeMultiPeriodMarket -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> err = " + err.message);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
@@ -689,35 +694,35 @@
                         }
                     }
 
-                    function startMultiPeriodMarket() {
+                    function startProcessFramework() {
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startMultiPeriodMarket ->  Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessFramework ->  Entering function."); }
 
-                            multiPeriodMarket.start(onFinished);
+                            processFramework.start(onFinished);
 
                             function onFinished(err) {
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startMultiPeriodMarket -> onFinished -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessFramework -> onFinished -> Entering function."); }
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> startMultiPeriodMarket -> onFinished -> Execution finished well.");
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessFramework -> onFinished -> Execution finished well.");
                                             nextWaitTime = 'Normal';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> onFinished -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> onFinished -> Operation Failed. Aborting the process.");
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
@@ -730,19 +735,19 @@
 
                                             switch (err.message) {
                                                 case "Dependency does not exist.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startMultiPeriodMarket -> onFinished -> Dependency does not exist. This Loop will go to sleep.");
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Dependency does not exist. This Loop will go to sleep.");
                                                     nextWaitTime = 'Sleep';
                                                     loopControl(nextWaitTime);
                                                     return;
                                                 }
                                                 case "Dependency not ready.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startMultiPeriodMarket -> onFinished -> Dependency not ready. This Loop will go to sleep.");
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Dependency not ready. This Loop will go to sleep.");
                                                     nextWaitTime = 'Sleep';
                                                     loopControl(nextWaitTime);
                                                     return;
                                                 }
                                                 case "Month before it is needed.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startMultiPeriodMarket -> onFinished -> Month before it is needed. This Loop will be terminated.");
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Month before it is needed. This Loop will be terminated.");
                                                     logger.persist();
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
@@ -752,7 +757,7 @@
                                                     return;
                                                 }
                                                 case "Month fully processed.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startMultiPeriodMarket -> onFinished -> Month fully processed. This Loop will be terminated.");
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Month fully processed. This Loop will be terminated.");
                                                     logger.persist();
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
@@ -762,7 +767,7 @@
                                                     return;
                                                 }
                                                 case "End of the month reached.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startMultiPeriodMarket -> onFinished -> End of the month reached. This Loop will be terminated.");
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> End of the month reached. This Loop will be terminated.");
                                                     logger.persist();
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
@@ -772,7 +777,7 @@
                                                     return;
                                                 }
                                                 default: {
-                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> onFinished -> Unhandled custom response received. -> err.message = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled custom response received. -> err.message = " + err.message);
                                                     logger.persist();
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
@@ -784,8 +789,8 @@
                                             }
                                         }
                                         default: {
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> onFinished -> Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err.message = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -798,7 +803,7 @@
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> onFinished -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> err = " + err.message);
                                     logger.persist();
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
@@ -809,7 +814,7 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startMultiPeriodMarket -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> err = " + err.message);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);

@@ -26,7 +26,7 @@
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pDataDependencies, pMonth, pYear, callBackFunction) {
+    function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
 
         try {
 
@@ -63,7 +63,7 @@
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
                     usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE);
-                    usertBot.initialize(dataDependencies, pMonth, pYear, callBackFunction);
+                    usertBot.initialize(dataDependencies, callBackFunction);
 
                 } else {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> onStorageInizialized -> err = " + err.message);

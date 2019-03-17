@@ -25,7 +25,7 @@
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pDataDependencies, pMonth, pYear, callBackFunction) {
+    function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
 
         try {
 
@@ -56,7 +56,7 @@
             }
 
             usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE);
-            usertBot.initialize(dataDependencies, pMonth, pYear, callBackFunction);
+            usertBot.initialize(dataDependencies, callBackFunction);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);

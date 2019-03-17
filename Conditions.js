@@ -317,7 +317,7 @@
 
                 let stringDate = currentDate.getFullYear() + '-' + pad(currentDate.getMonth() + 1, 2) + '-' + pad(currentDate.getDate(), 2);
 
-                let dailyFile[2] = fileCursor.files.get(stringDate);
+                let dailyFile = fileCursor.files.get(stringDate);
 
                 if (dailyFile[2] !== undefined) {
 

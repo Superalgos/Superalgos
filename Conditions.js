@@ -310,8 +310,8 @@
             let currentDate = new Date(farLeftDate.valueOf());
 
             conditions = [];
-            headers = dailyFile[0];
-            let lastObjects = dailyFile[1]; // Here we get the values of the last 5 objects
+            
+     
 
             while (currentDate.valueOf() <= farRightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
 
@@ -319,7 +319,9 @@
 
                 let dailyFile = fileCursor.files.get(stringDate);
 
-                if (dailyFile[2] !== undefined) {
+                if (dailyFile !== undefined) {
+
+                    headers = dailyFile[0];
 
                     for (let i = 0; i < dailyFile[2].length; i++) {
 

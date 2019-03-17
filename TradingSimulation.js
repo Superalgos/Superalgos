@@ -327,16 +327,52 @@
                             rate: undefined,
                             amount: undefined,
                             balanceA: undefined,
-                            balanceB: undefined
+                            balanceB: undefined,
+                            profit: undefined,
+                            lastProfit: undefined,
+                            stopLoss: undefined,
+                            roundtrips: undefined,
+                            hits: undefined,
+                            fails: undefined,
+                            hitRatio: undefined,
+                            ROI: undefined,
+                            periods: undefined,
+                            days: undefined,
+                            anualizedRateOfReturn: undefined,
+                            sellRate: undefined,
+                            lastProfitPercent: undefined,
+                            strategy: undefined,
+                            strategyPhase: undefined,
+                            buyOrder: undefined,
+                            stopLossPhase: undefined,
+                            buyOrderPhase: undefined
                         };
 
-                        record.begin = marketFile[i][0];
-                        record.end = marketFile[i][1];
-                        record.type = marketFile[i][2];
-                        record.rate = marketFile[i][3];
-                        record.amount = marketFile[i][4];
-                        record.balanceA = marketFile[i][5];
-                        record.balanceB = marketFile[i][6];
+                        record.begin = dailyFile[i][0];
+                        record.end = dailyFile[i][1];
+                        record.type = dailyFile[i][2];
+                        record.rate = dailyFile[i][3];
+                        record.amount = dailyFile[i][4];
+                        record.balanceA = dailyFile[i][5];
+                        record.balanceB = dailyFile[i][6];
+                        record.profit = dailyFile[i][7];
+                        record.lastProfit = dailyFile[i][8];
+                        record.stopLoss = dailyFile[i][9];
+                        record.roundtrips = dailyFile[i][10];
+                        record.hits = dailyFile[i][11];
+                        record.fails = dailyFile[i][12];
+                        record.hitRatio = dailyFile[i][13];
+                        record.ROI = dailyFile[i][14];
+                        record.periods = dailyFile[i][15];
+                        record.days = dailyFile[i][16];
+                        record.anualizedRateOfReturn = dailyFile[i][17];
+                        record.sellRate = dailyFile[i][18];
+                        record.lastProfitPercent = dailyFile[i][19];
+                        record.strategy = dailyFile[i][20];
+                        record.strategyPhase = dailyFile[i][21];
+                        record.buyOrder = dailyFile[i][22];
+                        record.stopLossPhase = dailyFile[i][23];
+                        record.buyOrderPhase = dailyFile[i][24];
 
                         if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
 

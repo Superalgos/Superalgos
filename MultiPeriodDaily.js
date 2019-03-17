@@ -93,7 +93,7 @@
             };
 
             let previousDay;                        // Holds the date of the previous day relative to the processing date.
-            let currentDate;                        // Holds the processing date.
+            let currentDay;                        // Holds the processing date.
 
             getContextVariables();
 
@@ -142,8 +142,9 @@
                     }
 
                     contextVariables.dateBeginingOfMarket = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
+                    contextVariables.dateBeginingOfMarket = new Date("2018-01-01"); // Remove this temporaty patch.
 
-                    /* Second, we get the report from Olivia, to know when the marted ends. */
+                    /* Second, we get the report from Olivia, to know when the martet ends. */
 
                     reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
@@ -242,7 +243,9 @@
                 try {
 
                     let n;
-                    currentDate = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    let botNeverRan = true;
+
+                    currentDay = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
 
                     advanceTime();
 
@@ -254,15 +257,15 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> Entering function."); }
 
-                            currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);
-                            previousDay = new Date(currentDate.valueOf() - ONE_DAY_IN_MILISECONDS);
+                            currentDay = new Date(currentDay.valueOf() + ONE_DAY_IN_MILISECONDS);
+                            previousDay = new Date(currentDay.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> currentDate = " + currentDate); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> currentDay = " + currentDay); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> previousDay = " + previousDay); }
 
                             /* Validation that we are not going past the head of the market. */
 
-                            if (currentDate.valueOf() > contextVariables.dateEndOfMarket.valueOf()) {
+                            if (currentDay.valueOf() > contextVariables.dateEndOfMarket.valueOf()) {
 
                                 const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> " + logText); }
@@ -309,9 +312,9 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Entering function."); }
 
-                            const outputPeriod = global.dailyFilesPeriods[n][0];
-                            const timePeriod = global.dailyFilesPeriods[n][1];
-
+                            const outputPeriod = global.dailyFilePeriods[n][0];
+                            const timePeriod = global.dailyFilePeriods[n][1];
+                                                      
                             let dependencyIndex = 0;
                             dataFiles = [];
 
@@ -349,6 +352,22 @@
 
                                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> Entering function."); }
                                                     if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> text = " + text); }
+
+                                                    if (err.message === "File does not exist." && botNeverRan === true) {
+                                                    
+                                                        /*
+                                                        Sometimes one of the dependencies of an indicator for some reasons are not calculated from the begining of the market.
+                                                        When that happens we can not find those files. What we do in this situation is to move the time fordward until we can find
+                                                        all the dependencies and the first run of the bot is successful.
+
+                                                        After that, we will not accept more missing files on any of the dependencies, and if any is missing we will abort the processing.
+                                                        */
+                                                        logger.write(MODULE_NAME, "[WARN] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> Skipping day because file " + filePath + "/" + fileName + " was not found.");
+
+                                                        advanceTime();
+                                                        return;
+                                                    }
+                                                    
 
                                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
@@ -406,7 +425,7 @@
 
                                                     currentFile = JSON.parse(text);
 
-                                                    let datafile = previousFile.concat(currentFile);
+                                                    let dataFile = previousFile.concat(currentFile);
 
                                                     dataFiles.push(dataFile);
                                                     dependencyControlLoop();
@@ -460,10 +479,10 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> Entering function."); }
 
-                                    const outputPeriod = global.dailyFilesPeriods[n][0];
-                                    const timePeriod = global.dailyFilesPeriods[n][1];
+                                    const outputPeriod = global.dailyFilePeriods[n][0];
+                                    const timePeriod = global.dailyFilePeriods[n][1];
 
-                                    usertBot.start(dataFiles, outputPeriod, timePeriod, currentDate, onBotFinished);
+                                    usertBot.start(dataFiles, outputPeriod, timePeriod, currentDay, onBotFinished);
 
                                     function onBotFinished(err) {
 
@@ -477,6 +496,7 @@
                                                 return;
                                             }
 
+                                            botNeverRan = false;
                                             periodsControlLoop();
                                         }
                                         catch (err) {
@@ -505,7 +525,7 @@
 
                             n++;
 
-                            if (n < global.dailyFilesPeriods.length) {
+                            if (n < global.dailyFilePeriods.length) {
 
                                 periodsLoopBody();
 
@@ -527,7 +547,7 @@
                                             return;
                                         }
 
-                                        writeStatusReport(currentDate, advanceTime);
+                                        writeStatusReport(currentDay, advanceTime);
 
                                     } catch (err) {
                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods ->  controlLoop -> onWritten -> err = " + err.message);
@@ -562,7 +582,7 @@
 
                         let folderName = bot.products[productIndex].codeName;
 
-                        writeDataRange(contextVariables.dateBeginingOfMarket, currentDate, folderName, controlLoop);
+                        writeDataRange(contextVariables.dateBeginingOfMarket, currentDay, folderName, controlLoop);
                     }
 
                     function controlLoop() {
@@ -637,7 +657,7 @@
                     let reportKey = bot.devTeam + "-" + bot.codeName + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
-                    thisReport.file.lastExecution = bot.currentDatetime;
+                    thisReport.file.lastExecution = bot.currentDaytime;
                     thisReport.file.lastFile = lastFileDate;
                     thisReport.save(callBack);
 

@@ -55,7 +55,7 @@
 
             /* Initial Values */
 
-            let initialDate = new Date("2018-08-01");
+            let initialDate = new Date("2015-07-01");
             let initialBalanceA = 1;
             let minimunBalanceA = 0.5;
 

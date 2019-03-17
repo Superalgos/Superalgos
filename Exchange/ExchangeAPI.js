@@ -45,8 +45,6 @@
    }
 
    function getOpenPositions (pMarket, callBackFunction) {
-     let authToken = window.localStorage.getItem('access_token')
-
         let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL

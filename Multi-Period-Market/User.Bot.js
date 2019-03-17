@@ -24,7 +24,7 @@
 
     return thisObject;
 
-    function initialize(pDataDependencies, pMonth, pYear, callBackFunction) {
+    function initialize(pDataDependencies, callBackFunction) {
 
         try {
 

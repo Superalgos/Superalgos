@@ -17,6 +17,10 @@ const resolve = (parent, { id: _id, strategy: editedStrategy }) => new Promise((
       rej(err);
       return;
     }
+    strategy.history.push({
+      updatedAt: strategy.updatedAt,
+      subStrategies: strategy.subStrategies,
+    });
     strategy.subStrategies = editedStrategy.subStrategies;
     strategy.save((error) => {
       if (error) {

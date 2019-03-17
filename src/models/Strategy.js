@@ -1,99 +1,19 @@
 import mongoose, { Schema } from 'mongoose';
 
-const strategySchema = new Schema({
-  fbId: {
-    type: String,
-    required: true,
-    unique: true,
-    dropDups: true,
-  },
-  subStrategies: [{
-    name: {
+const strategySchema = new Schema(
+  {
+    fbId: {
       type: String,
-      default: '',
+      required: true,
+      unique: true,
+      dropDups: true,
     },
-    entryPoint: {
-      situations: [{
-        name: {
-          type: String,
-          default: '',
-        },
-        conditions: [{
-          name: {
-            type: String,
-            default: '',
-          },
-          code: {
-            type: String,
-            default: 'false',
-          },
-        }],
-      }],
-    },
-    exitPoint: {
-      situations: [{
-        name: {
-          type: String,
-          default: '',
-        },
-        conditions: [{
-          name: {
-            type: String,
-            default: '',
-          },
-          code: {
-            type: String,
-            default: 'false',
-          },
-        }],
-      }],
-    },
-    sellPoint: {
-      situations: [{
-        name: {
-          type: String,
-          default: '',
-        },
-        conditions: [{
-          name: {
-            type: String,
-            default: '',
-          },
-          code: {
-            type: String,
-            default: 'false',
-          },
-        }],
-      }],
-    },
-    buyPoint: {
-      situations: [{
-        name: {
-          type: String,
-          default: '',
-        },
-        conditions: [{
-          name: {
-            type: String,
-            default: '',
-          },
-          code: {
-            type: String,
-            default: 'false',
-          },
-        }],
-      }],
-    },
-    stopLoss: {
-      phases: [{
-        name: {
-          type: String,
-          default: '',
-        },
-        code: {
-          type: String,
-          default: 'false',
-        },
+    subStrategies: [{
+      name: {
+        type: String,
+        default: '',
+      },
+      entryPoint: {
         situations: [{
           name: {
             type: String,
@@ -110,18 +30,8 @@ const strategySchema = new Schema({
             },
           }],
         }],
-      }],
-    },
-    buyOrder: {
-      phases: [{
-        name: {
-          type: String,
-          default: '',
-        },
-        code: {
-          type: String,
-          default: 'false',
-        },
+      },
+      exitPoint: {
         situations: [{
           name: {
             type: String,
@@ -138,18 +48,8 @@ const strategySchema = new Schema({
             },
           }],
         }],
-      }],
-    },
-    sellOrder: {
-      phases: [{
-        name: {
-          type: String,
-          default: '',
-        },
-        code: {
-          type: String,
-          default: 'false',
-        },
+      },
+      sellPoint: {
         situations: [{
           name: {
             type: String,
@@ -166,10 +66,280 @@ const strategySchema = new Schema({
             },
           }],
         }],
+      },
+      buyPoint: {
+        situations: [{
+          name: {
+            type: String,
+            default: '',
+          },
+          conditions: [{
+            name: {
+              type: String,
+              default: '',
+            },
+            code: {
+              type: String,
+              default: 'false',
+            },
+          }],
+        }],
+      },
+      stopLoss: {
+        phases: [{
+          name: {
+            type: String,
+            default: '',
+          },
+          code: {
+            type: String,
+            default: 'false',
+          },
+          situations: [{
+            name: {
+              type: String,
+              default: '',
+            },
+            conditions: [{
+              name: {
+                type: String,
+                default: '',
+              },
+              code: {
+                type: String,
+                default: 'false',
+              },
+            }],
+          }],
+        }],
+      },
+      buyOrder: {
+        phases: [{
+          name: {
+            type: String,
+            default: '',
+          },
+          code: {
+            type: String,
+            default: 'false',
+          },
+          situations: [{
+            name: {
+              type: String,
+              default: '',
+            },
+            conditions: [{
+              name: {
+                type: String,
+                default: '',
+              },
+              code: {
+                type: String,
+                default: 'false',
+              },
+            }],
+          }],
+        }],
+      },
+      sellOrder: {
+        phases: [{
+          name: {
+            type: String,
+            default: '',
+          },
+          code: {
+            type: String,
+            default: 'false',
+          },
+          situations: [{
+            name: {
+              type: String,
+              default: '',
+            },
+            conditions: [{
+              name: {
+                type: String,
+                default: '',
+              },
+              code: {
+                type: String,
+                default: 'false',
+              },
+            }],
+          }],
+        }],
+      },
+    }],
+    history: [{
+      updatedAt: Date,
+      subStrategies: [{
+        name: {
+          type: String,
+          default: '',
+        },
+        entryPoint: {
+          situations: [{
+            name: {
+              type: String,
+              default: '',
+            },
+            conditions: [{
+              name: {
+                type: String,
+                default: '',
+              },
+              code: {
+                type: String,
+                default: 'false',
+              },
+            }],
+          }],
+        },
+        exitPoint: {
+          situations: [{
+            name: {
+              type: String,
+              default: '',
+            },
+            conditions: [{
+              name: {
+                type: String,
+                default: '',
+              },
+              code: {
+                type: String,
+                default: 'false',
+              },
+            }],
+          }],
+        },
+        sellPoint: {
+          situations: [{
+            name: {
+              type: String,
+              default: '',
+            },
+            conditions: [{
+              name: {
+                type: String,
+                default: '',
+              },
+              code: {
+                type: String,
+                default: 'false',
+              },
+            }],
+          }],
+        },
+        buyPoint: {
+          situations: [{
+            name: {
+              type: String,
+              default: '',
+            },
+            conditions: [{
+              name: {
+                type: String,
+                default: '',
+              },
+              code: {
+                type: String,
+                default: 'false',
+              },
+            }],
+          }],
+        },
+        stopLoss: {
+          phases: [{
+            name: {
+              type: String,
+              default: '',
+            },
+            code: {
+              type: String,
+              default: 'false',
+            },
+            situations: [{
+              name: {
+                type: String,
+                default: '',
+              },
+              conditions: [{
+                name: {
+                  type: String,
+                  default: '',
+                },
+                code: {
+                  type: String,
+                  default: 'false',
+                },
+              }],
+            }],
+          }],
+        },
+        buyOrder: {
+          phases: [{
+            name: {
+              type: String,
+              default: '',
+            },
+            code: {
+              type: String,
+              default: 'false',
+            },
+            situations: [{
+              name: {
+                type: String,
+                default: '',
+              },
+              conditions: [{
+                name: {
+                  type: String,
+                  default: '',
+                },
+                code: {
+                  type: String,
+                  default: 'false',
+                },
+              }],
+            }],
+          }],
+        },
+        sellOrder: {
+          phases: [{
+            name: {
+              type: String,
+              default: '',
+            },
+            code: {
+              type: String,
+              default: 'false',
+            },
+            situations: [{
+              name: {
+                type: String,
+                default: '',
+              },
+              conditions: [{
+                name: {
+                  type: String,
+                  default: '',
+                },
+                code: {
+                  type: String,
+                  default: 'false',
+                },
+              }],
+            }],
+          }],
+        },
       }],
-    },
-  }],
-});
+    }],
+  },
+  {
+    timestamps: true,
+  },
+);
 
 const Strategy = mongoose.model('Strategy', strategySchema);
 

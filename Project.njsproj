@@ -33,6 +33,9 @@
     <Compile Include="CloudRequire.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MultiPeriodDaily.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MultiPeriodMarket.js">
       <SubType>Code</SubType>
     </Compile>

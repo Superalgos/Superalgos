@@ -89,8 +89,8 @@
 
             let contextVariables = {
                 lastFile: undefined,                // Datetime of the last file files sucessfully produced by this process.
-                dateBeginingOfMarket: undefined,          // Datetime of the first trade file in the whole market history.
-                dateEndOfMarket: undefined                  // Datetime of the last file available to be used as an input of this process.
+                dateBeginingOfMarket: undefined,    // Datetime of the first trade file in the whole market history.
+                dateEndOfMarket: undefined          // Datetime of the last file available to be used as an input of this process.
             };
 
             let previousDay;                        // Holds the date of the previous day relative to the processing date.

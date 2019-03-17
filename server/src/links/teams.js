@@ -21,13 +21,13 @@ export const linkSchemaDefs =
 export const resolver = (usersSchema, eventsSchema, strategizerSchema) => ({
   teams_FinancialBeings: {
     strategy: {
-      fragment: `fragment StrategyFragment on teams_FinancialBeings{id}`,
-      resolve ({id: fbId}, args, context, info) {
+      fragment: `fragment StrategyFragment on teams_FinancialBeings{slug}`,
+      resolve ({slug: fbSlug}, args, context, info) {
         return info.mergeInfo.delegateToSchema({
           schema: strategizerSchema,
           operation: 'query',
           fieldName: 'strategizer_StrategyByFb',
-          args: { fbId },
+          args: { fbSlug },
           context,
           info
         })

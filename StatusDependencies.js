@@ -6,6 +6,7 @@
     const MODULE_NAME = "Status Dependencies";
 
     let thisObject = {
+        config: undefined,
         statusReports: new Map(),              
         initialize: initialize,
         keys: []
@@ -21,6 +22,8 @@
         try {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
+
+            thisObject.config = pStatusDependenciesConfig;
 
             /*
 

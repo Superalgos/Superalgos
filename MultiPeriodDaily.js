@@ -23,9 +23,11 @@
     let usertBot;
     let currentBotStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
+    let pProcessConfig;
+
     return thisObject;
 
-    function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
+    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
 
         try {
 
@@ -36,6 +38,7 @@
 
             statusDependencies = pStatusDependencies;
             dataDependencies = pDataDependencies;
+            processConfig = pProcessConfig;
 
             for (let i = 0; i < dataDependencies.config.length; i++) {
 
@@ -107,9 +110,14 @@
                     let reportKey;
                     let statusReport;
 
-                    /* We look first for Charly in order to get when the market starts. */
+                    /*
+                        We look first for the bot who knows the begining of the marke in order to get when the market starts.
+                    */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
+                    let botWhoKnowsTheBeginingOfTheMarket = statusDependencies.config[processConfig.statusDependenciesIndexBegingOfMarket];
+                    let botWhoKnowsTheEndOfTheMarket = statusDependencies.config[processConfig.statusDependenciesIndexEndOfMarket];
+
+                    reportKey = botWhoKnowsTheBeginingOfTheMarket.devTeam + "-" + botWhoKnowsTheBeginingOfTheMarket.bot + "-" + botWhoKnowsTheBeginingOfTheMarket.process + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -142,15 +150,17 @@
                     }
 
                     contextVariables.dateBeginingOfMarket = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
-                    contextVariables.dateBeginingOfMarket = new Date("2018-01-01"); // Remove this temporaty patch.
+                    //contextVariables.dateBeginingOfMarket = new Date("2018-01-01"); // TODO: Remove this temporaty patch.
 
-                    /* Second, we get the report from Olivia, to know when the martet ends. */
+                    /*
+                    Here we get the status report from the bot who knows which is the end of the market. 
+                    */
 
-                    reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    reportKey = botWhoKnowsTheEndOfTheMarket.devTeam + "-" + botWhoKnowsTheEndOfTheMarket.bot + "-" + botWhoKnowsTheEndOfTheMarket.process + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
-
+                    
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
@@ -312,8 +322,8 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Entering function."); }
 
-                            const outputPeriod = global.dailyFilePeriods[n][0];
-                            const timePeriod = global.dailyFilePeriods[n][1];
+                            const timePeriod = global.dailyFilePeriods[n][0];
+                            const outputPeriodLabel = global.dailyFilePeriods[n][1];
                                                       
                             let dependencyIndex = 0;
                             dataFiles = [];
@@ -341,7 +351,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> Entering function."); }
 
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                                            let filePath = dependency.product + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                            let filePath = dependency.product + '/' + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
                                             storage.getTextFile(filePath, fileName, onFileReceived, true);
@@ -401,8 +411,8 @@
 
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> Entering function."); }
 
-                                            let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                                            let filePath = dependency.product + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                            let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                                            let filePath = dependency.product + '/' + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
                                             storage.getTextFile(filePath, fileName, onFileReceived, true);
@@ -479,10 +489,10 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> Entering function."); }
 
-                                    const outputPeriod = global.dailyFilePeriods[n][0];
-                                    const timePeriod = global.dailyFilePeriods[n][1];
+                                    const timePeriod = global.dailyFilePeriods[n][0];
+                                    const outputPeriodLabel = global.dailyFilePeriods[n][1];
 
-                                    usertBot.start(dataFiles, outputPeriod, timePeriod, currentDay, onBotFinished);
+                                    usertBot.start(dataFiles, timePeriod, outputPeriodLabel, currentDay, onBotFinished);
 
                                     function onBotFinished(err) {
 

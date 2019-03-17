@@ -25,7 +25,7 @@
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
+    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
 
         try {
 
@@ -113,8 +113,8 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Entering function."); }
 
-                            const outputPeriod = global.marketFilesPeriods[n][0];
-                            const timePeriod = global.marketFilesPeriods[n][1];
+                            const timePeriod = global.marketFilesPeriods[n][0];
+                            const outputPeriodLabel = global.marketFilesPeriods[n][1];
 
                             let dependencyIndex = 0;
                             dataFiles = [];
@@ -140,7 +140,7 @@
 
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                            let filePath = dependency.product + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                                            let filePath = dependency.product + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
 
                                             storage.getTextFile(filePath, fileName, onFileReceived, true);
 
@@ -215,10 +215,10 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> Entering function."); }
 
-                                    const outputPeriod = global.marketFilesPeriods[n][0];
-                                    const timePeriod = global.marketFilesPeriods[n][1];
+                                    const timePeriod = global.marketFilesPeriods[n][0];
+                                    const outputPeriodLabel = global.marketFilesPeriods[n][1];
 
-                                    usertBot.start(dataFiles, outputPeriod, timePeriod, onBotFinished);
+                                    usertBot.start(dataFiles, timePeriod, outputPeriodLabel, onBotFinished);
 
                                     function onBotFinished(err) {
 

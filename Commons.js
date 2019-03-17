@@ -44,6 +44,7 @@
     function runSimulation(
         recordsArray,
         conditionsArray,
+        lastObjectsArray,
         simulationLogic,
         timePeriod,
         callback) {
@@ -477,7 +478,30 @@
 
                 periods++;
 
+                let channel = getElement(bollingerChannelsArray, candle.begin, candle.end);
                 let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
+
+                let lastObjects = {
+                    candle: JSON.parse(JSON.stringify(candle)),
+                    LRC: JSON.parse(JSON.stringify(LRC)),
+                    bollingerBand: JSON.parse(JSON.stringify(bollingerBand)),
+                    percentageBandwidth: JSON.parse(JSON.stringify(percentageBandwidth)),
+                    channel: JSON.parse(JSON.stringify(channel)),
+                    subChannel: JSON.parse(JSON.stringify(subChannel)),
+                }
+
+                lastObjects.candle.previous = undefined;
+                lastObjects.LRC.previous = undefined;
+                lastObjects.bollingerBand.previous = undefined;
+                lastObjects.percentageBandwidth.previous = undefined;
+                lastObjects.channel.previous = undefined;
+                lastObjects.subChannel.previous = undefined;
+
+                lastObjectsArray.push(lastObjects);
+
+                if (lastObjectsArray.length > 5) {
+                    lastObjectsArray.splice(0,1);
+                }
 
                 let conditions = new Map;       // Here we store the conditions values that will be use in the simulator for decision making.
                 let conditionsArrayRecord = []; // These are the records that will be saved in a file for the plotter to consume.

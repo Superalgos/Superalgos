@@ -67,6 +67,8 @@
             let conditionsArray = [];
 
             let simulationLogic = {};
+            let lastObjectsArray = [];
+
             commons.initializeData();
 
             for (let i = 0; i < dataDependencies.config.length; i++) {
@@ -106,6 +108,7 @@
             commons.runSimulation(
                 recordsArray,
                 conditionsArray,
+                lastObjectsArray,
                 simulationLogic,
                 timePeriod,
                 writeRecordsFile)
@@ -242,7 +245,7 @@
                     }
 
                     fileContent = "[" + fileContent + "]";
-                    fileContent = "[" + JSON.stringify(simulationLogic) + "," + fileContent + "]";
+                    fileContent = "[" + JSON.stringify(simulationLogic) + "," + JSON.stringify(lastObjectsArray) + "," + fileContent + "]";
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;

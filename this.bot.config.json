@@ -200,7 +200,8 @@
           "dataSetVersion": "dataSet.V1",
           "dataSet": "Multi-Period-Daily"
         }
-      ]
+      ],
+      "framework": "Multi-Period-Daily"
     }
   ],
   "products": [

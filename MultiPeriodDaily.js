@@ -463,7 +463,7 @@
                                     const outputPeriod = global.dailyFilesPeriods[n][0];
                                     const timePeriod = global.dailyFilesPeriods[n][1];
 
-                                    usertBot.start(dataFiles, outputPeriod, timePeriod, onBotFinished);
+                                    usertBot.start(dataFiles, outputPeriod, timePeriod, currentDate, onBotFinished);
 
                                     function onBotFinished(err) {
 

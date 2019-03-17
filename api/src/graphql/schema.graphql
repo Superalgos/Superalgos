@@ -18,6 +18,7 @@ type Query {
   teamsByRole: [Team!]! @isAuthenticated
   fbByTeamMember: Team @isAuthenticated
   fbByFbId(fbId: String!): FinancialBeings
+  fbByFbSlug(fbSlug: String!): FinancialBeings
   owner: Member @isAuthenticated
   member: Member @isAuthenticated
 }

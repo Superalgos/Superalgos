@@ -482,12 +482,21 @@
                 let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
 
                 let lastObjects = {
-                    candle: JSON.parse(JSON.stringify(candle)),
-                    LRC: JSON.parse(JSON.stringify(LRC)),
-                    bollingerBand: JSON.parse(JSON.stringify(bollingerBand)),
-                    percentageBandwidth: JSON.parse(JSON.stringify(percentageBandwidth)),
-                    channel: JSON.parse(JSON.stringify(channel)),
-                    subChannel: JSON.parse(JSON.stringify(subChannel)),
+                    candle: clone(candle),
+                    LRC: clone(LRC),
+                    bollingerBand: clone(bollingerBand),
+                    percentageBandwidth: clone(percentageBandwidth),
+                    channel: clone(channel),
+                    subChannel: clone(subChannel)
+                }
+
+                function clone(obj) {
+                    if (null == obj || "object" != typeof obj) return obj;
+                    var copy = obj.constructor();
+                    for (var attr in obj) {
+                        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+                    }
+                    return copy;
                 }
 
                 lastObjects.candle.previous = undefined;

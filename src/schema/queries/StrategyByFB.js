@@ -1,13 +1,13 @@
 import {
   GraphQLNonNull,
-  GraphQLID,
+  GraphQLString,
 } from 'graphql';
 import { DatabaseError } from '../../errors';
 import { StrategyType } from '../types';
 import { Strategy } from '../../models';
 
 const args = {
-  fbSlug: { type: new GraphQLNonNull(GraphQLID) },
+  fbSlug: { type: new GraphQLNonNull(GraphQLString) },
 };
 
 const resolve = (parent, { fbSlug }) => new Promise((res, rej) => {

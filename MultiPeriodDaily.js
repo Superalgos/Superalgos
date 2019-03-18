@@ -23,7 +23,7 @@
     let usertBot;
     let currentBotStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
-    let pProcessConfig;
+    let processConfig;
 
     return thisObject;
 
@@ -91,12 +91,12 @@
 
             let contextVariables = {
                 lastFile: undefined,                // Datetime of the last file files sucessfully produced by this process.
-                dateBeginingOfMarket: undefined,    // Datetime of the first trade file in the whole market history.
+                dateBeginOfMarket: undefined,       // Datetime of the first trade file in the whole market history.
                 dateEndOfMarket: undefined          // Datetime of the last file available to be used as an input of this process.
             };
 
             let previousDay;                        // Holds the date of the previous day relative to the processing date.
-            let currentDay;                        // Holds the processing date.
+            let currentDay;                         // Holds the processing date.
 
             getContextVariables();
 
@@ -110,84 +110,103 @@
                     let reportKey;
                     let statusReport;
 
-                    /*
-                        We look first for the bot who knows the begining of the marke in order to get when the market starts.
-                    */
+                    if (processConfig.framework.startDate.fixedDate !== undefined) {
 
-                    let botWhoKnowsTheBeginingOfTheMarket = statusDependencies.config[processConfig.statusDependenciesIndexBegingOfMarket];
-                    let botWhoKnowsTheEndOfTheMarket = statusDependencies.config[processConfig.statusDependenciesIndexEndOfMarket];
+                        /* The starting date is fixed, we will start from there. */
 
-                    reportKey = botWhoKnowsTheBeginingOfTheMarket.devTeam + "-" + botWhoKnowsTheBeginingOfTheMarket.bot + "-" + botWhoKnowsTheBeginingOfTheMarket.process + "-" + "dataSet.V1";
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                        contextVariables.dateBeginOfMarket = new Date(processConfig.framework.startDate.fixedDate); 
 
-                    statusReport = statusDependencies.statusReports.get(reportKey);
+                    } else {
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                        return;
-                    }
+                        /*
+                            We look first for the bot who knows the begining of the marke in order to get when the market starts.
+                        */
 
-                    if (statusReport.status === "Status Report is corrupt.") {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                        return;
-                    }
+                        let botWhoKnowsTheBeginingOfTheMarket = statusDependencies.config[processConfig.framework.startDate.takeItFromStatusDependency];
 
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+                        reportKey = botWhoKnowsTheBeginingOfTheMarket.devTeam + "-" + botWhoKnowsTheBeginingOfTheMarket.bot + "-" + botWhoKnowsTheBeginingOfTheMarket.process + "-" + "dataSet.V1";
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
-                    if (thisReport.lastFile === undefined) {
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
+                        statusReport = statusDependencies.statusReports.get(reportKey);
 
-                        let customOK = {
-                            result: global.CUSTOM_OK_RESPONSE.result,
-                            message: "Dependency does not exist."
+                        if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                            return;
                         }
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                        callBackFunction(customOK);
-                        return;
-                    }
 
-                    contextVariables.dateBeginingOfMarket = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
-                    //contextVariables.dateBeginingOfMarket = new Date("2018-01-01"); // TODO: Remove this temporaty patch.
-
-                    /*
-                    Here we get the status report from the bot who knows which is the end of the market. 
-                    */
-
-                    reportKey = botWhoKnowsTheEndOfTheMarket.devTeam + "-" + botWhoKnowsTheEndOfTheMarket.bot + "-" + botWhoKnowsTheEndOfTheMarket.process + "-" + "dataSet.V1";
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
-
-                    statusReport = statusDependencies.statusReports.get(reportKey);
-                    
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                        return;
-                    }
-
-                    if (statusReport.status === "Status Report is corrupt.") {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                        return;
-                    }
-
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
-
-                    if (thisReport.lastFile === undefined) {
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-
-                        let customOK = {
-                            result: global.CUSTOM_OK_RESPONSE.result,
-                            message: "Dependency not ready."
+                        if (statusReport.status === "Status Report is corrupt.") {
+                            logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                            return;
                         }
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                        callBackFunction(customOK);
-                        return;
+
+                        thisReport = statusDependencies.statusReports.get(reportKey).file;
+
+                        if (thisReport.lastFile === undefined) {
+                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                            logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
+
+                            let customOK = {
+                                result: global.CUSTOM_OK_RESPONSE.result,
+                                message: "Dependency does not exist."
+                            }
+                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                            callBackFunction(customOK);
+                            return;
+                        }
+
+                        contextVariables.dateBeginOfMarket = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
+
                     }
 
-                    contextVariables.dateEndOfMarket = new Date(thisReport.lastFile.valueOf());
+                    if (processConfig.framework.endDate.fixedDate !== undefined) {
+
+                        /* The ending date is fixed, we will end there. */
+
+                        contextVariables.dateEndOfMarket = new Date(processConfig.framework.endDate.fixedDate);
+
+                    } else {
+
+                        /*
+                          Here we get the status report from the bot who knows which is the end of the market. 
+                        */
+
+                        let botWhoKnowsTheEndOfTheMarket = statusDependencies.config[processConfig.framework.endDate.takeItFromStatusDependency];
+
+                        reportKey = botWhoKnowsTheEndOfTheMarket.devTeam + "-" + botWhoKnowsTheEndOfTheMarket.bot + "-" + botWhoKnowsTheEndOfTheMarket.process + "-" + "dataSet.V1";
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+
+                        statusReport = statusDependencies.statusReports.get(reportKey);
+
+                        if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                            return;
+                        }
+
+                        if (statusReport.status === "Status Report is corrupt.") {
+                            logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                            return;
+                        }
+
+                        thisReport = statusDependencies.statusReports.get(reportKey).file;
+
+                        if (thisReport.lastFile === undefined) {
+                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+
+                            let customOK = {
+                                result: global.CUSTOM_OK_RESPONSE.result,
+                                message: "Dependency not ready."
+                            }
+                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                            callBackFunction(customOK);
+                            return;
+                        }
+
+                        contextVariables.dateEndOfMarket = new Date(thisReport.lastFile.valueOf());
+                    }
 
                     /* Finally we get our own Status Report. */
 
@@ -226,7 +245,7 @@
                         go one day further in time, so that the previous day does fine a file at the begining of the market.
                         */
 
-                        contextVariables.lastFile = new Date(contextVariables.dateBeginingOfMarket.getUTCFullYear() + "-" + (contextVariables.dateBeginingOfMarket.getUTCMonth() + 1) + "-" + contextVariables.dateBeginingOfMarket.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                        contextVariables.lastFile = new Date(contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" + (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" + contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" + GMT_SECONDS);
                         contextVariables.lastFile = new Date(contextVariables.lastFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined"); }
@@ -492,7 +511,7 @@
                                     const timePeriod = global.dailyFilePeriods[n][0];
                                     const outputPeriodLabel = global.dailyFilePeriods[n][1];
 
-                                    usertBot.start(dataFiles, timePeriod, outputPeriodLabel, currentDay, onBotFinished);
+                                    usertBot.start(dataFiles, timePeriod, outputPeriodLabel, currentDay, contextVariables.dateBeginOfMarket, contextVariables.dateEndOfMarket, onBotFinished);
 
                                     function onBotFinished(err) {
 
@@ -592,7 +611,7 @@
 
                         let folderName = bot.products[productIndex].codeName;
 
-                        writeDataRange(contextVariables.dateBeginingOfMarket, currentDay, folderName, controlLoop);
+                        writeDataRange(contextVariables.dateBeginOfMarket, currentDay, folderName, controlLoop);
                     }
 
                     function controlLoop() {

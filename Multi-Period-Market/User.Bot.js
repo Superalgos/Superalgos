@@ -54,7 +54,7 @@
         }
     }
 
-    function start(dataFiles, timePeriod, outputPeriodLabel, startDate, endDate, callBackFunction) {
+    function start(dataFiles, timePeriod, outputPeriodLabel, startDate, endDate,  callBackFunction) {
 
         try {
 
@@ -68,6 +68,7 @@
             let lastObjectsArray = [];
 
             let simulationLogic = {};
+            let interExecutionMemory = {};
             
             commons.initializeData();
 
@@ -113,6 +114,7 @@
                 timePeriod,
                 startDate,
                 endDate,
+                interExecutionMemory,
                 writeRecordsFile)
 
             function writeRecordsFile() {

@@ -54,7 +54,7 @@
         }
     }
 
-    function start(dataFiles, timePeriod, outputPeriodLabel, currentDay, startDate, endDate, callBackFunction) {
+    function start(dataFiles, timePeriod, outputPeriodLabel, currentDay, startDate, endDate, interExecutionMemory, callBackFunction) {
 
         try {
 
@@ -113,6 +113,7 @@
                 timePeriod,
                 startDate,
                 endDate,
+                interExecutionMemory,
                 writeRecordsFile)
 
             function writeRecordsFile() {

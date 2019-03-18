@@ -54,7 +54,7 @@
         }
     }
 
-    function start(dataFiles, timePeriod, outputPeriodLabel, currentDay, callBackFunction) {
+    function start(dataFiles, timePeriod, outputPeriodLabel, currentDay, startDate, endDate, callBackFunction) {
 
         try {
 
@@ -111,6 +111,8 @@
                 lastObjectsArray,
                 simulationLogic,
                 timePeriod,
+                startDate,
+                endDate,
                 writeRecordsFile)
 
             function writeRecordsFile() {

@@ -37,6 +37,14 @@
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,
+      "framework": {
+        "name": "Multi-Period-Market",
+        "startDate": {
+          "fixedDate": "2018-07-01"
+        },
+        "endDate": {
+        }
+      },
       "statusDependencies": [
         {
           "devTeam": "AAMasters",
@@ -116,8 +124,7 @@
           "dataSetVersion": "dataSet.V1",
           "dataSet": "Multi-Period-Market"
         }
-      ],
-      "framework": "Multi-Period-Market"
+      ]
     },
     {
       "name": "Multi-Period-Daily",
@@ -145,6 +152,15 @@
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,
+      "framework": {
+        "name": "Multi-Period-Daily",
+        "startDate": {
+          "fixedDate": "2018-07-01"
+        },
+        "endDate": {
+          "takeItFromStatusDependency": 1
+        }
+      },
       "statusDependencies": [
         {
           "devTeam": "AAMasters",
@@ -177,8 +193,6 @@
           "dataSetVersion": "dataSet.V1"
         }
       ],
-      "statusDependenciesIndexBegingOfMarket": 0,
-      "statusDependenciesIndexEndOfMarket": 1,
       "dataDependencies": [
         {
           "devTeam": "AAVikings",
@@ -246,8 +260,7 @@
           "dataSetVersion": "dataSet.V1",
           "dataSet": "Multi-Period-Market"
         }
-      ],
-      "framework": "Multi-Period-Daily"
+      ]
     }
   ],
   "products": [
@@ -288,7 +301,7 @@
       }
     },
     {
-      "codeName": "SimulationConditions",
+      "codeName": "Simulation-Conditions",
       "displayName": "Simulation Conditions",
       "description": "Simulation Conditions",
       "storageAccount": "aajason",

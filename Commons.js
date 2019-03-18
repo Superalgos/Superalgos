@@ -1,4 +1,7 @@
-﻿exports.newCommons = function newCommons(bot, logger, UTILITIES) {
+﻿const axios = require('axios')
+const auth = require('./utils/auth')
+
+exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -41,12 +44,14 @@
         candles = [];
     }
 
-    function runSimulation(
+    async function runSimulation(
         recordsArray,
         conditionsArray,
         lastObjectsArray,
         simulationLogic,
         timePeriod,
+        startDate,
+        endDate,
         callback) {
 
         try {
@@ -55,7 +60,7 @@
 
             /* Initial Values */
 
-            let initialDate = new Date("2015-07-01");
+            let initialDate = startDate;
             let initialBalanceA = 1;
             let minimunBalanceA = 0.5;
 
@@ -106,6 +111,9 @@
 
             let initialBuffer = 3;
 
+            simulationLogic.strategies = await getStrategy();
+
+            /*
             simulationLogic.strategies = [
                 {
                     name: "Trend Following",
@@ -460,7 +468,7 @@
                     }
                 }
             ];
-
+            */
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
 
             for (let i = 0 + initialBuffer; i < candles.length; i++) {
@@ -1242,4 +1250,122 @@
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
+
+    async function getStrategy() {
+
+        try {
+
+            const accessToken = await auth.authenticate()
+
+            const strategizerResponse = await axios({
+                url: process.env.GATEWAY_ENDPOINT,
+                method: 'post',
+                data: {
+                    query: `
+                query($fbSlug: String!){
+           
+                    strategizer_StrategyByFb(fbSlug: $fbSlug){
+                    subStrategies{
+                        name
+                        entryPoint{
+                        situations{
+                            name
+                            conditions{
+                            name
+                            code
+                            }
+                        }
+                        }
+                        exitPoint{
+                        situations{
+                            name
+                            conditions{
+                            name
+                            code
+                            }
+                        }
+                        }
+                        sellPoint{
+                        situations{
+                            name
+                            conditions{
+                            name
+                            code
+                            }
+                        }
+                        }
+                        buyPoint{
+                        situations{
+                            name
+                            conditions{
+                            name
+                            code
+                            }
+                        }
+                        }
+                        stopLoss{
+                        phases{
+                            name
+                            code
+                            situations{
+                            name
+                            conditions{
+                                name
+                                code
+                            }
+                            }
+                        }
+                        }
+                        buyOrder{
+                        phases{
+                            name
+                            code
+                            situations{
+                            name
+                            conditions{
+                                name
+                                code
+                            }
+                            }
+                        }
+                        }
+                        sellOrder{
+                        phases{
+                            name
+                            code
+                            situations{
+                            name
+                            conditions{
+                                name
+                                code
+                            }
+                            }
+                        }
+                        }
+                    }
+                    }
+                }
+          
+                `,
+                    variables: {
+                        fbSlug: bot.codeName
+                    },
+                },
+                headers: {
+                    authorization: 'Bearer ' + accessToken
+                }
+            })
+
+            if (strategizerResponse.data.errors)
+                throw new Error(strategizerResponse.data.errors[0].message)
+
+            return strategizerResponse.data.data.strategizer_StrategyByFb.subStrategies;
+
+        } catch (error) {
+            throw new Error('There has been an error getting the strategy to run on the simulator. Error: ' + error)
+        }
+    }
 };
+
+
+

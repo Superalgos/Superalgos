@@ -244,7 +244,13 @@
                                     const timePeriod = global.marketFilesPeriods[n][0];
                                     const outputPeriodLabel = global.marketFilesPeriods[n][1];
 
-                                    usertBot.start(dataFiles, timePeriod, outputPeriodLabel, contextVariables.dateBeginOfMarket, contextVariables.dateEndOfMarket, onBotFinished);
+                                    usertBot.start(
+                                        dataFiles,
+                                        timePeriod,
+                                        outputPeriodLabel,
+                                        contextVariables.dateBeginOfMarket,
+                                        contextVariables.dateEndOfMarket,
+                                        onBotFinished);
 
                                     function onBotFinished(err) {
 

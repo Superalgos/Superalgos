@@ -98,6 +98,8 @@
             let previousDay;                        // Holds the date of the previous day relative to the processing date.
             let currentDay;                         // Holds the processing date.
 
+            let interExecutionMemoryArray;
+
             getContextVariables();
 
             function getContextVariables() {
@@ -233,7 +235,7 @@
 
                         contextVariables.lastFile = new Date(thisReport.lastFile);
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile !== undefined"); }
+                        interExecutionMemoryArray = thisReport.interExecutionMemoryArray;
 
                         processTimePeriods();
                         return;
@@ -250,6 +252,19 @@
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined"); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> contextVariables.lastFile = " + contextVariables.lastFile); }
+
+                        /*
+                        The first time the process is running is the right time to create the data structure that is going to be shared across different executions.
+                        This data structure has one object per each timePeriod.
+                        */
+
+                        interExecutionMemoryArray = [];
+
+                        for (let i = 0; i < global.dailyFilePeriods.length; i++) 
+                        {
+                            let emptyObject = {};
+                            interExecutionMemoryArray.push(emptyObject);
+                        }
 
                         processTimePeriods();
                         return;
@@ -511,7 +526,15 @@
                                     const timePeriod = global.dailyFilePeriods[n][0];
                                     const outputPeriodLabel = global.dailyFilePeriods[n][1];
 
-                                    usertBot.start(dataFiles, timePeriod, outputPeriodLabel, currentDay, contextVariables.dateBeginOfMarket, contextVariables.dateEndOfMarket, onBotFinished);
+                                    usertBot.start(
+                                        dataFiles,
+                                        timePeriod,
+                                        outputPeriodLabel,
+                                        currentDay,
+                                        contextVariables.dateBeginOfMarket,
+                                        contextVariables.dateEndOfMarket,
+                                        interExecutionMemoryArray[n],
+                                        onBotFinished);
 
                                     function onBotFinished(err) {
 
@@ -688,6 +711,7 @@
 
                     thisReport.file.lastExecution = bot.currentDaytime;
                     thisReport.file.lastFile = lastFileDate;
+                    thisReport.file.interExecutionMemoryArray = interExecutionMemoryArray;
                     thisReport.save(callBack);
 
                 }

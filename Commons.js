@@ -7,7 +7,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
     const LOG_FILE_CONTENT = false;
 
     const MODULE_NAME = "Commons";
-
+    const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
     const GMT_SECONDS = ':00.000 GMT+0000';
 
     let thisObject = {
@@ -50,6 +50,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
         lastObjectsArray,
         simulationLogic,
         timePeriod,
+        currentDay,
         startDate,
         endDate,
         interExecutionMemory,
@@ -106,29 +107,59 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let rate = 0;
             let newStopLoss;
 
-            let initialBuffer = 3;
+            /*
+            The following counters need to survive multiple executions of the similator and keep themselves reliable.
+            This is challenging when the simulation is executed using Daily Files, since each execution means a new
+            day and these counters are meant to be kept along the whole market.
+
+            To overcome this problem, we use the interExecutionMemory to record the values of the current execution
+            when finish. But there are a few details:
+
+            1. When the process is at the head of the market, it executes multple times at the same day.
+            2. The same code serves execution from Market Files.
+            3. In Daily Files we are receiving candles from the current day and previous day, so we need to take care of
+               not adding to the counters duplicate info when processing the day before candles.
+
+            To overcome these challenges we record the values of the counters on the interExecutionMemory only when
+            the day is complete and if we have a currentDay. That menas that for Market Files we will never use
+            interExecutionMemory.
+            */
+
+            let roundtrips = 0;
+            let fails = 0;
+            let hits = 0;
+            let periods = 0;
+
+            let yesterdayRoundtrips = 0;
+            let yesterdayFails = 0;
+            let yesterdayHits = 0;
+            let yesterdayPeriods = 0;
 
             if (interExecutionMemory.roundtrips === undefined) {
+
+                /* Initialize the data structure we will use inter execution. */
+
                 interExecutionMemory.roundtrips = 0;
-            }
-
-            if (interExecutionMemory.fails === undefined) {
                 interExecutionMemory.fails = 0;
-            }
-
-            if (interExecutionMemory.hits === undefined) {
                 interExecutionMemory.hits = 0;
-            }
-
-            if (interExecutionMemory.periods === undefined) {
                 interExecutionMemory.periods = 0;
+
+            } else {
+
+                /* We get the initial values from the day previous to the candles we receive at the current execution */
+
+                roundtrips = interExecutionMemory.roundtrips;
+                fails = interExecutionMemory.fails;
+                hits = interExecutionMemory.hits;
+                periods = interExecutionMemory.periods;
+
             }
 
             simulationLogic.strategies = await getStrategy();
            
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
 
-            for (let i = 0 + initialBuffer; i < candles.length; i++) {
+            for (let i = 0; i < candles.length; i++) {
 
                 /* Update all the data objects available for the simulation. */
 
@@ -141,7 +172,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 if (percentageBandwidth === undefined) { continue; } // percentageBandwidth might start after the first few candles.
                 if (candle.begin < initialDate.valueOf()) { continue; }
 
-                interExecutionMemory.periods++;
+                periods++;
+
+                if (currentDay !== undefined) {
+                    if (candle.end < currentDay.valueOf()) {
+                        yesterdayPeriods++;
+                    }
+                }
 
                 let channel = getElement(bollingerChannelsArray, candle.begin, candle.end);
                 let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
@@ -269,10 +306,21 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 function newCondition(key, code) {
 
                     let condition;
+                    let value = false;
+
+                    try {
+                        value = eval(code);
+                    } catch (err) {
+                        /*
+                            One possible error is that the conditions references a .previous that is undefined. For this
+                            reason and others, we will simply set the value to false.
+                        */
+                        value = false
+                    }
 
                     condition = {
                         key: key,
-                        value: eval(code)
+                        value: value
                     };
 
                     conditions.set(condition.key, condition);
@@ -452,7 +500,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         let phase = strategy.stopLoss.phases[stopLossPhase - 1];
 
-                        eval(phase.code); // Here is where we apply the formula given for the stop loss for this phase.
+                        try {
+                            eval(phase.code); // Here is where we apply the formula given for the stop loss for this phase.
+                        } catch (err) {
+                            /*
+                                If the code produces an exception, we are covered.
+                            */
+                        }
 
                         if (newStopLoss < previousStopLoss) {
                             stopLoss = newStopLoss;
@@ -497,7 +551,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
 
-                        eval(phase.code); // Here is where we apply the formula given for the buy order at this phase.
+                        try {
+                            eval(phase.code); // Here is where we apply the formula given for the buy order at this phase.
+                        } catch (err) {
+                            /*
+                                If the code produces an exception, we are covered.
+                            */
+                        }
 
                         for (let k = 0; k < phase.situations.length; k++) {
 
@@ -552,7 +612,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (strategyPhase === 4) {
 
-                    interExecutionMemory.roundtrips++;
+                    roundtrips++;
+
+                    if (currentDay !== undefined) {
+                        if (candle.end < currentDay.valueOf()) {
+                            yesterdayRoundtrips++;
+                        }                        
+                    }
+                    
                     lastProfit = balanceAssetA - previousBalanceAssetA;
 
                     lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
@@ -564,14 +631,27 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     //if (isNaN(ROI)) { ROI = 0; }
 
                     if (lastProfit > 0) {
-                        interExecutionMemory.hits++;
+                        hits++;
+
+                        if (currentDay !== undefined) {
+                            if (candle.end < currentDay.valueOf()) {
+                                yesterdayHits++;
+                            }
+                        }
+
                     } else {
-                        interExecutionMemory.fails++;
+                        fails++;
+
+                        if (currentDay !== undefined) {
+                            if (candle.end < currentDay.valueOf()) {
+                                yesterdayFails++;
+                            }
+                        }
                     }
-                    hitRatio = interExecutionMemory.hits / interExecutionMemory.roundtrips;
+                    hitRatio = hits / roundtrips;
 
                     let miliSecondsPerDay = 24 * 60 * 60 * 1000;
-                    days = interExecutionMemory.periods * timePeriod / miliSecondsPerDay;
+                    days = periods * timePeriod / miliSecondsPerDay;
                     anualizedRateOfReturn = ROI / days * 365;
 
                     addRecord();
@@ -606,12 +686,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         profit: profit,
                         lastProfit: lastProfit,
                         stopLoss: stopLoss,
-                        roundtrips: interExecutionMemory.roundtrips,
-                        hits: interExecutionMemory.hits,
-                        fails: interExecutionMemory.fails,
+                        roundtrips: roundtrips,
+                        hits: hits,
+                        fails: fails,
                         hitRatio: hitRatio,
                         ROI: ROI,
-                        periods: interExecutionMemory.periods,
+                        periods: periods,
                         days: days,
                         anualizedRateOfReturn: anualizedRateOfReturn,
                         sellRate: sellRate,
@@ -636,6 +716,27 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     conditionsArrayRecord.push(conditionsArrayValues);
 
                     conditionsArray.push(conditionsArrayRecord);
+
+                }
+            }
+
+            /*
+            Before returning we need to see if we have to record some of our counters at the interExecutionMemory.
+            To do that, the condition to be met is that this execution must include all candles of the currentDay.
+            */
+
+            if (currentDay !== undefined) {
+
+                let lastInstantOdDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
+
+                lastCandle = candles[candles.length - 1];
+
+                if (lastCandle.end === lastInstantOdDay) {
+
+                    interExecutionMemory.roundtrips = interExecutionMemory.roundtrips + yesterdayRoundtrips;
+                    interExecutionMemory.fails = interExecutionMemory.fails + yesterdayFails;
+                    interExecutionMemory.hits = interExecutionMemory.hits + yesterdayHits;
+                    interExecutionMemory.periods = interExecutionMemory.periods + yesterdayPeriods;
 
                 }
             }

@@ -111,6 +111,7 @@
                 lastObjectsArray,
                 simulationLogic,
                 timePeriod,
+                currentDay,
                 startDate,
                 endDate,
                 interExecutionMemory,

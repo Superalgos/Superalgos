@@ -69,7 +69,8 @@
 
             let simulationLogic = {};
             let interExecutionMemory = {};
-            
+            let currentDay;
+
             commons.initializeData();
 
             for (let i = 0; i < dataDependencies.config.length; i++) {
@@ -112,6 +113,7 @@
                 lastObjectsArray,
                 simulationLogic,
                 timePeriod,
+                currentDay,
                 startDate,
                 endDate,
                 interExecutionMemory,

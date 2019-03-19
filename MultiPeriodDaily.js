@@ -243,12 +243,11 @@
                     } else {
 
                         /*
-                        In the case when there is no status report, we take the date of the file with the first trades as the begining of the market. Then we will
-                        go one day further in time, so that the previous day does fine a file at the begining of the market.
+                        In the case when there is no status report, we assume like the last processed file is the one on the date of Begining of Market.
                         */
 
                         contextVariables.lastFile = new Date(contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" + (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" + contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" + GMT_SECONDS);
-                        contextVariables.lastFile = new Date(contextVariables.lastFile.valueOf() + ONE_DAY_IN_MILISECONDS);
+                        //contextVariables.lastFile = new Date(contextVariables.lastFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined"); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> contextVariables.lastFile = " + contextVariables.lastFile); }
@@ -376,7 +375,12 @@
                                     let previousFile;
                                     let currentFile;
 
-                                    getPreviousFile();
+                                    if (currentDay.valueOf() > contextVariables.dateBeginOfMarket.valueOf()) {
+                                        getPreviousFile();
+                                    } else {
+                                        previousFile = [];
+                                        getCurrentFile()
+                                    }                                    
 
                                     function getPreviousFile() {
 

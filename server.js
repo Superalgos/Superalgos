@@ -1,4 +1,6 @@
 
+require('dotenv').config()
+
 /* These 2 are global variables, that is why they do not have a let or var */
 
 CONSOLE_LOG = true;
@@ -608,7 +610,7 @@ function onBrowserRequest(request, response) {
                             return;
 
                         }
-                         
+
                         teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botCodeName, botDisplayName, userId, onSetupFinished);
 
                         function onSetupFinished(err) {
@@ -826,11 +828,11 @@ function onBrowserRequest(request, response) {
                             console.log(moduleName + " " + message);
                         }
                     }
-                    
-                    const EXCHANGE_API = require('./Server/Exchange/ExchangeAPI');                    
+
+                    const EXCHANGE_API = require('./Server/Exchange/ExchangeAPI');
                     let exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, authToken);
                     exchangeAPI.initialize(onInizialized);
-                    
+
                     function onInizialized(err) {
                         if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Entering function."); }
 

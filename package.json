@@ -7,6 +7,7 @@
     "name": "Luis-Fernando-Molina"
   },
   "dependencies": {
+    "@azure/storage-blob": "^10.3.0",
     "@octokit/rest": "^14.0.9",
     "atob": "^2.1.1",
     "axios": "^0.18.0",
@@ -14,9 +15,11 @@
     "dotenv": "^6.2.0",
     "graphql": "^14.0.2",
     "graphql-client": "^2.0.1",
+    "json-beautify": "^1.0.1",
     "lodash": "^4.17.11",
     "nonce": "^1.0.4",
     "request": "^2.88.0",
-    "retry": "^0.12.0"
+    "retry": "^0.12.0",
+    "winston": "^3.2.1"
   }
 }

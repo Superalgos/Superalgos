@@ -7,7 +7,7 @@ import { notifications_sendTeamCreateConfirmation, notifications_sendTeamMemberI
 
 import TEAMS_CONNECTIONS_FRAGMENT from '../../fragments/TeamsConnectionsFragment'
 import TEAMS_FRAGMENT from '../../fragments/TeamsFragment'
-import TEAM_FB_FRAGMENT from '../../fragments/TeamFBFragment'
+import FB_FRAGMENT from '../../fragments/FBFragment'
 
 import { logger, AuthenticationError, ServiceUnavailableError, DatabaseError, ConflictError } from '../../../logger'
 
@@ -113,6 +113,24 @@ export const resolvers = {
         if(createTeam) notifications_sendTeamCreateConfirmation(email, name, botName)
       }
 
+      await ctx.db.mutation.createFinancialBeings({ data:{
+          type:'BOT',
+          kind:'INDICATOR',
+          name:'Simulator ' + botName,
+          slug:'simulator-' + botSlug,
+          avatar:avatar,
+          team: {
+            connect:{
+              id:createTeam.id
+            }
+          }
+        }
+      }, FB_FRAGMENT)
+          .catch((err) => {
+            logger.debug(err, 'Error creating the simulator: ')
+            return new DatabaseError(err)
+          })
+      logger.info('createTeam creating simulator success')
       return createTeam
     },
     async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {

@@ -134,8 +134,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             let yesterday = {};
 
-            yesterday.balanceAssetA = 0;
-            yesterday.balanceAssetB = 0;
+            yesterday.balanceAssetA = balanceAssetA;
+            yesterday.balanceAssetB = balanceAssetB;
+
             yesterday.lastProfit = 0;
 
             yesterday.Roundtrips = 0;
@@ -164,6 +165,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     balanceAssetA = interExecutionMemory.balanceAssetA;
                     balanceAssetB = interExecutionMemory.balanceAssetB;
+
+                    yesterday.balanceAssetA = balanceAssetA;
+                    yesterday.balanceAssetB = balanceAssetB;
 
                 } 
                 
@@ -632,6 +636,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     balanceAssetB = balanceAssetA * candle.close;
                     balanceAssetA = 0;
 
+                    sellInstant = candle.end;
+
                     if (currentDay !== undefined) {
                         if (sellInstant < currentDay.valueOf()) {
                             yesterday.balanceAssetA = balanceAssetA;
@@ -642,8 +648,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     rate = candle.close;
                     sellRate = rate;
-                    sellInstant = candle.end;
-
+                    
                     stopLoss = sellRate + sellRate * stopLossPercentage / 100;
 
                     stopLossDecay = 0;
@@ -677,8 +682,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
                     if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
 
-                    profit = profit + lastProfit;
-
+                    profit = initialBalanceA - balanceAssetA;
+                    
                     ROI = (initialBalanceA + profit) / initialBalanceA - 1;
                     //if (isNaN(ROI)) { ROI = 0; }
 

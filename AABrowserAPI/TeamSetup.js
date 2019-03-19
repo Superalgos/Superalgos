@@ -2,7 +2,7 @@
 
     let thisObject = {
         newTeam: newTeam,
-        deleteTeam: deleteTeam, 
+        deleteTeam: deleteTeam,
         initialize: initialize
     }
 
@@ -22,7 +22,7 @@
     }
 
     function newTeam(pTeamCodeName, pTeamDisplayName, pUserName, pBotCodeName, pBotDisplayName, pUserId, callBackFunction) {
-      
+
         try {
 
             if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> Entering function."); }
@@ -203,7 +203,25 @@
 
                                     botConfig.processes[0].statusDependencies[i].devTeam = pTeamCodeName;
                                     botConfig.processes[0].statusDependencies[i].bot = pBotCodeName;
+                                }
 
+                                // Add a copy of the simulator indicator in the configuration
+                                if ( botConfig.processes[0].statusDependencies[i].devTeam === "AAMasters" &&
+                                     botConfig.processes[0].statusDependencies[i].bot === "AAJason" ) {
+
+                                    botConfig.processes[0].statusDependencies[i].devTeam = pTeamCodeName;
+                                    botConfig.processes[0].statusDependencies[i].bot = "simulator-" + pBotCodeName;
+                                }
+                            }
+
+                            for (let i = 0; i < botConfig.processes[0].dataDependencies.length; i++) {
+
+                                // Add a copy of the simulator indicator in the configuration
+                                if ( botConfig.processes[0].dataDependencies[i].devTeam === "AAMasters" &&
+                                     botConfig.processes[0].dataDependencies[i].bot === "AAJason" ) {
+
+                                    botConfig.processes[0].dataDependencies[i].devTeam = pTeamCodeName;
+                                    botConfig.processes[0].dataDependencies[i].bot = "simulator-" + pBotCodeName;
                                 }
                             }
 
@@ -241,7 +259,7 @@
 
                                     storage.writeData(team, filePath, fileName, fileContent, onDataWritten);
 
-                                    function onDataWritten(err) {
+                                    async function onDataWritten(err) {
 
                                         try {
 
@@ -255,6 +273,10 @@
                                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 return;
                                             }
+
+                                            const newCopySimulator = require("./CopySimulator")
+                                            let copySimulator = newCopySimulator.newCopySimulator()
+                                            await copySimulator.copySimulator(pTeamCodeName, pBotCodeName, pBotDisplayName)
 
                                             forkAACloud();
 
@@ -599,12 +621,17 @@
                                     {
                                         "repo": pBotCodeName + "-Trading-Bot",
                                         "configFile": "this.bot.config.json"
+                                    },
+                                    {
+                                        "repo": "simulator-"+ pBotCodeName + "-Indicator-Bot",
+                                        "configFile": "this.bot.config.json"
                                     }
                                 ],
                                 "plotters": []
                             };
 
                             ecosystem.devTeams.push(newTeam);
+
 
                             let fileContent = JSON.stringify(ecosystem);
 
@@ -701,6 +728,8 @@
                 }
             }
 
+            // TODO Fix-Me: this method is trying to remove from the container that was removed by the previous method.
+            // It must remove the files from the aaplatform/team-name folder instead
             function deleteBotCode() {
 
                 try {
@@ -724,7 +753,7 @@
                                 console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotCode ->  onBlobDeleted -> Could not delete a file. ");
                                 console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotCode ->  onBlobDeleted -> err.message = " + err.message);
 
-                                // Even if this failed we will try to delete the rest of the stuff related to the team.                               
+                                // Even if this failed we will try to delete the rest of the stuff related to the team.
                             }
 
                             let team = pTeamCodeName;
@@ -744,7 +773,7 @@
                                         console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotCode ->  onBlobDeleted -> onBlobDeleted -> Could not delete a file. ");
                                         console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotCode ->  onBlobDeleted -> onBlobDeleted -> err.message = " + err.message);
 
-                                        // Even if this failed we will try to delete the rest of the stuff related to the team.  
+                                        // Even if this failed we will try to delete the rest of the stuff related to the team.
                                     }
 
                                     deleteBotConfig();
@@ -771,11 +800,13 @@
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
                 }
-  
+
             }
 
+             // TODO Fix-Me: this method is trying to remove from the container that was removed by the previous method.
+            // It must remove the files from the aaplatform/team-name folder instead
             function deleteBotConfig() {
- 
+
                 try {
 
                     if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> deleteBotConfig -> Entering function."); }
@@ -797,7 +828,7 @@
                                 console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotConfig -> onBlobDeleted -> Could not delete a file. ");
                                 console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotConfig -> onBlobDeleted -> err.message = " + err.message);
 
-                                // Even if this failed we will try to delete the rest of the stuff related to the team.  
+                                // Even if this failed we will try to delete the rest of the stuff related to the team.
                             }
 
                             let team = pTeamCodeName;
@@ -806,7 +837,7 @@
 
                             storage.deleteBlob(team, filePath, fileName, onBlobDeleted);
 
-                            function onBlobDeleted(err) {
+                            async function onBlobDeleted(err) {
 
                                 try {
 
@@ -817,8 +848,12 @@
                                         console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotConfig -> onBlobDeleted -> onBlobDeleted -> Could not delete a file. ");
                                         console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotConfig -> onBlobDeleted -> onBlobDeleted -> err.message = " + err.message);
 
-                                        // Even if this failed we will try to delete the rest of the stuff related to the team.  
+                                        // Even if this failed we will try to delete the rest of the stuff related to the team.
                                     }
+
+                                    const newCopySimulator = require("./CopySimulator")
+                                    let copySimulator = newCopySimulator.newCopySimulator()
+                                    await copySimulator.removeSimulator(pTeamCodeName, pBotCodeName)
 
                                     deleteAACloud();
 
@@ -844,7 +879,7 @@
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
                 }
-                   
+
             }
 
             function deleteAACloud() {
@@ -870,7 +905,7 @@
                                 console.log("[ERROR] TeamSetup -> deleteTeam -> deleteAACloud -> onBlobDeleted -> Could not delete a file. ");
                                 console.log("[ERROR] TeamSetup -> deleteTeam -> deleteAACloud -> onBlobDeleted -> err.message = " + err.message);
 
-                                // Even if this failed we will try to delete the rest of the stuff related to the team.  
+                                // Even if this failed we will try to delete the rest of the stuff related to the team.
                             }
 
                             let team = pTeamCodeName;
@@ -890,7 +925,7 @@
                                         console.log("[ERROR] TeamSetup -> deleteTeam -> deleteAACloud -> onBlobDeleted -> onBlobDeleted -> Could not delete a file. ");
                                         console.log("[ERROR] TeamSetup -> deleteTeam -> deleteAACloud -> onBlobDeleted -> onBlobDeleted -> err.message = " + err.message);
 
-                                        // Even if this failed we will try to delete the rest of the stuff related to the team.  
+                                        // Even if this failed we will try to delete the rest of the stuff related to the team.
                                     }
 
                                     removeFromSessions();
@@ -945,7 +980,7 @@
 
                             pFileContent = pFileContent.trim();
                             let sessions = JSON.parse(pFileContent);
-                        
+
                             for (let i = 0; i < sessions.length; i++) {
 
                                 let session = sessions[i];
@@ -977,7 +1012,7 @@
                                         console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromSessions -> onDataRead -> onDataWritten -> Could not write a file. ");
                                         console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromSessions -> onDataRead -> onDataWritten -> err.message = " + err.message);
 
-                                        // Even if this failed we will try to delete the rest of the stuff related to the team.  
+                                        // Even if this failed we will try to delete the rest of the stuff related to the team.
                                     }
 
                                     removeFromEcosystem();

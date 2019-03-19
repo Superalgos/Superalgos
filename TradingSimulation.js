@@ -106,8 +106,8 @@
             smileyMonkeyEars = loadEmoji("Smiley/Emoji Smiley-86.png");
             imageStrategy = loadEmoji("Places/Emoji Orte-90.png");
             imageStrategyPhase = loadEmoji("Places/Emoji Orte-91.png");
-            imageStopLossPhase = loadEmoji("Objects/Emoji Objects-55.png");
-            imageBuyOrderPhase = loadEmoji("Objects/Emoji Objects-114.png");
+            imageStopLossPhase = loadEmoji("Nature/Emoji Natur-85.png");
+            imageBuyOrderPhase = loadEmoji("Nature/Emoji Natur-67.png");
 
             function loadEmoji(pPath) {
 

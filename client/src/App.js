@@ -21,6 +21,7 @@ import KeyVault from '@superalgos/key-vault-client'
 import FinancialBeings from '@advancedalgos/financial-beings-client'
 import Operations from '@superalgos/operations-client'
 import Logs from '@superalgos/logs-client'
+import Miners from '@superalgos/miners-client'
 
 export const auth = new Auth(
   result => console.log('Authentication successful.'),
@@ -86,6 +87,10 @@ export const MasterApp = props => (
               path='/logs'
               render={props => <Logs {...props} auth={auth} />}
             />
+            <Route
+              path='/miners'
+              render={props => <Miners {...props} auth={auth} />}
+            />            
           </Switch>
         </Layout>
       </MuiThemeProvider>

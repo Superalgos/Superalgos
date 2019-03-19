@@ -73,6 +73,16 @@ const operationsMenus = {
   ]
 }
 
+const minersMenus = {
+  title: 'Miners',
+  to: '/miners',
+  icon: Home,
+  authenticated: false,
+  submenus: [
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/minersClient/issues/new', icon: BugReport, externalLink: true }
+  ]
+}
+
 // const financialBeingsMenus = {
 //   title: 'FBs',
 //   to: '/financial-beings',
@@ -89,7 +99,8 @@ const allMenus = [
   eventsMenus,
   // financialBeingsMenus,
   keyvaultMenus,
-  operationsMenus
+  operationsMenus,
+  minersMenus
 ]
 
 export default allMenus

@@ -74,6 +74,10 @@ async function run () {
     'logs_',
     process.env.LOGS_API_URL,
     process.env.LOGS_API_PRESHARED)
+  const transformedMinersSchema = await createTransformedRemoteSchema(
+      'miners_',
+      process.env.MINERS_API_URL,
+      process.env.MINERS_PRESHARED)
 
   var schemas = []
   var resolvers = {}
@@ -113,6 +117,9 @@ async function run () {
   }
   if (transformedLogsSchema) {
     schemas.push(transformedLogsSchema)
+  }
+  if (transformedMinersSchema) {
+    schemas.push(transformedMinersSchema)
   }
   
   const schema = mergeSchemas({

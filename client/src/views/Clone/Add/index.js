@@ -6,7 +6,7 @@ import TopBar from '../../BannerTopBar'
 import { withStyles } from '@material-ui/core/styles'
 import classNames from 'classnames'
 import styles from './styles'
-import { tradingStartModes, indicatorStartModes, availableMonths } from '../../../GraphQL/models'
+import { tradingStartModes, indicatorStartModes, availableMonths, processNames } from '../../../GraphQL/models'
 import { isDefined, getIndicatorYears } from '../../../utils'
 import {
    MenuItem, Button, TextField, FormControl, InputLabel, Input, Typography,
@@ -320,6 +320,7 @@ class AddClone extends Component {
                 || this.state.selectedBot.kind === "EXTRACTOR") &&
                   <React.Fragment>
                     <TextField
+                       select
                        label="Process Name"
                        className={classNames(classes.textField, classes.form)}
                        value={this.state.processName}
@@ -327,7 +328,14 @@ class AddClone extends Component {
                        onBlur={(e)=>this.setState({processNameError:false})}
                        error={this.state.processNameError}
                        fullWidth
-                     />
+                       >
+                        {Object.keys(processNames).map(option => (
+                            <MenuItem key={option} value={processNames[option]}>
+                              {processNames[option]}
+                            </MenuItem>
+                          ))}
+                      </TextField>
+
 
                     <TextField
                        select
@@ -394,14 +402,14 @@ class AddClone extends Component {
                               fullWidth
                               >
                               {getIndicatorYears().map((option, index) => (
-                                <MenuItem key={option} value={index}>
+                                <MenuItem key={index} value={option}>
                                   {option}
                                 </MenuItem>
                               ))}
                             </TextField>
 
                             <TextField
-                               id="endYearInput"
+                               id="endMonthInput"
                                select
                                label="Month"
                                className={classNames(classes.textField, classes.form)}
@@ -409,8 +417,8 @@ class AddClone extends Component {
                                onChange={(e)=> this.setState({month:e.target.value})}
                                fullWidth
                                >
-                               {availableMonths.map(option => (
-                                 <MenuItem key={option} value={option}>
+                               {availableMonths.map((option, index) => (
+                                 <MenuItem key={index} value={index+1}>
                                    {option}
                                  </MenuItem>
                                ))}

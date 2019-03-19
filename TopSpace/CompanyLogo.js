@@ -38,7 +38,7 @@ function newCompanyLogo () {
       canDrawLogo = true
     }
 
-    logo.src = window.canvasApp.urlPrefix + 'Images/aa-logo-dark-8.png'
+    logo.src = window.canvasApp.urlPrefix + 'Images/Superalgos-logo-horz-sm.png'
   }
 
   function getContainer (point) {

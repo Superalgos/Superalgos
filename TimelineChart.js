@@ -96,7 +96,7 @@
        logoA.src = window.canvasApp.urlPrefix + 'Images/tether-logo-background.png'
        logoB.src = window.canvasApp.urlPrefix + 'Images/bitcoin-logo-background.png'
        logoExchange.src = window.canvasApp.urlPrefix + 'Images/poloniex-logo-background.png'
-       logoAA.src = window.canvasApp.urlPrefix + 'Images/aa-logo-background.png'
+       logoAA.src = window.canvasApp.urlPrefix + 'Images/sa-logo-background.png'
 
             /* Remember the Products Panel */
 

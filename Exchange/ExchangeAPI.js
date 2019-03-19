@@ -45,13 +45,13 @@
    }
 
    function getOpenPositions (pMarket, callBackFunction) {
-     let authToken = window.localStorage.getItem('access_token')
-
         let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL
             + "getOpenPositions" + "/"
             + authToken
+        
+        callServer(undefined, path + '/NO-LOG', onServerResponse)
 
         function onServerResponse(pServerResponse) {
             let response = JSON.parse(pServerResponse);
@@ -107,38 +107,7 @@
        }
      }
    }
-
-   function putPosition (pMarket, pType, pRate, pAmountA, pAmountB, callBackFunction) {
-     let authToken = window.localStorage.getItem('access_token')
-
-     let path = SERVER_URL
-            + CURRENT_BOT_CODE_NAME + '/'
-            + 'putPosition' + '/'
-            + authToken + '/'
-            + pType + '/'
-            + pRate + '/'
-            + pAmountA + '/'
-            + pAmountB
-
-        let path = SERVER_URL
-            + "movePosition" + "/"
-            + authToken + "/"
-            + pPositionId + "/"
-            + pNewRate + "/"
-            + pPositionAmountB
-
-     callServer(undefined, path + '/NO-LOG', onServerResponse)
-
-     function onServerResponse (pServerResponse) {
-       let response = JSON.parse(pServerResponse)
-       if (response.result === window.DEFAULT_FAIL_RESPONSE.result) {
-         callBackFunction(window.DEFAULT_FAIL_RESPONSE)
-       } else {
-         callBackFunction(window.DEFAULT_OK_RESPONSE, response)
-       }
-     }
-   }
-
+   
    function getPublicTradeHistory (pMarket, startTime, endTime, callBackFunction) {
      let authToken = window.localStorage.getItem('access_token')
 
@@ -151,21 +120,12 @@
 
      callServer(undefined, path + '/NO-LOG', onServerResponse)
 
-        let path = SERVER_URL
-            + "getPublicTradeHistory" + "/"
-            + authToken + "/"
-            + startTime + "/"
-            + endTime
-            ;
-
-        callServer(undefined, path + "/NO-LOG", onServerResponse);
-
-        function onServerResponse(pServerResponse) {
-            let response = JSON.parse(pServerResponse);
-            if (response.result === window.DEFAULT_FAIL_RESPONSE.result)
-                callBackFunction(window.DEFAULT_FAIL_RESPONSE);
-            else
-                callBackFunction(window.DEFAULT_OK_RESPONSE, response);
-        }
+      function onServerResponse(pServerResponse) {
+          let response = JSON.parse(pServerResponse);
+          if (response.result === window.DEFAULT_FAIL_RESPONSE.result)
+              callBackFunction(window.DEFAULT_FAIL_RESPONSE);
+          else
+              callBackFunction(window.DEFAULT_OK_RESPONSE, response);
+      }
     }
 }

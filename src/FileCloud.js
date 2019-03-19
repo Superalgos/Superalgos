@@ -185,14 +185,17 @@ function newFileCloud () {
                   callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, data)
                   return
                 } catch (err) {
-                  if (INFO_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> err = ' + err) }
+                  if (ERROR_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> err = ' + err) }
+                  if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> containerName = ' + containerName) }
+                  if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> filePath = ' + filePath) }
+                  if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> fileName = ' + fileName) }
 
                   let customErr = {
                     result: GLOBAL.CUSTOM_OK_RESPONSE.result,
                     message: 'Data not in JSON Format.'
                   }
 
-                  if (INFO_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> customErr.message = ' + customErr.message) }
+                  if (ERROR_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> customErr.message = ' + customErr.message) }
 
                   callBackFunction(customErr, text)
                   return

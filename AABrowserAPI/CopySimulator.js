@@ -104,7 +104,7 @@ exports.newCopySimulator = function newCopySimulator() {
             parsedConfig.products[1].dataSets[1].dataRange.filePath = pTeamCodeName + "/" + parsedConfig.codeName + ".1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Market"
 
             // Write the new files
-            let newSimulatorName = pBotCodeName + "-Indicator-Bot"
+            let newSimulatorName = "simulator-"+ pBotCodeName + "-Indicator-Bot"
             let newSimulatorPath = "aaplatform/"+ pTeamCodeName + "/bots/" + newSimulatorName
             await writeFileContent(newSimulatorPath, "Commons.js", commons)
             await writeFileContent(newSimulatorPath, "this.bot.config.json", beautify(parsedConfig, null, 2, 80))

@@ -495,120 +495,66 @@ function onBrowserRequest (request, response) {
             break
           }
 
-          case 'authenticateUser': {
-            const AABROWSER_API_USER_AUTHENTICATION = require('./AABrowserAPI/' + 'UserAuthentication')
-            let userAuthentication = AABROWSER_API_USER_AUTHENTICATION.newUserAuthentication()
+          case "authenticateUser": {
 
-            userAuthentication.initialize(sessionManager, storageAccessManager)
-            userAuthentication.authenticateUser(requestParameters[3], onFinish)
+            const AABROWSER_API_USER_AUTHENTICATION = require('./AABrowserAPI/' + 'UserAuthentication');
+            let userAuthentication = AABROWSER_API_USER_AUTHENTICATION.newUserAuthentication();
 
-            function onFinish (err, pUserProfile) {
-              let responseToBrowser = {
-                err: err,
-                userProfile: pUserProfile
-              }
+            userAuthentication.initialize(sessionManager, storageAccessManager);
+            userAuthentication.authenticateUser(requestParameters[3], onFinish);
 
-              respondWithContent(JSON.stringify(responseToBrowser), response)
+            function onFinish(err, pUserProfile) {
+
+                let responseToBrowser = {
+                    err: err,
+                    userProfile: pUserProfile
+                };
+
+                respondWithContent(JSON.stringify(responseToBrowser), response);
             }
 
-                        break;
-                    }
+            break;
+        }
 
-                    case "authenticateUser": {
+        case "newTeam": {
 
-                        const AABROWSER_API_USER_AUTHENTICATION = require('./AABrowserAPI/' + 'UserAuthentication');
-                        let userAuthentication = AABROWSER_API_USER_AUTHENTICATION.newUserAuthentication();
+            const AABROWSER_API_TEAM_SETUP = require('./AABrowserAPI/' + 'TeamSetup');
+            let teamSetup = AABROWSER_API_TEAM_SETUP.newTeamSetup();
 
-                        userAuthentication.initialize(sessionManager, storageAccessManager);
-                        userAuthentication.authenticateUser(requestParameters[3], onFinish);
+            teamSetup.initialize(serverConfig);
 
-                        function onFinish(err, pUserProfile) {
-
-                            let responseToBrowser = {
-                                err: err,
-                                userProfile: pUserProfile
-                            };
-
-                            respondWithContent(JSON.stringify(responseToBrowser), response);
-                        }
-
-                        break;
-                    }
-
-                    case "newTeam": {
-
-                        const AABROWSER_API_TEAM_SETUP = require('./AABrowserAPI/' + 'TeamSetup');
-                        let teamSetup = AABROWSER_API_TEAM_SETUP.newTeamSetup();
-
-                        teamSetup.initialize(serverConfig);
-
-                        let devTeamCodeName = decodeURI(requestParameters[3]);
-                        let devTeamDisplayName = decodeURI(requestParameters[4]);
-                        let userName = decodeURI(requestParameters[5]);
-                        let botCodeName = decodeURI(requestParameters[6]);
-                        let botDisplayName = decodeURI(requestParameters[7]);
-                        let userId = decodeURI(requestParameters[8]);
-                        let sharedSecret = decodeURI(requestParameters[9]);
-
-                        if (sharedSecret !== serverConfig.newTeamSharedSecret) {
-
-                            let customFailResponse = {
-                                result: global.DEFAULT_FAIL_RESPONSE.result,
-                                message: "The shared secret provided is incorrect"
-                            }
-
-                            respondWithContent(JSON.stringify(customFailResponse), response);
-
-                            if (CONSOLE_LOG === true) { console.log("[WARN] server -> AABrowserAPI -> newTeam -> Shared Secret Received Incorrect."); }
-
-                            return;
-
-                        }
-
-                        teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botCodeName, botDisplayName, userId, onSetupFinished);
-
-                        function onSetupFinished(err) {
-
-                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                                /* We must re-load all the webserver caches.*/
-
-                                initialize();
-
-          case 'newTeam': {
-            const AABROWSER_API_TEAM_SETUP = require('./AABrowserAPI/' + 'TeamSetup')
-            let teamSetup = AABROWSER_API_TEAM_SETUP.newTeamSetup()
-
-            teamSetup.initialize(serverConfig)
-
-            let devTeamCodeName = decodeURI(requestParameters[3])
-            let devTeamDisplayName = decodeURI(requestParameters[4])
-            let userName = decodeURI(requestParameters[5])
-            let botCodeName = decodeURI(requestParameters[6])
-            let botDisplayName = decodeURI(requestParameters[7])
-            let userId = decodeURI(requestParameters[8])
-            let sharedSecret = decodeURI(requestParameters[9])
+            let devTeamCodeName = decodeURI(requestParameters[3]);
+            let devTeamDisplayName = decodeURI(requestParameters[4]);
+            let userName = decodeURI(requestParameters[5]);
+            let botCodeName = decodeURI(requestParameters[6]);
+            let botDisplayName = decodeURI(requestParameters[7]);
+            let userId = decodeURI(requestParameters[8]);
+            let sharedSecret = decodeURI(requestParameters[9]);
 
             if (sharedSecret !== serverConfig.newTeamSharedSecret) {
-              let customFailResponse = {
-                result: global.DEFAULT_FAIL_RESPONSE.result,
-                message: 'The shared secret provided is incorrect'
-              }
 
-              respondWithContent(JSON.stringify(customFailResponse), response)
+                let customFailResponse = {
+                    result: global.DEFAULT_FAIL_RESPONSE.result,
+                    message: "The shared secret provided is incorrect"
+                }
 
-              if (CONSOLE_LOG === true) { console.log('[WARN] server -> AABrowserAPI -> newTeam -> Shared Secret Received Incorrect.') }
+                respondWithContent(JSON.stringify(customFailResponse), response);
 
-              return
+                if (CONSOLE_LOG === true) { console.log("[WARN] server -> AABrowserAPI -> newTeam -> Shared Secret Received Incorrect."); }
+
+                return;
+
             }
 
-            teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botCodeName, botDisplayName, userId, onSetupFinished)
+            teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botCodeName, botDisplayName, userId, onSetupFinished);
 
-            function onSetupFinished (err) {
-              if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                                /* We must re-load all the webserver caches. */
+            function onSetupFinished(err) {
 
-                initialize()
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    /* We must re-load all the webserver caches.*/
+
+                    initialize();
               }
 
               respondWithContent(JSON.stringify(err), response)
@@ -768,222 +714,124 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'ExchangeAPI': // This is trying to access this library functionality from the broser.
+      case 'ExchangeAPI': // This is trying to access this library functionality from the broser.
       {
                 /* We are going to let access the exchange only to authenticated users, that measn that we need the a valid session token. */
-                let authToken = requestParameters[3];
+        let authToken = requestParameters[3]
 
-                if (authToken !== undefined) {
-                    global.CURRENT_EXECUTION_AT = "Browser"
-                    global.GATEWAY_ENDPOINT = serverConfig.masterAppServerURL
+        if (authToken !== undefined) {
+            global.CURRENT_EXECUTION_AT = "Browser"
+            global.GATEWAY_ENDPOINT = serverConfig.masterAppServerURL
 
-                    global.MARKET = {
-                        assetA: "USDT",
-                        assetB: "BTC"
-                    };
+            global.MARKET = {
+                assetA: "USDT",
+                assetB: "BTC"
+            };
 
-                    global.LOG_CONTROL = {
-                        "Exchange API": {
-                            logInfo: true,
-                            logWarnings: false,
-                            logErrors: true,
-                            logContent: false,
-                            intensiveLogging: false
-                        }
-                    }
-
-                    let logger = {
-                        write: function (moduleName, message) {
-                            console.log(moduleName + " " + message);
-                        }
-                    }
-
-                    const EXCHANGE_API = require('./Server/Exchange/ExchangeAPI');
-                    let exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, authToken);
-                    exchangeAPI.initialize(onInizialized);
-
-                    function onInizialized(err) {
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Entering function."); }
-
-                        switch (err.result) {
-                            case global.DEFAULT_OK_RESPONSE.result: {
-                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI ->  onInizialized -> Execution finished well."); }
-                                callExchangeAPIMethod();
-                                return;
-                            }
-                            case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                console.log("[ERROR] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Retry Later. Requesting Execution Retry.");
-                                respondWithContent("", response);
-                                return;
-                            }
-                            case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                console.log("[ERROR] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Operation Failed. Aborting the process.");
-                                respondWithContent("", response);
-                                return;
-                            }
-                        }
-                    }
-
-                    function callExchangeAPIMethod() {
-                        switch (requestParameters[2]) {
-
-                            case "getTicker": {
-                                exchangeAPI.getTicker(global.MARKET, onExchangeResponse);
-                                break;
-                            }
-
-                            case "getOpenPositions": {
-                                exchangeAPI.getOpenPositions(global.MARKET, onExchangeResponse);
-                                break;
-                            }
-
-                            case "getExecutedTrades": {
-                                exchangeAPI.getExecutedTrades(requestParameters[4], onExchangeResponse);
-                                break;
-                            }
-
-                            case "putPosition": {
-                                exchangeAPI.putPosition(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
-                                break;
-                            }
-
-                            case "movePosition": {
-                                exchangeAPI.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
-                                break;
-                            }
-
-                            case "getPublicTradeHistory": {
-                                exchangeAPI.getPublicTradeHistory(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
-                                break;
-                            }
-
-                            case "initialize": {
-                                onExchangeResponse(global.DEFAULT_OK_RESPONSE);
-                                break;
-                            }
-
-                        }
-                    }
-
-                    function onExchangeResponse(err, exchangeResponse) {
-
-                        /* Delete these secrets before they get logged. */
-
-                        requestParameters[4] = "";
-                        if (err.result === global.DEFAULT_OK_RESPONSE.result)
-                            respondWithContent(JSON.stringify(exchangeResponse), response);
-                        else
-                            respondWithContent(JSON.stringify(err), response);
-                    }
-
-                    return;
+            global.LOG_CONTROL = {
+                "Exchange API": {
+                    logInfo: true,
+                    logWarnings: false,
+                    logErrors: true,
+                    logContent: false,
+                    intensiveLogging: false
                 }
+            }
 
-                else {
+            let logger = {
+                write: function (moduleName, message) {
+                    console.log(moduleName + " " + message);
+                }
+            }
 
-                    let customResponse = {
-                        result: global.CUSTOM_FAIL_RESPONSE.result,
-                        message: "You are not logged in."
-                    };
+            const EXCHANGE_API = require('./Server/Exchange/ExchangeAPI');
+            let exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, authToken);
+            exchangeAPI.initialize(onInizialized);
 
-                    respondWithContent(JSON.stringify(customResponse), response);
+            function onInizialized(err) {
+                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Entering function."); }
+
+                switch (err.result) {
+                    case global.DEFAULT_OK_RESPONSE.result: {
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI ->  onInizialized -> Execution finished well."); }
+                        callExchangeAPIMethod();
+                        return;
+                    }
+                    case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                        console.log("[ERROR] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                        respondWithContent("", response);
+                        return;
+                    }
+                    case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                        console.log("[ERROR] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Operation Failed. Aborting the process.");
+                        respondWithContent("", response);
+                        return;
+                    }
+                }
+            }
+
+            function callExchangeAPIMethod() {
+                switch (requestParameters[2]) {
+
+                    case "getTicker": {
+                        exchangeAPI.getTicker(global.MARKET, onExchangeResponse);
+                        break;
+                    }
+
+                    case "getOpenPositions": {
+                        exchangeAPI.getOpenPositions(global.MARKET, onExchangeResponse);
+                        break;
+                    }
+
+                    case "getExecutedTrades": {
+                        exchangeAPI.getExecutedTrades(requestParameters[4], onExchangeResponse);
+                        break;
+                    }
+
+                    case "putPosition": {
+                        exchangeAPI.putPosition(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                        break;
+                    }
+
+                    case "movePosition": {
+                        exchangeAPI.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
+                        break;
+                    }
+
+                    case "getPublicTradeHistory": {
+                        exchangeAPI.getPublicTradeHistory(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
+                        break;
+                    }
+
+                    case "initialize": {
+                        onExchangeResponse(global.DEFAULT_OK_RESPONSE);
+                        break;
+                    }
 
                 }
             }
-          }
 
-          let logger = {
-            write: function (moduleName, message) {
-              console.log(moduleName + ' ' + message)
+            function onExchangeResponse(err, exchangeResponse) {
+
+                /* Delete these secrets before they get logged. */
+
+                requestParameters[4] = "";
+                if (err.result === global.DEFAULT_OK_RESPONSE.result)
+                    respondWithContent(JSON.stringify(exchangeResponse), response);
+                else
+                    respondWithContent(JSON.stringify(err), response);
             }
-          }
 
-          const EXCHANGE_API = require('./Server/Exchange/ExchangeAPI')
-          let exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, authToken)
-          exchangeAPI.initialize(onInizialized)
-
-          function onInizialized (err) {
-            if (CONSOLE_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Entering function.') }
-
-            switch (err.result) {
-              case global.DEFAULT_OK_RESPONSE.result: {
-                if (CONSOLE_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> ExchangeAPI ->  onInizialized -> Execution finished well.') }
-                callExchangeAPIMethod()
-                return
-              }
-              case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                console.log('[ERROR] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Retry Later. Requesting Execution Retry.')
-                respondWithContent('', response)
-                return
-              }
-              case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                console.log('[ERROR] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Operation Failed. Aborting the process.')
-                respondWithContent('', response)
-                return
-              }
-            }
-          }
-
-          function callExchangeAPIMethod () {
-            switch (requestParameters[2]) {
-
-              case 'getTicker': {
-                exchangeAPI.getTicker(global.MARKET, onExchangeResponse)
-                break
-              }
-
-              case 'getOpenPositions': {
-                exchangeAPI.getOpenPositions(global.MARKET, onExchangeResponse)
-                break
-              }
-
-              case 'getExecutedTrades': {
-                exchangeAPI.getExecutedTrades(requestParameters[4], onExchangeResponse)
-                break
-              }
-
-              case 'putPosition': {
-                exchangeAPI.putPosition(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse)
-                break
-              }
-
-              case 'movePosition': {
-                exchangeAPI.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse)
-                break
-              }
-
-              case 'getPublicTradeHistory': {
-                exchangeAPI.getPublicTradeHistory(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse)
-                break
-              }
-
-              case 'initialize': {
-                onExchangeResponse(global.DEFAULT_OK_RESPONSE)
-                break
-              }
-
-            }
-          }
-
-          function onExchangeResponse (err, exchangeResponse) {
-                        /* Delete these secrets before they get logged. */
-
-            requestParameters[4] = ''
-            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-              respondWithContent(JSON.stringify(exchangeResponse), response)
-            } else {
-              respondWithContent(JSON.stringify(err), response)
-            }
-          }
-
-          return
+            return;
         } else {
-          let customResponse = {
-            result: global.CUSTOM_FAIL_RESPONSE.result,
-            message: 'You are not logged in.'
-          }
 
-          respondWithContent(JSON.stringify(customResponse), response)
+          let customResponse = {
+              result: global.CUSTOM_FAIL_RESPONSE.result,
+              message: "You are not logged in."
+          };
+
+          respondWithContent(JSON.stringify(customResponse), response);
+
         }
       }
       break

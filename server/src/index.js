@@ -78,6 +78,10 @@ async function run () {
     'strategizer_',
     process.env.STRATEGIZER_API_URL,
     process.env.STRATEGIZER_API_PRESHARED)
+  const transformeCockpitSchema = await createTransformedRemoteSchema(
+    'cockpit_',
+    process.env.COCKPIT_API_URL,
+    process.env.COCKPIT_API_PRESHARED)
 
   var schemas = []
   var resolvers = {}
@@ -107,9 +111,9 @@ async function run () {
   }
   if (transformedOperationsSchema) {
     schemas.push(transformedOperationsSchema)
-    if (transformedTeamsSchema) {
+    if (transformedTeamsSchema && transformeCockpitSchema) {
       schemas.push(operations.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, operations.resolver(transformedTeamsSchema))
+      resolvers = Object.assign(resolvers, operations.resolver(transformedTeamsSchema, transformeCockpitSchema))
     }
   }
   if (transformedNotificationsSchema) {
@@ -120,6 +124,9 @@ async function run () {
   }
   if (transformeStrategizerSchema) {
     schemas.push(transformeStrategizerSchema)
+  }
+  if (transformeCockpitSchema) {
+    schemas.push(transformeCockpitSchema)
   }
 
   const schema = mergeSchemas({

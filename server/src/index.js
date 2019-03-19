@@ -78,15 +78,23 @@ async function run () {
       'miners_',
       process.env.MINERS_API_URL,
       process.env.MINERS_PRESHARED)
+  const transformeStrategizerSchema = await createTransformedRemoteSchema(
+    'strategizer_',
+    process.env.STRATEGIZER_API_URL,
+    process.env.STRATEGIZER_API_PRESHARED)
+  const transformeCockpitSchema = await createTransformedRemoteSchema(
+    'cockpit_',
+    process.env.COCKPIT_API_URL,
+    process.env.COCKPIT_API_PRESHARED)
 
   var schemas = []
   var resolvers = {}
 
   if (transformedTeamsSchema) {
     schemas.push(transformedTeamsSchema)
-    if (transformedUsersSchema && transformedEventsSchema) {
+    if (transformedUsersSchema && transformedEventsSchema && transformeStrategizerSchema) {
       schemas.push(teams.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema, transformedEventsSchema))
+      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema, transformedEventsSchema, transformeStrategizerSchema))
     }
   }
   if (transformedUsersSchema) {
@@ -107,9 +115,9 @@ async function run () {
   }
   if (transformedOperationsSchema) {
     schemas.push(transformedOperationsSchema)
-    if (transformedTeamsSchema) {
+    if (transformedTeamsSchema && transformeCockpitSchema) {
       schemas.push(operations.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, operations.resolver(transformedTeamsSchema))
+      resolvers = Object.assign(resolvers, operations.resolver(transformedTeamsSchema, transformeCockpitSchema))
     }
   }
   if (transformedNotificationsSchema) {
@@ -117,9 +125,6 @@ async function run () {
   }
   if (transformedLogsSchema) {
     schemas.push(transformedLogsSchema)
-  }
-  if (transformedMinersSchema) {
-    schemas.push(transformedMinersSchema)
   }
   
   const schema = mergeSchemas({

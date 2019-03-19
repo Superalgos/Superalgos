@@ -1,4 +1,6 @@
-﻿function newAppLoader() {
+let dashboard;
+
+function newAppLoader() {
 
     const MODULE_NAME = "App Loader";
     const INFO_LOG = false;
@@ -36,6 +38,7 @@
                 "BottomSpace/PlayStopButton.js",
 
                 "TopSpace/CompanyLogo.js",
+                "TopSpace/CurrentEvent.js",
                 "TopSpace/CurrentStartMode.js",
                 "TopSpace/CurrentProcess.js",
                 "TopSpace/CurrentBot.js",
@@ -67,10 +70,11 @@
                 "FloatingSpace/FloatingLayer.js",
 
                 "Exchange/ExchangeAPI.js",
-                "CloudVM/CloudSupport.js",
-                "CloudVM/CloudRequire.js",
-                "CloudVM/WebFS.js",
-                "CloudVM/CloudVM.js",
+
+                "CloudAppWrapper/CloudSupport.js",
+                "CloudAppWrapper/CloudRequire.js",
+                "CloudAppWrapper/WebFS.js",
+                "CloudAppWrapper/BrowserRun.js",
 
                 "Scales/ChartGrid.js",
                 "Scales/RightScale.js",
@@ -140,7 +144,7 @@
 
                             if (INFO_LOG === true) { logger.write("[INFO] loadModules -> onRequired -> Starting Advanced Algos Platform."); }
 
-                            let dashboard = newDashboard();
+                            dashboard = newDashboard();
 
                             dashboard.start();
                         }

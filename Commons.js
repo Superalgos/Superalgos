@@ -62,7 +62,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Initial Values */
 
-            let initialDate = startDate;
+            let initialDate = startDate;      
             let initialBalanceA = 1;
             let minimunBalanceA = 0.5;
 
@@ -91,12 +91,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             /* Building records */
 
             let record;
-            let balanceAssetA = initialBalanceA;
-            let balanceAssetB = 0;
             let profit = 0;
-            let lastProfit = 0;
             let lastProfitPercent = 0;
             let sellRate = 0;
+            let sellInstant;
 
             let previousBalanceAssetA = 0;
             let hitRatio = 0;
@@ -120,24 +118,38 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             3. In Daily Files we are receiving candles from the current day and previous day, so we need to take care of
                not adding to the counters duplicate info when processing the day before candles.
 
-            To overcome these challenges we record the values of the counters on the interExecutionMemory only when
+            To overcome these challenges we record the values of the counters and variables on the interExecutionMemory only when
             the day is complete and if we have a currentDay. That menas that for Market Files we will never use
             interExecutionMemory.
             */
+
+            let balanceAssetA = initialBalanceA;
+            let balanceAssetB = 0;
+            let lastProfit = 0;
 
             let roundtrips = 0;
             let fails = 0;
             let hits = 0;
             let periods = 0;
 
-            let yesterdayRoundtrips = 0;
-            let yesterdayFails = 0;
-            let yesterdayHits = 0;
-            let yesterdayPeriods = 0;
+            let yesterday = {};
+
+            yesterday.balanceAssetA = 0;
+            yesterday.balanceAssetB = 0;
+            yesterday.lastProfit = 0;
+
+            yesterday.Roundtrips = 0;
+            yesterday.Fails = 0;
+            yesterday.Hits = 0;
+            yesterday.Periods = 0;
 
             if (interExecutionMemory.roundtrips === undefined) {
 
                 /* Initialize the data structure we will use inter execution. */
+
+                interExecutionMemory.balanceAssetA = balanceAssetA;
+                interExecutionMemory.balanceAssetB = balanceAssetB;
+                interExecutionMemory.lastProfit = lastProfit;
 
                 interExecutionMemory.roundtrips = 0;
                 interExecutionMemory.fails = 0;
@@ -147,6 +159,15 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             } else {
 
                 /* We get the initial values from the day previous to the candles we receive at the current execution */
+
+                if (currentDay.valueOf() > startDate.valueOf() + ONE_DAY_IN_MILISECONDS) { // Only after the first day we start grabbing the balance from this memory.
+
+                    balanceAssetA = interExecutionMemory.balanceAssetA;
+                    balanceAssetB = interExecutionMemory.balanceAssetB;
+
+                } 
+                
+                lastProfit = interExecutionMemory.lastProfit;
 
                 roundtrips = interExecutionMemory.roundtrips;
                 fails = interExecutionMemory.fails;
@@ -173,10 +194,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 if (candle.begin < initialDate.valueOf()) { continue; }
 
                 periods++;
+                days = periods * timePeriod / ONE_DAY_IN_MILISECONDS;
 
                 if (currentDay !== undefined) {
                     if (candle.end < currentDay.valueOf()) {
-                        yesterdayPeriods++;
+                        yesterday.Periods++;
                     }
                 }
 
@@ -429,8 +451,15 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if (candle.max >= stopLoss) {
 
                         balanceAssetA = balanceAssetB / stopLoss;
-
                         balanceAssetB = 0;
+
+                        if (currentDay !== undefined) {
+                            if (sellInstant < currentDay.valueOf()) {
+                                yesterday.balanceAssetA = balanceAssetA;
+                                yesterday.balanceAssetB = balanceAssetB;
+                            }
+                        }
+
                         rate = stopLoss;
                         type = '"Buy@StopLoss"';
                         strategyPhase = 4;
@@ -441,8 +470,16 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if (candle.min <= buyOrder) {
 
                         balanceAssetA = balanceAssetB / buyOrder;
-
                         balanceAssetB = 0;
+
+                        if (currentDay !== undefined) {
+                            if (sellInstant < currentDay.valueOf()) {
+                                yesterday.balanceAssetA = balanceAssetA;
+                                yesterday.balanceAssetB = balanceAssetB;
+
+                            }
+                        }
+
                         rate = buyOrder;
                         type = '"Buy@BuyOrder"';
                         strategyPhase = 4;
@@ -595,8 +632,17 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     balanceAssetB = balanceAssetA * candle.close;
                     balanceAssetA = 0;
 
+                    if (currentDay !== undefined) {
+                        if (sellInstant < currentDay.valueOf()) {
+                            yesterday.balanceAssetA = balanceAssetA;
+                            yesterday.balanceAssetB = balanceAssetB;
+                            yesterday.lastProfit = lastProfit;
+                        }
+                    }
+
                     rate = candle.close;
                     sellRate = rate;
+                    sellInstant = candle.end;
 
                     stopLoss = sellRate + sellRate * stopLossPercentage / 100;
 
@@ -615,12 +661,18 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     roundtrips++;
 
                     if (currentDay !== undefined) {
-                        if (candle.end < currentDay.valueOf()) {
-                            yesterdayRoundtrips++;
+                        if (sellInstant < currentDay.valueOf()) {
+                            yesterday.Roundtrips++;
                         }                        
                     }
                     
                     lastProfit = balanceAssetA - previousBalanceAssetA;
+
+                    if (currentDay !== undefined) {
+                        if (sellInstant < currentDay.valueOf()) {
+                            yesterday.lastProfit = lastProfit;
+                        }
+                    }
 
                     lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
                     if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
@@ -634,8 +686,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         hits++;
 
                         if (currentDay !== undefined) {
-                            if (candle.end < currentDay.valueOf()) {
-                                yesterdayHits++;
+                            if (sellInstant < currentDay.valueOf()) {
+                                yesterday.Hits++;
                             }
                         }
 
@@ -643,15 +695,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         fails++;
 
                         if (currentDay !== undefined) {
-                            if (candle.end < currentDay.valueOf()) {
-                                yesterdayFails++;
+                            if (sellInstant < currentDay.valueOf()) {
+                                yesterday.Fails++;
                             }
                         }
                     }
                     hitRatio = hits / roundtrips;
 
-                    let miliSecondsPerDay = 24 * 60 * 60 * 1000;
-                    days = periods * timePeriod / miliSecondsPerDay;
                     anualizedRateOfReturn = ROI / days * 365;
 
                     addRecord();
@@ -659,6 +709,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     strategyNumber = 0;
                     stopLoss = 0;
                     sellRate = 0;
+                    sellInstant = undefined;
                     buyOrder = 0;
                     strategyPhase = 0;
                     stopLossPhase = 0;
@@ -733,10 +784,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (lastCandle.end === lastInstantOdDay) {
 
-                    interExecutionMemory.roundtrips = interExecutionMemory.roundtrips + yesterdayRoundtrips;
-                    interExecutionMemory.fails = interExecutionMemory.fails + yesterdayFails;
-                    interExecutionMemory.hits = interExecutionMemory.hits + yesterdayHits;
-                    interExecutionMemory.periods = interExecutionMemory.periods + yesterdayPeriods;
+                    interExecutionMemory.balanceAssetA = yesterday.balanceAssetA;
+                    interExecutionMemory.balanceAssetB = yesterday.balanceAssetB;
+                    interExecutionMemory.lastProfit = yesterday.lastProfit;
+
+                    interExecutionMemory.roundtrips = interExecutionMemory.roundtrips + yesterday.Roundtrips;
+                    interExecutionMemory.fails = interExecutionMemory.fails + yesterday.Fails;
+                    interExecutionMemory.hits = interExecutionMemory.hits + yesterday.Hits;
+                    interExecutionMemory.periods = interExecutionMemory.periods + yesterday.Periods;
 
                 }
             }

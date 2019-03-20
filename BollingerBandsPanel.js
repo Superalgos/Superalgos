@@ -17,6 +17,7 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
     container.frame.containerName = "Bollinger Band Panel";
 
     let currentBand;
+    let panelTabButton
 
     return thisObject;
 
@@ -28,11 +29,18 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
         thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 3;
         thisObject.container.frame.position.y = viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height;
 
+        panelTabButton = newPanelTabButton()
+        panelTabButton.parentContainer = thisObject.container
+        panelTabButton.container.frame.parentFrame = thisObject.container.frame
+        panelTabButton.initialize()
     }
 
     function getContainer(point) {
 
         var container;
+
+        container = panelTabButton.getContainer(point)
+        if (container !== undefined) { return container }
 
         /* First we check if this point is inside this space. */
 
@@ -63,6 +71,7 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
 
         plotCurrentBandInfo();
 
+        panelTabButton.draw()
     }
 
 

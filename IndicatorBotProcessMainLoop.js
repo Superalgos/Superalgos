@@ -296,8 +296,12 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well."); }
 
                                             /* If the process is configured to run inside a framework, we continue there, otherwise we run the bot directly. */
+                                            if (processConfig.framework === undefined) {
+                                                initializeUserBot();
+                                                return;
+                                            }
 
-                                            switch (processConfig.framework) {
+                                            switch (processConfig.framework.name) {
                                                 case 'Multi-Period-Market': {
                                                     processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE, USER_BOT_MODULE, COMMONS_MODULE);
                                                     intitializeProcessFramework();
@@ -308,7 +312,17 @@
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
-                                                default: { initializeUserBot();}
+                                                default: {
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework not Supported.");
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework Name = " + processConfig.framework.name);
+                                                    logger.persist();
+                                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                                    clearTimeout(nextLoopTimeoutHandle);
+                                                    clearTimeout(checkLoopHealthHandle);
+                                                    bot.enableCheckLoopHealth = false;
+                                                    callBackFunction(err);
+                                                    return;
+                                                }
                                             }
                                             return;
                                         }

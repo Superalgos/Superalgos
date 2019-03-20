@@ -17,6 +17,7 @@ function newTimeControlPanel () {
   thisObject.container.frame.containerName = 'Current Datetime'
 
   let timePeriod
+  let panelTabButton
 
   return thisObject
 
@@ -30,6 +31,13 @@ function newTimeControlPanel () {
     }
 
     thisObject.container.frame.position = position
+
+    panelTabButton = newPanelTabButton()
+    panelTabButton.parentContainer = thisObject.container
+    panelTabButton.container.frame.parentFrame = thisObject.container.frame
+    panelTabButton.initialize()
+
+    /* The code from here down might be out of date. */
 
     let buttonPosition
 
@@ -68,6 +76,9 @@ function newTimeControlPanel () {
   function getContainer (point) {
     let container
 
+    container = panelTabButton.getContainer(point)
+    if (container !== undefined) { return container }
+
         /* First we check if thisObject point is inside thisObject space. */
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -95,8 +106,8 @@ function newTimeControlPanel () {
 
   function draw () {
     thisObject.container.frame.draw(false, false, true)
-
     thisObject.datetimeDisplay.draw()
+    panelTabButton.draw()
   }
 
   function drawTimeDisplay () {

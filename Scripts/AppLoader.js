@@ -48,6 +48,7 @@ function newAppLoader() {
 
                 "Panels/TimeControlPanel.js",
                 "Panels/ProductsPanel.js",
+                "Panels/PanelTabButton.js",
 
                 "Spaces/BottomSpace.js",
                 "Spaces/TopSpace.js",

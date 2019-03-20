@@ -49,7 +49,8 @@ export const defaultOptions = {
   languageDictionary: {
     title: 'Superalgos Platform'
   },
-  avatar: null
+  avatar: null,
+  mustAcceptTerms: true
 }
 
 export const inviteOptions = {
@@ -67,7 +68,12 @@ export const inviteOptions = {
       scope: `email`
     }
   },
-  prefill: { email: '' }
+  prefill: { email: '' },
+  languageDictionary: {
+    title: 'Superalgos Platform'
+  },
+  avatar: null,
+  mustAcceptTerms: true
 }
 
 let lock = new Auth0Lock(

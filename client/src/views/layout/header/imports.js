@@ -98,9 +98,9 @@ const strategizerMenus = {
   title: 'Strategizer',
   to: '/strategizer',
   icon: Home,
-  authenticated: false,
+  authenticated: true,
   submenus: [
-    { title: 'Your strategies', to: '/strategizer/manage-strategies', icon: ViewModule, authenticated: false },
+    { title: 'Your strategies', to: '/strategizer/manage-strategies', icon: ViewModule, authenticated: true },
     { title: 'Report a Bug', to: 'https://github.com/Superalgos/StrategizerClientModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }

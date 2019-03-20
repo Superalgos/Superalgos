@@ -17,14 +17,8 @@
    container.isDraggeable = true
    container.isWheelable = true
 
-   container.isClickeable = true
-
    thisObject.container = container
    thisObject.container.frame.containerName = "Indicators and Algobots's Products"
-
-   /* Lets listen to our own events to react when we have a Mouse Click */
-
-   thisObject.container.eventHandler.listenToEvent('onMouseClick', buttonPressed)
 
    let isInitialized = false
    let productCards = []
@@ -35,13 +29,7 @@
     /* Needed Variables */
 
    let lastY = 5
-
-   /* Animation to hide the pannel */
-
-   let tabStatus = 'visible'
-   let visiblePosition = {}
-   let hiddenPosition = {}
-   let transitionPosition = {}
+   let panelTabButton
 
    return thisObject
 
@@ -56,14 +44,10 @@
 
      thisObject.container.frame.position = position
 
-     visiblePosition.x = thisObject.container.frame.position.x
-     visiblePosition.y = thisObject.container.frame.position.y
-
-     hiddenPosition.x = thisObject.container.frame.position.x
-     hiddenPosition.y = viewPort.visibleArea.bottomRight.y
-
-     transitionPosition.x = visiblePosition.x
-     transitionPosition.y = visiblePosition.y
+     panelTabButton = newPanelTabButton()
+     panelTabButton.parentContainer = thisObject.container
+     panelTabButton.container.frame.parentFrame = thisObject.container.frame
+     panelTabButton.initialize()
 
         /* First thing is to build the productCards array */
 
@@ -135,27 +119,6 @@
      isInitialized = true
    }
 
-   function buttonPressed (event) {
-     if (tabStatus === 'visible') {
-       visiblePosition.x = thisObject.container.frame.position.x
-       visiblePosition.y = thisObject.container.frame.position.y
-
-       hiddenPosition.x = thisObject.container.frame.position.x
-       hiddenPosition.y = viewPort.visibleArea.bottomRight.y
-
-       transitionPosition.x = visiblePosition.x
-       transitionPosition.y = visiblePosition.y
-
-       container.isDraggeable = false
-       container.isWheelable = false
-       tabStatus = 'going down'
-     } else {
-       container.isDraggeable = true
-       container.isWheelable = true
-       tabStatus = 'going up'
-     }
-   }
-
    function onMouseWheel (pDelta) {
      if (pDelta > 0) {
        pDelta = -1
@@ -216,6 +179,9 @@
    function getContainer (point) {
      var container
 
+     container = panelTabButton.getContainer(point)
+     if (container !== undefined) { return container }
+
         /* First we check if thisObject point is inside thisObject space. */
 
      if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -244,29 +210,12 @@
    function draw () {
      if (isInitialized === false) { return }
 
-     if (tabStatus === 'going down') {
-       if (transitionPosition.y < hiddenPosition.y) {
-         transitionPosition.y = transitionPosition.y + 20
-         thisObject.container.frame.position.y = transitionPosition.y
-       } else {
-         thisObject.container.frame.position.y = hiddenPosition.y
-         tabStatus = 'hidden'
-       }
-     }
-     if (tabStatus === 'going up') {
-       if (transitionPosition.y > visiblePosition.y) {
-         transitionPosition.y = transitionPosition.y - 20
-         thisObject.container.frame.position.y = transitionPosition.y
-       } else {
-         thisObject.container.frame.position.y = visiblePosition.y
-         tabStatus = 'visible'
-       }
-     }
-
      thisObject.container.frame.draw(false, false, true)
 
      for (let i = 0; i < visibleProductCards.length; i++) {
        visibleProductCards[i].draw()
      }
+
+     panelTabButton.draw()
    }
  }

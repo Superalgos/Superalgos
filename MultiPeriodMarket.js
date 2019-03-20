@@ -23,6 +23,8 @@
 
     let usertBot;
 
+    let processConfig;
+
     return thisObject;
 
     function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
@@ -36,6 +38,7 @@
 
             statusDependencies = pStatusDependencies;
             dataDependencies = pDataDependencies;
+            processConfig = pProcessConfig;
 
             for (let i = 0; i < dataDependencies.config.length; i++) {
 
@@ -71,6 +74,29 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             let market = global.MARKET;
+
+            /* Context Variables */
+
+            let contextVariables = {
+                dateBeginOfMarket: undefined,       // Datetime of the first trade file in the whole market history.
+                dateEndOfMarket: undefined          // Datetime of the last file available to be used as an input of this process.
+            };
+
+            if (processConfig.framework.startDate.fixedDate !== undefined) {
+
+                /* The starting date is fixed, we will start from there. */
+
+                contextVariables.dateBeginOfMarket = new Date(processConfig.framework.startDate.fixedDate);
+
+            }
+
+            if (processConfig.framework.endDate.fixedDate !== undefined) {
+
+                /* The ending date is fixed, we will end there. */
+
+                contextVariables.dateEndOfMarket = new Date(processConfig.framework.endDate.fixedDate);
+
+            }
 
             processTimePeriods();
 
@@ -218,7 +244,13 @@
                                     const timePeriod = global.marketFilesPeriods[n][0];
                                     const outputPeriodLabel = global.marketFilesPeriods[n][1];
 
-                                    usertBot.start(dataFiles, timePeriod, outputPeriodLabel, onBotFinished);
+                                    usertBot.start(
+                                        dataFiles,
+                                        timePeriod,
+                                        outputPeriodLabel,
+                                        contextVariables.dateBeginOfMarket,
+                                        contextVariables.dateEndOfMarket,
+                                        onBotFinished);
 
                                     function onBotFinished(err) {
 

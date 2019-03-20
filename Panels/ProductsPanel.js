@@ -246,7 +246,7 @@
 
      if (tabStatus === 'going down') {
        if (transitionPosition.y < hiddenPosition.y) {
-         transitionPosition.y = transitionPosition.y + 15
+         transitionPosition.y = transitionPosition.y + 20
          thisObject.container.frame.position.y = transitionPosition.y
        } else {
          thisObject.container.frame.position.y = hiddenPosition.y
@@ -255,7 +255,7 @@
      }
      if (tabStatus === 'going up') {
        if (transitionPosition.y > visiblePosition.y) {
-         transitionPosition.y = transitionPosition.y - 15
+         transitionPosition.y = transitionPosition.y - 20
          thisObject.container.frame.position.y = transitionPosition.y
        } else {
          thisObject.container.frame.position.y = visiblePosition.y

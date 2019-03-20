@@ -9,7 +9,8 @@ import {
   Group,
   VpnKey,
   Home,
-  AddCircleOutline
+  AddCircleOutline,
+  ViewModule
 } from '@material-ui/icons'
 
 const usersMenus = {
@@ -73,6 +74,16 @@ const operationsMenus = {
   ]
 }
 
+const minersMenus = {
+  title: 'Miners',
+  to: '/miners',
+  icon: Home,
+  authenticated: false,
+  submenus: [
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/minersClient/issues/new', icon: BugReport, externalLink: true }
+  ]
+}
+
 // const financialBeingsMenus = {
 //   title: 'FBs',
 //   to: '/financial-beings',
@@ -83,13 +94,26 @@ const operationsMenus = {
 //   ]
 // }
 
+const strategizerMenus = {
+  title: 'Strategizer',
+  to: '/strategizer',
+  icon: Home,
+  authenticated: false,
+  submenus: [
+    { title: 'Your strategies', to: '/strategizer/manage-strategies', icon: ViewModule, authenticated: false },
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/StrategizerClientModule/issues/new', icon: BugReport, externalLink: true }
+  ]
+}
+
 const allMenus = [
   usersMenus,
   teamsMenus,
   eventsMenus,
   // financialBeingsMenus,
   keyvaultMenus,
-  operationsMenus
+  operationsMenus,
+  minersMenus,
+  strategizerMenus
 ]
 
 export default allMenus

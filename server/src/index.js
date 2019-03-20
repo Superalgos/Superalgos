@@ -74,6 +74,10 @@ async function run () {
     'logs_',
     process.env.LOGS_API_URL,
     process.env.LOGS_API_PRESHARED)
+  // const transformedMinersSchema = await createTransformedRemoteSchema(
+  //     'miners_',
+  //     process.env.MINERS_API_URL,
+  //     process.env.MINERS_PRESHARED)
   const transformeStrategizerSchema = await createTransformedRemoteSchema(
     'strategizer_',
     process.env.STRATEGIZER_API_URL,

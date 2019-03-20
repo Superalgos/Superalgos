@@ -122,7 +122,7 @@ function newCurrentEvent () {
 
   function resize () {
     container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 2
-    container.frame.position.y = viewPort.visibleArea.bottomLeft.y
+    container.frame.position.y = viewPort.visibleArea.bottomLeft.y + BREAKPOINT_HEIGHT
   }
 
   function onClick () {

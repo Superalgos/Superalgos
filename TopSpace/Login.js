@@ -15,7 +15,7 @@ function newLogin () {
   thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
 
   container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 1
-  container.frame.position.y = viewPort.visibleArea.bottomLeft.y
+  container.frame.position.y = viewPort.visibleArea.bottomLeft.y + BREAKPOINT_HEIGHT
 
   container.isDraggeable = false
   container.isClickeable = true

@@ -131,7 +131,7 @@ const EARLIEST_DATE = new Date(2014, 0, 18, 4, 26, 8);
 
 const TOP_SPACE_HEIGHT = 5;
 const BOTTOM_SPACE_HEIGHT = 35;
-
+const BREAKPOINT_HEIGHT = 15;
 
 const PRODUCT_CARD_STATUS = {
     ON: 'on',

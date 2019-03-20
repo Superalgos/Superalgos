@@ -7,35 +7,19 @@ export const linkSchemaDefs =
       bot: teams_FinancialBeings
     }
     extend type operations_Clone {
-      orders( state: cockpit_OrderStateEnum ): [cockpit_Order]
-    }
-    extend type operations_Clone {
       signals( state: cockpit_SignalStateEnum ): [cockpit_Signal]
     }
   `
 
 export const resolver = (teamsSchema, cockpitSchema) => ({
   operations_Clone: {
-    orders: {
-      fragment: `fragment OrderFragment on operations_Clone{id}`,
-      resolve ({id: cloneId}, args, context, info) {
-        return info.mergeInfo.delegateToSchema({
-          schema: cockpitSchema,
-          operation: 'query',
-          fieldName: 'cockpit_OrdersByClondeId',
-          args: { ...args, cloneId },
-          context,
-          info
-        })
-      }
-    },
     signals: {
       fragment: `fragment SignalFragment on operations_Clone{id}`,
       resolve ({id: cloneId}, args, context, info) {
         return info.mergeInfo.delegateToSchema({
           schema: cockpitSchema,
           operation: 'query',
-          fieldName: 'cockpit_SignalsByClondeId',
+          fieldName: 'cockpit_SignalsByCloneId',
           args: { ...args, cloneId },
           context,
           info

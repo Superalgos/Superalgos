@@ -16,10 +16,12 @@ import { Layout, Home, Charts, Callback, EmailSignupConfirm } from './views'
 
 import Users from '@superalgos/users-client'
 import Teams from '@superalgos/teams-client'
-import Events from '@advancedalgos/events-client'
+import Events from '@superalgos/events-client'
 import KeyVault from '@superalgos/key-vault-client'
 import FinancialBeings from '@advancedalgos/financial-beings-client'
 import Operations from '@superalgos/operations-client'
+import Logs from '@superalgos/logs-client'
+// import Miners from '@superalgos/miners-client'
 
 export const auth = new Auth(
   result => console.log('Authentication successful.'),
@@ -74,13 +76,18 @@ export const MasterApp = props => (
               render={props => <FinancialBeings {...props} auth={auth}/>}
             />
             <Route
-              path='/key-vault'
+              path='/keys'
               render={props => <KeyVault {...props} auth={auth} />}
             />
             <Route
-              path='/operations'
+              path='/clones'
               render={props => <Operations {...props} auth={auth} />}
             />
+            <Route
+              path='/logs'
+              render={props => <Logs {...props} auth={auth} />}
+            />
+
           </Switch>
         </Layout>
       </MuiThemeProvider>

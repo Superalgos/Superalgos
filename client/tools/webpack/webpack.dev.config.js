@@ -18,7 +18,9 @@ module.exports = merge(commonConfig, {
   },
 
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: {
+      disableDotRule: true
+    }
   },
 
   plugins: [

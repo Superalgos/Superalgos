@@ -17,6 +17,7 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
     container.frame.containerName = "Conditions Panel";
 
     let currentRecord;
+    let panelTabButton
 
     return thisObject;
 
@@ -28,11 +29,18 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
         thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - UI_PANEL.WIDTH.NORMAL * 3;
         thisObject.container.frame.position.y = viewPort.visibleArea.topRight.y;
 
+        panelTabButton = newPanelTabButton()
+        panelTabButton.parentContainer = thisObject.container
+        panelTabButton.container.frame.parentFrame = thisObject.container.frame
+        panelTabButton.initialize()
     }
 
     function getContainer(point) {
 
         var container;
+
+        container = panelTabButton.getContainer(point)
+        if (container !== undefined) { return container }
 
         /* First we check if this point is inside this space. */
 
@@ -63,6 +71,7 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
         plotCurrentRecordInfo();
 
+        panelTabButton.draw()
     }
 
 

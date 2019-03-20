@@ -462,7 +462,7 @@
                     strategyPhase: undefined,
                     buyOrder: undefined,
                     stopLossPhase: undefined,
-                    buyOrderPhase: undefined 
+                    buyOrderPhase: undefined
                 };
 
                 record.begin = marketFile[i][0];
@@ -609,7 +609,7 @@
 
                 if (record.type === 'Buy@BuyOrder') { directionShort = -1; }
                 if (record.type === 'Buy@StopLoss') { directionShort = 1; }
-                if (record.type === 'Sell') { directionShort = +1; }                
+                if (record.type === 'Sell') { directionShort = +1; }
 
                 if (strategyPhase > 0) {
                     if (strategyPhase % 2 !== 0) { //Depending if the phase is oddd or even goes above or below.
@@ -737,18 +737,22 @@
                 browserCanvasContext.closePath();
 
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)';
+                browserCanvasContext.lineWidth = 1
+                browserCanvasContext.setLineDash([1, 4])
 
                 if (datetime !== undefined) {
                     let dateValue = datetime.valueOf();
                     if (dateValue >= record.begin && dateValue <= record.end) {
+                        browserCanvasContext.lineWidth = 5
+                        browserCanvasContext.setLineDash([3, 4])
 
                         /* highlight the current record */
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
                     }
                 }
 
-                browserCanvasContext.setLineDash([1, 4])
-                browserCanvasContext.lineWidth = 1
+
+
                 browserCanvasContext.stroke()
                 browserCanvasContext.setLineDash([0, 0])
 
@@ -757,27 +761,33 @@
 
                 /* Next we are drawing the stopLoss floor / ceilling */
 
-                browserCanvasContext.beginPath();
+                for (j = 0; j < 8; j++) {
+                    browserCanvasContext.beginPath();
 
-                browserCanvasContext.moveTo(recordPoint4.x, recordPoint4.y);
-                browserCanvasContext.lineTo(recordPoint5.x, recordPoint5.y);
 
-                browserCanvasContext.closePath();
+                    browserCanvasContext.moveTo(recordPoint4.x, recordPoint4.y - j);
+                    browserCanvasContext.lineTo(recordPoint5.x, recordPoint5.y - j);
 
-                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
 
-                if (datetime !== undefined) {
-                    let dateValue = datetime.valueOf();
-                    if (dateValue >= record.begin && dateValue <= record.end) {
+                    browserCanvasContext.closePath();
 
-                        /* highlight the current record */
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
+                    let opacity = 0.8 - j / 10
+
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + '';
+
+                    if (datetime !== undefined) {
+                        let dateValue = datetime.valueOf();
+                        if (dateValue >= record.begin && dateValue <= record.end) {
+
+                            /* highlight the current record */
+                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
+                        }
                     }
+
+                    browserCanvasContext.lineWidth = 1
+                    browserCanvasContext.stroke()
+
                 }
-
-                browserCanvasContext.lineWidth = 1
-                browserCanvasContext.stroke()
-
                 if (imageStopLossPhase.isLoaded === true && stopLossPhase > 0) {
                     browserCanvasContext.drawImage(imageStopLossPhase, recordPoint5.x - imageSize, recordPoint5.y - imageSize, imageSize, imageSize);
                     printLabel(stopLossPhase, recordPoint5.x, recordPoint5.y - 2, '0.50');
@@ -785,27 +795,30 @@
 
                 /* Next we are drawing the Buy Order */
 
-                browserCanvasContext.beginPath();
+                for (j = 0; j < 8; j++) {
+                    browserCanvasContext.beginPath();
 
-                browserCanvasContext.moveTo(recordPoint8.x, recordPoint8.y);
-                browserCanvasContext.lineTo(recordPoint9.x, recordPoint9.y);
+                    browserCanvasContext.moveTo(recordPoint8.x, recordPoint8.y + j);
+                    browserCanvasContext.lineTo(recordPoint9.x, recordPoint9.y + j);
 
-                browserCanvasContext.closePath();
+                    browserCanvasContext.closePath();
 
-                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)';
+                    let opacity = 0.6 - j / 10
 
-                if (datetime !== undefined) {
-                    let dateValue = datetime.valueOf();
-                    if (dateValue >= record.begin && dateValue <= record.end) {
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + '';
 
-                        /* highlight the current record */
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
+                    if (datetime !== undefined) {
+                        let dateValue = datetime.valueOf();
+                        if (dateValue >= record.begin && dateValue <= record.end) {
+
+                            /* highlight the current record */
+                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
+                        }
                     }
+
+                    browserCanvasContext.lineWidth = 1
+                    browserCanvasContext.stroke()
                 }
-
-                browserCanvasContext.lineWidth = 1
-                browserCanvasContext.stroke()
-
                 if (imageBuyOrderPhase.isLoaded === true && buyOrderPhase > 0) {
                     browserCanvasContext.drawImage(imageBuyOrderPhase, recordPoint9.x - imageSize, recordPoint9.y + imageSize / 4, imageSize, imageSize);
                     printLabel(buyOrderPhase, recordPoint9.x - imageSize / 2, recordPoint9.y + imageSize * 1.75, '0.50');
@@ -1135,6 +1148,7 @@
         }
     }
 }
+
 
 
 

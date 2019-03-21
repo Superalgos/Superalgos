@@ -37,13 +37,6 @@ function newTimeControlPanel () {
     panelTabButton.container.frame.parentFrame = thisObject.container.frame
     panelTabButton.initialize()
 
-    /* The code from here down might be out of date. */
-
-    let buttonPosition
-
-    let buttonNames = ['Fast Backwards', 'Play Backwards', 'Step Backwards', 'Pause', 'Step Forward', 'Play Forward', 'Fast Forward']
-    let lastX = 0
-
     let datetime = INITIAL_DATE
 
     let datetimeDisplay = {

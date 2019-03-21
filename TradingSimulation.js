@@ -917,17 +917,22 @@
 
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.25)';
 
+                    browserCanvasContext.setLineDash([4, 3])
+                    browserCanvasContext.lineWidth = 0.2
+
                     if (datetime !== undefined) {
                         let dateValue = datetime.valueOf();
                         if (dateValue >= record.begin && dateValue <= record.end) {
 
                             /* highlight the current record */
                             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
+
+                            browserCanvasContext.setLineDash([1, 6])
+                            browserCanvasContext.lineWidth = 1
                         }
                     }
 
-                    browserCanvasContext.setLineDash([4, 3])
-                    browserCanvasContext.lineWidth = 0.2
+
                     browserCanvasContext.stroke()
                     browserCanvasContext.setLineDash([0, 0])
 
@@ -1148,6 +1153,7 @@
         }
     }
 }
+
 
 
 

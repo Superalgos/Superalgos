@@ -2,6 +2,7 @@ import axios from 'axios'
 import { ApolloError } from 'apollo-server-express'
 
 import { getUser } from '../../../middleware/getMember'
+import { createStrategy } from './createStrategy'
 
 import { notifications_sendTeamCreateConfirmation, notifications_sendTeamMemberInvite, notifications_VerifyTeamMemberInviteToken } from '../notifications/sendgrid'
 
@@ -110,27 +111,40 @@ export const resolvers = {
             return new DatabaseError(err)
           })
 
-        if(createTeam) notifications_sendTeamCreateConfirmation(email, name, botName)
       }
-
-      await ctx.db.mutation.createFinancialBeings({ data:{
-          type:'BOT',
-          kind:'INDICATOR',
-          name:'Simulator ' + botName,
-          slug:'simulator-' + botSlug,
-          avatar:avatar,
-          team: {
-            connect:{
-              id:createTeam.id
+      let createFB;
+      if(createTeam){
+        createFB = await ctx.db.mutation.createFinancialBeings({ data:{
+            type:'BOT',
+            kind:'INDICATOR',
+            name:'Simulator ' + botName,
+            slug:'simulator-' + botSlug,
+            avatar:avatar,
+            team: {
+              connect:{
+                id:createTeam.id
+              }
             }
           }
+        }, FB_FRAGMENT)
+            .catch((err) => {
+              logger.debug(err, 'Error creating the simulator: ')
+              return new DatabaseError(err)
+            })
+        logger.info('createTeam creating simulator success')
+        logger.info(JSON.stringify(await createFB))
+        let createdStrategy
+        if(await createFB){
+          logger.info('createStrategy:' + 'simulator-' + botSlug)
+          createdStrategy =  await createStrategy('simulator-' + botSlug)
+          logger.info('createStrategy:')
+          logger.info(JSON.stringify(await createStrategy))
         }
-      }, FB_FRAGMENT)
-          .catch((err) => {
-            logger.debug(err, 'Error creating the simulator: ')
-            return new DatabaseError(err)
-          })
-      logger.info('createTeam creating simulator success')
+      }
+
+      if(await createTeam && await createFB && await createStrategy){
+        notifications_sendTeamCreateConfirmation(email, name, botName)
+      }
       return createTeam
     },
     async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {

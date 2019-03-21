@@ -5,6 +5,7 @@ import {
 import { StrategyType } from '../types';
 import { Strategy } from '../../models';
 import { StrategyInputType } from '../types/input';
+import defaultStrategy from '../../templates/strategyTemplate';
 
 export const args = {
   fbSlug: { type: new GraphQLNonNull(GraphQLString) },
@@ -12,6 +13,9 @@ export const args = {
 };
 
 const resolve = (parent, { fbSlug, strategy }) => {
+  if (strategy === undefined) {
+    strategy = defaultStrategy;
+  }
   strategy.fbSlug = fbSlug;
   const newStrategy = new Strategy(strategy);
 

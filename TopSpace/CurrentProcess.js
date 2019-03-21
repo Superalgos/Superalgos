@@ -111,7 +111,7 @@ function newCurrentProcess () {
 
     thisObject.container.frame.draw(false, false)
 
-    let breakpointsHeight = 14
+    let breakpointsHeight = 0
     let fontSize = 12
     let label = window.CURRENT_PROCESS
     if (label === undefined) { label = '' };

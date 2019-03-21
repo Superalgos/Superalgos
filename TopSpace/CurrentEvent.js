@@ -178,7 +178,7 @@ function newCurrentEvent () {
 
     thisObject.container.frame.draw(false, false)
 
-    let breakpointsHeight = 14
+    let breakpointsHeight = 0
     let fontSize = 12
 
     let point = {

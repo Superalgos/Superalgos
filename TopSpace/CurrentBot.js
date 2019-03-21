@@ -119,7 +119,7 @@ function newCurrentBot () {
 
     thisObject.container.frame.draw(false, false)
 
-    let breakpointsHeight = 14
+    let breakpointsHeight = 0
     let fontSize = 12
     let label = window.CURRENT_BOT_DISPLAY_NAME
     if (label === undefined) { label = '' };

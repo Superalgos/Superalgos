@@ -84,6 +84,17 @@ const minersMenus = {
   ]
 }
 
+const cockpitMenus = {
+  title: 'Cockpit',
+  to: '/cockpit',
+  icon: Home,
+  authenticated: true,
+  submenus: [
+    { title: 'Signals', to: '/cockpit/signals', icon: GamepadRounded },
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/CockpitClientModule/issues/new', icon: BugReport, externalLink: true }
+  ]
+}
+
 // const financialBeingsMenus = {
 //   title: 'FBs',
 //   to: '/financial-beings',
@@ -113,7 +124,8 @@ const allMenus = [
   keyvaultMenus,
   operationsMenus,
   minersMenus,
-  strategizerMenus
+  strategizerMenus,
+  cockpitMenus
 ]
 
 export default allMenus

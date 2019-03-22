@@ -280,7 +280,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
             let labelPoint;
             let fontSize = 10;
 
-            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
+            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira';
 
             let label = '' + labelToPrint;
             if (isNaN(label) === false) {

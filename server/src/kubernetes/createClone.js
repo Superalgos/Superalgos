@@ -161,7 +161,7 @@ function buildExecutionParameters(clone){
   let executionParameters = {}
   executionParameters.timePeriod = clone.timePeriod
   executionParameters.dataSet = datasetNames().get(clone.timePeriod)
-  return executionParameters
+  return JSON.stringify(executionParameters)
 }
 
 function datasetNames(){

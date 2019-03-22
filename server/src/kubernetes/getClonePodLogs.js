@@ -20,13 +20,18 @@ const getClonePodLogs = async (cloneName) => {
         'tailLines': '20'
       }
     }
-    const logs = await client.api.v1.namespaces('default')
-      .pods(pod.body.items[0].metadata.name).log.get(queryLogs)
-    let logsArray = logs.body.split('\n')
+    if(pod.body.items[0] !== undefined){
+      const logs = await client.api.v1.namespaces('default')
+        .pods(pod.body.items[0].metadata.name).log.get(queryLogs)
+      let logsArray = logs.body.split('\n')
 
-    logger.debug('getClonePodLogs on kubernates successful.')
+      logger.debug('getClonePodLogs on kubernates successful.')
 
-    return JSON.stringify(logsArray, null, 2)
+      return JSON.stringify(logsArray, null, 2)
+    } else {
+      logger.warn('getClonePodStatus pod not found %s: ', cloneName)
+      return "Logs not available."
+    }
   } catch (err) {
     throw new KubernateError(err)
   }

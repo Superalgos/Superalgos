@@ -6,7 +6,7 @@ import TopBar from '../../BannerTopBar'
 import { withStyles } from '@material-ui/core/styles'
 import classNames from 'classnames'
 import styles from './styles'
-import { tradingStartModes, indicatorStartModes, availableMonths } from '../../../GraphQL/models'
+import { tradingStartModes, indicatorStartModes, availableMonths, processNames, availableTimePeriods } from '../../../GraphQL/models'
 import { isDefined, getIndicatorYears } from '../../../utils'
 import {
    MenuItem, Button, TextField, FormControl, InputLabel, Input, Typography,
@@ -42,6 +42,9 @@ class AddClone extends Component {
       endYear: 2019,
       month: 1,
       processName: '',
+
+      //TraderBot
+      timePeriod: '01-hs',
 
       //Error handlers
       nameError: false,
@@ -215,19 +218,6 @@ class AddClone extends Component {
                              className={classNames(classes.form, classes.textField)}
                              fullWidth
                            />
-
-                           <Typography className={classes.typography} variant='subtitle1' align='justify'>
-                             The Wait Time represent the number of miliseconds the bot will wait between executions.
-                           </Typography>
-
-                           <TextField
-                             id="waitTime"
-                             label="Wait Time"
-                             className={classNames(classes.form, classes.textField)}
-                             value={this.state.waitTime}
-                             onChange={(e)=>this.setState({waitTime:e.target.value})}
-                             fullWidth
-                           />
                          </React.Fragment>
                      }
 
@@ -290,6 +280,27 @@ class AddClone extends Component {
                          </React.Fragment>
                      }
 
+
+
+                    <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                      The Time Period in which the bot will operate.
+                    </Typography>
+
+                    <TextField
+                       select
+                       label="Time Period"
+                       className={classNames(classes.margin, classes.textField, classes.form)}
+                       value={this.state.timePeriod}
+                       onChange={(e)=> this.setState({timePeriod:e.target.value})}
+                       fullWidth
+                       >
+                       {availableTimePeriods.map((option, index) => (
+                          <MenuItem key={index} value={option}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                    </TextField>
+
                    {  false &&
                      <React.Fragment>
                        <Typography className={classes.typography} variant='subtitle1' align='justify'>
@@ -320,6 +331,7 @@ class AddClone extends Component {
                 || this.state.selectedBot.kind === "EXTRACTOR") &&
                   <React.Fragment>
                     <TextField
+                       select
                        label="Process Name"
                        className={classNames(classes.textField, classes.form)}
                        value={this.state.processName}
@@ -327,7 +339,14 @@ class AddClone extends Component {
                        onBlur={(e)=>this.setState({processNameError:false})}
                        error={this.state.processNameError}
                        fullWidth
-                     />
+                       >
+                        {Object.keys(processNames).map(option => (
+                            <MenuItem key={option} value={processNames[option]}>
+                              {processNames[option]}
+                            </MenuItem>
+                          ))}
+                      </TextField>
+
 
                     <TextField
                        select
@@ -394,14 +413,14 @@ class AddClone extends Component {
                               fullWidth
                               >
                               {getIndicatorYears().map((option, index) => (
-                                <MenuItem key={option} value={index}>
+                                <MenuItem key={index} value={option}>
                                   {option}
                                 </MenuItem>
                               ))}
                             </TextField>
 
                             <TextField
-                               id="endYearInput"
+                               id="endMonthInput"
                                select
                                label="Month"
                                className={classNames(classes.textField, classes.form)}
@@ -409,8 +428,8 @@ class AddClone extends Component {
                                onChange={(e)=> this.setState({month:e.target.value})}
                                fullWidth
                                >
-                               {availableMonths.map(option => (
-                                 <MenuItem key={option} value={option}>
+                               {availableMonths.map((option, index) => (
+                                 <MenuItem key={index} value={index+1}>
                                    {option}
                                  </MenuItem>
                                ))}
@@ -506,6 +525,7 @@ class AddClone extends Component {
     if(this.state.selectedBot.kind === "TRADER"){
       variables.clone.runAsTeam = this.state.runAsTeam
       variables.clone.processName = 'Trading-Process'
+      variables.clone.timePeriod = this.state.timePeriod
       if(this.state.mode === "backtest"){
         variables.clone.beginDatetime = this.state.beginDatetime.valueOf() / 1000|0
         variables.clone.endDatetime = this.state.endDatetime.valueOf() / 1000|0

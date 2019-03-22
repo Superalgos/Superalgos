@@ -88,6 +88,11 @@ const createClone = async (clone) => {
         'value': clone.resumeExecution.toString()
       })
 
+      env.push({
+        'name': 'EXECUTION_PARAMETERS',
+        'value': buildExecutionParameters(clone)
+      })
+
       if (clone.mode === BACKTEST) {
         env.push({
           'name': 'BEGIN_DATE_TIME',
@@ -151,4 +156,36 @@ const createClone = async (clone) => {
     throw new KubernateError(err)
   }
 }
+
+function buildExecutionParameters(clone){
+  let executionParameters = {}
+  executionParameters.timePeriod = clone.timePeriod
+  executionParameters.dataSet = datasetNames().get(clone.timePeriod)
+  return executionParameters
+}
+
+function datasetNames(){
+  let dataSetMap = new Map()
+  dataSetMap.set("24-hs","Multi-Period-Market")
+  dataSetMap.set("12-hs","Multi-Period-Market")
+  dataSetMap.set("08-hs","Multi-Period-Market")
+  dataSetMap.set("06-hs","Multi-Period-Market")
+  dataSetMap.set("04-hs","Multi-Period-Market")
+  dataSetMap.set("03-hs","Multi-Period-Market")
+  dataSetMap.set("02-hs","Multi-Period-Market")
+  dataSetMap.set("01-hs","Multi-Period-Market")
+  dataSetMap.set("45-min","Multi-Period-Daily")
+  dataSetMap.set("40-min","Multi-Period-Daily")
+  dataSetMap.set("30-min","Multi-Period-Daily")
+  dataSetMap.set("20-min","Multi-Period-Daily")
+  dataSetMap.set("15-min","Multi-Period-Daily")
+  dataSetMap.set("10-min","Multi-Period-Daily")
+  dataSetMap.set("05-min","Multi-Period-Daily")
+  dataSetMap.set("04-min","Multi-Period-Daily")
+  dataSetMap.set("03-min","Multi-Period-Daily")
+  dataSetMap.set("02-min","Multi-Period-Daily")
+  dataSetMap.set("01-min","Multi-Period-Daily")
+  return dataSetMap
+}
+
 export default createClone

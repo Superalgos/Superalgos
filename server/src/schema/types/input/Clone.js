@@ -24,7 +24,8 @@ const Type = new GraphQLInputObjectType({
     interval: { type: GraphQLInt },
     processName: { type: new GraphQLNonNull(GraphQLString) },
     botType: { type: new GraphQLNonNull(GraphQLString) },
-    keyId: { type: GraphQLString }
+    keyId: { type: GraphQLString },
+    timePeriod: { type: GraphQLString }
   })
 })
 

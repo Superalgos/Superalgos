@@ -20,7 +20,7 @@ const removeClone = async (clone) => {
 
     logger.debug('removeClone %s on kubernates succesful', clone.id)
   } catch (err) {
-    throw new KubernateError(err)
+    logger.warn('removeClone %s on kubernates failed, the job was not found on the server.', clone.id)
   }
 }
 export default removeClone

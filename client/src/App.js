@@ -23,6 +23,7 @@ import Operations from '@superalgos/operations-client'
 import Strategizer from '@superalgos/strategizer-client'
 import Logs from '@superalgos/logs-client'
 // import Miners from '@superalgos/miners-client'
+import Cockpit from '@superalgos/cockpit-client'
 
 export const auth = new Auth(
   result => console.log('Authentication successful.'),
@@ -74,7 +75,7 @@ export const MasterApp = props => (
             />
             <Route
               path='/financial-beings'
-              render={props => <FinancialBeings {...props} auth={auth}/>}
+              render={props => <FinancialBeings {...props} auth={auth} />}
             />
             <Route
               path='/keys'
@@ -92,7 +93,10 @@ export const MasterApp = props => (
               path='/logs'
               render={props => <Logs {...props} auth={auth} />}
             />
-
+            <Route
+              path='/cockpit'
+              render={props => <Cockpit {...props} auth={auth} />}
+            />
           </Switch>
         </Layout>
       </MuiThemeProvider>

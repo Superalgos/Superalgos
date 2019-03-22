@@ -345,8 +345,8 @@
                             switch (global.CURRENT_EXECUTION_AT) {
                                 case "Cloud": {
                                     processConfig.startMode = global.EXECUTION_CONFIG.startMode // Override file storage configuration
-                                    if(global.TIME_PERIOD){
-                                        processConfig.timePeriod = global.TIME_PERIOD
+                                    if(global.EXECUTION_CONFIG.timePeriod){
+                                        processConfig.timePeriod = global.EXECUTION_CONFIG.timePeriod
                                     }
                                     break;
                                 }
@@ -865,6 +865,8 @@
 
                                 logger = DEBUG_MODULE.newDebugLog();
                                 logger.bot = pBotConfig;
+                                pBotConfig.timePeriodFileStorage = global.EXECUTION_CONFIG.timePeriodFileStorage
+                                pBotConfig.dataSet = global.EXECUTION_CONFIG.dataSet
 
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> createBotInstance -> Entering function."); }
 

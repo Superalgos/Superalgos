@@ -123,7 +123,9 @@ function readExecutionConfiguration() {
         global.EXECUTION_CONFIG = {
             executionList: executionList,
             startMode: startMode,
-            timePeriod: getTimePeriod()
+            timePeriod: getTimePeriod(process.env.TIME_PERIOD),
+            timePeriodFileStorage: process.env.TIME_PERIOD,
+            dataSet: process.env.DATA_SET
         };
 
         readStoragePermissions();
@@ -136,8 +138,8 @@ function readExecutionConfiguration() {
     }
 }
 
-function getTimePeriod(){
-    if(process.env.TIME_PERIOD !== undefined){
+function getTimePeriod(timePeriod){
+    if(timePeriod !== undefined){
         try {
             let timePeriodMap = new Map()
             timePeriodMap.set("24-hs", 86400000)
@@ -159,7 +161,7 @@ function getTimePeriod(){
             timePeriodMap.set("03-min", 180000)
             timePeriodMap.set("02-min", 120000)
             timePeriodMap.set("01-min", 60000)
-            return timePeriodMap.get(process.env.TIME_PERIOD)
+            return timePeriodMap.get(timePeriod)
         } catch (error) {
             console.log( "[WARN] Run -> readExecutionConfiguration -> getTimePeriod -> Error: ", error);
         }

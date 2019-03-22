@@ -11,7 +11,7 @@ module.exports = (api) => {
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
     'dynamic-import-node',
-    '@babel/plugin-transform-runtime'
+    ['@babel/plugin-transform-runtime', { useESModules: true }]
   ]
 
   return {

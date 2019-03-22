@@ -20,6 +20,7 @@ import Events from '@superalgos/events-client'
 import KeyVault from '@superalgos/key-vault-client'
 import FinancialBeings from '@advancedalgos/financial-beings-client'
 import Operations from '@superalgos/operations-client'
+import Strategizer from '@superalgos/strategizer-client'
 import Logs from '@superalgos/logs-client'
 // import Miners from '@superalgos/miners-client'
 
@@ -82,6 +83,10 @@ export const MasterApp = props => (
             <Route
               path='/clones'
               render={props => <Operations {...props} auth={auth} />}
+            />
+            <Route
+              path='/strategizer'
+              render={props => <Strategizer {...props} auth={auth} />}
             />
             <Route
               path='/logs'

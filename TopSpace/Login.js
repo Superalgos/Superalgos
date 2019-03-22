@@ -54,7 +54,7 @@ function newLogin () {
       connectToDevTools: true
     })
 
-    const QUERY = Apollo.gql`
+    const USERS_QUERY = Apollo.gql`
             query($authId: String){
                 users_UserByAuthId (authId: $authId){
                     id
@@ -81,7 +81,7 @@ function newLogin () {
     const getUser = () => {
       return new Promise((resolve, reject) => {
         apolloClient.query({
-          query: QUERY,
+          query: USERS_QUERY,
           variables: {
             authId: authId
           }
@@ -98,6 +98,8 @@ function newLogin () {
                     })
       })
     }
+
+    /* Getting all Teams */
 
     const networkInterfaceTeams = Apollo.lib.createNetworkInterface({
       uri: window.canvasApp.graphQL.masterAppApiUrl
@@ -167,7 +169,7 @@ function newLogin () {
       })
     }
 
-        // Gettings events
+      /* Gettings All Events */
 
     const networkInterfaceEvents = Apollo.lib.createNetworkInterface({
       uri: window.canvasApp.graphQL.masterAppApiUrl
@@ -179,7 +181,7 @@ function newLogin () {
       addTypename: false
     })
 
-    const EVENTS = Apollo.gql`
+    const EVENTS_QUERY = Apollo.gql`
         query events($maxStartDate: Int, $minEndDate: Int){
             events_Events(maxStartDate: $maxStartDate, minEndDate: $minEndDate){
                 id
@@ -207,7 +209,7 @@ function newLogin () {
       var twoWeeksAgoSeconds = nowSeconds - 1209600
       return new Promise((resolve, reject) => {
         apolloClientEvents.query({
-          query: EVENTS,
+          query: EVENTS_QUERY,
           variables: { maxStartDate: nowSeconds, minEndDate: twoWeeksAgoSeconds }
         })
             .then(response => {
@@ -230,10 +232,83 @@ function newLogin () {
       })
     }
 
+    /* Getting all Clones */
+
+    const networkInterfaceClones = Apollo.lib.createNetworkInterface({
+      uri: window.canvasApp.graphQL.masterAppApiUrl
+    })
+
+    networkInterfaceClones.use([{
+      applyMiddleware (req, next) {
+        req.options.headers = {
+          authorization: `Bearer ${accessToken}`
+        }
+        next()
+      }
+    }])
+
+    const apolloClientClones = new Apollo.lib.ApolloClient({
+      networkInterface: networkInterfaceClones,
+      connectToDevTools: true
+    })
+
+    const CLONES_QUERY = Apollo.gql`
+    query Operations_Clones{
+            operations_Clones {
+                  id
+                  authId
+                  teamId
+                  botId
+                  mode
+                  resumeExecution
+                  beginDatetime
+                  endDatetime
+                  waitTime
+                  state
+                  stateDatetime
+                  createDatetime
+                  lastLogs
+                  runAsTeam
+                  summaryDate
+                  buyAverage
+                  sellAverage
+                  marketRate
+                  combinedProfitsA
+                  combinedProfitsB
+                  assetA
+                  assetB
+                  botType
+                  teamName
+                  botName
+                  botAvatar
+                  teamAvatar
+                  processName
+                  keyId
+                  botSlug
+                  }
+                }
+        `
+
+    const getClones = () => {
+      return new Promise((resolve, reject) => {
+        apolloClientClones.query({
+          query: CLONES_QUERY
+        })
+            .then(response => {
+              window.localStorage.setItem('userClones', JSON.stringify(response.data.operations_Clones))
+              resolve({ teams: response.data.operations_Clones})
+            })
+            .catch(error => {
+              console.log('apolloClient error getting user clones', error)
+              reject(error)
+            })
+      })
+    }
+
         // To avoid race conditions, add asynchronous fetches to array
     let fetchDataPromises = []
 
-    fetchDataPromises.push(getUser(), getTeamByOwner(), getCurrentEvents())
+    fetchDataPromises.push(getUser(), getTeamByOwner(), getCurrentEvents(), getClones())
 
         // When all asynchronous fetches resolve, authenticate user or throw error.
     Promise.all(fetchDataPromises).then(result => {

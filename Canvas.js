@@ -230,6 +230,8 @@ function newCanvas () {
       if (INFO_LOG === true) { logger.write('[INFO] initializeBrowserCanvas -> Entering function.') }
 
       browserCanvasContext = browserCanvas.getContext('2d')
+      // browserCanvasContext.font = 'italic small-caps bold 12px Saira'
+      browserCanvasContext.font = 'Saira'
 
       viewPort.initialize()
     } catch (err) {
@@ -679,4 +681,3 @@ function newCanvas () {
     }
   }
 }
-

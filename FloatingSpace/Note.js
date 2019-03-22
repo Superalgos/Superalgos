@@ -214,7 +214,7 @@ function newNote () {
 
         if (label !== undefined) {
           if (SIZE_PERCENTAGE > 0.9) {
-            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY
+            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
 
             let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
             let yOffset = (TITLE_BAR_HEIGHT - fontSize) / 2 + 2
@@ -292,7 +292,7 @@ function newNote () {
                 y: startingPosition.y + (i + 1) * (fontSize * FONT_ASPECT_RATIO + 10)
               }
 
-              browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY
+              browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
               browserCanvasContext.fillStyle = 'rgba(60, 60, 60, ' + ALPHA + ')'
               browserCanvasContext.fillText(labelRow, labelPoint.x, labelPoint.y)
             }

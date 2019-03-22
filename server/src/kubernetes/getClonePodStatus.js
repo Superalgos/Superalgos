@@ -30,7 +30,8 @@ const getClonePodStatus = async (cloneName) => {
       return " Clone not found on the server. "
     }
   } catch (err) {
-    throw new KubernateError(err)
+    logger.error('There was an error getting the pod status %s: ', err)
+    return "Status not available."
   }
 }
 export default getClonePodStatus

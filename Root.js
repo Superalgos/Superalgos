@@ -212,7 +212,7 @@
 
             /*
               The local configuration allows to select the configuration to run
-              locally, without overwriting the server config. 
+              locally, without overwriting the server config.
               Here we check that the local configuration for the execution
               exist, if it doesn't exist we will take the one on the server.
             */
@@ -341,10 +341,13 @@
                             if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> listItem.process = " + listItem.process); }
 
                             let processConfig = botConfig.processes[i];
-                            
+
                             switch (global.CURRENT_EXECUTION_AT) {
                                 case "Cloud": {
                                     processConfig.startMode = global.EXECUTION_CONFIG.startMode // Override file storage configuration
+                                    if(global.EXECUTION_CONFIG.timePeriod){
+                                        processConfig.timePeriod = global.EXECUTION_CONFIG.timePeriod
+                                    }
                                     break;
                                 }
                                 case "Browser": {
@@ -361,7 +364,7 @@
                                 }
                             }
                             try {
-                                
+
                                 /* We test each type of start Mode to get what to run and how. */
 
                                 if (processConfig.startMode.allMonths !== undefined) {
@@ -500,7 +503,7 @@
                                 if (processConfig.startMode.live !== undefined) {
 
                                     if (processConfig.startMode.live.run === "true") {
-                                        
+
                                         botConfig.startMode = "Live";
                                         console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
 
@@ -762,9 +765,9 @@
 
                                 }
 
-                                /* 
+                                /*
                                 Now we have all the possible genes values in a multi-dimensional matrix.
-                                We will go thorugh each of the elements of each dimension and get each combination possible with the other dimmensions. 
+                                We will go thorugh each of the elements of each dimension and get each combination possible with the other dimmensions.
                                 */
 
                                 let combinations = [];
@@ -827,7 +830,7 @@
                                     setTimeout(execute, i * Math.random() * 10 * 1000);
 
                                     function execute() {
-                                        
+
                                         createBotInstance(genes, combinations.length, botConfig);
 
                                     }
@@ -842,7 +845,7 @@
                                 if (global.CURRENT_EXECUTION_AT === "Cloud") {
                                     clonName += "-" + process.env.CLONE_ID;
                                 }
-                                
+
                                 clonName += ".1.0";
 
                                 botConfig.filePathRoot = botConfig.devTeam + "/" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
@@ -899,7 +902,7 @@
                                                 logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
                                                 console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
                                                 logger.persist();
-                                            }                                            
+                                            }
                                         }
 
                                     } else {
@@ -922,7 +925,7 @@
                     console.log(logDisplace + "Root : [ERROR] start -> findProcess -> err.message = " + err.message);
                     return;
                 }
-            } 
+            }
         }
     }
 }

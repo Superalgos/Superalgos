@@ -345,8 +345,8 @@
                             switch (global.CURRENT_EXECUTION_AT) {
                                 case "Cloud": {
                                     processConfig.startMode = global.EXECUTION_CONFIG.startMode // Override file storage configuration
-                                    if(global.EXECUTION_CONFIG.timePeriod){
-                                        processConfig.timePeriod = Number(global.EXECUTION_CONFIG.timePeriod)
+                                    if(global.TIME_PERIOD){
+                                        processConfig.timePeriod = global.TIME_PERIOD
                                     }
                                     break;
                                 }

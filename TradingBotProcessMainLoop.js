@@ -14,7 +14,7 @@
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
 
-    let nextLoopTimeoutHandle; 
+    let nextLoopTimeoutHandle;
     let checkLoopHealthHandle;
 
     let thisObject = {
@@ -25,7 +25,7 @@
     bot["botCache"] = new Map();
     let processConfig;
     let cloudStorage;
-    let UI_COMMANDS; 
+    let UI_COMMANDS;
 
     return thisObject;
 
@@ -58,7 +58,7 @@
                             } else {
                                 filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
                             }
-                            
+
                             break;
                         }
                         case "Browser": {
@@ -145,7 +145,7 @@
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] run -> Entering function."); }
 
-            bot.enableCheckLoopHealth = true; 
+            bot.enableCheckLoopHealth = true;
 
             let fixedTimeLoopIntervalHandle;
 
@@ -248,7 +248,7 @@
 
                                 } else {
 
-                                    bot.processDatetime = new Date(bot.backtest.beginDatetime); // Set the starting time as the configured beginDatetime.  
+                                    bot.processDatetime = new Date(bot.backtest.beginDatetime); // Set the starting time as the configured beginDatetime.
 
                                 }
 
@@ -263,7 +263,7 @@
 
                             } else {
 
-                                bot.processDatetime = new Date(bot.processDatetime.valueOf() + timePeriod); // We advance time here. 
+                                bot.processDatetime = new Date(bot.processDatetime.valueOf() + timePeriod); // We advance time here.
 
 
                                 if (UI_COMMANDS.eventHandler !== undefined) {
@@ -276,11 +276,11 @@
 
                                 if (UI_COMMANDS.endDatetime !== undefined) {
 
-                                    endDatetime = new Date(UI_COMMANDS.endDatetime.valueOf()); 
+                                    endDatetime = new Date(UI_COMMANDS.endDatetime.valueOf());
 
                                 } else {
 
-                                    endDatetime = new Date(bot.backtest.endDatetime); 
+                                    endDatetime = new Date(bot.backtest.endDatetime);
 
                                 }
 
@@ -381,7 +381,7 @@
                         + " " + bot.startMode + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8) + " bot.processDatetime = " + bot.processDatetime.toISOString());
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
-                                        
+
                     let exchangeAPI;
                     let assistant;
                     let userBot;
@@ -537,7 +537,7 @@
                             callBackFunction(err);
                         }
                     }
-                    
+
                     function initializeContext() {
 
                         try {
@@ -864,7 +864,7 @@
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;                                            
+                                            bot.enableCheckLoopHealth = false;
                                             callBackFunction(err);
                                             return;
                                         }
@@ -1007,7 +1007,7 @@
 
                             nextWaitTime = 'Normal';
                             loopControl(nextWaitTime);
-                            
+
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> updateClonesModule -> err = " + err.message);
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> updateClonesModule -> Execution will continue anyways. ");
@@ -1167,7 +1167,7 @@
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                            /* 
+                                            /*
                                             If for any reason this config file cannot be read, we are not going to abort the loop for that. Instead we are going to assume
                                             that there are no instructions to stop and we will keep the show running.
                                             */
@@ -1217,7 +1217,7 @@
                     }
 
                 } catch (err) {
-                    parentLogger.write(MODULE_NAME, "[ERROR] run -> loop -> err = " + err.message);
+                    parentLogger.write(MODULE_NAME, "[ERROR] run -> loop -> err = " + err.stack);
                     clearInterval(fixedTimeLoopIntervalHandle);
                     clearTimeout(nextLoopTimeoutHandle);
                     clearTimeout(checkLoopHealthHandle);

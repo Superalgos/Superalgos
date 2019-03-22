@@ -789,8 +789,8 @@
 
                 }
                 if (imageStopLossPhase.isLoaded === true && stopLossPhase > 0) {
-                    browserCanvasContext.drawImage(imageStopLossPhase, recordPoint5.x - imageSize, recordPoint5.y - imageSize, imageSize, imageSize);
-                    printLabel(stopLossPhase, recordPoint5.x, recordPoint5.y - 2, '0.50');
+                    browserCanvasContext.drawImage(imageStopLossPhase, recordPoint5.x - imageSize, recordPoint5.y - imageSize * 1.25, imageSize, imageSize);
+                    printLabel(stopLossPhase, recordPoint5.x - imageSize / 2, recordPoint5.y - imageSize * 1.5, '0.50');
                 }
 
                 /* Next we are drawing the Buy Order */
@@ -820,8 +820,8 @@
                     browserCanvasContext.stroke()
                 }
                 if (imageBuyOrderPhase.isLoaded === true && buyOrderPhase > 0) {
-                    browserCanvasContext.drawImage(imageBuyOrderPhase, recordPoint9.x - imageSize, recordPoint9.y + imageSize / 4, imageSize, imageSize);
-                    printLabel(buyOrderPhase, recordPoint9.x - imageSize / 2, recordPoint9.y + imageSize * 1.75, '0.50');
+                    browserCanvasContext.drawImage(imageBuyOrderPhase, recordPoint9.x - imageSize * 2 / 3, recordPoint9.y + imageSize / 4, imageSize, imageSize);
+                    printLabel(buyOrderPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9, '0.50');
                 }
 
                 /* Continue with the pins --> Next stuff is to avoid text overlapping. */
@@ -917,22 +917,17 @@
 
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.25)';
 
-                    browserCanvasContext.setLineDash([4, 3])
-                    browserCanvasContext.lineWidth = 0.2
-
                     if (datetime !== undefined) {
                         let dateValue = datetime.valueOf();
                         if (dateValue >= record.begin && dateValue <= record.end) {
 
                             /* highlight the current record */
                             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
-
-                            browserCanvasContext.setLineDash([1, 6])
-                            browserCanvasContext.lineWidth = 1
                         }
                     }
 
-
+                    browserCanvasContext.setLineDash([4, 3])
+                    browserCanvasContext.lineWidth = 0.2
                     browserCanvasContext.stroke()
                     browserCanvasContext.setLineDash([0, 0])
 
@@ -1086,7 +1081,7 @@
                     let labelPoint;
                     let fontSize = 12;
 
-                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
+                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira';
 
                     let label = '' + labelToPrint;
 

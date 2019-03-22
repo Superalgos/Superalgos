@@ -33,7 +33,8 @@ const getClonePodLogs = async (cloneName) => {
       return "Logs not available."
     }
   } catch (err) {
-    throw new KubernateError(err)
+    logger.error('There was an error getting the pod logs %s: ', err)
+    return "Logs not available."
   }
 }
 export default getClonePodLogs

@@ -89,8 +89,13 @@ const createClone = async (clone) => {
       })
 
       env.push({
-        'name': 'EXECUTION_PARAMETERS',
-        'value': buildExecutionParameters(clone)
+        'name': 'TIME_PERIOD',
+        'value': clone.timePeriod
+      })
+
+      env.push({
+        'name': 'DATA_SET',
+        'value': datasetNames().get(clone.timePeriod)
       })
 
       if (clone.mode === BACKTEST) {
@@ -147,6 +152,7 @@ const createClone = async (clone) => {
     }
 
     deploymentManifest.spec.template.spec.containers[0].env = env
+    logger.debug('createClone env: %s', JSON.stringify(env))
 
     await client.apis.batch.v1.namespaces('default').jobs.post(
       { body: deploymentManifest })
@@ -155,13 +161,6 @@ const createClone = async (clone) => {
   } catch (err) {
     throw new KubernateError(err)
   }
-}
-
-function buildExecutionParameters(clone){
-  let executionParameters = {}
-  executionParameters.timePeriod = clone.timePeriod
-  executionParameters.dataSet = datasetNames().get(clone.timePeriod)
-  return JSON.stringify(executionParameters)
 }
 
 function datasetNames(){

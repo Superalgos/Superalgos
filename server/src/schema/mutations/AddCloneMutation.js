@@ -21,7 +21,7 @@ const args = {
   clone: { type: CloneInputType }
 }
 
-const resolve = async(parent, { clone }, context) => {
+const resolve = async (parent, { clone }, context) => {
   logger.debug('addClone -> Entering Fuction.')
 
   if (!context.userId) {
@@ -36,7 +36,7 @@ const resolve = async(parent, { clone }, context) => {
     throw new WrongArgumentsError('The bot type selected is not valid.')
   }
 
-  if ( (clone.mode === LIVE || clone.mode === COMPETITION) && !isDefined(clone.keyId)) {
+  if ((clone.mode === LIVE || clone.mode === COMPETITION) && !isDefined(clone.keyId)) {
     throw new WrongArgumentsError('The key was not provided to run the clone.')
   }
 
@@ -62,7 +62,7 @@ const resolve = async(parent, { clone }, context) => {
       } else {
         throw new AutorizationError()
       }
-    }else{
+    } else {
       await createKubernetesClone(clone)
     }
 

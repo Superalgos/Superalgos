@@ -137,30 +137,29 @@ function readExecutionConfiguration() {
 }
 
 function getTimePeriod(){
-    if(process.env.EXECUTION_PARAMETERS !== undefined){
+    if(process.env.TIME_PERIOD !== undefined){
         try {
-            let executionParameters = JSON.parse(process.env.EXECUTION_PARAMETERS)
             let timePeriodMap = new Map()
-            timePeriodMap.set("24-hs","86400000")
-            timePeriodMap.set("12-hs","43200000")
-            timePeriodMap.set("08-hs","28800000")
-            timePeriodMap.set("06-hs","21600000")
-            timePeriodMap.set("04-hs","14400000")
-            timePeriodMap.set("03-hs","10800000")
-            timePeriodMap.set("02-hs","7200000")
-            timePeriodMap.set("01-hs","3600000")
-            timePeriodMap.set("45-min","2700000")
-            timePeriodMap.set("40-min","2400000")
-            timePeriodMap.set("30-min","1800000")
-            timePeriodMap.set("20-min","1200000")
-            timePeriodMap.set("15-min","900000")
-            timePeriodMap.set("10-min","600000")
-            timePeriodMap.set("05-min","300000")
-            timePeriodMap.set("04-min","240000")
-            timePeriodMap.set("03-min","180000")
-            timePeriodMap.set("02-min","120000")
-            timePeriodMap.set("01-min","60000")
-            return timePeriodMap.get(executionParameters.timePeriod)
+            timePeriodMap.set("24-hs", 86400000)
+            timePeriodMap.set("12-hs", 43200000)
+            timePeriodMap.set("08-hs", 28800000)
+            timePeriodMap.set("06-hs", 21600000)
+            timePeriodMap.set("04-hs", 14400000)
+            timePeriodMap.set("03-hs", 10800000)
+            timePeriodMap.set("02-hs", 7200000)
+            timePeriodMap.set("01-hs", 3600000)
+            timePeriodMap.set("45-min", 2700000)
+            timePeriodMap.set("40-min", 2400000)
+            timePeriodMap.set("30-min", 1800000)
+            timePeriodMap.set("20-min", 1200000)
+            timePeriodMap.set("15-min", 900000)
+            timePeriodMap.set("10-min", 600000)
+            timePeriodMap.set("05-min", 300000)
+            timePeriodMap.set("04-min", 240000)
+            timePeriodMap.set("03-min", 180000)
+            timePeriodMap.set("02-min", 120000)
+            timePeriodMap.set("01-min", 60000)
+            return timePeriodMap.get(process.env.TIME_PERIOD)
         } catch (error) {
             console.log( "[WARN] Run -> readExecutionConfiguration -> getTimePeriod -> Error: ", error);
         }

@@ -19,10 +19,10 @@ enum FBType {
 }
 
 enum FBKind {
-  TRADER
-  INDICATOR
-  EXTRACTOR
-  PLOTTER
+  Trader
+  Indicator
+  Sensor
+  Plotter
 }
 
 type Team {

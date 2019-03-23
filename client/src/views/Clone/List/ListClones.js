@@ -44,7 +44,7 @@ class ListClones extends Component {
           </div>
           <div className={classes.heading}>
             <Typography className={classes.heading}>
-              { clone.processName } / { clone.botType === 'TRADER' ? tradingStartModesList[clone.mode] : indicatorStartModes[clone.mode] }
+              { clone.processName } / { clone.botType === 'Trading' ? tradingStartModesList[clone.mode] : indicatorStartModes[clone.mode] }
             </Typography>
           </div>
         </ExpansionPanelSummary>
@@ -90,7 +90,7 @@ class ListClones extends Component {
                   <div className={classes.details}>
                     <div className={classes.column4}>
                       <Typography className={classes.cloneInfoBold}>Last Execution:</Typography>
-                      { (clone.botType === 'TRADER' && isDefined(clone.assetA) ) &&
+                      { (clone.botType === 'Trading' && isDefined(clone.assetA) ) &&
                         <React.Fragment>
                           <Typography className={classes.cloneInfoBold}>Buy Average:</Typography>
                           <Typography className={classes.cloneInfoBold}>Sell Average:</Typography>
@@ -102,7 +102,7 @@ class ListClones extends Component {
                     </div>
                     <div className={classes.column4}>
                       <Typography className={classes.cloneInfoNormal}>{ toLocalTime(clone.summaryDate) }</Typography>
-                      { (clone.botType === 'TRADER' && isDefined(clone.assetA) ) &&
+                      { (clone.botType === 'Trading' && isDefined(clone.assetA) ) &&
                         <React.Fragment>
                           <Typography className={classes.cloneInfoNormal}>{clone.buyAverage}</Typography>
                           <Typography className={classes.cloneInfoNormal}>{clone.sellAverage}</Typography>

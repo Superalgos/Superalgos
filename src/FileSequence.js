@@ -50,7 +50,7 @@ function newFileSequence () {
     }
   }
 
-  function initialize (pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction, pOperationsId) {
+  function initialize (pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDevTeam.codeName + '-' + pBot.codeName + '-' + pProduct.codeName) }
@@ -61,12 +61,7 @@ function newFileSequence () {
         throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDevTeam.codeName = ' + pDevTeam.codeName + ', pBot.codeName = ' + pBot.codeName + ', pProduct.codeName = ' + pProduct.codeName + ', pExchange = ' + pExchange
       }
 
-
-      if (pOperationsId !== undefined) {
-        intervalHandle = setInterval(function () { updateFiles(pOperationsId) }, _1_MINUTE_IN_MILISECONDS)
-      } else {
-        intervalHandle = setInterval(updateFiles, _1_MINUTE_IN_MILISECONDS)
-      }
+      intervalHandle = setInterval(updateFiles(), _1_MINUTE_IN_MILISECONDS)
 
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> intervalHandle = ' + intervalHandle) }
 
@@ -81,11 +76,7 @@ function newFileSequence () {
 
             /* First we will get the sequence max number */
 
-      if (pOperationsId !== undefined) {
-        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived, pOperationsId)
-      } else {
-        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
-      }
+      fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, file) {
         try {
@@ -134,11 +125,7 @@ function newFileSequence () {
                     /* Now we will get the sequence of files */
 
           for (let i = 0; i <= maxSequence; i++) {
-            if (pOperationsId !== undefined) {
-              fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived, pOperationsId)
-            } else {
-              fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
-            }
+            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {
@@ -191,7 +178,7 @@ function newFileSequence () {
     }
   }
 
-  function updateFiles (pOperationsId) {
+  function updateFiles () {
     try {
       let updateFiles = 0
 
@@ -216,11 +203,7 @@ function newFileSequence () {
       if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> bot = ' + bot.codeName) }
       if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> thisSet = ' + thisSet.codeName) }
 
-      if (pOperationsId !== undefined) {
-        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived, pOperationsId)
-      } else {
-        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
-      }
+      fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, file) {
         try {
@@ -265,11 +248,7 @@ function newFileSequence () {
           for (let i = currentMaxSequence; i <= maxSequence; i++) {
             if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> i = ' + i) }
 
-            if (pOperationsId !== undefined) {
-              fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived, pOperationsId)
-            } else {
-              fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
-            }
+            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {

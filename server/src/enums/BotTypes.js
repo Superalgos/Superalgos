@@ -1,9 +1,9 @@
-export const Trader = 'Trading'
+export const Trading = 'Trading'
 export const Indicator = 'Indicator'
 export const Sensor = 'Extraction'
 
 export const BotTypesEnum = [
-  Trader,
+  Trading,
   Indicator,
   Sensor
 ]

@@ -43,7 +43,7 @@ class AddClone extends Component {
       month: 1,
       processName: '',
 
-      //TraderBot
+      //TradingBot
       timePeriod: '01-hs',
 
       //Error handlers
@@ -155,7 +155,7 @@ class AddClone extends Component {
                 <FormHelperText>{this.state.selectedBot.kind}</FormHelperText>
               </FormControl>
 
-              { this.state.selectedBot.kind === "Trader" &&
+              { this.state.selectedBot.kind === "Trading" &&
                   <React.Fragment>
                     <Typography className={classes.typography} variant='subtitle1' align='justify'>
                       Available Running Modes are Backtest and Live.
@@ -522,7 +522,7 @@ class AddClone extends Component {
       }
     }
 
-    if(this.state.selectedBot.kind === "Trader"){
+    if(this.state.selectedBot.kind === "Trading"){
       variables.clone.runAsTeam = this.state.runAsTeam
       variables.clone.processName = 'Trading-Process'
       variables.clone.timePeriod = this.state.timePeriod
@@ -547,7 +547,7 @@ class AddClone extends Component {
   }
 
   getBotTypeFromKind(kind){
-    if(kind === 'Trader')
+    if(kind === 'Trading')
       return 'Trading'
     else if(kind === 'Indicator')
       return 'Indicator'
@@ -607,7 +607,7 @@ class AddClone extends Component {
       this.setState(state => ({ modeError: true }));
     }
 
-    if(this.state.selectedBot.kind !== "Trader"
+    if(this.state.selectedBot.kind !== "Trading"
         && this.state.processName.length < 1 ) {
       isError = true
       this.setState(state => ({ processNameError: true }));

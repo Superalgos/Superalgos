@@ -53,6 +53,11 @@ enum FBKind {
   INDICATOR
   EXTRACTOR
   PLOTTER
+  Trader
+  Trading
+  Indicator
+  Sensor
+  Plotter
 }
 
 type FBStatus implements Node {

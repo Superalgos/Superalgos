@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
+import {withRouter} from "react-router-dom";
 import { clones } from '../../../GraphQL/Calls'
 import {
   Typography, Button, TextField, Dialog, DialogContent,
@@ -10,7 +11,7 @@ import {
 } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { tradingStartModes, indicatorStartModes } from '../../../GraphQL/models'
+import { tradingStartModesList, indicatorStartModes } from '../../../GraphQL/models'
 import { isDefined, toLocalTime } from '../../../utils'
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
@@ -43,7 +44,7 @@ class ListClones extends Component {
           </div>
           <div className={classes.heading}>
             <Typography className={classes.heading}>
-              { clone.processName } / { clone.botType === 'TRADER' ? tradingStartModes[clone.mode] : indicatorStartModes[clone.mode] }
+              { clone.processName } / { clone.botType === 'Trading' ? tradingStartModesList[clone.mode] : indicatorStartModes[clone.mode] }
             </Typography>
           </div>
         </ExpansionPanelSummary>
@@ -89,7 +90,7 @@ class ListClones extends Component {
                   <div className={classes.details}>
                     <div className={classes.column4}>
                       <Typography className={classes.cloneInfoBold}>Last Execution:</Typography>
-                      { (clone.botType === 'TRADER' && isDefined(clone.assetA) ) &&
+                      { (clone.botType === 'Trading' && isDefined(clone.assetA) ) &&
                         <React.Fragment>
                           <Typography className={classes.cloneInfoBold}>Buy Average:</Typography>
                           <Typography className={classes.cloneInfoBold}>Sell Average:</Typography>
@@ -101,7 +102,7 @@ class ListClones extends Component {
                     </div>
                     <div className={classes.column4}>
                       <Typography className={classes.cloneInfoNormal}>{ toLocalTime(clone.summaryDate) }</Typography>
-                      { (clone.botType === 'TRADER' && isDefined(clone.assetA) ) &&
+                      { (clone.botType === 'Trading' && isDefined(clone.assetA) ) &&
                         <React.Fragment>
                           <Typography className={classes.cloneInfoNormal}>{clone.buyAverage}</Typography>
                           <Typography className={classes.cloneInfoNormal}>{clone.sellAverage}</Typography>
@@ -144,6 +145,12 @@ class ListClones extends Component {
                 className={classes.buttonList}
                 variant='contained' color='secondary' size='small'
                 onClick={() => this.setState({ isLogsDialogOpen: true })}>
+                View Process Output
+              </Button>
+              <Button
+                className={classes.buttonList}
+                variant='contained' color='secondary' size='small'
+                onClick={() => this.showCloneLogs(clone)}>
                 View Logs
               </Button>
               <Button
@@ -226,6 +233,10 @@ class ListClones extends Component {
     )
   }
 
+  showCloneLogs(clone) {
+    this.props.history.push("/logs/show/"+clone.botSlug+"-"+clone.id+".1.0");
+  }
+
   canStopClone(){
     const state = JSON.parse(this.props.currentClone.state)
     if(isDefined(state) && state.hasOwnProperty("running")){
@@ -277,5 +288,6 @@ class ListClones extends Component {
 
 export default compose(
   graphql(clones.OPERATIONS_REMOVE_CLONE),
-  withStyles(styles)
+  withStyles(styles),
+  withRouter
 )(ListClones)

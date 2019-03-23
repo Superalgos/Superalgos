@@ -5,7 +5,7 @@ import { Client, config } from 'kubernetes-client'
 const getClonePodStatus = async (cloneName) => {
   try {
     logger.debug('getClonePodStatus on kubernates started. ')
-    const client = new Client({config: config.fromKubeconfig(), version: '1.9'})
+    const client = new Client({ config: config.fromKubeconfig(), version: '1.9' })
 
     let query = {
       'qs': {
@@ -15,16 +15,23 @@ const getClonePodStatus = async (cloneName) => {
 
     const pod = await client.api.v1.namespaces('default').pods.get(query)
 
-    let clonePodStatus = pod.body.items[0].status.containerStatuses[0].state
+    if (pod.body.items[0] !== undefined) {
+      let clonePodStatus = pod.body.items[0].status.containerStatuses[0].state
 
-    if (clonePodStatus.hasOwnProperty('terminated')
-      && clonePodStatus.terminated.hasOwnProperty('containerID')) {
-      delete clonePodStatus.terminated.containerID
+      if (clonePodStatus.hasOwnProperty('terminated')
+        && clonePodStatus.terminated.hasOwnProperty('containerID')) {
+        delete clonePodStatus.terminated.containerID
+      }
+      logger.debug('getClonePodStatus %s on kubernates successful', cloneName)
+
+      return JSON.stringify(clonePodStatus, null, 2)
+    } else {
+      logger.warn('getClonePodStatus pod not found %s: ', cloneName)
+      return " Clone not found on the server. "
     }
-    logger.debug('getClonePodStatus %s on kubernates successful', cloneName)
-    return JSON.stringify(clonePodStatus, null, 2)
   } catch (err) {
-    throw new KubernateError(err)
+    logger.error('There was an error getting the pod status %s: ', err)
+    return "Status not available."
   }
 }
 export default getClonePodStatus

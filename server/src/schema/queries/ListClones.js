@@ -30,6 +30,7 @@ const resolve = async(parent, args, context) => {
       let lastLogs = await getCloneLogs(clones[i].id)
       clones[i].lastLogs = lastLogs.substring(1, lastLogs.length - 1)
       clones[i].botType = clones[i].kind // Only for listing we show the teams value
+      clones[i].botSlug = clones[i].botSlug
     }
     return clones
   } catch (err) {

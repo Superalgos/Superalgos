@@ -6,7 +6,7 @@ import TopBar from '../../BannerTopBar'
 import { withStyles } from '@material-ui/core/styles'
 import classNames from 'classnames'
 import styles from './styles'
-import { tradingStartModes, indicatorStartModes, availableMonths } from '../../../GraphQL/models'
+import { tradingStartModes, indicatorStartModes, availableMonths, processNames, availableTimePeriods } from '../../../GraphQL/models'
 import { isDefined, getIndicatorYears } from '../../../utils'
 import {
    MenuItem, Button, TextField, FormControl, InputLabel, Input, Typography,
@@ -32,7 +32,7 @@ class AddClone extends Component {
       state: '',
       stateDatetime: 0,
       createDatetime: 0,
-      runAsTeam: true,
+      runAsTeam: false,
       teams: [],
       teamId: '',
       keyId: '',
@@ -42,6 +42,9 @@ class AddClone extends Component {
       endYear: 2019,
       month: 1,
       processName: '',
+
+      //TradingBot
+      timePeriod: '01-hs',
 
       //Error handlers
       nameError: false,
@@ -152,7 +155,7 @@ class AddClone extends Component {
                 <FormHelperText>{this.state.selectedBot.kind}</FormHelperText>
               </FormControl>
 
-              { this.state.selectedBot.kind === "TRADER" &&
+              { this.state.selectedBot.kind === "Trading" &&
                   <React.Fragment>
                     <Typography className={classes.typography} variant='subtitle1' align='justify'>
                       Available Running Modes are Backtest and Live.
@@ -213,19 +216,6 @@ class AddClone extends Component {
                              label='Backtest End Date'
                              onChange={newVal => this.setState({ endDatetime: newVal })}
                              className={classNames(classes.form, classes.textField)}
-                             fullWidth
-                           />
-
-                           <Typography className={classes.typography} variant='subtitle1' align='justify'>
-                             The Wait Time represent the number of miliseconds the bot will wait between executions.
-                           </Typography>
-
-                           <TextField
-                             id="waitTime"
-                             label="Wait Time"
-                             className={classNames(classes.form, classes.textField)}
-                             value={this.state.waitTime}
-                             onChange={(e)=>this.setState({waitTime:e.target.value})}
                              fullWidth
                            />
                          </React.Fragment>
@@ -290,31 +280,58 @@ class AddClone extends Component {
                          </React.Fragment>
                      }
 
-                   <Typography className={classes.typography} variant='subtitle1' align='justify'>
-                     If Run as Team is selected, the clone will be taken from the
-                     team respository instead of your own team member folder.
-                     Competitions runs from the team respository.
-                   </Typography>
-                   <FormControlLabel
-                     control={
-                       <Checkbox
-                         checked={this.state.runAsTeam}
-                         onChange={(e)=>this.setState({runAsTeam:e.target.checked })}
-                         value="runAsTeam"
-                         color="primary"
+
+
+                    <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                      The Time Period in which the bot will operate.
+                    </Typography>
+
+                    <TextField
+                       select
+                       label="Time Period"
+                       className={classNames(classes.margin, classes.textField, classes.form)}
+                       value={this.state.timePeriod}
+                       onChange={(e)=> this.setState({timePeriod:e.target.value})}
+                       fullWidth
+                       >
+                       {availableTimePeriods.map((option, index) => (
+                          <MenuItem key={index} value={option}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                    </TextField>
+
+                   {  false &&
+                     <React.Fragment>
+                       <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                         If Run as Team is selected, the clone will be taken from the
+                         team respository instead of your own team member folder.
+                         Competitions runs from the team respository.
+                       </Typography>
+
+                       <FormControlLabel
+                         control={
+                           <Checkbox
+                             checked={this.state.runAsTeam}
+                             onChange={(e)=>this.setState({runAsTeam:e.target.checked })}
+                             value="runAsTeam"
+                             color="primary"
+                           />
+                         }
+                         label="Run as Team"
+                         className={classNames(classes.form, classes.textField)}
                        />
-                     }
-                     label="Run as Team"
-                     className={classNames(classes.form, classes.textField)}
-                   />
+                     </React.Fragment>
+                   }
 
                   </React.Fragment>
                }
 
-              { (this.state.selectedBot.kind === "INDICATOR"
-                || this.state.selectedBot.kind === "EXTRACTOR") &&
+              { (this.state.selectedBot.kind === "Indicator"
+                || this.state.selectedBot.kind === "Sensor") &&
                   <React.Fragment>
                     <TextField
+                       select
                        label="Process Name"
                        className={classNames(classes.textField, classes.form)}
                        value={this.state.processName}
@@ -322,7 +339,14 @@ class AddClone extends Component {
                        onBlur={(e)=>this.setState({processNameError:false})}
                        error={this.state.processNameError}
                        fullWidth
-                     />
+                       >
+                        {Object.keys(processNames).map(option => (
+                            <MenuItem key={option} value={processNames[option]}>
+                              {processNames[option]}
+                            </MenuItem>
+                          ))}
+                      </TextField>
+
 
                     <TextField
                        select
@@ -389,14 +413,14 @@ class AddClone extends Component {
                               fullWidth
                               >
                               {getIndicatorYears().map((option, index) => (
-                                <MenuItem key={option} value={index}>
+                                <MenuItem key={index} value={option}>
                                   {option}
                                 </MenuItem>
                               ))}
                             </TextField>
 
                             <TextField
-                               id="endYearInput"
+                               id="endMonthInput"
                                select
                                label="Month"
                                className={classNames(classes.textField, classes.form)}
@@ -404,8 +428,8 @@ class AddClone extends Component {
                                onChange={(e)=> this.setState({month:e.target.value})}
                                fullWidth
                                >
-                               {availableMonths.map(option => (
-                                 <MenuItem key={option} value={option}>
+                               {availableMonths.map((option, index) => (
+                                 <MenuItem key={index} value={index+1}>
                                    {option}
                                  </MenuItem>
                                ))}
@@ -498,9 +522,10 @@ class AddClone extends Component {
       }
     }
 
-    if(this.state.selectedBot.kind === "TRADER"){
+    if(this.state.selectedBot.kind === "Trading"){
       variables.clone.runAsTeam = this.state.runAsTeam
       variables.clone.processName = 'Trading-Process'
+      variables.clone.timePeriod = this.state.timePeriod
       if(this.state.mode === "backtest"){
         variables.clone.beginDatetime = this.state.beginDatetime.valueOf() / 1000|0
         variables.clone.endDatetime = this.state.endDatetime.valueOf() / 1000|0
@@ -522,11 +547,11 @@ class AddClone extends Component {
   }
 
   getBotTypeFromKind(kind){
-    if(kind === 'TRADER')
+    if(kind === 'Trading')
       return 'Trading'
-    else if(kind === 'INDICATOR')
+    else if(kind === 'Indicator')
       return 'Indicator'
-    else if(kind === 'EXTRACTOR')
+    else if(kind === 'Sensor')
       return 'Extraction'
   }
 
@@ -550,7 +575,7 @@ class AddClone extends Component {
         state : '',
         stateDatetime: 0,
         createDatetime: 0,
-        runAsTeam: true,
+        runAsTeam: false,
         processName: '',
         teams: [],
         teamId: '',
@@ -582,7 +607,7 @@ class AddClone extends Component {
       this.setState(state => ({ modeError: true }));
     }
 
-    if(this.state.selectedBot.kind !== "TRADER"
+    if(this.state.selectedBot.kind !== "Trading"
         && this.state.processName.length < 1 ) {
       isError = true
       this.setState(state => ({ processNameError: true }));

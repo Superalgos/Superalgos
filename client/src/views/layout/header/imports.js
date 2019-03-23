@@ -123,7 +123,7 @@ const allMenus = [
   // financialBeingsMenus,
   keyvaultMenus,
   operationsMenus,
-  minersMenus,
+  // minersMenus,
   strategizerMenus,
   cockpitMenus
 ]

@@ -19,7 +19,12 @@ enum FBType {
 }
 
 enum FBKind {
+  TRADER
+  INDICATOR
+  EXTRACTOR
+  PLOTTER
   Trader
+  Trading
   Indicator
   Sensor
   Plotter

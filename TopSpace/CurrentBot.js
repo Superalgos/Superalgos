@@ -28,6 +28,8 @@ function newCurrentBot () {
   function initialize (pSharedStatus) {
     sharedStatus = pSharedStatus
 
+    if (window.USER_PROFILE === undefined) { return }
+
     if (window.USER_PROFILE.devTeams.length === 0) {
       window.CURRENT_BOT_DISPLAY_NAME = NOT_FOUND
     } else {

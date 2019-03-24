@@ -26,7 +26,7 @@ function newLogin () {
 
   return thisObject
 
-  function initialize (pSharedStatus, callBackFunction) {
+  async function initialize (pSharedStatus) {
     const accessToken = window.localStorage.getItem('access_token')
     let user = window.localStorage.getItem('user')
 
@@ -296,7 +296,21 @@ function newLogin () {
         })
             .then(response => {
               window.localStorage.setItem('userClones', JSON.stringify(response.data.operations_Clones))
-              resolve({ teams: response.data.operations_Clones})
+              let clones = response.data.operations_Clones
+              for (let i = 0; i < clones.length; i++) {
+                let clone = clones[i]
+                if (clone.botType === 'Trading') {
+                  let teamSlug = clone.teamName.toLowerCase()
+                  teamSlug = teamSlug.replace(' ', '-')
+                  let devTeam = ecosystem.getTeam(teamSlug)
+                  let bot = ecosystem.getBot(devTeam, clone.botSlug)
+                  if (bot !== undefined) {
+                    bot.cloneId = clone.id
+                  }
+                }
+              }
+
+              resolve({ clones: response.data.operations_Clones})
             })
             .catch(error => {
               console.log('apolloClient error getting user clones', error)
@@ -308,42 +322,42 @@ function newLogin () {
         // To avoid race conditions, add asynchronous fetches to array
     let fetchDataPromises = []
 
-    fetchDataPromises.push(getUser(), getTeamByOwner(), getCurrentEvents(), getClones())
+    fetchDataPromises.push(getUser(), getTeamByOwner(), getCurrentEvents(), getClones(), authenticateUser())
 
         // When all asynchronous fetches resolve, authenticate user or throw error.
-    Promise.all(fetchDataPromises).then(result => {
-            /* this is the time to authenticate the user at AAWeb */
+    await Promise.all(fetchDataPromises).then(result => {
 
-      authenticateUser()
     }, err => {
-      console.error('fetchData error', err)
+      console.error('[ERROR] Login -> GraphQL Fetch Error -> err = ', err)
     })
 
     thisObject.container.eventHandler.listenToEvent('onMouseClick', onClick)
 
-    function authenticateUser () {
+    async function authenticateUser () {
       if (sessionToken === undefined) { sessionToken = '' }
 
       let path = window.canvasApp.urlPrefix + 'AABrowserAPI/authenticateUser/' + sessionToken
 
-      callServer(undefined, path, onServerReponded)
+      return new Promise(
+                function (resolve, reject) {
+                  callServer(undefined, path, (result) => {
+                    let responseFromServer = JSON.parse(result)
 
-      function onServerReponded (pResponseFromServer) {
-        let responseFromServer = JSON.parse(pResponseFromServer)
+                    err = responseFromServer.err
 
-        err = responseFromServer.err
+                    if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                      console.log('Please make sure you create a new team!')
+                      reject(err)
+                    }
 
-        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-          console.log('Please make sure you create a new team!')
-          return
-        }
+                    window.USER_PROFILE = responseFromServer.userProfile
+                    window.localStorage.setItem('sessionToken', sessionToken)
 
-        window.USER_PROFILE = responseFromServer.userProfile
-        window.localStorage.setItem('sessionToken', sessionToken)
-
-        currentLabel = 'Logged In'
-        callBackFunction()
-      }
+                    currentLabel = 'Logged In'
+                    resolve()
+                  })
+                }
+              )
     }
   }
 

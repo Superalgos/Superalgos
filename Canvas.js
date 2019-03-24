@@ -107,7 +107,7 @@ function newCanvas () {
     }
   }
 
-  function initialize (callBackFunction) {
+  async function initialize (callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
@@ -118,7 +118,7 @@ function newCanvas () {
            /* Instantiate all the children spaces of Canvas object */
 
       thisObject.topSpace = newTopSpace()
-      thisObject.topSpace.initialize()
+      await thisObject.topSpace.initialize()
 
       thisObject.bottomSpace = newBottomSpace()
       thisObject.bottomSpace.initialize()

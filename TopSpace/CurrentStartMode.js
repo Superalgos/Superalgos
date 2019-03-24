@@ -91,7 +91,7 @@ function newCurrentStartMode () {
 
     thisObject.container.frame.draw(false, false)
 
-    let breakpointsHeight = 14
+    let breakpointsHeight = 0
     let fontSize = 12
     let label = window.CURRENT_START_MODE + ' Mode'
     if (label === 'undefined Mode') { label = '' };

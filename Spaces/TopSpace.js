@@ -25,7 +25,7 @@ function newTopSpace () {
 
   return thisObject
 
-  function initialize () {
+  async function initialize () {
     let sharedStatus = {
       currentDevTeamIndex: 0,
       currentEventIndex: 0,
@@ -36,8 +36,9 @@ function newTopSpace () {
     }
 
     thisObject.login = newLogin()
-    thisObject.login.initialize(sharedStatus, onLoginInitialized)
+    await thisObject.login.initialize(sharedStatus)
 
+/*
     thisObject.companyLogo = newCompanyLogo()
     thisObject.endUser = newEndUser()
     thisObject.currentBot = newCurrentBot()
@@ -45,18 +46,17 @@ function newTopSpace () {
     thisObject.currentStartMode = newCurrentStartMode()
     thisObject.currentEvent = newCurrentEvent()
     thisObject.devTeam = newDevTeam()
-
+*/
     window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
-
-    function onLoginInitialized () {
-      thisObject.companyLogo.initialize()
-      thisObject.endUser.initialize()
-      thisObject.currentBot.initialize(sharedStatus)
-      thisObject.currentProcess.initialize(sharedStatus)
-      thisObject.currentStartMode.initialize(sharedStatus)
-      thisObject.currentEvent.initialize(sharedStatus)
-      thisObject.devTeam.initialize(sharedStatus)
-    }
+/*
+    thisObject.companyLogo.initialize()
+    thisObject.endUser.initialize()
+    thisObject.currentBot.initialize(sharedStatus)
+    thisObject.currentProcess.initialize(sharedStatus)
+    thisObject.currentStartMode.initialize(sharedStatus)
+    thisObject.currentEvent.initialize(sharedStatus)
+    thisObject.devTeam.initialize(sharedStatus)
+*/
   }
 
   function resize () {
@@ -69,6 +69,7 @@ function newTopSpace () {
 
   function getContainer (point) {
     let container
+    return
 
     container = thisObject.companyLogo.getContainer(point)
     if (container !== undefined) { return container }
@@ -103,6 +104,8 @@ function newTopSpace () {
     thisObject.container.frame.draw(false, false)
 
     drawBackground()
+    return
+
     thisObject.companyLogo.draw()
     thisObject.endUser.draw()
     thisObject.devTeam.draw()

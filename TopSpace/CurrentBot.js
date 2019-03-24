@@ -28,6 +28,8 @@ function newCurrentBot () {
   function initialize (pSharedStatus) {
     sharedStatus = pSharedStatus
 
+    if (window.USER_PROFILE === undefined) { return }
+
     if (window.USER_PROFILE.devTeams.length === 0) {
       window.CURRENT_BOT_DISPLAY_NAME = NOT_FOUND
     } else {
@@ -119,7 +121,7 @@ function newCurrentBot () {
 
     thisObject.container.frame.draw(false, false)
 
-    let breakpointsHeight = 14
+    let breakpointsHeight = 0
     let fontSize = 12
     let label = window.CURRENT_BOT_DISPLAY_NAME
     if (label === undefined) { label = '' };

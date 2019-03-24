@@ -26,7 +26,7 @@ function newLogin () {
 
   return thisObject
 
-  function initialize (pSharedStatus, callBackFunction) {
+  async function initialize (pSharedStatus) {
     const accessToken = window.localStorage.getItem('access_token')
     let user = window.localStorage.getItem('user')
 
@@ -54,7 +54,7 @@ function newLogin () {
       connectToDevTools: true
     })
 
-    const QUERY = Apollo.gql`
+    const USERS_QUERY = Apollo.gql`
             query($authId: String){
                 users_UserByAuthId (authId: $authId){
                     id
@@ -81,7 +81,7 @@ function newLogin () {
     const getUser = () => {
       return new Promise((resolve, reject) => {
         apolloClient.query({
-          query: QUERY,
+          query: USERS_QUERY,
           variables: {
             authId: authId
           }
@@ -98,6 +98,8 @@ function newLogin () {
                     })
       })
     }
+
+    /* Getting all Teams */
 
     const networkInterfaceTeams = Apollo.lib.createNetworkInterface({
       uri: window.canvasApp.graphQL.masterAppApiUrl
@@ -167,7 +169,7 @@ function newLogin () {
       })
     }
 
-        // Gettings events
+      /* Gettings All Events */
 
     const networkInterfaceEvents = Apollo.lib.createNetworkInterface({
       uri: window.canvasApp.graphQL.masterAppApiUrl
@@ -179,7 +181,7 @@ function newLogin () {
       addTypename: false
     })
 
-    const EVENTS = Apollo.gql`
+    const EVENTS_QUERY = Apollo.gql`
         query events($maxStartDate: Int, $minEndDate: Int){
             events_Events(maxStartDate: $maxStartDate, minEndDate: $minEndDate){
                 id
@@ -207,7 +209,7 @@ function newLogin () {
       var twoWeeksAgoSeconds = nowSeconds - 1209600
       return new Promise((resolve, reject) => {
         apolloClientEvents.query({
-          query: EVENTS,
+          query: EVENTS_QUERY,
           variables: { maxStartDate: nowSeconds, minEndDate: twoWeeksAgoSeconds }
         })
             .then(response => {
@@ -230,45 +232,132 @@ function newLogin () {
       })
     }
 
+    /* Getting all Clones */
+
+    const networkInterfaceClones = Apollo.lib.createNetworkInterface({
+      uri: window.canvasApp.graphQL.masterAppApiUrl
+    })
+
+    networkInterfaceClones.use([{
+      applyMiddleware (req, next) {
+        req.options.headers = {
+          authorization: `Bearer ${accessToken}`
+        }
+        next()
+      }
+    }])
+
+    const apolloClientClones = new Apollo.lib.ApolloClient({
+      networkInterface: networkInterfaceClones,
+      connectToDevTools: true
+    })
+
+    const CLONES_QUERY = Apollo.gql`
+    query Operations_Clones{
+            operations_Clones {
+                  id
+                  authId
+                  teamId
+                  botId
+                  mode
+                  resumeExecution
+                  beginDatetime
+                  endDatetime
+                  waitTime
+                  state
+                  stateDatetime
+                  createDatetime
+                  lastLogs
+                  runAsTeam
+                  summaryDate
+                  buyAverage
+                  sellAverage
+                  marketRate
+                  combinedProfitsA
+                  combinedProfitsB
+                  assetA
+                  assetB
+                  botType
+                  teamName
+                  botName
+                  botAvatar
+                  teamAvatar
+                  processName
+                  keyId
+                  botSlug
+                  }
+                }
+        `
+
+    const getClones = () => {
+      return new Promise((resolve, reject) => {
+        apolloClientClones.query({
+          query: CLONES_QUERY
+        })
+            .then(response => {
+              window.localStorage.setItem('userClones', JSON.stringify(response.data.operations_Clones))
+              let clones = response.data.operations_Clones
+              for (let i = 0; i < clones.length; i++) {
+                let clone = clones[i]
+                if (clone.botType === 'Trading') {
+                  let teamSlug = clone.teamName.toLowerCase()
+                  teamSlug = teamSlug.replace(' ', '-')
+                  let devTeam = ecosystem.getTeam(teamSlug)
+                  let bot = ecosystem.getBot(devTeam, clone.botSlug)
+                  if (bot !== undefined) {
+                    bot.cloneId = clone.id
+                  }
+                }
+              }
+
+              resolve({ clones: response.data.operations_Clones})
+            })
+            .catch(error => {
+              console.log('apolloClient error getting user clones', error)
+              reject(error)
+            })
+      })
+    }
+
         // To avoid race conditions, add asynchronous fetches to array
     let fetchDataPromises = []
 
-    fetchDataPromises.push(getUser(), getTeamByOwner(), getCurrentEvents())
+    fetchDataPromises.push(getUser(), getTeamByOwner(), getCurrentEvents(), getClones(), authenticateUser())
 
         // When all asynchronous fetches resolve, authenticate user or throw error.
-    Promise.all(fetchDataPromises).then(result => {
-            /* this is the time to authenticate the user at AAWeb */
+    await Promise.all(fetchDataPromises).then(result => {
 
-      authenticateUser()
     }, err => {
-      console.error('fetchData error', err)
+      console.error('[ERROR] Login -> GraphQL Fetch Error -> err = ', err)
     })
 
     thisObject.container.eventHandler.listenToEvent('onMouseClick', onClick)
 
-    function authenticateUser () {
+    async function authenticateUser () {
       if (sessionToken === undefined) { sessionToken = '' }
 
       let path = window.canvasApp.urlPrefix + 'AABrowserAPI/authenticateUser/' + sessionToken
 
-      callServer(undefined, path, onServerReponded)
+      return new Promise(
+                function (resolve, reject) {
+                  callServer(undefined, path, (result) => {
+                    let responseFromServer = JSON.parse(result)
 
-      function onServerReponded (pResponseFromServer) {
-        let responseFromServer = JSON.parse(pResponseFromServer)
+                    err = responseFromServer.err
 
-        err = responseFromServer.err
+                    if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                      console.log('Please make sure you create a new team!')
+                      reject(err)
+                    }
 
-        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-          console.log('Please make sure you create a new team!')
-          return
-        }
+                    window.USER_PROFILE = responseFromServer.userProfile
+                    window.localStorage.setItem('sessionToken', sessionToken)
 
-        window.USER_PROFILE = responseFromServer.userProfile
-        window.localStorage.setItem('sessionToken', sessionToken)
-
-        currentLabel = 'Logged In'
-        callBackFunction()
-      }
+                    currentLabel = 'Logged In'
+                    resolve()
+                  })
+                }
+              )
     }
   }
 

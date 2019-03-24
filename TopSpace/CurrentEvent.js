@@ -52,7 +52,7 @@ function newCurrentEvent () {
         hackedEcosystem[0].competitions[0].participants.push({
           devTeam: participant.clone.team.slug,
           bot: participant.clone.bot.slug,
-          pOperationsId: participant.clone.id,
+          cloneId: participant.clone.id,
           release: '1.0.0'
         })
       })
@@ -178,7 +178,7 @@ function newCurrentEvent () {
 
     thisObject.container.frame.draw(false, false)
 
-    let breakpointsHeight = 14
+    let breakpointsHeight = 0
     let fontSize = 12
 
     let point = {

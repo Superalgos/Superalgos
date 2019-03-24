@@ -263,7 +263,7 @@ function newDeleteTradingHistory () {
 
       if (canDrawIcon === false) { return }
 
-      let breakpointsHeight = 14
+      let breakpointsHeight = 0
 
       let imageHeight = 15
       let imageWidth = 15

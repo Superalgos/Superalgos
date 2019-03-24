@@ -84,7 +84,7 @@ function newPanelTabButton () {
 
     if (tabStatus === 'going down') {
       if (transitionPosition.y < hiddenPosition.y) {
-        transitionPosition.y = transitionPosition.y + 25
+        transitionPosition.y = transitionPosition.y + 50
         thisObject.parentContainer.frame.position.y = transitionPosition.y
       } else {
         thisObject.parentContainer.frame.position.y = hiddenPosition.y
@@ -93,7 +93,7 @@ function newPanelTabButton () {
     }
     if (tabStatus === 'going up') {
       if (transitionPosition.y > visiblePosition.y) {
-        transitionPosition.y = transitionPosition.y - 25
+        transitionPosition.y = transitionPosition.y - 50
         thisObject.parentContainer.frame.position.y = transitionPosition.y
       } else {
         thisObject.parentContainer.frame.position.y = visiblePosition.y

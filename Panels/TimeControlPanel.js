@@ -37,13 +37,6 @@ function newTimeControlPanel () {
     panelTabButton.container.frame.parentFrame = thisObject.container.frame
     panelTabButton.initialize()
 
-    /* The code from here down might be out of date. */
-
-    let buttonPosition
-
-    let buttonNames = ['Fast Backwards', 'Play Backwards', 'Step Backwards', 'Pause', 'Step Forward', 'Play Forward', 'Fast Forward']
-    let lastX = 0
-
     let datetime = INITIAL_DATE
 
     let datetimeDisplay = {
@@ -127,7 +120,7 @@ function newTimeControlPanel () {
 
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
@@ -144,7 +137,7 @@ function newTimeControlPanel () {
 
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
@@ -163,7 +156,7 @@ function newTimeControlPanel () {
 
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }

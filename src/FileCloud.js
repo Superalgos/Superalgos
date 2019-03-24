@@ -33,19 +33,15 @@ function newFileCloud () {
     }
   }
 
-  function getFile (pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction, pOperationsId) {
+  function getFile (pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] getFile -> Entering function.') }
 
       const MAX_RETRIES = 3
 
-      if (pOperationsId !== undefined) {
-        getFileRecursively(0, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction, pOperationsId)
-      } else {
-        getFileRecursively(0, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
-      }
+      getFileRecursively(0, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
 
-      function getFileRecursively (pRetryCounter, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction, pOperationsId) {
+      function getFileRecursively (pRetryCounter, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> Entering function.') }
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> key = ' + pDevTeam.codeName + '-' + pBot.codeName + '-' + pSet.filePath + '-' + pSet.fileName) }
@@ -96,8 +92,8 @@ function newFileCloud () {
           }
 
           if (pBot !== undefined) {
-            if (pOperationsId !== undefined) {
-              filePath = filePath.replace('@Bot', pBot.codeName + '-' + pOperationsId)
+            if (pBot.cloneId !== undefined) {
+              filePath = filePath.replace('@Bot', pBot.codeName + '-' + pBot.cloneId)
             } else {
               filePath = filePath.replace('@Bot', pBot.codeName)
             }
@@ -185,14 +181,17 @@ function newFileCloud () {
                   callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, data)
                   return
                 } catch (err) {
-                  if (INFO_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> err = ' + err) }
+                  if (ERROR_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> err = ' + err) }
+                  if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> containerName = ' + containerName) }
+                  if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> filePath = ' + filePath) }
+                  if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> fileName = ' + fileName) }
 
                   let customErr = {
                     result: GLOBAL.CUSTOM_OK_RESPONSE.result,
                     message: 'Data not in JSON Format.'
                   }
 
-                  if (INFO_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> customErr.message = ' + customErr.message) }
+                  if (ERROR_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> customErr.message = ' + customErr.message) }
 
                   callBackFunction(customErr, text)
                   return

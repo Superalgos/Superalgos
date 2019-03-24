@@ -1,4 +1,4 @@
-import { GraphQLList } from 'graphql'
+import { GraphQLList, GraphQLString } from 'graphql'
 import { AuthentificationError, OperationsError } from '../../errors'
 import { CloneType } from '../types'
 import { Clone } from '../../models'
@@ -8,9 +8,11 @@ import getCloneLogs from '../../kubernetes/getClonePodLogs'
 import cloneDetails from '../cloneDetails'
 import teamQuery from '../../graphQLCalls/teamQuery'
 
-const args = {}
+const args = {
+  botType: { type: GraphQLString }
+}
 
-const resolve = async(parent, args, context) => {
+const resolve = async (parent, { botType }, context) => {
   logger.debug('List Clones -> Entering Fuction.')
   try {
     if (!context.userId) {
@@ -32,7 +34,12 @@ const resolve = async(parent, args, context) => {
       clones[i].botType = clones[i].kind // Only for listing we show the teams value
       clones[i].botSlug = clones[i].botSlug
     }
-    return clones
+    if (botType) {
+      var filtered = clones.filter((value) => value.botType === botType)
+      return filtered
+    } else {
+      return clones
+    }
   } catch (err) {
     logger.error('List Clones error: %s', err.stack)
     throw new OperationsError('There has been an error listing the clones.')

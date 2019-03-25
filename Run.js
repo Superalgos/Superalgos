@@ -112,16 +112,16 @@ function readExecutionConfiguration() {
 
         startMode[process.env.START_MODE].run = "true"
 
-        let executionList = [{
+        let cloneToExecute = {
             enabled: "true",
             devTeam: process.env.DEV_TEAM,
             bot: process.env.BOT,
             process: process.env.PROCESS,
             repo: global.CURRENT_BOT_REPO
-        }]
+        }
 
         global.EXECUTION_CONFIG = {
-            executionList: executionList,
+            cloneToExecute: cloneToExecute,
             startMode: startMode,
             timePeriod: getTimePeriod(process.env.TIME_PERIOD),
             timePeriodFileStorage: process.env.TIME_PERIOD,

@@ -133,9 +133,6 @@ class Header extends Component {
                   <Link to='/charts'> Charts </Link>
                 </li>
                 {menus}
-                <li className='primaryLink'>
-                  <a href='https://www.superalgos.org/documentation-quick-start.shtml'> Docs </a>
-                </li>
                 {this.state.user !== undefined && this.state.user !== null ? (
                   <LoggedIn
                     user={user}
@@ -147,10 +144,14 @@ class Header extends Component {
                     closeAll={() => this.closeAll()}
                   />
                 ) : (
-
-                  <li className='primaryLink'>
-                    <a href='#' onClick={() => auth.login()}> Login / Sign Up </a>
-                  </li>
+                  <React.Fragment>
+                    <li className='primaryLink'>
+                      <a href='https://www.superalgos.org/documentation-quick-start.shtml'> Docs </a>
+                    </li>
+                    <li className='primaryLink'>
+                      <a href='#' onClick={() => auth.login()}> Login / Sign Up </a>
+                    </li>
+                  </React.Fragment>
                 )}
               </ul>
             </nav>

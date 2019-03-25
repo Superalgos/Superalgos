@@ -93,7 +93,8 @@ function readExecutionConfiguration() {
             }
             let noTime = {
                 run: "false",
-                beginDatetime: process.env.BEGIN_DATE_TIME
+                beginDatetime: process.env.BEGIN_DATE_TIME,
+                resumeExecution: process.env.RESUME_EXECUTION
             }
             let fixedInterval = {
                 run: "false",

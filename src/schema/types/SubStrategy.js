@@ -1,6 +1,7 @@
 import {
   GraphQLObjectType,
   GraphQLString,
+  GraphQLBoolean,
 } from 'graphql';
 import {
   EntryPointType,
@@ -16,6 +17,7 @@ const Type = new GraphQLObjectType({
   name: 'SubStrategy',
   description: 'SubStrategy composing a strategy',
   fields: () => ({
+    actif: { type: GraphQLBoolean },
     name: { type: GraphQLString },
     entryPoint: {
       type: EntryPointType,

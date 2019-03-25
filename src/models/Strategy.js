@@ -9,6 +9,11 @@ const strategySchema = new Schema(
       dropDups: true,
     },
     subStrategies: [{
+      actif: {
+        type: Boolean,
+        required: true,
+        default: true,
+      },
       name: {
         type: String,
         default: '',

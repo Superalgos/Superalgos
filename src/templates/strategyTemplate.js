@@ -2,6 +2,7 @@
 const strategy = {
   subStrategies: [
     {
+      actif: true,
       name: 'Trend Following',
       entryPoint: {
         situations: [
@@ -180,6 +181,7 @@ const strategy = {
       },
     },
     {
+      actif: true,
       name: 'Range Trading',
       entryPoint: {
         situations: [
@@ -253,6 +255,7 @@ const strategy = {
       },
     },
     {
+      actif: true,
       name: 'LRC Strategy',
       entryPoint: {
         situations: [

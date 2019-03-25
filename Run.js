@@ -1,7 +1,7 @@
 ﻿require('dotenv').config()
 
 global.CURRENT_ENVIRONMENT = "Develop";
-global.CURRENT_EXECUTION_AT = "Cloud";
+global.CURRENT_EXECUTION_AT = "Node";
 global.SHALL_BOT_STOP = false;
 global.AT_BREAKPOINT = false; // This is used only when running at the browser.
 global.RUN_AS_TEAM = false;

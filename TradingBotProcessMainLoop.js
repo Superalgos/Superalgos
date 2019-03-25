@@ -52,7 +52,7 @@
                     let filePath;
 
                     switch (global.CURRENT_EXECUTION_AT) { // This is what determines if the bot is loaded from the devTeam or an endUser copy.
-                        case "Cloud": {
+                        case "Node": {
                             if (global.RUN_AS_TEAM) {
                                 filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
                             } else {
@@ -94,7 +94,7 @@
                         USER_BOT_MODULE = pMODULE;
 
                         switch (global.CURRENT_EXECUTION_AT) {
-                            case "Cloud": {
+                            case "Node": {
                                 filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
                                 break;
                             }
@@ -284,7 +284,7 @@
 
                                 }
 
-                                if (global.CURRENT_EXECUTION_AT === "Cloud") {
+                                if (global.CURRENT_EXECUTION_AT === "Node") {
 
                                     if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
 
@@ -323,7 +323,7 @@
 
                             }
 
-                            if (global.CURRENT_EXECUTION_AT === "Cloud") {
+                            if (global.CURRENT_EXECUTION_AT === "Node") {
 
                                 let beginDatetime = new Date(bot.competition.beginDatetime);
 
@@ -987,7 +987,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> updateClonesModule ->  Entering function."); }
 
-                            if (global.CURRENT_EXECUTION_AT === "Cloud") {
+                            if (global.CURRENT_EXECUTION_AT === "Node") {
 
                                 // Update clones module with latest context informations
 
@@ -1079,7 +1079,7 @@
 
                     function checkLoopHealth(pLastLoop) {
 
-                        if (global.CURRENT_EXECUTION_AT !== "Cloud") {
+                        if (global.CURRENT_EXECUTION_AT !== "Node") {
                             return;
                         }
 
@@ -1134,7 +1134,7 @@
                                     let filePath;
 
                                     switch (global.CURRENT_EXECUTION_AT) { // This is what determines if the bot is loaded from the devTeam or an endUser copy.
-                                        case "Cloud": {
+                                        case "Node": {
                                             filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
                                             break;
                                         }

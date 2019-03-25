@@ -163,7 +163,7 @@
                 return;
             }
 
-            if (global.CURRENT_EXECUTION_AT === "Cloud") {
+            if (global.CURRENT_EXECUTION_AT === "Node") {
 
                 /* Only ERRORs go to the cloud console. */
 

@@ -38,7 +38,7 @@
             let accessToken
             let keyId
             let cloneId
-            if (global.CURRENT_EXECUTION_AT === "Cloud") {
+            if (global.CURRENT_EXECUTION_AT === "Node") {
                 keyId = process.env.KEY_ID
                 cloneId = process.env.CLONE_ID
 

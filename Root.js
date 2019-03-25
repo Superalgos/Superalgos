@@ -140,7 +140,7 @@
                     let filePath;
 
                     switch (global.CURRENT_EXECUTION_AT) {
-                        case "Cloud": {
+                        case "Node": {
                             filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
                             break;
                         }
@@ -253,7 +253,7 @@
                             let filePath;
 
                             switch (global.CURRENT_EXECUTION_AT) {
-                                case "Cloud": {
+                                case "Node": {
                                     filePath = global.DEV_TEAM + "/" + "bots" + "/" + listItem.repo; // DevTeams bots only are run at the cloud.
 
                                     console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> Getting Bot Config from the devTeams's Bot. ");
@@ -343,7 +343,7 @@
                             let processConfig = botConfig.processes[i];
 
                             switch (global.CURRENT_EXECUTION_AT) {
-                                case "Cloud": {
+                                case "Node": {
                                     processConfig.startMode = global.EXECUTION_CONFIG.startMode // Override file storage configuration
                                     if(global.EXECUTION_CONFIG.timePeriod){
                                         processConfig.timePeriod = global.EXECUTION_CONFIG.timePeriod
@@ -819,7 +819,7 @@
                                     let clonName = botConfig.codeName + "-" + "Clon" + clonKey;
                                     clonName += ".1.0";
 
-                                    if (global.CURRENT_EXECUTION_AT === "Cloud") {
+                                    if (global.CURRENT_EXECUTION_AT === "Node") {
                                         clonName += "-" + process.env.CLONE_ID;
                                     }
 
@@ -843,7 +843,7 @@
                                 let genes = {};
                                 let clonName = botConfig.codeName;
 
-                                if (global.CURRENT_EXECUTION_AT === "Cloud") {
+                                if (global.CURRENT_EXECUTION_AT === "Node") {
                                     clonName += "-" + process.env.CLONE_ID;
                                 }
 

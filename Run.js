@@ -16,13 +16,13 @@ global.MARKET = {
 process.on('uncaughtException', function (err) {
     console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);
     console.log('[INFO] Run -> uncaughtException -> err.stack = ', err.stack);
-    return;
+    throw new Error()
 });
 
 process.on('unhandledRejection', (reason, p) => {
     console.log('[INFO] Run -> unhandledRejection -> reason = ' + reason);
     console.log('[INFO] Run -> unhandledRejection -> p = ' + JSON.stringify(p));
-    return;
+    throw new Error()
 });
 
 process.on('exit', function (code) {
@@ -92,7 +92,8 @@ function readExecutionConfiguration() {
                 month: process.env.MONTH
             }
             let noTime = {
-                run: "false"
+                run: "false",
+                beginDatetime: process.env.BEGIN_DATE_TIME
             }
             let fixedInterval = {
                 run: "false",

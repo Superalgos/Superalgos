@@ -287,6 +287,11 @@
                         if(global.EXECUTION_CONFIG.timePeriod){
                             processConfig.timePeriod = global.EXECUTION_CONFIG.timePeriod
                         }
+
+                        if (processConfig.framework.name === "Multi-Period-Daily") {
+                            processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
+                            processConfig.framework.startDate.resumeExecution = processConfig.startMode.noTime.resumeExecution;
+                        }
    
                         try {
 

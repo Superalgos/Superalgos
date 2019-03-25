@@ -85,7 +85,7 @@
     "@fortawesome/react-fontawesome": "^0.1.3",
     "@material-ui/core": "^3.6.2",
     "@material-ui/icons": "^3.0.1",
-    "@superalgos/cockpit-client": "0.0.1",
+    "@superalgos/cockpit-client": "0.0.3",
     "apollo-cache-inmemory": "^1.3.5",
     "apollo-client": "^2.5.1",
     "apollo-link": "^1.2.3",

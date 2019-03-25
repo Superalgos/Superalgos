@@ -74,7 +74,7 @@
 
     let cloudStorage;
 
-    let logDisplace = "AACloud" + "                                              ";
+    let logDisplace = "CloneExecutor" + "                                              ";
     let UI_COMMANDS;
 
     return thisObject;
@@ -137,21 +137,7 @@
 
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                    let filePath;
-
-                    switch (global.CURRENT_EXECUTION_AT) {
-                        case "Node": {
-                            filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
-                            break;
-                        }
-                        case "Browser": {
-                            filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + "AACloud";  // DevTeam Members bots only are run at the browser.
-                            break;
-                        }
-                        default: {
-                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser' ");
-                        }
-                    }
+                    let filePath = global.DEV_TEAM + "/" + "CloneExecutor"; // DevTeams bots only are run at the cloud.
 
                     let fileName = "this.config.json";
 
@@ -230,7 +216,7 @@
                 continue;
             }
 
-            /* Now we will read the config of the bot from the path we obtained at the AACloud config. */
+            /* Now we will read the config of the bot from the path we obtained at the CloneExecutor config. */
 
             let botConfig;
 
@@ -250,28 +236,7 @@
 
                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                            let filePath;
-
-                            switch (global.CURRENT_EXECUTION_AT) {
-                                case "Node": {
-                                    filePath = global.DEV_TEAM + "/" + "bots" + "/" + listItem.repo; // DevTeams bots only are run at the cloud.
-
-                                    console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> Getting Bot Config from the devTeams's Bot. ");
-                                    console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> filePath =  " + filePath);
-                                    break;
-                                }
-                                case "Browser": {
-                                    filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO;  // DevTeam Members bots only are run at the browser.
-
-                                    console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> Getting Bot Config from the endUser's Bot. ");
-                                    console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> global.USER_LOGGED_IN = " + global.USER_LOGGED_IN);
-                                    console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> filePath =  " + filePath);
-                                    break;
-                                }
-                                default: {
-                                    console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser' ");
-                                }
-                            }
+                            let filePath = global.DEV_TEAM + "/" + "bots" + "/" + listItem.repo; // DevTeams bots only are run at the cloud.
 
                             let fileName = "this.bot.config.json";
 
@@ -342,27 +307,11 @@
 
                             let processConfig = botConfig.processes[i];
 
-                            switch (global.CURRENT_EXECUTION_AT) {
-                                case "Node": {
-                                    processConfig.startMode = global.EXECUTION_CONFIG.startMode // Override file storage configuration
-                                    if(global.EXECUTION_CONFIG.timePeriod){
-                                        processConfig.timePeriod = global.EXECUTION_CONFIG.timePeriod
-                                    }
-                                    break;
-                                }
-                                case "Browser": {
-                                    let startMode = {
-                                        live: { run: "false" },
-                                        backtest: { run: "false", waitTime: 5000 },
-                                        competition: { run: "false" }
-                                    }
-                                    let browserStartMode = global.CURRENT_START_MODE.toLowerCase()
-                                    startMode[browserStartMode].run = "true"
-
-                                    processConfig.startMode = startMode
-                                    break;
-                                }
+                            processConfig.startMode = global.EXECUTION_CONFIG.startMode // Override file storage configuration
+                            if(global.EXECUTION_CONFIG.timePeriod){
+                                processConfig.timePeriod = global.EXECUTION_CONFIG.timePeriod
                             }
+   
                             try {
 
                                 /* We test each type of start Mode to get what to run and how. */
@@ -593,7 +542,7 @@
 
                     if (processFound === false) {
 
-                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Process listed at the configuration file of AACloud not found at the configuration file of the bot.");
+                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Process listed at the configuration file of CloneExecutor not found at the configuration file of the bot.");
                         console.log(logDisplace + "Root : [ERROR] start -> findProcess -> listItem.process = " + listItem.process);
 
                     }

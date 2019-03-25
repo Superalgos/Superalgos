@@ -45,9 +45,7 @@
                 let auth = require('../utils/auth')
                 let authTokenCloud = await auth.authenticate()
                 accessToken = 'Bearer ' + authTokenCloud
-            } else if (global.CURRENT_EXECUTION_AT === "Browser") {
-                accessToken = 'Bearer ' + authToken
-            }
+            } 
 
             let keyVaultAPI = createKeyVaultAPIClient(accessToken, keyId, cloneId)
             apiClient = api.newAPIClient(keyVaultAPI, logger);

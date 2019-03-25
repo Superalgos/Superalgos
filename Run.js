@@ -1,7 +1,7 @@
 ﻿require('dotenv').config()
 
 global.CURRENT_ENVIRONMENT = "Develop";
-global.CURRENT_EXECUTION_AT = "Cloud";
+global.CURRENT_EXECUTION_AT = "Node";
 global.SHALL_BOT_STOP = false;
 global.AT_BREAKPOINT = false; // This is used only when running at the browser.
 global.RUN_AS_TEAM = false;
@@ -112,16 +112,16 @@ function readExecutionConfiguration() {
 
         startMode[process.env.START_MODE].run = "true"
 
-        let executionList = [{
+        let cloneToExecute = {
             enabled: "true",
             devTeam: process.env.DEV_TEAM,
             bot: process.env.BOT,
             process: process.env.PROCESS,
             repo: global.CURRENT_BOT_REPO
-        }]
+        }
 
         global.EXECUTION_CONFIG = {
-            executionList: executionList,
+            cloneToExecute: cloneToExecute,
             startMode: startMode,
             timePeriod: getTimePeriod(process.env.TIME_PERIOD),
             timePeriodFileStorage: process.env.TIME_PERIOD,

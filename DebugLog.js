@@ -60,13 +60,6 @@
 
             internalLoopCounter++;
 
-            if (global.CURRENT_EXECUTION_AT === "Browser") {
-
-                //console.log("[INFO] DebugLog -> persist -> We do not persist logs while running at the Browser");
-                return;
-
-            }
-
             let contentToPersist = accumulatedLog;
             accumulatedLog = "[";
 
@@ -149,28 +142,20 @@
 
             if (global.CURRENT_EXECUTION_AT === "IDE") {
 
-                console.log("AACloud" + spacePad(pModule, 50) + " : " + pMessage);
+                console.log("CloneExecutor" + spacePad(pModule, 50) + " : " + pMessage);
 
             }
 
             if (disableLogging === true) { return; }
 
-            if (global.CURRENT_EXECUTION_AT === "Browser") {
-
-                /* Only at the browser we send the messages to the console. At the Cloud it does not make sense. */
-
-                console.log("AACloud" + spacePad(pModule, 50) + " : " + pMessage);
-                return;
-            }
-
-            if (global.CURRENT_EXECUTION_AT === "Cloud") {
+            if (global.CURRENT_EXECUTION_AT === "Node") {
 
                 /* Only ERRORs go to the cloud console. */
 
                 if (pMessage.indexOf("[ERROR]") >= 0) {
 
                     let now = new Date;
-                    console.log("Loop." + pad(thisObject.bot.loopCounter, 8) + " " + now.toUTCString() + " AACloud " + spacePad(pModule, 20) + " : " + pMessage);
+                    console.log("Loop." + pad(thisObject.bot.loopCounter, 8) + " " + now.toUTCString() + " CloneExecutor " + spacePad(pModule, 20) + " : " + pMessage);
 
                 }
             }

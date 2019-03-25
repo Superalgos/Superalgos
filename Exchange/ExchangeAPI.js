@@ -38,16 +38,14 @@
             let accessToken
             let keyId
             let cloneId
-            if (global.CURRENT_EXECUTION_AT === "Cloud") {
+            if (global.CURRENT_EXECUTION_AT === "Node") {
                 keyId = process.env.KEY_ID
                 cloneId = process.env.CLONE_ID
 
                 let auth = require('../utils/auth')
                 let authTokenCloud = await auth.authenticate()
                 accessToken = 'Bearer ' + authTokenCloud
-            } else if (global.CURRENT_EXECUTION_AT === "Browser") {
-                accessToken = 'Bearer ' + authToken
-            }
+            } 
 
             let keyVaultAPI = createKeyVaultAPIClient(accessToken, keyId, cloneId)
             apiClient = api.newAPIClient(keyVaultAPI, logger);

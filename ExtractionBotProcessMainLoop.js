@@ -47,21 +47,11 @@
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
                     let filePath;
-
-                    switch (global.CURRENT_EXECUTION_AT) { // This is what determines if the bot is loaded from the devTeam or an endUser copy.
-                        case "Cloud": {
-                            filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
-                            break;
-                        }
-                        case "Browser": {
-                            filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
-                            break;
-                        }
-                        default: {
-                            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser'.");
-                            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> global.CURRENT_EXECUTION_AT = " + global.CURRENT_EXECUTION_AT);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;                        }
+ 
+                    if (global.RUN_AS_TEAM) {
+                        filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
+                    } else {
+                        filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
                     }
 
                     const CLOUD_REQUIRE = require(ROOT_DIR + 'CloudRequire');
@@ -80,23 +70,8 @@
 
                         USER_BOT_MODULE = pMODULE;
 
-                        switch (global.CURRENT_EXECUTION_AT) {
-                            case "Cloud": {
-                                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
-                                break;
-                            }
-                            case "Browser": {
-                                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO;
-                                break;
-                            }
-                            default: {
-                                parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser'.");
-                                parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> global.CURRENT_EXECUTION_AT = " + global.CURRENT_EXECUTION_AT);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                return;
-                            }
-                        }
-
+                        filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
+ 
                         cloudRequire.downloadCommons(cloudStorage, filePath, onCommonsDownloaded);
 
                         function onCommonsDownloaded(err, pMODULE) {
@@ -154,8 +129,6 @@
                         return str.length < max ? pad(" " + str, max) : str;
                     }
 
-                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + pad(pMonth, 2) + "/" + pad(pYear, 4) + " Entered into Main Loop # " + pad(Number(bot.loopCounter) + 1, 8));
-
                     /* For each loop we want to create a new log file. */
 
                     logger = DEBUG_MODULE.newDebugLog();
@@ -177,6 +150,11 @@
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
                     bot.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
+
+                    /* High level log entry  */
+
+                    console.log(bot.processDatetime.toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + pad(pMonth, 2) + "/" + pad(pYear, 4)
+                        + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8));
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
@@ -268,7 +246,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
 
-                            exchangeAPI = EXCHANGE_API.newExchangeAPI(bot, logger);
+                            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger);
 
                             exchangeAPI.initialize(onInizialized);
 
@@ -657,7 +635,7 @@
 
                     function checkLoopHealth(pLastLoop) {
 
-                        if (global.CURRENT_EXECUTION_AT !== "Cloud") {
+                        if (global.CURRENT_EXECUTION_AT !== "Node") {
                             return;
                         }
 
@@ -707,34 +685,8 @@
 
                                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                    let filePath;
-
-                                    switch (global.CURRENT_EXECUTION_AT) { // This is what determines if the bot is loaded from the devTeam or an endUser copy.
-                                        case "Cloud": {
-                                            filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
-                                            break;
-                                        }
-                                        case "Browser": {
-                                            if (global.SHALL_BOT_STOP === false) {
-                                                continueCallBack();
-                                            } else {
-                                                stopCallBack();
-                                            }
-                                            return;
-                                        }
-                                        default: {
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser'.");
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onInizialized -> global.CURRENT_EXECUTION_AT = " + global.CURRENT_EXECUTION_AT);
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
-                                        }
-                                    }
-
+                                    let filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
+ 
                                     let fileName = "this.config.json";
 
                                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);

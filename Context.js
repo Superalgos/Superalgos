@@ -169,7 +169,6 @@
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> getStatusReport -> err = " + err.message);
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> getStatusReport -> key = " + key);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }

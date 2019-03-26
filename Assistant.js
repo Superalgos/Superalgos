@@ -182,7 +182,9 @@
                                         end: candleArray[i][5]
                                     };
 
-                                    if (bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end) {
+                                    // TODO condition added for when there is no market rate available.
+                                    if ((bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end)
+                                        || (i + 1) === candleArray.length) {
 
                                         marketRate = (candle.open + candle.close) / 2;
                                         marketRate = thisObject.truncDecimals(marketRate);
@@ -198,7 +200,6 @@
                                         return;
                                     }
                                 }
-
                             } catch (err) {
                                 logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + err.message);
                                 logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
@@ -918,16 +919,17 @@
 
         try {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pType = " + pType); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pRate = " + pRate); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountA = " + pAmountA); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + pAmountB); }
 
             /* Removing extra decimals. */
 
             pRate = thisObject.truncDecimals(pRate);
             pAmountA = thisObject.truncDecimals(pAmountA);
             pAmountB = thisObject.truncDecimals(pAmountB);
+
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pType = " + pType); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pRate = " + pRate); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountA = " + pAmountA); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + pAmountB); }
 
             /* Validations that the limits are not surpassed. */
 
@@ -942,24 +944,6 @@
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
                         message: 'pAmountA is grater than the Available Balance.'
-                    };
-
-                    callBackFunction(err);
-                    return;
-                }
-
-                let aRate = thisObject.truncDecimals(pAmountA / pRate);
-
-                if (aRate !== pAmountB) {
-
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA / pRate !== pAmountB.");
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pRate = " + pRate);
-
-                    let err = {
-                        result: global.DEFAULT_FAIL_RESPONSE.result,
-                        message: 'pAmountB * pRate !== pAmountA'
                     };
 
                     callBackFunction(err);
@@ -983,24 +967,6 @@
                     callBackFunction(err);
                     return;
                 }
-
-                let bRate = thisObject.truncDecimals(pAmountB * pRate);
-
-                if (bRate !== pAmountA) {
-
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB * pRate !== pAmountA.");
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pRate = " + pRate);
-
-                    let err = {
-                        result: global.DEFAULT_FAIL_RESPONSE.result,
-                        message: 'pAmountB * pRate !== pAmountA'
-                    };
-
-                    callBackFunction(err);
-                    return;
-                }
             }
 
             /* All validations passed, we proceed. */
@@ -1017,8 +983,8 @@
 
                     if (pRate !== marketRate) {
 
-                        logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> putPosition Rate can not be different to marketRate while in Backtesting Mode. ");
-                        onResponse(global.DEFAULT_FAIL_RESPONSE, positionId);
+                        logger.write(MODULE_NAME, "[WARNING] putPosition -> Input Validations -> putPosition Rate can is different to marketRate while in Backtesting Mode. ");
+                        //onResponse(global.DEFAULT_FAIL_RESPONSE, positionId);
                     }
 
                     let positionId = Math.trunc(Math.random(1) * 1000000);
@@ -1393,45 +1359,8 @@
     }
 	
     function sendEmail(pTitle, pBody, pTo) {
-        try {
-
-            /**
-             Email configuration is not available when running the bot on the browser.
-            */
-            if (global.CURRENT_EXECUTION_AT === "Browser") {
-                logger.write(MODULE_NAME, "[WARN] sendEmail -> Send emails is disabled from the browser.");
-                return;
-            }
-
-            let emailList = pTo; //TODO Pending to add spam controller
-            let runIndex = context.statusReport.runs.length - 1;
-
-            let transporter = nodemailer.createTransport({
-                service: global.EMAIL_CONFIG.service,
-                auth: {
-                    user: global.EMAIL_CONFIG.user,
-                    pass: global.EMAIL_CONFIG.pass
-                }
-            });
-
-            let mailOptions = {
-                from: global.EMAIL_CONFIG.from,
-                bcc: emailList,
-                subject: bot.startMode + "." + runIndex + ' - ' + pTitle,
-                text: pBody
-            };
-
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
-                    logger.write(MODULE_NAME, "[ERROR] sendEmail -> err = " + error);
-                } else {
-                    logger.write(MODULE_NAME, "[INFO] sendEmail -> Email sent = " + info.response);
-                }
-            });
-
-        } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] sendEmail -> err = " + err.message);
-        }
+        logger.write(MODULE_NAME, "[WARN] sendEmail -> Send emails is currently disabled.");
+        return;        
     }
 
     function truncDecimals(pFloatValue, pDecimals) {

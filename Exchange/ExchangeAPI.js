@@ -1,16 +1,13 @@
-﻿exports.newExchangeAPI = function newExchangeAPI(bot, logger) {
+﻿exports.newExchangeAPI = function newExchangeAPI(logger, authToken) {
 
     /*
 
     This module allows trading bots to connect to the exchange and do trading operations on it. So far it can only work with Poloniex.
 
     */
-    const _ = require('lodash');
-    const isValidOrder = require('./exchangeUtils').isValidOrder;
-    const graphqlClient = require('graphql-client')
-    const request = require('request')
-    const authOptions = require('./Auth0')
-
+    const _ = require('lodash')
+    const isValidOrder = require('./exchangeUtils').isValidOrder
+    const axios = require('axios')
     let MODULE_NAME = "Exchange API";
 
     let thisObject = {
@@ -29,74 +26,73 @@
 
     return thisObject;
 
-    function initialize(callBackFunction) {
+    async function initialize(callBackFunction) {
         try {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            // TODO integrate with financial beings module to get the exchange
             let botExchange = 'Poloniex';
             let exchange = botExchange.toLowerCase() + 'Client.js';
-            let api = require('./Wrappers/' + exchange);
-            
-            request(authOptions, onTokenResponse);
+            let api = require('./wrappers/' + exchange);
 
-            function onTokenResponse(error, response, body) {
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] onTokenResponse -> Entering function."); }
+            let accessToken
+            let keyId
+            let cloneId
+            if (global.CURRENT_EXECUTION_AT === "Node") {
+                keyId = process.env.KEY_ID
+                cloneId = process.env.CLONE_ID
 
-                if (error) {
-                    logger.write(MODULE_NAME, "[ERROR] onTokenResponse -> err = " + error.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                } else {
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] onTokenResponse -> Token Received."); }
-                    let response = JSON.parse(body)
-                    let authToken = response.access_token
-                    let keyVaultAPI = createKeyVaultAPIClient(authToken)
-                    apiClient = api.newAPIClient(keyVaultAPI, logger);
+                let auth = require('../utils/auth')
+                let authTokenCloud = await auth.authenticate()
+                accessToken = 'Bearer ' + authTokenCloud
+            } 
 
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                }
-            }
+            let keyVaultAPI = createKeyVaultAPIClient(accessToken, keyId, cloneId)
+            apiClient = api.newAPIClient(keyVaultAPI, logger);
+
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
+
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function createKeyVaultAPIClient(authToken) {
+    function createKeyVaultAPIClient(accessToken, keyId, cloneId) {
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createKeyVaultAPIClient -> Entering function."); }
-
-        const keyVaultAPI = graphqlClient({
-            url: 'https://app-api.advancedalgos.net/graphql',
-            headers: {
-                Authorization: 'Bearer ' + authToken
-            }
-        });
-
+        
+        const keyVaultAPI = {}
         keyVaultAPI.signTransaction = function (transaction, next) {
-            let variables = {
-                botId: bot.codeName,
-                transaction: transaction
-            }
+            axios({
+                url: global.GATEWAY_ENDPOINT,
+                method: 'post',
+                data: {
+                    query: `
+                    mutation keyVault_SignTransaction($transaction: String!, $keyId: String, $cloneId: String){
+                        keyVault_SignTransaction(transaction: $transaction, keyId: $keyId, cloneId: $cloneId){
+                            key,
+                            signature,
+                            date
+                        }
+                    }
+                    `,
+                    variables: {
+                        transaction: transaction,
+                        keyId: keyId,
+                        cloneId: cloneId
+                    }
+                },
+                headers: {
+                    authorization: accessToken
+                }
 
-            keyVaultAPI.query(`
-                mutation($botId: String, $transaction: String!){
-                keyVault_SignTransaction(botId: $botId, transaction: $transaction){
-                    key,
-                    signature,
-                    date
-                }
-                }`, variables, function (req, res) {
-                if (res.status === 401) {
-                    next(undefined, 'Error from graphql: Not authorized');
-                }
             }).then(res => {
                 if (res.errors) {
                     next(undefined, 'Error from graphql: ' + res.errors);
                 } else {
                     let signature = {
-                        Key: res.data.keyVault_SignTransaction.key,
-                        Sign: res.data.keyVault_SignTransaction.signature
+                        Key: res.data.data.keyVault_SignTransaction.key,
+                        Sign: res.data.data.keyVault_SignTransaction.signature
                     }
                     next(signature)
                 }

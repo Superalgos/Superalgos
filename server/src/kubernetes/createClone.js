@@ -134,7 +134,7 @@ const createClone = async (clone) => {
       if (clone.mode === NO_TIME) {
         env.push({
           'name': 'BEGIN_DATE_TIME',
-          'value': isDefined(clone.startYear) ? clone.startYear.toString() : ''
+          'value': isDefined(clone.beginDatetime) ? clone.beginDatetime.toString() : ''
         })
       } else {
         env.push({

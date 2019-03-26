@@ -35,14 +35,8 @@ function newAppLoader() {
 
                 "BottomSpace/DeleteTradingHistory.js",
                 "BottomSpace/ChartAspectRatio.js",
-                "BottomSpace/PlayStopButton.js",
 
-                "TopSpace/CompanyLogo.js",
                 "TopSpace/CurrentEvent.js",
-                "TopSpace/CurrentStartMode.js",
-                "TopSpace/CurrentProcess.js",
-                "TopSpace/CurrentBot.js",
-                "TopSpace/DevTeam.js",
                 "TopSpace/EndUser.js",
                 "TopSpace/Login.js",
 
@@ -71,11 +65,6 @@ function newAppLoader() {
                 "FloatingSpace/FloatingLayer.js",
 
                 "Exchange/ExchangeAPI.js",
-
-                "CloudAppWrapper/CloudSupport.js",
-                "CloudAppWrapper/CloudRequire.js",
-                "CloudAppWrapper/WebFS.js",
-                "CloudAppWrapper/BrowserRun.js",
 
                 "Scales/ChartGrid.js",
                 "Scales/RightScale.js",

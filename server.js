@@ -38,7 +38,6 @@ global.CUSTOM_FAIL_RESPONSE = {
 
 let storageData = new Map()
 
-let HTMLCloudScripts           // This are the html script tags needed to download the cloud web scripts.
 let botScripts                 // This module is the one which grabs user bots scrips from the storage, and browserifys them.
 
 let ecosystem
@@ -95,54 +94,29 @@ function initialize () {
 
       storage.initialize(storageData, serverConfig)
 
-      const CLOUD_SCRIPTS = require('./Server/CloudScripts')
-      let cloudScripts = CLOUD_SCRIPTS.newCloudScripts()
+        const SESSION_MANAGER = require('./Server/SessionManager')
+        sessionManager = SESSION_MANAGER.newSessionManager()
 
-      cloudScripts.initialize(ecosystem, ecosystemObject, serverConfig, storageData, onInitialized)
+        sessionManager.initialize(serverConfig, onInitialized)
 
-      function onInitialized (err) {
-        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-          console.log('[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> onInitialized -> err.message = ' + err.message)
-          console.log('[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> onInitialized -> Terminating Execution. ')
+        function onInitialized () {
+        const STORAGE_ACCESS_MANAGER = require('./Server/StorageAccessManager')
+        storageAccessManager = STORAGE_ACCESS_MANAGER.newStorageAccessManager()
 
-          return
-        }
+        storageAccessManager.initialize(serverConfig, onInitialized)
 
-        cloudScripts.loadCloudScripts(onLoadCompeted)
+        function onInitialized () {
+            const BOT_SCRIPTS = require('./Server/BotsScripts')
+            botScripts = BOT_SCRIPTS.newBotScripts()
 
-        function onLoadCompeted (err, pHTMLCloudScripts) {
-          if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-            console.log('[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> onInitialized -> onLoadCompeted -> err.message = ' + err.message)
-            console.log('[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> onInitialized -> onLoadCompeted -> Terminating Execution. ')
-
-            return
-          }
-
-          const SESSION_MANAGER = require('./Server/SessionManager')
-          sessionManager = SESSION_MANAGER.newSessionManager()
-
-          sessionManager.initialize(serverConfig, onInitialized)
-
-          function onInitialized () {
-            const STORAGE_ACCESS_MANAGER = require('./Server/StorageAccessManager')
-            storageAccessManager = STORAGE_ACCESS_MANAGER.newStorageAccessManager()
-
-            storageAccessManager.initialize(serverConfig, onInitialized)
+            botScripts.initialize(serverConfig, onInitialized)
 
             function onInitialized () {
-              const BOT_SCRIPTS = require('./Server/BotsScripts')
-              botScripts = BOT_SCRIPTS.newBotScripts()
-
-              botScripts.initialize(serverConfig, onInitialized)
-
-              function onInitialized () {
-                HTMLCloudScripts = pHTMLCloudScripts
-                startHtttpServer()
-              }
+            startHtttpServer()
             }
-          }
         }
-      }
+        }
+         
     }
   }
 }
@@ -618,17 +592,7 @@ function onBrowserRequest (request, response) {
               try {
                 let fileContent = file.toString()
 
-                addCloudWebScripts()
                 addPlotters()
-
-                function addCloudWebScripts () {
-                  if (CONSOLE_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> onFileRead -> addCloudWebScripts -> Entering function.') }
-
-                  let firstPart = fileContent.substring(0, fileContent.indexOf('/* CloudWebScripts */') + 21)
-                  let secondPart = fileContent.substring(fileContent.indexOf('/* CloudWebScripts */') + 21)
-
-                  fileContent = firstPart + HTMLCloudScripts + secondPart
-                }
 
                 function addPlotters () {
                   if (CONSOLE_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> Entering function.') }

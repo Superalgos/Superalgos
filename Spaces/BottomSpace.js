@@ -3,7 +3,6 @@ function newBottomSpace () {
   var thisObject = {
     deleteTradingHistory: undefined,
     chartAspectRatio: undefined,
-    playStopButton: undefined,
     container: undefined,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -27,9 +26,6 @@ function newBottomSpace () {
     thisObject.chartAspectRatio = newChartAspectRatio()
     thisObject.chartAspectRatio.initialize()
 
-    thisObject.playStopButton = newPlayStopButton()
-    thisObject.playStopButton.initialize()
-
     window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
   }
 
@@ -50,9 +46,6 @@ function newBottomSpace () {
     container = thisObject.chartAspectRatio.getContainer(point)
     if (container !== undefined) { return container }
 
-    container = thisObject.playStopButton.getContainer(point)
-    if (container !== undefined) { return container }
-
         /* The point does not belong to any inner container, so we return the current container. */
 
     return thisObject.container
@@ -64,7 +57,6 @@ function newBottomSpace () {
     drawBackground()
     thisObject.deleteTradingHistory.draw()
     thisObject.chartAspectRatio.draw()
-    thisObject.playStopButton.draw()
   }
 
   function drawBackground () {

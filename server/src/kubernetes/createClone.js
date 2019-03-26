@@ -9,7 +9,7 @@ import { Trading, Indicator, Sensor } from '../enums/BotTypes'
 const createClone = async (clone) => {
   try {
     logger.debug('createClone %s', clone.id)
-    const client = new Client({config: config.fromKubeconfig(), version: '1.9'})
+    const client = new Client({ config: config.fromKubeconfig(), version: '1.9' })
     deploymentManifest.metadata.name = clone.id
 
     logger.debug('createClone Environment and Auth Configuration.')
@@ -131,7 +131,12 @@ const createClone = async (clone) => {
         })
       }
     } else if (clone.botType === Indicator || clone.botType === Sensor) {
-      if (clone.mode !== NO_TIME) {
+      if (clone.mode === NO_TIME) {
+        env.push({
+          'name': 'BEGIN_DATE_TIME',
+          'value': isDefined(clone.startYear) ? clone.startYear.toString() : ''
+        })
+      } else {
         env.push({
           'name': 'MIN_YEAR',
           'value': isDefined(clone.startYear) ? clone.startYear.toString() : ''
@@ -162,27 +167,27 @@ const createClone = async (clone) => {
   }
 }
 
-function datasetNames(){
+function datasetNames() {
   let dataSetMap = new Map()
-  dataSetMap.set("24-hs","Multi-Period-Market")
-  dataSetMap.set("12-hs","Multi-Period-Market")
-  dataSetMap.set("08-hs","Multi-Period-Market")
-  dataSetMap.set("06-hs","Multi-Period-Market")
-  dataSetMap.set("04-hs","Multi-Period-Market")
-  dataSetMap.set("03-hs","Multi-Period-Market")
-  dataSetMap.set("02-hs","Multi-Period-Market")
-  dataSetMap.set("01-hs","Multi-Period-Market")
-  dataSetMap.set("45-min","Multi-Period-Daily")
-  dataSetMap.set("40-min","Multi-Period-Daily")
-  dataSetMap.set("30-min","Multi-Period-Daily")
-  dataSetMap.set("20-min","Multi-Period-Daily")
-  dataSetMap.set("15-min","Multi-Period-Daily")
-  dataSetMap.set("10-min","Multi-Period-Daily")
-  dataSetMap.set("05-min","Multi-Period-Daily")
-  dataSetMap.set("04-min","Multi-Period-Daily")
-  dataSetMap.set("03-min","Multi-Period-Daily")
-  dataSetMap.set("02-min","Multi-Period-Daily")
-  dataSetMap.set("01-min","Multi-Period-Daily")
+  dataSetMap.set("24-hs", "Multi-Period-Market")
+  dataSetMap.set("12-hs", "Multi-Period-Market")
+  dataSetMap.set("08-hs", "Multi-Period-Market")
+  dataSetMap.set("06-hs", "Multi-Period-Market")
+  dataSetMap.set("04-hs", "Multi-Period-Market")
+  dataSetMap.set("03-hs", "Multi-Period-Market")
+  dataSetMap.set("02-hs", "Multi-Period-Market")
+  dataSetMap.set("01-hs", "Multi-Period-Market")
+  dataSetMap.set("45-min", "Multi-Period-Daily")
+  dataSetMap.set("40-min", "Multi-Period-Daily")
+  dataSetMap.set("30-min", "Multi-Period-Daily")
+  dataSetMap.set("20-min", "Multi-Period-Daily")
+  dataSetMap.set("15-min", "Multi-Period-Daily")
+  dataSetMap.set("10-min", "Multi-Period-Daily")
+  dataSetMap.set("05-min", "Multi-Period-Daily")
+  dataSetMap.set("04-min", "Multi-Period-Daily")
+  dataSetMap.set("03-min", "Multi-Period-Daily")
+  dataSetMap.set("02-min", "Multi-Period-Daily")
+  dataSetMap.set("01-min", "Multi-Period-Daily")
   return dataSetMap
 }
 

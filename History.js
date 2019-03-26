@@ -12,6 +12,7 @@
         // Main functions and properties.
 
         initialize: initialize,
+        finalize: finalize,
         container: undefined,
         getContainer: getContainer,
         setTimePeriod: setTimePeriod,
@@ -54,6 +55,32 @@
     let currentNotesSetKey;
 
     return thisObject;
+
+    function finalize() {
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] finalize -> Entering function."); }
+
+            /* Stop listening to the necesary events. */
+
+            viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
+            marketFiles.eventHandler.stopListening("Files Updated", onFilesUpdated);
+
+            /* Destroyd References */
+
+            datetime = undefined;
+            timePeriod = undefined;
+
+            fileSequence = undefined;
+            plotElements = undefined;
+            plotLines = undefined;
+            notes = undefined;
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err.message = " + err.message); }
+        }
+    }
 
     function initialize(pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 

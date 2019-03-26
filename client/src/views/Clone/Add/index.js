@@ -25,7 +25,7 @@ class AddClone extends Component {
       user: JSON.parse(user),
       selectedBot: {'id':''},
       mode: '',
-      resumeExecution: false,
+      resumeExecution: true,
       beginDatetime: DateTime.local().minus({ days: 8 }).startOf('day'),
       endDatetime: DateTime.local(),
       waitTime: 1,
@@ -436,6 +436,44 @@ class AddClone extends Component {
                              </TextField>
                          </React.Fragment>
                      }
+
+                    { this.state.mode === "noTime" &&
+                         <React.Fragment>
+                           <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                              The Resume Execution option let's you pick up the context of
+                              the last execution and continue from there.
+                            </Typography>
+                            <FormControlLabel
+                              control={
+                                <Checkbox
+                                  checked={this.state.resumeExecution}
+                                  onChange={(e)=>this.setState({resumeExecution:e.target.checked })}
+                                  value="resumeExecution"
+                                  color="primary"
+                                />
+                              }
+                              label="Resume Execution"
+                              className={classNames(classes.form, classes.textField)}
+                            />
+                            { !this.state.resumeExecution &&
+                              <DateTimePicker
+                                autoOk
+                                disableFuture
+                                format="DD' at 'HH:mm"
+                                ampm={false}
+                                showTabs={false}
+                                leftArrowIcon={<ChevronLeft />}
+                                rightArrowIcon={<ChevronRight />}
+                                value={this.state.beginDatetime}
+                                label='Start Date'
+                                onChange={newVal => this.setState({ beginDatetime: newVal })}
+                                className={classNames(classes.form, classes.textField)}
+                                fullWidth
+                              />
+                            }
+
+                         </React.Fragment>
+                     }
                   </React.Fragment>
               }
 
@@ -539,6 +577,7 @@ class AddClone extends Component {
       variables.clone.endYear = this.state.endYear
       variables.clone.month = this.state.month
       variables.clone.runAsTeam = true
+      variables.clone.beginDatetime = this.state.beginDatetime.valueOf() / 1000|0
     }
 
     return this.props.addCloneMutation({
@@ -568,7 +607,7 @@ class AddClone extends Component {
       this.setState({
         selectedBot: {'id':''},
         mode: '',
-        resumeExecution: false,
+        resumeExecution: true,
         beginDatetime: DateTime.local().minus({ days: 8 }).startOf('day'),
         endDatetime: DateTime.local(),
         waitTime: 1,

@@ -9,7 +9,7 @@ const strategySchema = new Schema(
       dropDups: true,
     },
     subStrategies: [{
-      actif: {
+      active: {
         type: Boolean,
         required: true,
         default: true,

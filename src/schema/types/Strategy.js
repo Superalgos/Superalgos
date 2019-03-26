@@ -16,11 +16,11 @@ const Type = new GraphQLObjectType({
     id: { type: GraphQLID },
     fbSlug: { type: GraphQLString },
     subStrategies: {
-      args: { actifOnly: { type: GraphQLBoolean } },
+      args: { activeOnly: { type: GraphQLBoolean } },
       type: new GraphQLList(SubStrategyType),
-      resolve(parent, { actifOnly }) {
-        if (actifOnly) {
-          return parent.subStrategies.filter(subStrategy => subStrategy.actif);
+      resolve(parent, { activeOnly }) {
+        if (activeOnly) {
+          return parent.subStrategies.filter(subStrategy => subStrategy.active);
         }
         return parent.subStrategies;
       },

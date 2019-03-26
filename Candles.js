@@ -12,6 +12,7 @@
         // Main functions and properties.
 
         initialize: initialize,
+        finalize: finalize,
         container: undefined,
         getContainer: getContainer,
         setTimePeriod: setTimePeriod,
@@ -51,6 +52,35 @@
     let candles = [];                   // Here we keep the candles to be ploted every time the Draw() function is called by the AAWebPlatform.
 
     return thisObject;
+
+    function finalize() {
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] finalize -> Entering function."); }
+
+            /* Stop listening to the necesary events. */
+
+            viewPort.eventHandler.stopListening("Zoom Changed", onZoomChanged);
+            viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
+            marketFiles.eventHandler.stopListening("Files Updated", onFilesUpdated);
+            canvas.eventHandler.stopListening("Drag Finished", onDragFinished);
+
+            /* Destroyd References */
+
+            marketFiles = undefined;
+            dailyFiles = undefined;
+
+            datetime = undefined;
+            timePeriod = undefined;
+
+            marketFile = undefined;
+            fileCursor = undefined;
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err.message = " + err.message); }
+        }
+    }
 
     function initialize(pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 

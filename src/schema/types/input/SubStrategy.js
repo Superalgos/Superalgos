@@ -17,7 +17,7 @@ const Type = new GraphQLInputObjectType({
   name: 'SubStrategyInput',
   description: 'Payload for subStrategy input',
   fields: () => ({
-    actif: { type: GraphQLBoolean },
+    active: { type: GraphQLBoolean },
     name: { type: GraphQLString },
     entryPoint: { type: EntryPointInputType },
     exitPoint: { type: ExitPointInputType },

@@ -30,7 +30,8 @@
         rememberThis: rememberThis,
         remindMeOf: remindMeOf,
         truncDecimals: truncDecimals, 
-        sendEmail: sendEmail
+        sendEmail: sendEmail,
+        addExtraData: addExtraData
     };
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
@@ -1361,6 +1362,11 @@
     function sendEmail(pTitle, pBody, pTo) {
         logger.write(MODULE_NAME, "[WARN] sendEmail -> Send emails is currently disabled.");
         return;        
+    }
+
+    function addExtraData(pExtraDataArray) {
+
+        context.extraData = pExtraDataArray;
     }
 
     function truncDecimals(pFloatValue, pDecimals) {

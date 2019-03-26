@@ -288,11 +288,13 @@
                             processConfig.timePeriod = global.EXECUTION_CONFIG.timePeriod
                         }
 
-                        if (processConfig.framework.name === "Multi-Period-Daily") {
-                            processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
-                            processConfig.framework.startDate.resumeExecution = processConfig.startMode.noTime.resumeExecution;
+                        if (processConfig.framework !== undefined) {
+                            if (processConfig.framework.name === "Multi-Period-Daily") {
+                                processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
+                                processConfig.framework.startDate.resumeExecution = processConfig.startMode.noTime.resumeExecution;
+                            }
                         }
-   
+
                         try {
 
                             /* We test each type of start Mode to get what to run and how. */

@@ -45,7 +45,8 @@
             messageBody: ""
         },
         initialize: initialize,
-        saveThemAll: saveThemAll
+        saveThemAll: saveThemAll,
+        extraData: []
     };
 
     /*
@@ -492,7 +493,9 @@
                         thisObject.newHistoryRecord.messageBody
                     ];
 
-                    thisObject.executionHistory.push(newRecord);
+                    let recordWithExtraData = newRecord.concat(thisObject.extraData);
+
+                    thisObject.executionHistory.push(recordWithExtraData);
 
                     let fileContent = JSON.stringify(thisObject.executionHistory);
 

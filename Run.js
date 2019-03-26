@@ -28,7 +28,7 @@ process.on('unhandledRejection', (reason, p) => {
 process.on('exit', function (code) {
     try {
         console.log('[INFO] Run -> process.on.exit -> About to exit -> code = ' + code);
-        return;
+        throw new Error()
     }
     catch (err) {
         console.log("[ERROR] Run -> process.on.exit -> Error Logging Error Code.");

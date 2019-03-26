@@ -47,11 +47,6 @@ function newTimeControlPanel () {
 
     thisObject.datetimeDisplay = datetimeDisplay
 
-        /* Here we will listen to the event when time was changed due to a Bot Execution. */
-
-    canvas.bottomSpace.playStopButton.container.eventHandler.listenToEvent('Bot Execution Changed Datetime', onBotChangedTime)
-    canvas.bottomSpace.playStopButton.setDatetime(datetime)
-
     viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
     timePeriod = INITIAL_TIME_PERIOD
   }
@@ -87,7 +82,6 @@ function newTimeControlPanel () {
 
   function setDatetime (pDatetime) {
     thisObject.datetimeDisplay.currentDatetime = new Date(pDatetime)
-    canvas.bottomSpace.playStopButton.setDatetime(pDatetime)
   }
 
   function addTime (seconds) {

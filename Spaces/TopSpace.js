@@ -4,12 +4,7 @@ function newTopSpace () {
     container: undefined,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-    companyLogo: undefined,
     endUser: undefined,
-    devTeam: undefined,
-    currentBot: undefined,
-    currentProcess: undefined,
-    currentStartMode: undefined,
     currentEvent: undefined,
     login: undefined,
     initialize: initialize
@@ -38,25 +33,7 @@ function newTopSpace () {
     thisObject.login = newLogin()
     await thisObject.login.initialize(sharedStatus)
 
-/*
-    thisObject.companyLogo = newCompanyLogo()
-    thisObject.endUser = newEndUser()
-    thisObject.currentBot = newCurrentBot()
-    thisObject.currentProcess = newCurrentProcess()
-    thisObject.currentStartMode = newCurrentStartMode()
-    thisObject.currentEvent = newCurrentEvent()
-    thisObject.devTeam = newDevTeam()
-*/
     window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
-/*
-    thisObject.companyLogo.initialize()
-    thisObject.endUser.initialize()
-    thisObject.currentBot.initialize(sharedStatus)
-    thisObject.currentProcess.initialize(sharedStatus)
-    thisObject.currentStartMode.initialize(sharedStatus)
-    thisObject.currentEvent.initialize(sharedStatus)
-    thisObject.devTeam.initialize(sharedStatus)
-*/
   }
 
   function resize () {
@@ -71,22 +48,7 @@ function newTopSpace () {
     let container
     return
 
-    container = thisObject.companyLogo.getContainer(point)
-    if (container !== undefined) { return container }
-
     container = thisObject.endUser.getContainer(point)
-    if (container !== undefined) { return container }
-
-    container = thisObject.devTeam.getContainer(point)
-    if (container !== undefined) { return container }
-
-    container = thisObject.currentBot.getContainer(point)
-    if (container !== undefined) { return container }
-
-    container = thisObject.currentProcess.getContainer(point)
-    if (container !== undefined) { return container }
-
-    container = thisObject.currentStartMode.getContainer(point)
     if (container !== undefined) { return container }
 
     container = thisObject.currentEvent.getContainer(point)
@@ -106,12 +68,7 @@ function newTopSpace () {
     drawBackground()
     return
 
-    thisObject.companyLogo.draw()
     thisObject.endUser.draw()
-    thisObject.devTeam.draw()
-    thisObject.currentBot.draw()
-    thisObject.currentProcess.draw()
-    thisObject.currentStartMode.draw()
     thisObject.currentEvent.draw()
     thisObject.login.draw()
   }

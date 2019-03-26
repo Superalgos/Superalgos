@@ -12,6 +12,7 @@
         // Main functions and properties.
 
         initialize: initialize,
+        finalize: finalize,
         container: undefined,
         getContainer: getContainer,
         setTimePeriod: setTimePeriod,
@@ -50,17 +51,36 @@
     let conditions = [];
     let headers;
 
-    let smileyHappy;
-    let smileySad;
-    let smileyGhost;
-    let smileyMonkeyEyes;
-    let smileyMonkeyEars;
-    let imageStrategy;
-    let imageStrategyPhase;
-    let imageStopLossPhase;
-    let imageBuyOrderPhase;
-
     return thisObject;
+
+    function finalize() {
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] finalize -> Entering function."); }
+
+            /* Stop listening to the necesary events. */
+
+            viewPort.eventHandler.stopListening("Zoom Changed", onZoomChanged);
+            viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
+            marketFiles.eventHandler.stopListening("Files Updated", onFilesUpdated);
+            canvas.eventHandler.stopListening("Drag Finished", onDragFinished);
+
+            /* Destroyd References */
+
+            marketFiles = undefined;
+            dailyFiles = undefined;
+
+            datetime = undefined;
+            timePeriod = undefined;
+
+            marketFile = undefined;
+            fileCursor = undefined;
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err.message = " + err.message); }
+        }
+    }
 
     function initialize(pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
@@ -97,34 +117,6 @@
             /* Get ready for plotting. */
 
             recalculate();
-
-            /* Loading a few icons */
-
-            smileyHappy = loadEmoji("Smiley/Emoji Smiley-51.png");
-            smileySad = loadEmoji("Smiley/Emoji Smiley-26.png");
-            smileyGhost = loadEmoji("Objects/Emoji Objects-12.png");
-            smileyMonkeyEyes = loadEmoji("Smiley/Emoji Smiley-85.png");
-            smileyMonkeyEars = loadEmoji("Smiley/Emoji Smiley-86.png");
-            imageStrategy = loadEmoji("Places/Emoji Orte-90.png");
-            imageStrategyPhase = loadEmoji("Places/Emoji Orte-91.png");
-            imageStopLossPhase = loadEmoji("Objects/Emoji Objects-55.png");
-            imageBuyOrderPhase = loadEmoji("Objects/Emoji Objects-114.png");
-
-            function loadEmoji(pPath) {
-
-                let newImage;
-
-                newImage = new Image();
-                newImage.onload = onImageLoaded;
-
-                function onImageLoaded() {
-                    newImage.isLoaded = true;
-                }
-
-                newImage.src = window.canvasApp.urlPrefix + "Images/Emoji/" + pPath;
-
-                return newImage;
-            }
 
             callBackFunction();
 

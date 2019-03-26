@@ -1083,7 +1083,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 query($fbSlug: String!){
            
                     strategizer_StrategyByFb(fbSlug: $fbSlug){
-                    subStrategies{
+                    subStrategies(activeOnly: true){
                         name
                         entryPoint{
                         situations{

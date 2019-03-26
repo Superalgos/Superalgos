@@ -233,8 +233,13 @@
 
                     if (thisReport.lastFile !== undefined) {
 
-                        contextVariables.lastFile = new Date(thisReport.lastFile);
+                        if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate.resumeExecution === "false") {
+                            
+                            startFromBegining();
+                            return;
+                        }
 
+                        contextVariables.lastFile = new Date(thisReport.lastFile);
                         interExecutionMemoryArray = thisReport.interExecutionMemoryArray;
 
                         processTimePeriods();
@@ -246,10 +251,16 @@
                         In the case when there is no status report, we assume like the last processed file is the one on the date of Begining of Market.
                         */
 
+                        startFromBegining();
+                        return;
+                    }
+
+                    function startFromBegining() {
+
                         contextVariables.lastFile = new Date(contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" + (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" + contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" + GMT_SECONDS);
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined"); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> contextVariables.lastFile = " + contextVariables.lastFile); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> startFromBegining -> thisReport.lastFile === undefined"); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> startFromBegining -> contextVariables.lastFile = " + contextVariables.lastFile); }
 
                         /*
                         The first time the process is running is the right time to create the data structure that is going to be shared across different executions.
@@ -258,14 +269,13 @@
 
                         interExecutionMemoryArray = [];
 
-                        for (let i = 0; i < global.dailyFilePeriods.length; i++) 
-                        {
+                        for (let i = 0; i < global.dailyFilePeriods.length; i++) {
                             let emptyObject = {};
                             interExecutionMemoryArray.push(emptyObject);
                         }
 
                         processTimePeriods();
-                        return;
+
                     }
 
                 } catch (err) {
@@ -734,6 +744,7 @@
                     thisReport.file.interExecutionMemoryArray = interExecutionMemoryArray;
                     thisReport.save(callBack);
 
+                    bot.hasTheBotJustStarted = false;
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);

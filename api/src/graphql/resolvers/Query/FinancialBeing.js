@@ -1,6 +1,7 @@
 import { logger } from '../../../logger'
 
 import FB_FRAGMENT from '../../fragments/FBFragment'
+import FB_TEAM_FRAGMENT from '../../fragments/FBTeamFragment'
 
 export const fbByFbId = async (parent, { fbId }, ctx, info) => {
   logger.info(`fbByFbId: ${fbId}`)
@@ -14,4 +15,14 @@ export const fbByFbSlug = async (parent, { fbSlug }, ctx, info) => {
   let FB = await ctx.db.query.financialBeingses({where: {slug: fbSlug}, first:1}, FB_FRAGMENT)
   logger.info(`fbByFbSlug response: ${JSON.stringify(await FB)}`)
   return FB[0]
+}
+
+export const fbByOwner = async (parent, { fbId, fbSlug }, ctx, info) => {
+  logger.info('teamsByOwner')
+  const authId = ctx.request.headers.userid
+  if (!authId) {
+    throw new AuthenticationError()
+    return
+  }
+  return ctx.db.query.financialBeingsesConnection({where: {AND:[{team:{members_some:{member:{authId: authId}}}},{OR:[{slug:fbSlug},{id:fbId}]}]}}, FB_TEAM_FRAGMENT)
 }

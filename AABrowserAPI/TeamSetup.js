@@ -242,7 +242,7 @@
                                     "major": 1,
                                     "minor": 0
                                 },
-                                process: "Trading-Simulation",
+                                product: "Trading-Simulation",
                                 dataSetVersion: "dataSet.V1",
                                 dataSet: "Multi-Period-Market"
                             }
@@ -255,7 +255,7 @@
                                     "major": 1,
                                     "minor": 0
                                 },
-                                process: "Trading-Simulation",
+                                product: "Trading-Simulation",
                                 dataSetVersion: "dataSet.V1",
                                 dataSet: "Multi-Period-Daily"
                             }

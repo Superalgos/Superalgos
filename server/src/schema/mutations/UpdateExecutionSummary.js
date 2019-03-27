@@ -8,8 +8,6 @@ import {
 import { OperationsError } from '../../errors'
 import { Clone } from '../../models'
 import logger from '../../config/logger'
-import teamQuery from '../../graphQLCalls/teamQuery'
-import cloneDetails from '../cloneDetails'
 import { isDefined } from '../../config/utils'
 
 const args = {
@@ -25,13 +23,18 @@ const args = {
 }
 
 const resolve = async (parent,
-    { id, summaryDate, buyAverage, sellAverage, marketRate, combinedProfitsA,
-      combinedProfitsB, assetA, assetB
-    }, context) => {
+  { id, summaryDate, buyAverage, sellAverage, marketRate, combinedProfitsA,
+    combinedProfitsB, assetA, assetB
+  }, context) => {
   logger.debug('UpdateExecutionSummary -> Entering Function.')
 
   if (!context.userId) {
     throw new AuthentificationError()
+  }
+
+  if (!(context.userId === process.env.AACLOUD_ID)) {
+    logger.debug('User %s is not authorized to manage team %s.', authId, team.slug)
+    throw new AutorizationError()
   }
 
   try {
@@ -43,10 +46,6 @@ const resolve = async (parent,
     if (!isDefined(clone)) {
       return 'Clone not found.'
     }
-
-    let allUserBotsResponse = await teamQuery(context.authorization, clone.botId)
-    let bot = allUserBotsResponse.data.data.teams_FbByOwner.edges[0].node
-    clone = cloneDetails(bot, clone)
 
     const query = { _id: id }
     const options = { new: true }

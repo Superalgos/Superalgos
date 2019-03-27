@@ -289,8 +289,10 @@
                         }
 
                         if (processConfig.framework !== undefined) {
-                            if (processConfig.framework.name === "Multi-Period-Daily") {
-                                processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
+                            if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market") {
+                                if (processConfig.startMode.noTime.beginDatetime !== undefined) {
+                                    processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
+                                }
                                 processConfig.framework.startDate.resumeExecution = processConfig.startMode.noTime.resumeExecution;
                             }
                         }

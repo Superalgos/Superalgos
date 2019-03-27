@@ -12,7 +12,7 @@ const OPERATIONS_ADD_CLONE = gql`
 
 const OPERATIONS_LIST_CLONES = gql`
   query Operations_Clones{
-    operations_Clones {
+    operations_Clones(queryLogs: true) {
       ...clone
     }
   }

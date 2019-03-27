@@ -4,7 +4,7 @@ import { KubernateError } from '../errors'
 import { Client, config } from 'kubernetes-client'
 import deploymentManifest from '../config/clone-deployment.json'
 import { BACKTEST, COMPETITION, LIVE, NO_TIME } from '../enums/CloneMode'
-import { Trading, Indicator, Sensor } from '../enums/BotTypes'
+import { Trading, Indicator, Extraction } from '../enums/BotTypes'
 
 const createClone = async (clone) => {
   try {
@@ -130,7 +130,7 @@ const createClone = async (clone) => {
           'value': clone.keyId
         })
       }
-    } else if (clone.botType === Indicator || clone.botType === Sensor) {
+    } else if (clone.botType === Indicator || clone.botType === Extraction) {
       if (clone.mode === NO_TIME) {
         if (!clone.resumeExecution) {
           env.push({

@@ -132,10 +132,12 @@ const createClone = async (clone) => {
       }
     } else if (clone.botType === Indicator || clone.botType === Sensor) {
       if (clone.mode === NO_TIME) {
-        env.push({
-          'name': 'BEGIN_DATE_TIME',
-          'value': toPlatformDatetime(clone.beginDatetime)
-        })
+        if (!clone.resumeExecution) {
+          env.push({
+            'name': 'BEGIN_DATE_TIME',
+            'value': toPlatformDatetime(clone.beginDatetime)
+          })
+        }
       } else {
         env.push({
           'name': 'MIN_YEAR',

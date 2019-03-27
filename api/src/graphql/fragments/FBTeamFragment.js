@@ -31,6 +31,7 @@ const FB_TEAM_FRAGMENT = gql`{
           member {
             alias
           }
+        }
       }
     }
   }

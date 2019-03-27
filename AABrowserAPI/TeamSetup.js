@@ -214,6 +214,7 @@
                                 }
                             }
 
+                            // Market Files
                             for (let i = 0; i < botConfig.processes[0].dataDependencies.length; i++) {
 
                                 // Add a copy of the simulator indicator in the configuration
@@ -222,6 +223,18 @@
 
                                     botConfig.processes[0].dataDependencies[i].devTeam = pTeamCodeName;
                                     botConfig.processes[0].dataDependencies[i].bot = "simulator-" + pBotCodeName;
+                                }
+                            }
+
+                            // Daily Files
+                            for (let i = 0; i < botConfig.processes[1].dataDependencies.length; i++) {
+
+                                // Add a copy of the simulator indicator in the configuration
+                                if ( botConfig.processes[1].dataDependencies[i].devTeam === "AAMasters" &&
+                                     botConfig.processes[1].dataDependencies[i].bot === "AAJason" ) {
+
+                                    botConfig.processes[1].dataDependencies[i].devTeam = pTeamCodeName;
+                                    botConfig.processes[1].dataDependencies[i].bot = "simulator-" + pBotCodeName;
                                 }
                             }
 

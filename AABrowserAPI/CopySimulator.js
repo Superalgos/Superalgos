@@ -1,13 +1,4 @@
-﻿
-// let financialBeingsCopy = newFinancialBeingClone()
-
-// const simulatorTemplatePath = "aaplatform/AATemplate/bots/AAJason-Indicator-Bot1";
-// const blobName = "this.bot.config.json";
-
-// financialBeingsCopy.copySimulator("team-a", "team a", "matias", "bot-a", "bot a")
-// async function copySimulator(pTeamCodeName, pTeamDisplayName, pUserName, pBotCodeName, pBotDisplayName, pUserId) {
-
-const {
+﻿const {
     Aborter,
     BlobURL,
     BlockBlobURL,
@@ -77,8 +68,8 @@ exports.newCopySimulator = function newCopySimulator() {
                 if (parsedConfig.processes[0].statusDependencies[i].devTeam === "AAMasters" &&
                     parsedConfig.processes[0].statusDependencies[i].bot === "AAJason") {
 
-                        parsedConfig.processes[0].statusDependencies[i].devTeam = parsedConfig.devTeam;
-                        parsedConfig.processes[0].statusDependencies[i].bot = parsedConfig.codeName;
+                    parsedConfig.processes[0].statusDependencies[i].devTeam = parsedConfig.devTeam;
+                    parsedConfig.processes[0].statusDependencies[i].bot = parsedConfig.codeName;
                 }
             }
 
@@ -87,8 +78,8 @@ exports.newCopySimulator = function newCopySimulator() {
                 if (parsedConfig.processes[1].statusDependencies[i].devTeam === "AAMasters" &&
                     parsedConfig.processes[1].statusDependencies[i].bot === "AAJason") {
 
-                        parsedConfig.processes[1].statusDependencies[i].devTeam = parsedConfig.devTeam;
-                        parsedConfig.processes[1].statusDependencies[i].bot = parsedConfig.codeName;
+                    parsedConfig.processes[1].statusDependencies[i].devTeam = parsedConfig.devTeam;
+                    parsedConfig.processes[1].statusDependencies[i].bot = parsedConfig.codeName;
                 }
             }
 
@@ -104,8 +95,8 @@ exports.newCopySimulator = function newCopySimulator() {
             parsedConfig.products[1].dataSets[1].dataRange.filePath = pTeamCodeName + "/" + parsedConfig.codeName + ".1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Daily"
 
             // Write the new files
-            let newSimulatorName = "simulator-"+ pBotCodeName + "-Indicator-Bot"
-            let newSimulatorPath = "aaplatform/"+ pTeamCodeName + "/bots/" + newSimulatorName
+            let newSimulatorName = "simulator-" + pBotCodeName + "-Indicator-Bot"
+            let newSimulatorPath = "aaplatform/" + pTeamCodeName + "/bots/" + newSimulatorName
             await writeFileContent(newSimulatorPath, "Commons.js", commons)
             await writeFileContent(newSimulatorPath, "this.bot.config.json", beautify(parsedConfig, null, 2, 80))
             await writeFileContent(newSimulatorPath + "/Multi-Period-Daily", "User.Bot.js", codeDaily)
@@ -125,7 +116,7 @@ exports.newCopySimulator = function newCopySimulator() {
 
             // Delete simulator code
             let newSimulatorName = "simulator-" + pBotCodeName + "-Indicator-Bot"
-            let newSimulatorPath = "aaplatform/"+ pTeamCodeName + "/bots/" + newSimulatorName
+            let newSimulatorPath = "aaplatform/" + pTeamCodeName + "/bots/" + newSimulatorName
             await deleteBlob(newSimulatorPath, "Commons.js")
             await deleteBlob(newSimulatorPath, "this.bot.config.json")
             await deleteBlob(newSimulatorPath + "/Multi-Period-Daily", "User.Bot.js")
@@ -158,18 +149,13 @@ exports.newCopySimulator = function newCopySimulator() {
     }
 
     async function deleteBlob(containerName, blobName) {
-        try{
+        try {
             const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName)
             const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName)
             await blockBlobURL.delete(Aborter.none)
         } catch (err) {
             logger.warn('Error deleting the file: %s%s', containerName, blobName)
         }
-    }
-
-    async function deleteContainer(containerName) {
-        const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName)
-        let containerRemoveResponse = await containerURL.delete(Aborter.none)
     }
 
     // A helper method used to read a Node.js readable stream into string

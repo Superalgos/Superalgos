@@ -4,7 +4,7 @@ import { Client, config } from 'kubernetes-client'
 
 const getClonePodStatus = async (cloneName) => {
   try {
-    logger.debug('getClonePodStatus on kubernates started. ')
+    logger.debug('getClonePodStatus on kubernates started.')
     const client = new Client({ config: config.fromKubeconfig(), version: '1.9' })
 
     let query = {
@@ -26,7 +26,7 @@ const getClonePodStatus = async (cloneName) => {
 
       return JSON.stringify(clonePodStatus, null, 2)
     } else {
-      logger.warn('getClonePodStatus pod not found %s: ', cloneName)
+      logger.warn('getClonePodStatus pod not found: %s', cloneName)
       return " Clone not found on the server. "
     }
   } catch (err) {

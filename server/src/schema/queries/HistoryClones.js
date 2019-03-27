@@ -22,16 +22,26 @@ const resolve = async(parent, { botType }, context) => {
       active: false
     }).sort({createDatetime: -1})
 
+    let cloneResponse = []
+    let allUserBotsResponse = await teamQuery(context.authorization, null)
+    let allUserBots = allUserBotsResponse.data.data.teams_FbByOwner.edges
+
     for (var i = 0; i < clones.length; i++) {
-      let team = await teamQuery(context.authorization, clones[i].teamId)
-      clones[i] = await cloneDetails(context.userId, team.data.data.teams_TeamById, clones[i])
-      clones[i].botType = clones[i].kind // Only for listing we show the teams value
+      for (var j = 0; j < allUserBots.length; j++) {
+        let bot = allUserBots[j].node
+        if(clones[i].botId === bot.id){
+          let clone = cloneDetails(context.userId, bot, clones[i])
+          cloneResponse.push(clone)
+          break
+        }
+      }
     }
+
     if (botType) {
-      var filtered = clones.filter((value) => value.botType === botType)
+      var filtered = cloneResponse.filter((value) => value.botType === botType)
       return filtered
     } else {
-      return clones
+      return cloneResponse
     }
   } catch (err) {
     logger.error('Retrieving History Clones error: %s', err.stack)

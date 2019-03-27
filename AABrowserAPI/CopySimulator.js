@@ -72,8 +72,7 @@ exports.newCopySimulator = function newCopySimulator() {
                     "minor": 0
                 },
                 process: "Multi-Period-Market",
-                dataSetVersion: "dataSet.V1",
-                type: "Indicator"
+                dataSetVersion: "dataSet.V1"
             }
             parsedConfig.processes[0].statusDependencies.push(statusDependencyMarket)
 
@@ -85,36 +84,9 @@ exports.newCopySimulator = function newCopySimulator() {
                     "minor": 0
                 },
                 process: "Multi-Period-Daily",
-                dataSetVersion: "dataSet.V1",
-                type: "Indicator"
+                dataSetVersion: "dataSet.V1"
             }
-            parsedConfig.processes[0].statusDependencies.push(statusDependencyDaily)
-
-            let dataDependencyMarket = {
-                devTeam: pTeamCodeName,
-                bot: botCodeName,
-                botVersion: {
-                    "major": 1,
-                    "minor": 0
-                },
-                process: "Trading-Simulation",
-                dataSetVersion: "dataSet.V1",
-                dataSet: "Multi-Period-Market"
-            }
-            parsedConfig.processes[0].dataDependencies.push(dataDependencyMarket)
-
-            let dataDependencyDaily = {
-                devTeam: pTeamCodeName,
-                bot: botCodeName,
-                botVersion: {
-                    "major": 1,
-                    "minor": 0
-                },
-                process: "Trading-Simulation",
-                dataSetVersion: "dataSet.V1",
-                dataSet: "Multi-Period-Daily"
-            }
-            parsedConfig.processes[0].dataDependencies.push(dataDependencyDaily)
+            parsedConfig.processes[1].statusDependencies.push(statusDependencyDaily)
 
             //Changing Indicator Output
             parsedConfig.products[0].storageAccount = pTeamCodeName

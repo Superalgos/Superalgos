@@ -42,7 +42,7 @@
     function newInternalLoop(pBot, pProcess) {
 
 
-        console.log(new Date().toISOString() + " " + strPad(pBot, 20) + " " + strPad(pProcess, 30) + " Entered into Internal Loop # " + strPad(internalLoopCounter + 1, 4));
+        console.log(new Date().toISOString() + " " + strPad(pBot, 20) + " " + strPad(pProcess, 30) + " Entered into Internal Loop # " + strPad(internalLoopCounter + 1, 4) + " bot.processDatetime = " + thisObject.bot.processDatetime.toISOString());
 
         persist();
 

@@ -96,7 +96,6 @@
             };
 
             let previousDay;                        // Holds the date of the previous day relative to the processing date.
-            let currentDay;                         // Holds the processing date.
 
             let interExecutionMemoryArray;
 
@@ -297,7 +296,7 @@
                     let n;
                     let botNeverRan = true;
 
-                    currentDay = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    bot.processDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
 
                     advanceTime();
 
@@ -309,15 +308,15 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> Entering function."); }
 
-                            currentDay = new Date(currentDay.valueOf() + ONE_DAY_IN_MILISECONDS);
-                            previousDay = new Date(currentDay.valueOf() - ONE_DAY_IN_MILISECONDS);
+                            bot.processDatetime = new Date(bot.processDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
+                            previousDay = new Date(bot.processDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> currentDay = " + currentDay); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> bot.processDatetime = " + bot.processDatetime); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> previousDay = " + previousDay); }
 
                             /* Validation that we are not going past the head of the market. */
 
-                            if (currentDay.valueOf() > contextVariables.dateEndOfMarket.valueOf()) {
+                            if (bot.processDatetime.valueOf() > contextVariables.dateEndOfMarket.valueOf()) {
 
                                 const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> " + logText); }
@@ -384,7 +383,7 @@
                                     let previousFile;
                                     let currentFile;
 
-                                    if (currentDay.valueOf() > contextVariables.dateBeginOfMarket.valueOf()) {
+                                    if (bot.processDatetime.valueOf() > contextVariables.dateBeginOfMarket.valueOf()) {
                                         getPreviousFile();
                                     } else {
                                         previousFile = [];
@@ -466,7 +465,7 @@
 
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> Entering function."); }
 
-                                            let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                                            let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
                                             let filePath = dependency.product + '/' + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
@@ -560,7 +559,7 @@
                                         dataFiles,
                                         timePeriod,
                                         outputPeriodLabel,
-                                        currentDay,
+                                        bot.processDatetime,
                                         contextVariables.dateBeginOfMarket,
                                         contextVariables.dateEndOfMarket,
                                         interExecutionMemoryArray[n],
@@ -629,7 +628,7 @@
                                             return;
                                         }
 
-                                        writeStatusReport(currentDay, advanceTime);
+                                        writeStatusReport(bot.processDatetime, advanceTime);
 
                                     } catch (err) {
                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods ->  controlLoop -> onWritten -> err = " + err.message);
@@ -664,7 +663,7 @@
 
                         let folderName = bot.products[productIndex].codeName;
 
-                        writeDataRange(contextVariables.dateBeginOfMarket, currentDay, folderName, controlLoop);
+                        writeDataRange(contextVariables.dateBeginOfMarket, bot.processDatetime, folderName, controlLoop);
                     }
 
                     function controlLoop() {

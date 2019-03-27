@@ -33,6 +33,7 @@ function newFileCursor () {
   let endDateRange
 
   let intervalHandle
+  let finalized = false
 
   return thisObject
 
@@ -47,6 +48,7 @@ function newFileCursor () {
       fileCloud = undefined
       periodName = undefined
       timePeriod = undefined
+      finalized = true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
     }
@@ -88,6 +90,7 @@ function newFileCursor () {
 
   function updateFiles () {
     try {
+      if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> Entering function.') }
 
             /*

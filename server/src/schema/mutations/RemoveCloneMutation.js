@@ -30,8 +30,9 @@ const resolve = async (parent, { id }, context) => {
       throw new OperationsError('You are not authorized to remove this clone.')
     }
 
-    let team = await teamQuery(context.authorization, clone.teamId)
-    clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
+    let allUserBotsResponse = await teamQuery(context.authorization, clone.botId)
+    let bot = allUserBotsResponse.data.data.teams_FbByOwner.edges[0].node
+    clone = cloneDetails(bot, clone)
 
     if ((clone.mode === LIVE || clone.mode === COMPETITION) && isDefined(clone.keyId)) {
       logger.debug('removeClone -> Release the clone key.')

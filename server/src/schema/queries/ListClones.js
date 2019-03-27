@@ -33,7 +33,7 @@ const resolve = async (parent, { botType, queryLogs }, context) => {
       for (var j = 0; j < allUserBots.length; j++) {
         let bot = allUserBots[j].node
         if(clones[i].botId === bot.id){
-          let clone = cloneDetails(context.userId, bot, clones[i])
+          let clone = cloneDetails(bot, clones[i])
           cloneResponse.push(clone)
           break
         }

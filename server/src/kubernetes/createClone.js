@@ -159,7 +159,7 @@ const createClone = async (clone) => {
     }
 
     deploymentManifest.spec.template.spec.containers[0].env = env
-
+    logger.debug('ENV %s: ', JSON.stringify(env))
     await client.apis.batch.v1.namespaces('default').jobs.post(
       { body: deploymentManifest })
 

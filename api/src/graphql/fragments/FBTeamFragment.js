@@ -25,6 +25,12 @@ const FB_TEAM_FRAGMENT = gql`{
           motto
           updatedAt
         }
+        members {
+          role
+          email
+          member {
+            alias
+          }
       }
     }
   }

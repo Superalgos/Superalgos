@@ -3,6 +3,8 @@ import { logger } from '../../../logger'
 import FB_FRAGMENT from '../../fragments/FBFragment'
 import FB_TEAM_FRAGMENT from '../../fragments/FBTeamFragment'
 
+import { isDefined, isNull } from '../../../utils'
+
 export const fbByFbId = async (parent, { fbId }, ctx, info) => {
   logger.info(`fbByFbId: ${fbId}`)
   let FB = await ctx.db.query.financialBeings({where: {id: fbId}}, FB_FRAGMENT)
@@ -24,5 +26,9 @@ export const fbByOwner = async (parent, { fbId, fbSlug }, ctx, info) => {
     throw new AuthenticationError()
     return
   }
-  return ctx.db.query.financialBeingsesConnection({where: {AND:[{team:{members_some:{member:{authId: authId}}}},{OR:[{slug:fbSlug},{id:fbId}]}]}}, FB_TEAM_FRAGMENT)
+  if ((isDefined(fbId) && !isNull(fbId)) || (isDefined(fbSlug) && !isNull(fbSlug))){
+    return ctx.db.query.financialBeingsesConnection({where: {AND:[{team:{members_some:{member:{authId: authId}}}},{OR:[{slug:fbSlug},{id:fbId}]}]}}, FB_TEAM_FRAGMENT)
+  } else {
+    return ctx.db.query.financialBeingsesConnection({where: {team:{members_some:{member:{authId: authId}}}}}, FB_TEAM_FRAGMENT)
+  }
 }

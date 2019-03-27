@@ -41,8 +41,9 @@ const resolve = async (parent, { clone }, context) => {
   }
 
   try {
-    let team = await teamQuery(context.authorization, clone.teamId)
-    clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
+    let allUserBotsResponse = await teamQuery(context.authorization, clone.botId)
+    let bot = allUserBotsResponse.data.data.teams_FbByOwner.edges[0].node
+    clone = cloneDetails(bot, clone)
     clone.createDatetime = new Date().valueOf() / 1000 | 0
     clone.active = true
 

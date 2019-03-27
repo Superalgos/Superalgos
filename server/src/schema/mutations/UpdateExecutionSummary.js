@@ -44,8 +44,9 @@ const resolve = async (parent,
       return 'Clone not found.'
     }
 
-    let team = await teamQuery(context.authorization, clone.teamId)
-    clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
+    let allUserBotsResponse = await teamQuery(context.authorization, clone.botId)
+    let bot = allUserBotsResponse.data.data.teams_FbByOwner.edges[0].node
+    clone = cloneDetails(bot, clone)
 
     const query = { _id: id }
     const options = { new: true }

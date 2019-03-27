@@ -207,9 +207,11 @@
                             }
 
                             // Add simulator dependency
+                            let simulatorBotCodeName = "simulator-" + pBotCodeName
+
                             let statusDependencyMarket = {
                                 devTeam: pTeamCodeName,
-                                bot: botCodeName,
+                                bot: simulatorBotCodeName,
                                 botVersion: {
                                     "major": 1,
                                     "minor": 0
@@ -222,7 +224,7 @@
 
                             let statusDependencyDaily = {
                                 devTeam: pTeamCodeName,
-                                bot: botCodeName,
+                                bot: simulatorBotCodeName,
                                 botVersion: {
                                     "major": 1,
                                     "minor": 0
@@ -233,7 +235,6 @@
                             }
                             botConfig.processes[0].statusDependencies.push(statusDependencyDaily)
 
-                            let simulatorBotCodeName = "simulator-" + pBotCodeName
                             let dataDependencyMarket = {
                                 devTeam: pTeamCodeName,
                                 bot: simulatorBotCodeName,

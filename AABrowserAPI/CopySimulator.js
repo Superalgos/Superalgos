@@ -57,31 +57,64 @@ exports.newCopySimulator = function newCopySimulator() {
             let codeMarket = await getFileContent(templatePath + "/Multi-Period-Market", "User.Bot.js")
 
             // Change config to adapt the new indicator
+            let botCodeName = "simulator-" + pBotCodeName
             let parsedConfig = JSON.parse(config)
-            parsedConfig.displayName = "Simulator " + pBotDisplayName;
-            parsedConfig.codeName = "simulator-" + pBotCodeName;
-            parsedConfig.devTeam = pTeamCodeName;
-            parsedConfig.profilePicture = pBotCodeName + ".png";
+            parsedConfig.displayName = "Simulator " + pBotDisplayName
+            parsedConfig.codeName = botCodeName
+            parsedConfig.devTeam = pTeamCodeName
+            parsedConfig.profilePicture = pBotCodeName + ".png"
 
-            for (let i = 0; i < parsedConfig.processes[0].statusDependencies.length; i++) {
-
-                if (parsedConfig.processes[0].statusDependencies[i].devTeam === "AAMasters" &&
-                    parsedConfig.processes[0].statusDependencies[i].bot === "AAJason") {
-
-                    parsedConfig.processes[0].statusDependencies[i].devTeam = parsedConfig.devTeam;
-                    parsedConfig.processes[0].statusDependencies[i].bot = parsedConfig.codeName;
-                }
+            let statusDependencyMarket = {
+                devTeam: pTeamCodeName,
+                bot: botCodeName,
+                botVersion: {
+                    "major": 1,
+                    "minor": 0
+                },
+                process: "Multi-Period-Market",
+                dataSetVersion: "dataSet.V1",
+                type: "Indicator"
             }
+            parsedConfig.processes[0].statusDependencies.push(statusDependencyMarket)
 
-            for (let i = 0; i < parsedConfig.processes[1].statusDependencies.length; i++) {
-
-                if (parsedConfig.processes[1].statusDependencies[i].devTeam === "AAMasters" &&
-                    parsedConfig.processes[1].statusDependencies[i].bot === "AAJason") {
-
-                    parsedConfig.processes[1].statusDependencies[i].devTeam = parsedConfig.devTeam;
-                    parsedConfig.processes[1].statusDependencies[i].bot = parsedConfig.codeName;
-                }
+            let statusDependencyDaily = {
+                devTeam: pTeamCodeName,
+                bot: botCodeName,
+                botVersion: {
+                    "major": 1,
+                    "minor": 0
+                },
+                process: "Multi-Period-Daily",
+                dataSetVersion: "dataSet.V1",
+                type: "Indicator"
             }
+            parsedConfig.processes[0].statusDependencies.push(statusDependencyDaily)
+
+            let dataDependencyMarket = {
+                devTeam: pTeamCodeName,
+                bot: botCodeName,
+                botVersion: {
+                    "major": 1,
+                    "minor": 0
+                },
+                process: "Trading-Simulation",
+                dataSetVersion: "dataSet.V1",
+                dataSet: "Multi-Period-Market"
+            }
+            parsedConfig.processes[0].dataDependencies.push(dataDependencyMarket)
+
+            let dataDependencyDaily = {
+                devTeam: pTeamCodeName,
+                bot: botCodeName,
+                botVersion: {
+                    "major": 1,
+                    "minor": 0
+                },
+                process: "Trading-Simulation",
+                dataSetVersion: "dataSet.V1",
+                dataSet: "Multi-Period-Daily"
+            }
+            parsedConfig.processes[0].dataDependencies.push(dataDependencyDaily)
 
             //Changing Indicator Output
             parsedConfig.products[0].storageAccount = pTeamCodeName

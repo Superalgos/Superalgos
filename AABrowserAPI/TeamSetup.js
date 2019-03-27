@@ -226,7 +226,6 @@
                                 }
                             }
 
-                            // Daily Files
                             for (let i = 0; i < botConfig.processes[1].dataDependencies.length; i++) {
 
                                 // Add a copy of the simulator indicator in the configuration

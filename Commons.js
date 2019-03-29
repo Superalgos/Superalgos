@@ -3,6 +3,12 @@ const auth = require('./utils/auth')
 
 exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
+    const {
+        MESSAGE_ENTITY, MESSAGE_TYPE, ORDER_CREATOR, ORDER_TYPE,
+        ORDER_OWNER, ORDER_DIRECTION, ORDER_STATUS, ORDER_EXIT_OUTCOME,
+        createRecord, getRecord, getExpandedRecord
+    } = require("@superalgos/mqservice")
+
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
@@ -747,97 +753,68 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     // Since we are going to write the message to a file that the Simulation Executor is going to read, we use the abbreviations.
                     let messageType;
                     let message;
+                    let record;
 
                     messageId++;
 
                     if (strategyPhase === 2 || strategyPhase === 3) {
 
                         if (strategyPhase === 2) {
-                            messageType = "Order";
+                            messageType = MESSAGE_TYPE.Order;
                             orderId++;
                         }
                         if (strategyPhase === 3) {
-                            messageType = "Order Update";
+                            messageType = MESSAGE_TYPE.OrderUpdate;
                         }
 
-                        message = {
-                            id: messageId, // This is a unique Id within the system component that originated the message.
-                            from: "SEN", // "Simulation Executor|Trading Cockpit|Simulation Engine|Trading Assistant", // --> "SEX|COK|SEN|ASS"
-                            to: "SEX", // "Simulation Executor|Trading Cockpit|Simulation Engine|Trading Assistant", // --> "SEX|COK|SEN|ASS"
-                            messageType: messageType, // "Order Authorization Request|Order Authorization Response|Order|Order Update", // --> "ARQ|ARS|ORD|UPT"
-                            dateTime: (new Date()).valueOf(),
-                            order: {
-                                id: orderId, // This is a unique Id within the system component that originated the order.
-                                creator: "SE", // "Simulation Engine|Human Trader", // --> "SE|HT"
-                                dateTime: (new Date()).valueOf(),
-                                owner: "Node/Team/User",
-                                exchange: "Poloniex",
-                                market: "BTC/USDT",
-                                marginEnabled: 0, // true | false --> 1|0
-                                type: "L", // "Market|Limit|Stop", // --> "M|L|S"
-                                rate: rate,
-                                stop: stopLoss,
-                                takeProfit: buyOrder,
-                                direction: "Sell", //"Sell|Buy", // --> "Sell|Buy"
-                                size: "All",
-                                status: "Signaled", // "Signaled|Manual Authorized|Manual Not Authorized|Auto Authorized|Auto Not Authorized|Executing|Cancelled|Filled|Partially Filled|Discarded|Placed", // --> "SIG|MAU|MNA|AAU|ANA|EXE|CAN|FIL|PRT|DIS|PLA"
-                                sizeFilled: 0,
-                                exitOutcome: "" // "Stop Loss|Take Profit" // --> "SL|TP"
-                            }
-                        }
+                        record = createRecord(
+                        messageId,
+                        MESSAGE_ENTITY.SimulationEngine,
+                        MESSAGE_ENTITY.SimulationExecutor,
+                        messageType,
+                        (new Date()).valueOf(),
+                        orderId,
+                        ORDER_CREATOR.SimulationEngine,
+                        (new Date()).valueOf(),
+                        ORDER_OWNER.User,
+                        "Poloniex",
+                        "BTC/USDT",
+                        0,
+                        ORDER_TYPE.Limit,
+                        rate,
+                        stopLoss,
+                        buyOrder,
+                        ORDER_DIRECTION.Sell,
+                        "All",
+                        ORDER_STATUS.Signaled,
+                        0,
+                        "")
+
                     } else {
 
-                        message = {
-                            id: messageId, 
-                            from: "SEN",  
-                            to: "SEX",  
-                            messageType: "HBT", // Heart Beat, no order or updates sent, just informing we are alive.
-                            dateTime: (new Date()).valueOf(),
-                            order: {
-                                id: 0,  
-                                creator: "",
-                                dateTime: 0,
-                                owner: "",
-                                exchange: "",
-                                market: "",
-                                marginEnabled: 0, 
-                                type: "",                                  
-                                rate: 0,
-                                stop: 0,
-                                takeProfit: 0,
-                                direction: "",  
-                                size: "",
-                                status: "", 
-                                sizeFilled: 0,
-                                exitOutcome: ""  
-                            }
-                        }
+                    record = createRecord(
+                        messageId,
+                        MESSAGE_ENTITY.SimulationEngine,
+                        MESSAGE_ENTITY.SimulationExecutor,
+                        MESSAGE_TYPE.HeartBeat,
+                        (new Date()).valueOf(),
+                        0,
+                        "",
+                        0,
+                        "",
+                        "",
+                        "",
+                        0,
+                        "",
+                        0,
+                        0,
+                        0,
+                        "",
+                        "",
+                        "",
+                        0,
+                        "")
                     }
-
-                    let recordToSimulationExecutor = [
-                        message.id,
-                        message.from,
-                        message.to,
-                        message.messageType,
-                        message.dateTime,
-                        [
-                            message.order.id,
-                            message.order.creator,
-                            message.order.owner,
-                            message.order.exchange,
-                            message.order.market,
-                            message.order.marginEnabled,
-                            message.order.type,
-                            message.order.rate,
-                            message.order.stop,
-                            message.order.takeProfit,
-                            message.order.direction,
-                            message.order.size,
-                            message.order.status,
-                            message.order.sizeFilled,
-                            message.order.exitOutcome
-                        ]
-                    ]
 
                     record = {
                         begin: candle.begin,
@@ -865,7 +842,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         buyOrder: buyOrder,
                         stopLossPhase: stopLossPhase,
                         buyOrderPhase: buyOrderPhase,
-                        recordToSimulationExecutor: recordToSimulationExecutor
+                        recordToSimulationExecutor: record
                     }
 
                     recordsArray.push(record);

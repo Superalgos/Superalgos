@@ -132,6 +132,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let hits = 0;
             let periods = 0;
 
+            /* Message to Su=Simulation Executor */
+
+            let orderId = 0;
+            let messageId = 0;
+
             let yesterday = {};
 
             yesterday.balanceAssetA = balanceAssetA;
@@ -143,6 +148,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             yesterday.Fails = 0;
             yesterday.Hits = 0;
             yesterday.Periods = 0;
+
+            yesterday.orderId = 0;
+            yesterday.messageId = 0;
 
             if (interExecutionMemory.roundtrips === undefined) {
 
@@ -156,6 +164,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 interExecutionMemory.fails = 0;
                 interExecutionMemory.hits = 0;
                 interExecutionMemory.periods = 0;
+
+                interExecutionMemory.orderId = 0;
+                interExecutionMemory.messageId = 0;
 
             } else {
 
@@ -178,6 +189,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 hits = interExecutionMemory.hits;
                 periods = interExecutionMemory.periods;
 
+                orderId = interExecutionMemory.orderId;
+                messageId = interExecutionMemory.messageId;
             }
 
             simulationLogic.strategies = await getStrategy();
@@ -731,6 +744,101 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function addRecord() {
 
+                    // Since we are going to write the message to a file that the Simulation Executor is going to read, we use the abbreviations.
+                    let messageType;
+                    let message;
+
+                    messageId++;
+
+                    if (strategyPhase === 2 || strategyPhase === 3) {
+
+                        if (strategyPhase === 2) {
+                            messageType = "Order";
+                            orderId++;
+                        }
+                        if (strategyPhase === 3) {
+                            messageType = "Order Update";
+                        }
+
+                        message = {
+                            id: messageId, // This is a unique Id within the system component that originated the message.
+                            from: "SEN", // "Simulation Executor|Trading Cockpit|Simulation Engine|Trading Assistant", // --> "SEX|COK|SEN|ASS"
+                            to: "SEX", // "Simulation Executor|Trading Cockpit|Simulation Engine|Trading Assistant", // --> "SEX|COK|SEN|ASS"
+                            messageType: messageType, // "Order Authorization Request|Order Authorization Response|Order|Order Update", // --> "ARQ|ARS|ORD|UPT"
+                            dateTime: (new Date()).valueOf(),
+                            order: {
+                                id: orderId, // This is a unique Id within the system component that originated the order.
+                                creator: "SE", // "Simulation Engine|Human Trader", // --> "SE|HT"
+                                dateTime: (new Date()).valueOf(),
+                                owner: "Node/Team/User",
+                                exchange: "Poloniex",
+                                market: "BTC/USDT",
+                                marginEnabled: 0, // true | false --> 1|0
+                                type: "L", // "Market|Limit|Stop", // --> "M|L|S"
+                                rate: rate,
+                                stop: stopLoss,
+                                takeProfit: buyOrder,
+                                direction: "Sell", //"Sell|Buy", // --> "Sell|Buy"
+                                size: "All",
+                                status: "Signaled", // "Signaled|Manual Authorized|Manual Not Authorized|Auto Authorized|Auto Not Authorized|Executing|Cancelled|Filled|Partially Filled|Discarded|Placed", // --> "SIG|MAU|MNA|AAU|ANA|EXE|CAN|FIL|PRT|DIS|PLA"
+                                sizeFilled: 0,
+                                exitOutcome: "" // "Stop Loss|Take Profit" // --> "SL|TP"
+                            }
+                        }
+                    } else {
+
+                        message = {
+                            id: messageId, 
+                            from: "SEN",  
+                            to: "SEX",  
+                            messageType: "HBT", // Heart Beat, no order or updates sent, just informing we are alive.
+                            dateTime: (new Date()).valueOf(),
+                            order: {
+                                id: 0,  
+                                creator: "",
+                                dateTime: 0,
+                                owner: "",
+                                exchange: "",
+                                market: "",
+                                marginEnabled: 0, 
+                                type: "",                                  
+                                rate: 0,
+                                stop: 0,
+                                takeProfit: 0,
+                                direction: "",  
+                                size: "",
+                                status: "", 
+                                sizeFilled: 0,
+                                exitOutcome: ""  
+                            }
+                        }
+                    }
+
+                    let recordToSimulationExecutor = [
+                        message.id,
+                        message.from,
+                        message.to,
+                        message.messageType,
+                        message.dateTime,
+                        [
+                            message.order.id,
+                            message.order.creator,
+                            message.order.owner,
+                            message.order.exchange,
+                            message.order.market,
+                            message.order.marginEnabled,
+                            message.order.type,
+                            message.order.rate,
+                            message.order.stop,
+                            message.order.takeProfit,
+                            message.order.direction,
+                            message.order.size,
+                            message.order.status,
+                            message.order.sizeFilled,
+                            message.order.exitOutcome
+                        ]
+                    ]
+
                     record = {
                         begin: candle.begin,
                         end: candle.end,
@@ -756,7 +864,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         strategyPhase: strategyPhase,
                         buyOrder: buyOrder,
                         stopLossPhase: stopLossPhase,
-                        buyOrderPhase: buyOrderPhase
+                        buyOrderPhase: buyOrderPhase,
+                        recordToSimulationExecutor: recordToSimulationExecutor
                     }
 
                     recordsArray.push(record);
@@ -798,6 +907,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     interExecutionMemory.hits = interExecutionMemory.hits + yesterday.Hits;
                     interExecutionMemory.periods = interExecutionMemory.periods + yesterday.Periods;
 
+                    interExecutionMemory.messageId = interExecutionMemory.messageId + yesterday.messageId;
+                    interExecutionMemory.orderId = interExecutionMemory.orderId + yesterday.orderId;
                 }
             }
 

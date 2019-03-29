@@ -161,7 +161,8 @@
                             record.strategyPhase + "," +
                             record.buyOrder + "," +
                             record.stopLossPhase + "," +
-                            record.buyOrderPhase + "]";
+                            record.buyOrderPhase + "," +
+                            JSON.stringify(record.recordToSimulationExecutor) + "]";
 
                         if (separator === "") { separator = ","; }
 

@@ -304,12 +304,12 @@
 
                         try {
 
-                            logger.newInternalLoop(bot.codeName, bot.process);
-
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> Entering function."); }
 
                             bot.processDatetime = new Date(bot.processDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(bot.processDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
+
+                            logger.newInternalLoop(bot.codeName, bot.process);
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> bot.processDatetime = " + bot.processDatetime); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> previousDay = " + previousDay); }

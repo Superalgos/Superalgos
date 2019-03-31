@@ -90,7 +90,7 @@
                         USER_BOT_MODULE = pMODULE;
 
                         filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
-  
+
                         cloudRequire.downloadCommons(cloudStorage, filePath, onCommonsDownloaded);
 
                         function onCommonsDownloaded(err, pMODULE) {
@@ -598,7 +598,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
 
-                            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger);
+                            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, process.env.EXCHANGE_NAME);
 
                             exchangeAPI.initialize(onInizialized);
 
@@ -1113,7 +1113,7 @@
                                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
                                     let filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
-        
+
                                     let fileName = "this.config.json";
 
                                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);

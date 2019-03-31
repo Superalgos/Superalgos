@@ -28,6 +28,14 @@
           "event": "Current Condition Record Changed"
         }
       ]
+    },
+    {
+      "codeName": "SimulationExecution",
+      "moduleName": "SimulationExecution",
+      "description": "Plots Simulation Execution.",
+      "profilePicture": "SimulationExecution.png",
+      "panels": [
+      ]
     }
   ]
 }

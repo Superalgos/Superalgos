@@ -1,4 +1,4 @@
-﻿exports.newExchangeAPI = function newExchangeAPI(logger, authToken) {
+﻿exports.newExchangeAPI = function newExchangeAPI(logger, exchangeName) {
 
     /*
 
@@ -31,7 +31,13 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            let botExchange = 'Poloniex';
+            let botExchange
+            if (exchangeName === undefined) {
+                botExchange = 'Poloniex'; // Default Value
+            } else {
+                botExchange = exchangeName;
+            }
+
             let exchange = botExchange.toLowerCase() + 'Client.js';
             let api = require('./wrappers/' + exchange);
 
@@ -45,7 +51,7 @@
                 let auth = require('../utils/auth')
                 let authTokenCloud = await auth.authenticate()
                 accessToken = 'Bearer ' + authTokenCloud
-            } 
+            }
 
             let keyVaultAPI = createKeyVaultAPIClient(accessToken, keyId, cloneId)
             apiClient = api.newAPIClient(keyVaultAPI, logger);
@@ -60,7 +66,7 @@
 
     function createKeyVaultAPIClient(accessToken, keyId, cloneId) {
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createKeyVaultAPIClient -> Entering function."); }
-        
+
         const keyVaultAPI = {}
         keyVaultAPI.signTransaction = function (transaction, next) {
             axios({

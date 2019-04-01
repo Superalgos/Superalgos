@@ -1065,6 +1065,13 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> nextRecord -> Entering function."); }
 
+                            if (filesToSave.length === 0) {
+
+                                logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> nextRecord -> No file to save.");
+                                controlLoop();
+                                return
+                            }
+
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                             date = new Date(filesToSave[i].datetime * 60 * 1000);

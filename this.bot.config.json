@@ -13,7 +13,7 @@
   "processes": [
     {
       "name": "One-Min-Daily-Candles-Volumes",
-      "description": "Produces two data-sets with candles and volumes for all markets at Poloniex.",
+      "description": "Produces two data-sets with candles and volumes.",
       "startMode": {
         "allMonths": {
           "run": "true",
@@ -45,7 +45,7 @@
             "major": 1,
             "minor": 0
           },
-          "process": "Poloniex-Historic-Trades",
+          "process": "Historic-Trades",
           "dataSetVersion": "dataSet.V1"
         },
         {
@@ -55,7 +55,7 @@
             "major": 1,
             "minor": 0
           },
-          "process": "Poloniex-Hole-Fixing",
+          "process": "Hole-Fixing",
           "dataSetVersion": "dataSet.V1",
           "dataSetSection": "Month"
         },
@@ -91,6 +91,9 @@
       "exchangeList": [
         {
           "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
         }
       ],
       "plotter": {
@@ -116,6 +119,9 @@
       "exchangeList": [
         {
           "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
         }
       ],
       "plotter": {

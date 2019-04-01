@@ -20,7 +20,7 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 ## Dataset 1: Candles in 1 Minute Resolutions
 
 ### Current Dataset Scope
-* **Exchanges**: Poloniex
+* **Exchanges**: Poloniex, Coss
 * **Markets**: USDT-BTC
 * **Range**: Market Start Date – Current Time (-0 to 59 secs)
 
@@ -43,7 +43,7 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 ## Dataset 2: Volumes in 1 Minute Resolutions
 
 ### Current Dataset Scope
-* **Exchanges**: Poloniex
+* **Exchanges**: Poloniex, Coss
 * **Markets**: USDT-BTC
 * **Range**: Market Start Date – Current Time (-0 to 59 secs)
 

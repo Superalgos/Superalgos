@@ -12,7 +12,7 @@
   "dataSetVersion": "dataSet.V1",
   "processes": [
     {
-      "name": "One-Min-Daily-Candles-Volumes",
+      "name": "Single-Period-Daily",
       "description": "Produces two data-sets with candles and volumes.",
       "startMode": {
         "allMonths": {
@@ -66,7 +66,7 @@
             "major": 1,
             "minor": 0
           },
-          "process": "One-Min-Daily-Candles-Volumes",
+          "process": "Single-Period-Daily",
           "dataSetVersion": "dataSet.V1",
           "dataSetSection": "Month"
         }

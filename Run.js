@@ -7,7 +7,7 @@ global.AT_BREAKPOINT = false; // This is used only when running at the browser.
 global.RUN_AS_TEAM = false;
 
 /* Default parameters can be changed by the execution configuration */
-global.EXCHANGE_NAME = "Poloniex";
+global.EXCHANGE_NAME = process.env.EXCHANGE_NAME;
 global.MARKET = {
     assetA: "USDT",
     assetB: "BTC"
@@ -72,7 +72,7 @@ function readExecutionConfiguration() {
                 backtest: backtest,
                 competition: competition
             }
-        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Extraction') {
+        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Sensor') {
             let allMonths = {
                 run: "false",
                 minYear: process.env.MIN_YEAR,

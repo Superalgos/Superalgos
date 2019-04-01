@@ -2,10 +2,7 @@
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-
     const MODULE_NAME = "Multi Period Market";
-
-    const EXCHANGE_NAME = "Poloniex";
 
     const commons = COMMONS.newCommons(bot, logger, UTILITIES);
 

@@ -1,8 +1,8 @@
-﻿exports.newExtractionBotProcessMainLoop = function newExtractionBotProcessMainLoop(bot, parentLogger) {
+﻿exports.newSensorBotProcessMainLoop = function newSensorBotProcessMainLoop(bot, parentLogger) {
 
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Extraction Bot Process Main Loop";
+    const MODULE_NAME = "Sensor Bot Process Main Loop";
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;
@@ -246,7 +246,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
 
-                            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, process.env.EXCHANGE_NAME);
+                            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, global.EXCHANGE_NAME);
 
                             exchangeAPI.initialize(onInizialized);
 
@@ -581,7 +581,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onContinue -> Entering function."); }
 
-                            /* Extraction bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
+                            /* Sensor bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
 
                             switch (nextWaitTime) {
                                 case 'Normal': {

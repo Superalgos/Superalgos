@@ -3,7 +3,6 @@
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
     const MODULE_NAME = "Multi Period Daily";
-    const EXCHANGE_NAME = "Poloniex";
     const commons = COMMONS.newCommons(bot, logger, UTILITIES);
     const GMT_SECONDS = ':00.000 GMT+0000';
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;

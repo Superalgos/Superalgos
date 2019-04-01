@@ -188,7 +188,7 @@
 
         const TRADING_BOT_MAIN_LOOP_MODULE = require('./TradingBotProcessMainLoop');
         const INDICATOR_BOT_MAIN_LOOP_MODULE = require('./IndicatorBotProcessMainLoop');
-        const EXTRACTION_BOT_MAIN_LOOP_MODULE = require('./ExtractionBotProcessMainLoop');
+        const EXTRACTION_BOT_MAIN_LOOP_MODULE = require('./SensorBotProcessMainLoop');
 
         /* Loop through all the processes configured to be run by this Node.js Instance. */
 
@@ -328,8 +328,8 @@
                                                 if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> startProcess -> Ready to start process."); }
 
                                                 switch (botConfig.type) {
-                                                    case 'Extraction': {
-                                                        runExtractionBot(newInstanceBotConfig, processConfig, padMonth, year);
+                                                    case 'Sensor': {
+                                                        runSensorBot(newInstanceBotConfig, processConfig, padMonth, year);
                                                         break;
                                                     }
                                                     case 'Indicator': {
@@ -367,8 +367,8 @@
                                         };
 
                                         switch (botConfig.type) {
-                                            case 'Extraction': {
-                                                runExtractionBot(botConfig, processConfig, month, year);
+                                            case 'Sensor': {
+                                                runSensorBot(botConfig, processConfig, month, year);
                                                 break;
                                             }
                                             case 'Indicator': {
@@ -397,8 +397,8 @@
                                     }
 
                                     switch (botConfig.type) {
-                                        case 'Extraction': {
-                                            runExtractionBot(botConfig, processConfig, month, year);
+                                        case 'Sensor': {
+                                            runSensorBot(botConfig, processConfig, month, year);
                                             break;
                                         }
                                         case 'Indicator': {
@@ -423,8 +423,8 @@
                                     let year = (new Date()).getUTCFullYear();
 
                                     switch (botConfig.type) {
-                                        case 'Extraction': {
-                                            runExtractionBot(botConfig, processConfig, month, year);
+                                        case 'Sensor': {
+                                            runSensorBot(botConfig, processConfig, month, year);
                                             break;
                                         }
                                         default: {
@@ -532,7 +532,7 @@
 
                 }
 
-                function runExtractionBot(pBotConfig, pProcessConfig, pMonth, pYear) {
+                function runSensorBot(pBotConfig, pProcessConfig, pMonth, pYear) {
 
                     try {
 
@@ -542,11 +542,11 @@
                         logger = DEBUG_MODULE.newDebugLog();
                         logger.bot = pBotConfig;
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runExtractionBot -> Entering function."); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runExtractionBot -> pMonth = " + pMonth); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runExtractionBot -> pYear = " + pYear); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runSensorBot -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runSensorBot -> pMonth = " + pMonth); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runSensorBot -> pYear = " + pYear); }
 
-                        let extractionBotMainLoop = EXTRACTION_BOT_MAIN_LOOP_MODULE.newExtractionBotProcessMainLoop(pBotConfig, logger);
+                        let extractionBotMainLoop = EXTRACTION_BOT_MAIN_LOOP_MODULE.newSensorBotProcessMainLoop(pBotConfig, logger);
                         extractionBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
 
                         function onInitializeReady(err) {
@@ -568,38 +568,38 @@
 
                                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                        logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
-                                        logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                                        logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                        logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                                        console.log(logDisplace + "Root : [INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
-                                        console.log(logDisplace + "Root : [INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                        console.log(logDisplace + "Root : [INFO] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
+                                        console.log(logDisplace + "Root : [INFO] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
 
                                         logger.persist();
 
                                     } else {
 
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bye.");
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bye.");
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
-                                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot execution was aborted.");
+                                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
+                                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution was aborted.");
                                         logger.persist();
                                     }
                                 }
 
                             } else {
-                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> err = " + err.message);
-                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> Bot will not be started. ");
-                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> Bot will not be started. ");
+                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> err = " + err.message);
 
                                 logger.persist();
                             }
                         }
                     }
                     catch (err) {
-                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runExtractionBot -> err = " + err.message);
+                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> err = " + err.message);
                     }
                 }
 

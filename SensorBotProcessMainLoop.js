@@ -1,4 +1,4 @@
-﻿exports.newExtractionBotProcessMainLoop = function newExtractionBotProcessMainLoop(bot, parentLogger) {
+﻿exports.newSensorBotProcessMainLoop = function newSensorBotProcessMainLoop(bot, parentLogger) {
 
     const ROOT_DIR = './';
 

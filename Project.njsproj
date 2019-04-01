@@ -67,7 +67,7 @@
     <Compile Include="StatusDependencies.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ExtractionBotProcessMainLoop.js">
+    <Compile Include="SensorBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Context.js">

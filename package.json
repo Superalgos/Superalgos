@@ -1,5 +1,5 @@
 {
-  "name": "CloneExecutor",
+  "name": "@superalgos/clone-executor",
   "version": "1.0.0",
   "description": "",
   "main": "Run.js",

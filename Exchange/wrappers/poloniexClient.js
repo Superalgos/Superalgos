@@ -1,10 +1,5 @@
 ﻿exports.newAPIClient = function newAPIClient(keyVaultAPI, logger) {
 
-    /*
-    /* ATENTION: This Library is used both a the cloud (AACloud) and also at the AAWeb on the server side without any modifications.
-    /*           There is a second version, stripped of all the inner functionality that runs at AAWeb browser side, which channels the requests to the server side one.
-    */
-
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
     const MODULE_NAME = "poloniexClient";

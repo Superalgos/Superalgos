@@ -309,7 +309,7 @@
         return (exchangeErr, exchangeResponse) => {
             let error;
 
-            /* This function analizes the different situations we might encounter trying to access Poloniex and returns appropiate standard errors. */
+            /* This function analizes the different situations we might encounter trying to access Binance and returns appropiate standard errors. */
             
             let stringExchangeErr = JSON.stringify(exchangeErr);
             let stringExchangeResponse = JSON.stringify(exchangeResponse);

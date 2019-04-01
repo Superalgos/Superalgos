@@ -45,7 +45,7 @@
             "major": 1,
             "minor": 0
           },
-          "process": "Poloniex-Historic-Trades",
+          "process": "Historic-Trades",
           "dataSetVersion": "dataSet.V1"
         },
         {
@@ -55,7 +55,7 @@
             "major": 1,
             "minor": 0
           },
-          "process": "One-Min-Daily-Candles-Volumes",
+          "process": "Single-Period-Daily",
           "dataSetVersion": "dataSet.V1",
           "dataSetSection": "Month"
         },
@@ -105,7 +105,7 @@
             "major": 1,
             "minor": 0
           },
-          "process": "Poloniex-Historic-Trades",
+          "process": "Historic-Trades",
           "dataSetVersion": "dataSet.V1"
         },
         {
@@ -115,7 +115,7 @@
             "major": 1,
             "minor": 0
           },
-          "process": "One-Min-Daily-Candles-Volumes",
+          "process": "Single-Period-Daily",
           "dataSetVersion": "dataSet.V1",
           "dataSetSection": "Month"
         },
@@ -161,6 +161,9 @@
       "exchangeList": [
         {
           "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
         }
       ],
       "plotter": {
@@ -197,6 +200,9 @@
       "exchangeList": [
         {
           "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
         }
       ],
       "plotter": {

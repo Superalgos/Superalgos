@@ -8,8 +8,6 @@
 
     const MODULE_NAME = "User Bot";
 
-    const EXCHANGE_NAME = "Poloniex";
-
     const TRADES_FOLDER_NAME = "Trades";
 
     thisObject = {

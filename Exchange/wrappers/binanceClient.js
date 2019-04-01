@@ -1,10 +1,5 @@
 ﻿exports.newAPIClient = function newAPIClient(pKey, pSecret, logger) {
 
-    /*
-    /* ATENTION: This Library is used both a the cloud (AACloud) and also at the AAWeb on the server side without any modifications.
-    /*           There is a second version, stripped of all the inner functionality that runs at AAWeb browser side, which channels the requests to the server side one.
-    */
-
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = true;
     const MODULE_NAME = "binanceClient";
@@ -100,7 +95,7 @@
         };
 
         const fetch = next => API.ticker24hr(market, analizeResponse(next));
-        
+
         retry(null, fetch, handle);
     }
 
@@ -310,7 +305,7 @@
             let error;
 
             /* This function analizes the different situations we might encounter trying to access Binance and returns appropiate standard errors. */
-            
+
             let stringExchangeErr = JSON.stringify(exchangeErr);
             let stringExchangeResponse = JSON.stringify(exchangeResponse);
 
@@ -347,14 +342,14 @@
                         error.notFatal = true;
                     }
                 }
-                
+
                 return callBack(error, exchangeResponse);
-            
+
             } catch (err) {
                 logger.write(MODULE_NAME, "[ERROR] analizeResponse -> err.message = " + err.message);
                 return callBack(global.DEFAULT_FAIL_RESPONSE, exchangeResponse);
             }
         }
     }
-        
+
 }

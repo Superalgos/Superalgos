@@ -328,7 +328,7 @@
                                                 if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> startProcess -> Ready to start process."); }
 
                                                 switch (botConfig.type) {
-                                                    case 'Extraction': {
+                                                    case 'Sensor': {
                                                         runExtractionBot(newInstanceBotConfig, processConfig, padMonth, year);
                                                         break;
                                                     }
@@ -367,7 +367,7 @@
                                         };
 
                                         switch (botConfig.type) {
-                                            case 'Extraction': {
+                                            case 'Sensor': {
                                                 runExtractionBot(botConfig, processConfig, month, year);
                                                 break;
                                             }
@@ -397,7 +397,7 @@
                                     }
 
                                     switch (botConfig.type) {
-                                        case 'Extraction': {
+                                        case 'Sensor': {
                                             runExtractionBot(botConfig, processConfig, month, year);
                                             break;
                                         }
@@ -423,7 +423,7 @@
                                     let year = (new Date()).getUTCFullYear();
 
                                     switch (botConfig.type) {
-                                        case 'Extraction': {
+                                        case 'Sensor': {
                                             runExtractionBot(botConfig, processConfig, month, year);
                                             break;
                                         }

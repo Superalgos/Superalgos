@@ -72,7 +72,7 @@ function readExecutionConfiguration() {
                 backtest: backtest,
                 competition: competition
             }
-        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Extraction') {
+        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Sensor') {
             let allMonths = {
                 run: "false",
                 minYear: process.env.MIN_YEAR,

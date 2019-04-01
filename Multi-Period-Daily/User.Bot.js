@@ -10,8 +10,6 @@
 
     const MODULE_NAME = "User Bot";
 
-    const EXCHANGE_NAME = "Poloniex";
-
     const TRADES_FOLDER_NAME = "Trades";
 
     const CANDLES_FOLDER_NAME = "Candles";
@@ -114,7 +112,7 @@
 
                     /* We look first for Charly in order to get when the market starts. */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);

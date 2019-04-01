@@ -9,8 +9,6 @@
 
     const MODULE_NAME = "User Bot";
 
-    const EXCHANGE_NAME = "Poloniex";
-
     const TRADES_FOLDER_NAME = "Trades";
 
     const CANDLES_FOLDER_NAME = "Candles";

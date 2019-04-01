@@ -200,7 +200,7 @@
 
                     for (i = 0; i < exchangeResponse.length; i++) {
 
-                        let record = exchangeResponse[exchangeResponse.length - 1 - i]; // In Poloniex the order of the records is by date DESC so we change it to ASC
+                        let record = exchangeResponse[exchangeResponse.length - 1 - i]; // We expect the exchange API to return the records ordered by ID DESC so we change it to ASC
 
                         const trade = {
                             tradeIdAtExchange: record.tradeID,
@@ -267,7 +267,7 @@
 
                         for (i = 0; i < exchangeResponse.length; i++) {
 
-                            let record = exchangeResponse[exchangeResponse.length - 1 - i]; // In Poloniex the order of the records is by date DESC so we change it to ASC
+                            let record = exchangeResponse[exchangeResponse.length - 1 - i]; // We expect the exchange API to return the records ordered by ID DESC so we change it to ASC
 
                             const trade = {
                                 tradeIdAtExchange: record.tradeID,

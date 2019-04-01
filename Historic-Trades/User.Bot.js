@@ -546,7 +546,7 @@ This process complements the Live Trades process and write historical trades fil
                     let currentProcessMinute = Math.trunc(currentDate.valueOf() / 1000 / 60); 
                     let firstProcessMinute = currentProcessMinute;
 
-                    /* We will iterate through all the records received from the exchange. We know Poloniex sends the older records first, so this is going to be going back in time as we advance. */
+                    /* We will iterate through all the records received from the exchange. We expect the exchange API to return the records ordered by ID DESC so we change it to ASC. So this is going to be going back in time as we advance. */
 
                     for (let i = 0; i < tradesRequested.length; i++) {
 

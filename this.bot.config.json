@@ -57,12 +57,12 @@
         "allMonths": {
           "run": "false",
           "minYear": "2014",
-          "maxYear": "2018"
+          "maxYear": "2020"
         },
         "oneMonth": {
           "run": "true",
           "year": "2018",
-          "month": "04"
+          "month": "01"
         },
         "noTime": {
           "run": "false"
@@ -106,7 +106,7 @@
         "allMonths": {
           "run": "true",
           "minYear": "2018",
-          "maxYear": "2018"
+          "maxYear": "2019"
         },
         "oneMonth": {
           "run": "false",

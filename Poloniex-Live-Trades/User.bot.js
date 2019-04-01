@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, STATUS_REPORT, POLONIEX_CLIENT_MODULE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, STATUS_REPORT, EXCHANGE_API) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -20,7 +20,6 @@
     let charlyStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
-    let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
 
     let statusDependencies;
 
@@ -58,30 +57,30 @@
         }
     }
 
-/*
-
-We are going to generate 2 files:
-
-A. The first one will contain all the trades of the current minute and will be store in a folder that we will create for this if it does not exist.
-This file will be incomplete, since we are at the current minute and some trades will happen after we retrieve the information from the exchange,
-but this is not a problem, since the second file is going to fix this. This file is only usefull for viewing a partial candle as it is being built
-at the head of the market.
-
-B. The second file will contain all the trades of the previous minute. This will override the incomplete file written a minute before.
-
-FILE FORMAT
------------
-
-Array of records with this information:
-
-1. Trade Id provided by the exchange.
-2. Trade Type: "buy" or "sell"
-3. Trade Rate: the rate of the transaction.
-4. Amount Asset A
-5. Amount Asset B
-6. Time: Seconds and Milliseconds the trade happened. (the rest of the time and date whoever reads the file already know it since it is organized in folders according to this.)
-
-*/
+    /*
+    
+    We are going to generate 2 files:
+    
+    A. The first one will contain all the trades of the current minute and will be store in a folder that we will create for this if it does not exist.
+    This file will be incomplete, since we are at the current minute and some trades will happen after we retrieve the information from the exchange,
+    but this is not a problem, since the second file is going to fix this. This file is only usefull for viewing a partial candle as it is being built
+    at the head of the market.
+    
+    B. The second file will contain all the trades of the previous minute. This will override the incomplete file written a minute before.
+    
+    FILE FORMAT
+    -----------
+    
+    Array of records with this information:
+    
+    1. Trade Id provided by the exchange.
+    2. Trade Type: "buy" or "sell"
+    3. Trade Rate: the rate of the transaction.
+    4. Amount Asset A
+    5. Amount Asset B
+    6. Time: Seconds and Milliseconds the trade happened. (the rest of the time and date whoever reads the file already know it since it is organized in folders according to this.)
+    
+    */
 
     function start(callBackFunction) {
 
@@ -105,7 +104,7 @@ Array of records with this information:
 
             let exchangeCallTime;
 
-            firstSteps(); 
+            firstSteps();
 
             function firstSteps() {
 
@@ -114,7 +113,7 @@ Array of records with this information:
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> firstSteps -> Entering function."); }
 
                     currentDate = bot.processDatetime;
-                    
+
                     previousMinute = new Date(currentDate.valueOf() - 60000);
 
                     dateForPathA = currentDate.getUTCFullYear() + '/' + utilities.pad(currentDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDate.getUTCDate(), 2) + '/' + utilities.pad(currentDate.getUTCHours(), 2) + '/' + utilities.pad(currentDate.getUTCMinutes(), 2);
@@ -123,7 +122,7 @@ Array of records with this information:
                     filePathA = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathA;
                     filePathB = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathB;
 
-                    getTheTrades(); 
+                    getTheTrades();
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> firstSteps -> err = " + err.message);
@@ -149,7 +148,7 @@ Array of records with this information:
 
                     exchangeCallTime = new Date();
 
-                    poloniexApiClient.API.returnPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
+                    EXCHANGE_API.getPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> getTheTrades -> err = " + err.message);
@@ -170,12 +169,7 @@ Array of records with this information:
                         logger.write(MODULE_NAME, "[INFO] start -> onExchangeCallReturned -> Call time recorded = " + timeDifference + " seconds.");
                     }
 
-                    poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
-
-                    function onResponseOk() {
-
-                        tradesReadyToBeSaved(exchangeResponse);
-                    }
+                    tradesReadyToBeSaved(exchangeResponse);
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> onExchangeCallReturned -> err = " + err.message);
@@ -259,7 +253,7 @@ Array of records with this information:
 
                         logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Finished with File A @ " + market.assetA + "_" + market.assetB);
                         logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Records inserted = " + fileRecordCounterA);
-                        logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Path = " + filePathA + "/" + fileNameA + ""); 
+                        logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Path = " + filePathA + "/" + fileNameA + "");
 
                         generateFileB();
                     }
@@ -326,7 +320,7 @@ Array of records with this information:
 
                             logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Finished with File B @ " + market.assetA + "_" + market.assetB);
                             logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written -> Records inserted = " + fileRecordCounterB);
-                            logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written -> Path = " + filePathB + "/" + fileNameB + ""); 
+                            logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written -> Path = " + filePathB + "/" + fileNameB + "");
 
                             writeStatusReport();
                         }

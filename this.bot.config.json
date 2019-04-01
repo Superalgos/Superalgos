@@ -1,7 +1,7 @@
 {
   "displayName": "Charly",
   "codeName": "AACharly",
-  "type": "Extraction",
+  "type": "Sensor",
   "version": {
     "major": 1,
     "minor": 0,

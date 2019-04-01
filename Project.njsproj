@@ -33,6 +33,7 @@
     <Compile Include="CloudRequire.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="exchange\wrappers\coss.js" />
     <Compile Include="MultiPeriodDaily.js">
       <SubType>Code</SubType>
     </Compile>

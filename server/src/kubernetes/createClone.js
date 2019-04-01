@@ -4,7 +4,7 @@ import { KubernateError } from '../errors'
 import { Client, config } from 'kubernetes-client'
 import deploymentManifest from '../config/clone-deployment.json'
 import { BACKTEST, COMPETITION, LIVE, NO_TIME } from '../enums/CloneMode'
-import { Trading, Indicator, Extraction } from '../enums/BotTypes'
+import { Trading, Indicator, Sensor } from '../enums/BotTypes'
 
 const createClone = async (clone) => {
   try {
@@ -80,6 +80,10 @@ const createClone = async (clone) => {
       'name': 'PROCESS',
       'value': clone.processName
     })
+    env.push({
+      'name': 'EXCHANGE_NAME',
+      'value': clone.exchangeName
+    })
 
     logger.debug('createClone Trading Configuration.')
     if (clone.botType === Trading) {
@@ -130,7 +134,7 @@ const createClone = async (clone) => {
           'value': clone.keyId
         })
       }
-    } else if (clone.botType === Indicator || clone.botType === Extraction) {
+    } else if (clone.botType === Indicator || clone.botType === Sensor) {
       if (clone.mode === NO_TIME) {
         if (!clone.resumeExecution) {
           env.push({
@@ -159,7 +163,7 @@ const createClone = async (clone) => {
     }
 
     deploymentManifest.spec.template.spec.containers[0].env = env
-    logger.debug('ENV %s: ', JSON.stringify(env))
+
     await client.apis.batch.v1.namespaces('default').jobs.post(
       { body: deploymentManifest })
 

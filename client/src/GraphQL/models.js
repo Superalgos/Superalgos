@@ -29,22 +29,36 @@ const tradingStartModesList = {
 const indicatorStartModes = {
   allMonths: 'All Months',
   oneMonth: 'One Month',
-  noTime: 'No Time'
+  noTime: 'Head of the Market'
 }
 
-const processNames = {
+const sensorProcessNames = {
+  Live: "Live-Trades",
+  HoleFixing: "Hole-Fixing"
+}
+
+const indicatorProcessNames = {
   Daily: 'Multi-Period-Daily',
-  Market: 'Multi-Period-Market',
-  Min: "One-Min-Daily-Candles-Volumes",
-  Live: "Poloniex-Live-Trades",
-  HoleFixing: "Poloniex-Hole-Fixing"
+  Market: 'Multi-Period-Market'
 }
 
-const exchanges = [
-  {
-    id: '1',
-    name: 'Poloniex'
-  }
-]
+const tradingProcessNames = {
+  TradingProcess: "Trading-Process"
+}
 
-export { tradingStartModes, tradingStartModesList, exchanges, indicatorStartModes, availableMonths, processNames, availableTimePeriods }
+const botTypes = {
+  Trading: "Trading",
+  Indicator: "Indicator",
+  Sensor: "Sensor"
+}
+
+const exchanges = {
+  Coss: "Coss",
+  Poloniex: "Poloniex",
+  Binance: "Binance"
+}
+
+export {
+  tradingStartModes, tradingStartModesList, exchanges, indicatorStartModes, availableMonths,
+  availableTimePeriods, sensorProcessNames, indicatorProcessNames, tradingProcessNames, botTypes
+}

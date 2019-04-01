@@ -4,10 +4,10 @@ The Superalgos Operations Server manages the clone life cycle inside the **Super
 The main function includes storing the metadata information of the clones and handling the interaction with the orchestration software which is [Kubernetes](https://Kubernetes.io).
 
 # Execution sequence
-The operations module (or Clones) integrates with other system modules to enable secure and encapsulated execution. On the clone creation process the encapsulation is achieved by deploying a **Cloud** Image on a **Kubernates** container.
+The operations module (or Clones) integrates with other system modules to enable secure and encapsulated execution. On the clone creation process the encapsulation is achieved by deploying a **Clone Executor** Image on a **Kubernates** container.
 - [Keys](https://github.com/Superalgos/KeyVaultModule): Manages the signature of the messages sent to the external exchanges.
 - [Teams](https://github.com/Superalgos/TeamsModule): Provide team and bot authorization.
-- [Cloud](https://github.com/Superalgos/AACloud): Receive the execution parameters and runs an independent instance of the platform.
+- [Clone Executor](https://github.com/Superalgos/CloneExecutor): Receive the execution parameters and runs an independent instance of the platform.
 
 ```mermaid
 sequenceDiagram
@@ -19,13 +19,13 @@ Clones	->>		Keys:	authorizeCloneToUseKey
 Keys	->>		Clones:	geCloneTeamAndBot
 Keys	->>		Teams:	getTeamMembers
 Keys	-->>	Clones:	authorizeCloneToUseKey
-Clones	->>		Cloud:	createClone
-Cloud	->>		Keys:	signTransaction
-Cloud	->>		Clones:	updateExection
+Clones	->>		Clone Executor:	createClone
+Clone Executor	->>		Keys:	signTransaction
+Clone Executor	->>		Clones:	updateExection
 
-Note left of Cloud: signTransaction and <br/> updateExection are <br/> called n number <br/> of times
+Note left of Clone Executor: signTransaction and <br/> updateExection are <br/> called n number <br/> of times
 User	->>		Clones:	getCloneExecutionInformation
-Cloud	->>		Clones:	cloneExecutionComplete
+Clone Executor	->>		Clones:	cloneExecutionComplete
 User	->>		Clones:	deleteClone
 Clones	->>		Keys:	releaseKey
 ```

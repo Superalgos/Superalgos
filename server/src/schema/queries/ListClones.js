@@ -34,7 +34,6 @@ const resolve = async (parent, { botType, queryLogs }, context) => {
         let bot = allUserBots[j].node
         if(clones[i].botId === bot.id){
           let clone = cloneDetails(bot, clones[i])
-          clone.botType = bot.kind
           cloneResponse.push(clone)
           break
         }

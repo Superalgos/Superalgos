@@ -7,7 +7,7 @@ export const linkSchemaDefs =
       bot: teams_FinancialBeings
     }
     extend type operations_Clone {
-      signals( state: cockpit_SignalStateEnum ): [cockpit_Signal]
+      signals( orderStatus: String ): [cockpit_Signal]
     }
   `
 

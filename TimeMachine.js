@@ -34,6 +34,7 @@ function newTimeMachine () {
 
   let controlPanelHandle             // We need this to destroy the Panel when this object is itself destroyed or no longer needs it...
           // ... also to request a reference to the object for the cases we need it.
+  const SEPARATION_BETWEEN_TIMELINE_CHARTS = 1.5
 
   return thisObject
 
@@ -55,8 +56,9 @@ function newTimeMachine () {
 
         /* Each Time Machine has a Control Panel. */
 
-    controlPanelHandle = canvas.panelsSpace.createNewPanel('Time Control Panel')
-    let controlPanel = canvas.panelsSpace.getPanel(controlPanelHandle)
+    let panelOwner = 'Global'
+    controlPanelHandle = canvas.panelsSpace.createNewPanel('Time Control Panel', undefined, panelOwner)
+    let controlPanel = canvas.panelsSpace.getPanel(controlPanelHandle, panelOwner)
 
         /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
 
@@ -73,7 +75,7 @@ function newTimeMachine () {
     timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
 
     timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
-    timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.1 * position
+    timelineChart.container.frame.position.y = timelineChart.container.frame.height * SEPARATION_BETWEEN_TIMELINE_CHARTS * position
 
     position++
 
@@ -132,7 +134,7 @@ function newTimeMachine () {
         timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
 
         timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
-        timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.1 * position
+        timelineChart.container.frame.position.y = timelineChart.container.frame.height * SEPARATION_BETWEEN_TIMELINE_CHARTS * position
 
         position++
 

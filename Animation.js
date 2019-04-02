@@ -108,6 +108,10 @@ function newAnimation () {
 
         clearBrowserCanvas()
 
+                /* Let reset the current chart that is on focus */
+
+        window.CHART_ON_FOCUS = ''
+
                 /* We loop through the callback functions collections and execute them all. */
 
         callBackFunctions.forEach(function (callBackFunction) {

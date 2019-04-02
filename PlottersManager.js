@@ -553,8 +553,9 @@ function newPlottersManager () {
                   panelCodeName: panelConfig.codeName
                 }
 
-                let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters)
-                let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle)
+                let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
+                let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, panelOwner)
+                let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle, panelOwner)
 
                                 /* Connect Panel to the Plotter via an Event. */
 

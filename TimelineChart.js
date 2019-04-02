@@ -70,8 +70,9 @@
        exchange = pExchange
        market = pMarket
 
-       productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel')
-       let productsPanel = canvas.panelsSpace.getPanel(productsPanelHandle)
+       let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
+       productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel', undefined, panelOwner)
+       let productsPanel = canvas.panelsSpace.getPanel(productsPanelHandle, panelOwner)
        productsPanel.initialize(exchange, market)
 
        logoA = new Image()
@@ -304,9 +305,13 @@
      if (INTENSIVE_LOG === true) { logger.write('[INFO] draw -> Entering function.') }
 
      if (thisObject.container.frame.isInViewPort()) {
-       this.container.frame.draw()
+       if (window.CHART_ON_FOCUS === '') {
+         window.CHART_ON_FOCUS = exchange + ' ' + market.assetB + '/' + market.assetA
 
-       drawBackground()
+         this.container.frame.draw()
+
+         drawBackground()
+       }
 
        chartGrid.draw(thisObject.container, timeLineCoordinateSystem)
 

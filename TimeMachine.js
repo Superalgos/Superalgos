@@ -73,7 +73,7 @@ function newTimeMachine () {
     timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
 
     timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
-    timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * position
+    timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.1 * position
 
     position++
 
@@ -132,7 +132,7 @@ function newTimeMachine () {
         timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
 
         timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
-        timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * position
+        timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.1 * position
 
         position++
 
@@ -147,8 +147,7 @@ function newTimeMachine () {
           timelineChart.container.eventHandler.listenToEvent('Datetime Changed', controlPanel.setDatetime)
 
           alreadyInitialized++
-          console.log('alreadyInitialized ' + alreadyInitialized)
-          console.log('leftToInitialize ' + leftToInitialize)
+
           if (alreadyInitialized === leftToInitialize) {
             callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
           }

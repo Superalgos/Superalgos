@@ -138,8 +138,8 @@
        plotterManager.container.frame.width = thisObject.container.frame.width
        plotterManager.container.frame.height = thisObject.container.frame.height
 
-       plotterManager.container.frame.position.x = thisObject.container.frame.position.x
-       plotterManager.container.frame.position.y = thisObject.container.frame.position.y
+       plotterManager.container.frame.position.x = 0
+       plotterManager.container.frame.position.y = 0
 
        plotterManager.initialize(productsPanel, pExchange, pMarket, onPlotterManagerReady)
 

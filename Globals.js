@@ -101,7 +101,7 @@ const SUPPORTED_MARKETS = [
       assetB: "BTC",
   }
 ];
-const DEFAULT_EXCHANGE = "Poloniex";
+const DEFAULT_EXCHANGE = "Coss";
 const DEFAULT_MARKET = {
     assetA: "USDT",
     assetB: "BTC",

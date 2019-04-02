@@ -45,6 +45,8 @@
    let canDrawLogoAA = false
 
    let plotterManager
+   let exchange
+   let market
 
    return thisObject
 
@@ -58,11 +60,13 @@
      }
    }
 
-   function initialize (pProductsPanel, callBackFunction) {
+   function initialize (pProductsPanel, pExchange, pMarket, callBackFunction) {
      try {
        if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
             /* We load the logow we will need for the background. */
+       exchange = pExchange
+       market = pMarket
 
        logoA = new Image()
        logoB = new Image()
@@ -135,7 +139,7 @@
        plotterManager.container.frame.position.x = thisObject.container.frame.position.x
        plotterManager.container.frame.position.y = thisObject.container.frame.position.y
 
-       plotterManager.initialize(pProductsPanel, onPlotterManagerReady)
+       plotterManager.initialize(pProductsPanel, pExchange, pMarket, onPlotterManagerReady)
 
        function onPlotterManagerReady (err) {
          if (INFO_LOG === true) { logger.write('[INFO] initialize -> onPlotterManagerReady -> Entering function.') }

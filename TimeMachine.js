@@ -78,7 +78,7 @@ function newTimeMachine () {
     timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
     timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration
 
-    timelineChart.initialize(productsPanel, onDefaultMarketInitialized)
+    timelineChart.initialize(productsPanel, DEFAULT_EXCHANGE, DEFAULT_MARKET, onDefaultMarketInitialized)
 
     iteration++
 
@@ -110,7 +110,7 @@ function newTimeMachine () {
       function initializeTimelineChart (item, key, mapObj) {
         if (INFO_LOG === true) { logger.write('[INFO] initialize -> initializeTheRestOfTheMarkets -> initializeTimelineChart -> Entering function.') }
 
-        if (key === INITIAL_DEFAULT_MARKET) {
+        if (key === DEFAULT_MARKET.assetA + '.' + DEFAULT_MARKET.assetB) {
  // We skip this market since it has already been initialized.
 
           return

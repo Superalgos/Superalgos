@@ -94,7 +94,7 @@ function convertTimePeriodToName(pTimePeriod) {
 
 window.AT_BREAKPOINT = false;
 
-const INITIAL_DEFAULT_MARKET = 2;       // This is the market that will be shown when loading the site for the first time.
+const SUPPORTED_EXCHANGES = ["Poloniex", "Coss"];
 const DEFAULT_EXCHANGE = "Poloniex";
 const DEFAULT_MARKET = {
     assetA: "USDT",

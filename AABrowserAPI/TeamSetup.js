@@ -204,26 +204,62 @@
                                     botConfig.processes[0].statusDependencies[i].devTeam = pTeamCodeName;
                                     botConfig.processes[0].statusDependencies[i].bot = pBotCodeName;
                                 }
-
-                                // Add a copy of the simulator indicator in the configuration
-                                if ( botConfig.processes[0].statusDependencies[i].devTeam === "AAMasters" &&
-                                     botConfig.processes[0].statusDependencies[i].bot === "AAJason" ) {
-
-                                    botConfig.processes[0].statusDependencies[i].devTeam = pTeamCodeName;
-                                    botConfig.processes[0].statusDependencies[i].bot = "simulator-" + pBotCodeName;
-                                }
                             }
 
-                            for (let i = 0; i < botConfig.processes[0].dataDependencies.length; i++) {
+                            // Add simulator dependency
+                            let simulatorBotCodeName = "simulator-" + pBotCodeName
 
-                                // Add a copy of the simulator indicator in the configuration
-                                if ( botConfig.processes[0].dataDependencies[i].devTeam === "AAMasters" &&
-                                     botConfig.processes[0].dataDependencies[i].bot === "AAJason" ) {
-
-                                    botConfig.processes[0].dataDependencies[i].devTeam = pTeamCodeName;
-                                    botConfig.processes[0].dataDependencies[i].bot = "simulator-" + pBotCodeName;
-                                }
+                            let statusDependencyMarket = {
+                                devTeam: pTeamCodeName,
+                                bot: simulatorBotCodeName,
+                                botVersion: {
+                                    "major": 1,
+                                    "minor": 0
+                                },
+                                process: "Multi-Period-Market",
+                                dataSetVersion: "dataSet.V1",
+                                type: "Indicator"
                             }
+                            botConfig.processes[0].statusDependencies.push(statusDependencyMarket)
+
+                            let statusDependencyDaily = {
+                                devTeam: pTeamCodeName,
+                                bot: simulatorBotCodeName,
+                                botVersion: {
+                                    "major": 1,
+                                    "minor": 0
+                                },
+                                process: "Multi-Period-Daily",
+                                dataSetVersion: "dataSet.V1",
+                                type: "Indicator"
+                            }
+                            botConfig.processes[0].statusDependencies.push(statusDependencyDaily)
+
+                            let dataDependencyMarket = {
+                                devTeam: pTeamCodeName,
+                                bot: simulatorBotCodeName,
+                                botVersion: {
+                                    "major": 1,
+                                    "minor": 0
+                                },
+                                product: "Trading-Simulation",
+                                dataSetVersion: "dataSet.V1",
+                                dataSet: "Multi-Period-Market"
+                            }
+                            botConfig.processes[0].dataDependencies.push(dataDependencyMarket)
+
+                            let dataDependencyDaily = {
+                                devTeam: pTeamCodeName,
+                                bot: simulatorBotCodeName,
+                                botVersion: {
+                                    "major": 1,
+                                    "minor": 0
+                                },
+                                product: "Trading-Simulation",
+                                dataSetVersion: "dataSet.V1",
+                                dataSet: "Multi-Period-Daily"
+                            }
+                            botConfig.processes[0].dataDependencies.push(dataDependencyDaily)
 
                             botConfig.displayName = pBotDisplayName;
                             botConfig.codeName = pBotCodeName;

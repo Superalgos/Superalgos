@@ -32,6 +32,7 @@ function newAppLoader() {
 
                 "Globals.js",
                 "Ecosystem.js",
+                "MQService",
 
                 "BottomSpace/DeleteTradingHistory.js",
                 "BottomSpace/ChartAspectRatio.js",

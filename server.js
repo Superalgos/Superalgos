@@ -36,6 +36,34 @@ global.CUSTOM_FAIL_RESPONSE = {
   message: 'Custom Message'
 }
 
+
+var Minio = require('minio')
+
+var minioClient = new Minio.Client({
+    endPoint: 'niksadvancedalgos.ovh',
+    port: 80,
+    useSSL: false,
+    accessKey: 'luis1234',
+    secretKey: '123456789'
+})
+
+const stage = 'textUpload'
+const bucketName = 'test-bucket'
+const textFilename = 'test.json'
+/*
+if (stage === 'textUpload') {
+    var str = 'some string you want to save'
+    minioClient.putObject(bucketName, textFilename, str, 'text/plain', function (e) {
+        if (e) {
+            return console.log(e)
+        }
+        console.log('Successfully uploaded the string')
+    })
+}
+
+
+return
+*/
 let storageData = new Map()
 
 let botScripts                 // This module is the one which grabs user bots scrips from the storage, and browserifys them.
@@ -169,6 +197,13 @@ function onBrowserRequest (request, response) {
     }
       break
 
+    case 'MQService':
+          {
+              let filePath = "./node_modules/@superalgos/mqservice/orderLifeCicle/webDependency.js"
+
+              respondWithFile(filePath, response)
+              break;
+          }
     case 'Plotter.js':
       {
                 /*

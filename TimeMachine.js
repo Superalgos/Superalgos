@@ -94,8 +94,7 @@ function newTimeMachine () {
       controlPanel.container.eventHandler.listenToEvent('Datetime Changed', timelineChart.setDatetime, undefined)
       timelineChart.container.eventHandler.listenToEvent('Datetime Changed', controlPanel.setDatetime)
 
-      callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-      // initializeTheRest()
+      initializeTheRest()
     }
 
     function initializeTheRest () {

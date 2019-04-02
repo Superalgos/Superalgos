@@ -365,6 +365,11 @@ function newPlottersManager () {
       let okCounter = 0
       let failCounter = 0
 
+      if (loadingProductCards.length === 0) {
+        callBack(GLOBAL.DEFAULT_OK_RESPONSE)
+        return
+      }
+
       for (let i = 0; i < loadingProductCards.length; i++) {
                 /* For each one, we will initialize the associated plotter. */
 

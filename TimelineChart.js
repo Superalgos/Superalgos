@@ -105,7 +105,7 @@
 
        logoA.src = window.canvasApp.urlPrefix + 'Images/tether-logo-background.png'
        logoB.src = window.canvasApp.urlPrefix + 'Images/bitcoin-logo-background.png'
-       logoExchange.src = window.canvasApp.urlPrefix + 'Images/poloniex-logo-background.png'
+       logoExchange.src = window.canvasApp.urlPrefix + 'Images/' + exchange + '-logo-background.png'
        logoAA.src = window.canvasApp.urlPrefix + 'Images/sa-logo-background.png'
 
        chartGrid = newChartGrid()

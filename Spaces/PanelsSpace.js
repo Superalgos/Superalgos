@@ -47,7 +47,6 @@ function newPanelsSpace () {
       case 'Products Panel':
         {
           panel = newProductsPanel()
-          panel.initialize()
           break
         }
       case 'Plotter Panel':

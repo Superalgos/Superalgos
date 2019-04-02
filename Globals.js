@@ -95,6 +95,12 @@ function convertTimePeriodToName(pTimePeriod) {
 window.AT_BREAKPOINT = false;
 
 const SUPPORTED_EXCHANGES = ["Poloniex", "Coss"];
+const SUPPORTED_MARKETS = [
+  {
+      assetA: "USDT",
+      assetB: "BTC",
+  }
+];
 const DEFAULT_EXCHANGE = "Poloniex";
 const DEFAULT_MARKET = {
     assetA: "USDT",

@@ -48,6 +48,8 @@
    let exchange
    let market
 
+   let productsPanelHandle
+
    return thisObject
 
    function finalize () {
@@ -60,13 +62,17 @@
      }
    }
 
-   function initialize (pProductsPanel, pExchange, pMarket, callBackFunction) {
+   function initialize (pExchange, pMarket, callBackFunction) {
      try {
        if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
             /* We load the logow we will need for the background. */
        exchange = pExchange
        market = pMarket
+
+       productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel')
+       let productsPanel = canvas.panelsSpace.getPanel(productsPanelHandle)
+       productsPanel.initialize(exchange, market)
 
        logoA = new Image()
        logoB = new Image()
@@ -102,10 +108,6 @@
        logoExchange.src = window.canvasApp.urlPrefix + 'Images/poloniex-logo-background.png'
        logoAA.src = window.canvasApp.urlPrefix + 'Images/sa-logo-background.png'
 
-            /* Remember the Products Panel */
-
-       productsPanel = pProductsPanel
-
        chartGrid = newChartGrid()
        chartGrid.initialize()
 
@@ -139,7 +141,7 @@
        plotterManager.container.frame.position.x = thisObject.container.frame.position.x
        plotterManager.container.frame.position.y = thisObject.container.frame.position.y
 
-       plotterManager.initialize(pProductsPanel, pExchange, pMarket, onPlotterManagerReady)
+       plotterManager.initialize(productsPanel, pExchange, pMarket, onPlotterManagerReady)
 
        function onPlotterManagerReady (err) {
          if (INFO_LOG === true) { logger.write('[INFO] initialize -> onPlotterManagerReady -> Entering function.') }

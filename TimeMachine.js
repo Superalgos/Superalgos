@@ -17,6 +17,7 @@ function newTimeMachine () {
 
   let thisObject = {
     container: undefined,
+    drawBackground: drawBackground,
     draw: draw,
     charts: [],
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -158,10 +159,15 @@ function newTimeMachine () {
     }
   }
 
+  function drawBackground () {
+    for (let i = 0; i < this.charts.length; i++) {
+      let chart = this.charts[i]
+      chart.drawBackground()
+    }
+  }
+
   function draw () {
     this.container.frame.draw(false, false)
-
-        /* When we draw a time machine, that means also to draw all the charts in it. */
 
     for (let i = 0; i < this.charts.length; i++) {
       let chart = this.charts[i]

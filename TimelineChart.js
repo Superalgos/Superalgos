@@ -14,6 +14,7 @@
    let thisObject = {
      setDatetime: setDatetime,
      container: undefined,
+     drawBackground: drawBackground,
      draw: draw,
      getContainer: getContainer,
      initialize: initialize,
@@ -301,8 +302,8 @@
      }
    }
 
-   function draw () {
-     if (INTENSIVE_LOG === true) { logger.write('[INFO] draw -> Entering function.') }
+   function drawBackground () {
+     if (INTENSIVE_LOG === true) { logger.write('[INFO] drawBackground -> Entering function.') }
 
      if (thisObject.container.frame.isInViewPort()) {
        if (window.CHART_ON_FOCUS === '') {
@@ -310,8 +311,16 @@
 
          this.container.frame.draw()
 
-         drawBackground()
+         drawChartsBackgroundImages()
        }
+     }
+   }
+
+   function draw () {
+     if (INTENSIVE_LOG === true) { logger.write('[INFO] draw -> Entering function.') }
+
+     if (thisObject.container.frame.isInViewPort()) {
+       drawChartsBackground()
 
        chartGrid.draw(thisObject.container, timeLineCoordinateSystem)
 
@@ -321,8 +330,36 @@
      }
    }
 
-   function drawBackground () {
-     if (INTENSIVE_LOG === true) { logger.write('[INFO] drawBackground -> Entering function.') }
+   function drawChartsBackground () {
+        /* We will paint some transparent background here. */
+
+     let opacity = '0.9'
+
+     let fromPoint = {
+       x: 0,
+       y: 0
+     }
+
+     let toPoint = {
+       x: 0,
+       y: thisObject.container.frame.height
+     }
+
+     fromPoint = transformThisPoint(fromPoint, thisObject.container)
+     toPoint = transformThisPoint(toPoint, thisObject.container)
+
+     browserCanvasContext.beginPath()
+
+     browserCanvasContext.rect(viewPort.visibleArea.topLeft.x, fromPoint.y, viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x, toPoint.y - fromPoint.y)
+     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
+
+     browserCanvasContext.closePath()
+
+     browserCanvasContext.fill()
+   }
+
+   function drawChartsBackgroundImages () {
+     if (INTENSIVE_LOG === true) { logger.write('[INFO] drawChartsBackground -> Entering function.') }
 
      if (canDrawLogoA === false || canDrawLogoB === false || canDrawLogoExchange === false || canDrawLogoAA === false) { return }
 
@@ -431,32 +468,6 @@
          browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight + Y_TOP_MARGIN, imageWidth, imageHeight)
        }
      }
-
-        /* We will paint some transparent background here. */
-
-     let opacity = '0.9'
-
-     let fromPoint = {
-       x: 0,
-       y: 0
-     }
-
-     let toPoint = {
-       x: 0,
-       y: thisObject.container.frame.height
-     }
-
-     fromPoint = transformThisPoint(fromPoint, thisObject.container)
-     toPoint = transformThisPoint(toPoint, thisObject.container)
-
-     browserCanvasContext.beginPath()
-
-     browserCanvasContext.rect(viewPort.visibleArea.topLeft.x, fromPoint.y, viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x, toPoint.y - fromPoint.y)
-     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
-
-     browserCanvasContext.closePath()
-
-     browserCanvasContext.fill()
    }
 
    function moveViewPortToCurrentDatetime () {

@@ -15,6 +15,7 @@ function newChartSpace () {
 
   var thisObject = {
     container: undefined,
+    drawBackground: drawBackground,
     draw: draw,
     timeMachines: [],
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -97,10 +98,15 @@ function newChartSpace () {
     }
   }
 
+  function drawBackground () {
+    for (var i = 0; i < thisObject.timeMachines.length; i++) {
+      var timeMachine = thisObject.timeMachines[i]
+      timeMachine.drawBackground()
+    }
+  }
+
   function draw () {
     thisObject.container.frame.draw(false, false)
-
-        /* When we draw the chart space, that means we draw all the time machines in it. */
 
     for (var i = 0; i < thisObject.timeMachines.length; i++) {
       var timeMachine = thisObject.timeMachines[i]

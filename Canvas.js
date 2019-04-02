@@ -159,6 +159,7 @@ function newCanvas () {
 
                    /* Here we add all the functions that will be called during the animation cycle. */
 
+          animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground, onFunctionAdded)
           animation.addCallBackFunction('Chart Space', thisObject.chartSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Floating Space', thisObject.floatingSpace.floatingLayer.physicsLoop, onFunctionAdded)
           animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw, onFunctionAdded)

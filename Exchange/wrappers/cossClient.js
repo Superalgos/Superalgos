@@ -166,9 +166,9 @@
                 trades.push(trade);
             }
             trades.sort((a, b) => b.tradeID - a.tradeID);
-            callBack(global.DEFAULT_OK_RESPONSE.result, trades);
+            callBack(global.DEFAULT_OK_RESPONSE, trades);
         } catch (error) {
-            callBack(global.DEFAULT_FAIL_RESPONSE.result);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 

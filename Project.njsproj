@@ -53,7 +53,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="exchange\exchangeUtils.js" />
-    <Compile Include="exchange\wrappers\beautifier.js" />
     <Compile Include="exchange\wrappers\binance.js" />
     <Compile Include="exchange\wrappers\binanceClient.js" />
     <Compile Include="exchange\wrappers\poloniex.js" />

@@ -846,6 +846,19 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> onExchangeCallReturned -> Entering function."); }
 
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        logger.write(MODULE_NAME, "[WARN] start -> tradesReadyToBeSaved -> Somethinig is wrong with the Exchange Response. ");
+                        logger.write(MODULE_NAME, "[WARN] start -> tradesReadyToBeSaved -> err.message = " + err.message);
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
+                    if (exchangeResponse === undefined) {
+                        logger.write(MODULE_NAME, "[WARN] start -> tradesReadyToBeSaved -> exchangeResponse is UNDEFINED. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
                     if (FULL_LOG === true) {
 
                         let exchangeResponseTime = new Date();

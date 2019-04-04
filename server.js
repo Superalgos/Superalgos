@@ -36,7 +36,7 @@ global.CUSTOM_FAIL_RESPONSE = {
   message: 'Custom Message'
 }
 
-
+/*
 var Minio = require('minio')
 
 var minioClient = new Minio.Client({

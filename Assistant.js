@@ -1,13 +1,13 @@
 ﻿exports.newAssistant = function newAssistant(BOT, logger, UTILITIES) {
 
-    /* 
+    /*
 
     This module allows trading bots to execute actions on the exchange, and also on its current recorded state.
 
     */
 
     const MODULE_NAME = "Assistant";
-	
+
 	var nodemailer = require('nodemailer');
 
     let bot = BOT;
@@ -23,13 +23,13 @@
         getInvestment: getInvestment,
         getProfits: getProfits,
         getCombinedProfits: getCombinedProfits,
-        getROI: getROI, 
+        getROI: getROI,
         getMarketRate: getMarketRate,
         getTicker: getTicker,
         sendMessage: sendMessage,
         rememberThis: rememberThis,
         remindMeOf: remindMeOf,
-        truncDecimals: truncDecimals, 
+        truncDecimals: truncDecimals,
         sendEmail: sendEmail,
         addExtraData: addExtraData
     };
@@ -37,12 +37,12 @@
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
-    let openPositions = [];         // These are the open positions the bot knows it made by itself. 
+    let openPositions = [];         // These are the open positions the bot knows it made by itself.
 
     let context;
     let exchangeAPI;
 
-    let marketRate; 
+    let marketRate;
     let ticker;
 
     return thisObject;
@@ -100,7 +100,7 @@
 
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromExchange -> onTicker -> Entering function."); }
 
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) { 
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
                                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromExchange -> onTicker -> We could not get the Market Price now."); }
 
@@ -119,7 +119,7 @@
                             logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> onTicker -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
-                    } 
+                    }
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> err = " + err.message);
@@ -405,7 +405,7 @@
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
-    
+
     function ordersExecutionCheck(callBack) {
 
         try {
@@ -534,9 +534,9 @@
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> pPositionId = " + pPositionId); }
 
                             /*
-                
+
                             Given one position, we request all the associated trades to it.
-                
+
                             */
 
                             switch (bot.startMode) {
@@ -562,9 +562,9 @@
                                         let thisPosition = context.executionContext.positions[i];
 
                                         if (thisPosition.id === pPositionId) {
-											
+
 											let feeRate = 0.002; 		// Default backtesting fee simulation
-											
+
 											let trade = {
 												id: Math.trunc(Math.random(1) * 1000000),
 												type: thisPosition.type,
@@ -574,7 +574,7 @@
                                                 fee: thisObject.truncDecimals(feeRate).toString(),
 												date: (new Date()).valueOf()
 											}
-											
+
                                             trades.push(trade);
 
                                             onResponse(global.DEFAULT_OK_RESPONSE, trades);
@@ -646,11 +646,11 @@
                             if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> pTrades = " + JSON.stringify(pTrades)); }
 
                             /*
- 
+
                             To confirm everything is ok, we will add all the amounts on trades asociated to the order and
                             they must be equal to the one on file. Otherwise something very strange could have happened,
                             in which case we will halt the bot execution.
- 
+
                             */
 
                             let sumAssetA = 0;
@@ -661,7 +661,7 @@
                                 sumAssetA = sumAssetA + thisObject.truncDecimals(trade.amountA);
                                 sumAssetB = sumAssetB + thisObject.truncDecimals(trade.amountB);
                             }
-							
+
                             sumAssetA = thisObject.truncDecimals(sumAssetA);
                             sumAssetB = thisObject.truncDecimals(sumAssetB);
 
@@ -677,9 +677,9 @@
                             }
 
                             /*
- 
+
                             Confirmed that order was executed. Next thing to do is to remember the trades and change its status.
- 
+
                             */
 
                             position.status = "executed";
@@ -716,27 +716,27 @@
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Entering function."); }
 
                             /*
- 
+
                             To confirm everything is ok, we will add all the amounts on trades plus the remaining amounts
                             at the order at the exchange and they must be equal to the one on file. Otherwise an inconsistent
                             state has been detected, in which case we will halt the bot execution.
- 
+
                             */
 
                             let sumAssetA = 0;
                             let sumAssetB = 0;
-							
+
 							for (let k = 0; k < pTrades.length; k++) {
 								let trade = pTrades[k];
                                 sumAssetA = sumAssetA + thisObject.truncDecimals(trade.amountA);
                                 sumAssetB = sumAssetB + thisObject.truncDecimals(trade.amountB);
                             }
-							
+
                             /* To this we add the current position amounts. */
-							
+
                             sumAssetA = sumAssetA + thisObject.truncDecimals(exchangePosition.amountA);
                             sumAssetB = sumAssetB + thisObject.truncDecimals(exchangePosition.amountB);
-							
+
                             sumAssetA = thisObject.truncDecimals(sumAssetA);
                             sumAssetB = thisObject.truncDecimals(sumAssetB);
 
@@ -760,16 +760,16 @@
                                 logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetB = " + sumAssetB);
 
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot confirm that a partial execution was done well.");
-								
+
                                 /* There are diferences on the responses between the getPosition and getTrades that causes some issues, let's retry. */
                                 callBack(global.DEFAULT_RETRY_RESPONSE);
                                 return;
                             }
 
                             /*
- 
+
                             Confirmed that order was partially executed. Next thing to do is to remember the trades and the new position.
- 
+
                             */
 
                             position.amountA = exchangePosition.amountA;
@@ -818,8 +818,8 @@
                                 let assetB = 0;
 
                                 if (trade.type === 'buy') {
-									
-                                    /* 
+
+                                    /*
 
                                     The fee received at each trade is the factor by which if we multiply asset B, we get the amount of Asset B extracted as fees by the exchange.
                                     This happens with each individual trade. Remeber that one order can potentially be executed with 1 to many trades.
@@ -842,7 +842,7 @@
 
                                 if (trade.type === 'sell') {
 
-                                    /* 
+                                    /*
 
                                     The fee received at each trade is the factor by which if we multiply asset A, we get the amount of Asset A extracted as fees by the exchange.
                                     This happens with each individual trade. Remeber that one order can potentially be executed with 1 to many trades.
@@ -861,7 +861,7 @@
 
                                     /* Not the available balance for asset B is not affected since it was already reduced when the order was placed. */
 
-                                }								
+                                }
                             }
 
                         } catch (err) {
@@ -1041,7 +1041,7 @@
 
                             context.newHistoryRecord.newPositions++;
 
-                            recalculateRateAverages(); 
+                            recalculateRateAverages();
 
                             /* Recalculate Available Balances */
 
@@ -1049,7 +1049,7 @@
 
                                 context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA - pAmountA);
                                 context.newHistoryRecord.lastBuyRate = pRate;
-                            } 
+                            }
 
                             if (position.type === 'sell') {
 
@@ -1057,7 +1057,7 @@
                                 context.newHistoryRecord.lastSellRate = pRate;
                             }
 
-                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                            callBackFunction(global.DEFAULT_OK_RESPONSE, position);
                             return;
                         }
                             break;
@@ -1180,9 +1180,9 @@
 
                             context.newHistoryRecord.movedPositions++;
 
-                            recalculateRateAverages(); 
+                            recalculateRateAverages();
 
-                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                            callBackFunction(global.DEFAULT_OK_RESPONSE, newPosition);
                         }
                             break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
@@ -1317,7 +1317,7 @@
 
         return JSON.parse(JSON.stringify(ROI));
     }
-    
+
     function getMarketRate() {
         return marketRate;
     }
@@ -1358,10 +1358,10 @@
         return context.executionContext.remember[pKey];
 
     }
-	
+
     function sendEmail(pTitle, pBody, pTo) {
         logger.write(MODULE_NAME, "[WARN] sendEmail -> Send emails is currently disabled.");
-        return;        
+        return;
     }
 
     function addExtraData(pExtraDataArray) {

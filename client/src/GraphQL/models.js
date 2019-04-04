@@ -38,6 +38,7 @@ const sensorProcessNames = {
 }
 
 const indicatorProcessNames = {
+  Single: 'Single-Period-Daily',
   Daily: 'Multi-Period-Daily',
   Market: 'Multi-Period-Market'
 }

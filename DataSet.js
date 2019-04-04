@@ -5,7 +5,6 @@
     let bot = BOT;
 
     let thisObject = {
-        file: undefined,                    // Here we have the JSON object representing the file content.
         initialize: initialize,
         getTextFile: getTextFile,
         createTextFile: createTextFile

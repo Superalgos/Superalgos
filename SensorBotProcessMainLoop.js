@@ -1,8 +1,8 @@
-﻿exports.newExtractionBotProcessMainLoop = function newExtractionBotProcessMainLoop(bot, parentLogger) {
+﻿exports.newSensorBotProcessMainLoop = function newSensorBotProcessMainLoop(bot, parentLogger) {
 
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Extraction Bot Process Main Loop";
+    const MODULE_NAME = "Sensor Bot Process Main Loop";
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;
@@ -13,7 +13,7 @@
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
 
-    let nextLoopTimeoutHandle; 
+    let nextLoopTimeoutHandle;
     let checkLoopHealthHandle;
 
     let thisObject = {
@@ -22,7 +22,7 @@
     };
 
     let processConfig;
-    let UI_COMMANDS; 
+    let UI_COMMANDS;
 
     return thisObject;
 
@@ -48,24 +48,10 @@
 
                     let filePath;
 
-                    switch (global.CURRENT_EXECUTION_AT) { // This is what determines if the bot is loaded from the devTeam or an endUser copy.
-                        case "Cloud": {
-                            if (global.RUN_AS_TEAM) {
-                                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
-                            } else {
-                                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
-                            }
-                            break;
-                        }
-                        case "Browser": {
-                            filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
-                            break;
-                        }
-                        default: {
-                            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser'.");
-                            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> global.CURRENT_EXECUTION_AT = " + global.CURRENT_EXECUTION_AT);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;                        }
+                    if (global.RUN_AS_TEAM) {
+                        filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
+                    } else {
+                        filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
                     }
 
                     const CLOUD_REQUIRE = require(ROOT_DIR + 'CloudRequire');
@@ -84,22 +70,7 @@
 
                         USER_BOT_MODULE = pMODULE;
 
-                        switch (global.CURRENT_EXECUTION_AT) {
-                            case "Cloud": {
-                                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
-                                break;
-                            }
-                            case "Browser": {
-                                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO;
-                                break;
-                            }
-                            default: {
-                                parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser'.");
-                                parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> global.CURRENT_EXECUTION_AT = " + global.CURRENT_EXECUTION_AT);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                return;
-                            }
-                        }
+                        filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
 
                         cloudRequire.downloadCommons(cloudStorage, filePath, onCommonsDownloaded);
 
@@ -134,7 +105,7 @@
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] run -> Entering function."); }
 
-            bot.enableCheckLoopHealth = true; 
+            bot.enableCheckLoopHealth = true;
 
             let fixedTimeLoopIntervalHandle;
 
@@ -173,7 +144,7 @@
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
-                    const EXCHANGE_API = require(ROOT_DIR + 'Exchange/ExchangeAPI');
+                    const EXCHANGE_API = require('@superalgos/exchangegateway');
                     const STATUS_DEPENDENCIES = require(ROOT_DIR + 'StatusDependencies');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
@@ -182,8 +153,8 @@
 
                     /* High level log entry  */
 
-                    console.log(bot.processDatetime.toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + pad(pMonth, 2) + "/" + pad(pYear, 4)
-                        + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8));
+                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + pad(pMonth, 2) + "/" + pad(pYear, 4)
+                        + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8) + " bot.processDatetime = " + bot.processDatetime.toISOString());
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
@@ -275,7 +246,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
 
-                            exchangeAPI = EXCHANGE_API.newExchangeAPI(bot, logger);
+                            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, global.EXCHANGE_NAME);
 
                             exchangeAPI.initialize(onInizialized);
 
@@ -610,7 +581,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onContinue -> Entering function."); }
 
-                            /* Extraction bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
+                            /* Sensor bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
 
                             switch (nextWaitTime) {
                                 case 'Normal': {
@@ -620,7 +591,7 @@
                                         logger.persist();
                                         return;
                                     } else {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }                                        
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
                                         nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
                                         logger.persist();
@@ -664,7 +635,7 @@
 
                     function checkLoopHealth(pLastLoop) {
 
-                        if (global.CURRENT_EXECUTION_AT !== "Cloud") {
+                        if (global.CURRENT_EXECUTION_AT !== "Node") {
                             return;
                         }
 
@@ -714,33 +685,7 @@
 
                                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                    let filePath;
-
-                                    switch (global.CURRENT_EXECUTION_AT) { // This is what determines if the bot is loaded from the devTeam or an endUser copy.
-                                        case "Cloud": {
-                                            filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
-                                            break;
-                                        }
-                                        case "Browser": {
-                                            if (global.SHALL_BOT_STOP === false) {
-                                                continueCallBack();
-                                            } else {
-                                                stopCallBack();
-                                            }
-                                            return;
-                                        }
-                                        default: {
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser'.");
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onInizialized -> global.CURRENT_EXECUTION_AT = " + global.CURRENT_EXECUTION_AT);
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
-                                        }
-                                    }
+                                    let filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
 
                                     let fileName = "this.config.json";
 
@@ -750,7 +695,7 @@
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                            /* 
+                                            /*
                                             If for any reason this config file cannot be read, we are not going to abort the loop for that. Instead we are going to assume
                                             that there are no instructions to stop and we will keep the show running.
                                             */

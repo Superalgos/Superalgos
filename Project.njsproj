@@ -33,6 +33,13 @@
     <Compile Include="CloudRequire.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="exchange\wrappers\coss.js" />
+    <Compile Include="MultiPeriodDaily.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MultiPeriodMarket.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="utils\auth.js">
       <SubType>Code</SubType>
     </Compile>
@@ -46,7 +53,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="exchange\exchangeUtils.js" />
-    <Compile Include="exchange\wrappers\beautifier.js" />
     <Compile Include="exchange\wrappers\binance.js" />
     <Compile Include="exchange\wrappers\binanceClient.js" />
     <Compile Include="exchange\wrappers\poloniex.js" />
@@ -60,7 +66,7 @@
     <Compile Include="StatusDependencies.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ExtractionBotProcessMainLoop.js">
+    <Compile Include="SensorBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Context.js">
@@ -91,7 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exchange\" />
-    <Folder Include="Exchange\Wrappers\" />
+    <Folder Include="Exchange\wrappers\" />
     <Folder Include="Integrations\" />
     <Folder Include="utils\" />
   </ItemGroup>

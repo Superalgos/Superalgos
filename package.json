@@ -1,5 +1,5 @@
 {
-  "name": "AACloud",
+  "name": "@superalgos/clone-executor",
   "version": "1.0.0",
   "description": "",
   "main": "Run.js",
@@ -9,20 +9,21 @@
   "author": "Luis-Fernando-Molina",
   "license": "ISC",
   "dependencies": {
+    "@superalgos/exchangegateway": "0.0.1",
+    "@superalgos/mqservice": "0.0.12",
     "apollo-boost": "^0.1.16",
-    "app-root-path": "^2.1.0",
     "assert": "^1.4.1",
     "axios": "^0.18.0",
     "azure-storage": "^2.8.2",
     "dotenv": "^6.0.0",
     "graphql": "^14.0.2",
-    "graphql-client": "^2.0.1",
     "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.11",
     "nodemailer": "^4.6.8",
     "nonce": "^1.0.4",
     "querystring": "^0.2.0",
     "retry": "^0.12.0",
+    "superagent": "^5.0.2",
     "underscore": "^1.9.1",
     "winston": "^3.1.0"
   }

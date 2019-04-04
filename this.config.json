@@ -1,54 +1,10 @@
 {
-  "codeName": "AACloud",
+  "codeName": "clone-executor",
   "version": {
     "major": 1,
     "minor": 1,
     "patch": 0
   },
-  "executionList": [
-    {
-      "enabled": "false",
-      "devTeam": "AAMasters",
-      "bot": "AAMariam",
-      "process": "Trading-Process",
-      "repo": "AAMariam-Trading-Bot"
-    },
-    {
-      "enabled": "false",
-      "devTeam": "AAMasters",
-      "bot": "AACharly",
-      "process": "Poloniex-Live-Trades",
-      "repo": "AACharly-Extraction-Bot"
-    },
-    {
-      "enabled": "false",
-      "devTeam": "AAMasters",
-      "bot": "AACharly",
-      "process": "Poloniex-Hole-Fixing",
-      "repo": "AACharly-Extraction-Bot"
-    },
-    {
-      "enabled": "false",
-      "devTeam": "AAMasters",
-      "bot": "AABruce",
-      "process": "One-Min-Daily-Candles-Volumes",
-      "repo": "AABruce-Indicator-Bot"
-    },
-    {
-      "enabled": "false",
-      "devTeam": "AAMasters",
-      "bot": "AAOlivia",
-      "process": "Multi-Period-Daily",
-      "repo": "AAOlivia-Indicator-Bot"
-    },
-    {
-      "enabled": "false",
-      "devTeam": "AAMasters",
-      "bot": "AAOlivia",
-      "process": "Multi-Period-Market",
-      "repo": "AAOlivia-Indicator-Bot"
-    }
-  ],
   "stopGracefully": false,
   "marketRateProvider": {
     "devTeam": "AAMasters",

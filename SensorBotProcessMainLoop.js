@@ -144,7 +144,7 @@
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
-                    const EXCHANGE_API = require(ROOT_DIR + 'Exchange/ExchangeAPI');
+                    const EXCHANGE_API = require('@superalgos/exchangegateway');
                     const STATUS_DEPENDENCIES = require(ROOT_DIR + 'StatusDependencies');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */

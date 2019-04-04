@@ -4,7 +4,15 @@ Charly is a Sensor bot that is capable of extracting trades from exchanges. It h
 
 ## Live Trades
 
-This process extracts the latest 2 minutes of trade records and save 2 files of 1 minute each. The process need to run every 1 minute in noTime mode. The last file written is overwritten at the next run, allowing the process to complete with the trades that happened after the previous execution retrieval of data. 
+This process extracts the latest 2 minutes of trade records and save 2 files of 1 minute each. The last file written is overwritten at the next run, allowing the process to complete with the trades that happened after the previous execution retrieval of data. 
+
+### Start Mode
+
+The process need to run every 1 minute in noTime mode. 
+
+```
+startMode = noTime
+```
 
 ## Hole Fixing
 

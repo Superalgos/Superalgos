@@ -47,7 +47,6 @@
     <Compile Include="CloudVM\CloudVM.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CloudVM\Exchange\ExchangeAPI.js" />
     <Compile Include="Exchange\ExchangeAPI.js" />
     <Compile Include="Globals.js">
       <SubType>Code</SubType>
@@ -102,6 +101,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TopSpace\CurrentStartMode.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TopSpace\CurrentEvent.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TopSpace\DevTeam.js">
@@ -172,7 +174,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CloudVM\" />
-    <Folder Include="CloudVM\Exchange\" />
     <Folder Include="Exchange\" />
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />

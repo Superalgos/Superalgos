@@ -1,4 +1,4 @@
-﻿/* User Interface Colors */
+ ﻿/* User Interface Colors */
 
 UI_COLOR = {
     DARK: "48, 48, 54",
@@ -94,8 +94,14 @@ function convertTimePeriodToName(pTimePeriod) {
 
 window.AT_BREAKPOINT = false;
 
-const INITIAL_DEFAULT_MARKET = 2;       // This is the market that will be shown when loading the site for the first time.
-const DEFAULT_EXCHANGE = "Poloniex";
+const SUPPORTED_EXCHANGES = ["Poloniex", "Coss"];
+const SUPPORTED_MARKETS = [
+  {
+      assetA: "USDT",
+      assetB: "BTC",
+  }
+];
+const DEFAULT_EXCHANGE = "Coss";
 const DEFAULT_MARKET = {
     assetA: "USDT",
     assetB: "BTC",
@@ -131,7 +137,7 @@ const EARLIEST_DATE = new Date(2014, 0, 18, 4, 26, 8);
 
 const TOP_SPACE_HEIGHT = 5;
 const BOTTOM_SPACE_HEIGHT = 35;
-
+const BREAKPOINT_HEIGHT = 15;
 
 const PRODUCT_CARD_STATUS = {
     ON: 'on',

@@ -11,14 +11,32 @@ This process extracts the latest 2 minutes of trade records and save 2 files of 
 The process need to run every 1 minute in noTime mode. 
 
 ```
-startMode = noTime
+"startMode": {
+        "noTime": {
+          "run": "false"
+        }
+      }
 ```
 
 ## Hole Fixing
 
 When the Live Trades process goes down, the exchange goes down or anything in the middle goes down, data from the exchange can not be retrieved. Once Live Trades is running normally again a whole on the dataset appears between the last files saved and the new files after the restart.
 
-The Hole Fixing process is there to detect those holes and retrieve the missing information, allowing the dataset to be 100% reliable. This process runs every 1 minute under allMonths start mode, where a yearly range must be specified (initial processing year and final processing year)
+The Hole Fixing process is there to detect those holes and retrieve the missing information, allowing the dataset to be 100% reliable. 
+
+### Start Mode
+
+This process runs every 1 minute under allMonths start mode, where a yearly range must be specified (initial processing year and final processing year)
+
+```
+"startMode": {
+        "allMonths": {
+          "run": "true",
+          "minYear": "2019",
+          "maxYear": "2021"
+        }
+      }
+```
 
 ## Historic Trades
 

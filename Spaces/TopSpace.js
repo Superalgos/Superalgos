@@ -48,9 +48,6 @@ function newTopSpace () {
     let container
     return
 
-    container = thisObject.endUser.getContainer(point)
-    if (container !== undefined) { return container }
-
     container = thisObject.currentEvent.getContainer(point)
     if (container !== undefined) { return container }
 

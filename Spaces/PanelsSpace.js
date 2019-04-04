@@ -24,6 +24,7 @@ function newPanelsSpace () {
   container.displacement.containerName = 'Panels Space'
   container.frame.containerName = 'Panels Space'
 
+  panelsMap = new Map()
   return thisObject
 
   function initialize () {
@@ -32,7 +33,7 @@ function newPanelsSpace () {
 
   }
 
-  function createNewPanel (pType, pParameters) {
+  function createNewPanel (pType, pParameters, pOwner) {
     let panel
 
     switch (pType) {
@@ -47,7 +48,6 @@ function newPanelsSpace () {
       case 'Products Panel':
         {
           panel = newProductsPanel()
-          panel.initialize()
           break
         }
       case 'Plotter Panel':
@@ -58,7 +58,13 @@ function newPanelsSpace () {
         }
     }
 
-    thisObject.panels.push(panel)
+    let panelArray = panelsMap.get(pOwner)
+    if (panelArray === undefined) {
+      panelArray = []
+      panelsMap.set(pOwner, panelArray)
+    }
+
+    panelArray.push(panel)
 
     panel.handle = Math.floor((Math.random() * 10000000) + 1)
 
@@ -76,12 +82,15 @@ function newPanelsSpace () {
     }
   }
 
-  function getPanel (pPanelHandle) {
-    for (let i = 0; i < thisObject.panels.length; i++) {
-      let panel = thisObject.panels[i]
+  function getPanel (pPanelHandle, pOwner) {
+    thisObject.panels = panelsMap.get(pOwner)
+    if (thisObject.panels != undefined) {
+      for (let i = 0; i < thisObject.panels.length; i++) {
+        let panel = thisObject.panels[i]
 
-      if (panel.handle === pPanelHandle) {
-        return panel
+        if (panel.handle === pPanelHandle) {
+          return panel
+        }
       }
     }
   }
@@ -91,9 +100,20 @@ function newPanelsSpace () {
 
         /* When we draw a time machine, that means also to draw all the charts in it. */
 
-    for (var i = 0; i < thisObject.panels.length; i++) {
-      let panel = thisObject.panels[i]
-      panel.draw()
+    thisObject.panels = panelsMap.get('Global')
+    if (thisObject.panels != undefined) {
+      for (var i = 0; i < thisObject.panels.length; i++) {
+        let panel = thisObject.panels[i]
+        panel.draw()
+      }
+    }
+
+    thisObject.panels = panelsMap.get(window.CHART_ON_FOCUS)
+    if (thisObject.panels !== undefined) {
+      for (var i = 0; i < thisObject.panels.length; i++) {
+        let panel = thisObject.panels[i]
+        panel.draw()
+      }
     }
   }
 

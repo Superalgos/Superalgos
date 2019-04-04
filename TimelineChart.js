@@ -14,6 +14,7 @@
    let thisObject = {
      setDatetime: setDatetime,
      container: undefined,
+     drawBackground: drawBackground,
      draw: draw,
      getContainer: getContainer,
      initialize: initialize,
@@ -45,6 +46,10 @@
    let canDrawLogoAA = false
 
    let plotterManager
+   let exchange
+   let market
+
+   let productsPanelHandle
 
    return thisObject
 
@@ -58,11 +63,18 @@
      }
    }
 
-   function initialize (pProductsPanel, callBackFunction) {
+   function initialize (pExchange, pMarket, callBackFunction) {
      try {
        if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
             /* We load the logow we will need for the background. */
+       exchange = pExchange
+       market = pMarket
+
+       let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
+       productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel', undefined, panelOwner)
+       let productsPanel = canvas.panelsSpace.getPanel(productsPanelHandle, panelOwner)
+       productsPanel.initialize(exchange, market)
 
        logoA = new Image()
        logoB = new Image()
@@ -95,12 +107,8 @@
 
        logoA.src = window.canvasApp.urlPrefix + 'Images/tether-logo-background.png'
        logoB.src = window.canvasApp.urlPrefix + 'Images/bitcoin-logo-background.png'
-       logoExchange.src = window.canvasApp.urlPrefix + 'Images/poloniex-logo-background.png'
+       logoExchange.src = window.canvasApp.urlPrefix + 'Images/' + exchange + '-logo-background.png'
        logoAA.src = window.canvasApp.urlPrefix + 'Images/sa-logo-background.png'
-
-            /* Remember the Products Panel */
-
-       productsPanel = pProductsPanel
 
        chartGrid = newChartGrid()
        chartGrid.initialize()
@@ -132,10 +140,10 @@
        plotterManager.container.frame.width = thisObject.container.frame.width
        plotterManager.container.frame.height = thisObject.container.frame.height
 
-       plotterManager.container.frame.position.x = thisObject.container.frame.position.x
-       plotterManager.container.frame.position.y = thisObject.container.frame.position.y
+       plotterManager.container.frame.position.x = 0
+       plotterManager.container.frame.position.y = 0
 
-       plotterManager.initialize(pProductsPanel, onPlotterManagerReady)
+       plotterManager.initialize(productsPanel, pExchange, pMarket, onPlotterManagerReady)
 
        function onPlotterManagerReady (err) {
          if (INFO_LOG === true) { logger.write('[INFO] initialize -> onPlotterManagerReady -> Entering function.') }
@@ -294,13 +302,25 @@
      }
    }
 
+   function drawBackground () {
+     if (INTENSIVE_LOG === true) { logger.write('[INFO] drawBackground -> Entering function.') }
+
+     if (thisObject.container.frame.isInViewPort()) {
+       if (window.CHART_ON_FOCUS === '') {
+         window.CHART_ON_FOCUS = exchange + ' ' + market.assetB + '/' + market.assetA
+
+         this.container.frame.draw()
+
+         drawChartsBackgroundImages()
+       }
+     }
+   }
+
    function draw () {
      if (INTENSIVE_LOG === true) { logger.write('[INFO] draw -> Entering function.') }
 
      if (thisObject.container.frame.isInViewPort()) {
-       this.container.frame.draw()
-
-       drawBackground()
+       drawChartsBackground()
 
        chartGrid.draw(thisObject.container, timeLineCoordinateSystem)
 
@@ -310,8 +330,36 @@
      }
    }
 
-   function drawBackground () {
-     if (INTENSIVE_LOG === true) { logger.write('[INFO] drawBackground -> Entering function.') }
+   function drawChartsBackground () {
+        /* We will paint some transparent background here. */
+
+     let opacity = '0.9'
+
+     let fromPoint = {
+       x: 0,
+       y: 0
+     }
+
+     let toPoint = {
+       x: 0,
+       y: thisObject.container.frame.height
+     }
+
+     fromPoint = transformThisPoint(fromPoint, thisObject.container)
+     toPoint = transformThisPoint(toPoint, thisObject.container)
+
+     browserCanvasContext.beginPath()
+
+     browserCanvasContext.rect(viewPort.visibleArea.topLeft.x, fromPoint.y, viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x, toPoint.y - fromPoint.y)
+     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
+
+     browserCanvasContext.closePath()
+
+     browserCanvasContext.fill()
+   }
+
+   function drawChartsBackgroundImages () {
+     if (INTENSIVE_LOG === true) { logger.write('[INFO] drawChartsBackground -> Entering function.') }
 
      if (canDrawLogoA === false || canDrawLogoB === false || canDrawLogoExchange === false || canDrawLogoAA === false) { return }
 
@@ -420,32 +468,6 @@
          browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight + Y_TOP_MARGIN, imageWidth, imageHeight)
        }
      }
-
-        /* We will paint some transparent background here. */
-
-     let opacity = '0.9'
-
-     let fromPoint = {
-       x: 0,
-       y: 0
-     }
-
-     let toPoint = {
-       x: 0,
-       y: thisObject.container.frame.height
-     }
-
-     fromPoint = transformThisPoint(fromPoint, thisObject.container)
-     toPoint = transformThisPoint(toPoint, thisObject.container)
-
-     browserCanvasContext.beginPath()
-
-     browserCanvasContext.rect(viewPort.visibleArea.topLeft.x, fromPoint.y, viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x, toPoint.y - fromPoint.y)
-     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
-
-     browserCanvasContext.closePath()
-
-     browserCanvasContext.fill()
    }
 
    function moveViewPortToCurrentDatetime () {

@@ -1,6 +1,13 @@
  ﻿function newProductCard () {
    const CONSOLE_LOG = false
 
+   const MODULE_NAME = 'Product Card'
+   const INFO_LOG = false
+   const ERROR_LOG = true
+   const INTENSIVE_LOG = false
+   const logger = newWebDebugLog()
+   logger.fileName = MODULE_NAME
+
    var thisObject = {
      container: undefined,
      draw: draw,
@@ -101,45 +108,47 @@
 
    function initialize () {
         /* Create this objects continer */
+     try {
+       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
-     var container = newContainer()
-     container.name = 'Product Card ' + thisObject.code
-     container.initialize()
-     container.isDraggeable = false
-     container.isClickeable = true
-     thisObject.container = container
+       var container = newContainer()
+       container.name = 'Product Card ' + thisObject.code
+       container.initialize()
+       container.isDraggeable = false
+       container.isClickeable = true
+       thisObject.container = container
 
         /* Add information that will later be needed. */
 
-     let team = ecosystem.getTeam(thisObject.product.plotter.devTeam)
-     let plotter = ecosystem.getPlotter(team, thisObject.product.plotter.codeName)
-     let plotterModule = ecosystem.getPlotterModule(plotter, thisObject.product.plotter.moduleName)
+       let team = ecosystem.getTeam(thisObject.product.plotter.devTeam)
+       let plotter = ecosystem.getPlotter(team, thisObject.product.plotter.codeName)
+       let plotterModule = ecosystem.getPlotterModule(plotter, thisObject.product.plotter.moduleName)
 
-     thisObject.product.plotter.profilePicture = plotterModule.profilePicture
-     thisObject.product.plotter.module = plotterModule
+       thisObject.product.plotter.profilePicture = plotterModule.profilePicture
+       thisObject.product.plotter.module = plotterModule
 
         /* Lets set the basic dimensions of this thisObject. */
 
-     var position = {
-       x: 0,
-       y: 0
-     }
+       var position = {
+         x: 0,
+         y: 0
+       }
 
-     this.container.frame.position = position
-     this.container.frame.width = 330
-     this.container.frame.height = 100
+       this.container.frame.position = position
+       this.container.frame.width = 330
+       this.container.frame.height = 100
 
         /* We retrieve the locally stored status of the Product */
 
-     let storedValue = window.localStorage.getItem(thisObject.code)
+       let storedValue = window.localStorage.getItem(thisObject.code)
 
-     if (storedValue !== null) {
-       thisObject.status = storedValue
+       if (storedValue !== null) {
+         thisObject.status = storedValue
 
-       if (thisObject.status === PRODUCT_CARD_STATUS.ON) {
-         changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
-       }
-     } else {
+         if (thisObject.status === PRODUCT_CARD_STATUS.ON) {
+           changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
+         }
+       } else {
             /*
 
             This happens the first time the app is run on a new browser.
@@ -151,95 +160,98 @@
 
             */
 
-       const DEFAULT_ON_PRODUCT = 'AAMasters-AAOlivia-Candles'
+         const DEFAULT_ON_PRODUCT = 'AAMasters-AAOlivia-Candles'
 
-       if (thisObject.code === DEFAULT_ON_PRODUCT) {
-         changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
-       } else {
-         changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+         if (thisObject.code === DEFAULT_ON_PRODUCT) {
+           changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
+         } else {
+           changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+         }
        }
-     }
 
         /* Lets listen to our own events to react when we have a Mouse Click */
 
-     thisObject.container.eventHandler.listenToEvent('onMouseClick', buttonPressed)
+       thisObject.container.eventHandler.listenToEvent('onMouseClick', buttonPressed)
 
         /* WARNING THIS IS TEMPORARY CODE */
 
-     const LEGACY_TEAM = thisObject.devTeam.codeName
-     const REPO = thisObject.bot.repo
-     const PROFILE_PIC = thisObject.bot.profilePicture
+       const LEGACY_TEAM = thisObject.devTeam.codeName
+       const REPO = thisObject.bot.repo
+       const PROFILE_PIC = thisObject.bot.profilePicture
 
         /* The plotter banner, comes from the Legacy Location so far, no matter if the Team is at the Teams Modules or not. */
 
-     const PLOTTER_TEAM = thisObject.product.plotter.devTeam
-     const PLOTTER_REPO = thisObject.product.plotter.codeName
-     const PLOTTER_PROFILE_PIC = thisObject.product.plotter.profilePicture
+       const PLOTTER_TEAM = thisObject.product.plotter.devTeam
+       const PLOTTER_REPO = thisObject.product.plotter.codeName
+       const PLOTTER_PROFILE_PIC = thisObject.product.plotter.profilePicture
 
-     legacyPlotterBanner = new Image()
-     legacyPlotterBanner.onload = onLegacyPlotterBanner
+       legacyPlotterBanner = new Image()
+       legacyPlotterBanner.onload = onLegacyPlotterBanner
 
-     function onLegacyPlotterBanner () {
-       legacyPlotterBannerLoaded = true
-     }
+       function onLegacyPlotterBanner () {
+         legacyPlotterBannerLoaded = true
+       }
 
-     legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + PLOTTER_TEAM + '/' + PLOTTER_REPO + '/' + PLOTTER_PROFILE_PIC
+       legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + PLOTTER_TEAM + '/' + PLOTTER_REPO + '/' + PLOTTER_PROFILE_PIC
 
-     const TEAM = thisObject.devTeam.codeName.toLowerCase()
-     const BOT = thisObject.bot.codeName.toLowerCase()
+       const TEAM = thisObject.devTeam.codeName.toLowerCase()
+       const BOT = thisObject.bot.codeName.toLowerCase()
 
-     if (window.canvasApp.context.teamProfileImages.get(TEAM) === undefined) {
- // This means this Team is a Lecay Team, still not at any Module.
+       if (window.canvasApp.context.teamProfileImages.get(TEAM) === undefined) {
+         // This means this Team is a Lecay Team, still not at any Module.
 
             /*
             Here we will download the images still at the legacy storage.
             */
 
-       legacyTeamAvatar = new Image()
+         legacyTeamAvatar = new Image()
 
-       legacyTeamAvatar.onload = onLegacyImageLoad
+         legacyTeamAvatar.onload = onLegacyImageLoad
 
-       function onLegacyImageLoad () {
-         legacyTeamAvatarLoaded = true
-       }
+         function onLegacyImageLoad () {
+           legacyTeamAvatarLoaded = true
+         }
 
-       legacyTeamAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_TEAM + '/' + LEGACY_TEAM + '.png'
+         legacyTeamAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_TEAM + '/' + LEGACY_TEAM + '.png'
 
-       legacyBotAvatar = new Image()
-       legacyBotAvatar.onload = onLegacyImageLoadBot
+         legacyBotAvatar = new Image()
+         legacyBotAvatar.onload = onLegacyImageLoadBot
 
-       function onLegacyImageLoadBot () {
-         legacyBotAvatarLoaded = true
-         thisObject.bot.avatar = legacyBotAvatar
-       }
+         function onLegacyImageLoadBot () {
+           legacyBotAvatarLoaded = true
+           thisObject.bot.avatar = legacyBotAvatar
+         }
 
-       legacyBotAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_TEAM + '/' + REPO + '/' + PROFILE_PIC
-     } else {
+         legacyBotAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_TEAM + '/' + REPO + '/' + PROFILE_PIC
+       } else {
             /*
                Here we will download the images of teams uploaded at the Teams Module.
                There might be Product Cards of bots beloging to teams not present currently at the Teams Module, in those cases
                nothing should happen.
            */
 
-       teamAvatar = new Image()
+         teamAvatar = new Image()
 
-       teamAvatar.onload = onImageLoad
+         teamAvatar.onload = onImageLoad
 
-       function onImageLoad () {
-         teamAvatarLoaded = true
+         function onImageLoad () {
+           teamAvatarLoaded = true
+         }
+
+         teamAvatar.src = window.canvasApp.context.teamProfileImages.get(TEAM)
+
+         botAvatar = new Image()
+         botAvatar.onload = onImageLoadBot
+
+         function onImageLoadBot () {
+           botAvatarLoaded = true
+           thisObject.bot.avatar = botAvatar
+         }
+
+         botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + '-' + BOT)
        }
-
-       teamAvatar.src = window.canvasApp.context.teamProfileImages.get(TEAM)
-
-       botAvatar = new Image()
-       botAvatar.onload = onImageLoadBot
-
-       function onImageLoadBot () {
-         botAvatarLoaded = true
-         thisObject.bot.avatar = botAvatar
-       }
-
-       botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + '-' + BOT)
+     } catch (err) {
+       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
      }
    }
 

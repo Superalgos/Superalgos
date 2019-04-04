@@ -17,6 +17,7 @@ function newTimeMachine () {
 
   let thisObject = {
     container: undefined,
+    drawBackground: drawBackground,
     draw: draw,
     charts: [],
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -33,7 +34,8 @@ function newTimeMachine () {
   container.frame.containerName = 'Time Machine'
 
   let controlPanelHandle             // We need this to destroy the Panel when this object is itself destroyed or no longer needs it...
-  let productsPanelHandle            // ... also to request a reference to the object for the cases we need it.
+          // ... also to request a reference to the object for the cases we need it.
+  const SEPARATION_BETWEEN_TIMELINE_CHARTS = 1.5
 
   return thisObject
 
@@ -55,15 +57,13 @@ function newTimeMachine () {
 
         /* Each Time Machine has a Control Panel. */
 
-    controlPanelHandle = canvas.panelsSpace.createNewPanel('Time Control Panel')
-    let controlPanel = canvas.panelsSpace.getPanel(controlPanelHandle)
-
-    productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel')
-    let productsPanel = canvas.panelsSpace.getPanel(productsPanelHandle)
-
-    let iteration = 0
+    let panelOwner = 'Global'
+    controlPanelHandle = canvas.panelsSpace.createNewPanel('Time Control Panel', undefined, panelOwner)
+    let controlPanel = canvas.panelsSpace.getPanel(controlPanelHandle, panelOwner)
 
         /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
+
+    let position = 0 // This defines the position of each chart respect to each other.
 
     let timelineChart = newTimelineChart()
 
@@ -76,17 +76,17 @@ function newTimeMachine () {
     timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
 
     timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
-    timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration
+    timelineChart.container.frame.position.y = timelineChart.container.frame.height * SEPARATION_BETWEEN_TIMELINE_CHARTS * position
 
-    timelineChart.initialize(productsPanel, onDefaultMarketInitialized)
+    position++
 
-    iteration++
+    timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, onDefaultInitialized)
 
-    function onDefaultMarketInitialized (err) {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> onDefaultMarketInitialized -> Entering function.') }
+    function onDefaultInitialized (err) {
+      if (INFO_LOG === true) { logger.write('[INFO] initialize -> onDefaultInitialized -> Entering function.') }
 
       if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-        if (INFO_LOG === true) { logger.write('[INFO] initialize -> onDefaultMarketInitialized -> Initialization of the only market failed.') }
+        if (INFO_LOG === true) { logger.write('[INFO] initialize -> onDefaultInitialized -> Initialization of the only market failed.') }
 
         callBackFunction(err)
         return
@@ -97,24 +97,32 @@ function newTimeMachine () {
       controlPanel.container.eventHandler.listenToEvent('Datetime Changed', timelineChart.setDatetime, undefined)
       timelineChart.container.eventHandler.listenToEvent('Datetime Changed', controlPanel.setDatetime)
 
-      callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-
-            // initializeTheRestOfTheMarkets();
+      initializeTheRest()
     }
 
-    function initializeTheRestOfTheMarkets () {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> initializeTheRestOfTheMarkets -> Entering function.') }
+    function initializeTheRest () {
+      if (INFO_LOG === true) { logger.write('[INFO] initialize -> initializeTheRest -> Entering function.') }
 
-      markets.forEach(initializeTimelineChart)
+      let leftToInitialize = SUPPORTED_EXCHANGES.length * SUPPORTED_MARKETS.length - 1 // The default exchange and market was already initialized.
+      let alreadyInitialized = 0
 
-      function initializeTimelineChart (item, key, mapObj) {
-        if (INFO_LOG === true) { logger.write('[INFO] initialize -> initializeTheRestOfTheMarkets -> initializeTimelineChart -> Entering function.') }
+      for (let i = 0; i < SUPPORTED_EXCHANGES.length; i++) {
+        for (let j = 0; j < SUPPORTED_MARKETS.length; j++) {
+          let exchange = SUPPORTED_EXCHANGES[i]
+          let market = SUPPORTED_MARKETS[j]
 
-        if (key === INITIAL_DEFAULT_MARKET) {
- // We skip this market since it has already been initialized.
+          if (
+            exchange === DEFAULT_EXCHANGE &&
+            market.assetA === DEFAULT_MARKET.assetA &&
+            market.assetB === DEFAULT_MARKET.assetB
+          ) { continue }
 
-          return
+          initializeTimelineChart(exchange, market)
         }
+      }
+
+      function initializeTimelineChart (exchange, market) {
+        if (INFO_LOG === true) { logger.write('[INFO] initialize -> initializeTheRest -> initializeTimelineChart -> Entering function.') }
 
         let timelineChart = newTimelineChart()
 
@@ -127,28 +135,39 @@ function newTimeMachine () {
         timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
 
         timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
-        timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration
+        timelineChart.container.frame.position.y = timelineChart.container.frame.height * SEPARATION_BETWEEN_TIMELINE_CHARTS * position
 
-        timelineChart.initialize(productsPanel, finalSteps)
+        position++
 
-        iteration++
+        timelineChart.initialize(exchange, market, finalSteps)
 
         function finalSteps () {
-          if (INFO_LOG === true) { logger.write('[INFO] initialize -> initializeTheRestOfTheMarkets -> initializeTimelineChart -> finalSteps -> Entering function.') }
+          if (INFO_LOG === true) { logger.write('[INFO] initialize -> initializeTheRest -> initializeTimelineChart -> finalSteps -> Entering function.') }
 
           thisObject.charts.push(timelineChart)
 
           controlPanel.container.eventHandler.listenToEvent('Datetime Changed', timelineChart.setDatetime, undefined)
           timelineChart.container.eventHandler.listenToEvent('Datetime Changed', controlPanel.setDatetime)
+
+          alreadyInitialized++
+
+          if (alreadyInitialized === leftToInitialize) {
+            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+          }
         }
       }
     }
   }
 
+  function drawBackground () {
+    for (let i = 0; i < this.charts.length; i++) {
+      let chart = this.charts[i]
+      chart.drawBackground()
+    }
+  }
+
   function draw () {
     this.container.frame.draw(false, false)
-
-        /* When we draw a time machine, that means also to draw all the charts in it. */
 
     for (let i = 0; i < this.charts.length; i++) {
       let chart = this.charts[i]

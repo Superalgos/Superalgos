@@ -33,6 +33,8 @@ function newPlottersManager () {
   let initializationReady = false
 
   let productsPanel
+  let exchange
+  let market
 
   return thisObject
 
@@ -97,13 +99,15 @@ function newPlottersManager () {
     }
   }
 
-  function initialize (pProductsPanel, callBackFunction) {
+  function initialize (pProductsPanel, pExchange, pMarket, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
             /* Remember the Products Panel */
 
       productsPanel = pProductsPanel
+      exchange = pExchange
+      market = pMarket
 
             /* Listen to the event of change of status */
 
@@ -222,7 +226,7 @@ function newPlottersManager () {
       let host = ecosystem.getHost(COMPETITION_HOST)
       let competition = ecosystem.getCompetition(host, COMPETITION)
 
-      storage.initialize(host, competition, DEFAULT_EXCHANGE, DEFAULT_MARKET, onCompetitionStorageInitialized)
+      storage.initialize(host, competition, exchange, market, onCompetitionStorageInitialized)
 
       function onCompetitionStorageInitialized (err) {
         try {
@@ -361,6 +365,11 @@ function newPlottersManager () {
       let okCounter = 0
       let failCounter = 0
 
+      if (loadingProductCards.length === 0) {
+        callBack(GLOBAL.DEFAULT_OK_RESPONSE)
+        return
+      }
+
       for (let i = 0; i < loadingProductCards.length; i++) {
                 /* For each one, we will initialize the associated plotter. */
 
@@ -461,7 +470,7 @@ function newPlottersManager () {
         }
       }
 
-      storage.initialize(pProductCard.devTeam, pProductCard.bot, pProductCard.product, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onProductStorageInitialized)
+      storage.initialize(pProductCard.devTeam, pProductCard.bot, pProductCard.product, exchange, market, datetime, timePeriod, onProductStorageInitialized)
 
       function onProductStorageInitialized (err) {
         try {
@@ -505,7 +514,7 @@ function newPlottersManager () {
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
 
-          plotter.initialize(storage, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onPlotterInizialized)
+          plotter.initialize(storage, exchange, market, datetime, timePeriod, onPlotterInizialized)
 
           function onPlotterInizialized () {
             try {
@@ -544,8 +553,9 @@ function newPlottersManager () {
                   panelCodeName: panelConfig.codeName
                 }
 
-                let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters)
-                let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle)
+                let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
+                let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, panelOwner)
+                let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle, panelOwner)
 
                                 /* Connect Panel to the Plotter via an Event. */
 

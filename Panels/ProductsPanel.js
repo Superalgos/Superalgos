@@ -11,14 +11,12 @@
 
    var container = newContainer()
 
-   container.name = 'Indicators and Algobots Product Panel'
    container.initialize()
 
    container.isDraggeable = true
    container.isWheelable = true
 
    thisObject.container = container
-   thisObject.container.frame.containerName = "Indicators and Algobots's Products"
 
    let isInitialized = false
    let productCards = []
@@ -31,9 +29,17 @@
    let lastY = 5
    let panelTabButton
 
+   let exchange
+   let market
+
    return thisObject
 
-   function initialize () {
+   function initialize (pExchange, pMarket) {
+     exchange = pExchange
+     market = pMarket
+
+     thisObject.container.name = exchange + ' ' + market.assetB + '/' + market.assetA + ' ' + 'Indicators'
+     thisObject.container.frame.containerName = thisObject.container.name
      thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
      thisObject.container.frame.height = viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
 
@@ -73,7 +79,7 @@
              productCard.bot = bot
              productCard.product = product
 
-             productCard.code = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName
+             productCard.code = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName
 
                         /* Initialize it */
 

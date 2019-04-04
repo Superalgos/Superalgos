@@ -31,6 +31,7 @@ function newMarketFiles () {
   thisObject.eventHandler = newEventHandler()
 
   let intervalHandle
+  let finalized = false
 
   return thisObject
 
@@ -42,6 +43,7 @@ function newMarketFiles () {
 
       filesLoaded = undefined
       files = undefined
+      finalized = true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
     }
@@ -128,6 +130,7 @@ function newMarketFiles () {
 
   function updateFiles () {
     try {
+      if (finalized === true) { return }
       let updateFiles = 0
 
       if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> Entering function.') }

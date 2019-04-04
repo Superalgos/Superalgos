@@ -24,6 +24,8 @@ function newFileSequence () {
   let bot
   let thisSet
   let product
+  let finalized = false
+  let initialized = false
 
   thisObject.eventHandler = newEventHandler()
 
@@ -45,6 +47,7 @@ function newFileSequence () {
       fileCloud = undefined
       files = undefined
       maxSequence = undefined
+      finalized = true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
     }
@@ -82,6 +85,8 @@ function newFileSequence () {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> Entering function.') }
           if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> key = ' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName) }
+
+          initialized = true
 
           switch (err.result) {
             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
@@ -180,6 +185,8 @@ function newFileSequence () {
 
   function updateFiles () {
     try {
+      if (finalized === true || initialized === false) { return }
+
       let updateFiles = 0
 
       if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> Entering function.') }

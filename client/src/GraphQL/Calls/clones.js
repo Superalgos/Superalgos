@@ -21,7 +21,7 @@ const OPERATIONS_LIST_CLONES = gql`
 
 const OPERATIONS_HISTORY_CLONES = gql`
   query Operations_HistoryClones{
-    operations_HistoryClones {
+    operations_HistoryClones(botType: "Trading") {
       ...clone
     }
   }

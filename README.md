@@ -1,7 +1,24 @@
-# I'm Olivia, an i-bot!
-AKA an indicator algobot running on the AAPlatform by Advanced Algos Ltd.
+# Olivia
 
-### My Specialty
+Olivia is a middle level Indicator bot that has as an input cnadles and volumes daily files and outputs 2 different datasets at different time-periods also of candles and volumnes.
+
+## Multi Period Daily
+
+This process generates files containing 1 day of candles or volumes each.
+
+### Start Mode
+
+This process runs every 1 minute under allMonths start mode, where a yearly range must be specified (initial processing year and final processing year)
+
+```
+"startMode": {
+      "noTime": {
+                "run": "true"
+              }
+      }
+```
+
+### Output
 I produce several datasets:
 * One with candles at 1, 2, 3, 4, 5, 10, 15, 20, 30, 45 minutes resolution;
 * One with candles at 1, 2, 3, 4, 6, 8, 12, 24 hours resolution;
@@ -9,7 +26,7 @@ I produce several datasets:
 * One with volumes at 1, 2, 3, 4, 6, 8, 12, 24 hours resolution.
 
 ### Ideal for
-My datasets are ideal for analysing candle shapes and types, candle patterns, volume fluctuations and for producing all kinds of studies based in those two (candles & volumes) Technical Analysis fundamentals, at multiple resolution levels.
+Output datasets are the base for most common indicators and they become available at multiple resolution levels.
 
 ### Details
 
@@ -17,19 +34,12 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 |----------|----------|----------|----------|----------|
 | Olivia | Indicator | 1.0 | 28 Feb 2018 | dataSet.V1 |
 
-# My Products
+# Products
 
 ## Dataset 1: Daily Candles in Resolutions Below 1 hour
 
-### Current Dataset Scope
-* **Exchanges**: Poloniex
-* **Markets**: USDT-BTC
-* **Range**: Market Start Date – Current Time (-0 to 59 secs)
-
 ### Current Dataset
-* **Version:** dataSet.V1
-* **Update Frequency**: 1 minute
-* **Cloud Output Location:** AAMasters > AAOlivia.1.0 > AACloud.1.1 > ExchangeName > dataSet.V1
+
 * **Folder Structure Tree**: Output > Candles > Multi-Period-Daily > (01-min | 02-min | 03-min | 04-min | 05-min | 10-min | 15-min | 20-min | 30-min | 45-min) > Year > Month > Day
 * **Files Structure**: One .json file stored at the Day level of the Folder Tree Structure
 * **In-File Record Structure**:
@@ -44,15 +54,8 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 
 ## Dataset 2: All-time, Market-long Candles in Resolutions Between 1 and 24 Hours
 
-### Current Dataset Scope
-* **Exchanges**: Poloniex
-* **Markets**: USDT-BTC
-* **Range**: Market Start Date – Current Time (-0 to 59 mins)
-
 ### Current Dataset
-* **Version:** dataSet.V1
-* **Update Frequency**: 1 hour
-* **Cloud Output Location:** AAMasters > AAOlivia.1.0 > AACloud.1.1 > ExchangeName > dataSet.V1
+
 * **Folder Structure Tree**: Output > Candles > Multi-Period-Market > (01-hs| 02-hs | 03-hs | 04-hs | 06-hs | 08-hs | 12-hs | 24-hs)
 * **Files Structure**: One .json file stored at the deepest level of the Folder Tree Structure
 * **In-File Record Structure**:
@@ -67,15 +70,8 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 
 ## Dataset 3: Daily Volumes in Resolutions Below 1 hour
 
-### Current Dataset Scope
-* **Exchanges**: Poloniex
-* **Markets**: USDT-BTC
-* **Range**: Market Start Date – Current Time (-0 to 59 secs)
-
 ### Current Dataset
-* **Version:** dataSet.V1
-* **Update Frequency**: 1 minute
-* **Cloud Output Location:** AAMasters > AAOlivia.1.0 > AACloud.1.1 > ExchangeName > dataSet.V1
+
 * **Folder Structure Tree**: Output > Volumes > Multi-Period-Daily >  (01-min | 02-min | 03-min | 04-min | 05-min | 10-min | 15-min | 20-min | 30-min | 45-min) > Year > Month > Day
 * **Files Structure**: One .json file stored at the Day level of the Folder Tree Structure
 * **In-File Record Structure**:
@@ -88,15 +84,8 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 
 ## Dataset 4: All-time, Market-long Volumes in Resolutions Between 1 and 24 Hours
 
-### Current Dataset Scope
-* **Exchanges**: Poloniex
-* **Markets**: USDT-BTC
-* **Range**: Market Start Date – Current Time (-0 to 59 mins)
-
 ### Current Dataset
-* **Version:** dataSet.V1
-* **Update Frequency**: 1 hour
-* **Cloud Output Location:** AAMasters > AAOlivia.1.0 > AACloud.1.1 > ExchangeName > dataSet.V1
+
 * **Folder Structure Tree**: Output > Volumes > Multi-Period-Market > (01-hs| 02-hs | 03-hs | 04-hs | 06-hs | 08-hs | 12-hs | 24-hs) >
 * **Files Structure**: One .json file stored at the deepest level of the Folder Tree Structure
 * **In-File Record Structure**:
@@ -113,9 +102,6 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 ### Dependencies
 [AAMasters Charly](https://github.com/AAMasters/AACharly-Extraction-Bot)
 [AAMasters Bruce](https://github.com/AAMasters/AABruce-Indicator-Bot)
-
-### Data as a Service (DaaS) Fees
-No fees.
 
 # Disclaimer
 

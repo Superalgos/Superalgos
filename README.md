@@ -8,7 +8,7 @@ This process generates files containing 1 day of candles or volumes each.
 
 ### Start Mode
 
-This process runs every 1 minute under allMonths start mode, where a yearly range must be specified (initial processing year and final processing year)
+This process runs every 1 minute under noTime start mode.
 
 ```
 "startMode": {
@@ -18,7 +18,23 @@ This process runs every 1 minute under allMonths start mode, where a yearly rang
       }
 ```
 
-### Output
+## Multi Period Market
+
+This process generates files containing candles or volumes for the whole history of the market.
+
+### Start Mode
+
+This process runs every 1 minute under noTime start mode.
+
+```
+"startMode": {
+      "noTime": {
+                "run": "true"
+              }
+      }
+```
+
+## Output
 I produce several datasets:
 * One with candles at 1, 2, 3, 4, 5, 10, 15, 20, 30, 45 minutes resolution;
 * One with candles at 1, 2, 3, 4, 6, 8, 12, 24 hours resolution;

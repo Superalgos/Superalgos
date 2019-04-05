@@ -35,7 +35,7 @@ This process runs every 1 minute under noTime start mode.
 ```
 
 ## Output
-I produce several datasets:
+Several datasets are produced:
 * One with candles at 1, 2, 3, 4, 5, 10, 15, 20, 30, 45 minutes resolution;
 * One with candles at 1, 2, 3, 4, 6, 8, 12, 24 hours resolution;
 * One with volumes at 1, 2, 3, 4, 5, 10, 15, 20, 30, 45 minutes resolution;

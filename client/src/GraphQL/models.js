@@ -55,8 +55,7 @@ const botTypes = {
 
 const exchanges = {
   Coss: "Coss",
-  Poloniex: "Poloniex",
-  Binance: "Binance"
+  Poloniex: "Poloniex"
 }
 
 export {

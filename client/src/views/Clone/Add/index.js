@@ -160,6 +160,20 @@ class AddClone extends Component {
                 <FormHelperText>{this.state.selectedBot.kind}</FormHelperText>
               </FormControl>
 
+              <TextField label="Exchange"
+                select
+                className={classNames(classes.margin, classes.textField, classes.form)}
+                value={this.state.exchangeName}
+                onChange={(e) => this.setState({ exchangeName: e.target.value })}
+                fullWidth
+              >
+                {Object.keys(exchanges).map((option, index) => (
+                  <MenuItem key={index} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </TextField>
+
               {this.state.selectedBot.kind === botTypes.Trading &&
                 <React.Fragment>
                   <Typography className={classes.typography} variant='subtitle1' align='justify'>
@@ -253,9 +267,9 @@ class AddClone extends Component {
                           );
                           if (error) return `Error! ${error.message}`;
                           const list = data.keyVault_AvailableKeys.map((key) => (
-                            <MenuItem key={key.id} value={key.id}>
-                              {key.key}
-                            </MenuItem>
+                              <MenuItem key={key.id} value={key.id}>
+                                {key.key.substr(0, 32) + "..." + " - " + key.exchange}
+                              </MenuItem>
                           ));
                           return (
                             <TextField
@@ -375,8 +389,8 @@ class AddClone extends Component {
                         onChange={(e) => this.setState({ startYear: e.target.value })}
                         fullWidth
                       >
-                        {getIndicatorYears().map((option, index) => (
-                          <MenuItem key={option} value={index}>
+                        {getIndicatorYears().map(option => (
+                          <MenuItem key={option} value={option}>
                             {option}
                           </MenuItem>
                         ))}
@@ -391,8 +405,8 @@ class AddClone extends Component {
                         onChange={(e) => this.setState({ endYear: e.target.value })}
                         fullWidth
                       >
-                        {getIndicatorYears().map((option, index) => (
-                          <MenuItem key={option} value={index}>
+                        {getIndicatorYears().map(option => (
+                          <MenuItem key={option} value={option}>
                             {option}
                           </MenuItem>
                         ))}
@@ -411,8 +425,8 @@ class AddClone extends Component {
                         onChange={(e) => this.setState({ startYear: e.target.value })}
                         fullWidth
                       >
-                        {getIndicatorYears().map((option, index) => (
-                          <MenuItem key={index} value={option}>
+                        {getIndicatorYears().map(option => (
+                          <MenuItem key={option} value={option}>
                             {option}
                           </MenuItem>
                         ))}
@@ -476,20 +490,6 @@ class AddClone extends Component {
 
                 </React.Fragment>
               }
-
-              <TextField label="Exchange"
-                select
-                className={classNames(classes.margin, classes.textField, classes.form)}
-                value={this.state.exchangeName}
-                onChange={(e) => this.setState({ exchangeName: e.target.value })}
-                fullWidth
-              >
-                {Object.keys(exchanges).map((option, index) => (
-                  <MenuItem key={index} value={option}>
-                    {option}
-                  </MenuItem>
-                ))}
-              </TextField>
 
               <Typography className={classes.typography} variant='subtitle1' align='justify'>
                 You will be able to see the clone information under Active Clones.

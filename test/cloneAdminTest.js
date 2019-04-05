@@ -24,7 +24,7 @@ describe('Admin clones Clones', function () {
 		var clones = activeCloneList("Coss")
 		try {
 			for (let clone of clones) {
-				await removeClone(clone.id, clone.botName)
+				await createClone(clone)
 			}
 		} catch (err) {
 			console.log('Error: ' + err)
@@ -38,7 +38,7 @@ describe('Admin clones Clones', function () {
 		var clones = activeCloneList("Poloniex")
 		try {
 			for (let clone of clones) {
-				await removeClone(clone.id, clone.botName)
+				await createClone(clone)
 			}
 		} catch (err) {
 			console.log('Error: ' + err)

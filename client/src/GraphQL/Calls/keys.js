@@ -6,6 +6,7 @@ export const GET_ALL_KEYS = gql`
       id
       key
       description
+      exchange
     }
   }
 `

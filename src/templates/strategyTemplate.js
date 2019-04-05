@@ -200,7 +200,6 @@ const strategy = {
                 name: 'Candle Close above Lower Band',
                 code: 'candle.close > bollingerBand.movingAverage + bollingerBand.deviation',
               },
-              { name: 'Impossible', code: ' 1 === 2' },
             ],
           },
         ],
@@ -249,77 +248,6 @@ const strategy = {
           {
             name: 'Between Band Moving Average and Lower Band',
             code: 'buyOrder = bollingerBand.movingAverage - bollingerBand.standardDeviation',
-            situations: [],
-          },
-        ],
-      },
-    },
-    {
-      active: true,
-      name: 'LRC Strategy',
-      entryPoint: {
-        situations: [
-          {
-            name: 'Lines in the right order',
-            conditions: [
-              { name: '60 > 30', code: 'LRC._60 > LRC._30' },
-              { name: '30 > 15', code: 'LRC._30 > LRC._15' },
-              { name: 'Impossible', code: ' 1 === 2' },
-            ],
-          },
-        ],
-      },
-      exitPoint: {
-        situations: [
-          {
-            name: 'Lines out of order',
-            conditions: [
-              {
-                name: '60 < 30 or 30 < 15',
-                code: 'LRC._60 < LRC._30 || LRC._30 < LRC._15 ',
-              },
-            ],
-          },
-        ],
-      },
-      sellPoint: {
-        situations: [
-          {
-            name: 'All lines going down',
-            conditions: [
-              { name: '60 going down', code: "LRC.direction60 === 'down'" },
-              { name: '30 going down', code: "LRC.direction30 === 'down'" },
-              { name: '15 going down', code: "LRC.direction15 === 'down'" },
-            ],
-          },
-        ],
-      },
-      stopLoss: {
-        phases: [
-          {
-            name: 'Following Sell Rate',
-            code: 'newStopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100',
-            situations: [
-              {
-                name: 'Stop Loss < 60',
-                conditions: [
-                  { name: 'Stop Loss < 60', code: 'stopLoss < LRC._60' },
-                ],
-              },
-            ],
-          },
-          {
-            name: 'Following 60',
-            code: 'newStopLoss = LRC._60',
-            situations: [],
-          },
-        ],
-      },
-      buyOrder: {
-        phases: [
-          {
-            name: 'Between Band Moving Average and Lower Band',
-            code: 'buyOrder = bollingerBand.movingAverage - bollingerBand.standardDeviation * 4',
             situations: [],
           },
         ],

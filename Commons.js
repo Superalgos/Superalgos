@@ -3,11 +3,14 @@ const auth = require('./utils/auth')
 
 exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
+    const { orderMessage } = require("@superalgos/mqservice")
+
     const {
-        MESSAGE_ENTITY, MESSAGE_TYPE, ORDER_CREATOR, ORDER_TYPE,
-        ORDER_OWNER, ORDER_DIRECTION, ORDER_STATUS, ORDER_EXIT_OUTCOME,
-        createRecord, getRecord, getExpandedRecord
-    } = require("@superalgos/mqservice")
+      MESSAGE_ENTITY, MESSAGE_TYPE, ORDER_CREATOR, ORDER_TYPE,
+            ORDER_OWNER, ORDER_DIRECTION, ORDER_STATUS, ORDER_EXIT_OUTCOME,
+            createMessage, getMessage, getExpandedMessage
+    } = orderMessage.newOrderMessage()
+
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -754,6 +757,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let messageType;
                     let message;
                     let record;
+                    let orderRecord;
 
                     messageId++;
 
@@ -767,13 +771,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             messageType = MESSAGE_TYPE.OrderUpdate;
                         }
 
-                        record = createRecord(
+                        orderRecord = createMessage(
                         messageId,
                         MESSAGE_ENTITY.SimulationEngine,
                         MESSAGE_ENTITY.SimulationExecutor,
                         messageType,
                         (new Date()).valueOf(),
-                        orderId,
+                        orderId.toString(),
                         ORDER_CREATOR.SimulationEngine,
                         (new Date()).valueOf(),
                         ORDER_OWNER.User,
@@ -785,32 +789,32 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         stopLoss,
                         buyOrder,
                         ORDER_DIRECTION.Sell,
-                        "All",
+                        -1,
                         ORDER_STATUS.Signaled,
                         0,
                         "")
 
                     } else {
 
-                    record = createRecord(
+                        orderRecord = createMessage(
                         messageId,
                         MESSAGE_ENTITY.SimulationEngine,
                         MESSAGE_ENTITY.SimulationExecutor,
                         MESSAGE_TYPE.HeartBeat,
                         (new Date()).valueOf(),
-                        0,
-                        "",
-                        0,
-                        "",
                         "",
                         "",
                         0,
                         "",
+                        "",
+                        "",
+                        0,
+                        "",
                         0,
                         0,
                         0,
                         "",
-                        "",
+                        0,
                         "",
                         0,
                         "")
@@ -842,7 +846,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         buyOrder: buyOrder,
                         stopLossPhase: stopLossPhase,
                         buyOrderPhase: buyOrderPhase,
-                        recordToSimulationExecutor: record
+                        orderRecord: orderRecord
                     }
 
                     recordsArray.push(record);

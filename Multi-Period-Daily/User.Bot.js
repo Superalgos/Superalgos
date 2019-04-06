@@ -160,7 +160,7 @@
                             record.buyOrder + "," +
                             record.stopLossPhase + "," +
                             record.buyOrderPhase + "," +
-                            JSON.stringify(record.recordToSimulationExecutor) + "]";
+                            JSON.stringify(record.orderRecord) + "]";
 
                         if (separator === "") { separator = ","; }
 

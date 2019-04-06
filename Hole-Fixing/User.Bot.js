@@ -460,6 +460,8 @@
 
                             charlyStorage.getTextFile(filePath, fileName, onNextFileReceived, true);
 
+                            console.log("[INFO] start -> findNextHole -> readNextFile -> reading file at dateForPath = " + dateForPath);
+
                             function onNextFileReceived(err, text) {
 
                                 try {
@@ -592,7 +594,7 @@
                                     let lastRecordedTradeId = 0;
                                     let lastRecordedCounter = 0;
 
-                                    if (holeFixingStatusReport !== undefined) { // The whole could have benn found before the monthly report was created.
+                                    if (holeFixingStatusReport.lastTrade !== undefined) { // The whole could have benn found before the monthly report was created.
 
                                         lastRecordedTradeId = holeFixingStatusReport.lastTrade.id;
                                         lastRecordedCounter = holeFixingStatusReport.lastTrade.counter;
@@ -727,6 +729,8 @@
                             filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
                             charlyStorage.getTextFile(filePath, fileName, onNextFileReceived, true);
+
+                            console.log("[INFO] start -> findNextHole -> findEndOfHole -> reading file at dateForPath = " + dateForPath);
 
                             function onNextFileReceived(err, text) {
 
@@ -1096,6 +1100,8 @@
                             filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
                             charlyStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                            console.log("[INFO] start -> tradesReadyToBeSaved -> nextRecord -> creating file at dateForPath = " + dateForPath);
 
                             function onFileCreated(err) {
 

@@ -5,15 +5,16 @@
         initialize: initialize
     }
 
-    const STORAGE = require('../Server/Storage');
-    let storage = STORAGE.newStorage();
+    let storage;
 
     let serverConfig;
     let storageData;
 
     return thisObject;
 
-    function initialize(pServerConfig, callBackFunction) {
+    function initialize(pServerConfig, pStorage, callBackFunction) {
+
+        storage = pStorage;
 
         let storageData = new Map(); // For backwards compatibility only. Not used.
 

@@ -8,8 +8,7 @@
     const GITHUB = require('../Server/Github');
     let github = GITHUB.newGithub();
 
-    const STORAGE = require('../Server/Storage');
-    let storage = STORAGE.newStorage();
+    let storage;
 
     let serverConfig;
     let storageData;
@@ -18,8 +17,9 @@
 
     return thisObject;
 
-    function initialize(pEcosystem, pEcosystemObject, pStorageData, callBackFunction) {
+    function initialize(pEcosystem, pEcosystemObject, pStorageData, pStorage, callBackFunction) {
 
+        storage = pStorage;
         storageData = pStorageData;
         ecosystem = pEcosystem;
         ecosystemObject = pEcosystemObject;

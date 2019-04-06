@@ -1,10 +1,10 @@
-﻿exports.newStorage = function newStorage() {
+﻿exports.newMinioStorage = function newMinioStorage() {
 
     let thisObject = {
         readData: readData,
         writeData: writeData,
-        createContainer: createContainer, 
-        deleteContainer: deleteContainer, 
+        createContainer: createContainer,
+        deleteContainer: deleteContainer,
         deleteBlob: deleteBlob,
         initialize: initialize
     }
@@ -12,12 +12,23 @@
     let storageData;
     let serverConfig;
 
+    let Minio = require('minio');
+    let minioClient;
+
     return thisObject;
 
     function initialize(pStorageData, pServerConfig) {
 
         storageData = pStorageData;
         serverConfig = pServerConfig;
+
+        minioClient = new Minio.Client({
+            endPoint: process.env.MINIO_END_POINT,
+            port: JSON.parse(process.env.MINIO_PORT),
+            useSSL: JSON.parse(process.env.MINIO_USE_SSL),
+            accessKey: process.env.MINIO_ACCESS_KEY,
+            secretKey: process.env.MINIO_SECRET_KEY
+        })
 
     }
 
@@ -86,7 +97,7 @@
                             storageData.set(pOrg + '.' + pPath + '.' + pFile, text);
 
                         }
-                        
+
                         if (err !== null || text === null) {
 
                             if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> Error Received from Storage Library. "); }
@@ -97,6 +108,27 @@
                             return;
 
                         }
+
+                        /* TEMPORARY CODE TO UPDATE THE MINIO SERVER DURING TRANSITION. */
+
+                        try {
+
+                            let bucketName = 'aaplatform';
+
+                            let textFilename = pOrg + "/" + pPath + "/" + pFile;
+
+                            minioClient.putObject(bucketName, textFilename, text, 'text/plain', function (err) {
+                                if (err) {
+                                    console.log("ERROR AT MINIO SERVER PUTTING OBJECT : " + err);
+                                    return;
+                                }
+                                console.log(textFilename + ' Successfully uploaded ' + textFilename + ' the MINIO SERVER');
+                            })
+
+                        } catch (err) {
+                            console.log("ERROR UPDATING MINIO SERVER : " + err);
+                        }
+
 
                         callBackFunction(global.DEFAULT_OK_RESPONSE, text);
 
@@ -145,6 +177,26 @@
             let blobText = pFileContent.toString();
 
             blobService.createBlockBlobFromText('aaplatform', blobPath, blobText, onFileCreated);
+
+            /* TEMPORARY CODE TO UPDATE THE MINIO SERVER DURING TRANSITION. */
+
+            try {
+
+                let bucketName = 'aaplatform';
+                let text = blobText;
+                let textFilename = blobPath;
+
+                minioClient.putObject(bucketName, textFilename, text, 'text/plain', function (err) {
+                    if (err) {
+                        console.log("ERROR AT MINIO SERVER PUTTING OBJECT : " + err);
+                        return;
+                    }
+                    console.log(textFilename + ' Successfully uploaded ' + textFilename + ' the MINIO SERVER');
+                })
+
+            } catch (err) {
+                console.log("ERROR UPDATING MINIO SERVER : " + err);
+            }
 
             function onFileCreated(err, text, response) {
 
@@ -212,6 +264,25 @@
             let blobPath = pOrg + "/" + pPath + "/" + pFile;
 
             blobService.deleteBlob('aaplatform', blobPath, onBlobDeleted);
+
+            /* TEMPORARY CODE TO UPDATE THE MINIO SERVER DURING TRANSITION. */
+
+            try {
+
+                let bucketName = 'aaplatform';
+                let textFilename = blobPath;
+
+                minioClient.removeObject(bucketName, textFilename, function (err) {
+                    if (err) {
+                        console.log("ERROR AT MINIO SERVER REMOVING OBJECT : " + textFilename + " " + err);
+                        return;
+                    }
+                    console.log(textFilename + ' Successfully uploaded ' + textFilename + ' the MINIO SERVER');
+                })
+
+            } catch (err) {
+                console.log("ERROR UPDATING MINIO SERVER : " + err);
+            }
 
             function onBlobDeleted(err, text, response) {
 

@@ -5,8 +5,6 @@
 
     const MODULE_NAME = "User Bot";
 
-    const EXCHANGE_NAME = "Poloniex";
-
     const SIMULATED_RECORDS_FOLDER_NAME = "Trading-Simulation";
     const CONDITIONS_FOLDER_NAME = "Simulation-Conditions";
 

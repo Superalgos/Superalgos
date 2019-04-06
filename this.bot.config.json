@@ -169,7 +169,7 @@
             "major": 1,
             "minor": 0
           },
-          "process": "Poloniex-Historic-Trades",
+          "process": "Historic-Trades",
           "dataSetVersion": "dataSet.V1"
         },
         {
@@ -292,6 +292,9 @@
       "exchangeList": [
         {
           "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
         }
       ],
       "plotter": {
@@ -328,6 +331,9 @@
       "exchangeList": [
         {
           "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
         }
       ],
       "plotter": {

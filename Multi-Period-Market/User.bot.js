@@ -280,6 +280,8 @@
 
                             oliviaStorage.getTextFile(filePath, fileName, onFileReceived);
 
+                            console.log("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> getting file.");
+
                             function onFileReceived(err, text) {
 
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Entering function."); }
@@ -319,6 +321,8 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> filePath = " + filePath); }
 
                             oliviaStorage.getTextFile(filePath, fileName, onFileReceived);
+
+                            console.log("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> getting file.");
 
                             function onFileReceived(err, text) {
 
@@ -530,6 +534,8 @@
 
                                 bruceStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
+                                console.log("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> getting file at dateForPath = " + dateForPath);
+
                                 function onFileReceived(err, text) {
 
                                     try {
@@ -550,9 +556,19 @@
                                                 return;
                                             }
                                         } else {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.message);
-                                            callBackFunction(err);
-                                            return;
+
+                                            if (err.message === 'File does not exist.') {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Dependency Not Ready -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                return;
+
+                                            } else {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
                                         }
 
                                         const inputCandlesPerdiod = 60 * 1000;              // 1 min
@@ -650,6 +666,8 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> filePath = " + filePath); }
 
                                     bruceStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                                    console.log("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
 
                                     function onFileReceived(err, text) {
 
@@ -797,6 +815,8 @@
 
                         oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
+                        console.log("[INFO] start -> writeFiles -> writeCandles -> creating file at filePath = " + filePath);
+
                         function onFileCreated(err) {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Entering function."); }
@@ -846,6 +866,8 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> filePath = " + filePath); }
 
                         oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                        console.log("[INFO] start -> writeFiles -> writeVolumes -> creating file at filePath = " + filePath);
 
                         function onFileCreated(err) {
 

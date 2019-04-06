@@ -313,6 +313,8 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                                 bruceStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
+                                console.log("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> getting file at dateForPath = " + dateForPath);
+
                                 function onFileReceived(err, text) {
 
                                     try {
@@ -333,9 +335,19 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                                                 return;
                                             }
                                         } else {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.message);
-                                            callBackFunction(err);
-                                            return;
+
+                                            if (err.message === 'File does not exist.') {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Dependency Not Ready -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                return;
+
+                                            } else {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
                                         }
 
                                         const inputCandlesPerdiod = 60 * 1000;              // 1 min
@@ -428,6 +440,8 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> filePath = " + filePath); }
 
                                     bruceStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                                    console.log("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
 
                                     function onFileReceived(err, text) {
 
@@ -592,6 +606,8 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                         oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
+                        console.log("[INFO] start -> writeFiles -> writeCandles -> creating file at filePath = " + filePath);
+
                         function onFileCreated(err) {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Entering function."); }
@@ -642,6 +658,8 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> filePath = " + filePath); }
 
                         oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                        console.log("[INFO] start -> writeFiles -> writeVolumes -> creating file at filePath = " + filePath);
 
                         function onFileCreated(err) {
 

@@ -343,6 +343,8 @@
 
                             bruceStorage.getTextFile(filePath, fileName, onFileReceived);
 
+                            console.log("[INFO] start -> findPreviousContent -> getCandles -> reading file at dateForPath = " + dateForPath);
+
                             function onFileReceived(err, text) {
 
                                 let candlesFile;
@@ -390,6 +392,8 @@
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
 
                             bruceStorage.getTextFile(filePath, fileName, onFileReceived);
+
+                            console.log("[INFO] start -> findPreviousContent -> getVolumes -> reading file at dateForPath = " + dateForPath);
 
                             function onFileReceived(err, text) {
 
@@ -488,6 +492,8 @@
                                 let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
                                 charlyStorage.getTextFile(filePath, fileName, onFileReceived);
+
+                                console.log("[INFO] start -> findPreviousContent -> loopStart -> reading file at dateForPath = " + dateForPath);
 
                                 function onFileReceived(err, text) {
 
@@ -729,6 +735,8 @@
 
                                     charlyStorage.getTextFile(filePath, fileName, onFileReceived);
 
+                                    console.log("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> readTrades -> reading file at dateForPath = " + dateForPath);
+
                                     function onFileReceived(err, text) {
 
                                         let tradesFile;
@@ -879,6 +887,8 @@
 
                             bruceStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
+                            console.log("[INFO] start -> writeFiles -> writeCandles -> writing file at dateForPath = " + dateForPath);
+
                             function onFileCreated(err) {
 
                                 try {
@@ -949,6 +959,8 @@
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
 
                             bruceStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                            console.log("[INFO] start -> writeFiles -> writeVolumes -> writing file at dateForPath = " + dateForPath);
 
                             function onFileCreated(err) {
 

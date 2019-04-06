@@ -1,16 +1,16 @@
 
-function newFileCloud () {
+function newFileCloud() {
   const MODULE_NAME = 'File Cloud'
   const INFO_LOG = false
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
-    /*
+  /*
 
-    This is the module in the system that actually connects to the cloud storage and grabs from there the needed files.
+  This is the module in the system that actually connects to the cloud storage and grabs from there the needed files.
 
-    */
+  */
 
   var thisObject = {
     getFile: getFile,
@@ -21,19 +21,33 @@ function newFileCloud () {
 
   return thisObject
 
-  function initialize (pBot) {
+  function initialize(pBot) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> pBot = ' + pBot.codeName) }
 
-      blobService = AzureStorage.Blob.createBlobServiceWithSas(pBot.storage.fileUri, pBot.storage.sas)
+      switch (STORAGE_PROVIDER) {
+        case 'Azure': {
+          blobService = AzureStorage.Blob.createBlobServiceWithSas(pBot.storage.fileUri, pBot.storage.sas)
+          break;
+        }
+        case 'AAWeb': {
+          blobService = newFileStorage();
+          break;
+        }
+        default: {
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Storage Provider not supported -> process.env.STORAGE_PROVIDER = ' + STORAGE_PROVIDER) }
+          return;
+        }
+      }
+
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
-            // callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);  TODO> Handle this callback.
+      // callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);  TODO> Handle this callback.
     }
   }
 
-  function getFile (pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
+  function getFile(pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] getFile -> Entering function.') }
 
@@ -41,7 +55,7 @@ function newFileCloud () {
 
       getFileRecursively(0, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
 
-      function getFileRecursively (pRetryCounter, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
+      function getFileRecursively(pRetryCounter, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> Entering function.') }
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> key = ' + pDevTeam.codeName + '-' + pBot.codeName + '-' + pSet.filePath + '-' + pSet.fileName) }
@@ -126,7 +140,7 @@ function newFileCloud () {
 
           blobService.getBlobToText(containerName, filePath + '/' + fileName, onFileReceived)
 
-          function onFileReceived (err, text, response) {
+          function onFileReceived(err, text, response) {
             try {
               if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> onFileReceived -> Entering function.') }
               if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> onFileReceived -> filePath = ' + filePath) }
@@ -134,7 +148,8 @@ function newFileCloud () {
 
               let data
 
-              if (err) {
+              if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+
                 if (err.code === 'BlobNotFound' | err.code === 'FileNotFound' | err.code === 'ParentNotFound') {
                   let customErr = {
                     result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,

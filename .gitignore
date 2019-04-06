@@ -12,3 +12,4 @@ exchange/Auth0.js
 .env
 
 \.vscode/
+Project.njsproj

@@ -221,20 +221,19 @@ function onBrowserRequest (request, response) {
                 
                 let request = JSON.parse(pData);
 
-                fileStorage.getFile(container, path, onReady);
+                storage.readData(undefined, request.path, request.conatinerName, false, onReady)
 
                 function onReady(err, pFileContent) {
 
-                    let response = {
+                    let responseToClient = {
                         err: err,
                         text: pFileContent
                     };
 
-                    respondWithContent(JSON.stringify(response));
+                    respondWithContent(JSON.stringify(responseToClient), response);
                 }
             }
 
-            respondWithFile(filePath, response)
             break;
         }
     case 'Plotter.js':

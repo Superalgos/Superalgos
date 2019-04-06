@@ -78,7 +78,35 @@
 
                 let blobService = storage.createBlobService(connectionString);
 
-                blobService.getBlobToText('aaplatform', pOrg + "/" + pPath + "/" + pFile, onFileReceived);
+                let pParam1 = pOrg;
+                let pParam2 = pPath;
+                let pParam3 = pFile;
+                let container = 'aaplatform';
+                let azurePath = pOrg + "/" + pPath + "/" + pFile;
+
+                let bucketName = 'aaplatform';
+                let textFilename;
+
+                if (pParam1 === undefined) {
+
+                    /* This is used when the requests come from the browser, for background compatibility.  */
+
+                    container = pParam3;
+                    azurePath = pParam2;
+
+                    bucketName = pParam3;
+                    textFilename = pParam2.substring(pParam2.indexOf("/") + 1, pParam2.length);
+
+                } else {
+
+                    /* This is used for internal requests within AAWeb, for background compatibility. */
+
+                    bucketName = 'aaplatform';
+                    textFilename = pParam1 + "/" + pParam2 + "/" + pParam3;
+                }
+
+
+                blobService.getBlobToText(container, azurePath, onFileReceived);
 
 
                 function onFileReceived(err, text, response) {
@@ -112,10 +140,6 @@
                         /* TEMPORARY CODE TO UPDATE THE MINIO SERVER DURING TRANSITION. */
 
                         try {
-
-                            let bucketName = 'aaplatform';
-
-                            let textFilename = pOrg + "/" + pPath + "/" + pFile;
 
                             minioClient.putObject(bucketName, textFilename, text, 'text/plain', function (err) {
                                 if (err) {

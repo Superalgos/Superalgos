@@ -138,37 +138,48 @@ function callServer(pContentToSend, pPath, callBackFunction) {
 }
 
 
-function getBlobToText(pContainerName, pPath, callBackFunction) {
+function newFileStorage() {
 
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
-
-            let response = JSON.parse(xhttp.responseText);
-            callBackFunction(response.err, response.text, "");
-
-        }
+    thisObject = {
+        getBlobToText: getBlobToText
     };
 
-    try {
+    return thisObject;
 
-        let request = {
-            conatinerName: pContainerName,
-            path: pPath
+    function getBlobToText(pContainerName, pPath, callBackFunction) {
+
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+
+                let response = JSON.parse(xhttp.responseText);
+                callBackFunction(response.err, response.text, "");
+
+            }
         };
 
-        request = JSON.stringify(request);
+        try {
 
-        let path = "FileService";
+            let request = {
+                conatinerName: pContainerName,
+                path: pPath
+            };
 
-        let blob = new Blob([request], { type: 'text/plain' });
+            request = JSON.stringify(request);
 
-        xhttp.open("POST", path, true);
-        xhttp.send(blob);
+            let path = "FileService";
 
-    } catch (err) {
+            let blob = new Blob([request], { type: 'text/plain' });
 
-        if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[ERROR] getBlobToText -> err.message = " & err.message); }
+            xhttp.open("POST", path, true);
+            xhttp.send(blob);
 
+        } catch (err) {
+
+            if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[ERROR] getBlobToText -> err.message = " & err.message); }
+
+        }
     }
 }
+
+

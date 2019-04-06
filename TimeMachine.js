@@ -106,6 +106,11 @@ function newTimeMachine () {
       let leftToInitialize = SUPPORTED_EXCHANGES.length * SUPPORTED_MARKETS.length - 1 // The default exchange and market was already initialized.
       let alreadyInitialized = 0
 
+      if (alreadyInitialized === leftToInitialize) {
+        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+        return
+      }
+
       for (let i = 0; i < SUPPORTED_EXCHANGES.length; i++) {
         for (let j = 0; j < SUPPORTED_MARKETS.length; j++) {
           let exchange = SUPPORTED_EXCHANGES[i]

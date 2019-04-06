@@ -33,6 +33,7 @@
     <Compile Include="AABrowserAPI\BotCode.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AABrowserAPI\CopySimulator.js" />
     <Compile Include="AABrowserAPI\TeamSetup.js">
       <SubType>Code</SubType>
     </Compile>

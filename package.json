@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@superalgos/exchangegateway": "0.0.1",
-    "@superalgos/mqservice": "0.0.13",
+    "@superalgos/mqservice": "0.0.14",
     "apollo-boost": "^0.1.16",
     "assert": "^1.4.1",
     "axios": "^0.18.0",

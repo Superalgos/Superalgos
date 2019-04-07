@@ -14,7 +14,7 @@
     "apollo",
     "graphql"
   ],
-  "repository": "",
+  "repository": "https://github.com/Superalgos/TeamsModule.git",
   "author": "Barry Low <bearcanrun@gmail.com>",
   "license": "READ LICENSE.MD",
   "devDependencies": {
@@ -85,7 +85,7 @@
     "classnames": "^2.2.6",
     "cross-fetch": "^2.2.2",
     "dotenv-webpack": "^1.5.7",
-    "graphql": "^14.0.2",
+    "graphql": "^14.2.1",
     "graphql-tag": "^2.10.0",
     "minilog": "^3.1.0",
     "prop-types": "^15.6.2",
@@ -99,7 +99,8 @@
   },
   "peerDependencies": {
     "@material-ui/core": "^3.6.2",
-    "@material-ui/icons": "^3.0.1"
+    "@material-ui/icons": "^3.0.1",
+    "ajv": "^6.10.0"
   },
   "standard": {
     "parser": "babel-eslint",

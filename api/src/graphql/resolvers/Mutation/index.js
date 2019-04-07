@@ -2,12 +2,13 @@ import axios from 'axios'
 import { ApolloError } from 'apollo-server-express'
 
 import { getUser } from '../../../middleware/getMember'
+import { createStrategy } from './createStrategy'
 
 import { notifications_sendTeamCreateConfirmation, notifications_sendTeamMemberInvite, notifications_VerifyTeamMemberInviteToken } from '../notifications/sendgrid'
 
 import TEAMS_CONNECTIONS_FRAGMENT from '../../fragments/TeamsConnectionsFragment'
 import TEAMS_FRAGMENT from '../../fragments/TeamsFragment'
-import TEAM_FB_FRAGMENT from '../../fragments/TeamFBFragment'
+import FB_FRAGMENT from '../../fragments/FBFragment'
 
 import { logger, AuthenticationError, ServiceUnavailableError, DatabaseError, ConflictError } from '../../../logger'
 
@@ -97,22 +98,53 @@ export const resolvers = {
       let createTeam
       if(existingMember !== null && existingMember.id !== null){
         logger.info('createTeam with existingMember:')
-        createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {connect: {authId: authId}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Connected to Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
+        createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {connect: {authId: authId}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Connected to Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'Trading', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
           .catch((err) => {
             logger.debug(err, 'createTeamMutation error: ')
             return new DatabaseError(err)
           })
       } else {
         logger.info('createTeam without existingMember:')
-        createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {create: {authId: authId, alias: alias, visible: true, status: { create: { status: 'ACTIVE', reason: `Created team ${name}`}}}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Created with Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
+        createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {create: {authId: authId, alias: alias, visible: true, status: { create: { status: 'ACTIVE', reason: `Created team ${name}`}}}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Created with Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'Trading', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
           .catch((err) => {
             logger.debug(err, 'createTeamMutation error: ')
             return new DatabaseError(err)
           })
 
-        if(createTeam) notifications_sendTeamCreateConfirmation(email, name, botName)
+      }
+      let createFB;
+      if(createTeam){
+        createFB = await ctx.db.mutation.createFinancialBeings({ data:{
+            type:'BOT',
+            kind:'Indicator',
+            name:'Simulator ' + botName,
+            slug:'simulator-' + botSlug,
+            avatar:avatar,
+            team: {
+              connect:{
+                id:createTeam.id
+              }
+            }
+          }
+        }, FB_FRAGMENT)
+            .catch((err) => {
+              logger.debug(err, 'Error creating the simulator: ')
+              return new DatabaseError(err)
+            })
+        logger.info('createTeam creating simulator success')
+        logger.info(JSON.stringify(await createFB))
+        let createdStrategy
+        if(await createFB){
+          logger.info('createStrategy:' + 'simulator-' + botSlug)
+          createdStrategy =  await createStrategy('simulator-' + botSlug)
+          logger.info('createStrategy:')
+          logger.info(JSON.stringify(await createStrategy))
+        }
       }
 
+      if(await createTeam && await createFB && await createStrategy){
+        notifications_sendTeamCreateConfirmation(email, name, botName)
+      }
       return createTeam
     },
     async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {

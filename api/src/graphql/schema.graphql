@@ -1,4 +1,4 @@
-# import Query.TeamConnection, Team from "../generated/prisma.graphql"
+# import Query.TeamConnection, Query.FinancialBeingsConnection, Team, FinancialBeings from "../generated/prisma.graphql"
 
 directive @isAuthenticated on QUERY | FIELD | MUTATION | FIELD_DEFINITION
 directive @hasRole(roles: [String]) on QUERY | FIELD | MUTATION | FIELD_DEFINITION
@@ -11,10 +11,15 @@ type Query {
   teamByName(name: String!): Team
   teamBySlug(slug: String!): Team
   teamById(teamId: String!): Team
+  teamsByIds(teamIds: [ID!]): [Team]
   teamWithRole(teamId: String!, role: String!): Team
+  teamAuthorization(teamId: String!, role: String): Team
   teamsByOwner: [Team!]! @isAuthenticated
   teamsByRole: [Team!]! @isAuthenticated
   fbByTeamMember: Team @isAuthenticated
+  fbByOwner(fbId: String, fbSlug: String): FinancialBeingsConnection @isAuthenticated
+  fbByFbId(fbId: String!): FinancialBeings
+  fbByFbSlug(fbSlug: String!): FinancialBeings
   owner: Member @isAuthenticated
   member: Member @isAuthenticated
 }

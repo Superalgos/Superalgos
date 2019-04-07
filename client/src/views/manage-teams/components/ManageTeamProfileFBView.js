@@ -40,32 +40,34 @@ const styles = theme => ({
 export const ManageTeamProvileFBView = ({ classes, team }) => {
   log.debug('ManageTeamProvileFBView', team, team.fb[0], team.fb[0].avatar)
 
-  let avatar = (team.fb[0].avatar !== undefined && team.fb[0].avatar !== null) ? team.fb[0].avatar : process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
-
-  return (
-    <Grid item xs={12} className={classes.fbContainer}>
-      <Card className={classes.card}>
-        <div className={classes.cardDetails}>
-          <CardMedia
-            className={classes.cardMedia}
-            image={avatar}
-            title={team.name}
-          />
-          <CardContent className={classes.cardContent}>
-            <Typography gutterBottom variant='h5' component='h2'>
-              {team.fb[0].name}
-            </Typography>
-            <Typography variant='caption' color='textSecondary'>
-              {team.fb[0].kind}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <ManageTeamProfileFBEdit slug={team.slug} fb={team.fb[0]} />
-          </CardActions>
-        </div>
-      </Card>
-    </Grid>
-  )
+  let fbs = team.fb;
+  return fbs.map((fb, index) => {
+    let avatar = (fb.avatar !== undefined && fb.avatar !== null) ? fb.avatar : process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
+    return (
+      <Grid item xs={12} className={classes.fbContainer} key={`fb-${index}`}>
+        <Card className={classes.card}>
+          <div className={classes.cardDetails}>
+            <CardMedia
+              className={classes.cardMedia}
+              image={avatar}
+              title={fb.name}
+            />
+            <CardContent className={classes.cardContent}>
+              <Typography gutterBottom variant='h5' component='h2'>
+                {fb.name}
+              </Typography>
+              <Typography variant='caption' color='textSecondary'>
+                {fb.kind}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <ManageTeamProfileFBEdit slug={team.slug} fb={fb} />
+            </CardActions>
+          </div>
+        </Card>
+      </Grid>
+    )
+  })
 }
 
 ManageTeamProvileFBView.propTypes = {

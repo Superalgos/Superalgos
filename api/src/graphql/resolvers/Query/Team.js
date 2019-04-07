@@ -5,14 +5,19 @@ import TEAMS_FRAGMENT from '../../fragments/TeamsFragment'
 
 export const teams = async (parent, args, ctx, info) => {
   logger.info('teams')
-  console.log('teams')
   return ctx.db.query.teamsConnection({}, TEAMS_CONNECTIONS_FRAGMENT)
+}
+
+export const teamsByIds = async (parent, { teamIds }, ctx, info) => {
+  logger.info('teamsByIds')
+  logger.info(teamIds)
+  return ctx.db.query.teams({where: { id_in: teamIds } }, TEAMS_FRAGMENT)
 }
 
 export const teamById = async (parent, { teamId }, ctx, info) => {
   logger.info('teamById')
   logger.info(teamId)
-  return ctx.db.query.team({ where: { id: teamId } }, info)
+  return ctx.db.query.team({ where: { id: teamId } }, TEAMS_FRAGMENT)
 }
 
 export const teamByName = async (parent, { name }, ctx, info) => {
@@ -27,6 +32,19 @@ export const teamBySlug= async (parent, { slug }, ctx, info) => {
 
 export const teamWithRole = async (parent, { teamId, role }, ctx, info) => {
   return ctx.db.query.teamsConnection({where: {AND: [{id: teamId},{members_some:{role: role}}]}, first:1}, info)
+}
+
+export const teamAuthorization = async (parent, { teamId, role }, ctx, info) => {
+  const authId = ctx.request.headers.userid
+  if (!authId) {
+    throw new AuthenticationError()
+    return
+  }
+  if(role == undefined || role == null){
+    return ctx.db.query.teamsConnection({where:{ AND:{id:teamId,members_some:{member:{authId:authId}, role_in:['OWNER','ADMIN']}}}, first:1}, info)
+  } else {
+    return ctx.db.query.teamsConnection({where:{ AND:{id:teamId,members_some:{member:{authId:authId}, role:role}}}, first:1}, info)
+  }
 }
 
 export const teamsByOwner = async (parent, args, ctx, info) => {

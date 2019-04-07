@@ -29,7 +29,6 @@
             accessKey: process.env.MINIO_ACCESS_KEY,
             secretKey: process.env.MINIO_SECRET_KEY
         })
-
     }
 
     function readData(pParam1, pParam2, pParam3, saveAtCache, callBackFunction) {
@@ -57,24 +56,6 @@
             } else {
 
                 if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData ->  " + pParam1 + '.' + pParam2 + '.' + pParam3 + " NOT found at cache."); }
-
-                let storage = require('azure-storage');
-                let connectionString;
-
-                switch (serverConfig.environment) {
-
-                    case "Develop": {
-
-                        connectionString = serverConfig.configAndPlugins.Develop.connectionString;
-                        break;
-                    }
-
-                    case "Production": {
-
-                        connectionString = serverConfig.configAndPlugins.Production.connectionString;
-                        break;
-                    }
-                }
 
                 let bucketName = 'aaplatform';
                 let textFilename;
@@ -176,49 +157,11 @@
             if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> pParam2 = " + pParam2); }
             if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> pParam3 = " + pParam3); }
 
-            let storage = require('azure-storage');
-            let connectionString;
+            let bucketName = 'aaplatform';
+            let text = pFileContent.toString();
+            let textFilename = pParam1 + "/" + pParam2 + "/" + pParam3;
 
-            switch (serverConfig.environment) {
-
-                case "Develop": {
-
-                    connectionString = serverConfig.configAndPlugins.Develop.connectionString;
-                    break;
-                }
-
-                case "Production": {
-
-                    connectionString = serverConfig.configAndPlugins.Production.connectionString;
-                    break;
-                }
-            }
-
-            let blobService = storage.createBlobService(connectionString);
-            let blobPath = pParam1 + "/" + pParam2 + "/" + pParam3;
-            let blobText = pFileContent.toString();
-
-            blobService.createBlockBlobFromText('aaplatform', blobPath, blobText, onFileCreated);
-
-            /* TEMPORARY CODE TO UPDATE THE MINIO SERVER DURING TRANSITION. */
-
-            try {
-
-                let bucketName = 'aaplatform';
-                let text = blobText;
-                let textFilename = blobPath;
-
-                minioClient.putObject(bucketName, textFilename, text, 'text/plain', function (err) {
-                    if (err) {
-                        console.log("ERROR AT MINIO SERVER PUTTING OBJECT : " + err);
-                        return;
-                    }
-                    console.log(textFilename + ' Successfully uploaded ' + textFilename + ' the MINIO SERVER');
-                })
-
-            } catch (err) {
-                console.log("ERROR UPDATING MINIO SERVER : " + err);
-            }
+            minioClient.putObject(bucketName, textFilename, text, 'text/plain', onFileCreated)
 
             function onFileCreated(err, text, response) {
 
@@ -264,47 +207,10 @@
             if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> pParam2 = " + pParam2); }
             if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> pParam3 = " + pParam3); }
 
-            let storage = require('azure-storage');
-            let connectionString;
+            let bucketName = 'aaplatform';
+            let textFilename = pParam1 + "/" + pParam2 + "/" + pParam3;
 
-            switch (serverConfig.environment) {
-
-                case "Develop": {
-
-                    connectionString = serverConfig.configAndPlugins.Develop.connectionString;
-                    break;
-                }
-
-                case "Production": {
-
-                    connectionString = serverConfig.configAndPlugins.Production.connectionString;
-                    break;
-                }
-            }
-
-            let blobService = storage.createBlobService(connectionString);
-            let blobPath = pParam1 + "/" + pParam2 + "/" + pParam3;
-
-            blobService.deleteBlob('aaplatform', blobPath, onBlobDeleted);
-
-            /* TEMPORARY CODE TO UPDATE THE MINIO SERVER DURING TRANSITION. */
-
-            try {
-
-                let bucketName = 'aaplatform';
-                let textFilename = blobPath;
-
-                minioClient.removeObject(bucketName, textFilename, function (err) {
-                    if (err) {
-                        console.log("ERROR AT MINIO SERVER REMOVING OBJECT : " + textFilename + " " + err);
-                        return;
-                    }
-                    console.log(textFilename + ' Successfully uploaded ' + textFilename + ' the MINIO SERVER');
-                })
-
-            } catch (err) {
-                console.log("ERROR UPDATING MINIO SERVER : " + err);
-            }
+            minioClient.removeObject(bucketName, textFilename, onBlobDeleted)
 
             function onBlobDeleted(err, text, response) {
 
@@ -348,29 +254,9 @@
             if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> createContainer -> Entering function."); }
             if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> createContainer -> pContainerName = " + pContainerName); }
 
-            let storage = require('azure-storage');
-            let connectionString;
-
-            switch (serverConfig.environment) {
-
-                case "Develop": {
-
-                    connectionString = serverConfig.configAndPlugins.Develop.connectionString;
-                    break;
-                }
-
-                case "Production": {
-
-                    connectionString = serverConfig.configAndPlugins.Production.connectionString;
-                    break;
-                }
-            }
-
-            let blobService = storage.createBlobService(connectionString);
-
             let containerName = pContainerName.toLowerCase();
 
-            blobService.createContainer(containerName, onContainerCreated);
+            minioClient.makeBucket(containerName, "", onContainerCreated)
 
             function onContainerCreated(err) {
 
@@ -419,29 +305,9 @@
             if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteContainer -> Entering function."); }
             if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteContainer -> pContainerName = " + pContainerName); }
 
-            let storage = require('azure-storage');
-            let connectionString;
-
-            switch (serverConfig.environment) {
-
-                case "Develop": {
-
-                    connectionString = serverConfig.configAndPlugins.Develop.connectionString;
-                    break;
-                }
-
-                case "Production": {
-
-                    connectionString = serverConfig.configAndPlugins.Production.connectionString;
-                    break;
-                }
-            }
-
-            let blobService = storage.createBlobService(connectionString);
-
             let containerName = pContainerName.toLowerCase();
 
-            blobService.deleteContainer(containerName, onContainerDeleted);
+            minioClient.removeBucket(containerName, onContainerDeleted)
 
             function onContainerDeleted(err) {
 

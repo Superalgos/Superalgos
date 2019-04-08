@@ -11,8 +11,10 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
     const MODULE_NAME = "Blob Storage";
     const SECOND_TRY_WAIT_TIME = 10000;
 
-    let AZURE_STORAGE = require('./AzureStorage');
-    let storage = AZURE_STORAGE.newAzureStorage(bot, logger);
+    let storage;
+
+    let AZURE_STORAGE = require('./AzureStorage')
+    let MINIO_STORAGE = require('./MinioStorage')
   
     let thisObject = {
         initialize: initialize,
@@ -31,6 +33,23 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
     function initialize(pDataOwner, callBackFunction, disableLogging) {
 
         try {
+
+            switch (process.env.STORAGE_PROVIDER) {
+                case 'Azure': {
+                    storage = AZURE_STORAGE.newAzureStorage(bot, logger);
+                    break;
+                }
+                case 'Minio': {
+                    storage = MINIO_STORAGE.newMinioStorage(bot, logger);
+                    break;
+                }
+                default: {
+                    if (ERROR_LOG === true && logger !== undefined) {
+                        logger.write(MODULE_NAME, "[ERROR] initialize -> Storage Provider not supported -> process.env.STORAGE_PROVIDER = " + process.env.STORAGE_PROVIDER); }
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
+            }
 
             containerName = pDataOwner.toLowerCase();
 

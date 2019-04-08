@@ -36,26 +36,6 @@ global.CUSTOM_FAIL_RESPONSE = {
   message: 'Custom Message'
 }
 
-/*
-
-
-const stage = 'textUpload'
-const bucketName = 'test-bucket'
-const textFilename = 'test.json'
-/*
-if (stage === 'textUpload') {
-    var str = 'some string you want to save'
-    minioClient.putObject(bucketName, textFilename, str, 'text/plain', function (e) {
-        if (e) {
-            return console.log(e)
-        }
-        console.log('Successfully uploaded the string')
-    })
-}
-
-
-return
-*/
 let storageData = new Map()
 
 let botScripts                 // This module is the one which grabs user bots scrips from the storage, and browserifys them.

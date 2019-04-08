@@ -18,8 +18,6 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
         getTextFile: getTextFile
     };
 
-    let readOnlyBlobService;
-    let writeOnlyBlobService;
     let containerName;
     let environment = global.CURRENT_ENVIRONMENT;
 
@@ -82,12 +80,9 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
 
     function createTextFile(pFolderPath, pFileName, pFileContent, callBackFunction) {
 
-        if (writeOnlyBlobService === undefined) {
-
-            if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> initialize function not executed or failed. Can not process this request. Sorry."); }
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            return;
-        }
+        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> initialize function not executed or failed. Can not process this request. Sorry."); }
+        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        return;
 
         try {
 
@@ -98,7 +93,7 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
                 logger.write(MODULE_NAME, "[INFO] createTextFile -> pFileName = " + pFileName);
             }
 
-            writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onFileCreated);
+            minioClient.putObject(containerName, pFolderPath + "/" + pFileName, pFileContent, 'text/plain', onFileCreated)
 
             function onFileCreated(err, result, response) {
 
@@ -151,7 +146,7 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
 
                                     logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> secondTry -> Retrying to create the file.");
 
-                                    writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onSecondTry);
+                                    minioClient.putObject(containerName, pFolderPath + "/" + pFileName, pFileContent, 'text/plain', onSecondTry)
 
                                     function onSecondTry(err, result, response) {
 
@@ -208,13 +203,10 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
 
     function getTextFile(pFolderPath, pFileName, callBackFunction) {
 
-        if (readOnlyBlobService === undefined) {
-
-            if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] getTextFile -> initialize function not executed or failed. Can not process this request. Sorry."); }
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            return;
-        }
-
+        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] getTextFile -> initialize function not executed or failed. Can not process this request. Sorry."); }
+        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        return;
+ 
         try {
 
             if (FULL_LOG === true && logger !== undefined) {
@@ -224,7 +216,23 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
                 logger.write(MODULE_NAME, "[INFO] getTextFile -> pFileName = " + pFileName);
             }
 
-            readOnlyBlobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onFileReceived);
+            minioClient.getObject(containerName, pFolderPath + "/" + pFileName, function (err, dataStream) {
+                let data = '';
+
+                if (err) {
+                    onFileReceived(err, null, "Error retrieving file " + textFilename + " from bucket " + bucketName);
+                    return
+                }
+                dataStream.on('data', function (chunk) {
+                    data += chunk
+                })
+                dataStream.on('end', function () {
+                    onFileReceived(null, data, "Data retrieved.");
+                })
+                dataStream.on('error', function (err) {
+                    onFileReceived(err, null, "Error on data stream while retrieving file " + textFilename + " from bucket " + bucketName);
+                })
+            })
 
             function onFileReceived(err, text, response) {
 
@@ -272,7 +280,23 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
 
                                     logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> secondTry -> Retrying to get the file.");
 
-                                    readOnlyBlobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onSecondTry);
+                                    minioClient.getObject(containerName, pFolderPath + "/" + pFileName, function (err, dataStream) {
+                                        let data = '';
+
+                                        if (err) {
+                                            onSecondTry(err, null, "Error retrieving file " + textFilename + " from bucket " + bucketName);
+                                            return
+                                        }
+                                        dataStream.on('data', function (chunk) {
+                                            data += chunk
+                                        })
+                                        dataStream.on('end', function () {
+                                            onSecondTry(null, data, "Data retrieved.");
+                                        })
+                                        dataStream.on('error', function (err) {
+                                            onSecondTry(err, null, "Error on data stream while retrieving file " + textFilename + " from bucket " + bucketName);
+                                        })
+                                    })
 
                                     function onSecondTry(err, text, response) {
 
@@ -307,7 +331,7 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
                             }
                         }
 
-                        if (err.code === "BlobNotFound") {
+                        if (err.code === "NoSuchKey") {
 
                             /* This is how Minio tell us the file does not exist. */
 

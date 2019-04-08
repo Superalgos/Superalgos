@@ -26,11 +26,22 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
     let containerName;
     let environment = global.CURRENT_ENVIRONMENT;
 
+    let Minio = require('minio');  // Temporary during migration
+    let minioClient; // Temporary during migration
+
     return thisObject;
 
     function initialize(pDataOwner, callBackFunction, disableLogging) {
 
         try {
+
+            minioClient = new Minio.Client({
+                endPoint: process.env.MINIO_END_POINT,
+                port: JSON.parse(process.env.MINIO_PORT),
+                useSSL: JSON.parse(process.env.MINIO_USE_SSL),
+                accessKey: process.env.MINIO_ACCESS_KEY,
+                secretKey: process.env.MINIO_SECRET_KEY
+            })
 
             containerName = pDataOwner.toLowerCase();
 
@@ -117,6 +128,16 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
             }
 
             writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onFileCreated);
+
+            /* REPLICATION TO MINIO */
+            minioClient.putObject(containerName, pFolderPath + "/" + pFileName, pFileContent, 'text/plain', function (err) {
+                console.log(MODULE_NAME, "[INFO] 'createTextFile' -> Replicating to MINIO -> File = " + pFolderPath + "/" + pFileName);
+
+                if (err) {
+                    console.log(MODULE_NAME, "[WARN] 'createTextFile' -> Replicating to MINIO -> err = " + err.message);
+                }
+
+            }); // Temporary during migration
 
             function onFileCreated(err, result, response) {
 
@@ -372,6 +393,16 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
                     } else {
                         if (FULL_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> File retrieved."); }
                         callBackFunction(global.DEFAULT_OK_RESPONSE, text);
+
+                        /* REPLICATION TO MINIO */
+                        minioClient.putObject(containerName, pFolderPath + "/" + pFileName, text, 'text/plain', function (err, dataStream) {
+                            console.log(MODULE_NAME, "[INFO] 'getTextFile' -> onFileReceived -> Replicating to MINIO -> File = " + pFolderPath + "/" + pFileName);
+
+                            if (err) {
+                                console.log(MODULE_NAME, "[WARN] 'getTextFile' -> onFileReceived -> Replicating to MINIO -> err = " + err.message);
+                            }
+                           
+                        }); // Temporary during migration
                     }
                 }
                 catch (err) {

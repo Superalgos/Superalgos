@@ -11,9 +11,6 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
     const MODULE_NAME = "Minio Blob Storage";
     const SECOND_TRY_WAIT_TIME = 10000;
 
-    let MINIO_STORAGE = require('./MinioStorage')
-    let storage = MINIO_STORAGE.newMinioStorage(bot, logger);
-
     let thisObject = {
         initialize: initialize,
         createFolder: createFolder,
@@ -26,11 +23,22 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
     let containerName;
     let environment = global.CURRENT_ENVIRONMENT;
 
+    let Minio = require('minio');
+    let minioClient;
+
     return thisObject;
 
     function initialize(pDataOwner, callBackFunction, disableLogging) {
 
         try {
+
+            minioClient = new Minio.Client({
+                endPoint: process.env.MINIO_END_POINT,
+                port: JSON.parse(process.env.MINIO_PORT),
+                useSSL: JSON.parse(process.env.MINIO_USE_SSL),
+                accessKey: process.env.MINIO_ACCESS_KEY,
+                secretKey: process.env.MINIO_SECRET_KEY
+            })
 
             containerName = pDataOwner.toLowerCase();
 
@@ -44,34 +52,8 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
             if (FULL_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[INFO] initialize -> environment = " + environment); }
             if (FULL_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[INFO] initialize -> containerName = " + containerName); }
 
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
-
-            let readConnectionString = global.USER_PROFILE.storagePermissions.get(pDataOwner + "." + "READ");
-
-            if (readConnectionString !== undefined) {
-                readOnlyBlobService = storage.createBlobService(readConnectionString);
-            }
-
-            let writeConnectionString = global.USER_PROFILE.storagePermissions.get(pDataOwner + "." + "WRITE");
-
-            if (writeConnectionString !== undefined) {
-                writeOnlyBlobService = storage.createBlobService(writeConnectionString);
-            }
-
-            if (readOnlyBlobService !== undefined || writeOnlyBlobService !== undefined) {
-
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
-                return;
-
-            } else {
-
-                if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] initialize -> No READ or WRITE permissions found."); }
-                if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] initialize -> pDataOwner = " + pDataOwner); }
-
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                return;
-
-            }
         }
         catch (err) {
 

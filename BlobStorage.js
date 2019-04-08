@@ -26,7 +26,7 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
         }
         default: {
             if (ERROR_LOG === true && logger !== undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Storage Provider not supported -> process.env.STORAGE_PROVIDER = " + process.env.STORAGE_PROVIDER);
+                logger.write(MODULE_NAME, "[ERROR] newBlobStorage -> Storage Provider not supported -> process.env.STORAGE_PROVIDER = " + process.env.STORAGE_PROVIDER);
             }
             return;
         }

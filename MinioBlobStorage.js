@@ -80,10 +80,6 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
 
     function createTextFile(pFolderPath, pFileName, pFileContent, callBackFunction) {
 
-        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> initialize function not executed or failed. Can not process this request. Sorry."); }
-        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        return;
-
         try {
 
             if (FULL_LOG === true && logger !== undefined) {
@@ -108,6 +104,13 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
                         logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
                         logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileReceived -> response = " + JSON.stringify(response));
                         logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileReceived -> pFileContent = " + pFileContent);
+                    }
+
+                    /* Console logging */ 
+                    console.log(MODULE_NAME, "[INFO] 'createTextFile' -> onFileReceived -> File created at MINIO -> File = " + pFolderPath + "/" + pFileName);
+
+                    if (err) {
+                        console.log(MODULE_NAME, "[WARN] 'createTextFile' -> onFileReceived -> File created at MINIO -> err = " + err.message);
                     }
 
                     if (err) {
@@ -202,10 +205,6 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
     }
 
     function getTextFile(pFolderPath, pFileName, callBackFunction) {
-
-        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] getTextFile -> initialize function not executed or failed. Can not process this request. Sorry."); }
-        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        return;
  
         try {
 
@@ -246,6 +245,13 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
                     if (LOG_FILE_CONTENT === true && logger !== undefined) {
                         logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> response = " + JSON.stringify(response));
                         logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> text = " + text);
+                    }
+
+                    /* Console logging */
+                    console.log(MODULE_NAME, "[INFO] 'getTextFile' -> onFileReceived -> File read from MINIO -> File = " + pFolderPath + "/" + pFileName);
+
+                    if (err) {
+                        console.log(MODULE_NAME, "[WARN] 'getTextFile' -> onFileReceived -> File read from MINIO -> err = " + err.message);
                     }
 
                     if (err) {

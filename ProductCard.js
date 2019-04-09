@@ -1,917 +1,933 @@
- ﻿function newProductCard () {
-   const CONSOLE_LOG = false
+function newProductCard () {
+  const CONSOLE_LOG = false
 
-   const MODULE_NAME = 'Product Card'
-   const INFO_LOG = false
-   const ERROR_LOG = true
-   const INTENSIVE_LOG = false
-   const logger = newWebDebugLog()
-   logger.fileName = MODULE_NAME
+  const MODULE_NAME = 'Product Card'
+  const INFO_LOG = false
+  const ERROR_LOG = true
+  const INTENSIVE_LOG = false
+  const logger = newWebDebugLog()
+  logger.fileName = MODULE_NAME
 
-   var thisObject = {
-     container: undefined,
-     draw: draw,
-     status: 'off',
-     devTeam: undefined,
-     bot: undefined,
-     product: undefined,
-     code: undefined,
+  var thisObject = {
+    container: undefined,
+    draw: draw,
+    status: 'off',
+    devTeam: undefined,
+    bot: undefined,
+    product: undefined,
+    code: undefined,
 
-     setDatetime: setDatetime,
-     setTimePeriod: setTimePeriod,
+    setDatetime: setDatetime,
+    setTimePeriod: setTimePeriod,
 
-     onMarketFileLoaded: onMarketFileLoaded,
-     onDailyFileLoaded: onDailyFileLoaded,
-     onSingleFileLoaded: onSingleFileLoaded,
-     onFileSequenceLoaded: onFileSequenceLoaded,
+    onMarketFileLoaded: onMarketFileLoaded,
+    onDailyFileLoaded: onDailyFileLoaded,
+    onSingleFileLoaded: onSingleFileLoaded,
+    onFileSequenceLoaded: onFileSequenceLoaded,
 
-     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-     initialize: initialize
-   }
+    getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+    initialize: initialize
+  }
 
-   let LOADING_FILL_STYLE = 'rgba(234, 143, 23, @Opacity)'
-   let LOADED_FILL_STYLE = 'rgba(45, 232, 28, @Opacity)'
-   let UNLOADED_FILL_STYLE = 'rgba(226, 226, 226, @Opacity)'
+  let LOADING_FILL_STYLE = 'rgba(234, 143, 23, @Opacity)'
+  let LOADED_FILL_STYLE = 'rgba(45, 232, 28, @Opacity)'
+  let UNLOADED_FILL_STYLE = 'rgba(226, 226, 226, @Opacity)'
 
-   let LOADING_STROKE_STYLE = 'rgba(234, 143, 23, @Opacity)'
-   let LOADED_STROKE_STYLE = 'rgba(150, 150, 150, @Opacity)'
-   let UNLOADED_STROKE_STYLE = 'rgba(226, 226, 226, @Opacity)'
+  let LOADING_STROKE_STYLE = 'rgba(234, 143, 23, @Opacity)'
+  let LOADED_STROKE_STYLE = 'rgba(150, 150, 150, @Opacity)'
+  let UNLOADED_STROKE_STYLE = 'rgba(226, 226, 226, @Opacity)'
 
-   let marketFileProgressBar = {
-     value: 0,
-     animatedValue: 0,
-     fillStyle: UNLOADED_FILL_STYLE,
-     strokeStyle: UNLOADED_STROKE_STYLE,
-     opacity: 0.00
-   }
+  let marketFileProgressBar = {
+    value: 0,
+    animatedValue: 0,
+    fillStyle: UNLOADED_FILL_STYLE,
+    strokeStyle: UNLOADED_STROKE_STYLE,
+    opacity: 0.00
+  }
 
-   let dailyFileProgressBar = {
-     value: 0,
-     animatedValue: 0,
-     fillStyle: UNLOADED_FILL_STYLE,
-     strokeStyle: UNLOADED_STROKE_STYLE,
-     opacity: 0.00
-   }
+  let dailyFileProgressBar = {
+    value: 0,
+    animatedValue: 0,
+    fillStyle: UNLOADED_FILL_STYLE,
+    strokeStyle: UNLOADED_STROKE_STYLE,
+    opacity: 0.00
+  }
 
-   let singleFileProgressBar = {
-     value: 0,
-     animatedValue: 0,
-     fillStyle: UNLOADED_FILL_STYLE,
-     strokeStyle: UNLOADED_STROKE_STYLE,
-     opacity: 0.00
-   }
+  let singleFileProgressBar = {
+    value: 0,
+    animatedValue: 0,
+    fillStyle: UNLOADED_FILL_STYLE,
+    strokeStyle: UNLOADED_STROKE_STYLE,
+    opacity: 0.00
+  }
 
-   let fileSequenceProgressBar = {
-     value: 0,
-     animatedValue: 0,
-     fillStyle: UNLOADED_FILL_STYLE,
-     strokeStyle: UNLOADED_STROKE_STYLE,
-     opacity: 0.00
-   }
+  let fileSequenceProgressBar = {
+    value: 0,
+    animatedValue: 0,
+    fillStyle: UNLOADED_FILL_STYLE,
+    strokeStyle: UNLOADED_STROKE_STYLE,
+    opacity: 0.00
+  }
 
-   let timePeriod = INITIAL_TIME_PERIOD
-   let datetime = INITIAL_DATE
+  let timePeriod = INITIAL_TIME_PERIOD
+  let datetime = INITIAL_DATE
 
-    /* TODO We are in a transition period in which bots and teams images might be located at different places.
-    What we are going to do then is to try to load them from both places and use the variable that finally gets an
-    image. */
+   /* TODO We are in a transition period in which bots and teams images might be located at different places.
+   What we are going to do then is to try to load them from both places and use the variable that finally gets an
+   image. */
 
-    /* This is the legacy image storage. */
+   /* This is the legacy image storage. */
 
-   let legacyTeamAvatar
-   let legacyTeamAvatarLoaded = false
+  let legacyTeamAvatar
+  let legacyTeamAvatarLoaded = false
 
-    /* TODO Temporary code */
-   let legacyBotAvatar
-   let legacyBotAvatarLoaded = false
+   /* TODO Temporary code */
+  let legacyBotAvatar
+  let legacyBotAvatarLoaded = false
 
-    /* Now the plotters images */
+   /* Now the plotters images */
 
-   let legacyPlotterBanner
-   let legacyPlotterBannerLoaded = false
+  let legacyPlotterBanner
+  let legacyPlotterBannerLoaded = false
 
-    /* We are transitioning towards this */
+   /* We are transitioning towards this */
 
-   let teamAvatar // stores the avatar image of the team the bot portrayed at this card belongs to.
-   let teamAvatarLoaded = false
+  let teamAvatar // stores the avatar image of the team the bot portrayed at this card belongs to.
+  let teamAvatarLoaded = false
 
-    /* TODO Temporary code */
-   let botAvatar // stores the avatar image of the team the bot portrayed at this card belongs to.
-   let botAvatarLoaded = false
+   /* TODO Temporary code */
+  let botAvatar // stores the avatar image of the team the bot portrayed at this card belongs to.
+  let botAvatarLoaded = false
 
-    /* Add an Event Handler */
+   /* Add an Event Handler */
 
-   thisObject.eventHandler = newEventHandler()
-   let imagesLoaded = 0
+  thisObject.eventHandler = newEventHandler()
+  let imagesLoaded = 0
 
-   return thisObject
+  let lastMouseOver = 0 // This variable is used to animate what happens while we are having a mounse over.
 
-   function initialize () {
-        /* Create this objects continer */
-     try {
-       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
+  return thisObject
 
-       var container = newContainer()
-       container.name = 'Product Card ' + thisObject.code
-       container.initialize()
-       container.isDraggeable = false
-       container.isClickeable = true
-       thisObject.container = container
+  function initialize () {
+       /* Create this objects continer */
+    try {
+      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
-        /* Add information that will later be needed. */
+      var container = newContainer()
+      container.name = 'Product Card ' + thisObject.code
+      container.initialize()
+      container.isDraggeable = false
+      container.isClickeable = true
+      thisObject.container = container
 
-       let team = ecosystem.getTeam(thisObject.product.plotter.devTeam)
-       let plotter = ecosystem.getPlotter(team, thisObject.product.plotter.codeName)
-       let plotterModule = ecosystem.getPlotterModule(plotter, thisObject.product.plotter.moduleName)
+       /* Add information that will later be needed. */
 
-       thisObject.product.plotter.profilePicture = plotterModule.profilePicture
-       thisObject.product.plotter.module = plotterModule
+      let team = ecosystem.getTeam(thisObject.product.plotter.devTeam)
+      let plotter = ecosystem.getPlotter(team, thisObject.product.plotter.codeName)
+      let plotterModule = ecosystem.getPlotterModule(plotter, thisObject.product.plotter.moduleName)
 
-        /* Lets set the basic dimensions of this thisObject. */
+      thisObject.product.plotter.profilePicture = plotterModule.profilePicture
+      thisObject.product.plotter.module = plotterModule
 
-       var position = {
-         x: 0,
-         y: 0
-       }
+       /* Lets set the basic dimensions of this thisObject. */
 
-       this.container.frame.position = position
-       this.container.frame.width = 330
-       this.container.frame.height = 100
+      var position = {
+        x: 0,
+        y: 0
+      }
 
-        /* We retrieve the locally stored status of the Product */
+      this.container.frame.position = position
+      this.container.frame.width = UI_PANEL.WIDTH.LARGE - 20
+      this.container.frame.height = 100
 
-       let storedValue = window.localStorage.getItem(thisObject.code)
+       /* We retrieve the locally stored status of the Product */
 
-       if (storedValue !== null) {
-         thisObject.status = storedValue
+      let storedValue = window.localStorage.getItem(thisObject.code)
 
-         if (thisObject.status === PRODUCT_CARD_STATUS.ON) {
-           changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
-         }
-       } else {
-            /*
+      if (storedValue !== null) {
+        thisObject.status = storedValue
 
-            This happens the first time the app is run on a new browser.
+        if (thisObject.status === PRODUCT_CARD_STATUS.ON) {
+          changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
+        }
+      } else {
+           /*
 
-            We will start with all product off, except for the candles chart, since something needs to be shown and allow the user to position themselves
-            on the timeline.
+           This happens the first time the app is run on a new browser.
 
-            For the time being, we will hard-code the name of the bot we will turn on by default, since we dont see that change in the near future.
+           We will start with all product off, except for the candles chart, since something needs to be shown and allow the user to position themselves
+           on the timeline.
 
-            */
+           For the time being, we will hard-code the name of the bot we will turn on by default, since we dont see that change in the near future.
 
-         const DEFAULT_ON_PRODUCT = 'AAMasters-AAOlivia-Candles'
-
-         if (thisObject.code === DEFAULT_ON_PRODUCT) {
-           changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
-         } else {
-           changeStatusTo(PRODUCT_CARD_STATUS.OFF)
-         }
-       }
-
-        /* Lets listen to our own events to react when we have a Mouse Click */
-
-       thisObject.container.eventHandler.listenToEvent('onMouseClick', buttonPressed)
-
-        /* WARNING THIS IS TEMPORARY CODE */
-
-       const LEGACY_TEAM = thisObject.devTeam.codeName
-       const REPO = thisObject.bot.repo
-       const PROFILE_PIC = thisObject.bot.profilePicture
-
-        /* The plotter banner, comes from the Legacy Location so far, no matter if the Team is at the Teams Modules or not. */
-
-       const PLOTTER_TEAM = thisObject.product.plotter.devTeam
-       const PLOTTER_REPO = thisObject.product.plotter.codeName
-       const PLOTTER_PROFILE_PIC = thisObject.product.plotter.profilePicture
-
-       legacyPlotterBanner = new Image()
-       legacyPlotterBanner.onload = onLegacyPlotterBanner
-
-       function onLegacyPlotterBanner () {
-         legacyPlotterBannerLoaded = true
-       }
-
-       legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + PLOTTER_TEAM + '/' + PLOTTER_REPO + '/' + PLOTTER_PROFILE_PIC
-
-       const TEAM = thisObject.devTeam.codeName.toLowerCase()
-       const BOT = thisObject.bot.codeName.toLowerCase()
-
-       if (window.canvasApp.context.teamProfileImages.get(TEAM) === undefined) {
-         // This means this Team is a Lecay Team, still not at any Module.
-
-            /*
-            Here we will download the images still at the legacy storage.
-            */
-
-         legacyTeamAvatar = new Image()
-
-         legacyTeamAvatar.onload = onLegacyImageLoad
-
-         function onLegacyImageLoad () {
-           legacyTeamAvatarLoaded = true
-         }
-
-         legacyTeamAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_TEAM + '/' + LEGACY_TEAM + '.png'
-
-         legacyBotAvatar = new Image()
-         legacyBotAvatar.onload = onLegacyImageLoadBot
-
-         function onLegacyImageLoadBot () {
-           legacyBotAvatarLoaded = true
-           thisObject.bot.avatar = legacyBotAvatar
-         }
-
-         legacyBotAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_TEAM + '/' + REPO + '/' + PROFILE_PIC
-       } else {
-            /*
-               Here we will download the images of teams uploaded at the Teams Module.
-               There might be Product Cards of bots beloging to teams not present currently at the Teams Module, in those cases
-               nothing should happen.
            */
 
-         teamAvatar = new Image()
+        const DEFAULT_ON_PRODUCT = 'AAMasters-AAOlivia-Candles'
 
-         teamAvatar.onload = onImageLoad
+        if (thisObject.code === DEFAULT_ON_PRODUCT) {
+          changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
+        } else {
+          changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+        }
+      }
 
-         function onImageLoad () {
-           teamAvatarLoaded = true
-         }
+       /* Lets listen to our own events to react when we have a Mouse Click */
 
-         teamAvatar.src = window.canvasApp.context.teamProfileImages.get(TEAM)
+      thisObject.container.eventHandler.listenToEvent('onMouseClick', buttonPressed)
+      thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
-         botAvatar = new Image()
-         botAvatar.onload = onImageLoadBot
+       /* WARNING THIS IS TEMPORARY CODE */
 
-         function onImageLoadBot () {
-           botAvatarLoaded = true
-           thisObject.bot.avatar = botAvatar
-         }
+      const LEGACY_TEAM = thisObject.devTeam.codeName
+      const REPO = thisObject.bot.repo
+      const PROFILE_PIC = thisObject.bot.profilePicture
 
-         botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + '-' + BOT)
-       }
-     } catch (err) {
-       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
-     }
-   }
+       /* The plotter banner, comes from the Legacy Location so far, no matter if the Team is at the Teams Modules or not. */
 
-   function getContainer (point) {
-     var container
+      const PLOTTER_TEAM = thisObject.product.plotter.devTeam
+      const PLOTTER_REPO = thisObject.product.plotter.codeName
+      const PLOTTER_PROFILE_PIC = thisObject.product.plotter.profilePicture
 
-        /* First we check if this point is inside this space. */
+      legacyPlotterBanner = new Image()
+      legacyPlotterBanner.onload = onLegacyPlotterBanner
 
-     if (this.container.frame.isThisPointHere(point, true) === true) {
-       return this.container
-     } else {
-            /* This point does not belong to this space. */
+      function onLegacyPlotterBanner () {
+        legacyPlotterBannerLoaded = true
+      }
 
-       return undefined
-     }
-   }
+      legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + PLOTTER_TEAM + '/' + PLOTTER_REPO + '/' + PLOTTER_PROFILE_PIC
 
-   function setDatetime (pDatetime) {
-        /*
+      const TEAM = thisObject.devTeam.codeName.toLowerCase()
+      const BOT = thisObject.bot.codeName.toLowerCase()
 
-        When the datetime changes from one day to another, this forces cursors to potentially load more files, thus we reset this counter and
-        get ready to receive events on files loaded.
+      if (window.canvasApp.context.teamProfileImages.get(TEAM) === undefined) {
+        // This means this Team is a Lecay Team, still not at any Module.
 
-        */
+           /*
+           Here we will download the images still at the legacy storage.
+           */
 
-     let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS)
-     let newDate = Math.trunc(pDatetime.valueOf() / ONE_DAY_IN_MILISECONDS)
+        legacyTeamAvatar = new Image()
 
-     datetime = pDatetime
+        legacyTeamAvatar.onload = onLegacyImageLoad
 
-     if (currentDate !== newDate) {
-       if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
-         dailyFileProgressBar.animatedValue = 0
+        function onLegacyImageLoad () {
+          legacyTeamAvatarLoaded = true
+        }
 
-         if (CONSOLE_LOG === true) {
-           console.log('ProductCard -> onDayChanged -> dailyFileProgressBar.animatedValue = ' + dailyFileProgressBar.animatedValue)
-         }
-       }
-     }
-   }
+        legacyTeamAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_TEAM + '/' + LEGACY_TEAM + '.png'
 
-   function setTimePeriod (pTimePeriod) {
-        /*
+        legacyBotAvatar = new Image()
+        legacyBotAvatar.onload = onLegacyImageLoadBot
 
-        When the time period below or equal to 1 hour changes, this forces cursors to potentially load more files, thus we reset this counter and
-        get ready to receive events on files loaded.
+        function onLegacyImageLoadBot () {
+          legacyBotAvatarLoaded = true
+          thisObject.bot.avatar = legacyBotAvatar
+        }
 
-        */
+        legacyBotAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_TEAM + '/' + REPO + '/' + PROFILE_PIC
+      } else {
+           /*
+              Here we will download the images of teams uploaded at the Teams Module.
+              There might be Product Cards of bots beloging to teams not present currently at the Teams Module, in those cases
+              nothing should happen.
+          */
 
-     if (timePeriod !== pTimePeriod) {
-       timePeriod = pTimePeriod
+        teamAvatar = new Image()
 
-       if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
-         dailyFileProgressBar.animatedValue = 0
+        teamAvatar.onload = onImageLoad
 
-         if (CONSOLE_LOG === true) {
-           console.log('ProductCard -> onTimePeriodChanged -> dailyFileProgressBar.animatedValue = ' + dailyFileProgressBar.animatedValue)
-         }
-       }
-     }
-   }
+        function onImageLoad () {
+          teamAvatarLoaded = true
+        }
 
-   function onMarketFileLoaded (event) {
-     marketFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue)
-     marketFileProgressBar.fillStyle = LOADING_FILL_STYLE
-     marketFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
+        teamAvatar.src = window.canvasApp.context.teamProfileImages.get(TEAM)
 
-     if (marketFileProgressBar.value > 100) { marketFileProgressBar.value = 100 }
+        botAvatar = new Image()
+        botAvatar.onload = onImageLoadBot
 
-     if (CONSOLE_LOG === true) {
-       console.log('ProductCard onMarketFileLoaded Value = ' + marketFileProgressBar.value + '% for ' + thisObject.code + '. Event = ' + JSON.stringify(event))
-     }
-   }
+        function onImageLoadBot () {
+          botAvatarLoaded = true
+          thisObject.bot.avatar = botAvatar
+        }
 
-   function onDailyFileLoaded (event) {
-     dailyFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue)
-     dailyFileProgressBar.fillStyle = LOADING_FILL_STYLE
-     dailyFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
+        botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + '-' + BOT)
+      }
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+    }
+  }
 
-     if (dailyFileProgressBar.value > 100) { dailyFileProgressBar.value = 100 }
+  function getContainer (point) {
+    var container
 
-     if (CONSOLE_LOG === true) {
-       console.log('ProductCard onDailyFileLoaded Value = ' + dailyFileProgressBar.value + '% for ' + thisObject.code + '. Event = ' + JSON.stringify(event))
-     }
-   }
+       /* First we check if this point is inside this space. */
 
-   function onSingleFileLoaded (event) {
-     singleFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue)
-     singleFileProgressBar.fillStyle = LOADING_FILL_STYLE
-     singleFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
+    if (this.container.frame.isThisPointHere(point, true) === true) {
+      return this.container
+    } else {
+           /* This point does not belong to this space. */
 
-     if (singleFileProgressBar.value > 100) { singleFileProgressBar.value = 100 }
+      return undefined
+    }
+  }
 
-     if (CONSOLE_LOG === true) {
-       console.log('ProductCard onSingleFileLoaded Value = ' + singleFileProgressBar.value + '% for ' + thisObject.code + '. Event = ' + JSON.stringify(event))
-     }
-   }
+  function setDatetime (pDatetime) {
+       /*
 
-   function onFileSequenceLoaded (event) {
-     fileSequenceProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue)
-     fileSequenceProgressBar.fillStyle = LOADING_FILL_STYLE
-     fileSequenceProgressBar.strokeStyle = LOADING_STROKE_STYLE
+       When the datetime changes from one day to another, this forces cursors to potentially load more files, thus we reset this counter and
+       get ready to receive events on files loaded.
 
-     if (fileSequenceProgressBar.value > 100) { fileSequenceProgressBar.value = 100 }
+       */
 
-     if (CONSOLE_LOG === true) {
-       console.log('ProductCard onFileSequenceLoaded Value = ' + fileSequenceProgressBar.value + '% for ' + thisObject.code + '. Event = ' + JSON.stringify(event))
-     }
-   }
+    let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS)
+    let newDate = Math.trunc(pDatetime.valueOf() / ONE_DAY_IN_MILISECONDS)
 
-   function buttonPressed (event) {
-     switch (thisObject.status) {
+    datetime = pDatetime
 
-       case PRODUCT_CARD_STATUS.ON:
+    if (currentDate !== newDate) {
+      if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+        dailyFileProgressBar.animatedValue = 0
 
-         changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+        if (CONSOLE_LOG === true) {
+          console.log('ProductCard -> onDayChanged -> dailyFileProgressBar.animatedValue = ' + dailyFileProgressBar.animatedValue)
+        }
+      }
+    }
+  }
 
-         marketFileProgressBar.animatedValue = 0
-         marketFileProgressBar.value = 0
-         marketFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
-         marketFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
+  function setTimePeriod (pTimePeriod) {
+       /*
 
-         dailyFileProgressBar.animatedValue = 0
-         dailyFileProgressBar.value = 0
-         dailyFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
-         dailyFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
+       When the time period below or equal to 1 hour changes, this forces cursors to potentially load more files, thus we reset this counter and
+       get ready to receive events on files loaded.
 
-         singleFileProgressBar.animatedValue = 0
-         singleFileProgressBar.value = 0
-         singleFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
-         singleFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
+       */
 
-         fileSequenceProgressBar.animatedValue = 0
-         fileSequenceProgressBar.value = 0
-         fileSequenceProgressBar.fillStyle = UNLOADED_FILL_STYLE
-         fileSequenceProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
+    if (timePeriod !== pTimePeriod) {
+      timePeriod = pTimePeriod
 
-         break
+      if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+        dailyFileProgressBar.animatedValue = 0
 
-       case PRODUCT_CARD_STATUS.OFF:
+        if (CONSOLE_LOG === true) {
+          console.log('ProductCard -> onTimePeriodChanged -> dailyFileProgressBar.animatedValue = ' + dailyFileProgressBar.animatedValue)
+        }
+      }
+    }
+  }
 
-         changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
+  function onMarketFileLoaded (event) {
+    marketFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue)
+    marketFileProgressBar.fillStyle = LOADING_FILL_STYLE
+    marketFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
 
-         break
+    if (marketFileProgressBar.value > 100) { marketFileProgressBar.value = 100 }
 
-     }
-   }
+    if (CONSOLE_LOG === true) {
+      console.log('ProductCard onMarketFileLoaded Value = ' + marketFileProgressBar.value + '% for ' + thisObject.code + '. Event = ' + JSON.stringify(event))
+    }
+  }
 
-   function changeStatusTo (pNewStatus) {
-     if (thisObject.status !== pNewStatus) {
-       thisObject.status = pNewStatus
+  function onDailyFileLoaded (event) {
+    dailyFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue)
+    dailyFileProgressBar.fillStyle = LOADING_FILL_STYLE
+    dailyFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
 
-       let eventData = thisObject
+    if (dailyFileProgressBar.value > 100) { dailyFileProgressBar.value = 100 }
 
-       thisObject.container.eventHandler.raiseEvent('Status Changed', eventData)
+    if (CONSOLE_LOG === true) {
+      console.log('ProductCard onDailyFileLoaded Value = ' + dailyFileProgressBar.value + '% for ' + thisObject.code + '. Event = ' + JSON.stringify(event))
+    }
+  }
 
-       window.localStorage.setItem(thisObject.code, thisObject.status)
-     }
-   }
+  function onSingleFileLoaded (event) {
+    singleFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue)
+    singleFileProgressBar.fillStyle = LOADING_FILL_STYLE
+    singleFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
 
-   function draw () {
-     drawProductCard()
-   }
+    if (singleFileProgressBar.value > 100) { singleFileProgressBar.value = 100 }
 
-   function drawProductCard () {
-        /*
+    if (CONSOLE_LOG === true) {
+      console.log('ProductCard onSingleFileLoaded Value = ' + singleFileProgressBar.value + '% for ' + thisObject.code + '. Event = ' + JSON.stringify(event))
+    }
+  }
 
-        Put images on the card.
+  function onFileSequenceLoaded (event) {
+    fileSequenceProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue)
+    fileSequenceProgressBar.fillStyle = LOADING_FILL_STYLE
+    fileSequenceProgressBar.strokeStyle = LOADING_STROKE_STYLE
 
-        */
+    if (fileSequenceProgressBar.value > 100) { fileSequenceProgressBar.value = 100 }
 
-     const devTeamImageSize = 50
-     const botImageSize = 50
-     const plotterImageSize = {
-       width: 180,
-       height: 50
-     }
+    if (CONSOLE_LOG === true) {
+      console.log('ProductCard onFileSequenceLoaded Value = ' + fileSequenceProgressBar.value + '% for ' + thisObject.code + '. Event = ' + JSON.stringify(event))
+    }
+  }
 
-        /* First the Dev Team Profile Picture. */
+  function buttonPressed (event) {
+    switch (thisObject.status) {
 
-     let teamImagePoint = {
-       x: 10,
-       y: thisObject.container.frame.height / 2 - devTeamImageSize / 2
-     }
+      case PRODUCT_CARD_STATUS.ON:
 
-     teamImagePoint = thisObject.container.frame.frameThisPoint(teamImagePoint)
+        changeStatusTo(PRODUCT_CARD_STATUS.OFF)
 
-     let teamImage
+        marketFileProgressBar.animatedValue = 0
+        marketFileProgressBar.value = 0
+        marketFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
+        marketFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
 
-     if (legacyTeamAvatarLoaded === true) {
-       teamImage = legacyTeamAvatar
-     }
+        dailyFileProgressBar.animatedValue = 0
+        dailyFileProgressBar.value = 0
+        dailyFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
+        dailyFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
 
-     if (teamAvatarLoaded === true) {
-       teamImage = teamAvatar
-     }
+        singleFileProgressBar.animatedValue = 0
+        singleFileProgressBar.value = 0
+        singleFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
+        singleFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
 
-     if (teamImage !== undefined) {
-       if (teamImage.naturalHeight !== 0) {
-                /* The image is rounded before being displayed. */
+        fileSequenceProgressBar.animatedValue = 0
+        fileSequenceProgressBar.value = 0
+        fileSequenceProgressBar.fillStyle = UNLOADED_FILL_STYLE
+        fileSequenceProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
 
-         browserCanvasContext.save()
-         browserCanvasContext.beginPath()
-         browserCanvasContext.arc(teamImagePoint.x + devTeamImageSize / 2, teamImagePoint.y + devTeamImageSize / 2, devTeamImageSize / 2, 0, Math.PI * 2, true)
-         browserCanvasContext.closePath()
-         browserCanvasContext.clip()
-         browserCanvasContext.drawImage(teamImage, teamImagePoint.x, teamImagePoint.y, devTeamImageSize, devTeamImageSize)
-         browserCanvasContext.beginPath()
-         browserCanvasContext.arc(teamImagePoint.x, teamImagePoint.y, devTeamImageSize / 2, 0, Math.PI * 2, true)
-         browserCanvasContext.clip()
-         browserCanvasContext.closePath()
-         browserCanvasContext.restore()
-       }
-     }
+        break
 
-        /* Second the Bot's Profile Picture. */
+      case PRODUCT_CARD_STATUS.OFF:
 
-     if (thisObject.bot.profilePicture !== undefined) {
-       let botImagePoint = {
-         x: thisObject.container.frame.width - botImageSize / 2 - 40,
-         y: thisObject.container.frame.height / 2 - botImageSize / 2
-       }
+        changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
 
-       botImagePoint = thisObject.container.frame.frameThisPoint(botImagePoint)
+        break
 
-       let imageId = thisObject.bot.devTeam + '.' + thisObject.bot.profilePicture
+    }
+  }
 
-            /* TODO Temporary code */
-       let botImage
+  function onMouseOver (event) {
+    lastMouseOver = 25
+  }
 
-       botImage = thisObject.bot.avatar
+  function changeStatusTo (pNewStatus) {
+    if (thisObject.status !== pNewStatus) {
+      thisObject.status = pNewStatus
 
-       if (botImage !== undefined) {
-         if (botImage.naturalHeight !== 0) {
-                    /* The image is rounded before being displayed. */
+      let eventData = thisObject
 
-           browserCanvasContext.save()
-           browserCanvasContext.beginPath()
-           browserCanvasContext.arc(botImagePoint.x + botImageSize / 2, botImagePoint.y + botImageSize / 2, botImageSize / 2, 0, Math.PI * 2, true)
-           browserCanvasContext.closePath()
-           browserCanvasContext.clip()
-           browserCanvasContext.drawImage(botImage, botImagePoint.x, botImagePoint.y, botImageSize, botImageSize)
-           browserCanvasContext.beginPath()
-           browserCanvasContext.arc(botImagePoint.x, botImagePoint.y, botImageSize / 2, 0, Math.PI * 2, true)
-           browserCanvasContext.clip()
-           browserCanvasContext.closePath()
-           browserCanvasContext.restore()
-         }
-       }
-     }
+      thisObject.container.eventHandler.raiseEvent('Status Changed', eventData)
 
-        /* Third the Plotter's Profile Picture. */
+      window.localStorage.setItem(thisObject.code, thisObject.status)
+    }
+  }
 
-     if (thisObject.product.plotter.profilePicture !== undefined) {
-       let plotterImagePoint = {
-         x: thisObject.container.frame.width / 2 - plotterImageSize.width / 2,
-         y: thisObject.container.frame.height / 2 - plotterImageSize.height / 2
-       }
+  function draw () {
+    drawProductCard()
+  }
 
-       plotterImagePoint = thisObject.container.frame.frameThisPoint(plotterImagePoint)
+  function drawProductCard () {
+       /*
 
-       let imageId = thisObject.product.plotter.devTeam + '.' + thisObject.product.plotter.codeName + '.' + thisObject.product.plotter.moduleName + '.' + thisObject.product.plotter.profilePicture
-       let plotterImage = legacyPlotterBanner
+       Put images on the card.
 
-       if (plotterImage !== undefined) {
-         if (plotterImage.naturalHeight !== 0) {
-           browserCanvasContext.drawImage(plotterImage, plotterImagePoint.x, plotterImagePoint.y, plotterImageSize.width, plotterImageSize.height)
-         }
-       }
-     }
+       */
 
-     drawProductLoadStatus()
+    const devTeamImageSize = 20
+    const botImageSize = 20
+    const plotterImageSize = {
+      width: 180,
+      height: 50
+    }
 
-     function drawProductLoadStatus () {
-       let offFillStyle = 'rgba(' + UI_COLOR.RED + ', 0.20)'
-       let onFillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.20)'
-       let loadingFillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'
+    lastMouseOver--  // Animating the mouse onMouseOver
 
-       switch (thisObject.status) {
+    if (lastMouseOver > 0) {
+      /* First the Dev Team Profile Picture. */
 
-         case PRODUCT_CARD_STATUS.ON:
-           browserCanvasContext.fillStyle = onFillStyle
-           break
+      let teamImagePoint = {
+        x: 2,
+        y: thisObject.container.frame.height / 2 - devTeamImageSize / 2
+      }
 
-         case PRODUCT_CARD_STATUS.OFF:
-           browserCanvasContext.fillStyle = offFillStyle
-           break
+      teamImagePoint = thisObject.container.frame.frameThisPoint(teamImagePoint)
 
-         case PRODUCT_CARD_STATUS.LOADING:
-           browserCanvasContext.fillStyle = loadingFillStyle
-           break
+      let teamImage
 
-       }
+      if (legacyTeamAvatarLoaded === true) {
+        teamImage = legacyTeamAvatar
+      }
 
-       let centerPoint = {
-         x: thisObject.container.frame.width / 2,
-         y: thisObject.container.frame.height / 2 - 13
-       }
+      if (teamAvatarLoaded === true) {
+        teamImage = teamAvatar
+      }
 
-       let point1 = {
-         x: centerPoint.x - plotterImageSize.width / 2,
-         y: centerPoint.y - plotterImageSize.height / 2 - 7
-       }
+      if (teamImage !== undefined) {
+        if (teamImage.naturalHeight !== 0) {
+         /* The image is rounded before being displayed. */
 
-       let point2 = {
-         x: centerPoint.x + plotterImageSize.width / 2,
-         y: centerPoint.y - plotterImageSize.height / 2 - 7
-       }
+          browserCanvasContext.save()
+          browserCanvasContext.beginPath()
+          browserCanvasContext.arc(teamImagePoint.x + devTeamImageSize / 2, teamImagePoint.y + devTeamImageSize / 2, devTeamImageSize / 2, 0, Math.PI * 2, true)
+          browserCanvasContext.closePath()
+          browserCanvasContext.clip()
+          browserCanvasContext.drawImage(teamImage, teamImagePoint.x, teamImagePoint.y, devTeamImageSize, devTeamImageSize)
+          browserCanvasContext.beginPath()
+          browserCanvasContext.arc(teamImagePoint.x, teamImagePoint.y, devTeamImageSize / 2, 0, Math.PI * 2, true)
+          browserCanvasContext.clip()
+          browserCanvasContext.closePath()
+          browserCanvasContext.restore()
+        }
+      }
 
-       let point3 = {
-         x: centerPoint.x + plotterImageSize.width / 2,
-         y: centerPoint.y - plotterImageSize.height / 2 + 7
-       }
+      /* Second the Bot's Profile Picture. */
 
-       let point4 = {
-         x: centerPoint.x - plotterImageSize.width / 2,
-         y: centerPoint.y - plotterImageSize.height / 2 + 7
-       }
+      if (thisObject.bot.profilePicture !== undefined) {
+        let botImagePoint = {
+          x: thisObject.container.frame.width - botImageSize / 2 - 8,
+          y: thisObject.container.frame.height / 2 - botImageSize / 2
+        }
 
-            /* Now the transformations. */
+        botImagePoint = thisObject.container.frame.frameThisPoint(botImagePoint)
 
-       point1 = thisObject.container.frame.frameThisPoint(point1)
-       point2 = thisObject.container.frame.frameThisPoint(point2)
-       point3 = thisObject.container.frame.frameThisPoint(point3)
-       point4 = thisObject.container.frame.frameThisPoint(point4)
+        let imageId = thisObject.bot.devTeam + '.' + thisObject.bot.profilePicture
 
-       browserCanvasContext.beginPath()
-       browserCanvasContext.moveTo(point1.x, point1.y)
-       browserCanvasContext.lineTo(point2.x, point2.y)
-       browserCanvasContext.lineTo(point3.x, point3.y)
-       browserCanvasContext.lineTo(point4.x, point4.y)
-       browserCanvasContext.closePath()
+        /* TODO Temporary code */
+        let botImage
 
-       browserCanvasContext.fill()
+        botImage = thisObject.bot.avatar
 
-       browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
-       browserCanvasContext.lineWidth = 0.1
-       browserCanvasContext.stroke()
-     }
+        if (botImage !== undefined) {
+          if (botImage.naturalHeight !== 0) {
+             /* The image is rounded before being displayed. */
 
-        /*
-        print the text
-        */
+            browserCanvasContext.save()
+            browserCanvasContext.beginPath()
+            browserCanvasContext.arc(botImagePoint.x + botImageSize / 2, botImagePoint.y + botImageSize / 2, botImageSize / 2, 0, Math.PI * 2, true)
+            browserCanvasContext.closePath()
+            browserCanvasContext.clip()
+            browserCanvasContext.drawImage(botImage, botImagePoint.x, botImagePoint.y, botImageSize, botImageSize)
+            browserCanvasContext.beginPath()
+            browserCanvasContext.arc(botImagePoint.x, botImagePoint.y, botImageSize / 2, 0, Math.PI * 2, true)
+            browserCanvasContext.clip()
+            browserCanvasContext.closePath()
+            browserCanvasContext.restore()
+          }
+        }
+      }
+    }
 
-     let labelPoint
-     let fontSize = 10
+       /* Third the Plotter's Profile Picture. */
 
-     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+    if (thisObject.product.plotter.profilePicture !== undefined) {
+      let plotterImagePoint = {
+        x: thisObject.container.frame.width / 2 - plotterImageSize.width / 2,
+        y: thisObject.container.frame.height / 2 - plotterImageSize.height / 2
+      }
 
-     let label
+      plotterImagePoint = thisObject.container.frame.frameThisPoint(plotterImagePoint)
 
-        /* devTeam */
+      let imageId = thisObject.product.plotter.devTeam + '.' + thisObject.product.plotter.codeName + '.' + thisObject.product.plotter.moduleName + '.' + thisObject.product.plotter.profilePicture
+      let plotterImage = legacyPlotterBanner
 
-     label = thisObject.devTeam.displayName
+      if (plotterImage !== undefined) {
+        if (plotterImage.naturalHeight !== 0) {
+          browserCanvasContext.drawImage(plotterImage, plotterImagePoint.x, plotterImagePoint.y, plotterImageSize.width, plotterImageSize.height)
+        }
+      }
+    }
 
-     labelPoint = {
-       x: 10 + devTeamImageSize / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-       y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
-     }
+    drawProductLoadStatus()
 
-     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
+    function drawProductLoadStatus () {
+      let offFillStyle = 'rgba(' + UI_COLOR.RED + ', 0.20)'
+      let onFillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.20)'
+      let loadingFillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'
 
-     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
-     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
-     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      switch (thisObject.status) {
 
-        /* bot */
+        case PRODUCT_CARD_STATUS.ON:
+          browserCanvasContext.fillStyle = onFillStyle
+          break
 
-     label = thisObject.bot.displayName
+        case PRODUCT_CARD_STATUS.OFF:
+          browserCanvasContext.fillStyle = offFillStyle
+          break
 
-     labelPoint = {
-       x: thisObject.container.frame.width - 40 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-       y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
-     }
+        case PRODUCT_CARD_STATUS.LOADING:
+          browserCanvasContext.fillStyle = loadingFillStyle
+          break
 
-     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
+      }
 
-     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
-     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
-     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      let centerPoint = {
+        x: thisObject.container.frame.width / 2,
+        y: thisObject.container.frame.height / 2 - 13
+      }
 
-        /* product */
+      let point1 = {
+        x: centerPoint.x - plotterImageSize.width / 2,
+        y: centerPoint.y - plotterImageSize.height / 2 - 7
+      }
 
-     fontSize = 10
+      let point2 = {
+        x: centerPoint.x + plotterImageSize.width / 2,
+        y: centerPoint.y - plotterImageSize.height / 2 - 7
+      }
 
-     label = thisObject.product.displayName
+      let point3 = {
+        x: centerPoint.x + plotterImageSize.width / 2,
+        y: centerPoint.y - plotterImageSize.height / 2 + 7
+      }
 
-     labelPoint = {
-       x: 65,
-       y: thisObject.container.frame.height / 2 + 15
-     }
+      let point4 = {
+        x: centerPoint.x - plotterImageSize.width / 2,
+        y: centerPoint.y - plotterImageSize.height / 2 + 7
+      }
 
-     labelPoint = {
-       x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-       y: thisObject.container.frame.height / 2 - devTeamImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 5
-     }
+           /* Now the transformations. */
 
-     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
+      point1 = thisObject.container.frame.frameThisPoint(point1)
+      point2 = thisObject.container.frame.frameThisPoint(point2)
+      point3 = thisObject.container.frame.frameThisPoint(point3)
+      point4 = thisObject.container.frame.frameThisPoint(point4)
 
-     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
-     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
-     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      browserCanvasContext.beginPath()
+      browserCanvasContext.moveTo(point1.x, point1.y)
+      browserCanvasContext.lineTo(point2.x, point2.y)
+      browserCanvasContext.lineTo(point3.x, point3.y)
+      browserCanvasContext.lineTo(point4.x, point4.y)
+      browserCanvasContext.closePath()
 
-        /* ------------------- Progress Bars -------------------------- */
+      browserCanvasContext.fill()
 
-     const ANIMATED_INCREMENT = 5
-     const OPACITY_INCREMENT = 0.05
-     const OPACITY_MIN = 0.1
+      browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
+      browserCanvasContext.lineWidth = 0.1
+      browserCanvasContext.stroke()
+    }
 
-     let point1
-     let point2
-     let point3
-     let point4
+       /*
+       print the text
+       */
 
-        /* We draw here the Market Progress Bar. */
+    let labelPoint
+    let fontSize = 10
 
-        /* Animate */
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
 
-     if (marketFileProgressBar.animatedValue < marketFileProgressBar.value) {
-       marketFileProgressBar.animatedValue = marketFileProgressBar.animatedValue + ANIMATED_INCREMENT
-       marketFileProgressBar.opacity = marketFileProgressBar.opacity + OPACITY_INCREMENT
-     }
+    let label
 
-     if (marketFileProgressBar.animatedValue >= 100) {
-       marketFileProgressBar.animatedValue = 100
+    if (lastMouseOver > 0) {
+   /* devTeam */
 
-       marketFileProgressBar.opacity = marketFileProgressBar.opacity - OPACITY_INCREMENT
-       if (marketFileProgressBar.opacity < OPACITY_MIN) { marketFileProgressBar.opacity = OPACITY_MIN }
+      label = thisObject.devTeam.displayName
+      if (label.length > 10) { label = label.substring(1, 8) + '...' }
 
-       marketFileProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', marketFileProgressBar.opacity.toString())
-       marketFileProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', marketFileProgressBar.opacity.toString())
+      labelPoint = {
+        x: 2 + devTeamImageSize / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+        y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
+      }
 
-       changeStatusTo(PRODUCT_CARD_STATUS.ON)
-     }
+      labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-     point1 = {
-       x: 0,
-       y: thisObject.container.frame.height - 1
-     }
+      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+      browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
+      browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
-     point2 = {
-       x: thisObject.container.frame.width * marketFileProgressBar.animatedValue / 100,
-       y: thisObject.container.frame.height - 1
-     }
+   /* bot */
 
-     point3 = {
-       x: thisObject.container.frame.width * marketFileProgressBar.animatedValue / 100,
-       y: thisObject.container.frame.height - 3
-     }
+      label = thisObject.bot.displayName
+      if (label.length > 10) { label = label.substring(1, 8) + '...' }
 
-     point4 = {
-       x: 0,
-       y: thisObject.container.frame.height - 3
-     }
+      labelPoint = {
+        x: thisObject.container.frame.width - 8 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+        y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
+      }
 
-        /* Now the transformations. */
+      labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-     point1 = thisObject.container.frame.frameThisPoint(point1)
-     point2 = thisObject.container.frame.frameThisPoint(point2)
-     point3 = thisObject.container.frame.frameThisPoint(point3)
-     point4 = thisObject.container.frame.frameThisPoint(point4)
+      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+      browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
+      browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+    }
 
-     browserCanvasContext.beginPath()
-     browserCanvasContext.moveTo(point1.x, point1.y)
-     browserCanvasContext.lineTo(point2.x, point2.y)
-     browserCanvasContext.lineTo(point3.x, point3.y)
-     browserCanvasContext.lineTo(point4.x, point4.y)
-     browserCanvasContext.closePath()
+       /* product */
 
-     browserCanvasContext.fillStyle = marketFileProgressBar.fillStyle.replace('@Opacity', marketFileProgressBar.opacity.toString())
-     browserCanvasContext.strokeStyle = marketFileProgressBar.strokeStyle.replace('@Opacity', marketFileProgressBar.opacity.toString())
+    fontSize = 10
 
-     browserCanvasContext.fill()
-     browserCanvasContext.lineWidth = 0.1
-     browserCanvasContext.stroke()
+    label = thisObject.product.displayName
 
-        /* We draw here the Daily Progress Bar. */
+    labelPoint = {
+      x: 65,
+      y: thisObject.container.frame.height / 2 + 15
+    }
 
-        /* Animate */
+    labelPoint = {
+      x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+      y: thisObject.container.frame.height / 2 - devTeamImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 20
+    }
 
-     if (dailyFileProgressBar.animatedValue < dailyFileProgressBar.value) {
-       dailyFileProgressBar.animatedValue = dailyFileProgressBar.animatedValue + ANIMATED_INCREMENT
-       dailyFileProgressBar.opacity = dailyFileProgressBar.opacity + OPACITY_INCREMENT
-     }
+    labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-     if (dailyFileProgressBar.animatedValue >= 100) {
-       dailyFileProgressBar.animatedValue = 100
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+    browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
+    browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
-       dailyFileProgressBar.opacity = dailyFileProgressBar.opacity - OPACITY_INCREMENT
-       if (dailyFileProgressBar.opacity < OPACITY_MIN) { dailyFileProgressBar.opacity = OPACITY_MIN }
+       /* ------------------- Progress Bars -------------------------- */
 
-       dailyFileProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', dailyFileProgressBar.opacity.toString())
-       dailyFileProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', dailyFileProgressBar.opacity.toString())
+    const ANIMATED_INCREMENT = 5
+    const OPACITY_INCREMENT = 0.05
+    const OPACITY_MIN = 0.1
 
-       changeStatusTo(PRODUCT_CARD_STATUS.ON)
-     }
+    let point1
+    let point2
+    let point3
+    let point4
 
-     point1 = {
-       x: 0,
-       y: thisObject.container.frame.height - 4
-     }
+       /* We draw here the Market Progress Bar. */
 
-     point2 = {
-       x: thisObject.container.frame.width * dailyFileProgressBar.animatedValue / 100,
-       y: thisObject.container.frame.height - 4
-     }
+       /* Animate */
 
-     point3 = {
-       x: thisObject.container.frame.width * dailyFileProgressBar.animatedValue / 100,
-       y: thisObject.container.frame.height - 6
-     }
+    if (marketFileProgressBar.animatedValue < marketFileProgressBar.value) {
+      marketFileProgressBar.animatedValue = marketFileProgressBar.animatedValue + ANIMATED_INCREMENT
+      marketFileProgressBar.opacity = marketFileProgressBar.opacity + OPACITY_INCREMENT
+    }
 
-     point4 = {
-       x: 0,
-       y: thisObject.container.frame.height - 6
-     }
+    if (marketFileProgressBar.animatedValue >= 100) {
+      marketFileProgressBar.animatedValue = 100
 
-        /* Now the transformations. */
+      marketFileProgressBar.opacity = marketFileProgressBar.opacity - OPACITY_INCREMENT
+      if (marketFileProgressBar.opacity < OPACITY_MIN) { marketFileProgressBar.opacity = OPACITY_MIN }
 
-     point1 = thisObject.container.frame.frameThisPoint(point1)
-     point2 = thisObject.container.frame.frameThisPoint(point2)
-     point3 = thisObject.container.frame.frameThisPoint(point3)
-     point4 = thisObject.container.frame.frameThisPoint(point4)
+      marketFileProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', marketFileProgressBar.opacity.toString())
+      marketFileProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', marketFileProgressBar.opacity.toString())
 
-     browserCanvasContext.beginPath()
-     browserCanvasContext.moveTo(point1.x, point1.y)
-     browserCanvasContext.lineTo(point2.x, point2.y)
-     browserCanvasContext.lineTo(point3.x, point3.y)
-     browserCanvasContext.lineTo(point4.x, point4.y)
-     browserCanvasContext.closePath()
+      changeStatusTo(PRODUCT_CARD_STATUS.ON)
+    }
 
-     browserCanvasContext.fillStyle = dailyFileProgressBar.fillStyle.replace('@Opacity', dailyFileProgressBar.opacity.toString())
-     browserCanvasContext.strokeStyle = dailyFileProgressBar.strokeStyle.replace('@Opacity', dailyFileProgressBar.opacity.toString())
+    point1 = {
+      x: 0,
+      y: thisObject.container.frame.height - 1
+    }
 
-     browserCanvasContext.fill()
-     browserCanvasContext.lineWidth = 0.1
-     browserCanvasContext.stroke()
+    point2 = {
+      x: thisObject.container.frame.width * marketFileProgressBar.animatedValue / 100,
+      y: thisObject.container.frame.height - 1
+    }
 
-        /* We draw here the Single File Progress Bar. */
+    point3 = {
+      x: thisObject.container.frame.width * marketFileProgressBar.animatedValue / 100,
+      y: thisObject.container.frame.height - 3
+    }
 
-        /* Animate */
+    point4 = {
+      x: 0,
+      y: thisObject.container.frame.height - 3
+    }
 
-     if (singleFileProgressBar.animatedValue < singleFileProgressBar.value) {
-       singleFileProgressBar.animatedValue = singleFileProgressBar.animatedValue + ANIMATED_INCREMENT
-       singleFileProgressBar.opacity = singleFileProgressBar.opacity + OPACITY_INCREMENT
-     }
+       /* Now the transformations. */
 
-     if (singleFileProgressBar.animatedValue >= 100) {
-       singleFileProgressBar.animatedValue = 100
+    point1 = thisObject.container.frame.frameThisPoint(point1)
+    point2 = thisObject.container.frame.frameThisPoint(point2)
+    point3 = thisObject.container.frame.frameThisPoint(point3)
+    point4 = thisObject.container.frame.frameThisPoint(point4)
 
-       singleFileProgressBar.opacity = singleFileProgressBar.opacity - OPACITY_INCREMENT
-       if (singleFileProgressBar.opacity < OPACITY_MIN) { singleFileProgressBar.opacity = OPACITY_MIN }
+    browserCanvasContext.beginPath()
+    browserCanvasContext.moveTo(point1.x, point1.y)
+    browserCanvasContext.lineTo(point2.x, point2.y)
+    browserCanvasContext.lineTo(point3.x, point3.y)
+    browserCanvasContext.lineTo(point4.x, point4.y)
+    browserCanvasContext.closePath()
 
-       singleFileProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', singleFileProgressBar.opacity.toString())
-       singleFileProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', singleFileProgressBar.opacity.toString())
+    browserCanvasContext.fillStyle = marketFileProgressBar.fillStyle.replace('@Opacity', marketFileProgressBar.opacity.toString())
+    browserCanvasContext.strokeStyle = marketFileProgressBar.strokeStyle.replace('@Opacity', marketFileProgressBar.opacity.toString())
 
-       changeStatusTo(PRODUCT_CARD_STATUS.ON)
-     }
+    browserCanvasContext.fill()
+    browserCanvasContext.lineWidth = 0.1
+    browserCanvasContext.stroke()
 
-     point1 = {
-       x: 0,
-       y: thisObject.container.frame.height - 7
-     }
+       /* We draw here the Daily Progress Bar. */
 
-     point2 = {
-       x: thisObject.container.frame.width * singleFileProgressBar.animatedValue / 100,
-       y: thisObject.container.frame.height - 7
-     }
+       /* Animate */
 
-     point3 = {
-       x: thisObject.container.frame.width * singleFileProgressBar.animatedValue / 100,
-       y: thisObject.container.frame.height - 9
-     }
+    if (dailyFileProgressBar.animatedValue < dailyFileProgressBar.value) {
+      dailyFileProgressBar.animatedValue = dailyFileProgressBar.animatedValue + ANIMATED_INCREMENT
+      dailyFileProgressBar.opacity = dailyFileProgressBar.opacity + OPACITY_INCREMENT
+    }
 
-     point4 = {
-       x: 0,
-       y: thisObject.container.frame.height - 9
-     }
+    if (dailyFileProgressBar.animatedValue >= 100) {
+      dailyFileProgressBar.animatedValue = 100
 
-        /* Now the transformations. */
+      dailyFileProgressBar.opacity = dailyFileProgressBar.opacity - OPACITY_INCREMENT
+      if (dailyFileProgressBar.opacity < OPACITY_MIN) { dailyFileProgressBar.opacity = OPACITY_MIN }
 
-     point1 = thisObject.container.frame.frameThisPoint(point1)
-     point2 = thisObject.container.frame.frameThisPoint(point2)
-     point3 = thisObject.container.frame.frameThisPoint(point3)
-     point4 = thisObject.container.frame.frameThisPoint(point4)
+      dailyFileProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', dailyFileProgressBar.opacity.toString())
+      dailyFileProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', dailyFileProgressBar.opacity.toString())
 
-     browserCanvasContext.beginPath()
-     browserCanvasContext.moveTo(point1.x, point1.y)
-     browserCanvasContext.lineTo(point2.x, point2.y)
-     browserCanvasContext.lineTo(point3.x, point3.y)
-     browserCanvasContext.lineTo(point4.x, point4.y)
-     browserCanvasContext.closePath()
+      changeStatusTo(PRODUCT_CARD_STATUS.ON)
+    }
 
-     browserCanvasContext.fillStyle = singleFileProgressBar.fillStyle.replace('@Opacity', singleFileProgressBar.opacity.toString())
-     browserCanvasContext.strokeStyle = singleFileProgressBar.strokeStyle.replace('@Opacity', singleFileProgressBar.opacity.toString())
+    point1 = {
+      x: 0,
+      y: thisObject.container.frame.height - 4
+    }
 
-     browserCanvasContext.fill()
-     browserCanvasContext.lineWidth = 0.1
-     browserCanvasContext.stroke()
+    point2 = {
+      x: thisObject.container.frame.width * dailyFileProgressBar.animatedValue / 100,
+      y: thisObject.container.frame.height - 4
+    }
 
-        /* We draw here the File Sequence Progress Bar. */
+    point3 = {
+      x: thisObject.container.frame.width * dailyFileProgressBar.animatedValue / 100,
+      y: thisObject.container.frame.height - 6
+    }
 
-        /* Animate */
+    point4 = {
+      x: 0,
+      y: thisObject.container.frame.height - 6
+    }
 
-     if (fileSequenceProgressBar.animatedValue < fileSequenceProgressBar.value) {
-       fileSequenceProgressBar.animatedValue = fileSequenceProgressBar.animatedValue + ANIMATED_INCREMENT
-       fileSequenceProgressBar.opacity = fileSequenceProgressBar.opacity + OPACITY_INCREMENT
-     }
+       /* Now the transformations. */
 
-     if (fileSequenceProgressBar.animatedValue >= 100) {
-       fileSequenceProgressBar.animatedValue = 100
+    point1 = thisObject.container.frame.frameThisPoint(point1)
+    point2 = thisObject.container.frame.frameThisPoint(point2)
+    point3 = thisObject.container.frame.frameThisPoint(point3)
+    point4 = thisObject.container.frame.frameThisPoint(point4)
 
-       fileSequenceProgressBar.opacity = fileSequenceProgressBar.opacity - OPACITY_INCREMENT
-       if (fileSequenceProgressBar.opacity < OPACITY_MIN) { fileSequenceProgressBar.opacity = OPACITY_MIN }
+    browserCanvasContext.beginPath()
+    browserCanvasContext.moveTo(point1.x, point1.y)
+    browserCanvasContext.lineTo(point2.x, point2.y)
+    browserCanvasContext.lineTo(point3.x, point3.y)
+    browserCanvasContext.lineTo(point4.x, point4.y)
+    browserCanvasContext.closePath()
 
-       fileSequenceProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
-       fileSequenceProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
+    browserCanvasContext.fillStyle = dailyFileProgressBar.fillStyle.replace('@Opacity', dailyFileProgressBar.opacity.toString())
+    browserCanvasContext.strokeStyle = dailyFileProgressBar.strokeStyle.replace('@Opacity', dailyFileProgressBar.opacity.toString())
 
-       changeStatusTo(PRODUCT_CARD_STATUS.ON)
-     }
+    browserCanvasContext.fill()
+    browserCanvasContext.lineWidth = 0.1
+    browserCanvasContext.stroke()
 
-     point1 = {
-       x: 0,
-       y: thisObject.container.frame.height - 10
-     }
+       /* We draw here the Single File Progress Bar. */
 
-     point2 = {
-       x: thisObject.container.frame.width * fileSequenceProgressBar.animatedValue / 100,
-       y: thisObject.container.frame.height - 10
-     }
+       /* Animate */
 
-     point3 = {
-       x: thisObject.container.frame.width * fileSequenceProgressBar.animatedValue / 100,
-       y: thisObject.container.frame.height - 11
-     }
+    if (singleFileProgressBar.animatedValue < singleFileProgressBar.value) {
+      singleFileProgressBar.animatedValue = singleFileProgressBar.animatedValue + ANIMATED_INCREMENT
+      singleFileProgressBar.opacity = singleFileProgressBar.opacity + OPACITY_INCREMENT
+    }
 
-     point4 = {
-       x: 0,
-       y: thisObject.container.frame.height - 11
-     }
+    if (singleFileProgressBar.animatedValue >= 100) {
+      singleFileProgressBar.animatedValue = 100
 
-        /* Now the transformations. */
+      singleFileProgressBar.opacity = singleFileProgressBar.opacity - OPACITY_INCREMENT
+      if (singleFileProgressBar.opacity < OPACITY_MIN) { singleFileProgressBar.opacity = OPACITY_MIN }
 
-     point1 = thisObject.container.frame.frameThisPoint(point1)
-     point2 = thisObject.container.frame.frameThisPoint(point2)
-     point3 = thisObject.container.frame.frameThisPoint(point3)
-     point4 = thisObject.container.frame.frameThisPoint(point4)
+      singleFileProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', singleFileProgressBar.opacity.toString())
+      singleFileProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', singleFileProgressBar.opacity.toString())
 
-     browserCanvasContext.beginPath()
-     browserCanvasContext.moveTo(point1.x, point1.y)
-     browserCanvasContext.lineTo(point2.x, point2.y)
-     browserCanvasContext.lineTo(point3.x, point3.y)
-     browserCanvasContext.lineTo(point4.x, point4.y)
-     browserCanvasContext.closePath()
+      changeStatusTo(PRODUCT_CARD_STATUS.ON)
+    }
 
-     browserCanvasContext.fillStyle = fileSequenceProgressBar.fillStyle.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
-     browserCanvasContext.strokeStyle = fileSequenceProgressBar.strokeStyle.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
+    point1 = {
+      x: 0,
+      y: thisObject.container.frame.height - 7
+    }
 
-     browserCanvasContext.fill()
-     browserCanvasContext.lineWidth = 0.1
-     browserCanvasContext.stroke()
-   }
- }
+    point2 = {
+      x: thisObject.container.frame.width * singleFileProgressBar.animatedValue / 100,
+      y: thisObject.container.frame.height - 7
+    }
+
+    point3 = {
+      x: thisObject.container.frame.width * singleFileProgressBar.animatedValue / 100,
+      y: thisObject.container.frame.height - 9
+    }
+
+    point4 = {
+      x: 0,
+      y: thisObject.container.frame.height - 9
+    }
+
+       /* Now the transformations. */
+
+    point1 = thisObject.container.frame.frameThisPoint(point1)
+    point2 = thisObject.container.frame.frameThisPoint(point2)
+    point3 = thisObject.container.frame.frameThisPoint(point3)
+    point4 = thisObject.container.frame.frameThisPoint(point4)
+
+    browserCanvasContext.beginPath()
+    browserCanvasContext.moveTo(point1.x, point1.y)
+    browserCanvasContext.lineTo(point2.x, point2.y)
+    browserCanvasContext.lineTo(point3.x, point3.y)
+    browserCanvasContext.lineTo(point4.x, point4.y)
+    browserCanvasContext.closePath()
+
+    browserCanvasContext.fillStyle = singleFileProgressBar.fillStyle.replace('@Opacity', singleFileProgressBar.opacity.toString())
+    browserCanvasContext.strokeStyle = singleFileProgressBar.strokeStyle.replace('@Opacity', singleFileProgressBar.opacity.toString())
+
+    browserCanvasContext.fill()
+    browserCanvasContext.lineWidth = 0.1
+    browserCanvasContext.stroke()
+
+       /* We draw here the File Sequence Progress Bar. */
+
+       /* Animate */
+
+    if (fileSequenceProgressBar.animatedValue < fileSequenceProgressBar.value) {
+      fileSequenceProgressBar.animatedValue = fileSequenceProgressBar.animatedValue + ANIMATED_INCREMENT
+      fileSequenceProgressBar.opacity = fileSequenceProgressBar.opacity + OPACITY_INCREMENT
+    }
+
+    if (fileSequenceProgressBar.animatedValue >= 100) {
+      fileSequenceProgressBar.animatedValue = 100
+
+      fileSequenceProgressBar.opacity = fileSequenceProgressBar.opacity - OPACITY_INCREMENT
+      if (fileSequenceProgressBar.opacity < OPACITY_MIN) { fileSequenceProgressBar.opacity = OPACITY_MIN }
+
+      fileSequenceProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
+      fileSequenceProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
+
+      changeStatusTo(PRODUCT_CARD_STATUS.ON)
+    }
+
+    point1 = {
+      x: 0,
+      y: thisObject.container.frame.height - 10
+    }
+
+    point2 = {
+      x: thisObject.container.frame.width * fileSequenceProgressBar.animatedValue / 100,
+      y: thisObject.container.frame.height - 10
+    }
+
+    point3 = {
+      x: thisObject.container.frame.width * fileSequenceProgressBar.animatedValue / 100,
+      y: thisObject.container.frame.height - 11
+    }
+
+    point4 = {
+      x: 0,
+      y: thisObject.container.frame.height - 11
+    }
+
+       /* Now the transformations. */
+
+    point1 = thisObject.container.frame.frameThisPoint(point1)
+    point2 = thisObject.container.frame.frameThisPoint(point2)
+    point3 = thisObject.container.frame.frameThisPoint(point3)
+    point4 = thisObject.container.frame.frameThisPoint(point4)
+
+    browserCanvasContext.beginPath()
+    browserCanvasContext.moveTo(point1.x, point1.y)
+    browserCanvasContext.lineTo(point2.x, point2.y)
+    browserCanvasContext.lineTo(point3.x, point3.y)
+    browserCanvasContext.lineTo(point4.x, point4.y)
+    browserCanvasContext.closePath()
+
+    browserCanvasContext.fillStyle = fileSequenceProgressBar.fillStyle.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
+    browserCanvasContext.strokeStyle = fileSequenceProgressBar.strokeStyle.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
+
+    browserCanvasContext.fill()
+    browserCanvasContext.lineWidth = 0.1
+    browserCanvasContext.stroke()
+  }
+}
+

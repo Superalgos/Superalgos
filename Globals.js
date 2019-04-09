@@ -43,7 +43,8 @@ UI_PANEL = {
     WIDTH: {
         SMALL: 100,
         NORMAL: 150,
-        LARGE: 350
+        LARGE: 250,
+        X_LARGE: 350
     },
     HEIGHT: {
         SMALL: 65,

@@ -1,18 +1,7 @@
-﻿const {
-    Aborter,
-    BlobURL,
-    BlockBlobURL,
-    ContainerURL,
-    ServiceURL,
-    StorageURL,
-    SharedKeyCredential
-} = require("@azure/storage-blob")
-
-const beautify = require("json-beautify");
-
+﻿const beautify = require("json-beautify");
 const { logger } = require('../logs/logger')
 
-exports.newCopySimulator = function newCopySimulator() {
+exports.newCopySimulator = function newCopySimulator(pStorage) {
 
     let thisObject = {
         getFileContent: getFileContent,
@@ -21,36 +10,15 @@ exports.newCopySimulator = function newCopySimulator() {
         removeSimulator: removeSimulator
     }
 
-    let serviceURL = getServiceURL();
+    let storage = pStorage
 
-    return thisObject;
-
-    function getServiceURL() {
-        // Enter your storage account name and shared key
-        const account = process.env.STORAGE_BASE_URL;
-        const accountKey = process.env.STORAGE_CONNECTION_STRING;
-
-        // Use SharedKeyCredential with storage account and account key
-        const sharedKeyCredential = new SharedKeyCredential(account, accountKey);
-
-        // Use sharedKeyCredential, tokenCredential or anonymousCredential to create a pipeline
-        const pipeline = StorageURL.newPipeline(sharedKeyCredential);
-
-        // List containers
-        const serviceURL = new ServiceURL(
-            // When using AnonymousCredential, following url should include a valid SAS or support public access
-            `https://${account}.blob.core.windows.net`,
-            pipeline
-        );
-        logger.info("Connected to te file Storage.")
-        return serviceURL
-    }
+    return thisObject
 
     async function copySimulator(pTeamCodeName, pBotCodeName, pBotDisplayName) {
         try {
             logger.info('copySimulator started for bot %s', pBotCodeName)
 
-            let templatePath = "aaplatform/AATemplate/bots/AAJason-Indicator-Bot"
+            let templatePath = "bots/AAJason-Indicator-Bot"
             let commons = await getFileContent(templatePath, "Commons.js")
             let config = await getFileContent(templatePath, "this.bot.config.json")
             let codeDaily = await getFileContent(templatePath + "/Multi-Period-Daily", "User.Bot.js")
@@ -101,11 +69,11 @@ exports.newCopySimulator = function newCopySimulator() {
 
             // Write the new files
             let newSimulatorName = "simulator-" + pBotCodeName + "-Indicator-Bot"
-            let newSimulatorPath = "aaplatform/" + pTeamCodeName + "/bots/" + newSimulatorName
-            await writeFileContent(newSimulatorPath, "Commons.js", commons)
-            await writeFileContent(newSimulatorPath, "this.bot.config.json", beautify(parsedConfig, null, 2, 80))
-            await writeFileContent(newSimulatorPath + "/Multi-Period-Daily", "User.Bot.js", codeDaily)
-            await writeFileContent(newSimulatorPath + "/Multi-Period-Market", "User.Bot.js", codeMarket)
+            let newSimulatorPath = "/bots/" + newSimulatorName
+            await writeFileContent(pTeamCodeName, newSimulatorPath, "Commons.js", commons)
+            await writeFileContent(pTeamCodeName, newSimulatorPath, "this.bot.config.json", beautify(parsedConfig, null, 2, 80))
+            await writeFileContent(pTeamCodeName, newSimulatorPath + "/Multi-Period-Daily", "User.Bot.js", codeDaily)
+            await writeFileContent(pTeamCodeName, newSimulatorPath + "/Multi-Period-Market", "User.Bot.js", codeMarket)
 
             logger.info('copySimulator completed for bot %s', pBotCodeName)
 
@@ -121,11 +89,11 @@ exports.newCopySimulator = function newCopySimulator() {
 
             // Delete simulator code
             let newSimulatorName = "simulator-" + pBotCodeName + "-Indicator-Bot"
-            let newSimulatorPath = "aaplatform/" + pTeamCodeName + "/bots/" + newSimulatorName
-            await deleteBlob(newSimulatorPath, "Commons.js")
-            await deleteBlob(newSimulatorPath, "this.bot.config.json")
-            await deleteBlob(newSimulatorPath + "/Multi-Period-Daily", "User.Bot.js")
-            await deleteBlob(newSimulatorPath + "/Multi-Period-Market", "User.Bot.js")
+            let newSimulatorPath = pTeamCodeName + "/bots/" + newSimulatorName
+            await deleteBlob(pTeamCodeName, newSimulatorPath, "Commons.js")
+            await deleteBlob(pTeamCodeName, newSimulatorPath, "this.bot.config.json")
+            await deleteBlob(pTeamCodeName, newSimulatorPath + "/Multi-Period-Daily", "User.Bot.js")
+            await deleteBlob(pTeamCodeName, newSimulatorPath + "/Multi-Period-Market", "User.Bot.js")
 
             logger.info('removeSimulator completed for bot %s', pBotCodeName)
 
@@ -136,44 +104,52 @@ exports.newCopySimulator = function newCopySimulator() {
     }
 
     async function getFileContent(containerName, blobName) {
-        const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName)
-        const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName)
-        let downloadResponse = await blockBlobURL.download(Aborter.none, 0)
-        return await streamToString(downloadResponse.readableStreamBody)
+        storage.readData[util.promisify.custom] = n => new Promise((resolve, reject) => {
+            storage.readData(pOrg, pPath, pFile, saveAtCache, (err, pFileContent) => {
+                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    reject(err)
+                } else {
+                    resolve(JSON.parse(pFileContent))
+                }
+            })
+        })
+
+        let readData = util.promisify(storage.readData)
+        let fileContent = await readData("AATemplate", containerName, blobName, false)
+        return fileContent
     }
 
-    async function writeFileContent(containerName, blobName, content) {
-        const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName)
-        const blobURL = BlobURL.fromContainerURL(containerURL, blobName)
-        const blockBlobURL = BlockBlobURL.fromBlobURL(blobURL)
-        await blockBlobURL.upload(
-            Aborter.none,
-            content,
-            content.length
-        )
+    async function writeFileContent(teamName, containerName, blobName, content) {
+        storage.writeData[util.promisify.custom] = n => new Promise((resolve, reject) => {
+            storage.writeData(pOrg, pPath, pFile, pFileContent, (err, value) => {
+                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    reject(err)
+                } else {
+                    resolve()
+                }
+            })
+        })
+
+        let writeData = util.promisify(storage.writeData)
+        await writeData(teamName, containerName, blobName, content)
     }
 
-    async function deleteBlob(containerName, blobName) {
+    async function deleteBlob(teamName, containerName, blobName) {
         try {
-            const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName)
-            const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName)
-            await blockBlobURL.delete(Aborter.none)
+            storage.deleteBlob[util.promisify.custom] = n => new Promise((resolve, reject) => {
+                storage.deleteBlob(pOrg, pPath, pFile, (err, value) => {
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        reject(err)
+                    } else {
+                        resolve()
+                    }
+                })
+            })
+
+            let deleteBlob = util.promisify(storage.deleteBlob)
+            await deleteBlob(teamName, containerName, blobName)
         } catch (err) {
             logger.warn('Error deleting the file: %s%s', containerName, blobName)
         }
-    }
-
-    // A helper method used to read a Node.js readable stream into string
-    async function streamToString(readableStream) {
-        return new Promise((resolve, reject) => {
-            const chunks = [];
-            readableStream.on("data", data => {
-                chunks.push(data.toString());
-            });
-            readableStream.on("end", () => {
-                resolve(chunks.join(""));
-            });
-            readableStream.on("error", reject)
-        });
     }
 }

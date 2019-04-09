@@ -490,12 +490,11 @@
 
                         thisObject.newHistoryRecord.messageRelevance,
                         thisObject.newHistoryRecord.messageTitle,
-                        thisObject.newHistoryRecord.messageBody
+                        thisObject.newHistoryRecord.messageBody,
+                        thisObject.extraData
                     ];
 
-                    let recordWithExtraData = newRecord.concat(thisObject.extraData);
-
-                    thisObject.executionHistory.push(recordWithExtraData);
+                    thisObject.executionHistory.push(newRecord);
 
                     let fileContent = JSON.stringify(thisObject.executionHistory);
 

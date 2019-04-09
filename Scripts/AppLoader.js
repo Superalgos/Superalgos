@@ -57,6 +57,7 @@ function newAppLoader() {
                 "Files/DailyFiles.js",
                 "Files/FileCursor.js",
                 "Files/FileSequence.js",
+                "Files/FileStorage.js",
 
                 "FloatingSpace/NoteSets.js",
                 "FloatingSpace/Note.js",

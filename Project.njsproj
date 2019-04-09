@@ -30,9 +30,6 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AABrowserAPI\BotCode.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="AABrowserAPI\CopySimulator.js" />
     <Compile Include="AABrowserAPI\TeamSetup.js">
       <SubType>Code</SubType>
@@ -44,6 +41,7 @@
     <Compile Include="Ecosystem.js" />
     <Compile Include="Plotter.js" />
     <Compile Include="PlotterPanel.js" />
+    <Compile Include="Server\BotsScripts.js" />
     <Compile Include="Server\Exchange\ExchangeAPI.js" />
     <Compile Include="Server\Exchange\exchangeUtils.js" />
     <Compile Include="Server\Exchange\Wrappers\beautifier.js" />
@@ -57,13 +55,13 @@
     <Compile Include="Scripts\AppPreLoader.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Server\BotsScripts.js">
+    <Compile Include="Server\MinioStorage.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Server\SessionManager.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Server\StorageAccessManager.js">
+    <Compile Include="Server\AzureStorageAccessManager.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Scripts\require.js" />
@@ -73,7 +71,7 @@
     <Compile Include="Server\Github.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Server\Storage.js">
+    <Compile Include="Server\AzureStorage.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="server.js" />

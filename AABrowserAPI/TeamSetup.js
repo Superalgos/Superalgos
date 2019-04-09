@@ -12,13 +12,10 @@
 
     return thisObject;
 
-    function initialize(pServerConfig) {
+    function initialize(pServerConfig, pStorage) {
 
-        const STORAGE = require('../Server/Storage');
-        storage = STORAGE.newStorage();
-        masterAppServerURL = pServerConfig.masterAppServerURL;
+        storage = pStorage;
 
-        storage.initialize(undefined, pServerConfig);
     }
 
     function newTeam(pTeamCodeName, pTeamDisplayName, pUserName, pBotCodeName, pBotDisplayName, pUserId, callBackFunction) {

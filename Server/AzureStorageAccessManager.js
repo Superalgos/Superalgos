@@ -1,4 +1,4 @@
-﻿exports.newStorageAccessManager = function newStorageAccessManager() {
+﻿exports.newAzureStorageAccessManager = function newAzureStorageAccessManager() {
 
     let thisObject = {
         getPermission: getPermission,

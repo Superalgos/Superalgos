@@ -36,34 +36,6 @@ global.CUSTOM_FAIL_RESPONSE = {
   message: 'Custom Message'
 }
 
-/*
-var Minio = require('minio')
-
-var minioClient = new Minio.Client({
-    endPoint: 'niksadvancedalgos.ovh',
-    port: 80,
-    useSSL: false,
-    accessKey: 'luis1234',
-    secretKey: '123456789'
-})
-
-const stage = 'textUpload'
-const bucketName = 'test-bucket'
-const textFilename = 'test.json'
-/*
-if (stage === 'textUpload') {
-    var str = 'some string you want to save'
-    minioClient.putObject(bucketName, textFilename, str, 'text/plain', function (e) {
-        if (e) {
-            return console.log(e)
-        }
-        console.log('Successfully uploaded the string')
-    })
-}
-
-
-return
-*/
 let storageData = new Map()
 
 let botScripts                 // This module is the one which grabs user bots scrips from the storage, and browserifys them.
@@ -77,8 +49,23 @@ let port = process.env.PORT || 1337
 
 let isHttpServerStarted = false
 
-const STORAGE = require('./Server/Storage')
-let storage = STORAGE.newStorage()
+const AZURE_STORAGE = require('./Server/AzureStorage')
+const MINIO_STORAGE = require('./Server/MinioStorage')
+
+switch (process.env.STORAGE_PROVIDER) {
+    case 'Azure': {
+        storage = AZURE_STORAGE.newAzureStorage();
+        break;
+    }
+    case 'Minio': {
+        storage = MINIO_STORAGE.newMinioStorage();
+        break;
+    }
+    default: {
+        console.log('[ERROR] server -> Storage Provider not supported -> process.env.STORAGE_PROVIDER = ' + process.env.STORAGE_PROVIDER)
+        return;
+    }
+}
 
 let sessionManager                                 // This module have all authenticated active sessions.
 let storageAccessManager                           // This module manages the SAS for user to access the cloud storage from the browser.
@@ -95,7 +82,7 @@ function initialize () {
   const CONFIG_READER = require('./Server/ConfigReader')
   let configReader = CONFIG_READER.newConfigReader()
 
-  configReader.initialize(ecosystem, ecosystemObject, storageData, onInitialized)
+  configReader.initialize(ecosystem, ecosystemObject, storageData, storage, onInitialized)
 
   function onInitialized (err, pServerConfig) {
     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
@@ -125,11 +112,11 @@ function initialize () {
         const SESSION_MANAGER = require('./Server/SessionManager')
         sessionManager = SESSION_MANAGER.newSessionManager()
 
-        sessionManager.initialize(serverConfig, onInitialized)
+        sessionManager.initialize(serverConfig, storage, onInitialized)
 
         function onInitialized () {
-        const STORAGE_ACCESS_MANAGER = require('./Server/StorageAccessManager')
-        storageAccessManager = STORAGE_ACCESS_MANAGER.newStorageAccessManager()
+        const STORAGE_ACCESS_MANAGER = require('./Server/AzureStorageAccessManager')
+        storageAccessManager = STORAGE_ACCESS_MANAGER.newAzureStorageAccessManager()
 
         storageAccessManager.initialize(serverConfig, onInitialized)
 
@@ -137,7 +124,7 @@ function initialize () {
             const BOT_SCRIPTS = require('./Server/BotsScripts')
             botScripts = BOT_SCRIPTS.newBotScripts()
 
-            botScripts.initialize(serverConfig, onInitialized)
+            botScripts.initialize(serverConfig, storage, onInitialized)
 
             function onInitialized () {
             startHtttpServer()
@@ -203,7 +190,32 @@ function onBrowserRequest (request, response) {
 
               respondWithFile(filePath, response)
               break;
-          }
+        }
+
+    case 'FileService':
+        {
+
+            processPost(request, response, onPostReceived)
+
+            function onPostReceived(pData) {
+                
+                let request = JSON.parse(pData);
+
+                storage.readData(undefined, request.path, request.conatinerName, false, onReady)
+
+                function onReady(err, pFileContent) {
+
+                    let responseToClient = {
+                        err: err,
+                        text: pFileContent
+                    };
+
+                    respondWithContent(JSON.stringify(responseToClient), response);
+                }
+            }
+
+            break;
+        }
     case 'Plotter.js':
       {
                 /*
@@ -475,35 +487,6 @@ function onBrowserRequest (request, response) {
       {
         switch (requestParameters[2]) {
 
-          case 'saveBotCode': {
-            const AABROWSER_API_BOT_CODE = require('./AABrowserAPI/' + 'BotCode')
-            let botCode = AABROWSER_API_BOT_CODE.newBotCode()
-
-            botCode.initialize(serverConfig)
-
-            processPost(request, response, onPostReceived)
-
-            function onPostReceived (pData) {
-              let devTeam = requestParameters[3]
-              let source = requestParameters[4] + '/' + requestParameters[5]
-              let repo = requestParameters[6]
-              let path
-
-              if (requestParameters[8] !== undefined) {
-                path = requestParameters[7] + '/' + requestParameters[8]
-              } else {
-                path = requestParameters[7]
-              }
-              botCode.saveBotCode(devTeam, source, repo, path, pData, onResponse)
-
-              function onResponse (err) {
-                respondWithContent(JSON.stringify(err), response)
-              }
-            }
-
-            break
-          }
-
           case "authenticateUser": {
 
             const AABROWSER_API_USER_AUTHENTICATION = require('./AABrowserAPI/' + 'UserAuthentication');
@@ -530,7 +513,7 @@ function onBrowserRequest (request, response) {
             const AABROWSER_API_TEAM_SETUP = require('./AABrowserAPI/' + 'TeamSetup');
             let teamSetup = AABROWSER_API_TEAM_SETUP.newTeamSetup();
 
-            teamSetup.initialize(serverConfig);
+            teamSetup.initialize(serverConfig, storage);
 
             let devTeamCodeName = decodeURI(requestParameters[3]);
             let devTeamDisplayName = decodeURI(requestParameters[4]);
@@ -575,7 +558,7 @@ function onBrowserRequest (request, response) {
             const AABROWSER_API_TEAM_SETUP = require('./AABrowserAPI/' + 'TeamSetup')
             let teamSetup = AABROWSER_API_TEAM_SETUP.newTeamSetup()
 
-            teamSetup.initialize(serverConfig)
+            teamSetup.initialize(serverConfig, storage)
 
             let devTeamCodeName = decodeURI(requestParameters[3])
             let userName = decodeURI(requestParameters[4])

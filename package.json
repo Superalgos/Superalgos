@@ -9,7 +9,7 @@
   "dependencies": {
     "@azure/storage-blob": "^10.3.0",
     "@octokit/rest": "^14.0.9",
-    "@superalgos/mqservice": "0.0.8",
+    "@superalgos/mqservice": "0.0.12",
     "atob": "^2.1.2",
     "axios": "^0.18.0",
     "azure-storage": "^2.10.2",

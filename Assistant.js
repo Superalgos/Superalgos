@@ -1366,7 +1366,7 @@
 
     function addExtraData(pExtraDataArray) {
 
-        context.extraData = pExtraDataArray;
+        context.extraData.push(pExtraDataArray);
     }
 
     function truncDecimals(pFloatValue, pDecimals) {

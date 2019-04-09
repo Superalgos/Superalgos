@@ -11,3 +11,5 @@ dependency/
 \.nyc_output/
 
 coverage/*
+
+\.vscode/

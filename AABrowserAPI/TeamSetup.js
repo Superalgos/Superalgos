@@ -308,7 +308,7 @@
                                             }
 
                                             const newCopySimulator = require("./CopySimulator")
-                                            let copySimulator = newCopySimulator.newCopySimulator()
+                                            let copySimulator = newCopySimulator.newCopySimulator(storage)
                                             await copySimulator.copySimulator(pTeamCodeName, pBotCodeName, pBotDisplayName)
 
                                             forkAACloud();
@@ -885,7 +885,7 @@
                                     }
 
                                     const newCopySimulator = require("./CopySimulator")
-                                    let copySimulator = newCopySimulator.newCopySimulator()
+                                    let copySimulator = newCopySimulator.newCopySimulator(storage)
                                     await copySimulator.removeSimulator(pTeamCodeName, pBotCodeName)
 
                                     deleteAACloud();

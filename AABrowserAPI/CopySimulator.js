@@ -1,5 +1,6 @@
-﻿const beautify = require("json-beautify");
+﻿const beautify = require("json-beautify")
 const { logger } = require('../logs/logger')
+const util = require('util')
 
 exports.newCopySimulator = function newCopySimulator(pStorage) {
 
@@ -89,7 +90,7 @@ exports.newCopySimulator = function newCopySimulator(pStorage) {
 
             // Delete simulator code
             let newSimulatorName = "simulator-" + pBotCodeName + "-Indicator-Bot"
-            let newSimulatorPath = pTeamCodeName + "/bots/" + newSimulatorName
+            let newSimulatorPath = "bots/" + newSimulatorName
             await deleteBlob(pTeamCodeName, newSimulatorPath, "Commons.js")
             await deleteBlob(pTeamCodeName, newSimulatorPath, "this.bot.config.json")
             await deleteBlob(pTeamCodeName, newSimulatorPath + "/Multi-Period-Daily", "User.Bot.js")
@@ -131,13 +132,14 @@ exports.newCopySimulator = function newCopySimulator(pStorage) {
         })
 
         let writeData = util.promisify(storage.writeData)
-        await writeData(teamName, containerName, blobName, content)
+        let response = await writeData(teamName, containerName, blobName, content)
+        return response
     }
 
     async function deleteBlob(teamName, containerName, blobName) {
         try {
             storage.deleteBlob[util.promisify.custom] = n => new Promise((resolve, reject) => {
-                storage.deleteBlob(pOrg, pPath, pFile, (err, value) => {
+                storage.deleteBlob(teamName, containerName, blobName, (err, value) => {
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                         reject(err)
                     } else {
@@ -147,7 +149,8 @@ exports.newCopySimulator = function newCopySimulator(pStorage) {
             })
 
             let deleteBlob = util.promisify(storage.deleteBlob)
-            await deleteBlob(teamName, containerName, blobName)
+            let response = await deleteBlob()
+            return response
         } catch (err) {
             logger.warn('Error deleting the file: %s%s', containerName, blobName)
         }

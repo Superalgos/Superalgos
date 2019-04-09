@@ -80,7 +80,7 @@
 
                     if (err) {
                         onFileReceived(err, null, "Error retrieving file " + textFilename + " from bucket " + bucketName);
-                        return 
+                        return
                     }
                     dataStream.on('data', function (chunk) {
                         data += chunk
@@ -319,7 +319,7 @@
 
                     /* ContainerAlreadyExists check */
 
-                    if (JSON.stringify(err).indexOf("ContainerNotFound") > 0) {
+                    if (err.code === "NoSuchBucket") {
 
                         let err = {
                             resutl: global.CUSTOM_FAIL_RESPONSE.result,

@@ -7,7 +7,6 @@
     "name": "Luis-Fernando-Molina"
   },
   "dependencies": {
-    "@azure/storage-blob": "^10.3.0",
     "@octokit/rest": "^14.0.9",
     "@superalgos/mqservice": "0.0.12",
     "atob": "^2.1.2",

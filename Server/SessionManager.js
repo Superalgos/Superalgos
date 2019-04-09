@@ -9,16 +9,13 @@
 
     return thisObject;
 
-    function initialize(pServerConfig, callBackFunction) {
+    function initialize(pServerConfig, storage, callBackFunction) {
 
         readSessions();
 
         function readSessions() {
 
             try {
-
-                const STORAGE = require('../Server/Storage');
-                let storage = STORAGE.newStorage();
 
                 storage.initialize(undefined, pServerConfig);
                 storage.readData("AdvancedAlgos", "AAPlatform", "open.sessions.json", false, onData);

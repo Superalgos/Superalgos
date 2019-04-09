@@ -1,5 +1,20 @@
  ﻿/* User Interface Colors */
 
+const STORAGE_PROVIDER = 'AAWeb';
+
+const SUPPORTED_EXCHANGES = ["Poloniex"];
+const SUPPORTED_MARKETS = [
+  {
+      assetA: "USDT",
+      assetB: "BTC",
+  }
+];
+const DEFAULT_EXCHANGE = "Poloniex";
+const DEFAULT_MARKET = {
+    assetA: "USDT",
+    assetB: "BTC",
+};
+
 UI_COLOR = {
     DARK: "48, 48, 54",
     LIGHT: "234, 226, 222",
@@ -94,20 +109,7 @@ function convertTimePeriodToName(pTimePeriod) {
 
 window.AT_BREAKPOINT = false;
 
-const SUPPORTED_EXCHANGES = ["Poloniex", "Coss"];
-const SUPPORTED_MARKETS = [
-  {
-      assetA: "USDT",
-      assetB: "BTC",
-  }
-];
-const DEFAULT_EXCHANGE = "Coss";
-const DEFAULT_MARKET = {
-    assetA: "USDT",
-    assetB: "BTC",
-};
-
-const USDT_BTC_HTH = 19900; // This is needed to know the scale of the market time line. 
+const USDT_BTC_HTH = 19900; // This is needed to know the scale of the market time line.
 
 const WIDHTER_VOLUME_BAR_BASE_FACTOR = 2.5;
 const LESS_WIDHTER_VOLUME_BAR_TOP_FACTOR = 1 / 4;

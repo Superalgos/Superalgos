@@ -38,7 +38,7 @@
      exchange = pExchange
      market = pMarket
 
-     thisObject.container.name = exchange + ' ' + market.assetB + '/' + market.assetA + ' ' + 'Indicators'
+     thisObject.container.name = 'Layers @ ' + exchange + ' ' + market.assetB + '/' + market.assetA
      thisObject.container.frame.containerName = thisObject.container.name
      thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
      thisObject.container.frame.height = viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;

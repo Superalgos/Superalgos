@@ -106,7 +106,7 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
                         logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileReceived -> pFileContent = " + pFileContent);
                     }
 
-                    /* Console logging */ 
+                    /* Console logging */
                     console.log(MODULE_NAME, "[INFO] 'createTextFile' -> onFileReceived -> File created at MINIO -> File = " + pFolderPath + "/" + pFileName);
 
                     if (err) {
@@ -205,7 +205,7 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
     }
 
     function getTextFile(pFolderPath, pFileName, callBackFunction) {
- 
+
         try {
 
             if (FULL_LOG === true && logger !== undefined) {
@@ -219,7 +219,7 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
                 let data = '';
 
                 if (err) {
-                    onFileReceived(err, null, "Error retrieving file " + textFilename + " from bucket " + bucketName);
+                    onFileReceived(err, null, "Error retrieving file " + pFolderPath + "/" + pFileName + " from bucket " + containerName);
                     return
                 }
                 dataStream.on('data', function (chunk) {
@@ -229,7 +229,7 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
                     onFileReceived(null, data, "Data retrieved.");
                 })
                 dataStream.on('error', function (err) {
-                    onFileReceived(err, null, "Error on data stream while retrieving file " + textFilename + " from bucket " + bucketName);
+                    onFileReceived(err, null, "Error on data stream while retrieving file " + pFolderPath + "/" + pFileName + " from bucket " + containerName);
                 })
             })
 
@@ -290,7 +290,7 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
                                         let data = '';
 
                                         if (err) {
-                                            onSecondTry(err, null, "Error retrieving file " + textFilename + " from bucket " + bucketName);
+                                            onSecondTry(err, null, "Error retrieving file " + pFolderPath + "/" + pFileName + " from bucket " + containerName);
                                             return
                                         }
                                         dataStream.on('data', function (chunk) {
@@ -300,7 +300,7 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
                                             onSecondTry(null, data, "Data retrieved.");
                                         })
                                         dataStream.on('error', function (err) {
-                                            onSecondTry(err, null, "Error on data stream while retrieving file " + textFilename + " from bucket " + bucketName);
+                                            onSecondTry(err, null, "Error on data stream while retrieving file " + pFolderPath + "/" + pFileName + " from bucket " + containerName);
                                         })
                                     })
 

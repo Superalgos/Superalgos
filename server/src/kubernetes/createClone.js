@@ -47,6 +47,28 @@ const createClone = async (clone) => {
       'value': process.env.AUTH_AUDIENCE
     })
 
+    // MINIO
+    env.push({
+      'name': 'MINIO_END_POINT',
+      'value': process.env.MINIO_END_POINT
+    })
+    env.push({
+      'name': 'MINIO_PORT',
+      'value': process.env.MINIO_PORT
+    })
+    env.push({
+      'name': 'MINIO_USE_SSL',
+      'value': process.env.MINIO_USE_SSL
+    })
+    env.push({
+      'name': 'MINIO_ACCESS_KEY',
+      'value': process.env.MINIO_ACCESS_KEY
+    })
+    env.push({
+      'name': 'MINIO_SECRET_KEY',
+      'value': process.env.MINIO_SECRET_KEY
+    })
+
     logger.debug('createClone General Financial Being Configuration.')
     env.push({
       'name': 'DEV_TEAM',

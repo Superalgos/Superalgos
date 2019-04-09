@@ -23,7 +23,7 @@ class HistoryClones extends Component {
           size='big'
           title='Bot Clone History'
           text='Loading your Bot Clones...'
-          backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/clones-original.jpg'
         />
       )
     } else if (data.operations_HistoryClones && data.operations_HistoryClones.length > 0) {
@@ -33,7 +33,7 @@ class HistoryClones extends Component {
             size='medium'
             title='Bot Clone History'
             text='All your Bot Clones are here.'
-            backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
+            backgroundUrl='https://superalgos.org/img/photos/clones-original.jpg'
           />
 
           <div className='container'>
@@ -53,7 +53,7 @@ class HistoryClones extends Component {
           size='big'
           title='Bot Clone History'
           text='Please login to gain access to your Bot Clones.'
-          backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/clones-original.jpg'
         />
       )
     } else {
@@ -62,7 +62,7 @@ class HistoryClones extends Component {
           size='big'
           title='Bot Clone History'
           text="You don't have any Clone yet. Once you create one you will find it here."
-          backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/clones-original.jpg'
           />
       )
     }
@@ -75,7 +75,7 @@ class HistoryClones extends Component {
           size='big'
           title='Manage your Bot Clones'
           text='Loading Bot Clones...'
-          backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/clones-original.jpg'
         />
       )
     } else if (data.operations_HistoryClones && data.operations_HistoryClones.length > 0) {
@@ -85,7 +85,7 @@ class HistoryClones extends Component {
             size='big'
             title='Manage your Bot Clones'
             text='Loading Bot Clones...'
-            backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
+            backgroundUrl='https://superalgos.org/img/photos/clones-original.jpg'
         />
 
           <div className='container'>
@@ -105,7 +105,7 @@ class HistoryClones extends Component {
           size='big'
           title='No Bot Clones to display'
           text='Please Login to access your Bot Clones.'
-          backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/clones-original.jpg'
         />
       )
     } else {
@@ -115,7 +115,7 @@ class HistoryClones extends Component {
           size='big'
           title='No Bot Clones to display'
           text="You don't have any Bot Clone yet. After you create a new Clone, it will be listed here."
-          backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/clones-original.jpg'
           />
       )
     }

@@ -1,105 +1,87 @@
-﻿
-function newBottomSpace() {
+ ﻿
+function newBottomSpace () {
+  var thisObject = {
+    deleteTradingHistory: undefined,
+    chartAspectRatio: undefined,
+    container: undefined,
+    draw: draw,
+    getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+    initialize: initialize
+  }
 
-    var thisObject = {
-        deleteTradingHistory: undefined,
-        chartAspectRatio: undefined,
-        playStopButton: undefined,
-        container: undefined,
-        draw: draw,
-        getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-        initialize: initialize
-    };
+  var container = newContainer()
+  container.initialize()
+  thisObject.container = container
 
-    var container = newContainer();
-    container.initialize();
-    thisObject.container = container;
+  container.isDraggeable = false
 
-    container.isDraggeable = false;
+  resize()
 
-    resize();
+  return thisObject
 
-    return thisObject;
+  function initialize () {
+    thisObject.deleteTradingHistory = newDeleteTradingHistory()
+    thisObject.deleteTradingHistory.initialize()
 
-    function initialize() {
+    thisObject.chartAspectRatio = newChartAspectRatio()
+    thisObject.chartAspectRatio.initialize()
 
-        thisObject.deleteTradingHistory = newDeleteTradingHistory();
-        thisObject.deleteTradingHistory.initialize();
+    window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
+  }
 
-        thisObject.chartAspectRatio = newChartAspectRatio();
-        thisObject.chartAspectRatio.initialize();
+  function resize () {
+    container.frame.position.x = 0
+    container.frame.position.y = viewPort.visibleArea.bottomLeft.y
 
-        thisObject.playStopButton = newPlayStopButton();
-        thisObject.playStopButton.initialize();
+    thisObject.container.frame.width = browserCanvas.width
+    thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
+  }
 
-        window.canvasApp.eventHandler.listenToEvent("Browser Resized", resize);
+  function getContainer (point) {
+    let container
 
-    }
+    container = thisObject.deleteTradingHistory.getContainer(point)
+    if (container !== undefined) { return container }
 
-    function resize() {
-
-        container.frame.position.x = 0;
-        container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
-
-        thisObject.container.frame.width = browserCanvas.width;
-        thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT;
-
-    }
-
-    function getContainer(point) {
-
-        let container;
-
-        container = thisObject.deleteTradingHistory.getContainer(point);
-        if (container !== undefined) { return container; }
-
-        container = thisObject.chartAspectRatio.getContainer(point);
-        if (container !== undefined) { return container; }
-
-        container = thisObject.playStopButton.getContainer(point);
-        if (container !== undefined) { return container; }
+    container = thisObject.chartAspectRatio.getContainer(point)
+    if (container !== undefined) { return container }
 
         /* The point does not belong to any inner container, so we return the current container. */
 
-        return thisObject.container;
+    return thisObject.container
+  }
 
+  function draw () {
+    thisObject.container.frame.draw(false, false)
+
+    drawBackground()
+    thisObject.deleteTradingHistory.draw()
+    thisObject.chartAspectRatio.draw()
+  }
+
+  function drawBackground () {
+    let opacity = 1
+
+    let zeroPoint = {
+      x: 0,
+      y: 0
     }
 
-    function draw() {
+    zeroPoint = thisObject.container.frame.frameThisPoint(zeroPoint)
 
-        thisObject.container.frame.draw(false, false);
+    let breakpointsHeight = 15
+    const RED_LINE_HIGHT = 5
 
-        drawBackground();
-        thisObject.deleteTradingHistory.draw();
-        thisObject.chartAspectRatio.draw();
-        thisObject.playStopButton.draw();
+    browserCanvasContext.beginPath()
+    browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + breakpointsHeight, thisObject.container.frame.width, thisObject.container.frame.height)
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
+    browserCanvasContext.closePath()
+    browserCanvasContext.fill()
 
-    }
-
-    function drawBackground() {
-
-        let opacity = 1;
-
-        let zeroPoint = {
-            x: 0,
-            y: 0
-        };
-
-        zeroPoint = thisObject.container.frame.frameThisPoint(zeroPoint);
-
-        let breakpointsHeight = 15;
-        const RED_LINE_HIGHT = 5;
-
-        browserCanvasContext.beginPath();
-        browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + breakpointsHeight, thisObject.container.frame.width,  thisObject.container.frame.height  );
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK +  ', ' + opacity + ')';
-        browserCanvasContext.closePath();
-        browserCanvasContext.fill();
-
-        browserCanvasContext.beginPath();
-        browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + breakpointsHeight, thisObject.container.frame.width,RED_LINE_HIGHT);
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')';
-        browserCanvasContext.closePath();
-        browserCanvasContext.fill();
-    }
+    browserCanvasContext.beginPath()
+    browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + breakpointsHeight, thisObject.container.frame.width, RED_LINE_HIGHT)
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'
+    browserCanvasContext.closePath()
+    browserCanvasContext.fill()
+  }
 }

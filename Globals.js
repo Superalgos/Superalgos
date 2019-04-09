@@ -1,4 +1,19 @@
-﻿/* User Interface Colors */
+ ﻿/* User Interface Colors */
+
+const STORAGE_PROVIDER = 'AAWeb';
+
+const SUPPORTED_EXCHANGES = ["Poloniex"];
+const SUPPORTED_MARKETS = [
+  {
+      assetA: "USDT",
+      assetB: "BTC",
+  }
+];
+const DEFAULT_EXCHANGE = "Poloniex";
+const DEFAULT_MARKET = {
+    assetA: "USDT",
+    assetB: "BTC",
+};
 
 UI_COLOR = {
     DARK: "48, 48, 54",
@@ -94,14 +109,7 @@ function convertTimePeriodToName(pTimePeriod) {
 
 window.AT_BREAKPOINT = false;
 
-const INITIAL_DEFAULT_MARKET = 2;       // This is the market that will be shown when loading the site for the first time.
-const DEFAULT_EXCHANGE = "Poloniex";
-const DEFAULT_MARKET = {
-    assetA: "USDT",
-    assetB: "BTC",
-};
-
-const USDT_BTC_HTH = 19900; // This is needed to know the scale of the market time line. 
+const USDT_BTC_HTH = 19900; // This is needed to know the scale of the market time line.
 
 const WIDHTER_VOLUME_BAR_BASE_FACTOR = 2.5;
 const LESS_WIDHTER_VOLUME_BAR_TOP_FACTOR = 1 / 4;
@@ -131,7 +139,7 @@ const EARLIEST_DATE = new Date(2014, 0, 18, 4, 26, 8);
 
 const TOP_SPACE_HEIGHT = 5;
 const BOTTOM_SPACE_HEIGHT = 35;
-
+const BREAKPOINT_HEIGHT = 15;
 
 const PRODUCT_CARD_STATUS = {
     ON: 'on',

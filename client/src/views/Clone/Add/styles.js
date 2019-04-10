@@ -14,7 +14,7 @@ const styles = theme => ({
   },
   textField: {
     width: '80%',
-    marginLeft:'10%',
+    marginLeft: '10%',
     marginBottom: 10
   },
   actionButton: {
@@ -24,14 +24,14 @@ const styles = theme => ({
   typography: {
     width: '80%',
     marginLeft: '10%',
-    marginTop: 40
+    marginTop: 20
   },
   form: {
     marginTop: 20
   },
   selectEmpty: {
-    marginTop: theme.spacing.unit * 2,
-  },
-});
+    marginTop: theme.spacing.unit * 2
+  }
+})
 
-export default styles;
+export default styles

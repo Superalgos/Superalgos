@@ -1,7 +1,4 @@
-import {
-  GraphQLSchema
-} from 'graphql'
-
+import { GraphQLSchema } from 'graphql'
 import Mutation from './mutations'
 import RootQuery from './queries'
 

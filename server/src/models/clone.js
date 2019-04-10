@@ -2,31 +2,32 @@ import mongoose, { Schema } from 'mongoose'
 
 import {
   UNPUBLISHED,
-  CloneStateEnum,
-} from '../enums/CloneState';
+  CloneStateEnum
+} from '../enums/CloneState'
 
 import {
   BACKTEST,
-  CloneModeEnum,
-} from '../enums/CloneMode';
+  CloneModeEnum
+} from '../enums/CloneMode'
 
 const cloneSchema = new Schema({
   authId: {
     type: String,
-    required: true,
+    required: true
   },
   teamId: {
-      type: String,
-      required: true,
+    type: String,
+    required: true
   },
   botId: {
-      type: String,
-      required: true,
+    type: String,
+    required: true
   },
+  keyId: String,
   mode: {
     type: String,
     enum: CloneModeEnum,
-    default: BACKTEST,
+    default: BACKTEST
   },
   resumeExecution: Boolean,
   beginDatetime: Number,
@@ -35,7 +36,7 @@ const cloneSchema = new Schema({
   state: {
     type: String,
     enum: CloneStateEnum,
-    default: UNPUBLISHED,
+    default: UNPUBLISHED
   },
   stateDatetime: Number,
   createDatetime: Number,
@@ -51,7 +52,7 @@ const cloneSchema = new Schema({
   assetB: String,
   processName: {
     type: String,
-    required: true,
+    required: true
   }
 })
 

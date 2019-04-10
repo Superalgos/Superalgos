@@ -3,8 +3,6 @@
 # dependencies
 /node_modules
 
-/src/config/clone-deployment.json
-
 # testing
 /coverage
 

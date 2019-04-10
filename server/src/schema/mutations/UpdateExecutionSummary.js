@@ -5,16 +5,9 @@ import {
   GraphQLInt,
   GraphQLFloat
 } from 'graphql'
-
-import {
-  OperationsError
-} from '../../errors'
-
+import { OperationsError } from '../../errors'
 import { Clone } from '../../models'
 import logger from '../../config/logger'
-import teamQuery from '../../graphQLCalls/teamQuery'
-import cloneDetails from '../cloneDetails'
-import removeKuberneteClone from '../../kubernetes/removeClone'
 import { isDefined } from '../../config/utils'
 
 const args = {
@@ -30,33 +23,29 @@ const args = {
 }
 
 const resolve = async (parent,
-    { id, summaryDate, buyAverage, sellAverage, marketRate, combinedProfitsA,
-      combinedProfitsB, assetA, assetB
-    }, context) => {
-
+  { id, summaryDate, buyAverage, sellAverage, marketRate, combinedProfitsA,
+    combinedProfitsB, assetA, assetB
+  }, context) => {
   logger.debug('UpdateExecutionSummary -> Entering Function.')
 
   if (!context.userId) {
     throw new AuthentificationError()
   }
 
-  try{
-    let sucessful
+  if (!(context.userId === process.env.AACLOUD_ID)) {
+    logger.debug('User %s is not authorized to manage team %s.', authId, team.slug)
+    throw new AutorizationError()
+  }
 
-    let clone = await Clone.findOne( {
+  try {
+    let clone = await Clone.findOne({
       _id: id,
       active: true
     })
 
-    if(!isDefined(clone)){
-      return "Clone not found."
+    if (!isDefined(clone)) {
+      return 'Clone not found.'
     }
-
-    let team = await teamQuery(context.authorization, clone.teamId)
-    clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
-
-    logger.debug('UpdateExecutionSummary -> Removing Clone from Kubernates.')
-    await removeKuberneteClone(clone)
 
     const query = { _id: id }
     const options = { new: true }
@@ -68,23 +57,22 @@ const resolve = async (parent,
       combinedProfitsA: combinedProfitsA,
       combinedProfitsB: combinedProfitsB,
       assetA: assetA,
-      assetB: assetB,
-      active: false
+      assetB: assetB
     }
 
     logger.debug('UpdateExecutionSummary -> Updating clone on database.')
-    await Clone.update(query, update, options, (err, clone) => {
-      if (err){
-        logger.error('Error updating execution summary on the database. %s', err.stack)
-        throw err
-      } else {
-        logger.debug('Execution summary updated.')
-        sucessful = true
-      }
-    })
 
-    if(sucessful)
-      return 'Execution summary updated.'
+    return new Promise((res, rej) => {
+      Clone.update(query, update, options, (err, clone) => {
+        if (err) {
+          logger.error('Error updating execution summary on the database. %s', err.stack)
+          rej(err)
+          return
+        }
+        logger.debug('Execution summary updated.')
+        res('Execution summary updated.')
+      })
+    })
 
   } catch (error) {
     logger.error('Error updating the execution summary. %s', error.stack)
@@ -92,7 +80,7 @@ const resolve = async (parent,
   }
 }
 
-const mutation = {
+const UpdateExecutionSummary = {
   updateExecutionSummary: {
     type: GraphQLString,
     args,
@@ -100,4 +88,4 @@ const mutation = {
   }
 }
 
-export default mutation
+export default UpdateExecutionSummary

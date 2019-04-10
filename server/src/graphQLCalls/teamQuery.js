@@ -1,46 +1,49 @@
 import logger from '../config/logger'
 import axios from 'axios'
 
-const teamQuery = async(authorization, teamId) => {
-  logger.debug('GraphQL retrieving team information. %s', teamId)
+const teamQuery = (authorization, botId) => {
+  logger.debug('teamQuery -> Entering function')
 
   return axios({
     url: process.env.GATEWAY_ENDPOINT,
     method: 'post',
     data: {
       query: `
-      query Teams_Team($teamId: String!){
-        teams_TeamById(teamId:$teamId) {
-          id
-          name
-          slug
-          fb {
-            id
-            name
-            slug
-            kind
-            avatar
-          }
-          members {
-            member {
-              alias
-              authId
+      query teams_FbByOwner($fbId: String){
+        teams_FbByOwner(fbId: $fbId) {
+          edges{
+            node{
+              id
+              kind
+              name
+              slug
+              avatar
+              team{
+                id
+                name
+                slug
+                profile{
+                  avatar
+                }
+                members{
+                  member{
+                    alias
+                  }
+                }
+              }
             }
-          }
-          profile{
-            avatar
           }
         }
       }
       `,
       variables: {
-         teamId: teamId
-       }
+        fbId: botId
+      }
     },
     headers: {
       authorization: authorization
     }
   })
-};
+}
 
 export default teamQuery

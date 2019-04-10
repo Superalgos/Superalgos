@@ -37,7 +37,9 @@ const CloneType = new GraphQLObjectType({
     teamName: {type: GraphQLString},
     botName: {type: GraphQLString},
     botAvatar: {type: GraphQLString},
-    teamAvatar: {type: GraphQLString}
+    teamAvatar: {type: GraphQLString},
+    keyId: {type: GraphQLString},
+    botSlug: {type: GraphQLString}
   })
 })
 export default CloneType

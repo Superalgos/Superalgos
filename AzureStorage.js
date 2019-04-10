@@ -6,7 +6,7 @@
     let bot = BOT;
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Azure Storage";
+    const MODULE_NAME = "Azure Blob Storage";
     const REQUEST_TIMEOUT = 180;
 
     let thisObject = {

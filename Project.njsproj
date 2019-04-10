@@ -33,11 +33,16 @@
     <Compile Include="CloudRequire.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="exchange\wrappers\coss.js" />
+    <Compile Include="MinioBlobStorage.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MultiPeriodDaily.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="MultiPeriodMarket.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AzureBlobStorage.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="utils\auth.js">
@@ -52,11 +57,6 @@
     <Compile Include="DataSet.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="exchange\exchangeUtils.js" />
-    <Compile Include="exchange\wrappers\binance.js" />
-    <Compile Include="exchange\wrappers\binanceClient.js" />
-    <Compile Include="exchange\wrappers\poloniex.js" />
-    <Compile Include="exchange\wrappers\poloniexClient.js" />
     <Compile Include="Integrations\OperationsModuleIntegration.js">
       <SubType>Code</SubType>
     </Compile>
@@ -73,9 +73,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DebugLog.js" />
-    <Compile Include="exchange\ExchangeAPI.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="IndicatorBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
@@ -91,13 +88,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="exchange\wrappers\binanceProperties.json" />
-    <Content Include="exchange\wrappers\poloniexProperties.json" />
     <Content Include="this.config.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Exchange\" />
-    <Folder Include="Exchange\wrappers\" />
     <Folder Include="Integrations\" />
     <Folder Include="utils\" />
   </ItemGroup>

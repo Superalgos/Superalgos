@@ -12,3 +12,6 @@ exchange/Auth0.js
 .env
 
 \.vscode/
+Project.njsproj
+coverage/*
+.nyc_output/**

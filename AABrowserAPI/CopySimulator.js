@@ -106,23 +106,23 @@ exports.newCopySimulator = function newCopySimulator(pStorage) {
 
     async function getFileContent(containerName, blobName) {
         storage.readData[util.promisify.custom] = n => new Promise((resolve, reject) => {
-            storage.readData(pOrg, pPath, pFile, saveAtCache, (err, pFileContent) => {
+            storage.readData("AATemplate", containerName, blobName, false, (err, pFileContent) => {
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                     reject(err)
                 } else {
-                    resolve(JSON.parse(pFileContent))
+                    resolve(pFileContent)
                 }
             })
         })
 
         let readData = util.promisify(storage.readData)
-        let fileContent = await readData("AATemplate", containerName, blobName, false)
+        let fileContent = await readData()
         return fileContent
     }
 
     async function writeFileContent(teamName, containerName, blobName, content) {
         storage.writeData[util.promisify.custom] = n => new Promise((resolve, reject) => {
-            storage.writeData(pOrg, pPath, pFile, pFileContent, (err, value) => {
+            storage.writeData(teamName, containerName, blobName, content, (err, value) => {
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                     reject(err)
                 } else {
@@ -132,7 +132,7 @@ exports.newCopySimulator = function newCopySimulator(pStorage) {
         })
 
         let writeData = util.promisify(storage.writeData)
-        let response = await writeData(teamName, containerName, blobName, content)
+        let response = await writeData()
         return response
     }
 

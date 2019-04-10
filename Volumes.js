@@ -27,9 +27,8 @@
 
     /* this is part of the module template */
 
-    let container = newContainer();     // Do not touch this 3 lines, they are just needed.
-    container.initialize();
-    thisObject.container = container;
+    thisObject.container = newContainer()
+    thisObject.container.initialize(MODULE_NAME)
 
     let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
     let plotAreaFrame = newTimeLineCoordinateSystem();  // This chart uses this extra object.
@@ -62,6 +61,7 @@
             viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
             marketFiles.eventHandler.stopListening("Files Updated", onFilesUpdated);
             canvas.eventHandler.stopListening("Drag Finished", onDragFinished);
+            thisObject.container.eventHandler.stopListening('Dimmensions Changed', onContainerDimmensionsChanged)
 
             /* Destroyd References */
 
@@ -116,6 +116,14 @@
             recalculate();
             recalculateScaleY();
 
+            thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', onContainerDimmensionsChanged)
+
+            function onContainerDimmensionsChanged() {
+                recalculateScaleX();
+                recalculate();
+                recalculateScaleY();
+            }
+
             callBackFunction();
 
         } catch (err) {
@@ -142,9 +150,9 @@
 
             /* First we check if this point is inside this space. */
 
-            if (this.container.frame.isThisPointHere(point) === true) {
+            if (thisObject.container.frame.isThisPointHere(point) === true) {
 
-                return this.container;
+                return thisObject.container;
 
             } else {
 
@@ -257,7 +265,7 @@
 
             if (INTENSIVE_LOG === true) { logger.write("[INFO] draw -> Entering function."); }
 
-            this.container.frame.draw();
+            thisObject.container.frame.draw();
 
             plotChart();
 
@@ -522,6 +530,9 @@
 
             if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
 
+            let userPosition = getUserPosition()
+            userPositionDate = userPosition.point.x
+
             if (volumes.length > 0) {
 
                 /* Now we calculate and plot the volumes */
@@ -728,25 +739,11 @@
 
                         browserCanvasContext.closePath();
 
+                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.40)';
 
-                        if (datetime !== undefined) {
-
-                            let dateValue = datetime.valueOf();
-
-                            if (dateValue >= volume.begin && dateValue <= volume.end) {
-
-                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current bar accroding to time
-
-                            } else {
-
-                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.40)';
-                            }
-
-                        } else {
-
-                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.40)';
-
-                        }
+                        if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
+                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current bar accroding to time
+                        } 
 
                         browserCanvasContext.fill();
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 0.40)';
@@ -763,32 +760,17 @@
 
                         browserCanvasContext.closePath();
 
-                        if (datetime !== undefined) {
+                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 0.40)';
 
-                            let dateValue = datetime.valueOf();
-
-                            if (dateValue >= volume.begin && dateValue <= volume.end) {
-
-                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current volume accroding to time
-
-                            } else {
-
-                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 0.40)';
-                            }
-
-                        } else {
-
-                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 0.40)';
-
-                        }
+                        if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
+                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current volume accroding to time
+                        } 
 
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', 0.40)';
 
                         browserCanvasContext.fill();
                         browserCanvasContext.lineWidth = 1;
                         browserCanvasContext.stroke();
-
-
 
                         if (datetime !== undefined) {
 

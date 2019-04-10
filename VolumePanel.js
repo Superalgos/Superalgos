@@ -44,9 +44,9 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
 
         /* First we check if this point is inside this space. */
 
-        if (this.container.frame.isThisPointHere(point, true) === true) {
+        if (thisObject.container.frame.isThisPointHere(point, true) === true) {
 
-            return this.container;
+            return thisObject.container;
 
         } else {
 
@@ -67,7 +67,7 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
 
     function draw() {
 
-        this.container.frame.draw(false, false, true);
+        thisObject.container.frame.draw(false, false, true);
 
         plotCurrentVolumeInfo();
 

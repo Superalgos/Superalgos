@@ -32,9 +32,8 @@
 
     /* this is part of the module template */
 
-    let container = newContainer();     // Do not touch this 3 lines, they are just needed.
-    container.initialize();
-    thisObject.container = container;
+    thisObject.container = newContainer()
+    thisObject.container.initialize(MODULE_NAME)
 
     let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
 
@@ -64,6 +63,7 @@
             viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
             marketFiles.eventHandler.stopListening("Files Updated", onFilesUpdated);
             canvas.eventHandler.stopListening("Drag Finished", onDragFinished);
+            thisObject.container.eventHandler.stopListening('Dimmensions Changed', onContainerDimmensionsChanged)
 
             /* Destroyd References */
 
@@ -118,6 +118,13 @@
 
             recalculate();
 
+            thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', onContainerDimmensionsChanged)
+
+            function onContainerDimmensionsChanged() {
+                recalculateScale()
+                recalculate();
+            }
+
             callBackFunction();
 
         } catch (err) {
@@ -136,9 +143,9 @@
 
             /* First we check if this point is inside this space. */
 
-            if (this.container.frame.isThisPointHere(point) === true) {
+            if (thisObject.container.frame.isThisPointHere(point) === true) {
 
-                return this.container;
+                return thisObject.container;
 
             } else {
 
@@ -348,7 +355,7 @@
 
             if (INTENSIVE_LOG === true) { logger.write("[INFO] draw -> Entering function."); }
 
-            this.container.frame.draw();
+            thisObject.container.frame.draw();
 
             plotChart();
 
@@ -605,6 +612,9 @@
 
             if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
 
+            let userPosition = getUserPosition()
+            userPositionDate = userPosition.point.x
+
             if (candles.length > 0) {
 
                 /* Now we calculate and plot the candles */
@@ -698,21 +708,11 @@
                     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
                     browserCanvasContext.fill();
 
-                    if (datetime !== undefined) {
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
 
-                        let dateValue = datetime.valueOf();
-
-                        if (dateValue >= candle.begin && dateValue <= candle.end) {
-
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current candle accroding to time
-
-                        } else {
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
-                        }
-
-                    } else {
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
-                    }
+                    if (userPositionDate >= candle.begin && userPositionDate <= candle.end) {
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current candle accroding to time
+                    } 
 
                     browserCanvasContext.lineWidth = 1;
                     browserCanvasContext.stroke();
@@ -730,45 +730,28 @@
                     if (candle.direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', 1)'; }
                     if (candle.direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
 
-                    if (datetime !== undefined) {
+                    if (candle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'; }
+                    if (candle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'; }
+                    if (candle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
 
-                        let dateValue = datetime.valueOf();
+                    if (userPositionDate >= candle.begin && userPositionDate <= candle.end) {
 
-                        if (dateValue >= candle.begin && dateValue <= candle.end) {
+                        /* highlight the current candle */
 
-                            /* highlight the current candle */
+                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current candle accroding to time
 
-                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current candle accroding to time
-
-                            let currentCandle = {
-                                bodyWidth: candlePoint2.x - candlePoint1.x,
-                                bodyHeight: candlePoint3.y - candlePoint2.y,
-                                stickHeight: stickPoint4.y - stickPoint2.y,
-                                stickWidth: stickPoint2.x - stickPoint1.x,
-                                stickStart: candlePoint2.y - stickPoint2.y,
-                                period: timePeriod,
-                                innerCandle: candle
-                            };
-
-                            thisObject.container.eventHandler.raiseEvent("Current Candle Changed", currentCandle);
-
-                        } else {
-
-                            if (candle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'; }
-                            if (candle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'; }
-                            if (candle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
-                        }
-
-                    } else {
-
-                        if (candle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'; }
-                        if (candle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'; }
-                        if (candle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
-
+                        let currentCandle = {
+                            bodyWidth: candlePoint2.x - candlePoint1.x,
+                            bodyHeight: candlePoint3.y - candlePoint2.y,
+                            stickHeight: stickPoint4.y - stickPoint2.y,
+                            stickWidth: stickPoint2.x - stickPoint1.x,
+                            stickStart: candlePoint2.y - stickPoint2.y,
+                            period: timePeriod,
+                            innerCandle: candle
+                        };
+                        thisObject.container.eventHandler.raiseEvent("Current Candle Changed", currentCandle);
                     }
-
-
-
+          
                     if (
                         candlePoint1.x < viewPort.visibleArea.topLeft.x + 50
                         ||

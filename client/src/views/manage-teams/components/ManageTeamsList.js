@@ -129,9 +129,11 @@ export const ManageTeamsList = ({ classes, match, ...props }) => (
                 </Typography>
 
                 <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-                  To begin developing on the Advanced Algos platform, as well as to participate in trading competitions,
-                  you will need to create a team or become a member of an existing one. Currently, the only option is to create your own team. As part of the same process, an already existing trading bot will be forked for you so that you do not have to start from scratch. It will be added to your team so
-                  that you can begin experimenting right away.
+                  To begin developing on the Superalgos platform, as well as to participate in trading competitions, you will need to create a team or become a member of an existing one.
+
+                  Currently, the only option is to create your own team. A trading algobot and simulator algobot will automatically be forked. 
+
+                  After team creation, go to the Strategizer to create trade strategies for your algobots to consume!
                 </Typography>
                 <CreateTeamForm />
 

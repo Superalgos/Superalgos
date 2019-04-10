@@ -125,13 +125,15 @@ export class CreateTeamForm extends Component {
                 onChange={this.handleChange}
                 error={this.state.botNameError !== ''}
               />
-              {this.state.botNameError !== '' && (
-                <FormHelperText>{this.state.botNameError}</FormHelperText>
-              )}
-              {error && <FormHelperText>{errors}</FormHelperText>}
-              {loader}
 
               <Grid container justify='center' >
+                <Grid item>
+                  {this.state.botNameError !== '' && (
+                    <FormHelperText>{this.state.botNameError}</FormHelperText>
+                  )}
+                  {error && <FormHelperText>{errors}</FormHelperText>}
+                  {loader}
+                </Grid>
                 <Grid item>
 
                   <Button

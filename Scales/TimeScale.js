@@ -14,7 +14,7 @@ function newTimeScale () {
   thisObject.container = container
 
   thisObject.container.frame.width = viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x
-  thisObject.container.frame.height = 50
+  thisObject.container.frame.height = 100
 
   container.frame.position.x = viewPort.visibleArea.bottomRight.x
   container.frame.position.y = TOP_SPACE_HEIGHT

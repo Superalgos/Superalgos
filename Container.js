@@ -65,7 +65,6 @@ function newContainer () {
 
     if (dimmensionsChanged) {
       thisObject.eventHandler.raiseEvent('Dimmensions Changed', event)
-      console.log(thisObject.name + ' new width = ' + thisObject.frame.width)
     }
   }
 }

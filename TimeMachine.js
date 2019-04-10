@@ -29,6 +29,12 @@ function newTimeMachine () {
   thisObject.container.initialize(MODULE_NAME)
   thisObject.container.isDraggeable = false
 
+  thisObject.container.frame.width = TIME_MACHINE_WIDTH
+  thisObject.container.frame.height = TIME_MACHINE_HEIGHT * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
+
+  thisObject.container.frame.position.x = browserCanvas.width / 2 - TIME_MACHINE_WIDTH / 2
+  thisObject.container.frame.position.y = browserCanvas.height / 2 - TIME_MACHINE_HEIGHT / 2
+
   let controlPanelHandle             // We need this to destroy the Panel when this object is itself destroyed or no longer needs it...
                                     // ... also to request a reference to the object for the cases we need it.
   const SEPARATION_BETWEEN_TIMELINE_CHARTS = 1.5
@@ -64,8 +70,18 @@ function newTimeMachine () {
     timeScale = newTimeScale()
     timeScale.initialize()
 
-    timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (newPercentageLength) {
-      thisObject.container.frame.width = thisObject.container.parentContainer.frame.width * newPercentageLength / 100
+    timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
+      newPercentageLength = event.lenghtPercentage
+
+      let a = event.mousePosition.x
+      let b = (browserCanvas.width / 2 - TIME_MACHINE_WIDTH / 2) * (-1)
+      let d = TIME_MACHINE_WIDTH
+      let f = TIME_MACHINE_WIDTH * newPercentageLength / 100
+      let g = viewPort.displacement.x
+      let c = (((a + b + g) / d) * f) - a - g
+
+      thisObject.container.frame.width = f
+      thisObject.container.frame.position.x = c * (-1)
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed')
     })
 

@@ -172,8 +172,8 @@ const MAX_PLOTABLE_DATE = maxDate;
 We define here the size of the chartSpace. It has to bee enough big in order to accomodate all the charts we expect to display in this space.
 */
 
-const CHART_SPACE_WIDTH = browserCanvas.width * 1000;
-const CHART_SPACE_HEIGHT = browserCanvas.height * 100;
+const TIME_MACHINE_WIDTH = browserCanvas.width * 1000;
+const TIME_MACHINE_HEIGHT = browserCanvas.height * 100;
 
 function toRadians(angle) {
     return angle * (Math.PI / 180);

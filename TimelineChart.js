@@ -160,7 +160,7 @@
        canvas.bottomSpace.chartAspectRatio.container.eventHandler.listenToEvent('Chart Aspect Ratio Changed', onAspectRatioChanged)
 
        function onAspectRatioChanged (pAspectRatio) {
-         thisObject.container.frame.height = CHART_SPACE_HEIGHT * pAspectRatio.y
+         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * pAspectRatio.y
          recalculateScale()
        }
      } catch (err) {

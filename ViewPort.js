@@ -15,6 +15,7 @@ function newViewPort () {
     zoomTargetLevel: undefined,
     zoomLevel: undefined,
     mousePosition: undefined,
+    offset: undefined,
     newZoomLevel: newZoomLevel,
     applyZoom: applyZoom,
     isMinZoom: isMinZoom,
@@ -33,7 +34,7 @@ function newViewPort () {
 
   let increment = 0.035
 
-  var offset = {
+  let offset = {
     x: 0,
     y: 0
   }

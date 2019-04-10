@@ -38,7 +38,8 @@ function newTimeScale () {
       thisObject.lenghtPercentage = thisObject.lenghtPercentage + 10
       if (thisObject.lenghtPercentage > 100) { thisObject.lenghtPercentage = 100 }
     }
-    thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', thisObject.lenghtPercentage)
+    event.lenghtPercentage = thisObject.lenghtPercentage
+    thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
   }
 
   function getContainer (point) {

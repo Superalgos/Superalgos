@@ -55,6 +55,16 @@
      panelTabButton.container.frame.parentFrame = thisObject.container.frame
      panelTabButton.initialize()
 
+     /* Get the current teams of the logged in user. */
+
+     let storedTeams = window.localStorage.getItem('userTeams')
+     let userTeams
+     let userTeam = {slug: ''}
+     if (storedTeams !== null && storedTeams !== undefined && storedTeams !== '') {
+       userTeams = JSON.parse(storedTeams)
+       userTeam = userTeams[0] // Currently we assume a user can be at only one team.
+     }
+
         /* First thing is to build the productCards array */
 
      let devTeams = ecosystem.getTeams()
@@ -66,7 +76,7 @@
          let bot = devTeam.bots[j]
 
          if (bot.type !== 'Indicator' && bot.cloneId === undefined) { continue }
-         if (bot.type === 'Indicator' && (devTeam.codeName !== 'AAMasters' && devTeam.codeName !== 'AAVikings')) { continue }
+         if (bot.type === 'Indicator' && (devTeam.codeName !== 'AAMasters' && devTeam.codeName !== 'AAVikings' && devTeam.codeName !== userTeam.slug)) { continue }
 
          if (bot.products !== undefined) {
            for (let k = 0; k < bot.products.length; k++) {

@@ -32,7 +32,7 @@ const VERIFY_TEAM_INVITE = gql`
 export const defaultOptions = {
   oidcConformant: true,
   autoclose: true,
-  allowedConnections: ['Username-Password-Authentication'],
+  allowedConnections: ['Username-Password-Authentication', 'github'],
   auth: {
     sso: true,
     redirectUrl: window.location.origin + '/callback',
@@ -49,13 +49,14 @@ export const defaultOptions = {
   languageDictionary: {
     title: 'Superalgos Platform'
   },
-  avatar:null
+  avatar: null,
+  mustAcceptTerms: true
 }
 
 export const inviteOptions = {
   oidcConformant: true,
   autoclose: false,
-  allowedConnections: ['Username-Password-Authentication'],
+  allowedConnections: ['Username-Password-Authentication', 'github'],
   allowShowPassword: true,
   auth: {
     sso: false,
@@ -67,7 +68,12 @@ export const inviteOptions = {
       scope: `email`
     }
   },
-  prefill: { email: '' }
+  prefill: { email: '' },
+  languageDictionary: {
+    title: 'Superalgos Platform'
+  },
+  avatar: null,
+  mustAcceptTerms: true
 }
 
 let lock = new Auth0Lock(

@@ -8,7 +8,7 @@ import jwksRsa from 'jwks-rsa'
 import axios from 'axios'
 
 import { createTransformedRemoteSchema } from './createRemoteSchema'
-import { teams, events } from './links'
+import { teams, events, operations } from './links'
 
 import logger from './logger'
 
@@ -70,15 +70,31 @@ async function run () {
     'notifications_',
     process.env.NOTIFICATIONS_API_URL,
     process.env.NOTIFICATIONS_API_PRESHARED)
+  const transformedLogsSchema = await createTransformedRemoteSchema(
+    'logs_',
+    process.env.LOGS_API_URL,
+    process.env.LOGS_API_PRESHARED)
+  // const transformedMinersSchema = await createTransformedRemoteSchema(
+  //     'miners_',
+  //     process.env.MINERS_API_URL,
+  //     process.env.MINERS_PRESHARED)
+  const transformeStrategizerSchema = await createTransformedRemoteSchema(
+    'strategizer_',
+    process.env.STRATEGIZER_API_URL,
+    process.env.STRATEGIZER_API_PRESHARED)
+  const transformeCockpitSchema = await createTransformedRemoteSchema(
+    'cockpit_',
+    process.env.COCKPIT_API_URL,
+    process.env.COCKPIT_API_PRESHARED)
 
   var schemas = []
   var resolvers = {}
 
   if (transformedTeamsSchema) {
     schemas.push(transformedTeamsSchema)
-    if (transformedUsersSchema) {
+    if (transformedUsersSchema && transformedEventsSchema && transformeStrategizerSchema) {
       schemas.push(teams.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema))
+      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema, transformedEventsSchema, transformeStrategizerSchema))
     }
   }
   if (transformedUsersSchema) {
@@ -86,9 +102,9 @@ async function run () {
   }
   if (transformedEventsSchema) {
     schemas.push(transformedEventsSchema)
-    if (transformedUsersSchema && transformedTeamsSchema) {
+    if (transformedUsersSchema && transformedTeamsSchema && transformedOperationsSchema) {
       schemas.push(events.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, events.resolver(transformedUsersSchema, transformedTeamsSchema))
+      resolvers = Object.assign(resolvers, events.resolver(transformedUsersSchema, transformedTeamsSchema, transformedOperationsSchema))
     }
   }
   if (transformedKeyVaultSchema) {
@@ -99,9 +115,22 @@ async function run () {
   }
   if (transformedOperationsSchema) {
     schemas.push(transformedOperationsSchema)
+    if (transformedTeamsSchema && transformeCockpitSchema) {
+      schemas.push(operations.linkSchemaDefs)
+      resolvers = Object.assign(resolvers, operations.resolver(transformedTeamsSchema, transformeCockpitSchema))
+    }
   }
   if (transformedNotificationsSchema) {
     schemas.push(transformedNotificationsSchema)
+  }
+  if (transformedLogsSchema) {
+    schemas.push(transformedLogsSchema)
+  }
+  if (transformeStrategizerSchema) {
+    schemas.push(transformeStrategizerSchema)
+  }
+  if (transformeCockpitSchema) {
+    schemas.push(transformeCockpitSchema)
   }
 
   const schema = mergeSchemas({
@@ -166,8 +195,8 @@ async function run () {
     schema,
     context,
     formatError: error => {
-      logger.error(`An error ocurred inside a module: ${JSON.stringify(error)}`)
-      return error
+      logger.error('An error ocurred inside a module: %s', error.message)
+      return error.message
     },
     formatResponse: response => {
       logger.debug('Response from Apollo Server: ' + response)
@@ -181,29 +210,6 @@ async function run () {
     }
   })
 
-  const whitelist = [
-    process.env.PROJECT_SITE_URL,
-    process.env.PLATFORM_URL,
-    process.env.GRAPHQL_API_URL,
-    process.env.TEAMS_API_URL,
-    process.env.USERS_API_URL,
-    process.env.EVENTS_API_URL,
-    process.env.KEYVAULT_API_URL,
-    process.env.FINANCIAL_BEINGS_API_URL,
-    process.env.NOTIFICATIONS_API_URL
-  ]
-
-  const corsOptionsDelegate = (req, callback) => {
-    let corsOptions
-    if (whitelist.indexOf(req.header('Origin')) !== -1) {
-      corsOptions = { origin: true, credentials: true }
-    } else {
-      corsOptions = { origin: false, credentials: true }
-    }
-    callback(null, corsOptions)
-  }
-
-  // server.applyMiddleware({ app, cors: corsOptionsDelegate })
   server.applyMiddleware({ app, cors: { origin: true, credentials: true, methods:'GET,PUT,POST,DELETE,OPTIONS'}})
 
   app.listen(4100)

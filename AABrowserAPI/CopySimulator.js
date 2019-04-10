@@ -70,7 +70,7 @@ exports.newCopySimulator = function newCopySimulator(pStorage) {
 
             // Write the new files
             let newSimulatorName = "simulator-" + pBotCodeName + "-Indicator-Bot"
-            let newSimulatorPath = "/bots/" + newSimulatorName
+            let newSimulatorPath = "bots/" + newSimulatorName
             await writeFileContent(pTeamCodeName, newSimulatorPath, "Commons.js", commons)
             await writeFileContent(pTeamCodeName, newSimulatorPath, "this.bot.config.json", beautify(parsedConfig, null, 2, 80))
             await writeFileContent(pTeamCodeName, newSimulatorPath + "/Multi-Period-Daily", "User.Bot.js", codeDaily)
@@ -107,11 +107,7 @@ exports.newCopySimulator = function newCopySimulator(pStorage) {
     async function getFileContent(containerName, blobName) {
         storage.readData[util.promisify.custom] = n => new Promise((resolve, reject) => {
             storage.readData("AATemplate", containerName, blobName, false, (err, pFileContent) => {
-                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    reject(err)
-                } else {
-                    resolve(pFileContent)
-                }
+                resolve(pFileContent)
             })
         })
 
@@ -123,11 +119,7 @@ exports.newCopySimulator = function newCopySimulator(pStorage) {
     async function writeFileContent(teamName, containerName, blobName, content) {
         storage.writeData[util.promisify.custom] = n => new Promise((resolve, reject) => {
             storage.writeData(teamName, containerName, blobName, content, (err, value) => {
-                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    reject(err)
-                } else {
-                    resolve()
-                }
+                resolve()
             })
         })
 
@@ -140,11 +132,7 @@ exports.newCopySimulator = function newCopySimulator(pStorage) {
         try {
             storage.deleteBlob[util.promisify.custom] = n => new Promise((resolve, reject) => {
                 storage.deleteBlob(teamName, containerName, blobName, (err, value) => {
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        reject(err)
-                    } else {
-                        resolve()
-                    }
+                    resolve()
                 })
             })
 

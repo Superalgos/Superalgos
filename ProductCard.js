@@ -254,7 +254,7 @@ function newProductCard () {
         botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + '-' + BOT)
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }
   }
 

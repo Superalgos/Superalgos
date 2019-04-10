@@ -103,7 +103,7 @@ function newCanvas () {
            // IE 6/7/8
       else browserCanvas.detachEvent('onmousewheel', onMouseWheel)
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
   }
 
@@ -138,7 +138,7 @@ function newCanvas () {
 
           viewPort.raiseEvents() // These events will impacts on objects just initialized.
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCharSpaceInitialized -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCharSpaceInitialized -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
@@ -182,7 +182,7 @@ function newCanvas () {
                                /* Display some Error Page here. */
               }
             } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onAnimationInitialized -> onFunctionAdded -> err = ' + err) }
+              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onAnimationInitialized -> onFunctionAdded -> err = ' + err.stack) }
               callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
           }
@@ -211,18 +211,17 @@ function newCanvas () {
                 }
               }
             } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onAnimationInitialized -> onStart -> err = ' + err) }
+              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onAnimationInitialized -> onStart -> err = ' + err.stack) }
               callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onAnimationInitialized -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onAnimationInitialized -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err.stack = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -237,7 +236,7 @@ function newCanvas () {
 
       viewPort.initialize()
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initializeBrowserCanvas -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initializeBrowserCanvas -> err = ' + err.stack) }
     }
   }
 
@@ -268,7 +267,7 @@ function newCanvas () {
         e.preventDefault()
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] addCanvasEvents -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] addCanvasEvents -> err = ' + err.stack) }
     }
   }
 
@@ -355,7 +354,7 @@ function newCanvas () {
 
       viewPortBeingDragged = true
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseDown -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseDown -> err = ' + err.stack) }
     }
   }
 
@@ -421,7 +420,7 @@ function newCanvas () {
         return
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseClick -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseClick -> err = ' + err.stack) }
     }
   }
 
@@ -450,7 +449,7 @@ function newCanvas () {
 
       browserCanvas.style.cursor = 'auto'
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseUp -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseUp -> err = ' + err.stack) }
     }
   }
 
@@ -486,7 +485,7 @@ function newCanvas () {
         onMouseOver(event)
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseMove -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseMove -> err = ' + err.stack) }
     }
   }
 
@@ -554,7 +553,7 @@ function newCanvas () {
         return
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseOver -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseOver -> err = ' + err.stack) }
     }
   }
 
@@ -612,7 +611,7 @@ function newCanvas () {
         return false  // This instructs the browser not to take the event and scroll the page.
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseWheel -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseWheel -> err = ' + err.stack) }
     }
   }
 
@@ -679,7 +678,7 @@ function newCanvas () {
         dragVector.downY = dragVector.upY
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] checkDrag -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] checkDrag -> err = ' + err.stack) }
     }
   }
 }

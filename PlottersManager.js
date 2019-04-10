@@ -90,7 +90,7 @@ function newPlottersManager () {
         competitionPlotters.splice(i, 1) // Delete item from array.
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -192,17 +192,17 @@ function newPlottersManager () {
                 }
               }
             } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCompetitionPlottersInitialized -> onProductPlottersInitialized -> err = ' + err) }
+              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCompetitionPlottersInitialized -> onProductPlottersInitialized -> err = ' + err.stack) }
               callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCompetitionPlottersInitialized -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCompetitionPlottersInitialized -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -329,17 +329,17 @@ function newPlottersManager () {
 
               callBack(GLOBAL.DEFAULT_OK_RESPONSE)
             } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> onPlotterInizialized -> err = ' + err) }
+              if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> onPlotterInizialized -> err = ' + err.stack) }
               callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> err = ' + err.stack) }
           callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> err = ' + err.stack) }
       callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -411,7 +411,7 @@ function newPlottersManager () {
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotters -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotters -> err = ' + err.stack) }
       callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -585,17 +585,17 @@ function newPlottersManager () {
 
               callBack(GLOBAL.DEFAULT_OK_RESPONSE)
             } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> err = ' + err) }
+              if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> err = ' + err.stack) }
               callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> onProductStorageInitialized -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> onProductStorageInitialized -> err = ' + err.stack) }
           callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> err = ' + err.stack) }
       callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }

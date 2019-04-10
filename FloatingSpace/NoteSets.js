@@ -43,7 +43,7 @@ function newNoteSets () {
 
       callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE)
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -296,11 +296,11 @@ function newNoteSets () {
 
           if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> noteSet.floatingNotes.length = ' + noteSet.floatingNotes.length) }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] createNoteSet -> onNotesChanged -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] createNoteSet -> onNotesChanged -> err = ' + err.stack) }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] createNoteSet -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] createNoteSet -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -330,7 +330,7 @@ function newNoteSets () {
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] destroyNoteSet -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] destroyNoteSet -> err = ' + err.stack) }
     }
   }
 }

@@ -248,10 +248,10 @@ exports.newMinioBlobBlobStorage = function newMinioBlobBlobStorage(BOT, logger) 
                     }
 
                     /* Console logging */
-                    console.log(MODULE_NAME, "[INFO] 'getTextFile' -> onFileReceived -> File read from MINIO -> File = " + pFolderPath + "/" + pFileName);
+                    logger.write(MODULE_NAME, "[INFO] 'getTextFile' -> onFileReceived -> File read from MINIO -> File = " + pFolderPath + "/" + pFileName);
 
                     if (err) {
-                        console.log(MODULE_NAME, "[WARN] 'getTextFile' -> onFileReceived -> File read from MINIO -> err = " + err.message);
+                        logger.write(MODULE_NAME, "[WARN] 'getTextFile' -> onFileReceived -> File read from MINIO -> err = " + err.message);
                     }
 
                     if (err) {

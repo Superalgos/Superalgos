@@ -25,17 +25,15 @@ function newTimeMachine () {
     finalize: finalize
   }
 
-  let container = newContainer()
-  container.initialize()
-  thisObject.container = container
+  thisObject.container = newContainer()
+  thisObject.container.initialize(MODULE_NAME)
   thisObject.container.isDraggeable = false
 
-  container.displacement.containerName = 'Time Machine'
-  container.frame.containerName = 'Time Machine'
-
   let controlPanelHandle             // We need this to destroy the Panel when this object is itself destroyed or no longer needs it...
-          // ... also to request a reference to the object for the cases we need it.
+                                    // ... also to request a reference to the object for the cases we need it.
   const SEPARATION_BETWEEN_TIMELINE_CHARTS = 1.5
+
+  let timeScale
 
   return thisObject
 
@@ -55,24 +53,27 @@ function newTimeMachine () {
   function initialize (callBackFunction) {
     if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
-        /* Each Time Machine has a Control Panel. */
+      /* Each Time Machine has a Control Panel. */
 
     let panelOwner = 'Global'
     controlPanelHandle = canvas.panelsSpace.createNewPanel('Time Control Panel', undefined, panelOwner)
     let controlPanel = canvas.panelsSpace.getPanel(controlPanelHandle, panelOwner)
 
-        /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
+       /* Each Time Machine has a Time Scale. */
+
+    timeScale = newTimeScale()
+    timeScale.initialize()
+
+    timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', onTimeScaleChanged)
+
+      /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
 
     let position = 0 // This defines the position of each chart respect to each other.
 
     let timelineChart = newTimelineChart()
 
-    timelineChart.container.displacement.parentDisplacement = thisObject.container.displacement
-    timelineChart.container.frame.parentFrame = thisObject.container.frame
+    timelineChart.container.connectToParent(thisObject.container, true, true)
 
-    timelineChart.container.parentContainer = thisObject.container
-
-    timelineChart.container.frame.width = thisObject.container.frame.width * 1
     timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
 
     timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
@@ -131,12 +132,8 @@ function newTimeMachine () {
 
         let timelineChart = newTimelineChart()
 
-        timelineChart.container.displacement.parentDisplacement = thisObject.container.displacement
-        timelineChart.container.frame.parentFrame = thisObject.container.frame
+        timelineChart.container.connectToParent(thisObject.container, true, true)
 
-        timelineChart.container.parentContainer = thisObject.container
-
-        timelineChart.container.frame.width = thisObject.container.frame.width * 1
         timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
 
         timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
@@ -164,6 +161,11 @@ function newTimeMachine () {
     }
   }
 
+  function onTimeScaleChanged (newPercentageLength) {
+    thisObject.container.frame.width = thisObject.container.parentContainer.frame.width * newPercentageLength / 100
+    thisObject.container.eventHandler.raiseEvent('Dimmensions Changed')
+  }
+
   function drawBackground () {
     for (let i = 0; i < this.charts.length; i++) {
       let chart = this.charts[i]
@@ -178,6 +180,8 @@ function newTimeMachine () {
       let chart = this.charts[i]
       chart.draw()
     }
+
+    timeScale.draw()
   }
 
   function getContainer (point) {
@@ -187,14 +191,12 @@ function newTimeMachine () {
 
         /* Now we see which is the inner most container that has it */
 
+    container = timeScale.getContainer(point)
+    if (container !== undefined) { return container }
+
     for (let i = 0; i < this.charts.length; i++) {
       container = this.charts[i].getContainer(point)
-
-      if (container !== undefined) {
-                /* We found an inner container which has the point. We return it. */
-
-        return container
-      }
+      if (container !== undefined) { return container }
     }
 
         /* The point does not belong to any inner container, so we return the current container. */

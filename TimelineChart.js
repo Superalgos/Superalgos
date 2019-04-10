@@ -21,12 +21,8 @@
      finalize: finalize
    }
 
-   let container = newContainer()
-   container.initialize()
-   thisObject.container = container
-
-   container.displacement.containerName = 'Timeline Chart'
-   container.frame.containerName = 'Timeline Chart'
+   thisObject.container = newContainer()
+   thisObject.container.initialize(MODULE_NAME)
 
    let chartGrid
    let breakpointsBar
@@ -114,12 +110,12 @@
        chartGrid.initialize()
 
        breakpointsBar = newBreakpointsBar()
-       breakpointsBar.initialize(container, timeLineCoordinateSystem)
+       breakpointsBar.initialize(thisObject.container, timeLineCoordinateSystem)
 
        recalculateScale()
 
             // moveViewPortToCurrentDatetime();
-       moveToUserPosition(container, timeLineCoordinateSystem)
+       moveToUserPosition(thisObject.container, timeLineCoordinateSystem)
        timePeriod = INITIAL_TIME_PERIOD
        datetime = INITIAL_DATE
 
@@ -132,13 +128,7 @@
 
        plotterManager = newPlottersManager()
 
-       plotterManager.container.displacement.parentDisplacement = thisObject.container.displacement
-       plotterManager.container.frame.parentFrame = thisObject.container.frame
-
-       plotterManager.container.parentContainer = thisObject.container
-
-       plotterManager.container.frame.width = thisObject.container.frame.width
-       plotterManager.container.frame.height = thisObject.container.frame.height
+       plotterManager.container.connectToParent(thisObject.container, true, true)
 
        plotterManager.container.frame.position.x = 0
        plotterManager.container.frame.position.y = 0

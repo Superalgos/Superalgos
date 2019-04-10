@@ -23,12 +23,8 @@ function newPlottersManager () {
     finalize: finalize
   }
 
-  let container = newContainer()
-  container.initialize()
-  thisObject.container = container
-
-  container.displacement.containerName = 'Plotter Manager'
-  container.frame.containerName = 'Plotter Manager'
+  thisObject.container = newContainer()
+  thisObject.container.initialize(MODULE_NAME)
 
   let initializationReady = false
 
@@ -255,13 +251,7 @@ function newPlottersManager () {
 
           let plotter = getNewPlotter(competition.plotter.host, competition.plotter.codeName, competition.plotter.moduleName)
 
-          plotter.container.displacement.parentDisplacement = thisObject.container.displacement
-          plotter.container.frame.parentFrame = thisObject.container.frame
-
-          plotter.container.parentContainer = thisObject.container
-
-          plotter.container.frame.width = thisObject.container.frame.width * 1
-          plotter.container.frame.height = thisObject.container.frame.height * 1
+          plotter.container.connectToParent(thisObject.container, true, true)
 
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
@@ -503,13 +493,7 @@ function newPlottersManager () {
 
           let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
 
-          plotter.container.displacement.parentDisplacement = thisObject.container.displacement
-          plotter.container.frame.parentFrame = thisObject.container.frame
-
-          plotter.container.parentContainer = thisObject.container
-
-          plotter.container.frame.width = thisObject.container.frame.width * 1
-          plotter.container.frame.height = thisObject.container.frame.height * 1
+          plotter.container.connectToParent(thisObject.container, true, true)
 
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2

@@ -23,20 +23,16 @@ function newChartSpace () {
     finalize: finalize
   }
 
-  var container = newContainer()
-  container.initialize()
-  thisObject.container = container
+  thisObject.container = newContainer()
+  thisObject.container.initialize(MODULE_NAME)
 
   thisObject.container.frame.width = CHART_SPACE_WIDTH
   thisObject.container.frame.height = CHART_SPACE_HEIGHT
 
-  container.displacement.containerName = 'Chart Space'
-  container.frame.containerName = 'Chart Space'
+  thisObject.container.frame.position.x = browserCanvas.width / 2 - thisObject.container.frame.width / 2
+  thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
 
-  container.frame.position.x = browserCanvas.width / 2 - thisObject.container.frame.width / 2
-  container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
-
-  container.isDraggeable = false
+  thisObject.container.isDraggeable = false
 
   return thisObject
 
@@ -63,15 +59,9 @@ function newChartSpace () {
 
     var timeMachine = newTimeMachine()
 
-    timeMachine.container.displacement.parentDisplacement = this.container.displacement
-    timeMachine.container.frame.parentFrame = this.container.frame
-
-    timeMachine.container.parentContainer = this.container
+    timeMachine.container.connectToParent(thisObject.container, true, true)
 
         /* We make the time machine a little bit smaller than the current space. */
-
-    timeMachine.container.frame.width = this.container.frame.width * 1
-    timeMachine.container.frame.height = this.container.frame.height * 1
 
     timeMachine.container.frame.position.x = this.container.frame.width / 2 - timeMachine.container.frame.width / 2
     timeMachine.container.frame.position.y = this.container.frame.height / 2 - timeMachine.container.frame.height / 2

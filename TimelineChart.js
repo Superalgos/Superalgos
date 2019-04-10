@@ -63,6 +63,12 @@
      try {
        if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
+       thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', onContainerDimmensionsChanged)
+
+       function onContainerDimmensionsChanged () {
+         recalculateScale()
+       }
+
             /* We load the logow we will need for the background. */
        exchange = pExchange
        market = pMarket

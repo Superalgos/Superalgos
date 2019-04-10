@@ -64,7 +64,10 @@ function newTimeMachine () {
     timeScale = newTimeScale()
     timeScale.initialize()
 
-    timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', onTimeScaleChanged)
+    timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (newPercentageLength) {
+      thisObject.container.frame.width = thisObject.container.parentContainer.frame.width * newPercentageLength / 100
+      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed')
+    })
 
       /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
 
@@ -159,11 +162,6 @@ function newTimeMachine () {
         }
       }
     }
-  }
-
-  function onTimeScaleChanged (newPercentageLength) {
-    thisObject.container.frame.width = thisObject.container.parentContainer.frame.width * newPercentageLength / 100
-    thisObject.container.eventHandler.raiseEvent('Dimmensions Changed')
   }
 
   function drawBackground () {

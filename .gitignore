@@ -13,3 +13,5 @@ exchange/Auth0.js
 
 \.vscode/
 Project.njsproj
+coverage/*
+.nyc_output/**

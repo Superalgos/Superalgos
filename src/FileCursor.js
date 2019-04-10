@@ -50,7 +50,7 @@ function newFileCursor () {
       timePeriod = undefined
       finalized = true
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
   }
 
@@ -83,7 +83,7 @@ function newFileCursor () {
 
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -168,12 +168,12 @@ function newFileCursor () {
           if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> thisSet = ' + thisSet.codeName) }
           if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> dateString = ' + dateString) }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onFileReceived -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onFileReceived -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> err = ' + err.stack) }
     }
   }
 
@@ -297,7 +297,7 @@ function newFileCursor () {
             default:
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> enterSavingMode -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> enterSavingMode -> err = ' + err.stack) }
         }
       }
 
@@ -376,11 +376,11 @@ function newFileCursor () {
             default:
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> exitSavingMode -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> exitSavingMode -> err = ' + err.stack) }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> err = ' + err.stack) }
     }
   }
 
@@ -395,7 +395,7 @@ function newFileCursor () {
 
       cursorDate = pDatetime
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] setDatetime -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] setDatetime -> err = ' + err.stack) }
     }
   }
 
@@ -407,7 +407,7 @@ function newFileCursor () {
 
       collectGarbage(callBackFunction)
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] reload -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] reload -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -485,7 +485,7 @@ function newFileCursor () {
             }
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] getFiles -> getNextFile -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] getFiles -> getNextFile -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
@@ -530,7 +530,7 @@ function newFileCursor () {
 
           controlLoop()
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] getFiles -> onFileReceived -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] getFiles -> onFileReceived -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
@@ -549,12 +549,12 @@ function newFileCursor () {
             getNextFile()
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] getFiles -> controlLoop -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] getFiles -> controlLoop -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] getFiles -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] getFiles -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -576,7 +576,7 @@ function newFileCursor () {
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] collectGarbage -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] collectGarbage -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }

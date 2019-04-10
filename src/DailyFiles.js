@@ -43,7 +43,7 @@ function newDailyFiles () {
         item.finalize()
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
   }
 
@@ -168,7 +168,7 @@ function newDailyFiles () {
 
                   if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> onInitialized -> expectedFiles = ' + expectedFiles) }
                 } catch (err) {
-                  if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> onInitialized -> err = ' + err) }
+                  if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> onInitialized -> err = ' + err.stack) }
                   callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
                 }
               }
@@ -194,17 +194,17 @@ function newDailyFiles () {
                 }
               }
             } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> loadThemAll -> err = ' + err) }
+              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> loadThemAll -> err = ' + err.stack) }
               callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -246,7 +246,7 @@ function newDailyFiles () {
 
       callBackWhenFileReceived(GLOBAL.DEFAULT_OK_RESPONSE, thisObject) // Note that the call back is called for every file loaded at each cursor.
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onFileReceived -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onFileReceived -> err = ' + err.stack) }
       callBackWhenFileReceived(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -257,7 +257,7 @@ function newDailyFiles () {
 
       return fileCursors.get(pPeriod)
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] getFileCursor -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] getFileCursor -> err = ' + err.stack) }
     }
   }
 
@@ -282,7 +282,7 @@ function newDailyFiles () {
         fileCursor.reload(onFileReceived)
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] setDatetime -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] setDatetime -> err = ' + err.stack) }
     }
   }
 
@@ -307,7 +307,7 @@ function newDailyFiles () {
         fileCursor.reload(onFileReceived)
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> err = ' + err.stack) }
     }
   }
 

@@ -40,13 +40,25 @@ const resolve = async (parent, { clone }, context) => {
     throw new WrongArgumentsError('The key was not provided to run the clone.')
   }
 
-  try {
-    let allUserBotsResponse = await teamQuery(context.authorization, clone.botId)
-    let bot = allUserBotsResponse.data.data.teams_FbByOwner.edges[0].node
-    clone = cloneDetails(bot, clone)
-    clone.createDatetime = new Date().valueOf() / 1000 | 0
-    clone.active = true
+  let allUserBotsResponse = await teamQuery(context.authorization, clone.botId)
+  let bot = allUserBotsResponse.data.data.teams_FbByOwner.edges[0].node
+  clone = cloneDetails(bot, clone)
+  clone.createDatetime = new Date().valueOf() / 1000 | 0
+  clone.active = true
 
+  // TODO Temporary Limitation on bot creation
+  if (!(clone.teamSlug === "AAMasters" || clone.teamSlug === "AAVikings")) {
+    let clones = await Clone.find({
+      authId: context.userId,
+      active: true
+    })
+
+    if (clones !== undefined && clones.length >= 5) {
+      throw new Error('Currently maximum number of clones per user is 5. You can delete an existing clone and try again.')
+    }
+  }
+
+  try {
     let newClone = new Clone(clone)
     newClone.authId = context.userId
     clone.id = newClone._id

@@ -28,8 +28,8 @@ class AddClone extends Component {
     this.state = {
       user: JSON.parse(user),
       selectedBot: { 'id': '' },
-      mode: '',
-      resumeExecution: true,
+      mode: "noTime",
+      resumeExecution: false,
       beginDatetime: DateTime.local().minus({ days: 8 }).startOf('day'),
       endDatetime: DateTime.local(),
       waitTime: 1,
@@ -41,7 +41,7 @@ class AddClone extends Component {
       teamId: '',
       keyId: '',
       exchangeName: exchanges.Coss,
-      processName: '',
+      processName: indicatorProcessNames.Daily,
 
       // Indicator Bot
       startYear: 2019,
@@ -267,9 +267,9 @@ class AddClone extends Component {
                           );
                           if (error) return `Error! ${error.message}`;
                           const list = data.keyVault_AvailableKeys.map((key) => (
-                              <MenuItem key={key.id} value={key.id}>
-                                {key.key.substr(0, 32) + "..." + " - " + key.exchange}
-                              </MenuItem>
+                            <MenuItem key={key.id} value={key.id}>
+                              {key.key.substr(0, 32) + "..." + " - " + key.exchange}
+                            </MenuItem>
                           ));
                           return (
                             <TextField
@@ -359,101 +359,7 @@ class AddClone extends Component {
                 </React.Fragment>
               }
 
-              {(this.state.selectedBot.kind === botTypes.Indicator
-                || this.state.selectedBot.kind === botTypes.Sensor) &&
-                <React.Fragment>
-                  <TextField label="Running Mode"
-                    select
-                    className={classNames(classes.margin, classes.textField, classes.form)}
-                    value={this.state.mode}
-                    onChange={(e) => this.setState({ mode: e.target.value })}
-                    onBlur={(e) => this.setState({ modeError: false })}
-                    error={this.state.modeError}
-                    fullWidth
-                  >
-                    {Object.keys(indicatorStartModes).map(option => (
-                      <MenuItem key={option} value={option}>
-                        {indicatorStartModes[option]}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-
-                  {this.state.mode === "allMonths" &&
-                    <React.Fragment>
-                      <TextField
-                        id="beginYearInput"
-                        select
-                        label="Start Year"
-                        className={classNames(classes.textField, classes.form)}
-                        value={this.state.startYear}
-                        onChange={(e) => this.setState({ startYear: e.target.value })}
-                        fullWidth
-                      >
-                        {getIndicatorYears().map(option => (
-                          <MenuItem key={option} value={option}>
-                            {option}
-                          </MenuItem>
-                        ))}
-                      </TextField>
-
-                      <TextField
-                        id="endYearInput"
-                        select
-                        label="End Year"
-                        className={classNames(classes.textField, classes.form)}
-                        value={this.state.endYear}
-                        onChange={(e) => this.setState({ endYear: e.target.value })}
-                        fullWidth
-                      >
-                        {getIndicatorYears().map(option => (
-                          <MenuItem key={option} value={option}>
-                            {option}
-                          </MenuItem>
-                        ))}
-                      </TextField>
-                    </React.Fragment>
-                  }
-
-                  {this.state.mode === "oneMonth" &&
-                    <React.Fragment>
-                      <TextField
-                        id="beginYearInput"
-                        select
-                        label="Year"
-                        className={classNames(classes.textField, classes.form)}
-                        value={this.state.startYear}
-                        onChange={(e) => this.setState({ startYear: e.target.value })}
-                        fullWidth
-                      >
-                        {getIndicatorYears().map(option => (
-                          <MenuItem key={option} value={option}>
-                            {option}
-                          </MenuItem>
-                        ))}
-                      </TextField>
-
-                      <TextField
-                        id="endMonthInput"
-                        select
-                        label="Month"
-                        className={classNames(classes.textField, classes.form)}
-                        value={this.state.month}
-                        onChange={(e) => this.setState({ month: e.target.value })}
-                        fullWidth
-                      >
-                        {availableMonths.map((option, index) => (
-                          <MenuItem key={index} value={index + 1}>
-                            {option}
-                          </MenuItem>
-                        ))}
-                      </TextField>
-                    </React.Fragment>
-                  }
-                </React.Fragment>
-              }
-
-
-              {(this.state.mode === "noTime" && this.state.selectedBot.kind !== botTypes.Sensor ) &&
+              {(this.state.mode === "noTime" && this.state.selectedBot.kind !== botTypes.Sensor) &&
                 <React.Fragment>
                   <Typography className={classes.typography} variant='subtitle1' align='justify'>
                     The Resume Execution option let's you pick up the context of
@@ -612,8 +518,8 @@ class AddClone extends Component {
     if (!this.state.serverError)
       this.setState({
         selectedBot: { 'id': '' },
-        mode: '',
-        resumeExecution: true,
+        mode: 'noTime',
+        resumeExecution: false,
         beginDatetime: DateTime.local().minus({ days: 8 }).startOf('day'),
         endDatetime: DateTime.local(),
         waitTime: 1,
@@ -621,10 +527,19 @@ class AddClone extends Component {
         stateDatetime: 0,
         createDatetime: 0,
         runAsTeam: false,
-        processName: '',
+        exchangeName: exchanges.Coss,
+        processName: indicatorProcessNames.Daily,
         teams: [],
         teamId: '',
         keyId: '',
+
+        // Indicator Bot
+        startYear: 2019,
+        endYear: 2019,
+        month: 1,
+
+        //TradingBot
+        timePeriod: '01-hs',
 
         //Error handlers
         nameError: false,

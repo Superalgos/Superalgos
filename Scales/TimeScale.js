@@ -29,8 +29,9 @@ function newTimeScale () {
     thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
   }
 
-  function onMouseWheel (pDelta) {
-    if (pDelta < 0) {
+  function onMouseWheel (event) {
+    delta = event.wheelDelta
+    if (delta < 0) {
       thisObject.lenghtPercentage = thisObject.lenghtPercentage - 10
       if (thisObject.lenghtPercentage < 50) { thisObject.lenghtPercentage = 50 }
     } else {

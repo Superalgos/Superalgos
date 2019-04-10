@@ -77,7 +77,7 @@ function newTimeMachine () {
 
     timelineChart.container.connectToParent(thisObject.container, true, true)
 
-    timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
+    timelineChart.container.frame.height = thisObject.container.frame.height
 
     timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
     timelineChart.container.frame.position.y = timelineChart.container.frame.height * SEPARATION_BETWEEN_TIMELINE_CHARTS * position
@@ -137,7 +137,7 @@ function newTimeMachine () {
 
         timelineChart.container.connectToParent(thisObject.container, true, true)
 
-        timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
+        timelineChart.container.frame.height = thisObject.container.frame.height
 
         timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
         timelineChart.container.frame.position.y = timelineChart.container.frame.height * SEPARATION_BETWEEN_TIMELINE_CHARTS * position

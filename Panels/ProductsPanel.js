@@ -138,14 +138,15 @@
      isInitialized = true
    }
 
-   function onMouseWheel (pDelta) {
-     if (pDelta > 0) {
-       pDelta = -1
+   function onMouseWheel (event) {
+     delta = event.wheelDelta
+     if (delta > 0) {
+       delta = -1
      } else {
-       pDelta = 1
+       delta = 1
      }
 
-     firstVisibleCard = firstVisibleCard + pDelta
+     firstVisibleCard = firstVisibleCard + delta
 
      let availableSlots = visibleProductCards.length
 

@@ -27,7 +27,7 @@ function newChartSpace () {
   thisObject.container.initialize(MODULE_NAME)
 
   thisObject.container.frame.width = CHART_SPACE_WIDTH
-  thisObject.container.frame.height = CHART_SPACE_HEIGHT
+  thisObject.container.frame.height = CHART_SPACE_HEIGHT * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
 
   thisObject.container.frame.position.x = browserCanvas.width / 2 - thisObject.container.frame.width / 2
   thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2

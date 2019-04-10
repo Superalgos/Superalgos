@@ -572,10 +572,12 @@ function newCanvas () {
         y: event.pageY - window.canvasApp.topMargin
       }
 
+      event.mousePosition = point
+
       let panelContainer = canvas.panelsSpace.getContainer({ x: point.x, y: point.y })
 
       if (panelContainer !== undefined && panelContainer.isWheelable === true) {
-        panelContainer.eventHandler.raiseEvent('Mouse Wheel', event.wheelDelta)
+        panelContainer.eventHandler.raiseEvent('Mouse Wheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
@@ -593,7 +595,7 @@ function newCanvas () {
       let bottomContainer = canvas.bottomSpace.getContainer({ x: point.x, y: point.y })
 
       if (bottomContainer !== undefined && bottomContainer.isWheeleable === true) {
-        bottomContainer.eventHandler.raiseEvent('Mouse Wheel', event.wheelDelta)
+        bottomContainer.eventHandler.raiseEvent('Mouse Wheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
@@ -602,7 +604,7 @@ function newCanvas () {
       let chartContainer = canvas.chartSpace.getContainer({ x: point.x, y: point.y })
 
       if (chartContainer !== undefined && chartContainer.isWheeleable === true) {
-        chartContainer.eventHandler.raiseEvent('Mouse Wheel', event.wheelDelta)
+        chartContainer.eventHandler.raiseEvent('Mouse Wheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       } else {
                /* If all the above fails, we fallback into applying zoom to the viewPort */

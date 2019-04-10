@@ -28,11 +28,12 @@
      thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
    }
 
-   function onMouseWheel (pDelta) {
-     if (pDelta < 0) {
-       pDelta = -0.1
+   function onMouseWheel (event) {
+     delta = event.wheelDelta
+     if (delta < 0) {
+       delta = -0.1
      } else {
-       pDelta = 0.1
+       delta = 0.1
      }
    }
 

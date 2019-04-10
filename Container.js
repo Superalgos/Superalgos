@@ -52,7 +52,7 @@ function newContainer () {
     }
   }
 
-  function onParentDimmensionsChanged () {
+  function onParentDimmensionsChanged (event) {
     let dimmensionsChanged = false
     if (connectedToParentWidth) {
       thisObject.frame.width = thisObject.parentContainer.frame.width
@@ -64,7 +64,7 @@ function newContainer () {
     }
 
     if (dimmensionsChanged) {
-      thisObject.eventHandler.raiseEvent('Dimmensions Changed')
+      thisObject.eventHandler.raiseEvent('Dimmensions Changed', event)
       console.log(thisObject.name + ' new width = ' + thisObject.frame.width)
     }
   }

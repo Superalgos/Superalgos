@@ -33,7 +33,7 @@ function newTimeScale () {
     delta = event.wheelDelta
     if (delta < 0) {
       thisObject.lenghtPercentage = thisObject.lenghtPercentage - 10
-      if (thisObject.lenghtPercentage < 50) { thisObject.lenghtPercentage = 50 }
+      if (thisObject.lenghtPercentage < 10) { thisObject.lenghtPercentage = 10 }
     } else {
       thisObject.lenghtPercentage = thisObject.lenghtPercentage + 10
       if (thisObject.lenghtPercentage > 100) { thisObject.lenghtPercentage = 100 }
@@ -57,6 +57,6 @@ function newTimeScale () {
   }
 
   function draw () {
-    thisObject.container.frame.draw(false, true)
+
   }
 }

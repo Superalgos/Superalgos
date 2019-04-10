@@ -71,18 +71,8 @@ function newTimeMachine () {
     timeScale.initialize()
 
     timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
-      newPercentageLength = event.lenghtPercentage
-
-      let a = event.mousePosition.x
-      let b = (browserCanvas.width / 2 - TIME_MACHINE_WIDTH / 2) * (-1)
-      let d = TIME_MACHINE_WIDTH
-      let f = TIME_MACHINE_WIDTH * newPercentageLength / 100
-      let g = viewPort.displacement.x
-      let c = (((a + b + g) / d) * f) - a - g
-
-      thisObject.container.frame.width = f
-      thisObject.container.frame.position.x = c * (-1)
-      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed')
+      thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
+      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
 
       /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
@@ -188,7 +178,7 @@ function newTimeMachine () {
   }
 
   function draw () {
-    this.container.frame.draw(false, false)
+    // this.container.frame.draw(false, false)
 
     for (let i = 0; i < this.charts.length; i++) {
       let chart = this.charts[i]

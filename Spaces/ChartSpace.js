@@ -96,7 +96,7 @@ function newChartSpace () {
   }
 
   function draw () {
-    thisObject.container.frame.draw(false, false)
+    // thisObject.container.frame.draw(false, false)
 
     for (var i = 0; i < thisObject.timeMachines.length; i++) {
       var timeMachine = thisObject.timeMachines[i]

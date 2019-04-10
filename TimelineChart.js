@@ -65,8 +65,9 @@
 
        thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', onContainerDimmensionsChanged)
 
-       function onContainerDimmensionsChanged () {
+       function onContainerDimmensionsChanged (event) {
          recalculateScale()
+         moveToUserPosition(thisObject.container, timeLineCoordinateSystem)
        }
 
             /* We load the logow we will need for the background. */
@@ -120,7 +121,6 @@
 
        recalculateScale()
 
-            // moveViewPortToCurrentDatetime();
        moveToUserPosition(thisObject.container, timeLineCoordinateSystem)
        timePeriod = INITIAL_TIME_PERIOD
        datetime = INITIAL_DATE
@@ -464,35 +464,5 @@
          browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight + Y_TOP_MARGIN, imageWidth, imageHeight)
        }
      }
-   }
-
-   function moveViewPortToCurrentDatetime () {
-     if (INFO_LOG === true) { logger.write('[INFO] moveViewPortToCurrentDatetime -> Entering function.') }
-
-     let targetPoint = {
-       x: datetime.valueOf(),
-       y: 0  // we wont touch the y axis here.
-     }
-
-        /* Lets put this point in the coordinate system of the viewPort */
-
-     targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint)
-     targetPoint = transformThisPoint(targetPoint, thisObject.container)
-
-        /* Lets get the point on the viewPort coordinate system of the center of the visible screen */
-
-     let center = {
-       x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2,
-       y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2
-     }
-
-        /* Lets calculate the displace vector, from the point we want at the center, to the current center. */
-
-     let displaceVector = {
-       x: center.x - targetPoint.x,
-       y: 0
-     }
-
-     viewPort.displace(displaceVector)
    }
  }

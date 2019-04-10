@@ -21,7 +21,7 @@ export const theme = createMuiTheme({
     } // <--RUSTED_RED    ~  GOLDEN_ORANGE -->    #F0A202
   },
   typography: {
-    fontFamily: '"Saira","Saira Condenses", sans-serif',
+    fontFamily: '"Saira","Saira Condensed", sans-serif',
     useNextVariants: true
   },
   overrides: {

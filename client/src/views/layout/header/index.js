@@ -13,6 +13,7 @@ import AALogo from '../../../assets/superalgos/Superalgos-logo-horz-dark.svg'
 class Header extends Component {
   constructor (props) {
     super(props)
+    this.renderSubMenu = this.renderSubMenu.bind(this)
     this.state = {
       onTop: true,
       mobileOpen: false,
@@ -84,37 +85,19 @@ class Header extends Component {
       if (authenticated && !(this.state.user !== undefined && this.state.user !== null)) {
         return
       }
+      let cssChildren = submenus.length === 0 ? null : 'hasChildren';
       return (
         <li
           onMouseEnter={() => this.toggleMenuOpen(index, bigScreen)}
           onMouseLeave={() => this.mouseLeave(bigScreen)}
           key={index}
-          className={openedMenu === index ? 'primaryLink hasChildren selected' : 'primaryLink hasChildren'}
+          className={openedMenu === index ? `primaryLink ${cssChildren} selected` : `primaryLink ${cssChildren}`}
         >
           { bigScreen
             ? <Link to={to} onClick={() => this.toggleMenuOpen(index, true)}> {title} </Link>
             : <a onClick={() => this.toggleMenuOpen(index, true)}> {title} </a>
           }
-          <ul className='subMenu'>
-            { bigScreen
-              ? ''
-              : <li key={index + 'home'}><Link to={to}> <Icon /> Module Home Page </Link></li>
-            }
-            {
-              submenus.map(({ icon: SubIcon, to: subTo, title: subTitle, externalLink, authenticated: subAuthenticated }, subindex) => {
-                if (subAuthenticated && !(this.state.user !== undefined && this.state.user !== null)) {
-                  return
-                }
-                if (externalLink) {
-                  return (
-                    <li key={subindex}><a href={subTo} target='_blank'> <SubIcon /> {subTitle} </a></li>
-                  )
-                }
-                return (
-                  <li key={subindex}><Link to={subTo} onClick={() => this.closeAll(index)}> <SubIcon /> {subTitle} </Link></li>
-                )
-              })}
-          </ul>
+          {this.renderSubMenu(Icon, to, title, submenus, authenticated, index, bigScreen)}
         </li>
       )
     })
@@ -159,6 +142,31 @@ class Header extends Component {
         </header>
         {onTop ? '' : <div className='toTop' onClick={() => { this.scrollToTop() }} />}
       </React.Fragment>
+    )
+  }
+
+  renderSubMenu(Icon, to, title, submenus, authenticated, index, bigScreen) {
+    return submenus.length === 0 ? null : (
+      <ul className='subMenu'>
+        { bigScreen
+          ? ''
+          : <li key={index + 'home'}><Link to={to}> <Icon /> Module Home Page </Link></li>
+        }
+        { submenus.length > 0 &&
+          submenus.map(({ icon: SubIcon, to: subTo, title: subTitle, externalLink, authenticated: subAuthenticated }, subindex) => {
+            if (subAuthenticated && !(this.state.user !== undefined && this.state.user !== null)) {
+              return
+            }
+            if (externalLink) {
+              return (
+                <li key={subindex}><a href={subTo} target='_blank'> <SubIcon /> {subTitle} </a></li>
+              )
+            }
+            return (
+              <li key={subindex}><Link to={subTo} onClick={() => this.closeAll(index)}> <SubIcon /> {subTitle} </Link></li>
+            )
+          })}
+      </ul>
     )
   }
 }

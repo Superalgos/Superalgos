@@ -141,6 +141,7 @@ function newFileCursor () {
 
       function onFileReceived (err, file) {
         try {
+          if (finalized === true) { return }
           if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> Entering function.') }
 
           switch (err.result) {
@@ -179,6 +180,7 @@ function newFileCursor () {
 
   function setTimePeriod (pTimePeriod, pDatetime) {
     try {
+      if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> Entering function.') }
 
             /*
@@ -386,6 +388,7 @@ function newFileCursor () {
 
   function setDatetime (pDatetime) {
     try {
+      if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] setDatetime -> Entering function.') }
 
       if (pDatetime === undefined) {
@@ -401,6 +404,7 @@ function newFileCursor () {
 
   function reload (callBackFunction) {
     try {
+      if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] reload -> Entering function.') }
 
       getFiles(callBackFunction)
@@ -414,6 +418,7 @@ function newFileCursor () {
 
   function getFiles (callBackFunction) {
     try {
+      if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] getFiles -> Entering function.') }
 
       let i = 0
@@ -561,6 +566,7 @@ function newFileCursor () {
 
   function collectGarbage (callBackFunction) {
     try {
+      if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] collectGarbage -> Entering function.') }
 
       date = removeTime(cursorDate)
@@ -582,6 +588,7 @@ function newFileCursor () {
   }
 
   function getExpectedFiles () {
+    if (finalized === true) { return }
     if (INFO_LOG === true) { logger.write('[INFO] getExpectedFiles -> Entering function.') }
 
     return minCursorSize

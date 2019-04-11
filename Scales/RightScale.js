@@ -15,6 +15,7 @@
    }
 
    const RIGHT_MARGIN = 50
+   const STEP_SIZE = 5
 
    thisObject.container = newContainer()
    thisObject.container.initialize(MODULE_NAME)
@@ -38,10 +39,10 @@
    function onMouseWheel (event) {
      delta = event.wheelDelta
      if (delta < 0) {
-       thisObject.heightPercentage = thisObject.heightPercentage - 10
-       if (thisObject.heightPercentage < 10) { thisObject.heightPercentage = 10 }
+       thisObject.heightPercentage = thisObject.heightPercentage - STEP_SIZE
+       if (thisObject.heightPercentage < STEP_SIZE) { thisObject.heightPercentage = STEP_SIZE }
      } else {
-       thisObject.heightPercentage = thisObject.heightPercentage + 10
+       thisObject.heightPercentage = thisObject.heightPercentage + STEP_SIZE
        if (thisObject.heightPercentage > 100) { thisObject.heightPercentage = 100 }
      }
      event.heightPercentage = thisObject.heightPercentage

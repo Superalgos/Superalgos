@@ -66,7 +66,7 @@
 
        thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function (event) {
          recalculateScale()
-         moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition)
+         moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, false, event.mousePosition)
        })
 
        thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {

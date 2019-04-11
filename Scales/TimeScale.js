@@ -15,6 +15,7 @@ function newTimeScale () {
   }
 
   const RIGHT_MARGIN = 50
+  const STEP_SIZE = 5
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
@@ -38,10 +39,10 @@ function newTimeScale () {
   function onMouseWheel (event) {
     delta = event.wheelDelta
     if (delta < 0) {
-      thisObject.lenghtPercentage = thisObject.lenghtPercentage - 10
-      if (thisObject.lenghtPercentage < 10) { thisObject.lenghtPercentage = 10 }
+      thisObject.lenghtPercentage = thisObject.lenghtPercentage - STEP_SIZE
+      if (thisObject.lenghtPercentage < STEP_SIZE) { thisObject.lenghtPercentage = STEP_SIZE }
     } else {
-      thisObject.lenghtPercentage = thisObject.lenghtPercentage + 10
+      thisObject.lenghtPercentage = thisObject.lenghtPercentage + STEP_SIZE
       if (thisObject.lenghtPercentage > 100) { thisObject.lenghtPercentage = 100 }
     }
     event.lenghtPercentage = thisObject.lenghtPercentage

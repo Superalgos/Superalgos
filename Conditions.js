@@ -78,7 +78,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
         }
     }
 
@@ -122,7 +122,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
         }
     }
 
@@ -149,7 +149,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] getContainer -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] getContainer -> err = " + err.stack); }
         }
     }
 
@@ -169,7 +169,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onFilesUpdated -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onFilesUpdated -> err = " + err.stack); }
         }
     }
 
@@ -207,7 +207,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err.stack); }
         }
     }
 
@@ -235,7 +235,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onDailyFileLoaded -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onDailyFileLoaded -> err = " + err.stack); }
         }
     }
 
@@ -251,7 +251,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err = " + err.stack); }
         }
     }
 
@@ -275,7 +275,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err = " + err.stack); }
         }
     }
 
@@ -368,7 +368,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingDailyFiles -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingDailyFiles -> err = " + err.stack); }
         }
     }
 
@@ -427,7 +427,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingMarketFiles -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingMarketFiles -> err = " + err.stack); }
         }
     }
 
@@ -480,7 +480,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err = " + err.stack); }
         }
     }
 
@@ -517,7 +517,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err = " + err.stack); }
         }
     }
 
@@ -532,7 +532,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onZoomChanged -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onZoomChanged -> err = " + err.stack); }
         }
     }
 
@@ -549,7 +549,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onOffsetChanged -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onOffsetChanged -> err = " + err.stack); }
         }
     }
 
@@ -563,7 +563,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onDragFinished -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onDragFinished -> err = " + err.stack); }
         }
     }
 }

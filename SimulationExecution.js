@@ -78,7 +78,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
         }
     }
 

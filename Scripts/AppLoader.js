@@ -70,6 +70,7 @@ function newAppLoader() {
 
                 "Scales/ChartGrid.js",
                 "Scales/RightScale.js",
+                "Scales/TimeScale.js",
 
                 "BreakpointsBar.js",
                 "Plotter.js",

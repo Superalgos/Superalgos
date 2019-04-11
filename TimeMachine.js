@@ -191,12 +191,20 @@ function newTimeMachine () {
     }
 
     timeScale.draw()
+    rigthScale.draw()
   }
 
   function getContainer (point, purpose) {
     let container
 
     container = timeScale.getContainer(point)
+    if (container !== undefined) {
+      if (container.isForThisPurpose(purpose)) {
+        return container
+      }
+    }
+
+    container = rigthScale.getContainer(point)
     if (container !== undefined) {
       if (container.isForThisPurpose(purpose)) {
         return container

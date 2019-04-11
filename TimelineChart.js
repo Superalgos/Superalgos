@@ -25,7 +25,7 @@
    thisObject.container.initialize(MODULE_NAME)
    thisObject.container.detectMouseOver = true
 
-   let chartGrid
+   // let chartGrid
    let breakpointsBar
 
    let initializationReady = false
@@ -116,8 +116,8 @@
        logoExchange.src = window.canvasApp.urlPrefix + 'Images/' + exchange + '-logo-background.png'
        logoAA.src = window.canvasApp.urlPrefix + 'Images/sa-logo-background.png'
 
-       chartGrid = newChartGrid()
-       chartGrid.initialize()
+       // chartGrid = newChartGrid()
+       // chartGrid.initialize()
 
        breakpointsBar = newBreakpointsBar()
        breakpointsBar.initialize(thisObject.container, timeLineCoordinateSystem)
@@ -251,7 +251,7 @@
 
      let container
 
-     container = chartGrid.getContainer(point)
+     // container = chartGrid.getContainer(point)
 
      if (container !== undefined) { return container }
 
@@ -321,7 +321,7 @@
      if (thisObject.container.frame.isInViewPort()) {
        drawChartsBackground()
 
-       chartGrid.draw(thisObject.container, timeLineCoordinateSystem)
+       // chartGrid.draw(thisObject.container, timeLineCoordinateSystem)
 
        plotterManager.draw()
 

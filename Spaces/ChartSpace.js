@@ -104,7 +104,7 @@ function newChartSpace () {
     }
   }
 
-  function getContainer (point) {
+  function getContainer (point, purpose) {
     if (INFO_LOG === true) { logger.write('[INFO] getContainer -> Entering function.') }
 
     let container
@@ -112,17 +112,13 @@ function newChartSpace () {
         /* Now we see which is the inner most container that has it */
 
     for (var i = 0; i < this.timeMachines.length; i++) {
-      container = this.timeMachines[i].getContainer(point)
-
+      container = this.timeMachines[i].getContainer(point, purpose)
       if (container !== undefined) {
-                /* We found an inner container which has the point. We return it. */
-
-        return container
+        if (container.isForThisPurpose(purpose)) {
+          return container
+        }
       }
     }
-
-        /* The point does not belong to any inner container, so we return the current container. */
-
     return this.container
   }
 }

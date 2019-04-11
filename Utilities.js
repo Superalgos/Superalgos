@@ -150,3 +150,4 @@ function removeTime (datetime) {
 
   return dateOnly
 }
+

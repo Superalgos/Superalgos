@@ -10,7 +10,8 @@ function newContainer () {
     isWheelable: false,
     name: undefined,
     initialize: initialize,
-    connectToParent: connectToParent
+    connectToParent: connectToParent,
+    isForThisPurpose: isForThisPurpose
   }
 
   let connectedToParentWidth = false
@@ -71,5 +72,30 @@ function newContainer () {
 
   function onMouseOver (event) {
     thisObject.eventHandler.raiseEvent('onMouseOver', event)
+  }
+
+  function isForThisPurpose (purpose) {
+    if (purpose !== undefined) {
+      switch (purpose) {
+        case GET_CONTAINER_PURPOSE.MOUSE_OVER:
+          if (thisObject.detectMouseOver === true) {
+            return true
+          }
+          break
+        case GET_CONTAINER_PURPOSE.MOUSE_WHEEL:
+          if (thisObject.isWheelable === true) {
+            return true
+          }
+          break
+        case GET_CONTAINER_PURPOSE.MOUSE_CLICK:
+          if (thisObject.isClickeable === true) {
+            return true
+          }
+          break
+        default: { return false }
+
+      }
+    }
+    return false
   }
 }

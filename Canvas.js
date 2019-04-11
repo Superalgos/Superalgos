@@ -546,7 +546,7 @@ function newCanvas () {
 
            /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
 
-      container = thisObject.chartSpace.getContainer(point)
+      container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
       if (container !== undefined && container.detectMouseOver === true) {
         container.eventHandler.raiseEvent('onMouseOver', point)
@@ -601,7 +601,7 @@ function newCanvas () {
 
            /* Finally we try the Chart Space. */
 
-      let chartContainer = canvas.chartSpace.getContainer({ x: point.x, y: point.y })
+      let chartContainer = canvas.chartSpace.getContainer({ x: point.x, y: point.y }, GET_CONTAINER_PURPOSE.MOUSE_WHEEL)
 
       if (chartContainer !== undefined && chartContainer.isWheelable === true) {
         chartContainer.eventHandler.raiseEvent('Mouse Wheel', event)

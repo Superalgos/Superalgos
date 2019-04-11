@@ -189,23 +189,24 @@ function newTimeMachine () {
     timeScale.draw()
   }
 
-  function getContainer (point) {
-    if (INFO_LOG === true) { logger.write('[INFO] getContainer -> Entering function.') }
-
+  function getContainer (point, purpose) {
     let container
 
-        /* Now we see which is the inner most container that has it */
-
     container = timeScale.getContainer(point)
-    if (container !== undefined) { return container }
+    if (container !== undefined) {
+      if (container.isForThisPurpose(purpose)) {
+        return container
+      }
+    }
 
     for (let i = 0; i < this.charts.length; i++) {
       container = this.charts[i].getContainer(point)
-      if (container !== undefined) { return container }
+      if (container !== undefined) {
+        if (container.isForThisPurpose(purpose)) {
+          return container
+        }
+      }
     }
-
-        /* The point does not belong to any inner container, so we return the current container. */
-
     return this.container
   }
 }

@@ -21,12 +21,9 @@
      finalize: finalize
    }
 
-   let container = newContainer()
-   container.initialize()
-   thisObject.container = container
-
-   container.displacement.containerName = 'Timeline Chart'
-   container.frame.containerName = 'Timeline Chart'
+   thisObject.container = newContainer()
+   thisObject.container.initialize(MODULE_NAME)
+   thisObject.container.detectMouseOver = true
 
    let chartGrid
    let breakpointsBar
@@ -59,13 +56,22 @@
 
        plotterManager.finalize()
      } catch (err) {
-       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
      }
    }
 
    function initialize (pExchange, pMarket, callBackFunction) {
      try {
        if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
+
+       thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function (event) {
+         recalculateScale()
+         moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition)
+       })
+
+       thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
+         saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
+       })
 
             /* We load the logow we will need for the background. */
        exchange = pExchange
@@ -114,12 +120,11 @@
        chartGrid.initialize()
 
        breakpointsBar = newBreakpointsBar()
-       breakpointsBar.initialize(container, timeLineCoordinateSystem)
+       breakpointsBar.initialize(thisObject.container, timeLineCoordinateSystem)
 
        recalculateScale()
 
-            // moveViewPortToCurrentDatetime();
-       moveToUserPosition(container, timeLineCoordinateSystem)
+       moveToUserPosition(thisObject.container, timeLineCoordinateSystem)
        timePeriod = INITIAL_TIME_PERIOD
        datetime = INITIAL_DATE
 
@@ -132,13 +137,7 @@
 
        plotterManager = newPlottersManager()
 
-       plotterManager.container.displacement.parentDisplacement = thisObject.container.displacement
-       plotterManager.container.frame.parentFrame = thisObject.container.frame
-
-       plotterManager.container.parentContainer = thisObject.container
-
-       plotterManager.container.frame.width = thisObject.container.frame.width
-       plotterManager.container.frame.height = thisObject.container.frame.height
+       plotterManager.container.connectToParent(thisObject.container, true, true)
 
        plotterManager.container.frame.position.x = 0
        plotterManager.container.frame.position.y = 0
@@ -164,11 +163,11 @@
        canvas.bottomSpace.chartAspectRatio.container.eventHandler.listenToEvent('Chart Aspect Ratio Changed', onAspectRatioChanged)
 
        function onAspectRatioChanged (pAspectRatio) {
-         thisObject.container.frame.height = CHART_SPACE_HEIGHT * pAspectRatio.y
+         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * pAspectRatio.y
          recalculateScale()
        }
      } catch (err) {
-       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
      }
    }
@@ -189,7 +188,7 @@
 
        recalculateCurrentDatetime()
 
-       saveUserPosition(thisObject.container, timeLineCoordinateSystem)
+       // saveUserPosition(thisObject.container, timeLineCoordinateSystem)
      }
    }
 
@@ -212,7 +211,7 @@
      if (initializationReady === true) {
        if (thisObject.container.frame.isInViewPort()) {
          recalculateCurrentDatetime()
-         saveUserPosition(thisObject.container, timeLineCoordinateSystem)
+         // saveUserPosition(thisObject.container, timeLineCoordinateSystem)
        }
      }
    }
@@ -468,35 +467,5 @@
          browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight + Y_TOP_MARGIN, imageWidth, imageHeight)
        }
      }
-   }
-
-   function moveViewPortToCurrentDatetime () {
-     if (INFO_LOG === true) { logger.write('[INFO] moveViewPortToCurrentDatetime -> Entering function.') }
-
-     let targetPoint = {
-       x: datetime.valueOf(),
-       y: 0  // we wont touch the y axis here.
-     }
-
-        /* Lets put this point in the coordinate system of the viewPort */
-
-     targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint)
-     targetPoint = transformThisPoint(targetPoint, thisObject.container)
-
-        /* Lets get the point on the viewPort coordinate system of the center of the visible screen */
-
-     let center = {
-       x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2,
-       y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2
-     }
-
-        /* Lets calculate the displace vector, from the point we want at the center, to the current center. */
-
-     let displaceVector = {
-       x: center.x - targetPoint.x,
-       y: 0
-     }
-
-     viewPort.displace(displaceVector)
    }
  }

@@ -77,7 +77,7 @@ function newProductStorage (pName) {
 
       thisObject.fileSequences = undefined
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
   }
 
@@ -202,7 +202,7 @@ function newProductStorage (pName) {
               checkInitializeComplete()
             }
           } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onMarketFileReady -> err = ' + err) }
+            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onMarketFileReady -> err = ' + err.stack) }
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
           }
         }
@@ -257,7 +257,7 @@ function newProductStorage (pName) {
               checkInitializeComplete()
             }
           } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onDailyFileReady -> err = ' + err) }
+            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onDailyFileReady -> err = ' + err.stack) }
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
           }
         }
@@ -309,7 +309,7 @@ function newProductStorage (pName) {
               checkInitializeComplete()
             }
           } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onSingleFileReady -> err = ' + err) }
+            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onSingleFileReady -> err = ' + err.stack) }
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
           }
         }
@@ -361,7 +361,7 @@ function newProductStorage (pName) {
               checkInitializeComplete()
             }
           } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileSequenceReady -> err = ' + err) }
+            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileSequenceReady -> err = ' + err.stack) }
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
           }
         }
@@ -378,13 +378,13 @@ function newProductStorage (pName) {
               callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
             }
           } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> checkInitializeComplete -> err = ' + err) }
+            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> checkInitializeComplete -> err = ' + err.stack) }
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
           }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }

@@ -17,7 +17,7 @@
 
    container.isDraggeable = false
    container.isClickeable = false
-   container.isWheeleable = true
+   container.isWheelable = true
 
    thisObject.aspectRatio = {}
 
@@ -53,16 +53,18 @@
      container.frame.position.y = viewPort.visibleArea.bottomLeft.y
    }
 
-   function onMouseWheel (pDelta) {
+   function onMouseWheel (event) {
+     delta = event.wheelDelta
+
      if (viewPort.isMinZoom() === false) { return } // We only make this button to work at the min zoom level.
 
-     if (pDelta < 0) {
-       pDelta = -0.1
+     if (delta < 0) {
+       delta = -0.1
      } else {
-       pDelta = 0.1
+       delta = 0.1
      }
 
-     thisObject.aspectRatio.y = thisObject.aspectRatio.y + pDelta
+     thisObject.aspectRatio.y = thisObject.aspectRatio.y + delta
      thisObject.aspectRatio.y = Math.round(thisObject.aspectRatio.y * 100) / 100
 
      if (thisObject.aspectRatio.y < MIN_Y_ASPECT_RATIO) {

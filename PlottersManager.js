@@ -23,12 +23,8 @@ function newPlottersManager () {
     finalize: finalize
   }
 
-  let container = newContainer()
-  container.initialize()
-  thisObject.container = container
-
-  container.displacement.containerName = 'Plotter Manager'
-  container.frame.containerName = 'Plotter Manager'
+  thisObject.container = newContainer()
+  thisObject.container.initialize(MODULE_NAME)
 
   let initializationReady = false
 
@@ -94,7 +90,7 @@ function newPlottersManager () {
         competitionPlotters.splice(i, 1) // Delete item from array.
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -118,7 +114,7 @@ function newPlottersManager () {
       canvas.bottomSpace.chartAspectRatio.container.eventHandler.listenToEvent('Chart Aspect Ratio Changed', onAspectRatioChanged)
 
       function onAspectRatioChanged (pAspectRatio) {
-        thisObject.container.frame.height = CHART_SPACE_HEIGHT * pAspectRatio.y
+        thisObject.container.frame.height = TIME_MACHINE_HEIGHT * pAspectRatio.y
 
                 /* First the Product Plotters. */
 
@@ -196,17 +192,17 @@ function newPlottersManager () {
                 }
               }
             } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCompetitionPlottersInitialized -> onProductPlottersInitialized -> err = ' + err) }
+              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCompetitionPlottersInitialized -> onProductPlottersInitialized -> err = ' + err.stack) }
               callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCompetitionPlottersInitialized -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCompetitionPlottersInitialized -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -255,13 +251,7 @@ function newPlottersManager () {
 
           let plotter = getNewPlotter(competition.plotter.host, competition.plotter.codeName, competition.plotter.moduleName)
 
-          plotter.container.displacement.parentDisplacement = thisObject.container.displacement
-          plotter.container.frame.parentFrame = thisObject.container.frame
-
-          plotter.container.parentContainer = thisObject.container
-
-          plotter.container.frame.width = thisObject.container.frame.width * 1
-          plotter.container.frame.height = thisObject.container.frame.height * 1
+          plotter.container.connectToParent(thisObject.container, true, true)
 
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
@@ -339,17 +329,17 @@ function newPlottersManager () {
 
               callBack(GLOBAL.DEFAULT_OK_RESPONSE)
             } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> onPlotterInizialized -> err = ' + err) }
+              if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> onPlotterInizialized -> err = ' + err.stack) }
               callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> err = ' + err.stack) }
           callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> err = ' + err.stack) }
       callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -421,7 +411,7 @@ function newPlottersManager () {
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotters -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotters -> err = ' + err.stack) }
       callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -503,13 +493,7 @@ function newPlottersManager () {
 
           let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
 
-          plotter.container.displacement.parentDisplacement = thisObject.container.displacement
-          plotter.container.frame.parentFrame = thisObject.container.frame
-
-          plotter.container.parentContainer = thisObject.container
-
-          plotter.container.frame.width = thisObject.container.frame.width * 1
-          plotter.container.frame.height = thisObject.container.frame.height * 1
+          plotter.container.connectToParent(thisObject.container, true, true)
 
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
@@ -601,17 +585,17 @@ function newPlottersManager () {
 
               callBack(GLOBAL.DEFAULT_OK_RESPONSE)
             } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> err = ' + err) }
+              if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> err = ' + err.stack) }
               callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> onProductStorageInitialized -> err = ' + err) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> onProductStorageInitialized -> err = ' + err.stack) }
           callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> err = ' + err.stack) }
       callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }

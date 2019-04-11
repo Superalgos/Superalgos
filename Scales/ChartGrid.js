@@ -416,6 +416,8 @@
      }
 
      function plotGrid (period) {
+       return
+
        let periodWidth = period.x
        let periodHeight = period.y
 

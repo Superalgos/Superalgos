@@ -23,20 +23,16 @@ function newChartSpace () {
     finalize: finalize
   }
 
-  var container = newContainer()
-  container.initialize()
-  thisObject.container = container
+  thisObject.container = newContainer()
+  thisObject.container.initialize(MODULE_NAME)
+/*
+  thisObject.container.frame.width = TIME_MACHINE_WIDTH
+  thisObject.container.frame.height = TIME_MACHINE_HEIGHT * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
 
-  thisObject.container.frame.width = CHART_SPACE_WIDTH
-  thisObject.container.frame.height = CHART_SPACE_HEIGHT
-
-  container.displacement.containerName = 'Chart Space'
-  container.frame.containerName = 'Chart Space'
-
-  container.frame.position.x = browserCanvas.width / 2 - thisObject.container.frame.width / 2
-  container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
-
-  container.isDraggeable = false
+  thisObject.container.frame.position.x = browserCanvas.width / 2 - thisObject.container.frame.width / 2
+  thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
+*/
+  thisObject.container.isDraggeable = false
 
   return thisObject
 
@@ -49,7 +45,7 @@ function newChartSpace () {
         timeMachine.finalize()
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
   }
 
@@ -63,15 +59,9 @@ function newChartSpace () {
 
     var timeMachine = newTimeMachine()
 
-    timeMachine.container.displacement.parentDisplacement = this.container.displacement
-    timeMachine.container.frame.parentFrame = this.container.frame
-
-    timeMachine.container.parentContainer = this.container
+    // timeMachine.container.connectToParent(thisObject.container, true, true)
 
         /* We make the time machine a little bit smaller than the current space. */
-
-    timeMachine.container.frame.width = this.container.frame.width * 1
-    timeMachine.container.frame.height = this.container.frame.height * 1
 
     timeMachine.container.frame.position.x = this.container.frame.width / 2 - timeMachine.container.frame.width / 2
     timeMachine.container.frame.position.y = this.container.frame.height / 2 - timeMachine.container.frame.height / 2
@@ -106,7 +96,7 @@ function newChartSpace () {
   }
 
   function draw () {
-    thisObject.container.frame.draw(false, false)
+    // thisObject.container.frame.draw(false, false)
 
     for (var i = 0; i < thisObject.timeMachines.length; i++) {
       var timeMachine = thisObject.timeMachines[i]
@@ -114,7 +104,7 @@ function newChartSpace () {
     }
   }
 
-  function getContainer (point) {
+  function getContainer (point, purpose) {
     if (INFO_LOG === true) { logger.write('[INFO] getContainer -> Entering function.') }
 
     let container
@@ -122,17 +112,13 @@ function newChartSpace () {
         /* Now we see which is the inner most container that has it */
 
     for (var i = 0; i < this.timeMachines.length; i++) {
-      container = this.timeMachines[i].getContainer(point)
-
+      container = this.timeMachines[i].getContainer(point, purpose)
       if (container !== undefined) {
-                /* We found an inner container which has the point. We return it. */
-
-        return container
+        if (container.isForThisPurpose(purpose)) {
+          return container
+        }
       }
     }
-
-        /* The point does not belong to any inner container, so we return the current container. */
-
     return this.container
   }
 }

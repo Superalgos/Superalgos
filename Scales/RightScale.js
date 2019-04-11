@@ -31,6 +31,13 @@
    thisObject.container.isClickeable = false
    thisObject.container.isWheelable = true
 
+   let mouse = {
+     position: {
+       x: 0,
+       y: 0
+     }
+   }
+
    return thisObject
 
    function initialize () {
@@ -45,6 +52,11 @@
 
      event.heightPercentage = thisObject.heightPercentage
      thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
+
+     thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
+       mouse.position.x = event.x
+       mouse.position.y = event.y
+     })
    }
 
    function onMouseWheel (event) {
@@ -78,6 +90,7 @@
 
    function draw () {
      drawBackground()
+     drawLabel()
    }
 
    function drawBackground () {
@@ -95,5 +108,36 @@
      browserCanvasContext.closePath()
 
      browserCanvasContext.fill()
+   }
+
+   function drawLabel () {
+     let label = '6000'
+     let fontSize = 10
+
+     let ratePoint = {
+       x: 0,
+       y: mouse.position.y
+     }
+
+     // getRateFromPoint(ratePoint)
+
+     let labelPoint = {
+       x: viewPort.visibleArea.topRight.x + 5,
+       y: mouse.position.y - fontSize / 2 + 1
+     }
+
+     let xOffset = 0// label.length / 2 * fontSize * FONT_ASPECT_RATIO
+
+     browserCanvasContext.beginPath()
+
+     browserCanvasContext.rect(labelPoint.x, labelPoint.y, xOffset * 2, fontSize)
+     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
+     browserCanvasContext.fill()
+
+     browserCanvasContext.closePath()
+
+     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
+     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
    }
  }

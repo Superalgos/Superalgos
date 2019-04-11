@@ -11,9 +11,10 @@ function newTimeScale () {
     draw: draw,
     getContainer: getContainer,
     initialize: initialize,
-    lenghtPercentage: 100
+    lenghtPercentage: undefined
   }
 
+  const LENGHT_PERCENTAGE_DEFAULT_VALUE = 50
   const RIGHT_MARGIN = 50
   const STEP_SIZE = 5
 
@@ -34,6 +35,12 @@ function newTimeScale () {
 
   function initialize () {
     thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
+
+    thisObject.lenghtPercentage = window.localStorage.getItem(MODULE_NAME)
+    if (!thisObject.lenghtPercentage) { thisObject.lenghtPercentage = LENGHT_PERCENTAGE_DEFAULT_VALUE }
+
+    event.lenghtPercentage = thisObject.lenghtPercentage
+    thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
   }
 
   function onMouseWheel (event) {
@@ -45,8 +52,11 @@ function newTimeScale () {
       thisObject.lenghtPercentage = thisObject.lenghtPercentage + STEP_SIZE
       if (thisObject.lenghtPercentage > 100) { thisObject.lenghtPercentage = 100 }
     }
+
     event.lenghtPercentage = thisObject.lenghtPercentage
     thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
+
+    window.localStorage.setItem(MODULE_NAME, thisObject.lenghtPercentage)
   }
 
   function getContainer (point) {

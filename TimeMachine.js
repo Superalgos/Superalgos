@@ -67,24 +67,6 @@ function newTimeMachine () {
     controlPanelHandle = canvas.panelsSpace.createNewPanel('Time Control Panel', undefined, panelOwner)
     let controlPanel = canvas.panelsSpace.getPanel(controlPanelHandle, panelOwner)
 
-       /* Each Time Machine has a Time Scale. */
-
-    timeScale = newTimeScale()
-    timeScale.initialize()
-
-    timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
-      thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
-      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-    })
-
-    rigthScale = newRigthScale()
-    rigthScale.initialize()
-
-    rigthScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
-      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
-      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-    })
-
       /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
 
     let position = 0 // This defines the position of each chart respect to each other.
@@ -103,11 +85,7 @@ function newTimeMachine () {
     timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, onDefaultInitialized)
 
     function onDefaultInitialized (err) {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> onDefaultInitialized -> Entering function.') }
-
       if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-        if (INFO_LOG === true) { logger.write('[INFO] initialize -> onDefaultInitialized -> Initialization of the only market failed.') }
-
         callBackFunction(err)
         return
       }
@@ -116,6 +94,26 @@ function newTimeMachine () {
 
       controlPanel.container.eventHandler.listenToEvent('Datetime Changed', timelineChart.setDatetime, undefined)
       timelineChart.container.eventHandler.listenToEvent('Datetime Changed', controlPanel.setDatetime)
+
+      /* Each Time Machine has a Time Scale and a Right Scale. */
+
+      timeScale = newTimeScale()
+
+      timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
+        thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
+        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+      })
+
+      timeScale.initialize()
+
+      rigthScale = newRigthScale()
+
+      rigthScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
+        thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
+        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+      })
+
+      rigthScale.initialize()
 
       initializeTheRest()
     }
@@ -195,24 +193,28 @@ function newTimeMachine () {
       chart.draw()
     }
 
-    timeScale.draw()
-    rigthScale.draw()
+    if (timeScale !== undefined) { timeScale.draw() }
+    if (rigthScale !== undefined) { rigthScale.draw() }
   }
 
   function getContainer (point, purpose) {
     let container
 
-    container = timeScale.getContainer(point)
-    if (container !== undefined) {
-      if (container.isForThisPurpose(purpose)) {
-        return container
+    if (timeScale !== undefined) {
+      container = timeScale.getContainer(point)
+      if (container !== undefined) {
+        if (container.isForThisPurpose(purpose)) {
+          return container
+        }
       }
     }
 
-    container = rigthScale.getContainer(point)
-    if (container !== undefined) {
-      if (container.isForThisPurpose(purpose)) {
-        return container
+    if (rigthScale !== undefined) {
+      container = rigthScale.getContainer(point)
+      if (container !== undefined) {
+        if (container.isForThisPurpose(purpose)) {
+          return container
+        }
       }
     }
 

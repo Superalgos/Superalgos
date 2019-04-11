@@ -52,6 +52,23 @@
    }
 
    function draw () {
+     drawBackground()
+   }
 
+   function drawBackground () {
+     const RIGHT_MARGIN = 50
+
+          /* We will paint some transparent background here. */
+
+     let opacity = '0.95'
+
+     browserCanvasContext.beginPath()
+
+     browserCanvasContext.rect(viewPort.visibleArea.topRight.x, viewPort.visibleArea.topRight.y, RIGHT_MARGIN, viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y)
+     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
+
+     browserCanvasContext.closePath()
+
+     browserCanvasContext.fill()
    }
  }

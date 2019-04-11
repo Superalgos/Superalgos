@@ -41,6 +41,7 @@ function newTimeMachine () {
   const SEPARATION_BETWEEN_TIMELINE_CHARTS = 1.5
 
   let timeScale
+  let rigthScale
 
   return thisObject
 
@@ -70,6 +71,9 @@ function newTimeMachine () {
 
     timeScale = newTimeScale()
     timeScale.initialize()
+
+    rigthScale = newRigthScale()
+    rigthScale.initialize()
 
     timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
       thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100

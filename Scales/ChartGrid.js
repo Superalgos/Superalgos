@@ -19,13 +19,10 @@
    container.isDraggeable = false
    container.isClickeable = true
 
-   let rigthScale
-
    return thisObject
 
    function initialize () {
-     rigthScale = newRigthScale()
-     rigthScale.initialize()
+
    }
 
    function getContainer (point) {
@@ -47,6 +44,8 @@
    }
 
    function draw (container, timeLineCoordinateSystem) {
+     return // not for now
+
      rightScaleBackground()
      leftScaleBackground()
 

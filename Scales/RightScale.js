@@ -14,6 +14,7 @@
      heightPercentage: 100
    }
 
+   const HEIGHT_PERCENTAGE_DEFAULT_VALUE = 50
    const RIGHT_MARGIN = 50
    const STEP_SIZE = 5
 
@@ -34,6 +35,16 @@
 
    function initialize () {
      thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
+
+     thisObject.heightPercentage = window.localStorage.getItem(MODULE_NAME)
+     if (!thisObject.heightPercentage) {
+       thisObject.heightPercentage = HEIGHT_PERCENTAGE_DEFAULT_VALUE
+     } else {
+       thisObject.heightPercentage = JSON.parse(thisObject.heightPercentage)
+     }
+
+     event.heightPercentage = thisObject.heightPercentage
+     thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
    }
 
    function onMouseWheel (event) {
@@ -47,6 +58,8 @@
      }
      event.heightPercentage = thisObject.heightPercentage
      thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
+
+     window.localStorage.setItem(MODULE_NAME, thisObject.heightPercentage)
    }
 
    function getContainer (point) {

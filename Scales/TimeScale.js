@@ -37,7 +37,11 @@ function newTimeScale () {
     thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
 
     thisObject.lenghtPercentage = window.localStorage.getItem(MODULE_NAME)
-    if (!thisObject.lenghtPercentage) { thisObject.lenghtPercentage = LENGHT_PERCENTAGE_DEFAULT_VALUE }
+    if (!thisObject.lenghtPercentage) {
+      thisObject.lenghtPercentage = LENGHT_PERCENTAGE_DEFAULT_VALUE
+    } else {
+      thisObject.lenghtPercentage = JSON.parse(thisObject.lenghtPercentage)
+    }
 
     event.lenghtPercentage = thisObject.lenghtPercentage
     thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)

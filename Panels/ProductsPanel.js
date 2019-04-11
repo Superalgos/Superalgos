@@ -76,7 +76,7 @@
          let bot = devTeam.bots[j]
 
          if (bot.type !== 'Indicator' && bot.cloneId === undefined) { continue }
-         if (bot.type === 'Indicator' && (devTeam.codeName !== 'AAMasters' && devTeam.codeName !== 'AAVikings' && devTeam.codeName !== userTeam.slug)) { continue }
+         if (bot.type === 'Indicator' && (devTeam.codeName !== 'AAMasters' && devTeam.codeName !== userTeam.slug)) { continue }
 
          if (bot.products !== undefined) {
            for (let k = 0; k < bot.products.length; k++) {

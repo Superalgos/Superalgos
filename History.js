@@ -33,9 +33,8 @@
 
     /* this is part of the module template */
 
-    let container = newContainer();             // Do not touch this 3 lines, they are just needed.
-    container.initialize();
-    thisObject.container = container;
+    thisObject.container = newContainer()
+    thisObject.container.initialize(MODULE_NAME)
 
     let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
 
@@ -65,6 +64,7 @@
 
             viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
             marketFiles.eventHandler.stopListening("Files Updated", onFilesUpdated);
+            thisObject.container.eventHandler.stopListening('Dimmensions Changed')
 
             /* Destroyd References */
 
@@ -99,11 +99,16 @@
             fileSequence.eventHandler.listenToEvent("Files Updated", onFilesUpdated); // Only the first sequence is supported right now.
             viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
 
+            thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
+                recalculate(callBackFunction);
+                recalculateScale(callBackFunction);
+            })
+
             callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
             callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
         }
     }
@@ -118,9 +123,9 @@
 
             /* First we check if this point is inside this space. */
 
-            if (this.container.frame.isThisPointHere(point) === true) {
+            if (thisObject.container.frame.isThisPointHere(point) === true) {
 
-                return this.container;
+                return thisObject.container;
 
             } else {
 
@@ -131,7 +136,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
         }
     }
 
@@ -153,7 +158,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err.stack); }
         }
     }
 
@@ -167,7 +172,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err.stack); }
         }
     }
 
@@ -405,7 +410,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err = " + err.stack); }
             callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
         }
     }
@@ -466,14 +471,14 @@
 
                 } catch (err) {
 
-                    if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> getMaxRate -> err = " + err); }
+                    if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> getMaxRate -> err = " + err.stack); }
                     callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err = " + err.stack); }
             callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
         }
     }
@@ -488,7 +493,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err = " + err.stack); }
         }
     }
 
@@ -496,7 +501,8 @@
 
         try {
 
-            if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
+            let userPosition = getUserPosition()
+            let userPositionDate = userPosition.point.x
 
             let point = {
                 x: 0,
@@ -529,13 +535,10 @@
 
                     let isCurrentRecord = false;
 
-                    if (datetime !== undefined) {
-                        let dateValue = datetime.valueOf();
-                        if (dateValue >= record.date - timePeriod / 2 && dateValue <= record.date + timePeriod / 2 - 1) {
-                            isCurrentRecord = true;
-                        }
+                    if (userPositionDate >= record.date - timePeriod / 2 && userPositionDate <= record.date + timePeriod / 2 - 1) {
+                        isCurrentRecord = true;
                     }
-
+                 
                     let radius = 3;
 
                     let opacity = '0.2';
@@ -929,7 +932,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err = " + err.stack); }
         }
     }
 }

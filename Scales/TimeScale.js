@@ -43,6 +43,7 @@ function newTimeScale () {
       thisObject.lenghtPercentage = JSON.parse(thisObject.lenghtPercentage)
     }
 
+    let event = {}
     event.lenghtPercentage = thisObject.lenghtPercentage
     thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
   }

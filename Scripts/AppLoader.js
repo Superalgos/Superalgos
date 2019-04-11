@@ -35,7 +35,6 @@ function newAppLoader() {
                 "MQService",
 
                 "BottomSpace/DeleteTradingHistory.js",
-                "BottomSpace/ChartAspectRatio.js",
 
                 "TopSpace/CurrentEvent.js",
                 "TopSpace/EndUser.js",

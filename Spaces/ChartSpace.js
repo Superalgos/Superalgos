@@ -25,13 +25,7 @@ function newChartSpace () {
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
-/*
-  thisObject.container.frame.width = TIME_MACHINE_WIDTH
-  thisObject.container.frame.height = TIME_MACHINE_HEIGHT * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
 
-  thisObject.container.frame.position.x = browserCanvas.width / 2 - thisObject.container.frame.width / 2
-  thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
-*/
   thisObject.container.isDraggeable = false
 
   return thisObject

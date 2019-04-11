@@ -159,13 +159,6 @@
          callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
          return
        }
-
-       canvas.bottomSpace.chartAspectRatio.container.eventHandler.listenToEvent('Chart Aspect Ratio Changed', onAspectRatioChanged)
-
-       function onAspectRatioChanged (pAspectRatio) {
-         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * pAspectRatio.y
-         recalculateScale()
-       }
      } catch (err) {
        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)

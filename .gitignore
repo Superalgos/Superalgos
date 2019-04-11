@@ -6,3 +6,10 @@ bin/*
 node_modules/*
 this.server.config.json
 .env
+dependency/
+
+\.nyc_output/
+
+coverage/*
+
+\.vscode/

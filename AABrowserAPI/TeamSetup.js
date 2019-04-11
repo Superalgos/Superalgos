@@ -6,16 +6,13 @@
         initialize: initialize
     }
 
-    let masterAppServerURL;
-
-    let storage;
+    let masterAppServerURL, storage
 
     return thisObject;
 
     function initialize(pServerConfig, pStorage) {
-
-        storage = pStorage;
-
+        masterAppServerURL = pServerConfig.masterAppServerURL
+        storage = pStorage
     }
 
     function newTeam(pTeamCodeName, pTeamDisplayName, pUserName, pBotCodeName, pBotDisplayName, pUserId, callBackFunction) {
@@ -308,7 +305,7 @@
                                             }
 
                                             const newCopySimulator = require("./CopySimulator")
-                                            let copySimulator = newCopySimulator.newCopySimulator()
+                                            let copySimulator = newCopySimulator.newCopySimulator(storage)
                                             await copySimulator.copySimulator(pTeamCodeName, pBotCodeName, pBotDisplayName)
 
                                             forkAACloud();
@@ -599,19 +596,19 @@
                         }
                     }
                     `, variables, function (req, res) {
-                                    if (res.status === 401) {
-                                        console.log('[ERROR] TeamSetup -> newTeam -> Error trying to save the session token at the Users Module');
-                                        console.log('[ERROR] TeamSetup -> newTeam -> res.status = 401');
-                    }
-                    }).then(res => {
-                        if (res.errors) {
-                            console.log('[ERROR] TeamSetup -> newTeam -> Error trying to save the session token at the Users Module');
-                            console.log('[ERROR] TeamSetup -> newTeam -> res.errors = ' + res.errors);
-                        }
-                    }).catch(error => {
-                        console.log('Error trying to save the session token at the Users Module');
-                        console.log('[ERROR] TeamSetup -> newTeam -> errors = ' + errors);
-                    });
+                            if (res.status === 401) {
+                                console.log('[ERROR] TeamSetup -> newTeam -> Error trying to save the session token at the Users Module');
+                                console.log('[ERROR] TeamSetup -> newTeam -> res.status = 401');
+                            }
+                        }).then(res => {
+                            if (res.errors) {
+                                console.log('[ERROR] TeamSetup -> newTeam -> Error trying to save the session token at the Users Module');
+                                console.log('[ERROR] TeamSetup -> newTeam -> res.errors = ' + res.errors);
+                            }
+                        }).catch(error => {
+                            console.log('Error trying to save the session token at the Users Module');
+                            console.log('[ERROR] TeamSetup -> newTeam -> errors = ' + errors);
+                        });
 
                 } catch (err) {
 
@@ -656,7 +653,7 @@
                                         "configFile": "this.bot.config.json"
                                     },
                                     {
-                                        "repo": "simulator-"+ pBotCodeName + "-Indicator-Bot",
+                                        "repo": "simulator-" + pBotCodeName + "-Indicator-Bot",
                                         "configFile": "this.bot.config.json"
                                     }
                                 ],
@@ -836,7 +833,7 @@
 
             }
 
-             // TODO Fix-Me: this method is trying to remove from the container that was removed by the previous method.
+            // TODO Fix-Me: this method is trying to remove from the container that was removed by the previous method.
             // It must remove the files from the aaplatform/team-name folder instead
             function deleteBotConfig() {
 
@@ -885,7 +882,7 @@
                                     }
 
                                     const newCopySimulator = require("./CopySimulator")
-                                    let copySimulator = newCopySimulator.newCopySimulator()
+                                    let copySimulator = newCopySimulator.newCopySimulator(storage)
                                     await copySimulator.removeSimulator(pTeamCodeName, pBotCodeName)
 
                                     deleteAACloud();

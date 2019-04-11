@@ -64,6 +64,7 @@
             viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
             marketFiles.eventHandler.stopListening("Files Updated", onFilesUpdated);
             canvas.eventHandler.stopListening("Drag Finished", onDragFinished);
+            thisObject.container.eventHandler.stopListening('Dimmensions Changed')
 
             /* Destroyd References */
 
@@ -78,7 +79,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
         }
     }
 
@@ -118,11 +119,16 @@
 
             recalculate();
 
+            thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
+                recalculateScale();
+                recalculate();
+            })
+
             callBackFunction();
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
         }
     }
 
@@ -149,7 +155,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] getContainer -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] getContainer -> err = " + err.stack); }
         }
     }
 
@@ -169,7 +175,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onFilesUpdated -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onFilesUpdated -> err = " + err.stack); }
         }
     }
 
@@ -207,7 +213,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err.stack); }
         }
     }
 
@@ -235,7 +241,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onDailyFileLoaded -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onDailyFileLoaded -> err = " + err.stack); }
         }
     }
 
@@ -251,7 +257,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err = " + err.stack); }
         }
     }
 
@@ -275,7 +281,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err = " + err.stack); }
         }
     }
 
@@ -364,7 +370,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingDailyFiles -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingDailyFiles -> err = " + err.stack); }
         }
     }
 
@@ -421,7 +427,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingMarketFiles -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingMarketFiles -> err = " + err.stack); }
         }
     }
 
@@ -474,7 +480,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err = " + err.stack); }
         }
     }
 
@@ -482,7 +488,8 @@
 
         try {
 
-            if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
+            let userPosition = getUserPosition()
+            let userPositionDate = userPosition.point.x
 
             let band;
             let previousBand;
@@ -566,26 +573,12 @@
 
                     browserCanvasContext.closePath();
 
-                    if (datetime !== undefined) {
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 0.05)';
 
-                        let dateValue = datetime.valueOf();
-
-                        if (dateValue >= band.begin && dateValue <= band.end) {
-
-                            /* highlight the current band */
-
-                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.05)'; // Current band accroding to time
-
-                        } else {
-
-                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 0.05)';
-                        }
-
-                    } else {
-
-                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 0.05)';
-
-                    }
+                    if (userPositionDate >= band.begin && userPositionDate <= band.end) {
+                        /* highlight the current band */
+                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.05)'; // Current band accroding to time
+                    }  
 
                     if (
                         bandPoint1.x < viewPort.visibleArea.topLeft.x + 50
@@ -611,40 +604,27 @@
 
                     browserCanvasContext.closePath();
 
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)';
+ 
+                    if (userPositionDate >= band.begin && userPositionDate <= band.end) {
 
-                    if (datetime !== undefined) {
+                        /* highlight the current band */
 
-                        let dateValue = datetime.valueOf();
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current band accroding to time
 
-                        if (dateValue >= band.begin && dateValue <= band.end) {
+                        let currentBand = {
+                            bodyWidth: bandPoint3.x - bandPoint2.x,
+                            leftBodyHeight: bandPoint2.y - bandPoint1.y,
+                            rightBodyHeight: bandPoint3.y - bandPoint4.y,
+                            topDelta: bandPoint3.y - bandPoint2.y,
+                            bottomDelta: bandPoint4.y - bandPoint1.y,
+                            period: timePeriod,
+                            innerBand: band
+                        };
 
-                            /* highlight the current band */
-
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current band accroding to time
-
-                            let currentBand = {
-                                bodyWidth: bandPoint3.x - bandPoint2.x,
-                                leftBodyHeight: bandPoint2.y - bandPoint1.y,
-                                rightBodyHeight: bandPoint3.y - bandPoint4.y,
-                                topDelta: bandPoint3.y - bandPoint2.y,
-                                bottomDelta: bandPoint4.y - bandPoint1.y,
-                                period: timePeriod,
-                                innerBand: band
-                            };
-
-                            thisObject.container.eventHandler.raiseEvent("Current Band Changed", currentBand);
-
-                        } else {
-
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)';
-
-                        }
-
-                    } else {
-
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)';
-                    }
-
+                        thisObject.container.eventHandler.raiseEvent("Current Band Changed", currentBand);
+                    }  
+ 
                     browserCanvasContext.lineWidth = 0.2;
                     browserCanvasContext.stroke();
 
@@ -665,26 +645,19 @@
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
                     }
 
-                    if (datetime !== undefined) {
-
-                        let dateValue = datetime.valueOf();
-
-                        if (dateValue >= band.begin && dateValue <= band.end) {
-                            /* highlight the current band */
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current band accroding to time
-                        }
+                    if (userPositionDate >= band.begin && userPositionDate <= band.end) {
+                        /* highlight the current band */
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current band accroding to time
                     }
-
+                   
                     browserCanvasContext.lineWidth = 0.2;
                     browserCanvasContext.stroke();
-
-
                 }
             }
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err = " + err.stack); }
         }
     }
 
@@ -699,7 +672,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onZoomChanged -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onZoomChanged -> err = " + err.stack); }
         }
     }
 
@@ -716,7 +689,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onOffsetChanged -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onOffsetChanged -> err = " + err.stack); }
         }
     }
 
@@ -730,7 +703,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onDragFinished -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onDragFinished -> err = " + err.stack); }
         }
     }
 }

@@ -64,6 +64,7 @@
             viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
             marketFiles.eventHandler.stopListening("Files Updated", onFilesUpdated);
             canvas.eventHandler.stopListening("Drag Finished", onDragFinished);
+            thisObject.container.eventHandler.stopListening('Dimmensions Changed')
 
             /* Destroyd References */
 
@@ -78,7 +79,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
         }
     }
 
@@ -119,11 +120,17 @@
 
             recalculate();
 
+            thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
+                recalculateScaleY();
+                recalculateScaleX();
+                recalculate();
+            })
+
             callBackFunction();
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
         }
     }
 
@@ -157,7 +164,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] getContainer -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] getContainer -> err = " + err.stack); }
         }
     }
 
@@ -177,7 +184,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onFilesUpdated -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onFilesUpdated -> err = " + err.stack); }
         }
     }
 
@@ -215,7 +222,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err.stack); }
         }
     }
 
@@ -243,7 +250,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onDailyFileLoaded -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onDailyFileLoaded -> err = " + err.stack); }
         }
     }
 
@@ -259,7 +266,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err = " + err.stack); }
         }
     }
 
@@ -283,7 +290,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err = " + err.stack); }
         }
     }
 
@@ -372,7 +379,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingDailyFiles -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingDailyFiles -> err = " + err.stack); }
         }
     }
 
@@ -429,7 +436,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingMarketFiles -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingMarketFiles -> err = " + err.stack); }
         }
     }
 
@@ -461,7 +468,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleX -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleX -> err = " + err.stack); }
         }
     }
 
@@ -495,7 +502,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleY -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleY -> err = " + err.stack); }
         }
     }
 
@@ -504,7 +511,8 @@
 
         try {
 
-            if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
+            let userPosition = getUserPosition()
+            let userPositionDate = userPosition.point.x
 
             let percentageBandwidth;
             let previousBand;
@@ -815,20 +823,12 @@
 
                     browserCanvasContext.closePath();
 
-
-                    if (datetime !== undefined) {
-
-                        let dateValue = datetime.valueOf();
-
-                        if (dateValue >= percentageBandwidth.begin && dateValue <= percentageBandwidth.end) {
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
-                        } else {
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', 1)';
-                        }
-                    } else {
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', 1)';
-                    }
-
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', 1)';
+ 
+                    if (userPositionDate >= percentageBandwidth.begin && userPositionDate <= percentageBandwidth.end) {
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
+                    }  
+ 
                     browserCanvasContext.lineWidth = 0.2;
                     browserCanvasContext.stroke();
 
@@ -847,13 +847,8 @@
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
                     }
 
-                    if (datetime !== undefined) {
-
-                        let dateValue = datetime.valueOf();
-
-                        if (dateValue >= percentageBandwidth.begin && dateValue <= percentageBandwidth.end) {
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
-                        }
+                    if (userPositionDate >= percentageBandwidth.begin && userPositionDate <= percentageBandwidth.end) {
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
                     }
 
                     browserCanvasContext.lineWidth = 0.2;
@@ -870,15 +865,10 @@
 
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)';
 
-                    if (datetime !== undefined) {
-
-                        let dateValue = datetime.valueOf();
-
-                        if (dateValue >= percentageBandwidth.begin && dateValue <= percentageBandwidth.end) {
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
-                        }
+                    if (userPositionDate >= percentageBandwidth.begin && userPositionDate <= percentageBandwidth.end) {
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
                     }
-
+   
                     browserCanvasContext.setLineDash([1, 4])
                     browserCanvasContext.lineWidth = 1
                     browserCanvasContext.stroke()
@@ -888,7 +878,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err = " + err.stack); }
         }
     }
 
@@ -903,7 +893,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onZoomChanged -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onZoomChanged -> err = " + err.stack); }
         }
     }
 
@@ -920,7 +910,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onOffsetChanged -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onOffsetChanged -> err = " + err.stack); }
         }
     }
 
@@ -934,7 +924,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onDragFinished -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onDragFinished -> err = " + err.stack); }
         }
     }
 }

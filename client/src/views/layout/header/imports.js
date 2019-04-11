@@ -110,10 +110,7 @@ const strategizerMenus = {
   to: '/strategizer',
   icon: Home,
   authenticated: true,
-  submenus: [
-    { title: 'Your strategies', to: '/strategizer/manage-strategies', icon: ViewModule, authenticated: true },
-    { title: 'Report a Bug', to: 'https://github.com/Superalgos/StrategizerClientModule/issues/new', icon: BugReport, externalLink: true }
-  ]
+  submenus: []
 }
 
 const allMenus = [

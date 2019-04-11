@@ -1,6 +1,6 @@
 {
   "name": "master-app-client",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Responsible for loading all web modules and running them.",
   "main": "src/index.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "@superalgos/key-vault-client": "0.0.32",
     "@superalgos/logs-client": "0.0.1",
     "@superalgos/operations-client": "0.0.30",
-    "@superalgos/strategizer-client": "0.0.11",
+    "@superalgos/strategizer-client": "0.0.12",
     "@superalgos/teams-client": "0.0.35",
     "@superalgos/users-client": "0.0.25",
     "@superalgos/web-components": "0.0.20",

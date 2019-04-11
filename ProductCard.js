@@ -113,12 +113,11 @@ function newProductCard () {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
-      var container = newContainer()
-      container.name = 'Product Card ' + thisObject.code
-      container.initialize()
-      container.isDraggeable = false
-      container.isClickeable = true
-      thisObject.container = container
+      thisObject.container = newContainer()
+      thisObject.container.initialize(MODULE_NAME + thisObject.code)
+      thisObject.container.detectMouseOver = true
+      thisObject.container.isDraggeable = false
+      thisObject.container.isClickeable = true
 
        /* Add information that will later be needed. */
 
@@ -136,9 +135,9 @@ function newProductCard () {
         y: 0
       }
 
-      this.container.frame.position = position
-      this.container.frame.width = UI_PANEL.WIDTH.LARGE - 20
-      this.container.frame.height = 100
+      thisObject.container.frame.position = position
+      thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE - 20
+      thisObject.container.frame.height = 100
 
        /* We retrieve the locally stored status of the Product */
 
@@ -263,8 +262,8 @@ function newProductCard () {
 
        /* First we check if this point is inside this space. */
 
-    if (this.container.frame.isThisPointHere(point, true) === true) {
-      return this.container
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+      return thisObject.container
     } else {
            /* This point does not belong to this space. */
 

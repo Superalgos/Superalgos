@@ -100,7 +100,7 @@ function getUserPosition (timeLineCoordinateSystem) {
   return userPosition
 }
 
-function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignoreY) {
+function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignoreY, center) {
   let userPosition = getUserPosition(timeLineCoordinateSystem)
 
   viewPort.newZoomLevel(userPosition.zoom)
@@ -117,9 +117,17 @@ function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignor
   targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint)
   targetPoint = transformThisPoint(targetPoint, container)
 
-  let centerPoint = {
-    x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2,
-    y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 2
+  let centerPoint
+  if (center !== undefined) {
+    centerPoint = {
+      x: center.x,
+      y: center.y
+    }
+  } else {
+    centerPoint = {
+      x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2,
+      y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 2
+    }
   }
 
     /* Lets calculate the displace vector, from the point we want at the center, to the current center. */

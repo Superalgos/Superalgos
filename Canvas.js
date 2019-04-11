@@ -510,7 +510,7 @@ function newCanvas () {
 
       container = thisObject.topSpace.getContainer(point)
 
-      if (container !== undefined && container.isClickeable === true) {
+      if (container !== undefined && container.detectMouseOver === true) {
         container.eventHandler.raiseEvent('onMouseOver', point)
         return
       }
@@ -519,7 +519,7 @@ function newCanvas () {
 
       container = thisObject.bottomSpace.getContainer(point)
 
-      if (container !== undefined && container.isClickeable === true) {
+      if (container !== undefined && container.detectMouseOver === true) {
         container.eventHandler.raiseEvent('onMouseOver', point)
         return
       }
@@ -528,7 +528,7 @@ function newCanvas () {
 
       container = thisObject.panelsSpace.getContainer(point)
 
-      if (container !== undefined && container.isClickeable === true) {
+      if (container !== undefined && container.detectMouseOver === true) {
         container.eventHandler.raiseEvent('onMouseOver', point)
         return
       }
@@ -548,7 +548,7 @@ function newCanvas () {
 
       container = thisObject.chartSpace.getContainer(point)
 
-      if (container !== undefined) {
+      if (container !== undefined && container.detectMouseOver === true) {
         container.eventHandler.raiseEvent('onMouseOver', point)
         return
       }

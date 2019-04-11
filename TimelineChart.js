@@ -23,6 +23,7 @@
 
    thisObject.container = newContainer()
    thisObject.container.initialize(MODULE_NAME)
+   thisObject.container.detectMouseOver = true
 
    let chartGrid
    let breakpointsBar
@@ -65,7 +66,7 @@
 
        thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function (event) {
          recalculateScale()
-         moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true)
+         moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition)
        })
 
        thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {

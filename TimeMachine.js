@@ -28,6 +28,7 @@ function newTimeMachine () {
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
   thisObject.container.isDraggeable = false
+  thisObject.container.detectMouseOver = true
 
   thisObject.container.frame.width = TIME_MACHINE_WIDTH
   thisObject.container.frame.height = TIME_MACHINE_HEIGHT * canvas.bottomSpace.chartAspectRatio.aspectRatio.y

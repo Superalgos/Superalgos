@@ -61,7 +61,7 @@
             viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
             marketFiles.eventHandler.stopListening("Files Updated", onFilesUpdated);
             canvas.eventHandler.stopListening("Drag Finished", onDragFinished);
-            thisObject.container.eventHandler.stopListening('Dimmensions Changed', onContainerDimmensionsChanged)
+            thisObject.container.eventHandler.stopListening('Dimmensions Changed')
 
             /* Destroyd References */
 
@@ -76,7 +76,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
         }
     }
 
@@ -116,19 +116,17 @@
             recalculate();
             recalculateScaleY();
 
-            thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', onContainerDimmensionsChanged)
-
-            function onContainerDimmensionsChanged() {
+            thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
                 recalculateScaleX();
                 recalculate();
                 recalculateScaleY();
-            }
+            })
 
             callBackFunction();
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
         }
     }
 
@@ -163,7 +161,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] getContainer -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] getContainer -> err = " + err.stack); }
         }
     }
 
@@ -187,7 +185,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onFilesUpdated -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onFilesUpdated -> err = " + err.stack); }
         }
     }
 
@@ -225,7 +223,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err.stack); }
         }
     }
 
@@ -255,7 +253,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onDailyFileLoaded -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onDailyFileLoaded -> err = " + err.stack); }
         }
     }
 
@@ -271,7 +269,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err = " + err.stack); }
         }
     }
 
@@ -295,7 +293,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err = " + err.stack); }
         }
     }
 
@@ -380,7 +378,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingDailyFiles -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingDailyFiles -> err = " + err.stack); }
         }
     }
 
@@ -433,7 +431,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingMarketFiles -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingMarketFiles -> err = " + err.stack); }
         }
     }
 
@@ -465,7 +463,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleX -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleX -> err = " + err.stack); }
         }
     }
 
@@ -520,7 +518,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleY -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleY -> err = " + err.stack); }
         }
     }
 
@@ -528,10 +526,8 @@
 
         try {
 
-            if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
-
             let userPosition = getUserPosition()
-            userPositionDate = userPosition.point.x
+            let userPositionDate = userPosition.point.x
 
             if (volumes.length > 0) {
 
@@ -772,42 +768,38 @@
                         browserCanvasContext.lineWidth = 1;
                         browserCanvasContext.stroke();
 
-                        if (datetime !== undefined) {
+                        if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
 
-                            let dateValue = datetime.valueOf();
+                            let buyInfo = {
+                                baseWidth: volumePointA4.x - volumePointA1.x,
+                                topWidth: volumePointA3.x - volumePointA2.x,
+                                height: volumePointA2.y - volumePointA1.y
+                            };
 
-                            if (dateValue >= volume.begin && dateValue <= volume.end) {
+                            let sellInfo = {
+                                baseWidth: volumePointB4.x - volumePointB1.x,
+                                topWidth: volumePointB3.x - volumePointB2.x,
+                                height: volumePointB2.y - volumePointB1.y
+                            };
 
-                                let buyInfo = {
-                                    baseWidth: volumePointA4.x - volumePointA1.x,
-                                    topWidth: volumePointA3.x - volumePointA2.x,
-                                    height: volumePointA2.y - volumePointA1.y
-                                };
+                            let currentVolume = {
+                                buyInfo: buyInfo,
+                                sellInfo: sellInfo,
+                                period: timePeriod,
+                                innerVolumeBar: volume
+                            };
 
-                                let sellInfo = {
-                                    baseWidth: volumePointB4.x - volumePointB1.x,
-                                    topWidth: volumePointB3.x - volumePointB2.x,
-                                    height: volumePointB2.y - volumePointB1.y
-                                };
+                            thisObject.container.eventHandler.raiseEvent("Current Volume Changed", currentVolume);
 
-                                let currentVolume = {
-                                    buyInfo: buyInfo,
-                                    sellInfo: sellInfo,
-                                    period: timePeriod,
-                                    innerVolumeBar: volume
-                                };
-
-                                thisObject.container.eventHandler.raiseEvent("Current Volume Changed", currentVolume);
-
-                            }
                         }
+
                     }
                 }
             }
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err = " + err.stack); }
         }
     }
 
@@ -823,7 +815,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onZoomChanged -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onZoomChanged -> err = " + err.stack); }
         }
     }
 
@@ -843,7 +835,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onOffsetChanged -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onOffsetChanged -> err = " + err.stack); }
         }
     }
 
@@ -859,7 +851,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onDragFinished -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] onDragFinished -> err = " + err.stack); }
         }
     }
 }

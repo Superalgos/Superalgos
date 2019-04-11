@@ -36,6 +36,7 @@ UI_FONT = {
 };
 
 FONT_ASPECT_RATIO = 0.45;
+const MIN_ZOOM_LEVEL = -28.25
 
 /* User Interface Panels */
 

@@ -63,12 +63,14 @@
      try {
        if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
-       thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', onContainerDimmensionsChanged)
-
-       function onContainerDimmensionsChanged (event) {
+       thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function (event) {
          recalculateScale()
-         moveToUserPosition(thisObject.container, timeLineCoordinateSystem)
-       }
+         moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true)
+       })
+
+       thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
+         saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
+       })
 
             /* We load the logow we will need for the background. */
        exchange = pExchange
@@ -185,7 +187,7 @@
 
        recalculateCurrentDatetime()
 
-       saveUserPosition(thisObject.container, timeLineCoordinateSystem)
+       // saveUserPosition(thisObject.container, timeLineCoordinateSystem)
      }
    }
 
@@ -208,7 +210,7 @@
      if (initializationReady === true) {
        if (thisObject.container.frame.isInViewPort()) {
          recalculateCurrentDatetime()
-         saveUserPosition(thisObject.container, timeLineCoordinateSystem)
+         // saveUserPosition(thisObject.container, timeLineCoordinateSystem)
        }
      }
    }

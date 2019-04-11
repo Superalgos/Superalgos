@@ -20,7 +20,7 @@
 
    container.isDraggeable = false
    container.isClickeable = false
-   container.isWheeleable = true
+   container.isWheelable = true
 
    return thisObject
 

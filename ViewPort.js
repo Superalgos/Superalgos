@@ -7,7 +7,6 @@ function newViewPort () {
   const BOTTOM_MARGIN = 15 + BOTTOM_SPACE_HEIGHT
   const LEFT_MARGIN = 50
   const RIGHT_MARGIN = 50
-  const MIN_ZOOM_LEVEL = -28.25
 
   let thisObject = {
     visibleArea: undefined,

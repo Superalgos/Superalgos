@@ -1,4 +1,11 @@
 function newTimeScale () {
+  const MODULE_NAME = 'Time Scale'
+  const INFO_LOG = false
+  const INTENSIVE_LOG = false
+  const ERROR_LOG = true
+  const logger = newWebDebugLog()
+  logger.fileName = MODULE_NAME
+
   let thisObject = {
     container: undefined,
     draw: draw,
@@ -10,7 +17,7 @@ function newTimeScale () {
   const RIGHT_MARGIN = 50
 
   let container = newContainer()
-  container.initialize()
+  container.initialize(MODULE_NAME)
   thisObject.container = container
 
   thisObject.container.frame.width = viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x
@@ -21,7 +28,7 @@ function newTimeScale () {
 
   container.isDraggeable = false
   container.isClickeable = false
-  container.isWheeleable = true
+  container.isWheelable = true
 
   return thisObject
 

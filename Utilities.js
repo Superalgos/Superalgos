@@ -59,15 +59,17 @@ function getMilisecondsFromPoint (point, container, timeLineCoordinateSystem) {
   return point.x
 }
 
-function saveUserPosition (container, timeLineCoordinateSystem) {
-  let centerPoint = {
-    x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2,
-    y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 2
+function saveUserPosition (container, timeLineCoordinateSystem, position) {
+  if (position === undefined) {
+    position = {
+      x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2,
+      y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 2
+    }
   }
 
   let userPosition = {
-    date: getDateFromPoint(centerPoint, container, timeLineCoordinateSystem),
-    rate: getRateFromPoint(centerPoint, container, timeLineCoordinateSystem),
+    date: getDateFromPoint(position, container, timeLineCoordinateSystem),
+    rate: getRateFromPoint(position, container, timeLineCoordinateSystem),
     market: DEFAULT_MARKET,
     zoom: viewPort.zoomTargetLevel
   }
@@ -75,7 +77,7 @@ function saveUserPosition (container, timeLineCoordinateSystem) {
   window.localStorage.setItem('userPosition', JSON.stringify(userPosition))
 }
 
-function getUserPosition () {
+function getUserPosition (timeLineCoordinateSystem) {
   let savedPosition = window.localStorage.getItem('userPosition')
   let userPosition
 
@@ -98,8 +100,8 @@ function getUserPosition () {
   return userPosition
 }
 
-function moveToUserPosition (container, timeLineCoordinateSystem) {
-  let userPosition = getUserPosition()
+function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignoreY) {
+  let userPosition = getUserPosition(timeLineCoordinateSystem)
 
   viewPort.newZoomLevel(userPosition.zoom)
   INITIAL_TIME_PERIOD = recalculatePeriod(userPosition.zoom)
@@ -126,6 +128,9 @@ function moveToUserPosition (container, timeLineCoordinateSystem) {
     x: centerPoint.x - targetPoint.x,
     y: centerPoint.y - targetPoint.y
   }
+
+  if (ignoreX) { displaceVector.x = 0 }
+  if (ignoreY) { displaceVector.y = 0 }
 
   viewPort.displace(displaceVector)
 }

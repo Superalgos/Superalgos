@@ -548,7 +548,7 @@ function newCanvas () {
 
       container = thisObject.chartSpace.getContainer(point)
 
-      if (container !== undefined && container.isClickeable === true) {
+      if (container !== undefined) {
         container.eventHandler.raiseEvent('onMouseOver', point)
         return
       }
@@ -594,7 +594,7 @@ function newCanvas () {
 
       let bottomContainer = canvas.bottomSpace.getContainer({ x: point.x, y: point.y })
 
-      if (bottomContainer !== undefined && bottomContainer.isWheeleable === true) {
+      if (bottomContainer !== undefined && bottomContainer.isWheelable === true) {
         bottomContainer.eventHandler.raiseEvent('Mouse Wheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       }
@@ -603,7 +603,7 @@ function newCanvas () {
 
       let chartContainer = canvas.chartSpace.getContainer({ x: point.x, y: point.y })
 
-      if (chartContainer !== undefined && chartContainer.isWheeleable === true) {
+      if (chartContainer !== undefined && chartContainer.isWheelable === true) {
         chartContainer.eventHandler.raiseEvent('Mouse Wheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       } else {

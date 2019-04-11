@@ -48,7 +48,7 @@ function newFileStorage() {
             xhttp.send(blob);
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] getBlobToText -> err = ' + err) }
+            if (ERROR_LOG === true) { logger.write('[ERROR] getBlobToText -> err = ' + err.stack) }
         }
     }
 }

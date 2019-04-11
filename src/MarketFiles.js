@@ -45,7 +45,7 @@ function newMarketFiles () {
       files = undefined
       finalized = true
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
   }
 
@@ -116,14 +116,14 @@ function newMarketFiles () {
 
               callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject) // Note that the callback is called for every file loaded.
             } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> err = ' + err) }
+              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> err = ' + err.stack) }
               callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
           }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -183,13 +183,13 @@ function newMarketFiles () {
                 thisObject.eventHandler.raiseEvent('Files Updated', undefined)
               }
             } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onFileReceived -> err = ' + err) }
+              if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onFileReceived -> err = ' + err.stack) }
             }
           }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> err = ' + err.stack) }
     }
   }
 

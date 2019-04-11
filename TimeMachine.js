@@ -72,11 +72,16 @@ function newTimeMachine () {
     timeScale = newTimeScale()
     timeScale.initialize()
 
+    timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
+      thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
+      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+    })
+
     rigthScale = newRigthScale()
     rigthScale.initialize()
 
-    timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
-      thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
+    rigthScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
+      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
 

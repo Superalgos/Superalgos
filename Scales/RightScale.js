@@ -10,7 +10,8 @@
      container: undefined,
      draw: draw,
      getContainer: getContainer,
-     initialize: initialize
+     initialize: initialize,
+     heightPercentage: 100
    }
 
    const RIGHT_MARGIN = 50
@@ -37,10 +38,14 @@
    function onMouseWheel (event) {
      delta = event.wheelDelta
      if (delta < 0) {
-       delta = -0.1
+       thisObject.heightPercentage = thisObject.heightPercentage - 10
+       if (thisObject.heightPercentage < 10) { thisObject.heightPercentage = 10 }
      } else {
-       delta = 0.1
+       thisObject.heightPercentage = thisObject.heightPercentage + 10
+       if (thisObject.heightPercentage > 100) { thisObject.heightPercentage = 100 }
      }
+     event.heightPercentage = thisObject.heightPercentage
+     thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
    }
 
    function getContainer (point) {

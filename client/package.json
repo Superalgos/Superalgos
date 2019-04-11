@@ -32,7 +32,7 @@
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "@superalgos/cockpit-client": "0.0.4",
+    "@superalgos/cockpit-client": "0.0.5",
     "@superalgos/events-client": "0.0.2",
     "@superalgos/key-vault-client": "0.0.32",
     "@superalgos/logs-client": "0.0.1",

@@ -50,6 +50,7 @@
        thisObject.heightPercentage = JSON.parse(thisObject.heightPercentage)
      }
 
+     let event = {}
      event.heightPercentage = thisObject.heightPercentage
      thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
 

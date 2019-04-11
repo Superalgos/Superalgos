@@ -111,36 +111,6 @@ function newPlottersManager () {
 
       initializeCompetitionPlotters(onCompetitionPlottersInitialized)
 
-      canvas.bottomSpace.chartAspectRatio.container.eventHandler.listenToEvent('Chart Aspect Ratio Changed', onAspectRatioChanged)
-
-      function onAspectRatioChanged (pAspectRatio) {
-        thisObject.container.frame.height = TIME_MACHINE_HEIGHT * pAspectRatio.y
-
-                /* First the Product Plotters. */
-
-        for (let i = 0; i < productPlotters.length; i++) {
-          let productPlotter = productPlotters[i]
-          productPlotter.plotter.container.frame.width = thisObject.container.frame.width
-          productPlotter.plotter.container.frame.height = thisObject.container.frame.height
-
-          if (productPlotter.plotter.recalculateScale !== undefined) {
-            productPlotter.plotter.recalculateScale()
-          }
-        }
-
-                /* Then the competition plotters. */
-
-        for (let i = 0; i < competitionPlotters.length; i++) {
-          let competitionPlotter = competitionPlotters[i]
-          competitionPlotter.plotter.container.frame.width = thisObject.container.frame.width
-          competitionPlotter.plotter.container.frame.height = thisObject.container.frame.height
-
-          if (competitionPlotter.plotter.recalculateScale !== undefined) {
-            competitionPlotter.plotter.recalculateScale()
-          }
-        }
-      }
-
       function onCompetitionPlottersInitialized (err) {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] initialize -> onCompetitionPlottersInitialized -> Entering function.') }

@@ -25,7 +25,7 @@
    thisObject.container.initialize(MODULE_NAME)
    thisObject.container.detectMouseOver = true
 
-   let chartGrid
+   // let chartGrid
    let breakpointsBar
 
    let initializationReady = false
@@ -66,7 +66,7 @@
 
        thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function (event) {
          recalculateScale()
-         moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition)
+         moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, false, event.mousePosition)
        })
 
        thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
@@ -116,8 +116,8 @@
        logoExchange.src = window.canvasApp.urlPrefix + 'Images/' + exchange + '-logo-background.png'
        logoAA.src = window.canvasApp.urlPrefix + 'Images/sa-logo-background.png'
 
-       chartGrid = newChartGrid()
-       chartGrid.initialize()
+       // chartGrid = newChartGrid()
+       // chartGrid.initialize()
 
        breakpointsBar = newBreakpointsBar()
        breakpointsBar.initialize(thisObject.container, timeLineCoordinateSystem)
@@ -158,13 +158,6 @@
          initializationReady = true
          callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
          return
-       }
-
-       canvas.bottomSpace.chartAspectRatio.container.eventHandler.listenToEvent('Chart Aspect Ratio Changed', onAspectRatioChanged)
-
-       function onAspectRatioChanged (pAspectRatio) {
-         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * pAspectRatio.y
-         recalculateScale()
        }
      } catch (err) {
        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
@@ -251,7 +244,7 @@
 
      let container
 
-     container = chartGrid.getContainer(point)
+     // container = chartGrid.getContainer(point)
 
      if (container !== undefined) { return container }
 
@@ -321,7 +314,7 @@
      if (thisObject.container.frame.isInViewPort()) {
        drawChartsBackground()
 
-       chartGrid.draw(thisObject.container, timeLineCoordinateSystem)
+       // chartGrid.draw(thisObject.container, timeLineCoordinateSystem)
 
        plotterManager.draw()
 

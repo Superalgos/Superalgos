@@ -19,13 +19,10 @@
    container.isDraggeable = false
    container.isClickeable = true
 
-   let rigthScale
-
    return thisObject
 
    function initialize () {
-     rigthScale = newRigthScale()
-     rigthScale.initialize()
+
    }
 
    function getContainer (point) {
@@ -47,6 +44,8 @@
    }
 
    function draw (container, timeLineCoordinateSystem) {
+     return // not for now
+
      rightScaleBackground()
      leftScaleBackground()
 
@@ -56,7 +55,7 @@
 
      const basePeriod = {
        x: 8 * 60 * 60 * 1000,
-       y: timeLineCoordinateSystem.max.y / 1000 / canvas.bottomSpace.chartAspectRatio.aspectRatio.y
+       y: timeLineCoordinateSystem.max.y / 1000
      }
 
      let period = {

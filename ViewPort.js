@@ -7,7 +7,6 @@ function newViewPort () {
   const BOTTOM_MARGIN = 15 + BOTTOM_SPACE_HEIGHT
   const LEFT_MARGIN = 50
   const RIGHT_MARGIN = 50
-  const MIN_ZOOM_LEVEL = -28.25
 
   let thisObject = {
     visibleArea: undefined,
@@ -15,6 +14,7 @@ function newViewPort () {
     zoomTargetLevel: undefined,
     zoomLevel: undefined,
     mousePosition: undefined,
+    getDisplacement: getDisplacement,
     newZoomLevel: newZoomLevel,
     applyZoom: applyZoom,
     isMinZoom: isMinZoom,
@@ -33,7 +33,7 @@ function newViewPort () {
 
   let increment = 0.035
 
-  var offset = {
+  let offset = {
     x: 0,
     y: 0
   }
@@ -64,6 +64,14 @@ function newViewPort () {
       bottomRight: { x: browserCanvas.width - RIGHT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN},
       bottomLeft: { x: LEFT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN}
     }
+  }
+
+  function getDisplacement () {
+    let displacement = {
+      x: offset.x,
+      y: offset.y
+    }
+    return displacement
   }
 
   function raiseEvents () {
@@ -386,4 +394,3 @@ function newViewPort () {
     browserCanvasContext.stroke()
   }
 }
-

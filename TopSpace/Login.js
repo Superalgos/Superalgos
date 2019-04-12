@@ -1,5 +1,11 @@
 
 function newLogin () {
+  const MODULE_NAME = 'Login'
+  const INFO_LOG = false
+  const INTENSIVE_LOG = false
+  const ERROR_LOG = true
+  const logger = newWebDebugLog()
+
   let thisObject = {
     container: undefined,
     draw: draw,
@@ -27,337 +33,341 @@ function newLogin () {
   return thisObject
 
   async function initialize (pSharedStatus) {
-    const accessToken = window.localStorage.getItem('access_token')
-    let user = window.localStorage.getItem('user')
+    try {
+      const accessToken = window.localStorage.getItem('access_token')
+      let user = window.localStorage.getItem('user')
 
-    sharedStatus = pSharedStatus
+      sharedStatus = pSharedStatus
 
-    if (user === null) {
-            // if there is no user that means that we are logged off, which means it is time to clean the local storage of things from the last log in.
+      if (user === null) {
+              // if there is no user that means that we are logged off, which means it is time to clean the local storage of things from the last log in.
 
-      window.localStorage.removeItem('loggedInUser')
-      window.localStorage.removeItem('sessionToken')
-      return
-    }
+        window.localStorage.removeItem('loggedInUser')
+        window.localStorage.removeItem('sessionToken')
+        return
+      }
 
-    user = JSON.parse(user)
+      user = JSON.parse(user)
 
-    const authId = user.authId
+      const authId = user.authId
 
-    let sessionToken
+      let sessionToken
 
-    const apolloClient = new Apollo.lib.ApolloClient({
-      networkInterface: Apollo.lib.createNetworkInterface({
-        uri: window.canvasApp.graphQL.masterAppApiUrl,
-        transportBatching: true
-      }),
-      connectToDevTools: true
-    })
+      const apolloClient = new Apollo.lib.ApolloClient({
+        networkInterface: Apollo.lib.createNetworkInterface({
+          uri: window.canvasApp.graphQL.masterAppApiUrl,
+          transportBatching: true
+        }),
+        connectToDevTools: true
+      })
 
-    const USERS_QUERY = Apollo.gql`
-            query($authId: String){
-                users_UserByAuthId (authId: $authId){
-                    id
-                    referrerId
-                    alias
-                    firstName
-                    middleName
-                    lastName
-                    bio
-                    email
-                    emailVerified
-                    isDeveloper
-                    isDataAnalyst
-                    isTrader
-                    avatarHandle
-                    avatarChangeDate
-                    sessionToken
-                    role {
-                    id
-                    }
-                }
+      const USERS_QUERY = Apollo.gql`
+              query($authId: String){
+                  users_UserByAuthId (authId: $authId){
+                      id
+                      referrerId
+                      alias
+                      firstName
+                      middleName
+                      lastName
+                      bio
+                      email
+                      emailVerified
+                      isDeveloper
+                      isDataAnalyst
+                      isTrader
+                      avatarHandle
+                      avatarChangeDate
+                      sessionToken
+                      role {
+                      id
+                      }
+                  }
+              }
+              `
+      const getUser = () => {
+        return new Promise((resolve, reject) => {
+          apolloClient.query({
+            query: USERS_QUERY,
+            variables: {
+              authId: authId
             }
-            `
-    const getUser = () => {
-      return new Promise((resolve, reject) => {
-        apolloClient.query({
-          query: USERS_QUERY,
-          variables: {
-            authId: authId
+          })
+                      .then(response => {
+                        sessionToken = response.data.users_UserByAuthId.sessionToken
+
+                        window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.users_UserByAuthId))
+                        resolve({ user: response.data.users_UserByAuthId})
+                      })
+                      .catch(error => {
+                        console.log('apolloClient error getting user query', error)
+                        reject(error)
+                      })
+        })
+      }
+
+      /* Getting all Teams */
+
+      const networkInterfaceTeams = Apollo.lib.createNetworkInterface({
+        uri: window.canvasApp.graphQL.masterAppApiUrl
+      })
+
+      networkInterfaceTeams.use([{
+        applyMiddleware (req, next) {
+          req.options.headers = {
+            authorization: `Bearer ${accessToken}`
           }
-        })
-                    .then(response => {
-                      sessionToken = response.data.users_UserByAuthId.sessionToken
-
-                      window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.users_UserByAuthId))
-                      resolve({ user: response.data.users_UserByAuthId})
-                    })
-                    .catch(error => {
-                      console.log('apolloClient error getting user query', error)
-                      reject(error)
-                    })
-      })
-    }
-
-    /* Getting all Teams */
-
-    const networkInterfaceTeams = Apollo.lib.createNetworkInterface({
-      uri: window.canvasApp.graphQL.masterAppApiUrl
-    })
-
-    networkInterfaceTeams.use([{
-      applyMiddleware (req, next) {
-        req.options.headers = {
-          authorization: `Bearer ${accessToken}`
+          next()
         }
-        next()
-      }
-    }])
+      }])
 
-    const apolloClientTeams = new Apollo.lib.ApolloClient({
-      networkInterface: networkInterfaceTeams,
-      connectToDevTools: true
-    })
-
-    const TEAM_BY_OWNER_QUERY = Apollo.gql`
-            query teamsByOwnerQuery {
-                teams_TeamsByOwner {
-                    id
-                    name
-                    slug
-                    profile {
-                    avatar
-                    banner
-                    description
-                    motto
-                    updatedAt
-                    }
-                    members {
-                    member {
-                        alias
-                    }
-                    }
-                    fb {
-                    id
-                    name
-                    slug
-                    avatar
-                    kind
-                    status {
-                        status
-                        reason
-                        createdAt
-                    }
-                    }
-                }
-            }
-        `
-
-    const getTeamByOwner = () => {
-      return new Promise((resolve, reject) => {
-        apolloClientTeams.query({
-          query: TEAM_BY_OWNER_QUERY
-        })
-            .then(response => {
-              window.localStorage.setItem('userTeams', JSON.stringify(response.data.teams_TeamsByOwner))
-              resolve({ teams: response.data.teams_TeamsByOwner})
-            })
-            .catch(error => {
-              console.log('apolloClient error getting user teams', error)
-              reject(error)
-            })
+      const apolloClientTeams = new Apollo.lib.ApolloClient({
+        networkInterface: networkInterfaceTeams,
+        connectToDevTools: true
       })
-    }
 
-      /* Gettings All Events */
-
-    const networkInterfaceEvents = Apollo.lib.createNetworkInterface({
-      uri: window.canvasApp.graphQL.masterAppApiUrl
-    })
-
-    const apolloClientEvents = new Apollo.lib.ApolloClient({
-      networkInterface: networkInterfaceEvents,
-      connectToDevTools: true,
-      addTypename: false
-    })
-
-    const EVENTS_QUERY = Apollo.gql`
-        query events($maxStartDate: Int, $minEndDate: Int){
-            events_Events(maxStartDate: $maxStartDate, minEndDate: $minEndDate){
-                id
-                title
-                startDatetime
-                endDatetime
-                participants{
-                    clone{
-                        id
-                        team{
-                            slug
-                        }
-                        bot{
-                            slug
-                        }
-                    }
-                }
-            }
-        }
-    `
-
-    const getCurrentEvents = () => {
-      var d = new Date()
-      var nowSeconds = Math.round(d.getTime() / 1000)
-      var twoWeeksAgoSeconds = nowSeconds - 1209600
-      return new Promise((resolve, reject) => {
-        apolloClientEvents.query({
-          query: EVENTS_QUERY,
-          variables: { maxStartDate: nowSeconds, minEndDate: twoWeeksAgoSeconds }
-        })
-            .then(response => {
-              window.localStorage.setItem('currentEvents', JSON.stringify(response.data.events_Events))
-              currentEvent = window.localStorage.getItem('currentEventObject')
-              if (currentEvent === null || currentEvent === '[]' || currentEvent === '') {
-                sharedStatus.currentEventIndex = -1
-              } else {
-                currentEvent = JSON.parse(currentEvent)
-                sharedStatus.currentEventIndex = response.data.events_Events.findIndex(function (element) {
-                  return element.id == currentEvent.id
-                })
+      const TEAM_BY_OWNER_QUERY = Apollo.gql`
+              query teamsByOwnerQuery {
+                  teams_TeamsByOwner {
+                      id
+                      name
+                      slug
+                      profile {
+                      avatar
+                      banner
+                      description
+                      motto
+                      updatedAt
+                      }
+                      members {
+                      member {
+                          alias
+                      }
+                      }
+                      fb {
+                      id
+                      name
+                      slug
+                      avatar
+                      kind
+                      status {
+                          status
+                          reason
+                          createdAt
+                      }
+                      }
+                  }
               }
-              resolve({ currentEvents: response.data.events_Events})
-            })
-            .catch(error => {
-              console.log('apolloClient error getting current events', error)
-              reject(error)
-            })
-      })
-    }
+          `
 
-    /* Getting all Clones */
-
-    const networkInterfaceClones = Apollo.lib.createNetworkInterface({
-      uri: window.canvasApp.graphQL.masterAppApiUrl
-    })
-
-    networkInterfaceClones.use([{
-      applyMiddleware (req, next) {
-        req.options.headers = {
-          authorization: `Bearer ${accessToken}`
-        }
-        next()
+      const getTeamByOwner = () => {
+        return new Promise((resolve, reject) => {
+          apolloClientTeams.query({
+            query: TEAM_BY_OWNER_QUERY
+          })
+              .then(response => {
+                window.localStorage.setItem('userTeams', JSON.stringify(response.data.teams_TeamsByOwner))
+                resolve({ teams: response.data.teams_TeamsByOwner})
+              })
+              .catch(error => {
+                console.log('apolloClient error getting user teams', error)
+                reject(error)
+              })
+        })
       }
-    }])
 
-    const apolloClientClones = new Apollo.lib.ApolloClient({
-      networkInterface: networkInterfaceClones,
-      connectToDevTools: true
-    })
+        /* Gettings All Events */
 
-    const CLONES_QUERY = Apollo.gql`
-    query Operations_Clones{
-            operations_Clones {
+      const networkInterfaceEvents = Apollo.lib.createNetworkInterface({
+        uri: window.canvasApp.graphQL.masterAppApiUrl
+      })
+
+      const apolloClientEvents = new Apollo.lib.ApolloClient({
+        networkInterface: networkInterfaceEvents,
+        connectToDevTools: true,
+        addTypename: false
+      })
+
+      const EVENTS_QUERY = Apollo.gql`
+          query events($maxStartDate: Int, $minEndDate: Int){
+              events_Events(maxStartDate: $maxStartDate, minEndDate: $minEndDate){
                   id
-                  authId
-                  teamId
-                  botId
-                  mode
-                  resumeExecution
-                  beginDatetime
+                  title
+                  startDatetime
                   endDatetime
-                  waitTime
-                  state
-                  stateDatetime
-                  createDatetime
-                  lastLogs
-                  runAsTeam
-                  summaryDate
-                  buyAverage
-                  sellAverage
-                  marketRate
-                  combinedProfitsA
-                  combinedProfitsB
-                  assetA
-                  assetB
-                  botType
-                  teamName
-                  botName
-                  botAvatar
-                  teamAvatar
-                  processName
-                  keyId
-                  botSlug
+                  participants{
+                      clone{
+                          id
+                          team{
+                              slug
+                          }
+                          bot{
+                              slug
+                          }
+                      }
                   }
-                }
-        `
-
-    const getClones = () => {
-      return new Promise((resolve, reject) => {
-        apolloClientClones.query({
-          query: CLONES_QUERY
-        })
-            .then(response => {
-              window.localStorage.setItem('userClones', JSON.stringify(response.data.operations_Clones))
-              let clones = response.data.operations_Clones
-              for (let i = 0; i < clones.length; i++) {
-                let clone = clones[i]
-                if (clone.botType === 'Trading') {
-                  let teamSlug = clone.teamName.toLowerCase()
-                  teamSlug = teamSlug.replace(' ', '-')
-                  let devTeam = ecosystem.getTeam(teamSlug)
-                  let bot = ecosystem.getBot(devTeam, clone.botSlug)
-                  if (bot !== undefined) {
-                    bot.cloneId = clone.id
-                  }
-                }
               }
+          }
+      `
 
-              resolve({ clones: response.data.operations_Clones})
-            })
-            .catch(error => {
-              console.log('apolloClient error getting user clones', error)
-              reject(error)
-            })
-      })
-    }
-
-        // To avoid race conditions, add asynchronous fetches to array
-    let fetchDataPromises = []
-
-    fetchDataPromises.push(getUser(), getTeamByOwner(), getCurrentEvents(), getClones(), authenticateUser())
-
-        // When all asynchronous fetches resolve, authenticate user or throw error.
-    await Promise.all(fetchDataPromises).then(result => {
-
-    }, err => {
-      console.error('[ERROR] Login -> GraphQL Fetch Error -> err = ', err)
-    })
-
-    thisObject.container.eventHandler.listenToEvent('onMouseClick', onClick)
-
-    async function authenticateUser () {
-      if (sessionToken === undefined) { sessionToken = '' }
-
-      let path = window.canvasApp.urlPrefix + 'AABrowserAPI/authenticateUser/' + sessionToken
-
-      return new Promise(
-                function (resolve, reject) {
-                  callServer(undefined, path, (result) => {
-                    let responseFromServer = JSON.parse(result)
-
-                    err = responseFromServer.err
-
-                    if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                      console.log('Please make sure you create a new team!')
-                      reject(err)
-                    }
-
-                    window.USER_PROFILE = responseFromServer.userProfile
-                    window.localStorage.setItem('sessionToken', sessionToken)
-
-                    currentLabel = 'Logged In'
-                    resolve()
+      const getCurrentEvents = () => {
+        var d = new Date()
+        var nowSeconds = Math.round(d.getTime() / 1000)
+        var twoWeeksAgoSeconds = nowSeconds - 1209600
+        return new Promise((resolve, reject) => {
+          apolloClientEvents.query({
+            query: EVENTS_QUERY,
+            variables: { maxStartDate: nowSeconds, minEndDate: twoWeeksAgoSeconds }
+          })
+              .then(response => {
+                window.localStorage.setItem('currentEvents', JSON.stringify(response.data.events_Events))
+                currentEvent = window.localStorage.getItem('currentEventObject')
+                if (currentEvent === null || currentEvent === '[]' || currentEvent === '') {
+                  sharedStatus.currentEventIndex = -1
+                } else {
+                  currentEvent = JSON.parse(currentEvent)
+                  sharedStatus.currentEventIndex = response.data.events_Events.findIndex(function (element) {
+                    return element.id == currentEvent.id
                   })
                 }
-              )
+                resolve({ currentEvents: response.data.events_Events})
+              })
+              .catch(error => {
+                console.log('apolloClient error getting current events', error)
+                reject(error)
+              })
+        })
+      }
+
+      /* Getting all Clones */
+
+      const networkInterfaceClones = Apollo.lib.createNetworkInterface({
+        uri: window.canvasApp.graphQL.masterAppApiUrl
+      })
+
+      networkInterfaceClones.use([{
+        applyMiddleware (req, next) {
+          req.options.headers = {
+            authorization: `Bearer ${accessToken}`
+          }
+          next()
+        }
+      }])
+
+      const apolloClientClones = new Apollo.lib.ApolloClient({
+        networkInterface: networkInterfaceClones,
+        connectToDevTools: true
+      })
+
+      const CLONES_QUERY = Apollo.gql`
+      query Operations_Clones{
+              operations_Clones {
+                    id
+                    authId
+                    teamId
+                    botId
+                    mode
+                    resumeExecution
+                    beginDatetime
+                    endDatetime
+                    waitTime
+                    state
+                    stateDatetime
+                    createDatetime
+                    lastLogs
+                    runAsTeam
+                    summaryDate
+                    buyAverage
+                    sellAverage
+                    marketRate
+                    combinedProfitsA
+                    combinedProfitsB
+                    assetA
+                    assetB
+                    botType
+                    teamName
+                    botName
+                    botAvatar
+                    teamAvatar
+                    processName
+                    keyId
+                    botSlug
+                    }
+                  }
+          `
+
+      const getClones = () => {
+        return new Promise((resolve, reject) => {
+          apolloClientClones.query({
+            query: CLONES_QUERY
+          })
+              .then(response => {
+                window.localStorage.setItem('userClones', JSON.stringify(response.data.operations_Clones))
+                let clones = response.data.operations_Clones
+                for (let i = 0; i < clones.length; i++) {
+                  let clone = clones[i]
+                  if (clone.botType === 'Trading') {
+                    let teamSlug = clone.teamName.toLowerCase()
+                    teamSlug = teamSlug.replace(' ', '-')
+                    let devTeam = ecosystem.getTeam(teamSlug)
+                    let bot = ecosystem.getBot(devTeam, clone.botSlug)
+                    if (bot !== undefined) {
+                      bot.cloneId = clone.id
+                    }
+                  }
+                }
+
+                resolve({ clones: response.data.operations_Clones})
+              })
+              .catch(error => {
+                console.log('apolloClient error getting user clones', error)
+                reject(error)
+              })
+        })
+      }
+
+          // To avoid race conditions, add asynchronous fetches to array
+      let fetchDataPromises = []
+
+      fetchDataPromises.push(getUser(), getTeamByOwner(), getCurrentEvents(), getClones(), authenticateUser())
+
+          // When all asynchronous fetches resolve, authenticate user or throw error.
+      await Promise.all(fetchDataPromises).then(result => {
+
+      }, err => {
+        console.error('[ERROR] Login -> GraphQL Fetch Error -> err = ', err)
+      })
+
+      thisObject.container.eventHandler.listenToEvent('onMouseClick', onClick)
+
+      async function authenticateUser () {
+        if (sessionToken === undefined) { sessionToken = '' }
+
+        let path = window.canvasApp.urlPrefix + 'AABrowserAPI/authenticateUser/' + sessionToken
+
+        return new Promise(
+                  function (resolve, reject) {
+                    callServer(undefined, path, (result) => {
+                      let responseFromServer = JSON.parse(result)
+
+                      err = responseFromServer.err
+
+                      if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                        console.log('Please make sure you create a new team!')
+                        reject(err)
+                      }
+
+                      window.USER_PROFILE = responseFromServer.userProfile
+                      window.localStorage.setItem('sessionToken', sessionToken)
+
+                      currentLabel = 'Logged In'
+                      resolve()
+                    })
+                  }
+                )
+      }
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }
   }
 

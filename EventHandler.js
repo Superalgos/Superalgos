@@ -28,6 +28,10 @@ function newEventHandler () {
   }
 
   function stopListening (pEventType, pHandler) {
+    if (pHandler === undefined) {
+      pHandler = 'Anonymous Function'
+    }
+
     if (thisObject.name !== undefined && CONSOLE_LOG === true) {
       console.log('Event Handler named ' + thisObject.name + ' received a request to stop listening to an the event ' + pEventType + ' with this handler: ' + pHandler)
     }
@@ -37,14 +41,24 @@ function newEventHandler () {
       let eventType = record[0]
       let handler = record[1]
 
-      if (pEventType === eventType && pHandler.toString() === handler.toString()) {
-        eventHandlers.splice(i, 1)
+      if (pHandler === 'Anonymous Function') {
+        if (pEventType === eventType) {
+          eventHandlers.splice(i, 1)
 
-        if (thisObject.name !== undefined && CONSOLE_LOG === true) {
-          console.log('Evethandler found and deleted.')
+          if (thisObject.name !== undefined && CONSOLE_LOG === true) {
+            console.log('Evethandler found and deleted.')
+          }
+          return
         }
+      } else {
+        if (pEventType === eventType && pHandler.toString() === handler.toString()) {
+          eventHandlers.splice(i, 1)
 
-        return
+          if (thisObject.name !== undefined && CONSOLE_LOG === true) {
+            console.log('Evethandler found and deleted.')
+          }
+          return
+        }
       }
     }
   }

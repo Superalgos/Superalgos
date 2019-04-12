@@ -38,7 +38,7 @@
      exchange = pExchange
      market = pMarket
 
-     thisObject.container.name = exchange + ' ' + market.assetB + '/' + market.assetA + ' ' + 'Indicators'
+     thisObject.container.name = 'Layers @ ' + exchange + ' ' + market.assetB + '/' + market.assetA
      thisObject.container.frame.containerName = thisObject.container.name
      thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
      thisObject.container.frame.height = viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
@@ -55,6 +55,16 @@
      panelTabButton.container.frame.parentFrame = thisObject.container.frame
      panelTabButton.initialize()
 
+     /* Get the current teams of the logged in user. */
+
+     let storedTeams = window.localStorage.getItem('userTeams')
+     let userTeams
+     let userTeam = {slug: ''}
+     if (storedTeams !== null && storedTeams !== undefined && storedTeams !== '') {
+       userTeams = JSON.parse(storedTeams)
+       userTeam = userTeams[0] // Currently we assume a user can be at only one team.
+     }
+
         /* First thing is to build the productCards array */
 
      let devTeams = ecosystem.getTeams()
@@ -66,6 +76,7 @@
          let bot = devTeam.bots[j]
 
          if (bot.type !== 'Indicator' && bot.cloneId === undefined) { continue }
+         if (bot.type === 'Indicator' && (devTeam.codeName !== 'AAMasters' && devTeam.codeName !== userTeam.slug)) { continue }
 
          if (bot.products !== undefined) {
            for (let k = 0; k < bot.products.length; k++) {
@@ -127,14 +138,15 @@
      isInitialized = true
    }
 
-   function onMouseWheel (pDelta) {
-     if (pDelta > 0) {
-       pDelta = -1
+   function onMouseWheel (event) {
+     delta = event.wheelDelta
+     if (delta > 0) {
+       delta = -1
      } else {
-       pDelta = 1
+       delta = 1
      }
 
-     firstVisibleCard = firstVisibleCard + pDelta
+     firstVisibleCard = firstVisibleCard + delta
 
      let availableSlots = visibleProductCards.length
 

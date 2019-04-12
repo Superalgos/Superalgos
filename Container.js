@@ -1,6 +1,6 @@
 
 function newContainer () {
-  var container = {
+  let thisObject = {
     frame: undefined,
     displacement: undefined,
     eventHandler: undefined,
@@ -9,24 +9,93 @@ function newContainer () {
     isClickeable: false,
     isWheelable: false,
     name: undefined,
-    initialize: initialize
+    initialize: initialize,
+    connectToParent: connectToParent,
+    isForThisPurpose: isForThisPurpose
   }
 
-  return container
+  let connectedToParentWidth = false
+  let connectedToParentHeight = false
 
-  function initialize () {
-    var frame = newFrame()
-    frame.initialize()
-    this.frame = frame
-    frame.container = container
+  return thisObject
 
-    var eventHandler = newEventHandler()
-    eventHandler.initialize()
-    eventHandler.name = container.name
-    this.eventHandler = eventHandler
+  function initialize (pName) {
+    thisObject.name = pName
 
-    var displacement = newDisplacement()
-    this.displacement = displacement
-    displacement.container = container
+    thisObject.frame = newFrame()
+    thisObject.frame.initialize()
+    thisObject.frame.containerName = pName
+    thisObject.frame.container = thisObject
+
+    thisObject.eventHandler = newEventHandler()
+    thisObject.eventHandler.initialize()
+    thisObject.eventHandler.name = pName
+
+    thisObject.displacement = newDisplacement()
+    thisObject.displacement.container = thisObject
+    thisObject.displacement.containerName = pName
+  }
+
+  function connectToParent (parentContainer, onWidth, onHeight) {
+    connectedToParentWidth = onWidth
+    connectedToParentHeight = onHeight
+
+    thisObject.displacement.parentDisplacement = parentContainer.displacement
+    thisObject.frame.parentFrame = parentContainer.frame
+    thisObject.parentContainer = parentContainer
+    thisObject.parentContainer.eventHandler.listenToEvent('Dimmensions Changed', onParentDimmensionsChanged)
+    thisObject.parentContainer.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+
+    if (connectedToParentWidth) {
+      thisObject.frame.width = thisObject.parentContainer.frame.width
+    }
+    if (connectedToParentHeight) {
+      thisObject.frame.height = thisObject.parentContainer.frame.height
+    }
+  }
+
+  function onParentDimmensionsChanged (event) {
+    let dimmensionsChanged = false
+    if (connectedToParentWidth) {
+      thisObject.frame.width = thisObject.parentContainer.frame.width
+      dimmensionsChanged = true
+    }
+    if (connectedToParentHeight) {
+      thisObject.frame.height = thisObject.parentContainer.frame.height
+      dimmensionsChanged = true
+    }
+
+    if (dimmensionsChanged) {
+      thisObject.eventHandler.raiseEvent('Dimmensions Changed', event)
+    }
+  }
+
+  function onMouseOver (event) {
+    thisObject.eventHandler.raiseEvent('onMouseOver', event)
+  }
+
+  function isForThisPurpose (purpose) {
+    if (purpose !== undefined) {
+      switch (purpose) {
+        case GET_CONTAINER_PURPOSE.MOUSE_OVER:
+          if (thisObject.detectMouseOver === true) {
+            return true
+          }
+          break
+        case GET_CONTAINER_PURPOSE.MOUSE_WHEEL:
+          if (thisObject.isWheelable === true) {
+            return true
+          }
+          break
+        case GET_CONTAINER_PURPOSE.MOUSE_CLICK:
+          if (thisObject.isClickeable === true) {
+            return true
+          }
+          break
+        default: { return false }
+
+      }
+    }
+    return false
   }
 }

@@ -126,17 +126,17 @@ function newPanelsSpace () {
         so panels overlapping others are picked firt although they are drawn last.
 
         */
+    if (thisObject.panels !== undefined) {
+      for (var i = thisObject.panels.length - 1; i >= 0; i--) {
+        container = thisObject.panels[i].getContainer(point)
 
-    for (var i = thisObject.panels.length - 1; i >= 0; i--) {
-      container = thisObject.panels[i].getContainer(point)
+        if (container !== undefined) {
+              /* We found an inner container which has the point. We return it. */
 
-      if (container !== undefined) {
-                /* We found an inner container which has the point. We return it. */
-
-        return container
+          return container
+        }
       }
     }
-
         /* The point does not belong to any inner container, so we return the current container. */
 
     return thisObject.container

@@ -36,6 +36,13 @@ UI_FONT = {
 };
 
 FONT_ASPECT_RATIO = 0.45;
+const MIN_ZOOM_LEVEL = -28.25
+
+const GET_CONTAINER_PURPOSE = {
+  MOUSE_OVER: 1,
+  MOUSE_WHEEL: 2,
+  MOUSE_CLICK: 3
+}
 
 /* User Interface Panels */
 
@@ -43,7 +50,8 @@ UI_PANEL = {
     WIDTH: {
         SMALL: 100,
         NORMAL: 150,
-        LARGE: 350
+        LARGE: 250,
+        X_LARGE: 350
     },
     HEIGHT: {
         SMALL: 65,
@@ -171,8 +179,8 @@ const MAX_PLOTABLE_DATE = maxDate;
 We define here the size of the chartSpace. It has to bee enough big in order to accomodate all the charts we expect to display in this space.
 */
 
-const CHART_SPACE_WIDTH = browserCanvas.width * 1000;
-const CHART_SPACE_HEIGHT = browserCanvas.height * 100;
+const TIME_MACHINE_WIDTH = browserCanvas.width * 1000;
+const TIME_MACHINE_HEIGHT = browserCanvas.height * 100;
 
 function toRadians(angle) {
     return angle * (Math.PI / 180);

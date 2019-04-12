@@ -2,6 +2,7 @@ import {
   GraphQLObjectType,
   GraphQLString,
   GraphQLList,
+  GraphQLBoolean,
   GraphQLID,
 } from 'graphql';
 import {
@@ -13,10 +14,14 @@ const Type = new GraphQLObjectType({
   description: 'Everything you need to know about a strategy',
   fields: () => ({
     id: { type: GraphQLID },
-    fbId: { type: GraphQLString },
+    fbSlug: { type: GraphQLString },
     subStrategies: {
+      args: { activeOnly: { type: GraphQLBoolean } },
       type: new GraphQLList(SubStrategyType),
-      resolve(parent) {
+      resolve(parent, { activeOnly }) {
+        if (activeOnly) {
+          return parent.subStrategies.filter(subStrategy => subStrategy.active);
+        }
         return parent.subStrategies;
       },
     },

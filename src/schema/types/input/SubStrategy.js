@@ -1,5 +1,6 @@
 import {
   GraphQLString,
+  GraphQLBoolean,
   GraphQLInputObjectType,
 } from 'graphql';
 import {
@@ -16,6 +17,7 @@ const Type = new GraphQLInputObjectType({
   name: 'SubStrategyInput',
   description: 'Payload for subStrategy input',
   fields: () => ({
+    active: { type: GraphQLBoolean },
     name: { type: GraphQLString },
     entryPoint: { type: EntryPointInputType },
     exitPoint: { type: ExitPointInputType },

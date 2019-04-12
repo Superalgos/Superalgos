@@ -8,16 +8,20 @@ import { StrategyInputType } from '../types/input';
 
 const args = {
   id: { type: new GraphQLNonNull(GraphQLID) },
-  newStrategy: { type: new GraphQLNonNull(StrategyInputType) },
+  strategy: { type: new GraphQLNonNull(StrategyInputType) },
 };
 
-const resolve = (parent, { id: _id, newStrategy }) => new Promise((res, rej) => {
+const resolve = (parent, { id: _id, strategy: editedStrategy }) => new Promise((res, rej) => {
   Strategy.findOne({ _id }).exec((err, strategy) => {
     if (err) {
       rej(err);
       return;
     }
-    strategy = newStrategy;
+    strategy.history.push({
+      updatedAt: strategy.updatedAt,
+      subStrategies: strategy.subStrategies,
+    });
+    strategy.subStrategies = editedStrategy.subStrategies;
     strategy.save((error) => {
       if (error) {
         rej(error);
@@ -29,7 +33,7 @@ const resolve = (parent, { id: _id, newStrategy }) => new Promise((res, rej) => 
 });
 
 const mutation = {
-  editParticipant: {
+  editStrategy: {
     type: StrategyType,
     args,
     resolve,

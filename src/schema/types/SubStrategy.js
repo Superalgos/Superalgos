@@ -1,7 +1,7 @@
 import {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLList,
+  GraphQLBoolean,
 } from 'graphql';
 import {
   EntryPointType,
@@ -17,45 +17,46 @@ const Type = new GraphQLObjectType({
   name: 'SubStrategy',
   description: 'SubStrategy composing a strategy',
   fields: () => ({
+    active: { type: GraphQLBoolean },
     name: { type: GraphQLString },
     entryPoint: {
-      type: new GraphQLList(EntryPointType),
+      type: EntryPointType,
       resolve(parent) {
         return parent.entryPoint;
       },
     },
     exitPoint: {
-      type: new GraphQLList(ExitPointType),
+      type: ExitPointType,
       resolve(parent) {
         return parent.exitPoint;
       },
     },
     sellPoint: {
-      type: new GraphQLList(SellPointType),
+      type: SellPointType,
       resolve(parent) {
         return parent.sellPoint;
       },
     },
     buyPoint: {
-      type: new GraphQLList(BuyPointType),
+      type: BuyPointType,
       resolve(parent) {
         return parent.buyPoint;
       },
     },
     stopLoss: {
-      type: new GraphQLList(StopLossType),
+      type: StopLossType,
       resolve(parent) {
         return parent.stopLoss;
       },
     },
     buyOrder: {
-      type: new GraphQLList(BuyOrderType),
+      type: BuyOrderType,
       resolve(parent) {
         return parent.buyOrder;
       },
     },
     sellOrder: {
-      type: new GraphQLList(SellOrderType),
+      type: SellOrderType,
       resolve(parent) {
         return parent.sellOrder;
       },

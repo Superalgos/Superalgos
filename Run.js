@@ -5,6 +5,7 @@ global.CURRENT_EXECUTION_AT = "Node";
 global.SHALL_BOT_STOP = false;
 global.AT_BREAKPOINT = false; // This is used only when running at the browser.
 global.RUN_AS_TEAM = false;
+global.FULL_LOG = process.env.FULL_LOG;
 
 /* Default parameters can be changed by the execution configuration */
 global.EXCHANGE_NAME = process.env.EXCHANGE_NAME;
@@ -100,7 +101,7 @@ function readExecutionConfiguration() {
                 fixedInterval: fixedInterval
             }
         } else {
-            console.log("[ERROR] readExecutionConfiguration -> Bot Type is invalid." );
+            console.log("[ERROR] readExecutionConfiguration -> Bot Type is invalid.");
             throw new Error("readExecutionConfiguration -> Bot Type is invalid.")
         }
 
@@ -132,8 +133,8 @@ function readExecutionConfiguration() {
     }
 }
 
-function getTimePeriod(timePeriod){
-    if(timePeriod !== undefined){
+function getTimePeriod(timePeriod) {
+    if (timePeriod !== undefined) {
         try {
             let timePeriodMap = new Map()
             timePeriodMap.set("24-hs", 86400000)
@@ -157,7 +158,7 @@ function getTimePeriod(timePeriod){
             timePeriodMap.set("01-min", 60000)
             return timePeriodMap.get(timePeriod)
         } catch (error) {
-            console.log( "[WARN] Run -> readExecutionConfiguration -> getTimePeriod -> Error: ", error);
+            console.log("[WARN] Run -> readExecutionConfiguration -> getTimePeriod -> Error: ", error);
         }
     } else {
         return undefined
@@ -166,7 +167,7 @@ function getTimePeriod(timePeriod){
 
 function readStoragePermissions() {
     try {
-        console.log( "[INFO] Run -> readStoragePermissions -> Entering function. ");
+        console.log("[INFO] Run -> readStoragePermissions -> Entering function. ");
 
         /* Dinamically generating the azure storage  permissions for the bot to run */
         global.STORAGE_BASE_URL = process.env.STORAGE_BASE_URL
@@ -221,7 +222,7 @@ function readStoragePermissions() {
 
 function startRoot() {
 
-    console.log( "[INFO] Run -> startRoot -> Entering function. ");
+    console.log("[INFO] Run -> startRoot -> Entering function. ");
 
     const ROOT_DIR = './';
     const ROOT_MODULE = require(ROOT_DIR + 'Root');
@@ -239,7 +240,7 @@ function startRoot() {
 
     function onInitialized() {
 
-        console.log( "[INFO] Run -> startRoot -> onInitialized -> Entering function. ");
+        console.log("[INFO] Run -> startRoot -> onInitialized -> Entering function. ");
 
         root.start();
     }

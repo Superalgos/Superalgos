@@ -374,6 +374,23 @@ header.menu{
       padding: 20px 0 0.5em 0;
       @include fluid-type($break-xs, $break-lg, 18px, 20px);
     }
+    .instructions{
+      h5{
+        color: white;
+        margin-top:25px;
+      }
+      h6{
+        color: white;
+        font-weight: 600;
+        a {
+          color: white;
+          text-decoration: none;
+          &:hover {
+            color: #f55858;
+          }
+        }
+      }
+    }
   }
 }
 

@@ -163,7 +163,7 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
-                    const EXCHANGE_API = require('@superalgos/exchangegateway');
+                    const EXCHANGE_API = require('@superalgos/exchange-gateway');
                     const CONTEXT = require(ROOT_DIR + 'Context');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
@@ -1011,7 +1011,11 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Entering function."); }
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!"); }
-                            logger.persist();
+
+                            if(global.FULL_LOG === 'true' || bot.startMode === 'Competition'){
+                                logger.persist();
+                            }
+
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
                             clearTimeout(checkLoopHealthHandle);
@@ -1032,7 +1036,9 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Normal -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
                                     checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
-                                    logger.persist();
+                                    if(global.FULL_LOG === 'true' || bot.startMode === 'Competition'){
+                                        logger.persist();
+                                    }
                                 }
                                     break;
                                 case 'Retry': {

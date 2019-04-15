@@ -35,7 +35,6 @@ function newAppLoader() {
                 "MQService",
 
                 "BottomSpace/DeleteTradingHistory.js",
-                "BottomSpace/ChartAspectRatio.js",
 
                 "TopSpace/CurrentEvent.js",
                 "TopSpace/EndUser.js",
@@ -57,6 +56,7 @@ function newAppLoader() {
                 "Files/DailyFiles.js",
                 "Files/FileCursor.js",
                 "Files/FileSequence.js",
+                "Files/FileStorage.js",
 
                 "FloatingSpace/NoteSets.js",
                 "FloatingSpace/Note.js",
@@ -69,6 +69,7 @@ function newAppLoader() {
 
                 "Scales/ChartGrid.js",
                 "Scales/RightScale.js",
+                "Scales/TimeScale.js",
 
                 "BreakpointsBar.js",
                 "Plotter.js",

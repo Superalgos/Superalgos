@@ -3,8 +3,8 @@
     let thisObject = {
         readData: readData,
         writeData: writeData,
-        createContainer: createContainer, 
-        deleteContainer: deleteContainer, 
+        createContainer: createContainer,
+        deleteContainer: deleteContainer,
         deleteBlob: deleteBlob,
         initialize: initialize
     }
@@ -21,7 +21,7 @@
 
         storageData = pStorageData;
         serverConfig = pServerConfig;
-        
+
          minioClient = new Minio.Client({
              endPoint: process.env.MINIO_END_POINT,
              port: JSON.parse(process.env.MINIO_PORT),
@@ -29,7 +29,7 @@
              accessKey: process.env.MINIO_ACCESS_KEY,
              secretKey: process.env.MINIO_SECRET_KEY
         })
-        
+
     }
 
     function readData(pOrg, pPath, pFile, saveAtCache, callBackFunction) {
@@ -125,7 +125,7 @@
                             storageData.set(pOrg + '.' + pPath + '.' + pFile, text);
 
                         }
-                        
+
                         if (err !== null || text === null) {
 
                             if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> Error Received from Storage Library. "); }
@@ -139,19 +139,19 @@
 
                         /* TEMPORARY CODE TO UPDATE THE MINIO SERVER DURING TRANSITION. */
 
-                        try {
+                        // try {
 
-                            minioClient.putObject(bucketName, textFilename, text, 'text/plain', function (err) {
-                                if (err) {
-                                    console.log("ERROR AT MINIO SERVER PUTTING OBJECT : " + err);
-                                    return;
-                                }
-                                console.log(textFilename + ' Successfully uploaded ' + textFilename + ' the MINIO SERVER');
-                            })
-                          
-                        } catch (err) {
-                            console.log("ERROR UPDATING MINIO SERVER : " + err);
-                        }
+                        //     minioClient.putObject(bucketName, textFilename, text, 'text/plain', function (err) {
+                        //         if (err) {
+                        //             console.log("ERROR AT MINIO SERVER PUTTING OBJECT : " + err);
+                        //             return;
+                        //         }
+                        //         console.log(textFilename + ' Successfully uploaded ' + textFilename + ' the MINIO SERVER');
+                        //     })
+
+                        // } catch (err) {
+                        //     console.log("ERROR UPDATING MINIO SERVER : " + err);
+                        // }
 
 
                         callBackFunction(global.DEFAULT_OK_RESPONSE, text);

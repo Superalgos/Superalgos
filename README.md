@@ -25,3 +25,9 @@ The system-wide concept of a Daily File is defined as a file containing data cor
 Since for each market there are multiple Daily Files (one for 1 min time period, one for 2 min, 3 min, 4, 5, 10, 15, 20, 30 and 45 minutes) this data structure loads all of these files and have them readily available in memory for consumption.
 
 Moreover, it uses the concept of a File Cursor to load more files of the previous days and the following days in order to have them ready in memory if needed.
+
+## Installation
+
+The Files Component is part of the Canvas App. Please continue here to learn how to install it:
+
+https://github.com/Superalgos/CanvasApp

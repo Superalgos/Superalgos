@@ -15,7 +15,7 @@
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
 
-    let nextLoopTimeoutHandle; 
+    let nextLoopTimeoutHandle;
     let checkLoopHealthHandle;
 
     let thisObject = {
@@ -24,7 +24,7 @@
     };
 
     let processConfig;
-    let UI_COMMANDS; 
+    let UI_COMMANDS;
 
     return thisObject;
 
@@ -108,7 +108,7 @@
 
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] run -> Entering function."); }
 
-            bot.enableCheckLoopHealth = true; 
+            bot.enableCheckLoopHealth = true;
 
             let fixedTimeLoopIntervalHandle;
 
@@ -353,7 +353,7 @@
                         try {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
-                            
+
                             usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE);
 
                             usertBot.initialize(statusDependencies, pMonth, pYear, onInizialized);
@@ -823,7 +823,10 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!"); }
 
-                            logger.persist();
+                            if(global.FULL_LOG === 'true'){
+                                logger.persist();
+                            }
+
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
 
@@ -840,7 +843,9 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
                                     checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
-                                    logger.persist();
+                                    if(global.FULL_LOG === 'true'){
+                                        logger.persist();
+                                    }
                                 }
                                     break;
                                 case 'Retry': {
@@ -859,7 +864,7 @@
                                 case 'Coma': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
-                                    logger.persist();                                    
+                                    logger.persist();
                                 }
                                     break;
                             }
@@ -919,7 +924,7 @@
                                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
                                     let filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
-              
+
                                     let fileName = "this.config.json";
 
                                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
@@ -928,7 +933,7 @@
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                            /* 
+                                            /*
                                             If for any reason this config file cannot be read, we are not going to abort the loop for that. Instead we are going to assume
                                             that there are no instructions to stop and we will keep the show running.
                                             */

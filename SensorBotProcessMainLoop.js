@@ -144,7 +144,7 @@
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
-                    const EXCHANGE_API = require('@superalgos/exchangegateway');
+                    const EXCHANGE_API = require('@superalgos/exchange-gateway');
                     const STATUS_DEPENDENCIES = require(ROOT_DIR + 'StatusDependencies');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
@@ -567,7 +567,11 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Entering function."); }
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!"); }
-                            logger.persist();
+
+                            if(global.FULL_LOG === 'true'){
+                                logger.persist();
+                            }
+
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
                             clearTimeout(checkLoopHealthHandle);
@@ -588,13 +592,17 @@
                                     if (bot.runAtFixedInterval === true) {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Fixed Interval Normal exit point reached."); }
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, bot.fixedInterval * 5, bot.loopCounter);
-                                        logger.persist();
+                                        if(global.FULL_LOG === 'true'){
+                                            logger.persist();
+                                        }
                                         return;
                                     } else {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
                                         nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
-                                        logger.persist();
+                                        if(global.FULL_LOG === 'true'){
+                                            logger.persist();
+                                        }
                                     }
                                 }
                                     break;

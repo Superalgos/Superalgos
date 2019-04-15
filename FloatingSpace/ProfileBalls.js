@@ -31,7 +31,7 @@ function newProfileBalls () {
 
       floatingLayer.finalize()
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
   }
 
@@ -43,7 +43,7 @@ function newProfileBalls () {
 
       callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE)
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }

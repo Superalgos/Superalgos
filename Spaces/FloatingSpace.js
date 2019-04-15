@@ -25,7 +25,7 @@ function newFloatingSpace () {
       thisObject.floatingLayer.finalize()
       thisObject.profileBalls.finalize()
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
   }
 

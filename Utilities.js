@@ -59,15 +59,17 @@ function getMilisecondsFromPoint (point, container, timeLineCoordinateSystem) {
   return point.x
 }
 
-function saveUserPosition (container, timeLineCoordinateSystem) {
-  let centerPoint = {
-    x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2,
-    y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 2
+function saveUserPosition (container, timeLineCoordinateSystem, position) {
+  if (position === undefined) {
+    position = {
+      x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2,
+      y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 2
+    }
   }
 
   let userPosition = {
-    date: getDateFromPoint(centerPoint, container, timeLineCoordinateSystem),
-    rate: getRateFromPoint(centerPoint, container, timeLineCoordinateSystem),
+    date: getDateFromPoint(position, container, timeLineCoordinateSystem),
+    rate: getRateFromPoint(position, container, timeLineCoordinateSystem),
     market: DEFAULT_MARKET,
     zoom: viewPort.zoomTargetLevel
   }
@@ -75,7 +77,7 @@ function saveUserPosition (container, timeLineCoordinateSystem) {
   window.localStorage.setItem('userPosition', JSON.stringify(userPosition))
 }
 
-function moveToUserPosition (container, timeLineCoordinateSystem) {
+function getUserPosition (timeLineCoordinateSystem) {
   let savedPosition = window.localStorage.getItem('userPosition')
   let userPosition
 
@@ -90,10 +92,16 @@ function moveToUserPosition (container, timeLineCoordinateSystem) {
     userPosition = JSON.parse(savedPosition)
   }
 
-  let centerPoint = {
-    x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2,
-    y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 2
+  userPosition.point = {
+    x: (new Date(userPosition.date)).valueOf(),
+    y: userPosition.rate
   }
+
+  return userPosition
+}
+
+function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignoreY, center) {
+  let userPosition = getUserPosition(timeLineCoordinateSystem)
 
   viewPort.newZoomLevel(userPosition.zoom)
   INITIAL_TIME_PERIOD = recalculatePeriod(userPosition.zoom)
@@ -104,10 +112,23 @@ function moveToUserPosition (container, timeLineCoordinateSystem) {
     y: userPosition.rate
   }
 
-    /* Put this point in the coordinate system of the viewPort */
+    /* Put this po int in the coordinate system of the viewPort */
 
   targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint)
   targetPoint = transformThisPoint(targetPoint, container)
+
+  let centerPoint
+  if (center !== undefined) {
+    centerPoint = {
+      x: center.x,
+      y: center.y
+    }
+  } else {
+    centerPoint = {
+      x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2,
+      y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 2
+    }
+  }
 
     /* Lets calculate the displace vector, from the point we want at the center, to the current center. */
 
@@ -115,6 +136,9 @@ function moveToUserPosition (container, timeLineCoordinateSystem) {
     x: centerPoint.x - targetPoint.x,
     y: centerPoint.y - targetPoint.y
   }
+
+  if (ignoreX) { displaceVector.x = 0 }
+  if (ignoreY) { displaceVector.y = 0 }
 
   viewPort.displace(displaceVector)
 }
@@ -126,3 +150,4 @@ function removeTime (datetime) {
 
   return dateOnly
 }
+

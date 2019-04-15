@@ -25,17 +25,23 @@ function newTimeMachine () {
     finalize: finalize
   }
 
-  let container = newContainer()
-  container.initialize()
-  thisObject.container = container
+  thisObject.container = newContainer()
+  thisObject.container.initialize(MODULE_NAME)
   thisObject.container.isDraggeable = false
+  thisObject.container.detectMouseOver = true
 
-  container.displacement.containerName = 'Time Machine'
-  container.frame.containerName = 'Time Machine'
+  thisObject.container.frame.width = TIME_MACHINE_WIDTH
+  thisObject.container.frame.height = TIME_MACHINE_HEIGHT
+
+  thisObject.container.frame.position.x = browserCanvas.width / 2 - TIME_MACHINE_WIDTH / 2
+  thisObject.container.frame.position.y = browserCanvas.height / 2 - TIME_MACHINE_HEIGHT / 2
 
   let controlPanelHandle             // We need this to destroy the Panel when this object is itself destroyed or no longer needs it...
-          // ... also to request a reference to the object for the cases we need it.
+                                    // ... also to request a reference to the object for the cases we need it.
   const SEPARATION_BETWEEN_TIMELINE_CHARTS = 1.5
+
+  let timeScale
+  let rigthScale
 
   return thisObject
 
@@ -48,32 +54,28 @@ function newTimeMachine () {
         chart.finalize()
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
   }
 
   function initialize (callBackFunction) {
     if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
-        /* Each Time Machine has a Control Panel. */
+      /* Each Time Machine has a Control Panel. */
 
     let panelOwner = 'Global'
     controlPanelHandle = canvas.panelsSpace.createNewPanel('Time Control Panel', undefined, panelOwner)
     let controlPanel = canvas.panelsSpace.getPanel(controlPanelHandle, panelOwner)
 
-        /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
+      /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
 
     let position = 0 // This defines the position of each chart respect to each other.
 
     let timelineChart = newTimelineChart()
 
-    timelineChart.container.displacement.parentDisplacement = thisObject.container.displacement
-    timelineChart.container.frame.parentFrame = thisObject.container.frame
+    timelineChart.container.connectToParent(thisObject.container, true, true)
 
-    timelineChart.container.parentContainer = thisObject.container
-
-    timelineChart.container.frame.width = thisObject.container.frame.width * 1
-    timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
+    timelineChart.container.frame.height = thisObject.container.frame.height
 
     timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
     timelineChart.container.frame.position.y = timelineChart.container.frame.height * SEPARATION_BETWEEN_TIMELINE_CHARTS * position
@@ -83,11 +85,7 @@ function newTimeMachine () {
     timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, onDefaultInitialized)
 
     function onDefaultInitialized (err) {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> onDefaultInitialized -> Entering function.') }
-
       if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-        if (INFO_LOG === true) { logger.write('[INFO] initialize -> onDefaultInitialized -> Initialization of the only market failed.') }
-
         callBackFunction(err)
         return
       }
@@ -97,6 +95,26 @@ function newTimeMachine () {
       controlPanel.container.eventHandler.listenToEvent('Datetime Changed', timelineChart.setDatetime, undefined)
       timelineChart.container.eventHandler.listenToEvent('Datetime Changed', controlPanel.setDatetime)
 
+      /* Each Time Machine has a Time Scale and a Right Scale. */
+
+      timeScale = newTimeScale()
+
+      timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
+        thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
+        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+      })
+
+      timeScale.initialize()
+
+      rigthScale = newRigthScale()
+
+      rigthScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
+        thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
+        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+      })
+
+      rigthScale.initialize()
+
       initializeTheRest()
     }
 
@@ -105,6 +123,11 @@ function newTimeMachine () {
 
       let leftToInitialize = SUPPORTED_EXCHANGES.length * SUPPORTED_MARKETS.length - 1 // The default exchange and market was already initialized.
       let alreadyInitialized = 0
+
+      if (alreadyInitialized === leftToInitialize) {
+        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+        return
+      }
 
       for (let i = 0; i < SUPPORTED_EXCHANGES.length; i++) {
         for (let j = 0; j < SUPPORTED_MARKETS.length; j++) {
@@ -126,13 +149,9 @@ function newTimeMachine () {
 
         let timelineChart = newTimelineChart()
 
-        timelineChart.container.displacement.parentDisplacement = thisObject.container.displacement
-        timelineChart.container.frame.parentFrame = thisObject.container.frame
+        timelineChart.container.connectToParent(thisObject.container, true, true)
 
-        timelineChart.container.parentContainer = thisObject.container
-
-        timelineChart.container.frame.width = thisObject.container.frame.width * 1
-        timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y
+        timelineChart.container.frame.height = thisObject.container.frame.height
 
         timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
         timelineChart.container.frame.position.y = timelineChart.container.frame.height * SEPARATION_BETWEEN_TIMELINE_CHARTS * position
@@ -167,33 +186,46 @@ function newTimeMachine () {
   }
 
   function draw () {
-    this.container.frame.draw(false, false)
+    // this.container.frame.draw(false, false)
 
     for (let i = 0; i < this.charts.length; i++) {
       let chart = this.charts[i]
       chart.draw()
     }
+
+    if (timeScale !== undefined) { timeScale.draw() }
+    if (rigthScale !== undefined) { rigthScale.draw() }
   }
 
-  function getContainer (point) {
-    if (INFO_LOG === true) { logger.write('[INFO] getContainer -> Entering function.') }
-
+  function getContainer (point, purpose) {
     let container
 
-        /* Now we see which is the inner most container that has it */
-
-    for (let i = 0; i < this.charts.length; i++) {
-      container = this.charts[i].getContainer(point)
-
+    if (timeScale !== undefined) {
+      container = timeScale.getContainer(point)
       if (container !== undefined) {
-                /* We found an inner container which has the point. We return it. */
-
-        return container
+        if (container.isForThisPurpose(purpose)) {
+          return container
+        }
       }
     }
 
-        /* The point does not belong to any inner container, so we return the current container. */
+    if (rigthScale !== undefined) {
+      container = rigthScale.getContainer(point)
+      if (container !== undefined) {
+        if (container.isForThisPurpose(purpose)) {
+          return container
+        }
+      }
+    }
 
+    for (let i = 0; i < this.charts.length; i++) {
+      container = this.charts[i].getContainer(point)
+      if (container !== undefined) {
+        if (container.isForThisPurpose(purpose)) {
+          return container
+        }
+      }
+    }
     return this.container
   }
 }

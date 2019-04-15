@@ -241,7 +241,7 @@ function newFrame () {
     return true
   }
 
-  function isThisPointHere (point, outsideViewPort) {
+  function isThisPointHere (point, outsideViewPort, dontTransform) {
   // The second parameter is usefull when you want to check a point that you already know is outside the viewport.
 
         /* We need not to modify the point received, so me make a copy of it. */
@@ -253,12 +253,13 @@ function newFrame () {
 
         /* The point received is on the screen coordinates system, which already has zoom and displacement applied. We need to remove the zoom and displacement
         in order to have the point on the containers coordinate system and be able to compare it with its dimmensions. */
-
-    if (outsideViewPort === true) {
-      checkPoint = this.container.displacement.undisplaceThisPoint(checkPoint)
-      checkPoint = this.container.frame.unframeThisPoint(checkPoint)
-    } else {
-      checkPoint = unTransformThisPoint(checkPoint, frame.container)
+    if (dontTransform === false || dontTransform === undefined) {
+      if (outsideViewPort === true) {
+        checkPoint = this.container.displacement.undisplaceThisPoint(checkPoint)
+        checkPoint = this.container.frame.unframeThisPoint(checkPoint)
+      } else {
+        checkPoint = unTransformThisPoint(checkPoint, frame.container)
+      }
     }
 
         /* Now we check if the resulting point is whin the current Frame. */

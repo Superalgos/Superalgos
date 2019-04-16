@@ -114,7 +114,7 @@
 
                         /* The starting date is fixed, we will start from there. */
 
-                        contextVariables.dateBeginOfMarket = new Date(processConfig.framework.startDate.fixedDate); 
+                        contextVariables.dateBeginOfMarket = new Date(processConfig.framework.startDate.fixedDate);
 
                     } else {
 
@@ -169,7 +169,7 @@
                     } else {
 
                         /*
-                          Here we get the status report from the bot who knows which is the end of the market. 
+                          Here we get the status report from the bot who knows which is the end of the market.
                         */
 
                         let botWhoKnowsTheEndOfTheMarket = statusDependencies.config[processConfig.framework.endDate.takeItFromStatusDependency];
@@ -232,7 +232,7 @@
                     if (thisReport.lastFile !== undefined) {
 
                         if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate.resumeExecution === "false") {
-                            
+
                             startFromBegining();
                             return;
                         }
@@ -308,7 +308,9 @@
                             bot.processDatetime = new Date(bot.processDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(bot.processDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                            logger.newInternalLoop(bot.codeName, bot.process);
+                            if(global.FULL_LOG === 'true'){
+                                logger.newInternalLoop(bot.codeName, bot.process);
+                            }
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> bot.processDatetime = " + bot.processDatetime); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> previousDay = " + previousDay); }
@@ -340,9 +342,9 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoop -> Entering function."); }
 
                             /*
-            
+
                             We will iterate through all posible periods.
-            
+
                             */
 
                             n = 0   // loop Variable representing each possible period as defined at the periods array.
@@ -364,7 +366,7 @@
 
                             const timePeriod = global.dailyFilePeriods[n][0];
                             const outputPeriodLabel = global.dailyFilePeriods[n][1];
-                                                      
+
                             let dependencyIndex = 0;
                             dataFiles = [];
 
@@ -387,7 +389,7 @@
                                     } else {
                                         previousFile = [];
                                         getCurrentFile()
-                                    }                                    
+                                    }
 
                                     function getPreviousFile() {
 
@@ -409,7 +411,7 @@
                                                     if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> text = " + text); }
 
                                                     if (err.message === "File does not exist." && botNeverRan === true) {
-                                                    
+
                                                         /*
                                                         Sometimes one of the dependencies of an indicator for some reasons are not calculated from the begining of the market.
                                                         When that happens we can not find those files. What we do in this situation is to move the time fordward until we can find
@@ -422,7 +424,7 @@
                                                         advanceTime();
                                                         return;
                                                     }
-                                                    
+
                                                     if (err.result === "Fail Because" && err.message === "File does not exist.") {
 
                                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err.message);

@@ -32,5 +32,8 @@ export const clone = gql`
     processName
     keyId
     botSlug
+    exchangeName
+    timePeriod
+    balanceAssetB
   }
 `

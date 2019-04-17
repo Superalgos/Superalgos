@@ -65,7 +65,9 @@ class ListClones extends Component {
                     <Typography className={classes.cloneInfoBold}>Wait Time:</Typography>
                   }
                   <Typography className={classes.cloneInfoBold}>Resume Execution:</Typography>
-                  <Typography className={classes.cloneInfoBold}>Run As Team:</Typography>
+                  <Typography className={classes.cloneInfoBold}>Exchange:</Typography>
+                  <Typography className={classes.cloneInfoBold}>Time Period:</Typography>
+                  <Typography className={classes.cloneInfoBold}>Initial Balance (BTC):</Typography>
                 </div>
                 <div className={classes.column4}>
                   <Typography className={classes.cloneInfoNormal}>{toLocalTime(clone.createDatetime)}</Typography>
@@ -79,7 +81,9 @@ class ListClones extends Component {
                     <Typography className={classes.cloneInfoNormal}>{clone.waitTime}</Typography>
                   }
                   <Typography className={classes.cloneInfoNormal}>{clone.resumeExecution ? 'Yes':'No'}</Typography>
-                  <Typography className={classes.cloneInfoNormal}>{clone.runAsTeam ? 'Yes':'No'}</Typography>
+                  <Typography className={classes.cloneInfoNormal}>{clone.exchangeName}</Typography>
+                  <Typography className={classes.cloneInfoNormal}>{clone.timePeriod}</Typography>
+                  <Typography className={classes.cloneInfoNormal}>{clone.balanceAssetB}</Typography>
                 </div>
               </div>
             </div>

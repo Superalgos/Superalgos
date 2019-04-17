@@ -53,7 +53,7 @@ const botTypes = {
 }
 
 const exchanges = {
-  Coss: "Coss",
+  COSS: "COSS",
   Poloniex: "Poloniex"
 }
 

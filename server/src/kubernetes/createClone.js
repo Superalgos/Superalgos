@@ -47,32 +47,33 @@ const createClone = async (clone) => {
       'value': process.env.AUTH_AUDIENCE
     })
 
-    // MINIO
     env.push({
       'name': 'STORAGE_PROVIDER',
       'value': process.env.STORAGE_PROVIDER
     })
-    env.push({
-      'name': 'MINIO_END_POINT',
-      'value': process.env.MINIO_END_POINT
-    })
-    env.push({
-      'name': 'MINIO_PORT',
-      'value': process.env.MINIO_PORT
-    })
-    env.push({
-      'name': 'MINIO_USE_SSL',
-      'value': process.env.MINIO_USE_SSL
-    })
-    env.push({
-      'name': 'MINIO_ACCESS_KEY',
-      'value': process.env.MINIO_ACCESS_KEY
-    })
-    env.push({
-      'name': 'MINIO_SECRET_KEY',
-      'value': process.env.MINIO_SECRET_KEY
-    })
 
+    if (process.env.STORAGE_PROVIDER === 'Minio') {
+      env.push({
+        'name': 'MINIO_END_POINT',
+        'value': process.env.MINIO_END_POINT
+      })
+      env.push({
+        'name': 'MINIO_PORT',
+        'value': process.env.MINIO_PORT
+      })
+      env.push({
+        'name': 'MINIO_USE_SSL',
+        'value': process.env.MINIO_USE_SSL
+      })
+      env.push({
+        'name': 'MINIO_ACCESS_KEY',
+        'value': process.env.MINIO_ACCESS_KEY
+      })
+      env.push({
+        'name': 'MINIO_SECRET_KEY',
+        'value': process.env.MINIO_SECRET_KEY
+      })
+    }
 
     logger.debug('createClone General Financial Being Configuration.')
     env.push({
@@ -110,6 +111,15 @@ const createClone = async (clone) => {
     env.push({
       'name': 'EXCHANGE_NAME',
       'value': clone.exchangeName
+    })
+
+    env.push({
+      'name': 'INITIAL_BALANCE_ASSET_A',
+      'value': clone.balanceAssetA.toString()
+    })
+    env.push({
+      'name': 'INITIAL_BALANCE_ASSET_B',
+      'value': clone.balanceAssetB.toString()
     })
 
     logger.debug('createClone Trading Configuration.')

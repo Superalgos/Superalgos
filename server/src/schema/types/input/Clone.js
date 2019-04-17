@@ -3,7 +3,8 @@ import {
   GraphQLInt,
   GraphQLInputObjectType,
   GraphQLBoolean,
-  GraphQLNonNull
+  GraphQLNonNull,
+  GraphQLFloat
 } from 'graphql'
 
 const Type = new GraphQLInputObjectType({
@@ -26,7 +27,10 @@ const Type = new GraphQLInputObjectType({
     botType: { type: new GraphQLNonNull(GraphQLString) },
     keyId: { type: GraphQLString },
     timePeriod: { type: GraphQLString },
-    exchangeName: { type: GraphQLString }
+    exchangeName: { type: GraphQLString },
+    balanceAssetA: { type: GraphQLFloat },
+    balanceAssetB: { type: GraphQLFloat },
+    accessCode: { type: GraphQLString }
   })
 })
 

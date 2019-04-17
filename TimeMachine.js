@@ -43,6 +43,8 @@ function newTimeMachine () {
   let timeScale
   let rigthScale
 
+  let timeLineCoordinateSystem = newTimeLineCoordinateSystem()
+
   return thisObject
 
   function finalize () {
@@ -67,6 +69,13 @@ function newTimeMachine () {
     controlPanelHandle = canvas.panelsSpace.createNewPanel('Time Control Panel', undefined, panelOwner)
     let controlPanel = canvas.panelsSpace.getPanel(controlPanelHandle, panelOwner)
 
+    recalculateScale()
+
+    thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function (event) {
+      recalculateScale()
+      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, false, event.mousePosition)
+    })
+
       /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
 
     let position = 0 // This defines the position of each chart respect to each other.
@@ -82,7 +91,7 @@ function newTimeMachine () {
 
     position++
 
-    timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, onDefaultInitialized)
+    timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, timeLineCoordinateSystem, onDefaultInitialized)
 
     function onDefaultInitialized (err) {
       if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -158,7 +167,7 @@ function newTimeMachine () {
 
         position++
 
-        timelineChart.initialize(exchange, market, finalSteps)
+        timelineChart.initialize(exchange, market, timeLineCoordinateSystem, finalSteps)
 
         function finalSteps () {
           if (INFO_LOG === true) { logger.write('[INFO] initialize -> initializeTheRest -> initializeTimelineChart -> finalSteps -> Entering function.') }
@@ -227,5 +236,26 @@ function newTimeMachine () {
       }
     }
     return this.container
+  }
+
+  function recalculateScale () {
+    if (INFO_LOG === true) { logger.write('[INFO] recalculateScale -> Entering function.') }
+
+    let minValue = {
+      x: EARLIEST_DATE.valueOf(),
+      y: 0
+    }
+
+    let maxValue = {
+      x: MAX_PLOTABLE_DATE.valueOf(),
+      y: nextPorwerOf10(USDT_BTC_HTH) / 4
+    }
+
+    timeLineCoordinateSystem.initialize(
+           minValue,
+           maxValue,
+           thisObject.container.frame.width,
+           thisObject.container.frame.height
+       )
   }
 }

@@ -6,7 +6,7 @@
    const logger = newWebDebugLog()
    logger.fileName = MODULE_NAME
 
-   let timeLineCoordinateSystem = newTimeLineCoordinateSystem()
+   let timeLineCoordinateSystem
 
    let timePeriod = INITIAL_TIME_PERIOD
    let datetime = INITIAL_DATE
@@ -60,22 +60,18 @@
      }
    }
 
-   function initialize (pExchange, pMarket, callBackFunction) {
+   function initialize (pExchange, pMarket, pTimeLineCoordinateSystem, callBackFunction) {
      try {
        if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-
-       thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function (event) {
-         recalculateScale()
-         moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, false, event.mousePosition)
-       })
-
-       thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
-         saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
-       })
 
             /* We load the logow we will need for the background. */
        exchange = pExchange
        market = pMarket
+       timeLineCoordinateSystem = pTimeLineCoordinateSystem
+
+       thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
+         saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
+       })
 
        let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
        productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel', undefined, panelOwner)
@@ -121,8 +117,6 @@
 
        breakpointsBar = newBreakpointsBar()
        breakpointsBar.initialize(thisObject.container, timeLineCoordinateSystem)
-
-       recalculateScale()
 
        moveToUserPosition(thisObject.container, timeLineCoordinateSystem)
        timePeriod = INITIAL_TIME_PERIOD
@@ -251,27 +245,6 @@
      container = breakpointsBar.getContainer(point)
 
      return container
-   }
-
-   function recalculateScale () {
-     if (INFO_LOG === true) { logger.write('[INFO] recalculateScale -> Entering function.') }
-
-     let minValue = {
-       x: EARLIEST_DATE.valueOf(),
-       y: 0
-     }
-
-     let maxValue = {
-       x: MAX_PLOTABLE_DATE.valueOf(),
-       y: nextPorwerOf10(USDT_BTC_HTH) / 4
-     }
-
-     timeLineCoordinateSystem.initialize(
-            minValue,
-            maxValue,
-            thisObject.container.frame.width,
-            thisObject.container.frame.height
-        )
    }
 
    function tooTiny () {

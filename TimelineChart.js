@@ -9,7 +9,7 @@
    let timeLineCoordinateSystem
 
    let timePeriod = INITIAL_TIME_PERIOD
-   let datetime = INITIAL_DATE
+   let datetime = NEW_SESSION_INITIAL_DATE
 
    let thisObject = {
      setDatetime: setDatetime,
@@ -120,7 +120,7 @@
 
        moveToUserPosition(thisObject.container, timeLineCoordinateSystem)
        timePeriod = INITIAL_TIME_PERIOD
-       datetime = INITIAL_DATE
+       datetime = NEW_SESSION_INITIAL_DATE
 
             /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
 

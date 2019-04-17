@@ -204,6 +204,8 @@ function newTimeMachine () {
 
     if (timeScale !== undefined) { timeScale.draw() }
     if (rigthScale !== undefined) { rigthScale.draw() }
+
+    thisObject.container.frame.draw(false, true, false)
   }
 
   function getContainer (point, purpose) {
@@ -242,7 +244,7 @@ function newTimeMachine () {
     if (INFO_LOG === true) { logger.write('[INFO] recalculateScale -> Entering function.') }
 
     let minValue = {
-      x: EARLIEST_DATE.valueOf(),
+      x: MIN_PLOTABLE_DATE.valueOf(),
       y: 0
     }
 

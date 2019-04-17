@@ -143,7 +143,14 @@ const _3_MINUTES_IN_MILISECONDS = 3 * 60 * 1000;
 const _2_MINUTES_IN_MILISECONDS = 2 * 60 * 1000;
 const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
 
-const EARLIEST_DATE = new Date(2014, 0, 18, 4, 26, 8);
+let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the viewPort.initialize if the user had a prevous session with this same browser.
+
+let maxDate = new Date();
+maxDate.setMilliseconds(0);
+maxDate.setDate(maxDate.getDate() + 365 * 4);  // We might have charts that projects data into the future. 
+
+const MIN_PLOTABLE_DATE = new Date(2015, 0, 1, 0, 0, 0);
+const MAX_PLOTABLE_DATE = maxDate;
 
 const TOP_SPACE_HEIGHT = 5;
 const BOTTOM_SPACE_HEIGHT = 35;
@@ -167,13 +174,9 @@ const PERIOD_10_MIN = "10-min";
 const PERIOD_05_MIN = "05-min";
 const PERIOD_01_MIN = "01-min";
 
-let INITIAL_DATE = new Date();  // This value will be overwritten at the viewPort.initialize if the user had a prevous session with this same browser.
 
-var maxDate = new Date();
-maxDate.setMilliseconds(0);
-maxDate.setDate(maxDate.getDate() + 10);
 
-const MAX_PLOTABLE_DATE = maxDate;
+
 
 /*
 We define here the size of the chartSpace. It has to bee enough big in order to accomodate all the charts we expect to display in this space.

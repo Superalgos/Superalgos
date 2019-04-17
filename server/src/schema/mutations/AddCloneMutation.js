@@ -47,7 +47,7 @@ const resolve = async (parent, { clone }, context) => {
   clone.active = true
 
   // TODO Temporary Limitations on bot creation
-  if (clone.accessCode !== undefined) {
+  if (clone.accessCode !== undefined && clone.accessCode.length > 0) {
     if (clone.accessCode === process.env.ACCESS_CODE) {
       clone.balanceAssetA = Number(process.env.DEFAULT_BALANCE_ASSET_A)
     } else {

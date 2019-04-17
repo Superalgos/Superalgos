@@ -442,7 +442,7 @@
             if (INFO_LOG === true) { logger.write("[INFO] recalculateScaleX -> Entering function."); }
 
             var minValue = {
-                x: EARLIEST_DATE.valueOf()
+                x: MIN_PLOTABLE_DATE.valueOf()
             };
 
             var maxValue = {

@@ -562,7 +562,7 @@
             if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
 
             let minValue = {
-                x: EARLIEST_DATE.valueOf(),
+                x: MIN_PLOTABLE_DATE.valueOf(),
                 y: 0
             };
 

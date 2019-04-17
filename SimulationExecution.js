@@ -220,7 +220,7 @@
 
                 const ONE_MIN_IN_MILISECONDS = 60 * 1000;
                 let step = timePeriod / ONE_MIN_IN_MILISECONDS;
-                let step = 1; // For now we dont discard records depending on the zoom level.
+                  step = 1; // For now we dont discard records depending on the zoom level.
 
                 let i = 0;
                 let lastRecordPushed = 0;
@@ -440,7 +440,7 @@
             if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
 
             let minValue = {
-                x: EARLIEST_DATE.valueOf(),
+                x: MIN_PLOTABLE_DATE.valueOf(),
                 y: 0
             };
 

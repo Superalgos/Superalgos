@@ -4,7 +4,7 @@
 
     const MODULE_NAME = "Context";
 
-    /* 
+    /*
 
     This module deals with keeping the context between different executions of the bot. Conceptually this context is divided in 3 main parts:
 
@@ -69,7 +69,7 @@
 
     let statusDependencies;
 
-    let runIndex;  // This is the index for this run and depends on the startMode. 
+    let runIndex;  // This is the index for this run and depends on the startMode.
 
     let totalAlgobots;
 
@@ -156,7 +156,7 @@
 
                     /* The context is created in 2 situations: 1) when at the bot config is set not to continue using the same context after a new execution. 2) when the status report does not exist. */
 
-                    if (bot.hasTheBotJustStarted === true || thisObject.statusReport.runs === undefined) { 
+                    if (bot.hasTheBotJustStarted === true || thisObject.statusReport.runs === undefined) {
 
                         createConext(callBack);
 
@@ -164,7 +164,7 @@
 
                         runIndex = thisObject.statusReport.runs.length - 1;
 
-                        getExecutionHistory(callBack); 
+                        getExecutionHistory(callBack);
 
                     }
 
@@ -216,7 +216,7 @@
                             /*
 
                             It might happen that the file content is corrupt or it does not exist. The bot can not run without an Execution Hitory,
-                            since it is risky to ignore its own history unless it is its first execution in this mode ever. 
+                            since it is risky to ignore its own history unless it is its first execution in this mode ever.
 
                             */
 
@@ -305,16 +305,16 @@
                 try {
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> createConext -> Entering function."); }
                     /*
-    
+
                     When the bot is executed for the very first time, there are a few files that do not exist and need to be created, and that
                     content is what we are going to set up now.
-    
+
                     */
 
                     if (thisObject.statusReport.runs === undefined) { // This means that the Status Report does not exist.
 
                         thisObject.statusReport.runs = [];
-                    } 
+                    }
 
                     let runContent = {
                         beginDatetime: bot.processDatetime,
@@ -326,25 +326,19 @@
                     runIndex = thisObject.statusReport.runs.length - 1;
 
                     thisObject.executionHistory = [];
-
-                    /*
-                    In the current release, the platform is going to be used for the first competition, so we have a few parameters just for that. They will be removed later
-                    once we advance into multiple competitions scheme.
-                    */
-
-					const INITIAL_INVESTMENT_A = 0;                                 // This is just for this release of the platform.
-                    const INITIAL_INVESTMENT_B = truncDecimals(.001 / totalAlgobots);              // This is just for this release of the platform.
+					const INITIAL_INVESTMENT_A = Number(process.env.INITIAL_BALANCE_ASSET_A);
+                    const INITIAL_INVESTMENT_B = Number(process.env.INITIAL_BALANCE_ASSET_B);
 
                     thisObject.executionContext = {
-                        investment: {                               // This is used to calculate profits. 
+                        investment: {                               // This is used to calculate profits.
                             assetA: INITIAL_INVESTMENT_A,
                             assetB: INITIAL_INVESTMENT_B
                         },
-                        balance: {                                  // This is the total balance that includes positions at the order book + funds available to be traded. 
+                        balance: {                                  // This is the total balance that includes positions at the order book + funds available to be traded.
                             assetA: INITIAL_INVESTMENT_A,
                             assetB: INITIAL_INVESTMENT_B              // It starts with the initial investment.
                         },
-                        availableBalance: {                         // This is the balance the bot has at any moment in time available to be traded (not in positions at the order book). 
+                        availableBalance: {                         // This is the balance the bot has at any moment in time available to be traded (not in positions at the order book).
                             assetA: INITIAL_INVESTMENT_A,
                             assetB: INITIAL_INVESTMENT_B              // It starts with the initial investment.
                         },

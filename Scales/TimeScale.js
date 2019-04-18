@@ -33,6 +33,8 @@ function newTimeScale () {
     }
   }
 
+  let visible = false
+
   return thisObject
 
   function initialize () {
@@ -52,6 +54,12 @@ function newTimeScale () {
     thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
       mouse.position.x = event.x
       mouse.position.y = event.y
+
+      visible = true
+    })
+
+    thisObject.container.eventHandler.listenToEvent('onMouseNotOver', function (event) {
+      visible = false
     })
   }
 
@@ -92,6 +100,8 @@ function newTimeScale () {
   }
 
   function draw () {
+    if (visible === false) { return }
+
 /* We need this scale to match the shape of its parent when the parent is inside the viewPort, when it is not, we need the scale still
 to be visible at the top of the viewPort. */
 
@@ -175,16 +185,17 @@ to be visible at the top of the viewPort. */
 
     let xOffset = label.length * fontSize * FONT_ASPECT_RATIO
 
-    browserCanvasContext.beginPath()
-
-    browserCanvasContext.rect(point.x - xOffset / 2, point.y, xOffset, fontSize + 2)
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
-    browserCanvasContext.fill()
-
-    browserCanvasContext.closePath()
-
     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
     browserCanvasContext.fillText(label, point.x - xOffset / 2, point.y + fontSize + 2)
+/*
+    browserCanvasContext.beginPath()
+
+    browserCanvasContext.rect(point.x - xOffset / 2, point.y, xOffset, fontSize + 2)
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+    browserCanvasContext.fill()
+
+    browserCanvasContext.closePath()
+      */
   }
 }

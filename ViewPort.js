@@ -356,7 +356,7 @@ function newViewPort () {
 
     browserCanvasContext.beginPath()
 
-    let CROSS_SIZE = 5
+    let CROSS_SIZE = 4
 
     for (var i = startingX; i < thisObject.visibleArea.bottomRight.x + RIGHT_MARGIN; i = i + squareWidth) {
       for (var j = startingY; j < thisObject.visibleArea.bottomRight.y + BOTTOM_MARGIN; j = j + squareWidth) {

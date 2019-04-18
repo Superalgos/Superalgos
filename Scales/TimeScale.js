@@ -15,17 +15,12 @@ function newTimeScale () {
   }
 
   const LENGHT_PERCENTAGE_DEFAULT_VALUE = 50
-  const RIGHT_MARGIN = 50
   const STEP_SIZE = 5
+  const MIN_HEIGHT = 50
+  const TOP_MARGIN = 15
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
-
-  thisObject.container.frame.width = viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x
-  thisObject.container.frame.height = 100
-
-  thisObject.container.frame.position.x = viewPort.visibleArea.bottomRight.x
-  thisObject.container.frame.position.y = TOP_SPACE_HEIGHT
 
   thisObject.container.isDraggeable = false
   thisObject.container.isClickeable = false
@@ -64,10 +59,16 @@ function newTimeScale () {
     window.localStorage.setItem(MODULE_NAME, thisObject.lenghtPercentage)
   }
 
-  function getContainer (point) {
+  function getContainer (pPoint) {
     let container
 
-       /* First we check if this point is inside this object UI. */
+/* In this case we manually frame this point since we do a very special treatment of the position of this scale. */
+    let point = {
+      x: 0,
+      y: 0
+    }
+    point.x = pPoint.x - thisObject.container.frame.position.x
+    point.y = pPoint.y - thisObject.container.frame.position.y + TOP_MARGIN
 
     if (thisObject.container.frame.isThisPointHere(point, undefined, true) === true) {
       return thisObject.container
@@ -79,6 +80,72 @@ function newTimeScale () {
   }
 
   function draw () {
+/* We need this scale to match the shape of its parent when the parent is inside the viewPort, when it is not, we need the scale still
+to be visible at the top of the viewPort. */
 
+    let frame = thisObject.container.parentContainer.frame
+    let point1
+    let point2
+    let point3
+    let point4
+
+    point1 = {
+      x: 0,
+      y: 0
+    }
+
+    point2 = {
+      x: frame.width,
+      y: 0
+    }
+
+    point3 = {
+      x: frame.width,
+      y: frame.height / 10
+    }
+
+    point4 = {
+      x: 0,
+      y: frame.height / 10
+    }
+
+        /* Now the transformations. */
+
+    point1 = transformThisPoint(point1, frame.container)
+    point2 = transformThisPoint(point2, frame.container)
+    point3 = transformThisPoint(point3, frame.container)
+    point4 = transformThisPoint(point4, frame.container)
+
+    point1 = viewPort.fitIntoVisibleArea(point1)
+    point2 = viewPort.fitIntoVisibleArea(point2)
+    point3 = viewPort.fitIntoVisibleArea(point3)
+    point4 = viewPort.fitIntoVisibleArea(point4)
+
+    if (point3.y - point2.y < MIN_HEIGHT) {
+      point3.y = point2.y + MIN_HEIGHT
+      point4.y = point2.y + MIN_HEIGHT
+    }
+
+    /* Lets start the drawing. */
+/*
+    browserCanvasContext.beginPath()
+    browserCanvasContext.moveTo(point1.x, point1.y - TOP_MARGIN)
+    browserCanvasContext.lineTo(point2.x, point2.y - TOP_MARGIN)
+    browserCanvasContext.lineTo(point3.x, point3.y - TOP_MARGIN)
+    browserCanvasContext.lineTo(point4.x, point4.y - TOP_MARGIN)
+    browserCanvasContext.lineTo(point1.x, point1.y - TOP_MARGIN)
+    browserCanvasContext.closePath()
+
+    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
+    browserCanvasContext.lineWidth = 1
+    browserCanvasContext.stroke()
+
+    browserCanvasContext.closePath()
+*/
+    thisObject.container.frame.position.x = point1.x
+    thisObject.container.frame.position.y = point1.y
+
+    thisObject.container.frame.width = point2.x - point1.x
+    thisObject.container.frame.height = point3.y - point2.y
   }
 }

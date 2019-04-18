@@ -397,6 +397,11 @@ function newFrame () {
   function borders () {
         /* Lest get the important points of the drawing so as to apply the needed transformations. */
 
+    let point1
+    let point2
+    let point3
+    let point4
+
     point1 = {
       x: 0,
       y: 0

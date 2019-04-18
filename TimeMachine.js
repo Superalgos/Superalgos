@@ -83,7 +83,6 @@ function newTimeMachine () {
     let timelineChart = newTimelineChart()
 
     timelineChart.container.connectToParent(thisObject.container, true, true)
-
     timelineChart.container.frame.height = thisObject.container.frame.height
 
     timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
@@ -108,6 +107,10 @@ function newTimeMachine () {
 
       timeScale = newTimeScale()
 
+      timeScale.container.connectToParent(thisObject.container, false, false)
+      /*
+      timeScale.container.frame.height = thisObject.container.frame.height / 10
+*/
       timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
         thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
@@ -195,17 +198,17 @@ function newTimeMachine () {
   }
 
   function draw () {
-    // this.container.frame.draw(false, false)
+    if (thisObject.container.frame.isInViewPort()) {
+      for (let i = 0; i < this.charts.length; i++) {
+        let chart = this.charts[i]
+        chart.draw()
+      }
 
-    for (let i = 0; i < this.charts.length; i++) {
-      let chart = this.charts[i]
-      chart.draw()
+      if (timeScale !== undefined) { timeScale.draw() }
+      if (rigthScale !== undefined) { rigthScale.draw() }
+
+      // thisObject.container.frame.draw(false, true, false)
     }
-
-    if (timeScale !== undefined) { timeScale.draw() }
-    if (rigthScale !== undefined) { rigthScale.draw() }
-
-    // thisObject.container.frame.draw(false, true, false)
   }
 
   function getContainer (point, purpose) {

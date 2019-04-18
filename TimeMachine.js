@@ -116,7 +116,7 @@ function newTimeMachine () {
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
       })
 
-      timeScale.initialize()
+      timeScale.initialize(timeLineCoordinateSystem)
 
       rigthScale = newRigthScale()
 

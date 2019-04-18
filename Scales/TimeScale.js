@@ -34,10 +34,13 @@ function newTimeScale () {
   }
 
   let visible = false
+  let timeLineCoordinateSystem
 
   return thisObject
 
-  function initialize () {
+  function initialize (pTimeLineCoordinateSystem) {
+    timeLineCoordinateSystem = pTimeLineCoordinateSystem
+
     thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
 
     thisObject.lenghtPercentage = window.localStorage.getItem(MODULE_NAME)
@@ -131,17 +134,24 @@ to be visible at the top of the viewPort. */
       y: frame.height / 10
     }
 
+    point5 = {
+      x: 0,
+      y: frame.height
+    }
+
         /* Now the transformations. */
 
     point1 = transformThisPoint(point1, frame.container)
     point2 = transformThisPoint(point2, frame.container)
     point3 = transformThisPoint(point3, frame.container)
     point4 = transformThisPoint(point4, frame.container)
+    point5 = transformThisPoint(point5, frame.container)
 
     point1 = viewPort.fitIntoVisibleArea(point1)
     point2 = viewPort.fitIntoVisibleArea(point2)
     point3 = viewPort.fitIntoVisibleArea(point3)
     point4 = viewPort.fitIntoVisibleArea(point4)
+    point5 = viewPort.fitIntoVisibleArea(point5)
 
     if (point3.y - point2.y < MIN_HEIGHT) {
       point3.y = point2.y + MIN_HEIGHT
@@ -149,7 +159,7 @@ to be visible at the top of the viewPort. */
     }
 
     /* Lets start the drawing. */
-
+/*
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y - TOP_MARGIN)
     browserCanvasContext.lineTo(point2.x, point2.y - TOP_MARGIN)
@@ -161,8 +171,7 @@ to be visible at the top of the viewPort. */
     browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
     browserCanvasContext.lineWidth = 1
     browserCanvasContext.stroke()
-
-    browserCanvasContext.closePath()
+*/
 
     thisObject.container.frame.position.x = point1.x
     thisObject.container.frame.position.y = point1.y
@@ -175,27 +184,31 @@ to be visible at the top of the viewPort. */
       y: point1.y - TOP_MARGIN
     }
 
-    let label = '2018-09-22 05:22:31'
-    let fontSize = 10
+    let date = getDateFromPoint(point, thisObject.container, timeLineCoordinateSystem)
+    date = new Date(date)
 
-    // getRateFromPoint(ratePoint)
+    let label = date.toUTCString()
+    let fontSize = 10
 
     let xOffset = label.length * fontSize * FONT_ASPECT_RATIO
 
     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 0.50)'
 
     if (point.x - xOffset / 2 < point1.x || point.x + xOffset / 2 > point2.x) { return }
 
     browserCanvasContext.fillText(label, point.x - xOffset / 2, point.y + fontSize + 2)
-/*
+
     browserCanvasContext.beginPath()
 
-    browserCanvasContext.rect(point.x - xOffset / 2, point.y, xOffset, fontSize + 2)
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-    browserCanvasContext.fill()
+    browserCanvasContext.moveTo(point.x, point1.y)
+    browserCanvasContext.lineTo(point.x, point5.y)
 
     browserCanvasContext.closePath()
-      */
+
+    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.5)'
+    browserCanvasContext.lineWidth = 0.2
+    browserCanvasContext.setLineDash([1, 5])
+    browserCanvasContext.stroke()
   }
 }

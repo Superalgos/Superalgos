@@ -274,8 +274,6 @@
        if (window.CHART_ON_FOCUS === '') {
          window.CHART_ON_FOCUS = exchange + ' ' + market.assetB + '/' + market.assetA
 
-         this.container.frame.draw()
-
          drawChartsBackgroundImages()
        }
      }
@@ -306,7 +304,7 @@
      }
 
      let toPoint = {
-       x: 0,
+       x: thisObject.container.frame.width,
        y: thisObject.container.frame.height
      }
 
@@ -315,7 +313,7 @@
 
      browserCanvasContext.beginPath()
 
-     browserCanvasContext.rect(viewPort.visibleArea.topLeft.x, fromPoint.y, viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x, toPoint.y - fromPoint.y)
+     browserCanvasContext.rect(fromPoint.x, fromPoint.y, toPoint.x - fromPoint.x, toPoint.y - fromPoint.y)
      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
 
      browserCanvasContext.closePath()
@@ -327,6 +325,23 @@
      if (INTENSIVE_LOG === true) { logger.write('[INFO] drawChartsBackground -> Entering function.') }
 
      if (canDrawLogoA === false || canDrawLogoB === false || canDrawLogoExchange === false || canDrawLogoAA === false) { return }
+
+     /* Fist we calculate the corners of the current frame so as not to draw imaages ourside of it */
+
+     let fromPoint = {
+       x: 0,
+       y: 0
+     }
+
+     let toPoint = {
+       x: thisObject.container.frame.width,
+       y: thisObject.container.frame.height
+     }
+
+     fromPoint = transformThisPoint(fromPoint, thisObject.container)
+     toPoint = transformThisPoint(toPoint, thisObject.container)
+
+     /* Second we calculate the points for the images themselves */
 
      let backgroundLogoPoint1
      let backgroundLogoPoint2
@@ -371,6 +386,10 @@
      imagePoint = transformThisPoint(imagePoint, thisObject.container)
 
      let offSet = 0
+     let imagePosition = {
+       x: 0,
+       y: 0
+     }
 
      for (let j = 0; j < MAX_ROWS; j++) {
        if (offSet === -imageWidth * 8) {
@@ -382,7 +401,17 @@
        for (let i = 0; i < MAX_COLUMNS; i = i + 4) {
          let logo = logoA
 
-         browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight + Y_TOP_MARGIN, imageWidth, imageHeight)
+         imagePosition.x = imagePoint.x + i * imageWidth * 2 + offSet
+         imagePosition.y = imagePoint.y + j * rowHight + Y_TOP_MARGIN
+
+         if (
+           imagePosition.x > fromPoint.x &&
+           imagePosition.x + imageWidth < toPoint.x &&
+           imagePosition.y > fromPoint.y &&
+           imagePosition.y + imageHeight < toPoint.y
+         ) {
+           browserCanvasContext.drawImage(logo, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
+         }
        }
      }
 
@@ -398,7 +427,17 @@
        for (let i = 1; i < MAX_COLUMNS; i = i + 4) {
          let logo = logoB
 
-         browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight + Y_TOP_MARGIN, imageWidth, imageHeight)
+         imagePosition.x = imagePoint.x + i * imageWidth * 2 + offSet
+         imagePosition.y = imagePoint.y + j * rowHight + Y_TOP_MARGIN
+
+         if (
+           imagePosition.x > fromPoint.x &&
+           imagePosition.x + imageWidth < toPoint.x &&
+           imagePosition.y > fromPoint.y &&
+           imagePosition.y + imageHeight < toPoint.y
+         ) {
+           browserCanvasContext.drawImage(logo, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
+         }
        }
      }
 
@@ -414,7 +453,17 @@
        for (let i = 2; i < MAX_COLUMNS; i = i + 4) {
          let logo = logoExchange
 
-         browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight + Y_TOP_MARGIN, imageWidth, imageHeight)
+         imagePosition.x = imagePoint.x + i * imageWidth * 2 + offSet
+         imagePosition.y = imagePoint.y + j * rowHight + Y_TOP_MARGIN
+
+         if (
+           imagePosition.x > fromPoint.x &&
+           imagePosition.x + imageWidth < toPoint.x &&
+           imagePosition.y > fromPoint.y &&
+           imagePosition.y + imageHeight < toPoint.y
+         ) {
+           browserCanvasContext.drawImage(logo, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
+         }
        }
      }
 
@@ -430,7 +479,17 @@
        for (let i = 3; i < MAX_COLUMNS; i = i + 4) {
          let logo = logoAA
 
-         browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight + Y_TOP_MARGIN, imageWidth, imageHeight)
+         imagePosition.x = imagePoint.x + i * imageWidth * 2 + offSet
+         imagePosition.y = imagePoint.y + j * rowHight + Y_TOP_MARGIN
+
+         if (
+           imagePosition.x > fromPoint.x &&
+           imagePosition.x + imageWidth < toPoint.x &&
+           imagePosition.y > fromPoint.y &&
+           imagePosition.y + imageHeight < toPoint.y
+         ) {
+           browserCanvasContext.drawImage(logo, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
+         }
        }
      }
    }

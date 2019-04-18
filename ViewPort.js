@@ -332,22 +332,21 @@ function newViewPort () {
   }
 
   function draw () {
-/*
-        drawGrid(10);
-        drawGrid(1);
-        drawGrid(0.1);
-*/
+    drawGrid(0.1)
   }
 
   function drawGrid (step) {
+    if (thisObject.zoomLevel > -17) { return }
+
     let squareWidth = (thisObject.visibleArea.bottomRight.x - thisObject.visibleArea.bottomLeft.x) / step
     squareWidth = squareWidth + squareWidth * increment * thisObject.zoomLevel
 
     let startingX = offset.x - Math.trunc(offset.x / squareWidth) * squareWidth
     let startingY = offset.y - Math.trunc(offset.y / squareWidth) * squareWidth
-    let lineWidth = 10 / step + 10 / step * increment * thisObject.zoomLevel
+    let lineWidth = 0.4 + thisObject.zoomLevel / 100
+    lineWidth = lineWidth.toFixed(2)
 
-    if (lineWidth < 0.5) {
+    if (lineWidth < 0.1) {
       return
     }
 
@@ -357,39 +356,41 @@ function newViewPort () {
 
     browserCanvasContext.beginPath()
 
+    let CROSS_SIZE = 5
+
     for (var i = startingX; i < thisObject.visibleArea.bottomRight.x; i = i + squareWidth) {
       for (var j = startingY; j < thisObject.visibleArea.bottomRight.y; j = j + squareWidth) {
         let point1 = {
-          x: thisObject.visibleArea.bottomLeft.x,
-          y: j
+          x: Math.trunc(i - CROSS_SIZE),
+          y: Math.trunc(j)
         }
 
         let point2 = {
-          x: thisObject.visibleArea.bottomRight.x,
-          y: j
+          x: Math.trunc(i + CROSS_SIZE),
+          y: Math.trunc(j)
         }
 
         browserCanvasContext.moveTo(point1.x, point1.y)
         browserCanvasContext.lineTo(point2.x, point2.y)
-      }
 
-      let point3 = {
-        x: i,
-        y: thisObject.visibleArea.topLeft.y
-      }
+        let point3 = {
+          x: Math.trunc(i),
+          y: Math.trunc(j - CROSS_SIZE)
+        }
 
-      let point4 = {
-        x: i,
-        y: thisObject.visibleArea.bottomLeft.y
-      }
+        let point4 = {
+          x: Math.trunc(i),
+          y: Math.trunc(j + CROSS_SIZE)
+        }
 
-      browserCanvasContext.moveTo(point3.x, point3.y)
-      browserCanvasContext.lineTo(point4.x, point4.y)
+        browserCanvasContext.moveTo(point3.x, point3.y)
+        browserCanvasContext.lineTo(point4.x, point4.y)
+      }
     }
     browserCanvasContext.closePath()
-    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 0.' + Math.trunc(lineWidth + 1) + ')'
+    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
 
-    browserCanvasContext.lineWidth = lineWidth
+    browserCanvasContext.lineWidth = 1
 
     browserCanvasContext.stroke()
   }

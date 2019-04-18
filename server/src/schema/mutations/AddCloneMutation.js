@@ -46,7 +46,18 @@ const resolve = async (parent, { clone }, context) => {
   clone.createDatetime = new Date().valueOf() / 1000 | 0
   clone.active = true
 
-  // TODO Temporary Limitation on bot creation
+  // TODO Temporary Limitations on bot creation
+  if (clone.accessCode !== undefined && clone.accessCode.length > 0) {
+    if (clone.accessCode === process.env.ACCESS_CODE) {
+      clone.balanceAssetA = Number(process.env.DEFAULT_BALANCE_ASSET_A)
+    } else {
+      throw new Error('Invalid access code.')
+    }
+  } else {
+    clone.balanceAssetA = Number(process.env.DEFAULT_BALANCE_ASSET_A)
+    clone.balanceAssetB = Number(process.env.DEFAULT_BALANCE_ASSET_B)
+  }
+
   if (!(clone.teamSlug === "AAMasters" || clone.teamSlug === "AAVikings")) {
     let clones = await Clone.find({
       authId: context.userId,
@@ -57,7 +68,7 @@ const resolve = async (parent, { clone }, context) => {
       throw new Error('Currently maximum number of clones per user is 5. You can delete an existing clone and try again.')
     }
   }
-
+  // END temporary limitations
   try {
     let newClone = new Clone(clone)
     newClone.authId = context.userId

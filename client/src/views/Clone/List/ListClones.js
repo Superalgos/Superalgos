@@ -55,6 +55,7 @@ class ListClones extends Component {
               <div className={classes.details}>
                 <div className={classes.column4}>
                   <Typography className={classes.cloneInfoBold}>Created:</Typography>
+                  <Typography className={classes.cloneInfoBold}>Resume Execution:</Typography>
                   { isDefined(clone.beginDatetime) &&
                     <Typography className={classes.cloneInfoBold}>Begin:</Typography>
                   }
@@ -64,11 +65,17 @@ class ListClones extends Component {
                   { isDefined(clone.waitTime) &&
                     <Typography className={classes.cloneInfoBold}>Wait Time:</Typography>
                   }
-                  <Typography className={classes.cloneInfoBold}>Resume Execution:</Typography>
-                  <Typography className={classes.cloneInfoBold}>Run As Team:</Typography>
+                  { clone.botType === 'Trading' &&
+                    <React.Fragment>
+                      <Typography className={classes.cloneInfoBold}>Exchange:</Typography>
+                      <Typography className={classes.cloneInfoBold}>Time Period:</Typography>
+                      <Typography className={classes.cloneInfoBold}>Initial Balance (BTC):</Typography>
+                    </React.Fragment>
+                  }
                 </div>
                 <div className={classes.column4}>
                   <Typography className={classes.cloneInfoNormal}>{toLocalTime(clone.createDatetime)}</Typography>
+                  <Typography className={classes.cloneInfoNormal}>{clone.resumeExecution ? 'Yes':'No'}</Typography>
                   { isDefined(clone.beginDatetime) &&
                     <Typography className={classes.cloneInfoNormal}>{toLocalTime(clone.beginDatetime)}</Typography>
                   }
@@ -78,8 +85,13 @@ class ListClones extends Component {
                   { isDefined(clone.waitTime) &&
                     <Typography className={classes.cloneInfoNormal}>{clone.waitTime}</Typography>
                   }
-                  <Typography className={classes.cloneInfoNormal}>{clone.resumeExecution ? 'Yes':'No'}</Typography>
-                  <Typography className={classes.cloneInfoNormal}>{clone.runAsTeam ? 'Yes':'No'}</Typography>
+                  { clone.botType === 'Trading' &&
+                  <React.Fragment>
+                    <Typography className={classes.cloneInfoNormal}>{clone.exchangeName}</Typography>
+                    <Typography className={classes.cloneInfoNormal}>{clone.timePeriod}</Typography>
+                    <Typography className={classes.cloneInfoNormal}>{clone.balanceAssetB}</Typography>
+                    </React.Fragment>
+                  }
                 </div>
               </div>
             </div>

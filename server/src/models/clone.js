@@ -53,7 +53,12 @@ const cloneSchema = new Schema({
   processName: {
     type: String,
     required: true
-  }
+  },
+  exchangeName: String,
+  timePeriod: String,
+  balanceAssetA: Number,
+  balanceAssetB: Number
+
 })
 
 const Clone = mongoose.model('Clone', cloneSchema)

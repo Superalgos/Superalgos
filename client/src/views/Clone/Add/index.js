@@ -40,8 +40,11 @@ class AddClone extends Component {
       teams: [],
       teamId: '',
       keyId: '',
-      exchangeName: exchanges.Coss,
+      exchangeName: exchanges.Poloniex,
       processName: indicatorProcessNames.Daily,
+      accessCodeOption: false,
+      accessCode: '',
+      balanceAssetB: 0.001,
 
       // Indicator Bot
       startYear: 2019,
@@ -52,8 +55,6 @@ class AddClone extends Component {
       timePeriod: '01-hs',
 
       //Error handlers
-      nameError: false,
-      teamError: false,
       botError: false,
       modeError: false,
       isNewCloneConfirmationOpen: false,
@@ -61,6 +62,8 @@ class AddClone extends Component {
       serverError: false,
       processNameError: false,
       keyIdError: false,
+      accessCodeError: false,
+      balanceAssetBError: false
     }
   }
 
@@ -293,8 +296,47 @@ class AddClone extends Component {
                         Live Trading Clones are limited to an initial investment
                         of 0.001 BTC. If you choose to run this bot or any modified
                         version of the code, you are doing it at your own risk.
-                           </Typography>
+                      </Typography>
 
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={this.state.accessCodeOption}
+                            onChange={(e) => this.setState({ accessCodeOption: e.target.checked })}
+                            color="primary"
+                          />
+                        }
+                        label="I have an Access Code"
+                        className={classNames(classes.form, classes.textField)}
+                      />
+
+                    </React.Fragment>
+                  }
+
+                  {this.state.accessCodeOption &&
+                    <React.Fragment>
+                      <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                        The Access Code is only used by alpha testers. Please contact the team for more details.
+                      </Typography>
+                      <TextField
+                        label="Access Code"
+                        className={classNames(classes.margin, classes.textField, classes.form)}
+                        value={this.state.accessCode}
+                        onChange={(e) => this.setState({ accessCode: e.target.value })}
+                        onBlur={(e) => this.setState({ accessCodeError: false })}
+                        error={this.state.accessCodeError}
+                        fullWidth
+                      />
+
+                      <TextField
+                        label="BTC Initial Balance"
+                        className={classNames(classes.margin, classes.textField, classes.form)}
+                        value={this.state.balanceAssetB}
+                        onChange={(e) => this.setState({ balanceAssetB: e.target.value })}
+                        onBlur={(e) => this.setState({ balanceAssetBError: false })}
+                        error={this.state.balanceAssetBError}
+                        fullWidth
+                      />
                     </React.Fragment>
                   }
 
@@ -491,6 +533,8 @@ class AddClone extends Component {
         variables.clone.waitTime = this.state.waitTime
       } else {
         variables.clone.keyId = this.state.keyId
+        variables.clone.accessCode = this.state.accessCode
+        variables.clone.balanceAssetB = Number(this.state.balanceAssetB)
       }
     } else {
       variables.clone.processName = this.state.processName
@@ -527,11 +571,14 @@ class AddClone extends Component {
         stateDatetime: 0,
         createDatetime: 0,
         runAsTeam: false,
-        exchangeName: exchanges.Coss,
+        exchangeName: exchanges.Poloniex,
         processName: indicatorProcessNames.Daily,
         teams: [],
         teamId: '',
         keyId: '',
+        accessCodeOption: false,
+        accessCode: '',
+        balanceAssetB: 0.001,
 
         // Indicator Bot
         startYear: 2019,
@@ -542,27 +589,33 @@ class AddClone extends Component {
         timePeriod: '01-hs',
 
         //Error handlers
-        nameError: false,
-        teamError: false,
         botError: false,
         modeError: false,
         isNewCloneConfirmationOpen: false,
         serverResponse: '',
         serverError: false,
         processNameError: false,
-        keyIdError: false
+        keyIdError: false,
+        accessCodeError: false,
+        balanceAssetBError: false
       })
   };
 
   validate() {
     let isError = false
 
-    if (this.state.selectedBot.length < 1) {
+    if (this.state.selectedBot.id.length < 1) {
       isError = true
-      this.setState(state => ({ selectedBotError: true }));
+      this.setState(state => ({ botError: true }));
     }
 
     if (this.state.mode.length < 1) {
+      isError = true
+      this.setState(state => ({ modeError: true }));
+    }
+
+    if (this.state.selectedBot.kind === "Trading"
+      && this.state.mode === 'noTime') {
       isError = true
       this.setState(state => ({ modeError: true }));
     }
@@ -571,6 +624,22 @@ class AddClone extends Component {
       && this.state.processName.length < 1) {
       isError = true
       this.setState(state => ({ processNameError: true }));
+    }
+
+    if (this.state.mode === 'live' && this.state.keyId.length < 1) {
+      isError = true
+      this.setState(state => ({ keyIdError: true }));
+    }
+
+    if (this.state.accessCodeOption) {
+      if (this.state.accessCode.length < 1) {
+        isError = true
+        this.setState(state => ({ accessCodeError: true }));
+      }
+      if (this.state.balanceAssetB.length < 1 || isNaN(this.state.balanceAssetB)) {
+        isError = true
+        this.setState(state => ({ balanceAssetBError: true }));
+      }
     }
 
     return isError;

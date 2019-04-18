@@ -26,6 +26,13 @@ function newTimeScale () {
   thisObject.container.isClickeable = false
   thisObject.container.isWheelable = true
 
+  let mouse = {
+    position: {
+      x: 0,
+      y: 0
+    }
+  }
+
   return thisObject
 
   function initialize () {
@@ -41,6 +48,11 @@ function newTimeScale () {
     let event = {}
     event.lenghtPercentage = thisObject.lenghtPercentage
     thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
+
+    thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
+      mouse.position.x = event.x
+      mouse.position.y = event.y
+    })
   }
 
   function onMouseWheel (event) {
@@ -127,7 +139,7 @@ to be visible at the top of the viewPort. */
     }
 
     /* Lets start the drawing. */
-/*
+
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y - TOP_MARGIN)
     browserCanvasContext.lineTo(point2.x, point2.y - TOP_MARGIN)
@@ -141,11 +153,38 @@ to be visible at the top of the viewPort. */
     browserCanvasContext.stroke()
 
     browserCanvasContext.closePath()
-*/
+
     thisObject.container.frame.position.x = point1.x
     thisObject.container.frame.position.y = point1.y
 
     thisObject.container.frame.width = point2.x - point1.x
     thisObject.container.frame.height = point3.y - point2.y
+
+    let point = {
+      x: mouse.position.x,
+      y: point1.y - TOP_MARGIN
+    }
+    drawLabel(point)
+  }
+
+  function drawLabel (point) {
+    let label = '2018-09-22 05:22:31'
+    let fontSize = 10
+
+    // getRateFromPoint(ratePoint)
+
+    let xOffset = label.length * fontSize * FONT_ASPECT_RATIO
+
+    browserCanvasContext.beginPath()
+
+    browserCanvasContext.rect(point.x - xOffset / 2, point.y, xOffset, fontSize + 2)
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
+    browserCanvasContext.fill()
+
+    browserCanvasContext.closePath()
+
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+    browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
+    browserCanvasContext.fillText(label, point.x - xOffset / 2, point.y + fontSize + 2)
   }
 }

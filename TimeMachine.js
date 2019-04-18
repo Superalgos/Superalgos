@@ -240,7 +240,12 @@ function newTimeMachine () {
         }
       }
     }
-    return this.container
+
+    if (thisObject.container.frame.isThisPointHere(point) === true) {
+      return thisObject.container
+    } else {
+      return
+    }
   }
 
   function recalculateScale () {

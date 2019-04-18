@@ -174,10 +174,7 @@ to be visible at the top of the viewPort. */
       x: mouse.position.x,
       y: point1.y - TOP_MARGIN
     }
-    drawLabel(point)
-  }
 
-  function drawLabel (point) {
     let label = '2018-09-22 05:22:31'
     let fontSize = 10
 
@@ -187,6 +184,9 @@ to be visible at the top of the viewPort. */
 
     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
+
+    if (point.x - xOffset / 2 < point1.x || point.x + xOffset / 2 > point2.x) { return }
+
     browserCanvasContext.fillText(label, point.x - xOffset / 2, point.y + fontSize + 2)
 /*
     browserCanvasContext.beginPath()

@@ -205,7 +205,7 @@ function newTimeMachine () {
     if (timeScale !== undefined) { timeScale.draw() }
     if (rigthScale !== undefined) { rigthScale.draw() }
 
-    thisObject.container.frame.draw(false, true, false)
+    // thisObject.container.frame.draw(false, true, false)
   }
 
   function getContainer (point, purpose) {

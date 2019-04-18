@@ -358,8 +358,8 @@ function newViewPort () {
 
     let CROSS_SIZE = 5
 
-    for (var i = startingX; i < thisObject.visibleArea.bottomRight.x; i = i + squareWidth) {
-      for (var j = startingY; j < thisObject.visibleArea.bottomRight.y; j = j + squareWidth) {
+    for (var i = startingX; i < thisObject.visibleArea.bottomRight.x + RIGHT_MARGIN; i = i + squareWidth) {
+      for (var j = startingY; j < thisObject.visibleArea.bottomRight.y + BOTTOM_MARGIN; j = j + squareWidth) {
         let point1 = {
           x: Math.trunc(i - CROSS_SIZE),
           y: Math.trunc(j)
@@ -388,7 +388,7 @@ function newViewPort () {
       }
     }
     browserCanvasContext.closePath()
-    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
+    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 0.5)'
 
     browserCanvasContext.lineWidth = 1
 

@@ -147,7 +147,7 @@ let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at
 
 let maxDate = new Date();
 maxDate.setMilliseconds(0);
-maxDate.setDate(maxDate.getDate() + 365 * 4);  // We might have charts that projects data into the future. 
+maxDate.setDate(maxDate.getDate() + 365 * 1);  // We might have charts that projects data into the future. 
 
 const MIN_PLOTABLE_DATE = new Date(2015, 0, 1, 0, 0, 0);
 const MAX_PLOTABLE_DATE = maxDate;

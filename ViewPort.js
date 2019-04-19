@@ -7,6 +7,12 @@ function newViewPort () {
   const BOTTOM_MARGIN = 15 + BOTTOM_SPACE_HEIGHT
   const LEFT_MARGIN = 50
   const RIGHT_MARGIN = 50
+  const MARGINS = {
+    TOP: TOP_MARGIN,
+    BOTTOM: BOTTOM_MARGIN,
+    LEFT: LEFT_MARGIN,
+    RIGHT: RIGHT_MARGIN
+  }
 
   let thisObject = {
     visibleArea: undefined,
@@ -14,6 +20,7 @@ function newViewPort () {
     zoomTargetLevel: undefined,
     zoomLevel: undefined,
     mousePosition: undefined,
+    margins: MARGINS,
     getDisplacement: getDisplacement,
     newZoomLevel: newZoomLevel,
     applyZoom: applyZoom,

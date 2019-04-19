@@ -17,7 +17,6 @@ function newTimeScale () {
   const LENGHT_PERCENTAGE_DEFAULT_VALUE = 50
   const STEP_SIZE = 5
   const MIN_HEIGHT = 50
-  const TOP_MARGIN = 15
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
@@ -91,7 +90,7 @@ function newTimeScale () {
       y: 0
     }
     point.x = pPoint.x - thisObject.container.frame.position.x
-    point.y = pPoint.y - thisObject.container.frame.position.y + TOP_MARGIN
+    point.y = pPoint.y - thisObject.container.frame.position.y + viewPort.margins.TOP
 
     if (thisObject.container.frame.isThisPointHere(point, undefined, true) === true) {
       return thisObject.container
@@ -161,11 +160,11 @@ to be visible at the top of the viewPort. */
     /* Lets start the drawing. */
 /*
     browserCanvasContext.beginPath()
-    browserCanvasContext.moveTo(point1.x, point1.y - TOP_MARGIN)
-    browserCanvasContext.lineTo(point2.x, point2.y - TOP_MARGIN)
-    browserCanvasContext.lineTo(point3.x, point3.y - TOP_MARGIN)
-    browserCanvasContext.lineTo(point4.x, point4.y - TOP_MARGIN)
-    browserCanvasContext.lineTo(point1.x, point1.y - TOP_MARGIN)
+    browserCanvasContext.moveTo(point1.x, point1.y - viewPort.margins.TOP)
+    browserCanvasContext.lineTo(point2.x, point2.y - viewPort.margins.TOP)
+    browserCanvasContext.lineTo(point3.x, point3.y - viewPort.margins.TOP)
+    browserCanvasContext.lineTo(point4.x, point4.y - viewPort.margins.TOP)
+    browserCanvasContext.lineTo(point1.x, point1.y - viewPort.margins.TOP)
     browserCanvasContext.closePath()
 
     browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
@@ -181,7 +180,7 @@ to be visible at the top of the viewPort. */
 
     let point = {
       x: mouse.position.x,
-      y: point1.y - TOP_MARGIN
+      y: point1.y - viewPort.margins.TOP
     }
 
     let date = getDateFromPoint(point, thisObject.container, timeLineCoordinateSystem)

@@ -106,11 +106,7 @@ function newTimeMachine () {
       /* Each Time Machine has a Time Scale and a Right Scale. */
 
       timeScale = newTimeScale()
-
       timeScale.container.connectToParent(thisObject.container, false, false)
-      /*
-      timeScale.container.frame.height = thisObject.container.frame.height / 10
-*/
       timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
         thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
@@ -119,13 +115,13 @@ function newTimeMachine () {
       timeScale.initialize(timeLineCoordinateSystem)
 
       rigthScale = newRigthScale()
-
+      rigthScale.container.connectToParent(thisObject.container, false, false)
       rigthScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
       })
 
-      rigthScale.initialize()
+      rigthScale.initialize(timeLineCoordinateSystem)
 
       initializeTheRest()
     }

@@ -2,8 +2,6 @@
 let canvas
 let markets
 let ecosystem = newEcosystem()
-let INITIAL_ZOOM_LEVEL = -26       // This is the zoom level at the view port in which the APP starts.
-let INITIAL_TIME_PERIOD = recalculatePeriod(MIN_ZOOM_LEVEL)  // This value will be overwritten at the viewPort.initialize if the user had a prevous session with this same browser.
 let viewPort = newViewPort()
 
 function newDashboard () {

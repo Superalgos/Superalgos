@@ -1,5 +1,12 @@
  ﻿
 function newViewPort () {
+  const MODULE_NAME = 'Viewport'
+  const INFO_LOG = false
+  const INTENSIVE_LOG = false
+  const ERROR_LOG = true
+  const logger = newWebDebugLog()
+  logger.fileName = MODULE_NAME
+
   const CONSOLE_LOG = true
 
   let ANIMATION_INCREMENT = 0.25
@@ -62,6 +69,8 @@ function newViewPort () {
 
   thisObject.eventHandler = newEventHandler()
 
+  let objectStorage = {}
+
   return thisObject
 
   function initialize () {
@@ -71,6 +80,8 @@ function newViewPort () {
       bottomRight: { x: browserCanvas.width - RIGHT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN},
       bottomLeft: { x: LEFT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN}
     }
+
+    readObjectState()
   }
 
   function getDisplacement () {
@@ -106,17 +117,6 @@ function newViewPort () {
       changeZoom(thisObject.zoomLevel + ANIMATION_INCREMENT, thisObject.zoomLevel)
     }
 
- /*
-       if (offsetIncrement.x !== 0) {
-
-           if (Math.trunc(Math.abs(targetOffset.x - offset.x) * 1000) >= Math.trunc(Math.abs(offsetIncrement.x) * 1000)) {
-               offset.x = offset.x + offsetIncrement.x;
-           } else {
-               offsetIncrement.x = 0;
-           }
-       }
-*/
-
     if (offsetIncrement.y !== 0) {
       if (Math.trunc(Math.abs(targetOffset.y - offset.y) * 1000) >= Math.trunc(Math.abs(offsetIncrement.y) * 1000)) {
         offset.y = offset.y + offsetIncrement.y
@@ -131,6 +131,8 @@ function newViewPort () {
   function displace (displaceVector) {
     offset.x = offset.x + displaceVector.x
     offset.y = offset.y + displaceVector.y
+
+    saveObjectState()
 
     let event = {
       newOffset: offset
@@ -156,6 +158,8 @@ function newViewPort () {
   function newZoomLevel (level) {
     thisObject.zoomTargetLevel = level
     thisObject.zoomLevel = level
+
+    saveObjectState()
 
     ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / 3
 
@@ -250,6 +254,8 @@ function newViewPort () {
 
     offset.x = offset.x - newMouse.x + thisObject.mousePosition.x
     offset.y = offset.y - newMouse.y + thisObject.mousePosition.y
+
+    saveObjectState()
 
     targetOffset.x = offset.x
     targetOffset.y = offset.y
@@ -400,5 +406,22 @@ function newViewPort () {
     browserCanvasContext.lineWidth = 1
 
     browserCanvasContext.stroke()
+  }
+
+  function saveObjectState () {
+    objectStorage.offset = offset
+    objectStorage.zoomLevel = thisObject.zoomLevel
+    window.localStorage.setItem(MODULE_NAME, JSON.stringify(objectStorage))
+  }
+
+  function readObjectState () {
+    let objectStorageString = window.localStorage.getItem(MODULE_NAME)
+    if (objectStorageString !== null && objectStorageString !== '') {
+      objectStorage = JSON.parse(objectStorageString)
+      offset = objectStorage.offset
+      thisObject.zoomLevel = objectStorage.zoomLevel
+
+      INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
+    }
   }
 }

@@ -196,7 +196,7 @@ to be visible at the top of the viewPort. */
 
     if (point.x - xOffset / 2 < point1.x || point.x + xOffset / 2 > point2.x) { return }
 
-    browserCanvasContext.fillText(label, point.x - xOffset / 2, point.y + fontSize + 2)
+    browserCanvasContext.fillText(label, point.x - xOffset / 2, point.y + fontSize + 7)
 
     browserCanvasContext.beginPath()
 

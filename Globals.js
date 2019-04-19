@@ -35,7 +35,7 @@ UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
-FONT_ASPECT_RATIO = 0.55;
+FONT_ASPECT_RATIO = 0.45;
 const MIN_ZOOM_LEVEL = -28.25
 
 const GET_CONTAINER_PURPOSE = {

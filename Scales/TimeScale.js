@@ -14,7 +14,7 @@ function newTimeScale () {
     lenghtPercentage: undefined
   }
 
-  const LENGHT_PERCENTAGE_DEFAULT_VALUE = 50
+  const LENGHT_PERCENTAGE_DEFAULT_VALUE = 5
   const STEP_SIZE = 5
   const MIN_HEIGHT = 50
 

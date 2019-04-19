@@ -420,8 +420,15 @@ function newViewPort () {
       objectStorage = JSON.parse(objectStorageString)
       offset = objectStorage.offset
       thisObject.zoomLevel = objectStorage.zoomLevel
-
+      thisObject.zoomTargetLevel = objectStorage.zoomLevel
       INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
+    } else { // Setting default values for first session
+      offset = {
+        x: 0,
+        y: 0
+      }
+      thisObject.zoomLevel = MIN_ZOOM_LEVEL
+      thisObject.zoomTargetLevel = MIN_ZOOM_LEVEL
     }
   }
 }

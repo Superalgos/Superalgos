@@ -100,10 +100,13 @@ function getUserPosition (timeLineCoordinateSystem) {
   return userPosition
 }
 
-function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignoreY, center) {
+function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignoreY, center, considerZoom) {
   let userPosition = getUserPosition(timeLineCoordinateSystem)
 
-  viewPort.newZoomLevel(userPosition.zoom)
+  if (considerZoom === true) {
+    viewPort.newZoomLevel(userPosition.zoom)
+  }
+
   INITIAL_TIME_PERIOD = recalculatePeriod(userPosition.zoom)
   NEW_SESSION_INITIAL_DATE = new Date(userPosition.date)
 

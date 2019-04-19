@@ -118,7 +118,7 @@
        breakpointsBar = newBreakpointsBar()
        breakpointsBar.initialize(thisObject.container, timeLineCoordinateSystem)
 
-       moveToUserPosition(thisObject.container, timeLineCoordinateSystem)
+       moveToUserPosition(thisObject.container, timeLineCoordinateSystem, undefined, undefined, undefined, true)
        timePeriod = INITIAL_TIME_PERIOD
        datetime = NEW_SESSION_INITIAL_DATE
 

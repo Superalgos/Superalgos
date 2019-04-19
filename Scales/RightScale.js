@@ -187,7 +187,7 @@ to be visible at the top of the viewPort. */
       y: mouse.position.y
     }
 
-    let rate = getRateFromPoint(point, thisObject.container, timeLineCoordinateSystem)
+    let rate = getRateFromPoint(point, thisObject.container.parentContainer, timeLineCoordinateSystem)
 
     let label = rate.toFixed(2)
     let fontSize = 10

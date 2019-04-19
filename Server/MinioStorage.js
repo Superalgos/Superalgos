@@ -35,10 +35,10 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> pParam1 = " + pParam1); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> pParam2 = " + pParam2); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> pParam3 = " + pParam3); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> readData -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> readData -> pParam1 = " + pParam1); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> readData -> pParam2 = " + pParam2); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> readData -> pParam3 = " + pParam3); }
 
             let cacheVersion;
 
@@ -49,13 +49,13 @@
 
             if (cacheVersion !== undefined) {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData ->  " + pParam1 + '.' + pParam2 + '.' + pParam3 + " found at cache."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> readData ->  " + pParam1 + '.' + pParam2 + '.' + pParam3 + " found at cache."); }
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE, cacheVersion);
 
             } else {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData ->  " + pParam1 + '.' + pParam2 + '.' + pParam3 + " NOT found at cache."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> readData ->  " + pParam1 + '.' + pParam2 + '.' + pParam3 + " NOT found at cache."); }
 
                 let bucketName = 'aaplatform';
                 let textFilename;
@@ -97,12 +97,12 @@
 
                     try {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> Entering function."); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
-                        if (LOG_FILE_CONTENT === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> response = " + JSON.stringify(response)); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> pParam1 = " + pParam1); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> pParam2 = " + pParam2); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> pParam3 = " + pParam3); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> readData -> onFileReceived -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
+                        if (LOG_FILE_CONTENT === true) { console.log("[INFO] Minio Storage -> readData -> onFileReceived -> response = " + JSON.stringify(response)); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> readData -> onFileReceived -> pParam1 = " + pParam1); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> readData -> onFileReceived -> pParam2 = " + pParam2); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> readData -> onFileReceived -> pParam3 = " + pParam3); }
 
                         if (saveAtCache === true) {
 
@@ -112,9 +112,9 @@
 
                         if (err !== null || text === null) {
 
-                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> Error Received from Storage Library. "); }
-                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
-                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> Returning an empty JSON object string. "); }
+                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Minio Storage -> readData -> onFileReceived -> Error Received from Storage Library. "); }
+                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Minio Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
+                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Minio Storage -> readData -> onFileReceived -> Returning an empty JSON object string. "); }
 
                             if (err.code === 'NoSuchKey') {
 
@@ -136,14 +136,14 @@
                         callBackFunction(global.DEFAULT_OK_RESPONSE, text);
 
                     } catch (err) {
-                        console.log("[ERROR] Storage -> readData -> onFileReceived -> err.message = " + err.message);
+                        console.log("[ERROR] Minio Storage -> readData -> onFileReceived -> err.message = " + err.message);
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }
             }
 
         } catch (err) {
-            console.log("[ERROR] Storage -> readData -> err.message = " + err.message);
+            console.log("[ERROR] Minio Storage -> readData -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -152,10 +152,10 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> pParam1 = " + pParam1); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> pParam2 = " + pParam2); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> pParam3 = " + pParam3); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> writeData -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> writeData -> pParam1 = " + pParam1); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> writeData -> pParam2 = " + pParam2); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> writeData -> pParam3 = " + pParam3); }
 
             let bucketName = 'aaplatform';
             let text = pFileContent.toString();
@@ -167,17 +167,17 @@
 
                 try {
 
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> Entering function."); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
-                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> response = " + JSON.stringify(response)); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> pParam1 = " + pParam1); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> pParam2 = " + pParam2); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> pParam3 = " + pParam3); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> writeData -> onFileCreated -> Entering function."); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
+                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] Minio Storage -> writeData -> onFileCreated -> response = " + JSON.stringify(response)); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> writeData -> onFileCreated -> pParam1 = " + pParam1); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> writeData -> onFileCreated -> pParam2 = " + pParam2); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> writeData -> onFileCreated -> pParam3 = " + pParam3); }
 
                     if (err !== null || text === null) {
 
-                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> writeData -> onFileCreated -> Error Received from Storage Library. "); }
-                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
+                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Minio Storage -> writeData -> onFileCreated -> Error Received from Storage Library. "); }
+                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Minio Storage -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
 
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
@@ -187,13 +187,13 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
-                    console.log("[ERROR] Storage -> writeData -> onFileCreated -> err.message = " + err.message);
+                    console.log("[ERROR] Minio Storage -> writeData -> onFileCreated -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            console.log("[ERROR] Storage -> writeData -> err.message = " + err.message);
+            console.log("[ERROR] Minio Storage -> writeData -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -202,10 +202,10 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> pParam1 = " + pParam1); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> pParam2 = " + pParam2); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> pParam3 = " + pParam3); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> deleteBlob -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> deleteBlob -> pParam1 = " + pParam1); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> deleteBlob -> pParam2 = " + pParam2); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> deleteBlob -> pParam3 = " + pParam3); }
 
             let bucketName = 'aaplatform';
             let textFilename = pParam1 + "/" + pParam2 + "/" + pParam3;
@@ -216,17 +216,17 @@
 
                 try {
 
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> Entering function."); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> err = " + JSON.stringify(err)); }
-                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> response = " + JSON.stringify(response)); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> pParam1 = " + pParam1); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> pParam2 = " + pParam2); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> pParam3 = " + pParam3); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> deleteBlob -> onBlobDeleted -> Entering function."); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> deleteBlob -> onBlobDeleted -> err = " + JSON.stringify(err)); }
+                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] Minio Storage -> deleteBlob -> onBlobDeleted -> response = " + JSON.stringify(response)); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> deleteBlob -> onBlobDeleted -> pParam1 = " + pParam1); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> deleteBlob -> onBlobDeleted -> pParam2 = " + pParam2); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> deleteBlob -> onBlobDeleted -> pParam3 = " + pParam3); }
 
                     if (err !== null || text === null) {
 
-                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> deleteBlob -> onBlobDeleted -> Error Received from Storage Library. "); }
-                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> deleteBlob -> onBlobDeleted -> err = " + JSON.stringify(err)); }
+                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Minio Storage -> deleteBlob -> onBlobDeleted -> Error Received from Storage Library. "); }
+                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Minio Storage -> deleteBlob -> onBlobDeleted -> err = " + JSON.stringify(err)); }
 
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
@@ -236,13 +236,13 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
-                    console.log("[ERROR] Storage -> deleteBlob -> onBlobDeleted -> err.message = " + err.message);
+                    console.log("[ERROR] Minio Storage -> deleteBlob -> onBlobDeleted -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            console.log("[ERROR] Storage -> deleteBlob -> err.message = " + err.message);
+            console.log("[ERROR] Minio Storage -> deleteBlob -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -251,8 +251,8 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> createContainer -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> createContainer -> pContainerName = " + pContainerName); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> createContainer -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> createContainer -> pContainerName = " + pContainerName); }
 
             let containerName = pContainerName.toLowerCase();
 
@@ -262,8 +262,8 @@
 
                 if (err) {
 
-                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> createContainer -> onContainerCreated -> Error Received from Storage Library. "); }
-                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> createContainer -> onContainerCreated -> err = " + JSON.stringify(err)); }
+                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Minio Storage -> createContainer -> onContainerCreated -> Error Received from Storage Library. "); }
+                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Minio Storage -> createContainer -> onContainerCreated -> err = " + JSON.stringify(err)); }
 
 
                     /* ContainerAlreadyExists check */
@@ -293,7 +293,7 @@
             }
 
         } catch (err) {
-            console.log("[ERROR] Storage -> createContainer -> err.message = " + err.message);
+            console.log("[ERROR] Minio Storage -> createContainer -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -302,8 +302,8 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteContainer -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteContainer -> pContainerName = " + pContainerName); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> deleteContainer -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Minio Storage -> deleteContainer -> pContainerName = " + pContainerName); }
 
             let containerName = pContainerName.toLowerCase();
 
@@ -313,8 +313,8 @@
 
                 if (err) {
 
-                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> deleteContainer -> onContainerDeleted -> Error Received from Storage Library. "); }
-                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> deleteContainer -> onContainerDeleted -> err = " + JSON.stringify(err)); }
+                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Minio Storage -> deleteContainer -> onContainerDeleted -> Error Received from Storage Library. "); }
+                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Minio Storage -> deleteContainer -> onContainerDeleted -> err = " + JSON.stringify(err)); }
 
 
                     /* ContainerAlreadyExists check */
@@ -344,7 +344,7 @@
             }
 
         } catch (err) {
-            console.log("[ERROR] Storage -> deleteContainer -> err.message = " + err.message);
+            console.log("[ERROR] Minio Storage -> deleteContainer -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

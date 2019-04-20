@@ -154,6 +154,7 @@
       "comaWaitTime": 86400000,
       "framework": {
         "name": "Multi-Period-Daily",
+        "validPeriods": [ "15-min", "10-min", "05-min"],
         "startDate": {
           "fixedDate": "2018-07-01"
         },
@@ -280,7 +281,7 @@
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
-          "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "validPeriods": ["15-min", "10-min", "05-min"],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
@@ -319,7 +320,7 @@
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
-          "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "validPeriods": ["15-min", "10-min", "05-min"],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {

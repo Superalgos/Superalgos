@@ -254,11 +254,9 @@
 
                     let newFileCursor = dailyFiles.getFileCursor(pTimePeriod);
 
-                    if (newFileCursor !== undefined) {
+                    fileCursor = newFileCursor; // In this case, we explicitly want that if there is no valid cursor, we invalidate the data and show nothing.
+                    recalculate();
 
-                        fileCursor = newFileCursor;
-                        recalculate();
-                    }
                 }
             }
 
@@ -342,9 +340,15 @@
 
             if (INFO_LOG === true) { logger.write("[INFO] recalculateUsingDailyFiles -> Entering function."); }
 
-            if (fileCursor === undefined) { return; } // We need to wait
+            if (fileCursor === undefined) {
+                records = [];
+                return;
+            } // We need to wait
 
-            if (fileCursor.files.size === 0) { return; } // We need to wait until there are files in the cursor
+            if (fileCursor.files.size === 0) {
+                records = [];
+                return;
+            } // We need to wait until there are files in the cursor
 
             let daysOnSides = getSideDays(timePeriod);
 

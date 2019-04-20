@@ -70,7 +70,7 @@ function newProductCard () {
   }
 
   let timePeriod = INITIAL_TIME_PERIOD
-  let datetime = INITIAL_DATE
+  let datetime = NEW_SESSION_INITIAL_DATE
 
    /* TODO We are in a transition period in which bots and teams images might be located at different places.
    What we are going to do then is to try to load them from both places and use the variable that finally gets an

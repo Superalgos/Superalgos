@@ -36,10 +36,10 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> pOrg = " + pOrg); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> pPath = " + pPath); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> pFile = " + pFile); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> readData -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> readData -> pOrg = " + pOrg); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> readData -> pPath = " + pPath); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> readData -> pFile = " + pFile); }
 
             let cacheVersion;
 
@@ -50,13 +50,13 @@
 
             if (cacheVersion !== undefined) {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData ->  " + pOrg + '.' + pPath + '.' + pFile + " found at cache."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> readData ->  " + pOrg + '.' + pPath + '.' + pFile + " found at cache."); }
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE, cacheVersion);
 
             } else {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData ->  " + pOrg + '.' + pPath + '.' + pFile + " NOT found at cache."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> readData ->  " + pOrg + '.' + pPath + '.' + pFile + " NOT found at cache."); }
 
                 let storage = require('azure-storage');
                 let connectionString;
@@ -113,12 +113,12 @@
 
                     try {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> Entering function."); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
-                        if (LOG_FILE_CONTENT === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> response = " + JSON.stringify(response)); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> pOrg = " + pOrg); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> pPath = " + pPath); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> pFile = " + pFile); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> readData -> onFileReceived -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
+                        if (LOG_FILE_CONTENT === true) { console.log("[INFO] Azure Storage -> readData -> onFileReceived -> response = " + JSON.stringify(response)); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> readData -> onFileReceived -> pOrg = " + pOrg); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> readData -> onFileReceived -> pPath = " + pPath); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> readData -> onFileReceived -> pFile = " + pFile); }
 
                         if (saveAtCache === true) {
 
@@ -128,9 +128,9 @@
 
                         if (err !== null || text === null) {
 
-                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> Error Received from Storage Library. "); }
-                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
-                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> Returning an empty JSON object string. "); }
+                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> readData -> onFileReceived -> Error Received from Storage Library. "); }
+                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
+                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> readData -> onFileReceived -> Returning an empty JSON object string. "); }
 
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
@@ -157,14 +157,14 @@
                         callBackFunction(global.DEFAULT_OK_RESPONSE, text);
 
                     } catch (err) {
-                        console.log("[ERROR] Storage -> readData -> onFileReceived -> err.message = " + err.message);
+                        console.log("[ERROR] Azure Storage -> readData -> onFileReceived -> err.message = " + err.message);
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }
             }
 
         } catch (err) {
-            console.log("[ERROR] Storage -> readData -> err.message = " + err.message);
+            console.log("[ERROR] Azure Storage -> readData -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -173,10 +173,10 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> pOrg = " + pOrg); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> pPath = " + pPath); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> pFile = " + pFile); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> writeData -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> writeData -> pOrg = " + pOrg); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> writeData -> pPath = " + pPath); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> writeData -> pFile = " + pFile); }
 
             let storage = require('azure-storage');
             let connectionString;
@@ -206,17 +206,17 @@
 
                 try {
 
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> Entering function."); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
-                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> response = " + JSON.stringify(response)); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> pOrg = " + pOrg); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> pPath = " + pPath); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> pFile = " + pFile); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> writeData -> onFileCreated -> Entering function."); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
+                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] Azure Storage -> writeData -> onFileCreated -> response = " + JSON.stringify(response)); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> writeData -> onFileCreated -> pOrg = " + pOrg); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> writeData -> onFileCreated -> pPath = " + pPath); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> writeData -> onFileCreated -> pFile = " + pFile); }
 
                     if (err !== null || text === null) {
 
-                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> writeData -> onFileCreated -> Error Received from Storage Library. "); }
-                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
+                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> writeData -> onFileCreated -> Error Received from Storage Library. "); }
+                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
 
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
@@ -226,13 +226,13 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
-                    console.log("[ERROR] Storage -> writeData -> onFileCreated -> err.message = " + err.message);
+                    console.log("[ERROR] Azure Storage -> writeData -> onFileCreated -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            console.log("[ERROR] Storage -> writeData -> err.message = " + err.message);
+            console.log("[ERROR] Azure Storage -> writeData -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -241,10 +241,10 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> pOrg = " + pOrg); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> pPath = " + pPath); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> pFile = " + pFile); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteBlob -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteBlob -> pOrg = " + pOrg); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteBlob -> pPath = " + pPath); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteBlob -> pFile = " + pFile); }
 
             let storage = require('azure-storage');
             let connectionString;
@@ -273,17 +273,17 @@
 
                 try {
 
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> Entering function."); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> err = " + JSON.stringify(err)); }
-                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> response = " + JSON.stringify(response)); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> pOrg = " + pOrg); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> pPath = " + pPath); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> pFile = " + pFile); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteBlob -> onBlobDeleted -> Entering function."); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteBlob -> onBlobDeleted -> err = " + JSON.stringify(err)); }
+                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] Azure Storage -> deleteBlob -> onBlobDeleted -> response = " + JSON.stringify(response)); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteBlob -> onBlobDeleted -> pOrg = " + pOrg); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteBlob -> onBlobDeleted -> pPath = " + pPath); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteBlob -> onBlobDeleted -> pFile = " + pFile); }
 
                     if (err !== null || text === null) {
 
-                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> deleteBlob -> onBlobDeleted -> Error Received from Storage Library. "); }
-                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> deleteBlob -> onBlobDeleted -> err = " + JSON.stringify(err)); }
+                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> deleteBlob -> onBlobDeleted -> Error Received from Storage Library. "); }
+                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> deleteBlob -> onBlobDeleted -> err = " + JSON.stringify(err)); }
 
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
@@ -293,13 +293,13 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
-                    console.log("[ERROR] Storage -> deleteBlob -> onBlobDeleted -> err.message = " + err.message);
+                    console.log("[ERROR] Azure Storage -> deleteBlob -> onBlobDeleted -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            console.log("[ERROR] Storage -> deleteBlob -> err.message = " + err.message);
+            console.log("[ERROR] Azure Storage -> deleteBlob -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -308,8 +308,8 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> createContainer -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> createContainer -> pContainerName = " + pContainerName); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> createContainer -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> createContainer -> pContainerName = " + pContainerName); }
 
             let storage = require('azure-storage');
             let connectionString;
@@ -339,8 +339,8 @@
 
                 if (err) {
 
-                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> createContainer -> onContainerCreated -> Error Received from Storage Library. "); }
-                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> createContainer -> onContainerCreated -> err = " + JSON.stringify(err)); }
+                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> createContainer -> onContainerCreated -> Error Received from Storage Library. "); }
+                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> createContainer -> onContainerCreated -> err = " + JSON.stringify(err)); }
 
 
                     /* ContainerAlreadyExists check */
@@ -370,7 +370,7 @@
             }
 
         } catch (err) {
-            console.log("[ERROR] Storage -> createContainer -> err.message = " + err.message);
+            console.log("[ERROR] Azure Storage -> createContainer -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -379,8 +379,8 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteContainer -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteContainer -> pContainerName = " + pContainerName); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteContainer -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteContainer -> pContainerName = " + pContainerName); }
 
             let storage = require('azure-storage');
             let connectionString;
@@ -410,8 +410,8 @@
 
                 if (err) {
 
-                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> deleteContainer -> onContainerDeleted -> Error Received from Storage Library. "); }
-                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> deleteContainer -> onContainerDeleted -> err = " + JSON.stringify(err)); }
+                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> deleteContainer -> onContainerDeleted -> Error Received from Storage Library. "); }
+                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> deleteContainer -> onContainerDeleted -> err = " + JSON.stringify(err)); }
 
 
                     /* ContainerAlreadyExists check */
@@ -441,7 +441,7 @@
             }
 
         } catch (err) {
-            console.log("[ERROR] Storage -> deleteContainer -> err.message = " + err.message);
+            console.log("[ERROR] Azure Storage -> deleteContainer -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

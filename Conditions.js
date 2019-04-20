@@ -494,6 +494,8 @@
 
             if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
 
+            thisObject.container.eventHandler.raiseEvent("Current Condition Record Changed", undefined);
+
             let conditionRecord;
 
             for (let i = 0; i < conditions.length; i++) { 

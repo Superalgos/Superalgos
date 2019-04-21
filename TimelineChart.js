@@ -47,6 +47,7 @@
    let market
 
    let productsPanelHandle
+   let timePeriodScale
 
    return thisObject
 
@@ -68,6 +69,19 @@
        exchange = pExchange
        market = pMarket
        timeLineCoordinateSystem = pTimeLineCoordinateSystem
+
+       timePeriodScale = newTimePeriodScale()
+       timePeriodScale.container.connectToParent(thisObject.container, false, false)
+       timePeriodScale.container.eventHandler.listenToEvent('Time Period Changed', function (event) {
+         return  // Ignore events from this scale
+         let currentTimePeriod = timePeriod
+         timePeriod = event.timePeriod
+         if (timePeriod !== currentTimePeriod) {
+           plotterManager.setTimePeriod(timePeriod)
+         }
+       })
+
+       timePeriodScale.initialize(timeLineCoordinateSystem)
 
        thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
          saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
@@ -235,7 +249,7 @@
 
      let container
 
-     // container = chartGrid.getContainer(point)
+     container = timePeriodScale.getContainer(point)
 
      if (container !== undefined) { return container }
 
@@ -284,8 +298,8 @@
 
        // chartGrid.draw(thisObject.container, timeLineCoordinateSystem)
 
+       timePeriodScale.draw()
        plotterManager.draw()
-
        breakpointsBar.draw()
      }
    }

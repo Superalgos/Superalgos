@@ -67,9 +67,9 @@ function newAppLoader() {
 
                 "Exchange/ExchangeAPI.js",
 
-                "Scales/ChartGrid.js",
-                "Scales/RightScale.js",
+                "Scales/RateScale.js",
                 "Scales/TimeScale.js",
+                "Scales/TimePeriodScale.js",
 
                 "BreakpointsBar.js",
                 "Plotter.js",

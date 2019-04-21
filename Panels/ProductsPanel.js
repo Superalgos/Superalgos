@@ -81,7 +81,7 @@
          if (bot.products !== undefined) {
            for (let k = 0; k < bot.products.length; k++) {
              let product = bot.products[k]
-
+             if (product.shareWith !== 'Public' && devTeam.codeName !== userTeam.slug) { continue }
                         /* Now we create Product objects */
 
              let productCard = newProductCard()

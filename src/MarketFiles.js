@@ -11,11 +11,13 @@ function newMarketFiles () {
     getFile: getFile,
     getExpectedFiles: getExpectedFiles,
     getFilesLoaded: getFilesLoaded,
+    getFilesNotLoaded: getFilesNotLoaded,
     initialize: initialize,
     finalize: finalize
   }
 
   let filesLoaded = 0
+  let filesNotLoaded = 0
 
   let fileCloud
 
@@ -83,38 +85,20 @@ function newMarketFiles () {
             try {
               if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> Entering function.') }
 
-              switch (err.result) {
-                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                  if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> Received OK Response.') }
-                  break
-                }
-
-                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                  if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> Received FAIL Response.') }
-                  callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                  return
-                }
-
-                case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-                  if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> Received CUSTOM FAIL Response.') }
-                  if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> err.message = ' + err.message) }
-
-                  callBackFunction(err)
-                  return
-                }
-
-                default: {
-                  if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> Received Unexpected Response.') }
-                  callBackFunction(err)
-                  return
-                }
+              if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                files.set(periodTime, file)
+                filesLoaded++
+              } else {
+                filesNotLoaded++
               }
 
-              files.set(periodTime, file)
-
-              filesLoaded++
-
-              callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject) // Note that the callback is called for every file loaded.
+              if (filesLoaded + filesNotLoaded === marketFilesPeriods.length) {
+                if (filesLoaded > filesNotLoaded) {
+                  callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)
+                } else {
+                  callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE, thisObject)
+                }
+              }
             } catch (err) {
               if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> err = ' + err.stack) }
               callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
@@ -194,20 +178,18 @@ function newMarketFiles () {
   }
 
   function getFile (pPeriod) {
-    if (INFO_LOG === true) { logger.write('[INFO] getFile -> Entering function.') }
-
     return files.get(pPeriod)
   }
 
   function getExpectedFiles () {
-    if (INFO_LOG === true) { logger.write('[INFO] getExpectedFiles -> Entering function.') }
-
     return marketFilesPeriods.length
   }
 
   function getFilesLoaded () {
-    if (INFO_LOG === true) { logger.write('[INFO] getFilesLoaded -> Entering function.') }
-
     return filesLoaded
+  }
+
+  function getFilesNotLoaded () {
+    return filesNotLoaded
   }
 }

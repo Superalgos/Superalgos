@@ -69,6 +69,7 @@ function newAppLoader() {
 
                 "Scales/RateScale.js",
                 "Scales/TimeScale.js",
+                "Scales/TimePeriodScale.js",
 
                 "BreakpointsBar.js",
                 "Plotter.js",

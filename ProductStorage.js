@@ -186,7 +186,8 @@ function newProductStorage (pName) {
 
             let event = {
               totalValue: pCaller.getExpectedFiles(),
-              currentValue: pCaller.getFilesLoaded()
+              currentValue: pCaller.getFilesLoaded(),
+              filesNotLoaded: pCaller.getFilesNotLoaded()
             }
 
             thisObject.eventHandler.raiseEvent('Market File Loaded', event)
@@ -194,7 +195,7 @@ function newProductStorage (pName) {
             if (INFO_LOG === true) { logger.write('[INFO] initialize -> onMarketFileReady -> event.currentValue = ' + event.currentValue) }
             if (INFO_LOG === true) { logger.write('[INFO] initialize -> onMarketFileReady -> event.totalValue = ' + event.totalValue) }
 
-            if (event.currentValue === event.totalValue) {
+            if (event.currentValue + event.filesNotLoaded === event.totalValue) {
               dataSetsLoaded++
 
               if (INFO_LOG === true) { logger.write('[INFO] initialize -> onMarketFileReady -> dataSetsLoaded = ' + dataSetsLoaded) }
@@ -424,4 +425,3 @@ function newProductStorage (pName) {
     }
   }
 }
-

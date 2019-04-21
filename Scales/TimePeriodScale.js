@@ -60,6 +60,26 @@ function newTimePeriodScale () {
     thisObject.container.eventHandler.listenToEvent('onMouseNotOver', function (event) {
       visible = false
     })
+
+    viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
+  }
+
+  function onZoomChanged (event) {
+    let currentTimePeriod = thisObject.timePeriod
+    let timePeriod = recalculatePeriod(event.newLevel)
+    if (timePeriod !== currentTimePeriod) {
+      for (let i = 0; i < timePeriodsMasterArray.length; i++) {
+        let timePeriodArray = timePeriodsMasterArray[i]
+        for (let j = 0; j < timePeriodArray.length; j++) {
+          let record = timePeriodArray[j]
+          if (timePeriod === record[0]) {
+            filePeriodIndex = i
+            timePeriodIndex = j
+          }
+        }
+      }
+      newTimePeriod()
+    }
   }
 
   function onMouseWheel (event) {

@@ -70,19 +70,6 @@
        market = pMarket
        timeLineCoordinateSystem = pTimeLineCoordinateSystem
 
-       timePeriodScale = newTimePeriodScale()
-       timePeriodScale.container.connectToParent(thisObject.container, false, false)
-       timePeriodScale.container.eventHandler.listenToEvent('Time Period Changed', function (event) {
-         return  // Ignore events from this scale
-         let currentTimePeriod = timePeriod
-         timePeriod = event.timePeriod
-         if (timePeriod !== currentTimePeriod) {
-           plotterManager.setTimePeriod(timePeriod)
-         }
-       })
-
-       timePeriodScale.initialize(timeLineCoordinateSystem)
-
        thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
          saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
        })
@@ -160,6 +147,18 @@
            return
          }
 
+         timePeriodScale = newTimePeriodScale()
+         timePeriodScale.container.connectToParent(thisObject.container, false, false)
+         timePeriodScale.container.eventHandler.listenToEvent('Time Period Changed', function (event) {
+           let currentTimePeriod = timePeriod
+           timePeriod = event.timePeriod
+           if (timePeriod !== currentTimePeriod) {
+             plotterManager.setTimePeriod(timePeriod)
+           }
+         })
+
+         timePeriodScale.initialize(timeLineCoordinateSystem)
+
          initializationReady = true
          callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
          return
@@ -174,16 +173,6 @@
      if (INFO_LOG === true) { logger.write('[INFO] onZoomChanged -> Entering function.') }
 
      if (initializationReady === true) {
-       let currentTimePeriod = timePeriod
-
-       timePeriod = recalculatePeriod(event.newLevel)
-
-            /* If the period changes, we need to spread the word in cascade towards all the depending objects. */
-
-       if (timePeriod !== currentTimePeriod) {
-         plotterManager.setTimePeriod(timePeriod)
-       }
-
        recalculateCurrentDatetime()
 
        // saveUserPosition(thisObject.container, timeLineCoordinateSystem)

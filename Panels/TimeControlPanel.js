@@ -92,6 +92,7 @@ function newTimeControlPanel () {
   }
 
   function draw () {
+    return
     thisObject.container.frame.draw(false, false, true)
     thisObject.datetimeDisplay.draw()
     panelTabButton.draw()

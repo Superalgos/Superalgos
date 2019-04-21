@@ -67,7 +67,6 @@ function newAppLoader() {
 
                 "Exchange/ExchangeAPI.js",
 
-                "Scales/ChartGrid.js",
                 "Scales/RateScale.js",
                 "Scales/TimeScale.js",
 

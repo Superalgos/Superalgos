@@ -114,7 +114,7 @@ function newTimeMachine () {
 
       timeScale.initialize(timeLineCoordinateSystem)
 
-      rigthScale = newRigthScale()
+      rigthScale = newRateScale()
       rigthScale.container.connectToParent(thisObject.container, false, false)
       rigthScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100

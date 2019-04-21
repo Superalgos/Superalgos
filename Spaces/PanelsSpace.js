@@ -98,8 +98,6 @@ function newPanelsSpace () {
   function draw () {
     thisObject.container.frame.draw(false, false)
 
-        /* When we draw a time machine, that means also to draw all the charts in it. */
-
     thisObject.panels = panelsMap.get('Global')
     if (thisObject.panels != undefined) {
       for (var i = 0; i < thisObject.panels.length; i++) {

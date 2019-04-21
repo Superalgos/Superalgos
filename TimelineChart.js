@@ -47,6 +47,7 @@
    let market
 
    let productsPanelHandle
+   let timePeriodScale
 
    return thisObject
 
@@ -112,9 +113,6 @@
        logoExchange.src = window.canvasApp.urlPrefix + 'Images/' + exchange + '-logo-background.png'
        logoAA.src = window.canvasApp.urlPrefix + 'Images/sa-logo-background.png'
 
-       // chartGrid = newChartGrid()
-       // chartGrid.initialize()
-
        breakpointsBar = newBreakpointsBar()
        breakpointsBar.initialize(thisObject.container, timeLineCoordinateSystem)
 
@@ -149,6 +147,18 @@
            return
          }
 
+         timePeriodScale = newTimePeriodScale()
+         timePeriodScale.container.connectToParent(thisObject.container, false, false)
+         timePeriodScale.container.eventHandler.listenToEvent('Time Period Changed', function (event) {
+           let currentTimePeriod = timePeriod
+           timePeriod = event.timePeriod
+           if (timePeriod !== currentTimePeriod) {
+             plotterManager.setTimePeriod(timePeriod)
+           }
+         })
+
+         timePeriodScale.initialize(timeLineCoordinateSystem)
+
          initializationReady = true
          callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
          return
@@ -163,16 +173,6 @@
      if (INFO_LOG === true) { logger.write('[INFO] onZoomChanged -> Entering function.') }
 
      if (initializationReady === true) {
-       let currentTimePeriod = timePeriod
-
-       timePeriod = recalculatePeriod(event.newLevel)
-
-            /* If the period changes, we need to spread the word in cascade towards all the depending objects. */
-
-       if (timePeriod !== currentTimePeriod) {
-         plotterManager.setTimePeriod(timePeriod)
-       }
-
        recalculateCurrentDatetime()
 
        // saveUserPosition(thisObject.container, timeLineCoordinateSystem)
@@ -238,7 +238,7 @@
 
      let container
 
-     // container = chartGrid.getContainer(point)
+     container = timePeriodScale.getContainer(point)
 
      if (container !== undefined) { return container }
 
@@ -287,8 +287,8 @@
 
        // chartGrid.draw(thisObject.container, timeLineCoordinateSystem)
 
+       timePeriodScale.draw()
        plotterManager.draw()
-
        breakpointsBar.draw()
      }
    }

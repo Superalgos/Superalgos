@@ -510,10 +510,10 @@
 
                     /* Now we put the scale on the right side of the chart */
 
-           drawRigthScale()
+           drawRateScale()
            drawLeftScale()
 
-           function drawRigthScale () {
+           function drawRateScale () {
                         /* And now the scale. */
 
              let fontSize = 10

@@ -1,4 +1,4 @@
-function newRigthScale () {
+function newRateScale () {
   const MODULE_NAME = 'Right Scale'
   const INFO_LOG = false
   const INTENSIVE_LOG = false
@@ -214,4 +214,3 @@ to be visible at the top of the viewPort. */
     browserCanvasContext.stroke()
   }
 }
-

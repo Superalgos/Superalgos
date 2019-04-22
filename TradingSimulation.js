@@ -52,13 +52,15 @@
 
     let smileyHappy;
     let smileySad;
-    let smileyGhost;
+    let strategyImages = [];
     let smileyMonkeyEyes;
     let smileyMonkeyEars;
     let imageStrategy;
     let imageStrategyPhase;
     let imageStopLossPhase;
     let imageBuyOrderPhase;
+
+    let lastStrategyImage
 
     return thisObject;
 
@@ -79,7 +81,7 @@
 
             smileyHappy = undefined;
             smileySad = undefined;
-            smileyGhost = undefined;
+            strategyImages = undefined;
             smileyMonkeyEyes = undefined;
             smileyMonkeyEars = undefined;
             imageStrategy = undefined;
@@ -151,13 +153,17 @@
 
             smileyHappy = loadEmoji("Smiley/Emoji Smiley-51.png");
             smileySad = loadEmoji("Smiley/Emoji Smiley-26.png");
-            smileyGhost = loadEmoji("Objects/Emoji Objects-12.png");
             smileyMonkeyEyes = loadEmoji("Smiley/Emoji Smiley-85.png");
             smileyMonkeyEars = loadEmoji("Smiley/Emoji Smiley-86.png");
             imageStrategy = loadEmoji("Places/Emoji Orte-90.png");
             imageStrategyPhase = loadEmoji("Places/Emoji Orte-91.png");
             imageStopLossPhase = loadEmoji("Nature/Emoji Natur-71.png");
             imageBuyOrderPhase = loadEmoji("Nature/Emoji Natur-67.png");
+
+            for (let i = 1; i < 15; i++) {
+                let strategyImage = loadEmoji("Symbols/Emoji Symbols-" + (112 + i) + ".png");
+                strategyImages.push(strategyImage);
+            }
 
             function loadEmoji(pPath) {
 
@@ -984,26 +990,13 @@
 
                 function longPinHead() {
 
+                    if (strategy < 15 && strategy > 0) {
+                        imageToDraw = strategyImages[strategy - 1];
+                        lastStrategyImage = imageToDraw;
+                    }
+
                     if (strategy === 0) {
-
-                        line1 = 'Strategy';
-                        line2 = 'Exit';
-
-                        imageToDraw = smileyGhost;
-                    }
-                    if (strategy === 1) {
-
-                        line1 = 'Trend';
-                        line2 = 'Following';
-
-                        imageToDraw = smileyGhost;
-                    }
-                    if (strategy === 2) {
-
-                        line1 = 'Range';
-                        line2 = 'Trading';
-
-                        imageToDraw = smileyGhost;
+                        imageToDraw = lastStrategyImage;
                     }
 
                     if (imageToDraw !== undefined) {
@@ -1044,28 +1037,28 @@
 
                         if (record.type === 'Buy@StopLoss') {
 
-                            line1 = 'Stop Loss hit.';
+                            line1 = 'Stopped';
 
                         } else {
 
-                            line1 = 'Buy Order hit.';
+                            line1 = 'Profit Taken';
                         }
 
                         if (record.lastProfit < 0) {
 
-                            line2 = 'Loss: ' + (record.lastProfitPercent).toFixed(2) + ' %';
+                            line2 = (record.lastProfitPercent).toFixed(2) + ' %';
                             imageToDraw = smileySad;
 
                         } else {
 
-                            line2 = 'Profit: ' + (record.lastProfitPercent).toFixed(2) + ' %';
+                            line2 = (record.lastProfitPercent).toFixed(2) + ' %';
                             imageToDraw = smileyHappy;
                         }
 
                     }
                     if (record.type === 'Sell') {
 
-                        line1 = 'Sold';
+                        line1 = 'Entering';
                         line2 = '';
 
                         imageToDraw = smileyMonkeyEyes;
@@ -1189,6 +1182,7 @@
         }
     }
 }
+
 
 
 

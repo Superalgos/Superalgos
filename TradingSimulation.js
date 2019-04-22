@@ -60,8 +60,6 @@
     let imageStopLossPhase;
     let imageBuyOrderPhase;
 
-    let lastStrategyImage
-
     return thisObject;
 
     function finalize() {
@@ -641,19 +639,26 @@
             let lastLongImageUp = 0;
             let lastLongImageDown = 0;
 
+            let strategy = {
+                begin: undefined,
+                end: undefined,
+                image: undefined,
+                entryPoint: undefined
+            }
+
             /* Now we calculate and plot the records */
 
             for (let i = 1; i < records.length; i++) { // We do not start in 0 so as to be able to read the previous record i - 1
 
                 record = records[i];
                 directionShort = 0;
-                let strategy;
+                let strategyNumber;
                 let strategyPhase = 0;
                 let stopLossPhase = 0;
                 let buyOrderPhase = 0;
 
                 if (record.strategy !== records[i - 1].strategy) { // When a change in the strategy field is detected, it is time to plot it.
-                    strategy = record.strategy;
+                    strategyNumber = record.strategy;
                 }
 
                 if (record.strategyPhase !== records[i - 1].strategyPhase) {
@@ -680,12 +685,12 @@
                     }
                 }
 
-                if (strategy === 0) {
+                if (strategyNumber === 0) {
                     directionLong = -1;
                 }
 
-                if (strategy > 0) {
-                    directionLong = 1;
+                if (strategyNumber > 0) {
+                    directionLong = -1;
                 }
 
                 let recordPoint1 = {
@@ -775,7 +780,7 @@
                     continue;
                 }
 
-                recordPoint2.y = recordPoint1.y - 200 * directionLong;
+                recordPoint2.y = recordPoint1.y - 2000 * directionLong;
                 recordPoint3.y = recordPoint1.y - 100 * directionShort;
 
                 recordPoint1 = viewPort.fitIntoVisibleArea(recordPoint1);
@@ -909,7 +914,7 @@
                 let noLongTextDown = false;
 
                 if (
-                    strategy > 0 ||
+                    strategyNumber > 0 ||
                     strategyPhase > 0
                 ) {
 
@@ -937,7 +942,7 @@
 
 
                 if (
-                    strategy !== undefined
+                    strategyNumber !== undefined
                 ) {
 
                     /* Next we are drawing the LONG stick */
@@ -990,13 +995,56 @@
 
                 function longPinHead() {
 
-                    if (strategy < 15 && strategy > 0) {
-                        imageToDraw = strategyImages[strategy - 1];
-                        lastStrategyImage = imageToDraw;
+                    if (strategyNumber < 15 && strategyNumber > 0) {
+                        strategy.image = strategyImages[strategyNumber - 1];
+                        strategy.entryPoint = recordPoint2;
+                        strategy.begin = record.begin
+                        strategy.end = record.end
+
+
+                        if (strategy.entryPoint !== undefined) {
+
+                            /* Draw the line that represents the duration of an open strategy */
+
+                            browserCanvasContext.beginPath();
+
+                            browserCanvasContext.moveTo(strategy.entryPoint.x + imageSize / 2, strategy.entryPoint.y);
+                            browserCanvasContext.lineTo(recordPoint2.x - imageSize / 2, recordPoint2.y);
+
+                            browserCanvasContext.closePath();
+
+                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)';
+                            browserCanvasContext.lineWidth = 0
+                            browserCanvasContext.setLineDash([1, 2])
+
+                            browserCanvasContext.stroke()
+
+                            browserCanvasContext.setLineDash([0, 0])
+                        }
+
+                        imageToDraw = strategy.image;
+
                     }
 
-                    if (strategy === 0) {
-                        imageToDraw = lastStrategyImage;
+                    if (strategyNumber === 0) {
+
+                        if (strategy.entryPoint !== undefined) {
+                            /* Draw the line that represents the duration of closed strategy */
+
+                            browserCanvasContext.beginPath();
+
+                            browserCanvasContext.moveTo(strategy.entryPoint.x + imageSize / 2, strategy.entryPoint.y);
+                            browserCanvasContext.lineTo(recordPoint2.x - imageSize / 2, recordPoint2.y);
+
+                            browserCanvasContext.closePath();
+
+                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)';
+                            browserCanvasContext.lineWidth = 1
+
+                            browserCanvasContext.stroke()
+                        }
+
+                        imageToDraw = strategy.image;
                     }
 
                     if (imageToDraw !== undefined) {
@@ -1004,6 +1052,15 @@
                         if (imageToDraw.isLoaded === true) {
                             browserCanvasContext.drawImage(imageToDraw, recordPoint2.x - imageSize / 2, recordPoint2.y - imageSize / 2, imageSize, imageSize);
                             imageToDraw = undefined;
+                        }
+                    }
+
+                    if (strategyNumber === 0) {
+                        strategy = {
+                            begin: undefined,
+                            end: undefined,
+                            image: undefined,
+                            entryPoint: undefined
                         }
                     }
 
@@ -1182,6 +1239,9 @@
         }
     }
 }
+
+
+
 
 
 

@@ -64,6 +64,7 @@
             viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
             marketFiles.eventHandler.stopListening("Files Updated", onFilesUpdated);
             canvas.eventHandler.stopListening("Drag Finished", onDragFinished);
+            thisObject.container.eventHandler.stopListening('Dimmensions Changed')
 
             /* Destroyd References */
 
@@ -117,6 +118,13 @@
             /* Get ready for plotting. */
 
             recalculate();
+
+            /* Ready for when dimmension changes. */
+
+            thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
+                recalculateScale()
+                recalculate();
+            })
 
             callBackFunction();
 
@@ -492,7 +500,8 @@
 
         try {
 
-            if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
+            let userPosition = getUserPosition()
+            let userPositionDate = userPosition.point.x
 
             thisObject.container.eventHandler.raiseEvent("Current Condition Record Changed", undefined);
 
@@ -503,21 +512,18 @@
                 conditionRecord = conditions[i];
 
                 /* Send the current record to the panel */
+      
+                if (userPositionDate >= conditionRecord.begin && userPositionDate <= conditionRecord.end) {
 
-                if (datetime !== undefined) {
-                    let dateValue = datetime.valueOf();
-                    if (dateValue >= conditionRecord.begin && dateValue <= conditionRecord.end) {
-
-                        let currentRecord = {
-                            conditionsNames: headers,
-                            strategyNumber: conditionRecord.strategyNumber,
-                            strategyPhase: conditionRecord.strategyPhase,
-                            stopLossPhase: conditionRecord.stopLossPhase,
-                            buyOrderPhase: conditionRecord.buyOrderPhase,
-                            conditionsValues: conditionRecord.conditions
-                        };
-                        thisObject.container.eventHandler.raiseEvent("Current Condition Record Changed", currentRecord);
-                    }
+                    let currentRecord = {
+                        conditionsNames: headers,
+                        strategyNumber: conditionRecord.strategyNumber,
+                        strategyPhase: conditionRecord.strategyPhase,
+                        stopLossPhase: conditionRecord.stopLossPhase,
+                        buyOrderPhase: conditionRecord.buyOrderPhase,
+                        conditionsValues: conditionRecord.conditions
+                    };
+                    thisObject.container.eventHandler.raiseEvent("Current Condition Record Changed", currentRecord);
                 }
             }
 

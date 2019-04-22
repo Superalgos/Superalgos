@@ -646,6 +646,13 @@
                 entryPoint: undefined
             }
 
+            let trade = {
+                begin: undefined,
+                end: undefined,
+                image: undefined,
+                entryPoint: undefined
+            }
+
             /* Now we calculate and plot the records */
 
             for (let i = 1; i < records.length; i++) { // We do not start in 0 so as to be able to read the previous record i - 1
@@ -673,8 +680,8 @@
                     buyOrderPhase = record.buyOrderPhase;
                 }
 
-                if (record.type === 'Buy@BuyOrder') { directionShort = -1; }
-                if (record.type === 'Buy@StopLoss') { directionShort = 1; }
+                if (record.type === 'Buy@BuyOrder') { directionShort = +1; }
+                if (record.type === 'Buy@StopLoss') { directionShort = +1; }
                 if (record.type === 'Sell') { directionShort = +1; }
 
                 if (strategyPhase > 0) {
@@ -781,7 +788,7 @@
                 }
 
                 recordPoint2.y = recordPoint1.y - 2000 * directionLong;
-                recordPoint3.y = recordPoint1.y - 100 * directionShort;
+                recordPoint3.y = recordPoint1.y - 0 * directionShort;
 
                 recordPoint1 = viewPort.fitIntoVisibleArea(recordPoint1);
                 recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
@@ -940,17 +947,6 @@
                     lastLongImageDown++;
                 }
 
-
-                if (
-                    strategyNumber !== undefined
-                ) {
-
-                    /* Next we are drawing the LONG stick */
-
-                    drawStick(recordPoint2);
-
-                }
-
                 if (
                     record.type !== ''
                 ) {
@@ -990,10 +986,10 @@
                 let line1;
                 let line2;
 
-                longPinHead();
+                drawStrategy();
                 shortPinHead();
 
-                function longPinHead() {
+                function drawStrategy() {
 
                     if (strategyNumber < 15 && strategyNumber > 0) {
                         strategy.image = strategyImages[strategyNumber - 1];
@@ -1028,6 +1024,12 @@
 
                     if (imageToDraw !== undefined) {
 
+                        if (strategyNumber !== undefined) {
+
+                            drawStick(recordPoint2);
+
+                        }
+
                         if (imageToDraw.isLoaded === true) {
                             browserCanvasContext.drawImage(imageToDraw, recordPoint2.x - imageSize / 2, recordPoint2.y - imageSize / 2, imageSize, imageSize);
                             imageToDraw = undefined;
@@ -1042,29 +1044,6 @@
                             entryPoint: undefined
                         }
                     }
-
-                    if (
-                        recordPoint2.x < viewPort.visibleArea.topLeft.x + 250
-                        ||
-                        recordPoint2.x > viewPort.visibleArea.bottomRight.x - 250
-                        ||
-                        recordPoint2.y > viewPort.visibleArea.bottomRight.y - 100
-                        ||
-                        recordPoint2.y < viewPort.visibleArea.topLeft.y + 100
-                    ) {
-                        // we do not write any text
-                    } else {
-                        if (line1 !== undefined) {
-
-                            if (
-                                (directionLong > 0 && noLongTextUp === false) ||
-                                (directionLong < 0 && noLongTextDown === false)
-                            ) {
-                                printLabel(line1, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 0, '0.50');
-                                printLabel(line2, recordPoint2.x + imageSize / 2 + 5, recordPoint2.y + 15, '0.50');
-                            }
-                        }
-                    }
                 }
 
                 function shortPinHead() {
@@ -1073,11 +1052,11 @@
 
                         if (record.type === 'Buy@StopLoss') {
 
-                            line1 = 'Stopped';
+                            line1 = 'Stop';
 
                         } else {
 
-                            line1 = 'Profit Taken';
+                            line1 = 'PT';
                         }
 
                         if (record.lastProfit < 0) {
@@ -1091,43 +1070,45 @@
                             imageToDraw = smileyHappy;
                         }
 
+                        if (trade.entryPoint !== undefined) {
+                            /* Draw the triangle  that represents the trade. */
+
+                            browserCanvasContext.beginPath();
+
+                            browserCanvasContext.moveTo(trade.entryPoint.x, trade.entryPoint.y);
+                            browserCanvasContext.lineTo(recordPoint3.x, recordPoint3.y);
+                            browserCanvasContext.lineTo(recordPoint3.x, trade.entryPoint.y);
+
+                            browserCanvasContext.closePath();
+
+                            let opacity = '0.25';
+
+                            if (recordPoint3.y > trade.entryPoint.y) {
+                                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')';
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + ')';
+                            } else {
+                                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + opacity + ')';
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')';
+                            }
+
+                            browserCanvasContext.fill();
+
+                            browserCanvasContext.lineWidth = 1;
+                            browserCanvasContext.stroke();
+                        }
+
                     }
+
                     if (record.type === 'Sell') {
 
-                        line1 = 'Entering';
+                        line1 = '';
                         line2 = '';
 
-                        imageToDraw = smileyMonkeyEyes;
-                    }
+                        imageToDraw = smileyHappy;
 
-                    if (imageToDraw !== undefined) {
-
-                        if (imageToDraw.isLoaded === true) {
-                            browserCanvasContext.drawImage(imageToDraw, recordPoint3.x - imageSize / 2, recordPoint3.y - imageSize / 2, imageSize, imageSize);
-                            imageToDraw = undefined;
-                        }
-                    }
-
-                    if (
-                        recordPoint3.x < viewPort.visibleArea.topLeft.x + 250
-                        ||
-                        recordPoint3.x > viewPort.visibleArea.bottomRight.x - 250
-                        ||
-                        recordPoint3.y > viewPort.visibleArea.bottomRight.y - 100
-                        ||
-                        recordPoint3.y < viewPort.visibleArea.topLeft.y + 100
-                    ) {
-                        // we do not write any text
-                    } else {
-                        if (line1 !== undefined) {
-                            if (
-                                (directionShort > 0 && noShortTextUp === false) ||
-                                (directionShort < 0 && noShortTextDown === false)
-                            ) {
-                                printLabel(line1, recordPoint3.x + imageSize / 2 + 5, recordPoint3.y + 0, '0.50');
-                                printLabel(line2, recordPoint3.x + imageSize / 2 + 5, recordPoint3.y + 15, '0.50');
-                            }
-                        }
+                        trade.begin = record.begin;
+                        trade.end = record.end;
+                        trade.entryPoint = recordPoint3;
                     }
                 }
 
@@ -1218,6 +1199,8 @@
         }
     }
 }
+
+
 
 
 

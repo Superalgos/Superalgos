@@ -711,7 +711,7 @@
                 };
 
                 let recordPoint3 = {    // Short Stick Head
-                    x: record.begin + (record.end - record.begin) / 2,
+                    x: record.end,
                     y: 0
                 };
 
@@ -1097,6 +1097,28 @@
                             browserCanvasContext.stroke();
                         }
 
+                        if (
+                            recordPoint3.x < viewPort.visibleArea.topLeft.x + 250
+                            ||
+                            recordPoint3.x > viewPort.visibleArea.bottomRight.x - 250
+                            ||
+                            recordPoint3.y > viewPort.visibleArea.bottomRight.y - 100
+                            ||
+                            recordPoint3.y < viewPort.visibleArea.topLeft.y + 100
+                        ) {
+                            // we do not write any text
+                        } else {
+                            if (line1 !== undefined && trade.entryPoint !== undefined) {
+                                if (
+                                    (directionShort > 0 && noShortTextUp === false) ||
+                                    (directionShort < 0 && noShortTextDown === false)
+                                ) {
+                                    printLabel(line1, recordPoint3.x - (recordPoint3.x - trade.entryPoint.x) / 2 - line1.length * FONT_ASPECT_RATIO, recordPoint3.y - 230, '0.50');
+                                    printLabel(line2, recordPoint3.x - (recordPoint3.x - trade.entryPoint.x) / 2 - line2.length * FONT_ASPECT_RATIO, recordPoint3.y - 215, '0.50');
+                                }
+                            }
+                        }
+
                     }
 
                     if (record.type === 'Sell') {
@@ -1199,6 +1221,7 @@
         }
     }
 }
+
 
 
 

@@ -1001,27 +1001,6 @@
                         strategy.begin = record.begin
                         strategy.end = record.end
 
-
-                        if (strategy.entryPoint !== undefined) {
-
-                            /* Draw the line that represents the duration of an open strategy */
-
-                            browserCanvasContext.beginPath();
-
-                            browserCanvasContext.moveTo(strategy.entryPoint.x + imageSize / 2, strategy.entryPoint.y);
-                            browserCanvasContext.lineTo(recordPoint2.x - imageSize / 2, recordPoint2.y);
-
-                            browserCanvasContext.closePath();
-
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)';
-                            browserCanvasContext.lineWidth = 0
-                            browserCanvasContext.setLineDash([1, 2])
-
-                            browserCanvasContext.stroke()
-
-                            browserCanvasContext.setLineDash([0, 0])
-                        }
-
                         imageToDraw = strategy.image;
 
                     }
@@ -1239,6 +1218,7 @@
         }
     }
 }
+
 
 
 

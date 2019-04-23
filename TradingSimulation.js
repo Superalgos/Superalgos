@@ -155,7 +155,7 @@
             smileyMonkeyEars = loadEmoji("Smiley/Emoji Smiley-86.png");
             imageStrategy = loadEmoji("Places/Emoji Orte-90.png");
             imageStrategyPhase = loadEmoji("Places/Emoji Orte-91.png");
-            imageStopLossPhase = loadEmoji("Nature/Emoji Natur-71.png");
+            imageStopLossPhase = loadEmoji("stop.png");
             imageBuyOrderPhase = loadEmoji("Nature/Emoji Natur-67.png");
 
             for (let i = 1; i < 15; i++) {
@@ -634,10 +634,6 @@
             let directionLong;
 
             let record;
-            let lastShortImageUp = 0;
-            let lastShortImageDown = 0;
-            let lastLongImageUp = 0;
-            let lastLongImageDown = 0;
 
             let strategy = {
                 begin: undefined,
@@ -829,30 +825,30 @@
 
                 /* Next we are drawing the stopLoss floor / ceilling */
 
-                for (j = 0; j < 8; j++) {
-                    browserCanvasContext.beginPath();
+
+                browserCanvasContext.beginPath();
 
 
-                    browserCanvasContext.moveTo(recordPoint4.x, recordPoint4.y - j);
-                    browserCanvasContext.lineTo(recordPoint5.x, recordPoint5.y - j);
+                browserCanvasContext.moveTo(recordPoint4.x, recordPoint4.y);
+                browserCanvasContext.lineTo(recordPoint5.x, recordPoint5.y);
 
 
-                    browserCanvasContext.closePath();
+                browserCanvasContext.closePath();
 
-                    let opacity = 0.8 - j / 10
+                let opacity = 0.8
 
-                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + '';
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + '';
 
-                    if (userPositionDate >= record.begin && userPositionDate <= record.end) {
+                if (userPositionDate >= record.begin && userPositionDate <= record.end) {
 
-                        /* highlight the current record */
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
-                    }
-
-                    browserCanvasContext.lineWidth = 1
-                    browserCanvasContext.stroke()
-
+                    /* highlight the current record */
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
                 }
+
+                browserCanvasContext.lineWidth = 5
+                browserCanvasContext.stroke()
+
+
                 if (imageStopLossPhase.isLoaded === true && stopLossPhase > 0) {
                     browserCanvasContext.drawImage(imageStopLossPhase, recordPoint5.x - imageSize, recordPoint5.y - imageSize * 1.25, imageSize, imageSize);
                     printLabel(stopLossPhase, recordPoint5.x - imageSize / 2, recordPoint5.y - imageSize * 1.5, '0.50');
@@ -860,91 +856,30 @@
 
                 /* Next we are drawing the Buy Order */
 
-                for (j = 0; j < 8; j++) {
-                    browserCanvasContext.beginPath();
 
-                    browserCanvasContext.moveTo(recordPoint8.x, recordPoint8.y + j);
-                    browserCanvasContext.lineTo(recordPoint9.x, recordPoint9.y + j);
+                browserCanvasContext.beginPath();
 
-                    browserCanvasContext.closePath();
+                browserCanvasContext.moveTo(recordPoint8.x, recordPoint8.y);
+                browserCanvasContext.lineTo(recordPoint9.x, recordPoint9.y);
 
-                    let opacity = 0.6 - j / 10
+                browserCanvasContext.closePath();
 
-                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + '';
+                opacity = 0.6
 
-                    if (userPositionDate >= record.begin && userPositionDate <= record.end) {
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + '';
 
-                        /* highlight the current record */
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
-                    }
+                if (userPositionDate >= record.begin && userPositionDate <= record.end) {
 
-                    browserCanvasContext.lineWidth = 1
-                    browserCanvasContext.stroke()
+                    /* highlight the current record */
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
                 }
+
+                browserCanvasContext.lineWidth = 5
+                browserCanvasContext.stroke()
+
                 if (imageBuyOrderPhase.isLoaded === true && buyOrderPhase > 0) {
                     browserCanvasContext.drawImage(imageBuyOrderPhase, recordPoint9.x - imageSize * 2 / 3, recordPoint9.y + imageSize / 4, imageSize, imageSize);
                     printLabel(buyOrderPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9, '0.50');
-                }
-
-                /* Continue with the pins --> Next stuff is to avoid text overlapping. */
-
-                let noShortTextUp = false;
-                let noShortTextDown = false;
-
-                if (
-                    record.type !== ''
-                ) {
-
-                    if (directionShort > 0) {
-                        if (lastShortImageUp < 5) {
-                            noShortTextUp = true; // we avoid image texts to overlap.
-                        } else {
-                            noShortTextUp = false;
-                            lastShortImageUp = 0;
-                        }
-                    } else {
-                        if (lastShortImageDown < 5) {
-                            noShortTextDown = true; // we avoid image texts to overlap.
-                        } else {
-                            noShortTextDown = false;
-                            lastShortImageDown = 0;
-                        }
-                    }
-
-                } else {
-
-                    lastShortImageUp++;
-                    lastShortImageDown++;
-                }
-
-                let noLongTextUp = false;
-                let noLongTextDown = false;
-
-                if (
-                    strategyNumber > 0 ||
-                    strategyPhase > 0
-                ) {
-
-                    if (directionLong > 0) {
-                        if (lastLongImageUp < 5) {
-                            noLongTextUp = true; // we avoid image texts to overlap.
-                        } else {
-                            noLongTextUp = false;
-                            lastLongImageUp = 0;
-                        }
-                    } else {
-                        if (lastLongImageDown < 3) {
-                            noLongTextDown = true; // we avoid image texts to overlap.
-                        } else {
-                            noLongTextDown = false;
-                            lastLongImageDown = 0;
-                        }
-                    }
-
-                } else {
-
-                    lastLongImageUp++;
-                    lastLongImageDown++;
                 }
 
                 if (
@@ -987,7 +922,7 @@
                 let line2;
 
                 drawStrategy();
-                shortPinHead();
+                drawTrade();
 
                 function drawStrategy() {
 
@@ -1046,7 +981,7 @@
                     }
                 }
 
-                function shortPinHead() {
+                function drawTrade() {
 
                     if (record.type === 'Buy@StopLoss' || record.type === 'Buy@BuyOrder') {
 
@@ -1109,13 +1044,10 @@
                             // we do not write any text
                         } else {
                             if (line1 !== undefined && trade.entryPoint !== undefined) {
-                                if (
-                                    (directionShort > 0 && noShortTextUp === false) ||
-                                    (directionShort < 0 && noShortTextDown === false)
-                                ) {
-                                    printLabel(line1, recordPoint3.x - (recordPoint3.x - trade.entryPoint.x) / 2 - line1.length * FONT_ASPECT_RATIO, recordPoint3.y - 230, '0.50');
-                                    printLabel(line2, recordPoint3.x - (recordPoint3.x - trade.entryPoint.x) / 2 - line2.length * FONT_ASPECT_RATIO, recordPoint3.y - 215, '0.50');
-                                }
+ 
+                                    printLabel(line1, recordPoint3.x - (recordPoint3.x - trade.entryPoint.x) / 2 - line1.length * FONT_ASPECT_RATIO, recordPoint4.y - 30, '0.50');
+                                    printLabel(line2, recordPoint3.x - (recordPoint3.x - trade.entryPoint.x) / 2 - line2.length * FONT_ASPECT_RATIO, recordPoint4.y - 15, '0.50');
+             
                             }
                         }
 
@@ -1221,6 +1153,7 @@
         }
     }
 }
+
 
 
 

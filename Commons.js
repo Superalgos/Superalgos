@@ -154,12 +154,16 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             yesterday.lastProfit = 0;
 
             yesterday.Roundtrips = 0;
-            yesterday.Fails = 0;
-            yesterday.Hits = 0;
+            yesterday.fails = 0;
+            yesterday.hits = 0;
             yesterday.Periods = 0;
 
             yesterday.orderId = 0;
             yesterday.messageId = 0;
+
+            yesterday.hitRatio = 0;
+            yesterday.ROI = 0;
+            yesterday.anualizedRateOfReturn = 0;
 
             if (interExecutionMemory.roundtrips === undefined) {
 
@@ -176,6 +180,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 interExecutionMemory.orderId = 0;
                 interExecutionMemory.messageId = 0;
+
+                interExecutionMemory.hitRatio = 0;
+                interExecutionMemory.ROI = 0;
+                interExecutionMemory.anualizedRateOfReturn = 0;
 
             } else {
 
@@ -200,6 +208,15 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 orderId = interExecutionMemory.orderId;
                 messageId = interExecutionMemory.messageId;
+
+                hitRatio = interExecutionMemory.hitRatio;
+                ROI = interExecutionMemory.ROI;
+                anualizedRateOfReturn = interExecutionMemory.anualizedRateOfReturn;
+
+                yesterday.hitRatio = hitRatio;
+                yesterday.ROI = ROI;
+                yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
+                
             }
 
             simulationLogic.strategies = await getStrategy();
@@ -213,9 +230,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 let candle = candles[i];
                 let percentageBandwidth = percentageBandwidthMap.get(candle.begin);
                 let bollingerBand = bollingerBandsMap.get(candle.begin);
-                let LRC = LRCMap.get(candle.begin);
+                //let LRC = LRCMap.get(candle.begin);
 
-                if (LRC === undefined) { continue; }
+                //if (LRC === undefined) { continue; }
                 if (percentageBandwidth === undefined) { continue; } // percentageBandwidth might start after the first few candles.
                 if (candle.begin < initialDate.valueOf()) { continue; }
 
@@ -233,7 +250,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 let lastObjects = {
                     candle: clone(candle),
-                    LRC: clone(LRC),
+                    //LRC: clone(LRC),
                     bollingerBand: clone(bollingerBand),
                     percentageBandwidth: clone(percentageBandwidth),
                     channel: clone(channel),
@@ -250,7 +267,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
 
                 lastObjects.candle.previous = undefined;
-                lastObjects.LRC.previous = undefined;
+                //lastObjects.LRC.previous = undefined;
                 lastObjects.bollingerBand.previous = undefined;
                 lastObjects.percentageBandwidth.previous = undefined;
                 lastObjects.channel.previous = undefined;
@@ -704,9 +721,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
                     if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
 
-                    profit = initialBalanceA - balanceAssetA;
+                    profit = balanceAssetA - initialBalanceA;
                     
-                    ROI = (initialBalanceA + profit) / initialBalanceA - 1;
+                    
                     //if (isNaN(ROI)) { ROI = 0; }
 
                     if (lastProfit > 0) {
@@ -714,7 +731,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         if (currentDay !== undefined) {
                             if (sellInstant < currentDay.valueOf()) {
-                                yesterday.Hits++;
+                                yesterday.hits++;
                             }
                         }
 
@@ -723,13 +740,23 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         if (currentDay !== undefined) {
                             if (sellInstant < currentDay.valueOf()) {
-                                yesterday.Fails++;
+                                yesterday.fails++;
                             }
                         }
                     }
-                    hitRatio = hits / roundtrips;
 
+                    ROI = (initialBalanceA + profit) / initialBalanceA - 1;
+                    hitRatio = hits / roundtrips;
                     anualizedRateOfReturn = ROI / days * 365;
+
+                    if (currentDay !== undefined) {
+                        if (sellInstant < currentDay.valueOf()) {
+                            yesterday.ROI = ROI;
+                            yesterday.hitRatio = hitRatio;
+                            yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
+                        }
+                    }
+
 
                     addRecord();
 
@@ -884,12 +911,16 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     interExecutionMemory.lastProfit = yesterday.lastProfit;
 
                     interExecutionMemory.roundtrips = interExecutionMemory.roundtrips + yesterday.Roundtrips;
-                    interExecutionMemory.fails = interExecutionMemory.fails + yesterday.Fails;
-                    interExecutionMemory.hits = interExecutionMemory.hits + yesterday.Hits;
+                    interExecutionMemory.fails = interExecutionMemory.fails + yesterday.fails;
+                    interExecutionMemory.hits = interExecutionMemory.hits + yesterday.hits;
                     interExecutionMemory.periods = interExecutionMemory.periods + yesterday.Periods;
 
                     interExecutionMemory.messageId = interExecutionMemory.messageId + yesterday.messageId;
                     interExecutionMemory.orderId = interExecutionMemory.orderId + yesterday.orderId;
+
+                    interExecutionMemory.hitRatio = yesterday.hitRatio;
+                    interExecutionMemory.ROI = yesterday.ROI;
+                    interExecutionMemory.anualizedRateOfReturn = yesterday.anualizedRateOfReturn;
                 }
             }
 

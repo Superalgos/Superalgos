@@ -619,6 +619,7 @@ function newPlottersManager () {
           productPlotters[i].storage.finalize()
 
           if (productPlotters[i].plotter.finalize !== undefined) {
+            productPlotters[i].plotter.container.finalize()
             productPlotters[i].plotter.finalize()
           }
 

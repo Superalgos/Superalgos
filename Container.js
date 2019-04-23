@@ -10,14 +10,24 @@ function newContainer () {
     isWheelable: false,
     name: undefined,
     initialize: initialize,
+    finalize: finalize,
     connectToParent: connectToParent,
     isForThisPurpose: isForThisPurpose
   }
 
   let connectedToParentWidth = false
   let connectedToParentHeight = false
+  let isConnectedToParent = false
 
   return thisObject
+
+  function finalize () {
+    if (isConnectedToParent === true) {
+      thisObject.parentContainer.eventHandler.stopListening('Dimmensions Changed', onParentDimmensionsChanged)
+      thisObject.parentContainer.eventHandler.stopListening('onMouseOver', onMouseOver)
+      thisObject.parentContainer.eventHandler.stopListening('onMouseNotOver', onMouseNotOver)
+    }
+  }
 
   function initialize (pName) {
     thisObject.name = pName
@@ -39,6 +49,7 @@ function newContainer () {
   function connectToParent (parentContainer, onWidth, onHeight) {
     connectedToParentWidth = onWidth
     connectedToParentHeight = onHeight
+    isConnectedToParent = true
 
     thisObject.displacement.parentDisplacement = parentContainer.displacement
     thisObject.frame.parentFrame = parentContainer.frame

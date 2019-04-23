@@ -987,11 +987,11 @@
 
                         if (record.type === 'Buy@StopLoss') {
 
-                            line1 = 'Stop';
+                            line1 = 'STOP';
 
                         } else {
 
-                            line1 = 'PT';
+                            line1 = 'TP';
                         }
 
                         if (record.lastProfit < 0) {
@@ -1068,15 +1068,12 @@
 
                 /* Send the current record to the panel */
 
-                if (datetime !== undefined) {
-                    let dateValue = datetime.valueOf();
-                    if (dateValue >= record.begin && dateValue <= record.end) {
+                if (userPositionDate >= record.begin && userPositionDate <= record.end) {
 
-                        let currentRecord = {
-                            innerRecord: record
-                        };
-                        thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);
-                    }
+                    let currentRecord = {
+                        innerRecord: record
+                    };
+                    thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);
                 }
 
                 /* This is how we write the text */

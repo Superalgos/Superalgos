@@ -851,7 +851,7 @@
 
                 if (imageStopLossPhase.isLoaded === true && stopLossPhase > 0) {
                     browserCanvasContext.drawImage(imageStopLossPhase, recordPoint5.x - imageSize, recordPoint5.y - imageSize * 1.25, imageSize, imageSize);
-                    printLabel(stopLossPhase, recordPoint5.x - imageSize / 2, recordPoint5.y - imageSize * 1.5, '0.50');
+                    printLabel(stopLossPhase, recordPoint5.x - imageSize / 2, recordPoint5.y - imageSize * 1.5, '0.9', 8);
                 }
 
                 /* Next we are drawing the Buy Order */
@@ -879,7 +879,7 @@
 
                 if (imageBuyOrderPhase.isLoaded === true && buyOrderPhase > 0) {
                     browserCanvasContext.drawImage(imageBuyOrderPhase, recordPoint9.x - imageSize * 2 / 3, recordPoint9.y + imageSize / 4, imageSize, imageSize);
-                    printLabel(buyOrderPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9, '0.50');
+                    printLabel(buyOrderPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9, '0.9', 8);
                 }
 
                 if (
@@ -1044,10 +1044,10 @@
                             // we do not write any text
                         } else {
                             if (line1 !== undefined && trade.entryPoint !== undefined) {
- 
-                                    printLabel(line1, recordPoint3.x - (recordPoint3.x - trade.entryPoint.x) / 2 - line1.length * FONT_ASPECT_RATIO, recordPoint4.y - 30, '0.50');
-                                    printLabel(line2, recordPoint3.x - (recordPoint3.x - trade.entryPoint.x) / 2 - line2.length * FONT_ASPECT_RATIO, recordPoint4.y - 15, '0.50');
-             
+
+                                printLabel(line1, recordPoint3.x - (recordPoint3.x - trade.entryPoint.x) / 2 - line1.length * FONT_ASPECT_RATIO, recordPoint4.y - 30, '0.50', 12);
+                                printLabel(line2, recordPoint3.x - (recordPoint3.x - trade.entryPoint.x) / 2 - line2.length * FONT_ASPECT_RATIO, recordPoint4.y - 15, '0.50', 12);
+
                             }
                         }
 
@@ -1081,10 +1081,9 @@
 
                 /* This is how we write the text */
 
-                function printLabel(labelToPrint, x, y, opacity) {
+                function printLabel(labelToPrint, x, y, opacity, fontSize) {
 
                     let labelPoint;
-                    let fontSize = 12;
 
                     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira';
 

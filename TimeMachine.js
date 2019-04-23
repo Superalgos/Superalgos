@@ -43,6 +43,8 @@ function newTimeMachine () {
   let timeScale
   let rigthScale
 
+  let timeLineCoordinateSystem = newTimeLineCoordinateSystem()
+
   return thisObject
 
   function finalize () {
@@ -67,6 +69,13 @@ function newTimeMachine () {
     controlPanelHandle = canvas.panelsSpace.createNewPanel('Time Control Panel', undefined, panelOwner)
     let controlPanel = canvas.panelsSpace.getPanel(controlPanelHandle, panelOwner)
 
+    recalculateScale()
+
+    thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function (event) {
+      recalculateScale()
+      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, false, event.mousePosition)
+    })
+
       /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
 
     let position = 0 // This defines the position of each chart respect to each other.
@@ -74,7 +83,6 @@ function newTimeMachine () {
     let timelineChart = newTimelineChart()
 
     timelineChart.container.connectToParent(thisObject.container, true, true)
-
     timelineChart.container.frame.height = thisObject.container.frame.height
 
     timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
@@ -82,7 +90,7 @@ function newTimeMachine () {
 
     position++
 
-    timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, onDefaultInitialized)
+    timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, timeLineCoordinateSystem, onDefaultInitialized)
 
     function onDefaultInitialized (err) {
       if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -98,22 +106,22 @@ function newTimeMachine () {
       /* Each Time Machine has a Time Scale and a Right Scale. */
 
       timeScale = newTimeScale()
-
+      timeScale.container.connectToParent(thisObject.container, false, false)
       timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
         thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
       })
 
-      timeScale.initialize()
+      timeScale.initialize(timeLineCoordinateSystem)
 
-      rigthScale = newRigthScale()
-
+      rigthScale = newRateScale()
+      rigthScale.container.connectToParent(thisObject.container, false, false)
       rigthScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
       })
 
-      rigthScale.initialize()
+      rigthScale.initialize(timeLineCoordinateSystem)
 
       initializeTheRest()
     }
@@ -158,7 +166,7 @@ function newTimeMachine () {
 
         position++
 
-        timelineChart.initialize(exchange, market, finalSteps)
+        timelineChart.initialize(exchange, market, timeLineCoordinateSystem, finalSteps)
 
         function finalSteps () {
           if (INFO_LOG === true) { logger.write('[INFO] initialize -> initializeTheRest -> initializeTimelineChart -> finalSteps -> Entering function.') }
@@ -186,15 +194,17 @@ function newTimeMachine () {
   }
 
   function draw () {
-    // this.container.frame.draw(false, false)
+    if (thisObject.container.frame.isInViewPort()) {
+      for (let i = 0; i < this.charts.length; i++) {
+        let chart = this.charts[i]
+        chart.draw()
+      }
 
-    for (let i = 0; i < this.charts.length; i++) {
-      let chart = this.charts[i]
-      chart.draw()
+      if (timeScale !== undefined) { timeScale.draw() }
+      if (rigthScale !== undefined) { rigthScale.draw() }
+
+      // thisObject.container.frame.draw(false, true, false)
     }
-
-    if (timeScale !== undefined) { timeScale.draw() }
-    if (rigthScale !== undefined) { rigthScale.draw() }
   }
 
   function getContainer (point, purpose) {
@@ -226,6 +236,35 @@ function newTimeMachine () {
         }
       }
     }
-    return this.container
+
+    if (thisObject.container.frame.isThisPointHere(point) === true) {
+      return thisObject.container
+    } else {
+      if (purpose === GET_CONTAINER_PURPOSE.MOUSE_OVER) {
+        thisObject.container.eventHandler.raiseEvent('onMouseNotOver')
+      }
+      return
+    }
+  }
+
+  function recalculateScale () {
+    if (INFO_LOG === true) { logger.write('[INFO] recalculateScale -> Entering function.') }
+
+    let minValue = {
+      x: MIN_PLOTABLE_DATE.valueOf(),
+      y: 0
+    }
+
+    let maxValue = {
+      x: MAX_PLOTABLE_DATE.valueOf(),
+      y: nextPorwerOf10(USDT_BTC_HTH) / 4
+    }
+
+    timeLineCoordinateSystem.initialize(
+           minValue,
+           maxValue,
+           thisObject.container.frame.width,
+           thisObject.container.frame.height
+       )
   }
 }

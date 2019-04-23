@@ -1,5 +1,5 @@
-function newTimeScale () {
-  const MODULE_NAME = 'Time Scale'
+function newTimePeriodScale () {
+  const MODULE_NAME = 'Time Period Scale'
   const INFO_LOG = false
   const INTENSIVE_LOG = false
   const ERROR_LOG = true
@@ -11,11 +11,11 @@ function newTimeScale () {
     draw: draw,
     getContainer: getContainer,
     initialize: initialize,
-    lenghtPercentage: undefined
+    timePeriod: undefined
   }
 
-  const LENGHT_PERCENTAGE_DEFAULT_VALUE = 5
-  const STEP_SIZE = 5
+  const FILES_PERIOD_DEFAULT_VALUE = 0
+  const TIME_PERIOD_DEFAULT_VALUE = 0
   const MIN_HEIGHT = 50
 
   thisObject.container = newContainer()
@@ -34,6 +34,11 @@ function newTimeScale () {
 
   let visible = false
   let timeLineCoordinateSystem
+  let objectStorage = {}
+  let filePeriodIndex = FILES_PERIOD_DEFAULT_VALUE
+  let timePeriodIndex = TIME_PERIOD_DEFAULT_VALUE
+  let timePeriodsMasterArray = [marketFilesPeriods, dailyFilePeriods]
+  let timePeriodLabel = ''
 
   return thisObject
 
@@ -42,16 +47,8 @@ function newTimeScale () {
 
     thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
 
-    thisObject.lenghtPercentage = window.localStorage.getItem(MODULE_NAME)
-    if (!thisObject.lenghtPercentage) {
-      thisObject.lenghtPercentage = LENGHT_PERCENTAGE_DEFAULT_VALUE
-    } else {
-      thisObject.lenghtPercentage = JSON.parse(thisObject.lenghtPercentage)
-    }
-
-    let event = {}
-    event.lenghtPercentage = thisObject.lenghtPercentage
-    thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
+    readObjectState()
+    newTimePeriod()
 
     thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
       mouse.position.x = event.x
@@ -63,22 +60,56 @@ function newTimeScale () {
     thisObject.container.eventHandler.listenToEvent('onMouseNotOver', function (event) {
       visible = false
     })
+
+    viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
+  }
+
+  function onZoomChanged (event) {
+    let currentTimePeriod = thisObject.timePeriod
+    let timePeriod = recalculatePeriod(event.newLevel)
+    if (timePeriod !== currentTimePeriod) {
+      for (let i = 0; i < timePeriodsMasterArray.length; i++) {
+        let timePeriodArray = timePeriodsMasterArray[i]
+        for (let j = 0; j < timePeriodArray.length; j++) {
+          let record = timePeriodArray[j]
+          if (timePeriod === record[0]) {
+            filePeriodIndex = i
+            timePeriodIndex = j
+          }
+        }
+      }
+      newTimePeriod()
+    }
   }
 
   function onMouseWheel (event) {
     delta = event.wheelDelta
     if (delta < 0) {
-      thisObject.lenghtPercentage = thisObject.lenghtPercentage - STEP_SIZE
-      if (thisObject.lenghtPercentage < STEP_SIZE) { thisObject.lenghtPercentage = STEP_SIZE }
+      timePeriodIndex--
+      if (timePeriodIndex < 0) {
+        filePeriodIndex--
+        if (filePeriodIndex < 0) {
+          filePeriodIndex = 0
+          timePeriodIndex = 0
+        } else {
+          timePeriodIndex = timePeriodsMasterArray[filePeriodIndex].length - 1
+        }
+      }
     } else {
-      thisObject.lenghtPercentage = thisObject.lenghtPercentage + STEP_SIZE
-      if (thisObject.lenghtPercentage > 100) { thisObject.lenghtPercentage = 100 }
+      timePeriodIndex++
+      if (timePeriodIndex > timePeriodsMasterArray[filePeriodIndex].length - 1) {
+        filePeriodIndex++
+        if (filePeriodIndex > timePeriodsMasterArray.length - 1) {
+          filePeriodIndex = timePeriodsMasterArray.length - 1
+          timePeriodIndex = timePeriodsMasterArray[filePeriodIndex].length - 1
+        } else {
+          timePeriodIndex = 0
+        }
+      }
     }
 
-    event.lenghtPercentage = thisObject.lenghtPercentage
-    thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
-
-    window.localStorage.setItem(MODULE_NAME, thisObject.lenghtPercentage)
+    saveObjectState()
+    newTimePeriod()
   }
 
   function getContainer (pPoint) {
@@ -89,8 +120,9 @@ function newTimeScale () {
       x: 0,
       y: 0
     }
+
     point.x = pPoint.x - thisObject.container.frame.position.x
-    point.y = pPoint.y - thisObject.container.frame.position.y + viewPort.margins.TOP
+    point.y = pPoint.y - thisObject.container.frame.position.y
 
     if (thisObject.container.frame.isThisPointHere(point, undefined, true) === true) {
       return thisObject.container
@@ -115,27 +147,27 @@ to be visible at the top of the viewPort. */
 
     point1 = {
       x: 0,
-      y: 0
+      y: frame.height - frame.height / 10
     }
 
     point2 = {
       x: frame.width,
-      y: 0
+      y: frame.height - frame.height / 10
     }
 
     point3 = {
       x: frame.width,
-      y: frame.height / 10
+      y: frame.height
     }
 
     point4 = {
       x: 0,
-      y: frame.height / 10
+      y: frame.height
     }
 
     point5 = {
       x: 0,
-      y: frame.height
+      y: 0
     }
 
         /* Now the transformations. */
@@ -153,18 +185,21 @@ to be visible at the top of the viewPort. */
     point5 = viewPort.fitIntoVisibleArea(point5)
 
     if (point3.y - point2.y < MIN_HEIGHT) {
-      point3.y = point2.y + MIN_HEIGHT
-      point4.y = point2.y + MIN_HEIGHT
+      point1.y = point3.y - MIN_HEIGHT
+      point2.y = point3.y - MIN_HEIGHT
     }
 
     /* Lets start the drawing. */
-/*
+
+    let displacement = viewPort.margins.BOTTOM - BOTTOM_SPACE_HEIGHT
+
+    /*
     browserCanvasContext.beginPath()
-    browserCanvasContext.moveTo(point1.x, point1.y - viewPort.margins.TOP)
-    browserCanvasContext.lineTo(point2.x, point2.y - viewPort.margins.TOP)
-    browserCanvasContext.lineTo(point3.x, point3.y - viewPort.margins.TOP)
-    browserCanvasContext.lineTo(point4.x, point4.y - viewPort.margins.TOP)
-    browserCanvasContext.lineTo(point1.x, point1.y - viewPort.margins.TOP)
+    browserCanvasContext.moveTo(point1.x, point1.y + displacement)
+    browserCanvasContext.lineTo(point2.x, point2.y + displacement)
+    browserCanvasContext.lineTo(point3.x, point3.y + displacement)
+    browserCanvasContext.lineTo(point4.x, point4.y + displacement)
+    browserCanvasContext.lineTo(point1.x, point1.y + displacement)
     browserCanvasContext.closePath()
 
     browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
@@ -173,20 +208,17 @@ to be visible at the top of the viewPort. */
 */
 
     thisObject.container.frame.position.x = point1.x
-    thisObject.container.frame.position.y = point1.y
+    thisObject.container.frame.position.y = point1.y + displacement
 
     thisObject.container.frame.width = point2.x - point1.x
     thisObject.container.frame.height = point3.y - point2.y
 
     let point = {
       x: mouse.position.x,
-      y: point1.y - viewPort.margins.TOP
+      y: point1.y + viewPort.margins.BOTTOM
     }
 
-    let date = getDateFromPoint(point, thisObject.container, timeLineCoordinateSystem)
-    date = new Date(date)
-
-    let label = date.toUTCString()
+    let label = timePeriodLabel
     let fontSize = 10
 
     let xOffset = label.length * fontSize * FONT_ASPECT_RATIO
@@ -196,8 +228,8 @@ to be visible at the top of the viewPort. */
 
     if (point.x - xOffset / 2 < point1.x || point.x + xOffset / 2 > point2.x) { return }
 
-    browserCanvasContext.fillText(label, point.x - xOffset / 2, point.y + fontSize + 7)
-
+    browserCanvasContext.fillText(label, point.x - xOffset / 2, point.y + fontSize + 1)
+/*
     browserCanvasContext.beginPath()
 
     browserCanvasContext.moveTo(point.x, point1.y)
@@ -209,5 +241,31 @@ to be visible at the top of the viewPort. */
     browserCanvasContext.lineWidth = 0.2
     browserCanvasContext.setLineDash([1, 5])
     browserCanvasContext.stroke()
+*/
+  }
+
+  function saveObjectState () {
+    objectStorage.filePeriodIndex = filePeriodIndex
+    objectStorage.timePeriodIndex = timePeriodIndex
+    window.localStorage.setItem(MODULE_NAME, JSON.stringify(objectStorage))
+  }
+
+  function readObjectState () {
+    let objectStorageString = window.localStorage.getItem(MODULE_NAME)
+    if (objectStorageString !== null && objectStorageString !== '') {
+      objectStorage = JSON.parse(objectStorageString)
+      filePeriodIndex = objectStorage.filePeriodIndex
+      timePeriodIndex = objectStorage.timePeriodIndex
+    }
+  }
+
+  function newTimePeriod () {
+    let timePeriodArray = timePeriodsMasterArray[filePeriodIndex]
+    thisObject.timePeriod = timePeriodArray[timePeriodIndex][0]
+    timePeriodLabel = timePeriodArray[timePeriodIndex][1]
+
+    let event = {}
+    event.timePeriod = thisObject.timePeriod
+    thisObject.container.eventHandler.raiseEvent('Time Period Changed', event)
   }
 }

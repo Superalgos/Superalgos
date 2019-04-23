@@ -45,6 +45,7 @@ function newContainer () {
     thisObject.parentContainer = parentContainer
     thisObject.parentContainer.eventHandler.listenToEvent('Dimmensions Changed', onParentDimmensionsChanged)
     thisObject.parentContainer.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    thisObject.parentContainer.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     if (connectedToParentWidth) {
       thisObject.frame.width = thisObject.parentContainer.frame.width
@@ -72,6 +73,10 @@ function newContainer () {
 
   function onMouseOver (event) {
     thisObject.eventHandler.raiseEvent('onMouseOver', event)
+  }
+
+  function onMouseNotOver (event) {
+    thisObject.eventHandler.raiseEvent('onMouseNotOver', event)
   }
 
   function isForThisPurpose (purpose) {

@@ -54,6 +54,10 @@
     let previousNotesSetKey;
     let currentNotesSetKey;
 
+    let offsetChangedEventSubscriptionId
+    let filesUpdatedEventSubscriptionId
+    let dimmensionsChangedEventSubscriptionId
+
     return thisObject;
 
     function finalize() {
@@ -63,8 +67,9 @@
 
             /* Stop listening to the necesary events. */
 
-            viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
-            fileSequence.eventHandler.stopListening("Files Updated", onFilesUpdated);
+            viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            fileSequence.eventHandler.stopListening(filesUpdatedEventSubscriptionId);
+            thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
 
             /* Destroyd References */
 
@@ -96,9 +101,15 @@
             recalculate(callBackFunction);
             recalculateScale(callBackFunction);
 
-            fileSequence.eventHandler.listenToEvent("Files Updated", onFilesUpdated); // Only the first sequence is supported right now.
-            viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
+            filesUpdatedEventSubscriptionId = fileSequence.eventHandler.listenToEvent("Files Updated", onFilesUpdated); // Only the first sequence is supported right now.
+            offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
 
+            /* Ready for when dimmension changes. */
+
+            dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
+                recalculate(callBackFunction);
+                recalculateScale(callBackFunction);
+            })
             callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
 
         } catch (err) {

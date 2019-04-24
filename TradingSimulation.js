@@ -60,6 +60,12 @@
     let imageStopLossPhase;
     let imageBuyOrderPhase;
 
+    let zoomChangedEventSubscriptionId
+    let offsetChangedEventSubscriptionId
+    let filesUpdatedEventSubscriptionId
+    let dragFinishedEventSubscriptionId
+    let dimmensionsChangedEventSubscriptionId
+
     return thisObject;
 
     function finalize() {
@@ -69,11 +75,11 @@
 
             /* Stop listening to the necesary events. */
 
-            viewPort.eventHandler.stopListening("Zoom Changed", onZoomChanged);
-            viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
-            marketFiles.eventHandler.stopListening("Files Updated", onFilesUpdated);
-            canvas.eventHandler.stopListening("Drag Finished", onDragFinished);
-            thisObject.container.eventHandler.stopListening('Dimmensions Changed')
+            viewPort.eventHandler.stopListening(zoomChangedEventSubscriptionId);
+            viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            marketFiles.eventHandler.stopListening(filesUpdatedEventSubscriptionId);
+            canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
+            thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
 
             /* icons */
 
@@ -131,10 +137,10 @@
 
             /* Listen to the necesary events. */
 
-            viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-            viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
-            marketFiles.eventHandler.listenToEvent("Files Updated", onFilesUpdated);
-            canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+            zoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
+            offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
+            filesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onFilesUpdated);
+            dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
             /* Get ready for plotting. */
 
@@ -142,7 +148,7 @@
 
             /* Ready for when dimmension changes. */
 
-            thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
+            dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
                 recalculateScale()
                 recalculate();
             })

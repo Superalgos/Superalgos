@@ -38,7 +38,6 @@ function newContainer () {
     thisObject.frame.container = thisObject
 
     thisObject.eventHandler = newEventHandler()
-    thisObject.eventHandler.initialize()
     thisObject.eventHandler.name = pName
 
     thisObject.displacement = newDisplacement()

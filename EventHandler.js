@@ -2,14 +2,12 @@
 function newEventHandler () {
   let thisObject = {
     name: undefined,                            // This is for debugging purposes only.
-    parentEventHandler: undefined,              // Here we store the parent cointainer zoom object.
     listenToEvent: listenToEvent,
     stopListening: stopListening,
-    raiseEvent: raiseEvent,
-    initialize: initialize
+    raiseEvent: raiseEvent
   }
 
-  var eventHandlers = []        // Here we store all the functions we will call when an event is comming.
+  var eventHandlers = []        // Here we store all the functions we will call when an event is raiseed.
 
   return thisObject
 

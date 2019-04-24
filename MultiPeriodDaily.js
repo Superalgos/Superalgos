@@ -379,7 +379,7 @@
                                     periodsControlLoop();
                                     return;
                                 }
-                            }   
+                            }
 
                             let dependencyIndex = 0;
                             dataFiles = [];
@@ -771,5 +771,10 @@
             logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function pad(str, max) {
+        str = str.toString();
+        return str.length < max ? pad(" " + str, max) : str;
     }
 };

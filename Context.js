@@ -289,6 +289,7 @@
 
                             */
 
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionContext -> onFileReceived -> Response from storage. -> Text = " + text);
                             logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionContext -> onFileReceived -> Bot cannot execute without the Execution Context. -> Err = " + err.message);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                         }

@@ -19,13 +19,17 @@ function newContainer () {
   let connectedToParentHeight = false
   let isConnectedToParent = false
 
+  let dimensionsChangedEventSubscriptionId
+  let onMouseOverEventSubscriptionId
+  let onMouseNotOverEventSubscriptionId
+
   return thisObject
 
   function finalize () {
     if (isConnectedToParent === true) {
-      thisObject.parentContainer.eventHandler.stopListening('Dimmensions Changed', onParentDimmensionsChanged)
-      thisObject.parentContainer.eventHandler.stopListening('onMouseOver', onMouseOver)
-      thisObject.parentContainer.eventHandler.stopListening('onMouseNotOver', onMouseNotOver)
+      thisObject.parentContainer.eventHandler.stopListening(dimensionsChangedEventSubscriptionId)
+      thisObject.parentContainer.eventHandler.stopListening(onMouseOverEventSubscriptionId)
+      thisObject.parentContainer.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
     }
   }
 
@@ -53,9 +57,10 @@ function newContainer () {
     thisObject.displacement.parentDisplacement = parentContainer.displacement
     thisObject.frame.parentFrame = parentContainer.frame
     thisObject.parentContainer = parentContainer
-    thisObject.parentContainer.eventHandler.listenToEvent('Dimmensions Changed', onParentDimmensionsChanged)
-    thisObject.parentContainer.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-    thisObject.parentContainer.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+
+    dimensionsChangedEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('Dimmensions Changed', onParentDimmensionsChanged)
+    onMouseOverEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    onMouseNotOverEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     if (connectedToParentWidth) {
       thisObject.frame.width = thisObject.parentContainer.frame.width

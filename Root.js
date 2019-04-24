@@ -292,8 +292,11 @@
                             if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market") {
                                 if (processConfig.startMode.noTime.beginDatetime !== undefined) {
                                     processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
+                                    processConfig.framework.startDate.resumeExecution = false;
+                                }else{
+                                    processConfig.framework.startDate.resumeExecution = true;
                                 }
-                                processConfig.framework.startDate.resumeExecution = processConfig.startMode.noTime.resumeExecution;
+
                             }
                         }
 

@@ -231,7 +231,7 @@
 
                     if (thisReport.lastFile !== undefined) {
 
-                        if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate.resumeExecution === "false") {
+                        if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate.resumeExecution === false) {
 
                             startFromBegining();
                             return;

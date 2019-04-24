@@ -25,9 +25,6 @@
    thisObject.container.initialize(MODULE_NAME)
    thisObject.container.detectMouseOver = true
 
-   // let chartGrid
-   let breakpointsBar
-
    let initializationReady = false
 
    let productsPanel
@@ -113,9 +110,6 @@
        logoExchange.src = window.canvasApp.urlPrefix + 'Images/' + exchange + '-logo-background.png'
        logoAA.src = window.canvasApp.urlPrefix + 'Images/sa-logo-background.png'
 
-       breakpointsBar = newBreakpointsBar()
-       breakpointsBar.initialize(thisObject.container, timeLineCoordinateSystem)
-
        // moveToUserPosition(thisObject.container, timeLineCoordinateSystem, undefined, undefined, undefined, true)
        timePeriod = INITIAL_TIME_PERIOD
        datetime = NEW_SESSION_INITIAL_DATE
@@ -188,7 +182,6 @@
      if (thisObject.container.frame.isInViewPort()) {
        plotterManager.setDatetime(pDatetime)
        plotterManager.positionAtDatetime(pDatetime)
-       breakpointsBar.setDatetime(pDatetime)
      }
    }
 
@@ -228,8 +221,6 @@
 
      plotterManager.setDatetime(datetime)
 
-     breakpointsBar.setDatetime(datetime)
-
      thisObject.container.eventHandler.raiseEvent('Datetime Changed', datetime)
    }
 
@@ -241,8 +232,6 @@
      container = timePeriodScale.getContainer(point)
 
      if (container !== undefined) { return container }
-
-     container = breakpointsBar.getContainer(point)
 
      return container
    }
@@ -289,7 +278,6 @@
 
        timePeriodScale.draw()
        plotterManager.draw()
-       breakpointsBar.draw()
      }
    }
 

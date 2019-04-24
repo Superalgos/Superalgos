@@ -116,6 +116,7 @@
       "displayName": "Bollinger Bands",
       "description": "Bollinger Bands",
       "storageAccount": "aachris",
+      "shareWith": "Public",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",
@@ -155,6 +156,7 @@
       "displayName": "Percentage Bandwidth",
       "description": "Percentage Bandwidth",
       "storageAccount": "aachris",
+      "shareWith": "Public",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",

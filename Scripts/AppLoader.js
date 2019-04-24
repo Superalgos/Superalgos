@@ -34,8 +34,6 @@ function newAppLoader() {
                 "Ecosystem.js",
                 "MQService",
 
-                "BottomSpace/DeleteTradingHistory.js",
-
                 "TopSpace/CurrentEvent.js",
                 "TopSpace/EndUser.js",
                 "TopSpace/Login.js",
@@ -71,7 +69,6 @@ function newAppLoader() {
                 "Scales/TimeScale.js",
                 "Scales/TimePeriodScale.js",
 
-                "BreakpointsBar.js",
                 "Plotter.js",
                 "PlotterPanel.js",
 

@@ -1,6 +1,6 @@
  ﻿
 function newBottomSpace () {
-  var thisObject = {
+  let thisObject = {
 
     container: undefined,
     draw: draw,

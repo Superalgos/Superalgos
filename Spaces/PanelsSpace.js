@@ -5,7 +5,7 @@ The Panel Space y the place wehre all panels live, no matter who create them.
 */
 
 function newPanelsSpace () {
-  var thisObject = {
+  let thisObject = {
     container: undefined,
     createNewPanel: createNewPanel,
     destroyPanel: destroyPanel,

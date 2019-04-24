@@ -3,7 +3,7 @@ function newFrame () {
   const PANEL_CORNERS_RADIOUS = 5
   const TITLE_BAR_HEIGHT = 14 // this must be grater than radius
 
-  var frame = {
+  let frame = {
     containerName: '',                  // This is for debugging purposes only.
     parentFrame: undefined,             // Here we store the parent cointainer zoom object.
     width: browserCanvas.width,

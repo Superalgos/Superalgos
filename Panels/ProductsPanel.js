@@ -1,5 +1,5 @@
  ﻿function newProductsPanel () {
-   var thisObject = {
+   let thisObject = {
      container: undefined,
      getLoadingProductCards: getLoadingProductCards,
      draw: draw,

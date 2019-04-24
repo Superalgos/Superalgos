@@ -5,7 +5,7 @@ The Splash Screen is to show some 'loading...' controls while the app is being l
 */
 
 function newSplashScreen () {
-  var thisObject = {
+  let thisObject = {
     container: undefined,
     draw: draw,
     timeMachines: [],

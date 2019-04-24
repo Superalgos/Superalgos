@@ -138,6 +138,7 @@
       "displayName": "Candles",
       "description": "Two sets of files per period that contains candles.",
       "storageAccount": "aaolivia",
+      "shareWith": "Public",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",
@@ -177,6 +178,7 @@
       "displayName": "Buy and Sell Volumes",
       "description": "Two sets of files per period that contains buy and sell volumes.",
       "storageAccount": "aaolivia",
+      "shareWith": "Public",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",

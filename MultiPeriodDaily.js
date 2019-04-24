@@ -367,6 +367,18 @@
                             const timePeriod = global.dailyFilePeriods[n][0];
                             const outputPeriodLabel = global.dailyFilePeriods[n][1];
 
+                            if (processConfig.framework.validPeriods !== undefined) {
+                                let validPeriod = false;
+                                for (let i = 0; i < processConfig.framework.validPeriods.length; i++) {
+                                    let period = processConfig.framework.validPeriods[i];
+                                    if (period === outputPeriodLabel) { validPeriod = true }
+                                }
+                                if (validPeriod === false) {
+                                    periodsControlLoop();
+                                    return;
+                                }
+                            }   
+
                             let dependencyIndex = 0;
                             dataFiles = [];
 

@@ -1,7 +1,7 @@
  ﻿
 function newBottomSpace () {
   var thisObject = {
-    deleteTradingHistory: undefined,
+
     container: undefined,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -19,9 +19,6 @@ function newBottomSpace () {
   return thisObject
 
   function initialize () {
-    thisObject.deleteTradingHistory = newDeleteTradingHistory()
-    thisObject.deleteTradingHistory.initialize()
-
     window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
   }
 
@@ -36,9 +33,6 @@ function newBottomSpace () {
   function getContainer (point) {
     let container
 
-    container = thisObject.deleteTradingHistory.getContainer(point)
-    if (container !== undefined) { return container }
-
     return thisObject.container
   }
 
@@ -46,7 +40,6 @@ function newBottomSpace () {
     thisObject.container.frame.draw(false, false)
 
     drawBackground()
-    thisObject.deleteTradingHistory.draw()
   }
 
   function drawBackground () {

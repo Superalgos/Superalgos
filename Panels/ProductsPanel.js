@@ -64,6 +64,7 @@
        userTeams = JSON.parse(storedTeams)
        userTeam = userTeams[0] // Currently we assume a user can be at only one team.
      }
+     if (userTeam === undefined) { userTeam = {slug: ''} }
 
         /* First thing is to build the productCards array */
 

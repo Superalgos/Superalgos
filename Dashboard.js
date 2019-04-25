@@ -18,6 +18,9 @@ function newDashboard () {
 
   const DEBUG_START_UP_DELAY = 0 // 3000; // This is a waiting time in case there is a need to debug the very first steps of initialization, to be able to hit F12 on time.
 
+  let userProfileChangedEventSubscriptionId
+  let browserResizedEventSubscriptionId
+
   return thisObject
 
   function start () {
@@ -31,8 +34,8 @@ function newDashboard () {
       /* Here we will setup the global eventHandler that will enable the Canvas App to react to events happening outside its execution scope. */
 
       window.canvasApp.eventHandler = newEventHandler()
-      window.canvasApp.eventHandler.listenToEvent('User Profile Changed', userProfileChanged)
-      window.canvasApp.eventHandler.listenToEvent('Browser Resized', browserResized)
+      userProfileChangedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('User Profile Changed', userProfileChanged)
+      browserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', browserResized)
 
       loadImages(onImagesLoaded)
 

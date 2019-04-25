@@ -1,83 +1,38 @@
  ﻿
 function newEventHandler () {
-  const CONSOLE_LOG = false
-
   let thisObject = {
     name: undefined,                            // This is for debugging purposes only.
-    parentEventHandler: undefined,              // Here we store the parent cointainer zoom object.
     listenToEvent: listenToEvent,
     stopListening: stopListening,
-    raiseEvent: raiseEvent,
-    initialize: initialize
+    raiseEvent: raiseEvent
   }
 
-  var eventHandlers = []        // Here we store all the functions we will call when an event is comming.
+  var eventHandlers = []        // Here we store all the functions we will call when an event is raiseed.
 
   return thisObject
 
-  function initialize () {
-
-  }
-
   function listenToEvent (eventType, handler, extraData) {
-    eventHandlers.push([eventType, handler, extraData])
-
-    if (thisObject.name !== undefined && CONSOLE_LOG === true) {
-      console.log('Event Handler named ' + thisObject.name + ' received a request to listenToEvent ' + eventType + ' and call ' + (handler.toString()).substring(0, 50))
-    }
+    let eventSubscriptionId = Math.trunc(Math.random() * 1000000)
+    eventHandlers.push([eventType, handler, extraData, eventSubscriptionId])
+    return eventSubscriptionId
   }
 
-  function stopListening (pEventType, pHandler) {
-    if (pHandler === undefined) {
-      pHandler = 'Anonymous Function'
-    }
-
-    if (thisObject.name !== undefined && CONSOLE_LOG === true) {
-      console.log('Event Handler named ' + thisObject.name + ' received a request to stop listening to an the event ' + pEventType + ' with this handler: ' + pHandler)
-    }
-
+  function stopListening (pEventSubscriptionId) {
     for (let i = 0; i < eventHandlers.length; i++) {
-      let record = eventHandlers[i]
-      let eventType = record[0]
-      let handler = record[1]
-
-      if (pHandler === 'Anonymous Function') {
-        if (pEventType === eventType) {
-          eventHandlers.splice(i, 1)
-
-          if (thisObject.name !== undefined && CONSOLE_LOG === true) {
-            console.log('Evethandler found and deleted.')
-          }
-          return
-        }
-      } else {
-        if (pEventType === eventType && pHandler.toString() === handler.toString()) {
-          eventHandlers.splice(i, 1)
-
-          if (thisObject.name !== undefined && CONSOLE_LOG === true) {
-            console.log('Evethandler found and deleted.')
-          }
-          return
-        }
+      if (pEventSubscriptionId === eventHandlers[i][3]) {
+        eventHandlers.splice(i, 1)
+        return
       }
     }
   }
 
   function raiseEvent (eventType, event) {
-    if (thisObject.name !== undefined && CONSOLE_LOG === true) {
-      console.log('Event Handler named ' + thisObject.name + ' received a request to raiseEvent ' + eventType + ' with this data ' + (event.toString()).substring(0, 50))
-    }
-
     for (var i = 0; i < eventHandlers.length; i++) {
             /* We will execute all the functions listening to this event type. */
 
       if (eventHandlers[i][0] === eventType) {
-        var handler = eventHandlers[i][1]
-        var extraData = eventHandlers[i][2]
-
-        if (thisObject.name !== undefined && CONSOLE_LOG === true) {
-          console.log('Event Handler named ' + thisObject.name + ' received a request to raiseEvent ' + eventType + ' and will call this handler: ' + (handler.toString()).substring(0, 50))
-        }
+        let handler = eventHandlers[i][1]
+        let extraData = eventHandlers[i][2]
 
         handler(event, extraData)
       }

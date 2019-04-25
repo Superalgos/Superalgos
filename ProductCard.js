@@ -8,7 +8,7 @@ function newProductCard () {
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
-  var thisObject = {
+  let thisObject = {
     container: undefined,
     draw: draw,
     status: 'off',

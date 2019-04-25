@@ -10,14 +10,28 @@ function newContainer () {
     isWheelable: false,
     name: undefined,
     initialize: initialize,
+    finalize: finalize,
     connectToParent: connectToParent,
     isForThisPurpose: isForThisPurpose
   }
 
   let connectedToParentWidth = false
   let connectedToParentHeight = false
+  let isConnectedToParent = false
+
+  let dimensionsChangedEventSubscriptionId
+  let onMouseOverEventSubscriptionId
+  let onMouseNotOverEventSubscriptionId
 
   return thisObject
+
+  function finalize () {
+    if (isConnectedToParent === true) {
+      thisObject.parentContainer.eventHandler.stopListening(dimensionsChangedEventSubscriptionId)
+      thisObject.parentContainer.eventHandler.stopListening(onMouseOverEventSubscriptionId)
+      thisObject.parentContainer.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
+    }
+  }
 
   function initialize (pName) {
     thisObject.name = pName
@@ -28,7 +42,6 @@ function newContainer () {
     thisObject.frame.container = thisObject
 
     thisObject.eventHandler = newEventHandler()
-    thisObject.eventHandler.initialize()
     thisObject.eventHandler.name = pName
 
     thisObject.displacement = newDisplacement()
@@ -39,13 +52,15 @@ function newContainer () {
   function connectToParent (parentContainer, onWidth, onHeight) {
     connectedToParentWidth = onWidth
     connectedToParentHeight = onHeight
+    isConnectedToParent = true
 
     thisObject.displacement.parentDisplacement = parentContainer.displacement
     thisObject.frame.parentFrame = parentContainer.frame
     thisObject.parentContainer = parentContainer
-    thisObject.parentContainer.eventHandler.listenToEvent('Dimmensions Changed', onParentDimmensionsChanged)
-    thisObject.parentContainer.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-    thisObject.parentContainer.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+
+    dimensionsChangedEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('Dimmensions Changed', onParentDimmensionsChanged)
+    onMouseOverEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    onMouseNotOverEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     if (connectedToParentWidth) {
       thisObject.frame.width = thisObject.parentContainer.frame.width

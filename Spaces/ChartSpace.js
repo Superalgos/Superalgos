@@ -13,7 +13,7 @@ function newChartSpace () {
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
-  var thisObject = {
+  let thisObject = {
     container: undefined,
     drawBackground: drawBackground,
     draw: draw,

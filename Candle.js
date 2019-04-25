@@ -1,5 +1,5 @@
 function newCandle () {
-  var candle = {
+  let candle = {
     open: undefined,
     close: undefined,
     min: 10000000000000,

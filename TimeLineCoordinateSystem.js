@@ -8,7 +8,7 @@ The scale on the Y axis depends on the data that wants to be plotted. Usually we
 */
 
 function newTimeLineCoordinateSystem () {
-  var thisObject = {
+  let thisObject = {
     min: undefined,
     max: undefined,
     scale: undefined,

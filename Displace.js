@@ -7,7 +7,7 @@ The displacement is a vector that displaces everything static drawn on on the co
 */
 
 function newDisplacement () {
-  var displacement = {
+  let displacement = {
     containerName: '',                      // This is for debugging purposes only.
     parentDisplacement: undefined,          // Here we store the displacement object of the parent cointainer, if exists.
     container: undefined,

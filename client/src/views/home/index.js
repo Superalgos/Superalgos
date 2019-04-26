@@ -45,26 +45,30 @@ class Home extends Component {
         )}
         <div className='homePage container'>
           <Typography variant='h1' align='center' className='title'>Welcome to the Superalgos Platform!</Typography>
-          <Typography variant='h2' align='center' className='subtitle'>Enabling the evolutionary race towards the emergence of superalgos</Typography>
+          <Typography variant='h2' align='center' className='subtitle'>TRY OUT THE STRATEGIZER DEMO</Typography>
           <div className='column'>
             <Typography align='justify'>
-              Before you begin, please be aware <strong>this is a development environment in pre-alpha stage</strong>.
-              The features available as of today are limited but already functional.
-              However, you may encounter occasional instability and errors.
+            Before you begin, please be aware this is an alpha stage deployment.
+            The features available as of today are limited but already functional.
+            However, you may encounter occasional instability and errors.
             </Typography>
             <Typography align='justify'>
-            The Superalgos Platform is the place is which we meet to collaborate in the quest to make trading algorithms evolve.
-            You will be able to register, create or join a team, fork a functional trading bot and eventually put it to compete with other people's forks.
+            <strong>At this early stage, the focus of the Superalgos Platform is the Strategizer, a tool directed mostly at traders.</strong>
+            To try out the Demo version hosted here you will need to Sign Up / Login.
+            Once you are logged in, you will find basic instructions on how to proceed,
+            at this home page (click the Superalgos logo to return to this home page).
             </Typography>
           </div>
           <div className='column'>
             <Typography align='justify'>
-              Feel free to explore the menu in the top-right corner or visit the <a href='https://superalgos.org/documentation-quick-start.shtml' target='_blank'>Quick Start Guide</a>.
-              Reporting of bugs at the corresponding <a href='https://github.com/Superalgos' target='_blank' rel='nofollow'>Superalgos Github repository</a> is highly appreciated.
+            <strong>If you are a developer, trying out the Strategizer may open your eyes as of what may be achieved with the
+            Strategizer and the Superalgos Platform in general.</strong>
             </Typography>
             <Typography align='justify'>
-              Get in touch with the rest of the community and get answers to your questions in our <a href='https://t.me/superalgoscommunity' target='_blank' rel='nofollow'>Telegram Group</a>.
-              Have fun!
+            The Strategizer is conceived to work with as many indicators and pre programmed strategies as developers are willing to program.
+            </Typography>
+            <Typography align='justify'>
+            If you wish to set up your own indicators and strategies, please get in touch with us and we'll show you how (give us a shout in the Community Telegram)
             </Typography>
           </div>
         </div>

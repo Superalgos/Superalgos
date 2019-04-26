@@ -1,9 +1,9 @@
 ﻿
 exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) {
 
-    let FULL_LOG = false;
+    let FULL_LOG = true;
     let ERROR_LOG = true;
-    let LOG_FILE_CONTENT = false;
+    let LOG_FILE_CONTENT = true;
 
     let bot = BOT;
     const ROOT_DIR = './';

@@ -231,7 +231,7 @@
 
                     if (thisReport.lastFile !== undefined) {
 
-                        if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate.resumeExecution === "false") {
+                        if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate.resumeExecution === false) {
 
                             startFromBegining();
                             return;
@@ -296,6 +296,8 @@
                     let botNeverRan = true;
 
                     bot.processDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+
+                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + " bot.processDatetime = " + bot.processDatetime.toISOString());
 
                     advanceTime();
 
@@ -377,7 +379,7 @@
                                     periodsControlLoop();
                                     return;
                                 }
-                            }   
+                            }
 
                             let dependencyIndex = 0;
                             dataFiles = [];
@@ -769,5 +771,10 @@
             logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function pad(str, max) {
+        str = str.toString();
+        return str.length < max ? pad(" " + str, max) : str;
     }
 };

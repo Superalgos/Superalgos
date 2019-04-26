@@ -8,7 +8,7 @@
         "." + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) +
         ".T." + pad(global.EXECUTION_DATETIME.getUTCHours(),2) +
         "." + pad(global.EXECUTION_DATETIME.getUTCMinutes(),2) +
-        "." + pad(global.EXECUTION_DATETIME.getUTCSeconds(),2);  
+        "." + pad(global.EXECUTION_DATETIME.getUTCSeconds(),2);
 
     let messageId = 0;
 
@@ -148,18 +148,6 @@
 
             if (disableLogging === true) { return; }
 
-            if (global.CURRENT_EXECUTION_AT === "Node") {
-
-                /* Only ERRORs go to the cloud console. */
-
-                if (pMessage.indexOf("[ERROR]") >= 0) {
-
-                    let now = new Date;
-                    console.log("Loop." + pad(thisObject.bot.loopCounter, 8) + " " + now.toUTCString() + " CloneExecutor " + spacePad(pModule, 20) + " : " + pMessage);
-
-                }
-            }
-            
             if (thisObject.bot === undefined) { return; }
 
             let newDate = new Date();
@@ -172,7 +160,7 @@
             let logLine = '\r\n' + "['" + newDate + "'," + messageId + ",'" + pModule + "','" + pMessage + "']";
 
             accumulatedLog = accumulatedLog + logLine;
-            
+
         } catch (err) {
             console.log("[ERROR] DebugLog -> write -> err = " + err.message);
         }

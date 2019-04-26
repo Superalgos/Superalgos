@@ -49,4 +49,8 @@ There are many things you can do with your mouse wheel.
 4. User you mouse wheel over the Layers panel to scroll up or down the layers (in case they are not all already displayed).
 5. User your mouse wheel overt the chart, and not close to the previous elements to zoom in and out the chart. The App will not only zoom in and out but also automatically adjust the time period to the most convinient for the zoom level you are in.
 
+After zooming in the main elements stay at the top, left and bottom of the viewport as you can see in the next screenshot:
+
+![image](https://user-images.githubusercontent.com/9479367/56822037-30635780-6850-11e9-8d1c-1c58959f46e9.png)
+
 

@@ -84,11 +84,14 @@ Superalgos is an open system, that means anyone can build more layers for this c
 
 ![image](https://user-images.githubusercontent.com/9479367/56822975-f34c9480-6852-11e9-9175-19d397b89441.png)
 
-5. Bollinger Bands: this is the traditional Bollinger Bands indicator as described here: https://en.wikipedia.org/wiki/Bollinger_Bands
-
-Bollinger Bands have a moving average, in our case calculated with the last 20 periods. (It is the line in the middle of the bands.). We are plotting the moving average with one color when it is going up, and another color when it is going down. The upper band is at 2 Standard Deviations from the center and the lower band too, at 2 Standard Deviations. It is the most widely used Bollinger Bands settings.
+5. Bollinger Bands: this is the traditional Bollinger Bands indicator as described here: https://en.wikipedia.org/wiki/Bollinger_Bands . Bollinger Bands have a moving average, in our case calculated with the last 20 periods. (It is the line in the middle of the bands.). We are plotting the moving average with one color when it is going up, and another color when it is going down. The upper band is at 2 Standard Deviations from the center and the lower band too, at 2 Standard Deviations. It is the most widely used Bollinger Bands settings.
 
 ![image](https://user-images.githubusercontent.com/9479367/56833341-82b37100-686e-11e9-8b17-55b3bf7a8fdb.png)
+
+6. Percentage Bandwidth or %B: this is a well known indicator that derives from the Bollinger Bands. In a nutshell it tells you how close the price is either to the upper band or the lower band at any point in time. When the price is in the middle of the bands (it is calculated with the close value of each candle), then %B is in the middle of its chart, at value 50. When the price touches the upper band, then %B is at 100, and finally when the price is at the lower band, then %B is at 0. The chart contains lines at %B value 30 and 70 since these are the most common values used by traders to forecast when it will reverse it course. It our chart %B is the one represented at #1. I found usefull to add a moving average in order to smooth a little bit its volatility and be able to ask at any time if it is going up or down. The moving average calcualted with the last 5 %B values is plotted as line #2. Finally I also added a property called Bandwidth, which represents the separation of the upper band from the lower band. It is a measure of the volatity and is plotted at #3.  
+
+![image](https://user-images.githubusercontent.com/9479367/56834223-1c7c1d80-6871-11e9-9687-ae5dc12d0336.png)
+
 
 
 

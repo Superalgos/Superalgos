@@ -53,4 +53,13 @@ After zooming in the main elements stay at the top, left and bottom of the viewp
 
 ![image](https://user-images.githubusercontent.com/9479367/56822037-30635780-6850-11e9-8d1c-1c58959f46e9.png)
 
+### Hiding Panels
 
+There are two ways to hide the panels on the screen:
+
+1. Drag them from their title bar with the right mouse button.
+2. Click over the small triangle at the left of their title bar. This will automatically position them at the bottom of the screen. Clicking again restores its previous position.
+
+Here I gragged the Layers panel to the left, and I clicked at the Current Candle Panel:
+
+![image](https://user-images.githubusercontent.com/9479367/56822276-db741100-6850-11e9-9e23-d3fabb82754c.png)

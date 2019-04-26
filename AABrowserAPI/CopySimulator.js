@@ -34,9 +34,9 @@ exports.newCopySimulator = function newCopySimulator(pStorage) {
             parsedConfig.profilePicture = pBotCodeName + ".png"
 
             parsedConfig.processes[0].statusDependencies[0].devTeam = pTeamCodeName
-            parsedConfig.processes[0].statusDependencies[0].botVersion = botCodeName
+            parsedConfig.processes[0].statusDependencies[0].bot = botCodeName
             parsedConfig.processes[1].statusDependencies[0].devTeam = pTeamCodeName
-            parsedConfig.processes[1].statusDependencies[0].botVersion = botCodeName
+            parsedConfig.processes[1].statusDependencies[0].bot = botCodeName
 
             //Changing Indicator Output
             parsedConfig.products[0].storageAccount = pTeamCodeName

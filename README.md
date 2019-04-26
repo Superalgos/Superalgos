@@ -80,7 +80,7 @@ Superalgos is an open system, that means anyone can build more layers for this c
 
 ![image](https://user-images.githubusercontent.com/9479367/56822884-b6809d80-6852-11e9-999a-bccddfb68229.png)
 
-4. Volume Stairs Patterns: similar concept but with volumes. Whenever we find a sequence of volume bars each one bigger than the previous one, they are bundled together in a "Stair". The same when they are going down (or the next is smaller than the previous one). In this way you can ask easily ast from a trading bot: is sell volume going up? is buy volume going down?
+4. Volume Stairs Patterns: similar concept but with volumes. Whenever we find a sequence of volume bars each one bigger than the previous one, they are bundled together in a "Stair". The same when they are going down (or the next is smaller than the previous one). In this way you can ask easily ask from a trading bot: is sell volume going up? is buy volume going down?
 
 ![image](https://user-images.githubusercontent.com/9479367/56822975-f34c9480-6852-11e9-9175-19d397b89441.png)
 

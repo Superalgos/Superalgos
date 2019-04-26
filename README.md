@@ -92,7 +92,13 @@ Superalgos is an open system, that means anyone can build more layers for this c
 
 ![image](https://user-images.githubusercontent.com/9479367/56834223-1c7c1d80-6871-11e9-9687-ae5dc12d0336.png)
 
+7. Bollinger Channels: this is a non-standard indicator derived from the Bollinger Bands. This type of channels are calculated using the Bollinger Bands moving average. Essentially an upward channel begins when the moving average turns from going down to up, and the channel finishes when it turns from going up to down. A downward channel starts when the Bollinger Band moving average turn from going up to down, and it finishes when it starts going up again. Upward channels are plotted in green, while downward ones in red. Additional information can be found at the indicator's panel, like the number of periods contained at the channel.
 
+![image](https://user-images.githubusercontent.com/9479367/56834955-30c11a00-6873-11e9-8601-9d8abc8fab84.png)
+
+8. Bollinger Sub-Channels: if we consider that one Bollinger Chanel can have sub-channels with the same direction (up or down) but different slopes, then we get to the concept of Bollinger Sub-Channeles. The most important property of a sub-channel is its slope. The possible values are: side, gentle, medium, high and extreme. With this information, a trading bot could easily ask if it is in a sub-channel with a certain slope and for how many periods. 
+
+![image](https://user-images.githubusercontent.com/9479367/56835528-c610de00-6874-11e9-8431-3cfe0c515f3e.png)
 
 
 

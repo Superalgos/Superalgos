@@ -84,4 +84,13 @@ Superalgos is an open system, that means anyone can build more layers for this c
 
 ![image](https://user-images.githubusercontent.com/9479367/56822975-f34c9480-6852-11e9-9175-19d397b89441.png)
 
+5. Bollinger Bands: this is the traditional Bollinger Bands indicator as described here: https://en.wikipedia.org/wiki/Bollinger_Bands
+
+Bollinger Bands have a moving average, in our case calculated with the last 20 periods. (It is the line in the middle of the bands.). We are plotting the moving average with one color when it is going up, and another color when it is going down. The upper band is at 2 Standard Deviations from the center and the lower band too, at 2 Standard Deviations. It is the most widely used Bollinger Bands settings.
+
+![image](https://user-images.githubusercontent.com/9479367/56833341-82b37100-686e-11e9-8b17-55b3bf7a8fdb.png)
+
+
+
+
 

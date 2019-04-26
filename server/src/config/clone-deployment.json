@@ -14,7 +14,7 @@
         "containers": [
           {
             "name": "clone-executor",
-            "image": "superalgos/clone-executor:1.0.1",
+            "image": "superalgos/clone-executor:1.0.2",
             "command": ["node", "Run.js"],
             "env": [
             ]

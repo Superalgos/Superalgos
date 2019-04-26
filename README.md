@@ -63,3 +63,25 @@ There are two ways to hide the panels on the screen:
 Here I gragged the Layers panel to the left, and I clicked at the Current Candle Panel:
 
 ![image](https://user-images.githubusercontent.com/9479367/56822276-db741100-6850-11e9-9e23-d3fabb82754c.png)
+
+### Available Layers
+
+Superalgos is an open system, that means anyone can build more layers for this chart app. So far with our current limited manpower we managed to create these ones:
+
+1. Candles: tipical candlesticks.
+
+![image](https://user-images.githubusercontent.com/9479367/56822785-6acdf400-6852-11e9-98d9-0bd19ca98d61.png)
+
+2. Volumes: here I innovated a little bit, putting the buy volume down and in green, and the sell volume up and red.
+
+![image](https://user-images.githubusercontent.com/9479367/56822811-8638ff00-6852-11e9-9f25-6b97720a9d1b.png)
+
+3. Candle Stairs Patterns: this is an unusual pattern to prove anything can be added to the system. A Stair Pattern is defined as a set of candles going in the same direction, either up or down. You can think about this patterns as "Candle Channels" as are channels with direction up or down based on underlaying candles direction.
+
+![image](https://user-images.githubusercontent.com/9479367/56822884-b6809d80-6852-11e9-999a-bccddfb68229.png)
+
+4. Volume Stairs Patterns: similar concept but with volumes. Whenever we find a sequence of volume bars each one bigger than the previous one, they are bundled together in a "Stair". The same when they are going down (or the next is smaller than the previous one). In this way you can ask easily ast from a trading bot: is sell volume going up? is buy volume going down?
+
+![image](https://user-images.githubusercontent.com/9479367/56822975-f34c9480-6852-11e9-9175-19d397b89441.png)
+
+

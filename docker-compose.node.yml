@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+  clonesapi:
+    image: superalgos/clones-api:1.0.0
+    restart: always
+    build: ../OperationsModule/server
+    env_file: ../OperationsModule/server/.env
+    command: npm start
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo-express
+
+  mongo:
+    image: mongo:4.0.9
+    restart: always
+    volumes:
+      - data-volume:/data/db
+    networks:
+      - superalgos_net
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo
+
+  masterappapi:
+    image: superalgos/master-app-api:1.0.0
+    restart: always
+    build: ./server
+    env_file: ./server/.env
+    command: npm start
+    ports:
+      - "4100:4100"
+    networks:
+      - superalgos_net
+    depends_on:
+      - clonesapi
+
+  masterapp:
+    image: master-app:1.0.0
+    restart: always
+    build: ./client
+    env_file: ./client/.env
+    command: ['nginx']
+    ports:
+      - "3100:3100"
+    networks:
+      - superalgos_net
+    depends_on:
+      - masterappapi
+
+networks:
+  superalgos_net:
+
+volumes:
+  data-volume:

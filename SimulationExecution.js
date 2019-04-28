@@ -1,7 +1,6 @@
 ﻿function newAAMastersPlottersTradingSimulationSimulationExecution() {
 
     const MODULE_NAME = "Simulation Execution Plotter";
-    const INFO_LOG = false;
     const INTENSIVE_LOG = false;
     const ERROR_LOG = true;
     const logger = newWebDebugLog();
@@ -63,8 +62,6 @@
     function finalize() {
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] finalize -> Entering function."); }
-
             /* Stop listening to the necesary events. */
 
             viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId);
@@ -90,8 +87,6 @@
     function initialize(pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
         try {
-
-            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
             datetime = pDatetime;
             timePeriod = pTimePeriod;
@@ -122,8 +117,6 @@
     function getContainer(point) {
 
         try {
-
-            if (INFO_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
 
             let container;
 
@@ -156,8 +149,6 @@
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> Entering function."); }
-
             timePeriod = pTimePeriod;
 
             recalculate();
@@ -171,8 +162,6 @@
     function setDatetime(newDatetime) {
 
         try {
-
-            if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 
             datetime = newDatetime;
 
@@ -194,8 +183,6 @@
     function recalculate(callBackFunction) {
 
         try {
-
-            if (INFO_LOG === true) { logger.write("[INFO] recalculate -> Entering function."); }
 
             if (fileSequence === undefined) { return; }
 
@@ -444,8 +431,6 @@
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> Entering function."); }
-
             if (fileSequence === undefined) { return; } // We need the market file to be loaded to make the calculation.
 
             if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
@@ -460,46 +445,12 @@
                 y: nextPorwerOf10(USDT_BTC_HTH) / 4 // TODO: This 4 is temporary
             };
 
-
             timeLineCoordinateSystem.initialize(
                 minValue,
                 maxValue,
                 thisObject.container.frame.width,
                 thisObject.container.frame.height
             );
-
-            function getMaxRate() {
-
-                try {
-
-                    if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> getMaxRate > Entering function."); }
-
-                    let maxValue = 0;
-
-                    let maxSequence = fileSequence.getFilesLoaded();
-
-                    for (let j = 0; j < maxSequence; j++) {
-
-                        let file = fileSequence.getFile(j);
-
-                        for (let i = 0; i < file.length; i++) {
-
-                            let currentMax = file[i][1] + file[i][2];   // 1 = rates.
-
-                            if (maxValue < currentMax) {
-                                maxValue = currentMax;
-                            }
-                        }
-                    }
-
-                    return maxValue;
-
-                } catch (err) {
-
-                    if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> getMaxRate -> err = " + err); }
-                    callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
-                }
-            }
 
         } catch (err) {
 

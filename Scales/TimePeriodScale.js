@@ -1,10 +1,5 @@
 function newTimePeriodScale () {
   const MODULE_NAME = 'Time Period Scale'
-  const INFO_LOG = false
-  const INTENSIVE_LOG = false
-  const ERROR_LOG = true
-  const logger = newWebDebugLog()
-  logger.fileName = MODULE_NAME
 
   let thisObject = {
     container: undefined,
@@ -78,6 +73,7 @@ function newTimePeriodScale () {
           }
         }
       }
+      saveObjectState()
       newTimePeriod()
     }
   }

@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:12
 
 # Directory where the service will be installed
-ARG API_DIR=/usr/src/clonesapi
+ARG API_DIR=/usr/src/clones-api
 
 # Prepare required directories
 RUN mkdir -p ${API_DIR} && \
@@ -9,7 +9,6 @@ RUN mkdir -p ${API_DIR} && \
 
 # Use app directory as current workdir
 WORKDIR ${API_DIR}
-# ENV PATH /var/www/app/node_modules/.bin:$PATH
 
 # Copy package.json to workdir
 COPY package*.json ${API_DIR}/

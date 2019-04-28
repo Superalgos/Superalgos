@@ -1,17 +1,6 @@
 version: '3'
 
 services:
-  clonesapi:
-    image: superalgos/clones-api:1.0.0
-    restart: always
-    build: ../OperationsModule/server
-    env_file: ../OperationsModule/server/.env
-    command: npm start
-    networks:
-      - superalgos_net
-    depends_on:
-      - mongo-express
-
   mongo:
     image: mongo:4.0.9
     restart: always
@@ -30,20 +19,29 @@ services:
     depends_on:
       - mongo
 
-  masterappapi:
-    image: superalgos/master-app-api:1.0.0
+  keyvault-api:
+    image: superalgos/keyvault-api:1.0.0
     restart: always
-    build: ./server
-    env_file: ./server/.env
+    build: ../KeyVaultModule/server
+    env_file: ../KeyVaultModule/server/.env
     command: npm start
-    ports:
-      - "4100:4100"
     networks:
       - superalgos_net
     depends_on:
-      - clonesapi
+      - mongo-express
 
-  masterapp:
+  clones-api:
+    image: superalgos/clones-api:1.0.0
+    restart: always
+    build: ../OperationsModule/server
+    env_file: ../OperationsModule/server/.env
+    command: npm start
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo-express
+
+  master-app:
     image: master-app:1.0.0
     restart: always
     build: ./client
@@ -54,7 +52,21 @@ services:
     networks:
       - superalgos_net
     depends_on:
-      - masterappapi
+      - keyvault-api
+      - clones-api
+
+  master-app-api:
+    image: superalgos/master-app-api:1.0.0
+    restart: always
+    build: ./server
+    env_file: ./server/.env
+    command: npm start
+    ports:
+      - "4100:4100"
+    networks:
+      - superalgos_net
+    depends_on:
+      - master-app
 
 networks:
   superalgos_net:

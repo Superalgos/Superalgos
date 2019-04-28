@@ -64,9 +64,11 @@ Here I gragged the Layers panel to the left, and I clicked at the Current Candle
 
 ![image](https://user-images.githubusercontent.com/9479367/56822276-db741100-6850-11e9-9e23-d3fabb82754c.png)
 
-### Available Layers
+### Layers
 
-Superalgos is an open system, that means anyone can build more layers for this chart app. So far with our current limited manpower we managed to create these ones:
+Superalgos is an open system, that means anyone can build more layers for this chart app. So far with our current limited manpower we managed to create 8 public layers (available to anyone without being logged in) and 2 extra private layers for when users are logged in:
+
+#### Public Layers
 
 1. Candles: tipical candlesticks.
 
@@ -100,6 +102,14 @@ Superalgos is an open system, that means anyone can build more layers for this c
 
 ![image](https://user-images.githubusercontent.com/9479367/56835528-c610de00-6874-11e9-8431-3cfe0c515f3e.png)
 
+#### Private Layers
 
+1. Trading Simulation: The Trading Simulation layer displays a backtest + fordwartest (paper trading) of whatever strategies you have created in the system. At sign up, you are provided with an initial set of strategies so that you can be up and running as quickly as possilbe. By activating the Trading Simulation layer you should be able to see something like this:
+
+![image](https://user-images.githubusercontent.com/9479367/56860461-0799aa00-6997-11e9-9c2d-5ace122a5c25.png)
+
+Let's take a moment to understand what you see on the chart:
+
+A. This shows you when you entered into one of your strategies (think as if the strategy was activated because the activation conditions were met). The first icon represent the moment when you entered into that strategy and the second one when you left the strategy.
 
 

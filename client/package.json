@@ -16,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Algoteers/MasterApp.git"
+    "url": "git+https://github.com/Superalgos/MasterApp.git"
   },
   "author": "Superalgos.org",
   "license": "SEE LICENSE IN LICENSE.MD",
   "bugs": {
-    "url": "https://github.com/Algoteers/MasterApp/issues"
+    "url": "https://github.com/Superalgos/MasterApp/issues"
   },
-  "homepage": "https://github.com/Algoteers/MasterApp#readme",
+  "homepage": "https://github.com/Superalgos/MasterApp#readme",
   "devDependencies": {
     "@advancedalgos/financial-beings-client": "0.0.5",
     "@babel/core": "^7.1.2",
@@ -32,15 +32,15 @@
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "@superalgos/cockpit-client": "0.0.5",
     "@superalgos/events-client": "0.0.2",
     "@superalgos/key-vault-client": "0.0.32",
     "@superalgos/logs-client": "0.0.1",
-    "@superalgos/strategizer-client": "0.0.13",
     "@superalgos/operations-client": "0.0.34",
+    "@superalgos/strategizer-client": "0.0.13",
     "@superalgos/teams-client": "0.0.35",
-    "@superalgos/users-client": "0.0.25",
+    "@superalgos/users-client": "0.0.26",
     "@superalgos/web-components": "0.0.20",
-    "@superalgos/cockpit-client": "0.0.5",
     "autoprefixer": "^9.2.0",
     "babel-loader": "^8.0.4",
     "babel-preset-flow": "6.23.0",
@@ -62,7 +62,7 @@
     "html-webpack-harddisk-plugin": "^0.2.0",
     "html-webpack-plugin": "^3.2.0",
     "koa-connect": "^2.0.1",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
     "prettier-standard": "^8.0.1",
     "react-hot-loader": "^4.3.11",
@@ -99,7 +99,7 @@
     "graphql-tag": "^2.10.0",
     "jwt-decode": "^2.2.0",
     "mini-css-extract-plugin": "^0.4.4",
-    "npm": "^6.4.1",
+    "npm": "^6.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "prop-types": "^15.6.2",
     "query-string": "^6.2.0",

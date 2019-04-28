@@ -19,22 +19,33 @@ services:
     depends_on:
       - mongo
 
-  keyvault-api:
-    image: superalgos/keyvault-api:1.0.0
+  clones-api:
+    image: superalgos/clones-api:1.0.0
     restart: always
-    build: ../KeyVaultModule/server
-    env_file: ../KeyVaultModule/server/.env
+    build: ../OperationsModule/server
+    env_file: ../OperationsModule/server/.env.local
     command: npm start
     networks:
       - superalgos_net
     depends_on:
       - mongo-express
 
-  clones-api:
-    image: superalgos/clones-api:1.0.0
+  users-api:
+    image: superalgos/users-api:1.0.0
     restart: always
-    build: ../OperationsModule/server
-    env_file: ../OperationsModule/server/.env
+    build: ../UsersModule/server
+    env_file: ../UsersModule/server/.env.local
+    command: npm start
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo-express
+
+  keyvault-api:
+    image: superalgos/keyvault-api:1.0.0
+    restart: always
+    build: ../KeyVaultModule/server
+    env_file: ../KeyVaultModule/server/.env.local
     command: npm start
     networks:
       - superalgos_net
@@ -45,7 +56,7 @@ services:
     image: master-app:1.0.0
     restart: always
     build: ./client
-    env_file: ./client/.env
+    env_file: ./client/.env.local
     command: ['nginx']
     ports:
       - "3100:3100"
@@ -54,12 +65,13 @@ services:
     depends_on:
       - keyvault-api
       - clones-api
+      - users-api
 
   master-app-api:
     image: superalgos/master-app-api:1.0.0
     restart: always
     build: ./server
-    env_file: ./server/.env
+    env_file: ./server/.env.local
     command: npm start
     ports:
       - "4100:4100"

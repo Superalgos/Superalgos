@@ -21,9 +21,9 @@ First time you enter you will see this screen, with no chart displayed, since th
 This panel includes different layers you can visualize just by turning them on with a mounse click. A second click would turn them off.
 The layer title bar can have 3 possibles colors:
 
-1. Red: layer is off.
-2. Green: layer is on.
-3. Yellow: layer is loading or can not completelly load if it stay in this color/state.
+1. **Red**: layer is off.
+2. **Green**: layer is on.
+3. **Yellow**: layer is loading or can not completelly load if it stay in this color/state.
 
 Click on the first layer "Candles" and wait a few second to load the data and plot the candles chart. At that point you should see something like this:
 
@@ -70,41 +70,41 @@ Superalgos is an open system, that means anyone can build more layers for this c
 
 #### Public Layers
 
-1. Candles: tipical candlesticks.
+1. **Candles**: tipical candlesticks.
 
 ![image](https://user-images.githubusercontent.com/9479367/56822785-6acdf400-6852-11e9-98d9-0bd19ca98d61.png)
 
-2. Volumes: here I innovated a little bit, putting the buy volume down and in green, and the sell volume up and red.
+2. **Volumes**: here I innovated a little bit, putting the buy volume down and in green, and the sell volume up and red.
 
 ![image](https://user-images.githubusercontent.com/9479367/56822811-8638ff00-6852-11e9-9f25-6b97720a9d1b.png)
 
-3. Candle Stairs Patterns: this is an unusual pattern to prove anything can be added to the system. A Stair Pattern is defined as a set of candles going in the same direction, either up or down. You can think about this patterns as "Candle Channels" as are channels with direction up or down based on underlaying candles direction.
+3. **Candle Stairs Patterns**: this is an unusual pattern to prove anything can be added to the system. A Stair Pattern is defined as a set of candles going in the same direction, either up or down. You can think about this patterns as "Candle Channels" as are channels with direction up or down based on underlaying candles direction.
 
 ![image](https://user-images.githubusercontent.com/9479367/56822884-b6809d80-6852-11e9-999a-bccddfb68229.png)
 
-4. Volume Stairs Patterns: similar concept but with volumes. Whenever we find a sequence of volume bars each one bigger than the previous one, they are bundled together in a "Stair". The same when they are going down (or the next is smaller than the previous one). In this way you can ask easily ask from a trading bot: is sell volume going up? is buy volume going down?
+4. **Volume Stairs Patterns**: similar concept but with volumes. Whenever we find a sequence of volume bars each one bigger than the previous one, they are bundled together in a "Stair". The same when they are going down (or the next is smaller than the previous one). In this way you can ask easily ask from a trading bot: is sell volume going up? is buy volume going down?
 
 ![image](https://user-images.githubusercontent.com/9479367/56822975-f34c9480-6852-11e9-9175-19d397b89441.png)
 
-5. Bollinger Bands: this is the traditional Bollinger Bands indicator as described here: https://en.wikipedia.org/wiki/Bollinger_Bands . Bollinger Bands have a moving average, in our case calculated with the last 20 periods. (It is the line in the middle of the bands.). We are plotting the moving average with one color when it is going up, and another color when it is going down. The upper band is at 2 Standard Deviations from the center and the lower band too, at 2 Standard Deviations. It is the most widely used Bollinger Bands settings.
+5. **Bollinger Bands**: this is the traditional Bollinger Bands indicator as described here: https://en.wikipedia.org/wiki/Bollinger_Bands . Bollinger Bands have a moving average, in our case calculated with the last 20 periods. (It is the line in the middle of the bands.). We are plotting the moving average with one color when it is going up, and another color when it is going down. The upper band is at 2 Standard Deviations from the center and the lower band too, at 2 Standard Deviations. It is the most widely used Bollinger Bands settings.
 
 ![image](https://user-images.githubusercontent.com/9479367/56833341-82b37100-686e-11e9-8b17-55b3bf7a8fdb.png)
 
-6. Percentage Bandwidth or %B: this is a well known indicator that derives from the Bollinger Bands. In a nutshell it tells you how close the price is either to the upper band or the lower band at any point in time. When the price is in the middle of the bands (it is calculated with the close value of each candle), then %B is in the middle of its chart, at value 50. When the price touches the upper band, then %B is at 100, and finally when the price is at the lower band, then %B is at 0. The chart contains lines at %B value 30 and 70 since these are the most common values used by traders to forecast when it will reverse it course. It our chart %B is the one represented at #1. I found usefull to add a moving average in order to smooth a little bit its volatility and be able to ask at any time if it is going up or down. The moving average calcualted with the last 5 %B values is plotted as line #2. Finally I also added a property called Bandwidth, which represents the separation of the upper band from the lower band. It is a measure of the volatity and is plotted at #3.  
+6. **Percentage Bandwidth or %B**: this is a well known indicator that derives from the Bollinger Bands. In a nutshell it tells you how close the price is either to the upper band or the lower band at any point in time. When the price is in the middle of the bands (it is calculated with the close value of each candle), then %B is in the middle of its chart, at value 50. When the price touches the upper band, then %B is at 100, and finally when the price is at the lower band, then %B is at 0. The chart contains lines at %B value 30 and 70 since these are the most common values used by traders to forecast when it will reverse it course. It our chart %B is the one represented at #1. I found usefull to add a moving average in order to smooth a little bit its volatility and be able to ask at any time if it is going up or down. The moving average calcualted with the last 5 %B values is plotted as line #2. Finally I also added a property called Bandwidth, which represents the separation of the upper band from the lower band. It is a measure of the volatity and is plotted at #3.  
 
 ![image](https://user-images.githubusercontent.com/9479367/56834223-1c7c1d80-6871-11e9-9687-ae5dc12d0336.png)
 
-7. Bollinger Channels: this is a non-standard indicator derived from the Bollinger Bands. This type of channels are calculated using the Bollinger Bands moving average. Essentially an upward channel begins when the moving average turns from going down to up, and the channel finishes when it turns from going up to down. A downward channel starts when the Bollinger Band moving average turn from going up to down, and it finishes when it starts going up again. Upward channels are plotted in green, while downward ones in red. Additional information can be found at the indicator's panel, like the number of periods contained at the channel.
+7. **Bollinger Channels**: this is a non-standard indicator derived from the Bollinger Bands. This type of channels are calculated using the Bollinger Bands moving average. Essentially an upward channel begins when the moving average turns from going down to up, and the channel finishes when it turns from going up to down. A downward channel starts when the Bollinger Band moving average turn from going up to down, and it finishes when it starts going up again. Upward channels are plotted in green, while downward ones in red. Additional information can be found at the indicator's panel, like the number of periods contained at the channel.
 
 ![image](https://user-images.githubusercontent.com/9479367/56834955-30c11a00-6873-11e9-8601-9d8abc8fab84.png)
 
-8. Bollinger Sub-Channels: if we consider that one Bollinger Chanel can have sub-channels with the same direction (up or down) but different slopes, then we get to the concept of Bollinger Sub-Channeles. The most important property of a sub-channel is its slope. The possible values are: side, gentle, medium, high and extreme. With this information, a trading bot could easily ask if it is in a sub-channel with a certain slope and for how many periods. 
+8. **Bollinger Sub-Channels**: if we consider that one Bollinger Chanel can have sub-channels with the same direction (up or down) but different slopes, then we get to the concept of Bollinger Sub-Channeles. The most important property of a sub-channel is its slope. The possible values are: side, gentle, medium, high and extreme. With this information, a trading bot could easily ask if it is in a sub-channel with a certain slope and for how many periods. 
 
 ![image](https://user-images.githubusercontent.com/9479367/56835528-c610de00-6874-11e9-8431-3cfe0c515f3e.png)
 
 #### Private Layers
 
-1. Trading Simulation: The Trading Simulation layer displays a backtest + fordwartest (paper trading) of whatever strategies you have created in the system. At sign up, you are provided with an initial set of strategies so that you can be up and running as quickly as possilbe. By activating the Trading Simulation layer you should be able to see something like this:
+1. **Trading Simulation**: The Trading Simulation layer displays a backtest + fordwartest (paper trading) of whatever strategies you have created in the system. At sign up, you are provided with an initial set of strategies so that you can be up and running as quickly as possilbe. By activating the Trading Simulation layer you should be able to see something like this:
 
 ![image](https://user-images.githubusercontent.com/9479367/56860461-0799aa00-6997-11e9-9c2d-5ace122a5c25.png)
 

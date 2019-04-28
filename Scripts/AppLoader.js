@@ -84,8 +84,7 @@ function newAppLoader() {
 
                 "ViewPort.js",
                 "TimeMachine.js",
-                "Candle.js",
-                "VolumeBar.js",
+
                 "ChartUtilities.js",
                 "TimelineChart.js",
                 

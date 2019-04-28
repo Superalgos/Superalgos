@@ -1,7 +1,6 @@
 ﻿function newAAMastersPlottersTradingHistory() {
 
     const MODULE_NAME = "AAMasters Plotters Trading History";
-    const INFO_LOG = false;
     const INTENSIVE_LOG = false;
     const ERROR_LOG = true;
     const logger = newWebDebugLog();
@@ -62,8 +61,6 @@
     function finalize() {
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] finalize -> Entering function."); }
-
             /* Stop listening to the necesary events. */
 
             viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId);
@@ -89,8 +86,6 @@
     function initialize(pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
         try {
-
-            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
             datetime = pDatetime;
             timePeriod = pTimePeriod;
@@ -120,8 +115,6 @@
     function getContainer(point) {
 
         try {
-
-            if (INFO_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
 
             let container;
 
@@ -154,8 +147,6 @@
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> Entering function."); }
-
             timePeriod = pTimePeriod;
 
             recalculate();
@@ -169,8 +160,6 @@
     function setDatetime(newDatetime) {
 
         try {
-
-            if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 
             datetime = newDatetime;
 
@@ -192,8 +181,6 @@
     function recalculate(callBackFunction) {    
 
         try {
-
-            if (INFO_LOG === true) { logger.write("[INFO] recalculate -> Entering function."); }
 
             if (fileSequence === undefined) { return; }
 
@@ -423,8 +410,6 @@
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> Entering function."); }
-
             if (fileSequence === undefined) { return; } // We need the market file to be loaded to make the calculation.
 
             if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
@@ -450,8 +435,6 @@
             function getMaxRate() {
 
                 try {
-
-                    if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> getMaxRate > Entering function."); }
 
                     let maxValue = 0;
 

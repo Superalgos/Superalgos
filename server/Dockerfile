@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:12
 
 # Directory where the service will be installed
-ARG API_DIR=/usr/src/masterappapi
+ARG API_DIR=/usr/src/masterapp-api
 
 # Prepare required directories
 RUN mkdir -p ${API_DIR}

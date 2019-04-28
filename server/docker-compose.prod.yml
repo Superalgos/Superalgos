@@ -1,0 +1,24 @@
+version: '3'
+services:
+  node:
+    image: aausersapi-dev:v1
+    build:
+      context: .
+      dockerfile: ./Dockerfile.prod
+    env_file: ./.env
+    container_name: aausersapi
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./:/var/www/app
+      - /var/www/app/node_modules
+    working_dir: /var/www/app
+    restart: always
+    command: npm start
+    expose:
+      - 4000
+    network_mode: webproxy
+networks:
+  default:
+    external:
+      name: webproxy

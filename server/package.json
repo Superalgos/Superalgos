@@ -1,7 +1,11 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Advanced Algos Users backend API",
+  "description": "Superalgos Users backend API",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Superalgos/UsersModule.git"
+  },
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js",

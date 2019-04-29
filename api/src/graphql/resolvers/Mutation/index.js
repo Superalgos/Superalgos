@@ -141,10 +141,11 @@ export const resolvers = {
           logger.info(JSON.stringify(await createStrategy))
         }
       }
-
+      /* **temporarily disable team creation confirmation
       if(await createTeam && await createFB && await createStrategy){
         notifications_sendTeamCreateConfirmation(email, name, botName)
       }
+      */
       return createTeam
     },
     async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {

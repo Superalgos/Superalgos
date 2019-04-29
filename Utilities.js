@@ -169,3 +169,15 @@ function loadEmoji (pPath) {
   return newImage
 }
 
+function printLabel (labelToPrint, x, y, opacity, fontSize) {
+  let labelPoint
+
+  browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+
+  let label = '' + labelToPrint
+
+  let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
+
+  browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
+  browserCanvasContext.fillText(label, x, y)
+}

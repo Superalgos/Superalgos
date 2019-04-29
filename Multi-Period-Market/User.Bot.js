@@ -377,7 +377,11 @@
                             record.begin + "," +
                             record.end + "," +
                             record.status + "," +
-                            record.profit + "]";
+                            record.lastProfitPercent + "," +
+                            record.beginRate + "," +
+                            record.endRate + "," +
+                            record.exitType + "," +
+                            record.stopRate + "]";
 
                         if (separator === "") { separator = ","; }
 

@@ -134,7 +134,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 begin: 0,
                 end: 0,
                 status: 0,
-                profit: 0
+                profit: 0,
+                exitType: 0,
+                beginRate: 0,
+                endRate: 0
             }
 
             /*
@@ -540,6 +543,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         strategyPhase = 4;
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
+                        currentTrade.exitType = 1;
+                        currentTrade.endRate = stopLoss;
 
                         currentStrategy.number = strategyNumber - 1
                         currentStrategy.end = candle.end;
@@ -566,7 +571,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         type = '"Buy@BuyOrder"';
                         strategyPhase = 4;
                         currentTrade.end = candle.end;
-                        currentTrade.status = 1;        
+                        currentTrade.status = 1;    
+                        currentTrade.exitType = 2;
+                        currentTrade.endRate = buyOrder;
 
                         currentStrategy.number = strategyNumber - 1
                         currentStrategy.end = candle.end;
@@ -608,6 +615,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 stopLossPhase = 1;
                                 buyOrderPhase = 1;
                                 currentTrade.begin = candle.begin;
+                                currentTrade.beginRate = candle.close;
                                 return;
                             }
                         }
@@ -768,7 +776,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
 
                     profit = balanceAssetA - initialBalanceA;
-                    
+                    currentTrade.lastProfitPercent = lastProfitPercent;
+                    currentTrade.stopRate = stopLoss;
                     
                     //if (isNaN(ROI)) { ROI = 0; }
 
@@ -972,7 +981,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             begin: 0,
                             end: 0,
                             status: 0,
-                            profit: 0
+                            lastProfitPercent: 0,
+                            exitType: 0,
+                            beginRate: 0,
+                            endRate: 0
                         }
                     }
                 }

@@ -153,3 +153,19 @@ function removeTime (datetime) {
 
   return dateOnly
 }
+
+function loadEmoji (pPath) {
+  let newImage
+
+  newImage = new Image()
+  newImage.onload = onImageLoaded
+
+  function onImageLoaded () {
+    newImage.isLoaded = true
+  }
+
+  newImage.src = window.canvasApp.urlPrefix + 'Images/Emoji/' + pPath
+
+  return newImage
+}
+

@@ -129,11 +129,10 @@ export const ManageTeamsList = ({ classes, match, ...props }) => (
                 </Typography>
 
                 <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-                  To begin developing on the Superalgos platform, as well as to participate in trading competitions, you will need to create a team or become a member of an existing one.
-
-                  Currently, the only option is to create your own team. A trading algobot and simulator algobot will automatically be forked. 
-
-                  After team creation, go to the Strategizer to create trade strategies for your algobots to consume!
+                  Whether you are a trader willing to try out the Strategizer or a developer with more complex aspirations, the first thing you will need is to create a Team.
+                </Typography>
+                <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
+                  At the time of Team creation, the platform will fork two template Finacial Beings to get you started. 
                 </Typography>
                 <CreateTeamForm />
 

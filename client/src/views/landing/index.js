@@ -35,9 +35,6 @@ const Landing = ({ classes, ...props }) => (
         <Typography align='justify'>
           One of the core propositions of the Superalgos projects revolves around people teaming up to breed financial beings and compete in algorithmic trading competitions. Both developing and competing are team activities.
         </Typography>
-        <Typography align='justify'>
-          If you are a user of the system but still haven’t joined any teams, the Teams Module is the right place to find one or even create your own.
-        </Typography>
       </div>
       <div className='column'>
         <Typography align='justify'>

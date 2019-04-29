@@ -30,6 +30,22 @@
       ]
     },
     {
+      "codeName": "Strategies",
+      "moduleName": "Strategies",
+      "description": "Plots Strategies.",
+      "profilePicture": "Strategies.png",
+      "panels": [
+      ]
+    },
+    {
+      "codeName": "Trades",
+      "moduleName": "Trades",
+      "description": "Plots Trades.",
+      "profilePicture": "Trades.png",
+      "panels": [
+      ]
+    },
+    {
       "codeName": "SimulationExecution",
       "moduleName": "SimulationExecution",
       "description": "Plots Simulation Execution.",

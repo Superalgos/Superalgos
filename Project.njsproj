@@ -26,6 +26,12 @@
     <Compile Include="SimulationExecution.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Strategies.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Trades.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TradingSimulationPanel.js" />
     <Compile Include="TradingSimulation.js" />
   </ItemGroup>

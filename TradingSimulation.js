@@ -49,13 +49,6 @@
 
     let records = [];                   // Here we keep the records to be ploted every time the Draw() function is called by the AAWebPlatform.
 
-    let smileyHappy;
-    let smileySad;
-    let strategyImages = [];
-    let smileyMonkeyEyes;
-    let smileyMonkeyEars;
-    let imageStrategy;
-    let imageStrategyPhase;
     let imageStopLossPhase;
     let imageBuyOrderPhase;
 
@@ -80,13 +73,6 @@
 
             /* icons */
 
-            smileyHappy = undefined;
-            smileySad = undefined;
-            strategyImages = undefined;
-            smileyMonkeyEyes = undefined;
-            smileyMonkeyEars = undefined;
-            imageStrategy = undefined;
-            imageStrategyPhase = undefined;
             imageStopLossPhase = undefined;
             imageBuyOrderPhase = undefined;
 
@@ -150,35 +136,8 @@
 
             /* Loading a few icons */
 
-            smileyHappy = loadEmoji("Smiley/Emoji Smiley-51.png");
-            smileySad = loadEmoji("Smiley/Emoji Smiley-26.png");
-            smileyMonkeyEyes = loadEmoji("Smiley/Emoji Smiley-85.png");
-            smileyMonkeyEars = loadEmoji("Smiley/Emoji Smiley-86.png");
-            imageStrategy = loadEmoji("Places/Emoji Orte-90.png");
-            imageStrategyPhase = loadEmoji("Places/Emoji Orte-91.png");
             imageStopLossPhase = loadEmoji("stop.png");
             imageBuyOrderPhase = loadEmoji("Nature/Emoji Natur-67.png");
-
-            for (let i = 1; i < 15; i++) {
-                let strategyImage = loadEmoji("Symbols/Emoji Symbols-" + (112 + i) + ".png");
-                strategyImages.push(strategyImage);
-            }
-
-            function loadEmoji(pPath) {
-
-                let newImage;
-
-                newImage = new Image();
-                newImage.onload = onImageLoaded;
-
-                function onImageLoaded() {
-                    newImage.isLoaded = true;
-                }
-
-                newImage.src = window.canvasApp.urlPrefix + "Images/Emoji/" + pPath;
-
-                return newImage;
-            }
 
             callBackFunction();
 
@@ -591,43 +550,16 @@
             let userPosition = getUserPosition()
             let userPositionDate = userPosition.point.x
 
-            let directionShort;
-            let directionLong;
-
             let record;
-
-            let strategy = {
-                begin: undefined,
-                end: undefined,
-                image: undefined,
-                entryPoint: undefined
-            }
-
-            let trade = {
-                begin: undefined,
-                end: undefined,
-                image: undefined,
-                entryPoint: undefined
-            }
 
             /* Now we calculate and plot the records */
 
             for (let i = 1; i < records.length; i++) { // We do not start in 0 so as to be able to read the previous record i - 1
 
                 record = records[i];
-                directionShort = 0;
-                let strategyNumber;
-                let strategyPhase = 0;
+                
                 let stopLossPhase = 0;
                 let buyOrderPhase = 0;
-
-                if (record.strategy !== records[i - 1].strategy) { // When a change in the strategy field is detected, it is time to plot it.
-                    strategyNumber = record.strategy;
-                }
-
-                if (record.strategyPhase !== records[i - 1].strategyPhase) {
-                    strategyPhase = record.strategyPhase;
-                }
 
                 if (record.stopLossPhase !== records[i - 1].stopLossPhase) {
                     stopLossPhase = record.stopLossPhase;
@@ -636,41 +568,6 @@
                 if (record.buyOrderPhase !== records[i - 1].buyOrderPhase) {
                     buyOrderPhase = record.buyOrderPhase;
                 }
-
-                if (record.type === 'Buy@BuyOrder') { directionShort = +1; }
-                if (record.type === 'Buy@StopLoss') { directionShort = +1; }
-                if (record.type === 'Sell') { directionShort = +1; }
-
-                if (strategyPhase > 0) {
-                    if (strategyPhase % 2 !== 0) { //Depending if the phase is oddd or even goes above or below.
-                        directionLong = 1;
-                    } else {
-                        directionLong = -1;
-                    }
-                }
-
-                if (strategyNumber === 0) {
-                    directionLong = -1;
-                }
-
-                if (strategyNumber > 0) {
-                    directionLong = -1;
-                }
-
-                let recordPoint1 = {
-                    x: record.begin + (record.end - record.begin) / 2,
-                    y: record.rate
-                };
-
-                let recordPoint2 = {    // Long Stick Head
-                    x: record.begin + (record.end - record.begin) / 2,
-                    y: 0
-                };
-
-                let recordPoint3 = {    // Short Stick Head
-                    x: record.end,
-                    y: 0
-                };
 
                 let recordPoint4 = {
                     x: record.begin,
@@ -720,9 +617,6 @@
                     recordPoint9.x = 0;
                 }
 
-                recordPoint1 = timeLineCoordinateSystem.transformThisPoint(recordPoint1);
-                recordPoint2 = timeLineCoordinateSystem.transformThisPoint(recordPoint2);
-                recordPoint3 = timeLineCoordinateSystem.transformThisPoint(recordPoint3);
                 recordPoint4 = timeLineCoordinateSystem.transformThisPoint(recordPoint4);
                 recordPoint5 = timeLineCoordinateSystem.transformThisPoint(recordPoint5);
                 recordPoint6 = timeLineCoordinateSystem.transformThisPoint(recordPoint6);
@@ -730,9 +624,6 @@
                 recordPoint8 = timeLineCoordinateSystem.transformThisPoint(recordPoint8);
                 recordPoint9 = timeLineCoordinateSystem.transformThisPoint(recordPoint9);
 
-                recordPoint1 = transformThisPoint(recordPoint1, thisObject.container);
-                recordPoint2 = transformThisPoint(recordPoint2, thisObject.container);
-                recordPoint3 = transformThisPoint(recordPoint3, thisObject.container);
                 recordPoint4 = transformThisPoint(recordPoint4, thisObject.container);
                 recordPoint5 = transformThisPoint(recordPoint5, thisObject.container);
                 recordPoint6 = transformThisPoint(recordPoint6, thisObject.container);
@@ -740,16 +631,10 @@
                 recordPoint8 = transformThisPoint(recordPoint8, thisObject.container);
                 recordPoint9 = transformThisPoint(recordPoint9, thisObject.container);
 
-                if (recordPoint1.x < viewPort.visibleArea.bottomLeft.x || recordPoint1.x > viewPort.visibleArea.bottomRight.x) {
+                if (recordPoint4.x < viewPort.visibleArea.bottomLeft.x || recordPoint4.x > viewPort.visibleArea.bottomRight.x) {
                     continue;
                 }
 
-                recordPoint2.y = recordPoint1.y - 2000 * directionLong;
-                recordPoint3.y = recordPoint1.y - 0 * directionShort;
-
-                recordPoint1 = viewPort.fitIntoVisibleArea(recordPoint1);
-                recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
-                recordPoint3 = viewPort.fitIntoVisibleArea(recordPoint3);
                 recordPoint4 = viewPort.fitIntoVisibleArea(recordPoint4);
                 recordPoint5 = viewPort.fitIntoVisibleArea(recordPoint5);
                 recordPoint6 = viewPort.fitIntoVisibleArea(recordPoint6);
@@ -843,190 +728,6 @@
                     printLabel(buyOrderPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9, '0.9', 8);
                 }
 
-                if (
-                    record.type !== ''
-                ) {
-
-                    /* Next we are drawing the SHORT stick */
-
-                    drawStick(recordPoint3);
-
-                }
-
-                function drawStick(headPoint) {
-
-                    browserCanvasContext.beginPath();
-
-                    browserCanvasContext.moveTo(recordPoint1.x, recordPoint1.y);
-                    browserCanvasContext.lineTo(headPoint.x, headPoint.y);
-
-                    browserCanvasContext.closePath();
-
-                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.25)';
-
-                    if (userPositionDate >= record.begin && userPositionDate <= record.end) {
-
-                        /* highlight the current record */
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
-                    }
-
-                    browserCanvasContext.setLineDash([4, 3])
-                    browserCanvasContext.lineWidth = 0.2
-                    browserCanvasContext.stroke()
-                    browserCanvasContext.setLineDash([0, 0])
-
-                }
-
-                //browserCanvasContext.beginPath();
-
-                let line1;
-                let line2;
-
-                drawStrategy();
-                drawTrade();
-
-                function drawStrategy() {
-
-                    if (strategyNumber < 15 && strategyNumber > 0) {
-                        strategy.image = strategyImages[strategyNumber - 1];
-                        strategy.entryPoint = recordPoint2;
-                        strategy.begin = record.begin
-                        strategy.end = record.end
-
-                        imageToDraw = strategy.image;
-
-                    }
-
-                    if (strategyNumber === 0) {
-
-                        if (strategy.entryPoint !== undefined) {
-                            /* Draw the line that represents the duration of closed strategy */
-
-                            browserCanvasContext.beginPath();
-
-                            browserCanvasContext.moveTo(strategy.entryPoint.x + imageSize / 2, strategy.entryPoint.y);
-                            browserCanvasContext.lineTo(recordPoint2.x - imageSize / 2, recordPoint2.y);
-
-                            browserCanvasContext.closePath();
-
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)';
-                            browserCanvasContext.lineWidth = 1
-
-                            browserCanvasContext.stroke()
-                        }
-
-                        imageToDraw = strategy.image;
-                    }
-
-                    if (imageToDraw !== undefined) {
-
-                        if (strategyNumber !== undefined) {
-
-                            drawStick(recordPoint2);
-
-                        }
-
-                        if (imageToDraw.isLoaded === true) {
-                            browserCanvasContext.drawImage(imageToDraw, recordPoint2.x - imageSize / 2, recordPoint2.y - imageSize / 2, imageSize, imageSize);
-                            imageToDraw = undefined;
-                        }
-                    }
-
-                    if (strategyNumber === 0) {
-                        strategy = {
-                            begin: undefined,
-                            end: undefined,
-                            image: undefined,
-                            entryPoint: undefined
-                        }
-                    }
-                }
-
-                function drawTrade() {
-
-                    if (record.type === 'Buy@StopLoss' || record.type === 'Buy@BuyOrder') {
-
-                        if (record.type === 'Buy@StopLoss') {
-
-                            line1 = 'STOP';
-
-                        } else {
-
-                            line1 = 'TP';
-                        }
-
-                        if (record.lastProfit < 0) {
-
-                            line2 = (record.lastProfitPercent).toFixed(2) + ' %';
-                            imageToDraw = smileySad;
-
-                        } else {
-
-                            line2 = (record.lastProfitPercent).toFixed(2) + ' %';
-                            imageToDraw = smileyHappy;
-                        }
-
-                        if (trade.entryPoint !== undefined) {
-                            /* Draw the triangle  that represents the trade. */
-
-                            browserCanvasContext.beginPath();
-
-                            browserCanvasContext.moveTo(trade.entryPoint.x, trade.entryPoint.y);
-                            browserCanvasContext.lineTo(recordPoint3.x, recordPoint3.y);
-                            browserCanvasContext.lineTo(recordPoint3.x, trade.entryPoint.y);
-
-                            browserCanvasContext.closePath();
-
-                            let opacity = '0.25';
-
-                            if (recordPoint3.y > trade.entryPoint.y) {
-                                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')';
-                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + ')';
-                            } else {
-                                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + opacity + ')';
-                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')';
-                            }
-
-                            browserCanvasContext.fill();
-
-                            browserCanvasContext.lineWidth = 1;
-                            browserCanvasContext.stroke();
-                        }
-
-                        if (
-                            recordPoint3.x < viewPort.visibleArea.topLeft.x + 250
-                            ||
-                            recordPoint3.x > viewPort.visibleArea.bottomRight.x - 250
-                            ||
-                            recordPoint3.y > viewPort.visibleArea.bottomRight.y - 100
-                            ||
-                            recordPoint3.y < viewPort.visibleArea.topLeft.y + 100
-                        ) {
-                            // we do not write any text
-                        } else {
-                            if (line1 !== undefined && trade.entryPoint !== undefined) {
-
-                                printLabel(line1, recordPoint3.x - (recordPoint3.x - trade.entryPoint.x) / 2 - line1.length * FONT_ASPECT_RATIO, recordPoint4.y - 30, '0.50', 12);
-                                printLabel(line2, recordPoint3.x - (recordPoint3.x - trade.entryPoint.x) / 2 - line2.length * FONT_ASPECT_RATIO, recordPoint4.y - 15, '0.50', 12);
-
-                            }
-                        }
-
-                    }
-
-                    if (record.type === 'Sell') {
-
-                        line1 = '';
-                        line2 = '';
-
-                        imageToDraw = smileyHappy;
-
-                        trade.begin = record.begin;
-                        trade.end = record.end;
-                        trade.entryPoint = recordPoint3;
-                    }
-                }
-
                 /* Send the current record to the panel */
 
                 if (userPositionDate >= record.begin && userPositionDate <= record.end) {
@@ -1036,25 +737,6 @@
                     };
                     thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);
                 }
-
-                /* This is how we write the text */
-
-                function printLabel(labelToPrint, x, y, opacity, fontSize) {
-
-                    let labelPoint;
-
-                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira';
-
-                    let label = '' + labelToPrint;
-
-                    let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
-
-                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
-                    browserCanvasContext.fillText(label, x, y);
-
-                }
-
-
             }
 
 
@@ -1069,8 +751,6 @@
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] onZoomChanged -> Entering function."); }
-
             recalculate();
 
         } catch (err) {
@@ -1082,8 +762,6 @@
     function onOffsetChanged() {
 
         try {
-
-            if (INFO_LOG === true) { logger.write("[INFO] onOffsetChanged -> Entering function."); }
 
             if (Math.random() * 100 > 95) {
 
@@ -1099,8 +777,6 @@
     function onDragFinished() {
 
         try {
-
-            if (INFO_LOG === true) { logger.write("[INFO] onDragFinished -> Entering function."); }
 
             recalculate();
 

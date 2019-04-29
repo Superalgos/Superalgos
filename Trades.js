@@ -1,6 +1,6 @@
-﻿function newAAMastersPlottersTradingSimulationConditions() {
+﻿function newAAMastersPlottersTradingSimulationTrades() {
 
-    const MODULE_NAME = "Conditions Plotter";
+    const MODULE_NAME = "Trades Plotter";
     const INFO_LOG = false;
     const ERROR_LOG = true;
     const INTENSIVE_LOG = false;
@@ -48,7 +48,7 @@
 
     /* these are module specific variables: */
 
-    let conditions = [];
+    let trades = [];
     let headers;
 
     return thisObject;
@@ -207,7 +207,7 @@
 
                     fileCursor = newFileCursor; // In this case, we explicitly want that if there is no valid cursor, we invalidate the data and show nothing.
                     recalculate();
-                   
+
                 }
             }
 
@@ -277,7 +277,7 @@
 
             }
 
-            thisObject.container.eventHandler.raiseEvent("Conditions Changed", conditions);
+            thisObject.container.eventHandler.raiseEvent("Trades Changed", trades);
 
         } catch (err) {
 
@@ -292,12 +292,12 @@
             if (INFO_LOG === true) { logger.write("[INFO] recalculateUsingDailyFiles -> Entering function."); }
 
             if (fileCursor === undefined) {
-                conditions = [];
+                trades = [];
                 return;
             } // We need to wait
 
             if (fileCursor.files.size === 0) {
-                conditions = [];
+                trades = [];
                 return;
             } // We need to wait until there are files in the cursor
 
@@ -313,9 +313,9 @@
 
             let currentDate = new Date(farLeftDate.valueOf());
 
-            conditions = [];
-            
-     
+            trades = [];
+
+
 
             while (currentDate.valueOf() <= farRightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
 
@@ -325,32 +325,27 @@
 
                 if (dailyFile !== undefined) {
 
-                    headers = dailyFile[0];
+                    for (let i = 0; i < dailyFile.length; i++) {
 
-                    for (let i = 0; i < dailyFile[2].length; i++) {
+                        let record = {};
 
-                        let record = {
-                            begin: undefined,
-                            end: undefined,
-                            conditions: undefined
-                        };
-
-                        record.begin = dailyFile[2][i][0];
-                        record.end = dailyFile[2][i][1];
-                        record.strategyNumber = dailyFile[2][i][2];
-                        record.strategyPhase = dailyFile[2][i][3];
-                        record.stopLossPhase = dailyFile[2][i][4];
-                        record.buyOrderPhase = dailyFile[2][i][5];
-                        record.conditions = dailyFile[2][i][6];
+                        record.begin = dailyFile[i][0];
+                        record.end = dailyFile[i][1];
+                        record.status = dailyFile[i][2];
+                        record.lastProfitPercent = dailyFile[i][3];
+                        record.beginRate = dailyFile[i][4];
+                        record.endRate = dailyFile[i][5];
+                        record.exitType = dailyFile[i][6];
+                        record.stopRate = dailyFile[i][7];
 
                         if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
 
-                            conditions.push(record);
+                            trades.push(record);
 
                             if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
 
                                 thisObject.currentRecord = record;
-                                thisObject.container.eventHandler.raiseEvent("Current Condition Changed", thisObject.currentRecord);
+                                thisObject.container.eventHandler.raiseEvent("Current Trade Changed", thisObject.currentRecord);
 
                             }
                         }
@@ -360,23 +355,23 @@
                 currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);
             }
 
-            /* Lests check if all the visible screen is going to be covered by conditions. */
+            /* Lests check if all the visible screen is going to be covered by trades. */
 
             let lowerEnd = leftDate.valueOf();
             let upperEnd = rightDate.valueOf();
 
-            if (conditions.length > 0) {
+            if (trades.length > 0) {
 
-                if (conditions[0].begin > lowerEnd || conditions[conditions.length - 1].end < upperEnd) {
+                if (trades[0].begin > lowerEnd || trades[trades.length - 1].end < upperEnd) {
 
                     setTimeout(recalculate, 2000);
 
-                    //console.log("File missing while calculating conditions, scheduling a recalculation in 2 seconds.");
+                    //console.log("File missing while calculating trades, scheduling a recalculation in 2 seconds.");
 
                 }
             }
 
-            //console.log("Olivia > recalculateUsingDailyFiles > total conditions generated : " + conditions.length);
+            //console.log("Olivia > recalculateUsingDailyFiles > total trades generated : " + trades.length);
 
         } catch (err) {
 
@@ -402,40 +397,35 @@
             leftDate = new Date(leftDate.valueOf() - dateDiff * 1.5);
             rightDate = new Date(rightDate.valueOf() + dateDiff * 1.5);
 
-            conditions = [];
-            headers = marketFile[0];
-            let lastObjects = marketFile[1]; // Here we get the values of the last 5 objects
+            trades = [];
 
-            for (let i = 0; i < marketFile[2].length; i++) {
+            for (let i = 0; i < marketFile.length; i++) {
 
-                let record = {
-                    begin: undefined,
-                    end: undefined,
-                    conditions: undefined
-                };
+                let record = {};
 
-                record.begin = marketFile[2][i][0];
-                record.end = marketFile[2][i][1];
-                record.strategyNumber = marketFile[2][i][2];
-                record.strategyPhase = marketFile[2][i][3];
-                record.stopLossPhase = marketFile[2][i][4];
-                record.buyOrderPhase = marketFile[2][i][5];
-                record.conditions = marketFile[2][i][6];
+                record.begin = marketFile[i][0];
+                record.end = marketFile[i][1];
+                record.status = marketFile[i][2];
+                record.lastProfitPercent = marketFile[i][3];
+                record.beginRate = marketFile[i][4];
+                record.endRate = marketFile[i][5];
+                record.exitType = marketFile[i][6];
+                record.stopRate = marketFile[i][7];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
-                    conditions.push(record);
+                    trades.push(record);
 
                     if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
 
                         thisObject.currentRecord = record;
-                        thisObject.container.eventHandler.raiseEvent("Current Condition Changed", thisObject.currentRecord);
+                        thisObject.container.eventHandler.raiseEvent("Current Trade Changed", thisObject.currentRecord);
 
                     }
                 }
             }
 
-            //console.log("Olivia > recalculateUsingMarketFiles > total conditions generated : " + conditions.length);
+            //console.log("Olivia > recalculateUsingMarketFiles > total trades generated : " + trades.length);
 
         } catch (err) {
 
@@ -446,10 +436,6 @@
     function recalculateScale() {
 
         try {
-
-            if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> Entering function."); }
-
-            if (marketFile === undefined) { return; } // We need the market file to be loaded to make the calculation.
 
             if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
 
@@ -484,27 +470,131 @@
             let userPosition = getUserPosition()
             let userPositionDate = userPosition.point.x
 
-            thisObject.container.eventHandler.raiseEvent("Current Condition Record Changed", undefined);
+            thisObject.container.eventHandler.raiseEvent("Current Trade Record Changed", undefined);
 
-            let conditionRecord;
+            let record;
 
-            for (let i = 0; i < conditions.length; i++) { 
+            for (let i = 0; i < trades.length; i++) {
 
-                conditionRecord = conditions[i];
+                record = trades[i];
 
                 /* Send the current record to the panel */
-      
-                if (userPositionDate >= conditionRecord.begin && userPositionDate <= conditionRecord.end) {
+
+                if (userPositionDate >= record.begin && userPositionDate <= record.end) {
 
                     let currentRecord = {
-                        conditionsNames: headers,
-                        strategyNumber: conditionRecord.strategyNumber,
-                        strategyPhase: conditionRecord.strategyPhase,
-                        stopLossPhase: conditionRecord.stopLossPhase,
-                        buyOrderPhase: conditionRecord.buyOrderPhase,
-                        conditionsValues: conditionRecord.conditions
                     };
-                    thisObject.container.eventHandler.raiseEvent("Current Condition Record Changed", currentRecord);
+                    thisObject.container.eventHandler.raiseEvent("Current Trade Record Changed", currentRecord);
+                }
+
+                let recordPoint1 = {
+                    x: record.begin,
+                    y: record.beginRate
+                };
+
+                let recordPoint2 = {
+                    x: record.end,
+                    y: record.beginRate
+                };
+
+                let recordPoint3 = {
+                    x: record.end,
+                    y: record.endRate
+                };
+
+                let recordPoint4 = {
+                    x: record.end,
+                    y: record.stopRate
+                };
+
+                recordPoint1 = timeLineCoordinateSystem.transformThisPoint(recordPoint1);
+                recordPoint2 = timeLineCoordinateSystem.transformThisPoint(recordPoint2);
+                recordPoint3 = timeLineCoordinateSystem.transformThisPoint(recordPoint3);
+                recordPoint4 = timeLineCoordinateSystem.transformThisPoint(recordPoint4);
+
+                recordPoint1 = transformThisPoint(recordPoint1, thisObject.container);
+                recordPoint2 = transformThisPoint(recordPoint2, thisObject.container);
+                recordPoint3 = transformThisPoint(recordPoint3, thisObject.container);
+                recordPoint4 = transformThisPoint(recordPoint4, thisObject.container);
+
+                if (recordPoint2.x < viewPort.visibleArea.bottomLeft.x || recordPoint1.x > viewPort.visibleArea.bottomRight.x) {
+                    continue;
+                }
+
+                recordPoint1 = viewPort.fitIntoVisibleArea(recordPoint1);
+                recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
+                recordPoint3 = viewPort.fitIntoVisibleArea(recordPoint3);
+                recordPoint4 = viewPort.fitIntoVisibleArea(recordPoint4);
+
+                let line1 = '';
+                let line2 = '';
+
+                switch (record.exitType) {
+                    case 1: {
+                        line1 = 'STOP';
+                        break;
+                    }
+                    case 2: {
+                        line1 = 'TP';
+                        break;
+                    }
+                }
+
+                if (record.lastProfitPercent < 0) {
+
+                    line2 = (record.lastProfitPercent).toFixed(2) + ' %';
+
+                } else {
+
+                    line2 = (record.lastProfitPercent).toFixed(2) + ' %';
+                }
+
+                /* Draw the triangle  that represents the trade. */
+
+                browserCanvasContext.beginPath();
+
+                browserCanvasContext.moveTo(recordPoint1.x, recordPoint1.y);
+                browserCanvasContext.lineTo(recordPoint2.x, recordPoint2.y);
+                browserCanvasContext.lineTo(recordPoint3.x, recordPoint3.y);
+
+                browserCanvasContext.closePath();
+
+                let opacity = '0.25';
+
+                if (record.lastProfitPercent > 0) {
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')';
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + ')';
+                } else {
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + opacity + ')';
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')';
+                }
+
+                if (userPositionDate >= record.begin && userPositionDate <= record.end) {
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + opacity + ')';
+                }
+
+                browserCanvasContext.fill();
+
+                browserCanvasContext.lineWidth = 1;
+                browserCanvasContext.stroke();
+
+                if (
+                    recordPoint4.x < viewPort.visibleArea.topLeft.x + 250
+                    ||
+                    recordPoint4.x > viewPort.visibleArea.bottomRight.x - 250
+                    ||
+                    recordPoint4.y > viewPort.visibleArea.bottomRight.y - 100
+                    ||
+                    recordPoint4.y < viewPort.visibleArea.topLeft.y + 100
+                ) {
+                    // we do not write any text
+                } else {
+
+
+                    printLabel(line1, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line1.length * FONT_ASPECT_RATIO, recordPoint4.y - 30, '0.50', 12);
+                    printLabel(line2, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line2.length * FONT_ASPECT_RATIO, recordPoint4.y - 15, '0.50', 12);
+
+
                 }
             }
 
@@ -560,6 +650,8 @@
         }
     }
 }
+
+
 
 
 

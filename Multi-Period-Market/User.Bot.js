@@ -7,6 +7,8 @@
 
     const SIMULATED_RECORDS_FOLDER_NAME = "Trading-Simulation";
     const CONDITIONS_FOLDER_NAME = "Simulation-Conditions";
+    const STRATEGIES_FOLDER_NAME = "Simulation-Strategies";
+    const TRADES_FOLDER_NAME = "Simulation-Trades";
 
     const commons = COMMONS.newCommons(bot, logger, UTILITIES);
 
@@ -63,6 +65,8 @@
 
             let recordsArray = [];
             let conditionsArray = [];
+            let strategiesArray = [];
+            let tradesArray = [];
             let lastObjectsArray = [];
 
             let simulationLogic = {};
@@ -108,6 +112,8 @@
             commons.runSimulation(
                 recordsArray,
                 conditionsArray,
+                strategiesArray,
+                tradesArray,
                 lastObjectsArray,
                 simulationLogic,
                 timePeriod,
@@ -268,7 +274,7 @@
 
                             }
 
-                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                            writeStrategiesFile();
 
                         }
                         catch (err) {
@@ -279,6 +285,143 @@
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function writeStrategiesFile() {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStrategiesFile -> Entering function."); }
+
+                    let separator = "";
+                    let fileRecordCounter = 0;
+
+                    let fileContent = "";
+
+                    for (let i = 0; i < strategiesArray.length; i++) {
+                        let record = strategiesArray[i];
+
+                        fileContent = fileContent + separator + '[' +
+                            record.begin + "," +
+                            record.end + "," +
+                            record.status + "," +
+                            record.number + "," +
+                            record.beginRate + "," +
+                            record.endRate  + "]";
+
+                        if (separator === "") { separator = ","; }
+
+                        fileRecordCounter++;
+
+                    }
+
+                    fileContent = "[" + fileContent + "]";
+                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                    let filePath = filePathRoot + "/Output/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
+
+                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                    function onFileCreated(err) {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStrategiesFile -> onFileCreated -> Entering function."); }
+                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStrategiesFile -> onFileCreated -> fileContent = " + fileContent); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> filePath = " + filePath);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+
+                                callBackFunction(err);
+                                return;
+
+                            }
+
+                            writeTradesFile();
+
+                        }
+                        catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+                }
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function writeTradesFile() {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeTradesFile -> Entering function."); }
+
+                    let separator = "";
+                    let fileRecordCounter = 0;
+
+                    let fileContent = "";
+
+                    for (let i = 0; i < tradesArray.length; i++) {
+
+                        let record = tradesArray[i];
+
+                        fileContent = fileContent + separator + '[' +
+                            record.begin + "," +
+                            record.end + "," +
+                            record.status + "," +
+                            record.profit + "]";
+
+                        if (separator === "") { separator = ","; }
+
+                        fileRecordCounter++;
+
+                    }
+
+                    fileContent = "[" + fileContent + "]";
+                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                    let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
+
+                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                    function onFileCreated(err) {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeTradesFile -> onFileCreated -> Entering function."); }
+                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeTradesFile -> onFileCreated -> fileContent = " + fileContent); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> filePath = " + filePath);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+
+                                callBackFunction(err);
+                                return;
+
+                            }
+
+                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                        }
+                        catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+                }
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }

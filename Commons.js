@@ -56,6 +56,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
     async function runSimulation(
         recordsArray,
         conditionsArray,
+        strategiesArray,
+        tradesArray,
         lastObjectsArray,
         simulationLogic,
         timePeriod,
@@ -113,6 +115,20 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let type = '""';
             let rate = 0;
             let newStopLoss;
+
+            let currentStrategy = {
+                begin: 0,
+                end: 0,
+                status: 0,
+                number: 0
+            }
+
+            let currentTrade = {
+                begin: 0,
+                end: 0,
+                status: 0,
+                profit: 0
+            }
 
             /*
             The following counters need to survive multiple executions of the similator and keep themselves reliable.
@@ -397,7 +413,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                /* While we are outside all strategies, we evaluate whether it is time to enter one or not. */
+
+                /* Strategy Enter Condition */
 
                 if (strategyNumber === 0 &&
                     balanceAssetA > minimunBalanceA) {
@@ -440,7 +457,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                     strategyPhase = 1;
                                     strategyNumber = j + 1;
-
+                                    currentStrategy.begin = candle.begin;
+                                    currentStrategy.beginRate = candle.min;
+                                    currentStrategy.endRate = candle.min; // In case the strategy does not get exited
                                     return;
                                 }
                             }
@@ -475,6 +494,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                             if (passed) {
 
+                                currentStrategy.number = strategyNumber - 1
+                                currentStrategy.end = candle.end;
+                                currentStrategy.endRate = candle.min;
+                                currentStrategy.status = 1;
                                 strategyPhase = 0;
                                 strategyNumber = 0;
 
@@ -483,6 +506,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
                 }
+
+                /* Checking if Stop or Take Profit were hit */
 
                 if (strategyPhase === 3) {
 
@@ -506,6 +531,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         rate = stopLoss;
                         type = '"Buy@StopLoss"';
                         strategyPhase = 4;
+                        currentTrade.end = candle.end;
+                        currentTrade.status = 1;
+
+                        currentStrategy.number = strategyNumber - 1
+                        currentStrategy.end = candle.end;
+                        currentStrategy.endRate = candle.min;
+                        currentStrategy.status = 1;
                     }
 
                     /* Buy Order condition: Here we verify if the Buy Order was filled or not. */
@@ -526,10 +558,17 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         rate = buyOrder;
                         type = '"Buy@BuyOrder"';
                         strategyPhase = 4;
+                        currentTrade.end = candle.end;
+                        currentTrade.status = 1;        
+
+                        currentStrategy.number = strategyNumber - 1
+                        currentStrategy.end = candle.end;
+                        currentStrategy.endRate = candle.min;
+                        currentStrategy.status = 1;
                     }
                 }
 
-                /* Strategy Sell Condition */
+                /* Trade Enter Condition */
 
                 if (strategyPhase === 1) {
 
@@ -561,7 +600,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 strategyPhase = 2;
                                 stopLossPhase = 1;
                                 buyOrderPhase = 1;
-
+                                currentTrade.begin = candle.begin;
                                 return;
                             }
                         }
@@ -619,7 +658,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                /* Buy Order Management */
+                /* Take Profit Management */
 
                 if (strategyPhase === 3) {
 
@@ -664,7 +703,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                /* Check if we need to sell. */
+                /* Entering into a Trade */
 
                 if (strategyPhase === 2) {
 
@@ -698,7 +737,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     continue;
                 }
 
-                /* Check if we need to buy. */
+                /* Exiting a Trade */
 
                 if (strategyPhase === 4) {
 
@@ -768,7 +807,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     strategyPhase = 0;
                     stopLossPhase = 0;
                     buyOrderPhase = 0;
-
                     continue;
 
                 }
@@ -821,7 +859,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         0,
                         "")
 
-                    } else {
+                    }
+                    else {
 
                         orderRecord = createMessage(
                         messageId,
@@ -882,6 +921,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     type = '""';
 
+                    /* Prepare the information for the Conditions File */
+
                     conditionsArrayRecord.push(strategyNumber);
                     conditionsArrayRecord.push(strategyPhase);
                     conditionsArrayRecord.push(stopLossPhase);
@@ -890,6 +931,43 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     conditionsArray.push(conditionsArrayRecord);
 
+                    /* Prepare the information for the Strategies File*/
+
+                    if (
+                        (currentStrategy.begin !== 0 && currentStrategy.end !== 0) ||
+                        (currentStrategy.begin !== 0 && i === candles.length - 1)
+                    ) {
+
+                        strategiesArray.push(currentStrategy);
+
+                        currentStrategy = {
+                            begin: 0,
+                            end: 0,
+                            status: 0,
+                            number: 0,
+                            beginRate: 0,
+                            endRate: 0
+                        }
+                    }
+
+                    /* Prepare the information for the Trades File */
+
+                    if (
+                        (currentTrade.begin !== 0 && currentTrade.end !== 0) ||
+                        (currentTrade.begin !== 0 && i === candles.length - 1)
+                    ) {
+
+                        currentTrade.profit = lastProfit;
+
+                        tradesArray.push(currentTrade);
+
+                        currentTrade = {
+                            begin: 0,
+                            end: 0,
+                            status: 0,
+                            profit: 0
+                        }
+                    }
                 }
             }
 

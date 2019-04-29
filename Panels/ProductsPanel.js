@@ -41,7 +41,7 @@
      thisObject.container.name = 'Layers @ ' + exchange + ' ' + market.assetB + '/' + market.assetA
      thisObject.container.frame.containerName = thisObject.container.name
      thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
-     thisObject.container.frame.height = viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
+     thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
 
      var position = {
        x: viewPort.visibleArea.topLeft.x,

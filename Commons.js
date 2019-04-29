@@ -116,6 +116,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let rate = 0;
             let newStopLoss;
 
+            /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need thse variables. */
+
+            let lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
+            let lastCandle = candles[candles.length - 1];
+
+            /* These 2 objects will allow us to create separate files for each one of them. */
+
             let currentStrategy = {
                 begin: 0,
                 end: 0,
@@ -157,7 +164,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let hits = 0;
             let periods = 0;
 
-            /* Message to Su=Simulation Executor */
+            /* Message to the Simulation Executor */
 
             let orderId = 0;
             let messageId = 0;
@@ -935,7 +942,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (
                         (currentStrategy.begin !== 0 && currentStrategy.end !== 0) ||
-                        (currentStrategy.begin !== 0 && i === candles.length - 1)
+                        (currentStrategy.begin !== 0 && i === candles.length - 1 && lastCandle.end !== lastInstantOfTheDay)
                     ) {
 
                         strategiesArray.push(currentStrategy);
@@ -954,7 +961,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (
                         (currentTrade.begin !== 0 && currentTrade.end !== 0) ||
-                        (currentTrade.begin !== 0 && i === candles.length - 1)
+                        (currentTrade.begin !== 0 && i === candles.length - 1 && lastCandle.end !== lastInstantOfTheDay)
                     ) {
 
                         currentTrade.profit = lastProfit;
@@ -978,11 +985,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (currentDay !== undefined) {
 
-                let lastInstantOdDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
-
-                lastCandle = candles[candles.length - 1];
-
-                if (lastCandle.end === lastInstantOdDay) {
+                if (lastCandle.end === lastInstantOfTheDay) {
 
                     interExecutionMemory.balanceAssetA = yesterday.balanceAssetA;
                     interExecutionMemory.balanceAssetB = yesterday.balanceAssetB;
@@ -1025,7 +1028,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] runSimulation -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] runSimulation -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1072,7 +1075,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildLRC -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] buildLRC -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1111,7 +1114,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildPercentageBandwidthMap -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] buildPercentageBandwidthMap -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1150,7 +1153,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildBollingerBandsMap -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] buildBollingerBandsMap -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1184,7 +1187,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildBollingerChannelsArray -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] buildBollingerChannelsArray -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1219,7 +1222,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildBollingerSubChannelsArray -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] buildBollingerSubChannelsArray -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1265,7 +1268,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildCandles -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] buildCandles -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

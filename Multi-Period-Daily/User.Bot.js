@@ -44,12 +44,12 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } else {
-                    logger.write(MODULE_NAME, "[ERROR] initializeStorage -> onStorageInizialized -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initializeStorage -> onStorageInizialized -> err = " + err.stack);
                     callBackFunction(err);
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -193,7 +193,7 @@
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> onFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> onFileCreated -> err = " + err.stack);
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> onFileCreated -> filePath = " + filePath);
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
 
@@ -206,13 +206,13 @@
 
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> onFileCreated -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> onFileCreated -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -278,7 +278,7 @@
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> onFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> onFileCreated -> err = " + err.stack);
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> onFileCreated -> filePath = " + filePath);
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
 
@@ -291,13 +291,13 @@
 
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> onFileCreated -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> onFileCreated -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -316,9 +316,10 @@
                     for (let i = 0; i < strategiesArray.length; i++) {
                         let record = strategiesArray[i];
 
-                        /* Will only add to the file the records of the current day */
+                        /* Will only add to the file the records of the current day. In this case since objects can span more than one day, we add all of the objects that ends
+                        at the current date. */
 
-                        if (record.begin < currentDay.valueOf()) { continue; }
+                        if (record.end < currentDay.valueOf()) { continue; }
 
                         fileContent = fileContent + separator + '[' +
                             record.begin + "," +
@@ -353,7 +354,7 @@
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> err = " + err.stack);
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> filePath = " + filePath);
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
 
@@ -366,13 +367,13 @@
 
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -392,9 +393,10 @@
 
                         let record = tradesArray[i];
 
-                        /* Will only add to the file the records of the current day */
+                        /* Will only add to the file the records of the current day. In this case since objects can span more than one day, we add all of the objects that ends
+                        at the current date. */
 
-                        if (record.begin < currentDay.valueOf()) { continue; }
+                        if (record.end < currentDay.valueOf()) { continue; }
 
                         fileContent = fileContent + separator + '[' +
                             record.begin + "," +
@@ -427,7 +429,7 @@
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> err = " + err.stack);
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> filePath = " + filePath);
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
 
@@ -440,13 +442,13 @@
 
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -454,7 +456,7 @@
 
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

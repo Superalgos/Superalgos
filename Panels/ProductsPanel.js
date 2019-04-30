@@ -45,7 +45,7 @@
 
      var position = {
        x: viewPort.visibleArea.topLeft.x,
-       y: viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height
+       y: viewPort.visibleArea.topLeft.y// viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height
      }
 
      thisObject.container.frame.position = position

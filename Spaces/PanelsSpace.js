@@ -16,7 +16,7 @@ function newPanelsSpace () {
     initialize: initialize
   }
 
-  var container = newContainer()
+  let container = newContainer()
   container.initialize()
   thisObject.container = container
   thisObject.container.isDraggeable = false
@@ -99,8 +99,8 @@ function newPanelsSpace () {
     thisObject.container.frame.draw(false, false)
 
     thisObject.panels = panelsMap.get('Global')
-    if (thisObject.panels != undefined) {
-      for (var i = 0; i < thisObject.panels.length; i++) {
+    if (thisObject.panels !== undefined) {
+      for (let i = 0; i < thisObject.panels.length; i++) {
         let panel = thisObject.panels[i]
         panel.draw()
       }
@@ -108,7 +108,7 @@ function newPanelsSpace () {
 
     thisObject.panels = panelsMap.get(window.CHART_ON_FOCUS)
     if (thisObject.panels !== undefined) {
-      for (var i = 0; i < thisObject.panels.length; i++) {
+      for (let i = 0; i < thisObject.panels.length; i++) {
         let panel = thisObject.panels[i]
         panel.draw()
       }

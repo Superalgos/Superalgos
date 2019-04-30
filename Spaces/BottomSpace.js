@@ -54,12 +54,25 @@ function newBottomSpace () {
   }
 
   function destroyControl (pControlHandle) {
-    for (let i = 0; i < thisObject.controls.length; i++) {
-      let control = thisObject.controls[i]
+    thisObject.controls = controlsMap.get('Global')
+    if (thisObject.controls !== undefined) {
+      for (let i = 0; i < thisObject.controls.length; i++) {
+        let control = thisObject.controls[i]
+        if (control.handle === pControlHandle) {
+          thisObject.controls.splice(i, 1)  // Delete item from array.
+          return
+        }
+      }
+    }
 
-      if (control.handle === pControlHandle) {
-        thisObject.controls.splice(i, 1)  // Delete item from array.
-        return
+    thisObject.controls = controlsMap.get(window.CHART_ON_FOCUS)
+    if (thisObject.controls !== undefined) {
+      for (let i = 0; i < thisObject.controls.length; i++) {
+        let control = thisObject.controls[i]
+        if (control.handle === pControlHandle) {
+          thisObject.controls.splice(i, 1)  // Delete item from array.
+          return
+        }
       }
     }
   }

@@ -76,6 +76,10 @@ function newPanelsSpace () {
       let panel = thisObject.panels[i]
 
       if (panel.handle === pPanelHandle) {
+        if (panel.finalize !== undefined) {
+          panel.finalize()
+        }
+
         thisObject.panels.splice(i, 1)  // Delete item from array.
         return
       }

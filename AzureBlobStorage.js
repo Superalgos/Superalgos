@@ -299,7 +299,8 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
                             err.code === 'EAI_AGAIN' ||
                             err.code === 'AuthenticationFailed' ||
                             err.code === 'OperationTimedOut' ||
-                            err.code === 'ServerBusy'
+                            err.code === 'ServerBusy' ||
+                            text === undefined
                         ) {
 
                             setTimeout(secondTry, SECOND_TRY_WAIT_TIME);

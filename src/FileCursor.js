@@ -66,7 +66,7 @@ function newFileCursor () {
       bot = pBot
       thisSet = pSet
       periodName = pPeriodName
-      cursorDate = pCursorDate
+      cursorDate = removeTime(pCursorDate)
       timePeriod = pTimePeriod
       beginDateRange = pBeginDateRange
       endDateRange = pEndDateRange
@@ -194,7 +194,7 @@ function newFileCursor () {
 
             */
 
-      cursorDate = pDatetime // Adjust the cursor date to the one received.
+      cursorDate = removeTime(pDatetime) // Adjust the cursor date to the one received.
 
       let positionA
 
@@ -445,29 +445,21 @@ function newFileCursor () {
             }
           }
 
-          let compareTargetDate = new Date(targetDate.toDateString())
+          let compareTargetDate = new Date(targetDate.valueOf())
 
           if (beginDateRange !== undefined) {
-            let compareBeginDate = new Date(beginDateRange.toDateString())
+            let compareBeginDate = beginDateRange
 
-            if (compareTargetDate.valueOf() < compareBeginDate.valueOf()) {
-              if (INFO_LOG === true) { logger.write('[INFO] getFiles -> getNextFile -> compareTargetDate < compareBeginDate -> Not loading the file for this date.') }
-              if (INFO_LOG === true) { logger.write('[INFO] getFiles -> getNextFile -> compareTargetDate < compareBeginDate -> compareTargetDate = ' + compareTargetDate) }
-              if (INFO_LOG === true) { logger.write('[INFO] getFiles -> getNextFile -> compareTargetDate < compareBeginDate -> compareBeginDate = ' + compareBeginDate) }
-
+            if (compareTargetDate.valueOf() < compareBeginDate) {
               controlLoop()
               return
             }
           }
 
           if (endDateRange !== undefined) {
-            let compareEndDate = new Date(endDateRange.toDateString())
+            let compareEndDate = endDateRange
 
-            if (compareTargetDate.valueOf() > compareEndDate.valueOf()) {
-              if (INFO_LOG === true) { logger.write('[INFO] getFiles -> getNextFile -> compareTargetDate > compareEndDate -> Not loading the file for this date.') }
-              if (INFO_LOG === true) { logger.write('[INFO] getFiles -> getNextFile -> compareTargetDate > compareEndDate -> compareTargetDate = ' + compareTargetDate) }
-              if (INFO_LOG === true) { logger.write('[INFO] getFiles -> getNextFile -> compareTargetDate > compareEndDate -> compareEndDate = ' + compareEndDate) }
-
+            if (compareTargetDate.valueOf() > compareEndDate) {
               controlLoop()
               return
             }

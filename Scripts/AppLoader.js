@@ -71,6 +71,7 @@ function newAppLoader() {
 
                 "Plotter.js",
                 "PlotterPanel.js",
+                "UIControl.js",
 
                 "PlottersManager.js",
                 "ProductStorage.js",

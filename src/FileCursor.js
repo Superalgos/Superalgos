@@ -396,7 +396,7 @@ function newFileCursor () {
         return
       }
 
-      cursorDate = pDatetime
+      cursorDate = removeTime(pDatetime)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] setDatetime -> err = ' + err.stack) }
     }

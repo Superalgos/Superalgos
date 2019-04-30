@@ -557,6 +557,16 @@
             for (let i = 1; i < records.length; i++) { // We do not start in 0 so as to be able to read the previous record i - 1
 
                 record = records[i];
+
+                /* Send the current record to the panel */
+
+                if (userPositionDate >= record.begin && userPositionDate <= record.end) {
+
+                    let currentRecord = {
+                        innerRecord: record
+                    };
+                    thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);
+                }
                 
                 let stopLossPhase = 0;
                 let buyOrderPhase = 0;
@@ -728,15 +738,6 @@
                     printLabel(buyOrderPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9, '0.9', 8);
                 }
 
-                /* Send the current record to the panel */
-
-                if (userPositionDate >= record.begin && userPositionDate <= record.end) {
-
-                    let currentRecord = {
-                        innerRecord: record
-                    };
-                    thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);
-                }
             }
 
 

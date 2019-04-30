@@ -1,7 +1,11 @@
 {
-  "name": "operations-server",
+  "name": "clones-api",
   "version": "1.0.0",
-  "description": "Superalgos Operations backend API",
+  "description": "Superalgos Clones backend API",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Superalgos/OperationsModule.git"
+  },
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js",

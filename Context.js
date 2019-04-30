@@ -238,6 +238,8 @@
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getExecutionContext -> Entering function."); }
 
                     let date;
+                    let maxRetries = 10;
+                    let currentRetry = 0;
 
                     date = new Date(thisObject.statusReport.runs[runIndex].lastExecution);
                     thisObject.statusReport.runs[runIndex].lastExecution = bot.processDatetime;
@@ -264,6 +266,15 @@
                             logger.write(MODULE_NAME, "[INFO] initialize -> getExecutionContext -> onFileReceived -> Content received = " + text);
                         }
 
+                        if(text === undefined){ // The File Sistem might be processing the request and delays can occur, in that case we will retry.
+                            if(currentRetry < maxRetries){
+                                logger.write(MODULE_NAME, "[WARN] initialize -> getExecutionContext -> onFileReceived -> retry to get the context from storage " + currentRetry);
+                                currentRetry++;
+                                cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+                                return;
+                            }
+                        }
+
                         try {
 
                             thisObject.executionContext = JSON.parse(text);
@@ -284,14 +295,14 @@
                             /*
 
                             It might happen that the file content is corrupt or it does not exist. The bot can not run without a Status Report,
-                            since it is risky to ignore its own execution history. Execpt when the bot is running for the fist time in this mode,
+                            since it is risky to ignore its own execution history. Except when the bot is running for the fist time in this mode,
                             an execution context file with the right format is needed.
 
                             */
 
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionContext -> onFileReceived -> Response from storage. -> Text = " + text);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionContext -> onFileReceived -> Response from storage. -> Text = " + text + ". Retry: "+currentRetry);
                             logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionContext -> onFileReceived -> Bot cannot execute without the Execution Context. -> Err = " + err.message);
-                            callBack(global.DEFAULT_RETRY_RESPONSE);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 

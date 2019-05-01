@@ -483,6 +483,12 @@ function onBrowserRequest (request, response) {
       }
       break
 
+    case 'StrategySpace': // This means the StrategySpace folder.
+        {
+              respondWithFile(serverConfig.pathToCanvasApp + '/StrategySpace/' + requestParameters[2], response)
+        }
+        break
+
     case 'AABrowserAPI': // This means the Scripts folder.
       {
         switch (requestParameters[2]) {

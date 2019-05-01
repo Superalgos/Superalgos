@@ -44,6 +44,9 @@ function newAppLoader() {
                 "Panels/ProductsPanel.js",
                 "Panels/PanelTabButton.js",
 
+                "ControlsToolBox/SidePanel.js",
+                "ControlsToolBox/SidePanelTab.js",
+               
                 "Spaces/BottomSpace.js",
                 "Spaces/TopSpace.js",
                 "Spaces/PanelsSpace.js",

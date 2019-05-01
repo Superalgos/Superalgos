@@ -38,6 +38,7 @@ function newCanvas () {
     floatingSpace: undefined,
     panelsSpace: undefined,
     bottomSpace: undefined,
+    strategySpace: undefined,
     animation: undefined,
     initialize: initialize,
     finalize: finalize
@@ -52,13 +53,14 @@ function newCanvas () {
 /*
    The canvas object represents a layer on top of the browser canvas object.
 
-   Graphically, thiscanvas object has 4 spaces:
+   Graphically, thiscanvas object has 5 spaces:
 
    1. The "Top Space": It is where Team and User information is displayed.
    2. The "Chart Space": It is where the charts are plotted.
    3. The "Floating Space": It is where floating elements live. There is a physics engine for this layer that allows these elements to flow.
    4. The "Panels Space": It is where panels live. --> This space has yet to be develop, currently pannels are somehow at the Chart Space.
-   5. The "Bottom Space": Includes the breakpoint bar and a toolbar.
+   5. The "Bottom Space": Includes UIControls that other panels can add there.
+   6. The "Strategy Spece": Functionality to manage Strategies
 
    All these spaces are child objects of the Canvas object.
 
@@ -78,6 +80,9 @@ function newCanvas () {
    |
    |
    ---> bottomSpace
+   |
+   |
+   ---> strategySpace
 */
 
   function finalize () {
@@ -119,6 +124,9 @@ function newCanvas () {
 
       thisObject.topSpace = newTopSpace()
       await thisObject.topSpace.initialize()
+
+      thisObject.strategySpace = newStrategySpace()
+      await thisObject.strategySpace.initialize()
 
       thisObject.bottomSpace = newBottomSpace()
       thisObject.bottomSpace.initialize()
@@ -168,6 +176,7 @@ function newCanvas () {
           animation.addCallBackFunction('ViewPort Animate', viewPort.animate, onFunctionAdded)
           animation.addCallBackFunction('Bottom Space', thisObject.bottomSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Top Space', thisObject.topSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Strategy Space', thisObject.strategySpace.draw, onFunctionAdded)
           animation.start(onStart)
 
           function onFunctionAdded (err) {
@@ -298,6 +307,16 @@ function newCanvas () {
 
       let container
 
+            /* We check if the mouse is over an element of the Strategy Space / */
+
+      container = thisObject.strategySpace.getContainer(point)
+
+      if (container !== undefined && container.isDraggeable === true) {
+        containerBeingDragged = container
+        containerDragStarted = true
+        return
+      }
+
            /* We check if the mouse is over an element of the Top Space / */
 
       container = thisObject.topSpace.getContainer(point)
@@ -372,6 +391,15 @@ function newCanvas () {
       }
 
       let container
+
+            /* We check if the mouse is over an element of the Strategy Space / */
+
+      container = thisObject.strategySpace.getContainer(point)
+
+      if (container !== undefined && container.isClickeable === true) {
+        container.eventHandler.raiseEvent('onMouseClick', point)
+        return
+      }
 
            /* We check if the mouse is over an element of the Top Space / */
 
@@ -505,6 +533,15 @@ function newCanvas () {
       }
 
       let container
+
+            /* We check if the mouse is over an element of the Strategy Space / */
+
+      container = thisObject.strategySpace.getContainer(point)
+
+      if (container !== undefined && container.detectMouseOver === true) {
+        container.eventHandler.raiseEvent('onMouseOver', point)
+        return
+      }
 
            /* We check if the mouse is over an element of the Top Space / */
 

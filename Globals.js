@@ -17,6 +17,7 @@ const DEFAULT_MARKET = {
 
 UI_COLOR = {
     DARK: "48, 48, 54",
+    GREY: "150, 150, 150",
     LIGHT: "234, 226, 222",
     WHITE: "255, 255, 255",
     GOLDEN_ORANGE: "240, 162, 2",

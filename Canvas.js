@@ -317,6 +317,10 @@ function newCanvas () {
         return
       }
 
+      if (container !== undefined && container.isDraggeable === false) {
+        return
+      }
+
            /* We check if the mouse is over an element of the Top Space / */
 
       container = thisObject.topSpace.getContainer(point)

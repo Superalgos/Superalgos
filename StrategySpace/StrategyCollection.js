@@ -6,32 +6,34 @@ function newStrategyCollection () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
-    collection: undefined,
+    strategies: undefined,
     container: undefined,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize
   }
 
-  let container = newContainer()
-  container.initialize()
-  thisObject.container = container
+  let colletionItems = []
 
-  thisObject.container.frame.width = viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x
-  thisObject.container.frame.height = viewPort.visibleArea.topLeft.y - viewPort.visibleArea.bottomLeft.y
+  thisObject.container = newContainer()
+  thisObject.container.name = MODULE_NAME
+  thisObject.container.initialize()
 
-  container.frame.position.x = viewPort.visibleArea.topLeft.x
-  container.frame.position.y = viewPort.visibleArea.topLeft.y
+  thisObject.container.frame.width = 0
+  thisObject.container.frame.height = 0
 
-  container.isDraggeable = false
-  container.isClickeable = true
+  thisObject.container.frame.position.x = 0
+  thisObject.container.frame.position.y = 0
+
+  thisObject.container.isDraggeable = false
+  thisObject.container.isClickeable = true
 
   return thisObject
 
   async function initialize () {
     try {
-      const accessToken = window.localStorage.getItem('access_token')
-      let user = window.localStorage.getItem('user')
+      const accessToken = window.localStorage.getItem('xaccess_token')
+      let user = window.localStorage.getItem('xuser')
 
       if (user === null) {
               // if there is no user that means that we are logged off, which means this object can not be used.
@@ -179,7 +181,8 @@ function newStrategyCollection () {
           })
                   .then(response => {
                     window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
-                    thisObject.collection = response.data.strategizer_StrategyByFb.subStrategies
+                    thisObject.strategies = response.data.strategizer_StrategyByFb.subStrategies
+                    createCollectionItems()
                     resolve({ strategies: response.data.strategizer_StrategyByFb.subStrategies})
                   })
                   .catch(error => {
@@ -205,6 +208,23 @@ function newStrategyCollection () {
     }
   }
 
+  function createCollectionItems () {
+    const TOP_MARGIN = 100
+    const ITEMS_SEPARATION = 70
+
+    for (let i = 0; i < thisObject.strategies.length; i++) {
+      let strategy = thisObject.strategies[i]
+      let collectionItem = newStrategyCollectionItem()
+
+      collectionItem.container.connectToParent(thisObject.container, false, false)
+      collectionItem.initialize()
+      collectionItem.strategy = strategy
+      collectionItem.container.frame.position.y = i * ITEMS_SEPARATION + TOP_MARGIN
+
+      colletionItems.push(collectionItem)
+    }
+  }
+
   function onClick () {
 
   }
@@ -224,27 +244,13 @@ function newStrategyCollection () {
   }
 
   function draw () {
-    if (thisObject.collection === undefined) {
+    if (colletionItems === undefined) {
       return
     }
 
-    const ROW_HEIGHT = 50
-    const LEFT_MARGIN = 50
-    const TOP_MARGIN = 10
-
-    for (let i = 0; i < thisObject.collection.length; i++) {
-      let strategy = thisObject.collection[i]
-
-      let labelPoint = {
-        x: LEFT_MARGIN,
-        y: TOP_MARGIN + i * ROW_HEIGHT
-      }
-
-      let labelToPrint = strategy.name
-      let opacity = 1
-      let fontSize = 12
-
-      printLabel(labelToPrint, labelPoint.x, labelPoint.y, opacity, fontSize)
+    for (let i = 0; i < colletionItems.length; i++) {
+      let item = colletionItems[i]
+      item.draw()
     }
   }
 }

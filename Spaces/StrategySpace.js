@@ -19,23 +19,23 @@ function newStrategySpace () {
   return thisObject
 
   async function initialize () {
-    thisObject.strategyCollection = newStrategyCollection()
-    await thisObject.strategyCollection.initialize()
-
     thisObject.sidePanel = newSidePanel()
     thisObject.sidePanel.initialize()
+
+    thisObject.strategyCollection = newStrategyCollection()
+    thisObject.strategyCollection.container.connectToParent(thisObject.sidePanel.container, true, true)
+    await thisObject.strategyCollection.initialize()
+
     thisObject.sidePanel.areas.push(thisObject.strategyCollection)
   }
 
   function getContainer (point) {
     let container
 
-    container = thisObject.strategyCollection.getContainer(point)
-    if (container !== undefined) { return container }
-
-    container = thisObject.sidePanel.getContainer(point)
-    if (container !== undefined) { return container }
-
+    if (thisObject.sidePanel !== undefined) {
+      container = thisObject.sidePanel.getContainer(point)
+      if (container !== undefined) { return container }
+    }
     return
   }
 

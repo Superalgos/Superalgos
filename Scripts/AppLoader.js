@@ -38,7 +38,8 @@ function newAppLoader() {
                 "TopSpace/EndUser.js",
                 "TopSpace/Login.js",
 
-                "StrategySpace/StrategyCollection.js",
+                "StrategySpace/StrategyCollection.js", 
+                "StrategySpace/StrategyCollectionItem.js", 
 
                 "Panels/TimeControlPanel.js",
                 "Panels/ProductsPanel.js",

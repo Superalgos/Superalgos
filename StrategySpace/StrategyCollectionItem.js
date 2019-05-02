@@ -82,37 +82,16 @@ function newStrategyCollectionItem () {
   }
 
   function borders () {
-    let point1
-    let point2
-    let point3
-    let point4
-
-    point1 = {
-      x: 0,
-      y: 0
+    let params = {
+      cornerRadious: 5,
+      lineWidth: 0.5,
+      opacity: 0.8,
+      container: thisObject.container
     }
 
-    point2 = {
-      x: thisObject.container.frame.width,
-      y: 0
-    }
+    roundedCornersBackground(params)
 
-    point3 = {
-      x: thisObject.container.frame.width,
-      y: thisObject.container.frame.height
-    }
-
-    point4 = {
-      x: 0,
-      y: thisObject.container.frame.height
-    }
-
-    point1 = thisObject.container.frame.frameThisPoint(point1)
-    point2 = thisObject.container.frame.frameThisPoint(point2)
-    point3 = thisObject.container.frame.frameThisPoint(point3)
-    point4 = thisObject.container.frame.frameThisPoint(point4)
-
-    let opacity
+    return
 
     /* Shadow */
 
@@ -153,3 +132,4 @@ function newStrategyCollectionItem () {
     browserCanvasContext.stroke()
   }
 }
+

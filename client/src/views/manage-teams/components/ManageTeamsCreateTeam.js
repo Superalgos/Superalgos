@@ -90,7 +90,7 @@ export class ManageTeamProfile extends Component {
                 You don&rsquo;t have any teams. Create one!
               </Typography>
               <Typography variant='body1' align='center' gutterBottom>
-                To begin developing on the Advanced Algos platform, as well as participate in Algobot competitions,
+                To begin developing on the Superalgos platform, as well as participate in Algobot competitions,
                 you'll need to create a team. A default trading algobot will be cloned and added to your team so
                 that you can begin experimenting right away.
               </Typography>

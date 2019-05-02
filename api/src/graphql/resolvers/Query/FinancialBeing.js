@@ -27,8 +27,8 @@ export const fbByOwner = async (parent, { fbId, fbSlug }, ctx, info) => {
     return
   }
   if ((isDefined(fbId) && !isNull(fbId)) || (isDefined(fbSlug) && !isNull(fbSlug))){
-    return ctx.db.query.financialBeingsesConnection({where: {AND:[{team:{members_some:{member:{authId: authId}}}},{OR:[{slug:fbSlug},{id:fbId}]}]}}, FB_TEAM_FRAGMENT)
+    return ctx.db.query.financialBeingsesConnection({where: {AND:[{team:{members_every:{member:{authId: authId}}}},{OR:[{slug:fbSlug},{id:fbId}]}]}}, FB_TEAM_FRAGMENT)
   } else {
-    return ctx.db.query.financialBeingsesConnection({where: {team:{members_some:{member:{authId: authId}}}}}, FB_TEAM_FRAGMENT)
+    return ctx.db.query.financialBeingsesConnection({where: {team:{members_every:{member:{authId: authId}}}}}, FB_TEAM_FRAGMENT)
   }
 }

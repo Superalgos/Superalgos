@@ -5,11 +5,15 @@ const ErrorResponse = {
 }
 
 export const checkGraphQLError = error => {
-  log.debug('checkGraphQLError ', ErrorResponse)
+  log.debug('checkGraphQLError ', ErrorResponse, error)
+  const errorString = JSON.stringify(error)
+  /*
   if (error.search(/unique constraint/)) {
     const field = error.substring(error.indexOf('=') + 1)
     log.debug('unique constraint', field.replace(/ +/g, ''))
   }
+  */
+  return errorString
 }
 
 export default checkGraphQLError

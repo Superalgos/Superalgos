@@ -18,7 +18,10 @@ const DEFAULT_MARKET = {
 UI_COLOR = {
     DARK: "48, 48, 54",
     LIGHT: "234, 226, 222",
+    GREY: "150, 150, 150",
+    LIGHT_GREY: "247, 247, 247",    
     WHITE: "255, 255, 255",
+    BLACK: "0, 0, 0",
     GOLDEN_ORANGE: "240, 162, 2",
     RUSTED_RED: "204, 88, 53",
     GREEN: "188, 214, 67",
@@ -151,7 +154,7 @@ let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwrit
 
 let maxDate = new Date();
 maxDate.setMilliseconds(0);
-maxDate.setDate(maxDate.getDate() + 365 * 1);  // We might have charts that projects data into the future. 
+maxDate.setDate(maxDate.getDate() + 365 * 1);  // We might have charts that projects data into the future.
 
 const MIN_PLOTABLE_DATE = new Date(2015, 0, 1, 0, 0, 0);
 const MAX_PLOTABLE_DATE = maxDate;

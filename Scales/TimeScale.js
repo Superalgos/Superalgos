@@ -1,10 +1,5 @@
 function newTimeScale () {
   const MODULE_NAME = 'Time Scale'
-  const INFO_LOG = false
-  const INTENSIVE_LOG = false
-  const ERROR_LOG = true
-  const logger = newWebDebugLog()
-  logger.fileName = MODULE_NAME
 
   let thisObject = {
     container: undefined,
@@ -183,7 +178,7 @@ to be visible at the top of the viewPort. */
       y: point1.y - viewPort.margins.TOP
     }
 
-    let date = getDateFromPoint(point, thisObject.container, timeLineCoordinateSystem)
+    let date = getDateFromPoint(point, thisObject.container.parentContainer, timeLineCoordinateSystem)
     date = new Date(date)
 
     let label = date.toUTCString()

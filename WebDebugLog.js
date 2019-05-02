@@ -2,7 +2,7 @@
 function newWebDebugLog () {
   let thisObject = {
     write: write,
-    fileName: undefined
+    fileName: 'undefined'
   }
 
   return thisObject

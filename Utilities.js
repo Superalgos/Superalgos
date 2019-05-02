@@ -153,3 +153,31 @@ function removeTime (datetime) {
 
   return dateOnly
 }
+
+function loadEmoji (pPath) {
+  let newImage
+
+  newImage = new Image()
+  newImage.onload = onImageLoaded
+
+  function onImageLoaded () {
+    newImage.isLoaded = true
+  }
+
+  newImage.src = window.canvasApp.urlPrefix + 'Images/Emoji/' + pPath
+
+  return newImage
+}
+
+function printLabel (labelToPrint, x, y, opacity, fontSize) {
+  let labelPoint
+
+  browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+
+  let label = '' + labelToPrint
+
+  let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
+
+  browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
+  browserCanvasContext.fillText(label, x, y)
+}

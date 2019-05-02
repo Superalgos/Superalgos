@@ -5,6 +5,9 @@ function newBottomSpace () {
     container: undefined,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+    createNewControl: createNewControl,
+    destroyControl: destroyControl,
+    getControl: getControl,
     initialize: initialize
   }
 
@@ -14,12 +17,77 @@ function newBottomSpace () {
 
   container.isDraggeable = false
 
+  controlsMap = new Map()
   resize()
 
   return thisObject
 
   function initialize () {
     window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
+  }
+
+  function createNewControl (pType, pDrawFunction, pOwner) {
+    let control
+
+    switch (pType) {
+
+      case 'Over The Line':
+        {
+          control = newUIControl()
+          control.initialize()
+          control.drawFunction = pDrawFunction
+          break
+        }
+    }
+
+    let controlArray = controlsMap.get(pOwner)
+    if (controlArray === undefined) {
+      controlArray = []
+      controlsMap.set(pOwner, controlArray)
+    }
+
+    controlArray.push(control)
+
+    control.handle = Math.floor((Math.random() * 10000000) + 1)
+
+    return control.handle
+  }
+
+  function destroyControl (pControlHandle) {
+    thisObject.controls = controlsMap.get('Global')
+    if (thisObject.controls !== undefined) {
+      for (let i = 0; i < thisObject.controls.length; i++) {
+        let control = thisObject.controls[i]
+        if (control.handle === pControlHandle) {
+          thisObject.controls.splice(i, 1)  // Delete item from array.
+          return
+        }
+      }
+    }
+
+    thisObject.controls = controlsMap.get(window.CHART_ON_FOCUS)
+    if (thisObject.controls !== undefined) {
+      for (let i = 0; i < thisObject.controls.length; i++) {
+        let control = thisObject.controls[i]
+        if (control.handle === pControlHandle) {
+          thisObject.controls.splice(i, 1)  // Delete item from array.
+          return
+        }
+      }
+    }
+  }
+
+  function getControl (pControlHandle, pOwner) {
+    thisObject.controls = controlsMap.get(pOwner)
+    if (thisObject.controls != undefined) {
+      for (let i = 0; i < thisObject.controls.length; i++) {
+        let control = thisObject.controls[i]
+
+        if (control.handle === pControlHandle) {
+          return control
+        }
+      }
+    }
   }
 
   function resize () {
@@ -40,6 +108,22 @@ function newBottomSpace () {
     thisObject.container.frame.draw(false, false)
 
     drawBackground()
+
+    thisObject.controls = controlsMap.get('Global')
+    if (thisObject.controls !== undefined) {
+      for (let i = 0; i < thisObject.controls.length; i++) {
+        let control = thisObject.controls[i]
+        control.draw()
+      }
+    }
+
+    thisObject.controls = controlsMap.get(window.CHART_ON_FOCUS)
+    if (thisObject.controls !== undefined) {
+      for (let i = 0; i < thisObject.controls.length; i++) {
+        let control = thisObject.controls[i]
+        control.draw()
+      }
+    }
   }
 
   function drawBackground () {

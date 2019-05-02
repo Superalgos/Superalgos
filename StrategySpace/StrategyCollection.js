@@ -6,6 +6,7 @@ function newStrategyCollection () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    collection: undefined,
     container: undefined,
     draw: draw,
     getContainer: getContainer,
@@ -178,7 +179,7 @@ function newStrategyCollection () {
           })
                   .then(response => {
                     window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
-                    let strategies = response.data.strategizer_StrategyByFb.subStrategies
+                    thisObject.collection = response.data.strategizer_StrategyByFb.subStrategies
                     resolve({ strategies: response.data.strategizer_StrategyByFb.subStrategies})
                   })
                   .catch(error => {
@@ -223,6 +224,27 @@ function newStrategyCollection () {
   }
 
   function draw () {
-    return // nothing to show.
+    if (thisObject.collection === undefined) {
+      return
+    }
+
+    const ROW_HEIGHT = 50
+    const LEFT_MARGIN = 50
+    const TOP_MARGIN = 10
+
+    for (let i = 0; i < thisObject.collection.length; i++) {
+      let strategy = thisObject.collection[i]
+
+      let labelPoint = {
+        x: LEFT_MARGIN,
+        y: TOP_MARGIN + i * ROW_HEIGHT
+      }
+
+      let labelToPrint = strategy.name
+      let opacity = 1
+      let fontSize = 12
+
+      printLabel(labelToPrint, labelPoint.x, labelPoint.y, opacity, fontSize)
+    }
   }
 }

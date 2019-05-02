@@ -24,6 +24,7 @@ function newStrategySpace () {
 
     thisObject.sidePanel = newSidePanel()
     thisObject.sidePanel.initialize()
+    thisObject.sidePanel.areas.push(thisObject.strategyCollection)
   }
 
   function getContainer (point) {

@@ -1,6 +1,7 @@
 function newSidePanel () {
   const MODULE_NAME = 'Side Panel'
   let thisObject = {
+    areas: [],
     sidePanelTab: undefined,
     container: undefined,
     draw: draw,
@@ -56,6 +57,11 @@ function newSidePanel () {
     if (isInitialized === false) { return }
     borders()
     thisObject.sidePanelTab.draw()
+
+    for (let i = 0; i < thisObject.areas.length; i++) {
+      let area = thisObject.areas[i]
+      area.draw()
+    }
   }
 
   function borders () {
@@ -126,4 +132,3 @@ function newSidePanel () {
     }
   }
 }
-

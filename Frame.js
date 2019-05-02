@@ -294,7 +294,9 @@ function newFrame () {
       cornerRadious: 5,
       lineWidth: 0.1,
       opacity: 0.75,
-      container: frame.container
+      container: frame.container,
+      borderColor: UI_COLOR.DARK,
+      backgroundColor: UI_COLOR.WHITE
     }
 
     roundedCornersBackground(params)

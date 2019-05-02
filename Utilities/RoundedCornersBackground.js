@@ -26,11 +26,40 @@ function roundedCornersBackground (params) {
   borderPoint3 = params.container.frame.frameThisPoint(borderPoint3)
   borderPoint4 = params.container.frame.frameThisPoint(borderPoint4)
 
-      /* We paint the panel background  */
-
-  browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + params.opacity + ')'
-
   browserCanvasContext.setLineDash([0, 0])
+
+        /* Shadow  */
+
+  if (params.castShadow === true) {
+    let SHADOW_OFFSET = 2
+
+    browserCanvasContext.beginPath()
+
+    browserCanvasContext.arc(borderPoint1.x + SHADOW_OFFSET, borderPoint1.y + SHADOW_OFFSET, params.cornerRadious, 1.0 * Math.PI, 1.5 * Math.PI)
+    browserCanvasContext.lineTo(borderPoint2.x + SHADOW_OFFSET, borderPoint2.y - params.cornerRadious + SHADOW_OFFSET)
+    browserCanvasContext.arc(borderPoint2.x + SHADOW_OFFSET, borderPoint2.y + SHADOW_OFFSET, params.cornerRadious, 1.5 * Math.PI, 2.0 * Math.PI)
+    browserCanvasContext.lineTo(borderPoint3.x + params.cornerRadious + SHADOW_OFFSET, borderPoint3.y + SHADOW_OFFSET)
+    browserCanvasContext.arc(borderPoint3.x + SHADOW_OFFSET, borderPoint3.y + SHADOW_OFFSET, params.cornerRadious, 0 * Math.PI, 0.5 * Math.PI)
+    browserCanvasContext.lineTo(borderPoint4.x + SHADOW_OFFSET, borderPoint4.y + params.cornerRadious + SHADOW_OFFSET)
+    browserCanvasContext.arc(borderPoint4.x + SHADOW_OFFSET, borderPoint4.y + SHADOW_OFFSET, params.cornerRadious, 0.5 * Math.PI, 1.0 * Math.PI)
+    browserCanvasContext.lineTo(borderPoint1.x - params.cornerRadious + SHADOW_OFFSET, borderPoint1.y + SHADOW_OFFSET)
+
+    browserCanvasContext.closePath()
+
+    browserCanvasContext.lineWidth = 10
+    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + 0.01 + ')'
+    browserCanvasContext.stroke()
+
+    browserCanvasContext.lineWidth = 5
+    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + 0.01 + ')'
+    browserCanvasContext.stroke()
+
+    browserCanvasContext.lineWidth = 1
+    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + 0.15 + ')'
+    browserCanvasContext.stroke()
+  }
+
+        /* Background  */
 
   browserCanvasContext.beginPath()
 
@@ -45,14 +74,12 @@ function roundedCornersBackground (params) {
 
   browserCanvasContext.closePath()
 
-  browserCanvasContext.lineWidth = params.lineWidth * 15
-  browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + 0.05 + ')'
-  browserCanvasContext.stroke()
+  browserCanvasContext.fillStyle = 'rgba(' + params.backgroundColor + ', ' + params.opacity + ')'
 
   browserCanvasContext.fill()
 
   browserCanvasContext.lineWidth = params.lineWidth
-  browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', ' + params.opacity + ')'
+  browserCanvasContext.strokeStyle = 'rgba(' + params.borderColor + ', ' + params.opacity + ')'
   browserCanvasContext.stroke()
 }
 

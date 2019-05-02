@@ -19,7 +19,7 @@ function newStrategyCollectionItem () {
   return thisObject
 
   function initialize () {
-    const ITEM_WIDTH = 400
+    const ITEM_WIDTH = 430
     const ITEM_HEIGHT = 60
 
     thisObject.container.frame.width = ITEM_WIDTH
@@ -60,8 +60,8 @@ function newStrategyCollectionItem () {
       return
     }
 
-    const LEFT_MARGIN = 50
-    const TOP_MARGIN = 30
+    const LEFT_MARGIN = 70
+    const TOP_MARGIN = 35
 
     let strategy = thisObject.strategy
 
@@ -83,53 +83,16 @@ function newStrategyCollectionItem () {
 
   function borders () {
     let params = {
-      cornerRadious: 5,
-      lineWidth: 0.5,
-      opacity: 0.8,
-      container: thisObject.container
+      cornerRadious: 8,
+      lineWidth: 0.1,
+      opacity: 1,
+      container: thisObject.container,
+      borderColor: UI_COLOR.DARK,
+      backgroundColor: UI_COLOR.WHITE,
+      castShadow: true
     }
 
     roundedCornersBackground(params)
-
-    return
-
-    /* Shadow */
-
-    for (let i = 0; i <= 5; i++) {
-      opacity = 1 - (i / 100) - 0.93
-
-      browserCanvasContext.beginPath()
-      browserCanvasContext.moveTo(point1.x + i, point1.y + i)
-      browserCanvasContext.lineTo(point2.x + i, point2.y + i)
-      browserCanvasContext.lineTo(point3.x + i, point3.y + i)
-      browserCanvasContext.lineTo(point4.x + i, point4.y + i)
-      browserCanvasContext.lineTo(point1.x + i, point1.y + i)
-      browserCanvasContext.closePath()
-
-      browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + opacity + ''
-      browserCanvasContext.lineWidth = 1
-      browserCanvasContext.stroke()
-    }
-
-    /* Background and Border */
-
-    browserCanvasContext.setLineDash([0, 0])
-    browserCanvasContext.beginPath()
-    browserCanvasContext.moveTo(point1.x, point1.y)
-    browserCanvasContext.lineTo(point2.x, point2.y)
-    browserCanvasContext.lineTo(point3.x, point3.y)
-    browserCanvasContext.lineTo(point4.x, point4.y)
-    browserCanvasContext.lineTo(point1.x, point1.y)
-    browserCanvasContext.closePath()
-
-    opacity = 1
-
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ''
-    browserCanvasContext.fill()
-
-    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + opacity + ''
-    browserCanvasContext.lineWidth = 0.3
-    browserCanvasContext.stroke()
   }
 }
 

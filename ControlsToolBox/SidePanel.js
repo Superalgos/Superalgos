@@ -18,6 +18,7 @@ function newSidePanel () {
   thisObject.container.initialize()
   thisObject.container.isClickeable = true
   thisObject.container.isDraggeable = false
+  thisObject.container.status = 'hidden'
 
   resize()
   return thisObject
@@ -99,11 +100,30 @@ function newSidePanel () {
 
     let opacity = 1
 
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.LIGHT + ', ' + opacity + ''
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + opacity + ''
     browserCanvasContext.fill()
 
     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + opacity + ''
     browserCanvasContext.lineWidth = 0.3
     browserCanvasContext.stroke()
+
+    /* Shadow */
+
+    if (thisObject.container.status !== 'hidden') {
+      for (let i = 0; i <= 30; i++) {
+        opacity = 1 - (i / 300) - 0.95
+
+        browserCanvasContext.setLineDash([0, 0])
+        browserCanvasContext.beginPath()
+        browserCanvasContext.moveTo(point2.x + i, point2.y)
+        browserCanvasContext.lineTo(point3.x + i, point3.y)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + opacity + ''
+        browserCanvasContext.lineWidth = 1
+        browserCanvasContext.stroke()
+      }
+    }
   }
 }
+

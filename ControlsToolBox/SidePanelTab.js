@@ -8,7 +8,7 @@ function newSidePanelTab () {
     initialize: initialize
   }
 
-  const TAB_WIDTH = 20
+  const TAB_WIDTH = 25
   const TAB_HEIGHT = 60
 
   let isInitialized = false
@@ -70,6 +70,7 @@ function newSidePanelTab () {
         animation = 'none'
         xOffset = thisObject.container.parentContainer.frame.width
         thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
+        thisObject.container.parentContainer.status = 'visible'
         thisObject.pointerDirection = 'right'
       }
     }
@@ -81,6 +82,7 @@ function newSidePanelTab () {
         animation = 'none'
         xOffset = 0
         thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON
+        thisObject.container.parentContainer.status = 'hidden'
         thisObject.pointerDirection = 'left'
       }
     }
@@ -93,33 +95,33 @@ function newSidePanelTab () {
 
     if (thisObject.pointerDirection === 'left') {
       point1 = {
-        x: TAB_WIDTH * 1 / 5,
-        y: TAB_HEIGHT * 12 / 30
+        x: TAB_WIDTH * 3.5 / 10,
+        y: TAB_HEIGHT * 12.5 / 30
       }
 
       point2 = {
-        x: TAB_WIDTH * 3 / 5,
+        x: TAB_WIDTH * 6.5 / 10,
         y: TAB_HEIGHT * 15 / 30
       }
 
       point3 = {
-        x: TAB_WIDTH * 1 / 5,
-        y: TAB_HEIGHT * 18 / 30
+        x: TAB_WIDTH * 3.5 / 10,
+        y: TAB_HEIGHT * 17.5 / 30
       }
     } else {
       point1 = {
-        x: TAB_WIDTH * 3 / 5,
-        y: TAB_HEIGHT * 12 / 30
+        x: TAB_WIDTH * 6.5 / 10,
+        y: TAB_HEIGHT * 12.5 / 30
       }
 
       point2 = {
-        x: TAB_WIDTH * 1 / 5,
+        x: TAB_WIDTH * 3.5 / 10,
         y: TAB_HEIGHT * 15 / 30
       }
 
       point3 = {
-        x: TAB_WIDTH * 3 / 5,
-        y: TAB_HEIGHT * 18 / 30
+        x: TAB_WIDTH * 6.5 / 10,
+        y: TAB_HEIGHT * 17.5 / 30
       }
     }
 
@@ -170,6 +172,28 @@ function newSidePanelTab () {
     point3 = thisObject.container.frame.frameThisPoint(point3)
     point4 = thisObject.container.frame.frameThisPoint(point4)
 
+    let opacity
+
+    /* Shadow */
+
+    for (let i = 0; i <= 5; i++) {
+      opacity = 1 - (i / 100) - 0.93
+
+      browserCanvasContext.beginPath()
+      browserCanvasContext.moveTo(point1.x + i, point1.y + i)
+      browserCanvasContext.lineTo(point2.x + i, point2.y + i)
+      browserCanvasContext.lineTo(point3.x + i, point3.y + i)
+      browserCanvasContext.lineTo(point4.x + i, point4.y + i)
+      browserCanvasContext.lineTo(point1.x + i, point1.y + i)
+      browserCanvasContext.closePath()
+
+      browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + opacity + ''
+      browserCanvasContext.lineWidth = 1
+      browserCanvasContext.stroke()
+    }
+
+    /* Background and Border */
+
     browserCanvasContext.setLineDash([0, 0])
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y)
@@ -179,7 +203,7 @@ function newSidePanelTab () {
     browserCanvasContext.lineTo(point1.x, point1.y)
     browserCanvasContext.closePath()
 
-    let opacity = 1
+    opacity = 1
 
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ''
     browserCanvasContext.fill()

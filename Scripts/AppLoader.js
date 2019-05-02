@@ -41,6 +41,8 @@ function newAppLoader() {
                 "StrategySpace/StrategyCollection.js", 
                 "StrategySpace/StrategyCollectionItem.js", 
 
+                "Utilities/RoundedCornersBackground.js",
+
                 "Panels/TimeControlPanel.js",
                 "Panels/ProductsPanel.js",
                 "Panels/PanelTabButton.js",

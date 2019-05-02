@@ -9,7 +9,9 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
     const ROOT_DIR = './';
 
     const MODULE_NAME = "Azure Blob Storage";
-    const SECOND_TRY_WAIT_TIME = 10000;
+    const RETRY_WAIT_TIME = 10000;
+    const MAX_RETRIES_READ = 6;
+    const MAX_RETRIES_WRITE = 30;
 
     let AZURE_STORAGE = require('./AzureStorage')
     let storage = AZURE_STORAGE.newAzureStorage(bot, logger);
@@ -111,6 +113,7 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
 
     function createTextFile(pFolderPath, pFileName, pFileContent, callBackFunction) {
 
+        let retryCount = 0;
         if (writeOnlyBlobService === undefined) {
 
             if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> initialize function not executed or failed. Can not process this request. Sorry."); }
@@ -181,47 +184,16 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
                             err.code === 'ServerBusy'
                         ) {
 
-                            setTimeout(secondTry, SECOND_TRY_WAIT_TIME);
+                            setTimeout(retryCreateFile, RETRY_WAIT_TIME);
                             return;
 
-                            function secondTry() {
+                            function retryCreateFile() {
+                                if(retryCount < MAX_RETRIES_WRITE){
+                                    logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> Retrying to create the file. Retry count: " + retryCount);
 
-                                try {
-
-                                    logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> secondTry -> Retrying to create the file.");
-
-                                    writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onSecondTry);
-
-                                    function onSecondTry(err, result, response) {
-
-                                        try {
-
-                                            if (err) {
-                                                if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> secondTry -> File not created. Giving Up."); }
-
-                                                if (ERROR_LOG === true && logger !== undefined) {
-                                                    logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> secondTry -> containerName = " + containerName);
-                                                    logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> secondTry -> pFolderPath = " + pFolderPath);
-                                                    logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> secondTry -> pFileName = " + pFileName);
-                                                    logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> secondTry -> err.code = " + err.code);
-                                                }
-
-                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                            } else {
-                                                logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> secondTry -> File succesfully created on second try.");
-                                                callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                            }
-                                        }
-                                        catch (err) {
-                                            if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> onFileCreated -> secondTry -> onSecondTry -> err = " + err.message); }
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        }
-                                    }
+                                    writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onFileCreated);
                                 }
-                                catch (err) {
-                                    if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> onFileCreated -> secondTry -> err = " + err.message); }
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                }
+                                return;
                             }
                         }
 
@@ -247,6 +219,7 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
 
     function getTextFile(pFolderPath, pFileName, callBackFunction) {
 
+        let retryCount = 0;
         if (readOnlyBlobService === undefined) {
 
             if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] getTextFile -> initialize function not executed or failed. Can not process this request. Sorry."); }
@@ -303,47 +276,15 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
                             text === undefined
                         ) {
 
-                            setTimeout(secondTry, SECOND_TRY_WAIT_TIME);
+                            setTimeout(retryCreateFile, RETRY_WAIT_TIME);
                             return;
 
-                            function secondTry() {
-
-                                try {
-
-                                    logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> secondTry -> Retrying to get the file.");
-
-                                    readOnlyBlobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onSecondTry);
-
-                                    function onSecondTry(err, text, response) {
-
-                                        try {
-
-                                            if (err) {
-                                                if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> secondTry -> File not retrieved. Giving Up."); }
-
-                                                if (ERROR_LOG === true && logger !== undefined) {
-                                                    logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> secondTry -> containerName = " + containerName);
-                                                    logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> secondTry -> pFolderPath = " + pFolderPath);
-                                                    logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> secondTry -> pFileName = " + pFileName);
-                                                    logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> secondTry -> err.code = " + err.code);
-                                                }
-
-                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                            } else {
-                                                logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> secondTry -> File succesfully retrieved on second try.");
-                                                callBackFunction(global.DEFAULT_OK_RESPONSE, text);
-                                            }
-                                        }
-                                        catch (err) {
-                                            if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> onFileReceived -> secondTry -> onSecondTry -> err = " + err.message); }
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        }
-                                    }
+                            function retryCreateFile() {
+                                if(retryCount < MAX_RETRIES_READ){
+                                    logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> Retrying to get the file. Retry count: " + retryCount);
+                                    readOnlyBlobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onFileReceived);
                                 }
-                                catch (err) {
-                                    if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> onFileReceived -> secondTry -> err = " + err.message); }
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                }
+                                return;
                             }
                         }
 

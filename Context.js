@@ -238,8 +238,6 @@
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getExecutionContext -> Entering function."); }
 
                     let date;
-                    let maxRetries = 10;
-                    let currentRetry = 0;
 
                     date = new Date(thisObject.statusReport.runs[runIndex].lastExecution);
                     thisObject.statusReport.runs[runIndex].lastExecution = bot.processDatetime;
@@ -264,15 +262,6 @@
 
                         if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
                             logger.write(MODULE_NAME, "[INFO] initialize -> getExecutionContext -> onFileReceived -> Content received = " + text);
-                        }
-
-                        if(text === undefined){ // The File Sistem might be processing the request and delays can occur, in that case we will retry.
-                            if(currentRetry < maxRetries){
-                                logger.write(MODULE_NAME, "[WARN] initialize -> getExecutionContext -> onFileReceived -> retry to get the context from storage " + currentRetry);
-                                currentRetry++;
-                                cloudStorage.getTextFile(filePath, fileName, onFileReceived);
-                                return;
-                            }
                         }
 
                         try {

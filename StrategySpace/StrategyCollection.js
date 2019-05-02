@@ -210,7 +210,7 @@ function newStrategyCollection () {
 
   function createCollectionItems () {
     const TOP_MARGIN = 100
-    const ITEMS_SEPARATION = 70
+    const ITEMS_SEPARATION = 90
 
     for (let i = 0; i < thisObject.strategies.length; i++) {
       let strategy = thisObject.strategies[i]
@@ -222,6 +222,14 @@ function newStrategyCollection () {
       collectionItem.container.frame.position.y = i * ITEMS_SEPARATION + TOP_MARGIN
 
       colletionItems.push(collectionItem)
+
+      /* Load Strategies Icons */
+
+      let imageIndex = i + 1
+      if (imageIndex > 14) { imageIndex = 14 }
+
+      let strategyImage = loadEmoji('Symbols/Emoji Symbols-' + (112 + imageIndex) + '.png')
+      collectionItem.icon = strategyImage
     }
   }
 

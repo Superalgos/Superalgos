@@ -38,15 +38,24 @@ function newAppLoader() {
                 "TopSpace/EndUser.js",
                 "TopSpace/Login.js",
 
+                "StrategySpace/StrategyCollection.js", 
+                "StrategySpace/StrategyCollectionItem.js", 
+
+                "Utilities/RoundedCornersBackground.js",
+
                 "Panels/TimeControlPanel.js",
                 "Panels/ProductsPanel.js",
                 "Panels/PanelTabButton.js",
 
+                "ControlsToolBox/SidePanel.js",
+                "ControlsToolBox/SidePanelTab.js",
+               
                 "Spaces/BottomSpace.js",
                 "Spaces/TopSpace.js",
                 "Spaces/PanelsSpace.js",
                 "Spaces/ChartSpace.js",
                 "Spaces/FloatingSpace.js",
+                "Spaces/StrategySpace.js",
 
                 "Files/SingleFile.js",
                 "Files/FileCloud.js",
@@ -71,6 +80,7 @@ function newAppLoader() {
 
                 "Plotter.js",
                 "PlotterPanel.js",
+                "UIControl.js",
 
                 "PlottersManager.js",
                 "ProductStorage.js",
@@ -84,8 +94,7 @@ function newAppLoader() {
 
                 "ViewPort.js",
                 "TimeMachine.js",
-                "Candle.js",
-                "VolumeBar.js",
+
                 "ChartUtilities.js",
                 "TimelineChart.js",
                 

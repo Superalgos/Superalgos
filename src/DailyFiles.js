@@ -78,8 +78,8 @@ function newDailyFiles () {
             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
               if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> Received OK Response.') }
 
-              beginDateRange = new Date(pFile.begin)
-              endDateRange = new Date(pFile.end)
+              beginDateRange = pFile.begin
+              endDateRange = pFile.end
 
               break
             }
@@ -141,23 +141,20 @@ function newDailyFiles () {
 
                   switch (err.result) {
                     case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-
-                        if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> onInitialized -> Received OK Response.') }
-                        break
-                      }
+                      if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> onInitialized -> Received OK Response.') }
+                      break
+                    }
 
                     case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-
-                        if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> onInitialized -> Received FAIL Response.') }
-                        callBackWhenFileReceived(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                        return
-                      }
+                      if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> onInitialized -> Received FAIL Response.') }
+                      callBackWhenFileReceived(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                      return
+                    }
                     default: {
-
-                        if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> onInitialized -> Received Unexpected Response.') }
-                        callBackWhenFileReceived(err)
-                        return
-                      }
+                      if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> onInitialized -> Received Unexpected Response.') }
+                      callBackWhenFileReceived(err)
+                      return
+                    }
                   }
 
                   fileCursors.set(periodTime, fileCursor)

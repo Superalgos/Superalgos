@@ -2,8 +2,6 @@
 let canvas
 let markets
 let ecosystem = newEcosystem()
-let INITIAL_ZOOM_LEVEL = -26       // This is the zoom level at the view port in which the APP starts.
-let INITIAL_TIME_PERIOD = recalculatePeriod(MIN_ZOOM_LEVEL)  // This value will be overwritten at the viewPort.initialize if the user had a prevous session with this same browser.
 let viewPort = newViewPort()
 
 function newDashboard () {
@@ -20,6 +18,9 @@ function newDashboard () {
 
   const DEBUG_START_UP_DELAY = 0 // 3000; // This is a waiting time in case there is a need to debug the very first steps of initialization, to be able to hit F12 on time.
 
+  let userProfileChangedEventSubscriptionId
+  let browserResizedEventSubscriptionId
+
   return thisObject
 
   function start () {
@@ -33,8 +34,8 @@ function newDashboard () {
       /* Here we will setup the global eventHandler that will enable the Canvas App to react to events happening outside its execution scope. */
 
       window.canvasApp.eventHandler = newEventHandler()
-      window.canvasApp.eventHandler.listenToEvent('User Profile Changed', userProfileChanged)
-      window.canvasApp.eventHandler.listenToEvent('Browser Resized', browserResized)
+      userProfileChangedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('User Profile Changed', userProfileChanged)
+      browserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', browserResized)
 
       loadImages(onImagesLoaded)
 

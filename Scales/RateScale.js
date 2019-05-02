@@ -1,20 +1,26 @@
-function newTimeScale () {
-  const MODULE_NAME = 'Time Scale'
+function newRateScale () {
+  const MODULE_NAME = 'Right Scale'
 
   let thisObject = {
     container: undefined,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize,
-    lenghtPercentage: undefined
+    heightPercentage: 100
   }
 
-  const LENGHT_PERCENTAGE_DEFAULT_VALUE = 5
+  const HEIGHT_PERCENTAGE_DEFAULT_VALUE = 50
   const STEP_SIZE = 5
-  const MIN_HEIGHT = 50
+  const MIN_WIDTH = 50
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
+
+  thisObject.container.frame.width = viewPort.margins.RIGHT
+  thisObject.container.frame.height = viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y
+
+  thisObject.container.frame.position.x = viewPort.visibleArea.bottomRight.x
+  thisObject.container.frame.position.y = TOP_SPACE_HEIGHT
 
   thisObject.container.isDraggeable = false
   thisObject.container.isClickeable = false
@@ -37,16 +43,16 @@ function newTimeScale () {
 
     thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
 
-    thisObject.lenghtPercentage = window.localStorage.getItem(MODULE_NAME)
-    if (!thisObject.lenghtPercentage) {
-      thisObject.lenghtPercentage = LENGHT_PERCENTAGE_DEFAULT_VALUE
+    thisObject.heightPercentage = window.localStorage.getItem(MODULE_NAME)
+    if (!thisObject.heightPercentage) {
+      thisObject.heightPercentage = HEIGHT_PERCENTAGE_DEFAULT_VALUE
     } else {
-      thisObject.lenghtPercentage = JSON.parse(thisObject.lenghtPercentage)
+      thisObject.heightPercentage = JSON.parse(thisObject.heightPercentage)
     }
 
     let event = {}
-    event.lenghtPercentage = thisObject.lenghtPercentage
-    thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
+    event.heightPercentage = thisObject.heightPercentage
+    thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
 
     thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
       mouse.position.x = event.x
@@ -63,17 +69,16 @@ function newTimeScale () {
   function onMouseWheel (event) {
     delta = event.wheelDelta
     if (delta < 0) {
-      thisObject.lenghtPercentage = thisObject.lenghtPercentage - STEP_SIZE
-      if (thisObject.lenghtPercentage < STEP_SIZE) { thisObject.lenghtPercentage = STEP_SIZE }
+      thisObject.heightPercentage = thisObject.heightPercentage - STEP_SIZE
+      if (thisObject.heightPercentage < STEP_SIZE) { thisObject.heightPercentage = STEP_SIZE }
     } else {
-      thisObject.lenghtPercentage = thisObject.lenghtPercentage + STEP_SIZE
-      if (thisObject.lenghtPercentage > 100) { thisObject.lenghtPercentage = 100 }
+      thisObject.heightPercentage = thisObject.heightPercentage + STEP_SIZE
+      if (thisObject.heightPercentage > 100) { thisObject.heightPercentage = 100 }
     }
+    event.heightPercentage = thisObject.heightPercentage
+    thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
 
-    event.lenghtPercentage = thisObject.lenghtPercentage
-    thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
-
-    window.localStorage.setItem(MODULE_NAME, thisObject.lenghtPercentage)
+    window.localStorage.setItem(MODULE_NAME, thisObject.heightPercentage)
   }
 
   function getContainer (pPoint) {
@@ -84,8 +89,8 @@ function newTimeScale () {
       x: 0,
       y: 0
     }
-    point.x = pPoint.x - thisObject.container.frame.position.x
-    point.y = pPoint.y - thisObject.container.frame.position.y + viewPort.margins.TOP
+    point.x = pPoint.x - thisObject.container.frame.position.x - viewPort.margins.RIGHT
+    point.y = pPoint.y - thisObject.container.frame.position.y
 
     if (thisObject.container.frame.isThisPointHere(point, undefined, true) === true) {
       return thisObject.container
@@ -109,7 +114,7 @@ to be visible at the top of the viewPort. */
     let point4
 
     point1 = {
-      x: 0,
+      x: frame.width - frame.width / 10,
       y: 0
     }
 
@@ -120,17 +125,17 @@ to be visible at the top of the viewPort. */
 
     point3 = {
       x: frame.width,
-      y: frame.height / 10
+      y: frame.height
     }
 
     point4 = {
-      x: 0,
-      y: frame.height / 10
+      x: frame.width - frame.width / 10,
+      y: frame.height
     }
 
     point5 = {
       x: 0,
-      y: frame.height
+      y: 0
     }
 
         /* Now the transformations. */
@@ -147,26 +152,25 @@ to be visible at the top of the viewPort. */
     point4 = viewPort.fitIntoVisibleArea(point4)
     point5 = viewPort.fitIntoVisibleArea(point5)
 
-    if (point3.y - point2.y < MIN_HEIGHT) {
-      point3.y = point2.y + MIN_HEIGHT
-      point4.y = point2.y + MIN_HEIGHT
+    if (point2.x - point1.x < MIN_WIDTH) {
+      point1.x = point2.x - MIN_WIDTH
+      point4.x = point2.x - MIN_WIDTH
     }
 
     /* Lets start the drawing. */
 /*
     browserCanvasContext.beginPath()
-    browserCanvasContext.moveTo(point1.x, point1.y - viewPort.margins.TOP)
-    browserCanvasContext.lineTo(point2.x, point2.y - viewPort.margins.TOP)
-    browserCanvasContext.lineTo(point3.x, point3.y - viewPort.margins.TOP)
-    browserCanvasContext.lineTo(point4.x, point4.y - viewPort.margins.TOP)
-    browserCanvasContext.lineTo(point1.x, point1.y - viewPort.margins.TOP)
+    browserCanvasContext.moveTo(point1.x, point1.y)
+    browserCanvasContext.lineTo(point2.x + viewPort.margins.RIGHT, point2.y)
+    browserCanvasContext.lineTo(point3.x + viewPort.margins.RIGHT, point3.y)
+    browserCanvasContext.lineTo(point4.x, point4.y)
+    browserCanvasContext.lineTo(point1.x, point1.y)
     browserCanvasContext.closePath()
 
     browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
     browserCanvasContext.lineWidth = 1
     browserCanvasContext.stroke()
 */
-
     thisObject.container.frame.position.x = point1.x
     thisObject.container.frame.position.y = point1.y
 
@@ -174,29 +178,28 @@ to be visible at the top of the viewPort. */
     thisObject.container.frame.height = point3.y - point2.y
 
     let point = {
-      x: mouse.position.x,
-      y: point1.y - viewPort.margins.TOP
+      x: point5.x + viewPort.margins.RIGHT,
+      y: mouse.position.y
     }
 
-    let date = getDateFromPoint(point, thisObject.container.parentContainer, timeLineCoordinateSystem)
-    date = new Date(date)
+    let rate = getRateFromPoint(point, thisObject.container.parentContainer, timeLineCoordinateSystem)
 
-    let label = date.toUTCString()
+    let label = rate.toFixed(2)
     let fontSize = 10
 
     let xOffset = label.length * fontSize * FONT_ASPECT_RATIO
 
+    if (point.y + fontSize / 2 > point3.y || point.y - fontSize / 2 < point1.y) { return }
+
     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 0.50)'
 
-    if (point.x - xOffset / 2 < point1.x || point.x + xOffset / 2 > point2.x) { return }
-
-    browserCanvasContext.fillText(label, point.x - xOffset / 2, point.y + fontSize + 7)
+    browserCanvasContext.fillText(label, point1.x + viewPort.margins.RIGHT, point.y + fontSize / 2)
 
     browserCanvasContext.beginPath()
 
-    browserCanvasContext.moveTo(point.x, point1.y)
-    browserCanvasContext.lineTo(point.x, point5.y)
+    browserCanvasContext.moveTo(point.x, point.y)
+    browserCanvasContext.lineTo(point1.x + viewPort.margins.RIGHT, point.y)
 
     browserCanvasContext.closePath()
 

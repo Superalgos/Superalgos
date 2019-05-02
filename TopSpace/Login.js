@@ -5,6 +5,7 @@ function newLogin () {
   const INTENSIVE_LOG = false
   const ERROR_LOG = true
   const logger = newWebDebugLog()
+  logger.fileName = MODULE_NAME
 
   let thisObject = {
     container: undefined,
@@ -100,7 +101,7 @@ function newLogin () {
                         resolve({ user: response.data.users_UserByAuthId})
                       })
                       .catch(error => {
-                        console.log('apolloClient error getting user query', error)
+                        console.log('apolloClient error getting user query', error.graphQLErrors, error.stack)
                         reject(error)
                       })
         })
@@ -170,7 +171,7 @@ function newLogin () {
                 resolve({ teams: response.data.teams_TeamsByOwner})
               })
               .catch(error => {
-                console.log('apolloClient error getting user teams', error)
+                console.log('apolloClient error getting user teams', error.graphQLErrors, error.stack)
                 reject(error)
               })
         })
@@ -233,7 +234,7 @@ function newLogin () {
                 resolve({ currentEvents: response.data.events_Events})
               })
               .catch(error => {
-                console.log('apolloClient error getting current events', error)
+                console.log('apolloClient error getting current events', error.graphQLErrors, error.stack)
                 reject(error)
               })
         })
@@ -320,7 +321,7 @@ function newLogin () {
                 resolve({ clones: response.data.operations_Clones})
               })
               .catch(error => {
-                console.log('apolloClient error getting user clones', error)
+                console.log('apolloClient error getting user clones', error.graphQLErrors, error.stack)
                 reject(error)
               })
         })

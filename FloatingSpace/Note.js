@@ -1,6 +1,6 @@
  ﻿
 function newNote () {
-  var thisObject = {
+  let thisObject = {
 
     physicsLoop: physicsLoop,
     onMouseOver: onMouseOver,

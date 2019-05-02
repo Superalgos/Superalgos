@@ -1,5 +1,5 @@
 function newPanelTabButton () {
-  var thisObject = {
+  let thisObject = {
     container: undefined,
     draw: draw,
     parentContainer: undefined,

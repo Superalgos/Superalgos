@@ -3,7 +3,7 @@ function newFrame () {
   const PANEL_CORNERS_RADIOUS = 5
   const TITLE_BAR_HEIGHT = 14 // this must be grater than radius
 
-  var frame = {
+  let frame = {
     containerName: '',                  // This is for debugging purposes only.
     parentFrame: undefined,             // Here we store the parent cointainer zoom object.
     width: browserCanvas.width,
@@ -290,25 +290,16 @@ function newFrame () {
   }
 
   function background () {
-    borderPoint1 = {
-      x: PANEL_CORNERS_RADIOUS,
-      y: PANEL_CORNERS_RADIOUS
+    let params = {
+      cornerRadious: 5,
+      lineWidth: 0.1,
+      opacity: 0.75,
+      container: frame.container,
+      borderColor: UI_COLOR.DARK,
+      backgroundColor: UI_COLOR.WHITE
     }
 
-    borderPoint2 = {
-      x: frame.width - PANEL_CORNERS_RADIOUS,
-      y: PANEL_CORNERS_RADIOUS
-    }
-
-    borderPoint3 = {
-      x: frame.width - PANEL_CORNERS_RADIOUS,
-      y: frame.height - PANEL_CORNERS_RADIOUS
-    }
-
-    borderPoint4 = {
-      x: PANEL_CORNERS_RADIOUS,
-      y: frame.height - PANEL_CORNERS_RADIOUS
-    }
+    roundedCornersBackground(params)
 
     titleBarPoint1 = {
       x: 0,
@@ -322,35 +313,8 @@ function newFrame () {
 
         /* Now the transformations. */
 
-    borderPoint1 = frameThisPoint(borderPoint1)
-    borderPoint2 = frameThisPoint(borderPoint2)
-    borderPoint3 = frameThisPoint(borderPoint3)
-    borderPoint4 = frameThisPoint(borderPoint4)
-
     titleBarPoint1 = frameThisPoint(titleBarPoint1)
     titleBarPoint2 = frameThisPoint(titleBarPoint2)
-
-        /* We paint the panel background first */
-
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 0.75)'
-    browserCanvasContext.beginPath()
-
-    browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, PANEL_CORNERS_RADIOUS, 1.0 * Math.PI, 1.5 * Math.PI)
-    browserCanvasContext.lineTo(borderPoint2.x, borderPoint2.y - PANEL_CORNERS_RADIOUS)
-    browserCanvasContext.arc(borderPoint2.x, borderPoint2.y, PANEL_CORNERS_RADIOUS, 1.5 * Math.PI, 2.0 * Math.PI)
-    browserCanvasContext.lineTo(borderPoint3.x + PANEL_CORNERS_RADIOUS, borderPoint3.y)
-    browserCanvasContext.arc(borderPoint3.x, borderPoint3.y, PANEL_CORNERS_RADIOUS, 0 * Math.PI, 0.5 * Math.PI)
-    browserCanvasContext.lineTo(borderPoint4.x, borderPoint4.y + PANEL_CORNERS_RADIOUS)
-    browserCanvasContext.arc(borderPoint4.x, borderPoint4.y, PANEL_CORNERS_RADIOUS, 0.5 * Math.PI, 1.0 * Math.PI)
-    browserCanvasContext.lineTo(borderPoint1.x - PANEL_CORNERS_RADIOUS, borderPoint1.y)
-
-    browserCanvasContext.closePath()
-
-    browserCanvasContext.fill()
-
-    browserCanvasContext.lineWidth = 0.1
-    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 0.75)'
-    browserCanvasContext.stroke()
 
         /* We paint the title bar now */
 
@@ -396,6 +360,11 @@ function newFrame () {
 
   function borders () {
         /* Lest get the important points of the drawing so as to apply the needed transformations. */
+
+    let point1
+    let point2
+    let point3
+    let point4
 
     point1 = {
       x: 0,

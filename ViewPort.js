@@ -1,5 +1,12 @@
  ﻿
 function newViewPort () {
+  const MODULE_NAME = 'Viewport'
+  const INFO_LOG = false
+  const INTENSIVE_LOG = false
+  const ERROR_LOG = true
+  const logger = newWebDebugLog()
+  logger.fileName = MODULE_NAME
+
   const CONSOLE_LOG = true
 
   let ANIMATION_INCREMENT = 0.25
@@ -7,6 +14,12 @@ function newViewPort () {
   const BOTTOM_MARGIN = 15 + BOTTOM_SPACE_HEIGHT
   const LEFT_MARGIN = 50
   const RIGHT_MARGIN = 50
+  const MARGINS = {
+    TOP: TOP_MARGIN,
+    BOTTOM: BOTTOM_MARGIN,
+    LEFT: LEFT_MARGIN,
+    RIGHT: RIGHT_MARGIN
+  }
 
   let thisObject = {
     visibleArea: undefined,
@@ -14,6 +27,7 @@ function newViewPort () {
     zoomTargetLevel: undefined,
     zoomLevel: undefined,
     mousePosition: undefined,
+    margins: MARGINS,
     getDisplacement: getDisplacement,
     newZoomLevel: newZoomLevel,
     applyZoom: applyZoom,
@@ -55,6 +69,8 @@ function newViewPort () {
 
   thisObject.eventHandler = newEventHandler()
 
+  let objectStorage = {}
+
   return thisObject
 
   function initialize () {
@@ -64,6 +80,8 @@ function newViewPort () {
       bottomRight: { x: browserCanvas.width - RIGHT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN},
       bottomLeft: { x: LEFT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN}
     }
+
+    readObjectState()
   }
 
   function getDisplacement () {
@@ -99,17 +117,6 @@ function newViewPort () {
       changeZoom(thisObject.zoomLevel + ANIMATION_INCREMENT, thisObject.zoomLevel)
     }
 
- /*
-       if (offsetIncrement.x !== 0) {
-
-           if (Math.trunc(Math.abs(targetOffset.x - offset.x) * 1000) >= Math.trunc(Math.abs(offsetIncrement.x) * 1000)) {
-               offset.x = offset.x + offsetIncrement.x;
-           } else {
-               offsetIncrement.x = 0;
-           }
-       }
-*/
-
     if (offsetIncrement.y !== 0) {
       if (Math.trunc(Math.abs(targetOffset.y - offset.y) * 1000) >= Math.trunc(Math.abs(offsetIncrement.y) * 1000)) {
         offset.y = offset.y + offsetIncrement.y
@@ -124,6 +131,8 @@ function newViewPort () {
   function displace (displaceVector) {
     offset.x = offset.x + displaceVector.x
     offset.y = offset.y + displaceVector.y
+
+    saveObjectState()
 
     let event = {
       newOffset: offset
@@ -149,6 +158,8 @@ function newViewPort () {
   function newZoomLevel (level) {
     thisObject.zoomTargetLevel = level
     thisObject.zoomLevel = level
+
+    saveObjectState()
 
     ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / 3
 
@@ -244,6 +255,8 @@ function newViewPort () {
     offset.x = offset.x - newMouse.x + thisObject.mousePosition.x
     offset.y = offset.y - newMouse.y + thisObject.mousePosition.y
 
+    saveObjectState()
+
     targetOffset.x = offset.x
     targetOffset.y = offset.y
 
@@ -332,22 +345,21 @@ function newViewPort () {
   }
 
   function draw () {
-/*
-        drawGrid(10);
-        drawGrid(1);
-        drawGrid(0.1);
-*/
+    drawGrid(0.1)
   }
 
   function drawGrid (step) {
+    if (thisObject.zoomLevel > -17) { return }
+
     let squareWidth = (thisObject.visibleArea.bottomRight.x - thisObject.visibleArea.bottomLeft.x) / step
     squareWidth = squareWidth + squareWidth * increment * thisObject.zoomLevel
 
     let startingX = offset.x - Math.trunc(offset.x / squareWidth) * squareWidth
     let startingY = offset.y - Math.trunc(offset.y / squareWidth) * squareWidth
-    let lineWidth = 10 / step + 10 / step * increment * thisObject.zoomLevel
+    let lineWidth = 0.4 + thisObject.zoomLevel / 100
+    lineWidth = lineWidth.toFixed(2)
 
-    if (lineWidth < 0.5) {
+    if (lineWidth < 0.1) {
       return
     }
 
@@ -357,40 +369,66 @@ function newViewPort () {
 
     browserCanvasContext.beginPath()
 
-    for (var i = startingX; i < thisObject.visibleArea.bottomRight.x; i = i + squareWidth) {
-      for (var j = startingY; j < thisObject.visibleArea.bottomRight.y; j = j + squareWidth) {
+    let CROSS_SIZE = 4
+
+    for (var i = startingX; i < thisObject.visibleArea.bottomRight.x + RIGHT_MARGIN; i = i + squareWidth) {
+      for (var j = startingY; j < thisObject.visibleArea.bottomRight.y + BOTTOM_MARGIN; j = j + squareWidth) {
         let point1 = {
-          x: thisObject.visibleArea.bottomLeft.x,
-          y: j
+          x: Math.trunc(i - CROSS_SIZE),
+          y: Math.trunc(j)
         }
 
         let point2 = {
-          x: thisObject.visibleArea.bottomRight.x,
-          y: j
+          x: Math.trunc(i + CROSS_SIZE),
+          y: Math.trunc(j)
         }
 
         browserCanvasContext.moveTo(point1.x, point1.y)
         browserCanvasContext.lineTo(point2.x, point2.y)
-      }
 
-      let point3 = {
-        x: i,
-        y: thisObject.visibleArea.topLeft.y
-      }
+        let point3 = {
+          x: Math.trunc(i),
+          y: Math.trunc(j - CROSS_SIZE)
+        }
 
-      let point4 = {
-        x: i,
-        y: thisObject.visibleArea.bottomLeft.y
-      }
+        let point4 = {
+          x: Math.trunc(i),
+          y: Math.trunc(j + CROSS_SIZE)
+        }
 
-      browserCanvasContext.moveTo(point3.x, point3.y)
-      browserCanvasContext.lineTo(point4.x, point4.y)
+        browserCanvasContext.moveTo(point3.x, point3.y)
+        browserCanvasContext.lineTo(point4.x, point4.y)
+      }
     }
     browserCanvasContext.closePath()
-    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 0.' + Math.trunc(lineWidth + 1) + ')'
+    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 0.5)'
 
-    browserCanvasContext.lineWidth = lineWidth
+    browserCanvasContext.lineWidth = 1
 
     browserCanvasContext.stroke()
+  }
+
+  function saveObjectState () {
+    objectStorage.offset = offset
+    objectStorage.zoomLevel = thisObject.zoomLevel
+    window.localStorage.setItem(MODULE_NAME, JSON.stringify(objectStorage))
+  }
+
+  function readObjectState () {
+    let objectStorageString = window.localStorage.getItem(MODULE_NAME)
+    if (objectStorageString !== null && objectStorageString !== '') {
+      objectStorage = JSON.parse(objectStorageString)
+      offset = objectStorage.offset
+      thisObject.zoomLevel = objectStorage.zoomLevel
+      thisObject.zoomTargetLevel = objectStorage.zoomLevel
+      INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
+    } else { // Setting default values for first session
+      offset = {
+        x: 0,
+        y: 0
+      }
+      thisObject.zoomLevel = MIN_ZOOM_LEVEL
+      thisObject.zoomTargetLevel = MIN_ZOOM_LEVEL
+    }
   }
 }

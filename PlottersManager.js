@@ -10,7 +10,7 @@ function newPlottersManager () {
   let competitionPlotters = []
 
   let timePeriod = INITIAL_TIME_PERIOD
-  let datetime = INITIAL_DATE
+  let datetime = NEW_SESSION_INITIAL_DATE
 
   let thisObject = {
     setDatetime: setDatetime,
@@ -476,7 +476,7 @@ function newPlottersManager () {
               if (INFO_LOG === true) { logger.write('[INFO] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> key = ' + pProductCard.product.plotter.devTeam + '-' + pProductCard.product.plotter.codeName + '-' + pProductCard.product.plotter.moduleName) }
 
               try {
-                                // plotter.positionAtDatetime(INITIAL_DATE);
+                                // plotter.positionAtDatetime(NEW_SESSION_INITIAL_DATE);
               } catch (err) {
                                 // If the plotter does not implement this function its ok.
               }
@@ -619,6 +619,7 @@ function newPlottersManager () {
           productPlotters[i].storage.finalize()
 
           if (productPlotters[i].plotter.finalize !== undefined) {
+            productPlotters[i].plotter.container.finalize()
             productPlotters[i].plotter.finalize()
           }
 

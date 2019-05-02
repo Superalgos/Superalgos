@@ -37,7 +37,7 @@ function newTimeControlPanel () {
     panelTabButton.container.frame.parentFrame = thisObject.container.frame
     panelTabButton.initialize()
 
-    let datetime = INITIAL_DATE
+    let datetime = NEW_SESSION_INITIAL_DATE
 
     let datetimeDisplay = {
       currentDatetime: datetime,
@@ -92,6 +92,7 @@ function newTimeControlPanel () {
   }
 
   function draw () {
+    return
     thisObject.container.frame.draw(false, false, true)
     thisObject.datetimeDisplay.draw()
     panelTabButton.draw()

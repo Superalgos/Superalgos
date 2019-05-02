@@ -5,7 +5,7 @@ The Panel Space y the place wehre all panels live, no matter who create them.
 */
 
 function newPanelsSpace () {
-  var thisObject = {
+  let thisObject = {
     container: undefined,
     createNewPanel: createNewPanel,
     destroyPanel: destroyPanel,
@@ -16,7 +16,7 @@ function newPanelsSpace () {
     initialize: initialize
   }
 
-  var container = newContainer()
+  let container = newContainer()
   container.initialize()
   thisObject.container = container
   thisObject.container.isDraggeable = false
@@ -76,6 +76,10 @@ function newPanelsSpace () {
       let panel = thisObject.panels[i]
 
       if (panel.handle === pPanelHandle) {
+        if (panel.finalize !== undefined) {
+          panel.finalize()
+        }
+
         thisObject.panels.splice(i, 1)  // Delete item from array.
         return
       }
@@ -98,11 +102,9 @@ function newPanelsSpace () {
   function draw () {
     thisObject.container.frame.draw(false, false)
 
-        /* When we draw a time machine, that means also to draw all the charts in it. */
-
     thisObject.panels = panelsMap.get('Global')
-    if (thisObject.panels != undefined) {
-      for (var i = 0; i < thisObject.panels.length; i++) {
+    if (thisObject.panels !== undefined) {
+      for (let i = 0; i < thisObject.panels.length; i++) {
         let panel = thisObject.panels[i]
         panel.draw()
       }
@@ -110,7 +112,7 @@ function newPanelsSpace () {
 
     thisObject.panels = panelsMap.get(window.CHART_ON_FOCUS)
     if (thisObject.panels !== undefined) {
-      for (var i = 0; i < thisObject.panels.length; i++) {
+      for (let i = 0; i < thisObject.panels.length; i++) {
         let panel = thisObject.panels[i]
         panel.draw()
       }

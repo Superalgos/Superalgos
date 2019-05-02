@@ -1,5 +1,5 @@
  ﻿function newProductsPanel () {
-   var thisObject = {
+   let thisObject = {
      container: undefined,
      getLoadingProductCards: getLoadingProductCards,
      draw: draw,
@@ -41,11 +41,11 @@
      thisObject.container.name = 'Layers @ ' + exchange + ' ' + market.assetB + '/' + market.assetA
      thisObject.container.frame.containerName = thisObject.container.name
      thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
-     thisObject.container.frame.height = viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
+     thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
 
      var position = {
        x: viewPort.visibleArea.topLeft.x,
-       y: viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height
+       y: viewPort.visibleArea.topLeft.y// viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height
      }
 
      thisObject.container.frame.position = position
@@ -64,6 +64,7 @@
        userTeams = JSON.parse(storedTeams)
        userTeam = userTeams[0] // Currently we assume a user can be at only one team.
      }
+     if (userTeam === undefined) { userTeam = {slug: ''} }
 
         /* First thing is to build the productCards array */
 
@@ -82,6 +83,9 @@
            for (let k = 0; k < bot.products.length; k++) {
              let product = bot.products[k]
 
+             if (window.localStorage.getItem('Show AAMaster Layers') === null) {
+               if (product.shareWith !== 'Public' && devTeam.codeName !== userTeam.slug) { continue }
+             }
                         /* Now we create Product objects */
 
              let productCard = newProductCard()

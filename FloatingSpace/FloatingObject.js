@@ -8,7 +8,7 @@ function newFloatingObject () {
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
-  var thisObject = {
+  let thisObject = {
 
     physicsLoop: physicsLoop,
     eventHandler: undefined,

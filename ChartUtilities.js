@@ -139,4 +139,5 @@ function recalculatePeriod (zoomLevel) {
   if (zoomLevel <= -28) {
     return ONE_DAY_IN_MILISECONDS
   }
+  return ONE_DAY_IN_MILISECONDS
 }

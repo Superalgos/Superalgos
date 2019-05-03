@@ -10,8 +10,7 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
 
     const MODULE_NAME = "Azure Blob Storage";
     const RETRY_WAIT_TIME = 10000;
-    const MAX_RETRIES_READ = 6;
-    const MAX_RETRIES_WRITE = 30;
+    const MAX_RETRIES = 30;
 
     let AZURE_STORAGE = require('./AzureStorage')
     let storage = AZURE_STORAGE.newAzureStorage(bot, logger);
@@ -28,22 +27,11 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
     let containerName;
     let environment = global.CURRENT_ENVIRONMENT;
 
-    let Minio = require('minio');  // Temporary during migration
-    // let minioClient; // Temporary during migration
-
     return thisObject;
 
     function initialize(pDataOwner, callBackFunction, disableLogging) {
 
         try {
-
-            // minioClient = new Minio.Client({
-            //     endPoint: process.env.MINIO_END_POINT,
-            //     port: JSON.parse(process.env.MINIO_PORT),
-            //     useSSL: JSON.parse(process.env.MINIO_USE_SSL),
-            //     accessKey: process.env.MINIO_ACCESS_KEY,
-            //     secretKey: process.env.MINIO_SECRET_KEY
-            // })
 
             containerName = pDataOwner.toLowerCase();
 
@@ -132,16 +120,6 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
 
             writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onFileCreated);
 
-            /* REPLICATION TO MINIO */
-            // minioClient.putObject(containerName, pFolderPath + "/" + pFileName, pFileContent, 'text/plain', function (err) {
-            //     console.log(MODULE_NAME, "[INFO] 'createTextFile' -> Replicating to MINIO -> File = " + pFolderPath + "/" + pFileName);
-
-            //     if (err) {
-            //         console.log(MODULE_NAME, "[WARN] 'createTextFile' -> Replicating to MINIO -> err = " + err.message);
-            //     }
-
-            // }); // Temporary during migration
-
             function onFileCreated(err, result, response) {
 
                 try {
@@ -188,7 +166,7 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
                             return;
 
                             function retryCreateFile() {
-                                if(retryCount < MAX_RETRIES_WRITE){
+                                if(retryCount < MAX_RETRIES){
                                     logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> Retrying to create the file. Retry count: " + retryCount);
 
                                     writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onFileCreated);
@@ -252,7 +230,7 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
                         logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> text = " + text);
                     }
 
-                    if (err) {
+                    if (err || text === undefined) {
 
                         if (ERROR_LOG === true && logger !== undefined && err.code !== 'BlobNotFound') {
                             logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> Error trying to get this file.");
@@ -260,6 +238,7 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
                             logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> pFolderPath = " + pFolderPath);
                             logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> pFileName = " + pFileName);
                             logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> err.code = " + err.code);
+                            logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> text = " + text);
                         }
 
                         if (
@@ -280,7 +259,7 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
                             return;
 
                             function retryCreateFile() {
-                                if(retryCount < MAX_RETRIES_READ){
+                                if(retryCount < MAX_RETRIES){
                                     logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> Retrying to get the file. Retry count: " + retryCount);
                                     readOnlyBlobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onFileReceived);
                                 }
@@ -335,16 +314,6 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
                     } else {
                         if (FULL_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> File retrieved."); }
                         callBackFunction(global.DEFAULT_OK_RESPONSE, text);
-
-                        /* REPLICATION TO MINIO */
-                        // minioClient.putObject(containerName, pFolderPath + "/" + pFileName, text, 'text/plain', function (err, dataStream) {
-                        //     console.log(MODULE_NAME, "[INFO] 'getTextFile' -> onFileReceived -> Replicating to MINIO -> File = " + pFolderPath + "/" + pFileName);
-
-                        //     if (err) {
-                        //         console.log(MODULE_NAME, "[WARN] 'getTextFile' -> onFileReceived -> Replicating to MINIO -> err = " + err.message);
-                        //     }
-
-                        // }); // Temporary during migration
                     }
                 }
                 catch (err) {

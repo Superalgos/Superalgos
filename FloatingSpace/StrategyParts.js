@@ -90,8 +90,8 @@ function newStrategyParts () {
         floatingObject.friction = FRICTION
 
         floatingObject.initializeMass(100)
-        floatingObject.initializeRadius(40)
-        floatingObject.initializeImageSize(70)
+        floatingObject.initializeRadius(60)
+        floatingObject.initializeImageSize(110)
         floatingObject.initializeFontSize(10)
 
         floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
@@ -101,8 +101,8 @@ function newStrategyParts () {
         floatingObject.friction = FRICTION
 
         floatingObject.initializeMass(50)
-        floatingObject.initializeRadius(30)
-        floatingObject.initializeImageSize(50)
+        floatingObject.initializeRadius(45)
+        floatingObject.initializeImageSize(80)
         floatingObject.initializeFontSize(10)
 
         floatingObject.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
@@ -112,8 +112,8 @@ function newStrategyParts () {
         floatingObject.friction = FRICTION
 
         floatingObject.initializeMass(10)
-        floatingObject.initializeRadius(20)
-        floatingObject.initializeImageSize(30)
+        floatingObject.initializeRadius(40)
+        floatingObject.initializeImageSize(70)
         floatingObject.initializeFontSize(10)
 
         floatingObject.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
@@ -123,8 +123,8 @@ function newStrategyParts () {
         floatingObject.friction = FRICTION
 
         floatingObject.initializeMass(10)
-        floatingObject.initializeRadius(15)
-        floatingObject.initializeImageSize(20)
+        floatingObject.initializeRadius(35)
+        floatingObject.initializeImageSize(60)
         floatingObject.initializeFontSize(10)
 
         floatingObject.fillStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)'
@@ -134,8 +134,8 @@ function newStrategyParts () {
         floatingObject.friction = FRICTION
 
         floatingObject.initializeMass(10)
-        floatingObject.initializeRadius(10)
-        floatingObject.initializeImageSize(10)
+        floatingObject.initializeRadius(30)
+        floatingObject.initializeImageSize(50)
         floatingObject.initializeFontSize(10)
 
         floatingObject.fillStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)'

@@ -32,10 +32,16 @@ function newStrategySpace () {
   function getContainer (point) {
     let container
 
+    if (thisObject.strategyCollection !== undefined) {
+      container = thisObject.strategyCollection.getContainer(point)
+      if (container !== undefined) { return container }
+    }
+
     if (thisObject.sidePanel !== undefined) {
       container = thisObject.sidePanel.getContainer(point)
       if (container !== undefined) { return container }
     }
+
     return
   }
 
@@ -43,3 +49,4 @@ function newStrategySpace () {
     thisObject.sidePanel.draw()
   }
 }
+

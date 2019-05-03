@@ -37,12 +37,12 @@ function newStrategyCollectionItem () {
   }
 
   function onMouseClick (event) {
-
+    console.log('ITEM CLICKED')
   }
 
   function getContainer (point) {
     let container
-    if (thisObject.container.frame.isThispointHere(point, true) === true) {
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
     } else {
       return undefined
@@ -161,4 +161,3 @@ function newStrategyCollectionItem () {
     browserCanvasContext.drawImage(thisObject.icon, point1.x - IMAGE_SIZE / 2, point1.y - IMAGE_SIZE / 2, IMAGE_SIZE, IMAGE_SIZE)
   }
 }
-

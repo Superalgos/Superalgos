@@ -6,7 +6,8 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         container: undefined,
         draw: draw,
         getContainer: getContainer,
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     };
 
     let container = newContainer();
@@ -36,6 +37,13 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         panelTabButton.initialize()
 
         controlHandler = canvas.bottomSpace.createNewControl('Over The Line', drawAssetBalanceUI, 'Global')
+
+    }
+
+    function finalize() {
+
+        canvas.bottomSpace.destroyControl(controlHandler)
+        controlHandler = undefined
 
     }
 
@@ -202,8 +210,9 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         params = {}
         params.VALUE = currentRecord.innerRecord.balanceA;
+        params.INIT_VALUE = 1
         params.MIN_VALUE = 0.5
-        params.MAX_VALUE = 1
+        params.MAX_VALUE = 2
         params.ASSET_LABEL = 'Asset A'
         params.ASSET_NAME = DEFAULT_MARKET.assetB + ' '
         params.LEFT_OFFSET = 100
@@ -213,7 +222,8 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         params = {}
         params.VALUE = currentRecord.innerRecord.balanceB;
         params.MIN_VALUE = 0
-        params.MAX_VALUE = 6000
+        params.INIT_VALUE = currentRecord.innerRecord.rate * currentRecord.innerRecord.sellAmount;
+        params.MAX_VALUE = params.INIT_VALUE * 2;
         params.ASSET_LABEL = 'Asset B'
         params.ASSET_NAME = DEFAULT_MARKET.assetA + ' '
         params.LEFT_OFFSET = 220
@@ -241,7 +251,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         fontSize = 15;
 
-        browserCanvasContext.font = "bold  " + fontSize + 'px ' + UI_FONT.WHITE + ' Saira';
+        browserCanvasContext.font = "bold  " + fontSize + 'px ' + UI_FONT.PRIMARY
 
         label = 'ASSET BALANCES'
 
@@ -290,34 +300,58 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         const DEFAULT_THICKNESS = 2;
         const VALUE_THICKNESS = 4;
+        const VALUE_BG_THICKNESS = 1;
         const BAR_RADIOUS = RADIOUS * 0.9;
-        const BAR_START_ANGLE = 0.9 * Math.PI;
-        const BAR_END_ANGLE = 2.1 * Math.PI;
-        const CURRENT_VALUE_ANGLE = params.VALUE * (BAR_END_ANGLE - BAR_START_ANGLE) / params.MAX_VALUE + BAR_START_ANGLE
-        const MIN_VALUE_ANGLE = params.MIN_VALUE * (BAR_END_ANGLE - BAR_START_ANGLE) / params.MAX_VALUE + BAR_START_ANGLE
-        let PROFIT_VALUE_ANGLE = (params.VALUE - params.MAX_VALUE) * (BAR_END_ANGLE - BAR_START_ANGLE) / params.MAX_VALUE + BAR_START_ANGLE
 
-        if (PROFIT_VALUE_ANGLE > BAR_END_ANGLE) { PROFIT_VALUE_ANGLE = BAR_END_ANGLE }
+        let BAR_START_ANGLE = 0.9 * Math.PI;
+        let BAR_END_ANGLE = 2.1 * Math.PI;
+        let CURRENT_VALUE_ANGLE = params.VALUE * (BAR_END_ANGLE - BAR_START_ANGLE) / params.MAX_VALUE + BAR_START_ANGLE
+        let MIN_VALUE_ANGLE = params.MIN_VALUE * (BAR_END_ANGLE - BAR_START_ANGLE) / params.MAX_VALUE + BAR_START_ANGLE
+        let INIT_VALUE_ANGLE = params.INIT_VALUE * (BAR_END_ANGLE - BAR_START_ANGLE) / params.MAX_VALUE + BAR_START_ANGLE
+        let PROFIT_VALUE_ANGLE = CURRENT_VALUE_ANGLE
 
-        browserCanvasContext.setLineDash([0, 0])
+        if (CURRENT_VALUE_ANGLE > INIT_VALUE_ANGLE) { CURRENT_VALUE_ANGLE = INIT_VALUE_ANGLE }
 
-        browserCanvasContext.beginPath();
-        browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, BAR_START_ANGLE, MIN_VALUE_ANGLE)
+        if (params.VALUE > 0) {
 
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
-        browserCanvasContext.lineWidth = DEFAULT_THICKNESS
-        browserCanvasContext.stroke()
-        browserCanvasContext.closePath();
+            browserCanvasContext.setLineDash([0, 0])
 
-        browserCanvasContext.beginPath();
-        browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, MIN_VALUE_ANGLE, BAR_END_ANGLE)
+            browserCanvasContext.beginPath();
+            browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, BAR_START_ANGLE, MIN_VALUE_ANGLE)
 
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')'
-        browserCanvasContext.lineWidth = DEFAULT_THICKNESS
-        browserCanvasContext.stroke()
-        browserCanvasContext.closePath();
+            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
+            browserCanvasContext.lineWidth = VALUE_BG_THICKNESS
+            browserCanvasContext.stroke()
+            browserCanvasContext.closePath();
 
-        if (params.VALUE > 0 && params.VALUE <= params.MAX_VALUE) {
+            browserCanvasContext.beginPath();
+            browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, MIN_VALUE_ANGLE, CURRENT_VALUE_ANGLE)
+
+            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')'
+            browserCanvasContext.lineWidth = VALUE_BG_THICKNESS
+            browserCanvasContext.stroke()
+            browserCanvasContext.closePath();
+
+            browserCanvasContext.beginPath();
+            browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, CURRENT_VALUE_ANGLE, INIT_VALUE_ANGLE)
+
+            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
+            browserCanvasContext.lineWidth = VALUE_BG_THICKNESS
+            browserCanvasContext.stroke()
+            browserCanvasContext.closePath();
+
+            if (PROFIT_VALUE_ANGLE > INIT_VALUE_ANGLE) {
+
+                browserCanvasContext.beginPath();
+                browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, INIT_VALUE_ANGLE, PROFIT_VALUE_ANGLE)
+
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + OPACITY + ')'
+                browserCanvasContext.lineWidth = VALUE_BG_THICKNESS
+                browserCanvasContext.stroke()
+                browserCanvasContext.closePath();
+            }
+
+            browserCanvasContext.setLineDash([2, 3])
 
             browserCanvasContext.beginPath();
             browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, BAR_START_ANGLE, MIN_VALUE_ANGLE)
@@ -336,33 +370,23 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
             browserCanvasContext.closePath();
 
             browserCanvasContext.beginPath();
-            browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, CURRENT_VALUE_ANGLE, BAR_END_ANGLE)
+            browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, CURRENT_VALUE_ANGLE, INIT_VALUE_ANGLE)
 
             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
-            browserCanvasContext.lineWidth = DEFAULT_THICKNESS
-            browserCanvasContext.stroke()
-            browserCanvasContext.closePath();
-
-        }
-
-        if (params.VALUE > params.MAX_VALUE) {
-
-            browserCanvasContext.beginPath();
-            browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, BAR_START_ANGLE, BAR_END_ANGLE)
-
-            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')'
-            browserCanvasContext.lineWidth = DEFAULT_THICKNESS
-            browserCanvasContext.stroke()
-            browserCanvasContext.closePath();
-
-            browserCanvasContext.beginPath();
-            browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, BAR_START_ANGLE, PROFIT_VALUE_ANGLE)
-
-            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + OPACITY + ')'
             browserCanvasContext.lineWidth = VALUE_THICKNESS
             browserCanvasContext.stroke()
             browserCanvasContext.closePath();
 
+            if (PROFIT_VALUE_ANGLE > INIT_VALUE_ANGLE) {
+
+                browserCanvasContext.beginPath();
+                browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, INIT_VALUE_ANGLE, PROFIT_VALUE_ANGLE)
+
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + OPACITY + ')'
+                browserCanvasContext.lineWidth = VALUE_THICKNESS
+                browserCanvasContext.stroke()
+                browserCanvasContext.closePath();
+            }
         }
 
         /* Common Variables */
@@ -376,18 +400,18 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         fontSize = 25;
 
-        browserCanvasContext.font = "bold  " + fontSize + 'px ' + UI_FONT.WHITE + ' Saira';
+        browserCanvasContext.font = "bold  " + fontSize + 'px ' + UI_FONT.PRIMARY
 
         label = params.VALUE;
         if (isNaN(label) === false) {
             label = Number(label);
-            label = label.toLocaleString();
+            if (label === 0) { label = label.toFixed(2) } else { label = label.toLocaleString() }
         }
 
         label = label.substring(0, 5);
 
 
-        xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
+        xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO + 10;
 
         labelPoint = {
             x: centerPoint.x - xOffset,
@@ -401,11 +425,11 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         fontSize = 15;
 
-        browserCanvasContext.font = "bold  " + fontSize + 'px ' + UI_FONT.WHITE + ' Saira';
+        browserCanvasContext.font = "bold  " + fontSize + 'px ' + UI_FONT.PRIMARY
 
         label = params.ASSET_LABEL;
 
-        xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
+        xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO + 7;
         yOffset = 22
 
         labelPoint = {
@@ -420,11 +444,11 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         fontSize = 15;
 
-        browserCanvasContext.font = "bold  " + fontSize + 'px ' + UI_FONT.WHITE + ' Saira';
+        browserCanvasContext.font = "bold  " + fontSize + 'px ' + UI_FONT.PRIMARY
 
         label = params.ASSET_NAME;
 
-        xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
+        xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO + 5;
         yOffset = - 15
 
         labelPoint = {
@@ -437,6 +461,12 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
     }
 }
+
+
+
+
+
+
 
 
 

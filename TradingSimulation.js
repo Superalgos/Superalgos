@@ -324,33 +324,7 @@
 
                     for (let i = 0; i < dailyFile.length; i++) {
 
-                        let record = {
-                            begin: undefined,
-                            end: undefined,
-                            type: undefined,
-                            rate: undefined,
-                            amount: undefined,
-                            balanceA: undefined,
-                            balanceB: undefined,
-                            profit: undefined,
-                            lastProfit: undefined,
-                            stopLoss: undefined,
-                            roundtrips: undefined,
-                            hits: undefined,
-                            fails: undefined,
-                            hitRatio: undefined,
-                            ROI: undefined,
-                            periods: undefined,
-                            days: undefined,
-                            anualizedRateOfReturn: undefined,
-                            sellRate: undefined,
-                            lastProfitPercent: undefined,
-                            strategy: undefined,
-                            strategyPhase: undefined,
-                            buyOrder: undefined,
-                            stopLossPhase: undefined,
-                            buyOrderPhase: undefined
-                        };
+                        let record = {};
 
                         record.begin = dailyFile[i][0];
                         record.end = dailyFile[i][1];
@@ -377,6 +351,7 @@
                         record.buyOrder = dailyFile[i][22];
                         record.stopLossPhase = dailyFile[i][23];
                         record.buyOrderPhase = dailyFile[i][24];
+                        record.sellAmount = dailyFile[i][26]; // 25 is the message for the executor
 
                         if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
 
@@ -439,33 +414,7 @@
 
             for (let i = 0; i < marketFile.length; i++) {
 
-                let record = {
-                    begin: undefined,
-                    end: undefined,
-                    type: undefined,
-                    rate: undefined,
-                    amount: undefined,
-                    balanceA: undefined,
-                    balanceB: undefined,
-                    profit: undefined,
-                    lastProfit: undefined,
-                    stopLoss: undefined,
-                    roundtrips: undefined,
-                    hits: undefined,
-                    fails: undefined,
-                    hitRatio: undefined,
-                    ROI: undefined,
-                    periods: undefined,
-                    days: undefined,
-                    anualizedRateOfReturn: undefined,
-                    sellRate: undefined,
-                    lastProfitPercent: undefined,
-                    strategy: undefined,
-                    strategyPhase: undefined,
-                    buyOrder: undefined,
-                    stopLossPhase: undefined,
-                    buyOrderPhase: undefined
-                };
+                let record = {};
 
                 record.begin = marketFile[i][0];
                 record.end = marketFile[i][1];
@@ -492,6 +441,7 @@
                 record.buyOrder = marketFile[i][22];
                 record.stopLossPhase = marketFile[i][23];
                 record.buyOrderPhase = marketFile[i][24];
+                record.sellAmount = marketFile[i][26]; // 25 is the message for the executor
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -554,7 +504,7 @@
 
             /* Now we calculate and plot the records */
 
-            for (let i = 1; i < records.length; i++) { // We do not start in 0 so as to be able to read the previous record i - 1
+            for (let i = 0; i < records.length; i++) { // We do not start in 0 so as to be able to read the previous record i - 1
 
                 record = records[i];
 
@@ -567,16 +517,18 @@
                     };
                     thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);
                 }
-                
+
                 let stopLossPhase = 0;
                 let buyOrderPhase = 0;
 
-                if (record.stopLossPhase !== records[i - 1].stopLossPhase) {
-                    stopLossPhase = record.stopLossPhase;
-                }
+                if (i > 0) {
+                    if (record.stopLossPhase !== records[i - 1].stopLossPhase) {
+                        stopLossPhase = record.stopLossPhase;
+                    }
 
-                if (record.buyOrderPhase !== records[i - 1].buyOrderPhase) {
-                    buyOrderPhase = record.buyOrderPhase;
+                    if (record.buyOrderPhase !== records[i - 1].buyOrderPhase) {
+                        buyOrderPhase = record.buyOrderPhase;
+                    }
                 }
 
                 let recordPoint4 = {
@@ -787,6 +739,7 @@
         }
     }
 }
+
 
 
 

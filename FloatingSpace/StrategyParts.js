@@ -94,7 +94,7 @@ function newStrategyParts () {
         floatingObject.initializeImageSize(70)
         floatingObject.initializeFontSize(10)
 
-        floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 0.5)'
+        floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
       }
 
       function level_2 () {
@@ -105,7 +105,7 @@ function newStrategyParts () {
         floatingObject.initializeImageSize(50)
         floatingObject.initializeFontSize(10)
 
-        floatingObject.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.5)'
+        floatingObject.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
       }
 
       function level_3 () {
@@ -116,7 +116,7 @@ function newStrategyParts () {
         floatingObject.initializeImageSize(30)
         floatingObject.initializeFontSize(10)
 
-        floatingObject.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 0.5)'
+        floatingObject.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
       }
 
       function level_4 () {
@@ -127,7 +127,7 @@ function newStrategyParts () {
         floatingObject.initializeImageSize(20)
         floatingObject.initializeFontSize(10)
 
-        floatingObject.fillStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 0.5)'
+        floatingObject.fillStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)'
       }
 
       function level_5 () {
@@ -138,10 +138,10 @@ function newStrategyParts () {
         floatingObject.initializeImageSize(10)
         floatingObject.initializeFontSize(10)
 
-        floatingObject.fillStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 0.5)'
+        floatingObject.fillStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)'
       }
 
-      floatingObject.labelStrokeStyle = 'rgba(60, 60, 60, 0.50)'
+      floatingObject.labelStrokeStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
 
       floatingLayer.addFloatingObject(floatingObject)
 

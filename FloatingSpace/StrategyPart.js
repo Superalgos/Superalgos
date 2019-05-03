@@ -247,7 +247,7 @@ function newStrategyPart () {
       alphaA = 0.75
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius / 2, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
 
       browserCanvasContext.fillStyle = pFloatingObject.fillStyle
@@ -330,3 +330,4 @@ function newStrategyPart () {
     }
   }
 }
+

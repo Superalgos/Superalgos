@@ -271,7 +271,7 @@ function newStrategyCollectionItem () {
     browserCanvasContext.beginPath()
 
     browserCanvasContext.rect(SIDE_PANEL_WIDTH, 0, browserCanvas.width - SIDE_PANEL_WIDTH, browserCanvas.height)
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)'
 
     browserCanvasContext.closePath()
     browserCanvasContext.fill()
@@ -380,3 +380,4 @@ function newStrategyCollectionItem () {
     browserCanvasContext.drawImage(thisObject.icon, point1.x - IMAGE_SIZE / 2, point1.y - IMAGE_SIZE / 2, IMAGE_SIZE, IMAGE_SIZE)
   }
 }
+

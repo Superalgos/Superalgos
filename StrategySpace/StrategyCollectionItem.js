@@ -37,21 +37,29 @@ function newStrategyCollectionItem () {
   }
 
   function onMouseClick (event) {
-    if (productPlotter.plotter.payload !== undefined) {
-      let imageId = pProductCard.bot.devTeam + '.' + pProductCard.bot.profilePicture
+    let handle
+    let payload = {
+      profile: {
+        position: {
+          x: 500,
+          y: 500
+        },
+        visible: true
+      },
+      notes: []
+    }
 
-      productPlotter.plotter.payload.profile.upLabel = pProductCard.product.shortDisplayName
-      productPlotter.plotter.payload.profile.downLabel = pProductCard.bot.displayName
-      productPlotter.plotter.payload.profile.imageId = imageId
-      productPlotter.plotter.payload.profile.botAvatar = pProductCard.bot.avatar
+    let imageId = 'My Image.png'
 
-      canvas.floatingSpace.profileBalls.createNewProfileBall(productPlotter.plotter.payload, onProfileBallCreated)
+    payload.profile.upLabel = thisObject.strategy.name
+    payload.profile.downLabel = thisObject.strategy.name
+    payload.profile.imageId = imageId
+    payload.profile.botAvatar = 'dont know what this is'
 
-      function onProfileBallCreated (err, pProfileHandle) {
-        productPlotter.profile = pProfileHandle
+    canvas.floatingSpace.profileBalls.createNewProfileBall(payload, onProfileBallCreated)
 
-                          /* There is no policy yet of what to do if this fails. */
-      }
+    function onProfileBallCreated (err, pProfileHandle) {
+      handle = pProfileHandle
     }
   }
 

@@ -91,6 +91,7 @@ function newStrategyCollectionItem () {
   }
 
   function generateStrategyParts () {
+    let lastPhase
     let strategy = thisObject.strategy
     createPart('Strategy', strategy.name, strategy, undefined)
 
@@ -130,7 +131,15 @@ function newStrategyCollectionItem () {
     createPart('Stop', '', strategy.stopLoss, strategy)
     for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
       let phase = strategy.stopLoss.phases[p]
-      createPart('Phase', phase.name, phase, strategy.stopLoss, 'Phase' + ' ' + (p + 1))
+
+      let parent
+      if (p === 0) {
+        parent = strategy.stopLoss
+      } else {
+        parent = lastPhase
+      }
+      lastPhase = phase
+      createPart('Phase', phase.name, phase, parent, 'Phase' + ' ' + (p + 1))
 
       for (let k = 0; k < phase.situations.length; k++) {
         let situation = phase.situations[k]
@@ -146,7 +155,14 @@ function newStrategyCollectionItem () {
     createPart('Take Profit', '', strategy.buyOrder, strategy)
     for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
       let phase = strategy.buyOrder.phases[p]
-      createPart('Phase', phase.name, phase, strategy.buyOrder, 'Phase' + ' ' + (p + 1))
+      let parent
+      if (p === 0) {
+        parent = strategy.buyOrder
+      } else {
+        parent = lastPhase
+      }
+      lastPhase = phase
+      createPart('Phase', phase.name, phase, parent, 'Phase' + ' ' + (p + 1))
 
       for (let k = 0; k < phase.situations.length; k++) {
         let situation = phase.situations[k]
@@ -246,6 +262,19 @@ function newStrategyCollectionItem () {
     text()
     arrow()
     icon()
+    floatingBackground()
+  }
+
+  function floatingBackground () {
+    if (visible === false) { return }
+
+    browserCanvasContext.beginPath()
+
+    browserCanvasContext.rect(SIDE_PANEL_WIDTH, 0, browserCanvas.width - SIDE_PANEL_WIDTH, browserCanvas.height)
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'
+
+    browserCanvasContext.closePath()
+    browserCanvasContext.fill()
   }
 
   function text () {

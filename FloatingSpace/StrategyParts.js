@@ -37,7 +37,7 @@ function newStrategyParts () {
     floatingObject.initialize('Strategy Part', floatingLayer, onInitialized)
 
     function onInitialized (err) {
-      const FRICTION = 0.98
+      const FRICTION = 0.97
       floatingObject.payload = pPayload
 
       switch (type) {

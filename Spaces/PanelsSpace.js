@@ -6,6 +6,7 @@ The Panel Space y the place wehre all panels live, no matter who create them.
 
 function newPanelsSpace () {
   let thisObject = {
+    visible: true,
     container: undefined,
     createNewPanel: createNewPanel,
     destroyPanel: destroyPanel,
@@ -100,6 +101,8 @@ function newPanelsSpace () {
   }
 
   function draw () {
+    if (thisObject.visible !== true) { return }
+
     thisObject.container.frame.draw(false, false)
 
     thisObject.panels = panelsMap.get('Global')
@@ -120,6 +123,8 @@ function newPanelsSpace () {
   }
 
   function getContainer (point) {
+    if (thisObject.visible !== true) { return }
+
     let container
 
         /*

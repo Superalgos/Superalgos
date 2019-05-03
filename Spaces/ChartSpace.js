@@ -14,6 +14,7 @@ function newChartSpace () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    visible: true,
     container: undefined,
     drawBackground: drawBackground,
     draw: draw,
@@ -83,6 +84,8 @@ function newChartSpace () {
   }
 
   function drawBackground () {
+    if (thisObject.visible !== true) { return }
+
     for (var i = 0; i < thisObject.timeMachines.length; i++) {
       var timeMachine = thisObject.timeMachines[i]
       timeMachine.drawBackground()
@@ -90,7 +93,7 @@ function newChartSpace () {
   }
 
   function draw () {
-    // thisObject.container.frame.draw(false, false)
+    if (thisObject.visible !== true) { return }
 
     for (var i = 0; i < thisObject.timeMachines.length; i++) {
       var timeMachine = thisObject.timeMachines[i]
@@ -99,7 +102,7 @@ function newChartSpace () {
   }
 
   function getContainer (point, purpose) {
-    if (INFO_LOG === true) { logger.write('[INFO] getContainer -> Entering function.') }
+    if (thisObject.visible !== true) { return }
 
     let container
 

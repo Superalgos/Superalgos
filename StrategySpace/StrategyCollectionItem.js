@@ -17,10 +17,12 @@ function newStrategyCollectionItem () {
   thisObject.container.isClickeable = true
   thisObject.container.isDraggeable = false
 
+  let visible = false
+
   return thisObject
 
   function initialize () {
-    const ITEM_WIDTH = 430
+    const ITEM_WIDTH = SIDE_PANEL_WIDTH - 20
     const ITEM_HEIGHT = 80
 
     thisObject.container.frame.width = ITEM_WIDTH
@@ -37,12 +39,216 @@ function newStrategyCollectionItem () {
   }
 
   function onMouseClick (event) {
+    if (visible === false) {
+      canvas.chartSpace.visible = false
+      canvas.panelsSpace.visible = false
+      generateStrategyParts()
+      visible = true
+    } else {
+      canvas.chartSpace.visible = true
+      canvas.panelsSpace.visible = true
+      destroyStrategyParts()
+      visible = false
+    }
+  }
 
+  function createPart (partType, name, node, parentNode, title) {
+    let payload = {
+      profile: {
+        position: {
+          x: (viewPort.width - SIDE_PANEL_WIDTH) / 2 + SIDE_PANEL_WIDTH,
+          y: viewPort.height / 2
+        },
+        visible: true
+      },
+      notes: []
+    }
+
+    let imageId // 'My Image.png'
+
+    if (title !== undefined) {
+      payload.profile.upLabel = title
+    } else {
+      payload.profile.upLabel = partType
+    }
+
+    payload.profile.downLabel = name
+    payload.profile.imageId = imageId
+    payload.profile.botAvatar = 'dont know what this is'
+    payload.parentNode = parentNode
+
+    node.payload = payload
+
+    canvas.floatingSpace.strategyParts.createNewStrategyPart(partType, payload, onStrategyPartCreated)
+
+    function onStrategyPartCreated (err, pPartHandle) {
+      node.handle = pPartHandle
+    }
+  }
+
+  function destroyPart (node) {
+    canvas.floatingSpace.strategyParts.destroyStrategyPart(node.handle)
+  }
+
+  function generateStrategyParts () {
+    let lastPhase
+    let strategy = thisObject.strategy
+    createPart('Strategy', strategy.name, strategy, undefined)
+
+    createPart('Strategy Entry', '', strategy.entryPoint, strategy)
+    for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
+      let situation = strategy.entryPoint.situations[k]
+      createPart('Situation', situation.name, situation, strategy.entryPoint, 'Situation' + ' ' + (k + 1))
+
+      for (let m = 0; m < situation.conditions.length; m++) {
+        let condition = situation.conditions[m]
+        createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
+      }
+    }
+
+    createPart('Strategy Exit', '', strategy.exitPoint, strategy)
+    for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
+      let situation = strategy.exitPoint.situations[k]
+      createPart('Situation', situation.name, situation, strategy.exitPoint, 'Situation' + ' ' + (k + 1))
+
+      for (let m = 0; m < situation.conditions.length; m++) {
+        let condition = situation.conditions[m]
+        createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
+      }
+    }
+
+    createPart('Trade Entry', '', strategy.sellPoint, strategy)
+    for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
+      let situation = strategy.sellPoint.situations[k]
+      createPart('Situation', situation.name, situation, strategy.sellPoint, 'Situation' + ' ' + (k + 1))
+
+      for (let m = 0; m < situation.conditions.length; m++) {
+        let condition = situation.conditions[m]
+        createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
+      }
+    }
+
+    createPart('Stop', '', strategy.stopLoss, strategy)
+    for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
+      let phase = strategy.stopLoss.phases[p]
+
+      let parent
+      if (p === 0) {
+        parent = strategy.stopLoss
+      } else {
+        parent = lastPhase
+      }
+      lastPhase = phase
+      createPart('Phase', phase.name, phase, parent, 'Phase' + ' ' + (p + 1))
+
+      for (let k = 0; k < phase.situations.length; k++) {
+        let situation = phase.situations[k]
+        createPart('Situation', situation.name, situation, phase, 'Situation' + ' ' + (k + 1))
+
+        for (let m = 0; m < situation.conditions.length; m++) {
+          let condition = situation.conditions[m]
+          createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
+        }
+      }
+    }
+
+    createPart('Take Profit', '', strategy.buyOrder, strategy)
+    for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
+      let phase = strategy.buyOrder.phases[p]
+      let parent
+      if (p === 0) {
+        parent = strategy.buyOrder
+      } else {
+        parent = lastPhase
+      }
+      lastPhase = phase
+      createPart('Phase', phase.name, phase, parent, 'Phase' + ' ' + (p + 1))
+
+      for (let k = 0; k < phase.situations.length; k++) {
+        let situation = phase.situations[k]
+        createPart('Situation', situation.name, situation, phase, 'Situation' + ' ' + (k + 1))
+
+        for (let m = 0; m < situation.conditions.length; m++) {
+          let condition = situation.conditions[m]
+          createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
+        }
+      }
+    }
+  }
+
+  function destroyStrategyParts () {
+    let strategy = thisObject.strategy
+    destroyPart(strategy)
+
+    destroyPart(strategy.entryPoint)
+    for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
+      let situation = strategy.entryPoint.situations[k]
+      destroyPart(situation)
+
+      for (let m = 0; m < situation.conditions.length; m++) {
+        let condition = situation.conditions[m]
+        destroyPart(condition)
+      }
+    }
+
+    destroyPart(strategy.exitPoint)
+    for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
+      let situation = strategy.exitPoint.situations[k]
+      destroyPart(situation)
+
+      for (let m = 0; m < situation.conditions.length; m++) {
+        let condition = situation.conditions[m]
+        destroyPart(condition)
+      }
+    }
+
+    destroyPart(strategy.sellPoint)
+    for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
+      let situation = strategy.sellPoint.situations[k]
+      destroyPart(situation)
+
+      for (let m = 0; m < situation.conditions.length; m++) {
+        let condition = situation.conditions[m]
+        destroyPart(condition)
+      }
+    }
+
+    destroyPart(strategy.stopLoss)
+    for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
+      let phase = strategy.stopLoss.phases[p]
+      destroyPart(strategy.stopLoss)
+
+      for (let k = 0; k < phase.situations.length; k++) {
+        let situation = phase.situations[k]
+        destroyPart(situation)
+
+        for (let m = 0; m < situation.conditions.length; m++) {
+          let condition = situation.conditions[m]
+          destroyPart(condition)
+        }
+      }
+    }
+
+    destroyPart(strategy.buyOrder)
+    for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
+      let phase = strategy.buyOrder.phases[p]
+      destroyPart(strategy.buyOrder)
+
+      for (let k = 0; k < phase.situations.length; k++) {
+        let situation = phase.situations[k]
+        destroyPart(situation)
+
+        for (let m = 0; m < situation.conditions.length; m++) {
+          let condition = situation.conditions[m]
+          destroyPart(condition)
+        }
+      }
+    }
   }
 
   function getContainer (point) {
     let container
-    if (thisObject.container.frame.isThispointHere(point, true) === true) {
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
     } else {
       return undefined
@@ -56,6 +262,19 @@ function newStrategyCollectionItem () {
     text()
     arrow()
     icon()
+    floatingBackground()
+  }
+
+  function floatingBackground () {
+    if (visible === false) { return }
+
+    browserCanvasContext.beginPath()
+
+    browserCanvasContext.rect(SIDE_PANEL_WIDTH, 0, browserCanvas.width - SIDE_PANEL_WIDTH, browserCanvas.height)
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)'
+
+    browserCanvasContext.closePath()
+    browserCanvasContext.fill()
   }
 
   function text () {

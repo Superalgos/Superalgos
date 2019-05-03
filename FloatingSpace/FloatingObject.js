@@ -64,7 +64,7 @@ function newFloatingObject () {
 
   return thisObject
 
-  function initialize (pType, callBackFunction) {
+  function initialize (pType, floatingLayer, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
@@ -89,7 +89,20 @@ function newFloatingObject () {
           }
           break
         }
+
+        case 'Strategy Part': {
+          underlayingObject = newStrategyPart()
+          underlayingObject.initialize(floatingLayer, onInitialized)
+
+          function onInitialized (err) {
+
+          }
+
+          break
+        }
         default: {
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Unsopported type received -> pType = ' + pType) }
+          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
           break
         }
       }
@@ -121,9 +134,9 @@ function newFloatingObject () {
   }
 
   function onMouseOver () {
-    thisObject.targetRadius = thisObject.rawRadius * 1.5
-    thisObject.targetImageSize = thisObject.rawImageSize * 1.5
-    thisObject.targetFontSize = thisObject.rawFontSize * 1.5
+    thisObject.targetRadius = thisObject.rawRadius * 2.5
+    thisObject.targetImageSize = thisObject.rawImageSize * 2.5
+    thisObject.targetFontSize = thisObject.rawFontSize * 2.5
 
     underlayingObject.onMouseOver()
   }

@@ -11,6 +11,7 @@ function newFloatingSpace () {
   let thisObject = {
     floatingLayer: undefined,               // This is the array of floatingObjects being displayed
     profileBalls: undefined,
+    strategyParts: undefined,
     noteSets: undefined,
     initialize: initialize,
     finalize: finalize
@@ -24,6 +25,7 @@ function newFloatingSpace () {
 
       thisObject.floatingLayer.finalize()
       thisObject.profileBalls.finalize()
+      thisObject.strategyParts.finalize()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
@@ -31,21 +33,16 @@ function newFloatingSpace () {
 
   function initialize (callBackFunction) {
     thisObject.floatingLayer = newFloatingLayer()
-    thisObject.floatingLayer.initialize(onFloatingLayerInitialized)
+    thisObject.floatingLayer.initialize()
 
-    function onFloatingLayerInitialized (err) {
-      thisObject.profileBalls = newProfileBalls()
-      thisObject.profileBalls.initialize(thisObject.floatingLayer, onProfileBallsInitialized)
+    thisObject.profileBalls = newProfileBalls()
+    thisObject.profileBalls.initialize(thisObject.floatingLayer)
 
-      function onProfileBallsInitialized (err) {
-        thisObject.noteSets = newNoteSets()
-        thisObject.noteSets.initialize(thisObject.floatingLayer, onNoteSetsInitialized)
+    thisObject.noteSets = newNoteSets()
+    thisObject.noteSets.initialize(thisObject.floatingLayer)
 
-        function onNoteSetsInitialized (err) {
-
-        }
-      }
-    }
+    thisObject.strategyParts = newStrategyParts()
+    thisObject.strategyParts.initialize(thisObject.floatingLayer)
   }
 }
 

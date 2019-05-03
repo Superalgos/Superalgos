@@ -23,6 +23,8 @@ function newViewPort () {
 
   let thisObject = {
     visibleArea: undefined,
+    width: undefined,
+    height: undefined,
     eventHandler: undefined,
     zoomTargetLevel: undefined,
     zoomLevel: undefined,
@@ -80,6 +82,9 @@ function newViewPort () {
       bottomRight: { x: browserCanvas.width - RIGHT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN},
       bottomLeft: { x: LEFT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN}
     }
+
+    thisObject.width = thisObject.visibleArea.topRight.x - thisObject.visibleArea.topLeft.x
+    thisObject.height = thisObject.visibleArea.bottomRight.y - thisObject.visibleArea.topLeft.y
 
     readObjectState()
   }

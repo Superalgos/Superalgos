@@ -11,6 +11,8 @@ function newFloatingLayer () {
                       to specify the location of a bot instance.
 
     2. Notes:         Notes are a rectangular area where some text is posted. It has a subject and a body.
+
+    3. Strategy Parts: These are small balls that represent parts of an strategy.
     */
 
   const MODULE_NAME = 'Floating Layer'
@@ -61,7 +63,7 @@ function newFloatingLayer () {
 
   let dyingFloatingObjects = []
 
-  let maxTargetRepulsionForce = 0.003
+  let maxTargetRepulsionForce = 0.001
   let currentHandle = 0
 
   return thisObject
@@ -78,17 +80,9 @@ function newFloatingLayer () {
     }
   }
 
-  function initialize (callBackFunction) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
+  function initialize () {
 
-            /* We dont need to initialize anything right now. */
-
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err.message = ' + err.message) }
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
-    }
+        /* We dont need to initialize anything right now. */
   }
 
   function addFloatingObject (pFloatingObject, callBackFunction) {
@@ -214,6 +208,21 @@ function newFloatingLayer () {
               }
               payload.notes.push(note)
               pFloatingObject.payloadNoteIndex = 0
+
+              pFloatingObject.payload = payload
+              break
+            }
+            case 'Strategy Part': {
+              if (pFloatingObject.payload.profile.visible === false) { return }
+
+              payload.profile = {
+                position: {
+                  x: pFloatingObject.payload.profile.position.x,
+                  y: pFloatingObject.payload.profile.position.y
+                },
+                visible: pFloatingObject.payload.profile.visible,
+                botAvatar: pFloatingObject.payload.profile.botAvatar
+              }
 
               pFloatingObject.payload = payload
               break
@@ -345,6 +354,11 @@ function newFloatingLayer () {
                 payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position
                 payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
 
+                break
+              }
+              case 'Strategy Part': {
+                payload.position = floatingObject.payload.profile.position
+                payload.visible = floatingObject.payload.profile.visible
                 break
               }
               default: {
@@ -489,7 +503,11 @@ function newFloatingLayer () {
                   payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position
                   payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
                 }
-
+                break
+              }
+              case 'Strategy Part': {
+                payload.position = floatingObject.payload.profile.position
+                payload.visible = floatingObject.payload.profile.visible
                 break
               }
               default: {
@@ -549,6 +567,10 @@ function newFloatingLayer () {
               }
               case 'Note': {
                 payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
+                break
+              }
+              case 'Strategy Part': {
+                payload.visible = floatingObject.payload.profile.visible
                 break
               }
               default: {
@@ -776,6 +798,10 @@ function newFloatingLayer () {
             payload.position = floatingObject2.payload.notes[floatingObject2.payloadNoteIndex].position
             break
           }
+          case 'Strategy Part': {
+            payload.position = floatingObject2.payload.profile.position
+            break
+          }
           default: {
             break
           }
@@ -999,4 +1025,3 @@ function newFloatingLayer () {
     }
   }
 }
-

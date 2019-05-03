@@ -26,7 +26,7 @@ function newStrategyCollection () {
   thisObject.container.frame.position.y = 0
 
   thisObject.container.isDraggeable = false
-  thisObject.container.isClickeable = true
+  thisObject.container.isClickeable = false
 
   return thisObject
 
@@ -39,8 +39,6 @@ function newStrategyCollection () {
               // if there is no user that means that we are logged off, which means this object can not be used.
         return
       }
-
-      thisObject.container.eventHandler.listenToEvent('onMouseClick', onClick)
 
       user = JSON.parse(user)
 
@@ -181,7 +179,7 @@ function newStrategyCollection () {
           })
                   .then(response => {
                     window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
-                    thisObject.strategies = response.data.strategizer_StrategyByFb.subStrategies
+                    thisObject.strategies = JSON.parse(JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
                     createCollectionItems()
                     resolve({ strategies: response.data.strategizer_StrategyByFb.subStrategies})
                   })
@@ -233,22 +231,18 @@ function newStrategyCollection () {
     }
   }
 
-  function onClick () {
-
-  }
-
   function getContainer (point) {
     let container
 
-        /* First we check if this point is inside this object UI. */
-
-    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-      return this.container
-    } else {
-            /* This point does not belong to this space. */
-
-      return undefined
+    for (let i = 0; i < colletionItems.length; i++) {
+      let item = colletionItems[i]
+      container = item.getContainer(point)
+      if (container !== undefined) {
+        return container
+      }
     }
+
+    return undefined
   }
 
   function draw () {

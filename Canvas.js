@@ -170,12 +170,12 @@ function newCanvas () {
           animation.addCallBackFunction('ViewPort Draw', viewPort.draw, onFunctionAdded)
           animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground, onFunctionAdded)
           animation.addCallBackFunction('Chart Space', thisObject.chartSpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Floating Space', thisObject.floatingSpace.floatingLayer.physicsLoop, onFunctionAdded)
           animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('ViewPort Animate', viewPort.animate, onFunctionAdded)
           animation.addCallBackFunction('Bottom Space', thisObject.bottomSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Top Space', thisObject.topSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Strategy Space', thisObject.strategySpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Floating Space', thisObject.floatingSpace.floatingLayer.physicsLoop, onFunctionAdded)
           animation.addCallBackFunction('Splash Screen', splashScreen.draw, onFunctionAdded)
           animation.start(onStart)
 
@@ -540,58 +540,69 @@ function newCanvas () {
 
             /* We check if the mouse is over an element of the Strategy Space / */
 
-      container = thisObject.strategySpace.getContainer(point)
+      if (thisObject.strategySpace !== undefined) {
+        container = thisObject.strategySpace.getContainer(point)
 
-      if (container !== undefined && container.detectMouseOver === true) {
-        container.eventHandler.raiseEvent('onMouseOver', point)
-        return
+        if (container !== undefined && container.detectMouseOver === true) {
+          container.eventHandler.raiseEvent('onMouseOver', point)
+          return
+        }
       }
 
            /* We check if the mouse is over an element of the Top Space / */
 
-      container = thisObject.topSpace.getContainer(point)
+      if (thisObject.topSpace !== undefined) {
+        container = thisObject.topSpace.getContainer(point)
 
-      if (container !== undefined && container.detectMouseOver === true) {
-        container.eventHandler.raiseEvent('onMouseOver', point)
-        return
+        if (container !== undefined && container.detectMouseOver === true) {
+          container.eventHandler.raiseEvent('onMouseOver', point)
+          return
+        }
       }
 
            /* We check if the mouse is over an element of the Bottom Space / */
 
-      container = thisObject.bottomSpace.getContainer(point)
+      if (thisObject.bottomSpace !== undefined) {
+        container = thisObject.bottomSpace.getContainer(point)
 
-      if (container !== undefined && container.detectMouseOver === true) {
-        container.eventHandler.raiseEvent('onMouseOver', point)
-        return
+        if (container !== undefined && container.detectMouseOver === true) {
+          container.eventHandler.raiseEvent('onMouseOver', point)
+          return
+        }
       }
 
            /* We check if the mouse is over a panel/ */
 
-      container = thisObject.panelsSpace.getContainer(point)
+      if (thisObject.panelsSpace !== undefined) {
+        container = thisObject.panelsSpace.getContainer(point)
 
-      if (container !== undefined && container.detectMouseOver === true) {
-        container.eventHandler.raiseEvent('onMouseOver', point)
-        return
+        if (container !== undefined && container.detectMouseOver === true) {
+          container.eventHandler.raiseEvent('onMouseOver', point)
+          return
+        }
       }
 
            /* We check if the mouse is over a floatingObject/ */
+      if (thisObject.floatingSpace !== undefined) {
+        let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y)
 
-      let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y)
+        if (floatingObjectBeingClicked >= 0) {
+          let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingClicked)
+          floatingObject.eventHandler.raiseEvent('onMouseOver', point)
 
-      if (floatingObjectBeingClicked >= 0) {
-        let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingClicked)
-        floatingObject.eventHandler.raiseEvent('onMouseOver', point)
-
-        return
+          return
+        }
       }
 
            /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
 
-      container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
+      if (thisObject.chartSpace !== undefined) {
+        container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
-      if (container !== undefined && container.detectMouseOver === true) {
-        container.eventHandler.raiseEvent('onMouseOver', point)
-        return
+        if (container !== undefined && container.detectMouseOver === true) {
+          container.eventHandler.raiseEvent('onMouseOver', point)
+          return
+        }
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] onMouseOver -> err = ' + err.stack) }

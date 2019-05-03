@@ -1,7 +1,7 @@
  ﻿
 function newFrame () {
   const PANEL_CORNERS_RADIOUS = 5
-  const TITLE_BAR_HEIGHT = 14 // this must be grater than radius
+  const TITLE_BAR_HEIGHT = 15 // this must be grater than radius
 
   let frame = {
     containerName: '',                  // This is for debugging purposes only.
@@ -340,7 +340,7 @@ function newFrame () {
     let labelPoint
     let fontSize = 10
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
     let label = frame.containerName
 

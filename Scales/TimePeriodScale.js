@@ -209,35 +209,64 @@ to be visible at the top of the viewPort. */
     thisObject.container.frame.width = point2.x - point1.x
     thisObject.container.frame.height = point3.y - point2.y
 
-    let point = {
+  /* Common Variables */
+
+    let label = timePeriodLabel.split('-')
+    let label1 = label[0]
+    let label2 = label[1].toUpperCase()
+    let fontSize1 = 25
+    let fontSize2 = 10
+
+  /* We draw the circle container */
+
+    const RED_LINE_HIGHT = 5
+    const RADIOUS = 25
+    const OPACITY = 1
+
+    let centerPoint = {
       x: mouse.position.x,
+      y: point1.y + viewPort.margins.BOTTOM - 5
+    }
+
+    browserCanvasContext.beginPath()
+    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIOUS + RED_LINE_HIGHT, 0.0 * Math.PI, 2.0 * Math.PI)
+    browserCanvasContext.closePath()
+
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
+    browserCanvasContext.fill()
+
+    browserCanvasContext.beginPath()
+    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIOUS, 0.0 * Math.PI, 2.0 * Math.PI)
+    browserCanvasContext.closePath()
+
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + OPACITY + ')'
+    browserCanvasContext.fill()
+
+    /* Place the Text */
+
+    let xOffset1 = label1.length * fontSize1 * FONT_ASPECT_RATIO
+
+    let labelPoint1 = {
+      x: mouse.position.x - xOffset1 / 2 - 3,
       y: point1.y + viewPort.margins.BOTTOM
     }
 
-    let label = timePeriodLabel
-    let fontSize = 10
+    browserCanvasContext.font = fontSize1 + 'px ' + UI_FONT.PRIMARY
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
 
-    let xOffset = label.length * fontSize * FONT_ASPECT_RATIO
+    browserCanvasContext.fillText(label1, labelPoint1.x, labelPoint1.y)
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 0.50)'
+    let xOffset2 = label2.length * fontSize2 * FONT_ASPECT_RATIO
 
-    if (point.x - xOffset / 2 < point1.x || point.x + xOffset / 2 > point2.x) { return }
+    let labelPoint2 = {
+      x: mouse.position.x - xOffset2 / 2 - 3,
+      y: point1.y + viewPort.margins.BOTTOM + fontSize2
+    }
 
-    browserCanvasContext.fillText(label, point.x - xOffset / 2, point.y + fontSize + 1)
-/*
-    browserCanvasContext.beginPath()
+    browserCanvasContext.font = fontSize2 + 'px ' + UI_FONT.PRIMARY
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
 
-    browserCanvasContext.moveTo(point.x, point1.y)
-    browserCanvasContext.lineTo(point.x, point5.y)
-
-    browserCanvasContext.closePath()
-
-    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.5)'
-    browserCanvasContext.lineWidth = 0.2
-    browserCanvasContext.setLineDash([1, 5])
-    browserCanvasContext.stroke()
-*/
+    browserCanvasContext.fillText(label2, labelPoint2.x, labelPoint2.y)
   }
 
   function saveObjectState () {
@@ -265,3 +294,4 @@ to be visible at the top of the viewPort. */
     thisObject.container.eventHandler.raiseEvent('Time Period Changed', event)
   }
 }
+

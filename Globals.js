@@ -162,7 +162,8 @@ const MAX_PLOTABLE_DATE = maxDate;
 const TOP_SPACE_HEIGHT = 5;
 const BOTTOM_SPACE_HEIGHT = 35;
 const BREAKPOINT_HEIGHT = 15;
-
+const SIDE_PANEL_WIDTH = 450
+  
 const PRODUCT_CARD_STATUS = {
     ON: 'on',
     LOADING: 'loading',

@@ -131,8 +131,6 @@ function newAnimation () {
   }
 
   function clearBrowserCanvas () {
-    if (INFO_LOG === true) { logger.write('[INFO] clearBrowserCanvas -> Entering function.') }
-
     browserCanvasContext.beginPath()
 
     browserCanvasContext.rect(0, 0, browserCanvas.width, browserCanvas.height)

@@ -1,5 +1,5 @@
 
-function newProfileBall () {
+function newStrategyPart () {
   let thisObject = {
 
     physicsLoop: physicsLoop,
@@ -21,39 +21,44 @@ function newProfileBall () {
       targetRadius: 0,
       currentRadius: 0,
       angle: 60
-    }/*,
-        {
-            visible: false,
-            imagePathOn: "Images/menu.icon.on.2.gif",
-            imagePathOff: "Images/menu.icon.off.2.gif",
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 20 * 1
-        },
-        {
-            visible: false,
-            imagePathOn: "Images/menu.icon.on.3.gif",
-            imagePathOff: "Images/menu.icon.off.3.gif",
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -20
-        },
-        {
-            visible: false,
-            imagePathOn: "Images/menu.icon.on.4.gif",
-            imagePathOff: "Images/menu.icon.off.4.gif",
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -60
-        } */
+    },
+    {
+      visible: false,
+      imagePathOn: 'Images/menu.icon.on.2.gif',
+      imagePathOff: 'Images/menu.icon.off.2.gif',
+      rawRadius: 8,
+      targetRadius: 0,
+      currentRadius: 0,
+      angle: 20 * 1
+    },
+    {
+      visible: false,
+      imagePathOn: 'Images/menu.icon.on.3.gif',
+      imagePathOff: 'Images/menu.icon.off.3.gif',
+      rawRadius: 8,
+      targetRadius: 0,
+      currentRadius: 0,
+      angle: -20
+    },
+    {
+      visible: false,
+      imagePathOn: 'Images/menu.icon.on.4.gif',
+      imagePathOff: 'Images/menu.icon.off.4.gif',
+      rawRadius: 8,
+      targetRadius: 0,
+      currentRadius: 0,
+      angle: -60
+    }
   ]
+
+  let floatingLayer
+  let isMouseOver = false
 
   return thisObject
 
-  function initialize (callBackFunction) {
+  function initialize (pFloatingLayer, callBackFunction) {
+    floatingLayer = pFloatingLayer
+
     for (let i = 0; i < ballStringMenu.length; i++) {
       let menuItem = ballStringMenu[i]
 
@@ -101,8 +106,10 @@ function newProfileBall () {
     for (let i = 0; i < ballStringMenu.length; i++) {
       let menuItem = ballStringMenu[i]
 
-      menuItem.targetRadius = menuItem.rawRadius * 1.5
+      menuItem.targetRadius = menuItem.rawRadius * 2.5
     }
+
+    isMouseOver = true
   }
 
   function onMouseNotOver () {
@@ -111,6 +118,8 @@ function newProfileBall () {
 
       menuItem.targetRadius = menuItem.rawRadius * 0 - i * 5
     }
+
+    isMouseOver = false
   }
 
   function onMouseClick (pPoint, pFloatingObject) {
@@ -168,6 +177,17 @@ function newProfileBall () {
   }
 
   function drawBackground (pFloatingObject) {
+    /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
+
+    if (pFloatingObject.payload.parentNode !== undefined) {
+      let parentFloatingObject = floatingLayer.getFloatingObject(pFloatingObject.payload.parentNode.handle)
+
+      pFloatingObject.payload.profile.position.x = parentFloatingObject.currentPosition.x
+      pFloatingObject.payload.profile.position.y = parentFloatingObject.currentPosition.y
+    }
+
+   /* Here I continue painting the background */
+
     let point = {
       x: pFloatingObject.payload.profile.position.x,
       y: pFloatingObject.payload.profile.position.y
@@ -227,7 +247,7 @@ function newProfileBall () {
       alphaA = 0.75
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius * 2 / 3, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
 
       browserCanvasContext.fillStyle = pFloatingObject.fillStyle
@@ -278,7 +298,7 @@ function newProfileBall () {
       let labelPoint
       let fontSize = pFloatingObject.currentFontSize
 
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
       let label
 
@@ -290,23 +310,24 @@ function newProfileBall () {
           y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 10
         }
 
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
         browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
 
       label = pFloatingObject.payload.profile.downLabel
 
-      if (label !== undefined) {
+      if (label !== undefined && isMouseOver === true) {
         labelPoint = {
           x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
           y: pFloatingObject.currentPosition.y + pFloatingObject.currentImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
         browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
     }
   }
 }
+

@@ -31,21 +31,8 @@ function newNoteSets () {
 
   return thisObject
 
-  function initialize (pFloatingLayer, callBackFunction) {
-        /*
-        During the initialization process, we receive the floatingLayer where all the floatingObjects we will be creating here will live at.
-        */
-
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-
-      floatingLayer = pFloatingLayer
-
-      callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE)
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-    }
+  function initialize (pFloatingLayer) {
+    floatingLayer = pFloatingLayer
   }
 
   function createNoteSet (pPayload, pEventHandler, callBackFunction) {
@@ -232,7 +219,7 @@ function newNoteSets () {
                             */
 
               let floatingObject = newFloatingObject()
-              floatingObject.initialize('Note', onInitialized)
+              floatingObject.initialize('Note', floatingLayer, onInitialized)
 
               function onInitialized (err) {
                 if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> onInitialized -> Entering function.') }

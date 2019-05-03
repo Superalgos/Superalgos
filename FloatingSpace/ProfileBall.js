@@ -278,7 +278,7 @@ function newProfileBall () {
       let labelPoint
       let fontSize = pFloatingObject.currentFontSize
 
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
 
       let label
 
@@ -290,7 +290,7 @@ function newProfileBall () {
           y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 10
         }
 
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
         browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
@@ -303,7 +303,7 @@ function newProfileBall () {
           y: pFloatingObject.currentPosition.y + pFloatingObject.currentImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
         browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }

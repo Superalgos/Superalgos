@@ -172,7 +172,7 @@ function loadEmoji (pPath) {
 function printLabel (labelToPrint, x, y, opacity, fontSize) {
   let labelPoint
 
-  browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+  browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
 
   let label = '' + labelToPrint
 

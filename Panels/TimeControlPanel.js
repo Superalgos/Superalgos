@@ -115,7 +115,7 @@ function newTimeControlPanel () {
 
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
@@ -132,7 +132,7 @@ function newTimeControlPanel () {
 
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
@@ -151,7 +151,7 @@ function newTimeControlPanel () {
 
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }

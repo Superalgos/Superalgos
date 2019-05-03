@@ -78,17 +78,9 @@ function newFloatingLayer () {
     }
   }
 
-  function initialize (callBackFunction) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
+  function initialize () {
 
-            /* We dont need to initialize anything right now. */
-
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err.message = ' + err.message) }
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
-    }
+        /* We dont need to initialize anything right now. */
   }
 
   function addFloatingObject (pFloatingObject, callBackFunction) {

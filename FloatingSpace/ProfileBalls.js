@@ -35,17 +35,8 @@ function newProfileBalls () {
     }
   }
 
-  function initialize (pFloatingLayer, callBackFunction) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-
-      floatingLayer = pFloatingLayer
-
-      callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE)
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-    }
+  function initialize (pFloatingLayer) {
+    floatingLayer = pFloatingLayer
   }
 
   function createNewProfileBall (pPayload, callBackFunction) {

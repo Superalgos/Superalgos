@@ -37,7 +37,22 @@ function newStrategyCollectionItem () {
   }
 
   function onMouseClick (event) {
-    console.log('ITEM CLICKED')
+    if (productPlotter.plotter.payload !== undefined) {
+      let imageId = pProductCard.bot.devTeam + '.' + pProductCard.bot.profilePicture
+
+      productPlotter.plotter.payload.profile.upLabel = pProductCard.product.shortDisplayName
+      productPlotter.plotter.payload.profile.downLabel = pProductCard.bot.displayName
+      productPlotter.plotter.payload.profile.imageId = imageId
+      productPlotter.plotter.payload.profile.botAvatar = pProductCard.bot.avatar
+
+      canvas.floatingSpace.profileBalls.createNewProfileBall(productPlotter.plotter.payload, onProfileBallCreated)
+
+      function onProfileBallCreated (err, pProfileHandle) {
+        productPlotter.profile = pProfileHandle
+
+                          /* There is no policy yet of what to do if this fails. */
+      }
+    }
   }
 
   function getContainer (point) {

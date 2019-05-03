@@ -28,15 +28,8 @@ function newStrategyParts () {
     floatingLayer.finalize()
   }
 
-  function initialize (pFloatingLayer, callBackFunction) {
-    try {
-      floatingLayer = pFloatingLayer
-
-      callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE)
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-    }
+  function initialize (pFloatingLayer) {
+    floatingLayer = pFloatingLayer
   }
 
   function createNewStrategyPart (pPayload, callBackFunction) {

@@ -37,6 +37,10 @@ function newStrategyCollectionItem () {
   }
 
   function onMouseClick (event) {
+    generateStrategyParts()
+  }
+
+  function createPart (upLabel, downLabel) {
     let handle
     let payload = {
       profile: {
@@ -51,8 +55,8 @@ function newStrategyCollectionItem () {
 
     let imageId // 'My Image.png'
 
-    payload.profile.upLabel = thisObject.strategy.name
-    payload.profile.downLabel = thisObject.strategy.name
+    payload.profile.upLabel = upLabel
+    payload.profile.downLabel = downLabel
     payload.profile.imageId = imageId
     payload.profile.botAvatar = 'dont know what this is'
 
@@ -60,6 +64,76 @@ function newStrategyCollectionItem () {
 
     function onStrategyPartCreated (err, pPartHandle) {
       handle = pPartHandle
+    }
+  }
+
+  function generateStrategyParts () {
+    let strategy = thisObject.strategy
+    createPart('Strategy', strategy.name)
+
+    createPart('Strategy Entry', '')
+    for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
+      let situation = strategy.entryPoint.situations[k]
+      createPart('Situation', situation.name)
+
+      for (let m = 0; m < situation.conditions.length; m++) {
+        let condition = situation.conditions[m]
+        createPart('Condition', condition.name)
+      }
+    }
+
+    createPart('Strategy Exit', '')
+    for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
+      let situation = strategy.exitPoint.situations[k]
+      createPart('Situation', situation.name)
+
+      for (let m = 0; m < situation.conditions.length; m++) {
+        let condition = situation.conditions[m]
+        createPart('Condition', condition.name)
+      }
+    }
+
+    createPart('Trade Entry', '')
+    for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
+      let situation = strategy.sellPoint.situations[k]
+      createPart('Situation', situation.name)
+
+      for (let m = 0; m < situation.conditions.length; m++) {
+        let condition = situation.conditions[m]
+        createPart('Condition', condition.name)
+      }
+    }
+
+    createPart('Stop', '')
+    for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
+      let phase = strategy.stopLoss.phases[p]
+      createPart('Phase', phase.name)
+
+      for (let k = 0; k < phase.situations.length; k++) {
+        let situation = phase.situations[k]
+        createPart('Situation', situation.name)
+
+        for (let m = 0; m < situation.conditions.length; m++) {
+          let condition = situation.conditions[m]
+          createPart('Condition', condition.name)
+        }
+      }
+    }
+
+    createPart('Take Profit', '')
+    for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
+      let phase = strategy.buyOrder.phases[p]
+      createPart('Phase', phase.name)
+
+      for (let k = 0; k < phase.situations.length; k++) {
+        let situation = phase.situations[k]
+        createPart('Situation', situation.name)
+
+        for (let m = 0; m < situation.conditions.length; m++) {
+          let condition = situation.conditions[m]
+          createPart('Condition', condition.name)
+        }
+      }
     }
   }
 

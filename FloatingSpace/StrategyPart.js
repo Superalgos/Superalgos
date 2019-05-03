@@ -21,34 +21,34 @@ function newStrategyPart () {
       targetRadius: 0,
       currentRadius: 0,
       angle: 60
-    }/*,
-        {
-            visible: false,
-            imagePathOn: "Images/menu.icon.on.2.gif",
-            imagePathOff: "Images/menu.icon.off.2.gif",
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 20 * 1
-        },
-        {
-            visible: false,
-            imagePathOn: "Images/menu.icon.on.3.gif",
-            imagePathOff: "Images/menu.icon.off.3.gif",
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -20
-        },
-        {
-            visible: false,
-            imagePathOn: "Images/menu.icon.on.4.gif",
-            imagePathOff: "Images/menu.icon.off.4.gif",
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -60
-        } */
+    },
+    {
+      visible: false,
+      imagePathOn: 'Images/menu.icon.on.2.gif',
+      imagePathOff: 'Images/menu.icon.off.2.gif',
+      rawRadius: 8,
+      targetRadius: 0,
+      currentRadius: 0,
+      angle: 20 * 1
+    },
+    {
+      visible: false,
+      imagePathOn: 'Images/menu.icon.on.3.gif',
+      imagePathOff: 'Images/menu.icon.off.3.gif',
+      rawRadius: 8,
+      targetRadius: 0,
+      currentRadius: 0,
+      angle: -20
+    },
+    {
+      visible: false,
+      imagePathOn: 'Images/menu.icon.on.4.gif',
+      imagePathOff: 'Images/menu.icon.off.4.gif',
+      rawRadius: 8,
+      targetRadius: 0,
+      currentRadius: 0,
+      angle: -60
+    }
   ]
 
   return thisObject

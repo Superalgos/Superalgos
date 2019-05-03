@@ -41,9 +41,9 @@ function newStrategyParts () {
 
       floatingObject.friction = 0.995
 
-      floatingObject.initializeMass(100)
-      floatingObject.initializeRadius(30)
-      floatingObject.initializeImageSize(50)
+      floatingObject.initializeMass(50)
+      floatingObject.initializeRadius(15)
+      floatingObject.initializeImageSize(25)
       floatingObject.initializeFontSize(10)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 0.5)'

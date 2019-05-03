@@ -1,26 +1,25 @@
 {
-  "name": "AAWeb",
-  "version": "0.0.0",
-  "description": "",
+  "name": "saweb",
+  "version": "0.1.0",
+  "description": "Superalgos web interface.",
   "main": "server.js",
-  "author": {
-    "name": "Luis-Fernando-Molina"
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Superalgos/AAWeb.git"
   },
   "dependencies": {
     "@octokit/rest": "^14.0.9",
     "@superalgos/mqservice": "0.0.12",
     "atob": "^2.1.2",
-    "axios": "^0.18.0",
     "azure-storage": "^2.10.2",
     "dotenv": "^6.2.0",
     "graphql": "^14.2.0",
     "graphql-client": "^2.0.1",
     "json-beautify": "^1.0.1",
-    "lodash": "^4.17.11",
     "minio": "^7.0.5",
-    "nonce": "^1.0.4",
     "request": "^2.88.0",
-    "retry": "^0.12.0",
     "winston": "^3.2.1"
   }
 }

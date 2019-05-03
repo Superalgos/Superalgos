@@ -38,8 +38,8 @@ function newAppLoader() {
                 "TopSpace/EndUser.js",
                 "TopSpace/Login.js",
 
-                "StrategySpace/StrategyCollection.js", 
-                "StrategySpace/StrategyCollectionItem.js", 
+                "StrategySpace/StrategyCollection.js",
+                "StrategySpace/StrategyCollectionItem.js",
 
                 "Utilities/RoundedCornersBackground.js",
 
@@ -49,7 +49,7 @@ function newAppLoader() {
 
                 "ControlsToolBox/SidePanel.js",
                 "ControlsToolBox/SidePanelTab.js",
-               
+
                 "Spaces/BottomSpace.js",
                 "Spaces/TopSpace.js",
                 "Spaces/PanelsSpace.js",
@@ -74,8 +74,6 @@ function newAppLoader() {
                 "FloatingSpace/StrategyParts.js",
                 "FloatingSpace/StrategyPart.js",
 
-                "Exchange/ExchangeAPI.js",
-
                 "Scales/RateScale.js",
                 "Scales/TimeScale.js",
                 "Scales/TimePeriodScale.js",
@@ -99,7 +97,7 @@ function newAppLoader() {
 
                 "ChartUtilities.js",
                 "TimelineChart.js",
-                
+
                 "Animation.js",
 
                 "Container.js",

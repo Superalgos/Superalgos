@@ -7,6 +7,8 @@
 
     const SIMULATED_RECORDS_FOLDER_NAME = "Trading-Simulation";
     const CONDITIONS_FOLDER_NAME = "Simulation-Conditions";
+    const STRATEGIES_FOLDER_NAME = "Simulation-Strategies";
+    const TRADES_FOLDER_NAME = "Simulation-Trades";
 
     const commons = COMMONS.newCommons(bot, logger, UTILITIES);
 
@@ -42,12 +44,12 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } else {
-                    logger.write(MODULE_NAME, "[ERROR] initializeStorage -> onStorageInizialized -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initializeStorage -> onStorageInizialized -> err = " + err.stack);
                     callBackFunction(err);
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -63,6 +65,8 @@
 
             let recordsArray = [];
             let conditionsArray = [];
+            let strategiesArray = [];
+            let tradesArray = [];
 
             let simulationLogic = {};
             let lastObjectsArray = [];
@@ -106,6 +110,8 @@
             commons.runSimulation(
                 recordsArray,
                 conditionsArray,
+                strategiesArray,
+                tradesArray,
                 lastObjectsArray,
                 simulationLogic,
                 timePeriod,
@@ -187,7 +193,7 @@
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> onFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> onFileCreated -> err = " + err.stack);
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> onFileCreated -> filePath = " + filePath);
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
 
@@ -200,13 +206,13 @@
 
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> onFileCreated -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> onFileCreated -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeRecordsFile -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -225,6 +231,10 @@
                     for (let i = 0; i < conditionsArray.length; i++) {
 
                         let record = conditionsArray[i];
+
+                        /* Will only add to the file the records of the current day */
+
+                        if (record.begin < currentDay.valueOf()) { continue; }
 
                         let conditions = "";
                         let conditionsSeparator = "";
@@ -268,9 +278,164 @@
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> onFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> onFileCreated -> err = " + err.stack);
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> onFileCreated -> filePath = " + filePath);
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+
+                                callBackFunction(err);
+                                return;
+
+                            }
+
+                            writeStrategiesFile();
+
+                        }
+                        catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> onFileCreated -> err = " + err.stack);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+                }
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> err = " + err.stack);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function writeStrategiesFile() {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStrategiesFile -> Entering function."); }
+
+                    let separator = "";
+                    let fileRecordCounter = 0;
+
+                    let fileContent = "";
+
+                    for (let i = 0; i < strategiesArray.length; i++) {
+                        let record = strategiesArray[i];
+
+                        /* Will only add to the file the records of the current day. In this case since objects can span more than one day, we add all of the objects that ends
+                        at the current date. */
+
+                        if (record.end < currentDay.valueOf()) { continue; }
+
+                        fileContent = fileContent + separator + '[' +
+                            record.begin + "," +
+                            record.end + "," +
+                            record.status + "," +
+                            record.number + "," +
+                            record.beginRate + "," +
+                            record.endRate + "]";
+
+                        if (separator === "") { separator = ","; }
+
+                        fileRecordCounter++;
+
+                    }
+
+                    fileContent = "[" + fileContent + "]";
+
+                    let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                    let filePath = filePathRoot + "/Output/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+
+                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                    function onFileCreated(err) {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStrategiesFile -> onFileCreated -> Entering function."); }
+                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStrategiesFile -> onFileCreated -> fileContent = " + fileContent); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> err = " + err.stack);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> filePath = " + filePath);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+
+                                callBackFunction(err);
+                                return;
+
+                            }
+
+                            writeTradesFile();
+
+                        }
+                        catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> onFileCreated -> err = " + err.stack);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+                }
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStrategiesFile -> err = " + err.stack);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function writeTradesFile() {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeTradesFile -> Entering function."); }
+
+                    let separator = "";
+                    let fileRecordCounter = 0;
+
+                    let fileContent = "";
+
+                    for (let i = 0; i < tradesArray.length; i++) {
+
+                        let record = tradesArray[i];
+
+                        /* Will only add to the file the records of the current day. In this case since objects can span more than one day, we add all of the objects that ends
+                        at the current date. */
+
+                        if (record.end < currentDay.valueOf()) { continue; }
+
+                        fileContent = fileContent + separator + '[' +
+                            record.begin + "," +
+                            record.end + "," +
+                            record.status + "," +
+                            record.lastProfitPercent + "," +
+                            record.beginRate + "," +
+                            record.endRate + "," +
+                            record.exitType + "," +
+                            record.stopRate + "]";
+
+                        if (separator === "") { separator = ","; }
+
+                        fileRecordCounter++;
+
+                    }
+
+                    fileContent = "[" + fileContent + "]";
+
+                    let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                    let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+
+                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                    function onFileCreated(err) {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeTradesFile -> onFileCreated -> Entering function."); }
+                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeTradesFile -> onFileCreated -> fileContent = " + fileContent); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> err = " + err.stack);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> filePath = " + filePath);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
 
                                 callBackFunction(err);
                                 return;
@@ -281,20 +446,21 @@
 
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> onFileCreated -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> onFileCreated -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeConditionsFile -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeTradesFile -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
+
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

@@ -34,7 +34,7 @@ function newStrategyParts () {
 
   function createNewStrategyPart (pPayload, callBackFunction) {
     let floatingObject = newFloatingObject()
-    floatingObject.initialize('Profile Ball', onInitialized)
+    floatingObject.initialize('Strategy Part', onInitialized)
 
     function onInitialized (err) {
       floatingObject.payload = pPayload

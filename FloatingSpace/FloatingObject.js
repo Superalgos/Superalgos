@@ -89,7 +89,20 @@ function newFloatingObject () {
           }
           break
         }
+
+        case 'Strategy Part': {
+          underlayingObject = newStrategyPart()
+          underlayingObject.initialize(onInitialized)
+
+          function onInitialized (err) {
+
+          }
+
+          break
+        }
         default: {
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Unsopported type received -> pType = ' + pType) }
+          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
           break
         }
       }

@@ -49,17 +49,17 @@ function newStrategyCollectionItem () {
       notes: []
     }
 
-    let imageId = 'My Image.png'
+    let imageId // 'My Image.png'
 
     payload.profile.upLabel = thisObject.strategy.name
     payload.profile.downLabel = thisObject.strategy.name
     payload.profile.imageId = imageId
     payload.profile.botAvatar = 'dont know what this is'
 
-    canvas.floatingSpace.profileBalls.createNewProfileBall(payload, onProfileBallCreated)
+    canvas.floatingSpace.strategyParts.createNewStrategyPart(payload, onStrategyPartCreated)
 
-    function onProfileBallCreated (err, pProfileHandle) {
-      handle = pProfileHandle
+    function onStrategyPartCreated (err, pPartHandle) {
+      handle = pPartHandle
     }
   }
 

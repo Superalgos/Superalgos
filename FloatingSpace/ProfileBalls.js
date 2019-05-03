@@ -1,4 +1,4 @@
- ﻿
+
 function newProfileBalls () {
   const MODULE_NAME = 'Profile Balls'
   const INFO_LOG = false
@@ -6,11 +6,11 @@ function newProfileBalls () {
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
-    /*
+   /*
 
-    This object deals with Profile Balls, a type of Floating Object that shows profile info in a floating ball.
+   This object deals with Profile Balls, a type of Floating Object that shows profile info in a floating ball.
 
-    */
+   */
 
   let thisObject = {
 
@@ -58,7 +58,7 @@ function newProfileBalls () {
 
       floatingLayer.addFloatingObject(floatingObject)
 
-      callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE, floatingObject.handle)
+      callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, floatingObject.handle)
     }
   }
 

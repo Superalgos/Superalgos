@@ -37,6 +37,8 @@ function newStrategyCollectionItem () {
   }
 
   function onMouseClick (event) {
+    canvas.chartSpace.visible = false
+    canvas.panelsSpace.visible = false
     generateStrategyParts()
   }
 

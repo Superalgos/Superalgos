@@ -52,6 +52,7 @@ function newStrategyPart () {
   ]
 
   let floatingLayer
+  let isMouseOver = false
 
   return thisObject
 
@@ -107,6 +108,8 @@ function newStrategyPart () {
 
       menuItem.targetRadius = menuItem.rawRadius * 1.5
     }
+
+    isMouseOver = true
   }
 
   function onMouseNotOver () {
@@ -115,6 +118,8 @@ function newStrategyPart () {
 
       menuItem.targetRadius = menuItem.rawRadius * 0 - i * 5
     }
+
+    isMouseOver = false
   }
 
   function onMouseClick (pPoint, pFloatingObject) {
@@ -312,7 +317,7 @@ function newStrategyPart () {
 
       label = pFloatingObject.payload.profile.downLabel
 
-      if (label !== undefined) {
+      if (label !== undefined && isMouseOver === true) {
         labelPoint = {
           x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
           y: pFloatingObject.currentPosition.y + pFloatingObject.currentImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 15

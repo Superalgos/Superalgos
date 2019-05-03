@@ -52,7 +52,7 @@ function newStrategyCollectionItem () {
     }
   }
 
-  function createPart (partType, name, node, parentNode) {
+  function createPart (partType, name, node, parentNode, title) {
     let payload = {
       profile: {
         position: {
@@ -66,7 +66,12 @@ function newStrategyCollectionItem () {
 
     let imageId // 'My Image.png'
 
-    payload.profile.upLabel = partType
+    if (title !== undefined) {
+      payload.profile.upLabel = title
+    } else {
+      payload.profile.upLabel = partType
+    }
+
     payload.profile.downLabel = name
     payload.profile.imageId = imageId
     payload.profile.botAvatar = 'dont know what this is'
@@ -92,48 +97,48 @@ function newStrategyCollectionItem () {
     createPart('Strategy Entry', '', strategy.entryPoint, strategy)
     for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
       let situation = strategy.entryPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.entryPoint)
+      createPart('Situation', situation.name, situation, strategy.entryPoint, 'Situation' + ' ' + (k + 1))
 
       for (let m = 0; m < situation.conditions.length; m++) {
         let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation)
+        createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
       }
     }
 
     createPart('Strategy Exit', '', strategy.exitPoint, strategy)
     for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
       let situation = strategy.exitPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.exitPoint)
+      createPart('Situation', situation.name, situation, strategy.exitPoint, 'Situation' + ' ' + (k + 1))
 
       for (let m = 0; m < situation.conditions.length; m++) {
         let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation)
+        createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
       }
     }
 
     createPart('Trade Entry', '', strategy.sellPoint, strategy)
     for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
       let situation = strategy.sellPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.sellPoint)
+      createPart('Situation', situation.name, situation, strategy.sellPoint, 'Situation' + ' ' + (k + 1))
 
       for (let m = 0; m < situation.conditions.length; m++) {
         let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation)
+        createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
       }
     }
 
     createPart('Stop', '', strategy.stopLoss, strategy)
     for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
       let phase = strategy.stopLoss.phases[p]
-      createPart('Phase', phase.name, phase, strategy.stopLoss)
+      createPart('Phase', phase.name, phase, strategy.stopLoss, 'Phase' + ' ' + (p + 1))
 
       for (let k = 0; k < phase.situations.length; k++) {
         let situation = phase.situations[k]
-        createPart('Situation', situation.name, situation, phase)
+        createPart('Situation', situation.name, situation, phase, 'Situation' + ' ' + (k + 1))
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
-          createPart('Condition', condition.name, condition, situation)
+          createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
         }
       }
     }
@@ -141,15 +146,15 @@ function newStrategyCollectionItem () {
     createPart('Take Profit', '', strategy.buyOrder, strategy)
     for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
       let phase = strategy.buyOrder.phases[p]
-      createPart('Phase', phase.name, phase, strategy.buyOrder)
+      createPart('Phase', phase.name, phase, strategy.buyOrder, 'Phase' + ' ' + (p + 1))
 
       for (let k = 0; k < phase.situations.length; k++) {
         let situation = phase.situations[k]
-        createPart('Situation', situation.name, situation, phase)
+        createPart('Situation', situation.name, situation, phase, 'Situation' + ' ' + (k + 1))
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
-          createPart('Condition', condition.name, condition, situation)
+          createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
         }
       }
     }

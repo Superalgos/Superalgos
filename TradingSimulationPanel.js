@@ -299,9 +299,9 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         /* We draw the circle bar */
 
         const DEFAULT_THICKNESS = 2;
-        const VALUE_THICKNESS = 4;
+        const VALUE_THICKNESS = 8;
         const VALUE_BG_THICKNESS = 1;
-        const BAR_RADIOUS = RADIOUS * 0.9;
+        const BAR_RADIOUS = RADIOUS * 0.85;
 
         let BAR_START_ANGLE = 0.9 * Math.PI;
         let BAR_END_ANGLE = 2.1 * Math.PI;
@@ -398,7 +398,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         /* We put the params.VALUE in the middle */
 
-        fontSize = 25;
+        fontSize = 22;
 
         browserCanvasContext.font = "bold  " + fontSize + 'px ' + UI_FONT.PRIMARY
 
@@ -411,7 +411,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         label = label.substring(0, 5);
 
 
-        xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO + 10;
+        xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO + 7;
 
         labelPoint = {
             x: centerPoint.x - xOffset,
@@ -423,13 +423,13 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         /* We put the top label */
 
-        fontSize = 15;
+        fontSize = 12;
 
         browserCanvasContext.font = "bold  " + fontSize + 'px ' + UI_FONT.PRIMARY
 
         label = params.ASSET_LABEL;
 
-        xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO + 7;
+        xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO + 3;
         yOffset = 22
 
         labelPoint = {
@@ -442,13 +442,13 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         /* We put the bottom label */
 
-        fontSize = 15;
+        fontSize = 12;
 
         browserCanvasContext.font = "bold  " + fontSize + 'px ' + UI_FONT.PRIMARY
 
         label = params.ASSET_NAME;
 
-        xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO + 5;
+        xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO + 3;
         yOffset = - 15
 
         labelPoint = {
@@ -461,6 +461,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
     }
 }
+
 
 
 

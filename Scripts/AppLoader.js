@@ -71,6 +71,8 @@ function newAppLoader() {
                 "FloatingSpace/ProfileBall.js",
                 "FloatingSpace/FloatingObject.js",
                 "FloatingSpace/FloatingLayer.js",
+                "FloatingSpace/StrategyParts.js",
+                "FloatingSpace/StrategyPart.js",
 
                 "Exchange/ExchangeAPI.js",
 

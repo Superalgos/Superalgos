@@ -8,8 +8,6 @@
 
     const MODULE_NAME = "Assistant";
 
-	var nodemailer = require('nodemailer');
-
     let bot = BOT;
 
     let thisObject = {

@@ -64,7 +64,7 @@ function newFloatingObject () {
 
   return thisObject
 
-  function initialize (pType, callBackFunction) {
+  function initialize (pType, floatingLayer, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
@@ -92,7 +92,7 @@ function newFloatingObject () {
 
         case 'Strategy Part': {
           underlayingObject = newStrategyPart()
-          underlayingObject.initialize(onInitialized)
+          underlayingObject.initialize(floatingLayer, onInitialized)
 
           function onInitialized (err) {
 

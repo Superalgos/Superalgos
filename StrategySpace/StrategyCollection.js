@@ -179,7 +179,7 @@ function newStrategyCollection () {
           })
                   .then(response => {
                     window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
-                    thisObject.strategies = response.data.strategizer_StrategyByFb.subStrategies
+                    thisObject.strategies = JSON.parse(JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
                     createCollectionItems()
                     resolve({ strategies: response.data.strategizer_StrategyByFb.subStrategies})
                   })

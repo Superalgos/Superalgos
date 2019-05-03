@@ -51,9 +51,13 @@ function newStrategyPart () {
     }
   ]
 
+  let floatingLayer
+
   return thisObject
 
-  function initialize (callBackFunction) {
+  function initialize (pFloatingLayer, callBackFunction) {
+    floatingLayer = pFloatingLayer
+
     for (let i = 0; i < ballStringMenu.length; i++) {
       let menuItem = ballStringMenu[i]
 
@@ -168,6 +172,17 @@ function newStrategyPart () {
   }
 
   function drawBackground (pFloatingObject) {
+    /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
+
+    if (pFloatingObject.payload.parentNode !== undefined) {
+      let parentFloatingObject = floatingLayer.getFloatingObject(pFloatingObject.payload.parentNode.handle)
+
+      pFloatingObject.payload.profile.position.x = parentFloatingObject.currentPosition.x
+      pFloatingObject.payload.profile.position.y = parentFloatingObject.currentPosition.y
+    }
+
+   /* Here I continue painting the background */
+
     let point = {
       x: pFloatingObject.payload.profile.position.x,
       y: pFloatingObject.payload.profile.position.y

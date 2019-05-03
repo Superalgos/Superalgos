@@ -20,7 +20,7 @@ function newStrategyCollectionItem () {
   return thisObject
 
   function initialize () {
-    const ITEM_WIDTH = 430
+    const ITEM_WIDTH = SIDE_PANEL_WIDTH - 20
     const ITEM_HEIGHT = 80
 
     thisObject.container.frame.width = ITEM_WIDTH
@@ -41,8 +41,8 @@ function newStrategyCollectionItem () {
     let payload = {
       profile: {
         position: {
-          x: 500,
-          y: 500
+          x: (viewPort.width - SIDE_PANEL_WIDTH) / 2 + SIDE_PANEL_WIDTH,
+          y: viewPort.height / 2
         },
         visible: true
       },

@@ -96,33 +96,33 @@ function newStrategyCollectionItem () {
     createPart('Strategy Entry', '', strategy.entryPoint, strategy)
     for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
       let situation = strategy.entryPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.entryPoint, 'Situation' + ' ' + (k + 1))
+      createPart('Situation', situation.name, situation, strategy.entryPoint, 'Situation' + ' #' + (k + 1))
 
       for (let m = 0; m < situation.conditions.length; m++) {
         let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
+        createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
       }
     }
 
     createPart('Strategy Exit', '', strategy.exitPoint, strategy)
     for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
       let situation = strategy.exitPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.exitPoint, 'Situation' + ' ' + (k + 1))
+      createPart('Situation', situation.name, situation, strategy.exitPoint, 'Situation' + ' #' + (k + 1))
 
       for (let m = 0; m < situation.conditions.length; m++) {
         let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
+        createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
       }
     }
 
     createPart('Trade Entry', '', strategy.sellPoint, strategy)
     for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
       let situation = strategy.sellPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.sellPoint, 'Situation' + ' ' + (k + 1))
+      createPart('Situation', situation.name, situation, strategy.sellPoint, 'Situation' + ' #' + (k + 1))
 
       for (let m = 0; m < situation.conditions.length; m++) {
         let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
+        createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
       }
     }
 
@@ -137,15 +137,15 @@ function newStrategyCollectionItem () {
         parent = lastPhase
       }
       lastPhase = phase
-      createPart('Phase', phase.name, phase, parent, 'Stop Phase' + ' ' + (p + 1))
+      createPart('Phase', phase.name, phase, parent, 'Stop Phase' + ' #' + (p + 1))
 
       for (let k = 0; k < phase.situations.length; k++) {
         let situation = phase.situations[k]
-        createPart('Situation', situation.name, situation, phase, 'Situation' + ' ' + (k + 1))
+        createPart('Situation', situation.name, situation, phase, 'Situation' + ' #' + (k + 1))
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
-          createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
+          createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
         }
       }
     }
@@ -160,15 +160,15 @@ function newStrategyCollectionItem () {
         parent = lastPhase
       }
       lastPhase = phase
-      createPart('Phase', phase.name, phase, parent, 'Take Profit Phase' + ' ' + (p + 1))
+      createPart('Phase', phase.name, phase, parent, 'Take Profit Phase' + ' #' + (p + 1))
 
       for (let k = 0; k < phase.situations.length; k++) {
         let situation = phase.situations[k]
-        createPart('Situation', situation.name, situation, phase, 'Situation' + ' ' + (k + 1))
+        createPart('Situation', situation.name, situation, phase, 'Situation' + ' #' + (k + 1))
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
-          createPart('Condition', condition.name, condition, situation, 'Condition' + ' ' + (m + 1))
+          createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
         }
       }
     }

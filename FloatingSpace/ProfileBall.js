@@ -190,7 +190,7 @@ function newProfileBall () {
 
     point = viewPort.fitIntoVisibleArea(point)
 
-    if (pFloatingObject.currentRadius > 1) {
+    if (pFloatingObject.container.frame.radius > 1) {
             /* Target Line */
 
       browserCanvasContext.beginPath()
@@ -203,7 +203,7 @@ function newProfileBall () {
       browserCanvasContext.setLineDash([0, 0])
     }
 
-    if (pFloatingObject.currentRadius > 0.5) {
+    if (pFloatingObject.container.frame.radius > 0.5) {
             /* Target Spot */
 
       var radius = 1
@@ -217,23 +217,23 @@ function newProfileBall () {
   }
 
   function drawForeground (pFloatingObject) {
-    if (pFloatingObject.currentRadius > 5) {
+    if (pFloatingObject.container.frame.radius > 5) {
             /* Contourn */
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(pFloatingObject.container.frame.position.x, pFloatingObject.container.frame.position.y, pFloatingObject.currentRadius, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(pFloatingObject.container.frame.position.x, pFloatingObject.container.frame.position.y, pFloatingObject.container.frame.radius, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
       browserCanvasContext.strokeStyle = 'rgba(30, 30, 30, 0.75)'
       browserCanvasContext.lineWidth = 1
       browserCanvasContext.stroke()
     }
 
-    if (pFloatingObject.currentRadius > 0.5) {
+    if (pFloatingObject.container.frame.radius > 0.5) {
             /* Main FloatingObject */
 
       var alphaA
 
-      if (pFloatingObject.currentRadius < 3) {
+      if (pFloatingObject.container.frame.radius < 3) {
         alphaA = 1
       } else {
         alphaA = 0.75
@@ -242,7 +242,7 @@ function newProfileBall () {
       alphaA = 0.75
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(pFloatingObject.container.frame.position.x, pFloatingObject.container.frame.position.y, pFloatingObject.currentRadius, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(pFloatingObject.container.frame.position.x, pFloatingObject.container.frame.position.y, pFloatingObject.container.frame.radius, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
 
       browserCanvasContext.fillStyle = pFloatingObject.fillStyle
@@ -287,7 +287,7 @@ function newProfileBall () {
 
         /* Label Text */
 
-    if (pFloatingObject.currentRadius > 6) {
+    if (pFloatingObject.container.frame.radius > 6) {
       browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle
 
       let labelPoint

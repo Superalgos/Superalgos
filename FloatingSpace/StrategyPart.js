@@ -334,8 +334,8 @@ function newStrategyPart () {
 
       if (menuItem.canDrawIcon === true && menuItem.currentRadius > 1) {
         let position = {
-          x: pFloatingObject.container.frame.position.x + pFloatingObject.currentRadius * 3 / 4 * Math.cos(toRadians(menuItem.angle)),
-          y: pFloatingObject.container.frame.position.y - pFloatingObject.currentRadius * 3 / 4 * Math.sin(toRadians(menuItem.angle))
+          x: pFloatingObject.container.frame.position.x + pFloatingObject.container.frame.radius * 3 / 4 * Math.cos(toRadians(menuItem.angle)),
+          y: pFloatingObject.container.frame.position.y - pFloatingObject.container.frame.radius * 3 / 4 * Math.sin(toRadians(menuItem.angle))
         }
 
         browserCanvasContext.drawImage(menuItem.icon, position.x, position.y, menuItem.currentRadius * 2, menuItem.currentRadius * 2)
@@ -396,7 +396,7 @@ function newStrategyPart () {
       y: pFloatingObject.payload.profile.position.y
     }
 
-    if (pFloatingObject.currentRadius > 1) {
+    if (pFloatingObject.container.frame.radius > 1) {
             /* Target Line */
 
       browserCanvasContext.beginPath()
@@ -409,7 +409,7 @@ function newStrategyPart () {
       browserCanvasContext.setLineDash([0, 0])
     }
 
-    if (pFloatingObject.currentRadius > 0.5) {
+    if (pFloatingObject.container.frame.radius > 0.5) {
             /* Target Spot */
 
       var radius = 1
@@ -428,7 +428,7 @@ function newStrategyPart () {
       y: pFloatingObject.container.frame.position.y
     }
 
-    let radius = pFloatingObject.currentRadius
+    let radius = pFloatingObject.container.frame.radius
 
     if (radius > 5) {
             /* Contourn */

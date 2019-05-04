@@ -413,11 +413,11 @@ function newFloatingLayer () {
 
                         // The radius also have a target.
 
-            if (Math.abs(floatingObject.currentRadius - floatingObject.targetRadius) >= 1) {
-              if (floatingObject.currentRadius < floatingObject.targetRadius) {
-                floatingObject.currentRadius = floatingObject.currentRadius + 0.5
+            if (Math.abs(floatingObject.container.frame.radius - floatingObject.targetRadius) >= 1) {
+              if (floatingObject.container.frame.radius < floatingObject.targetRadius) {
+                floatingObject.container.frame.radius = floatingObject.container.frame.radius + 0.5
               } else {
-                floatingObject.currentRadius = floatingObject.currentRadius - 0.5
+                floatingObject.container.frame.radius = floatingObject.container.frame.radius - 0.5
               }
             }
 
@@ -625,10 +625,10 @@ function newFloatingLayer () {
           for (let i = 0; i < dyingFloatingObjects.length; i++) {
             let floatingObject = dyingFloatingObjects[i]
 
-            if (Math.abs(floatingObject.currentRadius - floatingObject.targetRadius) >= 5) {
+            if (Math.abs(floatingObject.container.frame.radius - floatingObject.targetRadius) >= 5) {
               let speed = Math.random()
 
-              floatingObject.currentRadius = floatingObject.currentRadius - speed * 3
+              floatingObject.container.frame.radius = floatingObject.container.frame.radius - speed * 3
             } else {
                             /* Here is when the floatingObjects are definetelly killed. */
 
@@ -891,8 +891,8 @@ function newFloatingLayer () {
 
             /* This function detects weather 2 floatingObjects collide with each other. */
 
-      var r1 = floatingObject1.currentRadius
-      var r2 = floatingObject2.currentRadius
+      var r1 = floatingObject1.container.frame.radius
+      var r2 = floatingObject2.container.frame.radius
 
       var distance = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))
 
@@ -919,7 +919,7 @@ function newFloatingLayer () {
         var floatingObject = visibleFloatingObjects[i]
         var distance = Math.sqrt(Math.pow(floatingObject.container.frame.position.x - x, 2) + Math.pow(floatingObject.container.frame.position.y - y, 2))
 
-        if (distance < floatingObject.currentRadius) {
+        if (distance < floatingObject.container.frame.radius) {
           return i
         }
       }
@@ -938,7 +938,7 @@ function newFloatingLayer () {
       var floatingObject = visibleFloatingObjects[floatingObjectIndex]
       var distance = Math.sqrt(Math.pow(floatingObject.container.frame.position.x - x, 2) + Math.pow(floatingObject.container.frame.position.y - y, 2))
 
-      if (distance < floatingObject.currentRadius) {
+      if (distance < floatingObject.container.frame.radius) {
         return true
       }
 
@@ -1010,7 +1010,7 @@ function newFloatingLayer () {
       var d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))
 
             // minimum translation distance to push floatingObjects apart after intersecting
-      var scalar = (((floatingObject1.currentRadius + floatingObject2.currentRadius) - d) / d)
+      var scalar = (((floatingObject1.container.frame.radius + floatingObject2.container.frame.radius) - d) / d)
 
       var minTD = {
         x: posDiff.x * scalar,

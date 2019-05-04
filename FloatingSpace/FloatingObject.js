@@ -26,7 +26,6 @@ function newFloatingObject () {
     imageId: undefined,
 
     currentSpeed: 0,                        // This is the current speed of the floating object.
-    currentRadius: 0,                       // This is the current radius of the floating object, including its zoom applied.
     currentMass: 0,                         // This is the current mass of the floating object, including its zoom applied.
 
     friction: 0,                            // This is a factor that will ultimatelly desacelerate the floating object.
@@ -187,7 +186,7 @@ function newFloatingObject () {
 
     thisObject.rawRadius = radius
     thisObject.targetRadius = radius
-    thisObject.currentRadius = radius / 3
+    thisObject.container.frame.radius = radius / 3
   }
 
   function initializeImageSize (suggestedValue) {

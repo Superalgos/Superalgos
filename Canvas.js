@@ -433,13 +433,10 @@ function newCanvas () {
       }
 
            /* We check if the mouse is over a floatingObject/ */
+      container = thisObject.floatingSpace.getContainer(point)
 
-      let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y)
-
-      if (floatingObjectBeingClicked >= 0) {
-        let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingClicked)
-        floatingObject.container.eventHandler.raiseEvent('onMouseClick', point)
-
+      if (container !== undefined && container.isClickeable === true) {
+        container.eventHandler.raiseEvent('onMouseClick', point)
         return
       }
 

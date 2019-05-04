@@ -63,7 +63,7 @@ function newNote () {
 
     point = viewPort.fitIntoVisibleArea(point)
 
-    if (pFloatingObject.currentRadius > 1) {
+    if (pFloatingObject.container.frame.radius > 1) {
             /* Target Line */
 
       browserCanvasContext.beginPath()
@@ -76,7 +76,7 @@ function newNote () {
       browserCanvasContext.setLineDash([0, 0])
     }
 
-    if (pFloatingObject.currentRadius > 0.5) {
+    if (pFloatingObject.container.frame.radius > 0.5) {
             /* Target Spot */
 
       var radius = 1
@@ -93,8 +93,8 @@ function newNote () {
     const BUBBLE_CORNERS_RADIOUS = 5
     const TITLE_BAR_HEIGHT = 14
 
-    const BUBBLE_WIDTH = BUBBLE_CORNERS_RADIOUS + pFloatingObject.currentRadius * 4
-    const BUBBLE_HEIGHT = BUBBLE_CORNERS_RADIOUS + pFloatingObject.currentRadius * 2
+    const BUBBLE_WIDTH = BUBBLE_CORNERS_RADIOUS + pFloatingObject.container.frame.radius * 4
+    const BUBBLE_HEIGHT = BUBBLE_CORNERS_RADIOUS + pFloatingObject.container.frame.radius * 2
 
     let borderPoint1
     let borderPoint2
@@ -106,7 +106,7 @@ function newNote () {
       y: pFloatingObject.container.frame.position.y - BUBBLE_HEIGHT / 2
     }
 
-    if (pFloatingObject.currentRadius > 5) {
+    if (pFloatingObject.container.frame.radius > 5) {
             /* Rounded Background */
 
       borderPoint1 = {
@@ -181,7 +181,7 @@ function newNote () {
       browserCanvasContext.stroke()
     }
 
-    if (pFloatingObject.currentRadius > 0.5) {
+    if (pFloatingObject.container.frame.radius > 0.5) {
             /* Image */
 
       let imagePosition = {
@@ -208,10 +208,10 @@ function newNote () {
 
             /* Labels */
 
-      if (pFloatingObject.currentRadius > 6) {
+      if (pFloatingObject.container.frame.radius > 6) {
         browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle
 
-        const SIZE_PERCENTAGE = Math.trunc(pFloatingObject.currentRadius / pFloatingObject.targetRadius * 100) / 100
+        const SIZE_PERCENTAGE = Math.trunc(pFloatingObject.container.frame.radius / pFloatingObject.targetRadius * 100) / 100
         let ALPHA
 
         if (pFloatingObject.targetRadius > 0) {
@@ -219,7 +219,7 @@ function newNote () {
         } else {
  // Object is dying...
 
-          ALPHA = Math.trunc((0.5 - (100 - pFloatingObject.currentRadius / 100)) * 100) / 100
+          ALPHA = Math.trunc((0.5 - (100 - pFloatingObject.container.frame.radius / 100)) * 100) / 100
 
           if (ALPHA < 0) { ALPHA = 0 }
         }

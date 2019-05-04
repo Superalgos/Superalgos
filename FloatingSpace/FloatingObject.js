@@ -80,12 +80,7 @@ function newFloatingObject () {
 
         case 'Profile Ball': {
           thisObject.underlayingObject = newProfileBall()
-          thisObject.underlayingObject.initialize(onInitialized)
-
-          function onInitialized (err) {
-
-          }
-
+          thisObject.underlayingObject.initialize()
           break
         }
         case 'Note': {

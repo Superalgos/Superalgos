@@ -9,6 +9,7 @@ function newFrame () {
     parentFrame: undefined,             // Here we store the parent cointainer zoom object.
     width: browserCanvas.width,
     height: browserCanvas.height,
+    radius: 0,
     position: undefined,
     getBodyHeight: getBodyHeight,
     draw: draw,
@@ -265,16 +266,24 @@ function newFrame () {
       }
     }
 
-        /* Now we check if the resulting point is whin the current Frame. */
+    /* Now we check if the resulting point is whin the current Frame. */
 
-    if (checkPoint.x < 0 || checkPoint.y < 0 || checkPoint.x > thisObject.width || checkPoint.y > thisObject.height) {
-            /* The point received is not in this frame */
+    if (thisObject.type === 'Circle') {
+      let distance = Math.sqrt(Math.pow(thisObject.position.x - point.x, 2) + Math.pow(thisObject.position.y - point.y, 2))
 
-      return false
-    } else {
-            /* The point is within this frame. */
+      if (distance < thisObject.radius) {
+        return true
+      } else {
+        return false
+      }
+    }
 
-      return true
+    if (thisObject.type === 'Rectangle') {
+      if (checkPoint.x < 0 || checkPoint.y < 0 || checkPoint.x > thisObject.width || checkPoint.y > thisObject.height) {
+        return false
+      } else {
+        return true
+      }
     }
   }
 

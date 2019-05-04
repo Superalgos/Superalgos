@@ -16,6 +16,8 @@ function newStrategyPart () {
 
   let floatingLayer
   let isMouseOver = false
+  let image
+  let imagePath
 
   return thisObject
 
@@ -51,11 +53,12 @@ function newStrategyPart () {
         break
       }
       case 'Condition': {
+        imagePath = 'Images/icons/style-01/brainstorming.png'
         ballStringMenu = [
           {
             visible: false,
             imagePathOn: 'Images/icons/style-01/html.png',
-            imagePathOff: 'Images/icons/style-01/html.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -64,7 +67,7 @@ function newStrategyPart () {
           {
             visible: false,
             imagePathOn: 'Images/icons/style-01/settings.png',
-            imagePathOff: 'Images/icons/style-01/settings.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -73,7 +76,7 @@ function newStrategyPart () {
           {
             visible: false,
             imagePathOn: 'Images/icons/style-01/tools.png',
-            imagePathOff: 'Images/icons/style-01/tools.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -82,7 +85,7 @@ function newStrategyPart () {
           {
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
-            imagePathOff: 'Images/icons/style-01/trash.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -94,6 +97,20 @@ function newStrategyPart () {
         if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Part Type not Recognized -> type = ' + pType) }
       }
     }
+
+/* Load Part Image */
+
+    if (imagePath !== undefined) {
+      image = new Image()
+      image.onload = onImageLoad
+
+      function onImageLoad () {
+        image.canDrawIcon = true
+      }
+      image.src = window.canvasApp.urlPrefix + imagePath
+    }
+
+/* Load Menu Images */
 
     for (let i = 0; i < ballStringMenu.length; i++) {
       let menuItem = ballStringMenu[i]
@@ -160,8 +177,8 @@ function newStrategyPart () {
 
       if (menuItem.canDrawIcon === true && menuItem.currentRadius > 1) {
         let position = {
-          x: pFloatingObject.currentPosition.x + pFloatingObject.currentImageSize / 2 * Math.cos(toRadians(menuItem.angle)),
-          y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 * Math.sin(toRadians(menuItem.angle))
+          x: pFloatingObject.currentPosition.x + pFloatingObject.currentRadius * 3 / 4 * Math.cos(toRadians(menuItem.angle)),
+          y: pFloatingObject.currentPosition.y - pFloatingObject.currentRadius * 3 / 4 * Math.sin(toRadians(menuItem.angle))
         }
 
         browserCanvasContext.drawImage(menuItem.icon, position.x, position.y, menuItem.currentRadius * 2, menuItem.currentRadius * 2)
@@ -220,8 +237,6 @@ function newStrategyPart () {
       y: pFloatingObject.payload.profile.position.y
     }
 
-    point = viewPort.fitIntoVisibleArea(point)
-
     if (pFloatingObject.currentRadius > 1) {
             /* Target Line */
 
@@ -249,11 +264,18 @@ function newStrategyPart () {
   }
 
   function drawForeground (pFloatingObject) {
-    if (pFloatingObject.currentRadius > 5) {
+    let position = {
+      x: pFloatingObject.currentPosition.x,
+      y: pFloatingObject.currentPosition.y
+    }
+
+    let radius = pFloatingObject.currentRadius
+
+    if (radius > 5) {
             /* Contourn */
 /*
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(position.x, position.y, radius, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
       browserCanvasContext.strokeStyle = 'rgba(30, 30, 30, 0.75)'
       browserCanvasContext.lineWidth = 1
@@ -261,11 +283,11 @@ function newStrategyPart () {
       */
     }
 
-    if (pFloatingObject.currentRadius > 0.5) {
+    if (radius > 0.5 && image === undefined) {
             /* Main FloatingObject */
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius * 2 / 3, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(position.x, position.y, radius * 2 / 3, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
 
       browserCanvasContext.fillStyle = pFloatingObject.fillStyle
@@ -273,7 +295,7 @@ function newStrategyPart () {
       browserCanvasContext.fill()
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius * 1 / 3, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(position.x, position.y, radius * 1 / 3, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
 
       browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)'
@@ -283,21 +305,9 @@ function newStrategyPart () {
 
         /* Image */
 
-    if (pFloatingObject.payload.profile.imageId !== undefined) {
-      let image = pFloatingObject.payload.profile.botAvatar
-
-      if (image !== null && image !== undefined) {
-        browserCanvasContext.save()
-        browserCanvasContext.beginPath()
-        browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentImageSize / 2, 0, Math.PI * 2, true)
-        browserCanvasContext.closePath()
-        browserCanvasContext.clip()
-        browserCanvasContext.drawImage(image, pFloatingObject.currentPosition.x - pFloatingObject.currentImageSize / 2, pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize, pFloatingObject.currentImageSize)
-        browserCanvasContext.beginPath()
-        browserCanvasContext.arc(pFloatingObject.currentPosition.x - pFloatingObject.currentImageSize / 2, pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize / 2, 0, Math.PI * 2, true)
-        browserCanvasContext.clip()
-        browserCanvasContext.closePath()
-        browserCanvasContext.restore()
+    if (image !== undefined) {
+      if (image.canDrawIcon === true) {
+        browserCanvasContext.drawImage(image, position.x - pFloatingObject.currentImageSize / 2, position.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize, pFloatingObject.currentImageSize)
       }
     }
 
@@ -307,18 +317,17 @@ function newStrategyPart () {
       let menuItem = ballStringMenu[i]
 
       if (menuItem.canDrawIcon === true && menuItem.currentRadius > 1) {
-        let position = {
-          x: pFloatingObject.currentPosition.x + pFloatingObject.currentImageSize / 2 * Math.cos(toRadians(menuItem.angle)),
-          y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 * Math.sin(toRadians(menuItem.angle))
-        }
+        let menuPosition = {
+          x: position.x + radius * 3 / 4 * Math.cos(toRadians(menuItem.angle)),
+          y: position.y - radius * 3 / 4 * Math.sin(toRadians(menuItem.angle)) }
 
-        browserCanvasContext.drawImage(menuItem.icon, position.x - menuItem.currentRadius, position.y - menuItem.currentRadius, menuItem.currentRadius * 2, menuItem.currentRadius * 2)
+        browserCanvasContext.drawImage(menuItem.icon, menuPosition.x - menuItem.currentRadius, menuPosition.y - menuItem.currentRadius, menuItem.currentRadius * 2, menuItem.currentRadius * 2)
       }
     }
 
         /* Label Text */
 
-    if (pFloatingObject.currentRadius > 6) {
+    if (radius > 6) {
       browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle
 
       let labelPoint
@@ -332,8 +341,8 @@ function newStrategyPart () {
 
       if (label !== undefined) {
         labelPoint = {
-          x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-          y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 10
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+          y: position.y - radius - fontSize * FONT_ASPECT_RATIO - 10
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -345,8 +354,8 @@ function newStrategyPart () {
 
       if (label !== undefined && isMouseOver === true) {
         labelPoint = {
-          x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-          y: pFloatingObject.currentPosition.y + pFloatingObject.currentImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 15
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+          y: position.y + radius + fontSize * FONT_ASPECT_RATIO + 15
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -356,4 +365,3 @@ function newStrategyPart () {
     }
   }
 }
-

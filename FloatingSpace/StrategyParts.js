@@ -136,7 +136,7 @@ function newStrategyParts () {
 
         floatingObject.initializeMass(10)
         floatingObject.initializeRadius(25)
-        floatingObject.initializeImageSize(40)
+        floatingObject.initializeImageSize(30)
         floatingObject.initializeFontSize(10)
 
         floatingObject.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'

@@ -15,6 +15,7 @@ function newFloatingSpace () {
     makeVisible: makeVisible,
     makeInvisible: makeInvisible,
     draw: draw,
+    physics: physics,
     getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
@@ -66,10 +67,16 @@ function newFloatingSpace () {
     return container
   }
 
+  function physics () {
+    thisObject.floatingLayer.physics()
+  }
+
   function draw () {
     if (visible === true) {
       drawBackground()
     }
+
+    thisObject.floatingLayer.draw()
   }
 
   function drawBackground () {

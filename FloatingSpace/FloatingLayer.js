@@ -1,6 +1,4 @@
- ﻿
-function newFloatingLayer () {
-    /*
+/*
     This module represent one layer of many possible layers that could be at the Floating Space. Objects in the same layer are subject to
     the same physics, and by being at the same level, they interact with each other. For example, they can bounce when one hit the other.
     This module posesses its own physics engine. There are different types of floating objects, but this layer takes care of each of them.
@@ -15,6 +13,7 @@ function newFloatingLayer () {
     3. Strategy Parts: These are small balls that represent parts of an strategy.
     */
 
+function newFloatingLayer () {
   const MODULE_NAME = 'Floating Layer'
   const INFO_LOG = false
   let INTENSIVE_LOG = false
@@ -26,10 +25,11 @@ function newFloatingLayer () {
     addFloatingObject: addFloatingObject,
     killFloatingObject: killFloatingObject,
     getFloatingObject: getFloatingObject,
-    physicsLoop: physicsLoop,
+    physics: physics,
     isInside: isInside,
     isInsideFloatingObject: isInsideFloatingObject,
     changeTargetRepulsion: changeTargetRepulsion,
+    draw: draw,
     getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
@@ -305,7 +305,175 @@ function newFloatingLayer () {
   }
 
   function draw () {
+    drawVisibleObjects()
 
+    function drawVisibleObjects () {
+      try {
+        if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> drawVisibleObjects -> Entering function.') }
+
+                  /* We draw all the visibleFloatingObjects. */
+
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
+          let floatingObject = visibleFloatingObjects[i]
+          floatingObject.drawBackground()
+        }
+
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
+          let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1]
+          floatingObject.drawForeground()
+        }
+
+        makeVisible()
+      } catch (err) {
+        if (ERROR_LOG === true && INTENSIVE_LOG === true) { logger.write('[ERROR] physics -> drawVisibleObjects -> err.message = ' + err.message) }
+      }
+    }
+
+    function makeVisible () {
+      try {
+        if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> makeVisible -> Entering function.') }
+
+                  /* Now we check if any of the created FloatingObjects where enabled to run under the Physics Engine. */
+
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+          let floatingObject = invisibleFloatingObjects[i]
+
+          let payload = {
+            position: undefined,
+            visible: false
+          }
+
+          switch (floatingObject.type) {
+
+            case 'Profile Ball': {
+              payload.position = floatingObject.payload.profile.position
+              payload.visible = floatingObject.payload.profile.visible
+              break
+            }
+            case 'Note': {
+              if (floatingObject.payload.notes[floatingObject.payloadNoteIndex] !== undefined) {
+                payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position
+                payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
+              }
+              break
+            }
+            case 'Strategy Part': {
+              payload.position = floatingObject.payload.profile.position
+              payload.visible = floatingObject.payload.profile.visible
+              break
+            }
+            default: {
+              break
+            }
+          }
+
+          if (payload.visible === true) {
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> payload.visible = ' + payload.visible) }
+
+                          /* The first time that the floatingObject becomes visible, we need to do this. */
+
+            floatingObject.radomizeCurrentPosition(payload.position)
+            floatingObject.radomizeCurrentSpeed()
+
+            visibleFloatingObjects.push(floatingObject)
+
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject.handle = ' + floatingObject.handle) }
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject added to visibleFloatingObjects') }
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> visibleFloatingObjects.length = ' + visibleFloatingObjects.length) }
+
+            invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
+
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject.handle = ' + floatingObject.handle) }
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject removed from invisibleFloatingObjects') }
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> invisibleFloatingObjects.length = ' + invisibleFloatingObjects.length) }
+
+            return                     // Only one at the time.
+          }
+        }
+
+        makeInvisible()
+      } catch (err) {
+        if (ERROR_LOG === true) { logger.write('[ERROR] physics -> makeVisible -> err.message = ' + err.message) }
+      }
+    }
+
+    function makeInvisible () {
+      try {
+        if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> makeInvisible -> Entering function.') }
+
+                  /* Finally we check if any of the currently visible floatingObjects has become invisible and must be removed from the Physics Engine. */
+
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
+          let floatingObject = visibleFloatingObjects[i]
+
+          let payload = {
+            position: undefined,
+            visible: true
+          }
+
+          switch (floatingObject.type) {
+
+            case 'Profile Ball': {
+              payload.visible = floatingObject.payload.profile.visible
+              break
+            }
+            case 'Note': {
+              payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
+              break
+            }
+            case 'Strategy Part': {
+              payload.visible = floatingObject.payload.profile.visible
+              break
+            }
+            default: {
+              break
+            }
+          }
+
+          if (payload.visible === false) {
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> payload.visible = ' + payload.visible) }
+
+            invisibleFloatingObjects.push(floatingObject)
+
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject.handle = ' + floatingObject.handle) }
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject added to invisibleFloatingObjects') }
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> invisibleFloatingObjects.length = ' + invisibleFloatingObjects.length) }
+
+            visibleFloatingObjects.splice(i, 1)  // Delete item from array.
+
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject.handle = ' + floatingObject.handle) }
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject removed from visibleFloatingObjects') }
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> visibleFloatingObjects.length = ' + visibleFloatingObjects.length) }
+
+            return                     // Only one at the time.
+          }
+        }
+
+        drawDyingObjects()
+      } catch (err) {
+        if (ERROR_LOG === true) { logger.write('[ERROR] physics -> makeInvisible -> err.message = ' + err.message) }
+      }
+    }
+
+    function drawDyingObjects () {
+      try {
+        if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> drawDyingObjects -> Entering function.') }
+
+                  /* We also draw all the dyingFloatingObjects */
+
+        for (let i = 0; i < dyingFloatingObjects.length; i++) {
+          let floatingObject = dyingFloatingObjects[i]
+          floatingObject.drawBackground()
+        }
+
+        for (let i = 0; i < dyingFloatingObjects.length; i++) {
+          let floatingObject = dyingFloatingObjects[dyingFloatingObjects.length - i - 1]
+          floatingObject.drawForeground()
+        }
+      } catch (err) {
+        if (ERROR_LOG === true) { logger.write('[ERROR] physics -> drawDyingObjects -> err.message = ' + err.message) }
+      }
+    }
   }
 
     /******************************************/
@@ -314,7 +482,7 @@ function newFloatingLayer () {
     /*                                        */
     /******************************************/
 
-  function physicsLoop () {
+  function physics () {
         /*
         The Physics engine is hooked at the animation loop, so it executes very very often. According to this Physics engine, each
         floating object has a position and a speed. In fact, each floating object has two positions at the same time:
@@ -330,7 +498,7 @@ function newFloatingLayer () {
         */
 
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> Entering function.') }
+      if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> Entering function.') }
 
       applyPhysics()
 
@@ -338,22 +506,22 @@ function newFloatingLayer () {
                 /* This function makes all the calculations to apply phisycs on all visible floatingObjects in this layer. */
 
         try {
-          if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> applyPhysics -> Entering function.') }
+          if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> applyPhysics -> Entering function.') }
 
           for (let i = 0; i < visibleFloatingObjects.length; i++) {
             let floatingObject = visibleFloatingObjects[i]
 
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> Change position based on speed.') }
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> Change position based on speed.') }
 
             floatingObject.container.frame.position.x = floatingObject.container.frame.position.x + floatingObject.currentSpeed.x
             floatingObject.container.frame.position.y = floatingObject.container.frame.position.y + floatingObject.currentSpeed.y
 
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> Apply some friction to desaccelerate.') }
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> Apply some friction to desaccelerate.') }
 
             floatingObject.currentSpeed.x = floatingObject.currentSpeed.x * floatingObject.friction  // Desaceleration factor.
             floatingObject.currentSpeed.y = floatingObject.currentSpeed.y * floatingObject.friction  // Desaceleration factor.
 
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> Gives a minimun speed towards their taget.') }
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> Gives a minimun speed towards their taget.') }
 
             let payload = {
               position: undefined,
@@ -395,7 +563,7 @@ function newFloatingLayer () {
               floatingObject.currentSpeed.y = floatingObject.currentSpeed.y - 0.005
             }
 
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> Set a maximun speed.') }
+            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> Set a maximun speed.') }
 
             const MAX_SPEED = 50
 
@@ -447,7 +615,7 @@ function newFloatingLayer () {
 
                         // We let the Floating Object animate the physics loops by itself.
 
-            floatingObject.physicsLoop()
+            floatingObject.physics()
 
                         /* Collision Control */
 
@@ -466,163 +634,15 @@ function newFloatingLayer () {
             gravityForce(floatingObject, payload)
           }
 
-          drawVisibleObjects()
-        } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] physicsLoop -> applyPhysics -> err.message = ' + err.message) }
-        }
-      }
-
-      function drawVisibleObjects () {
-        try {
-          if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> drawVisibleObjects -> Entering function.') }
-
-                    /* We draw all the visibleFloatingObjects. */
-
-          for (let i = 0; i < visibleFloatingObjects.length; i++) {
-            let floatingObject = visibleFloatingObjects[i]
-            floatingObject.drawBackground()
-          }
-
-          for (let i = 0; i < visibleFloatingObjects.length; i++) {
-            let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1]
-            floatingObject.drawForeground()
-          }
-
-          makeVisible()
-        } catch (err) {
-          if (ERROR_LOG === true && INTENSIVE_LOG === true) { logger.write('[ERROR] physicsLoop -> drawVisibleObjects -> err.message = ' + err.message) }
-        }
-      }
-
-      function makeVisible () {
-        try {
-          if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> makeVisible -> Entering function.') }
-
-                    /* Now we check if any of the created FloatingObjects where enabled to run under the Physics Engine. */
-
-          for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-            let floatingObject = invisibleFloatingObjects[i]
-
-            let payload = {
-              position: undefined,
-              visible: false
-            }
-
-            switch (floatingObject.type) {
-
-              case 'Profile Ball': {
-                payload.position = floatingObject.payload.profile.position
-                payload.visible = floatingObject.payload.profile.visible
-                break
-              }
-              case 'Note': {
-                if (floatingObject.payload.notes[floatingObject.payloadNoteIndex] !== undefined) {
-                  payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position
-                  payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
-                }
-                break
-              }
-              case 'Strategy Part': {
-                payload.position = floatingObject.payload.profile.position
-                payload.visible = floatingObject.payload.profile.visible
-                break
-              }
-              default: {
-                break
-              }
-            }
-
-            if (payload.visible === true) {
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> payload.visible = ' + payload.visible) }
-
-                            /* The first time that the floatingObject becomes visible, we need to do this. */
-
-              floatingObject.radomizeCurrentPosition(payload.position)
-              floatingObject.radomizeCurrentSpeed()
-
-              visibleFloatingObjects.push(floatingObject)
-
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> floatingObject.handle = ' + floatingObject.handle) }
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> floatingObject added to visibleFloatingObjects') }
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> visibleFloatingObjects.length = ' + visibleFloatingObjects.length) }
-
-              invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
-
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> floatingObject.handle = ' + floatingObject.handle) }
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> floatingObject removed from invisibleFloatingObjects') }
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> invisibleFloatingObjects.length = ' + invisibleFloatingObjects.length) }
-
-              return                     // Only one at the time.
-            }
-          }
-
-          makeInvisible()
-        } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] physicsLoop -> makeVisible -> err.message = ' + err.message) }
-        }
-      }
-
-      function makeInvisible () {
-        try {
-          if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> makeInvisible -> Entering function.') }
-
-                    /* Finally we check if any of the currently visible floatingObjects has become invisible and must be removed from the Physics Engine. */
-
-          for (let i = 0; i < visibleFloatingObjects.length; i++) {
-            let floatingObject = visibleFloatingObjects[i]
-
-            let payload = {
-              position: undefined,
-              visible: true
-            }
-
-            switch (floatingObject.type) {
-
-              case 'Profile Ball': {
-                payload.visible = floatingObject.payload.profile.visible
-                break
-              }
-              case 'Note': {
-                payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
-                break
-              }
-              case 'Strategy Part': {
-                payload.visible = floatingObject.payload.profile.visible
-                break
-              }
-              default: {
-                break
-              }
-            }
-
-            if (payload.visible === false) {
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> payload.visible = ' + payload.visible) }
-
-              invisibleFloatingObjects.push(floatingObject)
-
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> floatingObject.handle = ' + floatingObject.handle) }
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> floatingObject added to invisibleFloatingObjects') }
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> invisibleFloatingObjects.length = ' + invisibleFloatingObjects.length) }
-
-              visibleFloatingObjects.splice(i, 1)  // Delete item from array.
-
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> floatingObject.handle = ' + floatingObject.handle) }
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> floatingObject removed from visibleFloatingObjects') }
-              if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> visibleFloatingObjects.length = ' + visibleFloatingObjects.length) }
-
-              return                     // Only one at the time.
-            }
-          }
-
           animateDyingObjects()
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] physicsLoop -> makeInvisible -> err.message = ' + err.message) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] physics -> applyPhysics -> err.message = ' + err.message) }
         }
       }
 
       function animateDyingObjects () {
         try {
-          if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> animateDyingObjects -> Entering function.') }
+          if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> animateDyingObjects -> Entering function.') }
 
                     /* We animate some parts of the dying objects */
 
@@ -643,31 +663,11 @@ function newFloatingLayer () {
 
           drawDyingObjects()
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] physicsLoop -> animateDyingObjects -> err.message = ' + err.message) }
-        }
-      }
-
-      function drawDyingObjects () {
-        try {
-          if (INTENSIVE_LOG === true) { logger.write('[INFO] physicsLoop -> drawDyingObjects -> Entering function.') }
-
-                    /* We also draw all the dyingFloatingObjects */
-
-          for (let i = 0; i < dyingFloatingObjects.length; i++) {
-            let floatingObject = dyingFloatingObjects[i]
-            floatingObject.drawBackground()
-          }
-
-          for (let i = 0; i < dyingFloatingObjects.length; i++) {
-            let floatingObject = dyingFloatingObjects[dyingFloatingObjects.length - i - 1]
-            floatingObject.drawForeground()
-          }
-        } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] physicsLoop -> drawDyingObjects -> err.message = ' + err.message) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] physics -> animateDyingObjects -> err.message = ' + err.message) }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] physicsLoop -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] physics -> err.message = ' + err.message) }
     }
   }
 

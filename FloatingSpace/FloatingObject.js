@@ -10,7 +10,7 @@ function newFloatingObject () {
 
   let thisObject = {
 
-    physicsLoop: physicsLoop,
+    physics: physics,
 
     payload: undefined,                     // This is a reference to an object controlled by a Plotter. The plotter can change its internal value and we will see them from here.
     type: undefined,                        // Currently there are two types of Floating Objects: Profile Balls, and Notes.
@@ -123,15 +123,15 @@ function newFloatingObject () {
     }
   }
 
-  function physicsLoop (callBackFunction) {
+  function physics (callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
-      thisObject.underlayingObject.physicsLoop()
+      thisObject.underlayingObject.physics()
 
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] physicsLoop -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] physics -> err.message = ' + err.message) }
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
     }
   }

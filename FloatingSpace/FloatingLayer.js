@@ -304,6 +304,10 @@ function newFloatingLayer () {
     }
   }
 
+  function draw () {
+
+  }
+
     /******************************************/
     /*                                        */
     /*        Physics Engine Follows          */

@@ -12,10 +12,15 @@ function newFloatingSpace () {
     profileBalls: undefined,
     strategyParts: undefined,
     noteSets: undefined,
+    makeVisible: makeVisible,
+    makeInvisible: makeInvisible,
+    draw: draw,
     getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
   }
+
+  let visible = false
 
   return thisObject
 
@@ -40,6 +45,18 @@ function newFloatingSpace () {
     thisObject.strategyParts.initialize(thisObject.floatingLayer)
   }
 
+  function makeVisible () {
+    canvas.chartSpace.visible = false
+    canvas.panelsSpace.visible = false
+    visible = true
+  }
+
+  function makeInvisible () {
+    canvas.chartSpace.visible = true
+    canvas.panelsSpace.visible = true
+    visible = false
+  }
+
   function getContainer (point) {
     let container
 
@@ -47,6 +64,22 @@ function newFloatingSpace () {
     if (container !== undefined) { return container }
 
     return container
+  }
+
+  function draw () {
+    if (visible === true) {
+      drawBackground()
+    }
+  }
+
+  function drawBackground () {
+    browserCanvasContext.beginPath()
+
+    browserCanvasContext.rect(SIDE_PANEL_WIDTH, 0, browserCanvas.width - SIDE_PANEL_WIDTH, browserCanvas.height)
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)'
+
+    browserCanvasContext.closePath()
+    browserCanvasContext.fill()
   }
 }
 

@@ -17,7 +17,7 @@ function newStrategyCollectionItem () {
   thisObject.container.isClickeable = true
   thisObject.container.isDraggeable = false
 
-  let visible = false
+  let status = 'off'
 
   return thisObject
 
@@ -39,16 +39,14 @@ function newStrategyCollectionItem () {
   }
 
   function onMouseClick (event) {
-    if (visible === false) {
-      canvas.chartSpace.visible = false
-      canvas.panelsSpace.visible = false
+    if (status === 'off') {
+      canvas.floatingSpace.makeVisible()
       generateStrategyParts()
-      visible = true
+      status = 'on'
     } else {
-      canvas.chartSpace.visible = true
-      canvas.panelsSpace.visible = true
+      canvas.floatingSpace.makeInvisible()
       destroyStrategyParts()
-      visible = false
+      status = 'off'
     }
   }
 
@@ -260,19 +258,6 @@ function newStrategyCollectionItem () {
     text()
     arrow()
     icon()
-    floatingBackground()
-  }
-
-  function floatingBackground () {
-    if (visible === false) { return }
-
-    browserCanvasContext.beginPath()
-
-    browserCanvasContext.rect(SIDE_PANEL_WIDTH, 0, browserCanvas.width - SIDE_PANEL_WIDTH, browserCanvas.height)
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)'
-
-    browserCanvasContext.closePath()
-    browserCanvasContext.fill()
   }
 
   function text () {

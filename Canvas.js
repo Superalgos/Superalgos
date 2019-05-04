@@ -175,7 +175,8 @@ function newCanvas () {
           animation.addCallBackFunction('Bottom Space', thisObject.bottomSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Top Space', thisObject.topSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Strategy Space', thisObject.strategySpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Floating Space', thisObject.floatingSpace.floatingLayer.physicsLoop, onFunctionAdded)
+          animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.floatingLayer.physicsLoop, onFunctionAdded)
           animation.addCallBackFunction('Splash Screen', splashScreen.draw, onFunctionAdded)
           animation.start(onStart)
 

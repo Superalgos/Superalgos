@@ -16,11 +16,9 @@ function newFrame () {
     container: undefined,
     frameThisPoint: frameThisPoint,     // This function changes the actual frame coordinate system to the screen coordinate system.
     unframeThisPoint: unframeThisPoint,
-    fitIntoFrame: fitIntoFrame,
     isThisPointHere: isThisPointHere,   // This function return true is the point received as parameter lives within this frame.
     isInViewPort: isInViewPort,
     canYouMoveHere: canYouMoveHere,
-    canYouZoomHere: canYouZoomHere,
     initialize: initialize
   }
 
@@ -42,6 +40,8 @@ function newFrame () {
   }
 
   function isInViewPort () {
+    /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the viewPort */
+
     point1 = {
       x: 0,
       y: 0
@@ -62,28 +62,6 @@ function newFrame () {
     } else {
       return false
     }
-  }
-
-  function fitIntoFrame (point) {
-        /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
-
-    if (point.x > thisObject.width) {
-      point.x = thisObject.width
-    }
-
-    if (point.x < 0) {
-      point.x = 0
-    }
-
-    if (point.y > thisObject.height) {
-      point.y = thisObject.height
-    }
-
-    if (point.y < 0) {
-      point.y = 0
-    }
-
-    return point
   }
 
   function frameThisPoint (point) {
@@ -159,71 +137,6 @@ function newFrame () {
       point2 = thisObject.container.displacement.displaceThisPoint(point2)
       point3 = thisObject.container.displacement.displaceThisPoint(point3)
       point4 = thisObject.container.displacement.displaceThisPoint(point4)
-
-      if (thisObject.parentFrame.isThisPointHere(point1) === false) {
-        return false
-      }
-
-      if (thisObject.parentFrame.isThisPointHere(point2) === false) {
-        return false
-      }
-
-      if (thisObject.parentFrame.isThisPointHere(point3) === false) {
-        return false
-      }
-
-      if (thisObject.parentFrame.isThisPointHere(point4) === false) {
-        return false
-      }
-    }
-
-    return true
-  }
-
-  function canYouZoomHere (tempZoom) {
-    point1 = {
-      x: thisObject.position.x,
-      y: thisObject.position.y
-    }
-
-    point2 = {
-      x: thisObject.position.x + thisObject.width,
-      y: thisObject.position.y
-    }
-
-    point3 = {
-      x: thisObject.position.x + thisObject.width,
-      y: thisObject.position.y + thisObject.height
-    }
-
-    point4 = {
-      x: thisObject.position.x,
-      y: thisObject.position.y + thisObject.height
-    }
-
-        /* Now the transformations. */
-
-    if (thisObject.parentFrame !== undefined) {
-  // If there is not a parent then there is no point to check bounderies.
-
-      point1 = thisObject.parentFrame.frameThisPoint(point1)
-      point2 = thisObject.parentFrame.frameThisPoint(point2)
-      point3 = thisObject.parentFrame.frameThisPoint(point3)
-      point4 = thisObject.parentFrame.frameThisPoint(point4)
-
-            /* We add the actual displacement. */
-
-      point1 = thisObject.container.displacement.displaceThisPoint(point1)
-      point2 = thisObject.container.displacement.displaceThisPoint(point2)
-      point3 = thisObject.container.displacement.displaceThisPoint(point3)
-      point4 = thisObject.container.displacement.displaceThisPoint(point4)
-
-            /* We temp zoom. */
-
-      point1 = tempZoom.zoomThisPoint(point1)
-      point2 = tempZoom.zoomThisPoint(point2)
-      point3 = tempZoom.zoomThisPoint(point3)
-      point4 = tempZoom.zoomThisPoint(point4)
 
       if (thisObject.parentFrame.isThisPointHere(point1) === false) {
         return false

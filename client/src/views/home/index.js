@@ -22,16 +22,19 @@ class Home extends Component {
       <React.Fragment>
         {this.state.user !== undefined && this.state.user !== null && (
           <BannerTopBar
-            size='big'
+            size='big landing'
             title='Superalgos Platform Demo'
-            text='Get Started Using the Demo'
+            text='The platform demo is a functional prototype built for exposing and evaluating the multitude of Superalgos platform services. The user experience has not been optimized and will be refined in future use case implementations.'
             backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
           >
             <div className='instructions'>
-              <Typography align='center' variant='subtitle1' >1. <Link to='/teams/manage-teams'>Create a Team and Financial Being →</Link></Typography>
+              <Typography align='center' variant='h4' >DEMO OVERVIEW</Typography>
+              <Typography align='center' variant='subtitle1' >1. <Link to='/teams/manage-teams'>Create a Team and Fork the Template Bots →</Link></Typography>
               <Typography align='center' variant='subtitle1' >2. <Link to='/strategizer'>Visit the Strategizer and learn how to build a strategy →</Link></Typography>
-              <Typography align='center' variant='subtitle1' >3. <Link to='/clones/add'>Run a clone instance of your simulator algobot to test the strategy →</Link></Typography>
+              <Typography align='center' variant='subtitle1' >3. <Link to='/clones/add'>Run a clone instance of your Simulator bot to test the strategy →</Link></Typography>
               <Typography align='center' variant='subtitle1' >4. <Link to='/charts'>View the results of your strategy in the charts →</Link></Typography>
+              <Typography align='center' variant='subtitle1' >5. <Link to='/clones/add'>Now use your strategy with your trading bot by running a backtest clone instance →</Link></Typography>
+              <Typography align='center' variant='subtitle1' gutterBottom>5. <Link to='/keys/addKey'>(Optional) Add an exchange API key to run your trading bot live →</Link></Typography>
             </div>
           </BannerTopBar>
         )}

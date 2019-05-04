@@ -6,9 +6,6 @@ function newStrategyPart () {
     type: undefined,
     container: undefined,
     physicsLoop: physicsLoop,
-    onMouseOver: onMouseOver,
-    onMouseClick: onMouseClick,
-    onMouseNotOver: onMouseNotOver,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
     getContainer: getContainer,
@@ -272,6 +269,10 @@ function newStrategyPart () {
       menuItem.iconOn.src = window.canvasApp.urlPrefix + menuItem.imagePathOn
       menuItem.icon = menuItem.iconOn // The default value is ON.
     }
+
+    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }
 
   function getContainer (point) {
@@ -320,8 +321,11 @@ function newStrategyPart () {
     isMouseOver = false
   }
 
-  function onMouseClick (pPoint, pFloatingObject) {
+  function onMouseClick (event) {
         /* What we need to do here is to check which menu item was clicked, if any. */
+
+    pPoint = event.point
+    pFloatingObject = event.parent
 
     let menuItemIndex
 

@@ -142,7 +142,7 @@ function newFloatingObject () {
     thisObject.targetImageSize = thisObject.rawImageSize * 2.0
     thisObject.targetFontSize = thisObject.rawFontSize * 2.0
 
-    thisObject.underlayingObject.onMouseOver()
+    thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseOver')
   }
 
   function onMouseNotOver () {
@@ -150,11 +150,15 @@ function newFloatingObject () {
     thisObject.targetImageSize = thisObject.rawImageSize * 1
     thisObject.targetFontSize = thisObject.rawFontSize * 1
 
-    thisObject.underlayingObject.onMouseNotOver()
+    thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseNotOver')
   }
 
   function onMouseClick (pPoint) {
-    thisObject.underlayingObject.onMouseClick(pPoint, thisObject)
+    let event = {
+      point: pPoint,
+      parent: thisObject
+    }
+    thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseClick', event)
   }
 
   function drawBackground () {

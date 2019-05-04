@@ -5,9 +5,6 @@ function newNote () {
   let thisObject = {
     container: undefined,
     physicsLoop: physicsLoop,
-    onMouseOver: onMouseOver,
-    onMouseClick: onMouseClick,
-    onMouseNotOver: onMouseNotOver,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
     getContainer: getContainer,
@@ -26,7 +23,9 @@ function newNote () {
   return thisObject
 
   function initialize () {
-
+    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }
 
   function getContainer (point) {
@@ -51,8 +50,9 @@ function newNote () {
 
   }
 
-  function onMouseClick (pPoint, pFloatingObject) {
-
+  function onMouseClick (event) {
+    pPoint = event.point
+    pFloatingObject = event.parent
   }
 
   function drawBackground (pFloatingObject) {

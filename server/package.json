@@ -1,7 +1,9 @@
 {
   "name": "clones-api",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Superalgos Clones backend API",
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Superalgos/OperationsModule.git"
@@ -11,8 +13,6 @@
     "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-preset-env": "1.7.0",

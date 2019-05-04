@@ -73,8 +73,6 @@ function newStrategyCollectionItem () {
     }
 
     payload.profile.downLabel = name
-    payload.profile.imageId = imageId
-    payload.profile.botAvatar = 'dont know what this is'
     payload.parentNode = parentNode
 
     node.payload = payload
@@ -139,7 +137,7 @@ function newStrategyCollectionItem () {
         parent = lastPhase
       }
       lastPhase = phase
-      createPart('Phase', phase.name, phase, parent, 'Phase' + ' ' + (p + 1))
+      createPart('Phase', phase.name, phase, parent, 'Stop Phase' + ' ' + (p + 1))
 
       for (let k = 0; k < phase.situations.length; k++) {
         let situation = phase.situations[k]
@@ -162,7 +160,7 @@ function newStrategyCollectionItem () {
         parent = lastPhase
       }
       lastPhase = phase
-      createPart('Phase', phase.name, phase, parent, 'Phase' + ' ' + (p + 1))
+      createPart('Phase', phase.name, phase, parent, 'Take Profit Phase' + ' ' + (p + 1))
 
       for (let k = 0; k < phase.situations.length; k++) {
         let situation = phase.situations[k]
@@ -380,4 +378,3 @@ function newStrategyCollectionItem () {
     browserCanvasContext.drawImage(thisObject.icon, point1.x - IMAGE_SIZE / 2, point1.y - IMAGE_SIZE / 2, IMAGE_SIZE, IMAGE_SIZE)
   }
 }
-

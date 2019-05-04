@@ -26,36 +26,125 @@ function newStrategyPart () {
 
     switch (pType) {
       case 'Strategy': {
+        imagePath = 'Images/icons/style-01/quality.png'
+        ballStringMenu = [
+          {
+            label: 'Settings',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/tools.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          },
+          {
+            label: 'Delete',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/trash.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20 * 1
+          }]
         break
       }
       case 'Strategy Entry': {
+        imagePath = 'Images/icons/style-01/startup.png'
+        ballStringMenu = [
+          {
+            label: 'Add Situation',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/attractive.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }]
         break
       }
       case 'Strategy Exit': {
+        imagePath = 'Images/icons/style-01/support.png'
+        ballStringMenu = [
+          {
+            label: 'Add Situation',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/attractive.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }]
         break
       }
       case 'Trade Entry': {
+        imagePath = 'Images/icons/style-01/compass.png'
+        ballStringMenu = [
+          {
+            label: 'Add Situation',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/attractive.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }]
         break
       }
       case 'Trade Exit': {
+        imagePath = 'Images/icons/style-01/broken-link.png'
+        ballStringMenu = [
+          {
+            label: 'Add Situation',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/attractive.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }]
         break
       }
       case 'Stop': {
+        imagePath = 'Images/icons/style-01/pixel.png'
+        ballStringMenu = [
+          {
+            label: 'Add Phase',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/placeholder.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }]
         break
       }
       case 'Take Profit': {
+        imagePath = 'Images/icons/style-01/competition.png'
+        ballStringMenu = [
+          {
+            label: 'Add Phase',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/placeholder.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }]
         break
       }
       case 'Phase': {
-        break
-      }
-      case 'Situation': {
-        break
-      }
-      case 'Condition': {
-        imagePath = 'Images/icons/style-01/brainstorming.png'
+        imagePath = 'Images/icons/style-01/placeholder.png'
         ballStringMenu = [
           {
+            label: 'Edit Code',
             visible: false,
             imagePathOn: 'Images/icons/style-01/html.png',
             imagePathOff: 'Images/icons/style-01/target.png',
@@ -65,8 +154,9 @@ function newStrategyPart () {
             angle: 60
           },
           {
+            label: 'Add Situation',
             visible: false,
-            imagePathOn: 'Images/icons/style-01/settings.png',
+            imagePathOn: 'Images/icons/style-01/attractive.png',
             imagePathOff: 'Images/icons/style-01/target.png',
             rawRadius: 8,
             targetRadius: 0,
@@ -74,22 +164,64 @@ function newStrategyPart () {
             angle: 20 * 1
           },
           {
-            visible: false,
-            imagePathOn: 'Images/icons/style-01/tools.png',
-            imagePathOff: 'Images/icons/style-01/target.png',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -20
-          },
-          {
+            label: 'Delete',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
             imagePathOff: 'Images/icons/style-01/target.png',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -20
+          }]
+        break
+      }
+      case 'Situation': {
+        imagePath = 'Images/icons/style-01/attractive.png'
+        ballStringMenu = [
+          {
+            label: 'Add Condition',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/testing.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          },
+          {
+            label: 'Delete',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/trash.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20 * 1
+          }]
+        break
+      }
+      case 'Condition': {
+        imagePath = 'Images/icons/style-01/testing.png'
+        ballStringMenu = [
+          {
+            label: 'Edit Code',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/html.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          },
+          {
+            label: 'Delete',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/trash.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20 * 1
           }]
         break
       }
@@ -227,8 +359,10 @@ function newStrategyPart () {
     /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
     let parentFloatingObject = floatingLayer.getFloatingObject(pFloatingObject.payload.parentNode.handle)
 
-    pFloatingObject.payload.profile.position.x = parentFloatingObject.currentPosition.x
-    pFloatingObject.payload.profile.position.y = parentFloatingObject.currentPosition.y
+    if (isMouseOver === false) {
+      pFloatingObject.payload.profile.position.x = parentFloatingObject.currentPosition.x
+      pFloatingObject.payload.profile.position.y = parentFloatingObject.currentPosition.y
+    }
 
    /* Here I continue painting the background */
 
@@ -322,12 +456,30 @@ function newStrategyPart () {
           y: position.y - radius * 3 / 4 * Math.sin(toRadians(menuItem.angle)) }
 
         browserCanvasContext.drawImage(menuItem.icon, menuPosition.x - menuItem.currentRadius, menuPosition.y - menuItem.currentRadius, menuItem.currentRadius * 2, menuItem.currentRadius * 2)
+
+        /* Menu Label */
+
+        let labelPoint
+        let fontSize = 10
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
+        if (menuItem.label !== undefined && menuItem.currentRadius >= menuItem.targetRadius) {
+          labelPoint = {
+            x: menuPosition.x + menuItem.currentRadius + 10,
+            y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
+          }
+
+          browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+          browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+          browserCanvasContext.fillText(menuItem.label, labelPoint.x, labelPoint.y)
+        }
       }
     }
 
         /* Label Text */
 
-    if (radius > 6) {
+    if (radius > 6 && isMouseOver === true) {
       browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle
 
       let labelPoint
@@ -365,3 +517,4 @@ function newStrategyPart () {
     }
   }
 }
+

@@ -23,7 +23,8 @@ function newNoteSets () {
   let thisObject = {
     createNoteSet: createNoteSet,
     destroyNoteSet: destroyNoteSet,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   let noteSets = []
@@ -33,6 +34,11 @@ function newNoteSets () {
 
   function initialize (pFloatingLayer) {
     floatingLayer = pFloatingLayer
+  }
+
+  function finalize () {
+    floatingLayer.finalize()
+    floatingLayer = undefined
   }
 
   function createNoteSet (pPayload, pEventHandler, callBackFunction) {

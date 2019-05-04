@@ -25,18 +25,13 @@ function newProfileBalls () {
 
   return thisObject
 
-  function finalize () {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
-
-      floatingLayer.finalize()
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
-    }
-  }
-
   function initialize (pFloatingLayer) {
     floatingLayer = pFloatingLayer
+  }
+
+  function finalize () {
+    floatingLayer.finalize()
+    floatingLayer = undefined
   }
 
   function createNewProfileBall (pPayload, callBackFunction) {

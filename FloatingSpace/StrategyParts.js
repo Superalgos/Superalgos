@@ -26,6 +26,7 @@ function newStrategyParts () {
 
   function finalize () {
     floatingLayer.finalize()
+    floatingLayer = undefined
   }
 
   function initialize (pFloatingLayer) {

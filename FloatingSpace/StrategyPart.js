@@ -39,7 +39,7 @@ function newStrategyPart () {
             angle: 60
           },
           {
-            label: 'Delete',
+            label: 'Delete This Strategy',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
             imagePathOff: 'Images/icons/style-01/target.png',
@@ -164,7 +164,7 @@ function newStrategyPart () {
             angle: 20 * 1
           },
           {
-            label: 'Delete',
+            label: 'Delete This Phase',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
             imagePathOff: 'Images/icons/style-01/target.png',
@@ -189,7 +189,7 @@ function newStrategyPart () {
             angle: 60
           },
           {
-            label: 'Delete',
+            label: 'Delete This Situation',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
             imagePathOff: 'Images/icons/style-01/target.png',
@@ -214,7 +214,7 @@ function newStrategyPart () {
             angle: 60
           },
           {
-            label: 'Delete',
+            label: 'Delete This Condition',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
             imagePathOff: 'Images/icons/style-01/target.png',

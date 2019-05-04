@@ -1,7 +1,6 @@
  ﻿
 function newFloatingSpace () {
   const MODULE_NAME = 'Floating Space'
-  const INFO_LOG = false
   const ERROR_LOG = true
     /*
     The Floating Space is the place where floating elements like floatingObjects, live and are rendered.
@@ -20,15 +19,10 @@ function newFloatingSpace () {
   return thisObject
 
   function finalize () {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
-
-      thisObject.floatingLayer.finalize()
-      thisObject.profileBalls.finalize()
-      thisObject.strategyParts.finalize()
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
-    }
+    thisObject.floatingLayer.finalize()
+    thisObject.profileBalls.finalize()
+    thisObject.strategyParts.finalize()
+    thisObject.noteSets.finalize()
   }
 
   function initialize (callBackFunction) {

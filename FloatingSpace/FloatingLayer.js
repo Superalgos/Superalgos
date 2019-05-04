@@ -900,8 +900,6 @@ function newFloatingLayer () {
 
   function isInside (x, y) {
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] isInside -> Entering function.') }
-
             /* This function detects weather the point x,y is inside any of the floatingObjects. */
 
       for (var i = 0; i < visibleFloatingObjects.length; i++) {

@@ -53,7 +53,7 @@ function newProfileBall () {
 
   return thisObject
 
-  function initialize (callBackFunction) {
+  function initialize () {
     for (let i = 0; i < ballStringMenu.length; i++) {
       let menuItem = ballStringMenu[i]
 
@@ -77,8 +77,6 @@ function newProfileBall () {
 
       menuItem.icon = menuItem.iconOn // The default value is ON.
     }
-
-    callBackFunction()
   }
 
   function physicsLoop () {
@@ -278,7 +276,7 @@ function newProfileBall () {
       let labelPoint
       let fontSize = pFloatingObject.currentFontSize
 
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
       let label
 
@@ -290,7 +288,7 @@ function newProfileBall () {
           y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 10
         }
 
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
         browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
@@ -303,7 +301,7 @@ function newProfileBall () {
           y: pFloatingObject.currentPosition.y + pFloatingObject.currentImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
         browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }

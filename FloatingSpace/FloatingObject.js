@@ -81,22 +81,13 @@ function newFloatingObject () {
         }
         case 'Note': {
           thisObject.underlayingObject = newNote()
-          thisObject.underlayingObject.initialize(onInitialized)
-
-          function onInitialized (err) {
-
-          }
+          thisObject.underlayingObject.initialize()
           break
         }
 
         case 'Strategy Part': {
           thisObject.underlayingObject = newStrategyPart()
-          thisObject.underlayingObject.initialize(floatingLayer, pSubType, onInitialized)
-
-          function onInitialized (err) {
-
-          }
-
+          thisObject.underlayingObject.initialize(floatingLayer, pSubType)
           break
         }
         default: {

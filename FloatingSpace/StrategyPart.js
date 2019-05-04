@@ -19,7 +19,7 @@ function newStrategyPart () {
 
   return thisObject
 
-  function initialize (pFloatingLayer, pType, callBackFunction) {
+  function initialize (pFloatingLayer, pType) {
     floatingLayer = pFloatingLayer
 
     switch (pType) {
@@ -97,29 +97,21 @@ function newStrategyPart () {
 
     for (let i = 0; i < ballStringMenu.length; i++) {
       let menuItem = ballStringMenu[i]
-
       menuItem.iconOn = new Image()
-
       menuItem.iconOn.onload = onImageLoad
 
       function onImageLoad () {
         menuItem.iconOff = new Image()
-
         menuItem.iconOff.onload = onImageLoad
 
         function onImageLoad () {
           menuItem.canDrawIcon = true
         }
-
         menuItem.iconOff.src = window.canvasApp.urlPrefix + menuItem.imagePathOff
       }
-
       menuItem.iconOn.src = window.canvasApp.urlPrefix + menuItem.imagePathOn
-
       menuItem.icon = menuItem.iconOn // The default value is ON.
     }
-
-    callBackFunction()
   }
 
   function physicsLoop () {

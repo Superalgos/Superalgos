@@ -1,7 +1,7 @@
 
 function newStrategyPart () {
   let thisObject = {
-
+    type: undefined,
     physicsLoop: physicsLoop,
     onMouseOver: onMouseOver,
     onMouseClick: onMouseClick,
@@ -12,52 +12,88 @@ function newStrategyPart () {
 
   }
 
-  let ballStringMenu = [
-    {
-      visible: false,
-      imagePathOn: 'Images/menu.icon.on.1.gif',
-      imagePathOff: 'Images/menu.icon.off.1.gif',
-      rawRadius: 8,
-      targetRadius: 0,
-      currentRadius: 0,
-      angle: 60
-    },
-    {
-      visible: false,
-      imagePathOn: 'Images/menu.icon.on.2.gif',
-      imagePathOff: 'Images/menu.icon.off.2.gif',
-      rawRadius: 8,
-      targetRadius: 0,
-      currentRadius: 0,
-      angle: 20 * 1
-    },
-    {
-      visible: false,
-      imagePathOn: 'Images/menu.icon.on.3.gif',
-      imagePathOff: 'Images/menu.icon.off.3.gif',
-      rawRadius: 8,
-      targetRadius: 0,
-      currentRadius: 0,
-      angle: -20
-    },
-    {
-      visible: false,
-      imagePathOn: 'Images/menu.icon.on.4.gif',
-      imagePathOff: 'Images/menu.icon.off.4.gif',
-      rawRadius: 8,
-      targetRadius: 0,
-      currentRadius: 0,
-      angle: -60
-    }
-  ]
+  let ballStringMenu = []
 
   let floatingLayer
   let isMouseOver = false
 
   return thisObject
 
-  function initialize (pFloatingLayer, callBackFunction) {
+  function initialize (pFloatingLayer, pType, callBackFunction) {
     floatingLayer = pFloatingLayer
+
+    switch (pType) {
+      case 'Strategy': {
+        break
+      }
+      case 'Strategy Entry': {
+        break
+      }
+      case 'Strategy Exit': {
+        break
+      }
+      case 'Trade Entry': {
+        break
+      }
+      case 'Trade Exit': {
+        break
+      }
+      case 'Stop': {
+        break
+      }
+      case 'Take Profit': {
+        break
+      }
+      case 'Phase': {
+        break
+      }
+      case 'Situation': {
+        break
+      }
+      case 'Condition': {
+        ballStringMenu = [
+          {
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/html.png',
+            imagePathOff: 'Images/icons/style-01/html.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          },
+          {
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/settings.png',
+            imagePathOff: 'Images/icons/style-01/settings.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20 * 1
+          },
+          {
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/tools.png',
+            imagePathOff: 'Images/icons/style-01/tools.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          },
+          {
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/trash.png',
+            imagePathOff: 'Images/icons/style-01/trash.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }]
+        break
+      }
+      default: {
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Part Type not Recognized -> type = ' + pType) }
+      }
+    }
 
     for (let i = 0; i < ballStringMenu.length; i++) {
       let menuItem = ballStringMenu[i]
@@ -106,7 +142,7 @@ function newStrategyPart () {
     for (let i = 0; i < ballStringMenu.length; i++) {
       let menuItem = ballStringMenu[i]
 
-      menuItem.targetRadius = menuItem.rawRadius * 2.5
+      menuItem.targetRadius = menuItem.rawRadius * 1.5
     }
 
     isMouseOver = true
@@ -177,14 +213,13 @@ function newStrategyPart () {
   }
 
   function drawBackground (pFloatingObject) {
+    if (pFloatingObject.payload.parentNode === undefined) { return }
+
     /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
+    let parentFloatingObject = floatingLayer.getFloatingObject(pFloatingObject.payload.parentNode.handle)
 
-    if (pFloatingObject.payload.parentNode !== undefined) {
-      let parentFloatingObject = floatingLayer.getFloatingObject(pFloatingObject.payload.parentNode.handle)
-
-      pFloatingObject.payload.profile.position.x = parentFloatingObject.currentPosition.x
-      pFloatingObject.payload.profile.position.y = parentFloatingObject.currentPosition.y
-    }
+    pFloatingObject.payload.profile.position.x = parentFloatingObject.currentPosition.x
+    pFloatingObject.payload.profile.position.y = parentFloatingObject.currentPosition.y
 
    /* Here I continue painting the background */
 
@@ -202,7 +237,7 @@ function newStrategyPart () {
       browserCanvasContext.moveTo(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y)
       browserCanvasContext.lineTo(point.x, point.y)
       browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)'
-      browserCanvasContext.setLineDash([4, 2])
+      browserCanvasContext.setLineDash([1, 4])
       browserCanvasContext.lineWidth = 1
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
@@ -224,33 +259,32 @@ function newStrategyPart () {
   function drawForeground (pFloatingObject) {
     if (pFloatingObject.currentRadius > 5) {
             /* Contourn */
-
+/*
       browserCanvasContext.beginPath()
       browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
       browserCanvasContext.strokeStyle = 'rgba(30, 30, 30, 0.75)'
       browserCanvasContext.lineWidth = 1
       browserCanvasContext.stroke()
+      */
     }
 
     if (pFloatingObject.currentRadius > 0.5) {
             /* Main FloatingObject */
-
-      var alphaA
-
-      if (pFloatingObject.currentRadius < 3) {
-        alphaA = 1
-      } else {
-        alphaA = 0.75
-      }
-
-      alphaA = 0.75
 
       browserCanvasContext.beginPath()
       browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius * 2 / 3, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
 
       browserCanvasContext.fillStyle = pFloatingObject.fillStyle
+
+      browserCanvasContext.fill()
+
+      browserCanvasContext.beginPath()
+      browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius * 1 / 3, 0, Math.PI * 2, true)
+      browserCanvasContext.closePath()
+
+      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)'
 
       browserCanvasContext.fill()
     }

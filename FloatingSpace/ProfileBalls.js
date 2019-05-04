@@ -41,7 +41,7 @@ function newProfileBalls () {
 
   function createNewProfileBall (pPayload, callBackFunction) {
     let floatingObject = newFloatingObject()
-    floatingObject.initialize('Profile Ball', floatingLayer, onInitialized)
+    floatingObject.initialize('Profile Ball', '', floatingLayer, onInitialized)
 
     function onInitialized (err) {
       floatingObject.payload = pPayload

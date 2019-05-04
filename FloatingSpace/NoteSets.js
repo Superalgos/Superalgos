@@ -219,7 +219,7 @@ function newNoteSets () {
                             */
 
               let floatingObject = newFloatingObject()
-              floatingObject.initialize('Note', floatingLayer, onInitialized)
+              floatingObject.initialize('Note', '', floatingLayer, onInitialized)
 
               function onInitialized (err) {
                 if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> onInitialized -> Entering function.') }

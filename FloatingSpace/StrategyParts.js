@@ -34,7 +34,8 @@ function newStrategyParts () {
 
   function createNewStrategyPart (type, pPayload, callBackFunction) {
     let floatingObject = newFloatingObject()
-    floatingObject.initialize('Strategy Part', floatingLayer, onInitialized)
+    floatingObject.initialize('Strategy Part', type, floatingLayer, onInitialized)
+    floatingObject.underlayingObject.type = type
 
     function onInitialized (err) {
       const FRICTION = 0.97
@@ -90,8 +91,8 @@ function newStrategyParts () {
         floatingObject.friction = FRICTION
 
         floatingObject.initializeMass(100)
-        floatingObject.initializeRadius(60)
-        floatingObject.initializeImageSize(110)
+        floatingObject.initializeRadius(45)
+        floatingObject.initializeImageSize(80)
         floatingObject.initializeFontSize(10)
 
         floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
@@ -101,8 +102,8 @@ function newStrategyParts () {
         floatingObject.friction = FRICTION
 
         floatingObject.initializeMass(50)
-        floatingObject.initializeRadius(45)
-        floatingObject.initializeImageSize(80)
+        floatingObject.initializeRadius(40)
+        floatingObject.initializeImageSize(70)
         floatingObject.initializeFontSize(10)
 
         floatingObject.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
@@ -112,8 +113,8 @@ function newStrategyParts () {
         floatingObject.friction = FRICTION
 
         floatingObject.initializeMass(10)
-        floatingObject.initializeRadius(40)
-        floatingObject.initializeImageSize(70)
+        floatingObject.initializeRadius(35)
+        floatingObject.initializeImageSize(60)
         floatingObject.initializeFontSize(10)
 
         floatingObject.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
@@ -123,22 +124,22 @@ function newStrategyParts () {
         floatingObject.friction = FRICTION
 
         floatingObject.initializeMass(10)
-        floatingObject.initializeRadius(35)
-        floatingObject.initializeImageSize(60)
+        floatingObject.initializeRadius(30)
+        floatingObject.initializeImageSize(50)
         floatingObject.initializeFontSize(10)
 
-        floatingObject.fillStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)'
+        floatingObject.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
       }
 
       function level_5 () {
         floatingObject.friction = FRICTION
 
         floatingObject.initializeMass(10)
-        floatingObject.initializeRadius(30)
-        floatingObject.initializeImageSize(50)
+        floatingObject.initializeRadius(25)
+        floatingObject.initializeImageSize(40)
         floatingObject.initializeFontSize(10)
 
-        floatingObject.fillStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)'
+        floatingObject.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'
       }
 
       floatingObject.labelStrokeStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'

@@ -15,6 +15,7 @@ function newFloatingObject () {
 
     payload: undefined,                     // This is a reference to an object controlled by a Plotter. The plotter can change its internal value and we will see them from here.
     type: undefined,                        // Currently there are two types of Floating Objects: Profile Balls, and Notes.
+    underlayingObject: undefined,
 
     physicsEnabled: false,
 
@@ -58,21 +59,19 @@ function newFloatingObject () {
 
   }
 
-  let underlayingObject
-
   thisObject.eventHandler = newEventHandler()
 
   return thisObject
 
-  function initialize (pType, floatingLayer, callBackFunction) {
+  function initialize (pType, pSubType, floatingLayer, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
       switch (pType) {
 
         case 'Profile Ball': {
-          underlayingObject = newProfileBall()
-          underlayingObject.initialize(onInitialized)
+          thisObject.underlayingObject = newProfileBall()
+          thisObject.underlayingObject.initialize(onInitialized)
 
           function onInitialized (err) {
 
@@ -81,8 +80,8 @@ function newFloatingObject () {
           break
         }
         case 'Note': {
-          underlayingObject = newNote()
-          underlayingObject.initialize(onInitialized)
+          thisObject.underlayingObject = newNote()
+          thisObject.underlayingObject.initialize(onInitialized)
 
           function onInitialized (err) {
 
@@ -91,8 +90,8 @@ function newFloatingObject () {
         }
 
         case 'Strategy Part': {
-          underlayingObject = newStrategyPart()
-          underlayingObject.initialize(floatingLayer, onInitialized)
+          thisObject.underlayingObject = newStrategyPart()
+          thisObject.underlayingObject.initialize(floatingLayer, pSubType, onInitialized)
 
           function onInitialized (err) {
 
@@ -124,7 +123,7 @@ function newFloatingObject () {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
-      underlayingObject.physicsLoop()
+      thisObject.underlayingObject.physicsLoop()
 
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
     } catch (err) {
@@ -138,7 +137,7 @@ function newFloatingObject () {
     thisObject.targetImageSize = thisObject.rawImageSize * 2.5
     thisObject.targetFontSize = thisObject.rawFontSize * 2.5
 
-    underlayingObject.onMouseOver()
+    thisObject.underlayingObject.onMouseOver()
   }
 
   function onMouseNotOver () {
@@ -146,19 +145,19 @@ function newFloatingObject () {
     thisObject.targetImageSize = thisObject.rawImageSize * 1
     thisObject.targetFontSize = thisObject.rawFontSize * 1
 
-    underlayingObject.onMouseNotOver()
+    thisObject.underlayingObject.onMouseNotOver()
   }
 
   function onMouseClick (pPoint) {
-    underlayingObject.onMouseClick(pPoint, thisObject)
+    thisObject.underlayingObject.onMouseClick(pPoint, thisObject)
   }
 
   function drawBackground () {
-    underlayingObject.drawBackground(thisObject)
+    thisObject.underlayingObject.drawBackground(thisObject)
   }
 
   function drawForeground () {
-    underlayingObject.drawForeground(thisObject)
+    thisObject.underlayingObject.drawForeground(thisObject)
   }
 
   function initializeMass (suggestedValue) {

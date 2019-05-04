@@ -636,7 +636,7 @@ function newCanvas () {
       }
 
       event.mousePosition = point
-
+      let container
       let panelContainer = canvas.panelsSpace.getContainer({ x: point.x, y: point.y })
 
       if (panelContainer !== undefined && panelContainer.isWheelable === true) {
@@ -644,12 +644,12 @@ function newCanvas () {
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
-           /* We try second with floating objects. */
+     /* We try second with floating objects. */
 
-      let floatingObjectIndex = canvas.floatingSpace.floatingLayer.isInside(point.x, point.y)
+      container = canvas.floatingSpace.getContainer({ x: point.x, y: point.y })
 
-      if (floatingObjectIndex > 0) {
-        canvas.floatingSpace.floatingLayer.changeTargetRepulsion(event.wheelDelta)
+      if (container !== undefined && container.isWheelable === true) {
+        container.eventHandler.raiseEvent('Mouse Wheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
@@ -738,4 +738,3 @@ function newCanvas () {
     }
   }
 }
-

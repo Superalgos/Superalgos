@@ -12,6 +12,7 @@ function newFloatingSpace () {
     profileBalls: undefined,
     strategyParts: undefined,
     noteSets: undefined,
+    container: undefined,
     makeVisible: makeVisible,
     makeInvisible: makeInvisible,
     draw: draw,
@@ -20,6 +21,15 @@ function newFloatingSpace () {
     initialize: initialize,
     finalize: finalize
   }
+
+  thisObject.container = newContainer()
+  thisObject.container.initialize(MODULE_NAME)
+  thisObject.container.isClickeable = false
+  thisObject.container.isDraggeable = false
+  thisObject.container.isWheelable = true
+  thisObject.container.frame.radius = 0
+  thisObject.container.frame.position.x = 0
+  thisObject.container.frame.position.y = 0
 
   let visible = false
 
@@ -44,6 +54,12 @@ function newFloatingSpace () {
 
     thisObject.strategyParts = newStrategyParts()
     thisObject.strategyParts.initialize(thisObject.floatingLayer)
+
+    thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
+  }
+
+  function onMouseWheel (event) {
+    thisObject.floatingLayer.changeTargetRepulsion(event.wheelDelta)
   }
 
   function makeVisible () {
@@ -63,6 +79,10 @@ function newFloatingSpace () {
 
     container = thisObject.floatingLayer.getContainer(point)
     if (container !== undefined) { return container }
+
+    if (visible === true) {
+      return thisObject.container
+    }
 
     return container
   }
@@ -89,4 +109,3 @@ function newFloatingSpace () {
     browserCanvasContext.fill()
   }
 }
-

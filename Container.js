@@ -33,11 +33,11 @@ function newContainer () {
     }
   }
 
-  function initialize (pName) {
+  function initialize (pName, pType) {
     thisObject.name = pName
 
     thisObject.frame = newFrame()
-    thisObject.frame.initialize()
+    thisObject.frame.initialize(pType)
     thisObject.frame.containerName = pName
     thisObject.frame.container = thisObject
 

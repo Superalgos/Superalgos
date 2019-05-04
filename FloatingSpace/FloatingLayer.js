@@ -30,6 +30,7 @@ function newFloatingLayer () {
     isInside: isInside,
     isInsideFloatingObject: isInsideFloatingObject,
     changeTargetRepulsion: changeTargetRepulsion,
+    getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
   }
@@ -83,6 +84,18 @@ function newFloatingLayer () {
   function initialize () {
 
         /* We dont need to initialize anything right now. */
+  }
+
+  function getContainer (point) {
+    let container
+
+    for (let i = 0; i < visibleFloatingObjects.length; i++) {
+      let floatingObject = visibleFloatingObjects[i]
+      container = floatingObject.getContainer(point)
+      if (container !== undefined) { return container }
+    }
+
+    return container
   }
 
   function addFloatingObject (pFloatingObject, callBackFunction) {

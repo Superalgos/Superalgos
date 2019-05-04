@@ -1,19 +1,30 @@
 
 function newStrategyPart () {
+  const MODULE_NAME = 'Strategy Part'
+
   let thisObject = {
     type: undefined,
+    container: undefined,
     physicsLoop: physicsLoop,
     onMouseOver: onMouseOver,
     onMouseClick: onMouseClick,
     onMouseNotOver: onMouseNotOver,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
+    getContainer: getContainer,
     initialize: initialize
-
   }
 
-  let ballStringMenu = []
+  thisObject.container = newContainer()
+  thisObject.container.name = MODULE_NAME
+  thisObject.container.initialize('Circle')
+  thisObject.container.isClickeable = true
+  thisObject.container.isDraggeable = false
+  thisObject.container.frame.radius = 0
+  thisObject.container.frame.position.x = 0
+  thisObject.container.frame.position.y = 0
 
+  let ballStringMenu = []
   let floatingLayer
   let isMouseOver = false
   let image
@@ -260,6 +271,16 @@ function newStrategyPart () {
       }
       menuItem.iconOn.src = window.canvasApp.urlPrefix + menuItem.imagePathOn
       menuItem.icon = menuItem.iconOn // The default value is ON.
+    }
+  }
+
+  function getContainer (point) {
+    let container
+
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+      return thisObject.container
+    } else {
+      return undefined
     }
   }
 

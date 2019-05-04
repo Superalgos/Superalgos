@@ -54,10 +54,20 @@ function newFloatingObject () {
     linkedObject: undefined,                // This is a reference to the object that this floating object is representing.
     linkedObjectType: '',                   // Since there might be floating objects for different types of objects, here we store the type of object we are linking to.
 
-    container: undefined,                    // This is a pointer to the object where the floating object belongs to.
+    getContainer: getContainer,
+    container: undefined,
     initialize: initialize
 
   }
+
+  thisObject.container = newContainer()
+  thisObject.container.name = MODULE_NAME
+  thisObject.container.initialize('Circle')
+  thisObject.container.isClickeable = true
+  thisObject.container.isDraggeable = false
+  thisObject.container.frame.radius = 0
+  thisObject.container.frame.position.x = 0
+  thisObject.container.frame.position.y = 0
 
   thisObject.eventHandler = newEventHandler()
 
@@ -107,6 +117,19 @@ function newFloatingObject () {
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err.message = ' + err.message) }
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
+    }
+  }
+
+  function getContainer (point) {
+    let container
+
+    container = thisObject.underlayingObject.getContainer(point)
+    if (container !== undefined) { return container }
+
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+      return thisObject.container
+    } else {
+      return undefined
     }
   }
 

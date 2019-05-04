@@ -12,6 +12,7 @@ function newFloatingSpace () {
     profileBalls: undefined,
     strategyParts: undefined,
     noteSets: undefined,
+    getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
   }
@@ -37,6 +38,15 @@ function newFloatingSpace () {
 
     thisObject.strategyParts = newStrategyParts()
     thisObject.strategyParts.initialize(thisObject.floatingLayer)
+  }
+
+  function getContainer (point) {
+    let container
+
+    container = thisObject.floatingLayer.getContainer(point)
+    if (container !== undefined) { return container }
+
+    return container
   }
 }
 

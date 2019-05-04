@@ -637,10 +637,10 @@ function newCanvas () {
 
       event.mousePosition = point
       let container
-      let panelContainer = canvas.panelsSpace.getContainer({ x: point.x, y: point.y })
+      container = canvas.panelsSpace.getContainer({ x: point.x, y: point.y })
 
-      if (panelContainer !== undefined && panelContainer.isWheelable === true) {
-        panelContainer.eventHandler.raiseEvent('Mouse Wheel', event)
+      if (container !== undefined && container.isWheelable === true) {
+        container.eventHandler.raiseEvent('Mouse Wheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
@@ -655,19 +655,19 @@ function newCanvas () {
 
            /* We try the Bottom Space. */
 
-      let bottomContainer = canvas.bottomSpace.getContainer({ x: point.x, y: point.y })
+      container = canvas.bottomSpace.getContainer({ x: point.x, y: point.y })
 
-      if (bottomContainer !== undefined && bottomContainer.isWheelable === true) {
-        bottomContainer.eventHandler.raiseEvent('Mouse Wheel', event)
+      if (container !== undefined && container.isWheelable === true) {
+        container.eventHandler.raiseEvent('Mouse Wheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
            /* Finally we try the Chart Space. */
 
-      let chartContainer = canvas.chartSpace.getContainer({ x: point.x, y: point.y }, GET_CONTAINER_PURPOSE.MOUSE_WHEEL)
+      container = canvas.chartSpace.getContainer({ x: point.x, y: point.y }, GET_CONTAINER_PURPOSE.MOUSE_WHEEL)
 
-      if (chartContainer !== undefined && chartContainer.isWheelable === true) {
-        chartContainer.eventHandler.raiseEvent('Mouse Wheel', event)
+      if (container !== undefined && container.isWheelable === true) {
+        container.eventHandler.raiseEvent('Mouse Wheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       } else {
                /* If all the above fails, we fallback into applying zoom to the viewPort */

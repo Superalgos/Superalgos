@@ -26,8 +26,6 @@ function newFloatingLayer () {
     killFloatingObject: killFloatingObject,
     getFloatingObject: getFloatingObject,
     physics: physics,
-    isInside: isInside,
-    isInsideFloatingObject: isInsideFloatingObject,
     changeTargetRepulsion: changeTargetRepulsion,
     draw: draw,
     getContainer: getContainer,
@@ -910,43 +908,6 @@ function newFloatingLayer () {
       } else return true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] colliding -> err.message = ' + err.message) }
-    }
-  }
-
-  function isInside (x, y) {
-    try {
-            /* This function detects weather the point x,y is inside any of the floatingObjects. */
-
-      for (var i = 0; i < visibleFloatingObjects.length; i++) {
-        var floatingObject = visibleFloatingObjects[i]
-        var distance = Math.sqrt(Math.pow(floatingObject.container.frame.position.x - x, 2) + Math.pow(floatingObject.container.frame.position.y - y, 2))
-
-        if (distance < floatingObject.container.frame.radius) {
-          return i
-        }
-      }
-      return -1
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] isInside -> err.message = ' + err.message) }
-    }
-  }
-
-  function isInsideFloatingObject (floatingObjectIndex, x, y) {
-    try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] isInsideFloatingObject -> Entering function.') }
-
-            /* This function detects weather the point x,y is inside one particular floatingObjects. */
-
-      var floatingObject = visibleFloatingObjects[floatingObjectIndex]
-      var distance = Math.sqrt(Math.pow(floatingObject.container.frame.position.x - x, 2) + Math.pow(floatingObject.container.frame.position.y - y, 2))
-
-      if (distance < floatingObject.container.frame.radius) {
-        return true
-      }
-
-      return false
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] isInsideFloatingObject -> err.message = ' + err.message) }
     }
   }
 

@@ -438,7 +438,7 @@ function newCanvas () {
 
       if (floatingObjectBeingClicked >= 0) {
         let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingClicked)
-        floatingObject.eventHandler.raiseEvent('onMouseClick', point)
+        floatingObject.container.eventHandler.raiseEvent('onMouseClick', point)
 
         return
       }
@@ -588,7 +588,7 @@ function newCanvas () {
 
         if (floatingObjectBeingClicked >= 0) {
           let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingClicked)
-          floatingObject.eventHandler.raiseEvent('onMouseOver', point)
+          floatingObject.container.eventHandler.raiseEvent('onMouseOver', point)
 
           return
         }

@@ -11,7 +11,6 @@ function newFloatingObject () {
   let thisObject = {
 
     physicsLoop: physicsLoop,
-    eventHandler: undefined,
 
     payload: undefined,                     // This is a reference to an object controlled by a Plotter. The plotter can change its internal value and we will see them from here.
     type: undefined,                        // Currently there are two types of Floating Objects: Profile Balls, and Notes.
@@ -68,8 +67,6 @@ function newFloatingObject () {
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
 
-  thisObject.eventHandler = newEventHandler()
-
   return thisObject
 
   function initialize (pType, pSubType, floatingLayer, callBackFunction) {
@@ -103,9 +100,9 @@ function newFloatingObject () {
 
       thisObject.type = pType
 
-      thisObject.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+      thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+      thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
       canvas.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
-      thisObject.eventHandler.listenToEvent('onMouseClick', onMouseClick)
 
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
     } catch (err) {

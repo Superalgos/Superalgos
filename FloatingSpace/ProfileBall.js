@@ -142,8 +142,8 @@ function newProfileBall () {
 
       if (menuItem.canDrawIcon === true && menuItem.currentRadius > 1) {
         let position = {
-          x: pFloatingObject.currentPosition.x + pFloatingObject.currentImageSize / 2 * Math.cos(toRadians(menuItem.angle)),
-          y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 * Math.sin(toRadians(menuItem.angle))
+          x: pFloatingObject.container.frame.position.x + pFloatingObject.currentImageSize / 2 * Math.cos(toRadians(menuItem.angle)),
+          y: pFloatingObject.container.frame.position.y - pFloatingObject.currentImageSize / 2 * Math.sin(toRadians(menuItem.angle))
         }
 
         browserCanvasContext.drawImage(menuItem.icon, position.x, position.y, menuItem.currentRadius * 2, menuItem.currentRadius * 2)
@@ -198,7 +198,7 @@ function newProfileBall () {
             /* Target Line */
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.moveTo(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y)
+      browserCanvasContext.moveTo(pFloatingObject.container.frame.position.x, pFloatingObject.container.frame.position.y)
       browserCanvasContext.lineTo(point.x, point.y)
       browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)'
       browserCanvasContext.setLineDash([4, 2])
@@ -225,7 +225,7 @@ function newProfileBall () {
             /* Contourn */
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(pFloatingObject.container.frame.position.x, pFloatingObject.container.frame.position.y, pFloatingObject.currentRadius, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
       browserCanvasContext.strokeStyle = 'rgba(30, 30, 30, 0.75)'
       browserCanvasContext.lineWidth = 1
@@ -246,7 +246,7 @@ function newProfileBall () {
       alphaA = 0.75
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(pFloatingObject.container.frame.position.x, pFloatingObject.container.frame.position.y, pFloatingObject.currentRadius, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
 
       browserCanvasContext.fillStyle = pFloatingObject.fillStyle
@@ -262,12 +262,12 @@ function newProfileBall () {
       if (image !== null && image !== undefined) {
         browserCanvasContext.save()
         browserCanvasContext.beginPath()
-        browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentImageSize / 2, 0, Math.PI * 2, true)
+        browserCanvasContext.arc(pFloatingObject.container.frame.position.x, pFloatingObject.container.frame.position.y, pFloatingObject.currentImageSize / 2, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
         browserCanvasContext.clip()
-        browserCanvasContext.drawImage(image, pFloatingObject.currentPosition.x - pFloatingObject.currentImageSize / 2, pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize, pFloatingObject.currentImageSize)
+        browserCanvasContext.drawImage(image, pFloatingObject.container.frame.position.x - pFloatingObject.currentImageSize / 2, pFloatingObject.container.frame.position.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize, pFloatingObject.currentImageSize)
         browserCanvasContext.beginPath()
-        browserCanvasContext.arc(pFloatingObject.currentPosition.x - pFloatingObject.currentImageSize / 2, pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize / 2, 0, Math.PI * 2, true)
+        browserCanvasContext.arc(pFloatingObject.container.frame.position.x - pFloatingObject.currentImageSize / 2, pFloatingObject.container.frame.position.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize / 2, 0, Math.PI * 2, true)
         browserCanvasContext.clip()
         browserCanvasContext.closePath()
         browserCanvasContext.restore()
@@ -281,8 +281,8 @@ function newProfileBall () {
 
       if (menuItem.canDrawIcon === true && menuItem.currentRadius > 1) {
         let position = {
-          x: pFloatingObject.currentPosition.x + pFloatingObject.currentImageSize / 2 * Math.cos(toRadians(menuItem.angle)),
-          y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 * Math.sin(toRadians(menuItem.angle))
+          x: pFloatingObject.container.frame.position.x + pFloatingObject.currentImageSize / 2 * Math.cos(toRadians(menuItem.angle)),
+          y: pFloatingObject.container.frame.position.y - pFloatingObject.currentImageSize / 2 * Math.sin(toRadians(menuItem.angle))
         }
 
         browserCanvasContext.drawImage(menuItem.icon, position.x - menuItem.currentRadius, position.y - menuItem.currentRadius, menuItem.currentRadius * 2, menuItem.currentRadius * 2)
@@ -305,8 +305,8 @@ function newProfileBall () {
 
       if (label !== undefined) {
         labelPoint = {
-          x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-          y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 10
+          x: pFloatingObject.container.frame.position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+          y: pFloatingObject.container.frame.position.y - pFloatingObject.currentImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 10
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -318,8 +318,8 @@ function newProfileBall () {
 
       if (label !== undefined) {
         labelPoint = {
-          x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-          y: pFloatingObject.currentPosition.y + pFloatingObject.currentImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 15
+          x: pFloatingObject.container.frame.position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+          y: pFloatingObject.container.frame.position.y + pFloatingObject.currentImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY

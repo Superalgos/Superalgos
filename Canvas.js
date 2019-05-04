@@ -687,8 +687,8 @@ function newCanvas () {
         if (floatingObjectDragStarted) {
           let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingDragged)
 
-          floatingObject.currentPosition.x = dragVector.upX
-          floatingObject.currentPosition.y = dragVector.upY
+          floatingObject.container.frame.position.x = dragVector.upX
+          floatingObject.container.frame.position.y = dragVector.upY
         }
 
         if (containerDragStarted || viewPortBeingDragged) {

@@ -67,7 +67,7 @@ function newNote () {
             /* Target Line */
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.moveTo(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y)
+      browserCanvasContext.moveTo(pFloatingObject.container.frame.position.x, pFloatingObject.container.frame.position.y)
       browserCanvasContext.lineTo(point.x, point.y)
       browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)'
       browserCanvasContext.setLineDash([4, 2])
@@ -102,8 +102,8 @@ function newNote () {
     let borderPoint4
 
     let intialDisplace = {
-      x: pFloatingObject.currentPosition.x - BUBBLE_WIDTH / 2,
-      y: pFloatingObject.currentPosition.y - BUBBLE_HEIGHT / 2
+      x: pFloatingObject.container.frame.position.x - BUBBLE_WIDTH / 2,
+      y: pFloatingObject.container.frame.position.y - BUBBLE_HEIGHT / 2
     }
 
     if (pFloatingObject.currentRadius > 5) {
@@ -185,8 +185,8 @@ function newNote () {
             /* Image */
 
       let imagePosition = {
-        x: pFloatingObject.currentPosition.x,
-        y: pFloatingObject.currentPosition.y + BUBBLE_HEIGHT / 2
+        x: pFloatingObject.container.frame.position.x,
+        y: pFloatingObject.container.frame.position.y + BUBBLE_HEIGHT / 2
       }
 
       if (pFloatingObject.payloadImageId !== undefined) {
@@ -304,8 +304,8 @@ function newNote () {
               let labelRow = labelRows[i]
 
               let startingPosition = {
-                x: pFloatingObject.currentPosition.x,
-                y: pFloatingObject.currentPosition.y - labelRows.length / 2 * (fontSize * FONT_ASPECT_RATIO + 10)
+                x: pFloatingObject.container.frame.position.x,
+                y: pFloatingObject.container.frame.position.y - labelRows.length / 2 * (fontSize * FONT_ASPECT_RATIO + 10)
               }
 
               labelPoint = {

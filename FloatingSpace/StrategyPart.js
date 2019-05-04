@@ -330,8 +330,8 @@ function newStrategyPart () {
 
       if (menuItem.canDrawIcon === true && menuItem.currentRadius > 1) {
         let position = {
-          x: pFloatingObject.currentPosition.x + pFloatingObject.currentRadius * 3 / 4 * Math.cos(toRadians(menuItem.angle)),
-          y: pFloatingObject.currentPosition.y - pFloatingObject.currentRadius * 3 / 4 * Math.sin(toRadians(menuItem.angle))
+          x: pFloatingObject.container.frame.position.x + pFloatingObject.currentRadius * 3 / 4 * Math.cos(toRadians(menuItem.angle)),
+          y: pFloatingObject.container.frame.position.y - pFloatingObject.currentRadius * 3 / 4 * Math.sin(toRadians(menuItem.angle))
         }
 
         browserCanvasContext.drawImage(menuItem.icon, position.x, position.y, menuItem.currentRadius * 2, menuItem.currentRadius * 2)
@@ -381,8 +381,8 @@ function newStrategyPart () {
     let parentFloatingObject = floatingLayer.getFloatingObject(pFloatingObject.payload.parentNode.handle)
 
     if (isMouseOver === false) {
-      pFloatingObject.payload.profile.position.x = parentFloatingObject.currentPosition.x
-      pFloatingObject.payload.profile.position.y = parentFloatingObject.currentPosition.y
+      pFloatingObject.payload.profile.position.x = parentFloatingObject.container.frame.position.x
+      pFloatingObject.payload.profile.position.y = parentFloatingObject.container.frame.position.y
     }
 
    /* Here I continue painting the background */
@@ -396,7 +396,7 @@ function newStrategyPart () {
             /* Target Line */
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.moveTo(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y)
+      browserCanvasContext.moveTo(pFloatingObject.container.frame.position.x, pFloatingObject.container.frame.position.y)
       browserCanvasContext.lineTo(point.x, point.y)
       browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)'
       browserCanvasContext.setLineDash([1, 4])
@@ -420,8 +420,8 @@ function newStrategyPart () {
 
   function drawForeground (pFloatingObject) {
     let position = {
-      x: pFloatingObject.currentPosition.x,
-      y: pFloatingObject.currentPosition.y
+      x: pFloatingObject.container.frame.position.x,
+      y: pFloatingObject.container.frame.position.y
     }
 
     let radius = pFloatingObject.currentRadius
@@ -538,4 +538,3 @@ function newStrategyPart () {
     }
   }
 }
-

@@ -26,7 +26,6 @@ function newFloatingObject () {
 
     imageId: undefined,
 
-    currentPosition: 0,                     // Current x,y position of the floating object at the floating object's layer, where there is no displacement or zoom. This position is always changing towards the target position.
     currentSpeed: 0,                        // This is the current speed of the floating object.
     currentRadius: 0,                       // This is the current radius of the floating object, including its zoom applied.
     currentMass: 0,                         // This is the current mass of the floating object, including its zoom applied.
@@ -218,12 +217,12 @@ function newFloatingObject () {
   }
 
   function radomizeCurrentPosition (arroundPoint) {
-    var position = {
+    let position = {
       x: Math.floor((Math.random() * (200) - 100)) + arroundPoint.x,
       y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
     }
 
-    thisObject.currentPosition = position
+    thisObject.container.frame.position = position
   }
 
   function radomizeCurrentSpeed () {
@@ -263,4 +262,3 @@ function newFloatingObject () {
 
   }
 }
-

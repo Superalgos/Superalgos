@@ -1,6 +1,7 @@
 
 function newContainer () {
   let thisObject = {
+    id: Math.trunc(Math.random() * 10000000),
     frame: undefined,
     displacement: undefined,
     eventHandler: undefined,

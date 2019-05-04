@@ -4,7 +4,7 @@ function newNote () {
 
   let thisObject = {
     container: undefined,
-    physicsLoop: physicsLoop,
+    physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
     getContainer: getContainer,
@@ -12,9 +12,8 @@ function newNote () {
   }
 
   thisObject.container = newContainer()
-  thisObject.container.name = MODULE_NAME
-  thisObject.container.initialize('Circle')
-  thisObject.container.isClickeable = true
+  thisObject.container.initialize(MODULE_NAME, 'Circle')
+  thisObject.container.isClickeable = false
   thisObject.container.isDraggeable = false
   thisObject.container.frame.radius = 0
   thisObject.container.frame.position.x = 0
@@ -38,7 +37,7 @@ function newNote () {
     }
   }
 
-  function physicsLoop () {
+  function physics () {
 
   }
 

@@ -357,16 +357,21 @@ function newCanvas () {
         return
       }
 
-           /* We check if the mouse is over a floatingObject/ */
+      container = thisObject.floatingSpace.getContainer(point)
 
-      floatingObjectBeingDragged = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y)
-
-      if (floatingObjectBeingDragged >= 0) {
+      if (container !== undefined && container.isDraggeable === true) {
+        containerBeingDragged = container
+        containerDragStarted = true
         floatingObjectDragStarted = true
         return
       }
 
-           /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
+      if (container !== undefined && container.isClickeable === true) {
+       /* We dont want to mess up with the click */
+        return
+      }
+
+           /*  we check if it is over any of the existing containers at the Chart Space. */
 
       container = thisObject.chartSpace.getContainer(point)
 
@@ -497,12 +502,22 @@ function newCanvas () {
 
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
         if (floatingObjectDragStarted === true) {
-          if (thisObject.floatingSpace.floatingLayer.isInsideFloatingObject(floatingObjectBeingDragged, point.x, point.y) === false) {
-                       /* This means that the user stop moving the mouse and the floatingObject floatingObject out of the pointer.
-                       In this case we cancell the drag operation . */
-
+          let targetContainer = thisObject.floatingSpace.getContainer(point)
+          if (targetContainer !== undefined) {
+            if (targetContainer.id !== containerBeingDragged.id) {
+              containerBeingDragged = undefined
+              containerDragStarted = false
+              floatingObjectDragStarted = false
+              browserCanvas.style.cursor = 'auto'
+              ignoreNextClick = true
+              return
+            }
+          } else {
+            containerDragStarted = false
+            containerBeingDragged = undefined
             floatingObjectDragStarted = false
             browserCanvas.style.cursor = 'auto'
+            ignoreNextClick = true
             return
           }
         }
@@ -582,12 +597,10 @@ function newCanvas () {
 
            /* We check if the mouse is over a floatingObject/ */
       if (thisObject.floatingSpace !== undefined) {
-        let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y)
+        container = thisObject.floatingSpace.getContainer(point)
 
-        if (floatingObjectBeingClicked >= 0) {
-          let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingClicked)
-          floatingObject.container.eventHandler.raiseEvent('onMouseOver', point)
-
+        if (container !== undefined && container.detectMouseOver === true) {
+          container.eventHandler.raiseEvent('onMouseOver', point)
           return
         }
       }
@@ -680,15 +693,6 @@ function newCanvas () {
         browserCanvas.style.cursor = 'grabbing'
         thisObject.eventHandler.raiseEvent('Dragging', undefined)
 
-        let targetFloatingObject = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y)
-
-        if (floatingObjectDragStarted) {
-          let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingDragged)
-
-          floatingObject.container.frame.position.x = dragVector.upX
-          floatingObject.container.frame.position.y = dragVector.upY
-        }
-
         if (containerDragStarted || viewPortBeingDragged) {
                    /* The parameters received have been captured with zoom applied. We must remove the zoom in order to correctly modify the displacement. */
 
@@ -734,3 +738,4 @@ function newCanvas () {
     }
   }
 }
+

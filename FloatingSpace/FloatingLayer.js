@@ -660,8 +660,6 @@ function newFloatingLayer () {
               break  // only one at the time.
             }
           }
-
-          drawDyingObjects()
         } catch (err) {
           if (ERROR_LOG === true) { logger.write('[ERROR] physics -> animateDyingObjects -> err.message = ' + err.message) }
         }

@@ -58,10 +58,10 @@ function newFloatingObject () {
   }
 
   thisObject.container = newContainer()
-  thisObject.container.name = MODULE_NAME
-  thisObject.container.initialize('Circle')
+  thisObject.container.initialize(MODULE_NAME, 'Circle')
   thisObject.container.isClickeable = true
-  thisObject.container.isDraggeable = false
+  thisObject.container.isDraggeable = true
+  thisObject.container.detectMouseOver = true
   thisObject.container.frame.radius = 0
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0

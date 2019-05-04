@@ -4,7 +4,7 @@ function newProfileBall () {
 
   let thisObject = {
     container: undefined,
-    physicsLoop: physicsLoop,
+    physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
     getContainer: getContainer,
@@ -12,9 +12,8 @@ function newProfileBall () {
   }
 
   thisObject.container = newContainer()
-  thisObject.container.name = MODULE_NAME
-  thisObject.container.initialize('Circle')
-  thisObject.container.isClickeable = true
+  thisObject.container.initialize(MODULE_NAME, 'Circle')
+  thisObject.container.isClickeable = false
   thisObject.container.isDraggeable = false
   thisObject.container.frame.radius = 0
   thisObject.container.frame.position.x = 0
@@ -93,7 +92,7 @@ function newProfileBall () {
     }
   }
 
-  function physicsLoop () {
+  function physics () {
         // The menuItems also have a target.
 
     for (let i = 0; i < ballStringMenu.length; i++) {

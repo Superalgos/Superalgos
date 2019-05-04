@@ -5,7 +5,7 @@ function newStrategyPart () {
   let thisObject = {
     type: undefined,
     container: undefined,
-    physicsLoop: physicsLoop,
+    physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
     getContainer: getContainer,
@@ -13,9 +13,8 @@ function newStrategyPart () {
   }
 
   thisObject.container = newContainer()
-  thisObject.container.name = MODULE_NAME
-  thisObject.container.initialize('Circle')
-  thisObject.container.isClickeable = true
+  thisObject.container.initialize(MODULE_NAME, 'Circle')
+  thisObject.container.isClickeable = false
   thisObject.container.isDraggeable = false
   thisObject.container.frame.radius = 0
   thisObject.container.frame.position.x = 0
@@ -276,16 +275,10 @@ function newStrategyPart () {
   }
 
   function getContainer (point) {
-    let container
-
-    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-      return thisObject.container
-    } else {
-      return undefined
-    }
+    return undefined
   }
 
-  function physicsLoop () {
+  function physics () {
         // The menuItems also have a target.
 
     for (let i = 0; i < ballStringMenu.length; i++) {

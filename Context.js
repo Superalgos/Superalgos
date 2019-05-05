@@ -419,11 +419,16 @@
                     let fileName = "Execution.Context." + bot.startMode + "." + runIndex +".json";
                     let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
+                    let fileContent = JSON.stringify(thisObject.executionContext);
+
+                    if(fileContent === undefined){
+                        logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExecutionContext -> executionContext is undefined.");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                    }
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> fileName = " + fileName); }
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> filePath = " + filePath); }
-
-                    let fileContent = JSON.stringify(thisObject.executionContext);
+                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> fileContent = " + fileContent); }
 
                     cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
@@ -435,10 +440,6 @@
                             logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExecutionContext -> onFileCreated -> err = " + err.message);
                             callBack(err);
                             return;
-                        }
-
-                        if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
-                            logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> onFileCreated ->  Content written = " + fileContent);
                         }
 
                         writeExucutionHistory(callBack);

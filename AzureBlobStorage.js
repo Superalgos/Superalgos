@@ -10,7 +10,7 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
 
     const MODULE_NAME = "Azure Blob Storage";
     const RETRY_WAIT_TIME = 10000;
-    const MAX_RETRIES = 30;
+    const MAX_RETRIES = 5;
 
     let AZURE_STORAGE = require('./AzureStorage')
     let storage = AZURE_STORAGE.newAzureStorage(bot, logger);
@@ -230,7 +230,7 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
                         logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> text = " + text);
                     }
 
-                    if (err || text === undefined) {
+                    if (err) {
 
                         if (ERROR_LOG === true && logger !== undefined && err.code !== 'BlobNotFound') {
                             logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> Error trying to get this file.");
@@ -238,7 +238,6 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
                             logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> pFolderPath = " + pFolderPath);
                             logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> pFileName = " + pFileName);
                             logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> err.code = " + err.code);
-                            logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> text = " + text);
                         }
 
                         if (
@@ -251,8 +250,7 @@ exports.newAzureBlobBlobStorage = function newAzureBlobBlobStorage(BOT, logger) 
                             err.code === 'EAI_AGAIN' ||
                             err.code === 'AuthenticationFailed' ||
                             err.code === 'OperationTimedOut' ||
-                            err.code === 'ServerBusy' ||
-                            text === undefined
+                            err.code === 'ServerBusy'
                         ) {
 
                             setTimeout(retryCreateFile, RETRY_WAIT_TIME);

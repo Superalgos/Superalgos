@@ -291,9 +291,13 @@ function newStrategyPart () {
   }
 
   function drawBackground (pFloatingObject) {
-    drawPartBackground(pFloatingObject)
+    if (isMouseOver === false) {
+      drawPartBackground(pFloatingObject)
+      thisObject.menu.drawBackground()
 
-    thisObject.menu.drawBackground()
+      drawPartForeground(pFloatingObject)
+      thisObject.menu.drawForeground()
+    }
   }
 
   function drawPartBackground (pFloatingObject) {
@@ -339,8 +343,13 @@ function newStrategyPart () {
   }
 
   function drawForeground (pFloatingObject) {
-    drawPartForeground(pFloatingObject)
-    thisObject.menu.drawForeground()
+    if (isMouseOver === true) {
+      drawPartBackground(pFloatingObject)
+      thisObject.menu.drawBackground()
+
+      drawPartForeground(pFloatingObject)
+      thisObject.menu.drawForeground()
+    }
   }
 
   function drawPartForeground (pFloatingObject) {

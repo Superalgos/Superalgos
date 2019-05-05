@@ -16,7 +16,6 @@
 function newFloatingLayer () {
   const MODULE_NAME = 'Floating Layer'
   const INFO_LOG = false
-  let INTENSIVE_LOG = false
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
@@ -307,8 +306,6 @@ function newFloatingLayer () {
 
     function drawVisibleObjects () {
       try {
-        if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> drawVisibleObjects -> Entering function.') }
-
                   /* We draw all the visibleFloatingObjects. */
 
         for (let i = 0; i < visibleFloatingObjects.length; i++) {
@@ -323,14 +320,11 @@ function newFloatingLayer () {
 
         makeVisible()
       } catch (err) {
-        if (ERROR_LOG === true && INTENSIVE_LOG === true) { logger.write('[ERROR] physics -> drawVisibleObjects -> err= ' + err.stack) }
       }
     }
 
     function makeVisible () {
       try {
-        if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> makeVisible -> Entering function.') }
-
                   /* Now we check if any of the created FloatingObjects where enabled to run under the Physics Engine. */
 
         for (let i = 0; i < invisibleFloatingObjects.length; i++) {
@@ -366,8 +360,6 @@ function newFloatingLayer () {
           }
 
           if (payload.visible === true) {
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> payload.visible = ' + payload.visible) }
-
                           /* The first time that the floatingObject becomes visible, we need to do this. */
 
             floatingObject.radomizeCurrentPosition(payload.position)
@@ -375,15 +367,7 @@ function newFloatingLayer () {
 
             visibleFloatingObjects.push(floatingObject)
 
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject.handle = ' + floatingObject.handle) }
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject added to visibleFloatingObjects') }
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> visibleFloatingObjects.length = ' + visibleFloatingObjects.length) }
-
             invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
-
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject.handle = ' + floatingObject.handle) }
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject removed from invisibleFloatingObjects') }
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> invisibleFloatingObjects.length = ' + invisibleFloatingObjects.length) }
 
             return                     // Only one at the time.
           }
@@ -397,8 +381,6 @@ function newFloatingLayer () {
 
     function makeInvisible () {
       try {
-        if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> makeInvisible -> Entering function.') }
-
                   /* Finally we check if any of the currently visible floatingObjects has become invisible and must be removed from the Physics Engine. */
 
         for (let i = 0; i < visibleFloatingObjects.length; i++) {
@@ -429,19 +411,9 @@ function newFloatingLayer () {
           }
 
           if (payload.visible === false) {
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> payload.visible = ' + payload.visible) }
-
             invisibleFloatingObjects.push(floatingObject)
 
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject.handle = ' + floatingObject.handle) }
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject added to invisibleFloatingObjects') }
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> invisibleFloatingObjects.length = ' + invisibleFloatingObjects.length) }
-
             visibleFloatingObjects.splice(i, 1)  // Delete item from array.
-
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject.handle = ' + floatingObject.handle) }
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> floatingObject removed from visibleFloatingObjects') }
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> visibleFloatingObjects.length = ' + visibleFloatingObjects.length) }
 
             return                     // Only one at the time.
           }
@@ -455,8 +427,6 @@ function newFloatingLayer () {
 
     function drawDyingObjects () {
       try {
-        if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> drawDyingObjects -> Entering function.') }
-
                   /* We also draw all the dyingFloatingObjects */
 
         for (let i = 0; i < dyingFloatingObjects.length; i++) {
@@ -496,30 +466,22 @@ function newFloatingLayer () {
         */
 
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> Entering function.') }
-
       applyPhysics()
 
       function applyPhysics () {
                 /* This function makes all the calculations to apply phisycs on all visible floatingObjects in this layer. */
 
         try {
-          if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> applyPhysics -> Entering function.') }
-
           for (let i = 0; i < visibleFloatingObjects.length; i++) {
             let floatingObject = visibleFloatingObjects[i]
 
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> Change position based on speed.') }
-
-            floatingObject.container.frame.position.x = floatingObject.container.frame.position.x + floatingObject.currentSpeed.x
-            floatingObject.container.frame.position.y = floatingObject.container.frame.position.y + floatingObject.currentSpeed.y
-
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> Apply some friction to desaccelerate.') }
+            if (floatingObject.positionLocked === false) {
+              floatingObject.container.frame.position.x = floatingObject.container.frame.position.x + floatingObject.currentSpeed.x
+              floatingObject.container.frame.position.y = floatingObject.container.frame.position.y + floatingObject.currentSpeed.y
+            }
 
             floatingObject.currentSpeed.x = floatingObject.currentSpeed.x * floatingObject.friction  // Desaceleration factor.
             floatingObject.currentSpeed.y = floatingObject.currentSpeed.y * floatingObject.friction  // Desaceleration factor.
-
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> Gives a minimun speed towards their taget.') }
 
             let payload = {
               position: undefined,
@@ -560,8 +522,6 @@ function newFloatingLayer () {
             } else {
               floatingObject.currentSpeed.y = floatingObject.currentSpeed.y - 0.005
             }
-
-            if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> Set a maximun speed.') }
 
             const MAX_SPEED = 50
 
@@ -610,8 +570,6 @@ function newFloatingLayer () {
 
       function animateDyingObjects () {
         try {
-          if (INTENSIVE_LOG === true) { logger.write('[INFO] physics -> animateDyingObjects -> Entering function.') }
-
                     /* We animate some parts of the dying objects */
 
           for (let i = 0; i < dyingFloatingObjects.length; i++) {
@@ -639,8 +597,6 @@ function newFloatingLayer () {
 
   function gravityForce (floatingObject, payload) {
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] gravityForce -> Entering function.') }
-
             /* We simulate a kind of gravity towards the target point of each floatingObject. This force will make the floatingObject to keep pushing to reach that point. */
 
       const coulomb = 0.00001
@@ -669,20 +625,22 @@ function newFloatingLayer () {
         y: pos2.y - pos1.y
       }
 
-      var unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
-        x: posDiff.x / d,
-        y: posDiff.y / d
+      if (d !== 0) {
+        var unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
+          x: posDiff.x / d,
+          y: posDiff.y / d
+        }
+
+        var forceVector = {
+          x: unitVector.x * force,
+          y: unitVector.y * force
+        }
+
+              /* We add the force vector to the speed vector */
+
+        floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x
+        floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y
       }
-
-      var forceVector = {
-        x: unitVector.x * force,
-        y: unitVector.y * force
-      }
-
-            /* We add the force vector to the speed vector */
-
-      floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x
-      floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] gravityForce -> err= ' + err.stack) }
     }
@@ -690,8 +648,6 @@ function newFloatingLayer () {
 
   function currentRepulsionForce (currentFloatingObject) {
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] currentRepulsionForce -> Entering function.') }
-
             /* We generate a repulsion force between floatingObjects, that prevents them to be collisioning so often. */
 
       const coulomb = 2
@@ -754,8 +710,6 @@ function newFloatingLayer () {
 
   function targetRepulsionForce (currentFloatingObject) {
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] targetRepulsionForce -> Entering function.') }
-
             /* We generate a repulsion force between floatingObjects, that prevents them to be collisioning so often. */
 
       const coulomb = 2
@@ -815,20 +769,22 @@ function newFloatingLayer () {
           y: pos2.y - pos1.y
         }
 
-        var unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
-          x: posDiff.x / d,
-          y: posDiff.y / d
+        if (d !== 0) {
+          var unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
+            x: posDiff.x / d,
+            y: posDiff.y / d
+          }
+
+          var forceVector = {
+            x: unitVector.x * force,
+            y: unitVector.y * force
+          }
+
+                  /* We substract the force vector to the speed vector of the current floatingObject */
+
+          floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
+          floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
         }
-
-        var forceVector = {
-          x: unitVector.x * force,
-          y: unitVector.y * force
-        }
-
-                /* We substract the force vector to the speed vector of the current floatingObject */
-
-        floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
-        floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] targetRepulsionForce -> err= ' + err.stack) }
@@ -837,8 +793,6 @@ function newFloatingLayer () {
 
   function changeTargetRepulsion (pDelta) {
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] changeTargetRepulsion -> Entering function.') }
-
       if (pDelta > 0) {
         pDelta = 1
       } else {
@@ -857,8 +811,6 @@ function newFloatingLayer () {
 
   function colliding (floatingObject1, floatingObject2) {
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] colliding -> Entering function.') }
-
             /* This function detects weather 2 floatingObjects collide with each other. */
 
       var r1 = floatingObject1.container.frame.radius
@@ -883,8 +835,6 @@ function newFloatingLayer () {
 
   function distance (x1, y1, x2, y2) {
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] distance -> Entering function.') }
-
       return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] distance -> err= ' + err.stack) }
@@ -893,8 +843,6 @@ function newFloatingLayer () {
 
   function resolveCollision (floatingObject1, floatingObject2) {
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] resolveCollision -> Entering function.') }
-
             /* This function changes speed and position of floatingObjects that are in collision */
 
       var collisionision_angle = Math.atan2((floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y), (floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x))

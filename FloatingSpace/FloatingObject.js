@@ -11,6 +11,7 @@ function newFloatingObject () {
   let thisObject = {
 
     physics: physics,
+    positionLocked: false,
 
     payload: undefined,                     // This is a reference to an object controlled by a Plotter. The plotter can change its internal value and we will see them from here.
     type: undefined,                        // Currently there are two types of Floating Objects: Profile Balls, and Notes.
@@ -168,6 +169,8 @@ function newFloatingObject () {
     thisObject.targetFontSize = thisObject.rawFontSize * 2.0
 
     thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseOver', point)
+
+    thisObject.positionLocked = true
   }
 
   function onMouseNotOver (point) {
@@ -176,6 +179,8 @@ function newFloatingObject () {
     thisObject.targetFontSize = thisObject.rawFontSize * 1
 
     thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseNotOver', point)
+
+    thisObject.positionLocked = false
   }
 
   function onMouseClick (pPoint) {

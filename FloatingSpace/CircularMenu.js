@@ -76,7 +76,6 @@ function newCircularMenu () {
       menutItem.isDeployed = true
     }
     thisObject.isDeployed = true
-    console.log('mouse over')
   }
 
   function onMouseNotOver () {
@@ -86,7 +85,6 @@ function newCircularMenu () {
       menutItem.isDeployed = false
     }
     thisObject.isDeployed = false
-    console.log('mouse not over')
   }
 
   function drawBackground (pFloatingObject) {

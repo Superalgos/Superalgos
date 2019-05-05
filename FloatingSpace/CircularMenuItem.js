@@ -100,7 +100,7 @@ function newCircularMenuItem () {
   }
 
   function drawBackground () {
-    if (thisObject.container.frame.position.x > 0 && thisObject.isDeployed === true) {
+    if (thisObject.container.frame.position.x > 0 && thisObject.isDeployed === true && thisObject.currentRadius >= thisObject.targetRadius) {
       let position = {
         x: 0,
         y: 0

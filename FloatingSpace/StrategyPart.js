@@ -44,7 +44,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 20
           },
           {
             label: 'Delete This Strategy',
@@ -54,7 +54,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20 * 1
+            angle: -20
           }]
         break
       }
@@ -69,7 +69,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 0
           }]
         break
       }
@@ -84,7 +84,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 0
           }]
         break
       }
@@ -99,7 +99,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 0
           }]
         break
       }
@@ -114,7 +114,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 0
           }]
         break
       }
@@ -129,7 +129,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 0
           }]
         break
       }
@@ -144,7 +144,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 0
           }]
         break
       }
@@ -159,7 +159,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 40
           },
           {
             label: 'Add Situation',
@@ -169,7 +169,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20 * 1
+            angle: 0
           },
           {
             label: 'Delete This Phase',
@@ -179,7 +179,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           }]
         break
       }
@@ -194,7 +194,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 20
           },
           {
             label: 'Delete This Situation',
@@ -204,7 +204,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20 * 1
+            angle: -20
           }]
         break
       }
@@ -219,7 +219,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 20
           },
           {
             label: 'Delete This Condition',
@@ -229,7 +229,7 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20 * 1
+            angle: -20
           }]
         break
       }
@@ -397,7 +397,7 @@ function newStrategyPart () {
       if (label !== undefined) {
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-          y: position.y - radius - fontSize * FONT_ASPECT_RATIO - 10
+          y: position.y - radius / 2 - fontSize * FONT_ASPECT_RATIO - 10
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -410,7 +410,7 @@ function newStrategyPart () {
       if (label !== undefined && isMouseOver === true) {
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-          y: position.y + radius + fontSize * FONT_ASPECT_RATIO + 15
+          y: position.y + radius / 2 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -420,3 +420,4 @@ function newStrategyPart () {
     }
   }
 }
+

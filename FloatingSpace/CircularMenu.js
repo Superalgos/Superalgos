@@ -79,7 +79,7 @@ function newCircularMenu () {
   function onMouseNotOver () {
     for (let i = 0; i < menuItems.length; i++) {
       let menutItem = menuItems[i]
-      menutItem.targetRadius = menutItem.rawRadius * 1 - i * 5
+      menutItem.targetRadius = menutItem.rawRadius * 0 - i * 5
     }
     isMouseOver = false
   }

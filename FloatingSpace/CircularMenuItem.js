@@ -61,7 +61,7 @@ function newCircularMenuItem () {
   function getContainer (point) {
     let container
 
-    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+    if (thisObject.container.frame.isThisPointHere(point, true, true) === true) {
       return thisObject.container
     } else {
       return undefined
@@ -115,15 +115,18 @@ function newCircularMenuItem () {
       y: 0
     }
 
+    thisObject.container.frame.position.x = 0
+    thisObject.container.frame.position.y = 0
     position = thisObject.container.frame.frameThisPoint(position)
 
         /* Menu  Item */
 
     if (thisObject.canDrawIcon === true && thisObject.currentRadius > 1) {
       let menuPosition = {
-        x: position.x + thisObject.container.frame.radius * 3 / 4 * Math.cos(toRadians(thisObject.angle)),
-        y: position.y - thisObject.container.frame.radius * 3 / 4 * Math.sin(toRadians(thisObject.angle)) }
+        x: position.x + thisObject.container.frame.radius * 4 / 7 * Math.cos(toRadians(thisObject.angle)),
+        y: position.y - thisObject.container.frame.radius * 4 / 7 * Math.sin(toRadians(thisObject.angle)) }
 
+      thisObject.container.frame.position = menuPosition
       browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - thisObject.currentRadius, menuPosition.y - thisObject.currentRadius, thisObject.currentRadius * 2, thisObject.currentRadius * 2)
 
         /* Menu Label */
@@ -146,3 +149,4 @@ function newCircularMenuItem () {
     }
   }
 }
+

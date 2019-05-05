@@ -1,4 +1,4 @@
- ﻿
+
 function newFloatingObject () {
   const MODULE_NAME = 'Floating Object'
   const INFO_LOG = false
@@ -130,28 +130,28 @@ function newFloatingObject () {
   }
 
   function thisObjectPhysics () {
-                            // The radius also have a target.
+                           // The radius also have a target.
 
     if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 1) {
       if (thisObject.container.frame.radius < thisObject.targetRadius) {
-        thisObject.container.frame.radius = thisObject.container.frame.radius + 0.5
+        thisObject.container.frame.radius = thisObject.container.frame.radius + 2
       } else {
-        thisObject.container.frame.radius = thisObject.container.frame.radius - 0.5
+        thisObject.container.frame.radius = thisObject.container.frame.radius - 2
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     }
 
-                            // The imageSize also have a target.
+                           // The imageSize also have a target.
 
     if (Math.abs(thisObject.currentImageSize - thisObject.targetImageSize) >= 1) {
       if (thisObject.currentImageSize < thisObject.targetImageSize) {
-        thisObject.currentImageSize = thisObject.currentImageSize + 1
+        thisObject.currentImageSize = thisObject.currentImageSize + 2
       } else {
-        thisObject.currentImageSize = thisObject.currentImageSize - 1
+        thisObject.currentImageSize = thisObject.currentImageSize - 2
       }
     }
 
-                            // The fontSize also have a target.
+                           // The fontSize also have a target.
 
     if (Math.abs(thisObject.currentFontSize - thisObject.targetFontSize) >= 0.2) {
       if (thisObject.currentFontSize < thisObject.targetFontSize) {
@@ -163,7 +163,7 @@ function newFloatingObject () {
   }
 
   function onMouseOver () {
-    thisObject.targetRadius = thisObject.rawRadius * 2.5
+    thisObject.targetRadius = thisObject.rawRadius * 4.0
     thisObject.targetImageSize = thisObject.rawImageSize * 2.0
     thisObject.targetFontSize = thisObject.rawFontSize * 2.0
 
@@ -275,13 +275,14 @@ function newFloatingObject () {
 
   function updateMass () {
 
-        // thisObject.currentMass = thisObject.rawMass + thisObject.rawMass * thisObject.container.zoom.incrementM * thisObject.container.zoom.levelM;
+       // thisObject.currentMass = thisObject.rawMass + thisObject.rawMass * thisObject.container.zoom.incrementM * thisObject.container.zoom.levelM;
 
   }
 
   function updateRadius () {
 
-        // thisObject.targetRadius = thisObject.rawRadius + thisObject.rawRadius * thisObject.container.zoom.incrementR * thisObject.container.zoom.levelR;
+       // thisObject.targetRadius = thisObject.rawRadius + thisObject.rawRadius * thisObject.container.zoom.incrementR * thisObject.container.zoom.levelR;
 
   }
 }
+

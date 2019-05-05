@@ -119,7 +119,7 @@ function newFloatingLayer () {
 
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] addFloatingObject -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] addFloatingObject -> err= ' + err.stack) }
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
     }
   }
@@ -250,12 +250,12 @@ function newFloatingLayer () {
 
           if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> err.message = ' + err.message) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> err= ' + err.stack) }
           if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> err= ' + err.stack) }
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
     }
   }
@@ -298,7 +298,7 @@ function newFloatingLayer () {
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] getFloatingObject -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] getFloatingObject -> err= ' + err.stack) }
     }
   }
 
@@ -323,7 +323,7 @@ function newFloatingLayer () {
 
         makeVisible()
       } catch (err) {
-        if (ERROR_LOG === true && INTENSIVE_LOG === true) { logger.write('[ERROR] physics -> drawVisibleObjects -> err.message = ' + err.message) }
+        if (ERROR_LOG === true && INTENSIVE_LOG === true) { logger.write('[ERROR] physics -> drawVisibleObjects -> err= ' + err.stack) }
       }
     }
 
@@ -391,7 +391,7 @@ function newFloatingLayer () {
 
         makeInvisible()
       } catch (err) {
-        if (ERROR_LOG === true) { logger.write('[ERROR] physics -> makeVisible -> err.message = ' + err.message) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] physics -> makeVisible -> err= ' + err.stack) }
       }
     }
 
@@ -449,7 +449,7 @@ function newFloatingLayer () {
 
         drawDyingObjects()
       } catch (err) {
-        if (ERROR_LOG === true) { logger.write('[ERROR] physics -> makeInvisible -> err.message = ' + err.message) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] physics -> makeInvisible -> err= ' + err.stack) }
       }
     }
 
@@ -469,7 +469,7 @@ function newFloatingLayer () {
           floatingObject.drawForeground()
         }
       } catch (err) {
-        if (ERROR_LOG === true) { logger.write('[ERROR] physics -> drawDyingObjects -> err.message = ' + err.message) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] physics -> drawDyingObjects -> err= ' + err.stack) }
       }
     }
   }
@@ -634,7 +634,7 @@ function newFloatingLayer () {
 
           animateDyingObjects()
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] physics -> applyPhysics -> err.message = ' + err.message) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] physics -> applyPhysics -> err= ' + err.stack) }
         }
       }
 
@@ -659,11 +659,11 @@ function newFloatingLayer () {
             }
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] physics -> animateDyingObjects -> err.message = ' + err.message) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] physics -> animateDyingObjects -> err= ' + err.stack) }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] physics -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] physics -> err= ' + err.stack) }
     }
   }
 
@@ -714,7 +714,7 @@ function newFloatingLayer () {
       floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x
       floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] gravityForce -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] gravityForce -> err= ' + err.stack) }
     }
   }
 
@@ -778,7 +778,7 @@ function newFloatingLayer () {
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] currentRepulsionForce -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] currentRepulsionForce -> err= ' + err.stack) }
     }
   }
 
@@ -861,7 +861,7 @@ function newFloatingLayer () {
         floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] targetRepulsionForce -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] targetRepulsionForce -> err= ' + err.stack) }
     }
   }
 
@@ -881,7 +881,7 @@ function newFloatingLayer () {
         maxTargetRepulsionForce = 0.0001
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] changeTargetRepulsion -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] changeTargetRepulsion -> err= ' + err.stack) }
     }
   }
 
@@ -907,7 +907,7 @@ function newFloatingLayer () {
         return true
       } else return true
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] colliding -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] colliding -> err= ' + err.stack) }
     }
   }
 
@@ -917,7 +917,7 @@ function newFloatingLayer () {
 
       return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] distance -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] distance -> err= ' + err.stack) }
     }
   }
 
@@ -995,7 +995,7 @@ function newFloatingLayer () {
       floatingObject1.container.frame.position = pos1
       floatingObject2.container.frame.position = pos2
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] resolveCollision -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] resolveCollision -> err= ' + err.stack) }
     }
   }
 }

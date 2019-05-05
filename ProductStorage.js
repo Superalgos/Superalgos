@@ -171,7 +171,7 @@ function newProductStorage (pName) {
 
               case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
                 if (INFO_LOG === true) { logger.write('[INFO] initialize -> onMarketFileReady -> Received CUSTOM FAIL Response.') }
-                if (INFO_LOG === true) { logger.write('[INFO] initialize -> onMarketFileReady -> err.message = ' + err.message) }
+                if (INFO_LOG === true) { logger.write('[INFO] initialize -> onMarketFileReady -> err= ' + err.stack) }
 
                 callBackFunction(err)
                 return
@@ -227,7 +227,7 @@ function newProductStorage (pName) {
 
               case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
                 if (INFO_LOG === true) { logger.write('[INFO] initialize -> onDailyFileReady -> Received CUSTOM FAIL Response.') }
-                if (INFO_LOG === true) { logger.write('[INFO] initialize -> onDailyFileReady -> err.message = ' + err.message) }
+                if (INFO_LOG === true) { logger.write('[INFO] initialize -> onDailyFileReady -> err= ' + err.stack) }
 
                 callBackFunction(err)
                 return
@@ -282,7 +282,7 @@ function newProductStorage (pName) {
 
               case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
                 if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSingleFileReady -> Received CUSTOM FAIL Response.') }
-                if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSingleFileReady -> err.message = ' + err.message) }
+                if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSingleFileReady -> err= ' + err.stack) }
 
                 callBackFunction(err)
                 return
@@ -334,7 +334,7 @@ function newProductStorage (pName) {
 
               case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
                 if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileSequenceReady -> Received CUSTOM FAIL Response.') }
-                if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileSequenceReady -> err.message = ' + err.message) }
+                if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileSequenceReady -> err= ' + err.stack) }
 
                 callBackFunction(err)
                 return

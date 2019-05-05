@@ -288,7 +288,7 @@ function newStrategyCollectionItem () {
 
   function borders () {
     let params = {
-      cornerRadious: 8,
+      cornerRadius: 8,
       lineWidth: 0.1,
       opacity: 1,
       container: thisObject.container,

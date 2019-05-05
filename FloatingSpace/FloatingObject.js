@@ -88,6 +88,7 @@ function newFloatingObject () {
         case 'Strategy Part': {
           thisObject.underlayingObject = newStrategyPart()
           thisObject.underlayingObject.initialize(floatingLayer, pSubType)
+          thisObject.underlayingObject.container.connectToParent(thisObject.container, false, false, true)
           break
         }
         default: {
@@ -105,7 +106,7 @@ function newFloatingObject () {
 
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err= ' + err.stack) }
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
     }
   }
@@ -131,7 +132,7 @@ function newFloatingObject () {
 
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] physics -> err.message = ' + err.message) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] physics -> err= ' + err.stack) }
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
     }
   }
@@ -169,7 +170,7 @@ function newFloatingObject () {
   }
 
   function initializeMass (suggestedValue) {
-    var mass = suggestedValue
+    let mass = suggestedValue
     if (mass < 0.1) {
       mass = 0.1
     }
@@ -179,7 +180,7 @@ function newFloatingObject () {
   }
 
   function initializeRadius (suggestedValue) {
-    var radius = suggestedValue
+    let radius = suggestedValue
     if (radius < 2) {
       radius = 2
     }
@@ -187,6 +188,8 @@ function newFloatingObject () {
     thisObject.rawRadius = radius
     thisObject.targetRadius = radius
     thisObject.container.frame.radius = radius / 3
+
+    thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
   }
 
   function initializeImageSize (suggestedValue) {

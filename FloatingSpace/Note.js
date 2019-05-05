@@ -89,11 +89,11 @@ function newNote () {
   }
 
   function drawForeground (pFloatingObject) {
-    const BUBBLE_CORNERS_RADIOUS = 5
+    const BUBBLE_CORNERS_RADIUS = 5
     const TITLE_BAR_HEIGHT = 14
 
-    const BUBBLE_WIDTH = BUBBLE_CORNERS_RADIOUS + pFloatingObject.container.frame.radius * 4
-    const BUBBLE_HEIGHT = BUBBLE_CORNERS_RADIOUS + pFloatingObject.container.frame.radius * 2
+    const BUBBLE_WIDTH = BUBBLE_CORNERS_RADIUS + pFloatingObject.container.frame.radius * 4
+    const BUBBLE_HEIGHT = BUBBLE_CORNERS_RADIUS + pFloatingObject.container.frame.radius * 2
 
     let borderPoint1
     let borderPoint2
@@ -109,23 +109,23 @@ function newNote () {
             /* Rounded Background */
 
       borderPoint1 = {
-        x: intialDisplace.x + BUBBLE_CORNERS_RADIOUS,
-        y: intialDisplace.y + BUBBLE_CORNERS_RADIOUS
+        x: intialDisplace.x + BUBBLE_CORNERS_RADIUS,
+        y: intialDisplace.y + BUBBLE_CORNERS_RADIUS
       }
 
       borderPoint2 = {
-        x: intialDisplace.x + BUBBLE_WIDTH - BUBBLE_CORNERS_RADIOUS,
-        y: intialDisplace.y + BUBBLE_CORNERS_RADIOUS
+        x: intialDisplace.x + BUBBLE_WIDTH - BUBBLE_CORNERS_RADIUS,
+        y: intialDisplace.y + BUBBLE_CORNERS_RADIUS
       }
 
       borderPoint3 = {
-        x: intialDisplace.x + BUBBLE_WIDTH - BUBBLE_CORNERS_RADIOUS,
-        y: intialDisplace.y + BUBBLE_HEIGHT - BUBBLE_CORNERS_RADIOUS
+        x: intialDisplace.x + BUBBLE_WIDTH - BUBBLE_CORNERS_RADIUS,
+        y: intialDisplace.y + BUBBLE_HEIGHT - BUBBLE_CORNERS_RADIUS
       }
 
       borderPoint4 = {
-        x: intialDisplace.x + BUBBLE_CORNERS_RADIOUS,
-        y: intialDisplace.y + +BUBBLE_HEIGHT - BUBBLE_CORNERS_RADIOUS
+        x: intialDisplace.x + BUBBLE_CORNERS_RADIUS,
+        y: intialDisplace.y + +BUBBLE_HEIGHT - BUBBLE_CORNERS_RADIUS
       }
 
       titleBarPoint1 = {
@@ -143,14 +143,14 @@ function newNote () {
       browserCanvasContext.fillStyle = 'rgba(255, 249, 196, 0.75)'
       browserCanvasContext.beginPath()
 
-      browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, BUBBLE_CORNERS_RADIOUS, 1.0 * Math.PI, 1.5 * Math.PI)
-      browserCanvasContext.lineTo(borderPoint2.x, borderPoint2.y - BUBBLE_CORNERS_RADIOUS)
-      browserCanvasContext.arc(borderPoint2.x, borderPoint2.y, BUBBLE_CORNERS_RADIOUS, 1.5 * Math.PI, 2.0 * Math.PI)
-      browserCanvasContext.lineTo(borderPoint3.x + BUBBLE_CORNERS_RADIOUS, borderPoint3.y)
-      browserCanvasContext.arc(borderPoint3.x, borderPoint3.y, BUBBLE_CORNERS_RADIOUS, 0 * Math.PI, 0.5 * Math.PI)
-      browserCanvasContext.lineTo(borderPoint4.x, borderPoint4.y + BUBBLE_CORNERS_RADIOUS)
-      browserCanvasContext.arc(borderPoint4.x, borderPoint4.y, BUBBLE_CORNERS_RADIOUS, 0.5 * Math.PI, 1.0 * Math.PI)
-      browserCanvasContext.lineTo(borderPoint1.x - BUBBLE_CORNERS_RADIOUS, borderPoint1.y)
+      browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, BUBBLE_CORNERS_RADIUS, 1.0 * Math.PI, 1.5 * Math.PI)
+      browserCanvasContext.lineTo(borderPoint2.x, borderPoint2.y - BUBBLE_CORNERS_RADIUS)
+      browserCanvasContext.arc(borderPoint2.x, borderPoint2.y, BUBBLE_CORNERS_RADIUS, 1.5 * Math.PI, 2.0 * Math.PI)
+      browserCanvasContext.lineTo(borderPoint3.x + BUBBLE_CORNERS_RADIUS, borderPoint3.y)
+      browserCanvasContext.arc(borderPoint3.x, borderPoint3.y, BUBBLE_CORNERS_RADIUS, 0 * Math.PI, 0.5 * Math.PI)
+      browserCanvasContext.lineTo(borderPoint4.x, borderPoint4.y + BUBBLE_CORNERS_RADIUS)
+      browserCanvasContext.arc(borderPoint4.x, borderPoint4.y, BUBBLE_CORNERS_RADIUS, 0.5 * Math.PI, 1.0 * Math.PI)
+      browserCanvasContext.lineTo(borderPoint1.x - BUBBLE_CORNERS_RADIUS, borderPoint1.y)
 
       browserCanvasContext.closePath()
 
@@ -166,10 +166,10 @@ function newNote () {
       browserCanvasContext.beginPath()
 
       browserCanvasContext.moveTo(titleBarPoint1.x, titleBarPoint1.y)
-      browserCanvasContext.lineTo(borderPoint1.x - BUBBLE_CORNERS_RADIOUS, borderPoint1.y)
-      browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, BUBBLE_CORNERS_RADIOUS, 1.0 * Math.PI, 1.5 * Math.PI)
-      browserCanvasContext.lineTo(borderPoint2.x, borderPoint2.y - BUBBLE_CORNERS_RADIOUS)
-      browserCanvasContext.arc(borderPoint2.x, borderPoint2.y, BUBBLE_CORNERS_RADIOUS, 1.5 * Math.PI, 2.0 * Math.PI)
+      browserCanvasContext.lineTo(borderPoint1.x - BUBBLE_CORNERS_RADIUS, borderPoint1.y)
+      browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, BUBBLE_CORNERS_RADIUS, 1.0 * Math.PI, 1.5 * Math.PI)
+      browserCanvasContext.lineTo(borderPoint2.x, borderPoint2.y - BUBBLE_CORNERS_RADIUS)
+      browserCanvasContext.arc(borderPoint2.x, borderPoint2.y, BUBBLE_CORNERS_RADIUS, 1.5 * Math.PI, 2.0 * Math.PI)
       browserCanvasContext.lineTo(titleBarPoint2.x, titleBarPoint2.y)
 
       browserCanvasContext.closePath()

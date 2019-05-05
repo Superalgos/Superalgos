@@ -1,6 +1,6 @@
  ﻿
 function newFrame () {
-  const PANEL_CORNERS_RADIOUS = 5
+  const PANEL_CORNERS_RADIUS = 5
   const TITLE_BAR_HEIGHT = 15 // this must be grater than radius
 
   let thisObject = {
@@ -216,7 +216,7 @@ function newFrame () {
 
   function background () {
     let params = {
-      cornerRadious: 5,
+      cornerRadius: 5,
       lineWidth: 0.1,
       opacity: 0.75,
       container: thisObject.container,
@@ -247,10 +247,10 @@ function newFrame () {
     browserCanvasContext.beginPath()
 
     browserCanvasContext.moveTo(titleBarPoint1.x, titleBarPoint1.y)
-    browserCanvasContext.lineTo(borderPoint1.x - PANEL_CORNERS_RADIOUS, borderPoint1.y)
-    browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, PANEL_CORNERS_RADIOUS, 1.0 * Math.PI, 1.5 * Math.PI)
-    browserCanvasContext.lineTo(borderPoint2.x, borderPoint2.y - PANEL_CORNERS_RADIOUS)
-    browserCanvasContext.arc(borderPoint2.x, borderPoint2.y, PANEL_CORNERS_RADIOUS, 1.5 * Math.PI, 2.0 * Math.PI)
+    browserCanvasContext.lineTo(borderPoint1.x - PANEL_CORNERS_RADIUS, borderPoint1.y)
+    browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, PANEL_CORNERS_RADIUS, 1.0 * Math.PI, 1.5 * Math.PI)
+    browserCanvasContext.lineTo(borderPoint2.x, borderPoint2.y - PANEL_CORNERS_RADIUS)
+    browserCanvasContext.arc(borderPoint2.x, borderPoint2.y, PANEL_CORNERS_RADIUS, 1.5 * Math.PI, 2.0 * Math.PI)
     browserCanvasContext.lineTo(titleBarPoint2.x, titleBarPoint2.y)
 
     browserCanvasContext.closePath()

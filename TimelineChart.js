@@ -135,7 +135,7 @@
 
          if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onPlotterManagerReady -> Plotter Manager Initialization Failed. ') }
-           if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onPlotterManagerReady -> err.message = ' + err.message) }
+           if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onPlotterManagerReady -> err= ' + err.stack) }
 
            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
            return

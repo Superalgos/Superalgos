@@ -2,6 +2,7 @@
 function newContainer () {
   let thisObject = {
     id: Math.trunc(Math.random() * 10000000),
+    type: 'Rectangle',
     frame: undefined,
     displacement: undefined,
     eventHandler: undefined,
@@ -18,6 +19,7 @@ function newContainer () {
 
   let connectedToParentWidth = false
   let connectedToParentHeight = false
+  let connectedToParentRadius = false
   let isConnectedToParent = false
 
   let dimensionsChangedEventSubscriptionId
@@ -36,6 +38,7 @@ function newContainer () {
 
   function initialize (pName, pType) {
     thisObject.name = pName
+    thisObject.type = pType
 
     thisObject.frame = newFrame()
     thisObject.frame.initialize(pType)
@@ -50,9 +53,10 @@ function newContainer () {
     thisObject.displacement.containerName = pName
   }
 
-  function connectToParent (parentContainer, onWidth, onHeight) {
+  function connectToParent (parentContainer, onWidth, onHeight, onRadius) {
     connectedToParentWidth = onWidth
     connectedToParentHeight = onHeight
+    connectedToParentRadius = onRadius
     isConnectedToParent = true
 
     thisObject.displacement.parentDisplacement = parentContainer.displacement
@@ -69,6 +73,9 @@ function newContainer () {
     if (connectedToParentHeight) {
       thisObject.frame.height = thisObject.parentContainer.frame.height
     }
+    if (connectedToParentRadius) {
+      thisObject.frame.radius = thisObject.parentContainer.frame.radius
+    }
   }
 
   function onParentDimmensionsChanged (event) {
@@ -79,6 +86,10 @@ function newContainer () {
     }
     if (connectedToParentHeight) {
       thisObject.frame.height = thisObject.parentContainer.frame.height
+      dimmensionsChanged = true
+    }
+    if (connectedToParentRadius) {
+      thisObject.frame.radius = thisObject.parentContainer.frame.radius
       dimmensionsChanged = true
     }
 

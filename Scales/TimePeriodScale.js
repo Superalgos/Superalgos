@@ -220,7 +220,7 @@ to be visible at the top of the viewPort. */
   /* We draw the circle container */
 
     const RED_LINE_HIGHT = 5
-    const RADIOUS = 25
+    const RADIUS = 25
     const OPACITY = 1
 
     let centerPoint = {
@@ -229,14 +229,14 @@ to be visible at the top of the viewPort. */
     }
 
     browserCanvasContext.beginPath()
-    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIOUS + RED_LINE_HIGHT, 0.0 * Math.PI, 2.0 * Math.PI)
+    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIUS + RED_LINE_HIGHT, 0.0 * Math.PI, 2.0 * Math.PI)
     browserCanvasContext.closePath()
 
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
     browserCanvasContext.fill()
 
     browserCanvasContext.beginPath()
-    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIOUS, 0.0 * Math.PI, 2.0 * Math.PI)
+    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIUS, 0.0 * Math.PI, 2.0 * Math.PI)
     browserCanvasContext.closePath()
 
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + OPACITY + ')'

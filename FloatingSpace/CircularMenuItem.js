@@ -28,8 +28,8 @@ function newCircularMenuItem () {
   thisObject.container.frame.radius = 0
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
-  thisObject.container.frame.width = 100
-  thisObject.container.frame.height = 50
+  thisObject.container.frame.width = 150
+  thisObject.container.frame.height = 30
 
   let isMouseOver = false
 
@@ -97,8 +97,6 @@ function newCircularMenuItem () {
         y: thisObject.container.frame.position.y
       }
 
-      point = thisObject.container.frame.frameThisPoint(point)
-
       browserCanvasContext.beginPath()
 
       browserCanvasContext.rect(point.x, point.y, thisObject.container.frame.width, thisObject.container.frame.height)
@@ -126,7 +124,9 @@ function newCircularMenuItem () {
         x: position.x + thisObject.container.frame.radius * 4 / 7 * Math.cos(toRadians(thisObject.angle)),
         y: position.y - thisObject.container.frame.radius * 4 / 7 * Math.sin(toRadians(thisObject.angle)) }
 
-      thisObject.container.frame.position = menuPosition
+      thisObject.container.frame.position.x = menuPosition.x - thisObject.currentRadius
+      thisObject.container.frame.position.y = menuPosition.y - thisObject.container.frame.height / 2
+
       browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - thisObject.currentRadius, menuPosition.y - thisObject.currentRadius, thisObject.currentRadius * 2, thisObject.currentRadius * 2)
 
         /* Menu Label */

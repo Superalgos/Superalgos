@@ -20,7 +20,10 @@ function newContainer () {
   let connectedToParentWidth = false
   let connectedToParentHeight = false
   let connectedToParentRadius = false
-  let connectedToParentEvents = false
+
+  let onDimmensionsChangedParentEvent = false
+  let onMouseOverParentEvent = false
+  let onMouseNotOverParentEvent = false
 
   let isConnectedToParent = false
 
@@ -55,11 +58,14 @@ function newContainer () {
     thisObject.displacement.containerName = pName
   }
 
-  function connectToParent (parentContainer, onWidth, onHeight, onRadius, onEvents) {
+  function connectToParent (parentContainer, onWidth, onHeight, onRadius, onDimmensionsChangedEvent, onMouseOverEvent, onMouseNotOverEvent) {
     connectedToParentWidth = onWidth
     connectedToParentHeight = onHeight
     connectedToParentRadius = onRadius
-    connectedToParentEvents = onEvents
+
+    onDimmensionsChangedParentEvent = onDimmensionsChangedEvent
+    onMouseOverParentEvent = onMouseOverEvent
+    onMouseNotOverParentEvent = onMouseNotOverEvent
 
     isConnectedToParent = true
 
@@ -67,9 +73,13 @@ function newContainer () {
     thisObject.frame.parentFrame = parentContainer.frame
     thisObject.parentContainer = parentContainer
 
-    if (connectedToParentEvents === true) {
+    if (onDimmensionsChangedParentEvent === true) {
       dimensionsChangedEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('Dimmensions Changed', onParentDimmensionsChanged)
+    }
+    if (onMouseOverParentEvent === true) {
       onMouseOverEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    }
+    if (onMouseNotOverParentEvent === true) {
       onMouseNotOverEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
     }
 

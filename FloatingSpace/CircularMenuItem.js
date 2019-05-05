@@ -3,6 +3,7 @@ function newCircularMenuItem () {
   const MODULE_NAME = 'Circular Menu Iem'
 
   let thisObject = {
+    isDeployed: undefined,
     iconOn: undefined,
     iconOff: undefined,
     label: undefined,
@@ -30,8 +31,6 @@ function newCircularMenuItem () {
   thisObject.container.frame.position.y = 0
   thisObject.container.frame.width = 150
   thisObject.container.frame.height = 30
-
-  let isMouseOver = false
 
   return thisObject
 
@@ -79,11 +78,11 @@ function newCircularMenuItem () {
   }
 
   function onMouseOver () {
-    isMouseOver = true
+
   }
 
   function onMouseNotOver () {
-    isMouseOver = false
+
   }
 
   function onMouseClick (event) {
@@ -91,7 +90,7 @@ function newCircularMenuItem () {
   }
 
   function drawBackground () {
-    if (isMouseOver === true) {
+    if (thisObject.isDeployed === true) {
       let point = {
         x: thisObject.container.frame.position.x,
         y: thisObject.container.frame.position.y

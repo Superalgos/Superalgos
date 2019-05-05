@@ -82,7 +82,7 @@ function newTimeMachine () {
 
     let timelineChart = newTimelineChart()
 
-    timelineChart.container.connectToParent(thisObject.container, true, true, false, true)
+    timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true)
     timelineChart.container.frame.height = thisObject.container.frame.height
 
     timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
@@ -106,7 +106,7 @@ function newTimeMachine () {
       /* Each Time Machine has a Time Scale and a Right Scale. */
 
       timeScale = newTimeScale()
-      timeScale.container.connectToParent(thisObject.container, false, false, false, true)
+      timeScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
       timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
         thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
@@ -115,7 +115,7 @@ function newTimeMachine () {
       timeScale.initialize(timeLineCoordinateSystem)
 
       rigthScale = newRateScale()
-      rigthScale.container.connectToParent(thisObject.container, false, false, false, true)
+      rigthScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
       rigthScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
@@ -157,7 +157,7 @@ function newTimeMachine () {
 
         let timelineChart = newTimelineChart()
 
-        timelineChart.container.connectToParent(thisObject.container, true, true, false, true)
+        timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
         timelineChart.container.frame.height = thisObject.container.frame.height
 

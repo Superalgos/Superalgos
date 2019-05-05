@@ -4,6 +4,7 @@ function newCircularMenu () {
 
   let thisObject = {
     container: undefined,
+    isDeployed: undefined,
     physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
@@ -21,8 +22,6 @@ function newCircularMenu () {
 
   let menuItemsInitialValues = []
   let menuItems = []
-
-  let isMouseOver = false
 
   return thisObject
 
@@ -43,7 +42,7 @@ function newCircularMenu () {
       menuItem.angle = menuItemInitialValue.angle
 
       menuItem.initialize()
-      menuItem.container.connectToParent(thisObject.container, false, false, true, true)
+      menuItem.container.connectToParent(thisObject.container, false, false, true, true, false, false)
       menuItems.push(menuItem)
     }
 
@@ -72,16 +71,18 @@ function newCircularMenu () {
     for (let i = 0; i < menuItems.length; i++) {
       let menutItem = menuItems[i]
       menutItem.targetRadius = menutItem.rawRadius * 1.5
+      menutItem.isDeployed = true
     }
-    isMouseOver = true
+    thisObject.isDeployed = true
   }
 
   function onMouseNotOver () {
     for (let i = 0; i < menuItems.length; i++) {
       let menutItem = menuItems[i]
       menutItem.targetRadius = menutItem.rawRadius * 0 - i * 5
+      menutItem.isDeployed = false
     }
-    isMouseOver = false
+    thisObject.isDeployed = false
   }
 
   function drawBackground (pFloatingObject) {

@@ -240,6 +240,7 @@ function newStrategyPart () {
 
     thisObject.menu = newCircularMenu()
     thisObject.menu.initialize(menuItemsInitialValues)
+    thisObject.menu.container.connectToParent(thisObject.container, false, false, true)
 
 /* Load Part Image */
 

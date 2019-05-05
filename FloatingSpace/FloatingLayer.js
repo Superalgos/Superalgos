@@ -581,36 +581,6 @@ function newFloatingLayer () {
               floatingObject.currentSpeed.y = -MAX_SPEED
             }
 
-                        // The radius also have a target.
-
-            if (Math.abs(floatingObject.container.frame.radius - floatingObject.targetRadius) >= 1) {
-              if (floatingObject.container.frame.radius < floatingObject.targetRadius) {
-                floatingObject.container.frame.radius = floatingObject.container.frame.radius + 0.5
-              } else {
-                floatingObject.container.frame.radius = floatingObject.container.frame.radius - 0.5
-              }
-            }
-
-                        // The imageSize also have a target.
-
-            if (Math.abs(floatingObject.currentImageSize - floatingObject.targetImageSize) >= 1) {
-              if (floatingObject.currentImageSize < floatingObject.targetImageSize) {
-                floatingObject.currentImageSize = floatingObject.currentImageSize + 1
-              } else {
-                floatingObject.currentImageSize = floatingObject.currentImageSize - 1
-              }
-            }
-
-                        // The fontSize also have a target.
-
-            if (Math.abs(floatingObject.currentFontSize - floatingObject.targetFontSize) >= 0.2) {
-              if (floatingObject.currentFontSize < floatingObject.targetFontSize) {
-                floatingObject.currentFontSize = floatingObject.currentFontSize + 0.2
-              } else {
-                floatingObject.currentFontSize = floatingObject.currentFontSize - 0.2
-              }
-            }
-
                         // We let the Floating Object animate the physics loops by itself.
 
             floatingObject.physics()

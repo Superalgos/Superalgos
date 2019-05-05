@@ -124,16 +124,41 @@ function newFloatingObject () {
     }
   }
 
-  function physics (callBackFunction) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
+  function physics () {
+    thisObjectPhysics()
+    thisObject.underlayingObject.physics()
+  }
 
-      thisObject.underlayingObject.physics()
+  function thisObjectPhysics () {
+                            // The radius also have a target.
 
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] physics -> err= ' + err.stack) }
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
+    if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 1) {
+      if (thisObject.container.frame.radius < thisObject.targetRadius) {
+        thisObject.container.frame.radius = thisObject.container.frame.radius + 0.5
+      } else {
+        thisObject.container.frame.radius = thisObject.container.frame.radius - 0.5
+      }
+      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+    }
+
+                            // The imageSize also have a target.
+
+    if (Math.abs(thisObject.currentImageSize - thisObject.targetImageSize) >= 1) {
+      if (thisObject.currentImageSize < thisObject.targetImageSize) {
+        thisObject.currentImageSize = thisObject.currentImageSize + 1
+      } else {
+        thisObject.currentImageSize = thisObject.currentImageSize - 1
+      }
+    }
+
+                            // The fontSize also have a target.
+
+    if (Math.abs(thisObject.currentFontSize - thisObject.targetFontSize) >= 0.2) {
+      if (thisObject.currentFontSize < thisObject.targetFontSize) {
+        thisObject.currentFontSize = thisObject.currentFontSize + 0.2
+      } else {
+        thisObject.currentFontSize = thisObject.currentFontSize - 0.2
+      }
     }
   }
 

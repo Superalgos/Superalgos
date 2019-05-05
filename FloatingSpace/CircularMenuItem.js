@@ -121,8 +121,8 @@ function newCircularMenuItem () {
 
     if (thisObject.canDrawIcon === true && thisObject.currentRadius > 1) {
       let menuPosition = {
-        x: position.x + thisObject.currentRadius * 3 / 4 * Math.cos(toRadians(thisObject.angle)),
-        y: position.y - thisObject.currentRadius * 3 / 4 * Math.sin(toRadians(thisObject.angle)) }
+        x: position.x + thisObject.container.frame.radius * 3 / 4 * Math.cos(toRadians(thisObject.angle)),
+        y: position.y - thisObject.container.frame.radius * 3 / 4 * Math.sin(toRadians(thisObject.angle)) }
 
       browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - thisObject.currentRadius, menuPosition.y - thisObject.currentRadius, thisObject.currentRadius * 2, thisObject.currentRadius * 2)
 

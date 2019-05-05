@@ -119,7 +119,7 @@
                     logInfo: true,
                     logWarnings: false,
                     logErrors: true,
-                    logContent: false,
+                    logContent: true,
                     intensiveLogging: false
                 }
             };

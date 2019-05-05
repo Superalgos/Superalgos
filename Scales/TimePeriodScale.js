@@ -27,7 +27,7 @@ function newTimePeriodScale () {
     }
   }
 
-  let visible = false
+  let visible = true
   let timeLineCoordinateSystem
   let objectStorage = {}
   let filePeriodIndex = FILES_PERIOD_DEFAULT_VALUE

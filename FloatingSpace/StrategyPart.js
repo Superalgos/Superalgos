@@ -277,12 +277,12 @@ function newStrategyPart () {
   }
 
   function onMouseOver () {
-    thisObject.menu.container.eventHandler.raiseEvent('onMouseOver')
+    // thisObject.menu.container.eventHandler.raiseEvent('onMouseOver')
     isMouseOver = true
   }
 
   function onMouseNotOver () {
-    thisObject.menu.container.eventHandler.raiseEvent('onMouseNotOver')
+    // thisObject.menu.container.eventHandler.raiseEvent('onMouseNotOver')
     isMouseOver = false
   }
 
@@ -399,7 +399,7 @@ function newStrategyPart () {
       if (label !== undefined) {
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-          y: position.y - radius / 2 - fontSize * FONT_ASPECT_RATIO - 10
+          y: position.y - radius / 3 - fontSize * FONT_ASPECT_RATIO - 10
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -412,7 +412,7 @@ function newStrategyPart () {
       if (label !== undefined && isMouseOver === true) {
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-          y: position.y + radius / 2 + fontSize * FONT_ASPECT_RATIO + 15
+          y: position.y + radius / 3 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY

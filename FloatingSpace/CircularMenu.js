@@ -42,7 +42,7 @@ function newCircularMenu () {
       menuItem.angle = menuItemInitialValue.angle
 
       menuItem.initialize()
-      menuItem.container.connectToParent(thisObject.container, false, false, true, true, false, false)
+      menuItem.container.connectToParent(thisObject.container, false, false, true, true, true, true)
       menuItems.push(menuItem)
     }
 
@@ -53,10 +53,12 @@ function newCircularMenu () {
   function getContainer (point) {
     let container
 
-    for (let i = 0; i < menuItems.length; i++) {
-      let menutItem = menuItems[i]
-      container = menutItem.getContainer(point)
-      if (container !== undefined) { return container }
+    if (thisObject.isDeployed === true) {
+      for (let i = 0; i < menuItems.length; i++) {
+        let menutItem = menuItems[i]
+        container = menutItem.getContainer(point)
+        if (container !== undefined) { return container }
+      }
     }
   }
 
@@ -74,6 +76,7 @@ function newCircularMenu () {
       menutItem.isDeployed = true
     }
     thisObject.isDeployed = true
+    console.log('mouse over')
   }
 
   function onMouseNotOver () {
@@ -83,6 +86,7 @@ function newCircularMenu () {
       menutItem.isDeployed = false
     }
     thisObject.isDeployed = false
+    console.log('mouse not over')
   }
 
   function drawBackground (pFloatingObject) {
@@ -99,3 +103,4 @@ function newCircularMenu () {
     }
   }
 }
+

@@ -27,7 +27,7 @@ function newTimeScale () {
     }
   }
 
-  let visible = false
+  let visible = true
   let timeLineCoordinateSystem
 
   return thisObject

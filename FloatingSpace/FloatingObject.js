@@ -102,7 +102,7 @@ function newFloatingObject () {
 
       thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
       thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
-      canvas.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+      thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
     } catch (err) {
@@ -132,11 +132,11 @@ function newFloatingObject () {
   function thisObjectPhysics () {
                            // The radius also have a target.
 
-    if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 1) {
+    if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 3) {
       if (thisObject.container.frame.radius < thisObject.targetRadius) {
-        thisObject.container.frame.radius = thisObject.container.frame.radius + 2.5
+        thisObject.container.frame.radius = thisObject.container.frame.radius + 3
       } else {
-        thisObject.container.frame.radius = thisObject.container.frame.radius - 2.5
+        thisObject.container.frame.radius = thisObject.container.frame.radius - 3
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     }
@@ -162,20 +162,20 @@ function newFloatingObject () {
     }
   }
 
-  function onMouseOver () {
-    thisObject.targetRadius = thisObject.rawRadius * 5.0
+  function onMouseOver (point) {
+    thisObject.targetRadius = thisObject.rawRadius * 6.0
     thisObject.targetImageSize = thisObject.rawImageSize * 2.0
     thisObject.targetFontSize = thisObject.rawFontSize * 2.0
 
-    thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseOver')
+    thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseOver', point)
   }
 
-  function onMouseNotOver () {
+  function onMouseNotOver (point) {
     thisObject.targetRadius = thisObject.rawRadius * 1
     thisObject.targetImageSize = thisObject.rawImageSize * 1
     thisObject.targetFontSize = thisObject.rawFontSize * 1
 
-    thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseNotOver')
+    thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseNotOver', point)
   }
 
   function onMouseClick (pPoint) {

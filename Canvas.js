@@ -47,7 +47,7 @@ function newCanvas () {
   thisObject.eventHandler = newEventHandler()
 
   let splashScreen
-
+  let lastContainerMouseOver
   return thisObject
 
 /*
@@ -538,10 +538,6 @@ function newCanvas () {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] onMouseOver -> Entering function.') }
 
-           /* First we raise the event signaling theat the mouse is potentially over another item, so that the current item can turn itself off. */
-
-      thisObject.eventHandler.raiseEvent('onMouseNotOver')
-
            /* Then we check who is the current object underneeth the mounse. */
 
       let point = {
@@ -557,7 +553,7 @@ function newCanvas () {
         container = thisObject.strategySpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
-          container.eventHandler.raiseEvent('onMouseOver', point)
+          containerFound()
           return
         }
       }
@@ -568,7 +564,7 @@ function newCanvas () {
         container = thisObject.topSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
-          container.eventHandler.raiseEvent('onMouseOver', point)
+          containerFound()
           return
         }
       }
@@ -579,7 +575,7 @@ function newCanvas () {
         container = thisObject.bottomSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
-          container.eventHandler.raiseEvent('onMouseOver', point)
+          containerFound()
           return
         }
       }
@@ -590,7 +586,7 @@ function newCanvas () {
         container = thisObject.panelsSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
-          container.eventHandler.raiseEvent('onMouseOver', point)
+          containerFound()
           return
         }
       }
@@ -600,7 +596,7 @@ function newCanvas () {
         container = thisObject.floatingSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
-          container.eventHandler.raiseEvent('onMouseOver', point)
+          containerFound()
           return
         }
       }
@@ -611,9 +607,20 @@ function newCanvas () {
         container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
         if (container !== undefined && container.detectMouseOver === true) {
-          container.eventHandler.raiseEvent('onMouseOver', point)
+          containerFound()
           return
         }
+      }
+
+      function containerFound () {
+        if (lastContainerMouseOver !== undefined) {
+          if (container.id !== lastContainerMouseOver.id) {
+            lastContainerMouseOver.eventHandler.raiseEvent('onMouseNotOver', point)
+          }
+        }
+
+        container.eventHandler.raiseEvent('onMouseOver', point)
+        lastContainerMouseOver = container
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] onMouseOver -> err = ' + err.stack) }
@@ -738,3 +745,4 @@ function newCanvas () {
     }
   }
 }
+

@@ -33,7 +33,7 @@ function newRateScale () {
     }
   }
 
-  let visible = false
+  let visible = true
   let timeLineCoordinateSystem
 
   return thisObject

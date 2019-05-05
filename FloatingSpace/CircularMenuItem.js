@@ -32,6 +32,8 @@ function newCircularMenuItem () {
   thisObject.container.frame.width = 150
   thisObject.container.frame.height = 30
 
+  let isMouseOver = false
+
   return thisObject
 
   function initialize () {
@@ -59,11 +61,12 @@ function newCircularMenuItem () {
 
   function getContainer (point) {
     let container
-
-    if (thisObject.container.frame.isThisPointHere(point, true, true) === true) {
-      return thisObject.container
-    } else {
-      return undefined
+    if (thisObject.isDeployed === true) {
+      if (thisObject.container.frame.isThisPointHere(point, true, true) === true) {
+        return thisObject.container
+      } else {
+        return undefined
+      }
     }
   }
 
@@ -75,14 +78,21 @@ function newCircularMenuItem () {
         thisObject.currentRadius = thisObject.currentRadius - 0.5
       }
     }
+
+    thisObject.container.frame.position.x = thisObject.container.frame.radius * 3 / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius
+    thisObject.container.frame.position.y = thisObject.container.frame.radius * 3 / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
   }
 
-  function onMouseOver () {
-
+  function onMouseOver (point) {
+    if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
+      isMouseOver = true
+    } else {
+      isMouseOver = false
+    }
   }
 
-  function onMouseNotOver () {
-
+  function onMouseNotOver (point) {
+    isMouseOver = false
   }
 
   function onMouseClick (event) {
@@ -90,16 +100,23 @@ function newCircularMenuItem () {
   }
 
   function drawBackground () {
-    if (thisObject.isDeployed === true) {
-      let point = {
-        x: thisObject.container.frame.position.x,
-        y: thisObject.container.frame.position.y
+    if (thisObject.container.frame.position.x > 0 && thisObject.isDeployed === true) {
+      let position = {
+        x: 0,
+        y: 0
       }
+
+      position = thisObject.container.frame.frameThisPoint(position)
 
       browserCanvasContext.beginPath()
 
-      browserCanvasContext.rect(point.x, point.y, thisObject.container.frame.width, thisObject.container.frame.height)
-      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'
+      browserCanvasContext.rect(position.x, position.y, thisObject.container.frame.width, thisObject.container.frame.height)
+
+      if (isMouseOver === true) {
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'
+      } else {
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RED + ', 0.5)'
+      }
 
       browserCanvasContext.closePath()
       browserCanvasContext.fill()
@@ -107,25 +124,16 @@ function newCircularMenuItem () {
   }
 
   function drawForeground () {
-    let position = {
-      x: 0,
-      y: 0
+    let menuPosition = {
+      x: thisObject.currentRadius,
+      y: thisObject.container.frame.height / 2
     }
 
-    thisObject.container.frame.position.x = 0
-    thisObject.container.frame.position.y = 0
-    position = thisObject.container.frame.frameThisPoint(position)
+    menuPosition = thisObject.container.frame.frameThisPoint(menuPosition)
 
         /* Menu  Item */
 
-    if (thisObject.canDrawIcon === true && thisObject.currentRadius > 1) {
-      let menuPosition = {
-        x: position.x + thisObject.container.frame.radius * 4 / 7 * Math.cos(toRadians(thisObject.angle)),
-        y: position.y - thisObject.container.frame.radius * 4 / 7 * Math.sin(toRadians(thisObject.angle)) }
-
-      thisObject.container.frame.position.x = menuPosition.x - thisObject.currentRadius
-      thisObject.container.frame.position.y = menuPosition.y - thisObject.container.frame.height / 2
-
+    if (thisObject.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
       browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - thisObject.currentRadius, menuPosition.y - thisObject.currentRadius, thisObject.currentRadius * 2, thisObject.currentRadius * 2)
 
         /* Menu Label */

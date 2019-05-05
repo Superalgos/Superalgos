@@ -88,7 +88,7 @@ function newFloatingObject () {
         case 'Strategy Part': {
           thisObject.underlayingObject = newStrategyPart()
           thisObject.underlayingObject.initialize(floatingLayer, pSubType)
-          thisObject.underlayingObject.container.connectToParent(thisObject.container, false, false, true)
+          thisObject.underlayingObject.container.connectToParent(thisObject.container, false, false, true, true)
           break
         }
         default: {

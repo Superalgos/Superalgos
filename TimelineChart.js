@@ -123,7 +123,7 @@
 
        plotterManager = newPlottersManager()
 
-       plotterManager.container.connectToParent(thisObject.container, true, true)
+       plotterManager.container.connectToParent(thisObject.container, true, true, false, true)
 
        plotterManager.container.frame.position.x = 0
        plotterManager.container.frame.position.y = 0
@@ -142,7 +142,7 @@
          }
 
          timePeriodScale = newTimePeriodScale()
-         timePeriodScale.container.connectToParent(thisObject.container, false, false)
+         timePeriodScale.container.connectToParent(thisObject.container, false, false, false, true)
          timePeriodScale.container.eventHandler.listenToEvent('Time Period Changed', function (event) {
            let currentTimePeriod = timePeriod
            timePeriod = event.timePeriod

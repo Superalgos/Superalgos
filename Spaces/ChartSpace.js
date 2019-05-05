@@ -54,8 +54,6 @@ function newChartSpace () {
 
     var timeMachine = newTimeMachine()
 
-    // timeMachine.container.connectToParent(thisObject.container, true, true)
-
         /* We make the time machine a little bit smaller than the current space. */
 
     timeMachine.container.frame.position.x = this.container.frame.width / 2 - timeMachine.container.frame.width / 2

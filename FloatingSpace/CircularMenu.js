@@ -43,7 +43,7 @@ function newCircularMenu () {
       menuItem.angle = menuItemInitialValue.angle
 
       menuItem.initialize()
-      menuItem.container.connectToParent(thisObject.container, false, false, true)
+      menuItem.container.connectToParent(thisObject.container, false, false, true, true)
       menuItems.push(menuItem)
     }
 

@@ -134,9 +134,9 @@ function newFloatingObject () {
 
     if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 1) {
       if (thisObject.container.frame.radius < thisObject.targetRadius) {
-        thisObject.container.frame.radius = thisObject.container.frame.radius + 2
+        thisObject.container.frame.radius = thisObject.container.frame.radius + 2.5
       } else {
-        thisObject.container.frame.radius = thisObject.container.frame.radius - 2
+        thisObject.container.frame.radius = thisObject.container.frame.radius - 2.5
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     }
@@ -163,7 +163,7 @@ function newFloatingObject () {
   }
 
   function onMouseOver () {
-    thisObject.targetRadius = thisObject.rawRadius * 4.0
+    thisObject.targetRadius = thisObject.rawRadius * 5.0
     thisObject.targetImageSize = thisObject.rawImageSize * 2.0
     thisObject.targetFontSize = thisObject.rawFontSize * 2.0
 

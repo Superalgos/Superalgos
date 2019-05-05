@@ -291,7 +291,9 @@ function newStrategyPart () {
   }
 
   function drawBackground (pFloatingObject) {
-    drawPartBackground(pFloatingObject)
+    if (isMouseOver === false) {
+      drawPartBackground(pFloatingObject)
+    }
     thisObject.menu.drawBackground()
   }
 

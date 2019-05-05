@@ -423,7 +423,7 @@
 
                     if(fileContent === undefined){
                         logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExecutionContext -> executionContext is undefined.");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        callBackFunction(global.DEFAULT_ERROR_RESPONSE);
                     }
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> fileName = " + fileName); }

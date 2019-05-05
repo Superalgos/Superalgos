@@ -27,9 +27,12 @@ function newFloatingSpace () {
   thisObject.container.isClickeable = false
   thisObject.container.isDraggeable = false
   thisObject.container.isWheelable = true
+  thisObject.container.detectMouseOver = true
   thisObject.container.frame.radius = 0
-  thisObject.container.frame.position.x = 0
+  thisObject.container.frame.position.x = SIDE_PANEL_WIDTH
   thisObject.container.frame.position.y = 0
+  thisObject.container.frame.width = browserCanvas.width - SIDE_PANEL_WIDTH
+  thisObject.container.frame.height = browserCanvas.height
 
   let visible = false
 
@@ -83,8 +86,6 @@ function newFloatingSpace () {
     if (visible === true) {
       return thisObject.container
     }
-
-    return container
   }
 
   function physics () {
@@ -102,7 +103,7 @@ function newFloatingSpace () {
   function drawBackground () {
     browserCanvasContext.beginPath()
 
-    browserCanvasContext.rect(SIDE_PANEL_WIDTH, 0, browserCanvas.width - SIDE_PANEL_WIDTH, browserCanvas.height)
+    browserCanvasContext.rect(thisObject.container.frame.position.x, thisObject.container.frame.position.y, thisObject.container.frame.width, thisObject.container.frame.height)
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)'
 
     browserCanvasContext.closePath()

@@ -10,6 +10,7 @@ function newContainer () {
     isDraggeable: true,
     isClickeable: false,
     isWheelable: false,
+    detectMouseOver: false,
     name: undefined,
     initialize: initialize,
     finalize: finalize,

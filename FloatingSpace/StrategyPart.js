@@ -291,9 +291,8 @@ function newStrategyPart () {
   }
 
   function drawBackground (pFloatingObject) {
-    if (isMouseOver === false) {
-      drawPartBackground(pFloatingObject)
-    }
+    drawPartBackground(pFloatingObject)
+
     thisObject.menu.drawBackground()
   }
 
@@ -303,10 +302,8 @@ function newStrategyPart () {
     /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
     let parentFloatingObject = floatingLayer.getFloatingObject(pFloatingObject.payload.parentNode.handle)
 
-    if (isMouseOver === false) {
-      pFloatingObject.payload.profile.position.x = parentFloatingObject.container.frame.position.x
-      pFloatingObject.payload.profile.position.y = parentFloatingObject.container.frame.position.y
-    }
+    pFloatingObject.payload.profile.position.x = parentFloatingObject.container.frame.position.x
+    pFloatingObject.payload.profile.position.y = parentFloatingObject.container.frame.position.y
 
    /* Here I continue painting the background */
 

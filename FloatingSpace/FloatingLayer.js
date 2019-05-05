@@ -910,8 +910,12 @@ function newFloatingLayer () {
       pos2.x = pos2.x - minTD.x * (im2 / (im1 + im2))
       pos2.y = pos2.y - minTD.y * (im2 / (im1 + im2))
 
-      floatingObject1.container.frame.position = pos1
-      floatingObject2.container.frame.position = pos2
+      if (floatingObject1.positionLocked === false) {
+        floatingObject1.container.frame.position = pos1
+      }
+      if (floatingObject2.positionLocked === false) {
+        floatingObject2.container.frame.position = pos2
+      }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] resolveCollision -> err= ' + err.stack) }
     }

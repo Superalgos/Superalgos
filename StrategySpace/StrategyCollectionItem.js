@@ -94,7 +94,7 @@ function newStrategyCollectionItem () {
     createPart('Strategy Entry', '', strategy.entryPoint, strategy)
     for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
       let situation = strategy.entryPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.entryPoint, 'Situation' + ' #' + (k + 1))
+      createPart('Situation', situation.name, situation, strategy.entryPoint, 'Strategy Entry' + ' ' + 'Situation' + ' #' + (k + 1))
 
       for (let m = 0; m < situation.conditions.length; m++) {
         let condition = situation.conditions[m]
@@ -105,7 +105,7 @@ function newStrategyCollectionItem () {
     createPart('Strategy Exit', '', strategy.exitPoint, strategy)
     for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
       let situation = strategy.exitPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.exitPoint, 'Situation' + ' #' + (k + 1))
+      createPart('Situation', situation.name, situation, strategy.exitPoint, 'Strategy Exit' + ' ' + 'Situation' + ' #' + (k + 1))
 
       for (let m = 0; m < situation.conditions.length; m++) {
         let condition = situation.conditions[m]
@@ -116,7 +116,7 @@ function newStrategyCollectionItem () {
     createPart('Trade Entry', '', strategy.sellPoint, strategy)
     for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
       let situation = strategy.sellPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.sellPoint, 'Situation' + ' #' + (k + 1))
+      createPart('Situation', situation.name, situation, strategy.sellPoint, 'Trade Entry' + ' ' + 'Situation' + ' #' + (k + 1))
 
       for (let m = 0; m < situation.conditions.length; m++) {
         let condition = situation.conditions[m]

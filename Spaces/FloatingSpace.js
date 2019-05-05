@@ -55,7 +55,7 @@ function newFloatingSpace () {
     thisObject.strategyParts = newStrategyParts()
     thisObject.strategyParts.initialize(thisObject.floatingLayer)
 
-    thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
+    thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
   }
 
   function onMouseWheel (event) {

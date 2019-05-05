@@ -41,7 +41,7 @@ function newRateScale () {
   function initialize (pTimeLineCoordinateSystem) {
     timeLineCoordinateSystem = pTimeLineCoordinateSystem
 
-    thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
+    thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
     thisObject.heightPercentage = window.localStorage.getItem(MODULE_NAME)
     if (!thisObject.heightPercentage) {

@@ -132,13 +132,13 @@
                         /* Listen to Status Changes Events */
 
              productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged)
-             productCard.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
+             productCard.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
            }
          }
        }
      }
 
-     thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
+     thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
      isInitialized = true
    }
 

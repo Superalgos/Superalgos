@@ -40,7 +40,7 @@ function newTimePeriodScale () {
   function initialize (pTimeLineCoordinateSystem) {
     timeLineCoordinateSystem = pTimeLineCoordinateSystem
 
-    thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
+    thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
     readObjectState()
     newTimePeriod()

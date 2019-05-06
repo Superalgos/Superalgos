@@ -130,17 +130,11 @@ function newFloatingLayer () {
             at each of the arrays until we find it. Once found, we remove it and is sent to the dying floating objects array.
             */
 
-      if (INFO_LOG === true) { logger.write('[INFO] killFloatingObject -> Entering function.') }
-
       for (let i = 0; i < invisibleFloatingObjects.length; i++) {
         let floatingObject = invisibleFloatingObjects[i]
 
         if (floatingObject.handle === pFloatingObjectHandle) {
           invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
-
-          if (INFO_LOG === true) { logger.write('[INFO] killFloatingObject -> floatingObject.handle = ' + floatingObject.handle) }
-          if (INFO_LOG === true) { logger.write('[INFO] killFloatingObject -> Removing floatingObject from invisibleFloatingObjects.') }
-          if (INFO_LOG === true) { logger.write('[INFO] killFloatingObject -> invisibleFloatingObjects.length = ' + invisibleFloatingObjects.length) }
 
           sendToDie(floatingObject)
           return
@@ -152,10 +146,6 @@ function newFloatingLayer () {
 
         if (floatingObject.handle === pFloatingObjectHandle) {
           visibleFloatingObjects.splice(i, 1)  // Delete item from array.
-
-          if (INFO_LOG === true) { logger.write('[INFO] killFloatingObject -> floatingObject.handle = ' + floatingObject.handle) }
-          if (INFO_LOG === true) { logger.write('[INFO] killFloatingObject -> Removing floatingObject from visibleFloatingObjects.') }
-          if (INFO_LOG === true) { logger.write('[INFO] killFloatingObject -> visibleFloatingObjects.length = ' + visibleFloatingObjects.length) }
 
           sendToDie(floatingObject)
           return
@@ -223,15 +213,15 @@ function newFloatingLayer () {
               break
             }
             case 'Strategy Part': {
-              if (pFloatingObject.payload.profile.visible === false) { return }
+              if (pFloatingObject.payload.visible === false) { return }
 
               payload.profile = {
                 position: {
                   x: pFloatingObject.payload.position.x,
                   y: pFloatingObject.payload.position.y
                 },
-                visible: pFloatingObject.payload.profile.visible,
-                botAvatar: pFloatingObject.payload.profile.botAvatar
+                visible: pFloatingObject.payload.visible,
+                botAvatar: pFloatingObject.payload.botAvatar
               }
 
               pFloatingObject.payload = payload
@@ -921,3 +911,4 @@ function newFloatingLayer () {
     }
   }
 }
+

@@ -58,6 +58,7 @@ function newStrategy () {
     payload.onMenuItemClick = onMenuItemClick
 
     node.handle = canvas.floatingSpace.strategyParts.createNewStrategyPart(partType, payload)
+    node.payload = payload
   }
 
   function destroyPart (node) {
@@ -242,20 +243,46 @@ function newStrategy () {
       case 'Delete Phase':
 
         break
-      case 'Delete Situation':
-        for (let i = 0; i < payload.parentNode.situations.length; i++) {
-          let situation = payload.parentNode.situations[i]
-          if (situation.name === payload.node.name) {
-            payload.parentNode.situations.splice(i)
-            return
-          }
-        }
+      case 'Delete Situation': {
+        deleteSituation(payload.node)
         break
-      case 'Delete Condition':
-
+      }
         break
+      case 'Delete Condition': {
+        deleteCondition(payload.node)
+        break
+      }
       default:
 
     }
   }
+
+  function deleteSituation (node) {
+    let payload = node.payload
+    for (let j = 0; j < payload.parentNode.situations.length; j++) {
+      let situation = payload.parentNode.situations[j]
+      if (situation.name === node.name) {
+        for (let i = 0; i < situation.conditions.length; i++) {
+          let condition = situation.conditions[i]
+          destroyPart(condition)
+        }
+        payload.parentNode.situations.splice(j)
+        destroyPart(node)
+        return
+      }
+    }
+  }
+
+  function deleteCondition (node) {
+    let payload = node.payload
+    for (let i = 0; i < payload.parentNode.conditions.length; i++) {
+      let condition = payload.parentNode.conditions[i]
+      if (condition.name === node.name) {
+        payload.parentNode.conditions.splice(i)
+        destroyPart(node)
+        return
+      }
+    }
+  }
 }
+

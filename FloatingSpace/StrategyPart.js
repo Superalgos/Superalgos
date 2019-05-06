@@ -39,6 +39,7 @@ function newStrategyPart () {
         imagePath = 'Images/icons/style-01/quality.png'
         menuItemsInitialValues = [
           {
+            action: 'Open Settings',
             label: 'Settings',
             visible: false,
             imagePathOn: 'Images/icons/style-01/tools.png',
@@ -49,6 +50,7 @@ function newStrategyPart () {
             angle: 20
           },
           {
+            action: 'Delete Strategy',
             label: 'Delete This Strategy',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
@@ -64,6 +66,7 @@ function newStrategyPart () {
         imagePath = 'Images/icons/style-01/startup.png'
         menuItemsInitialValues = [
           {
+            action: 'Add Situation',
             label: 'Add Situation',
             visible: false,
             imagePathOn: 'Images/icons/style-01/attractive.png',
@@ -79,6 +82,7 @@ function newStrategyPart () {
         imagePath = 'Images/icons/style-01/support.png'
         menuItemsInitialValues = [
           {
+            action: 'Add Situation',
             label: 'Add Situation',
             visible: false,
             imagePathOn: 'Images/icons/style-01/attractive.png',
@@ -94,21 +98,7 @@ function newStrategyPart () {
         imagePath = 'Images/icons/style-01/compass.png'
         menuItemsInitialValues = [
           {
-            label: 'Add Situation',
-            visible: false,
-            imagePathOn: 'Images/icons/style-01/attractive.png',
-            imagePathOff: 'Images/icons/style-01/target.png',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 0
-          }]
-        break
-      }
-      case 'Trade Exit': {
-        imagePath = 'Images/icons/style-01/broken-link.png'
-        menuItemsInitialValues = [
-          {
+            action: 'Add Situation',
             label: 'Add Situation',
             visible: false,
             imagePathOn: 'Images/icons/style-01/attractive.png',
@@ -124,6 +114,7 @@ function newStrategyPart () {
         imagePath = 'Images/icons/style-01/pixel.png'
         menuItemsInitialValues = [
           {
+            action: 'Add Phase',
             label: 'Add Phase',
             visible: false,
             imagePathOn: 'Images/icons/style-01/placeholder.png',
@@ -139,6 +130,7 @@ function newStrategyPart () {
         imagePath = 'Images/icons/style-01/competition.png'
         menuItemsInitialValues = [
           {
+            action: 'Add Phase',
             label: 'Add Phase',
             visible: false,
             imagePathOn: 'Images/icons/style-01/placeholder.png',
@@ -154,6 +146,7 @@ function newStrategyPart () {
         imagePath = 'Images/icons/style-01/placeholder.png'
         menuItemsInitialValues = [
           {
+            action: 'Edit Code',
             label: 'Edit Code',
             visible: false,
             imagePathOn: 'Images/icons/style-01/html.png',
@@ -164,6 +157,7 @@ function newStrategyPart () {
             angle: 40
           },
           {
+            action: 'Add Situation',
             label: 'Add Situation',
             visible: false,
             imagePathOn: 'Images/icons/style-01/attractive.png',
@@ -174,6 +168,7 @@ function newStrategyPart () {
             angle: 0
           },
           {
+            action: 'Delete Phase',
             label: 'Delete This Phase',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
@@ -189,6 +184,7 @@ function newStrategyPart () {
         imagePath = 'Images/icons/style-01/attractive.png'
         menuItemsInitialValues = [
           {
+            action: 'Add Condition',
             label: 'Add Condition',
             visible: false,
             imagePathOn: 'Images/icons/style-01/testing.png',
@@ -199,6 +195,7 @@ function newStrategyPart () {
             angle: 20
           },
           {
+            action: 'Delete Situation',
             label: 'Delete This Situation',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
@@ -214,6 +211,7 @@ function newStrategyPart () {
         imagePath = 'Images/icons/style-01/testing.png'
         menuItemsInitialValues = [
           {
+            action: 'Edit Code',
             label: 'Edit Code',
             visible: false,
             imagePathOn: 'Images/icons/style-01/html.png',
@@ -224,6 +222,7 @@ function newStrategyPart () {
             angle: 20
           },
           {
+            action: 'Delete Condition',
             label: 'Delete This Condition',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',

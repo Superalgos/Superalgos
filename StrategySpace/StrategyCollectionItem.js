@@ -50,8 +50,38 @@ function newStrategyCollectionItem () {
     }
   }
 
-  function onMenuItemClick (payload) {
-    console.log('onMenuItemClick')
+  function onMenuItemClick (payload, action) {
+    console.log('onMenuItemClick ' + action)
+
+    switch (action) {
+      case 'Open Settings':
+
+        break
+      case 'Delete Strategy':
+
+        break
+      case 'Add Situation':
+
+        break
+      case 'Add Phase':
+
+        break
+      case 'Edit Code':
+
+        break
+      case 'Delete Phase':
+
+        break
+      case 'Delete Situation':
+
+        break
+      case 'Delete Condition':
+
+        break
+      default:
+
+    }
+
     payload.profile.upLabel = payload.profile.upLabel + '1'
   }
 

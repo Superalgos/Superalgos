@@ -100,7 +100,7 @@ function newCircularMenuItem () {
   }
 
   function onMouseClick (event) {
-    payload.onMenuItemClick(payload, action)
+    payload.onMenuItemClick(payload, thisObject.action)
   }
 
   function drawBackground () {
@@ -157,3 +157,4 @@ function newCircularMenuItem () {
     }
   }
 }
+

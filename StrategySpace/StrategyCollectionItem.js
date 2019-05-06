@@ -73,7 +73,13 @@ function newStrategyCollectionItem () {
 
         break
       case 'Delete Situation':
-
+        for (let i = 0; i < payload.parentNode.situations.length; i++) {
+          let situation = payload.parentNode.situations[i]
+          if (situation.name === payload.node.name) {
+            payload.parentNode.situations.splice(i)
+            return
+          }
+        }
         break
       case 'Delete Condition':
 
@@ -396,3 +402,4 @@ function newStrategyCollectionItem () {
     browserCanvasContext.drawImage(thisObject.icon, point1.x - IMAGE_SIZE / 2, point1.y - IMAGE_SIZE / 2, IMAGE_SIZE, IMAGE_SIZE)
   }
 }
+

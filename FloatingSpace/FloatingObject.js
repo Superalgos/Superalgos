@@ -7,6 +7,7 @@ function newFloatingObject () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    container: undefined,
     positionLocked: false,
     isOnFocus: false,
     payload: undefined,                     // This is a reference to an object controlled by a Plotter. The plotter can change its internal value and we will see them from here.
@@ -30,7 +31,7 @@ function newFloatingObject () {
     updateMass: updateMass,                 // Function to update the mass when the zoom level changed.
     updateRadius: updateRadius,             // Function to update the radius when the zoom level changed.
     getContainer: getContainer,
-    container: undefined,
+    finalize: finalize,
     initialize: initialize
   }
 
@@ -43,7 +44,25 @@ function newFloatingObject () {
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
 
+  let selfMouseOverEventSubscriptionId
+  let selfMouseClickEventSubscriptionId
+  let spaceMouseOverEventSubscriptionId
+  let spaceFocusAquiredEventSubscriptionId
+
   return thisObject
+
+  function finalize () {
+    thisObject.container.eventHandler.stopListening(selfMouseOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfMouseClickEventSubscriptionId)
+    canvas.floatingSpace.container.eventHandler.stopListening(spaceMouseOverEventSubscriptionId)
+    canvas.floatingSpace.container.eventHandler.stopListening(spaceFocusAquiredEventSubscriptionId)
+
+    thisObject.container.finalize()
+    thisObject.container = undefined
+    thisObject.payload = undefined
+    thisObject.underlayingObject.finalize()
+    thisObject.underlayingObject = undefined
+  }
 
   function initialize (pType, pSubType, floatingLayer) {
     switch (pType) {
@@ -74,12 +93,12 @@ function newFloatingObject () {
 
     thisObject.type = pType
 
-    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-    thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
 
       /* To consider that this object lost the focus, we monitor the space for 2 key events */
-    canvas.floatingSpace.container.eventHandler.listenToEvent('onMouseOver', mouseOverFlotingSpace)
-    canvas.floatingSpace.container.eventHandler.listenToEvent('onFocusAquired', someoneAquiredFocus)
+    spaceMouseOverEventSubscriptionId = canvas.floatingSpace.container.eventHandler.listenToEvent('onMouseOver', mouseOverFlotingSpace)
+    spaceFocusAquiredEventSubscriptionId = canvas.floatingSpace.container.eventHandler.listenToEvent('onFocusAquired', someoneAquiredFocus)
   }
 
   function getContainer (point) {

@@ -52,30 +52,14 @@ function newFloatingLayer () {
 
   let visibleFloatingObjects = []
 
-    /*
-    The creator of the floatingObject at any time can decide to get rid of it and kill it. But we dont want the object just to dissapear because
-    that doesnt look good. What this module does is to remove it from the visible or invisible layer where they are and move them to the
-    dyingFloatingObjects array. Object in this array have a short animation until they finally graphically dissapear and at thay point they are also
-    removed from the dying array for good.
-    */
-
-  let dyingFloatingObjects = []
-
   let maxTargetRepulsionForce = 0.001
   let currentHandle = 0
 
   return thisObject
 
   function finalize () {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
-
-      invisibleFloatingObjects = []
-      visibleFloatingObjects = []
-      dyingFloatingObjects = []
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
-    }
+    invisibleFloatingObjects = []
+    visibleFloatingObjects = []
   }
 
   function initialize () {
@@ -95,35 +79,19 @@ function newFloatingLayer () {
     return container
   }
 
-  function addFloatingObject (pFloatingObject, callBackFunction) {
+  function addFloatingObject (pFloatingObject) {
         /*
         As you can see here, even though the floating objects are created outside this layer, its creator it is not supossed to keep
         the reference to the object, so that the managment of the objects references can live entirely inside this module. What the
         creator keeps, is a handle to the object which it can use to retrieve the floating object when needed.
         */
 
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] addFloatingObject -> Entering function.') }
-
-      invisibleFloatingObjects.push(pFloatingObject)
-
-      if (INFO_LOG === true) { logger.write('[INFO] addFloatingObject -> invisibleFloatingObjects.length = ' + invisibleFloatingObjects.length) }
-
-      currentHandle++
-
-      pFloatingObject.handle = currentHandle // Math.floor((Math.random() * 10000000) + 1);
-
-      if (INFO_LOG === true) { logger.write('[INFO] addFloatingObject -> pFloatingObject.handle = ' + pFloatingObject.handle) }
-      if (INFO_LOG === true) { logger.write('[INFO] addFloatingObject -> pFloatingObject.type = ' + pFloatingObject.type) }
-
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] addFloatingObject -> err= ' + err.stack) }
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
-    }
+    invisibleFloatingObjects.push(pFloatingObject)
+    currentHandle++
+    pFloatingObject.handle = currentHandle // Math.floor((Math.random() * 10000000) + 1);
   }
 
-  function killFloatingObject (pFloatingObjectHandle, callBackFunction) {
+  function killFloatingObject (pFloatingObjectHandle) {
     try {
             /*
             The floting object to be killed can be either at the visible or the invisible array. What we do here is look for it
@@ -136,7 +104,7 @@ function newFloatingLayer () {
         if (floatingObject.handle === pFloatingObjectHandle) {
           invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
 
-          sendToDie(floatingObject)
+          floatingObject.finalize()
           return
         }
       }
@@ -147,7 +115,7 @@ function newFloatingLayer () {
         if (floatingObject.handle === pFloatingObjectHandle) {
           visibleFloatingObjects.splice(i, 1)  // Delete item from array.
 
-          sendToDie(floatingObject)
+          floatingObject.finalize()
           return
         }
       }
@@ -155,97 +123,8 @@ function newFloatingLayer () {
       if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> Floating Object Not Found.') }
       if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> Floating Object cannot be killed.') }
       if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> pFloatingObjectHandle = ' + pFloatingObjectHandle) }
-
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
-
-      function sendToDie (pFloatingObject) {
-        try {
-          if (INFO_LOG === true) { logger.write('[INFO] killFloatingObject -> sendToDie -> Entering function.') }
-
-                    /* Lets mofigy the targerRadius */
-
-          pFloatingObject.targetRadius = 0
-
-                    /* Lets transfer the payload to a new payload structure. */
-
-          let payload = {}
-
-          switch (pFloatingObject.type) {
-
-            case 'Profile Ball': {
-              if (INFO_LOG === true) { logger.write('[INFO] killFloatingObject -> sendToDie -> Profile Ball -> Entering function.') }
-
-              if (pFloatingObject.payload.profile.visible === false) { return }
-
-              payload.profile = {
-                position: {
-                  x: pFloatingObject.payload.profile.position.x,
-                  y: pFloatingObject.payload.profile.position.y
-                },
-                visible: pFloatingObject.payload.profile.visible,
-                botAvatar: pFloatingObject.payload.profile.botAvatar
-              }
-
-              pFloatingObject.payload = payload
-              break
-            }
-            case 'Note': {
-              if (INFO_LOG === true) { logger.write('[INFO] killFloatingObject -> sendToDie -> Note -> Entering function.') }
-
-              if (pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].visible === false) { return }
-
-              payload.notes = []
-              let note = {
-                title: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].title,
-                body: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].body,
-                date: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].date,
-                rate: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].rate,
-                position: {
-                  x: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].position.x,
-                  y: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].position.y
-                },
-                visible: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].visible
-              }
-              payload.notes.push(note)
-              pFloatingObject.payloadNoteIndex = 0
-
-              pFloatingObject.payload = payload
-              break
-            }
-            case 'Strategy Part': {
-              if (pFloatingObject.payload.visible === false) { return }
-
-              payload.profile = {
-                position: {
-                  x: pFloatingObject.payload.position.x,
-                  y: pFloatingObject.payload.position.y
-                },
-                visible: pFloatingObject.payload.visible,
-                botAvatar: pFloatingObject.payload.botAvatar
-              }
-
-              pFloatingObject.payload = payload
-              break
-            }
-            default: {
-              break
-            }
-          }
-
-          dyingFloatingObjects.push(pFloatingObject)
-
-          if (INFO_LOG === true) { logger.write('[INFO] killFloatingObject -> sendToDie -> Adding floatingObject to dyingFloatingObjects.') }
-          if (INFO_LOG === true) { logger.write('[INFO] killFloatingObject -> sendToDie -> dyingFloatingObjects.length = ' + dyingFloatingObjects.length) }
-
-          if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
-        } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> err= ' + err.stack) }
-          if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
-        }
-      }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> err= ' + err.stack) }
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
     }
   }
 
@@ -408,28 +287,8 @@ function newFloatingLayer () {
             return                     // Only one at the time.
           }
         }
-
-        drawDyingObjects()
       } catch (err) {
         if (ERROR_LOG === true) { logger.write('[ERROR] physics -> makeInvisible -> err= ' + err.stack) }
-      }
-    }
-
-    function drawDyingObjects () {
-      try {
-                  /* We also draw all the dyingFloatingObjects */
-
-        for (let i = 0; i < dyingFloatingObjects.length; i++) {
-          let floatingObject = dyingFloatingObjects[i]
-          floatingObject.drawBackground()
-        }
-
-        for (let i = 0; i < dyingFloatingObjects.length; i++) {
-          let floatingObject = dyingFloatingObjects[dyingFloatingObjects.length - i - 1]
-          floatingObject.drawForeground()
-        }
-      } catch (err) {
-        if (ERROR_LOG === true) { logger.write('[ERROR] physics -> drawDyingObjects -> err= ' + err.stack) }
       }
     }
   }
@@ -551,33 +410,8 @@ function newFloatingLayer () {
 
             gravityForce(floatingObject, payload)
           }
-
-          animateDyingObjects()
         } catch (err) {
           if (ERROR_LOG === true) { logger.write('[ERROR] physics -> applyPhysics -> err= ' + err.stack) }
-        }
-      }
-
-      function animateDyingObjects () {
-        try {
-                    /* We animate some parts of the dying objects */
-
-          for (let i = 0; i < dyingFloatingObjects.length; i++) {
-            let floatingObject = dyingFloatingObjects[i]
-
-            if (Math.abs(floatingObject.container.frame.radius - floatingObject.targetRadius) >= 5) {
-              let speed = Math.random()
-
-              floatingObject.container.frame.radius = floatingObject.container.frame.radius - speed * 3
-            } else {
-                            /* Here is when the floatingObjects are definetelly killed. */
-
-              dyingFloatingObjects.splice(i, 1)  // Delete item from array.
-              break  // only one at the time.
-            }
-          }
-        } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] physics -> animateDyingObjects -> err= ' + err.stack) }
         }
       }
     } catch (err) {

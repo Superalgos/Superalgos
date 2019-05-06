@@ -9,6 +9,7 @@ function newCircularMenu () {
     drawBackground: drawBackground,
     drawForeground: drawForeground,
     getContainer: getContainer,
+    finalize: finalize,
     initialize: initialize
   }
 
@@ -20,14 +21,29 @@ function newCircularMenu () {
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
 
-  let menuItemsInitialValues = []
   let menuItems = []
-  let payload
+
+  let selfFocusEventSubscriptionId
+  let selfNotFocuskEventSubscriptionId
 
   return thisObject
 
-  function initialize (menuItemsInitialValues, pPayload) {
-    payload = pPayload
+  function finalize () {
+    thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfNotFocuskEventSubscriptionId)
+
+    thisObject.container.finalize()
+    thisObject.container = undefined
+
+    for (let i = 0; i < menuItems.length; i++) {
+      let menuItem = menuItems[i]
+      menuItem.finalize()
+    }
+
+    menuItems = undefined
+  }
+
+  function initialize (menuItemsInitialValues, payload) {
 /* Create the array of Menu Items */
 
     for (let i = 0; i < menuItemsInitialValues.length; i++) {
@@ -49,8 +65,8 @@ function newCircularMenu () {
       menuItems.push(menuItem)
     }
 
-    thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
-    thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
+    selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
+    selfNotFocuskEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
   }
 
   function getContainer (point) {

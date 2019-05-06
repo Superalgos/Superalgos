@@ -124,19 +124,7 @@ function newNoteSets () {
                             Each time we identify a floatingObject that is not at the raw data anymore, we request the floatinglayer to kill it.
                             */
 
-              floatingLayer.killFloatingObject(floatingNote.floatingHandle, onObjectKilled)
-
-              function onObjectKilled (err) {
-                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                  if (ERROR_LOG === true) { logger.write('[ERROR] createNoteSet -> onNotesChanged -> Remove old Notes -> Floating Object Not Found.') }
-                  if (ERROR_LOG === true) { logger.write('[ERROR] createNoteSet -> onNotesChanged -> Remove old Notes -> Floating Object cannot be killed.') }
-                  if (ERROR_LOG === true) { logger.write('[ERROR] createNoteSet -> onNotesChanged -> Remove old Notes -> floatingNote.floatingHandle = ' + floatingNote.floatingHandle) }
-                  return
-                }
-
-                if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Remove old Notes -> floatingNote.floatingHandle = ' + floatingNote.floatingHandle) }
-                if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Remove old Notes -> Removed from Layer.') }
-              }
+              floatingLayer.killFloatingObject(floatingNote.floatingHandle)
             } else {
               newFloatingNotes.push(floatingNote)
 

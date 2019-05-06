@@ -7,10 +7,12 @@ function newStrategyPart () {
     menu: undefined,
     isOnFocus: false,
     container: undefined,
+    payload: undefined,
     physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
     getContainer: getContainer,
+    finalize: finalize,
     initialize: initialize
   }
 
@@ -25,12 +27,31 @@ function newStrategyPart () {
   let floatingLayer
   let image
   let imagePath
-  let payload
+
+  let selfFocusEventSubscriptionId
+  let selfNotFocuskEventSubscriptionId
+  let selfMouseClickEventSubscriptionId
 
   return thisObject
 
+  function finalize () {
+    thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfNotFocuskEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfMouseClickEventSubscriptionId)
+
+    thisObject.container.finalize()
+    thisObject.container = undefined
+    thisObject.payload = undefined
+    thisObject.menu.finalize()
+    thisObject.menu = undefined
+
+    floatingLayer = undefined
+    image = undefined
+    imagePath = undefined
+  }
+
   function initialize (pFloatingLayer, pType, pPayload) {
-    payload = pPayload
+    thisObject.payload = pPayload
     floatingLayer = pFloatingLayer
 
     let menuItemsInitialValues = []
@@ -240,7 +261,7 @@ function newStrategyPart () {
     }
 
     thisObject.menu = newCircularMenu()
-    thisObject.menu.initialize(menuItemsInitialValues, payload)
+    thisObject.menu.initialize(menuItemsInitialValues, thisObject.payload)
     thisObject.menu.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
 
 /* Load Part Image */
@@ -255,9 +276,9 @@ function newStrategyPart () {
       image.src = window.canvasApp.urlPrefix + imagePath
     }
 
-    thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
-    thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
-    thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
+    selfNotFocuskEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
+    selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
   }
 
   function getContainer (point) {
@@ -427,4 +448,3 @@ function newStrategyPart () {
     }
   }
 }
-

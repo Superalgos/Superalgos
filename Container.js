@@ -45,6 +45,9 @@ function newContainer () {
       thisObject.parentContainer.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
       thisObject.parentContainer.eventHandler.stopListening(onFocusEventSubscriptionId)
       thisObject.parentContainer.eventHandler.stopListening(onNotFocusEventSubscriptionId)
+
+      thisObject.parentContainer = undefined
+      thisObject.eventHandler.finalize()
     }
   }
 

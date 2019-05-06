@@ -19,7 +19,6 @@ function newStrategyParts () {
   return thisObject
 
   function finalize () {
-    floatingLayer.finalize()
     floatingLayer = undefined
   }
 

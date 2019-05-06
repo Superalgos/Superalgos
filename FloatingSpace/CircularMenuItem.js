@@ -16,10 +16,12 @@ function newCircularMenuItem () {
     currentRadius: undefined,
     angle: undefined,
     container: undefined,
+    payload: undefined,
     physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
     getContainer: getContainer,
+    finalize: finalize,
     initialize: initialize
   }
 
@@ -35,12 +37,26 @@ function newCircularMenuItem () {
   thisObject.container.frame.height = 30
 
   let isMouseOver = false
-  let payload
 
+  let selfMouseOverEventSubscriptionId
+  let selfMouseClickEventSubscriptionId
+  let selfMouseNotOverEventSubscriptionId
   return thisObject
 
+  function finalize () {
+    thisObject.container.eventHandler.stopListening(selfMouseOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfMouseClickEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfMouseNotOverEventSubscriptionId)
+
+    thisObject.container.finalize()
+    thisObject.container = undefined
+    thisObject.iconOn = undefined
+    thisObject.iconOff = undefined
+    thisObject.payload = undefined
+  }
+
   function initialize (pPayload) {
-    payload = pPayload
+    thisObject.payload = pPayload
     /* Load Menu Images */
 
     thisObject.iconOn = new Image()
@@ -58,9 +74,9 @@ function newCircularMenuItem () {
     thisObject.iconOn.src = window.canvasApp.urlPrefix + thisObject.imagePathOn
     thisObject.icon = thisObject.iconOn // The default value is ON.
 
-    thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
-    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-    thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+    selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }
 
   function getContainer (point) {
@@ -100,7 +116,7 @@ function newCircularMenuItem () {
   }
 
   function onMouseClick (event) {
-    payload.onMenuItemClick(payload, thisObject.action)
+    thisObject.payload.onMenuItemClick(thisObject.payload, thisObject.action)
   }
 
   function drawBackground () {
@@ -157,4 +173,3 @@ function newCircularMenuItem () {
     }
   }
 }
-

@@ -103,7 +103,10 @@ function newFloatingObject () {
 
       thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
       thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
-      thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+
+      /* To consider that this object lost the focus, we monitor the space for 2 key events */
+      canvas.floatingSpace.container.eventHandler.listenToEvent('onMouseOver', mouseOverFlotingSpace)
+      canvas.floatingSpace.container.eventHandler.listenToEvent('onFocusAquired', someoneAquiredFocus)
 
       if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
     } catch (err) {
@@ -171,14 +174,25 @@ function newFloatingObject () {
     thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseOver', point)
 
     thisObject.positionLocked = true
+    canvas.floatingSpace.container.eventHandler.raiseEvent('onFocusAquired', thisObject.container)
   }
 
-  function onMouseNotOver (point) {
+  function mouseOverFlotingSpace (point) {
+    removeFocus()
+  }
+
+  function someoneAquiredFocus (container) {
+    if (container.id !== thisObject.container.id) {
+      removeFocus()
+    }
+  }
+
+  function removeFocus () {
     thisObject.targetRadius = thisObject.rawRadius * 1
     thisObject.targetImageSize = thisObject.rawImageSize * 1
     thisObject.targetFontSize = thisObject.rawFontSize * 1
 
-    thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseNotOver', point)
+    thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseNotOver')
 
     thisObject.positionLocked = false
   }

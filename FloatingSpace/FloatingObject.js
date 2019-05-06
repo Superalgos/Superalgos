@@ -9,54 +9,31 @@ function newFloatingObject () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
-
-    physics: physics,
     positionLocked: false,
     isOnFocus: false,
-
     payload: undefined,                     // This is a reference to an object controlled by a Plotter. The plotter can change its internal value and we will see them from here.
     type: undefined,                        // Currently there are two types of Floating Objects: Profile Balls, and Notes.
     underlayingObject: undefined,
-
-    physicsEnabled: false,
-
+    currentSpeed: 0,                        // This is the current speed of the floating object.
+    currentMass: 0,                         // This is the current mass of the floating object, including its zoom applied.
+    friction: 0,                            // This is a factor that will ultimatelly desacelerate the floating object.
+    rawMass: 0,                             // This is the mass value without zoom.
+    rawRadius: 0,                           // This is the radius of this floating object without zoom.
+    targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
+    physics: physics,
     initializeMass: initializeMass,
     initializeRadius: initializeRadius,
     initializeImageSize: initializeImageSize,
     initializeFontSize: initializeFontSize,
-
-    imageId: undefined,
-
-    currentSpeed: 0,                        // This is the current speed of the floating object.
-    currentMass: 0,                         // This is the current mass of the floating object, including its zoom applied.
-
-    friction: 0,                            // This is a factor that will ultimatelly desacelerate the floating object.
-
-    rawMass: 0,                             // This is the mass value without zoom.
-    rawRadius: 0,                           // This is the radius of this floating object without zoom.
-
-    targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
-
-    fillStyle: '',
-
-    labelStrokeStyle: '',
-
     radomizeCurrentPosition: radomizeCurrentPosition,
     radomizeCurrentSpeed: radomizeCurrentSpeed,
-
     drawBackground: drawBackground,
     drawForeground: drawForeground,
-
     updateMass: updateMass,                 // Function to update the mass when the zoom level changed.
     updateRadius: updateRadius,             // Function to update the radius when the zoom level changed.
-
-    linkedObject: undefined,                // This is a reference to the object that this floating object is representing.
-    linkedObjectType: '',                   // Since there might be floating objects for different types of objects, here we store the type of object we are linking to.
-
     getContainer: getContainer,
     container: undefined,
     initialize: initialize
-
   }
 
   thisObject.container = newContainer()
@@ -312,4 +289,3 @@ function newFloatingObject () {
 
   }
 }
-

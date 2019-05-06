@@ -1,8 +1,6 @@
 
 function newFloatingObject () {
   const MODULE_NAME = 'Floating Object'
-  const INFO_LOG = false
-  const INTENSIVE_LOG = false
   const ERROR_LOG = true
 
   const logger = newWebDebugLog()
@@ -47,50 +45,41 @@ function newFloatingObject () {
 
   return thisObject
 
-  function initialize (pType, pSubType, floatingLayer, callBackFunction) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
+  function initialize (pType, pSubType, floatingLayer) {
+    switch (pType) {
 
-      switch (pType) {
-
-        case 'Profile Ball': {
-          thisObject.underlayingObject = newProfileBall()
-          thisObject.underlayingObject.initialize()
-          break
-        }
-        case 'Note': {
-          thisObject.underlayingObject = newNote()
-          thisObject.underlayingObject.initialize()
-          break
-        }
-
-        case 'Strategy Part': {
-          thisObject.underlayingObject = newStrategyPart()
-          thisObject.underlayingObject.initialize(floatingLayer, pSubType, thisObject.payload)
-          thisObject.underlayingObject.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
-          break
-        }
-        default: {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Unsopported type received -> pType = ' + pType) }
-          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-          break
-        }
+      case 'Profile Ball': {
+        thisObject.underlayingObject = newProfileBall()
+        thisObject.underlayingObject.initialize()
+        break
+      }
+      case 'Note': {
+        thisObject.underlayingObject = newNote()
+        thisObject.underlayingObject.initialize()
+        break
       }
 
-      thisObject.type = pType
+      case 'Strategy Part': {
+        thisObject.underlayingObject = newStrategyPart()
+        thisObject.underlayingObject.initialize(floatingLayer, pSubType, thisObject.payload)
+        thisObject.underlayingObject.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
+        break
+      }
+      default: {
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Unsopported type received -> pType = ' + pType) }
+        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+        break
+      }
+    }
 
-      thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-      thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    thisObject.type = pType
+
+    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
 
       /* To consider that this object lost the focus, we monitor the space for 2 key events */
-      canvas.floatingSpace.container.eventHandler.listenToEvent('onMouseOver', mouseOverFlotingSpace)
-      canvas.floatingSpace.container.eventHandler.listenToEvent('onFocusAquired', someoneAquiredFocus)
-
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err= ' + err.stack) }
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
-    }
+    canvas.floatingSpace.container.eventHandler.listenToEvent('onMouseOver', mouseOverFlotingSpace)
+    canvas.floatingSpace.container.eventHandler.listenToEvent('onFocusAquired', someoneAquiredFocus)
   }
 
   function getContainer (point) {
@@ -279,13 +268,8 @@ function newFloatingObject () {
 
   function updateMass () {
 
-       // thisObject.currentMass = thisObject.rawMass + thisObject.rawMass * thisObject.container.zoom.incrementM * thisObject.container.zoom.levelM;
-
   }
 
   function updateRadius () {
-
-       // thisObject.targetRadius = thisObject.rawRadius + thisObject.rawRadius * thisObject.container.zoom.incrementR * thisObject.container.zoom.levelR;
-
   }
 }

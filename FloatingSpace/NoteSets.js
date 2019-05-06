@@ -225,21 +225,18 @@ function newNoteSets () {
                             */
 
               let floatingObject = newFloatingObject()
-              floatingObject.initialize('Note', '', floatingLayer, onInitialized)
+              floatingObject.initialize('Note', '', floatingLayer)
 
-              function onInitialized (err) {
-                if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> onInitialized -> Entering function.') }
+              floatingObject.payload = noteSet.payload
+              floatingObject.payloadNoteIndex = i
+              floatingObject.payloadImageId = noteSet.imageId
 
-                floatingObject.payload = noteSet.payload
-                floatingObject.payloadNoteIndex = i
-                floatingObject.payloadImageId = noteSet.imageId
+              floatingObject.friction = 0.995
 
-                floatingObject.friction = 0.995
-
-                floatingObject.initializeMass(200)
+              floatingObject.initializeMass(200)
 
                                 // let bodyText = pNewNotes[i].body;
-                let radius
+              let radius
 
                                 /*
                                 if (bodyText.length < 100) {
@@ -248,27 +245,26 @@ function newNoteSets () {
                                     radius = bodyText.length;
                                 }
                                 */
-                radius = 50
+              radius = 50
 
-                floatingObject.initializeRadius(radius)
-                floatingObject.initializeImageSize(15)
+              floatingObject.initializeRadius(radius)
+              floatingObject.initializeImageSize(15)
 
-                floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 0.5)'
-                floatingObject.labelStrokeStyle = 'rgba(60, 60, 60, 0.50)'
+              floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 0.5)'
+              floatingObject.labelStrokeStyle = 'rgba(60, 60, 60, 0.50)'
 
-                floatingLayer.addFloatingObject(floatingObject)
+              floatingLayer.addFloatingObject(floatingObject)
 
-                if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> onInitialized -> New Note added to Layer.') }
+              if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> onInitialized -> New Note added to Layer.') }
 
-                plotterNote.floatingHandle = floatingObject.handle
+              plotterNote.floatingHandle = floatingObject.handle
 
-                if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> plotterNote.floatingHandle = ' + plotterNote.floatingHandle) }
+              if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> plotterNote.floatingHandle = ' + plotterNote.floatingHandle) }
 
-                newFloatingNotes.push(plotterNote)
+              newFloatingNotes.push(plotterNote)
 
-                if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> onInitialized -> Added to newFloatingNotes.') }
-                if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> onInitialized -> newFloatingNotes.length = ' + newFloatingNotes.length) }
-              }
+              if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> onInitialized -> Added to newFloatingNotes.') }
+              if (INFO_LOG === true) { logger.write('[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> onInitialized -> newFloatingNotes.length = ' + newFloatingNotes.length) }
             } else {
               newFloatingNotes.push(floatingNote)
 

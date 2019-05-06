@@ -36,25 +36,23 @@ function newProfileBalls () {
 
   function createNewProfileBall (pPayload, callBackFunction) {
     let floatingObject = newFloatingObject()
-    floatingObject.initialize('Profile Ball', '', floatingLayer, onInitialized)
+    floatingObject.initialize('Profile Ball', '', floatingLayer)
 
-    function onInitialized (err) {
-      floatingObject.payload = pPayload
+    floatingObject.payload = pPayload
 
-      floatingObject.friction = 0.995
+    floatingObject.friction = 0.995
 
-      floatingObject.initializeMass(100)
-      floatingObject.initializeRadius(30)
-      floatingObject.initializeImageSize(50)
-      floatingObject.initializeFontSize(10)
+    floatingObject.initializeMass(100)
+    floatingObject.initializeRadius(30)
+    floatingObject.initializeImageSize(50)
+    floatingObject.initializeFontSize(10)
 
-      floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 0.5)'
-      floatingObject.labelStrokeStyle = 'rgba(60, 60, 60, 0.50)'
+    floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 0.5)'
+    floatingObject.labelStrokeStyle = 'rgba(60, 60, 60, 0.50)'
 
-      floatingLayer.addFloatingObject(floatingObject)
+    floatingLayer.addFloatingObject(floatingObject)
 
-      callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, floatingObject.handle)
-    }
+    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, floatingObject.handle)
   }
 
   function destroyProfileBall (pFloatingObjectHandle) {

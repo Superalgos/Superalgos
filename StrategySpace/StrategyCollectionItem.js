@@ -109,11 +109,7 @@ function newStrategyCollectionItem () {
     payload.parentNode = parentNode
     payload.onMenuItemClick = onMenuItemClick
 
-    canvas.floatingSpace.strategyParts.createNewStrategyPart(partType, payload, onStrategyPartCreated)
-
-    function onStrategyPartCreated (err, pPartHandle) {
-      node.handle = pPartHandle
-    }
+    node.handle = canvas.floatingSpace.strategyParts.createNewStrategyPart(partType, payload)
   }
 
   function destroyPart (node) {

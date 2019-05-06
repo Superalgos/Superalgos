@@ -25,10 +25,12 @@ function newStrategyPart () {
   let floatingLayer
   let image
   let imagePath
+  let payload
 
   return thisObject
 
-  function initialize (pFloatingLayer, pType) {
+  function initialize (pFloatingLayer, pType, pPayload) {
+    payload = pPayload
     floatingLayer = pFloatingLayer
 
     let menuItemsInitialValues = []
@@ -239,7 +241,7 @@ function newStrategyPart () {
     }
 
     thisObject.menu = newCircularMenu()
-    thisObject.menu.initialize(menuItemsInitialValues)
+    thisObject.menu.initialize(menuItemsInitialValues, payload)
     thisObject.menu.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
 
 /* Load Part Image */

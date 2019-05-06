@@ -50,6 +50,11 @@ function newStrategyCollectionItem () {
     }
   }
 
+  function onMenuItemClick (payload) {
+    console.log('onMenuItemClick')
+    payload.profile.upLabel = payload.profile.upLabel + '1'
+  }
+
   function createPart (partType, name, node, parentNode, title) {
     let payload = {
       profile: {
@@ -62,8 +67,6 @@ function newStrategyCollectionItem () {
       notes: []
     }
 
-    let imageId // 'My Image.png'
-
     if (title !== undefined) {
       payload.profile.upLabel = title
     } else {
@@ -71,9 +74,9 @@ function newStrategyCollectionItem () {
     }
 
     payload.profile.downLabel = name
+    payload.node = node
     payload.parentNode = parentNode
-
-    node.payload = payload
+    payload.onMenuItemClick = onMenuItemClick
 
     canvas.floatingSpace.strategyParts.createNewStrategyPart(partType, payload, onStrategyPartCreated)
 

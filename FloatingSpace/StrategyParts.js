@@ -35,12 +35,12 @@ function newStrategyParts () {
 
   function createNewStrategyPart (type, pPayload, callBackFunction) {
     let floatingObject = newFloatingObject()
+    floatingObject.payload = pPayload
     floatingObject.initialize('Strategy Part', type, floatingLayer, onInitialized)
     floatingObject.underlayingObject.type = type
 
     function onInitialized (err) {
       const FRICTION = 0.97
-      floatingObject.payload = pPayload
 
       switch (type) {
         case 'Strategy': {

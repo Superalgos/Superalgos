@@ -34,10 +34,12 @@ function newCircularMenuItem () {
   thisObject.container.frame.height = 30
 
   let isMouseOver = false
+  let payload
 
   return thisObject
 
-  function initialize () {
+  function initialize (pPayload) {
+    payload = pPayload
     /* Load Menu Images */
 
     thisObject.iconOn = new Image()
@@ -97,7 +99,7 @@ function newCircularMenuItem () {
   }
 
   function onMouseClick (event) {
-    console.log('Menu item clicked')
+    payload.onMenuItemClick(payload)
   }
 
   function drawBackground () {

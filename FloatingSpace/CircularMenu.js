@@ -22,10 +22,12 @@ function newCircularMenu () {
 
   let menuItemsInitialValues = []
   let menuItems = []
+  let payload
 
   return thisObject
 
-  function initialize (menuItemsInitialValues) {
+  function initialize (menuItemsInitialValues, pPayload) {
+    payload = pPayload
 /* Create the array of Menu Items */
 
     for (let i = 0; i < menuItemsInitialValues.length; i++) {
@@ -41,7 +43,7 @@ function newCircularMenu () {
       menuItem.currentRadius = menuItemInitialValue.currentRadius
       menuItem.angle = menuItemInitialValue.angle
 
-      menuItem.initialize()
+      menuItem.initialize(payload)
       menuItem.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
       menuItems.push(menuItem)
     }

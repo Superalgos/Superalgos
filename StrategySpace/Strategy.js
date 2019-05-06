@@ -265,9 +265,12 @@ function newStrategy () {
         for (let i = 0; i < situation.conditions.length; i++) {
           let condition = situation.conditions[i]
           destroyPart(condition)
+          cleanNode(condition)
         }
+        situation.conditions = []
+        destroyPart(situation)
         payload.parentNode.situations.splice(j)
-        destroyPart(node)
+        cleanNode(situation)
         return
       }
     }
@@ -278,11 +281,25 @@ function newStrategy () {
     for (let i = 0; i < payload.parentNode.conditions.length; i++) {
       let condition = payload.parentNode.conditions[i]
       if (condition.name === node.name) {
-        payload.parentNode.conditions.splice(i)
         destroyPart(node)
+        payload.parentNode.conditions.splice(i)
+        cleanNode(condition)
         return
       }
     }
+  }
+
+  function cleanNode (node) {
+    node.payload.position.x = undefined
+    node.payload.position.y = undefined
+    node.payload.visible = undefined
+    node.payload.upLabel = undefined
+    node.payload.downLabel = undefined
+    node.payload.node = undefined
+    node.payload.parentNode = undefined
+    node.payload.onMenuItemClick = undefined
+    node.handle = undefined
+    node.payload = undefined
   }
 }
 

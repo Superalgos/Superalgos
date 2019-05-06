@@ -227,8 +227,8 @@ function newFloatingLayer () {
 
               payload.profile = {
                 position: {
-                  x: pFloatingObject.payload.profile.position.x,
-                  y: pFloatingObject.payload.profile.position.y
+                  x: pFloatingObject.payload.position.x,
+                  y: pFloatingObject.payload.position.y
                 },
                 visible: pFloatingObject.payload.profile.visible,
                 botAvatar: pFloatingObject.payload.profile.botAvatar
@@ -350,8 +350,8 @@ function newFloatingLayer () {
               break
             }
             case 'Strategy Part': {
-              payload.position = floatingObject.payload.profile.position
-              payload.visible = floatingObject.payload.profile.visible
+              payload.position = floatingObject.payload.position
+              payload.visible = floatingObject.payload.visible
               break
             }
             default: {
@@ -402,7 +402,7 @@ function newFloatingLayer () {
               break
             }
             case 'Strategy Part': {
-              payload.visible = floatingObject.payload.profile.visible
+              payload.visible = floatingObject.payload.visible
               break
             }
             default: {
@@ -502,8 +502,8 @@ function newFloatingLayer () {
                 break
               }
               case 'Strategy Part': {
-                payload.position = floatingObject.payload.profile.position
-                payload.visible = floatingObject.payload.profile.visible
+                payload.position = floatingObject.payload.position
+                payload.visible = floatingObject.payload.visible
                 break
               }
               default: {
@@ -736,7 +736,7 @@ function newFloatingLayer () {
             break
           }
           case 'Strategy Part': {
-            payload.position = floatingObject2.payload.profile.position
+            payload.position = floatingObject2.payload.position
             break
           }
           default: {

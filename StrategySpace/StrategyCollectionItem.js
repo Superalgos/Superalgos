@@ -87,29 +87,24 @@ function newStrategyCollectionItem () {
       default:
 
     }
-
-    payload.profile.upLabel = payload.profile.upLabel + '1'
   }
 
   function createPart (partType, name, node, parentNode, title) {
     let payload = {
-      profile: {
-        position: {
-          x: (viewPort.width - SIDE_PANEL_WIDTH) / 2 + SIDE_PANEL_WIDTH,
-          y: viewPort.height / 2
-        },
-        visible: true
+      position: {
+        x: (viewPort.width - SIDE_PANEL_WIDTH) / 2 + SIDE_PANEL_WIDTH,
+        y: viewPort.height / 2
       },
-      notes: []
+      visible: true
     }
 
     if (title !== undefined) {
-      payload.profile.upLabel = title
+      payload.upLabel = title
     } else {
-      payload.profile.upLabel = partType
+      payload.upLabel = partType
     }
 
-    payload.profile.downLabel = name
+    payload.downLabel = name
     payload.node = node
     payload.parentNode = parentNode
     payload.onMenuItemClick = onMenuItemClick

@@ -305,14 +305,14 @@ function newStrategyPart () {
     /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
     let parentFloatingObject = floatingLayer.getFloatingObject(pFloatingObject.payload.parentNode.handle)
 
-    pFloatingObject.payload.profile.position.x = parentFloatingObject.container.frame.position.x
-    pFloatingObject.payload.profile.position.y = parentFloatingObject.container.frame.position.y
+    pFloatingObject.payload.position.x = parentFloatingObject.container.frame.position.x
+    pFloatingObject.payload.position.y = parentFloatingObject.container.frame.position.y
 
    /* Here I continue painting the background */
 
     let point = {
-      x: pFloatingObject.payload.profile.position.x,
-      y: pFloatingObject.payload.profile.position.y
+      x: pFloatingObject.payload.position.x,
+      y: pFloatingObject.payload.position.y
     }
 
     if (pFloatingObject.container.frame.radius > 1) {
@@ -399,7 +399,7 @@ function newStrategyPart () {
 
       let label
 
-      label = pFloatingObject.payload.profile.upLabel
+      label = pFloatingObject.payload.upLabel
 
       if (label !== undefined) {
         labelPoint = {
@@ -412,7 +412,7 @@ function newStrategyPart () {
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
 
-      label = pFloatingObject.payload.profile.downLabel
+      label = pFloatingObject.payload.downLabel
 
       if (label !== undefined && thisObject.isOnFocus === true) {
         labelPoint = {

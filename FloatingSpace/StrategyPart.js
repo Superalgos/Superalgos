@@ -5,6 +5,7 @@ function newStrategyPart () {
   let thisObject = {
     type: undefined,
     menu: undefined,
+    isOnFocus: false,
     container: undefined,
     physics: physics,
     drawBackground: drawBackground,
@@ -22,7 +23,6 @@ function newStrategyPart () {
   thisObject.container.frame.position.y = 0
 
   let floatingLayer
-  let isMouseOver = false
   let image
   let imagePath
 
@@ -240,7 +240,7 @@ function newStrategyPart () {
 
     thisObject.menu = newCircularMenu()
     thisObject.menu.initialize(menuItemsInitialValues)
-    thisObject.menu.container.connectToParent(thisObject.container, false, false, true, true, true, true)
+    thisObject.menu.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
 
 /* Load Part Image */
 
@@ -254,9 +254,9 @@ function newStrategyPart () {
       image.src = window.canvasApp.urlPrefix + imagePath
     }
 
-    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
+    thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
     thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
-    thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }
 
   function getContainer (point) {
@@ -276,14 +276,12 @@ function newStrategyPart () {
     thisObject.menu.physics()
   }
 
-  function onMouseOver () {
-    // thisObject.menu.container.eventHandler.raiseEvent('onMouseOver')
-    isMouseOver = true
+  function onFocus () {
+    thisObject.isOnFocus = true
   }
 
-  function onMouseNotOver () {
-    // thisObject.menu.container.eventHandler.raiseEvent('onMouseNotOver')
-    isMouseOver = false
+  function onNotFocus () {
+    thisObject.isOnFocus = false
   }
 
   function onMouseClick (event) {
@@ -291,7 +289,7 @@ function newStrategyPart () {
   }
 
   function drawBackground (pFloatingObject) {
-    if (isMouseOver === false) {
+    if (thisObject.isOnFocus === false) {
       drawPartBackground(pFloatingObject)
       thisObject.menu.drawBackground()
 
@@ -343,7 +341,7 @@ function newStrategyPart () {
   }
 
   function drawForeground (pFloatingObject) {
-    if (isMouseOver === true) {
+    if (thisObject.isOnFocus === true) {
       drawPartBackground(pFloatingObject)
       thisObject.menu.drawBackground()
 
@@ -390,7 +388,7 @@ function newStrategyPart () {
 
         /* Label Text */
 
-    if (radius > 6 && isMouseOver === true) {
+    if (radius > 6 && thisObject.isOnFocus === true) {
       browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle
 
       let labelPoint
@@ -415,7 +413,7 @@ function newStrategyPart () {
 
       label = pFloatingObject.payload.profile.downLabel
 
-      if (label !== undefined && isMouseOver === true) {
+      if (label !== undefined && thisObject.isOnFocus === true) {
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
           y: position.y + radius * 1 / 2 + fontSize * FONT_ASPECT_RATIO + 15

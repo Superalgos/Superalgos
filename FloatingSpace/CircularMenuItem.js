@@ -55,15 +55,15 @@ function newCircularMenuItem () {
     thisObject.iconOn.src = window.canvasApp.urlPrefix + thisObject.imagePathOn
     thisObject.icon = thisObject.iconOn // The default value is ON.
 
-    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }
 
   function getContainer (point) {
     let container
     if (thisObject.isDeployed === true) {
-      if (thisObject.container.frame.isThisPointHere(point, true, true) === true) {
+      if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
         return thisObject.container
       } else {
         return undefined

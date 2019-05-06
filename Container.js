@@ -25,12 +25,16 @@ function newContainer () {
   let onDimmensionsChangedParentEvent = false
   let onMouseOverParentEvent = false
   let onMouseNotOverParentEvent = false
+  let onFocusParentEvent = false
+  let onNotFocusParentEvent = false
 
   let isConnectedToParent = false
 
   let dimensionsChangedEventSubscriptionId
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
+  let onFocusEventSubscriptionId
+  let onNotFocusEventSubscriptionId
 
   return thisObject
 
@@ -39,6 +43,8 @@ function newContainer () {
       thisObject.parentContainer.eventHandler.stopListening(dimensionsChangedEventSubscriptionId)
       thisObject.parentContainer.eventHandler.stopListening(onMouseOverEventSubscriptionId)
       thisObject.parentContainer.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
+      thisObject.parentContainer.eventHandler.stopListening(onFocusEventSubscriptionId)
+      thisObject.parentContainer.eventHandler.stopListening(onNotFocusEventSubscriptionId)
     }
   }
 
@@ -59,7 +65,17 @@ function newContainer () {
     thisObject.displacement.containerName = pName
   }
 
-  function connectToParent (parentContainer, onWidth, onHeight, onRadius, onDimmensionsChangedEvent, onMouseOverEvent, onMouseNotOverEvent) {
+  function connectToParent (
+    parentContainer,
+    onWidth,
+    onHeight,
+    onRadius,
+    onDimmensionsChangedEvent,
+    onMouseOverEvent,
+    onMouseNotOverEvent,
+    onFocusEvent,
+    onNotFocusEvent
+  ) {
     connectedToParentWidth = onWidth
     connectedToParentHeight = onHeight
     connectedToParentRadius = onRadius
@@ -67,6 +83,8 @@ function newContainer () {
     onDimmensionsChangedParentEvent = onDimmensionsChangedEvent
     onMouseOverParentEvent = onMouseOverEvent
     onMouseNotOverParentEvent = onMouseNotOverEvent
+    onFocusParentEvent = onFocusEvent
+    onNotFocusParentEvent = onNotFocusEvent
 
     isConnectedToParent = true
 
@@ -82,6 +100,12 @@ function newContainer () {
     }
     if (onMouseNotOverParentEvent === true) {
       onMouseNotOverEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+    }
+    if (onFocusParentEvent === true) {
+      onFocusEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onFocus', onFocus)
+    }
+    if (onNotFocusParentEvent === true) {
+      onNotFocusEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onNotFocus', onNotFocus)
     }
 
     if (connectedToParentWidth) {
@@ -121,6 +145,14 @@ function newContainer () {
 
   function onMouseNotOver (event) {
     thisObject.eventHandler.raiseEvent('onMouseNotOver', event)
+  }
+
+  function onFocus (event) {
+    thisObject.eventHandler.raiseEvent('onFocus', event)
+  }
+
+  function onNotFocus (event) {
+    thisObject.eventHandler.raiseEvent('onNotFocus', event)
   }
 
   function isForThisPurpose (purpose) {

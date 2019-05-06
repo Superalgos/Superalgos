@@ -12,6 +12,7 @@ function newFloatingObject () {
 
     physics: physics,
     positionLocked: false,
+    isOnFocus: false,
 
     payload: undefined,                     // This is a reference to an object controlled by a Plotter. The plotter can change its internal value and we will see them from here.
     type: undefined,                        // Currently there are two types of Floating Objects: Profile Balls, and Notes.
@@ -89,7 +90,7 @@ function newFloatingObject () {
         case 'Strategy Part': {
           thisObject.underlayingObject = newStrategyPart()
           thisObject.underlayingObject.initialize(floatingLayer, pSubType)
-          thisObject.underlayingObject.container.connectToParent(thisObject.container, false, false, true, true, true, true)
+          thisObject.underlayingObject.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
           break
         }
         default: {
@@ -167,14 +168,18 @@ function newFloatingObject () {
   }
 
   function onMouseOver (point) {
-    thisObject.targetRadius = thisObject.rawRadius * 6.0
-    thisObject.targetImageSize = thisObject.rawImageSize * 2.0
-    thisObject.targetFontSize = thisObject.rawFontSize * 2.0
+    if (thisObject.isOnFocus === false) {
+      thisObject.targetRadius = thisObject.rawRadius * 6.0
+      thisObject.targetImageSize = thisObject.rawImageSize * 2.0
+      thisObject.targetFontSize = thisObject.rawFontSize * 2.0
 
-    thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseOver', point)
+      thisObject.underlayingObject.container.eventHandler.raiseEvent('onFocus', point)
 
-    thisObject.positionLocked = true
-    canvas.floatingSpace.container.eventHandler.raiseEvent('onFocusAquired', thisObject.container)
+      thisObject.positionLocked = true
+
+      canvas.floatingSpace.container.eventHandler.raiseEvent('onFocusAquired', thisObject.container)
+      thisObject.isOnFocus = true
+    }
   }
 
   function mouseOverFlotingSpace (point) {
@@ -188,13 +193,16 @@ function newFloatingObject () {
   }
 
   function removeFocus () {
-    thisObject.targetRadius = thisObject.rawRadius * 1
-    thisObject.targetImageSize = thisObject.rawImageSize * 1
-    thisObject.targetFontSize = thisObject.rawFontSize * 1
+    if (thisObject.isOnFocus === true) {
+      thisObject.targetRadius = thisObject.rawRadius * 1
+      thisObject.targetImageSize = thisObject.rawImageSize * 1
+      thisObject.targetFontSize = thisObject.rawFontSize * 1
 
-    thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseNotOver')
+      thisObject.underlayingObject.container.eventHandler.raiseEvent('onNotFocus')
 
-    thisObject.positionLocked = false
+      thisObject.positionLocked = false
+      thisObject.isOnFocus = false
+    }
   }
 
   function onMouseClick (pPoint) {
@@ -304,3 +312,4 @@ function newFloatingObject () {
 
   }
 }
+

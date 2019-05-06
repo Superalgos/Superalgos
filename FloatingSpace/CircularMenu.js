@@ -42,12 +42,12 @@ function newCircularMenu () {
       menuItem.angle = menuItemInitialValue.angle
 
       menuItem.initialize()
-      menuItem.container.connectToParent(thisObject.container, false, false, true, true, true, true)
+      menuItem.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
       menuItems.push(menuItem)
     }
 
-    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-    thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+    thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
+    thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
   }
 
   function getContainer (point) {
@@ -69,7 +69,7 @@ function newCircularMenu () {
     }
   }
 
-  function onMouseOver () {
+  function onFocus () {
     for (let i = 0; i < menuItems.length; i++) {
       let menutItem = menuItems[i]
       menutItem.targetRadius = menutItem.rawRadius * 1.5
@@ -78,7 +78,7 @@ function newCircularMenu () {
     thisObject.isDeployed = true
   }
 
-  function onMouseNotOver () {
+  function onNotFocus () {
     for (let i = 0; i < menuItems.length; i++) {
       let menutItem = menuItems[i]
       menutItem.targetRadius = menutItem.rawRadius * 0 - i * 5

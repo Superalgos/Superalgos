@@ -86,9 +86,9 @@ function newFloatingLayer () {
         creator keeps, is a handle to the object which it can use to retrieve the floating object when needed.
         */
 
-    invisibleFloatingObjects.push(pFloatingObject)
     currentHandle++
     pFloatingObject.handle = currentHandle // Math.floor((Math.random() * 10000000) + 1);
+    invisibleFloatingObjects.push(pFloatingObject)
   }
 
   function killFloatingObject (pFloatingObjectHandle) {
@@ -105,6 +105,7 @@ function newFloatingLayer () {
           invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
 
           floatingObject.finalize()
+
           return
         }
       }
@@ -174,22 +175,19 @@ function newFloatingLayer () {
     drawVisibleObjects()
 
     function drawVisibleObjects () {
-      try {
                   /* We draw all the visibleFloatingObjects. */
 
-        for (let i = 0; i < visibleFloatingObjects.length; i++) {
-          let floatingObject = visibleFloatingObjects[i]
-          floatingObject.drawBackground()
-        }
-
-        for (let i = 0; i < visibleFloatingObjects.length; i++) {
-          let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1]
-          floatingObject.drawForeground()
-        }
-
-        makeVisible()
-      } catch (err) {
+      for (let i = 0; i < visibleFloatingObjects.length; i++) {
+        let floatingObject = visibleFloatingObjects[i]
+        floatingObject.drawBackground()
       }
+
+      for (let i = 0; i < visibleFloatingObjects.length; i++) {
+        let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1]
+        floatingObject.drawForeground()
+      }
+
+      makeVisible()
     }
 
     function makeVisible () {

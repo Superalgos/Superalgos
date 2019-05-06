@@ -222,8 +222,6 @@ function newStrategy () {
   }
 
   function onMenuItemClick (payload, action) {
-    console.log('onMenuItemClick ' + action)
-
     switch (action) {
       case 'Open Settings':
 
@@ -269,7 +267,7 @@ function newStrategy () {
         }
         situation.conditions = []
         destroyPart(situation)
-        payload.parentNode.situations.splice(j)
+        payload.parentNode.situations.splice(j, 1)
         cleanNode(situation)
         return
       }
@@ -282,7 +280,7 @@ function newStrategy () {
       let condition = payload.parentNode.conditions[i]
       if (condition.name === node.name) {
         destroyPart(node)
-        payload.parentNode.conditions.splice(i)
+        payload.parentNode.conditions.splice(i, 1)
         cleanNode(condition)
         return
       }
@@ -300,6 +298,7 @@ function newStrategy () {
     node.payload.onMenuItemClick = undefined
     node.handle = undefined
     node.payload = undefined
+    node.cleaned = true
   }
 }
 

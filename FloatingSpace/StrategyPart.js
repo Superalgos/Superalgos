@@ -326,6 +326,11 @@ function newStrategyPart () {
     /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
     let parentFloatingObject = floatingLayer.getFloatingObject(pFloatingObject.payload.parentNode.handle)
 
+    if (parentFloatingObject === undefined) {
+      console.log(pFloatingObject)
+      console.log('Now')
+    }
+
     pFloatingObject.payload.position.x = parentFloatingObject.container.frame.position.x
     pFloatingObject.payload.position.y = parentFloatingObject.container.frame.position.y
 

@@ -65,25 +65,65 @@ function newFrame () {
   }
 
   function frameThisPoint (point) {
-    if (thisObject.parentFrame !== undefined) {
-      point = thisObject.parentFrame.frameThisPoint(point)
+    /* We need not to modify the point received, so me make a copy of it. */
+
+    let checkPoint = {
+      x: point.x,
+      y: point.y
     }
 
-    point.x = point.x + thisObject.position.x
-    point.y = point.y + thisObject.position.y
+    let parentPoint = {
+      x: 0,
+      y: 0
+    }
 
-    return point
+    let returnPoint = {
+      x: 0,
+      y: 0
+    }
+
+    if (thisObject.parentFrame !== undefined) {
+      parentPoint = thisObject.parentFrame.frameThisPoint(checkPoint)
+
+      returnPoint.x = parentPoint.x + thisObject.position.x
+      returnPoint.y = parentPoint.y + thisObject.position.y
+    } else {
+      returnPoint.x = checkPoint.x + thisObject.position.x
+      returnPoint.y = checkPoint.y + thisObject.position.y
+    }
+
+    return returnPoint
   }
 
   function unframeThisPoint (point) {
-    if (thisObject.parentFrame !== undefined) {
-      point = thisObject.parentFrame.unframeThisPoint(point)
+    /* We need not to modify the point received, so me make a copy of it. */
+
+    let checkPoint = {
+      x: point.x,
+      y: point.y
     }
 
-    point.x = point.x - thisObject.position.x
-    point.y = point.y - thisObject.position.y
+    let parentPoint = {
+      x: 0,
+      y: 0
+    }
 
-    return point
+    let returnPoint = {
+      x: 0,
+      y: 0
+    }
+
+    if (thisObject.parentFrame !== undefined) {
+      parentPoint = thisObject.parentFrame.unframeThisPoint(checkPoint)
+
+      returnPoint.x = parentPoint.x - thisObject.position.x
+      returnPoint.y = parentPoint.y - thisObject.position.y
+    } else {
+      returnPoint.x = checkPoint.x - thisObject.position.x
+      returnPoint.y = checkPoint.y - thisObject.position.y
+    }
+
+    return returnPoint
   }
 
   function canYouMoveHere (tempDisplacement) {

@@ -24,8 +24,9 @@ function newCircularMenuItem () {
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
-  thisObject.container.isClickeable = false
+  thisObject.container.isClickeable = true
   thisObject.container.isDraggeable = false
+  thisObject.container.detectMouseOver = true
   thisObject.container.frame.radius = 0
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
@@ -96,18 +97,11 @@ function newCircularMenuItem () {
   }
 
   function onMouseClick (event) {
-
+    console.log('Menu item clicked')
   }
 
   function drawBackground () {
     if (thisObject.container.frame.position.x > 0 && thisObject.isDeployed === true && thisObject.currentRadius >= thisObject.targetRadius) {
-      let position = {
-        x: 0,
-        y: 0
-      }
-
-      position = thisObject.container.frame.frameThisPoint(position)
-
       let params = {
         cornerRadius: 3,
         lineWidth: 0.1,
@@ -160,4 +154,3 @@ function newCircularMenuItem () {
     }
   }
 }
-

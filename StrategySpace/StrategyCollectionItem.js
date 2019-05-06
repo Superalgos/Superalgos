@@ -2,6 +2,7 @@ function newStrategyCollectionItem () {
   const MODULE_NAME = 'Strategy Collection Item'
   let thisObject = {
     icon: undefined,
+    strategySource: undefined,
     strategy: undefined,
     container: undefined,
     draw: draw,
@@ -21,7 +22,9 @@ function newStrategyCollectionItem () {
 
   return thisObject
 
-  function initialize () {
+  function initialize (strategy) {
+    thisObject.strategySource = strategy
+
     const ITEM_WIDTH = SIDE_PANEL_WIDTH - 20
     const ITEM_HEIGHT = 80
 
@@ -41,234 +44,13 @@ function newStrategyCollectionItem () {
   function onMouseClick (event) {
     if (status === 'off') {
       canvas.floatingSpace.makeVisible()
-      generateStrategyParts()
+      thisObject.strategy = newStrategy()
+      thisObject.strategy.initialize(thisObject.strategySource)
       status = 'on'
     } else {
       canvas.floatingSpace.makeInvisible()
-      destroyStrategyParts()
+      thisObject.strategy.finalize()
       status = 'off'
-    }
-  }
-
-  function onMenuItemClick (payload, action) {
-    console.log('onMenuItemClick ' + action)
-
-    switch (action) {
-      case 'Open Settings':
-
-        break
-      case 'Delete Strategy':
-
-        break
-      case 'Add Situation':
-
-        break
-      case 'Add Phase':
-
-        break
-      case 'Edit Code':
-
-        break
-      case 'Delete Phase':
-
-        break
-      case 'Delete Situation':
-        for (let i = 0; i < payload.parentNode.situations.length; i++) {
-          let situation = payload.parentNode.situations[i]
-          if (situation.name === payload.node.name) {
-            payload.parentNode.situations.splice(i)
-            return
-          }
-        }
-        break
-      case 'Delete Condition':
-
-        break
-      default:
-
-    }
-  }
-
-  function createPart (partType, name, node, parentNode, title) {
-    let payload = {
-      position: {
-        x: (viewPort.width - SIDE_PANEL_WIDTH) / 2 + SIDE_PANEL_WIDTH,
-        y: viewPort.height / 2
-      },
-      visible: true
-    }
-
-    if (title !== undefined) {
-      payload.upLabel = title
-    } else {
-      payload.upLabel = partType
-    }
-
-    payload.downLabel = name
-    payload.node = node
-    payload.parentNode = parentNode
-    payload.onMenuItemClick = onMenuItemClick
-
-    node.handle = canvas.floatingSpace.strategyParts.createNewStrategyPart(partType, payload)
-  }
-
-  function destroyPart (node) {
-    canvas.floatingSpace.strategyParts.destroyStrategyPart(node.handle)
-  }
-
-  function generateStrategyParts () {
-    let lastPhase
-    let strategy = thisObject.strategy
-    createPart('Strategy', strategy.name, strategy, undefined)
-
-    createPart('Strategy Entry', '', strategy.entryPoint, strategy)
-    for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
-      let situation = strategy.entryPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.entryPoint, 'Strategy Entry' + ' ' + 'Situation' + ' #' + (k + 1))
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
-      }
-    }
-
-    createPart('Strategy Exit', '', strategy.exitPoint, strategy)
-    for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
-      let situation = strategy.exitPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.exitPoint, 'Strategy Exit' + ' ' + 'Situation' + ' #' + (k + 1))
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
-      }
-    }
-
-    createPart('Trade Entry', '', strategy.sellPoint, strategy)
-    for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
-      let situation = strategy.sellPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.sellPoint, 'Trade Entry' + ' ' + 'Situation' + ' #' + (k + 1))
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
-      }
-    }
-
-    createPart('Stop', '', strategy.stopLoss, strategy)
-    for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
-      let phase = strategy.stopLoss.phases[p]
-
-      let parent
-      if (p === 0) {
-        parent = strategy.stopLoss
-      } else {
-        parent = lastPhase
-      }
-      lastPhase = phase
-      createPart('Phase', phase.name, phase, parent, 'Stop Phase' + ' #' + (p + 1))
-
-      for (let k = 0; k < phase.situations.length; k++) {
-        let situation = phase.situations[k]
-        createPart('Situation', situation.name, situation, phase, 'Situation' + ' #' + (k + 1))
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-          createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
-        }
-      }
-    }
-
-    createPart('Take Profit', '', strategy.buyOrder, strategy)
-    for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
-      let phase = strategy.buyOrder.phases[p]
-      let parent
-      if (p === 0) {
-        parent = strategy.buyOrder
-      } else {
-        parent = lastPhase
-      }
-      lastPhase = phase
-      createPart('Phase', phase.name, phase, parent, 'Take Profit Phase' + ' #' + (p + 1))
-
-      for (let k = 0; k < phase.situations.length; k++) {
-        let situation = phase.situations[k]
-        createPart('Situation', situation.name, situation, phase, 'Situation' + ' #' + (k + 1))
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-          createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
-        }
-      }
-    }
-  }
-
-  function destroyStrategyParts () {
-    let strategy = thisObject.strategy
-    destroyPart(strategy)
-
-    destroyPart(strategy.entryPoint)
-    for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
-      let situation = strategy.entryPoint.situations[k]
-      destroyPart(situation)
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        destroyPart(condition)
-      }
-    }
-
-    destroyPart(strategy.exitPoint)
-    for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
-      let situation = strategy.exitPoint.situations[k]
-      destroyPart(situation)
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        destroyPart(condition)
-      }
-    }
-
-    destroyPart(strategy.sellPoint)
-    for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
-      let situation = strategy.sellPoint.situations[k]
-      destroyPart(situation)
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        destroyPart(condition)
-      }
-    }
-
-    destroyPart(strategy.stopLoss)
-    for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
-      let phase = strategy.stopLoss.phases[p]
-      destroyPart(strategy.stopLoss)
-
-      for (let k = 0; k < phase.situations.length; k++) {
-        let situation = phase.situations[k]
-        destroyPart(situation)
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-          destroyPart(condition)
-        }
-      }
-    }
-
-    destroyPart(strategy.buyOrder)
-    for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
-      let phase = strategy.buyOrder.phases[p]
-      destroyPart(strategy.buyOrder)
-
-      for (let k = 0; k < phase.situations.length; k++) {
-        let situation = phase.situations[k]
-        destroyPart(situation)
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-          destroyPart(condition)
-        }
-      }
     }
   }
 
@@ -291,14 +73,14 @@ function newStrategyCollectionItem () {
   }
 
   function text () {
-    if (thisObject.strategy === undefined) {
+    if (thisObject.strategySource === undefined) {
       return
     }
 
     const LEFT_MARGIN = 80
     const TOP_MARGIN = 45
 
-    let strategy = thisObject.strategy
+    let strategy = thisObject.strategySource
 
     let labelpoint = {
       x: LEFT_MARGIN,
@@ -393,4 +175,3 @@ function newStrategyCollectionItem () {
     browserCanvasContext.drawImage(thisObject.icon, point1.x - IMAGE_SIZE / 2, point1.y - IMAGE_SIZE / 2, IMAGE_SIZE, IMAGE_SIZE)
   }
 }
-

@@ -302,6 +302,14 @@ function newStrategyPart () {
 
   function physics () {
     thisObject.menu.physics()
+
+    if (thisObject.payload.chainParent === undefined) { return }
+
+    /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
+    let parentFloatingObject = floatingLayer.getFloatingObject(thisObject.payload.chainParent.handle)
+
+    thisObject.payload.position.x = parentFloatingObject.container.frame.position.x
+    thisObject.payload.position.y = parentFloatingObject.container.frame.position.y
   }
 
   function onFocus () {
@@ -316,48 +324,40 @@ function newStrategyPart () {
 
   }
 
-  function drawBackground (pFloatingObject) {
+  function drawBackground (params) {
     if (thisObject.isOnFocus === false) {
-      drawConnectingLine(pFloatingObject)
+      drawConnectingLine()
       thisObject.menu.drawBackground()
     }
   }
 
-  function drawMiddleground (pFloatingObject) {
+  function drawMiddleground (params) {
     if (thisObject.isOnFocus === false) {
-      drawText(pFloatingObject)
+      drawText(params)
     }
   }
 
-  function drawForeground (pFloatingObject) {
+  function drawForeground (params) {
     if (thisObject.isOnFocus === false) {
-      drawBodyAndPicture(pFloatingObject)
+      drawBodyAndPicture(params)
       thisObject.menu.drawForeground()
     }
   }
 
-  function drawOnFocus (pFloatingObject) {
+  function drawOnFocus (params) {
     if (thisObject.isOnFocus === true) {
-      drawConnectingLine(pFloatingObject)
+      drawConnectingLine()
       thisObject.menu.drawBackground()
 
-      drawText(pFloatingObject)
+      drawText(params)
 
-      drawBodyAndPicture(pFloatingObject)
+      drawBodyAndPicture(params)
       thisObject.menu.drawForeground()
     }
   }
 
-  function drawConnectingLine (pFloatingObject) {
-    if (pFloatingObject.payload.parentNode === undefined) { return }
-
-    /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
-    let parentFloatingObject = floatingLayer.getFloatingObject(thisObject.payload.chainParent.handle)
-
-    thisObject.payload.position.x = parentFloatingObject.container.frame.position.x
-    thisObject.payload.position.y = parentFloatingObject.container.frame.position.y
-
-   /* Here I continue painting the background */
+  function drawConnectingLine () {
+    if (thisObject.payload.chainParent === undefined) { return }
 
     let targetPoint = {
       x: thisObject.payload.position.x,
@@ -384,7 +384,7 @@ function newStrategyPart () {
       browserCanvasContext.setLineDash([0, 0])
     }
 
-    if (pFloatingObject.container.frame.radius > 0.5) {
+    if (thisObject.container.frame.radius > 0.5) {
             /* Target Spot */
 
       let radius = 1
@@ -397,24 +397,27 @@ function newStrategyPart () {
     }
   }
 
-  function drawText (pFloatingObject) {
+  function drawText (params) {
 /* Text Follows */
     let position = {
-      x: pFloatingObject.container.frame.position.x,
-      y: pFloatingObject.container.frame.position.y
+      x: 0,
+      y: 0
     }
-    let radius = pFloatingObject.container.frame.radius
+
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    let radius = thisObject.container.frame.radius
             /* Label Text */
     let labelPoint
-    let fontSize = pFloatingObject.currentFontSize
+    let fontSize = params.currentFontSize
     let label
 
     if (radius > 6 && thisObject.isOnFocus === true) {
-      browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle
+      browserCanvasContext.strokeStyle = params.labelStrokeStyle
 
       browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
-      label = pFloatingObject.payload.downLabel
+      label = params.payload.downLabel
 
       if (label !== undefined) {
         labelPoint = {
@@ -423,12 +426,12 @@ function newStrategyPart () {
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-        browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
+        browserCanvasContext.fillStyle = params.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
     }
     if (radius > 6) {
-      label = pFloatingObject.payload.upLabel
+      label = params.payload.upLabel
 
       if (label !== undefined) {
         labelPoint = {
@@ -437,19 +440,19 @@ function newStrategyPart () {
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-        browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
+        browserCanvasContext.fillStyle = params.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
     }
   }
 
-  function drawBodyAndPicture (pFloatingObject) {
+  function drawBodyAndPicture (params) {
     let position = {
-      x: pFloatingObject.container.frame.position.x,
-      y: pFloatingObject.container.frame.position.y
+      x: params.container.frame.position.x,
+      y: params.container.frame.position.y
     }
 
-    let radius = pFloatingObject.container.frame.radius
+    let radius = params.container.frame.radius
 
     if (radius > 0.5 && image === undefined) {
             /* Main FloatingObject */
@@ -458,7 +461,7 @@ function newStrategyPart () {
       browserCanvasContext.arc(position.x, position.y, radius * 2 / 3, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
 
-      browserCanvasContext.fillStyle = pFloatingObject.fillStyle
+      browserCanvasContext.fillStyle = params.fillStyle
 
       browserCanvasContext.fill()
 
@@ -475,7 +478,7 @@ function newStrategyPart () {
 
     if (image !== undefined) {
       if (image.canDrawIcon === true) {
-        browserCanvasContext.drawImage(image, position.x - pFloatingObject.currentImageSize / 2, position.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize, pFloatingObject.currentImageSize)
+        browserCanvasContext.drawImage(image, position.x - params.currentImageSize / 2, position.y - params.currentImageSize / 2, params.currentImageSize, params.currentImageSize)
       }
     }
   }

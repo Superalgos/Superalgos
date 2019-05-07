@@ -239,6 +239,19 @@ function newStrategy () {
       case 'Edit Code':
 
         break
+
+      case 'Add Condition':
+        {
+          let situation = payload.node
+          let m = situation.conditions.length
+          let condition = {
+            name: 'New Condition' + ' #' + (m + 1),
+            code: ''
+          }
+          situation.conditions.push(condition)
+          createPart('Condition', condition.name, condition, situation, situation, 'Condition' + ' #' + (m + 1))
+        }
+        break
       case 'Delete Phase': {
         deletePhase(payload.node)
         break

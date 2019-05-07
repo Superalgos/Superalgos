@@ -328,29 +328,31 @@ function newStrategyPart () {
     if (pFloatingObject.payload.parentNode === undefined) { return }
 
     /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
-    let parentFloatingObject = floatingLayer.getFloatingObject(pFloatingObject.payload.chainParent.handle)
+    let parentFloatingObject = floatingLayer.getFloatingObject(thisObject.payload.chainParent.handle)
 
-    if (parentFloatingObject === undefined) {
-      console.log(pFloatingObject)
-      console.log('Now')
-    }
-
-    pFloatingObject.payload.position.x = parentFloatingObject.container.frame.position.x
-    pFloatingObject.payload.position.y = parentFloatingObject.container.frame.position.y
+    thisObject.payload.position.x = parentFloatingObject.container.frame.position.x
+    thisObject.payload.position.y = parentFloatingObject.container.frame.position.y
 
    /* Here I continue painting the background */
 
-    let point = {
-      x: pFloatingObject.payload.position.x,
-      y: pFloatingObject.payload.position.y
+    let targetPoint = {
+      x: thisObject.payload.position.x,
+      y: thisObject.payload.position.y
     }
 
-    if (pFloatingObject.container.frame.radius > 1) {
+    let position = {
+      x: 0,
+      y: 0
+    }
+
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    if (thisObject.container.frame.radius > 1) {
             /* Target Line */
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.moveTo(pFloatingObject.container.frame.position.x, pFloatingObject.container.frame.position.y)
-      browserCanvasContext.lineTo(point.x, point.y)
+      browserCanvasContext.moveTo(position.x, position.y)
+      browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)'
       browserCanvasContext.setLineDash([1, 4])
       browserCanvasContext.lineWidth = 1
@@ -364,10 +366,58 @@ function newStrategyPart () {
       let radius = 1
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(point.x, point.y, radius, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(targetPoint.x, targetPoint.y, radius, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
       browserCanvasContext.fillStyle = 'rgba(30, 30, 30, 1)'
       browserCanvasContext.fill()
+    }
+
+    drawText()
+
+    function drawText () {
+  /* Text Follows */
+      let position = {
+        x: pFloatingObject.container.frame.position.x,
+        y: pFloatingObject.container.frame.position.y
+      }
+      let radius = pFloatingObject.container.frame.radius
+              /* Label Text */
+      let labelPoint
+      let fontSize = pFloatingObject.currentFontSize
+      let label
+
+      if (radius > 6 && thisObject.isOnFocus === true) {
+        browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
+        label = pFloatingObject.payload.downLabel
+
+        if (label !== undefined) {
+          labelPoint = {
+            x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+            y: position.y - radius * 1 / 2 - fontSize * FONT_ASPECT_RATIO - 10
+          }
+
+          browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+          browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
+          browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+        }
+      }
+      if (radius > 6) {
+        label = pFloatingObject.payload.upLabel
+
+        if (label !== undefined) {
+          labelPoint = {
+            x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+            y: position.y + radius * 2 / 3 + fontSize * FONT_ASPECT_RATIO + 15
+          }
+
+          browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+          browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
+          browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+        }
+      }
     }
   }
 
@@ -414,45 +464,6 @@ function newStrategyPart () {
     if (image !== undefined) {
       if (image.canDrawIcon === true) {
         browserCanvasContext.drawImage(image, position.x - pFloatingObject.currentImageSize / 2, position.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize, pFloatingObject.currentImageSize)
-      }
-    }
-
-        /* Label Text */
-
-    if (radius > 6 && thisObject.isOnFocus === true) {
-      browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle
-
-      let labelPoint
-      let fontSize = pFloatingObject.currentFontSize
-
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
-      let label
-
-      label = pFloatingObject.payload.upLabel
-
-      if (label !== undefined) {
-        labelPoint = {
-          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-          y: position.y - radius * 1 / 2 - fontSize * FONT_ASPECT_RATIO - 10
-        }
-
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-        browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
-        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-      }
-
-      label = pFloatingObject.payload.downLabel
-
-      if (label !== undefined && thisObject.isOnFocus === true) {
-        labelPoint = {
-          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-          y: position.y + radius * 1 / 2 + fontSize * FONT_ASPECT_RATIO + 15
-        }
-
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-        browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
-        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
     }
   }

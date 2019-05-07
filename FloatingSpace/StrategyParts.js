@@ -39,19 +39,19 @@ function newStrategyParts () {
         level_1()
         break
       }
-      case 'Strategy Entry': {
+      case 'Strategy Entry Event': {
         level_2()
         break
       }
-      case 'Strategy Exit': {
+      case 'Strategy Exit Event': {
         level_2()
         break
       }
-      case 'Trade Entry': {
+      case 'Trade Entry Event': {
         level_2()
         break
       }
-      case 'Trade Exit': {
+      case 'Trade Exit Event': {
         level_2()
         break
       }

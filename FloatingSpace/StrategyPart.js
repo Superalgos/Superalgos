@@ -1,6 +1,10 @@
 
 function newStrategyPart () {
   const MODULE_NAME = 'Strategy Part'
+  const ERROR_LOG = true
+
+  const logger = newWebDebugLog()
+  logger.fileName = MODULE_NAME
 
   let thisObject = {
     type: undefined,
@@ -83,7 +87,7 @@ function newStrategyPart () {
           }]
         break
       }
-      case 'Strategy Entry': {
+      case 'Strategy Entry Event': {
         imagePath = 'Images/icons/style-01/startup.png'
         menuItemsInitialValues = [
           {
@@ -99,7 +103,7 @@ function newStrategyPart () {
           }]
         break
       }
-      case 'Strategy Exit': {
+      case 'Strategy Exit Event': {
         imagePath = 'Images/icons/style-01/support.png'
         menuItemsInitialValues = [
           {
@@ -115,7 +119,7 @@ function newStrategyPart () {
           }]
         break
       }
-      case 'Trade Entry': {
+      case 'Trade Entry Event': {
         imagePath = 'Images/icons/style-01/compass.png'
         menuItemsInitialValues = [
           {
@@ -324,7 +328,7 @@ function newStrategyPart () {
     if (pFloatingObject.payload.parentNode === undefined) { return }
 
     /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
-    let parentFloatingObject = floatingLayer.getFloatingObject(pFloatingObject.payload.parentNode.handle)
+    let parentFloatingObject = floatingLayer.getFloatingObject(pFloatingObject.payload.chainParent.handle)
 
     if (parentFloatingObject === undefined) {
       console.log(pFloatingObject)

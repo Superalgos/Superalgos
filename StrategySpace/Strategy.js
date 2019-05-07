@@ -37,7 +37,7 @@ function newStrategy () {
 
   }
 
-  function createPart (partType, name, node, parentNode, title) {
+  function createPart (partType, name, node, parentNode, chainParent, title) {
     let payload = {
       position: {
         x: (viewPort.width - SIDE_PANEL_WIDTH) / 2 + SIDE_PANEL_WIDTH,
@@ -55,6 +55,7 @@ function newStrategy () {
     payload.downLabel = name
     payload.node = node
     payload.parentNode = parentNode
+    payload.chainParent = chainParent
     payload.onMenuItemClick = onMenuItemClick
 
     node.handle = canvas.floatingSpace.strategyParts.createNewStrategyPart(partType, payload)
@@ -68,84 +69,84 @@ function newStrategy () {
   function generateStrategyParts () {
     let lastPhase
     let strategy = thisObject.strategySource
-    createPart('Strategy', strategy.name, strategy, undefined)
+    createPart('Strategy', strategy.name, strategy, undefined, undefined)
 
-    createPart('Strategy Entry', '', strategy.entryPoint, strategy)
+    createPart('Strategy Entry Event', '', strategy.entryPoint, strategy, strategy)
     for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
       let situation = strategy.entryPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.entryPoint, 'Strategy Entry' + ' ' + 'Situation' + ' #' + (k + 1))
+      createPart('Situation', situation.name, situation, strategy.entryPoint, strategy.entryPoint, 'Strategy Entry' + ' ' + 'Situation' + ' #' + (k + 1))
 
       for (let m = 0; m < situation.conditions.length; m++) {
         let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
+        createPart('Condition', condition.name, condition, situation, situation, 'Condition' + ' #' + (m + 1))
       }
     }
 
-    createPart('Strategy Exit', '', strategy.exitPoint, strategy)
+    createPart('Strategy Exit Event', '', strategy.exitPoint, strategy, strategy)
     for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
       let situation = strategy.exitPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.exitPoint, 'Strategy Exit' + ' ' + 'Situation' + ' #' + (k + 1))
+      createPart('Situation', situation.name, situation, strategy.exitPoint, strategy.exitPoint, 'Strategy Exit' + ' ' + 'Situation' + ' #' + (k + 1))
 
       for (let m = 0; m < situation.conditions.length; m++) {
         let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
+        createPart('Condition', condition.name, condition, situation, situation, 'Condition' + ' #' + (m + 1))
       }
     }
 
-    createPart('Trade Entry', '', strategy.sellPoint, strategy)
+    createPart('Trade Entry Event', '', strategy.sellPoint, strategy, strategy)
     for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
       let situation = strategy.sellPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.sellPoint, 'Trade Entry' + ' ' + 'Situation' + ' #' + (k + 1))
+      createPart('Situation', situation.name, situation, strategy.sellPoint, strategy.sellPoint, 'Trade Entry' + ' ' + 'Situation' + ' #' + (k + 1))
 
       for (let m = 0; m < situation.conditions.length; m++) {
         let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
+        createPart('Condition', condition.name, condition, situation, situation, 'Condition' + ' #' + (m + 1))
       }
     }
 
-    createPart('Stop', '', strategy.stopLoss, strategy)
+    createPart('Stop', '', strategy.stopLoss, strategy, strategy)
     for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
       let phase = strategy.stopLoss.phases[p]
 
-      let parent
+      let chainParent
       if (p === 0) {
-        parent = strategy.stopLoss
+        chainParent = strategy.stopLoss
       } else {
-        parent = lastPhase
+        chainParent = lastPhase
       }
       lastPhase = phase
-      createPart('Phase', phase.name, phase, parent, 'Stop Phase' + ' #' + (p + 1))
+      createPart('Phase', phase.name, phase, strategy.stopLoss, chainParent, 'Stop Phase' + ' #' + (p + 1))
 
       for (let k = 0; k < phase.situations.length; k++) {
         let situation = phase.situations[k]
-        createPart('Situation', situation.name, situation, phase, 'Situation' + ' #' + (k + 1))
+        createPart('Situation', situation.name, situation, phase, phase, 'Situation' + ' #' + (k + 1))
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
-          createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
+          createPart('Condition', condition.name, condition, situation, situation, 'Condition' + ' #' + (m + 1))
         }
       }
     }
 
-    createPart('Take Profit', '', strategy.buyOrder, strategy)
+    createPart('Take Profit', '', strategy.buyOrder, strategy, strategy)
     for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
       let phase = strategy.buyOrder.phases[p]
-      let parent
+      let chainParent
       if (p === 0) {
-        parent = strategy.buyOrder
+        chainParent = strategy.buyOrder
       } else {
-        parent = lastPhase
+        chainParent = lastPhase
       }
       lastPhase = phase
-      createPart('Phase', phase.name, phase, parent, 'Take Profit Phase' + ' #' + (p + 1))
+      createPart('Phase', phase.name, phase, strategy.buyOrder, chainParent, 'Take Profit Phase' + ' #' + (p + 1))
 
       for (let k = 0; k < phase.situations.length; k++) {
         let situation = phase.situations[k]
-        createPart('Situation', situation.name, situation, phase, 'Situation' + ' #' + (k + 1))
+        createPart('Situation', situation.name, situation, phase, phase, 'Situation' + ' #' + (k + 1))
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
-          createPart('Condition', condition.name, condition, situation, 'Condition' + ' #' + (m + 1))
+          createPart('Condition', condition.name, condition, situation, situation, 'Condition' + ' #' + (m + 1))
         }
       }
     }
@@ -238,20 +239,51 @@ function newStrategy () {
       case 'Edit Code':
 
         break
-      case 'Delete Phase':
-
+      case 'Delete Phase': {
+        deletePhase(payload.node)
         break
+      }
       case 'Delete Situation': {
         deleteSituation(payload.node)
         break
       }
-        break
       case 'Delete Condition': {
         deleteCondition(payload.node)
         break
       }
       default:
 
+    }
+  }
+
+  function deletePhase (node) {
+    let payload = node.payload
+    for (let k = 0; k < payload.parentNode.phases.length; k++) {
+      let phase = payload.parentNode.phases[k]
+      if (phase.name === node.name) {
+        for (let j = 0; j < phase.situations.length; j++) {
+          let situation = phase.situations[j]
+          for (let i = 0; i < situation.conditions.length; i++) {
+            let condition = situation.conditions[i]
+            destroyPart(condition)
+            cleanNode(condition)
+          }
+          situation.conditions = []
+          destroyPart(situation)
+          phase.situations.splice(j, 1)
+          cleanNode(situation)
+        }
+        phase.situations = []
+        /* Before deleting this phase we need to give its chainParent to the next phase down the chain */
+        if (k < payload.parentNode.phases.length - 1) {
+          payload.parentNode.phases[k + 1].payload.chainParent = payload.chainParent
+        }
+        /* Continue destroying this phase */
+        destroyPart(phase)
+        payload.parentNode.phases.splice(k, 1)
+        cleanNode(phase)
+        return
+      }
     }
   }
 
@@ -295,10 +327,10 @@ function newStrategy () {
     node.payload.downLabel = undefined
     node.payload.node = undefined
     node.payload.parentNode = undefined
+    node.payload.chainParent = undefined
     node.payload.onMenuItemClick = undefined
     node.handle = undefined
     node.payload = undefined
     node.cleaned = true
   }
 }
-

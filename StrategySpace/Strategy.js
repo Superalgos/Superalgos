@@ -237,11 +237,27 @@ function newStrategy () {
 
         break
 
-      case 'Add Phase':
-
-        break
       case 'Edit Code':
 
+        break
+      case 'Add Phase':
+        {
+          let phaseParent = payload.node
+          let m = phaseParent.phases.length
+          let phase = {
+            name: 'New Phase' + ' #' + (m + 1),
+            code: '',
+            situations: []
+          }
+          phaseParent.phases.push(phase)
+          let phaseChainParent
+          if (m > 0) {
+            phaseChainParent = phaseParent.phases[m - 1]
+          } else {
+            phaseChainParent = phaseParent
+          }
+          createPart('Phase', phase.name, phase, phaseParent, phaseChainParent, 'Phase' + ' #' + (m + 1))
+        }
         break
       case 'Add Situation':
         {

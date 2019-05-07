@@ -215,19 +215,19 @@ function newFloatingLayer () {
           switch (floatingObject.type) {
 
             case 'Profile Ball': {
-              payload.position = floatingObject.payload.profile.position
+              payload.targetPosition = floatingObject.payload.profile.position
               payload.visible = floatingObject.payload.profile.visible
               break
             }
             case 'Note': {
               if (floatingObject.payload.notes[floatingObject.payloadNoteIndex] !== undefined) {
-                payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position
+                payload.targetPosition = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position
                 payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
               }
               break
             }
             case 'Strategy Part': {
-              payload.position = floatingObject.payload.position
+              payload.targetPosition = floatingObject.payload.targetPosition
               payload.visible = floatingObject.payload.visible
               break
             }
@@ -237,11 +237,6 @@ function newFloatingLayer () {
           }
 
           if (payload.visible === true) {
-                          /* The first time that the floatingObject becomes visible, we need to do this. */
-
-            floatingObject.radomizeCurrentPosition(payload.position)
-            floatingObject.radomizeCurrentSpeed()
-
             visibleFloatingObjects.push(floatingObject)
 
             invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
@@ -348,18 +343,18 @@ function newFloatingLayer () {
             switch (floatingObject.type) {
 
               case 'Profile Ball': {
-                payload.position = floatingObject.payload.profile.position
+                payload.targetPosition = floatingObject.payload.profile.position
                 payload.visible = floatingObject.payload.profile.visible
                 break
               }
               case 'Note': {
-                payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position
+                payload.targetPosition = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position
                 payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
 
                 break
               }
               case 'Strategy Part': {
-                payload.position = floatingObject.payload.position
+                payload.targetPosition = floatingObject.payload.targetPosition
                 payload.visible = floatingObject.payload.visible
                 break
               }
@@ -368,13 +363,13 @@ function newFloatingLayer () {
               }
             }
 
-            if (floatingObject.container.frame.position.x < payload.position.x) {
+            if (floatingObject.container.frame.position.x < payload.targetPosition.x) {
               floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + 0.005
             } else {
               floatingObject.currentSpeed.x = floatingObject.currentSpeed.x - 0.005
             }
 
-            if (floatingObject.container.frame.position.y < payload.position.y) {
+            if (floatingObject.container.frame.position.y < payload.targetPosition.y) {
               floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + 0.005
             } else {
               floatingObject.currentSpeed.y = floatingObject.currentSpeed.y - 0.005
@@ -434,7 +429,7 @@ function newFloatingLayer () {
       const coulomb = 0.00001
       const minForce = 0.01
 
-      var d = Math.sqrt(Math.pow(payload.position.x - floatingObject.container.frame.position.x, 2) + Math.pow(payload.position.y - floatingObject.container.frame.position.y, 2))  // ... we calculate the distance ...
+      var d = Math.sqrt(Math.pow(payload.targetPosition.x - floatingObject.container.frame.position.x, 2) + Math.pow(payload.targetPosition.y - floatingObject.container.frame.position.y, 2))  // ... we calculate the distance ...
 
       var force = coulomb * d * d / floatingObject.currentMass  // In this case the mass of the floatingObject affects the gravity force that it receives, that gives priority to target position to bigger floatingObjects.
 
@@ -448,8 +443,8 @@ function newFloatingLayer () {
       }
 
       var pos2 = {
-        x: payload.position.x,
-        y: payload.position.y
+        x: payload.targetPosition.x,
+        y: payload.targetPosition.y
       }
 
       var posDiff = {             // Next we need the vector resulting from the 2 positions.
@@ -560,15 +555,15 @@ function newFloatingLayer () {
         switch (floatingObject2.type) {
 
           case 'Profile Ball': {
-            payload.position = floatingObject2.payload.profile.position
+            payload.targetPosition = floatingObject2.payload.profile.position
             break
           }
           case 'Note': {
-            payload.position = floatingObject2.payload.notes[floatingObject2.payloadNoteIndex].position
+            payload.targetPosition = floatingObject2.payload.notes[floatingObject2.payloadNoteIndex].position
             break
           }
           case 'Strategy Part': {
-            payload.position = floatingObject2.payload.position
+            payload.targetPosition = floatingObject2.payload.targetPosition
             break
           }
           default: {
@@ -576,7 +571,7 @@ function newFloatingLayer () {
           }
         }
 
-        var d = Math.sqrt(Math.pow(payload.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(payload.position.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
+        var d = Math.sqrt(Math.pow(payload.targetPosition.x - floatingObject1.container.frame.position.x, 2) + Math.pow(payload.targetPosition.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
 
         var force = coulomb * floatingObject2.currentMass / (d * d)  // ... and with it the repulsion force.
 
@@ -592,8 +587,8 @@ function newFloatingLayer () {
         }
 
         var pos2 = {
-          x: payload.position.x,
-          y: payload.position.y
+          x: payload.targetPosition.x,
+          y: payload.targetPosition.y
         }
 
         var posDiff = {             // Next we need the vector resulting from the 2 positions.
@@ -753,4 +748,3 @@ function newFloatingLayer () {
     }
   }
 }
-

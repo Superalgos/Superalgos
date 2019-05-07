@@ -101,6 +101,11 @@ function newFloatingObject () {
       /* To consider that this object lost the focus, we monitor the space for 2 key events */
     spaceMouseOverEventSubscriptionId = canvas.floatingSpace.container.eventHandler.listenToEvent('onMouseOver', mouseOverFlotingSpace)
     spaceFocusAquiredEventSubscriptionId = canvas.floatingSpace.container.eventHandler.listenToEvent('onFocusAquired', someoneAquiredFocus)
+
+    /* Assign a position and speed */
+
+    thisObject.radomizeCurrentPosition(thisObject.payload.targetPosition)
+    thisObject.radomizeCurrentSpeed()
   }
 
   function getContainer (point) {
@@ -152,6 +157,17 @@ function newFloatingObject () {
         thisObject.currentFontSize = thisObject.currentFontSize - 0.2
       }
     }
+
+    /* Floating object position in screen coordinates */
+
+    let position = {
+      x: 0,
+      y: 0
+    }
+
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    thisObject.payload.position = position
   }
 
   function onMouseOver (point) {
@@ -268,6 +284,10 @@ function newFloatingObject () {
     }
 
     thisObject.container.frame.position = position
+    thisObject.payload.position = {
+      x: position.x,
+      y: position.y
+    }
   }
 
   function radomizeCurrentSpeed () {

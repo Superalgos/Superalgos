@@ -185,8 +185,8 @@ function newProfileBall () {
 
   function drawBackground (pFloatingObject) {
     let point = {
-      x: pFloatingObject.payload.position.x,
-      y: pFloatingObject.payload.position.y
+      x: pFloatingObject.payload.targetPosition.x,
+      y: pFloatingObject.payload.targetPosition.y
     }
 
     point = viewPort.fitIntoVisibleArea(point)

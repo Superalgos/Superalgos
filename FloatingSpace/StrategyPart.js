@@ -305,11 +305,8 @@ function newStrategyPart () {
 
     if (thisObject.payload.chainParent === undefined) { return }
 
-    /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
-    let parentFloatingObject = floatingLayer.getFloatingObject(thisObject.payload.chainParent.handle)
-
-    thisObject.payload.position.x = parentFloatingObject.container.frame.position.x
-    thisObject.payload.position.y = parentFloatingObject.container.frame.position.y
+    thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x
+    thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
   }
 
   function onFocus () {
@@ -360,8 +357,8 @@ function newStrategyPart () {
     if (thisObject.payload.chainParent === undefined) { return }
 
     let targetPoint = {
-      x: thisObject.payload.position.x,
-      y: thisObject.payload.position.y
+      x: thisObject.payload.targetPosition.x,
+      y: thisObject.payload.targetPosition.y
     }
 
     let position = {

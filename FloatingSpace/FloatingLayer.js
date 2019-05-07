@@ -183,8 +183,18 @@ function newFloatingLayer () {
       }
 
       for (let i = 0; i < visibleFloatingObjects.length; i++) {
+        let floatingObject = visibleFloatingObjects[i]
+        floatingObject.drawMiddleground()
+      }
+
+      for (let i = 0; i < visibleFloatingObjects.length; i++) {
         let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1]
         floatingObject.drawForeground()
+      }
+
+      for (let i = 0; i < visibleFloatingObjects.length; i++) {
+        let floatingObject = visibleFloatingObjects[i]
+        floatingObject.drawOnFocus()
       }
 
       makeVisible()

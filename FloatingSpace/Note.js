@@ -6,7 +6,9 @@ function newNote () {
     container: undefined,
     physics: physics,
     drawBackground: drawBackground,
+    drawMiddleground: drawMiddleground,
     drawForeground: drawForeground,
+    drawOnFocus: drawOnFocus,
     getContainer: getContainer,
     initialize: initialize
   }
@@ -86,6 +88,14 @@ function newNote () {
       browserCanvasContext.fillStyle = 'rgba(30, 30, 30, 1)'
       browserCanvasContext.fill()
     }
+  }
+
+  function drawOnFocus () {
+
+  }
+
+  function drawMiddleground () {
+
   }
 
   function drawForeground (pFloatingObject) {

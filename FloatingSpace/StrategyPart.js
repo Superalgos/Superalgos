@@ -14,7 +14,9 @@ function newStrategyPart () {
     payload: undefined,
     physics: physics,
     drawBackground: drawBackground,
+    drawMiddleground: drawMiddleground,
     drawForeground: drawForeground,
+    drawOnFocus: drawOnFocus,
     getContainer: getContainer,
     finalize: finalize,
     initialize: initialize
@@ -316,15 +318,37 @@ function newStrategyPart () {
 
   function drawBackground (pFloatingObject) {
     if (thisObject.isOnFocus === false) {
-      drawPartBackground(pFloatingObject)
+      drawConnectingLine(pFloatingObject)
       thisObject.menu.drawBackground()
+    }
+  }
 
-      drawPartForeground(pFloatingObject)
+  function drawMiddleground (pFloatingObject) {
+    if (thisObject.isOnFocus === false) {
+      drawText(pFloatingObject)
+    }
+  }
+
+  function drawForeground (pFloatingObject) {
+    if (thisObject.isOnFocus === false) {
+      drawBodyAndPicture(pFloatingObject)
       thisObject.menu.drawForeground()
     }
   }
 
-  function drawPartBackground (pFloatingObject) {
+  function drawOnFocus (pFloatingObject) {
+    if (thisObject.isOnFocus === true) {
+      drawConnectingLine(pFloatingObject)
+      thisObject.menu.drawBackground()
+
+      drawText(pFloatingObject)
+
+      drawBodyAndPicture(pFloatingObject)
+      thisObject.menu.drawForeground()
+    }
+  }
+
+  function drawConnectingLine (pFloatingObject) {
     if (pFloatingObject.payload.parentNode === undefined) { return }
 
     /* Here we do the trick of recalculation the position of the anchor by setting it to the position of its parent */
@@ -371,67 +395,55 @@ function newStrategyPart () {
       browserCanvasContext.fillStyle = 'rgba(30, 30, 30, 1)'
       browserCanvasContext.fill()
     }
+  }
 
-    drawText()
+  function drawText (pFloatingObject) {
+/* Text Follows */
+    let position = {
+      x: pFloatingObject.container.frame.position.x,
+      y: pFloatingObject.container.frame.position.y
+    }
+    let radius = pFloatingObject.container.frame.radius
+            /* Label Text */
+    let labelPoint
+    let fontSize = pFloatingObject.currentFontSize
+    let label
 
-    function drawText () {
-  /* Text Follows */
-      let position = {
-        x: pFloatingObject.container.frame.position.x,
-        y: pFloatingObject.container.frame.position.y
-      }
-      let radius = pFloatingObject.container.frame.radius
-              /* Label Text */
-      let labelPoint
-      let fontSize = pFloatingObject.currentFontSize
-      let label
+    if (radius > 6 && thisObject.isOnFocus === true) {
+      browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle
 
-      if (radius > 6 && thisObject.isOnFocus === true) {
-        browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle
+      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
+      label = pFloatingObject.payload.downLabel
+
+      if (label !== undefined) {
+        labelPoint = {
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+          y: position.y - radius * 1 / 2 - fontSize * FONT_ASPECT_RATIO - 10
+        }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
-        label = pFloatingObject.payload.downLabel
-
-        if (label !== undefined) {
-          labelPoint = {
-            x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-            y: position.y - radius * 1 / 2 - fontSize * FONT_ASPECT_RATIO - 10
-          }
-
-          browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-          browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
-          browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-        }
+        browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
+        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
-      if (radius > 6) {
-        label = pFloatingObject.payload.upLabel
+    }
+    if (radius > 6) {
+      label = pFloatingObject.payload.upLabel
 
-        if (label !== undefined) {
-          labelPoint = {
-            x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-            y: position.y + radius * 2 / 3 + fontSize * FONT_ASPECT_RATIO + 15
-          }
-
-          browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-          browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
-          browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      if (label !== undefined) {
+        labelPoint = {
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+          y: position.y + radius * 2 / 3 + fontSize * FONT_ASPECT_RATIO + 15
         }
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+        browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle
+        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
     }
   }
 
-  function drawForeground (pFloatingObject) {
-    if (thisObject.isOnFocus === true) {
-      drawPartBackground(pFloatingObject)
-      thisObject.menu.drawBackground()
-
-      drawPartForeground(pFloatingObject)
-      thisObject.menu.drawForeground()
-    }
-  }
-
-  function drawPartForeground (pFloatingObject) {
+  function drawBodyAndPicture (pFloatingObject) {
     let position = {
       x: pFloatingObject.container.frame.position.x,
       y: pFloatingObject.container.frame.position.y

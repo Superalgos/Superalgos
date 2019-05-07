@@ -27,7 +27,9 @@ function newFloatingObject () {
     radomizeCurrentPosition: radomizeCurrentPosition,
     radomizeCurrentSpeed: radomizeCurrentSpeed,
     drawBackground: drawBackground,
+    drawMiddleground: drawMiddleground,
     drawForeground: drawForeground,
+    drawOnFocus: drawOnFocus,
     updateMass: updateMass,                 // Function to update the mass when the zoom level changed.
     updateRadius: updateRadius,             // Function to update the radius when the zoom level changed.
     getContainer: getContainer,
@@ -202,8 +204,16 @@ function newFloatingObject () {
     thisObject.underlayingObject.drawBackground(thisObject)
   }
 
+  function drawMiddleground () {
+    thisObject.underlayingObject.drawMiddleground(thisObject)
+  }
+
   function drawForeground () {
     thisObject.underlayingObject.drawForeground(thisObject)
+  }
+
+  function drawOnFocus () {
+    thisObject.underlayingObject.drawOnFocus(thisObject)
   }
 
   function initializeMass (suggestedValue) {

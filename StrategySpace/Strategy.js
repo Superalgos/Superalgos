@@ -236,16 +236,25 @@ function newStrategy () {
       case 'Delete Strategy':
 
         break
-      case 'Add Situation':
 
-        break
       case 'Add Phase':
 
         break
       case 'Edit Code':
 
         break
-
+      case 'Add Situation':
+        {
+          let phase = payload.node
+          let m = phase.situations.length
+          let situation = {
+            name: 'New Situation' + ' #' + (m + 1),
+            conditions: []
+          }
+          phase.situations.push(situation)
+          createPart('Situation', situation.name, situation, phase, phase, 'Situation' + ' #' + (m + 1))
+        }
+        break
       case 'Add Condition':
         {
           let situation = payload.node
@@ -353,3 +362,4 @@ function newStrategy () {
     node.cleaned = true
   }
 }
+

@@ -38,12 +38,17 @@ function newStrategy () {
   }
 
   function createPart (partType, name, node, parentNode, chainParent, title) {
-    let payload = {
-      position: {
+    let payload = {}
+    if (chainParent === undefined) {
+      payload.position = {
         x: (viewPort.width - SIDE_PANEL_WIDTH) / 2 + SIDE_PANEL_WIDTH,
         y: viewPort.height / 2
-      },
-      visible: true
+      }
+    } else {
+      payload.position = {
+        x: chainParent.payload.position.x,
+        y: chainParent.payload.position.y
+      }
     }
 
     if (title !== undefined) {
@@ -52,6 +57,7 @@ function newStrategy () {
       payload.upLabel = partType
     }
 
+    payload.visible = true
     payload.downLabel = name
     payload.node = node
     payload.parentNode = parentNode

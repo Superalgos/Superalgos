@@ -26,9 +26,9 @@ function newStrategyParts () {
     floatingLayer = pFloatingLayer
   }
 
-  function createNewStrategyPart (type, pPayload) {
+  function createNewStrategyPart (type, payload) {
     let floatingObject = newFloatingObject()
-    floatingObject.payload = pPayload
+    floatingObject.payload = payload
     floatingObject.initialize('Strategy Part', type, floatingLayer)
     floatingObject.underlayingObject.type = type // after initialize
 

@@ -64,6 +64,16 @@ function loadAdvancedAlgosPlatform() {
 
     browserCanvas.style.top = window.canvasApp.topMargin + 'px';
 
+    let textArea = document.getElementById('textArea');
+    textArea.value = 'This is all I need';
+
+    let textAreaDiv = document.getElementById('textAreaDiv');
+
+    //textAreaDiv.style.position = 'fixed';
+    //textAreaDiv.style.top = '50px';
+   // textAreaDiv.style.left = '100px';
+    textAreaDiv.style = "position:absolute; top:100px; left:100px; z-index:1";
+
     loadDebugModule();
 
     function loadDebugModule() {

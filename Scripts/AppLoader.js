@@ -40,6 +40,7 @@ function newAppLoader() {
 
                 "StrategySpace/StrategyCollection.js", 
                 "StrategySpace/StrategyCollectionItem.js", 
+                "StrategySpace/Strategy.js",
 
                 "Utilities/RoundedCornersBackground.js",
 
@@ -72,7 +73,9 @@ function newAppLoader() {
                 "FloatingSpace/FloatingObject.js",
                 "FloatingSpace/FloatingLayer.js",
                 "FloatingSpace/StrategyParts.js",
-                "FloatingSpace/StrategyPart.js",
+                "FloatingSpace/StrategyPart.js",  
+                "FloatingSpace/CircularMenu.js",
+                "FloatingSpace/CircularMenuItem.js",
 
                 "Exchange/ExchangeAPI.js",
 

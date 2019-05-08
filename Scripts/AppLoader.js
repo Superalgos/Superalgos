@@ -40,7 +40,11 @@ function newAppLoader() {
 
                 "StrategySpace/StrategyCollection.js", 
                 "StrategySpace/StrategyCollectionItem.js", 
-                "StrategySpace/Strategy.js",
+                "StrategySpace/Strategy.js", 
+                "StrategySpace/ConstGetStrategies.js", 
+                "StrategySpace/ConstNewStrategy.js", 
+                "StrategySpace/ConstUpdateStrategy.js", 
+                "StrategySpace/ConstDeleteStrategy.js", 
 
                 "Utilities/RoundedCornersBackground.js",
 

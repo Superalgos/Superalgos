@@ -85,96 +85,10 @@ function newStrategyCollection () {
         }
       }])
 
-      const QUERY = Apollo.gql`
-          query($fbSlug: String!){
-
-                    strategizer_StrategyByFb(fbSlug: $fbSlug){
-                    subStrategies(activeOnly: true){
-                        name
-                        entryPoint{
-                        situations{
-                            name
-                            conditions{
-                            name
-                            code
-                            }
-                        }
-                        }
-                        exitPoint{
-                        situations{
-                            name
-                            conditions{
-                            name
-                            code
-                            }
-                        }
-                        }
-                        sellPoint{
-                        situations{
-                            name
-                            conditions{
-                            name
-                            code
-                            }
-                        }
-                        }
-                        buyPoint{
-                        situations{
-                            name
-                            conditions{
-                            name
-                            code
-                            }
-                        }
-                        }
-                        stopLoss{
-                        phases{
-                            name
-                            code
-                            situations{
-                            name
-                            conditions{
-                                name
-                                code
-                            }
-                            }
-                        }
-                        }
-                        buyOrder{
-                        phases{
-                            name
-                            code
-                            situations{
-                            name
-                            conditions{
-                                name
-                                code
-                            }
-                            }
-                        }
-                        }
-                        sellOrder{
-                        phases{
-                            name
-                            code
-                            situations{
-                            name
-                            conditions{
-                                name
-                                code
-                            }
-                            }
-                        }
-                        }
-                    }
-                    }
-                }
-              `
-
       const getStrategies = () => {
         return new Promise((resolve, reject) => {
           apolloClient.query({
-            query: QUERY,
+            query: GRAPHQL_QUERY_GET_STRATEGIES,
             variables: { fbSlug: strategySimulationClone}
           })
                   .then(response => {

@@ -241,6 +241,14 @@ function newStrategy () {
 
         break
 
+      case 'Reload Strategy':
+
+        break
+
+      case 'Save Strategy':
+
+        break
+
       case 'Edit Code':
 
         break

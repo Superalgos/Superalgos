@@ -72,16 +72,28 @@ function newStrategyPart () {
         imagePath = 'Images/icons/style-01/quality.png'
         menuItemsInitialValues = [
           {
-            action: 'Open Settings',
+            action: 'Reload Strategy',
             actionFunction: thisObject.payload.onMenuItemClick,
-            label: 'Settings',
+            label: 'Reload Last Saved',
             visible: false,
-            imagePathOn: 'Images/icons/style-01/tools.png',
+            imagePathOn: 'Images/icons/style-01/pixel.png',
             imagePathOff: 'Images/icons/style-01/target.png',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: -60
+          },
+          {
+            action: 'Save Strategy',
+            actionFunction: thisObject.payload.onMenuItemClick,
+            label: 'Save Changes',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/upload.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
           },
           {
             action: 'Delete Strategy',
@@ -93,7 +105,19 @@ function newStrategyPart () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 20
+          },
+          {
+            action: 'Open Settings',
+            actionFunction: thisObject.payload.onMenuItemClick,
+            label: 'Settings',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/tools.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
           }]
         break
       }
@@ -582,4 +606,3 @@ function newStrategyPart () {
     }
   }
 }
-

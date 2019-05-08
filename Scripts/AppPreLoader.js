@@ -64,14 +64,6 @@ function loadAdvancedAlgosPlatform() {
 
     browserCanvas.style.top = window.canvasApp.topMargin + 'px';
 
-    let textArea = document.getElementById('textArea');
-    textArea.value = 'This is all I need'; 
-    textArea.style = "resize: none; border: none; outline: none; box-shadow: none; overflow:hidden; font-family: Saira; font-size: 12px; background-color: rgb(204, 88, 53);color:rgb(255, 255, 255);" 
-    
-
-    let textAreaDiv = document.getElementById('textAreaDiv');
-    textAreaDiv.style = "position:absolute; top:100px; left:100px; z-index:1; ";
-
     loadDebugModule();
 
     function loadDebugModule() {

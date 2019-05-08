@@ -66,6 +66,10 @@ function newStrategy () {
 
     node.handle = canvas.floatingSpace.strategyParts.createNewStrategyPart(partType, payload)
     node.payload = payload
+
+    if (node.id === undefined) {
+      node.id = newUniqueId()
+    }
   }
 
   function destroyPart (node) {
@@ -245,7 +249,7 @@ function newStrategy () {
           let phaseParent = payload.node
           let m = phaseParent.phases.length
           let phase = {
-            name: 'New Phase' + ' #' + (m + 1),
+            name: 'New Phase',
             code: '',
             situations: []
           }
@@ -264,7 +268,7 @@ function newStrategy () {
           let phase = payload.node
           let m = phase.situations.length
           let situation = {
-            name: 'New Situation' + ' #' + (m + 1),
+            name: 'New Situation',
             conditions: []
           }
           phase.situations.push(situation)
@@ -276,7 +280,7 @@ function newStrategy () {
           let situation = payload.node
           let m = situation.conditions.length
           let condition = {
-            name: 'New Condition' + ' #' + (m + 1),
+            name: 'New Condition',
             code: ''
           }
           situation.conditions.push(condition)
@@ -304,7 +308,7 @@ function newStrategy () {
     let payload = node.payload
     for (let k = 0; k < payload.parentNode.phases.length; k++) {
       let phase = payload.parentNode.phases[k]
-      if (phase.name === node.name) {
+      if (phase.id === node.id) {
         for (let j = 0; j < phase.situations.length; j++) {
           let situation = phase.situations[j]
           for (let i = 0; i < situation.conditions.length; i++) {
@@ -335,7 +339,7 @@ function newStrategy () {
     let payload = node.payload
     for (let j = 0; j < payload.parentNode.situations.length; j++) {
       let situation = payload.parentNode.situations[j]
-      if (situation.name === node.name) {
+      if (situation.id === node.id) {
         for (let i = 0; i < situation.conditions.length; i++) {
           let condition = situation.conditions[i]
           destroyPart(condition)
@@ -354,7 +358,7 @@ function newStrategy () {
     let payload = node.payload
     for (let i = 0; i < payload.parentNode.conditions.length; i++) {
       let condition = payload.parentNode.conditions[i]
-      if (condition.name === node.name) {
+      if (condition.id === node.id) {
         destroyPart(node)
         payload.parentNode.conditions.splice(i, 1)
         cleanNode(condition)
@@ -378,4 +382,3 @@ function newStrategy () {
     node.cleaned = true
   }
 }
-

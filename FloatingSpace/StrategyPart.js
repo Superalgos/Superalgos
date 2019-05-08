@@ -510,7 +510,7 @@ function newStrategyPart () {
         let parent = thisObject.payload.parentNode
         for (let i = 0; i < parent.phases.length; i++) {
           let phase = parent.phases[i]
-          if (phase.name === thisObject.payload.node.name) {
+          if (phase.id === thisObject.payload.node.id) {
             label = label + ' #' + (i + 1)
             return label
           }
@@ -521,7 +521,7 @@ function newStrategyPart () {
         let parent = thisObject.payload.parentNode
         for (let i = 0; i < parent.situations.length; i++) {
           let situation = parent.situations[i]
-          if (situation.name === thisObject.payload.node.name) {
+          if (situation.id === thisObject.payload.node.id) {
             label = label + ' #' + (i + 1)
             return label
           }
@@ -532,7 +532,7 @@ function newStrategyPart () {
         let parent = thisObject.payload.parentNode
         for (let i = 0; i < parent.conditions.length; i++) {
           let condition = parent.conditions[i]
-          if (condition.name === thisObject.payload.node.name) {
+          if (condition.id === thisObject.payload.node.id) {
             label = label + ' #' + (i + 1)
             return label
           }

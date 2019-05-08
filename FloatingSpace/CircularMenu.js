@@ -51,6 +51,7 @@ function newCircularMenu () {
       let menuItemInitialValue = menuItemsInitialValues[i]
 
       menuItem.action = menuItemInitialValue.action
+      menuItem.actionFunction = menuItemInitialValue.actionFunction
       menuItem.label = menuItemInitialValue.label
       menuItem.visible = menuItemInitialValue.visible
       menuItem.imagePathOn = menuItemInitialValue.imagePathOn

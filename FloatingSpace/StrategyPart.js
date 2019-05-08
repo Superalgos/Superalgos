@@ -12,6 +12,7 @@ function newStrategyPart () {
     isOnFocus: false,
     container: undefined,
     payload: undefined,
+    codeEditor: undefined,
     physics: physics,
     drawBackground: drawBackground,
     drawMiddleground: drawMiddleground,
@@ -51,6 +52,11 @@ function newStrategyPart () {
     thisObject.menu.finalize()
     thisObject.menu = undefined
 
+    if (thisObject.codeEditor !== undefined) {
+      thisObject.codeEditor.finalize()
+      thisObject.codeEditor = undefined
+    }
+
     floatingLayer = undefined
     image = undefined
     imagePath = undefined
@@ -67,6 +73,7 @@ function newStrategyPart () {
         menuItemsInitialValues = [
           {
             action: 'Open Settings',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Settings',
             visible: false,
             imagePathOn: 'Images/icons/style-01/tools.png',
@@ -78,6 +85,7 @@ function newStrategyPart () {
           },
           {
             action: 'Delete Strategy',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Delete This Strategy',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
@@ -94,6 +102,7 @@ function newStrategyPart () {
         menuItemsInitialValues = [
           {
             action: 'Add Situation',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
             imagePathOn: 'Images/icons/style-01/attractive.png',
@@ -110,6 +119,7 @@ function newStrategyPart () {
         menuItemsInitialValues = [
           {
             action: 'Add Situation',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
             imagePathOn: 'Images/icons/style-01/attractive.png',
@@ -126,6 +136,7 @@ function newStrategyPart () {
         menuItemsInitialValues = [
           {
             action: 'Add Situation',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
             imagePathOn: 'Images/icons/style-01/attractive.png',
@@ -142,6 +153,7 @@ function newStrategyPart () {
         menuItemsInitialValues = [
           {
             action: 'Add Phase',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Add Phase',
             visible: false,
             imagePathOn: 'Images/icons/style-01/placeholder.png',
@@ -158,6 +170,7 @@ function newStrategyPart () {
         menuItemsInitialValues = [
           {
             action: 'Add Phase',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Add Phase',
             visible: false,
             imagePathOn: 'Images/icons/style-01/placeholder.png',
@@ -174,6 +187,7 @@ function newStrategyPart () {
         menuItemsInitialValues = [
           {
             action: 'Edit Code',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Edit Code',
             visible: false,
             imagePathOn: 'Images/icons/style-01/html.png',
@@ -185,6 +199,7 @@ function newStrategyPart () {
           },
           {
             action: 'Add Situation',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
             imagePathOn: 'Images/icons/style-01/attractive.png',
@@ -196,6 +211,7 @@ function newStrategyPart () {
           },
           {
             action: 'Delete Phase',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Delete This Phase',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
@@ -212,6 +228,7 @@ function newStrategyPart () {
         menuItemsInitialValues = [
           {
             action: 'Add Condition',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Add Condition',
             visible: false,
             imagePathOn: 'Images/icons/style-01/testing.png',
@@ -223,6 +240,7 @@ function newStrategyPart () {
           },
           {
             action: 'Delete Situation',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Delete This Situation',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
@@ -236,9 +254,13 @@ function newStrategyPart () {
       }
       case 'Condition': {
         imagePath = 'Images/icons/style-01/testing.png'
+        thisObject.codeEditor = newCodeEditor()
+        thisObject.codeEditor.initialize()
+        thisObject.codeEditor.container.connectToParent(thisObject.container, false, false, true, true, false, false, false, false)
         menuItemsInitialValues = [
           {
             action: 'Edit Code',
+            actionFunction: thisObject.codeEditor.activate,
             label: 'Edit Code',
             visible: false,
             imagePathOn: 'Images/icons/style-01/html.png',
@@ -250,6 +272,7 @@ function newStrategyPart () {
           },
           {
             action: 'Delete Condition',
+            actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Delete This Condition',
             visible: false,
             imagePathOn: 'Images/icons/style-01/trash.png',
@@ -303,6 +326,10 @@ function newStrategyPart () {
   function physics () {
     thisObject.menu.physics()
 
+    if (thisObject.codeEditor !== undefined) {
+      thisObject.codeEditor.physics()
+    }
+
     if (thisObject.payload.chainParent === undefined) { return }
 
     thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x
@@ -315,6 +342,10 @@ function newStrategyPart () {
 
   function onNotFocus () {
     thisObject.isOnFocus = false
+
+    if (thisObject.codeEditor !== undefined) {
+      thisObject.codeEditor.deactivate()
+    }
   }
 
   function onMouseClick (event) {
@@ -350,6 +381,11 @@ function newStrategyPart () {
 
       drawBodyAndPicture(params)
       thisObject.menu.drawForeground()
+
+      if (thisObject.codeEditor !== undefined) {
+        thisObject.codeEditor.drawBackground()
+        thisObject.codeEditor.drawForeground()
+      }
     }
   }
 
@@ -480,3 +516,4 @@ function newStrategyPart () {
     }
   }
 }
+

@@ -7,6 +7,7 @@ function newCircularMenuItem () {
     iconOn: undefined,
     iconOff: undefined,
     action: undefined,
+    actionFunction: undefined,
     label: undefined,
     visible: false,
     imagePathOn: undefined,
@@ -53,6 +54,7 @@ function newCircularMenuItem () {
     thisObject.iconOn = undefined
     thisObject.iconOff = undefined
     thisObject.payload = undefined
+    thisObject.actionFunction = undefined
   }
 
   function initialize (pPayload) {
@@ -116,7 +118,7 @@ function newCircularMenuItem () {
   }
 
   function onMouseClick (event) {
-    thisObject.payload.onMenuItemClick(thisObject.payload, thisObject.action)
+    thisObject.actionFunction(thisObject.payload, thisObject.action)
   }
 
   function drawBackground () {

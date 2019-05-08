@@ -183,11 +183,16 @@ function newStrategyPart () {
         break
       }
       case 'Phase': {
+        imagePath = 'Images/icons/style-01/testing.png'
+        thisObject.codeEditor = newCodeEditor()
+        thisObject.codeEditor.initialize()
+        thisObject.codeEditor.container.connectToParent(thisObject.container, false, false, true, true, false, false, false, false)
+
         imagePath = 'Images/icons/style-01/placeholder.png'
         menuItemsInitialValues = [
           {
             action: 'Edit Code',
-            actionFunction: thisObject.payload.onMenuItemClick,
+            actionFunction: thisObject.codeEditor.activate,
             label: 'Edit Code',
             visible: false,
             imagePathOn: 'Images/icons/style-01/html.png',
@@ -535,4 +540,3 @@ function newStrategyPart () {
     }
   }
 }
-

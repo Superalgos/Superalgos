@@ -76,6 +76,7 @@ function newAppLoader() {
                 "FloatingSpace/StrategyPart.js",  
                 "FloatingSpace/CircularMenu.js",
                 "FloatingSpace/CircularMenuItem.js",
+                "FloatingSpace/CodeEditor.js",
 
                 "Exchange/ExchangeAPI.js",
 

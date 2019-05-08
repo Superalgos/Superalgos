@@ -485,6 +485,7 @@ function newStrategyPart () {
       const MAX_LABEL_LENGTH = 30
 
       label = params.payload.upLabel
+      label = addIndexNumber(label)
 
       if (label !== undefined) {
         if (label.length > MAX_LABEL_LENGTH) {
@@ -499,6 +500,47 @@ function newStrategyPart () {
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
         browserCanvasContext.fillStyle = params.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      }
+    }
+  }
+
+  function addIndexNumber (label) {
+    switch (thisObject.type) {
+      case 'Phase': {
+        let parent = thisObject.payload.parentNode
+        for (let i = 0; i < parent.phases.length; i++) {
+          let phase = parent.phases[i]
+          if (phase.name === thisObject.payload.node.name) {
+            label = label + ' #' + (i + 1)
+            return label
+          }
+        }
+        break
+      }
+      case 'Situation': {
+        let parent = thisObject.payload.parentNode
+        for (let i = 0; i < parent.situations.length; i++) {
+          let situation = parent.situations[i]
+          if (situation.name === thisObject.payload.node.name) {
+            label = label + ' #' + (i + 1)
+            return label
+          }
+        }
+        break
+      }
+      case 'Condition': {
+        let parent = thisObject.payload.parentNode
+        for (let i = 0; i < parent.conditions.length; i++) {
+          let condition = parent.conditions[i]
+          if (condition.name === thisObject.payload.node.name) {
+            label = label + ' #' + (i + 1)
+            return label
+          }
+        }
+        break
+      }
+      default: {
+        return label
       }
     }
   }
@@ -540,3 +582,4 @@ function newStrategyPart () {
     }
   }
 }
+

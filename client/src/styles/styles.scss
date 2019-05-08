@@ -241,7 +241,7 @@ header.menu{
                 color: $advanced-algos-red;
               }
               svg{
-                padding-top: 0px;
+                padding-top: 10px;
               }
             }
             ul.subMenu{
@@ -302,7 +302,11 @@ header.menu{
                 color: $advanced-algos-red;
               }
               svg{
-                padding-top: 0px;
+                padding-top: 10px;
+                margin-bottom: -2px; 
+                &.tutorialIcon {
+                  padding-top: 0px;
+                }
               }
             }
             ul.subMenu{

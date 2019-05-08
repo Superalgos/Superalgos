@@ -377,14 +377,21 @@ function newStrategyPart () {
       drawConnectingLine()
       thisObject.menu.drawBackground()
 
-      drawText(params)
-
-      drawBodyAndPicture(params)
-      thisObject.menu.drawForeground()
-
       if (thisObject.codeEditor !== undefined) {
         thisObject.codeEditor.drawBackground()
         thisObject.codeEditor.drawForeground()
+      }
+
+      drawText(params)
+
+      if (thisObject.codeEditor !== undefined) {
+        if (thisObject.codeEditor.visible === false) {
+          drawBodyAndPicture(params)
+          thisObject.menu.drawForeground()
+        }
+      } else {
+        drawBodyAndPicture(params)
+        thisObject.menu.drawForeground()
       }
     }
   }
@@ -446,6 +453,8 @@ function newStrategyPart () {
     let label
 
     if (radius > 6 && thisObject.isOnFocus === true) {
+      const MAX_LABEL_LENGTH = 25
+
       browserCanvasContext.strokeStyle = params.labelStrokeStyle
 
       browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -453,8 +462,12 @@ function newStrategyPart () {
       label = params.payload.downLabel
 
       if (label !== undefined) {
+        if (label.length > MAX_LABEL_LENGTH) {
+          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+        }
+
         labelPoint = {
-          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO * 1.2,
           y: position.y - radius * 1 / 2 - fontSize * FONT_ASPECT_RATIO - 10
         }
 
@@ -464,9 +477,15 @@ function newStrategyPart () {
       }
     }
     if (radius > 6) {
+      const MAX_LABEL_LENGTH = 30
+
       label = params.payload.upLabel
 
       if (label !== undefined) {
+        if (label.length > MAX_LABEL_LENGTH) {
+          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+        }
+
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
           y: position.y + radius * 2 / 3 + fontSize * FONT_ASPECT_RATIO + 15

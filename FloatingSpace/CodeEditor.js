@@ -167,13 +167,13 @@ function newCodeEditor () {
 
       if (radius > 0.5) {
         browserCanvasContext.beginPath()
-        browserCanvasContext.arc(position.x, position.y, radius * 1.5 + 3, 0, Math.PI * 2, true)
+        browserCanvasContext.arc(position.x, position.y, radius * 1.3 + 3, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + 1 + ')'
         browserCanvasContext.fill()
 
         browserCanvasContext.beginPath()
-        browserCanvasContext.arc(position.x, position.y, radius * 1.5, 0, Math.PI * 2, true)
+        browserCanvasContext.arc(position.x, position.y, radius * 1.3, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + 1 + ')'
         browserCanvasContext.fill()

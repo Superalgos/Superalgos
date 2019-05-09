@@ -31,8 +31,6 @@ function newCodeEditor () {
   thisObject.container.frame.radius = 0
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
-  thisObject.container.frame.width = 150
-  thisObject.container.frame.height = 30
 
   let isMouseOver = false
 
@@ -75,17 +73,6 @@ function newCodeEditor () {
   }
 
   function activate (payload) {
-    const WIDTH = thisObject.container.frame.radius * 2.2
-    const HEIGHT = thisObject.container.frame.radius * 1
-
-    let textAreaPosition = {
-      x: 0 - WIDTH / 2,
-      y: 0
-    }
-
-    textAreaPosition = thisObject.container.frame.frameThisPoint(textAreaPosition)
-    if (textAreaPosition.y < window.canvasApp.topMargin) { return }
-
     thisObject.visible = true
     thisObject.payload = payload
     thisObject.rawRadius = 8
@@ -94,12 +81,19 @@ function newCodeEditor () {
 
     let textArea = document.getElementById('textArea')
     textArea.value = payload.node.code
-    textArea.style = 'resize: none; border: none; outline: none; box-shadow: none; overflow:hidden; font-family: Saira; font-size: 12px; background-color: rgb(204, 88, 53);color:rgb(255, 255, 255); width: ' + WIDTH + 'px; height: ' + HEIGHT + 'px'
+    textArea.style = 'resize: none;' +
+                     ' border: none;' +
+                     ' outline: none;' +
+                     'box-shadow: none;' +
+                     'overflow:hidden;' +
+                     'font-family: ' + UI_FONT.PRIMARY + ';' +
+                     'font-size: 12px;' +
+                     'background-color: rgb(204, 88, 53);' +
+                     'color:rgb(255, 255, 255);' +
+                     'width: ' + thisObject.container.frame.width + 'px;' +
+                     'height: ' + thisObject.container.frame.height + 'px'
     textArea.style.display = 'block'
     textArea.focus()
-
-    let textAreaDiv = document.getElementById('textAreaDiv')
-    textAreaDiv.style = 'position:absolute; top:' + textAreaPosition.y + 'px; left:' + textAreaPosition.x + 'px; z-index:1; '
   }
 
   function getContainer (point) {
@@ -124,6 +118,21 @@ function newCodeEditor () {
 
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
+
+    thisObject.container.frame.width = thisObject.container.frame.radius * 2.2
+    thisObject.container.frame.height = thisObject.container.frame.radius * 1
+
+    let textAreaPosition = {
+      x: 0 - thisObject.container.frame.width / 2,
+      y: 0
+    }
+
+    textAreaPosition = thisObject.container.frame.frameThisPoint(textAreaPosition)
+    if (textAreaPosition.y < window.canvasApp.topMargin) { deactivate() }
+    if (thisObject.visible === true) {
+      let textAreaDiv = document.getElementById('textAreaDiv')
+      textAreaDiv.style = 'position:absolute; top:' + textAreaPosition.y + 'px; left:' + textAreaPosition.x + 'px; z-index:1; '
+    }
   }
 
   function drawBackground () {
@@ -186,3 +195,4 @@ function newCodeEditor () {
     }
   }
 }
+

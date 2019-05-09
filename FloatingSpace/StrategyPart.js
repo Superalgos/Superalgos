@@ -357,10 +357,6 @@ function newStrategyPart () {
     if (container !== undefined) { return container }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-      if (thisObject.codeEditor !== undefined) {
-        thisObject.codeEditor.deactivate()
-      }
-      thisObject.partTitle.exitEditMode()
       return thisObject.container
     } else {
       return undefined

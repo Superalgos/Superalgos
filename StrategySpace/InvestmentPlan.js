@@ -1,9 +1,9 @@
 
-function newStrategy () {
-  const MODULE_NAME = 'Strategy'
+function newInvestmentPlan () {
+  const MODULE_NAME = 'Investment Plan'
 
   let thisObject = {
-    strategySource: undefined,
+    investmentPlan: undefined,
     container: undefined,
     getContainer: getContainer,
     initialize: initialize,
@@ -28,8 +28,10 @@ function newStrategy () {
     destroyStrategyParts()
   }
 
-  function initialize (pStrategySource) {
-    thisObject.strategySource = pStrategySource
+  function initialize (strategies) {
+    thisObject.investmentPlan = {
+      strategies: strategies
+    }
     generateStrategyParts()
   }
 
@@ -78,92 +80,98 @@ function newStrategy () {
 
   function generateStrategyParts () {
     let lastPhase
-    let strategy = thisObject.strategySource
-    createPart('Strategy', strategy.name, strategy, undefined, undefined)
+    let investmentPlan = thisObject.investmentPlan
 
-    createPart('Strategy Entry Event', '', strategy.entryPoint, strategy, strategy)
-    for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
-      let situation = strategy.entryPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.entryPoint, strategy.entryPoint, 'Strategy Entry' + ' ' + 'Situation')
+    createPart('Investment Plan', '', investmentPlan, undefined, undefined)
 
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation, situation, 'Condition')
-      }
-    }
+    for (m = 0; m < investmentPlan.strategies.length; m++) {
+      let strategy = investmentPlan.strategies[m]
+      createPart('Strategy', strategy.name, strategy, investmentPlan, investmentPlan)
 
-    createPart('Strategy Exit Event', '', strategy.exitPoint, strategy, strategy)
-    for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
-      let situation = strategy.exitPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.exitPoint, strategy.exitPoint, 'Strategy Exit' + ' ' + 'Situation')
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation, situation, 'Condition')
-      }
-    }
-
-    createPart('Trade Entry Event', '', strategy.sellPoint, strategy, strategy)
-    for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
-      let situation = strategy.sellPoint.situations[k]
-      createPart('Situation', situation.name, situation, strategy.sellPoint, strategy.sellPoint, 'Trade Entry' + ' ' + 'Situation')
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        createPart('Condition', condition.name, condition, situation, situation, 'Condition')
-      }
-    }
-
-    createPart('Stop', '', strategy.stopLoss, strategy, strategy)
-    for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
-      let phase = strategy.stopLoss.phases[p]
-
-      let chainParent
-      if (p === 0) {
-        chainParent = strategy.stopLoss
-      } else {
-        chainParent = lastPhase
-      }
-      lastPhase = phase
-      createPart('Phase', phase.name, phase, strategy.stopLoss, chainParent, 'Stop Phase')
-
-      for (let k = 0; k < phase.situations.length; k++) {
-        let situation = phase.situations[k]
-        createPart('Situation', situation.name, situation, phase, phase, 'Situation')
+      createPart('Strategy Entry Event', '', strategy.entryPoint, strategy, strategy)
+      for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
+        let situation = strategy.entryPoint.situations[k]
+        createPart('Situation', situation.name, situation, strategy.entryPoint, strategy.entryPoint, 'Strategy Entry' + ' ' + 'Situation')
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
           createPart('Condition', condition.name, condition, situation, situation, 'Condition')
         }
       }
-    }
 
-    createPart('Take Profit', '', strategy.buyOrder, strategy, strategy)
-    for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
-      let phase = strategy.buyOrder.phases[p]
-      let chainParent
-      if (p === 0) {
-        chainParent = strategy.buyOrder
-      } else {
-        chainParent = lastPhase
-      }
-      lastPhase = phase
-      createPart('Phase', phase.name, phase, strategy.buyOrder, chainParent, 'Take Profit Phase')
-
-      for (let k = 0; k < phase.situations.length; k++) {
-        let situation = phase.situations[k]
-        createPart('Situation', situation.name, situation, phase, phase, 'Situation')
+      createPart('Strategy Exit Event', '', strategy.exitPoint, strategy, strategy)
+      for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
+        let situation = strategy.exitPoint.situations[k]
+        createPart('Situation', situation.name, situation, strategy.exitPoint, strategy.exitPoint, 'Strategy Exit' + ' ' + 'Situation')
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
           createPart('Condition', condition.name, condition, situation, situation, 'Condition')
+        }
+      }
+
+      createPart('Trade Entry Event', '', strategy.sellPoint, strategy, strategy)
+      for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
+        let situation = strategy.sellPoint.situations[k]
+        createPart('Situation', situation.name, situation, strategy.sellPoint, strategy.sellPoint, 'Trade Entry' + ' ' + 'Situation')
+
+        for (let m = 0; m < situation.conditions.length; m++) {
+          let condition = situation.conditions[m]
+          createPart('Condition', condition.name, condition, situation, situation, 'Condition')
+        }
+      }
+
+      createPart('Stop', '', strategy.stopLoss, strategy, strategy)
+      for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
+        let phase = strategy.stopLoss.phases[p]
+
+        let chainParent
+        if (p === 0) {
+          chainParent = strategy.stopLoss
+        } else {
+          chainParent = lastPhase
+        }
+        lastPhase = phase
+        createPart('Phase', phase.name, phase, strategy.stopLoss, chainParent, 'Stop Phase')
+
+        for (let k = 0; k < phase.situations.length; k++) {
+          let situation = phase.situations[k]
+          createPart('Situation', situation.name, situation, phase, phase, 'Situation')
+
+          for (let m = 0; m < situation.conditions.length; m++) {
+            let condition = situation.conditions[m]
+            createPart('Condition', condition.name, condition, situation, situation, 'Condition')
+          }
+        }
+      }
+
+      createPart('Take Profit', '', strategy.buyOrder, strategy, strategy)
+      for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
+        let phase = strategy.buyOrder.phases[p]
+        let chainParent
+        if (p === 0) {
+          chainParent = strategy.buyOrder
+        } else {
+          chainParent = lastPhase
+        }
+        lastPhase = phase
+        createPart('Phase', phase.name, phase, strategy.buyOrder, chainParent, 'Take Profit Phase')
+
+        for (let k = 0; k < phase.situations.length; k++) {
+          let situation = phase.situations[k]
+          createPart('Situation', situation.name, situation, phase, phase, 'Situation')
+
+          for (let m = 0; m < situation.conditions.length; m++) {
+            let condition = situation.conditions[m]
+            createPart('Condition', condition.name, condition, situation, situation, 'Condition')
+          }
         }
       }
     }
   }
 
   function destroyStrategyParts () {
-    let strategy = thisObject.strategySource
+    let strategy = thisObject.investmentPlan
     destroyPart(strategy)
 
     destroyPart(strategy.entryPoint)

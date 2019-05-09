@@ -44,39 +44,6 @@ function newStrategyPartTitle () {
   function initialize (payload) {
     thisObject.payload = payload
 
-    switch (payload.node.type) {
-      case 'Strategy': {
-        break
-      }
-      case 'Strategy Entry Event': {
-        break
-      }
-      case 'Strategy Exit Event': {
-        break
-      }
-      case 'Trade Entry Event': {
-        break
-      }
-      case 'Stop': {
-        break
-      }
-      case 'Take Profit': {
-        break
-      }
-      case 'Phase': {
-        break
-      }
-      case 'Situation': {
-        break
-      }
-      case 'Condition': {
-        break
-      }
-      default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Part Type not Recognized -> type = ' + payload.node.type) }
-      }
-    }
-
     selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
     selfNotFocuskEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
     selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)

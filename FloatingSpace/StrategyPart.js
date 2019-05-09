@@ -68,15 +68,15 @@ function newStrategyPart () {
 
     let menuItemsInitialValues = []
     switch (thisObject.payload.node.type) {
-      case 'Strategy': {
-        imagePath = 'Images/icons/style-01/quality.png'
+      case 'Investment Plan': {
+        imagePath = 'Images/icons/style-01/analysis.png'
         menuItemsInitialValues = [
           {
-            action: 'Reload Strategy',
+            action: 'Reload Investment Plan',
             actionFunction: thisObject.payload.onMenuItemClick,
-            label: 'Reload Last Saved',
+            label: 'Reload',
             visible: false,
-            imagePathOn: 'Images/icons/style-01/pixel.png',
+            imagePathOn: 'Images/icons/style-01/vector.png',
             imagePathOff: 'Images/icons/style-01/target.png',
             rawRadius: 8,
             targetRadius: 0,
@@ -84,7 +84,7 @@ function newStrategyPart () {
             angle: -60
           },
           {
-            action: 'Save Strategy',
+            action: 'Save Investment Plan',
             actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Save Changes',
             visible: false,
@@ -96,11 +96,11 @@ function newStrategyPart () {
             angle: -20
           },
           {
-            action: 'Delete Strategy',
+            action: 'New Strategy',
             actionFunction: thisObject.payload.onMenuItemClick,
-            label: 'Delete This Strategy',
+            label: 'New Strategy',
             visible: false,
-            imagePathOn: 'Images/icons/style-01/trash.png',
+            imagePathOn: 'Images/icons/style-01/quality.png',
             imagePathOff: 'Images/icons/style-01/target.png',
             rawRadius: 8,
             targetRadius: 0,
@@ -118,6 +118,35 @@ function newStrategyPart () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 60
+          }]
+        break
+      }
+      case 'Strategy': {
+        imagePath = 'Images/icons/style-01/quality.png'
+        menuItemsInitialValues = [
+          {
+            action: 'Delete Strategy',
+            actionFunction: thisObject.payload.onMenuItemClick,
+            label: 'Delete This Strategy',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/trash.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          },
+          {
+            action: 'Open Settings',
+            actionFunction: thisObject.payload.onMenuItemClick,
+            label: 'Settings',
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/tools.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }]
         break
       }
@@ -601,4 +630,3 @@ function newStrategyPart () {
     }
   }
 }
-

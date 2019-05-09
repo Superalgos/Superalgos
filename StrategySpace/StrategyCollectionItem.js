@@ -44,7 +44,7 @@ function newStrategyCollectionItem () {
   function onMouseClick (event) {
     if (status === 'off') {
       canvas.floatingSpace.makeVisible()
-      thisObject.strategy = newStrategy()
+      thisObject.strategy = newInvestmentPlan()
       thisObject.strategy.initialize(thisObject.strategySource)
       status = 'on'
     } else {
@@ -90,7 +90,7 @@ function newStrategyCollectionItem () {
     labelpoint = thisObject.container.frame.frameThisPoint(labelpoint)
 
     let labelToPrint = strategy.name
-    labelToPrint = labelToPrint.toUpperCase()
+    labelToPrint = ''
     labelToPrint = labelToPrint.substring(0, 30)
     let opacity = 1
     let fontSize = 15
@@ -175,3 +175,4 @@ function newStrategyCollectionItem () {
     browserCanvasContext.drawImage(thisObject.icon, point1.x - IMAGE_SIZE / 2, point1.y - IMAGE_SIZE / 2, IMAGE_SIZE, IMAGE_SIZE)
   }
 }
+

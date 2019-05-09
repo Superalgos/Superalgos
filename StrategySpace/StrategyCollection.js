@@ -129,7 +129,7 @@ function newStrategyCollection () {
       let collectionItem = newStrategyCollectionItem()
 
       collectionItem.container.connectToParent(thisObject.container, false, false)
-      collectionItem.initialize(strategy)
+      collectionItem.initialize(thisObject.strategies)
       collectionItem.container.frame.position.y = i * ITEMS_SEPARATION + TOP_MARGIN
 
       colletionItems.push(collectionItem)

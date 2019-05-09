@@ -391,7 +391,7 @@ function newFloatingLayer () {
 
                         /* Calculate repulsion force produced by all other floatingObjects */
 
-            currentRepulsionForce(i)
+            repulsionForceBetweenFloatingObjects(i)
 
             targetRepulsionForce(i)
 
@@ -457,7 +457,7 @@ function newFloatingLayer () {
     }
   }
 
-  function currentRepulsionForce (currentFloatingObject) {
+  function repulsionForceBetweenFloatingObjects (currentFloatingObject) {
     try {
             /* We generate a repulsion force between floatingObjects, that prevents them to be collisioning so often. */
 
@@ -515,7 +515,7 @@ function newFloatingLayer () {
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] currentRepulsionForce -> err= ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] repulsionForceBetweenFloatingObjects -> err= ' + err.stack) }
     }
   }
 
@@ -645,11 +645,7 @@ function newFloatingLayer () {
   }
 
   function distance (x1, y1, x2, y2) {
-    try {
-      return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] distance -> err= ' + err.stack) }
-    }
+    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
   }
 
   function resolveCollision (floatingObject1, floatingObject2) {

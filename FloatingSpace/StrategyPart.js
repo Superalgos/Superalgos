@@ -400,10 +400,13 @@ function newStrategyPart () {
       thisObject.codeEditor.physics()
     }
 
-    if (thisObject.payload.chainParent === undefined) { return }
-
-    thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x
-    thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
+    if (thisObject.payload.chainParent === undefined) {
+      thisObject.payload.targetPosition.x = canvas.floatingSpace.container.frame.width / 2,
+      thisObject.payload.targetPosition.y = canvas.floatingSpace.container.frame.height / 2
+    } else {
+      thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x - canvas.floatingSpace.container.frame.position.x
+      thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y - canvas.floatingSpace.container.frame.position.y
+    }
   }
 
   function onFocus () {
@@ -480,6 +483,7 @@ function newStrategyPart () {
       y: 0
     }
 
+    targetPoint = canvas.floatingSpace.container.frame.frameThisPoint(targetPoint)
     position = thisObject.container.frame.frameThisPoint(position)
 
     if (thisObject.container.frame.radius > 1) {
@@ -630,3 +634,4 @@ function newStrategyPart () {
     }
   }
 }
+

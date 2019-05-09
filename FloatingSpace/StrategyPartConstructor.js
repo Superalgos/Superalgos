@@ -94,7 +94,7 @@ function newStrategyPartConstructor () {
     }
 
     function level_0 () {
-      floatingObject.friction = 0.93
+      floatingObject.friction = FRICTION// 0.93
 
       floatingObject.initializeMass(500)
       floatingObject.initializeRadius(45)
@@ -105,7 +105,7 @@ function newStrategyPartConstructor () {
     }
 
     function level_1 () {
-      floatingObject.friction = 0.94
+      floatingObject.friction = FRICTION // 0.94
 
       floatingObject.initializeMass(250)
       floatingObject.initializeRadius(45)

@@ -1,5 +1,5 @@
 
-function newStrategyParts () {
+function newStrategyPartConstructor () {
   const MODULE_NAME = 'Strategy Parts'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
@@ -146,4 +146,3 @@ function newStrategyParts () {
     floatingLayer.killFloatingObject(pFloatingObjectHandle)
   }
 }
-

@@ -392,28 +392,28 @@ function newStrategyPart () {
 
   }
 
-  function drawBackground (params) {
+  function drawBackground () {
     if (thisObject.isOnFocus === false) {
       drawConnectingLine()
       thisObject.menu.drawBackground()
     }
   }
 
-  function drawMiddleground (params) {
+  function drawMiddleground () {
     if (thisObject.isOnFocus === false) {
-      drawText(params)
-      thisObject.partTitle.draw(params)
+      drawText()
+      thisObject.partTitle.draw()
     }
   }
 
-  function drawForeground (params) {
+  function drawForeground () {
     if (thisObject.isOnFocus === false) {
-      drawBodyAndPicture(params)
+      drawBodyAndPicture()
       thisObject.menu.drawForeground()
     }
   }
 
-  function drawOnFocus (params) {
+  function drawOnFocus () {
     if (thisObject.isOnFocus === true) {
       drawConnectingLine()
       thisObject.menu.drawBackground()
@@ -423,16 +423,16 @@ function newStrategyPart () {
         thisObject.codeEditor.drawForeground()
       }
 
-      drawText(params)
-      thisObject.partTitle.draw(params)
+      drawText()
+      thisObject.partTitle.draw()
 
       if (thisObject.codeEditor !== undefined) {
         if (thisObject.codeEditor.visible === false) {
-          drawBodyAndPicture(params)
+          drawBodyAndPicture()
           thisObject.menu.drawForeground()
         }
       } else {
-        drawBodyAndPicture(params)
+        drawBodyAndPicture()
         thisObject.menu.drawForeground()
       }
     }
@@ -479,7 +479,7 @@ function newStrategyPart () {
     }
   }
 
-  function drawText (params) {
+  function drawText () {
 /* Text Follows */
     let position = {
       x: 0,
@@ -491,13 +491,13 @@ function newStrategyPart () {
     let radius = thisObject.container.frame.radius
             /* Label Text */
     let labelPoint
-    let fontSize = params.currentFontSize
+    let fontSize = thisObject.payload.floatingObject.currentFontSize
     let label
 
     if (radius > 6) {
       const MAX_LABEL_LENGTH = 30
 
-      label = params.payload.subTitle
+      label = thisObject.payload.subTitle
       label = addIndexNumber(label)
 
       if (label !== undefined) {
@@ -511,7 +511,7 @@ function newStrategyPart () {
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-        browserCanvasContext.fillStyle = params.labelStrokeStyle
+        browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
     }
@@ -558,13 +558,15 @@ function newStrategyPart () {
     }
   }
 
-  function drawBodyAndPicture (params) {
+  function drawBodyAndPicture () {
     let position = {
-      x: params.container.frame.position.x,
-      y: params.container.frame.position.y
+      x: thisObject.container.frame.position.x,
+      y: thisObject.container.frame.position.y
     }
 
-    let radius = params.container.frame.radius
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    let radius = thisObject.container.frame.radius
 
     if (radius > 0.5 && image === undefined) {
             /* Main FloatingObject */
@@ -573,7 +575,7 @@ function newStrategyPart () {
       browserCanvasContext.arc(position.x, position.y, radius * 2 / 3, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
 
-      browserCanvasContext.fillStyle = params.fillStyle
+      browserCanvasContext.fillStyle = thisObject.payload.floatingObject.fillStyle
 
       browserCanvasContext.fill()
 
@@ -590,7 +592,11 @@ function newStrategyPart () {
 
     if (image !== undefined) {
       if (image.canDrawIcon === true) {
-        browserCanvasContext.drawImage(image, position.x - params.currentImageSize / 2, position.y - params.currentImageSize / 2, params.currentImageSize, params.currentImageSize)
+        browserCanvasContext.drawImage(
+          image, position.x - thisObject.payload.floatingObject.currentImageSize / 2,
+          position.y - thisObject.payload.floatingObject.currentImageSize / 2,
+          thisObject.payload.floatingObject.currentImageSize,
+          thisObject.payload.floatingObject.currentImageSize)
       }
     }
   }

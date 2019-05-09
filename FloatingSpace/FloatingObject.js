@@ -189,19 +189,19 @@ function newFloatingObject () {
   }
 
   function drawBackground () {
-    thisObject.payload.uiObject.drawBackground(thisObject)
+    thisObject.payload.uiObject.drawBackground()
   }
 
   function drawMiddleground () {
-    thisObject.payload.uiObject.drawMiddleground(thisObject)
+    thisObject.payload.uiObject.drawMiddleground()
   }
 
   function drawForeground () {
-    thisObject.payload.uiObject.drawForeground(thisObject)
+    thisObject.payload.uiObject.drawForeground()
   }
 
   function drawOnFocus () {
-    thisObject.payload.uiObject.drawOnFocus(thisObject)
+    thisObject.payload.uiObject.drawOnFocus()
   }
 
   function initializeMass (suggestedValue) {

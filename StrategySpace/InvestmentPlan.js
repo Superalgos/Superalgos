@@ -43,13 +43,13 @@ function newInvestmentPlan () {
     let payload = {}
     if (chainParent === undefined) {
       payload.targetPosition = {
-        x: canvas.floatingSpace.container.frame.position.x + canvas.floatingSpace.container.frame.width / 2,
-        y: canvas.floatingSpace.container.frame.position.y + canvas.floatingSpace.container.frame.height / 2
+        x: canvas.floatingSpace.container.frame.width / 2,
+        y: canvas.floatingSpace.container.frame.height / 2
       }
     } else {
       payload.targetPosition = {
-        x: chainParent.payload.position.x,
-        y: chainParent.payload.position.y
+        x: chainParent.payload.position.x - canvas.floatingSpace.container.frame.position.x,
+        y: chainParent.payload.position.y - canvas.floatingSpace.container.frame.position.y
       }
     }
 

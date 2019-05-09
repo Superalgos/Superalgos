@@ -378,6 +378,7 @@ function newFloatingLayer () {
             }
 
                         // We let the Floating Object animate the physics loops by itself.
+            checkBoundaries(floatingObject)
 
             floatingObject.physics()
 
@@ -403,6 +404,28 @@ function newFloatingLayer () {
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] physics -> err= ' + err.stack) }
+    }
+  }
+
+  function checkBoundaries (floatingObject) {
+    if (floatingObject.container.frame.position.x - floatingObject.container.frame.radius < 0) {
+      floatingObject.container.frame.position.x = floatingObject.container.frame.radius
+      floatingObject.currentSpeed.x = -floatingObject.currentSpeed.x
+    }
+
+    if (floatingObject.container.frame.position.x + floatingObject.container.frame.radius > canvas.floatingSpace.container.frame.width) {
+      floatingObject.container.frame.position.x = canvas.floatingSpace.container.frame.width - floatingObject.container.frame.radius
+      floatingObject.currentSpeed.x = -floatingObject.currentSpeed.x
+    }
+
+    if (floatingObject.container.frame.position.y - floatingObject.container.frame.radius < 0) {
+      floatingObject.container.frame.position.y = floatingObject.container.frame.radius
+      floatingObject.currentSpeed.y = -floatingObject.currentSpeed.y
+    }
+
+    if (floatingObject.container.frame.position.y + floatingObject.container.frame.radius > canvas.floatingSpace.container.frame.height) {
+      floatingObject.container.frame.position.y = canvas.floatingSpace.container.frame.height - floatingObject.container.frame.radius
+      floatingObject.currentSpeed.y = -floatingObject.currentSpeed.y
     }
   }
 
@@ -728,3 +751,4 @@ function newFloatingLayer () {
     }
   }
 }
+

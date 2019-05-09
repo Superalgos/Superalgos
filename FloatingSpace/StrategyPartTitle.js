@@ -7,6 +7,7 @@ function newStrategyPartTitle () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    allwaysVisible: undefined,
     editMode: undefined,
     container: undefined,
     payload: undefined,
@@ -43,6 +44,43 @@ function newStrategyPartTitle () {
 
   function initialize (payload) {
     thisObject.payload = payload
+
+    switch (payload.node.type) {
+      case 'Investment Plan': {
+        break
+      }
+      case 'Strategy': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Strategy Entry Event': {
+        break
+      }
+      case 'Strategy Exit Event': {
+        break
+      }
+      case 'Trade Entry Event': {
+        break
+      }
+      case 'Stop': {
+        break
+      }
+      case 'Take Profit': {
+        break
+      }
+      case 'Phase': {
+        break
+      }
+      case 'Situation': {
+        break
+      }
+      case 'Condition': {
+        break
+      }
+      default: {
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Part Type not Recognized -> type = ' + payload.node.type) }
+      }
+    }
 
     selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
     selfNotFocuskEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
@@ -130,7 +168,7 @@ function newStrategyPartTitle () {
   }
 
   function draw () {
-    if (thisObject.isOnFocus === true) {
+    if (thisObject.isOnFocus === true || thisObject.allwaysVisible === true) {
       if (thisObject.payload.uiObject.codeEditor !== undefined) {
         if (thisObject.payload.uiObject.codeEditor.visible !== true) {
           drawTitleBackground()
@@ -163,7 +201,7 @@ function newStrategyPartTitle () {
     let fontSize = thisObject.payload.floatingObject.currentFontSize
     let label
 
-    if (radius > 6 && thisObject.isOnFocus === true) {
+    if (radius > 6 && (thisObject.isOnFocus === true || thisObject.allwaysVisible === true)) {
       browserCanvasContext.strokeStyle = thisObject.payload.floatingObject.labelStrokeStyle
 
       browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY

@@ -43,7 +43,7 @@ function newStrategyPartConstructor () {
 
     switch (payload.node.type) {
       case 'Investment Plan': {
-        level_1()
+        level_0()
         break
       }
       case 'Strategy': {
@@ -92,10 +92,21 @@ function newStrategyPartConstructor () {
       }
     }
 
-    function level_1 () {
-      floatingObject.friction = FRICTION
+    function level_0 () {
+      floatingObject.friction = 0.93
 
-      floatingObject.initializeMass(100)
+      floatingObject.initializeMass(500)
+      floatingObject.initializeRadius(45)
+      floatingObject.initializeImageSize(80)
+      floatingObject.initializeFontSize(10)
+
+      floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+    }
+
+    function level_1 () {
+      floatingObject.friction = 0.94
+
+      floatingObject.initializeMass(250)
       floatingObject.initializeRadius(45)
       floatingObject.initializeImageSize(80)
       floatingObject.initializeFontSize(10)

@@ -3,7 +3,6 @@ function newCodeEditor () {
   const MODULE_NAME = 'Circular Menu Iem'
 
   let thisObject = {
-    isDeployed: undefined,
     iconOK: undefined,
     iconNOT_OK: undefined,
     visible: false,
@@ -116,7 +115,7 @@ function newCodeEditor () {
 
   function getContainer (point) {
     let container
-    if (thisObject.isDeployed === true) {
+    if (thisObject.visitble === true) {
       if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
         return thisObject.container
       } else {
@@ -214,4 +213,3 @@ function newCodeEditor () {
     }
   }
 }
-

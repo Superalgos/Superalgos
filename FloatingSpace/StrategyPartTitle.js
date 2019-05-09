@@ -90,11 +90,13 @@ function newStrategyPartTitle () {
   }
 
   function physics () {
-    thisObject.container.frame.position.x = 0 - label.length / 2 * fontSize * FONT_ASPECT_RATIO * 1.2
-    thisObject.container.frame.position.y = 0 - radius * 1 / 2 - fontSize * FONT_ASPECT_RATIO - 10
+    const FRAME_HEIGHT = 25
+    const FRAME_WIDTH = thisObject.payload.title.length / 2 * thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO * 1.2 * 2
+    thisObject.container.frame.position.x = 0 - FRAME_WIDTH / 2
+    thisObject.container.frame.position.y = 0 - thisObject.container.frame.radius * 1 / 2 - thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO - 10 - FRAME_HEIGHT
 
-  //  thisObject.container.frame.width = thisObject.container.frame.radius
-  //  thisObject.container.frame.height = 20
+    thisObject.container.frame.width = FRAME_WIDTH
+    thisObject.container.frame.height = FRAME_HEIGHT
   }
 
   function onFocus () {
@@ -109,47 +111,48 @@ function newStrategyPartTitle () {
 
   }
 
-  function draw (params) {
+  function draw () {
     if (thisObject.isOnFocus === true) {
-      drawText(params)
+      if (thisObject.payload.uiObject.codeEditor !== undefined) {
+        if (thisObject.payload.uiObject.codeEditor.visible !== true) {
+          drawTitleBackground()
+        }
+      } else {
+        drawTitleBackground()
+      }
+
+      drawText()
     }
   }
 
-  function drawText (params) {
-/* Text Follows */
-    let position = {
-      x: 0,
-      y: 0
-    }
-
-    position = thisObject.container.frame.frameThisPoint(position)
-
-    let backgroundParams = {
+  function drawTitleBackground () {
+    let params = {
       cornerRadius: 3,
       lineWidth: 0.1,
       container: thisObject.container,
-      borderColor: UI_COLOR.DARK,
-      backgroundColor: UI_COLOR.RED,
+      borderColor: UI_COLOR.BLACK,
+      backgroundColor: UI_COLOR.BLACK,
       castShadow: false,
-      opacity: 1
+      opacity: 0.25
     }
 
-    roundedCornersBackground(backgroundParams)
+    roundedCornersBackground(params)
+  }
 
+  function drawText () {
     let radius = thisObject.container.frame.radius
-            /* Label Text */
     let labelPoint
-    let fontSize = params.currentFontSize
+    let fontSize = thisObject.payload.floatingObject.currentFontSize
     let label
 
     if (radius > 6 && thisObject.isOnFocus === true) {
       const MAX_LABEL_LENGTH = 25
 
-      browserCanvasContext.strokeStyle = params.labelStrokeStyle
+      browserCanvasContext.strokeStyle = thisObject.payload.floatingObject.labelStrokeStyle
 
       browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
-      label = params.payload.title
+      label = thisObject.payload.title
 
       if (label !== undefined) {
         if (label.length > MAX_LABEL_LENGTH) {
@@ -157,14 +160,17 @@ function newStrategyPartTitle () {
         }
 
         labelPoint = {
-          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO * 1.2,
-          y: position.y - radius * 1 / 2 - fontSize * FONT_ASPECT_RATIO - 10
+          x: 0,
+          y: thisObject.container.frame.height * 0.8
         }
 
+        labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
+
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-        browserCanvasContext.fillStyle = params.labelStrokeStyle
+        browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
     }
   }
 }
+

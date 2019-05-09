@@ -7,6 +7,7 @@ function newStrategyPartTitle () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    editMode: undefined,
     container: undefined,
     payload: undefined,
     physics: physics,
@@ -90,8 +91,10 @@ function newStrategyPartTitle () {
   }
 
   function physics () {
+    let title = trimTitle(thisObject.payload.title)
+
     const FRAME_HEIGHT = 25
-    const FRAME_WIDTH = thisObject.payload.title.length / 2 * thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO * 1.2 * 2
+    const FRAME_WIDTH = title.length / 2 * thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO * 1.2 * 2
     thisObject.container.frame.position.x = 0 - FRAME_WIDTH / 2
     thisObject.container.frame.position.y = 0 - thisObject.container.frame.radius * 1 / 2 - thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO - 10 - FRAME_HEIGHT
 
@@ -105,10 +108,53 @@ function newStrategyPartTitle () {
 
   function onNotFocus () {
     thisObject.isOnFocus = false
+    exitEditMode()
   }
 
   function onMouseClick (event) {
+    enterEditMode()
+  }
 
+  function exitEditMode () {
+    if (thisObject.editMode === true) {
+      thisObject.editMode = false
+      let input = document.getElementById('input')
+      input.style.display = 'none'
+      thisObject.payload.title = input.value
+      thisObject.payload.node.name = input.value
+    }
+  }
+
+  function enterEditMode () {
+    const WIDTH = thisObject.container.frame.width
+    const HEIGHT = thisObject.container.frame.height
+    let fontSize = thisObject.payload.floatingObject.currentFontSize
+
+    let inputPosition = {
+      x: 0,
+      y: 0 + window.canvasApp.topMargin
+    }
+
+    inputPosition = thisObject.container.frame.frameThisPoint(inputPosition)
+    if (inputPosition.y < window.canvasApp.topMargin) { return }
+
+    thisObject.editMode = true
+    let input = document.getElementById('input')
+    input.value = thisObject.payload.title
+
+    let backgroundColor = '0, 0, 0'
+    if (thisObject.payload.uiObject.codeEditor !== undefined) {
+      if (thisObject.payload.uiObject.codeEditor.visible === true) {
+        backgroundColor = '204, 88, 53'
+      }
+    }
+
+    input.style = 'resize: none; border: none; outline: none; box-shadow: none; overflow:hidden; font-family: Saira; font-size: ' + fontSize + 'px; background-color: rgb(' + backgroundColor + ');color:rgb(255, 255, 255); width: ' + WIDTH + 'px; height: ' + HEIGHT + 'px'
+    input.style.display = 'block'
+    input.focus()
+
+    let inputDiv = document.getElementById('inputDiv')
+    inputDiv.style = 'position:absolute; top:' + inputPosition.y + 'px; left:' + inputPosition.x + 'px; z-index:1; '
   }
 
   function draw () {
@@ -146,8 +192,6 @@ function newStrategyPartTitle () {
     let label
 
     if (radius > 6 && thisObject.isOnFocus === true) {
-      const MAX_LABEL_LENGTH = 25
-
       browserCanvasContext.strokeStyle = thisObject.payload.floatingObject.labelStrokeStyle
 
       browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -155,9 +199,7 @@ function newStrategyPartTitle () {
       label = thisObject.payload.title
 
       if (label !== undefined) {
-        if (label.length > MAX_LABEL_LENGTH) {
-          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
-        }
+        label = trimTitle(label)
 
         labelPoint = {
           x: 0,
@@ -172,5 +214,12 @@ function newStrategyPartTitle () {
       }
     }
   }
-}
 
+  function trimTitle (title) {
+    const MAX_LABEL_LENGTH = 25
+    if (title.length > MAX_LABEL_LENGTH) {
+      title = title.substring(0, MAX_LABEL_LENGTH) + '...'
+    }
+    return title
+  }
+}

@@ -36,16 +36,9 @@ function newCodeEditor () {
 
   let isMouseOver = false
 
-  let selfMouseOverEventSubscriptionId
-  let selfMouseClickEventSubscriptionId
-  let selfMouseNotOverEventSubscriptionId
   return thisObject
 
   function finalize () {
-    thisObject.container.eventHandler.stopListening(selfMouseOverEventSubscriptionId)
-    thisObject.container.eventHandler.stopListening(selfMouseClickEventSubscriptionId)
-    thisObject.container.eventHandler.stopListening(selfMouseNotOverEventSubscriptionId)
-
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.iconOK = undefined
@@ -70,10 +63,6 @@ function newCodeEditor () {
     }
     thisObject.iconOK.src = window.canvasApp.urlPrefix + thisObject.imagePathOK
     thisObject.icon = thisObject.iconOK // The default value is ON.
-
-    selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-    selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
-    selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }
 
   function deactivate () {
@@ -135,22 +124,6 @@ function newCodeEditor () {
 
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
-  }
-
-  function onMouseOver (point) {
-    if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
-      isMouseOver = true
-    } else {
-      isMouseOver = false
-    }
-  }
-
-  function onMouseNotOver (point) {
-    isMouseOver = false
-  }
-
-  function onMouseClick (event) {
-
   }
 
   function drawBackground () {

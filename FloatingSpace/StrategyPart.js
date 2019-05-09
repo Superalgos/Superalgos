@@ -383,6 +383,9 @@ function newStrategyPart () {
 
   function onNotFocus () {
     thisObject.isOnFocus = false
+    if (thisObject.codeEditor !== undefined) {
+      thisObject.codeEditor.deactivate()
+    }
   }
 
   function onMouseClick (event) {

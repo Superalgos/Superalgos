@@ -43,8 +43,8 @@ function newInvestmentPlan () {
     let payload = {}
     if (chainParent === undefined) {
       payload.targetPosition = {
-        x: (viewPort.width - SIDE_PANEL_WIDTH) / 2 + SIDE_PANEL_WIDTH,
-        y: viewPort.height / 2
+        x: canvas.floatingSpace.container.frame.width / 2,
+        y: canvas.floatingSpace.container.frame.height / 2
       }
     } else {
       payload.targetPosition = {

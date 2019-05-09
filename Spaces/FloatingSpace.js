@@ -29,10 +29,10 @@ function newFloatingSpace () {
   thisObject.container.isWheelable = true
   thisObject.container.detectMouseOver = true
   thisObject.container.frame.radius = 0
-  thisObject.container.frame.position.x = 0
-  thisObject.container.frame.position.y = 0
-  thisObject.container.frame.width = browserCanvas.width
-  thisObject.container.frame.height = browserCanvas.height
+  thisObject.container.frame.width = browserCanvas.width * 1.5
+  thisObject.container.frame.height = browserCanvas.height * 1.5
+  thisObject.container.frame.position.x = browserCanvas.width / 2 - thisObject.container.frame.width / 2
+  thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
 
   let visible = false
 

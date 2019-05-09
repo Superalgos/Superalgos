@@ -73,7 +73,7 @@ function newStrategy () {
   }
 
   function destroyPart (node) {
-    canvas.floatingSpace.strategyPartConstructor.destroyStrategyPart(payload)
+    canvas.floatingSpace.strategyPartConstructor.destroyStrategyPart(node.payload)
   }
 
   function generateStrategyParts () {

@@ -80,12 +80,6 @@ function newFloatingLayer () {
   }
 
   function addFloatingObject (pFloatingObject) {
-        /*
-        As you can see here, even though the floating objects are created outside this layer, its creator it is not supossed to keep
-        the reference to the object, so that the managment of the objects references can live entirely inside this module. What the
-        creator keeps, is a handle to the object which it can use to retrieve the floating object when needed.
-        */
-
     currentHandle++
     pFloatingObject.handle = currentHandle // Math.floor((Math.random() * 10000000) + 1);
     invisibleFloatingObjects.push(pFloatingObject)
@@ -93,19 +87,11 @@ function newFloatingLayer () {
 
   function removeFloatingObject (pFloatingObjectHandle) {
     try {
-            /*
-            The floting object to be killed can be either at the visible or the invisible array. What we do here is look for it
-            at each of the arrays until we find it. Once found, we remove it and is sent to the dying floating objects array.
-            */
-
       for (let i = 0; i < invisibleFloatingObjects.length; i++) {
         let floatingObject = invisibleFloatingObjects[i]
 
         if (floatingObject.handle === pFloatingObjectHandle) {
           invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
-
-          floatingObject.finalize()
-
           return
         }
       }
@@ -115,8 +101,6 @@ function newFloatingLayer () {
 
         if (floatingObject.handle === pFloatingObjectHandle) {
           visibleFloatingObjects.splice(i, 1)  // Delete item from array.
-
-          floatingObject.finalize()
           return
         }
       }

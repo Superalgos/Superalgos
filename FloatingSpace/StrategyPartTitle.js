@@ -10,6 +10,8 @@ function newStrategyPartTitle () {
     editMode: undefined,
     container: undefined,
     payload: undefined,
+    enterEditMode: enterEditMode,
+    exitEditMode: exitEditMode,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -100,6 +102,20 @@ function newStrategyPartTitle () {
 
     thisObject.container.frame.width = FRAME_WIDTH
     thisObject.container.frame.height = FRAME_HEIGHT
+
+    if (thisObject.editMode === true) {
+      let inputPosition = {
+        x: 0,
+        y: 0 + window.canvasApp.topMargin
+      }
+
+      inputPosition = thisObject.container.frame.frameThisPoint(inputPosition)
+
+      if (inputPosition.y < window.canvasApp.topMargin) { exitEditMode() }
+
+      let inputDiv = document.getElementById('inputDiv')
+      inputDiv.style = 'position:absolute; top:' + inputPosition.y + 'px; left:' + inputPosition.x + 'px; z-index:1; '
+    }
   }
 
   function onFocus () {
@@ -130,14 +146,6 @@ function newStrategyPartTitle () {
     const HEIGHT = thisObject.container.frame.height
     let fontSize = thisObject.payload.floatingObject.currentFontSize
 
-    let inputPosition = {
-      x: 0,
-      y: 0 + window.canvasApp.topMargin
-    }
-
-    inputPosition = thisObject.container.frame.frameThisPoint(inputPosition)
-    if (inputPosition.y < window.canvasApp.topMargin) { return }
-
     thisObject.editMode = true
     let input = document.getElementById('input')
     input.value = thisObject.payload.title
@@ -152,9 +160,6 @@ function newStrategyPartTitle () {
     input.style = 'resize: none; border: none; outline: none; box-shadow: none; overflow:hidden; font-family: Saira; font-size: ' + fontSize + 'px; background-color: rgb(' + backgroundColor + ');color:rgb(255, 255, 255); width: ' + WIDTH + 'px; height: ' + HEIGHT + 'px'
     input.style.display = 'block'
     input.focus()
-
-    let inputDiv = document.getElementById('inputDiv')
-    inputDiv.style = 'position:absolute; top:' + inputPosition.y + 'px; left:' + inputPosition.x + 'px; z-index:1; '
   }
 
   function draw () {
@@ -223,3 +228,4 @@ function newStrategyPartTitle () {
     return title
   }
 }
+

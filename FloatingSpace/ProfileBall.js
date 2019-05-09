@@ -306,7 +306,7 @@ function newProfileBall () {
 
       let label
 
-      label = pFloatingObject.payload.profile.upLabel
+      label = pFloatingObject.payload.profile.subTitle
 
       if (label !== undefined) {
         labelPoint = {
@@ -319,7 +319,7 @@ function newProfileBall () {
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
 
-      label = pFloatingObject.payload.profile.downLabel
+      label = pFloatingObject.payload.profile.title
 
       if (label !== undefined) {
         labelPoint = {

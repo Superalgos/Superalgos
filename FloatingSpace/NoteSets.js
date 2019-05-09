@@ -124,7 +124,7 @@ function newNoteSets () {
                             Each time we identify a floatingObject that is not at the raw data anymore, we request the floatinglayer to kill it.
                             */
 
-              floatingLayer.killFloatingObject(floatingNote.floatingHandle)
+              floatingLayer.removeFloatingObject(floatingNote.floatingHandle)
             } else {
               newFloatingNotes.push(floatingNote)
 
@@ -299,7 +299,7 @@ function newNoteSets () {
           for (let j = 0; j < noteSet.floatingNotes.length; j++) {
             let floatingNote = noteSet.floatingNotes[j]
 
-            floatingLayer.killFloatingObject(floatingNote.floatingHandle)
+            floatingLayer.removeFloatingObject(floatingNote.floatingHandle)
           }
 
           noteSets.splice(i, 1)  // Delete item from array.

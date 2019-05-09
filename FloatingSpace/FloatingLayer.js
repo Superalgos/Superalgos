@@ -22,7 +22,7 @@ function newFloatingLayer () {
 
   let thisObject = {
     addFloatingObject: addFloatingObject,
-    killFloatingObject: killFloatingObject,
+    removeFloatingObject: removeFloatingObject,
     getFloatingObject: getFloatingObject,
     physics: physics,
     changeTargetRepulsion: changeTargetRepulsion,
@@ -91,7 +91,7 @@ function newFloatingLayer () {
     invisibleFloatingObjects.push(pFloatingObject)
   }
 
-  function killFloatingObject (pFloatingObjectHandle) {
+  function removeFloatingObject (pFloatingObjectHandle) {
     try {
             /*
             The floting object to be killed can be either at the visible or the invisible array. What we do here is look for it
@@ -121,11 +121,11 @@ function newFloatingLayer () {
         }
       }
 
-      if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> Floating Object Not Found.') }
-      if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> Floating Object cannot be killed.') }
-      if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> pFloatingObjectHandle = ' + pFloatingObjectHandle) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] removeFloatingObject -> Floating Object Not Found.') }
+      if (ERROR_LOG === true) { logger.write('[ERROR] removeFloatingObject -> Floating Object cannot be killed.') }
+      if (ERROR_LOG === true) { logger.write('[ERROR] removeFloatingObject -> pFloatingObjectHandle = ' + pFloatingObjectHandle) }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] killFloatingObject -> err= ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] removeFloatingObject -> err= ' + err.stack) }
     }
   }
 

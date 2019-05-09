@@ -10,7 +10,7 @@ function newFloatingSpace () {
   let thisObject = {
     floatingLayer: undefined,               // This is the array of floatingObjects being displayed
     profileBalls: undefined,
-    strategyParts: undefined,
+    strategyPartConstructor: undefined,
     noteSets: undefined,
     container: undefined,
     makeVisible: makeVisible,
@@ -41,7 +41,7 @@ function newFloatingSpace () {
   function finalize () {
     thisObject.floatingLayer.finalize()
     thisObject.profileBalls.finalize()
-    thisObject.strategyParts.finalize()
+    thisObject.strategyPartConstructor.finalize()
     thisObject.noteSets.finalize()
   }
 
@@ -55,8 +55,8 @@ function newFloatingSpace () {
     thisObject.noteSets = newNoteSets()
     thisObject.noteSets.initialize(thisObject.floatingLayer)
 
-    thisObject.strategyParts = newStrategyPartConstructor()
-    thisObject.strategyParts.initialize(thisObject.floatingLayer)
+    thisObject.strategyPartConstructor = newStrategyPartConstructor()
+    thisObject.strategyPartConstructor.initialize(thisObject.floatingLayer)
 
     thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
   }

@@ -93,8 +93,8 @@ function newStrategyPartTitle () {
     thisObject.container.frame.position.x = 0 - label.length / 2 * fontSize * FONT_ASPECT_RATIO * 1.2
     thisObject.container.frame.position.y = 0 - radius * 1 / 2 - fontSize * FONT_ASPECT_RATIO - 10
 
-    thisObject.container.frame.width = thisObject.container.frame.radius
-    thisObject.container.frame.height = 20
+  //  thisObject.container.frame.width = thisObject.container.frame.radius
+  //  thisObject.container.frame.height = 20
   }
 
   function onFocus () {
@@ -149,7 +149,7 @@ function newStrategyPartTitle () {
 
       browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
-      label = params.payload.downLabel
+      label = params.payload.title
 
       if (label !== undefined) {
         if (label.length > MAX_LABEL_LENGTH) {
@@ -168,4 +168,3 @@ function newStrategyPartTitle () {
     }
   }
 }
-

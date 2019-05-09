@@ -12,7 +12,6 @@ function newFloatingObject () {
     isOnFocus: false,
     payload: undefined,                     // This is a reference to an object controlled by a Plotter. The plotter can change its internal value and we will see them from here.
     type: undefined,                        // Currently there are two types of Floating Objects: Profile Balls, and Notes.
-    underlayingObject: undefined,
     currentSpeed: 0,                        // This is the current speed of the floating object.
     currentMass: 0,                         // This is the current mass of the floating object, including its zoom applied.
     friction: 0,                            // This is a factor that will ultimatelly desacelerate the floating object.
@@ -62,38 +61,11 @@ function newFloatingObject () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.payload = undefined
-    thisObject.underlayingObject.finalize()
-    thisObject.underlayingObject = undefined
   }
 
-  function initialize (pType, floatingLayer) {
-    switch (pType) {
-
-      case 'Profile Ball': {
-        thisObject.underlayingObject = newProfileBall()
-        thisObject.underlayingObject.initialize()
-        break
-      }
-      case 'Note': {
-        thisObject.underlayingObject = newNote()
-        thisObject.underlayingObject.initialize()
-        break
-      }
-
-      case 'Strategy Part': {
-        thisObject.underlayingObject = newStrategyPart()
-        thisObject.underlayingObject.initialize(floatingLayer, thisObject.payload)
-        thisObject.underlayingObject.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
-        break
-      }
-      default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Unsopported type received -> pType = ' + pType) }
-        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-        break
-      }
-    }
-
-    thisObject.type = pType
+  function initialize (type, payload) {
+    thisObject.payload = payload
+    thisObject.type = type
 
     selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
@@ -111,7 +83,7 @@ function newFloatingObject () {
   function getContainer (point) {
     let container
 
-    container = thisObject.underlayingObject.getContainer(point)
+    container = thisObject.payload.uiObject.getContainer(point)
     if (container !== undefined) { return container }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -123,7 +95,7 @@ function newFloatingObject () {
 
   function physics () {
     thisObjectPhysics()
-    thisObject.underlayingObject.physics()
+    thisObject.payload.uiObject.physics()
   }
 
   function thisObjectPhysics () {
@@ -176,7 +148,7 @@ function newFloatingObject () {
       thisObject.targetImageSize = thisObject.rawImageSize * 2.0
       thisObject.targetFontSize = thisObject.rawFontSize * 2.0
 
-      thisObject.underlayingObject.container.eventHandler.raiseEvent('onFocus', point)
+      thisObject.payload.uiObject.container.eventHandler.raiseEvent('onFocus', point)
 
       thisObject.positionLocked = true
 
@@ -201,7 +173,7 @@ function newFloatingObject () {
       thisObject.targetImageSize = thisObject.rawImageSize * 1
       thisObject.targetFontSize = thisObject.rawFontSize * 1
 
-      thisObject.underlayingObject.container.eventHandler.raiseEvent('onNotFocus')
+      thisObject.payload.uiObject.container.eventHandler.raiseEvent('onNotFocus')
 
       thisObject.positionLocked = false
       thisObject.isOnFocus = false
@@ -213,23 +185,23 @@ function newFloatingObject () {
       point: pPoint,
       parent: thisObject
     }
-    thisObject.underlayingObject.container.eventHandler.raiseEvent('onMouseClick', event)
+    thisObject.payload.uiObject.container.eventHandler.raiseEvent('onMouseClick', event)
   }
 
   function drawBackground () {
-    thisObject.underlayingObject.drawBackground(thisObject)
+    thisObject.payload.uiObject.drawBackground(thisObject)
   }
 
   function drawMiddleground () {
-    thisObject.underlayingObject.drawMiddleground(thisObject)
+    thisObject.payload.uiObject.drawMiddleground(thisObject)
   }
 
   function drawForeground () {
-    thisObject.underlayingObject.drawForeground(thisObject)
+    thisObject.payload.uiObject.drawForeground(thisObject)
   }
 
   function drawOnFocus () {
-    thisObject.underlayingObject.drawOnFocus(thisObject)
+    thisObject.payload.uiObject.drawOnFocus(thisObject)
   }
 
   function initializeMass (suggestedValue) {

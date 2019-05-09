@@ -1,13 +1,13 @@
 
 function newStrategyPartConstructor () {
-  const MODULE_NAME = 'Strategy Parts'
+  const MODULE_NAME = 'Strategy Part Constructor'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
   let thisObject = {
 
-    createNewStrategyPart: createNewStrategyPart,
+    createStrategyPart: createStrategyPart,
     destroyStrategyPart: destroyStrategyPart,
     initialize: initialize,
     finalize: finalize
@@ -20,16 +20,24 @@ function newStrategyPartConstructor () {
 
   function finalize () {
     floatingLayer = undefined
+
+    payload.uiObject.finalize()
+    payload.uiObject = undefined
   }
 
   function initialize (pFloatingLayer) {
     floatingLayer = pFloatingLayer
   }
 
-  function createNewStrategyPart (payload) {
+  function createStrategyPart (payload) {
     let floatingObject = newFloatingObject()
-    floatingObject.payload = payload
-    floatingObject.initialize('Strategy Part', payload.node.type, floatingLayer)
+    floatingObject.initialize('Strategy Part', payload)
+    payload.floatingObject = floatingObject
+
+    let strategyPart = newStrategyPart()
+    strategyPart.initialize(payload)
+    strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true)
+    payload.uiObject = strategyPart
 
     const FRICTION = 0.97
 
@@ -139,10 +147,16 @@ function newStrategyPartConstructor () {
 
     floatingLayer.addFloatingObject(floatingObject)
 
-    return floatingObject.handle
+    return
   }
 
-  function destroyStrategyPart (pFloatingObjectHandle) {
-    floatingLayer.killFloatingObject(pFloatingObjectHandle)
+  function destroyStrategyPart (payload) {
+    floatingLayer.removeFloatingObject(payload.floatingObject.handle)
+
+    payload.floatingObject.finalize()
+    payload.floatingObject = undefined
+
+    payload.uiObject.finalize()
+    payload.uiObject = undefined
   }
 }

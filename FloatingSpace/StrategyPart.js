@@ -32,7 +32,6 @@ function newStrategyPart () {
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
 
-  let floatingLayer
   let image
   let imagePath
 
@@ -60,14 +59,12 @@ function newStrategyPart () {
       thisObject.codeEditor = undefined
     }
 
-    floatingLayer = undefined
     image = undefined
     imagePath = undefined
   }
 
-  function initialize (pFloatingLayer, payload) {
+  function initialize (payload) {
     thisObject.payload = payload
-    floatingLayer = pFloatingLayer
 
     let menuItemsInitialValues = []
     switch (thisObject.payload.node.type) {
@@ -497,7 +494,7 @@ function newStrategyPart () {
     if (radius > 6) {
       const MAX_LABEL_LENGTH = 30
 
-      label = params.payload.upLabel
+      label = params.payload.subTitle
       label = addIndexNumber(label)
 
       if (label !== undefined) {

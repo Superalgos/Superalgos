@@ -52,13 +52,13 @@ function newStrategy () {
     }
 
     if (title !== undefined) {
-      payload.upLabel = title
+      payload.subTitle = title
     } else {
-      payload.upLabel = partType
+      payload.subTitle = partType
     }
 
     payload.visible = true
-    payload.downLabel = name
+    payload.title = name
     payload.node = node
     payload.parentNode = parentNode
     payload.chainParent = chainParent
@@ -69,11 +69,11 @@ function newStrategy () {
     }
     node.payload = payload
     node.type = partType
-    node.handle = canvas.floatingSpace.strategyParts.createNewStrategyPart(payload)
+    canvas.floatingSpace.strategyPartConstructor.createStrategyPart(payload)
   }
 
   function destroyPart (node) {
-    canvas.floatingSpace.strategyParts.destroyStrategyPart(node.handle)
+    canvas.floatingSpace.strategyPartConstructor.destroyStrategyPart(payload)
   }
 
   function generateStrategyParts () {
@@ -379,8 +379,8 @@ function newStrategy () {
     node.payload.targetPosition.x = undefined
     node.payload.targetPosition.y = undefined
     node.payload.visible = undefined
-    node.payload.upLabel = undefined
-    node.payload.downLabel = undefined
+    node.payload.subTitle = undefined
+    node.payload.title = undefined
     node.payload.node = undefined
     node.payload.parentNode = undefined
     node.payload.chainParent = undefined

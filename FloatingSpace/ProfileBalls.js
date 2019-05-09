@@ -56,7 +56,7 @@ function newProfileBalls () {
   }
 
   function destroyProfileBall (pFloatingObjectHandle) {
-    floatingLayer.killFloatingObject(pFloatingObjectHandle)
+    floatingLayer.removeFloatingObject(pFloatingObjectHandle)
   }
 }
 

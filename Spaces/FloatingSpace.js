@@ -25,13 +25,13 @@ function newFloatingSpace () {
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
   thisObject.container.isClickeable = false
-  thisObject.container.isDraggeable = false
+  thisObject.container.isDraggeable = true
   thisObject.container.isWheelable = true
   thisObject.container.detectMouseOver = true
   thisObject.container.frame.radius = 0
-  thisObject.container.frame.position.x = SIDE_PANEL_WIDTH
+  thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
-  thisObject.container.frame.width = browserCanvas.width - SIDE_PANEL_WIDTH
+  thisObject.container.frame.width = browserCanvas.width
   thisObject.container.frame.height = browserCanvas.height
 
   let visible = false

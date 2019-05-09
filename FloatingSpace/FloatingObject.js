@@ -86,7 +86,7 @@ function newFloatingObject () {
     container = thisObject.payload.uiObject.getContainer(point)
     if (container !== undefined) { return container }
 
-    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+    if (thisObject.container.frame.isThisScreenPointHere(point) === true) {
       return thisObject.container
     } else {
       return undefined

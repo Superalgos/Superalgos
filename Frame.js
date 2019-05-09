@@ -1,4 +1,4 @@
- ﻿
+
 function newFrame () {
   const PANEL_CORNERS_RADIUS = 5
   const TITLE_BAR_HEIGHT = 15 // this must be grater than radius
@@ -17,6 +17,7 @@ function newFrame () {
     frameThisPoint: frameThisPoint,     // This function changes the actual frame coordinate system to the screen coordinate system.
     unframeThisPoint: unframeThisPoint,
     isThisPointHere: isThisPointHere,   // This function return true is the point received as parameter lives within this frame.
+    isThisScreenPointHere: isThisScreenPointHere,
     isInViewPort: isInViewPort,
     canYouMoveHere: canYouMoveHere,
     initialize: initialize
@@ -40,7 +41,7 @@ function newFrame () {
   }
 
   function isInViewPort () {
-    /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the viewPort */
+   /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the viewPort */
 
     point1 = {
       x: 0,
@@ -52,7 +53,7 @@ function newFrame () {
       y: thisObject.height
     }
 
-        /* Now the transformations. */
+       /* Now the transformations. */
 
     point1 = transformThisPoint(point1, thisObject.container)
     point3 = transformThisPoint(point3, thisObject.container)
@@ -65,7 +66,7 @@ function newFrame () {
   }
 
   function frameThisPoint (point) {
-    /* We need not to modify the point received, so me make a copy of it. */
+   /* We need not to modify the point received, so me make a copy of it. */
 
     let checkPoint = {
       x: point.x,
@@ -96,7 +97,7 @@ function newFrame () {
   }
 
   function unframeThisPoint (point) {
-    /* We need not to modify the point received, so me make a copy of it. */
+   /* We need not to modify the point received, so me make a copy of it. */
 
     let checkPoint = {
       x: point.x,
@@ -127,12 +128,12 @@ function newFrame () {
   }
 
   function canYouMoveHere (tempDisplacement) {
-        /*
+       /*
 
-        The current frame has a position and a displacement. We need to check that none of the boundaries points of the frame fall outside of its container frame.
-        First we apply the theoreticall displacement.
+       The current frame has a position and a displacement. We need to check that none of the boundaries points of the frame fall outside of its container frame.
+       First we apply the theoreticall displacement.
 
-        */
+       */
 
     point1 = {
       x: thisObject.position.x,
@@ -154,24 +155,24 @@ function newFrame () {
       y: thisObject.position.y + thisObject.height
     }
 
-        /* Now the transformations. */
+       /* Now the transformations. */
 
     if (thisObject.parentFrame !== undefined) {
-   // If there is not a parent then there is no point to check bounderies.
+  // If there is not a parent then there is no point to check bounderies.
 
       point1 = thisObject.parentFrame.frameThisPoint(point1)
       point2 = thisObject.parentFrame.frameThisPoint(point2)
       point3 = thisObject.parentFrame.frameThisPoint(point3)
       point4 = thisObject.parentFrame.frameThisPoint(point4)
 
-            /* We apply the temporary displacement. */
+           /* We apply the temporary displacement. */
 
       point1 = tempDisplacement.displaceThisPoint(point1)
       point2 = tempDisplacement.displaceThisPoint(point2)
       point3 = tempDisplacement.displaceThisPoint(point3)
       point4 = tempDisplacement.displaceThisPoint(point4)
 
-            /* We add the actual displacement. */
+           /* We add the actual displacement. */
 
       point1 = thisObject.container.displacement.displaceThisPoint(point1)
       point2 = thisObject.container.displacement.displaceThisPoint(point2)
@@ -199,17 +200,17 @@ function newFrame () {
   }
 
   function isThisPointHere (point, outsideViewPort, dontTransform) {
-  // The second parameter is usefull when you want to check a point that you already know is outside the viewport.
+ // The second parameter is usefull when you want to check a point that you already know is outside the viewport.
 
-        /* We need not to modify the point received, so me make a copy of it. */
+       /* We need not to modify the point received, so me make a copy of it. */
 
     let checkPoint = {
       x: point.x,
       y: point.y
     }
 
-        /* The point received is on the screen coordinates system, which already has zoom and displacement applied. We need to remove the zoom and displacement
-        in order to have the point on the containers coordinate system and be able to compare it with its dimmensions. */
+       /* The point received is on the screen coordinates system, which already has zoom and displacement applied. We need to remove the zoom and displacement
+       in order to have the point on the containers coordinate system and be able to compare it with its dimmensions. */
     if (dontTransform === false || dontTransform === undefined) {
       if (outsideViewPort === true) {
         checkPoint = thisObject.container.displacement.undisplaceThisPoint(checkPoint)
@@ -219,10 +220,44 @@ function newFrame () {
       }
     }
 
-    /* Now we check if the resulting point is whin the current Frame. */
+   /* Now we check if the resulting point is whin the current Frame. */
 
     if (thisObject.type === 'Circle') {
       let distance = Math.sqrt(Math.pow(thisObject.position.x - point.x, 2) + Math.pow(thisObject.position.y - point.y, 2))
+
+      if (distance < thisObject.radius) {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    if (thisObject.type === 'Rectangle') {
+      if (checkPoint.x < 0 || checkPoint.y < 0 || checkPoint.x > thisObject.width || checkPoint.y > thisObject.height) {
+        return false
+      } else {
+        return true
+      }
+    }
+  }
+
+  function isThisScreenPointHere (point) {
+    let checkPoint = {
+      x: point.x,
+      y: point.y
+    }
+
+    let thisPoint = {
+      x: thisObject.position.x,
+      y: thisObject.position.y
+    }
+
+    thisPoint = thisObject.parentFrame.frameThisPoint(thisPoint)
+
+   /* Now we check if the resulting point is whin the current Frame. */
+
+    if (thisObject.type === 'Circle') {
+      let distance = Math.sqrt(Math.pow(thisPoint.x - checkPoint.x, 2) + Math.pow(thisPoint.y - checkPoint.y, 2))
 
       if (distance < thisObject.radius) {
         return true
@@ -276,12 +311,12 @@ function newFrame () {
       y: TITLE_BAR_HEIGHT
     }
 
-        /* Now the transformations. */
+       /* Now the transformations. */
 
     titleBarPoint1 = frameThisPoint(titleBarPoint1)
     titleBarPoint2 = frameThisPoint(titleBarPoint2)
 
-        /* We paint the title bar now */
+       /* We paint the title bar now */
 
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 0.75)'
     browserCanvasContext.beginPath()
@@ -300,7 +335,7 @@ function newFrame () {
     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 0.75)'
     browserCanvasContext.stroke()
 
-        /* print the title */
+       /* print the title */
 
     let labelPoint
     let fontSize = 10
@@ -324,7 +359,7 @@ function newFrame () {
   }
 
   function borders () {
-        /* Lest get the important points of the drawing so as to apply the needed transformations. */
+       /* Lest get the important points of the drawing so as to apply the needed transformations. */
 
     let point1
     let point2
@@ -351,14 +386,14 @@ function newFrame () {
       y: thisObject.height
     }
 
-        /* Now the transformations. */
+       /* Now the transformations. */
 
     point1 = transformThisPoint(point1, thisObject.container)
     point2 = transformThisPoint(point2, thisObject.container)
     point3 = transformThisPoint(point3, thisObject.container)
     point4 = transformThisPoint(point4, thisObject.container)
 
-        /* Lets start the drawing. */
+       /* Lets start the drawing. */
 
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y)
@@ -377,7 +412,7 @@ function newFrame () {
 
   function grid (smallLines) {
     if (smallLines === true) {
-            /* Small Lines */
+           /* Small Lines */
 
       let step = thisObject.width / 100
 
@@ -424,7 +459,7 @@ function newFrame () {
       browserCanvasContext.stroke()
     }
 
-        /* Main Lines */
+       /* Main Lines */
 
     let step = thisObject.width / 20
 
@@ -471,3 +506,4 @@ function newFrame () {
     browserCanvasContext.stroke()
   }
 }
+

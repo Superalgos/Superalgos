@@ -13,6 +13,7 @@ function newStrategyPart () {
     container: undefined,
     payload: undefined,
     codeEditor: undefined,
+    partTitle: undefined,
     physics: physics,
     drawBackground: drawBackground,
     drawMiddleground: drawMiddleground,
@@ -51,6 +52,8 @@ function newStrategyPart () {
     thisObject.payload = undefined
     thisObject.menu.finalize()
     thisObject.menu = undefined
+    thisObject.partTitle.finalize()
+    thisObject.partTitle = undefined
 
     if (thisObject.codeEditor !== undefined) {
       thisObject.codeEditor.finalize()
@@ -62,12 +65,12 @@ function newStrategyPart () {
     imagePath = undefined
   }
 
-  function initialize (pFloatingLayer, pType, pPayload) {
-    thisObject.payload = pPayload
+  function initialize (pFloatingLayer, payload) {
+    thisObject.payload = payload
     floatingLayer = pFloatingLayer
 
     let menuItemsInitialValues = []
-    switch (pType) {
+    switch (thisObject.payload.node.type) {
       case 'Strategy': {
         imagePath = 'Images/icons/style-01/quality.png'
         menuItemsInitialValues = [
@@ -314,13 +317,21 @@ function newStrategyPart () {
         break
       }
       default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Part Type not Recognized -> type = ' + pType) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Part Type not Recognized -> type = ' + thisObject.payload.node.type) }
       }
     }
+
+/* Initialize the Menu */
 
     thisObject.menu = newCircularMenu()
     thisObject.menu.initialize(menuItemsInitialValues, thisObject.payload)
     thisObject.menu.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
+
+/* Initialize Part Title */
+
+    thisObject.partTitle = newStrategyPartTitle()
+    thisObject.partTitle.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
+    thisObject.partTitle.initialize(thisObject.payload)
 
 /* Load Part Image */
 
@@ -342,6 +353,9 @@ function newStrategyPart () {
   function getContainer (point) {
     let container
 
+    container = thisObject.partTitle.getContainer(point)
+    if (container !== undefined) { return container }
+
     container = thisObject.menu.getContainer(point)
     if (container !== undefined) { return container }
 
@@ -354,6 +368,7 @@ function newStrategyPart () {
 
   function physics () {
     thisObject.menu.physics()
+    thisObject.partTitle.physics()
 
     if (thisObject.codeEditor !== undefined) {
       thisObject.codeEditor.physics()
@@ -371,10 +386,6 @@ function newStrategyPart () {
 
   function onNotFocus () {
     thisObject.isOnFocus = false
-
-    if (thisObject.codeEditor !== undefined) {
-      thisObject.codeEditor.deactivate()
-    }
   }
 
   function onMouseClick (event) {
@@ -391,6 +402,7 @@ function newStrategyPart () {
   function drawMiddleground (params) {
     if (thisObject.isOnFocus === false) {
       drawText(params)
+      thisObject.partTitle.draw(params)
     }
   }
 
@@ -412,6 +424,7 @@ function newStrategyPart () {
       }
 
       drawText(params)
+      thisObject.partTitle.draw(params)
 
       if (thisObject.codeEditor !== undefined) {
         if (thisObject.codeEditor.visible === false) {
@@ -481,30 +494,6 @@ function newStrategyPart () {
     let fontSize = params.currentFontSize
     let label
 
-    if (radius > 6 && thisObject.isOnFocus === true) {
-      const MAX_LABEL_LENGTH = 25
-
-      browserCanvasContext.strokeStyle = params.labelStrokeStyle
-
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
-      label = params.payload.downLabel
-
-      if (label !== undefined) {
-        if (label.length > MAX_LABEL_LENGTH) {
-          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
-        }
-
-        labelPoint = {
-          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO * 1.2,
-          y: position.y - radius * 1 / 2 - fontSize * FONT_ASPECT_RATIO - 10
-        }
-
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-        browserCanvasContext.fillStyle = params.labelStrokeStyle
-        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-      }
-    }
     if (radius > 6) {
       const MAX_LABEL_LENGTH = 30
 

@@ -26,15 +26,14 @@ function newStrategyParts () {
     floatingLayer = pFloatingLayer
   }
 
-  function createNewStrategyPart (type, payload) {
+  function createNewStrategyPart (payload) {
     let floatingObject = newFloatingObject()
     floatingObject.payload = payload
-    floatingObject.initialize('Strategy Part', type, floatingLayer)
-    floatingObject.underlayingObject.type = type // after initialize
+    floatingObject.initialize('Strategy Part', payload.node.type, floatingLayer)
 
     const FRICTION = 0.97
 
-    switch (type) {
+    switch (payload.node.type) {
       case 'Strategy': {
         level_1()
         break
@@ -76,7 +75,7 @@ function newStrategyParts () {
         break
       }
       default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Part Type not Recognized -> type = ' + type) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Part Type not Recognized -> type = ' + payload.node.type) }
         return
       }
     }
@@ -147,3 +146,4 @@ function newStrategyParts () {
     floatingLayer.killFloatingObject(pFloatingObjectHandle)
   }
 }
+

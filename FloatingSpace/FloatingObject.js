@@ -66,7 +66,7 @@ function newFloatingObject () {
     thisObject.underlayingObject = undefined
   }
 
-  function initialize (pType, pSubType, floatingLayer) {
+  function initialize (pType, floatingLayer) {
     switch (pType) {
 
       case 'Profile Ball': {
@@ -82,7 +82,7 @@ function newFloatingObject () {
 
       case 'Strategy Part': {
         thisObject.underlayingObject = newStrategyPart()
-        thisObject.underlayingObject.initialize(floatingLayer, pSubType, thisObject.payload)
+        thisObject.underlayingObject.initialize(floatingLayer, thisObject.payload)
         thisObject.underlayingObject.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
         break
       }

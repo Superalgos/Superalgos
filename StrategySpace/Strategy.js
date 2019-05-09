@@ -64,12 +64,12 @@ function newStrategy () {
     payload.chainParent = chainParent
     payload.onMenuItemClick = onMenuItemClick
 
-    node.handle = canvas.floatingSpace.strategyParts.createNewStrategyPart(partType, payload)
-    node.payload = payload
-
     if (node.id === undefined) {
       node.id = newUniqueId()
     }
+    node.payload = payload
+    node.type = partType
+    node.handle = canvas.floatingSpace.strategyParts.createNewStrategyPart(payload)
   }
 
   function destroyPart (node) {

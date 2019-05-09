@@ -518,7 +518,7 @@ function newStrategyPart () {
   }
 
   function addIndexNumber (label) {
-    switch (thisObject.type) {
+    switch (thisObject.payload.node.type) {
       case 'Phase': {
         let parent = thisObject.payload.parentNode
         for (let i = 0; i < parent.phases.length; i++) {
@@ -601,3 +601,4 @@ function newStrategyPart () {
     }
   }
 }
+

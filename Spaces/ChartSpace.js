@@ -153,11 +153,9 @@ function newChartSpace () {
 
     drawSpaceBackground()
 
-    if (thisObject.container.frame.height > browserCanvas.height * 15 / 100) {
-      for (let i = 0; i < thisObject.timeMachines.length; i++) {
-        let timeMachine = thisObject.timeMachines[i]
-        timeMachine.drawBackground()
-      }
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[i]
+      timeMachine.drawBackground()
     }
   }
 

@@ -1,474 +1,511 @@
- ﻿function newTimelineChart () {
-   const MODULE_NAME = 'Timeline Chart'
-   const INFO_LOG = false
-   const INTENSIVE_LOG = false
-   const ERROR_LOG = true
-   const logger = newWebDebugLog()
-   logger.fileName = MODULE_NAME
-
-   let timeLineCoordinateSystem
-
-   let timePeriod = INITIAL_TIME_PERIOD
-   let datetime = NEW_SESSION_INITIAL_DATE
-
-   let thisObject = {
-     setDatetime: setDatetime,
-     container: undefined,
-     drawBackground: drawBackground,
-     draw: draw,
-     getContainer: getContainer,
-     initialize: initialize,
-     finalize: finalize
-   }
-
-   thisObject.container = newContainer()
-   thisObject.container.initialize(MODULE_NAME)
-   thisObject.container.detectMouseOver = true
+function newTimelineChart () {
+  const MODULE_NAME = 'Timeline Chart'
+  const INFO_LOG = false
+  const INTENSIVE_LOG = false
+  const ERROR_LOG = true
+  const logger = newWebDebugLog()
+  logger.fileName = MODULE_NAME
+
+  let timeLineCoordinateSystem
+
+  let timePeriod = INITIAL_TIME_PERIOD
+  let datetime = NEW_SESSION_INITIAL_DATE
+
+  let thisObject = {
+    container: undefined,
+    fitFunction: undefined,
+    setDatetime: setDatetime,
+    drawBackground: drawBackground,
+    draw: draw,
+    getContainer: getContainer,
+    initialize: initialize,
+    finalize: finalize
+  }
+
+  thisObject.container = newContainer()
+  thisObject.container.initialize(MODULE_NAME)
+  thisObject.container.detectMouseOver = true
 
-   let initializationReady = false
+  thisObject.fitFunction = canvas.chartSpace.fitIntoVisibleArea
 
-   let productsPanel
+  let initializationReady = false
 
-    /* Background */
-   let logoAssetA
-   let logoAssetB
-   let logoExchange
-   let logoAA
-   let canDrawLogoA = false
-   let canDrawLogoB = false
-   let canDrawLogoExchange = false
-   let canDrawLogoAA = false
+  let productsPanel
 
-   let plotterManager
-   let exchange
-   let market
+   /* Background */
+  let logoAssetA
+  let logoAssetB
+  let logoExchange
+  let logoAA
+  let canDrawLogoA = false
+  let canDrawLogoB = false
+  let canDrawLogoExchange = false
+  let canDrawLogoAA = false
 
-   let productsPanelHandle
-   let timePeriodScale
+  let plotterManager
+  let exchange
+  let market
 
-   return thisObject
+  let productsPanelHandle
+  let timePeriodScale
 
-   function finalize () {
-     try {
-       if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
+  return thisObject
 
-       plotterManager.finalize()
-     } catch (err) {
-       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
-     }
-   }
+  function finalize () {
+    try {
+      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
 
-   function initialize (pExchange, pMarket, pTimeLineCoordinateSystem, callBackFunction) {
-     try {
-       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-
-            /* We load the logow we will need for the background. */
-       exchange = pExchange
-       market = pMarket
-       timeLineCoordinateSystem = pTimeLineCoordinateSystem
+      plotterManager.finalize()
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
+    }
+  }
 
-       thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
-         saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
-       })
+  function initialize (pExchange, pMarket, pTimeLineCoordinateSystem, callBackFunction) {
+    try {
+      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
+
+           /* We load the logow we will need for the background. */
+      exchange = pExchange
+      market = pMarket
+      timeLineCoordinateSystem = pTimeLineCoordinateSystem
 
-       let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
-       productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel', undefined, panelOwner)
-       let productsPanel = canvas.panelsSpace.getPanel(productsPanelHandle, panelOwner)
-       productsPanel.initialize(exchange, market)
-
-       logoA = new Image()
-       logoB = new Image()
-       logoExchange = new Image()
-       logoAA = new Image()
+      thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
+        saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
+      })
 
-       logoA.onload = onImageALoaded
+      let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
+      productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel', undefined, panelOwner)
+      let productsPanel = canvas.panelsSpace.getPanel(productsPanelHandle, panelOwner)
+      productsPanel.initialize(exchange, market)
 
-       function onImageALoaded () {
-         canDrawLogoA = true
-       }
+      logoA = new Image()
+      logoB = new Image()
+      logoExchange = new Image()
+      logoAA = new Image()
 
-       logoB.onload = onImageBLoaded
+      logoA.onload = onImageALoaded
 
-       function onImageBLoaded () {
-         canDrawLogoB = true
-       }
-
-       logoExchange.onload = onImageExchangeLoaded
-
-       function onImageExchangeLoaded () {
-         canDrawLogoExchange = true
-       }
-
-       logoAA.onload = onImageAALoaded
+      function onImageALoaded () {
+        canDrawLogoA = true
+      }
 
-       function onImageAALoaded () {
-         canDrawLogoAA = true
-       }
+      logoB.onload = onImageBLoaded
 
-       logoA.src = window.canvasApp.urlPrefix + 'Images/tether-logo-background.png'
-       logoB.src = window.canvasApp.urlPrefix + 'Images/bitcoin-logo-background.png'
-       logoExchange.src = window.canvasApp.urlPrefix + 'Images/' + exchange + '-logo-background.png'
-       logoAA.src = window.canvasApp.urlPrefix + 'Images/sa-logo-background.png'
+      function onImageBLoaded () {
+        canDrawLogoB = true
+      }
+
+      logoExchange.onload = onImageExchangeLoaded
+
+      function onImageExchangeLoaded () {
+        canDrawLogoExchange = true
+      }
 
-       // moveToUserPosition(thisObject.container, timeLineCoordinateSystem, undefined, undefined, undefined, true)
-       timePeriod = INITIAL_TIME_PERIOD
-       datetime = NEW_SESSION_INITIAL_DATE
+      logoAA.onload = onImageAALoaded
 
-            /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
+      function onImageAALoaded () {
+        canDrawLogoAA = true
+      }
 
-       viewPort.eventHandler.listenToEvent('Offset Changed', onOffsetChanged)
-       viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
+      logoA.src = window.canvasApp.urlPrefix + 'Images/tether-logo-background.png'
+      logoB.src = window.canvasApp.urlPrefix + 'Images/bitcoin-logo-background.png'
+      logoExchange.src = window.canvasApp.urlPrefix + 'Images/' + exchange + '-logo-background.png'
+      logoAA.src = window.canvasApp.urlPrefix + 'Images/sa-logo-background.png'
 
-            /* Initialize the Plotter Manager */
+      // moveToUserPosition(thisObject.container, timeLineCoordinateSystem, undefined, undefined, undefined, true)
+      timePeriod = INITIAL_TIME_PERIOD
+      datetime = NEW_SESSION_INITIAL_DATE
 
-       plotterManager = newPlottersManager()
+           /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
 
-       plotterManager.container.connectToParent(thisObject.container, true, true, false, true, true, true)
+      viewPort.eventHandler.listenToEvent('Offset Changed', onOffsetChanged)
+      viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
 
-       plotterManager.container.frame.position.x = 0
-       plotterManager.container.frame.position.y = 0
+           /* Initialize the Plotter Manager */
 
-       plotterManager.initialize(productsPanel, pExchange, pMarket, onPlotterManagerReady)
+      plotterManager = newPlottersManager()
 
-       function onPlotterManagerReady (err) {
-         if (INFO_LOG === true) { logger.write('[INFO] initialize -> onPlotterManagerReady -> Entering function.') }
+      plotterManager.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
-         if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-           if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onPlotterManagerReady -> Plotter Manager Initialization Failed. ') }
-           if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onPlotterManagerReady -> err= ' + err.stack) }
+      plotterManager.container.frame.position.x = 0
+      plotterManager.container.frame.position.y = 0
 
-           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-           return
-         }
+      plotterManager.initialize(productsPanel, pExchange, pMarket, onPlotterManagerReady)
 
-         timePeriodScale = newTimePeriodScale()
-         timePeriodScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
-         timePeriodScale.container.eventHandler.listenToEvent('Time Period Changed', function (event) {
-           let currentTimePeriod = timePeriod
-           timePeriod = event.timePeriod
-           if (timePeriod !== currentTimePeriod) {
-             plotterManager.setTimePeriod(timePeriod)
-           }
-         })
+      function onPlotterManagerReady (err) {
+        if (INFO_LOG === true) { logger.write('[INFO] initialize -> onPlotterManagerReady -> Entering function.') }
 
-         timePeriodScale.initialize(timeLineCoordinateSystem)
+        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onPlotterManagerReady -> Plotter Manager Initialization Failed. ') }
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onPlotterManagerReady -> err= ' + err.stack) }
 
-         initializationReady = true
-         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-         return
-       }
-     } catch (err) {
-       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-     }
-   }
+          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+          return
+        }
 
-   function onZoomChanged (event) {
-     if (INFO_LOG === true) { logger.write('[INFO] onZoomChanged -> Entering function.') }
+        timePeriodScale = newTimePeriodScale()
+        timePeriodScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
+        timePeriodScale.container.eventHandler.listenToEvent('Time Period Changed', function (event) {
+          let currentTimePeriod = timePeriod
+          timePeriod = event.timePeriod
+          if (timePeriod !== currentTimePeriod) {
+            plotterManager.setTimePeriod(timePeriod)
+          }
+        })
 
-     if (initializationReady === true) {
-       recalculateCurrentDatetime()
+        timePeriodScale.initialize(timeLineCoordinateSystem)
 
-       // saveUserPosition(thisObject.container, timeLineCoordinateSystem)
-     }
-   }
+        initializationReady = true
+        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+        return
+      }
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+    }
+  }
 
-   function setDatetime (pDatetime) {
-     if (INFO_LOG === true) { logger.write('[INFO] setDatetime -> Entering function.') }
+  function onZoomChanged (event) {
+    if (INFO_LOG === true) { logger.write('[INFO] onZoomChanged -> Entering function.') }
 
-        /* This function is used when the time is changed through the user interface, but without zooming or panning. */
-        /* No matter if the day changed or not, we need to inform all visible Plotters. */
+    if (initializationReady === true) {
+      recalculateCurrentDatetime()
 
-     if (thisObject.container.frame.isInViewPort()) {
-       plotterManager.setDatetime(pDatetime)
-       plotterManager.positionAtDatetime(pDatetime)
-     }
-   }
+      // saveUserPosition(thisObject.container, timeLineCoordinateSystem)
+    }
+  }
 
-   function onOffsetChanged () {
-     if (INFO_LOG === true) { logger.write('[INFO] onOffsetChanged -> Entering function.') }
+  function setDatetime (pDatetime) {
+    if (INFO_LOG === true) { logger.write('[INFO] setDatetime -> Entering function.') }
 
-     if (initializationReady === true) {
-       if (thisObject.container.frame.isInViewPort()) {
-         recalculateCurrentDatetime()
-         // saveUserPosition(thisObject.container, timeLineCoordinateSystem)
-       }
-     }
-   }
+       /* This function is used when the time is changed through the user interface, but without zooming or panning. */
+       /* No matter if the day changed or not, we need to inform all visible Plotters. */
 
-   function recalculateCurrentDatetime () {
-     if (INFO_LOG === true) { logger.write('[INFO] recalculateCurrentDatetime -> Entering function.') }
+    if (thisObject.container.frame.isInViewPort()) {
+      plotterManager.setDatetime(pDatetime)
+      plotterManager.positionAtDatetime(pDatetime)
+    }
+  }
 
-        /*
+  function onOffsetChanged () {
+    if (INFO_LOG === true) { logger.write('[INFO] onOffsetChanged -> Entering function.') }
 
-        The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that we
-        must calculate.
+    if (initializationReady === true) {
+      if (thisObject.container.frame.isInViewPort()) {
+        recalculateCurrentDatetime()
+        // saveUserPosition(thisObject.container, timeLineCoordinateSystem)
+      }
+    }
+  }
 
-        */
+  function recalculateCurrentDatetime () {
+    if (INFO_LOG === true) { logger.write('[INFO] recalculateCurrentDatetime -> Entering function.') }
 
-     let center = {
-       x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2,
-       y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2
-     }
+       /*
 
-     center = unTransformThisPoint(center, thisObject.container)
-     center = timeLineCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
+       The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that we
+       must calculate.
 
-     let newDate = new Date(0)
-     newDate.setUTCSeconds(center.x / 1000)
+       */
 
-     datetime = newDate
+    let center = {
+      x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2,
+      y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2
+    }
 
-     plotterManager.setDatetime(datetime)
+    center = unTransformThisPoint(center, thisObject.container)
+    center = timeLineCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
 
-     thisObject.container.eventHandler.raiseEvent('Datetime Changed', datetime)
-   }
+    let newDate = new Date(0)
+    newDate.setUTCSeconds(center.x / 1000)
 
-   function getContainer (point) {
-     if (INFO_LOG === true) { logger.write('[INFO] getContainer -> Entering function.') }
+    datetime = newDate
 
-     let container
+    plotterManager.setDatetime(datetime)
 
-     container = timePeriodScale.getContainer(point)
+    thisObject.container.eventHandler.raiseEvent('Datetime Changed', datetime)
+  }
 
-     if (container !== undefined) { return container }
+  function getContainer (point) {
+    if (INFO_LOG === true) { logger.write('[INFO] getContainer -> Entering function.') }
 
-     return container
-   }
+    let container
 
-   function tooTiny () {
-     if (viewPort.zoomLevel < Math.trunc(-28.25 * 100) / 100) {
-       return true
-     } else {
-       return false
-     }
-   }
+    container = timePeriodScale.getContainer(point)
 
-   function tooSmall () {
-     if (viewPort.zoomLevel < Math.trunc(-27.25 * 100) / 100) {
-       return true
-     } else {
-       return false
-     }
-   }
+    if (container !== undefined) { return container }
 
-   function drawBackground () {
-     if (thisObject.container.frame.isInViewPort()) {
-       if (window.CHART_ON_FOCUS === '') {
-         window.CHART_ON_FOCUS = exchange + ' ' + market.assetB + '/' + market.assetA
+    return container
+  }
 
-         drawChartsBackgroundImages()
-       }
-     }
-   }
+  function tooTiny () {
+    if (viewPort.zoomLevel < Math.trunc(-28.25 * 100) / 100) {
+      return true
+    } else {
+      return false
+    }
+  }
 
-   function draw () {
-     if (thisObject.container.frame.isInViewPort()) {
-       drawChartsBackground()
-       plotterManager.draw()
-       timePeriodScale.draw()
-     }
-   }
+  function tooSmall () {
+    if (viewPort.zoomLevel < Math.trunc(-27.25 * 100) / 100) {
+      return true
+    } else {
+      return false
+    }
+  }
 
-   function drawChartsBackground () {
-        /* We will paint some transparent background here. */
+  function drawBackground () {
+    if (thisObject.container.frame.isInViewPort()) {
+      if (window.CHART_ON_FOCUS === '') {
+        window.CHART_ON_FOCUS = exchange + ' ' + market.assetB + '/' + market.assetA
 
-     let opacity = '0.9'
+        drawChartsBackgroundImages()
+      }
+    }
+  }
 
-     let fromPoint = {
-       x: 0,
-       y: 0
-     }
+  function draw () {
+    if (thisObject.container.frame.isInViewPort()) {
+      drawChartsBackground()
+      plotterManager.draw()
+      timePeriodScale.draw()
+    }
+  }
 
-     let toPoint = {
-       x: thisObject.container.frame.width,
-       y: thisObject.container.frame.height
-     }
+  function drawChartsBackground () {
+       /* We will paint some transparent background here. */
 
-     fromPoint = transformThisPoint(fromPoint, thisObject.container)
-     toPoint = transformThisPoint(toPoint, thisObject.container)
+    let opacity = '0.9'
 
-     fromPoint = canvas.chartSpace.fitIntoVisibleArea(fromPoint)
-     toPoint = canvas.chartSpace.fitIntoVisibleArea(toPoint)
+    let fromPoint = {
+      x: 0,
+      y: 0
+    }
 
-     browserCanvasContext.beginPath()
+    let toPoint = {
+      x: thisObject.container.frame.width,
+      y: thisObject.container.frame.height
+    }
 
-     browserCanvasContext.rect(fromPoint.x, fromPoint.y, toPoint.x - fromPoint.x, toPoint.y - fromPoint.y)
-     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
+    fromPoint = transformThisPoint(fromPoint, thisObject.container)
+    toPoint = transformThisPoint(toPoint, thisObject.container)
 
-     browserCanvasContext.closePath()
+    fromPoint = canvas.chartSpace.fitIntoVisibleArea(fromPoint)
+    toPoint = canvas.chartSpace.fitIntoVisibleArea(toPoint)
 
-     browserCanvasContext.fill()
-   }
+    browserCanvasContext.beginPath()
 
-   function drawChartsBackgroundImages () {
-     if (canDrawLogoA === false || canDrawLogoB === false || canDrawLogoExchange === false || canDrawLogoAA === false) { return }
+    browserCanvasContext.rect(fromPoint.x, fromPoint.y, toPoint.x - fromPoint.x, toPoint.y - fromPoint.y)
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
 
-     /* Fist we calculate the corners of the current frame so as not to draw imaages ourside of it */
+    browserCanvasContext.closePath()
 
-     let fromPoint = {
-       x: 0,
-       y: 0
-     }
+    browserCanvasContext.fill()
+  }
 
-     let toPoint = {
-       x: thisObject.container.frame.width,
-       y: thisObject.container.frame.height
-     }
+  function drawChartsBackgroundImages () {
+    if (canDrawLogoA === false || canDrawLogoB === false || canDrawLogoExchange === false || canDrawLogoAA === false) { return }
 
-     fromPoint = transformThisPoint(fromPoint, thisObject.container)
-     toPoint = transformThisPoint(toPoint, thisObject.container)
+    /* Fist we calculate the corners of the current frame so as not to draw imaages ourside of it */
 
-     /* Second we calculate the points for the images themselves */
+    let fromPoint = {
+      x: 0,
+      y: 0
+    }
 
-     let backgroundLogoPoint1
-     let backgroundLogoPoint2
+    let toPoint = {
+      x: thisObject.container.frame.width,
+      y: thisObject.container.frame.height
+    }
 
-     let imageHeight = 42
-     let imageWidth = 150
+    fromPoint = transformThisPoint(fromPoint, thisObject.container)
+    toPoint = transformThisPoint(toPoint, thisObject.container)
 
-     let MAX_COLUMNS = 16
-     let MAX_ROWS = 5
-     let Y_TOP_MARGIN = 30
+    /* Second we calculate the points for the images themselves */
 
-     let point1 = {
-       x: viewPort.visibleArea.topLeft.x,
-       y: viewPort.visibleArea.topLeft.y
-     }
+    let backgroundLogoPoint1
+    let backgroundLogoPoint2
 
-     backgroundLogoPoint1 = {
-       x: getDateFromPoint(point1, thisObject.container, timeLineCoordinateSystem).valueOf(),
-       y: getRateFromPoint(point1, thisObject.container, timeLineCoordinateSystem)
-     }
+    let imageHeight = 42
+    let imageWidth = 150
 
-     let point2 = {
-       x: viewPort.visibleArea.topLeft.x + imageWidth * 8,
-       y: viewPort.visibleArea.topLeft.y
-     }
+    const MAX_COLUMNS = 16
+    const MAX_ROWS = 5
+    const Y_TOP_MARGIN = 30
+    const MIN_ROW_HIGHT = 100
 
-     backgroundLogoPoint2 = {
-       x: getDateFromPoint(point2, thisObject.container, timeLineCoordinateSystem).valueOf(),
-       y: getRateFromPoint(point2, thisObject.container, timeLineCoordinateSystem)
-     }
-
-     let currentCorner = {
-       x: getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem).valueOf(),
-       y: getRateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem)
-     }
-
-     currentCorner.x = Math.trunc(currentCorner.x / (backgroundLogoPoint2.x - backgroundLogoPoint1.x)) * (backgroundLogoPoint2.x - backgroundLogoPoint1.x)
-
-     let rowHight = (viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y) / 4.5
-
-     imagePoint = timeLineCoordinateSystem.transformThisPoint(currentCorner)
-     imagePoint = transformThisPoint(imagePoint, thisObject.container)
-
-     let offSet = 0
-     let imagePosition = {
-       x: 0,
-       y: 0
-     }
-
-     for (let j = 0; j < MAX_ROWS; j++) {
-       if (offSet === -imageWidth * 8) {
-         offSet = -imageWidth * 4 - imageWidth
-       } else {
-         offSet = -imageWidth * 8
-       }
-
-       for (let i = 0; i < MAX_COLUMNS; i = i + 4) {
-         let logo = logoA
-
-         imagePosition.x = imagePoint.x + i * imageWidth * 2 + offSet
-         imagePosition.y = imagePoint.y + j * rowHight + Y_TOP_MARGIN
-
-         if (
-           imagePosition.x > fromPoint.x &&
-           imagePosition.x + imageWidth < toPoint.x &&
-           imagePosition.y > fromPoint.y &&
-           imagePosition.y + imageHeight < toPoint.y
-         ) {
-           browserCanvasContext.drawImage(logo, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
-         }
-       }
-     }
-
-     offSet = 0
-
-     for (let j = 0; j < MAX_ROWS; j++) {
-       if (offSet === -imageWidth * 8) {
-         offSet = -imageWidth * 4 - imageWidth
-       } else {
-         offSet = -imageWidth * 8
-       }
-
-       for (let i = 1; i < MAX_COLUMNS; i = i + 4) {
-         let logo = logoB
-
-         imagePosition.x = imagePoint.x + i * imageWidth * 2 + offSet
-         imagePosition.y = imagePoint.y + j * rowHight + Y_TOP_MARGIN
-
-         if (
-           imagePosition.x > fromPoint.x &&
-           imagePosition.x + imageWidth < toPoint.x &&
-           imagePosition.y > fromPoint.y &&
-           imagePosition.y + imageHeight < toPoint.y
-         ) {
-           browserCanvasContext.drawImage(logo, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
-         }
-       }
-     }
-
-     offSet = 0
-
-     for (let j = 0; j < MAX_ROWS; j++) {
-       if (offSet === -imageWidth * 8) {
-         offSet = -imageWidth * 4 - imageWidth
-       } else {
-         offSet = -imageWidth * 8
-       }
-
-       for (let i = 2; i < MAX_COLUMNS; i = i + 4) {
-         let logo = logoExchange
-
-         imagePosition.x = imagePoint.x + i * imageWidth * 2 + offSet
-         imagePosition.y = imagePoint.y + j * rowHight + Y_TOP_MARGIN
-
-         if (
-           imagePosition.x > fromPoint.x &&
-           imagePosition.x + imageWidth < toPoint.x &&
-           imagePosition.y > fromPoint.y &&
-           imagePosition.y + imageHeight < toPoint.y
-         ) {
-           browserCanvasContext.drawImage(logo, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
-         }
-       }
-     }
-
-     offSet = 0
-
-     for (let j = 0; j < MAX_ROWS; j++) {
-       if (offSet === -imageWidth * 8) {
-         offSet = -imageWidth * 4 - imageWidth
-       } else {
-         offSet = -imageWidth * 8
-       }
-
-       for (let i = 3; i < MAX_COLUMNS; i = i + 4) {
-         let logo = logoAA
-
-         imagePosition.x = imagePoint.x + i * imageWidth * 2 + offSet
-         imagePosition.y = imagePoint.y + j * rowHight + Y_TOP_MARGIN
-
-         if (
-           imagePosition.x > fromPoint.x &&
-           imagePosition.x + imageWidth < toPoint.x &&
-           imagePosition.y > fromPoint.y &&
-           imagePosition.y + imageHeight < toPoint.y
-         ) {
-           browserCanvasContext.drawImage(logo, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
-         }
-       }
-     }
-   }
- }
+    let point1 = {
+      x: viewPort.visibleArea.topLeft.x,
+      y: viewPort.visibleArea.topLeft.y
+    }
+
+    backgroundLogoPoint1 = {
+      x: getDateFromPoint(point1, thisObject.container, timeLineCoordinateSystem).valueOf(),
+      y: getRateFromPoint(point1, thisObject.container, timeLineCoordinateSystem)
+    }
+
+    let point2 = {
+      x: viewPort.visibleArea.topLeft.x + imageWidth * 8,
+      y: viewPort.visibleArea.topLeft.y
+    }
+
+    backgroundLogoPoint2 = {
+      x: getDateFromPoint(point2, thisObject.container, timeLineCoordinateSystem).valueOf(),
+      y: getRateFromPoint(point2, thisObject.container, timeLineCoordinateSystem)
+    }
+
+    let currentCorner = {
+      x: getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem).valueOf(),
+      y: getRateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem)
+    }
+
+    currentCorner.x = Math.trunc(currentCorner.x / (backgroundLogoPoint2.x - backgroundLogoPoint1.x)) * (backgroundLogoPoint2.x - backgroundLogoPoint1.x)
+
+    let rowHight = (viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y) / 4.5
+    if (rowHight < MIN_ROW_HIGHT) { rowHight = MIN_ROW_HIGHT }
+
+    imagePoint = timeLineCoordinateSystem.transformThisPoint(currentCorner)
+    imagePoint = transformThisPoint(imagePoint, thisObject.container)
+
+    let offSet = 0
+    let imagePosition = {
+      x: 0,
+      y: 0
+    }
+
+    for (let j = 0; j < MAX_ROWS; j++) {
+      if (offSet === -imageWidth * 8) {
+        offSet = -imageWidth * 4 - imageWidth
+      } else {
+        offSet = -imageWidth * 8
+      }
+
+      for (let i = 0; i < MAX_COLUMNS; i = i + 4) {
+        let logo = logoA
+
+        imagePosition.x = imagePoint.x + i * imageWidth * 2 + offSet
+        imagePosition.y = imagePoint.y + j * rowHight + Y_TOP_MARGIN
+
+        if (
+          imagePosition.x > fromPoint.x &&
+          imagePosition.x + imageWidth < toPoint.x &&
+          imagePosition.y > fromPoint.y &&
+          imagePosition.y + imageHeight < toPoint.y
+        ) {
+          let checkPoint = {
+            x: imagePosition.x,
+            y: imagePosition.y + imageHeight
+          }
+
+          checkPoint = thisObject.fitFunction(checkPoint)
+          if (checkPoint.y === imagePosition.y + imageHeight) {
+            browserCanvasContext.drawImage(logo, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
+          }
+        }
+      }
+    }
+
+    offSet = 0
+
+    for (let j = 0; j < MAX_ROWS; j++) {
+      if (offSet === -imageWidth * 8) {
+        offSet = -imageWidth * 4 - imageWidth
+      } else {
+        offSet = -imageWidth * 8
+      }
+
+      for (let i = 1; i < MAX_COLUMNS; i = i + 4) {
+        let logo = logoB
+
+        imagePosition.x = imagePoint.x + i * imageWidth * 2 + offSet
+        imagePosition.y = imagePoint.y + j * rowHight + Y_TOP_MARGIN
+
+        if (
+          imagePosition.x > fromPoint.x &&
+          imagePosition.x + imageWidth < toPoint.x &&
+          imagePosition.y > fromPoint.y &&
+          imagePosition.y + imageHeight < toPoint.y
+        ) {
+          let checkPoint = {
+            x: imagePosition.x,
+            y: imagePosition.y + imageHeight
+          }
+
+          checkPoint = thisObject.fitFunction(checkPoint)
+          if (checkPoint.y === imagePosition.y + imageHeight) {
+            browserCanvasContext.drawImage(logo, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
+          }
+        }
+      }
+    }
+
+    offSet = 0
+
+    for (let j = 0; j < MAX_ROWS; j++) {
+      if (offSet === -imageWidth * 8) {
+        offSet = -imageWidth * 4 - imageWidth
+      } else {
+        offSet = -imageWidth * 8
+      }
+
+      for (let i = 2; i < MAX_COLUMNS; i = i + 4) {
+        let logo = logoExchange
+
+        imagePosition.x = imagePoint.x + i * imageWidth * 2 + offSet
+        imagePosition.y = imagePoint.y + j * rowHight + Y_TOP_MARGIN
+
+        if (
+          imagePosition.x > fromPoint.x &&
+          imagePosition.x + imageWidth < toPoint.x &&
+          imagePosition.y > fromPoint.y &&
+          imagePosition.y + imageHeight < toPoint.y
+        ) {
+          let checkPoint = {
+            x: imagePosition.x,
+            y: imagePosition.y + imageHeight
+          }
+
+          checkPoint = thisObject.fitFunction(checkPoint)
+          if (checkPoint.y === imagePosition.y + imageHeight) {
+            browserCanvasContext.drawImage(logo, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
+          }
+        }
+      }
+    }
+
+    offSet = 0
+
+    for (let j = 0; j < MAX_ROWS; j++) {
+      if (offSet === -imageWidth * 8) {
+        offSet = -imageWidth * 4 - imageWidth
+      } else {
+        offSet = -imageWidth * 8
+      }
+
+      for (let i = 3; i < MAX_COLUMNS; i = i + 4) {
+        let logo = logoAA
+
+        imagePosition.x = imagePoint.x + i * imageWidth * 2 + offSet
+        imagePosition.y = imagePoint.y + j * rowHight + Y_TOP_MARGIN
+
+        if (
+          imagePosition.x > fromPoint.x &&
+          imagePosition.x + imageWidth < toPoint.x &&
+          imagePosition.y > fromPoint.y &&
+          imagePosition.y + imageHeight < toPoint.y
+        ) {
+          let checkPoint = {
+            x: imagePosition.x,
+            y: imagePosition.y + imageHeight
+          }
+
+          checkPoint = thisObject.fitFunction(checkPoint)
+          if (checkPoint.y === imagePosition.y + imageHeight) {
+            browserCanvasContext.drawImage(logo, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
+          }
+        }
+      }
+    }
+  }
+}

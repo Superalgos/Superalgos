@@ -424,11 +424,11 @@
 
         try {
 
-            var minValue = {
+            let minValue = {
                 x: MIN_PLOTABLE_DATE.valueOf()
             };
 
-            var maxValue = {
+            let maxValue = {
                 x: MAX_PLOTABLE_DATE.valueOf()
             };
 
@@ -454,11 +454,11 @@
 
         try {
 
-            var minValue = {
+            let minValue = {
                 y: 0
             };
 
-            var maxValue = {
+            let maxValue = {
                 y: 0
             };
 
@@ -482,7 +482,7 @@
 
                 let maxValue = 0;
 
-                for (var i = 0; i < scaleFile.length; i++) {
+                for (let i = 0; i < scaleFile.length; i++) {
 
                     let currentMax = (scaleFile[i][0] + scaleFile[i][1]) * 4;
 
@@ -534,7 +534,7 @@
 
                 if (volumes.length > 0) {
 
-                    for (var i = 0; i < volumes.length; i++) {
+                    for (let i = 0; i < volumes.length; i++) {
 
                         volume = volumes[i];
 

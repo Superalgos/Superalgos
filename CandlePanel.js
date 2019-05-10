@@ -1,15 +1,16 @@
 ﻿
 function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
-    var thisObject = {
-        onEventRaised: onEventRaised,
+    let thisObject = {
+        fitFunction: undefined,
         container: undefined,
+        onEventRaised: onEventRaised,
         draw: draw,
         getContainer: getContainer,
         initialize: initialize
     };
 
-    var container = newContainer();
+    let container = newContainer();
     container.initialize();
     thisObject.container = container;
 
@@ -32,29 +33,30 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
         panelTabButton = newPanelTabButton()
         panelTabButton.parentContainer = thisObject.container
         panelTabButton.container.frame.parentFrame = thisObject.container.frame
+        panelTabButton.fitFunction = thisObject.fitFunction
         panelTabButton.initialize()
     }
 
     function getContainer(point) {
 
-        var container;
+        let container;
 
         container = panelTabButton.getContainer(point)
         if (container !== undefined) { return container }
 
-        /* First we check if this point is inside this space. */
-
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
 
-            return thisObject.container;
+            let checkPoint = {
+                x: point.x,
+                y: point.y
+            }
 
-        } else {
+            checkPoint = thisObject.fitFunction(checkPoint)
 
-            /* This point does not belong to this space. */
-
-            return undefined;
-        }
-
+            if (point.x === checkPoint.x && point.y === checkPoint.y) {
+                return thisObject.container;
+            }
+        }  
     }
 
 
@@ -67,11 +69,12 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
     function draw() {
 
-        thisObject.container.frame.draw(false, false, true);
+        thisObject.container.frame.draw(false, false, true, thisObject.fitFunction);
 
         plotCurrentCandleInfo();
 
         panelTabButton.draw()
+
     }
 
 
@@ -86,43 +89,43 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
         const X_AXIS = thisObject.container.frame.width / 2;
         const Y_AXIS = frameTitleHeight + frameBodyHeight / 2;
  
-        var candlePoint1 = {
+        let candlePoint1 = {
             x: X_AXIS - currentCandle.bodyWidth / 2,
             y: Y_AXIS - currentCandle.bodyHeight / 2 
         };
 
-        var candlePoint2 = {
+        let candlePoint2 = {
             x: X_AXIS + currentCandle.bodyWidth / 2,
             y: Y_AXIS - currentCandle.bodyHeight / 2
         };
 
-        var candlePoint3 = {
+        let candlePoint3 = {
             x: X_AXIS + currentCandle.bodyWidth / 2,
             y: Y_AXIS + currentCandle.bodyHeight / 2
         };
 
-        var candlePoint4 = {
+        let candlePoint4 = {
             x: X_AXIS - currentCandle.bodyWidth / 2,
             y: Y_AXIS + currentCandle.bodyHeight / 2 
         };
 
 
-        var stickPoint1 = {
+        let stickPoint1 = {
             x: X_AXIS - currentCandle.stickWidth / 2,
             y: candlePoint1.y - currentCandle.stickStart
         };
 
-        var stickPoint2 = {
+        let stickPoint2 = {
             x: X_AXIS + currentCandle.stickWidth / 2,
             y: candlePoint1.y - currentCandle.stickStart
         };
 
-        var stickPoint3 = {
+        let stickPoint3 = {
             x: X_AXIS + currentCandle.stickWidth / 2,
             y: candlePoint1.y - currentCandle.stickStart + currentCandle.stickHeight 
         };
 
-        var stickPoint4 = {
+        let stickPoint4 = {
             x: X_AXIS - currentCandle.stickWidth / 2,
             y: candlePoint1.y - currentCandle.stickStart + currentCandle.stickHeight 
         };
@@ -195,12 +198,20 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
         candlePoint3 = thisObject.container.frame.frameThisPoint(candlePoint3);
         candlePoint4 = thisObject.container.frame.frameThisPoint(candlePoint4);
 
+        candlePoint1 = thisObject.fitFunction(candlePoint1)
+        candlePoint2 = thisObject.fitFunction(candlePoint2)
+        candlePoint3 = thisObject.fitFunction(candlePoint3)
+        candlePoint4 = thisObject.fitFunction(candlePoint4)
+
         stickPoint1 = thisObject.container.frame.frameThisPoint(stickPoint1);
         stickPoint2 = thisObject.container.frame.frameThisPoint(stickPoint2);
         stickPoint3 = thisObject.container.frame.frameThisPoint(stickPoint3);
         stickPoint4 = thisObject.container.frame.frameThisPoint(stickPoint4);
 
-
+        stickPoint1 = thisObject.fitFunction(stickPoint1)
+        stickPoint2 = thisObject.fitFunction(stickPoint2)
+        stickPoint3 = thisObject.fitFunction(stickPoint3)
+        stickPoint4 = thisObject.fitFunction(stickPoint4)
 
         browserCanvasContext.beginPath();
 
@@ -294,6 +305,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
             };
 
             labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
+            labelPoint = thisObject.fitFunction(labelPoint)
 
             browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
             browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);

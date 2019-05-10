@@ -48,7 +48,7 @@
 
    function resize () {
      thisObject.container.frame.position.x = 0
-     thisObject.container.frame.position.y = viewPort.visibleArea.bottomLeft.y
+     thisObject.container.frame.position.y = browserCanvas.height - BOTTOM_SPACE_HEIGHT
 
      thisObject.container.frame.width = browserCanvas.width
      thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
@@ -56,6 +56,30 @@
 
    function physics () {
      BOTTOM_SPACE_HEIGHT = browserCanvas.height - thisObject.container.frame.position.y
+
+     /* Check the limits */
+
+     if (BOTTOM_SPACE_HEIGHT < BOTTOM_SPACE_MIN_HEIGHT) {
+       BOTTOM_SPACE_HEIGHT = BOTTOM_SPACE_MIN_HEIGHT
+       thisObject.container.frame.position.y = browserCanvas.height - BOTTOM_SPACE_HEIGHT
+       canvas.strategySpace.makeInvisible()
+     }
+     if (BOTTOM_SPACE_HEIGHT > BOTTOM_SPACE_MAX_HEIGHT) {
+       BOTTOM_SPACE_HEIGHT = BOTTOM_SPACE_MAX_HEIGHT
+       thisObject.container.frame.position.y = browserCanvas.height - BOTTOM_SPACE_HEIGHT
+       canvas.chartSpace.visible = false
+       canvas.panelsSpace.visible = false
+     }
+
+     if (BOTTOM_SPACE_HEIGHT > browserCanvas.height * 25 / 100) {
+       canvas.strategySpace.makeVisible()
+     }
+
+     if (BOTTOM_SPACE_HEIGHT < browserCanvas.height * 95 / 100) {
+       canvas.chartSpace.visible = true
+       canvas.panelsSpace.visible = true
+     }
+
      viewPort.resize()
      thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
    }
@@ -180,3 +204,4 @@
      browserCanvasContext.fill()
    }
  }
+

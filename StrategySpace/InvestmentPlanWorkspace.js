@@ -6,8 +6,10 @@ function newInvestmentPlanWorkspace () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    isDeployed: false,
     strategies: undefined,
     container: undefined,
+    deploydInvestmentPlan: deploydInvestmentPlan,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize
@@ -94,7 +96,7 @@ function newInvestmentPlanWorkspace () {
                   .then(response => {
                     window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
                     thisObject.strategies = JSON.parse(JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
-                    deploydInvestmentPlan()
+
                     resolve({ strategies: response.data.strategizer_StrategyByFb.subStrategies})
                   })
                   .catch(error => {
@@ -121,9 +123,9 @@ function newInvestmentPlanWorkspace () {
   }
 
   function deploydInvestmentPlan () {
-    canvas.floatingSpace.makeVisible()
     thisObject.strategy = newInvestmentPlan()
-    thisObject.strategy.initialize(thisObject.strategySource)
+    thisObject.strategy.initialize(thisObject.strategies)
+    thisObject.isDeployed = true
   }
 
   function getContainer (point) {

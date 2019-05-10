@@ -167,6 +167,8 @@ function newCanvas () {
 
                    /* Here we add all the functions that will be called during the animation cycle. */
 
+          animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics, onFunctionAdded)
           animation.addCallBackFunction('ViewPort Draw', viewPort.draw, onFunctionAdded)
           animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground, onFunctionAdded)
           animation.addCallBackFunction('Chart Space', thisObject.chartSpace.draw, onFunctionAdded)
@@ -176,8 +178,6 @@ function newCanvas () {
           animation.addCallBackFunction('Bottom Space Physics', thisObject.bottomSpace.physics, onFunctionAdded)
           animation.addCallBackFunction('Top Space', thisObject.topSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Strategy Space', thisObject.strategySpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics, onFunctionAdded)
           animation.addCallBackFunction('Splash Screen', splashScreen.draw, onFunctionAdded)
           animation.start(onStart)
 

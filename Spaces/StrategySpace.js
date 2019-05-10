@@ -7,6 +7,8 @@ function newStrategySpace () {
     container: undefined,
     draw: draw,
     getContainer: getContainer,
+    makeVisible: makeVisible,
+    makeInvisible: makeInvisible,
     initialize: initialize
   }
 
@@ -27,6 +29,18 @@ function newStrategySpace () {
     await thisObject.investmentPlanWorkspace.initialize()
 
     thisObject.sidePanel.areas.push(thisObject.investmentPlanWorkspace)
+  }
+
+  function makeVisible () {
+    if (thisObject.investmentPlanWorkspace.isDeployed !== true) {
+      thisObject.investmentPlanWorkspace.deploydInvestmentPlan()
+    }
+    canvas.floatingSpace.makeVisible()
+    visible = true
+  }
+
+  function makeInvisible () {
+    visible = false
   }
 
   function getContainer (point) {

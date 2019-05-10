@@ -66,14 +66,10 @@ function newFloatingSpace () {
   }
 
   function makeVisible () {
-    canvas.chartSpace.visible = false
-    canvas.panelsSpace.visible = false
     visible = true
   }
 
   function makeInvisible () {
-    canvas.chartSpace.visible = true
-    canvas.panelsSpace.visible = true
     visible = false
   }
 

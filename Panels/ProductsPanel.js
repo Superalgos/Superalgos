@@ -1,246 +1,261 @@
- ﻿function newProductsPanel () {
-   let thisObject = {
-     container: undefined,
-     getLoadingProductCards: getLoadingProductCards,
-     draw: draw,
-     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-     initialize: initialize
-   }
+function newProductsPanel () {
+  let thisObject = {
+    container: undefined,
+    getLoadingProductCards: getLoadingProductCards,
+    draw: draw,
+    getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+    initialize: initialize
+  }
 
-    /* Cointainer stuff */
+   /* Cointainer stuff */
 
-   var container = newContainer()
+  var container = newContainer()
 
-   container.initialize()
+  container.initialize()
 
-   container.isDraggeable = true
-   container.isWheelable = true
+  container.isDraggeable = true
+  container.isWheelable = true
 
-   thisObject.container = container
+  thisObject.container = container
 
-   let isInitialized = false
-   let productCards = []
+  let isInitialized = false
+  let productCards = []
 
-   let visibleProductCards = []
-   let firstVisibleCard = 1
+  let visibleProductCards = []
+  let firstVisibleCard = 1
 
-    /* Needed Variables */
+   /* Needed Variables */
 
-   let lastY = 5
-   let panelTabButton
+  let lastY = 5
+  let panelTabButton
 
-   let exchange
-   let market
+  let exchange
+  let market
 
-   return thisObject
+  return thisObject
 
-   function initialize (pExchange, pMarket) {
-     exchange = pExchange
-     market = pMarket
+  function initialize (pExchange, pMarket) {
+    exchange = pExchange
+    market = pMarket
 
-     thisObject.container.name = 'Layers @ ' + exchange + ' ' + market.assetB + '/' + market.assetA
-     thisObject.container.frame.containerName = thisObject.container.name
-     thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
-     thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
+    thisObject.container.name = 'Layers @ ' + exchange + ' ' + market.assetB + '/' + market.assetA
+    thisObject.container.frame.containerName = thisObject.container.name
+    thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
+    thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
 
-     var position = {
-       x: viewPort.visibleArea.topLeft.x,
-       y: viewPort.visibleArea.topLeft.y// viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height
-     }
+    thisObject.fitFunction = canvas.chartSpace.fitIntoVisibleArea
 
-     thisObject.container.frame.position = position
+    var position = {
+      x: viewPort.visibleArea.topLeft.x,
+      y: viewPort.visibleArea.topLeft.y// viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height
+    }
 
-     panelTabButton = newPanelTabButton()
-     panelTabButton.parentContainer = thisObject.container
-     panelTabButton.container.frame.parentFrame = thisObject.container.frame
-     panelTabButton.fitFunction = canvas.chartSpace.fitIntoVisibleArea
-     panelTabButton.initialize()
+    thisObject.container.frame.position = position
 
-     /* Get the current teams of the logged in user. */
+    panelTabButton = newPanelTabButton()
+    panelTabButton.parentContainer = thisObject.container
+    panelTabButton.container.frame.parentFrame = thisObject.container.frame
+    panelTabButton.fitFunction = thisObject.fitFunction
+    panelTabButton.initialize()
 
-     let storedTeams = window.localStorage.getItem('userTeams')
-     let userTeams
-     let userTeam = {slug: ''}
-     if (storedTeams !== null && storedTeams !== undefined && storedTeams !== '') {
-       userTeams = JSON.parse(storedTeams)
-       userTeam = userTeams[0] // Currently we assume a user can be at only one team.
-     }
-     if (userTeam === undefined) { userTeam = {slug: ''} }
+    /* Get the current teams of the logged in user. */
 
-        /* First thing is to build the productCards array */
+    let storedTeams = window.localStorage.getItem('userTeams')
+    let userTeams
+    let userTeam = {slug: ''}
+    if (storedTeams !== null && storedTeams !== undefined && storedTeams !== '') {
+      userTeams = JSON.parse(storedTeams)
+      userTeam = userTeams[0] // Currently we assume a user can be at only one team.
+    }
+    if (userTeam === undefined) { userTeam = {slug: ''} }
 
-     let devTeams = ecosystem.getTeams()
+       /* First thing is to build the productCards array */
 
-     for (let i = 0; i < devTeams.length; i++) {
-       let devTeam = devTeams[i]
+    let devTeams = ecosystem.getTeams()
 
-       for (let j = 0; j < devTeam.bots.length; j++) {
-         let bot = devTeam.bots[j]
+    for (let i = 0; i < devTeams.length; i++) {
+      let devTeam = devTeams[i]
 
-         if (bot.type !== 'Indicator' && bot.cloneId === undefined) { continue }
-         if (bot.type === 'Indicator' && (devTeam.codeName !== 'AAMasters' && devTeam.codeName !== userTeam.slug)) { continue }
+      for (let j = 0; j < devTeam.bots.length; j++) {
+        let bot = devTeam.bots[j]
 
-         if (bot.products !== undefined) {
-           for (let k = 0; k < bot.products.length; k++) {
-             let product = bot.products[k]
+        if (bot.type !== 'Indicator' && bot.cloneId === undefined) { continue }
+        if (bot.type === 'Indicator' && (devTeam.codeName !== 'AAMasters' && devTeam.codeName !== userTeam.slug)) { continue }
 
-             if (window.localStorage.getItem('Show AAMaster Layers') === null) {
-               if (product.shareWith !== 'Public' && devTeam.codeName !== userTeam.slug) { continue }
-             }
-                        /* Now we create Product objects */
+        if (bot.products !== undefined) {
+          for (let k = 0; k < bot.products.length; k++) {
+            let product = bot.products[k]
 
-             let productCard = newProductCard()
+            if (window.localStorage.getItem('Show AAMaster Layers') === null) {
+              if (product.shareWith !== 'Public' && devTeam.codeName !== userTeam.slug) { continue }
+            }
+                       /* Now we create Product objects */
 
-             productCard.devTeam = devTeam
-             productCard.bot = bot
-             productCard.product = product
-             productCard.fitFunction = canvas.chartSpace.fitIntoVisibleArea
-             productCard.code = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName
+            let productCard = newProductCard()
 
-                        /* Initialize it */
+            productCard.devTeam = devTeam
+            productCard.bot = bot
+            productCard.product = product
+            productCard.fitFunction = thisObject.fitFunction
+            productCard.code = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName
 
-             productCard.initialize()
+                       /* Initialize it */
 
-                        /* Container Stuff */
+            productCard.initialize()
 
-             productCard.container.displacement.parentDisplacement = thisObject.container.displacement
-             productCard.container.frame.parentFrame = thisObject.container.frame
-             productCard.container.parentContainer = thisObject.container
-             productCard.container.isWheelable = true
+                       /* Container Stuff */
 
-                        /* Positioning within thisObject Panel */
+            productCard.container.displacement.parentDisplacement = thisObject.container.displacement
+            productCard.container.frame.parentFrame = thisObject.container.frame
+            productCard.container.parentContainer = thisObject.container
+            productCard.container.isWheelable = true
 
-             let position = {
-               x: 10,
-               y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
-             }
+                       /* Positioning within thisObject Panel */
 
-             productCard.container.frame.position.x = position.x
-             productCard.container.frame.position.y = position.y + lastY
+            let position = {
+              x: 10,
+              y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
+            }
 
-             lastY = lastY + productCard.container.frame.height
+            productCard.container.frame.position.x = position.x
+            productCard.container.frame.position.y = position.y + lastY
 
-                        /* Add to the Product Array */
+            lastY = lastY + productCard.container.frame.height
 
-             productCards.push(productCard)
+                       /* Add to the Product Array */
 
-                        /* Add to Visible Product Array */
+            productCards.push(productCard)
 
-             if (productCard.container.frame.position.y + productCard.container.frame.height < thisObject.container.frame.height) {
-               visibleProductCards.push(productCard)
-             }
+                       /* Add to Visible Product Array */
 
-                        /* Listen to Status Changes Events */
+            if (productCard.container.frame.position.y + productCard.container.frame.height < thisObject.container.frame.height) {
+              visibleProductCards.push(productCard)
+            }
 
-             productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged)
-             productCard.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-           }
-         }
-       }
-     }
+                       /* Listen to Status Changes Events */
 
-     thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-     isInitialized = true
-   }
+            productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged)
+            productCard.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+          }
+        }
+      }
+    }
 
-   function onMouseWheel (event) {
-     delta = event.wheelDelta
-     if (delta > 0) {
-       delta = -1
-     } else {
-       delta = 1
-     }
+    thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    isInitialized = true
+  }
 
-     firstVisibleCard = firstVisibleCard + delta
+  function onMouseWheel (event) {
+    delta = event.wheelDelta
+    if (delta > 0) {
+      delta = -1
+    } else {
+      delta = 1
+    }
 
-     let availableSlots = visibleProductCards.length
+    firstVisibleCard = firstVisibleCard + delta
 
-     if (firstVisibleCard < 1) { firstVisibleCard = 1 }
-     if (firstVisibleCard > (productCards.length - availableSlots + 1)) { firstVisibleCard = productCards.length - availableSlots + 1 }
+    let availableSlots = visibleProductCards.length
 
-     visibleProductCards = []
-     var lastY = 5
+    if (firstVisibleCard < 1) { firstVisibleCard = 1 }
+    if (firstVisibleCard > (productCards.length - availableSlots + 1)) { firstVisibleCard = productCards.length - availableSlots + 1 }
 
-     for (let i = 0; i < productCards.length; i++) {
-       if (i + 1 >= firstVisibleCard && i + 1 < firstVisibleCard + availableSlots) {
-         let productCard = productCards[i]
+    visibleProductCards = []
+    var lastY = 5
 
-                /* Positioning within thisObject Panel */
+    for (let i = 0; i < productCards.length; i++) {
+      if (i + 1 >= firstVisibleCard && i + 1 < firstVisibleCard + availableSlots) {
+        let productCard = productCards[i]
 
-         let position = {
-           x: 10,
-           y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
-         }
-         productCard.container.frame.position.x = position.x
-         productCard.container.frame.position.y = position.y + lastY
+               /* Positioning within thisObject Panel */
 
-         lastY = lastY + productCard.container.frame.height
+        let position = {
+          x: 10,
+          y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
+        }
+        productCard.container.frame.position.x = position.x
+        productCard.container.frame.position.y = position.y + lastY
 
-                /* Add to Visible Product Array */
+        lastY = lastY + productCard.container.frame.height
 
-         visibleProductCards.push(productCard)
-       }
-     }
-   }
+               /* Add to Visible Product Array */
 
-   function onProductCardStatusChanged (pProductCard) {
-     thisObject.container.eventHandler.raiseEvent('Product Card Status Changed', pProductCard)
-   }
+        visibleProductCards.push(productCard)
+      }
+    }
+  }
 
-   function getLoadingProductCards () {
-        /* Returns all productCards which status is LOADING */
+  function onProductCardStatusChanged (pProductCard) {
+    thisObject.container.eventHandler.raiseEvent('Product Card Status Changed', pProductCard)
+  }
 
-     let onProducts = []
+  function getLoadingProductCards () {
+       /* Returns all productCards which status is LOADING */
 
-     for (let i = 0; i < productCards.length; i++) {
-       if (productCards[i].status === PRODUCT_CARD_STATUS.LOADING) {
-         onProducts.push(productCards[i])
-       }
-     }
+    let onProducts = []
 
-     return onProducts
-   }
+    for (let i = 0; i < productCards.length; i++) {
+      if (productCards[i].status === PRODUCT_CARD_STATUS.LOADING) {
+        onProducts.push(productCards[i])
+      }
+    }
 
-   function getContainer (point) {
-     var container
+    return onProducts
+  }
 
-     container = panelTabButton.getContainer(point)
-     if (container !== undefined) { return container }
+  function getContainer (point) {
+    var container
 
-        /* First we check if thisObject point is inside thisObject space. */
+    container = panelTabButton.getContainer(point)
+    if (container !== undefined) { return container }
 
-     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-            /* Now we see which is the inner most container that has it */
+       /* First we check if thisObject point is inside thisObject space. */
 
-       for (var i = 0; i < visibleProductCards.length; i++) {
-         container = visibleProductCards[i].getContainer(point)
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+           /* Now we see which is the inner most container that has it */
 
-         if (container !== undefined) {
-                    /* We found an inner container which has the point. We return it. */
+      for (var i = 0; i < visibleProductCards.length; i++) {
+        container = visibleProductCards[i].getContainer(point)
 
-           return container
-         }
-       }
+        if (container !== undefined) {
+          let checkPoint = {
+            x: point.x,
+            y: point.y
+          }
 
-            /* The point does not belong to any inner container, so we return the current container. */
+          checkPoint = thisObject.fitFunction(checkPoint)
 
-       return thisObject.container
-     } else {
-            /* This point does not belong to thisObject space. */
+          if (point.x === checkPoint.x && point.y === checkPoint.y) {
+            return container
+          }
+        }
+      }
 
-       return undefined
-     }
-   }
+           /* The point does not belong to any inner container, so we return the current container. */
 
-   function draw () {
-     if (isInitialized === false) { return }
+      let checkPoint = {
+        x: point.x,
+        y: point.y
+      }
 
-     thisObject.container.frame.draw(false, false, true, canvas.chartSpace.fitIntoVisibleArea)
+      checkPoint = thisObject.fitFunction(checkPoint)
 
-     for (let i = 0; i < visibleProductCards.length; i++) {
-       visibleProductCards[i].draw()
-     }
+      if (point.x === checkPoint.x && point.y === checkPoint.y) {
+        return thisObject.container
+      }
+    }
+  }
 
-     panelTabButton.draw()
-   }
- }
+  function draw () {
+    if (isInitialized === false) { return }
+
+    thisObject.container.frame.draw(false, false, true, thisObject.fitFunction)
+
+    for (let i = 0; i < visibleProductCards.length; i++) {
+      visibleProductCards[i].draw()
+    }
+
+    panelTabButton.draw()
+  }
+}
+

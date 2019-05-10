@@ -54,6 +54,7 @@ function newPanelsSpace () {
       case 'Plotter Panel':
         {
           panel = getNewPlotterPanel(pParameters.devTeam, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelCodeName)
+          panel.fitFunction = canvas.chartSpace.fitIntoVisibleArea
           panel.initialize()
           break
         }

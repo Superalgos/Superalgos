@@ -7,13 +7,14 @@ function newFrame () {
     type: 'Rectangle',
     containerName: '',                  // This is for debugging purposes only.
     parentFrame: undefined,             // Here we store the parent cointainer zoom object.
-    width: browserCanvas.width,
-    height: browserCanvas.height,
     radius: 0,
     position: undefined,
+    container: undefined,
+    width: browserCanvas.width,
+    height: browserCanvas.height,
     getBodyHeight: getBodyHeight,
     draw: draw,
-    container: undefined,
+    fitIntoFrame: fitIntoFrame,
     frameThisPoint: frameThisPoint,     // This function changes the actual frame coordinate system to the screen coordinate system.
     unframeThisPoint: unframeThisPoint,
     isThisPointHere: isThisPointHere,   // This function return true is the point received as parameter lives within this frame.
@@ -125,6 +126,28 @@ function newFrame () {
     }
 
     return returnPoint
+  }
+
+  function fitIntoFrame (point) {
+        /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
+
+    if (point.x > thisObject.width) {
+      point.x = thisObject.width
+    }
+
+    if (point.x < 0) {
+      point.x = 0
+    }
+
+    if (point.y > thisObject.height) {
+      point.y = thisObject.height
+    }
+
+    if (point.y < 0) {
+      point.y = 0
+    }
+
+    return point
   }
 
   function canYouMoveHere (tempDisplacement) {
@@ -543,4 +566,3 @@ function newFrame () {
     browserCanvasContext.stroke()
   }
 }
-

@@ -159,10 +159,10 @@ maxDate.setDate(maxDate.getDate() + 365 * 1);  // We might have charts that proj
 const MIN_PLOTABLE_DATE = new Date(2015, 0, 1, 0, 0, 0);
 const MAX_PLOTABLE_DATE = maxDate;
 
-const TOP_SPACE_HEIGHT = 5;
-const BOTTOM_SPACE_HEIGHT = 35;
-const BREAKPOINT_HEIGHT = 15;
-const SIDE_PANEL_WIDTH = 450
+let TOP_SPACE_HEIGHT = 5;
+let BOTTOM_SPACE_HEIGHT = 35;
+let BREAKPOINT_HEIGHT = 15;
+let SIDE_PANEL_WIDTH = 450
   
 const PRODUCT_CARD_STATUS = {
     ON: 'on',

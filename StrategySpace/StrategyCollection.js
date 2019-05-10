@@ -1,6 +1,6 @@
 
-function newStrategyCollection () {
-  const MODULE_NAME = 'Strategy Collection'
+function newInvestmentPlanWorkspace () {
+  const MODULE_NAME = 'Investment Plan Workspace'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
@@ -94,7 +94,7 @@ function newStrategyCollection () {
                   .then(response => {
                     window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
                     thisObject.strategies = JSON.parse(JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
-                    createCollectionItems()
+                    deploydInvestmentPlan()
                     resolve({ strategies: response.data.strategizer_StrategyByFb.subStrategies})
                   })
                   .catch(error => {
@@ -120,52 +120,19 @@ function newStrategyCollection () {
     }
   }
 
-  function createCollectionItems () {
-    const TOP_MARGIN = 100
-    const ITEMS_SEPARATION = 90
-
-    for (let i = 0; i < thisObject.strategies.length; i++) {
-      let strategy = thisObject.strategies[i]
-      let collectionItem = newStrategyCollectionItem()
-
-      collectionItem.container.connectToParent(thisObject.container, false, false)
-      collectionItem.initialize(thisObject.strategies)
-      collectionItem.container.frame.position.y = i * ITEMS_SEPARATION + TOP_MARGIN
-
-      colletionItems.push(collectionItem)
-
-      /* Load Strategies Icons */
-
-      let imageIndex = i + 1
-      if (imageIndex > 14) { imageIndex = 14 }
-
-      let strategyImage = loadEmoji('Symbols/Emoji Symbols-' + (112 + imageIndex) + '.png')
-      collectionItem.icon = strategyImage
-    }
+  function deploydInvestmentPlan () {
+    canvas.floatingSpace.makeVisible()
+    thisObject.strategy = newInvestmentPlan()
+    thisObject.strategy.initialize(thisObject.strategySource)
   }
 
   function getContainer (point) {
     let container
 
-    for (let i = 0; i < colletionItems.length; i++) {
-      let item = colletionItems[i]
-      container = item.getContainer(point)
-      if (container !== undefined) {
-        return container
-      }
-    }
-
     return undefined
   }
 
   function draw () {
-    if (colletionItems === undefined) {
-      return
-    }
 
-    for (let i = 0; i < colletionItems.length; i++) {
-      let item = colletionItems[i]
-      item.draw()
-    }
   }
 }

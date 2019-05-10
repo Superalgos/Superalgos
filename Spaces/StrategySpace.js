@@ -3,7 +3,7 @@ function newStrategySpace () {
   const MODULE_NAME = 'Strategy Space'
   let thisObject = {
     sidePanel: undefined,
-    strategyCollection: undefined,
+    investmentPlanWorkspace: undefined,
     container: undefined,
     draw: draw,
     getContainer: getContainer,
@@ -22,18 +22,18 @@ function newStrategySpace () {
     thisObject.sidePanel = newSidePanel()
     thisObject.sidePanel.initialize()
 
-    thisObject.strategyCollection = newStrategyCollection()
-    thisObject.strategyCollection.container.connectToParent(thisObject.sidePanel.container, true, true)
-    await thisObject.strategyCollection.initialize()
+    thisObject.investmentPlanWorkspace = newInvestmentPlanWorkspace()
+    thisObject.investmentPlanWorkspace.container.connectToParent(thisObject.sidePanel.container, true, true)
+    await thisObject.investmentPlanWorkspace.initialize()
 
-    thisObject.sidePanel.areas.push(thisObject.strategyCollection)
+    thisObject.sidePanel.areas.push(thisObject.investmentPlanWorkspace)
   }
 
   function getContainer (point) {
     let container
 
-    if (thisObject.strategyCollection !== undefined) {
-      container = thisObject.strategyCollection.getContainer(point)
+    if (thisObject.investmentPlanWorkspace !== undefined) {
+      container = thisObject.investmentPlanWorkspace.getContainer(point)
       if (container !== undefined) { return container }
     }
 
@@ -49,4 +49,3 @@ function newStrategySpace () {
     thisObject.sidePanel.draw()
   }
 }
-

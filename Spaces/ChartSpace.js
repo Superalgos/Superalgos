@@ -86,23 +86,28 @@ function newChartSpace () {
   function fitIntoVisibleArea (point) {
        /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
 
+    let returnPoint = {
+      x: point.x,
+      y: point.y
+    }
+
     if (point.x > browserCanvas.width) {
-      point.x = browserCanvas.width
+      returnPoint.x = browserCanvas.width
     }
 
     if (point.x < 0) {
-      point.x = 0
+      returnPoint.x = 0
     }
 
     if (point.y > BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2) {
-      point.y = BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2
+      returnPoint.y = BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2
     }
 
     if (point.y < 0) {
-      point.y = 0
+      returnPoint.y = 0
     }
 
-    return point
+    return returnPoint
   }
 
   function physics () {

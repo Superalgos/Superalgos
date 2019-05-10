@@ -53,6 +53,7 @@
      panelTabButton = newPanelTabButton()
      panelTabButton.parentContainer = thisObject.container
      panelTabButton.container.frame.parentFrame = thisObject.container.frame
+     panelTabButton.fitFunction = canvas.chartSpace.fitIntoVisibleArea
      panelTabButton.initialize()
 
      /* Get the current teams of the logged in user. */
@@ -93,7 +94,7 @@
              productCard.devTeam = devTeam
              productCard.bot = bot
              productCard.product = product
-
+             productCard.fitFunction = canvas.chartSpace.fitIntoVisibleArea
              productCard.code = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName
 
                         /* Initialize it */

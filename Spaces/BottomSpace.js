@@ -6,6 +6,7 @@
    let thisObject = {
      container: undefined,
      draw: draw,
+     physics: physics,
      getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
      createNewControl: createNewControl,
      destroyControl: destroyControl,
@@ -18,6 +19,7 @@
    thisObject.container.initialize(MODULE_NAME)
    thisObject.container.isClickeable = false
    thisObject.container.isDraggeable = true
+   thisObject.container.notDraggingOnX = true
 
    controlsMap = new Map()
    resize()
@@ -42,6 +44,18 @@
 
    function onMouseClick (event) {
      // canvas.strategySpace.investmentPlanWorkspace.showUp()
+   }
+
+   function resize () {
+     thisObject.container.frame.position.x = 0
+     thisObject.container.frame.position.y = viewPort.visibleArea.bottomLeft.y
+
+     thisObject.container.frame.width = browserCanvas.width
+     thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
+   }
+
+   function physics () {
+
    }
 
    function createNewControl (pType, pDrawFunction, pOwner) {
@@ -106,14 +120,6 @@
          }
        }
      }
-   }
-
-   function resize () {
-     thisObject.container.frame.position.x = 0
-     thisObject.container.frame.position.y = viewPort.visibleArea.bottomLeft.y
-
-     thisObject.container.frame.width = browserCanvas.width
-     thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
    }
 
    function getContainer (point) {

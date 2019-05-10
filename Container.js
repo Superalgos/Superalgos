@@ -8,6 +8,8 @@ function newContainer () {
     eventHandler: undefined,
     parentContainer: undefined,
     isDraggeable: true,
+    notDraggingOnX: false,
+    notDraggingOnY: false,
     isClickeable: false,
     isWheelable: false,
     detectMouseOver: false,

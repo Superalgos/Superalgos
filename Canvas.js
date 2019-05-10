@@ -173,6 +173,7 @@ function newCanvas () {
           animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('ViewPort Animate', viewPort.animate, onFunctionAdded)
           animation.addCallBackFunction('Bottom Space', thisObject.bottomSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Bottom Space Physics', thisObject.bottomSpace.physics, onFunctionAdded)
           animation.addCallBackFunction('Top Space', thisObject.topSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Strategy Space', thisObject.strategySpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw, onFunctionAdded)
@@ -730,8 +731,12 @@ function newCanvas () {
           }
 
           if (containerBeingDragged !== undefined) {
-            containerBeingDragged.frame.position.x = containerBeingDragged.frame.position.x + displaceVector.x
-            containerBeingDragged.frame.position.y = containerBeingDragged.frame.position.y + displaceVector.y
+            if (containerBeingDragged.notDraggingOnX === false) {
+              containerBeingDragged.frame.position.x = containerBeingDragged.frame.position.x + displaceVector.x
+            }
+            if (containerBeingDragged.notDraggingOnY === false) {
+              containerBeingDragged.frame.position.y = containerBeingDragged.frame.position.y + displaceVector.y
+            }
           }
         }
 

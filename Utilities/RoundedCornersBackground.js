@@ -26,6 +26,13 @@ function roundedCornersBackground (params) {
   borderPoint3 = params.container.frame.frameThisPoint(borderPoint3)
   borderPoint4 = params.container.frame.frameThisPoint(borderPoint4)
 
+  if (params.fitFunction !== undefined) {
+    borderPoint1 = params.fitFunction(borderPoint1)
+    borderPoint2 = params.fitFunction(borderPoint2)
+    borderPoint3 = params.fitFunction(borderPoint3)
+    borderPoint4 = params.fitFunction(borderPoint4)
+  }
+
   browserCanvasContext.setLineDash([0, 0])
 
         /* Shadow  */

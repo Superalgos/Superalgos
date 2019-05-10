@@ -275,28 +275,29 @@ function newFrame () {
     }
   }
 
-  function draw (drawGrid, drawBorders, drawBackground) {
+  function draw (drawGrid, drawBorders, drawBackground, fitFunction) {
     if (drawBorders === true) {
-      borders()
+      borders(fitFunction)
     }
 
     if (drawGrid === true) {
-      grid()
+      grid(fitFunction)
     }
 
     if (drawBackground === true) {
-      background()
+      background(fitFunction)
     }
   }
 
-  function background () {
+  function background (fitFunction) {
     let params = {
       cornerRadius: 5,
       lineWidth: 0.1,
       opacity: 0.75,
       container: thisObject.container,
       borderColor: UI_COLOR.DARK,
-      backgroundColor: UI_COLOR.WHITE
+      backgroundColor: UI_COLOR.WHITE,
+      fitFunction: fitFunction
     }
 
     roundedCornersBackground(params)
@@ -315,6 +316,11 @@ function newFrame () {
 
     titleBarPoint1 = frameThisPoint(titleBarPoint1)
     titleBarPoint2 = frameThisPoint(titleBarPoint2)
+
+    if (fitFunction !== undefined) {
+      titleBarPoint1 = fitFunction(titleBarPoint1)
+      titleBarPoint2 = fitFunction(titleBarPoint2)
+    }
 
        /* We paint the title bar now */
 
@@ -354,11 +360,15 @@ function newFrame () {
 
     labelPoint = thisObject.frameThisPoint(labelPoint)
 
+    if (fitFunction !== undefined) {
+      labelPoint = fitFunction(labelPoint)
+    }
+
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 
-  function borders () {
+  function borders (fitFunction) {
        /* Lest get the important points of the drawing so as to apply the needed transformations. */
 
     let point1
@@ -393,6 +403,13 @@ function newFrame () {
     point3 = transformThisPoint(point3, thisObject.container)
     point4 = transformThisPoint(point4, thisObject.container)
 
+    if (fitFunction !== undefined) {
+      point1 = fitFunction(point1)
+      point2 = fitFunction(point2)
+      point3 = fitFunction(point3)
+      point4 = fitFunction(point4)
+    }
+
        /* Lets start the drawing. */
 
     browserCanvasContext.beginPath()
@@ -410,7 +427,7 @@ function newFrame () {
     browserCanvasContext.closePath()
   }
 
-  function grid (smallLines) {
+  function grid (fitFunction, smallLines) {
     if (smallLines === true) {
            /* Small Lines */
 
@@ -433,6 +450,11 @@ function newFrame () {
           point1 = transformThisPoint(point1, thisObject.container)
           point2 = transformThisPoint(point2, thisObject.container)
 
+          if (fitFunction !== undefined) {
+            point1 = fitFunction(point1)
+            point2 = fitFunction(point2)
+          }
+
           browserCanvasContext.moveTo(point1.x, point1.y)
           browserCanvasContext.lineTo(point2.x, point2.y)
         }
@@ -449,6 +471,11 @@ function newFrame () {
 
         point3 = transformThisPoint(point3, thisObject.container)
         point4 = transformThisPoint(point4, thisObject.container)
+
+        if (fitFunction !== undefined) {
+          point3 = fitFunction(point3)
+          point4 = fitFunction(point4)
+        }
 
         browserCanvasContext.moveTo(point3.x, point3.y)
         browserCanvasContext.lineTo(point4.x, point4.y)
@@ -480,6 +507,11 @@ function newFrame () {
         point1 = transformThisPoint(point1, thisObject.container)
         point2 = transformThisPoint(point2, thisObject.container)
 
+        if (fitFunction !== undefined) {
+          point1 = fitFunction(point1)
+          point2 = fitFunction(point2)
+        }
+
         browserCanvasContext.moveTo(point1.x, point1.y)
         browserCanvasContext.lineTo(point2.x, point2.y)
       }
@@ -496,6 +528,11 @@ function newFrame () {
 
       point3 = transformThisPoint(point3, thisObject.container)
       point4 = transformThisPoint(point4, thisObject.container)
+
+      if (fitFunction !== undefined) {
+        point3 = fitFunction(point3)
+        point4 = fitFunction(point4)
+      }
 
       browserCanvasContext.moveTo(point3.x, point3.y)
       browserCanvasContext.lineTo(point4.x, point4.y)

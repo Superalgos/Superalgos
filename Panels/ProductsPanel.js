@@ -234,7 +234,7 @@
    function draw () {
      if (isInitialized === false) { return }
 
-     thisObject.container.frame.draw(false, false, true)
+     thisObject.container.frame.draw(false, false, true, canvas.chartSpace.fitIntoVisibleArea)
 
      for (let i = 0; i < visibleProductCards.length; i++) {
        visibleProductCards[i].draw()

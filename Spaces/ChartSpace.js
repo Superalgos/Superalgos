@@ -30,6 +30,7 @@ function newChartSpace () {
   thisObject.container.initialize(MODULE_NAME)
 
   thisObject.container.isDraggeable = false
+  thisObject.container.isWheelable = false
 
   return thisObject
 

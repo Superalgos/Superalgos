@@ -673,6 +673,11 @@ function newCanvas () {
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
+      if (container !== undefined) {
+        viewPort.applyZoom(delta)
+        return false
+      }
+
          /* We try second with floating objects. */
 
       container = canvas.floatingSpace.getContainer({ x: point.x, y: point.y })
@@ -680,12 +685,9 @@ function newCanvas () {
       if (container !== undefined && container.isWheelable === true) {
         container.eventHandler.raiseEvent('onMouseWheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
-      } else {
-               /* If all the above fails, we fallback into applying zoom to the viewPort */
-
-        viewPort.applyZoom(delta)
-        return false  // This instructs the browser not to take the event and scroll the page.
       }
+
+      return false
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] onMouseWheel -> err = ' + err.stack) }
     }

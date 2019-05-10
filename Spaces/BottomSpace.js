@@ -188,7 +188,7 @@
      browserCanvasContext.fill()
 
      browserCanvasContext.beginPath()
-     browserCanvasContext.rect(zeroPoint.x, zeroPoint.y, thisObject.container.frame.width, RED_LINE_HIGHT)
+     browserCanvasContext.rect(zeroPoint.x, zeroPoint.y - RED_LINE_HIGHT, thisObject.container.frame.width, RED_LINE_HIGHT)
      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'
      browserCanvasContext.closePath()
      browserCanvasContext.fill()

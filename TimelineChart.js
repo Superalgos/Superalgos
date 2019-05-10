@@ -265,11 +265,8 @@
    function draw () {
      if (thisObject.container.frame.isInViewPort()) {
        drawChartsBackground()
-
-       // chartGrid.draw(thisObject.container, timeLineCoordinateSystem)
-
-       timePeriodScale.draw()
        plotterManager.draw()
+       timePeriodScale.draw()
      }
    }
 

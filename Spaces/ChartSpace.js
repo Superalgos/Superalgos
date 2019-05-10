@@ -58,8 +58,8 @@ function newChartSpace () {
 
        /* We make the time machine a little bit smaller than the current space. */
 
-    timeMachine.container.frame.position.x = this.container.frame.width / 2 - timeMachine.container.frame.width / 2
-    timeMachine.container.frame.position.y = this.container.frame.height / 2 - timeMachine.container.frame.height / 2
+    timeMachine.container.frame.position.x = thisObject.container.frame.width / 2 - timeMachine.container.frame.width / 2
+    timeMachine.container.frame.position.y = thisObject.container.frame.height / 2 - timeMachine.container.frame.height / 2
 
     timeMachine.initialize(onTimeMachineInitialized)
 
@@ -80,6 +80,29 @@ function newChartSpace () {
       if (initializedCounter === toInitialize) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
       }
+    }
+  }
+
+  function getContainer (point, purpose) {
+    if (thisObject.visible !== true) { return }
+
+    let container
+
+       /* Now we see which is the inner most container that has it */
+
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      container = thisObject.timeMachines[i].getContainer(point, purpose)
+      if (container !== undefined) {
+        if (container.isForThisPurpose(purpose)) {
+          return container
+        }
+      }
+    }
+
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+      return thisObject.container
+    } else {
+      return undefined
     }
   }
 
@@ -160,29 +183,6 @@ function newChartSpace () {
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
       let timeMachine = thisObject.timeMachines[i]
       timeMachine.draw()
-    }
-  }
-
-  function getContainer (point, purpose) {
-    if (thisObject.visible !== true) { return }
-
-    let container
-
-       /* Now we see which is the inner most container that has it */
-
-    for (let i = 0; i < this.timeMachines.length; i++) {
-      container = this.timeMachines[i].getContainer(point, purpose)
-      if (container !== undefined) {
-        if (container.isForThisPurpose(purpose)) {
-          return container
-        }
-      }
-    }
-
-    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-      return thisObject.container
-    } else {
-      return undefined
     }
   }
 }

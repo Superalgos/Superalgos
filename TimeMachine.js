@@ -186,27 +186,6 @@ function newTimeMachine () {
     }
   }
 
-  function drawBackground () {
-    for (let i = 0; i < this.charts.length; i++) {
-      let chart = this.charts[i]
-      chart.drawBackground()
-    }
-  }
-
-  function draw () {
-    if (thisObject.container.frame.isInViewPort()) {
-      for (let i = 0; i < this.charts.length; i++) {
-        let chart = this.charts[i]
-        chart.draw()
-      }
-
-      if (timeScale !== undefined) { timeScale.draw() }
-      if (rigthScale !== undefined) { rigthScale.draw() }
-
-     // thisObject.container.frame.draw(false, true, false)
-    }
-  }
-
   function getContainer (point, purpose) {
     let container
 
@@ -237,13 +216,34 @@ function newTimeMachine () {
       }
     }
 
-    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+    if (thisObject.container.frame.isThisPointHere(point) === true) {
       return thisObject.container
     } else {
       if (purpose === GET_CONTAINER_PURPOSE.MOUSE_OVER) {
         thisObject.container.eventHandler.raiseEvent('onMouseNotOver')
       }
       return
+    }
+  }
+
+  function drawBackground () {
+    for (let i = 0; i < this.charts.length; i++) {
+      let chart = this.charts[i]
+      chart.drawBackground()
+    }
+  }
+
+  function draw () {
+    if (thisObject.container.frame.isInViewPort()) {
+      for (let i = 0; i < this.charts.length; i++) {
+        let chart = this.charts[i]
+        chart.draw()
+      }
+
+      if (timeScale !== undefined) { timeScale.draw() }
+      if (rigthScale !== undefined) { rigthScale.draw() }
+
+     // thisObject.container.frame.draw(false, true, false)
     }
   }
 

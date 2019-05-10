@@ -95,7 +95,9 @@ function newChartSpace () {
       container = thisObject.timeMachines[i].getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
-          return container
+          if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+            return container
+          }
         }
       }
     }

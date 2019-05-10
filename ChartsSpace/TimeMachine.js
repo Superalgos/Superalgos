@@ -211,7 +211,9 @@ function newTimeMachine () {
       container = this.charts[i].getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
-          return container
+          if (thisObject.container.frame.isThisPointHere(point) === true) {
+            return container
+          }
         }
       }
     }

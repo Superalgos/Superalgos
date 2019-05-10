@@ -404,8 +404,8 @@ function newStrategyPart () {
       thisObject.payload.targetPosition.x = canvas.floatingSpace.container.frame.width / 2,
       thisObject.payload.targetPosition.y = canvas.floatingSpace.container.frame.height / 2
     } else {
-      thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x - canvas.floatingSpace.container.frame.position.x
-      thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y - canvas.floatingSpace.container.frame.position.y
+      thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x
+      thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
     }
   }
 

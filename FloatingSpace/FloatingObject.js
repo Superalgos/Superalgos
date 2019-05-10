@@ -132,14 +132,8 @@ function newFloatingObject () {
 
     /* Floating object position in screen coordinates */
 
-    let position = {
-      x: 0,
-      y: 0
-    }
-
-    position = thisObject.container.frame.frameThisPoint(position)
-
-    thisObject.payload.position = position
+    thisObject.payload.position.x = thisObject.container.frame.position.x
+    thisObject.payload.position.y = thisObject.container.frame.position.y
   }
 
   function onMouseOver (point) {
@@ -255,11 +249,14 @@ function newFloatingObject () {
       y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
     }
 
-    thisObject.container.frame.position = position
-    thisObject.payload.position = {
-      x: position.x,
-      y: position.y
-    }
+    // thisObject.container.frame.position = thisObject.container.frame.frameThisPoint(position)
+
+    thisObject.container.frame.position.x = position.x
+    thisObject.container.frame.position.y = position.y
+
+    thisObject.payload.position = {}
+    thisObject.payload.position.x = position.x
+    thisObject.payload.position.y = position.y
   }
 
   function radomizeCurrentSpeed () {

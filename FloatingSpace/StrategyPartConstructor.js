@@ -31,9 +31,9 @@ function newStrategyPartConstructor () {
 
   function createStrategyPart (payload) {
     let floatingObject = newFloatingObject()
+    floatingObject.container.connectToParent(canvas.floatingSpace.container, false, false, false, false, false, false, false, false)
     floatingObject.initialize('Strategy Part', payload)
     payload.floatingObject = floatingObject
-    floatingObject.container.connectToParent(canvas.floatingSpace.container, false, false, false, false, false, false, false, false)
 
     let strategyPart = newStrategyPart()
     strategyPart.initialize(payload)

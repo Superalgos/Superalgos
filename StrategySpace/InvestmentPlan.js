@@ -48,8 +48,8 @@ function newInvestmentPlan () {
       }
     } else {
       payload.targetPosition = {
-        x: chainParent.payload.position.x - canvas.floatingSpace.container.frame.position.x,
-        y: chainParent.payload.position.y - canvas.floatingSpace.container.frame.position.y
+        x: chainParent.payload.position.x,
+        y: chainParent.payload.position.y
       }
     }
 

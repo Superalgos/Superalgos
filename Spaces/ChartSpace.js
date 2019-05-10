@@ -52,7 +52,7 @@ function newChartSpace () {
 
         /* We create the first of many possible time machines that could live at the Chart Space. */
 
-    var timeMachine = newTimeMachine()
+    let timeMachine = newTimeMachine()
 
         /* We make the time machine a little bit smaller than the current space. */
 
@@ -84,8 +84,8 @@ function newChartSpace () {
   function drawBackground () {
     if (thisObject.visible !== true) { return }
 
-    for (var i = 0; i < thisObject.timeMachines.length; i++) {
-      var timeMachine = thisObject.timeMachines[i]
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[i]
       timeMachine.drawBackground()
     }
   }
@@ -93,8 +93,8 @@ function newChartSpace () {
   function draw () {
     if (thisObject.visible !== true) { return }
 
-    for (var i = 0; i < thisObject.timeMachines.length; i++) {
-      var timeMachine = thisObject.timeMachines[i]
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[i]
       timeMachine.draw()
     }
   }
@@ -106,7 +106,7 @@ function newChartSpace () {
 
         /* Now we see which is the inner most container that has it */
 
-    for (var i = 0; i < this.timeMachines.length; i++) {
+    for (let i = 0; i < this.timeMachines.length; i++) {
       container = this.timeMachines[i].getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {

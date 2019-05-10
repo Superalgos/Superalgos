@@ -16,32 +16,32 @@
 
    thisObject.container = newContainer()
    thisObject.container.initialize(MODULE_NAME)
-   thisObject.container.isClickeable = true
-   thisObject.container.isDraggeable = false
+   thisObject.container.isClickeable = false
+   thisObject.container.isDraggeable = true
 
    controlsMap = new Map()
    resize()
 
    let selfMouseClickEventSubscriptionId
-   let canvasBroserResizedEventSubscriptionId
+   let canvasBrowserResizedEventSubscriptionId
 
    return thisObject
 
    function finalize () {
      thisObject.container.eventHandler.stopListening(selfMouseClickEventSubscriptionId)
-     thisObject.container.eventHandler.stopListening(canvasBroserResizedEventSubscriptionId)
+     thisObject.container.eventHandler.stopListening(canvasBrowserResizedEventSubscriptionId)
 
      thisObject.container.finalize()
      thisObject.container = undefined
    }
 
    function initialize () {
-     canvasBroserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
+     canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
      selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
    }
 
    function onMouseClick (event) {
-
+     // canvas.strategySpace.investmentPlanWorkspace.showUp()
    }
 
    function createNewControl (pType, pDrawFunction, pOwner) {
@@ -109,17 +109,19 @@
    }
 
    function resize () {
-     container.frame.position.x = 0
-     container.frame.position.y = viewPort.visibleArea.bottomLeft.y
+     thisObject.container.frame.position.x = 0
+     thisObject.container.frame.position.y = viewPort.visibleArea.bottomLeft.y
 
      thisObject.container.frame.width = browserCanvas.width
      thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
    }
 
    function getContainer (point) {
-     let container
-
-     return thisObject.container
+     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+       return thisObject.container
+     } else {
+       return undefined
+     }
    }
 
    function draw () {

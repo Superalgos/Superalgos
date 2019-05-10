@@ -57,6 +57,7 @@
    function physics () {
      BOTTOM_SPACE_HEIGHT = browserCanvas.height - thisObject.container.frame.position.y
      viewPort.resize()
+     thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
    }
 
    function createNewControl (pType, pDrawFunction, pOwner) {

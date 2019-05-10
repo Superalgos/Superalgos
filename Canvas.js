@@ -171,14 +171,15 @@ function newCanvas () {
           animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics, onFunctionAdded)
           animation.addCallBackFunction('ViewPort Draw', viewPort.draw, onFunctionAdded)
           animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground, onFunctionAdded)
-          animation.addCallBackFunction('Chart Space', thisObject.chartSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Chart Space Draw', thisObject.chartSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics, onFunctionAdded)
           animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('ViewPort Animate', viewPort.animate, onFunctionAdded)
-          animation.addCallBackFunction('Bottom Space', thisObject.bottomSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Bottom Space Draw', thisObject.bottomSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Bottom Space Physics', thisObject.bottomSpace.physics, onFunctionAdded)
-          animation.addCallBackFunction('Top Space', thisObject.topSpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Strategy Space', thisObject.strategySpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Splash Screen', splashScreen.draw, onFunctionAdded)
+          animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Strategy Space Draw', thisObject.strategySpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw, onFunctionAdded)
           animation.start(onStart)
 
           function onFunctionAdded (err) {
@@ -358,6 +359,21 @@ function newCanvas () {
         return
       }
 
+           /*  we check if it is over any of the existing containers at the Chart Space. */
+
+      container = thisObject.chartSpace.getContainer(point)
+
+      if (container !== undefined) {
+        if (container.isDraggeable === true) {
+          containerBeingDragged = container
+          containerDragStarted = true
+          return
+        } else {
+          viewPortBeingDragged = true
+          return
+        }
+      }
+
       container = thisObject.floatingSpace.getContainer(point)
 
       if (container !== undefined && container.isDraggeable === true) {
@@ -371,18 +387,6 @@ function newCanvas () {
        /* We dont want to mess up with the click */
         return
       }
-
-           /*  we check if it is over any of the existing containers at the Chart Space. */
-
-      container = thisObject.chartSpace.getContainer(point)
-
-      if (container !== undefined && container.isDraggeable === true) {
-        containerBeingDragged = container
-        containerDragStarted = true
-        return
-      }
-
-      viewPortBeingDragged = true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] onMouseDown -> err = ' + err.stack) }
     }
@@ -439,17 +443,17 @@ function newCanvas () {
         return
       }
 
-           /* We check if the mouse is over a floatingObject/ */
-      container = thisObject.floatingSpace.getContainer(point)
+           /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
+
+      container = thisObject.chartSpace.getContainer(point)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)
         return
       }
 
-           /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
-
-      container = thisObject.chartSpace.getContainer(point)
+      /* We check if the mouse is over a floatingObject/ */
+      container = thisObject.floatingSpace.getContainer(point)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)
@@ -592,9 +596,10 @@ function newCanvas () {
         }
       }
 
-           /* We check if the mouse is over a floatingObject/ */
-      if (thisObject.floatingSpace !== undefined) {
-        container = thisObject.floatingSpace.getContainer(point)
+           /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
+
+      if (thisObject.chartSpace !== undefined) {
+        container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
         if (container !== undefined && container.detectMouseOver === true) {
           containerFound()
@@ -602,10 +607,9 @@ function newCanvas () {
         }
       }
 
-           /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
-
-      if (thisObject.chartSpace !== undefined) {
-        container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
+      /* We check if the mouse is over a floatingObject/ */
+      if (thisObject.floatingSpace !== undefined) {
+        container = thisObject.floatingSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
           containerFound()
@@ -652,15 +656,6 @@ function newCanvas () {
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
-     /* We try second with floating objects. */
-
-      container = canvas.floatingSpace.getContainer({ x: point.x, y: point.y })
-
-      if (container !== undefined && container.isWheelable === true) {
-        container.eventHandler.raiseEvent('onMouseWheel', event)
-        return false  // This instructs the browser not to take the event and scroll the page.
-      }
-
            /* We try the Bottom Space. */
 
       container = canvas.bottomSpace.getContainer({ x: point.x, y: point.y })
@@ -670,9 +665,17 @@ function newCanvas () {
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
-           /* Finally we try the Chart Space. */
+          /*   Chart Space. */
 
       container = canvas.chartSpace.getContainer({ x: point.x, y: point.y }, GET_CONTAINER_PURPOSE.MOUSE_WHEEL)
+      if (container !== undefined && container.isWheelable === true) {
+        container.eventHandler.raiseEvent('onMouseWheel', event)
+        return false  // This instructs the browser not to take the event and scroll the page.
+      }
+
+         /* We try second with floating objects. */
+
+      container = canvas.floatingSpace.getContainer({ x: point.x, y: point.y })
 
       if (container !== undefined && container.isWheelable === true) {
         container.eventHandler.raiseEvent('onMouseWheel', event)

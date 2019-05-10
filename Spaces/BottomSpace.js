@@ -57,22 +57,17 @@
    function physics () {
      /* Check the limits */
 
-     if (thisObject.container.frame.position.y > browserCanvas.height - BOTTOM_SPACE_HEIGHT) {
+     if (thisObject.container.frame.position.y > browserCanvas.height * 99.5 / 100 - BOTTOM_SPACE_HEIGHT) {
        thisObject.container.frame.position.y = browserCanvas.height - BOTTOM_SPACE_HEIGHT
        canvas.strategySpace.makeInvisible()
-     }
-     if (thisObject.container.frame.position.y < BOTTOM_SPACE_HEIGHT) {
-       thisObject.container.frame.position.y = BOTTOM_SPACE_HEIGHT
-       canvas.chartSpace.visible = false
-       canvas.panelsSpace.visible = false
-     }
-
-     if (thisObject.container.frame.position.y < browserCanvas.height * 90 / 100) {
+     } else {
        canvas.strategySpace.makeVisible()
      }
 
-     if (thisObject.container.frame.position.y < browserCanvas.height * 10 / 100) {
-       canvas.chartSpace.visible = true
+     if (thisObject.container.frame.position.y < browserCanvas.height * 0.5 / 100) {
+       thisObject.container.frame.position.y = 0
+       canvas.panelsSpace.visible = false
+     } else {
        canvas.panelsSpace.visible = true
      }
 
@@ -188,7 +183,7 @@
 
      browserCanvasContext.beginPath()
      browserCanvasContext.rect(zeroPoint.x, zeroPoint.y, thisObject.container.frame.width, thisObject.container.frame.height)
-     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + opacity + ')'
+     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
@@ -199,7 +194,7 @@
      browserCanvasContext.fill()
 
      browserCanvasContext.beginPath()
-     browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + thisObject.container.frame.height - RED_LINE_HIGHT, thisObject.container.frame.width, RED_LINE_HIGHT)
+     browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + thisObject.container.frame.height, thisObject.container.frame.width, RED_LINE_HIGHT)
      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'
      browserCanvasContext.closePath()
      browserCanvasContext.fill()

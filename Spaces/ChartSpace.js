@@ -17,6 +17,7 @@ function newChartSpace () {
     visible: true,
     container: undefined,
     fitIntoVisibleArea: fitIntoVisibleArea,
+    physics: physics,
     drawBackground: drawBackground,
     draw: draw,
     timeMachines: [],
@@ -104,6 +105,18 @@ function newChartSpace () {
     return point
   }
 
+  function physics () {
+    thisObject.container.frame.height = BOTTOM_SPACE_POSITION
+
+    if (thisObject.container.frame.height <= 0 / 100) {
+      thisObject.visible = false
+    } else {
+      thisObject.visible = true
+    }
+
+    viewPort.resize()
+  }
+
   function drawBackground () {
     if (thisObject.visible !== true) { return }
 
@@ -158,7 +171,12 @@ function newChartSpace () {
         }
       }
     }
-    return this.container
+
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+      return thisObject.container
+    } else {
+      return undefined
+    }
   }
 }
 

@@ -55,33 +55,29 @@
    }
 
    function physics () {
-     BOTTOM_SPACE_HEIGHT = browserCanvas.height - thisObject.container.frame.position.y
-
      /* Check the limits */
 
-     if (BOTTOM_SPACE_HEIGHT < BOTTOM_SPACE_MIN_HEIGHT) {
-       BOTTOM_SPACE_HEIGHT = BOTTOM_SPACE_MIN_HEIGHT
+     if (thisObject.container.frame.position.y > browserCanvas.height - BOTTOM_SPACE_HEIGHT) {
        thisObject.container.frame.position.y = browserCanvas.height - BOTTOM_SPACE_HEIGHT
        canvas.strategySpace.makeInvisible()
      }
-     if (BOTTOM_SPACE_HEIGHT > BOTTOM_SPACE_MAX_HEIGHT) {
-       BOTTOM_SPACE_HEIGHT = BOTTOM_SPACE_MAX_HEIGHT
-       thisObject.container.frame.position.y = browserCanvas.height - BOTTOM_SPACE_HEIGHT
+     if (thisObject.container.frame.position.y < BOTTOM_SPACE_HEIGHT) {
+       thisObject.container.frame.position.y = BOTTOM_SPACE_HEIGHT
        canvas.chartSpace.visible = false
        canvas.panelsSpace.visible = false
      }
 
-     if (BOTTOM_SPACE_HEIGHT > browserCanvas.height * 25 / 100) {
+     if (thisObject.container.frame.position.y < browserCanvas.height * 90 / 100) {
        canvas.strategySpace.makeVisible()
      }
 
-     if (BOTTOM_SPACE_HEIGHT < browserCanvas.height * 95 / 100) {
+     if (thisObject.container.frame.position.y < browserCanvas.height * 10 / 100) {
        canvas.chartSpace.visible = true
        canvas.panelsSpace.visible = true
      }
 
+     BOTTOM_SPACE_POSITION = thisObject.container.frame.position.y
      viewPort.resize()
-     thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
    }
 
    function createNewControl (pType, pDrawFunction, pOwner) {
@@ -186,19 +182,24 @@
        y: 0
      }
 
-     zeroPoint = thisObject.container.frame.frameThisPoint(zeroPoint)
-
-     let breakpointsHeight = 15
      const RED_LINE_HIGHT = 5
 
+     zeroPoint = thisObject.container.frame.frameThisPoint(zeroPoint)
+
      browserCanvasContext.beginPath()
-     browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + breakpointsHeight, thisObject.container.frame.width, thisObject.container.frame.height)
-     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
+     browserCanvasContext.rect(zeroPoint.x, zeroPoint.y, thisObject.container.frame.width, thisObject.container.frame.height)
+     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + opacity + ')'
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
      browserCanvasContext.beginPath()
-     browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + breakpointsHeight, thisObject.container.frame.width, RED_LINE_HIGHT)
+     browserCanvasContext.rect(zeroPoint.x, zeroPoint.y, thisObject.container.frame.width, RED_LINE_HIGHT)
+     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'
+     browserCanvasContext.closePath()
+     browserCanvasContext.fill()
+
+     browserCanvasContext.beginPath()
+     browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + thisObject.container.frame.height - RED_LINE_HIGHT, thisObject.container.frame.width, RED_LINE_HIGHT)
      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'
      browserCanvasContext.closePath()
      browserCanvasContext.fill()

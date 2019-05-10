@@ -299,6 +299,9 @@
      fromPoint = transformThisPoint(fromPoint, thisObject.container)
      toPoint = transformThisPoint(toPoint, thisObject.container)
 
+     fromPoint = canvas.chartSpace.fitIntoVisibleArea(fromPoint)
+     toPoint = canvas.chartSpace.fitIntoVisibleArea(toPoint)
+
      browserCanvasContext.beginPath()
 
      browserCanvasContext.rect(fromPoint.x, fromPoint.y, toPoint.x - fromPoint.x, toPoint.y - fromPoint.y)
@@ -338,7 +341,7 @@
      let imageWidth = 150
 
      let MAX_COLUMNS = 16
-     let MAX_ROWS = 7
+     let MAX_ROWS = 5
      let Y_TOP_MARGIN = 30
 
      let point1 = {

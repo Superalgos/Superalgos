@@ -237,8 +237,6 @@
    }
 
    function tooTiny () {
-     if (INTENSIVE_LOG === true) { logger.write('[INFO] tooTiny -> Entering function.') }
-
      if (viewPort.zoomLevel < Math.trunc(-28.25 * 100) / 100) {
        return true
      } else {
@@ -247,8 +245,6 @@
    }
 
    function tooSmall () {
-     if (INFO_LOG === true) { logger.write('[INFO] tooSmall -> Entering function.') }
-
      if (viewPort.zoomLevel < Math.trunc(-27.25 * 100) / 100) {
        return true
      } else {
@@ -257,8 +253,6 @@
    }
 
    function drawBackground () {
-     if (INTENSIVE_LOG === true) { logger.write('[INFO] drawBackground -> Entering function.') }
-
      if (thisObject.container.frame.isInViewPort()) {
        if (window.CHART_ON_FOCUS === '') {
          window.CHART_ON_FOCUS = exchange + ' ' + market.assetB + '/' + market.assetA
@@ -269,8 +263,6 @@
    }
 
    function draw () {
-     if (INTENSIVE_LOG === true) { logger.write('[INFO] draw -> Entering function.') }
-
      if (thisObject.container.frame.isInViewPort()) {
        drawChartsBackground()
 
@@ -313,8 +305,6 @@
    }
 
    function drawChartsBackgroundImages () {
-     if (INTENSIVE_LOG === true) { logger.write('[INFO] drawChartsBackground -> Entering function.') }
-
      if (canDrawLogoA === false || canDrawLogoB === false || canDrawLogoExchange === false || canDrawLogoAA === false) { return }
 
      /* Fist we calculate the corners of the current frame so as not to draw imaages ourside of it */

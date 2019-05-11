@@ -49,6 +49,8 @@ function newPanelsSpace () {
       case 'Products Panel':
         {
           panel = newProductsPanel()
+          panel.fitFunction = canvas.chartSpace.fitIntoVisibleArea
+          panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
           break
         }
       case 'Plotter Panel':

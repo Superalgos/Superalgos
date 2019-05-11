@@ -1,5 +1,6 @@
 function newProductsPanel () {
   let thisObject = {
+    fitFunction: undefined,
     container: undefined,
     getLoadingProductCards: getLoadingProductCards,
     draw: draw,
@@ -9,7 +10,7 @@ function newProductsPanel () {
 
    /* Cointainer stuff */
 
-  var container = newContainer()
+  let container = newContainer()
 
   container.initialize()
 
@@ -43,9 +44,7 @@ function newProductsPanel () {
     thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
     thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
 
-    thisObject.fitFunction = canvas.chartSpace.fitIntoVisibleArea
-
-    var position = {
+    let position = {
       x: viewPort.visibleArea.topLeft.x,
       y: viewPort.visibleArea.topLeft.y// viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height
     }
@@ -161,7 +160,7 @@ function newProductsPanel () {
     if (firstVisibleCard > (productCards.length - availableSlots + 1)) { firstVisibleCard = productCards.length - availableSlots + 1 }
 
     visibleProductCards = []
-    var lastY = 5
+    let lastY = 5
 
     for (let i = 0; i < productCards.length; i++) {
       if (i + 1 >= firstVisibleCard && i + 1 < firstVisibleCard + availableSlots) {
@@ -204,7 +203,7 @@ function newProductsPanel () {
   }
 
   function getContainer (point) {
-    var container
+    let container
 
     container = panelTabButton.getContainer(point)
     if (container !== undefined) { return container }
@@ -214,7 +213,7 @@ function newProductsPanel () {
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
            /* Now we see which is the inner most container that has it */
 
-      for (var i = 0; i < visibleProductCards.length; i++) {
+      for (let i = 0; i < visibleProductCards.length; i++) {
         container = visibleProductCards[i].getContainer(point)
 
         if (container !== undefined) {

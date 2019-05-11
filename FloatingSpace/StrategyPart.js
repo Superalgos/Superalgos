@@ -242,6 +242,7 @@ function newStrategyPart () {
       case 'Phase': {
         imagePath = 'Images/icons/style-01/testing.png'
         thisObject.codeEditor = newCodeEditor()
+        thisObject.codeEditor.isVisibleFunction = thisObject.isVisibleFunction
         thisObject.codeEditor.initialize()
         thisObject.codeEditor.container.connectToParent(thisObject.container, false, false, true, true, false, false, false, false)
 
@@ -317,6 +318,7 @@ function newStrategyPart () {
       case 'Condition': {
         imagePath = 'Images/icons/style-01/testing.png'
         thisObject.codeEditor = newCodeEditor()
+        thisObject.codeEditor.isVisibleFunction = thisObject.isVisibleFunction
         thisObject.codeEditor.initialize()
         thisObject.codeEditor.container.connectToParent(thisObject.container, false, false, true, true, false, false, false, false)
         menuItemsInitialValues = [

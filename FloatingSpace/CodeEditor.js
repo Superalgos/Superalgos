@@ -3,6 +3,7 @@ function newCodeEditor () {
   const MODULE_NAME = 'Circular Menu Iem'
 
   let thisObject = {
+    isVisibleFunction: undefined,
     iconOK: undefined,
     iconNOT_OK: undefined,
     visible: false,
@@ -42,6 +43,7 @@ function newCodeEditor () {
     thisObject.iconOK = undefined
     thisObject.iconNOT_OK = undefined
     thisObject.payload = undefined
+    thisObject.isVisibleFunction = undefined
   }
 
   function initialize () {
@@ -135,7 +137,15 @@ function newCodeEditor () {
     }
 
     textAreaPosition = thisObject.container.frame.frameThisPoint(textAreaPosition)
-    if (textAreaPosition.y < window.canvasApp.topMargin) { deactivate() }
+    if (thisObject.visible === true) {
+      let checkPosition = {
+        x: textAreaPosition.x,
+        y: textAreaPosition.y - window.canvasApp.topMargin
+      }
+      if (thisObject.isVisibleFunction(checkPosition) === false) {
+        deactivate()
+      }
+    }
     if (thisObject.visible === true) {
       let textAreaDiv = document.getElementById('textAreaDiv')
       textAreaDiv.style = 'position:absolute; top:' + textAreaPosition.y + 'px; left:' + textAreaPosition.x + 'px; z-index:1; '

@@ -14,7 +14,9 @@ function newContainer () {
     isWheelable: false,
     detectMouseOver: false,
     name: undefined,
-    draggTo: draggTo,
+    fitFunction: undefined,
+    isVisibleFunction: undefined,
+    moveTo: moveTo,
     initialize: initialize,
     finalize: finalize,
     connectToParent: connectToParent,
@@ -186,12 +188,36 @@ function newContainer () {
     return false
   }
 
-  function draggTo (point) {
-    if (thisObject.notDraggingOnX === false) {
-      thisObject.frame.position.x = thisObject.frame.position.x + point.x
+  function moveTo (point) {
+    /* This function will move the container to the destination point. If it has a visible function will use it
+    to see if the container can be moved there or not. It wont if the center will not be visible.
+
+    Returns true if move was possible, false if not. */
+
+    let checkPoint = {}
+
+    if (thisObject.isVisibleFunction === undefined) {
+      drag()
+      return true
+    } else {
+      checkPoint.x = thisObject.frame.position.x + point.x + thisObject.frame.width / 2
+      checkPoint.y = thisObject.frame.position.y + point.y + thisObject.frame.height / 2
+      let isVisible = thisObject.isVisibleFunction(checkPoint)
+      if (isVisible === true) {
+        drag()
+        return true
+      } else {
+        return false
+      }
     }
-    if (thisObject.notDraggingOnY === false) {
-      thisObject.frame.position.y = thisObject.frame.position.y + point.y
+    function drag () {
+      if (thisObject.notDraggingOnX === false) {
+        thisObject.frame.position.x = thisObject.frame.position.x + point.x
+      }
+      if (thisObject.notDraggingOnY === false) {
+        thisObject.frame.position.y = thisObject.frame.position.y + point.y
+      }
     }
   }
 }
+

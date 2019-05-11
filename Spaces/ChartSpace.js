@@ -17,6 +17,7 @@ function newChartSpace () {
     visible: true,
     container: undefined,
     fitIntoVisibleArea: fitIntoVisibleArea,
+    isThisPointVisible: isThisPointVisible,
     physics: physics,
     drawBackground: drawBackground,
     draw: draw,
@@ -134,6 +135,26 @@ function newChartSpace () {
     }
 
     return returnPoint
+  }
+
+  function isThisPointVisible (point) {
+    if (point.x > browserCanvas.width) {
+      return false
+    }
+
+    if (point.x < 0) {
+      return false
+    }
+
+    if (point.y > BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2) {
+      return false
+    }
+
+    if (point.y < 0) {
+      return false
+    }
+
+    return true
   }
 
   function physics () {

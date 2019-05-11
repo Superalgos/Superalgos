@@ -13,6 +13,8 @@ function newFloatingSpace () {
     strategyPartConstructor: undefined,
     noteSets: undefined,
     container: undefined,
+    fitIntoVisibleArea: fitIntoVisibleArea,
+    isThisPointVisible: isThisPointVisible,
     makeVisible: makeVisible,
     makeInvisible: makeInvisible,
     draw: draw,
@@ -59,6 +61,53 @@ function newFloatingSpace () {
     thisObject.strategyPartConstructor.initialize(thisObject.floatingLayer)
 
     thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+  }
+
+  function fitIntoVisibleArea (point) {
+       /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
+
+    let returnPoint = {
+      x: point.x,
+      y: point.y
+    }
+
+    if (point.x > browserCanvas.width) {
+      returnPoint.x = browserCanvas.width
+    }
+
+    if (point.x < 0) {
+      returnPoint.x = 0
+    }
+
+    if (point.y < BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2) {
+      returnPoint.y = BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2
+    }
+
+    if (point.y > browserCanvas.height) {
+      returnPoint.y = browserCanvas.height
+    }
+
+    return returnPoint
+  }
+
+  function isThisPointVisible (point) {
+    if (point.x > browserCanvas.width) {
+      return false
+    }
+
+    if (point.x < 0) {
+      return false
+    }
+
+    if (point.y < BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2) {
+      return false
+    }
+
+    if (point.y > browserCanvas.height) {
+      return false
+    }
+
+    return true
   }
 
   function onMouseWheel (event) {

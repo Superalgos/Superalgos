@@ -470,8 +470,8 @@ function newCanvas () {
 
     /* When the mouse leaves the canvas, our elements needs to react to the fact that the mouse is over a far away place */
     let thisEvent = {
-      pageX: 100000000000,
-      pageY: 100000000000
+      pageX: VERY_LARGE_NUMBER,
+      pageY: VERY_LARGE_NUMBER
     }
     onMouseOver(thisEvent)
   }

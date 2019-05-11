@@ -98,7 +98,14 @@ function newCodeEditor () {
 
   function getContainer (point) {
     let container
-    if (thisObject.visitble === true) {
+    if (thisObject.visible === true) {
+      if (point.x === VERY_LARGE_NUMBER) {
+        /* The the mouse leaves the canvas, and event of mouse over with a ridiculous coordinate is triggered so that
+        anyone can react. In our case, the code editor has a text area that is not part of the canvas, so the event is
+        triggered. We compensate recognizing this coordinate and returning our container. */
+        return thisObject.container
+      }
+
       if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
         return thisObject.container
       } else {

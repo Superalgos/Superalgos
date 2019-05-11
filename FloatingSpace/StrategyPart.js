@@ -381,6 +381,11 @@ function newStrategyPart () {
   function getContainer (point) {
     let container
 
+    if (thisObject.codeEditor !== undefined) {
+      container = thisObject.codeEditor.getContainer(point)
+      if (container !== undefined) { return container }
+    }
+
     container = thisObject.partTitle.getContainer(point)
     if (container !== undefined) { return container }
 

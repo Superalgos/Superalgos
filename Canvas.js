@@ -744,12 +744,7 @@ function newCanvas () {
           }
 
           if (containerBeingDragged !== undefined) {
-            if (containerBeingDragged.notDraggingOnX === false) {
-              containerBeingDragged.frame.position.x = containerBeingDragged.frame.position.x + displaceVector.x
-            }
-            if (containerBeingDragged.notDraggingOnY === false) {
-              containerBeingDragged.frame.position.y = containerBeingDragged.frame.position.y + displaceVector.y
-            }
+            containerBeingDragged.draggTo(displaceVector)
           }
         }
 

@@ -14,6 +14,7 @@ function newContainer () {
     isWheelable: false,
     detectMouseOver: false,
     name: undefined,
+    draggTo: draggTo,
     initialize: initialize,
     finalize: finalize,
     connectToParent: connectToParent,
@@ -183,5 +184,14 @@ function newContainer () {
       }
     }
     return false
+  }
+
+  function draggTo (point) {
+    if (thisObject.notDraggingOnX === false) {
+      thisObject.frame.position.x = thisObject.frame.position.x + point.x
+    }
+    if (thisObject.notDraggingOnY === false) {
+      thisObject.frame.position.y = thisObject.frame.position.y + point.y
+    }
   }
 }

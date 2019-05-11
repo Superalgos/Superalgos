@@ -2,6 +2,7 @@
 function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () {
 
     var thisObject = {
+        fitFunction: undefined,
         onEventRaised: onEventRaised,
         container: undefined,
         draw: draw,
@@ -32,29 +33,30 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
         panelTabButton = newPanelTabButton()
         panelTabButton.parentContainer = thisObject.container
         panelTabButton.container.frame.parentFrame = thisObject.container.frame
+        panelTabButton.fitFunction = thisObject.fitFunction
         panelTabButton.initialize()
     }
 
     function getContainer(point) {
 
-        var container;
+        let container;
 
         container = panelTabButton.getContainer(point)
         if (container !== undefined) { return container }
 
-        /* First we check if this point is inside this space. */
+        if (thisObject.container.frame.isThisPointHere(point, true) === true) {
 
-        if (this.container.frame.isThisPointHere(point, true) === true) {
+            let checkPoint = {
+                x: point.x,
+                y: point.y
+            }
 
-            return this.container;
+            checkPoint = thisObject.fitFunction(checkPoint)
 
-        } else {
-
-            /* This point does not belong to this space. */
-
-            return undefined;
+            if (point.x === checkPoint.x && point.y === checkPoint.y) {
+                return thisObject.container;
+            }
         }
-
     }
 
 
@@ -67,7 +69,7 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
 
     function draw() {
 
-        this.container.frame.draw(false, false, true);
+        thisObject.container.frame.draw(false, false, true, thisObject.fitFunction);
 
         plotCurrentBandInfo();
 
@@ -123,6 +125,11 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
         bandPoint2 = thisObject.container.frame.frameThisPoint(bandPoint2);
         bandPoint3 = thisObject.container.frame.frameThisPoint(bandPoint3);
         bandPoint4 = thisObject.container.frame.frameThisPoint(bandPoint4);
+
+        bandPoint1 = thisObject.fitFunction(bandPoint1)
+        bandPoint2 = thisObject.fitFunction(bandPoint2)
+        bandPoint3 = thisObject.fitFunction(bandPoint3)
+        bandPoint4 = thisObject.fitFunction(bandPoint4)
 
         browserCanvasContext.beginPath();
 
@@ -208,6 +215,8 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
             };
 
             labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
+
+            labelPoint = thisObject.fitFunction(labelPoint)
 
             browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
             browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);

@@ -21,14 +21,14 @@ function newStrategySpace () {
   return thisObject
 
   async function initialize () {
-    thisObject.sidePanel = newSidePanel()
-    thisObject.sidePanel.initialize()
+    // thisObject.sidePanel = newSidePanel()
+    // thisObject.sidePanel.initialize()
 
     thisObject.investmentPlanWorkspace = newInvestmentPlanWorkspace()
-    thisObject.investmentPlanWorkspace.container.connectToParent(thisObject.sidePanel.container, true, true)
+    // thisObject.investmentPlanWorkspace.container.connectToParent(thisObject.sidePanel.container, true, true)
     await thisObject.investmentPlanWorkspace.initialize()
 
-    thisObject.sidePanel.areas.push(thisObject.investmentPlanWorkspace)
+    // thisObject.sidePanel.areas.push(thisObject.investmentPlanWorkspace)
   }
 
   function makeVisible () {
@@ -60,6 +60,8 @@ function newStrategySpace () {
   }
 
   function draw () {
-    thisObject.sidePanel.draw()
+    if (thisObject.sidePanel !== undefined) {
+      thisObject.sidePanel.draw()
+    }
   }
 }

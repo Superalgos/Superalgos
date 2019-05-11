@@ -32,6 +32,7 @@ function newContainer () {
   let onMouseNotOverParentEvent = false
   let onFocusParentEvent = false
   let onNotFocusParentEvent = false
+  let onDisplaceParentEvent = false
 
   let isConnectedToParent = false
 
@@ -40,6 +41,7 @@ function newContainer () {
   let onMouseNotOverEventSubscriptionId
   let onFocusEventSubscriptionId
   let onNotFocusEventSubscriptionId
+  let onDisplaceEventSubscriptionId
 
   return thisObject
 
@@ -50,6 +52,7 @@ function newContainer () {
       thisObject.parentContainer.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
       thisObject.parentContainer.eventHandler.stopListening(onFocusEventSubscriptionId)
       thisObject.parentContainer.eventHandler.stopListening(onNotFocusEventSubscriptionId)
+      thisObject.parentContainer.eventHandler.stopListening(onDisplaceEventSubscriptionId)
 
       thisObject.parentContainer = undefined
       thisObject.eventHandler.finalize()
@@ -82,7 +85,8 @@ function newContainer () {
     onMouseOverEvent,
     onMouseNotOverEvent,
     onFocusEvent,
-    onNotFocusEvent
+    onNotFocusEvent,
+    onDisplaceEvent
   ) {
     connectedToParentWidth = onWidth
     connectedToParentHeight = onHeight
@@ -93,6 +97,7 @@ function newContainer () {
     onMouseNotOverParentEvent = onMouseNotOverEvent
     onFocusParentEvent = onFocusEvent
     onNotFocusParentEvent = onNotFocusEvent
+    onDisplaceParentEvent = onDisplaceEvent
 
     isConnectedToParent = true
 
@@ -114,6 +119,9 @@ function newContainer () {
     }
     if (onNotFocusParentEvent === true) {
       onNotFocusEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onNotFocus', onNotFocus)
+    }
+    if (onDisplaceParentEvent === true) {
+      onDisplaceEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onDisplace', onDisplace)
     }
 
     if (connectedToParentWidth) {
@@ -161,6 +169,10 @@ function newContainer () {
 
   function onNotFocus (event) {
     thisObject.eventHandler.raiseEvent('onNotFocus', event)
+  }
+
+  function onDisplace (event) {
+    thisObject.eventHandler.raiseEvent('onDisplace', event)
   }
 
   function isForThisPurpose (purpose) {
@@ -217,7 +229,7 @@ function newContainer () {
       if (thisObject.notDraggingOnY === false) {
         thisObject.frame.position.y = thisObject.frame.position.y + point.y
       }
+      thisObject.eventHandler.raiseEvent('onDisplace', event)
     }
   }
 }
-

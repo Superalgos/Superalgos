@@ -190,45 +190,49 @@ function newStrategyPartTitle () {
   }
 
   function drawTitleBackground () {
-    let params = {
-      cornerRadius: 3,
-      lineWidth: 0.1,
-      container: thisObject.container,
-      borderColor: UI_COLOR.BLACK,
-      backgroundColor: UI_COLOR.BLACK,
-      castShadow: false,
-      opacity: 0.25
-    }
+    if (thisObject.editMode !== true) {
+      let params = {
+        cornerRadius: 3,
+        lineWidth: 0.1,
+        container: thisObject.container,
+        borderColor: UI_COLOR.BLACK,
+        backgroundColor: UI_COLOR.BLACK,
+        castShadow: false,
+        opacity: 0.25
+      }
 
-    roundedCornersBackground(params)
+      roundedCornersBackground(params)
+    }
   }
 
   function drawText () {
-    let radius = thisObject.container.frame.radius
-    let labelPoint
-    let fontSize = thisObject.payload.floatingObject.currentFontSize
-    let label
+    if (thisObject.editMode !== true) {
+      let radius = thisObject.container.frame.radius
+      let labelPoint
+      let fontSize = thisObject.payload.floatingObject.currentFontSize
+      let label
 
-    if (radius > 6 && (thisObject.isOnFocus === true || thisObject.allwaysVisible === true)) {
-      browserCanvasContext.strokeStyle = thisObject.payload.floatingObject.labelStrokeStyle
-
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
-      label = thisObject.payload.title
-
-      if (label !== undefined) {
-        label = trimTitle(label)
-
-        labelPoint = {
-          x: 0,
-          y: thisObject.container.frame.height * 0.8
-        }
-
-        labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
+      if (radius > 6 && (thisObject.isOnFocus === true || thisObject.allwaysVisible === true)) {
+        browserCanvasContext.strokeStyle = thisObject.payload.floatingObject.labelStrokeStyle
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-        browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
-        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+
+        label = thisObject.payload.title
+
+        if (label !== undefined) {
+          label = trimTitle(label)
+
+          labelPoint = {
+            x: 0,
+            y: thisObject.container.frame.height * 0.8
+          }
+
+          labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
+
+          browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+          browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
+          browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+        }
       }
     }
   }

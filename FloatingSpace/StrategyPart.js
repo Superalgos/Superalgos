@@ -38,14 +38,14 @@ function newStrategyPart () {
 
   let selfFocusEventSubscriptionId
   let selfNotFocuskEventSubscriptionId
-  let selfMouseClickEventSubscriptionId
+  let selfDisplaceEventSubscriptionId
 
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfNotFocuskEventSubscriptionId)
-    thisObject.container.eventHandler.stopListening(selfMouseClickEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfDisplaceEventSubscriptionId)
 
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -375,7 +375,7 @@ function newStrategyPart () {
 
     selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
     selfNotFocuskEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
-    selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    selfDisplaceEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDisplace', onDisplace)
   }
 
   function getContainer (point) {
@@ -427,8 +427,8 @@ function newStrategyPart () {
     }
   }
 
-  function onMouseClick (event) {
-
+  function onDisplace (event) {
+    thisObject.partTitle.exitEditMode()
   }
 
   function drawBackground () {

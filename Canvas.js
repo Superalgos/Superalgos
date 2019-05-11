@@ -744,7 +744,7 @@ function newCanvas () {
           }
 
           if (containerBeingDragged !== undefined) {
-            let moveSucceed = containerBeingDragged.moveTo(displaceVector)
+            let moveSucceed = containerBeingDragged.displace(displaceVector)
             if (moveSucceed === false) {
               deactivateDragging(event)
             }

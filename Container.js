@@ -16,7 +16,7 @@ function newContainer () {
     name: undefined,
     fitFunction: undefined,
     isVisibleFunction: undefined,
-    moveTo: moveTo,
+    displace: displace,
     initialize: initialize,
     finalize: finalize,
     connectToParent: connectToParent,
@@ -188,8 +188,8 @@ function newContainer () {
     return false
   }
 
-  function moveTo (point) {
-    /* This function will move the container to the destination point. If it has a visible function will use it
+  function displace (point) {
+    /* This function will move the container according to the vector received. If it has a visible function will use it
     to see if the container can be moved there or not. It wont if the center will not be visible.
 
     Returns true if move was possible, false if not. */

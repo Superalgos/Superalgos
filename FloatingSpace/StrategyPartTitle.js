@@ -149,8 +149,10 @@ function newStrategyPartTitle () {
       thisObject.editMode = false
       let input = document.getElementById('input')
       input.style.display = 'none'
-      thisObject.payload.title = input.value
-      thisObject.payload.node.name = input.value
+      if (input.value.length > 2) {
+        thisObject.payload.title = input.value
+        thisObject.payload.node.name = input.value
+      }
     }
   }
 

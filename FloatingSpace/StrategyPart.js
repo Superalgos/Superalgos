@@ -8,6 +8,7 @@ function newStrategyPart () {
 
   let thisObject = {
     fitFunction: undefined,
+    isVisibleFunction: undefined,
     type: undefined,
     menu: undefined,
     isOnFocus: false,
@@ -55,6 +56,7 @@ function newStrategyPart () {
     thisObject.partTitle.finalize()
     thisObject.partTitle = undefined
     thisObject.fitFunction = undefined
+    thisObject.isVisibleFunction = undefined
 
     if (thisObject.codeEditor !== undefined) {
       thisObject.codeEditor.finalize()
@@ -358,6 +360,7 @@ function newStrategyPart () {
 /* Initialize Part Title */
 
     thisObject.partTitle = newStrategyPartTitle()
+    thisObject.partTitle.isVisibleFunction = thisObject.isVisibleFunction
     thisObject.partTitle.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
     thisObject.partTitle.initialize(thisObject.payload)
 

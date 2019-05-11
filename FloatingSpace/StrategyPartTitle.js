@@ -7,6 +7,7 @@ function newStrategyPartTitle () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    isVisibleFunction: undefined,
     allwaysVisible: undefined,
     editMode: undefined,
     container: undefined,
@@ -40,6 +41,7 @@ function newStrategyPartTitle () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.payload = undefined
+    thisObject.isVisibleFunction = undefined
   }
 
   function initialize (payload) {
@@ -141,7 +143,15 @@ function newStrategyPartTitle () {
   }
 
   function onMouseClick (event) {
-    enterEditMode()
+    let checkPoint = {
+      x: 0,
+      y: 0
+    }
+    checkPoint = thisObject.container.frame.frameThisPoint(checkPoint)
+
+    if (thisObject.isVisibleFunction(checkPoint) === true) {
+      enterEditMode()
+    }
   }
 
   function exitEditMode () {
@@ -247,3 +257,4 @@ function newStrategyPartTitle () {
     return title
   }
 }
+

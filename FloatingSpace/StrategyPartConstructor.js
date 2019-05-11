@@ -38,6 +38,7 @@ function newStrategyPartConstructor () {
 
     let strategyPart = newStrategyPart()
     strategyPart.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
+    strategyPart.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
     strategyPart.initialize(payload)
     strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true)
     payload.uiObject = strategyPart

@@ -12,7 +12,7 @@ function newViewPort () {
   let ANIMATION_INCREMENT = 0.25
 
   let TOP_MARGIN = 15 + TOP_SPACE_HEIGHT
-  let BOTTOM_MARGIN = 15 + BOTTOM_SPACE_HEIGHT
+  let BOTTOM_MARGIN = 20 + BOTTOM_SPACE_HEIGHT
   let LEFT_MARGIN = 50
   let RIGHT_MARGIN = 50
   let MARGINS = {
@@ -84,7 +84,7 @@ function newViewPort () {
 
   function resize () {
     TOP_MARGIN = 15 + TOP_SPACE_HEIGHT
-    BOTTOM_MARGIN = 15 + browserCanvas.height - BOTTOM_SPACE_POSITION
+    BOTTOM_MARGIN = 20 + browserCanvas.height - BOTTOM_SPACE_POSITION
     LEFT_MARGIN = 50
     RIGHT_MARGIN = 50
     MARGINS = {

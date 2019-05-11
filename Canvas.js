@@ -9,7 +9,6 @@ function newCanvas () {
   const MODULE_NAME = 'Canvas'
   const INFO_LOG = false
   const ERROR_LOG = true
-  const INTENSIVE_LOG = false
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
@@ -96,6 +95,7 @@ function newCanvas () {
       browserCanvas.removeEventListener('mouseup', onMouseUp, false)
       browserCanvas.removeEventListener('mousemove', onMouseMove, false)
       browserCanvas.removeEventListener('click', onMouseClick, false)
+      browserCanvas.removeEventListener('mouseout', onMouseOut, false)
 
            /* Mouse wheel events. */
 
@@ -262,6 +262,7 @@ function newCanvas () {
       browserCanvas.addEventListener('mouseup', onMouseUp, false)
       browserCanvas.addEventListener('mousemove', onMouseMove, false)
       browserCanvas.addEventListener('click', onMouseClick, false)
+      browserCanvas.addEventListener('mouseout', onMouseOut, false)
 
            /* Mouse wheel events. */
 
@@ -464,10 +465,23 @@ function newCanvas () {
     }
   }
 
-  function onMouseUp (event) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] onMouseUp -> Entering function.') }
+  function onMouseOut (event) {
+    deactivateDragging(event)
 
+    /* When the mouse leaves the canvas, our elements needs to react to the fact that the mouse is over a far away place */
+    let thisEvent = {
+      pageX: 100000000000,
+      pageY: 100000000000
+    }
+    onMouseOver(thisEvent)
+  }
+
+  function onMouseUp (event) {
+    deactivateDragging(event)
+  }
+
+  function deactivateDragging (event) {
+    try {
       if (containerDragStarted || viewPortBeingDragged || floatingObjectDragStarted) {
         thisObject.eventHandler.raiseEvent('Drag Finished', undefined)
       }
@@ -495,8 +509,6 @@ function newCanvas () {
 
   function onMouseMove (event) {
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] onMouseMove -> Entering function.') }
-
       let point = {
         x: event.pageX,
         y: event.pageY - window.canvasApp.topMargin
@@ -541,8 +553,6 @@ function newCanvas () {
 
   function onMouseOver (event) {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] onMouseOver -> Entering function.') }
-
            /* Then we check who is the current object underneeth the mounse. */
 
       let point = {
@@ -695,8 +705,6 @@ function newCanvas () {
 
   function checkDrag (event) {
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] checkDrag -> Entering function.') }
-
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
         let point = {
           x: event.pageX,

@@ -1,11 +1,11 @@
- ﻿
+
 function newFloatingSpace () {
   const MODULE_NAME = 'Floating Space'
   const ERROR_LOG = true
-    /*
-    The Floating Space is the place where floating elements like floatingObjects, live and are rendered.
-    This space has its own physics which helps with the animation of these objects and also preventing them to overlap.
-    */
+   /*
+   The Floating Space is the place where floating elements like floatingObjects, live and are rendered.
+   This space has its own physics which helps with the animation of these objects and also preventing them to overlap.
+   */
 
   let thisObject = {
     floatingLayer: undefined,               // This is the array of floatingObjects being displayed
@@ -31,8 +31,8 @@ function newFloatingSpace () {
   thisObject.container.isWheelable = true
   thisObject.container.detectMouseOver = true
   thisObject.container.frame.radius = 0
-  thisObject.container.frame.width = browserCanvas.width * 3
-  thisObject.container.frame.height = browserCanvas.height * 3
+  thisObject.container.frame.width = browserCanvas.width * 10
+  thisObject.container.frame.height = browserCanvas.height * 10
   thisObject.container.frame.position.x = browserCanvas.width / 2 - thisObject.container.frame.width / 2
   thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
 
@@ -64,7 +64,9 @@ function newFloatingSpace () {
   }
 
   function fitIntoVisibleArea (point) {
-       /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
+      /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
+
+    const RED_LINE = 5
 
     let returnPoint = {
       x: point.x,
@@ -79,8 +81,8 @@ function newFloatingSpace () {
       returnPoint.x = 0
     }
 
-    if (point.y < BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2) {
-      returnPoint.y = BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2
+    if (point.y < BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT + RED_LINE) {
+      returnPoint.y = BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT + RED_LINE
     }
 
     if (point.y > browserCanvas.height) {
@@ -91,6 +93,8 @@ function newFloatingSpace () {
   }
 
   function isThisPointVisible (point) {
+    const RED_LINE = 5
+
     if (point.x > browserCanvas.width) {
       return false
     }
@@ -99,7 +103,7 @@ function newFloatingSpace () {
       return false
     }
 
-    if (point.y < BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2) {
+    if (point.y < BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT + RED_LINE) {
       return false
     }
 
@@ -155,3 +159,4 @@ function newFloatingSpace () {
     browserCanvasContext.fill()
   }
 }
+

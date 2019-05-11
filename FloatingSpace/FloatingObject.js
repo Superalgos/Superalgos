@@ -7,6 +7,7 @@ function newFloatingObject () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    fitFunction: undefined,
     container: undefined,
     positionLocked: false,
     isOnFocus: false,
@@ -61,6 +62,7 @@ function newFloatingObject () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.payload = undefined
+    thisObject.fitFunction = undefined
   }
 
   function initialize (type, payload) {

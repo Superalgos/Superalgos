@@ -7,6 +7,7 @@ function newStrategyPart () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    fitFunction: undefined,
     type: undefined,
     menu: undefined,
     isOnFocus: false,
@@ -53,6 +54,7 @@ function newStrategyPart () {
     thisObject.menu = undefined
     thisObject.partTitle.finalize()
     thisObject.partTitle = undefined
+    thisObject.fitFunction = undefined
 
     if (thisObject.codeEditor !== undefined) {
       thisObject.codeEditor.finalize()
@@ -601,11 +603,19 @@ function newStrategyPart () {
 
     let radius = thisObject.container.frame.radius
 
-    if (radius > 0.5 && image === undefined) {
-            /* Main FloatingObject */
+    if (radius > 0.5) {
+      const VISIBLE_RADIUS = 5
+
+      let visiblePosition = {
+        x: thisObject.container.frame.position.x,
+        y: thisObject.container.frame.position.y
+      }
+
+      visiblePosition = thisObject.container.frame.frameThisPoint(visiblePosition)
+      visiblePosition = thisObject.fitFunction(visiblePosition)
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(position.x, position.y, radius * 2 / 3, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
 
       browserCanvasContext.fillStyle = thisObject.payload.floatingObject.fillStyle
@@ -613,7 +623,7 @@ function newStrategyPart () {
       browserCanvasContext.fill()
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(position.x, position.y, radius * 1 / 3, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS / 2, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
 
       browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)'

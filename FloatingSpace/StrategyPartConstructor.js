@@ -31,11 +31,13 @@ function newStrategyPartConstructor () {
 
   function createStrategyPart (payload) {
     let floatingObject = newFloatingObject()
+    floatingObject.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
     floatingObject.container.connectToParent(canvas.floatingSpace.container, false, false, false, false, false, false, false, false)
     floatingObject.initialize('Strategy Part', payload)
     payload.floatingObject = floatingObject
 
     let strategyPart = newStrategyPart()
+    strategyPart.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
     strategyPart.initialize(payload)
     strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true)
     payload.uiObject = strategyPart

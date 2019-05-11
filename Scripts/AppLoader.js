@@ -38,9 +38,8 @@ function newAppLoader() {
                 "TopSpace/EndUser.js",
                 "TopSpace/Login.js",
 
-                "StrategySpace/StrategyCollection.js", 
-                "StrategySpace/StrategyCollectionItem.js", 
-                "StrategySpace/Strategy.js", 
+                "StrategySpace/InvestmentPlanWorkspace.js", 
+                "StrategySpace/InvestmentPlan.js", 
                 "StrategySpace/ConstGetStrategies.js", 
                 "StrategySpace/ConstNewStrategy.js", 
                 "StrategySpace/ConstUpdateStrategy.js", 
@@ -51,6 +50,7 @@ function newAppLoader() {
                 "Panels/TimeControlPanel.js",
                 "Panels/ProductsPanel.js",
                 "Panels/PanelTabButton.js",
+                "Panels/ProductCard.js",
 
                 "ControlsToolBox/SidePanel.js",
                 "ControlsToolBox/SidePanelTab.js",
@@ -76,8 +76,9 @@ function newAppLoader() {
                 "FloatingSpace/ProfileBall.js",
                 "FloatingSpace/FloatingObject.js",
                 "FloatingSpace/FloatingLayer.js",
-                "FloatingSpace/StrategyParts.js",
-                "FloatingSpace/StrategyPart.js",  
+                "FloatingSpace/StrategyPartConstructor.js",
+                "FloatingSpace/StrategyPart.js", 
+                "FloatingSpace/StrategyPartTitle.js", 
                 "FloatingSpace/CircularMenu.js",
                 "FloatingSpace/CircularMenuItem.js",
                 "FloatingSpace/CodeEditor.js",
@@ -88,33 +89,33 @@ function newAppLoader() {
                 "Scales/TimeScale.js",
                 "Scales/TimePeriodScale.js",
 
+
+                "ChartsSpace/ChartUtilities.js",
+                "ChartsSpace/PlottersManager.js",
+                "ChartsSpace/TimelineChart.js",
+                "ChartsSpace/TimeMachine.js",
+                "ChartsSpace/ViewPort.js",
+                "ChartsSpace/TimeLineCoordinateSystem.js", 
+
                 "Plotter.js",
                 "PlotterPanel.js",
                 "UIControl.js",
 
-                "PlottersManager.js",
                 "ProductStorage.js",
-                "CompetitionStorage.js",
-                "ProductCard.js",
+                "CompetitionStorage.js",       
 
                 "SplashScreen.js",
                 "Canvas.js",
                 "EventHandler.js",
                 "Frame.js",
 
-                "ViewPort.js",
-                "TimeMachine.js",
-
-                "ChartUtilities.js",
-                "TimelineChart.js",
-                
                 "Animation.js",
 
                 "Container.js",
                 "Displace.js",
 
                 "Azure/azure-storage.blob.js",
-                "TimeLineCoordinateSystem.js",
+         
                 "Utilities.js",
                 "Dashboard.js"
             ];

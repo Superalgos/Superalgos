@@ -994,6 +994,12 @@ function onBrowserRequest (request, response) {
       }
       break
 
+    case 'ChartsSpace':
+        {
+            respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response)
+        }
+        break
+
     default:
       {
         homePage()

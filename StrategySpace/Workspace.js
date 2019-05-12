@@ -76,13 +76,15 @@ function newWorkspace () {
         }
       }])
 
+      let dataToSave = buildGraphQLDataToSave()
+
       const updateStrategies = () => {
         return new Promise((resolve, reject) => {
           apolloClient.mutate({
             mutation: GRAPHQL_MUTATION_UPDATE_STRATEGIES,
             variables: {
               id: thisObject.strategizerData.id,
-              strategy: thisObject.strategizerData
+              strategy: dataToSave.strategy
             }
           })
                   .then(response => {
@@ -112,190 +114,149 @@ function newWorkspace () {
     }
   }
 
-  function buildUpdateGraphQlQuery () {
+  function buildGraphQLDataToSave () {
     let graphQL_Mutation = ''
 
-    graphQL_Mutation = graphQL_Mutation + 'mutation { '
-    graphQL_Mutation = graphQL_Mutation + 'strategizer_EditStrategy( '
-    graphQL_Mutation = graphQL_Mutation + 'id: "sdfs" '
-
-    graphQL_Mutation = graphQL_Mutation + 'strategy: { '
-    graphQL_Mutation = graphQL_Mutation + 'subStrategies: [ '
-
-    for (m = 0; m < thisObject.tradingSystem.protocolData.strategies.length; m++) {
-      let strategy = thisObject.tradingSystem.protocolData.strategies[m]
-
-      graphQL_Mutation = graphQL_Mutation + '{ '
-      graphQL_Mutation = graphQL_Mutation + 'active: true '
-      graphQL_Mutation = graphQL_Mutation + 'name: "' + strategy.name + '" '
-
-      graphQL_Mutation = graphQL_Mutation + 'entryPoint: { '
-      graphQL_Mutation = graphQL_Mutation + 'situations: [ '
-
-      for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
-        let situation = strategy.entryPoint.situations[k]
-
-        graphQL_Mutation = graphQL_Mutation + '{ '
-        graphQL_Mutation = graphQL_Mutation + 'name: "' + situation.name + '" '
-        graphQL_Mutation = graphQL_Mutation + 'conditions: [ '
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-
-          graphQL_Mutation = graphQL_Mutation + '{ '
-          graphQL_Mutation = graphQL_Mutation + 'name: "' + condition.name + '" '
-          graphQL_Mutation = graphQL_Mutation + 'code: "' + condition.code + '" '
-          graphQL_Mutation = graphQL_Mutation + '} '
-        }
-
-        graphQL_Mutation = graphQL_Mutation + '] '
-        graphQL_Mutation = graphQL_Mutation + '} '
+    let dataToSave = {
+      strategy: {
+        subStrategies: []
       }
-
-      graphQL_Mutation = graphQL_Mutation + '] '
-      graphQL_Mutation = graphQL_Mutation + '} '
-
-      graphQL_Mutation = graphQL_Mutation + 'exitPoint: { '
-      graphQL_Mutation = graphQL_Mutation + 'situations: [ '
-
-      for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
-        let situation = strategy.exitPoint.situations[k]
-
-        graphQL_Mutation = graphQL_Mutation + '{ '
-        graphQL_Mutation = graphQL_Mutation + 'name: "' + situation.name + '" '
-        graphQL_Mutation = graphQL_Mutation + 'conditions: [ '
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-
-          graphQL_Mutation = graphQL_Mutation + '{ '
-          graphQL_Mutation = graphQL_Mutation + 'name: "' + condition.name + '" '
-          graphQL_Mutation = graphQL_Mutation + 'code: "' + condition.code + '" '
-          graphQL_Mutation = graphQL_Mutation + '} '
-        }
-
-        graphQL_Mutation = graphQL_Mutation + '] '
-        graphQL_Mutation = graphQL_Mutation + '} '
-      }
-
-      graphQL_Mutation = graphQL_Mutation + '] '
-      graphQL_Mutation = graphQL_Mutation + '} '
-
-      graphQL_Mutation = graphQL_Mutation + 'sellPoint: { '
-      graphQL_Mutation = graphQL_Mutation + 'situations: [ '
-
-      for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
-        let situation = strategy.sellPoint.situations[k]
-
-        graphQL_Mutation = graphQL_Mutation + '{ '
-        graphQL_Mutation = graphQL_Mutation + 'name: "' + situation.name + '" '
-        graphQL_Mutation = graphQL_Mutation + 'conditions: [ '
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-
-          graphQL_Mutation = graphQL_Mutation + '{ '
-          graphQL_Mutation = graphQL_Mutation + 'name: "' + condition.name + '" '
-          graphQL_Mutation = graphQL_Mutation + 'code: "' + condition.code + '" '
-          graphQL_Mutation = graphQL_Mutation + '} '
-        }
-
-        graphQL_Mutation = graphQL_Mutation + '] '
-        graphQL_Mutation = graphQL_Mutation + '} '
-      }
-
-      graphQL_Mutation = graphQL_Mutation + '] '
-      graphQL_Mutation = graphQL_Mutation + '} '
-
-      graphQL_Mutation = graphQL_Mutation + 'stopLoss: { '
-      graphQL_Mutation = graphQL_Mutation + 'phases: [ '
-
-      for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
-        let phase = strategy.stopLoss.phases[p]
-
-        graphQL_Mutation = graphQL_Mutation + '{ '
-        graphQL_Mutation = graphQL_Mutation + 'name: "' + phase.name + '" '
-        graphQL_Mutation = graphQL_Mutation + 'code: "' + phase.code + '" '
-        graphQL_Mutation = graphQL_Mutation + 'situations: [ '
-
-        for (let k = 0; k < phase.situations.length; k++) {
-          let situation = phase.situations[k]
-
-          graphQL_Mutation = graphQL_Mutation + '{ '
-          graphQL_Mutation = graphQL_Mutation + 'name: "' + situation.name + '" '
-          graphQL_Mutation = graphQL_Mutation + 'conditions: [ '
-
-          for (let m = 0; m < situation.conditions.length; m++) {
-            let condition = situation.conditions[m]
-
-            graphQL_Mutation = graphQL_Mutation + '{ '
-            graphQL_Mutation = graphQL_Mutation + 'name: "' + condition.name + '" '
-            graphQL_Mutation = graphQL_Mutation + 'code: "' + condition.code + '" '
-            graphQL_Mutation = graphQL_Mutation + '} '
-          }
-
-          graphQL_Mutation = graphQL_Mutation + '] '
-          graphQL_Mutation = graphQL_Mutation + '} '
-        }
-
-        graphQL_Mutation = graphQL_Mutation + '] '
-        graphQL_Mutation = graphQL_Mutation + '} '
-      }
-
-      graphQL_Mutation = graphQL_Mutation + '] '
-      graphQL_Mutation = graphQL_Mutation + '} '
-
-      graphQL_Mutation = graphQL_Mutation + 'buyOrder: { '
-      graphQL_Mutation = graphQL_Mutation + 'phases: [ '
-
-      for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
-        let phase = strategy.buyOrder.phases[p]
-
-        graphQL_Mutation = graphQL_Mutation + '{ '
-        graphQL_Mutation = graphQL_Mutation + 'name: "' + phase.name + '" '
-        graphQL_Mutation = graphQL_Mutation + 'code: "' + phase.code + '" '
-        graphQL_Mutation = graphQL_Mutation + 'situations: [ '
-
-        for (let k = 0; k < phase.situations.length; k++) {
-          let situation = phase.situations[k]
-
-          graphQL_Mutation = graphQL_Mutation + '{ '
-          graphQL_Mutation = graphQL_Mutation + 'name: "' + situation.name + '" '
-          graphQL_Mutation = graphQL_Mutation + 'conditions: [ '
-
-          for (let m = 0; m < situation.conditions.length; m++) {
-            let condition = situation.conditions[m]
-
-            graphQL_Mutation = graphQL_Mutation + '{ '
-            graphQL_Mutation = graphQL_Mutation + 'name: "' + condition.name + '" '
-            graphQL_Mutation = graphQL_Mutation + 'code: "' + condition.code + '" '
-            graphQL_Mutation = graphQL_Mutation + '} '
-          }
-
-          graphQL_Mutation = graphQL_Mutation + '] '
-          graphQL_Mutation = graphQL_Mutation + '} '
-        }
-
-        graphQL_Mutation = graphQL_Mutation + '] '
-        graphQL_Mutation = graphQL_Mutation + '} '
-      }
-
-      graphQL_Mutation = graphQL_Mutation + '] '
-      graphQL_Mutation = graphQL_Mutation + '} '
-
-      graphQL_Mutation = graphQL_Mutation + '} '
     }
 
-    graphQL_Mutation = graphQL_Mutation + '] '
-    graphQL_Mutation = graphQL_Mutation + '} '
+    for (m = 0; m < thisObject.tradingSystem.protocolData.strategies.length; m++) {
+      let workspaceStrategy = thisObject.tradingSystem.protocolData.strategies[m]
+      let strategy = {
+        entryPoint: {
+          situations: []
+        },
+        exitPoint: {
+          situations: []
+        },
+        sellPoint: {
+          situations: []
+        },
+        stopLoss: {
+          phases: []
+        },
+        buyOrder: {
+          phases: []
+        }
+      }
 
-    graphQL_Mutation = graphQL_Mutation + ') '
-    graphQL_Mutation = graphQL_Mutation + '{ '
-    graphQL_Mutation = graphQL_Mutation + 'id '
-    graphQL_Mutation = graphQL_Mutation + '} '
-    graphQL_Mutation = graphQL_Mutation + '} '
+      for (let k = 0; k < workspaceStrategy.entryPoint.situations.length; k++) {
+        let workspaceSituation = workspaceStrategy.entryPoint.situations[k]
+        let situation = {
+          name: workspaceSituation.name,
+          conditions: []
+        }
 
-    return graphQL_Mutation
+        for (let m = 0; m < workspaceSituation.conditions.length; m++) {
+          let workspaceCondition = workspaceSituation.conditions[m]
+          let condition = {
+            name: workspaceCondition.name,
+            code: workspaceCondition.code
+          }
+          situation.conditions.push(condition)
+        }
+        strategy.entryPoint.situations.push(situation)
+      }
+
+      for (let k = 0; k < workspaceStrategy.exitPoint.situations.length; k++) {
+        let workspaceSituation = workspaceStrategy.exitPoint.situations[k]
+        let situation = {
+          name: workspaceSituation.name,
+          conditions: []
+        }
+
+        for (let m = 0; m < workspaceSituation.conditions.length; m++) {
+          let workspaceCondition = workspaceSituation.conditions[m]
+          let condition = {
+            name: workspaceCondition.name,
+            code: workspaceCondition.code
+          }
+          situation.conditions.push(condition)
+        }
+        strategy.exitPoint.situations.push(situation)
+      }
+
+      for (let k = 0; k < workspaceStrategy.sellPoint.situations.length; k++) {
+        let workspaceSituation = workspaceStrategy.sellPoint.situations[k]
+        let situation = {
+          name: workspaceSituation.name,
+          conditions: []
+        }
+
+        for (let m = 0; m < workspaceSituation.conditions.length; m++) {
+          let workspaceCondition = workspaceSituation.conditions[m]
+          let condition = {
+            name: workspaceCondition.name,
+            code: workspaceCondition.code
+          }
+          situation.conditions.push(condition)
+        }
+        strategy.sellPoint.situations.push(situation)
+      }
+
+      for (let p = 0; p < workspaceStrategy.stopLoss.phases.length; p++) {
+        let workspacePhase = workspaceStrategy.stopLoss.phases[p]
+        let phase = {
+          name: workspacePhase.name,
+          code: workspacePhase.code,
+          situations: []
+        }
+
+        for (let k = 0; k < workspacePhase.situations.length; k++) {
+          let workspaceSituation = workspacePhase.situations[k]
+          let situation = {
+            name: workspaceSituation.name,
+            conditions: []
+          }
+
+          for (let m = 0; m < workspaceSituation.conditions.length; m++) {
+            let workspaceCondition = workspaceSituation.conditions[m]
+            let condition = {
+              name: workspaceCondition.name,
+              code: workspaceCondition.code
+            }
+            situation.conditions.push(condition)
+          }
+          phase.situations.push(situation)
+        }
+        strategy.stopLoss.phases.push(phase)
+      }
+
+      for (let p = 0; p < workspaceStrategy.buyOrder.phases.length; p++) {
+        let workspacePhase = workspaceStrategy.buyOrder.phases[p]
+        let phase = {
+          name: workspacePhase.name,
+          code: workspacePhase.code,
+          situations: []
+        }
+
+        for (let k = 0; k < workspacePhase.situations.length; k++) {
+          let workspaceSituation = workspacePhase.situations[k]
+          let situation = {
+            name: workspaceSituation.name,
+            conditions: []
+          }
+
+          for (let m = 0; m < workspaceSituation.conditions.length; m++) {
+            let workspaceCondition = workspaceSituation.conditions[m]
+            let condition = {
+              name: workspaceCondition.name,
+              code: workspaceCondition.code
+            }
+            situation.conditions.push(condition)
+          }
+          phase.situations.push(situation)
+        }
+        strategy.buyOrder.phases.push(phase)
+      }
+      dataToSave.strategy.subStrategies.push(strategy)
+    }
+
+    console.log(dataToSave)
+    return dataToSave
   }
 
   async function loadFromStrategyzer () {

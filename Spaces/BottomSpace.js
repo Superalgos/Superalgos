@@ -214,7 +214,7 @@
      const WIDTH = 18
      const LINE_WIDTH = 3
      const OPACITY = 1
-     const DISTANCE_BETWEEN_ARROWS = 9
+     let DISTANCE_BETWEEN_ARROWS = 0
      let ARROW_1_DIRECTION = 0
      let ARROW_2_DIRECTION = 0
 
@@ -223,16 +223,19 @@
        case ('TOP'): {
          ARROW_1_DIRECTION = -1
          ARROW_2_DIRECTION = -1
+         DISTANCE_BETWEEN_ARROWS = 6
          break
        }
        case ('MIDDLE'): {
          ARROW_1_DIRECTION = 1
          ARROW_2_DIRECTION = -1
+         DISTANCE_BETWEEN_ARROWS = 9
          break
        }
        case ('BOTTOM'): {
          ARROW_1_DIRECTION = 1
          ARROW_2_DIRECTION = 1
+         DISTANCE_BETWEEN_ARROWS = 6
          break
        }
      }

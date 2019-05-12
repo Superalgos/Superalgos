@@ -15,7 +15,7 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
     thisObject.container = container;
 
     container.displacement.containerName = "Volume";
-    container.frame.containerName = "Volumel";
+    container.frame.containerName = "Volume";
 
     let currentVolume;
     let panelTabButton
@@ -154,9 +154,9 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
         sellVolumePoint4 = thisObject.container.frame.frameThisPoint(sellVolumePoint4);
 
         sellVolumePoint1 = thisObject.fitFunction(sellVolumePoint1)
-        sellVolumePoint1 = thisObject.fitFunction(sellVolumePoint1)
-        sellVolumePoint1 = thisObject.fitFunction(sellVolumePoint1)
-        sellVolumePoint1 = thisObject.fitFunction(sellVolumePoint1)
+        sellVolumePoint2 = thisObject.fitFunction(sellVolumePoint2)
+        sellVolumePoint3 = thisObject.fitFunction(sellVolumePoint3)
+        sellVolumePoint4 = thisObject.fitFunction(sellVolumePoint4)
 
         const OPACITY = '0.40';
 

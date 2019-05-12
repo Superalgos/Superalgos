@@ -229,9 +229,13 @@ function newTimeMachine () {
   }
 
   function drawBackground () {
-    for (let i = 0; i < this.charts.length; i++) {
-      let chart = this.charts[i]
-      chart.drawBackground()
+    thisBackground()
+
+    if (thisObject.container.frame.isInViewPort()) {
+      for (let i = 0; i < this.charts.length; i++) {
+        let chart = this.charts[i]
+        chart.drawBackground()
+      }
     }
   }
 
@@ -247,6 +251,21 @@ function newTimeMachine () {
 
      // thisObject.container.frame.draw(false, true, false)
     }
+  }
+
+  function thisBackground () {
+    let params = {
+      cornerRadius: 15,
+      lineWidth: 5,
+      opacity: 1,
+      container: thisObject.container,
+      borderColor: UI_COLOR.RUSTED_RED,
+      backgroundColor: UI_COLOR.WHITE,
+      fitFunction: thisObject.fitFunction,
+      coordinateSystem: timeLineCoordinateSystem
+    }
+
+    roundedCornersBackground(params)
   }
 
   function recalculateScale () {
@@ -270,4 +289,3 @@ function newTimeMachine () {
       )
   }
 }
-

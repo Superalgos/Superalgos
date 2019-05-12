@@ -8,7 +8,6 @@ changes, then all charts in it are replotted with the corresponging data.
 
 function newChartSpace () {
   const MODULE_NAME = 'Chart Space'
-  const INFO_LOG = false
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
@@ -37,8 +36,6 @@ function newChartSpace () {
 
   function finalize () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
-
       for (let i = 0; i < thisObject.timeMachines.length; i++) {
         let timeMachine = thisObject.timeMachines[i]
         timeMachine.finalize()
@@ -49,8 +46,6 @@ function newChartSpace () {
   }
 
   function initialize (callBackFunction) {
-    if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-
     let initializedCounter = 0
     let toInitialize = 1
 
@@ -62,17 +57,13 @@ function newChartSpace () {
 
     timeMachine.container.frame.position.x = thisObject.container.frame.width / 2 - timeMachine.container.frame.width / 2
     timeMachine.container.frame.position.y = thisObject.container.frame.height / 2 - timeMachine.container.frame.height / 2
-
+    timeMachine.container.fitFunction = fitIntoVisibleArea
     timeMachine.initialize(onTimeMachineInitialized)
 
     function onTimeMachineInitialized (err) {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> onTimeMachineInitialized -> Entering function.') }
-
       initializedCounter++
 
       if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-        if (INFO_LOG === true) { logger.write('[INFO] initialize -> onTimeMachineInitialized -> Initialization of a Time Machine failed.') }
-
         callBackFunction(err)
         return
       }

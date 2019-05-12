@@ -263,8 +263,8 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         yOffset = -40
 
         labelPoint = {
-            x: viewPort.visibleArea.bottomLeft.x - xOffset + (paramsArray[1].LEFT_OFFSET - paramsArray[0].LEFT_OFFSET) / 2 + paramsArray[0].LEFT_OFFSET - 20,
-            y: viewPort.visibleArea.bottomLeft.y - yOffset
+            x: 0 - xOffset + (paramsArray[1].LEFT_OFFSET - paramsArray[0].LEFT_OFFSET) / 2 + paramsArray[0].LEFT_OFFSET - 20,
+            y: BOTTOM_SPACE_POSITION - BOTTOM_SPACE_HEIGHT/ 2 - yOffset
         };
 
         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')';
@@ -280,8 +280,8 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         const OPACITY = 1;
 
         let centerPoint = {
-            x: viewPort.visibleArea.bottomLeft.x + params.LEFT_OFFSET,
-            y: viewPort.visibleArea.bottomLeft.y
+            x: params.LEFT_OFFSET,
+            y: BOTTOM_SPACE_POSITION - BOTTOM_SPACE_HEIGHT / 2
         }
 
         browserCanvasContext.beginPath();

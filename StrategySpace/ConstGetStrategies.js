@@ -2,6 +2,7 @@ const GRAPHQL_QUERY_GET_STRATEGIES = Apollo.gql`
     query($fbSlug: String!){
 
               strategizer_StrategyByFb(fbSlug: $fbSlug){
+              id
               subStrategies(activeOnly: true){
                   name
                   entryPoint{

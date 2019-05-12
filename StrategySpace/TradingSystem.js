@@ -31,9 +31,10 @@ function newTradingSystem () {
     thisObject.container = undefined
   }
 
-  function initialize (strategies) {
+  function initialize (protocolData) {
     thisObject.protocolData = {
-      strategies: strategies
+      id: protocolData.id,
+      strategies: protocolData.subStrategies
     }
     generateStrategyParts()
   }

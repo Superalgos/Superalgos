@@ -7,7 +7,7 @@ function newWorkspace () {
 
   let thisObject = {
     isDeployed: false,
-    strategies: undefined,
+    strategizerData: undefined,
     container: undefined,
     tradingSystem: undefined,
     loadFromStrategyzer: loadFromStrategyzer,
@@ -35,12 +35,90 @@ function newWorkspace () {
 
   return thisObject
 
-  async function initialize () {
+  function initialize () {
 
   }
 
-  function saveToStrategyzer () {
+  async function saveToStrategyzer () {
+    const GRAPHQL_MUTATION_UPDATE_STRATEGIES = buildUpdateGraphQlQuery()
+
+    try {
+      const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE)
+
+      let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
+      if (user === null) {
+        if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> Can not save because user is not logged in. ') }
+        return
+      }
+
+      user = JSON.parse(user)
+
+      const authId = user.authId
+
+      const apolloClient = new Apollo.lib.ApolloClient({
+        networkInterface: Apollo.lib.createNetworkInterface({
+          uri: window.canvasApp.graphQL.masterAppApiUrl,
+          transportBatching: true
+        }),
+        connectToDevTools: true
+      })
+
+      /* Updating all Strategies */
+
+      const networkInterface = Apollo.lib.createNetworkInterface({
+        uri: window.canvasApp.graphQL.masterAppApiUrl
+      })
+
+      networkInterface.use([{
+        applyMiddleware (req, next) {
+          req.options.headers = {
+            authorization: `Bearer ${accessToken}`
+          }
+          next()
+        }
+      }])
+
+      const getStrategies = () => {
+        return new Promise((resolve, reject) => {
+          apolloClient.query({
+            query: GRAPHQL_QUERY_GET_STRATEGIES,
+            variables: { fbSlug: tradingSystemSimulationClone}
+          })
+                  .then(response => {
+                    window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
+                    thisObject.strategizerData = JSON.parse(JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
+
+                    resolve({ strategies: response.data.strategizer_StrategyByFb.subStrategies})
+                  })
+                  .catch(error => {
+                    if (ERROR_LOG === true) { logger.write('[ERROR] saveTotrategyzer -> ApolloClient error getting user strategies -> err = ' + err.stack) }
+                    reject(error)
+                  })
+        })
+      }
+
+          // To avoid race conditions, add asynchronous fetches to array
+      let fetchDataPromises = []
+
+      fetchDataPromises.push(getStrategies())
+
+          // When all asynchronous fetches resolve, authenticate user or throw error.
+      await Promise.all(fetchDataPromises).then(result => {
+
+      }, err => {
+        if (ERROR_LOG === true) { logger.write('[ERROR] saveTotrategyzer -> GraphQL Fetch Error -> err = ' + err.stack) }
+      })
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] saveTotrategyzer -> err = ' + err.stack) }
+    }
+  }
+
+  function buildUpdateGraphQlQuery () {
     let graphQL_Mutation = ''
+
+    graphQL_Mutation = graphQL_Mutation + 'mutation { '
+    graphQL_Mutation = graphQL_Mutation + 'strategizer_EditStrategy( '
+    graphQL_Mutation = graphQL_Mutation + 'id: "sdfs" '
 
     graphQL_Mutation = graphQL_Mutation + 'strategy: { '
     graphQL_Mutation = graphQL_Mutation + 'subStrategies: [ '
@@ -212,12 +290,18 @@ function newWorkspace () {
     graphQL_Mutation = graphQL_Mutation + '] '
     graphQL_Mutation = graphQL_Mutation + '} '
 
-    console.log(graphQL_Mutation)
+    graphQL_Mutation = graphQL_Mutation + ') '
+    graphQL_Mutation = graphQL_Mutation + '{ '
+    graphQL_Mutation = graphQL_Mutation + 'id '
+    graphQL_Mutation = graphQL_Mutation + '} '
+    graphQL_Mutation = graphQL_Mutation + '} '
+
+    return graphQL_Mutation
   }
 
   async function loadFromStrategyzer () {
     try {
-      const accessToken = window.localStorage.getItem('xaccess_token')
+      const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE)
 
       let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
       if (user === null) {
@@ -244,7 +328,7 @@ function newWorkspace () {
       let tradingSystemSimulationClone = ''
       let clones = window.localStorage.getItem('userClones')
       if (clones === null || clones === '') {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> no user clones found at local storage. Can not get Strategies without them. ') }
+        if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> no user clones found at local storage. Can not get Strategies without them. ') }
         return
       }
       clones = JSON.parse(clones)
@@ -277,13 +361,13 @@ function newWorkspace () {
             variables: { fbSlug: tradingSystemSimulationClone}
           })
                   .then(response => {
-                    window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
-                    thisObject.strategies = JSON.parse(JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
+                    window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb))
+                    thisObject.strategizerData = JSON.parse(JSON.stringify(response.data.strategizer_StrategyByFb))
 
                     resolve({ strategies: response.data.strategizer_StrategyByFb.subStrategies})
                   })
                   .catch(error => {
-                    if (ERROR_LOG === true) { logger.write('[ERROR] ApolloClient error getting user strategies -> err = ' + err.stack) }
+                    if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> ApolloClient error getting user strategies -> err = ' + err.stack) }
                     reject(error)
                   })
         })
@@ -298,7 +382,7 @@ function newWorkspace () {
       await Promise.all(fetchDataPromises).then(result => {
 
       }, err => {
-        if (ERROR_LOG === true) { logger.write('[ERROR] GraphQL Fetch Error -> err = ' + err.stack) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> GraphQL Fetch Error -> err = ' + err.stack) }
       })
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> err = ' + err.stack) }
@@ -307,7 +391,7 @@ function newWorkspace () {
 
   function deploydTradingSystem () {
     thisObject.tradingSystem = newTradingSystem()
-    thisObject.tradingSystem.initialize(thisObject.strategies)
+    thisObject.tradingSystem.initialize(thisObject.strategizerData)
     thisObject.isDeployed = true
   }
 

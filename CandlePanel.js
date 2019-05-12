@@ -14,8 +14,8 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
     container.initialize();
     thisObject.container = container;
 
-    container.displacement.containerName = "Current Candle Panel";
-    container.frame.containerName = "Current Candle Panel";
+    container.displacement.containerName = "Candle";
+    container.frame.containerName = "Candle";
 
     let currentCandle;
     let panelTabButton

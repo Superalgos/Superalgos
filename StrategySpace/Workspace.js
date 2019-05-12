@@ -40,8 +40,6 @@ function newWorkspace () {
   }
 
   async function saveToStrategyzer () {
-    const GRAPHQL_MUTATION_UPDATE_STRATEGIES = buildUpdateGraphQlQuery()
-
     try {
       const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE)
 
@@ -78,21 +76,22 @@ function newWorkspace () {
         }
       }])
 
-      const getStrategies = () => {
+      const updateStrategies = () => {
         return new Promise((resolve, reject) => {
-          apolloClient.query({
-            query: GRAPHQL_QUERY_GET_STRATEGIES,
-            variables: { fbSlug: tradingSystemSimulationClone}
+          apolloClient.mutate({
+            mutation: GRAPHQL_MUTATION_UPDATE_STRATEGIES,
+            variables: {
+              id: thisObject.strategizerData.id,
+              strategy: thisObject.strategizerData
+            }
           })
                   .then(response => {
-                    window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
-                    thisObject.strategizerData = JSON.parse(JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
-
-                    resolve({ strategies: response.data.strategizer_StrategyByFb.subStrategies})
+                    console.log('FUNCO!!')
+                    resolve(true)
                   })
-                  .catch(error => {
-                    if (ERROR_LOG === true) { logger.write('[ERROR] saveTotrategyzer -> ApolloClient error getting user strategies -> err = ' + err.stack) }
-                    reject(error)
+                  .catch(err => {
+                    if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> ApolloClient error getting user strategies -> err = ' + err.stack) }
+                    reject(err)
                   })
         })
       }
@@ -100,16 +99,16 @@ function newWorkspace () {
           // To avoid race conditions, add asynchronous fetches to array
       let fetchDataPromises = []
 
-      fetchDataPromises.push(getStrategies())
+      fetchDataPromises.push(updateStrategies())
 
           // When all asynchronous fetches resolve, authenticate user or throw error.
       await Promise.all(fetchDataPromises).then(result => {
-
+        console.log('parece que anda??')
       }, err => {
-        if (ERROR_LOG === true) { logger.write('[ERROR] saveTotrategyzer -> GraphQL Fetch Error -> err = ' + err.stack) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> GraphQL Fetch Error -> err = ' + err.stack) }
       })
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] saveTotrategyzer -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> err = ' + err.stack) }
     }
   }
 
@@ -366,9 +365,9 @@ function newWorkspace () {
 
                     resolve({ strategies: response.data.strategizer_StrategyByFb.subStrategies})
                   })
-                  .catch(error => {
+                  .catch(err => {
                     if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> ApolloClient error getting user strategies -> err = ' + err.stack) }
-                    reject(error)
+                    reject(err)
                   })
         })
       }

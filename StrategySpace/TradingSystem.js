@@ -244,10 +244,11 @@ function newTradingSystem () {
     }
   }
 
-  function onMenuItemClick (payload, action) {
+  async function onMenuItemClick (payload, action) {
     switch (action) {
       case 'Save Trading System':
-        canvas.strategySpace.workplace.saveToStrategyzer()
+        let wasSaved
+        await canvas.strategySpace.workplace.saveToStrategyzer()
         break
       case 'Open Settings':
 

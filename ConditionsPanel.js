@@ -2,6 +2,7 @@
 function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
     var thisObject = {
+        fitFunction: undefined,
         onEventRaised: onEventRaised,
         container: undefined,
         draw: draw,
@@ -13,7 +14,7 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
     container.initialize();
     thisObject.container = container;
 
-    container.displacement.containerName = "Conditions Panel";
+    container.displacement.containerName = "Conditions";
     container.frame.containerName = "Conditions Panel";
 
     let currentRecord;
@@ -32,29 +33,30 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
         panelTabButton = newPanelTabButton()
         panelTabButton.parentContainer = thisObject.container
         panelTabButton.container.frame.parentFrame = thisObject.container.frame
+        panelTabButton.fitFunction = thisObject.fitFunction
         panelTabButton.initialize()
     }
 
     function getContainer(point) {
 
-        var container;
+        let container;
 
         container = panelTabButton.getContainer(point)
         if (container !== undefined) { return container }
 
-        /* First we check if this point is inside this space. */
+        if (thisObject.container.frame.isThisPointHere(point, true) === true) {
 
-        if (this.container.frame.isThisPointHere(point, true) === true) {
+            let checkPoint = {
+                x: point.x,
+                y: point.y
+            }
 
-            return this.container;
+            checkPoint = thisObject.fitFunction(checkPoint)
 
-        } else {
-
-            /* This point does not belong to this space. */
-
-            return undefined;
+            if (point.x === checkPoint.x && point.y === checkPoint.y) {
+                return thisObject.container;
+            }
         }
-
     }
 
 
@@ -67,7 +69,7 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
     function draw() {
 
-        this.container.frame.draw(false, false, true);
+        thisObject.container.frame.draw(false, false, true, thisObject.fitFunction);
 
         plotCurrentRecordInfo();
 
@@ -236,6 +238,7 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
             };
 
             labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
+            labelPoint = thisObject.fitFunction(labelPoint)
 
             browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + opacity + ')';
             browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);

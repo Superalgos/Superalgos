@@ -2,6 +2,7 @@
 function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulationPanel() {
 
     let thisObject = {
+        fitFunction: undefined,
         onEventRaised: onEventRaised,
         container: undefined,
         draw: draw,
@@ -14,8 +15,8 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
     container.initialize();
     thisObject.container = container;
 
-    container.displacement.containerName = "Simulated Records Panel";
-    container.frame.containerName = "Simulated Records Panel";
+    container.displacement.containerName = "Simulation";
+    container.frame.containerName = "Simulation";
 
     let currentRecord;
     let panelTabButton
@@ -34,6 +35,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         panelTabButton = newPanelTabButton()
         panelTabButton.parentContainer = thisObject.container
         panelTabButton.container.frame.parentFrame = thisObject.container.frame
+        panelTabButton.fitFunction = thisObject.fitFunction
         panelTabButton.initialize()
 
         controlHandler = canvas.bottomSpace.createNewControl('Over The Line', drawAssetBalanceUI, 'Global')
@@ -49,24 +51,24 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
     function getContainer(point) {
 
-        var container;
+        let container;
 
         container = panelTabButton.getContainer(point)
         if (container !== undefined) { return container }
 
-        /* First we check if this point is inside this space. */
+        if (thisObject.container.frame.isThisPointHere(point, true) === true) {
 
-        if (this.container.frame.isThisPointHere(point, true) === true) {
+            let checkPoint = {
+                x: point.x,
+                y: point.y
+            }
 
-            return this.container;
+            checkPoint = thisObject.fitFunction(checkPoint)
 
-        } else {
-
-            /* This point does not belong to this space. */
-
-            return undefined;
+            if (point.x === checkPoint.x && point.y === checkPoint.y) {
+                return thisObject.container;
+            }
         }
-
     }
 
 
@@ -79,7 +81,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
     function draw() {
 
-        this.container.frame.draw(false, false, true);
+        thisObject.container.frame.draw(false, false, true, thisObject.fitFunction);
 
         plotCurrentRecordInfo();
 
@@ -109,72 +111,72 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         y = y + increment;
         printLabel('Profit', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.profit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel(currentRecord.innerRecord.profit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Last Profit', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.lastProfit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel(currentRecord.innerRecord.lastProfit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Last Profit %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel((currentRecord.innerRecord.lastProfitPercent).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel((currentRecord.innerRecord.lastProfitPercent).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Rate', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.sellRate, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel(currentRecord.innerRecord.sellRate, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Stop', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.stopLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel(currentRecord.innerRecord.stopLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Take Profit', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.buyOrder, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel(currentRecord.innerRecord.buyOrder, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Trades', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.roundtrips, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel(currentRecord.innerRecord.roundtrips, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Hits', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.hits, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel(currentRecord.innerRecord.hits, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Fails', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.fails, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel(currentRecord.innerRecord.fails, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Hit Ratio', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel((currentRecord.innerRecord.hitRatio * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel((currentRecord.innerRecord.hitRatio * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel((currentRecord.innerRecord.ROI * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel((currentRecord.innerRecord.ROI * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Periods', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.periods, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel(currentRecord.innerRecord.periods, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Days', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.days, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel(currentRecord.innerRecord.days, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Anualized Rate of Return', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel((currentRecord.innerRecord.anualizedRateOfReturn * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 16);
+        printLabel((currentRecord.innerRecord.anualizedRateOfReturn * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         function printLabel(labelToPrint, x, y, opacity, fontSize) {
 
@@ -195,6 +197,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
             };
 
             labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
+            labelPoint = thisObject.fitFunction(labelPoint)
 
             browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
             browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);

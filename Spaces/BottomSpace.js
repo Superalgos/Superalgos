@@ -5,6 +5,7 @@
 
    let thisObject = {
      container: undefined,
+     status: 'BOTTOM',
      draw: draw,
      physics: physics,
      getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -57,8 +58,11 @@
    function physics () {
      /* Check the limits */
 
+     thisObject.status = 'MIDDLE'
+
      if (thisObject.container.frame.position.y > browserCanvas.height * 99.5 / 100 - BOTTOM_SPACE_HEIGHT) {
        thisObject.container.frame.position.y = browserCanvas.height - BOTTOM_SPACE_HEIGHT
+       thisObject.status = 'BOTTOM'
        canvas.strategySpace.makeInvisible()
      } else {
        canvas.strategySpace.makeVisible()
@@ -66,6 +70,7 @@
 
      if (thisObject.container.frame.position.y < browserCanvas.height * 0.5 / 100) {
        thisObject.container.frame.position.y = 0
+       thisObject.status = 'TOP'
        canvas.panelsSpace.visible = false
      } else {
        canvas.panelsSpace.visible = true
@@ -198,6 +203,93 @@
      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
+
+     arrow()
+   }
+
+   function arrow () {
+     const X_OFFSET = thisObject.container.frame.width / 2
+     const Y_OFFSET = thisObject.container.frame.height / 2
+     const HEIGHT = 6
+     const WIDTH = 18
+     const LINE_WIDTH = 3
+     const OPACITY = 1
+     const DISTANCE_BETWEEN_ARROWS = 9
+     let ARROW_1_DIRECTION = 0
+     let ARROW_2_DIRECTION = 0
+
+     switch (thisObject.status) {
+
+       case ('TOP'): {
+         ARROW_1_DIRECTION = -1
+         ARROW_2_DIRECTION = -1
+         break
+       }
+       case ('MIDDLE'): {
+         ARROW_1_DIRECTION = 1
+         ARROW_2_DIRECTION = -1
+         break
+       }
+       case ('BOTTOM'): {
+         ARROW_1_DIRECTION = 1
+         ARROW_2_DIRECTION = 1
+         break
+       }
+     }
+
+     point1 = {
+       x: X_OFFSET - WIDTH / 2,
+       y: Y_OFFSET + HEIGHT / 2 * ARROW_1_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2
+     }
+
+     point2 = {
+       x: X_OFFSET,
+       y: Y_OFFSET - HEIGHT / 2 * ARROW_1_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2
+     }
+
+     point3 = {
+       x: X_OFFSET + WIDTH / 2,
+       y: Y_OFFSET + HEIGHT / 2 * ARROW_1_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2
+     }
+
+     point1 = thisObject.container.frame.frameThisPoint(point1)
+     point2 = thisObject.container.frame.frameThisPoint(point2)
+     point3 = thisObject.container.frame.frameThisPoint(point3)
+
+     point4 = {
+       x: X_OFFSET - WIDTH / 2,
+       y: Y_OFFSET + HEIGHT / 2 * ARROW_2_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2
+     }
+
+     point5 = {
+       x: X_OFFSET,
+       y: Y_OFFSET - HEIGHT / 2 * ARROW_2_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2
+     }
+
+     point6 = {
+       x: X_OFFSET + WIDTH / 2,
+       y: Y_OFFSET + HEIGHT / 2 * ARROW_2_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2
+     }
+
+     point4 = thisObject.container.frame.frameThisPoint(point4)
+     point5 = thisObject.container.frame.frameThisPoint(point5)
+     point6 = thisObject.container.frame.frameThisPoint(point6)
+
+     browserCanvasContext.setLineDash([0, 0])
+
+     browserCanvasContext.beginPath()
+
+     browserCanvasContext.moveTo(point1.x, point1.y)
+     browserCanvasContext.lineTo(point2.x, point2.y)
+     browserCanvasContext.lineTo(point3.x, point3.y)
+
+     browserCanvasContext.moveTo(point4.x, point4.y)
+     browserCanvasContext.lineTo(point5.x, point5.y)
+     browserCanvasContext.lineTo(point6.x, point6.y)
+
+     browserCanvasContext.lineWidth = LINE_WIDTH
+     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')'
+     browserCanvasContext.stroke()
    }
  }
 

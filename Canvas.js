@@ -169,7 +169,6 @@ function newCanvas () {
 
           animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics, onFunctionAdded)
-          animation.addCallBackFunction('ViewPort Draw', viewPort.draw, onFunctionAdded)
           animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground, onFunctionAdded)
           animation.addCallBackFunction('Chart Space Draw', thisObject.chartSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics, onFunctionAdded)

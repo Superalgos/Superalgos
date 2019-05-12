@@ -347,7 +347,7 @@ function newFrame () {
 
        /* We paint the title bar now */
 
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 0.75)'
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'
     browserCanvasContext.beginPath()
 
     browserCanvasContext.moveTo(titleBarPoint1.x, titleBarPoint1.y)

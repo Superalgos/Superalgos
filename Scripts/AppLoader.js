@@ -97,9 +97,12 @@ function newAppLoader() {
                 "ChartsSpace/ViewPort.js",
                 "ChartsSpace/TimeLineCoordinateSystem.js", 
 
+                "BottomSpace/UIControl.js",
+
                 "Plotter.js",
                 "PlotterPanel.js",
-                "UIControl.js",
+
+                
 
                 "ProductStorage.js",
                 "CompetitionStorage.js",       

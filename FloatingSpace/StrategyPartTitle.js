@@ -48,7 +48,7 @@ function newStrategyPartTitle () {
     thisObject.payload = payload
 
     switch (payload.node.type) {
-      case 'Investment Plan': {
+      case 'Trading System': {
         break
       }
       case 'Strategy': {

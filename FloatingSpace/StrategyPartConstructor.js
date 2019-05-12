@@ -46,7 +46,7 @@ function newStrategyPartConstructor () {
     const FRICTION = 0.97
 
     switch (payload.node.type) {
-      case 'Investment Plan': {
+      case 'Trading System': {
         level_0()
         break
       }

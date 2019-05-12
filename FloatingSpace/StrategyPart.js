@@ -72,11 +72,11 @@ function newStrategyPart () {
 
     let menuItemsInitialValues = []
     switch (thisObject.payload.node.type) {
-      case 'Investment Plan': {
+      case 'Trading System': {
         imagePath = 'Images/icons/style-01/analysis.png'
         menuItemsInitialValues = [
           {
-            action: 'Reload Investment Plan',
+            action: 'Reload Trading System',
             actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Reload',
             visible: false,
@@ -88,7 +88,7 @@ function newStrategyPart () {
             angle: -60
           },
           {
-            action: 'Save Investment Plan',
+            action: 'Save Trading System',
             actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Save Changes',
             visible: false,

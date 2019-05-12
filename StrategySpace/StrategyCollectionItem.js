@@ -44,7 +44,7 @@ function newStrategyCollectionItem () {
   function onMouseClick (event) {
     if (status === 'off') {
       canvas.floatingSpace.makeVisible()
-      thisObject.strategy = newInvestmentPlan()
+      thisObject.strategy = newTradingSystem()
       thisObject.strategy.initialize(thisObject.strategySource)
       status = 'on'
     } else {
@@ -175,4 +175,3 @@ function newStrategyCollectionItem () {
     browserCanvasContext.drawImage(thisObject.icon, point1.x - IMAGE_SIZE / 2, point1.y - IMAGE_SIZE / 2, IMAGE_SIZE, IMAGE_SIZE)
   }
 }
-

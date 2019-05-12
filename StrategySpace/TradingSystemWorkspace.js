@@ -1,6 +1,6 @@
 
-function newInvestmentPlanWorkspace () {
-  const MODULE_NAME = 'Investment Plan Workspace'
+function newTradingSystemWorkspace () {
+  const MODULE_NAME = 'Trading System Workspace'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
@@ -9,7 +9,7 @@ function newInvestmentPlanWorkspace () {
     isDeployed: false,
     strategies: undefined,
     container: undefined,
-    deploydInvestmentPlan: deploydInvestmentPlan,
+    deploydTradingSystem: deploydTradingSystem,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize
@@ -122,8 +122,8 @@ function newInvestmentPlanWorkspace () {
     }
   }
 
-  function deploydInvestmentPlan () {
-    thisObject.strategy = newInvestmentPlan()
+  function deploydTradingSystem () {
+    thisObject.strategy = newTradingSystem()
     thisObject.strategy.initialize(thisObject.strategies)
     thisObject.isDeployed = true
   }

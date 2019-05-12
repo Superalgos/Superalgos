@@ -44,7 +44,7 @@
    }
 
    function onMouseClick (event) {
-     // canvas.strategySpace.investmentPlanWorkspace.showUp()
+     // canvas.strategySpace.tradingSystemWorkspace.showUp()
    }
 
    function resize () {

@@ -1,9 +1,9 @@
 
-function newInvestmentPlan () {
-  const MODULE_NAME = 'Investment Plan'
+function newTradingSystem () {
+  const MODULE_NAME = 'Trading System'
 
   let thisObject = {
-    investmentPlan: undefined,
+    tradingSystem: undefined,
     container: undefined,
     getContainer: getContainer,
     initialize: initialize,
@@ -29,7 +29,7 @@ function newInvestmentPlan () {
   }
 
   function initialize (strategies) {
-    thisObject.investmentPlan = {
+    thisObject.tradingSystem = {
       strategies: strategies
     }
     generateStrategyParts()
@@ -80,13 +80,13 @@ function newInvestmentPlan () {
 
   function generateStrategyParts () {
     let lastPhase
-    let investmentPlan = thisObject.investmentPlan
+    let tradingSystem = thisObject.tradingSystem
 
-    createPart('Investment Plan', '', investmentPlan, undefined, undefined)
+    createPart('Trading System', '', tradingSystem, undefined, undefined)
 
-    for (m = 0; m < investmentPlan.strategies.length; m++) {
-      let strategy = investmentPlan.strategies[m]
-      createPart('Strategy', strategy.name, strategy, investmentPlan, investmentPlan)
+    for (m = 0; m < tradingSystem.strategies.length; m++) {
+      let strategy = tradingSystem.strategies[m]
+      createPart('Strategy', strategy.name, strategy, tradingSystem, tradingSystem)
 
       createPart('Strategy Entry Event', '', strategy.entryPoint, strategy, strategy)
       for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
@@ -171,7 +171,7 @@ function newInvestmentPlan () {
   }
 
   function destroyStrategyParts () {
-    let strategy = thisObject.investmentPlan
+    let strategy = thisObject.tradingSystem
     destroyPart(strategy)
 
     destroyPart(strategy.entryPoint)

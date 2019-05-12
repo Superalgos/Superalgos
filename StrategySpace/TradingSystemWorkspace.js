@@ -9,6 +9,7 @@ function newTradingSystemWorkspace () {
     isDeployed: false,
     strategies: undefined,
     container: undefined,
+    loadFromStrategyzer: loadFromStrategyzer,
     deploydTradingSystem: deploydTradingSystem,
     draw: draw,
     getContainer: getContainer,
@@ -33,10 +34,14 @@ function newTradingSystemWorkspace () {
   return thisObject
 
   async function initialize () {
+
+  }
+
+  async function loadFromStrategyzer () {
     try {
       const accessToken = window.localStorage.getItem('xaccess_token')
-      let user = window.localStorage.getItem('xuser')
 
+      let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
       if (user === null) {
               // if there is no user that means that we are logged off, which means this object can not be used.
         return
@@ -100,7 +105,7 @@ function newTradingSystemWorkspace () {
                     resolve({ strategies: response.data.strategizer_StrategyByFb.subStrategies})
                   })
                   .catch(error => {
-                    console.log('apolloClient error getting user strategies', error.graphQLErrors, error.stack)
+                    if (ERROR_LOG === true) { logger.write('[ERROR] ApolloClient error getting user strategies -> err = ' + err.stack) }
                     reject(error)
                   })
         })
@@ -115,10 +120,10 @@ function newTradingSystemWorkspace () {
       await Promise.all(fetchDataPromises).then(result => {
 
       }, err => {
-        console.error('[ERROR] Login -> GraphQL Fetch Error -> err = ', err.stack)
+        if (ERROR_LOG === true) { logger.write('[ERROR] GraphQL Fetch Error -> err = ' + err.stack) }
       })
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> err = ' + err.stack) }
     }
   }
 

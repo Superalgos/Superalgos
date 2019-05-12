@@ -121,7 +121,7 @@ function convertTimePeriodToName(pTimePeriod) {
 window.AT_BREAKPOINT = false;
 
 
-
+const LOGGED_IN_USER_LOCAL_STORAGE = "xuser"
 const USDT_BTC_HTH = 19900; // This is needed to know the scale of the market time line.
 
 const WIDHTER_VOLUME_BAR_BASE_FACTOR = 2.5;

@@ -26,7 +26,8 @@ function newStrategySpace () {
 
     thisObject.tradingSystemWorkspace = newTradingSystemWorkspace()
     // thisObject.tradingSystemWorkspace.container.connectToParent(thisObject.sidePanel.container, true, true)
-    await thisObject.tradingSystemWorkspace.initialize()
+    thisObject.tradingSystemWorkspace.initialize()
+    await thisObject.tradingSystemWorkspace.loadFromStrategyzer()
 
     // thisObject.sidePanel.areas.push(thisObject.tradingSystemWorkspace)
   }

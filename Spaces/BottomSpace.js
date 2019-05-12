@@ -60,6 +60,13 @@
 
      thisObject.status = 'MIDDLE'
 
+     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
+     if (user !== null) { // Only if user is logged in
+       thisObject.container.isDraggeable = true
+     } else {
+       thisObject.container.isDraggeable = false
+     }
+
      if (thisObject.container.frame.position.y > browserCanvas.height * 99.5 / 100 - BOTTOM_SPACE_HEIGHT) {
        thisObject.container.frame.position.y = browserCanvas.height - BOTTOM_SPACE_HEIGHT
        thisObject.status = 'BOTTOM'
@@ -204,7 +211,10 @@
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
-     arrow()
+     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
+     if (user !== null) { // Only if user is logged in
+       arrow()
+     }
    }
 
    function arrow () {
@@ -295,4 +305,3 @@
      browserCanvasContext.stroke()
    }
  }
-

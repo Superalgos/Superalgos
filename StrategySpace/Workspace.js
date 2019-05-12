@@ -63,7 +63,7 @@ function newWorkspace () {
 
       /* Getting the FB that own the Strategies */
 
-      let strategySimulationClone = ''
+      let tradingSystemSimulationClone = ''
       let clones = window.localStorage.getItem('userClones')
       if (clones === null || clones === '') {
         if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> no user clones found at local storage. Can not get Strategies without them. ') }
@@ -73,7 +73,7 @@ function newWorkspace () {
       for (let i = 0; i < clones.length; i++) {
         let clone = clones[i]
         if (clone.botType === 'Indicator') {
-          strategySimulationClone = clone.botSlug
+          tradingSystemSimulationClone = clone.botSlug
         }
       }
 
@@ -96,7 +96,7 @@ function newWorkspace () {
         return new Promise((resolve, reject) => {
           apolloClient.query({
             query: GRAPHQL_QUERY_GET_STRATEGIES,
-            variables: { fbSlug: strategySimulationClone}
+            variables: { fbSlug: tradingSystemSimulationClone}
           })
                   .then(response => {
                     window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb.subStrategies))
@@ -128,8 +128,8 @@ function newWorkspace () {
   }
 
   function deploydTradingSystem () {
-    thisObject.strategy = newTradingSystem()
-    thisObject.strategy.initialize(thisObject.strategies)
+    thisObject.tradingSystem = newTradingSystem()
+    thisObject.tradingSystem.initialize(thisObject.strategies)
     thisObject.isDeployed = true
   }
 

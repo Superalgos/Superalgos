@@ -3,7 +3,7 @@ function newTradingSystem () {
   const MODULE_NAME = 'Trading System'
 
   let thisObject = {
-    tradingSystem: undefined,
+    protocolData: undefined,
     container: undefined,
     getContainer: getContainer,
     initialize: initialize,
@@ -26,10 +26,13 @@ function newTradingSystem () {
 
   function finalize () {
     destroyStrategyParts()
+    thisObject.protocolData = undefined
+    thisObject.container.finalize()
+    thisObject.container = undefined
   }
 
   function initialize (strategies) {
-    thisObject.tradingSystem = {
+    thisObject.protocolData = {
       strategies: strategies
     }
     generateStrategyParts()
@@ -80,7 +83,7 @@ function newTradingSystem () {
 
   function generateStrategyParts () {
     let lastPhase
-    let tradingSystem = thisObject.tradingSystem
+    let tradingSystem = thisObject.protocolData
 
     createPart('Trading System', '', tradingSystem, undefined, undefined)
 
@@ -171,7 +174,7 @@ function newTradingSystem () {
   }
 
   function destroyStrategyParts () {
-    let strategy = thisObject.tradingSystem
+    let strategy = thisObject.protocolData
     destroyPart(strategy)
 
     destroyPart(strategy.entryPoint)

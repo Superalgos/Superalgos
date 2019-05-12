@@ -3,7 +3,7 @@ function newStrategySpace () {
   const MODULE_NAME = 'Strategy Space'
   let thisObject = {
     sidePanel: undefined,
-    tradingSystemWorkspace: undefined,
+    workplace: undefined,
     container: undefined,
     draw: draw,
     getContainer: getContainer,
@@ -24,17 +24,17 @@ function newStrategySpace () {
     // thisObject.sidePanel = newSidePanel()
     // thisObject.sidePanel.initialize()
 
-    thisObject.tradingSystemWorkspace = newWorkspace()
-    // thisObject.tradingSystemWorkspace.container.connectToParent(thisObject.sidePanel.container, true, true)
-    thisObject.tradingSystemWorkspace.initialize()
-    await thisObject.tradingSystemWorkspace.loadFromStrategyzer()
+    thisObject.workplace = newWorkspace()
+    // thisObject.workplace.container.connectToParent(thisObject.sidePanel.container, true, true)
+    thisObject.workplace.initialize()
+    await thisObject.workplace.loadFromStrategyzer()
 
-    // thisObject.sidePanel.areas.push(thisObject.tradingSystemWorkspace)
+    // thisObject.sidePanel.areas.push(thisObject.workplace)
   }
 
   function makeVisible () {
-    if (thisObject.tradingSystemWorkspace.isDeployed !== true) {
-      thisObject.tradingSystemWorkspace.deploydTradingSystem()
+    if (thisObject.workplace.isDeployed !== true) {
+      thisObject.workplace.deploydTradingSystem()
     }
     canvas.floatingSpace.makeVisible()
     visible = true
@@ -47,8 +47,8 @@ function newStrategySpace () {
   function getContainer (point) {
     let container
 
-    if (thisObject.tradingSystemWorkspace !== undefined) {
-      container = thisObject.tradingSystemWorkspace.getContainer(point)
+    if (thisObject.workplace !== undefined) {
+      container = thisObject.workplace.getContainer(point)
       if (container !== undefined) { return container }
     }
 

@@ -9,7 +9,9 @@ function newWorkspace () {
     isDeployed: false,
     strategies: undefined,
     container: undefined,
+    tradingSystem: undefined,
     loadFromStrategyzer: loadFromStrategyzer,
+    saveToStrategyzer: saveToStrategyzer,
     deploydTradingSystem: deploydTradingSystem,
     draw: draw,
     getContainer: getContainer,
@@ -35,6 +37,182 @@ function newWorkspace () {
 
   async function initialize () {
 
+  }
+
+  function saveToStrategyzer () {
+    let graphQL_Mutation = ''
+
+    graphQL_Mutation = graphQL_Mutation + 'strategy: { '
+    graphQL_Mutation = graphQL_Mutation + 'subStrategies: [ '
+
+    for (m = 0; m < thisObject.tradingSystem.protocolData.strategies.length; m++) {
+      let strategy = thisObject.tradingSystem.protocolData.strategies[m]
+
+      graphQL_Mutation = graphQL_Mutation + '{ '
+      graphQL_Mutation = graphQL_Mutation + 'active: true '
+      graphQL_Mutation = graphQL_Mutation + 'name: "' + strategy.name + '" '
+
+      graphQL_Mutation = graphQL_Mutation + 'entryPoint: { '
+      graphQL_Mutation = graphQL_Mutation + 'situations: [ '
+
+      for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
+        let situation = strategy.entryPoint.situations[k]
+
+        graphQL_Mutation = graphQL_Mutation + '{ '
+        graphQL_Mutation = graphQL_Mutation + 'name: "' + situation.name + '" '
+        graphQL_Mutation = graphQL_Mutation + 'conditions: [ '
+
+        for (let m = 0; m < situation.conditions.length; m++) {
+          let condition = situation.conditions[m]
+
+          graphQL_Mutation = graphQL_Mutation + '{ '
+          graphQL_Mutation = graphQL_Mutation + 'name: "' + condition.name + '" '
+          graphQL_Mutation = graphQL_Mutation + 'code: "' + condition.code + '" '
+          graphQL_Mutation = graphQL_Mutation + '} '
+        }
+
+        graphQL_Mutation = graphQL_Mutation + '] '
+        graphQL_Mutation = graphQL_Mutation + '} '
+      }
+
+      graphQL_Mutation = graphQL_Mutation + '] '
+      graphQL_Mutation = graphQL_Mutation + '} '
+
+      graphQL_Mutation = graphQL_Mutation + 'exitPoint: { '
+      graphQL_Mutation = graphQL_Mutation + 'situations: [ '
+
+      for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
+        let situation = strategy.exitPoint.situations[k]
+
+        graphQL_Mutation = graphQL_Mutation + '{ '
+        graphQL_Mutation = graphQL_Mutation + 'name: "' + situation.name + '" '
+        graphQL_Mutation = graphQL_Mutation + 'conditions: [ '
+
+        for (let m = 0; m < situation.conditions.length; m++) {
+          let condition = situation.conditions[m]
+
+          graphQL_Mutation = graphQL_Mutation + '{ '
+          graphQL_Mutation = graphQL_Mutation + 'name: "' + condition.name + '" '
+          graphQL_Mutation = graphQL_Mutation + 'code: "' + condition.code + '" '
+          graphQL_Mutation = graphQL_Mutation + '} '
+        }
+
+        graphQL_Mutation = graphQL_Mutation + '] '
+        graphQL_Mutation = graphQL_Mutation + '} '
+      }
+
+      graphQL_Mutation = graphQL_Mutation + '] '
+      graphQL_Mutation = graphQL_Mutation + '} '
+
+      graphQL_Mutation = graphQL_Mutation + 'sellPoint: { '
+      graphQL_Mutation = graphQL_Mutation + 'situations: [ '
+
+      for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
+        let situation = strategy.sellPoint.situations[k]
+
+        graphQL_Mutation = graphQL_Mutation + '{ '
+        graphQL_Mutation = graphQL_Mutation + 'name: "' + situation.name + '" '
+        graphQL_Mutation = graphQL_Mutation + 'conditions: [ '
+
+        for (let m = 0; m < situation.conditions.length; m++) {
+          let condition = situation.conditions[m]
+
+          graphQL_Mutation = graphQL_Mutation + '{ '
+          graphQL_Mutation = graphQL_Mutation + 'name: "' + condition.name + '" '
+          graphQL_Mutation = graphQL_Mutation + 'code: "' + condition.code + '" '
+          graphQL_Mutation = graphQL_Mutation + '} '
+        }
+
+        graphQL_Mutation = graphQL_Mutation + '] '
+        graphQL_Mutation = graphQL_Mutation + '} '
+      }
+
+      graphQL_Mutation = graphQL_Mutation + '] '
+      graphQL_Mutation = graphQL_Mutation + '} '
+
+      graphQL_Mutation = graphQL_Mutation + 'stopLoss: { '
+      graphQL_Mutation = graphQL_Mutation + 'phases: [ '
+
+      for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
+        let phase = strategy.stopLoss.phases[p]
+
+        graphQL_Mutation = graphQL_Mutation + '{ '
+        graphQL_Mutation = graphQL_Mutation + 'name: "' + phase.name + '" '
+        graphQL_Mutation = graphQL_Mutation + 'code: "' + phase.code + '" '
+        graphQL_Mutation = graphQL_Mutation + 'situations: [ '
+
+        for (let k = 0; k < phase.situations.length; k++) {
+          let situation = phase.situations[k]
+
+          graphQL_Mutation = graphQL_Mutation + '{ '
+          graphQL_Mutation = graphQL_Mutation + 'name: "' + situation.name + '" '
+          graphQL_Mutation = graphQL_Mutation + 'conditions: [ '
+
+          for (let m = 0; m < situation.conditions.length; m++) {
+            let condition = situation.conditions[m]
+
+            graphQL_Mutation = graphQL_Mutation + '{ '
+            graphQL_Mutation = graphQL_Mutation + 'name: "' + condition.name + '" '
+            graphQL_Mutation = graphQL_Mutation + 'code: "' + condition.code + '" '
+            graphQL_Mutation = graphQL_Mutation + '} '
+          }
+
+          graphQL_Mutation = graphQL_Mutation + '] '
+          graphQL_Mutation = graphQL_Mutation + '} '
+        }
+
+        graphQL_Mutation = graphQL_Mutation + '] '
+        graphQL_Mutation = graphQL_Mutation + '} '
+      }
+
+      graphQL_Mutation = graphQL_Mutation + '] '
+      graphQL_Mutation = graphQL_Mutation + '} '
+
+      graphQL_Mutation = graphQL_Mutation + 'buyOrder: { '
+      graphQL_Mutation = graphQL_Mutation + 'phases: [ '
+
+      for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
+        let phase = strategy.buyOrder.phases[p]
+
+        graphQL_Mutation = graphQL_Mutation + '{ '
+        graphQL_Mutation = graphQL_Mutation + 'name: "' + phase.name + '" '
+        graphQL_Mutation = graphQL_Mutation + 'code: "' + phase.code + '" '
+        graphQL_Mutation = graphQL_Mutation + 'situations: [ '
+
+        for (let k = 0; k < phase.situations.length; k++) {
+          let situation = phase.situations[k]
+
+          graphQL_Mutation = graphQL_Mutation + '{ '
+          graphQL_Mutation = graphQL_Mutation + 'name: "' + situation.name + '" '
+          graphQL_Mutation = graphQL_Mutation + 'conditions: [ '
+
+          for (let m = 0; m < situation.conditions.length; m++) {
+            let condition = situation.conditions[m]
+
+            graphQL_Mutation = graphQL_Mutation + '{ '
+            graphQL_Mutation = graphQL_Mutation + 'name: "' + condition.name + '" '
+            graphQL_Mutation = graphQL_Mutation + 'code: "' + condition.code + '" '
+            graphQL_Mutation = graphQL_Mutation + '} '
+          }
+
+          graphQL_Mutation = graphQL_Mutation + '] '
+          graphQL_Mutation = graphQL_Mutation + '} '
+        }
+
+        graphQL_Mutation = graphQL_Mutation + '] '
+        graphQL_Mutation = graphQL_Mutation + '} '
+      }
+
+      graphQL_Mutation = graphQL_Mutation + '] '
+      graphQL_Mutation = graphQL_Mutation + '} '
+
+      graphQL_Mutation = graphQL_Mutation + '} '
+    }
+
+    graphQL_Mutation = graphQL_Mutation + '] '
+    graphQL_Mutation = graphQL_Mutation + '} '
+
+    console.log(graphQL_Mutation)
   }
 
   async function loadFromStrategyzer () {

@@ -92,7 +92,7 @@ function newCodeEditor () {
                      'font-size: 12px;' +
                      'background-color: rgb(204, 88, 53);' +
                      'color:rgb(255, 255, 255);' +
-                     'width: ' + thisObject.container.frame.width + 'px;' +
+                    'width: ' + thisObject.container.frame.width + 'px;' +
                      'height: ' + thisObject.container.frame.height + 'px'
     textArea.style.display = 'block'
     textArea.focus()
@@ -128,12 +128,12 @@ function newCodeEditor () {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
 
-    thisObject.container.frame.width = thisObject.container.frame.radius * 2.2
+    thisObject.container.frame.width = thisObject.container.frame.radius * 1.8
     thisObject.container.frame.height = thisObject.container.frame.radius * 1
 
     let textAreaPosition = {
       x: 0 - thisObject.container.frame.width / 2,
-      y: 0
+      y: 0 + thisObject.container.frame.height * 2 / 7
     }
 
     textAreaPosition = thisObject.container.frame.frameThisPoint(textAreaPosition)
@@ -148,7 +148,7 @@ function newCodeEditor () {
     }
     if (thisObject.visible === true) {
       let textAreaDiv = document.getElementById('textAreaDiv')
-      textAreaDiv.style = 'position:absolute; top:' + textAreaPosition.y + 'px; left:' + textAreaPosition.x + 'px; z-index:1; '
+      textAreaDiv.style = 'position:fixed; top:' + textAreaPosition.y + 'px; left:' + textAreaPosition.x + 'px; z-index:1; '
     }
   }
 

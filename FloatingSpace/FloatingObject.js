@@ -19,7 +19,7 @@ function newFloatingObject () {
     rawMass: 0,                             // This is the mass value without zoom.
     rawRadius: 0,                           // This is the radius of this floating object without zoom.
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
-    isPinned: undefined,
+    isPinned: false,
     pinToggle: pinToggle,
     physics: physics,
     initializeMass: initializeMass,
@@ -104,6 +104,7 @@ function newFloatingObject () {
     } else {
       thisObject.isPinned = false
     }
+    return thisObject.isPinned
   }
 
   function physics () {

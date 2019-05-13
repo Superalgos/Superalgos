@@ -254,7 +254,6 @@ function newTradingSystem () {
         }
 
       case 'Open Settings':
-
         break
       case 'Delete Strategy':
 

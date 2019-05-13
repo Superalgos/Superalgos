@@ -9,6 +9,9 @@ function newCircularMenuItem () {
     action: undefined,
     actionFunction: undefined,
     label: undefined,
+    workingLabel: undefined,
+    workDoneLabel: undefined,
+    workFailedLabel: undefined,
     visible: false,
     imagePathOn: undefined,
     imagePathOff: undefined,
@@ -133,13 +136,20 @@ function newCircularMenuItem () {
 
   async function onMouseClick (event) {
     if (temporaryStatus === 0) {
-      setTemporaryStatus('Saving...', UI_COLOR.GREY, 500)
+      if (thisObject.workingLabel !== undefined) {
+        setTemporaryStatus(thisObject.workingLabel, UI_COLOR.GREY, 500)
+      }
+
       let result = await thisObject.actionFunction(thisObject.payload, thisObject.action)
 
       if (result === true) {
-        setTemporaryStatus('Saved', UI_COLOR.PATINATED_TURQUOISE, 250)
+        if (thisObject.workDoneLabel !== undefined) {
+          setTemporaryStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 250)
+        }
       } else {
-        setTemporaryStatus('Not Saved', UI_COLOR.TITANIUM_YELLOW, 500)
+        if (thisObject.workFailedLabel != undefined) {
+          setTemporaryStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500)
+        }
       }
     }
   }

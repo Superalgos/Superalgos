@@ -91,6 +91,9 @@ function newStrategyPart () {
             action: 'Save Trading System',
             actionFunction: thisObject.payload.onMenuItemClick,
             label: 'Save Changes',
+            workingLabel: 'Saving...',
+            workDoneLabel: 'Saved',
+            workFailedLabel: 'Not Saved',
             visible: false,
             imagePathOn: 'Images/icons/style-01/upload.png',
             imagePathOff: 'Images/icons/style-01/target.png',
@@ -654,4 +657,3 @@ function newStrategyPart () {
     }
   }
 }
-

@@ -16,15 +16,13 @@ function newProductCard () {
     bot: undefined,
     product: undefined,
     code: undefined,
-
+    fitFunction: undefined,
     setDatetime: setDatetime,
     setTimePeriod: setTimePeriod,
-
     onMarketFileLoaded: onMarketFileLoaded,
     onDailyFileLoaded: onDailyFileLoaded,
     onSingleFileLoaded: onSingleFileLoaded,
     onFileSequenceLoaded: onFileSequenceLoaded,
-
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
     initialize: initialize
   }
@@ -429,6 +427,11 @@ function newProductCard () {
 
        */
 
+    let fitImagePoint = {
+      x: 0,
+      y: 0
+    }
+
     const devTeamImageSize = 20
     const botImageSize = 20
     const plotterImageSize = {
@@ -448,6 +451,8 @@ function newProductCard () {
 
       teamImagePoint = thisObject.container.frame.frameThisPoint(teamImagePoint)
 
+      fitImagePoint = thisObject.fitFunction(teamImagePoint)
+
       let teamImage
 
       if (legacyTeamAvatarLoaded === true) {
@@ -458,7 +463,7 @@ function newProductCard () {
         teamImage = teamAvatar
       }
 
-      if (teamImage !== undefined) {
+      if (teamImage !== undefined && teamImagePoint.y === fitImagePoint.y) {
         if (teamImage.naturalHeight !== 0) {
          /* The image is rounded before being displayed. */
 
@@ -485,6 +490,7 @@ function newProductCard () {
         }
 
         botImagePoint = thisObject.container.frame.frameThisPoint(botImagePoint)
+        fitImagePoint = thisObject.fitFunction(botImagePoint)
 
         let imageId = thisObject.bot.devTeam + '.' + thisObject.bot.profilePicture
 
@@ -493,7 +499,7 @@ function newProductCard () {
 
         botImage = thisObject.bot.avatar
 
-        if (botImage !== undefined) {
+        if (botImage !== undefined && botImagePoint.y === fitImagePoint.y) {
           if (botImage.naturalHeight !== 0) {
              /* The image is rounded before being displayed. */
 
@@ -522,11 +528,17 @@ function newProductCard () {
       }
 
       plotterImagePoint = thisObject.container.frame.frameThisPoint(plotterImagePoint)
+      fitImagePoint = {
+        x: 0,
+        y: plotterImagePoint.y + plotterImageSize.height
+      }
+
+      fitImagePoint = thisObject.fitFunction(fitImagePoint)
 
       let imageId = thisObject.product.plotter.devTeam + '.' + thisObject.product.plotter.codeName + '.' + thisObject.product.plotter.moduleName + '.' + thisObject.product.plotter.profilePicture
       let plotterImage = legacyPlotterBanner
 
-      if (plotterImage !== undefined) {
+      if (plotterImage !== undefined && plotterImagePoint.y + plotterImageSize.height === fitImagePoint.y) {
         if (plotterImage.naturalHeight !== 0) {
           browserCanvasContext.drawImage(plotterImage, plotterImagePoint.x, plotterImagePoint.y, plotterImageSize.width, plotterImageSize.height)
         }
@@ -588,6 +600,11 @@ function newProductCard () {
       point3 = thisObject.container.frame.frameThisPoint(point3)
       point4 = thisObject.container.frame.frameThisPoint(point4)
 
+      point1 = thisObject.fitFunction(point1)
+      point2 = thisObject.fitFunction(point2)
+      point3 = thisObject.fitFunction(point3)
+      point4 = thisObject.fitFunction(point4)
+
       browserCanvasContext.beginPath()
       browserCanvasContext.moveTo(point1.x, point1.y)
       browserCanvasContext.lineTo(point2.x, point2.y)
@@ -609,7 +626,7 @@ function newProductCard () {
     let labelPoint
     let fontSize = 10
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
     let label
 
@@ -625,8 +642,9 @@ function newProductCard () {
       }
 
       labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
+      labelPoint = thisObject.fitFunction(labelPoint)
 
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
       browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
       browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
@@ -641,8 +659,9 @@ function newProductCard () {
       }
 
       labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
+      labelPoint = thisObject.fitFunction(labelPoint)
 
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
       browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
       browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
     }
@@ -664,8 +683,9 @@ function newProductCard () {
     }
 
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
+    labelPoint = thisObject.fitFunction(labelPoint)
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
@@ -727,6 +747,11 @@ function newProductCard () {
     point2 = thisObject.container.frame.frameThisPoint(point2)
     point3 = thisObject.container.frame.frameThisPoint(point3)
     point4 = thisObject.container.frame.frameThisPoint(point4)
+
+    point1 = thisObject.fitFunction(point1)
+    point2 = thisObject.fitFunction(point2)
+    point3 = thisObject.fitFunction(point3)
+    point4 = thisObject.fitFunction(point4)
 
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y)
@@ -790,6 +815,11 @@ function newProductCard () {
     point3 = thisObject.container.frame.frameThisPoint(point3)
     point4 = thisObject.container.frame.frameThisPoint(point4)
 
+    point1 = thisObject.fitFunction(point1)
+    point2 = thisObject.fitFunction(point2)
+    point3 = thisObject.fitFunction(point3)
+    point4 = thisObject.fitFunction(point4)
+
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y)
     browserCanvasContext.lineTo(point2.x, point2.y)
@@ -851,6 +881,11 @@ function newProductCard () {
     point2 = thisObject.container.frame.frameThisPoint(point2)
     point3 = thisObject.container.frame.frameThisPoint(point3)
     point4 = thisObject.container.frame.frameThisPoint(point4)
+
+    point1 = thisObject.fitFunction(point1)
+    point2 = thisObject.fitFunction(point2)
+    point3 = thisObject.fitFunction(point3)
+    point4 = thisObject.fitFunction(point4)
 
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y)
@@ -914,6 +949,11 @@ function newProductCard () {
     point3 = thisObject.container.frame.frameThisPoint(point3)
     point4 = thisObject.container.frame.frameThisPoint(point4)
 
+    point1 = thisObject.fitFunction(point1)
+    point2 = thisObject.fitFunction(point2)
+    point3 = thisObject.fitFunction(point3)
+    point4 = thisObject.fitFunction(point4)
+
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y)
     browserCanvasContext.lineTo(point2.x, point2.y)
@@ -929,4 +969,3 @@ function newProductCard () {
     browserCanvasContext.stroke()
   }
 }
-

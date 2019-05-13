@@ -27,7 +27,7 @@ function newTimeScale () {
     }
   }
 
-  let visible = false
+  let visible = true
   let timeLineCoordinateSystem
 
   return thisObject
@@ -35,7 +35,7 @@ function newTimeScale () {
   function initialize (pTimeLineCoordinateSystem) {
     timeLineCoordinateSystem = pTimeLineCoordinateSystem
 
-    thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
+    thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
     thisObject.lenghtPercentage = window.localStorage.getItem(MODULE_NAME)
     if (!thisObject.lenghtPercentage) {

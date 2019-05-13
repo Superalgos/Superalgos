@@ -1,154 +1,308 @@
- ﻿
-function newBottomSpace () {
-  let thisObject = {
 
-    container: undefined,
-    draw: draw,
-    getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-    createNewControl: createNewControl,
-    destroyControl: destroyControl,
-    getControl: getControl,
-    initialize: initialize
-  }
+ function newBottomSpace () {
+   const MODULE_NAME = 'Bottom Space'
+   const ERROR_LOG = true
 
-  var container = newContainer()
-  container.initialize()
-  thisObject.container = container
+   let thisObject = {
+     container: undefined,
+     status: 'BOTTOM',
+     draw: draw,
+     physics: physics,
+     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+     createNewControl: createNewControl,
+     destroyControl: destroyControl,
+     getControl: getControl,
+     finalize: finalize,
+     initialize: initialize
+   }
 
-  container.isDraggeable = false
+   thisObject.container = newContainer()
+   thisObject.container.initialize(MODULE_NAME)
+   thisObject.container.isClickeable = false
+   thisObject.container.isDraggeable = true
+   thisObject.container.notDraggingOnX = true
 
-  controlsMap = new Map()
-  resize()
+   controlsMap = new Map()
+   resize()
 
-  return thisObject
+   let selfMouseClickEventSubscriptionId
+   let canvasBrowserResizedEventSubscriptionId
 
-  function initialize () {
-    window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
-  }
+   return thisObject
 
-  function createNewControl (pType, pDrawFunction, pOwner) {
-    let control
+   function finalize () {
+     thisObject.container.eventHandler.stopListening(selfMouseClickEventSubscriptionId)
+     thisObject.container.eventHandler.stopListening(canvasBrowserResizedEventSubscriptionId)
 
-    switch (pType) {
+     thisObject.container.finalize()
+     thisObject.container = undefined
+   }
 
-      case 'Over The Line':
-        {
-          control = newUIControl()
-          control.initialize()
-          control.drawFunction = pDrawFunction
-          break
-        }
-    }
+   function initialize () {
+     canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
+     selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+   }
 
-    let controlArray = controlsMap.get(pOwner)
-    if (controlArray === undefined) {
-      controlArray = []
-      controlsMap.set(pOwner, controlArray)
-    }
+   function onMouseClick (event) {
+     // canvas.strategySpace.tradingSystemWorkspace.showUp()
+   }
 
-    controlArray.push(control)
+   function resize () {
+     thisObject.container.frame.position.x = 0
+     thisObject.container.frame.position.y = browserCanvas.height - BOTTOM_SPACE_HEIGHT
 
-    control.handle = Math.floor((Math.random() * 10000000) + 1)
+     thisObject.container.frame.width = browserCanvas.width
+     thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
+   }
 
-    return control.handle
-  }
+   function physics () {
+     /* Check the limits */
 
-  function destroyControl (pControlHandle) {
-    thisObject.controls = controlsMap.get('Global')
-    if (thisObject.controls !== undefined) {
-      for (let i = 0; i < thisObject.controls.length; i++) {
-        let control = thisObject.controls[i]
-        if (control.handle === pControlHandle) {
-          thisObject.controls.splice(i, 1)  // Delete item from array.
-          return
-        }
-      }
-    }
+     thisObject.status = 'MIDDLE'
 
-    thisObject.controls = controlsMap.get(window.CHART_ON_FOCUS)
-    if (thisObject.controls !== undefined) {
-      for (let i = 0; i < thisObject.controls.length; i++) {
-        let control = thisObject.controls[i]
-        if (control.handle === pControlHandle) {
-          thisObject.controls.splice(i, 1)  // Delete item from array.
-          return
-        }
-      }
-    }
-  }
+     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
+     if (user !== null) { // Only if user is logged in
+       thisObject.container.isDraggeable = true
+     } else {
+       thisObject.container.isDraggeable = false
+     }
 
-  function getControl (pControlHandle, pOwner) {
-    thisObject.controls = controlsMap.get(pOwner)
-    if (thisObject.controls != undefined) {
-      for (let i = 0; i < thisObject.controls.length; i++) {
-        let control = thisObject.controls[i]
+     if (thisObject.container.frame.position.y > browserCanvas.height * 99.5 / 100 - BOTTOM_SPACE_HEIGHT) {
+       thisObject.container.frame.position.y = browserCanvas.height - BOTTOM_SPACE_HEIGHT
+       thisObject.status = 'BOTTOM'
+       canvas.strategySpace.makeInvisible()
+     } else {
+       canvas.strategySpace.makeVisible()
+     }
 
-        if (control.handle === pControlHandle) {
-          return control
-        }
-      }
-    }
-  }
+     if (thisObject.container.frame.position.y < browserCanvas.height * 0.5 / 100) {
+       thisObject.container.frame.position.y = 0
+       thisObject.status = 'TOP'
+       canvas.panelsSpace.visible = false
+     } else {
+       canvas.panelsSpace.visible = true
+     }
 
-  function resize () {
-    container.frame.position.x = 0
-    container.frame.position.y = viewPort.visibleArea.bottomLeft.y
+     BOTTOM_SPACE_POSITION = thisObject.container.frame.position.y
+     viewPort.resize()
+   }
 
-    thisObject.container.frame.width = browserCanvas.width
-    thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
-  }
+   function createNewControl (pType, pDrawFunction, pOwner) {
+     let control
 
-  function getContainer (point) {
-    let container
+     switch (pType) {
 
-    return thisObject.container
-  }
+       case 'Over The Line':
+         {
+           control = newUIControl()
+           control.initialize()
+           control.drawFunction = pDrawFunction
+           break
+         }
+     }
 
-  function draw () {
-    thisObject.container.frame.draw(false, false)
+     let controlArray = controlsMap.get(pOwner)
+     if (controlArray === undefined) {
+       controlArray = []
+       controlsMap.set(pOwner, controlArray)
+     }
 
-    drawBackground()
+     controlArray.push(control)
 
-    thisObject.controls = controlsMap.get('Global')
-    if (thisObject.controls !== undefined) {
-      for (let i = 0; i < thisObject.controls.length; i++) {
-        let control = thisObject.controls[i]
-        control.draw()
-      }
-    }
+     control.handle = Math.floor((Math.random() * 10000000) + 1)
 
-    thisObject.controls = controlsMap.get(window.CHART_ON_FOCUS)
-    if (thisObject.controls !== undefined) {
-      for (let i = 0; i < thisObject.controls.length; i++) {
-        let control = thisObject.controls[i]
-        control.draw()
-      }
-    }
-  }
+     return control.handle
+   }
 
-  function drawBackground () {
-    let opacity = 1
+   function destroyControl (pControlHandle) {
+     thisObject.controls = controlsMap.get('Global')
+     if (thisObject.controls !== undefined) {
+       for (let i = 0; i < thisObject.controls.length; i++) {
+         let control = thisObject.controls[i]
+         if (control.handle === pControlHandle) {
+           thisObject.controls.splice(i, 1)  // Delete item from array.
+           return
+         }
+       }
+     }
 
-    let zeroPoint = {
-      x: 0,
-      y: 0
-    }
+     thisObject.controls = controlsMap.get(window.CHART_ON_FOCUS)
+     if (thisObject.controls !== undefined) {
+       for (let i = 0; i < thisObject.controls.length; i++) {
+         let control = thisObject.controls[i]
+         if (control.handle === pControlHandle) {
+           thisObject.controls.splice(i, 1)  // Delete item from array.
+           return
+         }
+       }
+     }
+   }
 
-    zeroPoint = thisObject.container.frame.frameThisPoint(zeroPoint)
+   function getControl (pControlHandle, pOwner) {
+     thisObject.controls = controlsMap.get(pOwner)
+     if (thisObject.controls != undefined) {
+       for (let i = 0; i < thisObject.controls.length; i++) {
+         let control = thisObject.controls[i]
 
-    let breakpointsHeight = 15
-    const RED_LINE_HIGHT = 5
+         if (control.handle === pControlHandle) {
+           return control
+         }
+       }
+     }
+   }
 
-    browserCanvasContext.beginPath()
-    browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + breakpointsHeight, thisObject.container.frame.width, thisObject.container.frame.height)
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
-    browserCanvasContext.closePath()
-    browserCanvasContext.fill()
+   function getContainer (point) {
+     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+       return thisObject.container
+     } else {
+       return undefined
+     }
+   }
 
-    browserCanvasContext.beginPath()
-    browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + breakpointsHeight, thisObject.container.frame.width, RED_LINE_HIGHT)
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'
-    browserCanvasContext.closePath()
-    browserCanvasContext.fill()
-  }
-}
+   function draw () {
+     thisObject.container.frame.draw(false, false)
+
+     drawBackground()
+
+     thisObject.controls = controlsMap.get('Global')
+     if (thisObject.controls !== undefined) {
+       for (let i = 0; i < thisObject.controls.length; i++) {
+         let control = thisObject.controls[i]
+         control.draw()
+       }
+     }
+
+     thisObject.controls = controlsMap.get(window.CHART_ON_FOCUS)
+     if (thisObject.controls !== undefined) {
+       for (let i = 0; i < thisObject.controls.length; i++) {
+         let control = thisObject.controls[i]
+         control.draw()
+       }
+     }
+   }
+
+   function drawBackground () {
+     let opacity = 1
+
+     let zeroPoint = {
+       x: 0,
+       y: 0
+     }
+
+     const RED_LINE_HIGHT = 5
+
+     zeroPoint = thisObject.container.frame.frameThisPoint(zeroPoint)
+
+     browserCanvasContext.beginPath()
+     browserCanvasContext.rect(zeroPoint.x, zeroPoint.y, thisObject.container.frame.width, thisObject.container.frame.height)
+     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
+     browserCanvasContext.closePath()
+     browserCanvasContext.fill()
+
+     browserCanvasContext.beginPath()
+     browserCanvasContext.rect(zeroPoint.x, zeroPoint.y, thisObject.container.frame.width, RED_LINE_HIGHT)
+     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'
+     browserCanvasContext.closePath()
+     browserCanvasContext.fill()
+
+     browserCanvasContext.beginPath()
+     browserCanvasContext.rect(zeroPoint.x, zeroPoint.y - RED_LINE_HIGHT + thisObject.container.frame.height, thisObject.container.frame.width, RED_LINE_HIGHT)
+     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'
+     browserCanvasContext.closePath()
+     browserCanvasContext.fill()
+
+     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
+     if (user !== null) { // Only if user is logged in
+       arrow()
+     }
+   }
+
+   function arrow () {
+     const X_OFFSET = thisObject.container.frame.width / 2
+     const Y_OFFSET = thisObject.container.frame.height / 2
+     const HEIGHT = 6
+     const WIDTH = 18
+     const LINE_WIDTH = 3
+     const OPACITY = 1
+     let DISTANCE_BETWEEN_ARROWS = 0
+     let ARROW_1_DIRECTION = 0
+     let ARROW_2_DIRECTION = 0
+
+     switch (thisObject.status) {
+
+       case ('TOP'): {
+         ARROW_1_DIRECTION = -1
+         ARROW_2_DIRECTION = -1
+         DISTANCE_BETWEEN_ARROWS = 6
+         break
+       }
+       case ('MIDDLE'): {
+         ARROW_1_DIRECTION = 1
+         ARROW_2_DIRECTION = -1
+         DISTANCE_BETWEEN_ARROWS = 9
+         break
+       }
+       case ('BOTTOM'): {
+         ARROW_1_DIRECTION = 1
+         ARROW_2_DIRECTION = 1
+         DISTANCE_BETWEEN_ARROWS = 6
+         break
+       }
+     }
+
+     point1 = {
+       x: X_OFFSET - WIDTH / 2,
+       y: Y_OFFSET + HEIGHT / 2 * ARROW_1_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2
+     }
+
+     point2 = {
+       x: X_OFFSET,
+       y: Y_OFFSET - HEIGHT / 2 * ARROW_1_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2
+     }
+
+     point3 = {
+       x: X_OFFSET + WIDTH / 2,
+       y: Y_OFFSET + HEIGHT / 2 * ARROW_1_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2
+     }
+
+     point1 = thisObject.container.frame.frameThisPoint(point1)
+     point2 = thisObject.container.frame.frameThisPoint(point2)
+     point3 = thisObject.container.frame.frameThisPoint(point3)
+
+     point4 = {
+       x: X_OFFSET - WIDTH / 2,
+       y: Y_OFFSET + HEIGHT / 2 * ARROW_2_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2
+     }
+
+     point5 = {
+       x: X_OFFSET,
+       y: Y_OFFSET - HEIGHT / 2 * ARROW_2_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2
+     }
+
+     point6 = {
+       x: X_OFFSET + WIDTH / 2,
+       y: Y_OFFSET + HEIGHT / 2 * ARROW_2_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2
+     }
+
+     point4 = thisObject.container.frame.frameThisPoint(point4)
+     point5 = thisObject.container.frame.frameThisPoint(point5)
+     point6 = thisObject.container.frame.frameThisPoint(point6)
+
+     browserCanvasContext.setLineDash([0, 0])
+
+     browserCanvasContext.beginPath()
+
+     browserCanvasContext.moveTo(point1.x, point1.y)
+     browserCanvasContext.lineTo(point2.x, point2.y)
+     browserCanvasContext.lineTo(point3.x, point3.y)
+
+     browserCanvasContext.moveTo(point4.x, point4.y)
+     browserCanvasContext.lineTo(point5.x, point5.y)
+     browserCanvasContext.lineTo(point6.x, point6.y)
+
+     browserCanvasContext.lineWidth = LINE_WIDTH
+     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')'
+     browserCanvasContext.stroke()
+   }
+ }
+

@@ -3,10 +3,12 @@ function newStrategySpace () {
   const MODULE_NAME = 'Strategy Space'
   let thisObject = {
     sidePanel: undefined,
-    strategyCollection: undefined,
+    workplace: undefined,
     container: undefined,
     draw: draw,
     getContainer: getContainer,
+    makeVisible: makeVisible,
+    makeInvisible: makeInvisible,
     initialize: initialize
   }
 
@@ -19,21 +21,34 @@ function newStrategySpace () {
   return thisObject
 
   async function initialize () {
-    thisObject.sidePanel = newSidePanel()
-    thisObject.sidePanel.initialize()
+    // thisObject.sidePanel = newSidePanel()
+    // thisObject.sidePanel.initialize()
 
-    thisObject.strategyCollection = newStrategyCollection()
-    thisObject.strategyCollection.container.connectToParent(thisObject.sidePanel.container, true, true)
-    await thisObject.strategyCollection.initialize()
+    thisObject.workplace = newWorkspace()
+    // thisObject.workplace.container.connectToParent(thisObject.sidePanel.container, true, true)
+    thisObject.workplace.initialize()
+    await thisObject.workplace.loadFromStrategyzer()
 
-    thisObject.sidePanel.areas.push(thisObject.strategyCollection)
+    // thisObject.sidePanel.areas.push(thisObject.workplace)
+  }
+
+  function makeVisible () {
+    if (thisObject.workplace.isDeployed !== true) {
+      thisObject.workplace.deploydTradingSystem()
+    }
+    canvas.floatingSpace.makeVisible()
+    visible = true
+  }
+
+  function makeInvisible () {
+    visible = false
   }
 
   function getContainer (point) {
     let container
 
-    if (thisObject.strategyCollection !== undefined) {
-      container = thisObject.strategyCollection.getContainer(point)
+    if (thisObject.workplace !== undefined) {
+      container = thisObject.workplace.getContainer(point)
       if (container !== undefined) { return container }
     }
 
@@ -46,7 +61,8 @@ function newStrategySpace () {
   }
 
   function draw () {
-    thisObject.sidePanel.draw()
+    if (thisObject.sidePanel !== undefined) {
+      thisObject.sidePanel.draw()
+    }
   }
 }
-

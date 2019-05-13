@@ -10,11 +10,12 @@ function newViewPort () {
   const CONSOLE_LOG = true
 
   let ANIMATION_INCREMENT = 0.25
-  const TOP_MARGIN = 15 + TOP_SPACE_HEIGHT
-  const BOTTOM_MARGIN = 15 + BOTTOM_SPACE_HEIGHT
-  const LEFT_MARGIN = 50
-  const RIGHT_MARGIN = 50
-  const MARGINS = {
+
+  let TOP_MARGIN = 15 + TOP_SPACE_HEIGHT
+  let BOTTOM_MARGIN = 20 + BOTTOM_SPACE_HEIGHT
+  let LEFT_MARGIN = 50
+  let RIGHT_MARGIN = 50
+  let MARGINS = {
     TOP: TOP_MARGIN,
     BOTTOM: BOTTOM_MARGIN,
     LEFT: LEFT_MARGIN,
@@ -44,6 +45,7 @@ function newViewPort () {
     animate: animate,
     draw: draw,
     raiseEvents: raiseEvents,
+    resize: resize,
     initialize: initialize
   }
 
@@ -76,6 +78,22 @@ function newViewPort () {
   return thisObject
 
   function initialize () {
+    resize()
+    readObjectState()
+  }
+
+  function resize () {
+    TOP_MARGIN = 15 + TOP_SPACE_HEIGHT
+    BOTTOM_MARGIN = 20 + browserCanvas.height - BOTTOM_SPACE_POSITION
+    LEFT_MARGIN = 50
+    RIGHT_MARGIN = 50
+    MARGINS = {
+      TOP: TOP_MARGIN,
+      BOTTOM: BOTTOM_MARGIN,
+      LEFT: LEFT_MARGIN,
+      RIGHT: RIGHT_MARGIN
+    }
+
     thisObject.visibleArea = {
       topLeft: { x: LEFT_MARGIN, y: TOP_MARGIN },
       topRight: { x: browserCanvas.width - RIGHT_MARGIN, y: TOP_MARGIN },
@@ -85,8 +103,6 @@ function newViewPort () {
 
     thisObject.width = thisObject.visibleArea.topRight.x - thisObject.visibleArea.topLeft.x
     thisObject.height = thisObject.visibleArea.bottomRight.y - thisObject.visibleArea.topLeft.y
-
-    readObjectState()
   }
 
   function getDisplacement () {

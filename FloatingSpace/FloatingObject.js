@@ -1,168 +1,220 @@
- ﻿
+
 function newFloatingObject () {
   const MODULE_NAME = 'Floating Object'
-  const INFO_LOG = false
-  const INTENSIVE_LOG = false
   const ERROR_LOG = true
 
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
   let thisObject = {
-
-    physicsLoop: physicsLoop,
-    eventHandler: undefined,
-
+    fitFunction: undefined,
+    container: undefined,
+    positionLocked: false,
+    isOnFocus: false,
     payload: undefined,                     // This is a reference to an object controlled by a Plotter. The plotter can change its internal value and we will see them from here.
     type: undefined,                        // Currently there are two types of Floating Objects: Profile Balls, and Notes.
-
-    physicsEnabled: false,
-
+    currentSpeed: 0,                        // This is the current speed of the floating object.
+    currentMass: 0,                         // This is the current mass of the floating object, including its zoom applied.
+    friction: 0,                            // This is a factor that will ultimatelly desacelerate the floating object.
+    rawMass: 0,                             // This is the mass value without zoom.
+    rawRadius: 0,                           // This is the radius of this floating object without zoom.
+    targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
+    isPinned: undefined,
+    pinToggle: pinToggle,
+    physics: physics,
     initializeMass: initializeMass,
     initializeRadius: initializeRadius,
     initializeImageSize: initializeImageSize,
     initializeFontSize: initializeFontSize,
-
-    imageId: undefined,
-
-    currentPosition: 0,                     // Current x,y position of the floating object at the floating object's layer, where there is no displacement or zoom. This position is always changing towards the target position.
-    currentSpeed: 0,                        // This is the current speed of the floating object.
-    currentRadius: 0,                       // This is the current radius of the floating object, including its zoom applied.
-    currentMass: 0,                         // This is the current mass of the floating object, including its zoom applied.
-
-    friction: 0,                            // This is a factor that will ultimatelly desacelerate the floating object.
-
-    rawMass: 0,                             // This is the mass value without zoom.
-    rawRadius: 0,                           // This is the radius of this floating object without zoom.
-
-    targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
-
-    fillStyle: '',
-
-    labelStrokeStyle: '',
-
     radomizeCurrentPosition: radomizeCurrentPosition,
     radomizeCurrentSpeed: radomizeCurrentSpeed,
-
     drawBackground: drawBackground,
+    drawMiddleground: drawMiddleground,
     drawForeground: drawForeground,
-
+    drawOnFocus: drawOnFocus,
     updateMass: updateMass,                 // Function to update the mass when the zoom level changed.
     updateRadius: updateRadius,             // Function to update the radius when the zoom level changed.
-
-    linkedObject: undefined,                // This is a reference to the object that this floating object is representing.
-    linkedObjectType: '',                   // Since there might be floating objects for different types of objects, here we store the type of object we are linking to.
-
-    container: undefined,                    // This is a pointer to the object where the floating object belongs to.
+    getContainer: getContainer,
+    finalize: finalize,
     initialize: initialize
-
   }
 
-  let underlayingObject
+  thisObject.container = newContainer()
+  thisObject.container.initialize(MODULE_NAME, 'Circle')
+  thisObject.container.isClickeable = true
+  thisObject.container.isDraggeable = true
+  thisObject.container.detectMouseOver = true
+  thisObject.container.frame.radius = 0
+  thisObject.container.frame.position.x = 0
+  thisObject.container.frame.position.y = 0
 
-  thisObject.eventHandler = newEventHandler()
+  let selfMouseOverEventSubscriptionId
+  let selfMouseClickEventSubscriptionId
+  let spaceMouseOverEventSubscriptionId
+  let spaceFocusAquiredEventSubscriptionId
 
   return thisObject
 
-  function initialize (pType, floatingLayer, callBackFunction) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
+  function finalize () {
+    thisObject.container.eventHandler.stopListening(selfMouseOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfMouseClickEventSubscriptionId)
+    canvas.floatingSpace.container.eventHandler.stopListening(spaceMouseOverEventSubscriptionId)
+    canvas.floatingSpace.container.eventHandler.stopListening(spaceFocusAquiredEventSubscriptionId)
 
-      switch (pType) {
+    thisObject.container.finalize()
+    thisObject.container = undefined
+    thisObject.payload = undefined
+    thisObject.fitFunction = undefined
+  }
 
-        case 'Profile Ball': {
-          underlayingObject = newProfileBall()
-          underlayingObject.initialize(onInitialized)
+  function initialize (type, payload) {
+    thisObject.payload = payload
+    thisObject.type = type
 
-          function onInitialized (err) {
+    selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
 
-          }
+      /* To consider that this object lost the focus, we monitor the space for 2 key events */
+    spaceMouseOverEventSubscriptionId = canvas.floatingSpace.container.eventHandler.listenToEvent('onMouseOver', mouseOverFlotingSpace)
+    spaceFocusAquiredEventSubscriptionId = canvas.floatingSpace.container.eventHandler.listenToEvent('onFocusAquired', someoneAquiredFocus)
 
-          break
-        }
-        case 'Note': {
-          underlayingObject = newNote()
-          underlayingObject.initialize(onInitialized)
+    /* Assign a position and speed */
 
-          function onInitialized (err) {
+    thisObject.radomizeCurrentPosition(thisObject.payload.targetPosition)
+    thisObject.radomizeCurrentSpeed()
+  }
 
-          }
-          break
-        }
+  function getContainer (point) {
+    let container
 
-        case 'Strategy Part': {
-          underlayingObject = newStrategyPart()
-          underlayingObject.initialize(floatingLayer, onInitialized)
+    container = thisObject.payload.uiObject.getContainer(point)
+    if (container !== undefined) { return container }
 
-          function onInitialized (err) {
+    if (thisObject.container.frame.isThisScreenPointHere(point) === true) {
+      return thisObject.container
+    } else {
+      return undefined
+    }
+  }
 
-          }
+  function pinToggle () {
+    if (thisObject.isPinned !== true) {
+      thisObject.isPinned = true
+      thisObject.positionLocked = true
+    } else {
+      thisObject.isPinned = false
+    }
+  }
 
-          break
-        }
-        default: {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Unsopported type received -> pType = ' + pType) }
-          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-          break
-        }
+  function physics () {
+    thisObjectPhysics()
+    thisObject.payload.uiObject.physics()
+  }
+
+  function thisObjectPhysics () {
+                           // The radius also have a target.
+
+    if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 3) {
+      if (thisObject.container.frame.radius < thisObject.targetRadius) {
+        thisObject.container.frame.radius = thisObject.container.frame.radius + 3
+      } else {
+        thisObject.container.frame.radius = thisObject.container.frame.radius - 3
       }
+      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+    }
 
-      thisObject.type = pType
+                           // The imageSize also have a target.
 
-      thisObject.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-      canvas.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
-      thisObject.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    if (Math.abs(thisObject.currentImageSize - thisObject.targetImageSize) >= 1) {
+      if (thisObject.currentImageSize < thisObject.targetImageSize) {
+        thisObject.currentImageSize = thisObject.currentImageSize + 2
+      } else {
+        thisObject.currentImageSize = thisObject.currentImageSize - 2
+      }
+    }
 
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err.message = ' + err.message) }
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
+                           // The fontSize also have a target.
+
+    if (Math.abs(thisObject.currentFontSize - thisObject.targetFontSize) >= 0.2) {
+      if (thisObject.currentFontSize < thisObject.targetFontSize) {
+        thisObject.currentFontSize = thisObject.currentFontSize + 0.2
+      } else {
+        thisObject.currentFontSize = thisObject.currentFontSize - 0.2
+      }
+    }
+
+    /* Floating object position in screen coordinates */
+
+    thisObject.payload.position.x = thisObject.container.frame.position.x
+    thisObject.payload.position.y = thisObject.container.frame.position.y
+  }
+
+  function onMouseOver (point) {
+    if (thisObject.isOnFocus === false) {
+      thisObject.targetRadius = thisObject.rawRadius * 6.0
+      thisObject.targetImageSize = thisObject.rawImageSize * 2.0
+      thisObject.targetFontSize = thisObject.rawFontSize * 2.0
+
+      thisObject.payload.uiObject.container.eventHandler.raiseEvent('onFocus', point)
+
+      thisObject.positionLocked = true
+
+      canvas.floatingSpace.container.eventHandler.raiseEvent('onFocusAquired', thisObject.container)
+      thisObject.isOnFocus = true
     }
   }
 
-  function physicsLoop (callBackFunction) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
+  function mouseOverFlotingSpace (point) {
+    removeFocus()
+  }
 
-      underlayingObject.physicsLoop()
-
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE) }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] physicsLoop -> err.message = ' + err.message) }
-      if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE) }
+  function someoneAquiredFocus (container) {
+    if (container.id !== thisObject.container.id) {
+      removeFocus()
     }
   }
 
-  function onMouseOver () {
-    thisObject.targetRadius = thisObject.rawRadius * 2.5
-    thisObject.targetImageSize = thisObject.rawImageSize * 2.5
-    thisObject.targetFontSize = thisObject.rawFontSize * 2.5
+  function removeFocus () {
+    if (thisObject.isOnFocus === true) {
+      thisObject.targetRadius = thisObject.rawRadius * 1
+      thisObject.targetImageSize = thisObject.rawImageSize * 1
+      thisObject.targetFontSize = thisObject.rawFontSize * 1
 
-    underlayingObject.onMouseOver()
-  }
+      thisObject.payload.uiObject.container.eventHandler.raiseEvent('onNotFocus')
 
-  function onMouseNotOver () {
-    thisObject.targetRadius = thisObject.rawRadius * 1
-    thisObject.targetImageSize = thisObject.rawImageSize * 1
-    thisObject.targetFontSize = thisObject.rawFontSize * 1
-
-    underlayingObject.onMouseNotOver()
+      if (thisObject.isPinned !== true) {
+        thisObject.positionLocked = false
+      }
+      thisObject.isOnFocus = false
+    }
   }
 
   function onMouseClick (pPoint) {
-    underlayingObject.onMouseClick(pPoint, thisObject)
+    let event = {
+      point: pPoint,
+      parent: thisObject
+    }
+    thisObject.payload.uiObject.container.eventHandler.raiseEvent('onMouseClick', event)
   }
 
   function drawBackground () {
-    underlayingObject.drawBackground(thisObject)
+    thisObject.payload.uiObject.drawBackground()
+  }
+
+  function drawMiddleground () {
+    thisObject.payload.uiObject.drawMiddleground()
   }
 
   function drawForeground () {
-    underlayingObject.drawForeground(thisObject)
+    thisObject.payload.uiObject.drawForeground()
+  }
+
+  function drawOnFocus () {
+    thisObject.payload.uiObject.drawOnFocus()
   }
 
   function initializeMass (suggestedValue) {
-    var mass = suggestedValue
+    let mass = suggestedValue
     if (mass < 0.1) {
       mass = 0.1
     }
@@ -172,14 +224,16 @@ function newFloatingObject () {
   }
 
   function initializeRadius (suggestedValue) {
-    var radius = suggestedValue
+    let radius = suggestedValue
     if (radius < 2) {
       radius = 2
     }
 
     thisObject.rawRadius = radius
     thisObject.targetRadius = radius
-    thisObject.currentRadius = radius / 3
+    thisObject.container.frame.radius = radius / 3
+
+    thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
   }
 
   function initializeImageSize (suggestedValue) {
@@ -205,12 +259,19 @@ function newFloatingObject () {
   }
 
   function radomizeCurrentPosition (arroundPoint) {
-    var position = {
+    let position = {
       x: Math.floor((Math.random() * (200) - 100)) + arroundPoint.x,
       y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
     }
 
-    thisObject.currentPosition = position
+    // thisObject.container.frame.position = thisObject.container.frame.frameThisPoint(position)
+
+    thisObject.container.frame.position.x = position.x
+    thisObject.container.frame.position.y = position.y
+
+    thisObject.payload.position = {}
+    thisObject.payload.position.x = position.x
+    thisObject.payload.position.y = position.y
   }
 
   function radomizeCurrentSpeed () {
@@ -240,14 +301,8 @@ function newFloatingObject () {
 
   function updateMass () {
 
-        // thisObject.currentMass = thisObject.rawMass + thisObject.rawMass * thisObject.container.zoom.incrementM * thisObject.container.zoom.levelM;
-
   }
 
   function updateRadius () {
-
-        // thisObject.targetRadius = thisObject.rawRadius + thisObject.rawRadius * thisObject.container.zoom.incrementR * thisObject.container.zoom.levelR;
-
   }
 }
-

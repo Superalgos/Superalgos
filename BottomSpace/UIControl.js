@@ -37,7 +37,7 @@ function newUIControl () {
   }
 
   function getContainer (point) {
-    var container
+    let container
 
        /* First we check if thisObject point is inside thisObject space. */
 

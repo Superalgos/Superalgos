@@ -9,7 +9,6 @@ function newCanvas () {
   const MODULE_NAME = 'Canvas'
   const INFO_LOG = false
   const ERROR_LOG = true
-  const INTENSIVE_LOG = false
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
@@ -47,7 +46,7 @@ function newCanvas () {
   thisObject.eventHandler = newEventHandler()
 
   let splashScreen
-
+  let lastContainerMouseOver
   return thisObject
 
 /*
@@ -96,6 +95,7 @@ function newCanvas () {
       browserCanvas.removeEventListener('mouseup', onMouseUp, false)
       browserCanvas.removeEventListener('mousemove', onMouseMove, false)
       browserCanvas.removeEventListener('click', onMouseClick, false)
+      browserCanvas.removeEventListener('mouseout', onMouseOut, false)
 
            /* Mouse wheel events. */
 
@@ -167,16 +167,18 @@ function newCanvas () {
 
                    /* Here we add all the functions that will be called during the animation cycle. */
 
-          animation.addCallBackFunction('ViewPort Draw', viewPort.draw, onFunctionAdded)
+          animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics, onFunctionAdded)
           animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground, onFunctionAdded)
-          animation.addCallBackFunction('Chart Space', thisObject.chartSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Chart Space Draw', thisObject.chartSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics, onFunctionAdded)
           animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('ViewPort Animate', viewPort.animate, onFunctionAdded)
-          animation.addCallBackFunction('Bottom Space', thisObject.bottomSpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Top Space', thisObject.topSpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Strategy Space', thisObject.strategySpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Floating Space', thisObject.floatingSpace.floatingLayer.physicsLoop, onFunctionAdded)
-          animation.addCallBackFunction('Splash Screen', splashScreen.draw, onFunctionAdded)
+          animation.addCallBackFunction('Bottom Space Draw', thisObject.bottomSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Bottom Space Physics', thisObject.bottomSpace.physics, onFunctionAdded)
+          animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Strategy Space Draw', thisObject.strategySpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw, onFunctionAdded)
           animation.start(onStart)
 
           function onFunctionAdded (err) {
@@ -259,6 +261,7 @@ function newCanvas () {
       browserCanvas.addEventListener('mouseup', onMouseUp, false)
       browserCanvas.addEventListener('mousemove', onMouseMove, false)
       browserCanvas.addEventListener('click', onMouseClick, false)
+      browserCanvas.addEventListener('mouseout', onMouseOut, false)
 
            /* Mouse wheel events. */
 
@@ -356,26 +359,34 @@ function newCanvas () {
         return
       }
 
-           /* We check if the mouse is over a floatingObject/ */
-
-      floatingObjectBeingDragged = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y)
-
-      if (floatingObjectBeingDragged >= 0) {
-        floatingObjectDragStarted = true
-        return
-      }
-
-           /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
+           /*  we check if it is over any of the existing containers at the Chart Space. */
 
       container = thisObject.chartSpace.getContainer(point)
+
+      if (container !== undefined) {
+        if (container.isDraggeable === true) {
+          containerBeingDragged = container
+          containerDragStarted = true
+          return
+        } else {
+          viewPortBeingDragged = true
+          return
+        }
+      }
+
+      container = thisObject.floatingSpace.getContainer(point)
 
       if (container !== undefined && container.isDraggeable === true) {
         containerBeingDragged = container
         containerDragStarted = true
+        floatingObjectDragStarted = true
         return
       }
 
-      viewPortBeingDragged = true
+      if (container !== undefined && container.isClickeable === true) {
+       /* We dont want to mess up with the click */
+        return
+      }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] onMouseDown -> err = ' + err.stack) }
     }
@@ -432,20 +443,17 @@ function newCanvas () {
         return
       }
 
-           /* We check if the mouse is over a floatingObject/ */
-
-      let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y)
-
-      if (floatingObjectBeingClicked >= 0) {
-        let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingClicked)
-        floatingObject.eventHandler.raiseEvent('onMouseClick', point)
-
-        return
-      }
-
            /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
 
       container = thisObject.chartSpace.getContainer(point)
+
+      if (container !== undefined && container.isClickeable === true) {
+        container.eventHandler.raiseEvent('onMouseClick', point)
+        return
+      }
+
+      /* We check if the mouse is over a floatingObject/ */
+      container = thisObject.floatingSpace.getContainer(point)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)
@@ -456,10 +464,23 @@ function newCanvas () {
     }
   }
 
-  function onMouseUp (event) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] onMouseUp -> Entering function.') }
+  function onMouseOut (event) {
+    deactivateDragging(event)
 
+    /* When the mouse leaves the canvas, our elements needs to react to the fact that the mouse is over a far away place */
+    let thisEvent = {
+      pageX: VERY_LARGE_NUMBER,
+      pageY: VERY_LARGE_NUMBER
+    }
+    onMouseOver(thisEvent)
+  }
+
+  function onMouseUp (event) {
+    deactivateDragging(event)
+  }
+
+  function deactivateDragging (event) {
+    try {
       if (containerDragStarted || viewPortBeingDragged || floatingObjectDragStarted) {
         thisObject.eventHandler.raiseEvent('Drag Finished', undefined)
       }
@@ -487,8 +508,6 @@ function newCanvas () {
 
   function onMouseMove (event) {
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] onMouseMove -> Entering function.') }
-
       let point = {
         x: event.pageX,
         y: event.pageY - window.canvasApp.topMargin
@@ -499,12 +518,22 @@ function newCanvas () {
 
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
         if (floatingObjectDragStarted === true) {
-          if (thisObject.floatingSpace.floatingLayer.isInsideFloatingObject(floatingObjectBeingDragged, point.x, point.y) === false) {
-                       /* This means that the user stop moving the mouse and the floatingObject floatingObject out of the pointer.
-                       In this case we cancell the drag operation . */
-
+          let targetContainer = thisObject.floatingSpace.getContainer(point)
+          if (targetContainer !== undefined) {
+            if (targetContainer.id !== containerBeingDragged.id) {
+              containerBeingDragged = undefined
+              containerDragStarted = false
+              floatingObjectDragStarted = false
+              browserCanvas.style.cursor = 'auto'
+              ignoreNextClick = true
+              return
+            }
+          } else {
+            containerDragStarted = false
+            containerBeingDragged = undefined
             floatingObjectDragStarted = false
             browserCanvas.style.cursor = 'auto'
+            ignoreNextClick = true
             return
           }
         }
@@ -523,12 +552,6 @@ function newCanvas () {
 
   function onMouseOver (event) {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] onMouseOver -> Entering function.') }
-
-           /* First we raise the event signaling theat the mouse is potentially over another item, so that the current item can turn itself off. */
-
-      thisObject.eventHandler.raiseEvent('onMouseNotOver')
-
            /* Then we check who is the current object underneeth the mounse. */
 
       let point = {
@@ -544,7 +567,7 @@ function newCanvas () {
         container = thisObject.strategySpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
-          container.eventHandler.raiseEvent('onMouseOver', point)
+          containerFound()
           return
         }
       }
@@ -555,7 +578,7 @@ function newCanvas () {
         container = thisObject.topSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
-          container.eventHandler.raiseEvent('onMouseOver', point)
+          containerFound()
           return
         }
       }
@@ -566,7 +589,7 @@ function newCanvas () {
         container = thisObject.bottomSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
-          container.eventHandler.raiseEvent('onMouseOver', point)
+          containerFound()
           return
         }
       }
@@ -577,19 +600,7 @@ function newCanvas () {
         container = thisObject.panelsSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
-          container.eventHandler.raiseEvent('onMouseOver', point)
-          return
-        }
-      }
-
-           /* We check if the mouse is over a floatingObject/ */
-      if (thisObject.floatingSpace !== undefined) {
-        let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y)
-
-        if (floatingObjectBeingClicked >= 0) {
-          let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingClicked)
-          floatingObject.eventHandler.raiseEvent('onMouseOver', point)
-
+          containerFound()
           return
         }
       }
@@ -600,9 +611,30 @@ function newCanvas () {
         container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
         if (container !== undefined && container.detectMouseOver === true) {
-          container.eventHandler.raiseEvent('onMouseOver', point)
+          containerFound()
           return
         }
+      }
+
+      /* We check if the mouse is over a floatingObject/ */
+      if (thisObject.floatingSpace !== undefined) {
+        container = thisObject.floatingSpace.getContainer(point)
+
+        if (container !== undefined && container.detectMouseOver === true) {
+          containerFound()
+          return
+        }
+      }
+
+      function containerFound () {
+        if (lastContainerMouseOver !== undefined) {
+          if (container.id !== lastContainerMouseOver.id) {
+            lastContainerMouseOver.eventHandler.raiseEvent('onMouseNotOver', point)
+          }
+        }
+
+        container.eventHandler.raiseEvent('onMouseOver', point)
+        lastContainerMouseOver = container
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] onMouseOver -> err = ' + err.stack) }
@@ -625,45 +657,46 @@ function newCanvas () {
       }
 
       event.mousePosition = point
+      let container
+      container = canvas.panelsSpace.getContainer({ x: point.x, y: point.y })
 
-      let panelContainer = canvas.panelsSpace.getContainer({ x: point.x, y: point.y })
-
-      if (panelContainer !== undefined && panelContainer.isWheelable === true) {
-        panelContainer.eventHandler.raiseEvent('Mouse Wheel', event)
-        return false  // This instructs the browser not to take the event and scroll the page.
-      }
-
-           /* We try second with floating objects. */
-
-      let floatingObjectIndex = canvas.floatingSpace.floatingLayer.isInside(point.x, point.y)
-
-      if (floatingObjectIndex > 0) {
-        canvas.floatingSpace.floatingLayer.changeTargetRepulsion(event.wheelDelta)
+      if (container !== undefined && container.isWheelable === true) {
+        container.eventHandler.raiseEvent('onMouseWheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
            /* We try the Bottom Space. */
 
-      let bottomContainer = canvas.bottomSpace.getContainer({ x: point.x, y: point.y })
+      container = canvas.bottomSpace.getContainer({ x: point.x, y: point.y })
 
-      if (bottomContainer !== undefined && bottomContainer.isWheelable === true) {
-        bottomContainer.eventHandler.raiseEvent('Mouse Wheel', event)
+      if (container !== undefined && container.isWheelable === true) {
+        container.eventHandler.raiseEvent('onMouseWheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
-           /* Finally we try the Chart Space. */
+          /*   Chart Space. */
 
-      let chartContainer = canvas.chartSpace.getContainer({ x: point.x, y: point.y }, GET_CONTAINER_PURPOSE.MOUSE_WHEEL)
-
-      if (chartContainer !== undefined && chartContainer.isWheelable === true) {
-        chartContainer.eventHandler.raiseEvent('Mouse Wheel', event)
+      container = canvas.chartSpace.getContainer({ x: point.x, y: point.y }, GET_CONTAINER_PURPOSE.MOUSE_WHEEL)
+      if (container !== undefined && container.isWheelable === true) {
+        container.eventHandler.raiseEvent('onMouseWheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
-      } else {
-               /* If all the above fails, we fallback into applying zoom to the viewPort */
+      }
 
+      if (container !== undefined) {
         viewPort.applyZoom(delta)
+        return false
+      }
+
+         /* We try second with floating objects. */
+
+      container = canvas.floatingSpace.getContainer({ x: point.x, y: point.y })
+
+      if (container !== undefined && container.isWheelable === true) {
+        container.eventHandler.raiseEvent('onMouseWheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       }
+
+      return false
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] onMouseWheel -> err = ' + err.stack) }
     }
@@ -671,8 +704,6 @@ function newCanvas () {
 
   function checkDrag (event) {
     try {
-      if (INTENSIVE_LOG === true) { logger.write('[INFO] checkDrag -> Entering function.') }
-
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
         let point = {
           x: event.pageX,
@@ -681,15 +712,6 @@ function newCanvas () {
 
         browserCanvas.style.cursor = 'grabbing'
         thisObject.eventHandler.raiseEvent('Dragging', undefined)
-
-        let targetFloatingObject = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y)
-
-        if (floatingObjectDragStarted) {
-          let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingDragged)
-
-          floatingObject.currentPosition.x = dragVector.upX
-          floatingObject.currentPosition.y = dragVector.upY
-        }
 
         if (containerDragStarted || viewPortBeingDragged) {
                    /* The parameters received have been captured with zoom applied. We must remove the zoom in order to correctly modify the displacement. */
@@ -721,8 +743,10 @@ function newCanvas () {
           }
 
           if (containerBeingDragged !== undefined) {
-            containerBeingDragged.frame.position.x = containerBeingDragged.frame.position.x + displaceVector.x
-            containerBeingDragged.frame.position.y = containerBeingDragged.frame.position.y + displaceVector.y
+            let moveSucceed = containerBeingDragged.displace(displaceVector)
+            if (moveSucceed === false) {
+              deactivateDragging(event)
+            }
           }
         }
 
@@ -736,3 +760,4 @@ function newCanvas () {
     }
   }
 }
+

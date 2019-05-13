@@ -19,6 +19,8 @@ function newFloatingObject () {
     rawMass: 0,                             // This is the mass value without zoom.
     rawRadius: 0,                           // This is the radius of this floating object without zoom.
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
+    isPinned: undefined,
+    pinToggle: pinToggle,
     physics: physics,
     initializeMass: initializeMass,
     initializeRadius: initializeRadius,
@@ -92,6 +94,15 @@ function newFloatingObject () {
       return thisObject.container
     } else {
       return undefined
+    }
+  }
+
+  function pinToggle () {
+    if (thisObject.isPinned !== true) {
+      thisObject.isPinned = true
+      thisObject.positionLocked = true
+    } else {
+      thisObject.isPinned = false
     }
   }
 
@@ -171,7 +182,9 @@ function newFloatingObject () {
 
       thisObject.payload.uiObject.container.eventHandler.raiseEvent('onNotFocus')
 
-      thisObject.positionLocked = false
+      if (thisObject.isPinned !== true) {
+        thisObject.positionLocked = false
+      }
       thisObject.isOnFocus = false
     }
   }

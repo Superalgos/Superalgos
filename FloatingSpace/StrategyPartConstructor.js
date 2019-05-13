@@ -39,7 +39,7 @@ function newStrategyPartConstructor () {
     let strategyPart = newStrategyPart()
     strategyPart.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
     strategyPart.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
-    let menuItemsInitialValues = getMenuItemsInitialValues(strategyPart, payload)
+    let menuItemsInitialValues = getMenuItemsInitialValues(strategyPart, floatingObject, payload)
     strategyPart.initialize(payload, menuItemsInitialValues)
     strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true)
     payload.uiObject = strategyPart
@@ -51,12 +51,24 @@ function newStrategyPartConstructor () {
     return
   }
 
-  function getMenuItemsInitialValues (strategyPart, payload) {
+  function getMenuItemsInitialValues (strategyPart, floatingObject, payload) {
     let menuItemsInitialValues = []
     switch (payload.node.type) {
       case 'Trading System': {
         strategyPart.imagePath = 'Images/icons/style-01/analysis.png'
         menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            label: undefined,
+            visible: false,
+            imagePathOn: 'Images/icons/style-01/target.png',
+            imagePathOff: 'Images/icons/style-01/target.png',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -120
+          },
           {
             action: 'Reload Trading System',
             actionFunction: payload.onMenuItemClick,

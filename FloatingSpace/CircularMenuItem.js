@@ -3,6 +3,7 @@ function newCircularMenuItem () {
   const MODULE_NAME = 'Circular Menu Iem'
 
   let thisObject = {
+    type: undefined,
     isDeployed: undefined,
     iconOn: undefined,
     iconOff: undefined,
@@ -37,7 +38,7 @@ function newCircularMenuItem () {
   thisObject.container.frame.radius = 0
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
-  thisObject.container.frame.width = 150
+  thisObject.container.frame.width = 0
   thisObject.container.frame.height = 30
 
   let isMouseOver = false
@@ -50,6 +51,8 @@ function newCircularMenuItem () {
   let defaultBackgroudColor = UI_COLOR.RED
   let backgroundColorToUse = UI_COLOR.RED
   let temporaryStatus = 0
+
+  const EXTRA_MOUSE_OVER_ICON_SIZE = 2
   return thisObject
 
   function finalize () {
@@ -87,6 +90,12 @@ function newCircularMenuItem () {
     selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
     selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+
+    if (thisObject.type === 'Icon & Text') {
+      thisObject.container.frame.width = 150
+    } else {
+      thisObject.container.frame.width = 50
+    }
   }
 
   function getContainer (point) {
@@ -101,11 +110,13 @@ function newCircularMenuItem () {
   }
 
   function physics () {
-    if (Math.abs(thisObject.currentRadius - thisObject.targetRadius) >= 0.5) {
+    const INCREASE_STEP = 0.25
+
+    if (Math.abs(thisObject.currentRadius - thisObject.targetRadius) >= INCREASE_STEP) {
       if (thisObject.currentRadius < thisObject.targetRadius) {
-        thisObject.currentRadius = thisObject.currentRadius + 0.5
+        thisObject.currentRadius = thisObject.currentRadius + INCREASE_STEP
       } else {
-        thisObject.currentRadius = thisObject.currentRadius - 0.5
+        thisObject.currentRadius = thisObject.currentRadius - INCREASE_STEP
       }
     }
 
@@ -162,22 +173,24 @@ function newCircularMenuItem () {
 
   function drawBackground () {
     if (thisObject.container.frame.position.x > 0 && thisObject.isDeployed === true && thisObject.currentRadius >= thisObject.targetRadius) {
-      let params = {
-        cornerRadius: 3,
-        lineWidth: 0.1,
-        container: thisObject.container,
-        borderColor: UI_COLOR.DARK,
-        backgroundColor: backgroundColorToUse,
-        castShadow: false
-      }
+      if (thisObject.type === 'Icon & Text') {
+        let params = {
+          cornerRadius: 3,
+          lineWidth: 0.1,
+          container: thisObject.container,
+          borderColor: UI_COLOR.DARK,
+          backgroundColor: backgroundColorToUse,
+          castShadow: false
+        }
 
-      if (isMouseOver === true) {
-        params.opacity = 1
-      } else {
-        params.opacity = 0.8
-      }
+        if (isMouseOver === true) {
+          params.opacity = 1
+        } else {
+          params.opacity = 0.8
+        }
 
-      roundedCornersBackground(params)
+        roundedCornersBackground(params)
+      }
     }
   }
 
@@ -191,26 +204,36 @@ function newCircularMenuItem () {
 
         /* Menu  Item */
 
+    let iconSize
+    if (isMouseOver === true) {
+      iconSize = thisObject.currentRadius + EXTRA_MOUSE_OVER_ICON_SIZE
+    } else {
+      iconSize = thisObject.currentRadius
+    }
+
     if (thisObject.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
-      browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - thisObject.currentRadius, menuPosition.y - thisObject.currentRadius, thisObject.currentRadius * 2, thisObject.currentRadius * 2)
+      browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)
 
         /* Menu Label */
 
-      let labelPoint
-      let fontSize = 10
-
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
-      if (thisObject.currentRadius >= thisObject.targetRadius) {
-        labelPoint = {
-          x: menuPosition.x + thisObject.currentRadius + 10,
-          y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
-        }
+      if (thisObject.type === 'Icon & Text') {
+        let labelPoint
+        let fontSize = 10
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-        browserCanvasContext.fillText(labelToPrint, labelPoint.x, labelPoint.y)
+
+        if (thisObject.currentRadius >= thisObject.targetRadius) {
+          labelPoint = {
+            x: menuPosition.x + thisObject.currentRadius + 10,
+            y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
+          }
+
+          browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+          browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+          browserCanvasContext.fillText(labelToPrint, labelPoint.x, labelPoint.y)
+        }
       }
     }
   }
 }
+

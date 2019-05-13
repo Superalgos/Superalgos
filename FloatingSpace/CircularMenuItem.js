@@ -7,6 +7,7 @@ function newCircularMenuItem () {
     isDeployed: undefined,
     iconOn: undefined,
     iconOff: undefined,
+    currentIcon: undefined,
     action: undefined,
     actionFunction: undefined,
     label: undefined,
@@ -64,6 +65,7 @@ function newCircularMenuItem () {
     thisObject.container = undefined
     thisObject.iconOn = undefined
     thisObject.iconOff = undefined
+    thisObject.currentIcon = undefined
     thisObject.payload = undefined
     thisObject.actionFunction = undefined
   }
@@ -73,19 +75,26 @@ function newCircularMenuItem () {
     /* Load Menu Images */
 
     thisObject.iconOn = new Image()
-    thisObject.iconOn.onload = onImageLoad
+    thisObject.iconOn.onload = onOnImageLoad
 
-    function onImageLoad () {
-      thisObject.iconOff = new Image()
-      thisObject.iconOff.onload = onImageLoad
+    function onOnImageLoad () {
+      if (thisObject.imagePathOff !== undefined) {
+        thisObject.iconOff = new Image()
+        thisObject.iconOff.onload = onOffImageLoad
 
-      function onImageLoad () {
-        thisObject.canDrawIcon = true
+        function onOffImageLoad () {
+          thisObject.canDrawIcon = true
+        }
+        thisObject.iconOff.src = window.canvasApp.urlPrefix + thisObject.imagePathOff
       }
-      thisObject.iconOff.src = window.canvasApp.urlPrefix + thisObject.imagePathOff
     }
     thisObject.iconOn.src = window.canvasApp.urlPrefix + thisObject.imagePathOn
-    thisObject.icon = thisObject.iconOn // The default value is ON.
+
+    if (thisObject.currentStatus === true) {
+      thisObject.icon = thisObject.iconOn
+    } else {
+      thisObject.icon = thisObject.iconOff
+    }
 
     selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
@@ -123,6 +132,8 @@ function newCircularMenuItem () {
     thisObject.container.frame.position.x = thisObject.container.frame.radius * 3 / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
     thisObject.container.frame.position.y = thisObject.container.frame.radius * 3 / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
 
+    /* Temporary Status impacts on the label to use and the background of that label */
+
     temporaryStatus--
     if (temporaryStatus < 0) {
       temporaryStatus = 0
@@ -130,6 +141,14 @@ function newCircularMenuItem () {
     if (temporaryStatus === 0) {
       labelToPrint = thisObject.label
       backgroundColorToUse = defaultBackgroudColor
+    }
+
+    /* Current Status sets the icon to be used */
+
+    if (thisObject.currentStatus === true) {
+      thisObject.icon = thisObject.iconOn
+    } else {
+      thisObject.icon = thisObject.iconOff
     }
   }
 
@@ -151,9 +170,9 @@ function newCircularMenuItem () {
         setTemporaryStatus(thisObject.workingLabel, UI_COLOR.GREY, 500)
       }
 
-      let result = await thisObject.actionFunction(thisObject.payload, thisObject.action)
+      thisObject.currentStatus = await thisObject.actionFunction(thisObject.payload, thisObject.action)
 
-      if (result === true) {
+      if (thisObject.currentStatus === true) {
         if (thisObject.workDoneLabel !== undefined) {
           setTemporaryStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 250)
         }
@@ -236,4 +255,3 @@ function newCircularMenuItem () {
     }
   }
 }
-

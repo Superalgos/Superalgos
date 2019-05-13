@@ -19,7 +19,7 @@ UI_COLOR = {
     DARK: "48, 48, 54",
     LIGHT: "234, 226, 222",
     GREY: "150, 150, 150",
-    LIGHT_GREY: "247, 247, 247",    
+    LIGHT_GREY: "247, 247, 247",
     WHITE: "255, 255, 255",
     BLACK: "0, 0, 0",
     GOLDEN_ORANGE: "240, 162, 2",
@@ -121,8 +121,8 @@ function convertTimePeriodToName(pTimePeriod) {
 window.AT_BREAKPOINT = false;
 
 
-const LOGGED_IN_USER_LOCAL_STORAGE = "xuser"
-const LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE =  "xaccess_token"
+const LOGGED_IN_USER_LOCAL_STORAGE = "user"
+const LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE =  "access_token"
 
 const USDT_BTC_HTH = 19900; // This is needed to know the scale of the market time line.
 
@@ -167,7 +167,7 @@ const BOTTOM_SPACE_HEIGHT = 35;
 const BREAKPOINT_HEIGHT = 15;
 const SIDE_PANEL_WIDTH = 450
 let BOTTOM_SPACE_POSITION = browserCanvas.height - BOTTOM_SPACE_HEIGHT
-  
+
 const PRODUCT_CARD_STATUS = {
     ON: 'on',
     LOADING: 'loading',

@@ -38,7 +38,7 @@ function newAppLoader() {
                 "TopSpace/EndUser.js",
                 "TopSpace/Login.js",
 
-                "StrategySpace/TradingSystemWorkspace.js", 
+                "StrategySpace/Workspace.js", 
                 "StrategySpace/TradingSystem.js", 
                 "StrategySpace/ConstGetStrategies.js", 
                 "StrategySpace/ConstNewStrategy.js", 

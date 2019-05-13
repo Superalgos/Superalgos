@@ -33,29 +33,10 @@ exports.newCopySimulator = function newCopySimulator(pStorage) {
             parsedConfig.devTeam = pTeamCodeName
             parsedConfig.profilePicture = pBotCodeName + ".png"
 
-            let statusDependencyMarket = {
-                devTeam: pTeamCodeName,
-                bot: botCodeName,
-                botVersion: {
-                    "major": 1,
-                    "minor": 0
-                },
-                process: "Multi-Period-Market",
-                dataSetVersion: "dataSet.V1"
-            }
-            parsedConfig.processes[0].statusDependencies.push(statusDependencyMarket)
-
-            let statusDependencyDaily = {
-                devTeam: pTeamCodeName,
-                bot: botCodeName,
-                botVersion: {
-                    "major": 1,
-                    "minor": 0
-                },
-                process: "Multi-Period-Daily",
-                dataSetVersion: "dataSet.V1"
-            }
-            parsedConfig.processes[1].statusDependencies.push(statusDependencyDaily)
+            parsedConfig.processes[0].statusDependencies[0].devTeam = pTeamCodeName
+            parsedConfig.processes[0].statusDependencies[0].bot = botCodeName
+            parsedConfig.processes[1].statusDependencies[2].devTeam = pTeamCodeName
+            parsedConfig.processes[1].statusDependencies[2].bot = botCodeName
 
             //Changing Indicator Output
             parsedConfig.products[0].storageAccount = pTeamCodeName

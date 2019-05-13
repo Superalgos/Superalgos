@@ -45,6 +45,35 @@ function loadAdvancedAlgosPlatform() {
 
     /* The first thing to do here is to add the canvas where all the action is going to happen. */
 
+
+    let textArea = document.createElement('textarea');
+    textArea.id = "textArea";
+    textArea.spellcheck = false;
+    textArea.style = 'resize: none;' +
+        ' border: none;' +
+        ' outline: none;' +
+        'box-shadow: none;' +
+        'overflow:hidden;' +
+        'font-family: ' + 'Saira' + ';' +
+        'font-size: 12px;' +
+        'background-color: rgb(255, 255, 255);' +
+        'color:rgb(255, 255, 255);' +
+        'width: ' + 800 + 'px;' +
+        'height: ' + 600 + 'px'
+
+    let textAreaDiv = document.getElementById('textAreaDiv');
+    textAreaDiv.appendChild(textArea);
+    textAreaDiv.style = 'position:fixed; top:' + -1500 + 'px; left:' + 500 + 'px; z-index:10; '
+
+    let input = document.createElement('input');
+    input.id = "input";
+    input.spellcheck = false;
+    input.style = "border: none; outline: none; box-shadow: none; overflow:hidden;  width: 0px; height: 0px;";
+
+    let inputDiv = document.getElementById('inputDiv');
+    inputDiv.appendChild(input);
+
+
     let canvas = document.createElement('canvas');
 
     canvas.id = "canvas";
@@ -63,6 +92,8 @@ function loadAdvancedAlgosPlatform() {
     browserCanvas.style.border = "none";
 
     browserCanvas.style.top = window.canvasApp.topMargin + 'px';
+
+
 
     loadDebugModule();
 

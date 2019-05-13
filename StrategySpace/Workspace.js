@@ -97,11 +97,9 @@ function newWorkspace () {
         })
       }
 
-      let fetchDataPromises = []
+      let result = await updateStrategies()
 
-      fetchDataPromises.push(updateStrategies())
-
-      await Promise.all(fetchDataPromises)
+      return result
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> err = ' + err.stack) }
     }

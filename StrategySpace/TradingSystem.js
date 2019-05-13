@@ -248,8 +248,8 @@ function newTradingSystem () {
     switch (action) {
       case 'Save Trading System':
         {
-          await canvas.strategySpace.workplace.saveToStrategyzer()
-
+          let result = await canvas.strategySpace.workplace.saveToStrategyzer()
+          return result
           break
         }
 

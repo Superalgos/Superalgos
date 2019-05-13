@@ -133,19 +133,21 @@ function newCircularMenuItem () {
 
   async function onMouseClick (event) {
     if (temporaryStatus === 0) {
-      setTemporaryStatus('Saving...', UI_COLOR.GREY)
-      await thisObject.actionFunction(thisObject.payload, thisObject.action).then(result => {
-        setTemporaryStatus('Saved', UI_COLOR.PATINATED_TURQUOISE)
-      }, err => {
-        setTemporaryStatus('Not Saved', UI_COLOR.TITANIUM_YELLOW)
-      })
+      setTemporaryStatus('Saving...', UI_COLOR.GREY, 500)
+      let result = await thisObject.actionFunction(thisObject.payload, thisObject.action)
+
+      if (result === true) {
+        setTemporaryStatus('Saved', UI_COLOR.PATINATED_TURQUOISE, 250)
+      } else {
+        setTemporaryStatus('Not Saved', UI_COLOR.TITANIUM_YELLOW, 500)
+      }
     }
   }
 
-  function setTemporaryStatus (text, backgroundColor) {
+  function setTemporaryStatus (text, backgroundColor, waitingCycles) {
     labelToPrint = text
     backgroundColorToUse = backgroundColor
-    temporaryStatus = 500
+    temporaryStatus = waitingCycles
   }
 
   function drawBackground () {
@@ -202,4 +204,3 @@ function newCircularMenuItem () {
     }
   }
 }
-

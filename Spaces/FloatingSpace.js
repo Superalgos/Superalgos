@@ -66,8 +66,6 @@ function newFloatingSpace () {
   function fitIntoVisibleArea (point) {
       /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
 
-    const RED_LINE = 5
-
     let returnPoint = {
       x: point.x,
       y: point.y
@@ -81,8 +79,8 @@ function newFloatingSpace () {
       returnPoint.x = 0
     }
 
-    if (point.y < BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT + RED_LINE) {
-      returnPoint.y = BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT + RED_LINE
+    if (point.y < BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT) {
+      returnPoint.y = BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT
     }
 
     if (point.y > browserCanvas.height) {
@@ -93,8 +91,6 @@ function newFloatingSpace () {
   }
 
   function isThisPointVisible (point) {
-    const RED_LINE = 5
-
     if (point.x > browserCanvas.width) {
       return false
     }
@@ -103,7 +99,7 @@ function newFloatingSpace () {
       return false
     }
 
-    if (point.y < BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT + RED_LINE) {
+    if (point.y < BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT) {
       return false
     }
 

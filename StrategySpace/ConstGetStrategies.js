@@ -5,6 +5,7 @@ const GRAPHQL_QUERY_GET_STRATEGIES = Apollo.gql`
               id
               subStrategies(activeOnly: true){
                   name
+                  active
                   entryPoint{
                   situations{
                       name

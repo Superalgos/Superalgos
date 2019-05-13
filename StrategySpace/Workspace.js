@@ -88,7 +88,7 @@ function newWorkspace () {
             }
           })
                   .then(response => {
-                    console.log('FUNCO!!')
+                    console.log('Strategies Saved')
                     resolve(true)
                   })
                   .catch(err => {
@@ -105,7 +105,7 @@ function newWorkspace () {
 
           // When all asynchronous fetches resolve, authenticate user or throw error.
       await Promise.all(fetchDataPromises).then(result => {
-        console.log('parece que anda??')
+
       }, err => {
         if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> GraphQL Fetch Error -> err = ' + err.stack) }
       })
@@ -127,6 +127,7 @@ function newWorkspace () {
       let workspaceStrategy = thisObject.tradingSystem.protocolData.strategies[m]
       let strategy = {
         name: workspaceStrategy.name,
+        active: workspaceStrategy.active,
         entryPoint: {
           situations: []
         },

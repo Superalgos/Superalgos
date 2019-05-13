@@ -126,6 +126,7 @@ function newWorkspace () {
     for (m = 0; m < thisObject.tradingSystem.protocolData.strategies.length; m++) {
       let workspaceStrategy = thisObject.tradingSystem.protocolData.strategies[m]
       let strategy = {
+        name: workspaceStrategy.name,
         entryPoint: {
           situations: []
         },

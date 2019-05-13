@@ -42,6 +42,11 @@ function newCircularMenuItem () {
   let selfMouseOverEventSubscriptionId
   let selfMouseClickEventSubscriptionId
   let selfMouseNotOverEventSubscriptionId
+
+  let labelToPrint = ''
+  let defaultBackgroudColor = UI_COLOR.RED
+  let backgroundColorToUse = UI_COLOR.RED
+  let temporaryStatus = 0
   return thisObject
 
   function finalize () {
@@ -103,6 +108,15 @@ function newCircularMenuItem () {
 
     thisObject.container.frame.position.x = thisObject.container.frame.radius * 3 / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
     thisObject.container.frame.position.y = thisObject.container.frame.radius * 3 / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
+
+    temporaryStatus--
+    if (temporaryStatus < 0) {
+      temporaryStatus = 0
+    }
+    if (temporaryStatus === 0) {
+      labelToPrint = thisObject.label
+      backgroundColorToUse = defaultBackgroudColor
+    }
   }
 
   function onMouseOver (point) {
@@ -117,8 +131,21 @@ function newCircularMenuItem () {
     isMouseOver = false
   }
 
-  function onMouseClick (event) {
-    thisObject.actionFunction(thisObject.payload, thisObject.action)
+  async function onMouseClick (event) {
+    if (temporaryStatus === 0) {
+      setTemporaryStatus('Saving...', UI_COLOR.GREY)
+      await thisObject.actionFunction(thisObject.payload, thisObject.action).then(result => {
+        setTemporaryStatus('Saved', UI_COLOR.PATINATED_TURQUOISE)
+      }, err => {
+        setTemporaryStatus('Not Saved', UI_COLOR.TITANIUM_YELLOW)
+      })
+    }
+  }
+
+  function setTemporaryStatus (text, backgroundColor) {
+    labelToPrint = text
+    backgroundColorToUse = backgroundColor
+    temporaryStatus = 500
   }
 
   function drawBackground () {
@@ -128,7 +155,7 @@ function newCircularMenuItem () {
         lineWidth: 0.1,
         container: thisObject.container,
         borderColor: UI_COLOR.DARK,
-        backgroundColor: UI_COLOR.RED,
+        backgroundColor: backgroundColorToUse,
         castShadow: false
       }
 
@@ -162,7 +189,7 @@ function newCircularMenuItem () {
 
       browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
-      if (thisObject.label !== undefined && thisObject.currentRadius >= thisObject.targetRadius) {
+      if (thisObject.currentRadius >= thisObject.targetRadius) {
         labelPoint = {
           x: menuPosition.x + thisObject.currentRadius + 10,
           y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
@@ -170,8 +197,9 @@ function newCircularMenuItem () {
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-        browserCanvasContext.fillText(thisObject.label, labelPoint.x, labelPoint.y)
+        browserCanvasContext.fillText(labelToPrint, labelPoint.x, labelPoint.y)
       }
     }
   }
 }
+

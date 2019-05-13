@@ -247,9 +247,12 @@ function newTradingSystem () {
   async function onMenuItemClick (payload, action) {
     switch (action) {
       case 'Save Trading System':
-        let wasSaved
-        await canvas.strategySpace.workplace.saveToStrategyzer()
-        break
+        {
+          await canvas.strategySpace.workplace.saveToStrategyzer()
+
+          break
+        }
+
       case 'Open Settings':
 
         break

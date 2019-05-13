@@ -88,7 +88,6 @@ function newWorkspace () {
             }
           })
                   .then(response => {
-                    console.log('Strategies Saved')
                     resolve(true)
                   })
                   .catch(err => {
@@ -98,17 +97,11 @@ function newWorkspace () {
         })
       }
 
-          // To avoid race conditions, add asynchronous fetches to array
       let fetchDataPromises = []
 
       fetchDataPromises.push(updateStrategies())
 
-          // When all asynchronous fetches resolve, authenticate user or throw error.
-      await Promise.all(fetchDataPromises).then(result => {
-
-      }, err => {
-        if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> GraphQL Fetch Error -> err = ' + err.stack) }
-      })
+      await Promise.all(fetchDataPromises)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> err = ' + err.stack) }
     }
@@ -257,7 +250,6 @@ function newWorkspace () {
       dataToSave.strategy.subStrategies.push(strategy)
     }
 
-    console.log(dataToSave)
     return dataToSave
   }
 

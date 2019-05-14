@@ -1,17 +1,14 @@
 
  function newCockpitSpace () {
    const MODULE_NAME = 'CockpitSpace'
-   const ERROR_LOG = true
 
    let thisObject = {
      container: undefined,
      status: 'BOTTOM',
+     assetBalances: undefined,
      draw: draw,
      physics: physics,
-     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-     createNewControl: createNewControl,
-     destroyControl: destroyControl,
-     getControl: getControl,
+     getContainer: getContainer,
      finalize: finalize,
      initialize: initialize
    }
@@ -36,15 +33,19 @@
 
      thisObject.container.finalize()
      thisObject.container = undefined
+     thisObject.assetBalances = undefined
    }
 
    function initialize () {
      canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
      selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+
+     thisObject.assetBalances = newAssetBalances()
+     thisObject.assetBalances.initialize()
    }
 
    function onMouseClick (event) {
-     // canvas.strategySpace.tradingSystemWorkspace.showUp()
+
    }
 
    function resize () {
@@ -87,71 +88,12 @@
      viewPort.resize()
    }
 
-   function createNewControl (pType, pDrawFunction, pOwner) {
-     let control
-
-     switch (pType) {
-
-       case 'Over The Line':
-         {
-           control = newUIControl()
-           control.initialize()
-           control.drawFunction = pDrawFunction
-           break
-         }
-     }
-
-     let controlArray = controlsMap.get(pOwner)
-     if (controlArray === undefined) {
-       controlArray = []
-       controlsMap.set(pOwner, controlArray)
-     }
-
-     controlArray.push(control)
-
-     control.handle = Math.floor((Math.random() * 10000000) + 1)
-
-     return control.handle
-   }
-
-   function destroyControl (pControlHandle) {
-     thisObject.controls = controlsMap.get('Global')
-     if (thisObject.controls !== undefined) {
-       for (let i = 0; i < thisObject.controls.length; i++) {
-         let control = thisObject.controls[i]
-         if (control.handle === pControlHandle) {
-           thisObject.controls.splice(i, 1)  // Delete item from array.
-           return
-         }
-       }
-     }
-
-     thisObject.controls = controlsMap.get(window.CHART_ON_FOCUS)
-     if (thisObject.controls !== undefined) {
-       for (let i = 0; i < thisObject.controls.length; i++) {
-         let control = thisObject.controls[i]
-         if (control.handle === pControlHandle) {
-           thisObject.controls.splice(i, 1)  // Delete item from array.
-           return
-         }
-       }
-     }
-   }
-
-   function getControl (pControlHandle, pOwner) {
-     thisObject.controls = controlsMap.get(pOwner)
-     if (thisObject.controls != undefined) {
-       for (let i = 0; i < thisObject.controls.length; i++) {
-         let control = thisObject.controls[i]
-
-         if (control.handle === pControlHandle) {
-           return control
-         }
-       }
-     }
-   }
-
    function getContainer (point) {
+     let container = thisObject.assetBalances.getContainer(point)
+     if (container !== undefined) {
+       return container
+     }
+
      if (thisObject.container.frame.isThisPointHere(point, true) === true) {
        return thisObject.container
      } else {
@@ -164,21 +106,7 @@
 
      drawBackground()
 
-     thisObject.controls = controlsMap.get('Global')
-     if (thisObject.controls !== undefined) {
-       for (let i = 0; i < thisObject.controls.length; i++) {
-         let control = thisObject.controls[i]
-         control.draw()
-       }
-     }
-
-     thisObject.controls = controlsMap.get(window.CHART_ON_FOCUS)
-     if (thisObject.controls !== undefined) {
-       for (let i = 0; i < thisObject.controls.length; i++) {
-         let control = thisObject.controls[i]
-         control.draw()
-       }
-     }
+     thisObject.assetBalances.draw()
    }
 
    function drawBackground () {

@@ -255,6 +255,9 @@ function newProductsPanel () {
   }
 
   function isUserTeam(team, userTeams){
+    if(userTeams === undefined)
+      return false
+
     for (let index = 0; index < userTeams.length; index++) {
       if(team === userTeams[index].slug){
         return true

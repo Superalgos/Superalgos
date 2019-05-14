@@ -74,21 +74,8 @@ function newCircularMenuItem () {
     thisObject.payload = pPayload
     /* Load Menu Images */
 
-    thisObject.iconOn = new Image()
-    thisObject.iconOn.onload = onOnImageLoad
-
-    function onOnImageLoad () {
-      if (thisObject.imagePathOff !== undefined) {
-        thisObject.iconOff = new Image()
-        thisObject.iconOff.onload = onOffImageLoad
-
-        function onOffImageLoad () {
-          thisObject.canDrawIcon = true
-        }
-        thisObject.iconOff.src = window.canvasApp.urlPrefix + thisObject.imagePathOff
-      }
-    }
-    thisObject.iconOn.src = window.canvasApp.urlPrefix + thisObject.imagePathOn
+    thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.imagePathOn)
+    thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.imagePathOff)
 
     if (thisObject.currentStatus === true) {
       thisObject.icon = thisObject.iconOn

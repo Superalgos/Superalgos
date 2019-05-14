@@ -57,7 +57,6 @@ function newStrategyPartConstructor () {
       case 'Trading System': {
         floatingObject.isPinned = true
         floatingObject.positionLocked = true
-        strategyPart.imagePath = 'Images/Icons/style-01/analysis.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -126,7 +125,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Strategy': {
-        strategyPart.imagePath = 'Images/Icons/style-01/quality.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -168,7 +166,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Strategy Entry Event': {
-        strategyPart.imagePath = 'Images/Icons/style-01/startup.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -198,7 +195,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Strategy Exit Event': {
-        strategyPart.imagePath = 'Images/Icons/style-01/support.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -228,7 +224,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Trade Entry Event': {
-        strategyPart.imagePath = 'Images/Icons/style-01/compass.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -258,7 +253,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Stop': {
-        strategyPart.imagePath = 'Images/Icons/style-01/pixel.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -288,7 +282,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Take Profit': {
-        strategyPart.imagePath = 'Images/Icons/style-01/competition.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -318,7 +311,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Phase': {
-        strategyPart.imagePath = 'Images/Icons/style-01/placeholder.png'
         strategyPart.codeEditor = newCodeEditor()
         strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
         strategyPart.codeEditor.initialize()
@@ -377,7 +369,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Situation': {
-        strategyPart.imagePath = 'Images/Icons/style-01/attractive.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -419,7 +410,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Condition': {
-        strategyPart.imagePath = 'Images/Icons/style-01/testing.png'
         strategyPart.codeEditor = newCodeEditor()
         strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
         strategyPart.codeEditor.initialize()

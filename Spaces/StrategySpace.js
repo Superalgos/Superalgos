@@ -5,6 +5,8 @@ function newStrategySpace () {
     sidePanel: undefined,
     workplace: undefined,
     container: undefined,
+    iconCollection: undefined,
+    iconByPartType: undefined,
     draw: draw,
     getContainer: getContainer,
     makeVisible: makeVisible,
@@ -18,18 +20,40 @@ function newStrategySpace () {
 
   container.isDraggeable = false
 
+  thisObject.iconCollection = new Map()
+  thisObject.iconByPartType = new Map()
+
   return thisObject
 
   async function initialize () {
-    // thisObject.sidePanel = newSidePanel()
-    // thisObject.sidePanel.initialize()
-
     thisObject.workplace = newWorkspace()
-    // thisObject.workplace.container.connectToParent(thisObject.sidePanel.container, true, true)
+
     thisObject.workplace.initialize()
     await thisObject.workplace.loadFromStrategyzer()
 
-    // thisObject.sidePanel.areas.push(thisObject.workplace)
+    loadIconCollection()
+    buildIconByPartTypeMap()
+  }
+
+  function buildIconByPartTypeMap () {
+    const relationshipArray = [
+      ['Trading System', 'analysis'],
+      ['Strategy', 'quality'],
+      ['Strategy Entry Event', 'startup'],
+      ['Strategy Exit Event', 'support'],
+      ['Trade Entry Event', 'compass'],
+      ['Stop', 'pixel'],
+      ['Take Profit', 'competition'],
+      ['Phase', 'placeholder'],
+      ['Situation', 'attractive'],
+      ['Condition', 'testing']
+    ]
+
+    for (let i = 0; i < relationshipArray.length; i++) {
+      let record = relationshipArray[i]
+      let icon = thisObject.iconCollection.get(record[1])
+      thisObject.iconByPartType.set(record[0], icon)
+    }
   }
 
   function loadIconCollection () {
@@ -86,6 +110,24 @@ function newStrategySpace () {
       'vector',
       'video-player'
     ]
+
+    for (let i = 0; i < iconsNames.length; i++) {
+      let name = iconsNames[i]
+      loadImage(name)
+    }
+
+    function loadImage (name) {
+      const PATH = 'Images/Icons/style-01/'
+      let image = new Image()
+      image.onload = onImageLoad
+      image.fileName = name
+
+      function onImageLoad () {
+        image.canDrawIcon = true
+      }
+      image.src = window.canvasApp.urlPrefix + PATH + name + '.png'
+      thisObject.iconCollection.set(name, image)
+    }
   }
 
   function makeVisible () {

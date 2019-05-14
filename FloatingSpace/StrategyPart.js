@@ -34,8 +34,7 @@ function newStrategyPart () {
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
 
-  let image
-  let imagePath
+  let icon
 
   let selfFocusEventSubscriptionId
   let selfNotFocuskEventSubscriptionId
@@ -63,8 +62,7 @@ function newStrategyPart () {
       thisObject.codeEditor = undefined
     }
 
-    image = undefined
-    imagePath = undefined
+    icon = undefined
   }
 
   function initialize (payload, menuItemsInitialValues) {
@@ -85,15 +83,7 @@ function newStrategyPart () {
 
 /* Load Part Image */
 
-    if (thisObject.imagePath !== undefined) {
-      image = new Image()
-      image.onload = onImageLoad
-
-      function onImageLoad () {
-        image.canDrawIcon = true
-      }
-      image.src = window.canvasApp.urlPrefix + thisObject.imagePath
-    }
+    icon = canvas.strategySpace.iconByPartType.get(payload.node.type)
 
     selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
     selfNotFocuskEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
@@ -360,10 +350,10 @@ function newStrategyPart () {
 
         /* Image */
 
-    if (image !== undefined) {
-      if (image.canDrawIcon === true) {
+    if (icon !== undefined) {
+      if (icon.canDrawIcon === true) {
         browserCanvasContext.drawImage(
-          image, position.x - thisObject.payload.floatingObject.currentImageSize / 2,
+          icon, position.x - thisObject.payload.floatingObject.currentImageSize / 2,
           position.y - thisObject.payload.floatingObject.currentImageSize / 2,
           thisObject.payload.floatingObject.currentImageSize,
           thisObject.payload.floatingObject.currentImageSize)

@@ -58,10 +58,6 @@ async function run () {
     'events_',
     process.env.EVENTS_API_URL,
     process.env.EVENTS_API_PRESHARED)
-  const transformedFinancialBeingsSchema = await createTransformedRemoteSchema(
-    'financialBeings_',
-    process.env.FINANCIAL_BEINGS_API_URL,
-    process.env.FINANCIAL_BEINGS_API_PRESHARED)
   const transformedOperationsSchema = await createTransformedRemoteSchema(
     'operations_',
     process.env.OPERATIONS_API_URL,
@@ -74,10 +70,6 @@ async function run () {
     'logs_',
     process.env.LOGS_API_URL,
     process.env.LOGS_API_PRESHARED)
-  // const transformedMinersSchema = await createTransformedRemoteSchema(
-  //     'miners_',
-  //     process.env.MINERS_API_URL,
-  //     process.env.MINERS_PRESHARED)
   const transformeStrategizerSchema = await createTransformedRemoteSchema(
     'strategizer_',
     process.env.STRATEGIZER_API_URL,
@@ -109,9 +101,6 @@ async function run () {
   }
   if (transformedKeyVaultSchema) {
     schemas.push(transformedKeyVaultSchema)
-  }
-  if (transformedFinancialBeingsSchema) {
-    schemas.push(transformedFinancialBeingsSchema)
   }
   if (transformedOperationsSchema) {
     schemas.push(transformedOperationsSchema)

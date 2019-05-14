@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
 import withWidth from '@material-ui/core/withWidth'
+import { NotListedLocation as TutorialIcon } from '@material-ui/icons'
 
 // components
 import { LoggedIn } from './LoggedIn'
@@ -113,6 +114,9 @@ class Header extends Component {
             <nav className={mobileOpen ? 'links openedMobile' : 'links'}>
               <ul className='primaryMenu'>
                 <li className='primaryLink'>
+                  <Link to='/'><TutorialIcon className='tutorialIcon' /></Link>
+                </li>
+                <li className='primaryLink'>
                   <Link to='/charts'> Charts </Link>
                 </li>
                 {menus}
@@ -145,7 +149,7 @@ class Header extends Component {
     )
   }
 
-  renderSubMenu(Icon, to, title, submenus, authenticated, index, bigScreen) {
+  renderSubMenu (Icon, to, title, submenus, authenticated, index, bigScreen) {
     return submenus.length === 0 ? null : (
       <ul className='subMenu'>
         { bigScreen

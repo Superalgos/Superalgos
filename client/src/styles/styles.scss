@@ -63,6 +63,10 @@ body{
     background-color: #737272;
     border: 1px solid #000;
   }
+  pre {
+    white-space: pre-wrap;
+    margin: 0;
+  }
 }
 
 .container{
@@ -271,8 +275,8 @@ header.menu{
             position: relative;
             padding-top: ( $height-nav-bar - $text-height ) / 2;
             padding-bottom: ( $height-nav-bar - $text-height ) / 2;
-            padding-right: 14px;
-            padding-left: 14px;
+            padding-left: 10px;
+            padding-right: 10px;
             &.hasChildren{
               &:after{
                 content: '';
@@ -299,6 +303,10 @@ header.menu{
               }
               svg{
                 padding-top: 10px;
+                margin-bottom: -2px; 
+                &.tutorialIcon {
+                  padding-top: 0px;
+                }
               }
             }
             ul.subMenu{
@@ -347,6 +355,12 @@ header.menu{
       display: block;
       top: 42%;
     }
+    &.landing {
+      .caption{
+        display: block;
+        top: 25%;
+      }
+    }
   }
   &.medium{
     height: 50vh;
@@ -371,10 +385,24 @@ header.menu{
       color: white;
       line-height: 30px;
       font-weight: 600;
-      padding: 20px 0 0.5em 0;
+      padding: 2em 20% 0.5em;
       @include fluid-type($break-xs, $break-lg, 18px, 20px);
     }
     .instructions{
+      h4{
+        color: white;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        font-size: 1.6em;
+        a {
+          color: white;
+          text-decoration: none;
+          font-size: 0.9em;
+          &:hover {
+            color: #f55858;
+          }
+        }
+      }
       h5{
         color: white;
         margin-top:25px;

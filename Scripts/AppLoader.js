@@ -51,7 +51,7 @@ function newAppLoader () {
         'ControlsToolBox/SidePanel.js',
         'ControlsToolBox/SidePanelTab.js',
 
-        'Spaces/BottomSpace.js',
+        'Spaces/CockpitSpace.js',
         'Spaces/TopSpace.js',
         'Spaces/PanelsSpace.js',
         'Spaces/ChartSpace.js',
@@ -90,7 +90,8 @@ function newAppLoader () {
         'ChartsSpace/ViewPort.js',
         'ChartsSpace/TimeLineCoordinateSystem.js',
 
-        'BottomSpace/UIControl.js',
+        'CockpitSpace/AssetBalances.js',
+        'CockpitSpace/Speedometer.js',
 
         'Plotter.js',
         'PlotterPanel.js',

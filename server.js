@@ -455,9 +455,9 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'BottomSpace': // This means the BottomSpace folder.
+    case 'CockpitSpace': // This means the CockpitSpace folder.
       {
-        respondWithFile(serverConfig.pathToCanvasApp + '/BottomSpace/' + requestParameters[2], response)
+        respondWithFile(serverConfig.pathToCanvasApp + '/CockpitSpace/' + requestParameters[2], response)
       }
       break
 

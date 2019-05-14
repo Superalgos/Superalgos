@@ -14,3 +14,4 @@ this.server.config.dev.json
 
 /.nyc_output
 /coverage
+debug.log

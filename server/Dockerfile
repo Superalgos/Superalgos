@@ -10,13 +10,10 @@ RUN mkdir -p ${API_DIR}
 WORKDIR ${API_DIR}
 
 # Copy package.json to workdir
-COPY package*.json ${API_DIR}/
+COPY . ${API_DIR}/
 
 # Install dependencies
 RUN npm install --production
-
-# Copy application code
-COPY . ${API_DIR}
 
 # Expose Port
 EXPOSE $PORT

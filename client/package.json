@@ -1,11 +1,13 @@
 {
   "name": "@superalgos/users-client",
+  "version": "0.0.26",
   "description": "Superalgos Users client-side web app",
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Superalgos/UsersModule.git"
   },
-  "version": "0.0.26",
   "main": "src/index.js",
   "dependencies": {
     "@material-ui/core": "^3.2.2",

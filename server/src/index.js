@@ -30,7 +30,7 @@ app.post('/graphql', (req, res, next) => {
 app.use(cors())
 
   // Database Connection
-mongoose.connect(`mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_DOMAIN}`, { useNewUrlParser: true })
+  mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
 
 mongoose.connection.once('open', () => {
   logger.info('Connected to the DB.')

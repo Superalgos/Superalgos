@@ -1,0 +1,21 @@
+FROM mhart/alpine-node:8
+
+ENV PORT=4000
+
+RUN mkdir -p /var/www/app && \
+    mkdir -p /var/www/app/node_modules
+
+# Use app directory as current workdir
+WORKDIR /var/www/app
+ENV PATH /var/www/app/node_modules/.bin:$PATH
+# Copy package.json to workdir
+COPY package.json /var/www/app/package.json
+
+# Install dependencies
+RUN npm install
+
+# Copy application code
+COPY . /var/www/app
+
+# Expose Port
+EXPOSE $PORT

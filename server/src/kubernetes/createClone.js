@@ -113,10 +113,12 @@ const createClone = async (clone) => {
       'value': clone.exchangeName
     })
 
-    env.push({
-      'name': 'TIME_PERIOD',
-      'value': clone.timePeriod.toString()
-    })
+    if (isDefined(clone.timePeriod)) {
+      env.push({
+        'name': 'TIME_PERIOD',
+        'value': clone.timePeriod.toString()
+      })
+    }
 
     logger.debug('createClone Trading Configuration.')
     if (clone.botType === Trading) {

@@ -90,7 +90,8 @@ function newAppLoader () {
         'ChartsSpace/ViewPort.js',
         'ChartsSpace/TimeLineCoordinateSystem.js',
 
-        'CockpitSpace/UIControl.js',
+        'CockpitSpace/AssetBalances.js',
+        'CockpitSpace/Speedometer.js',
 
         'Plotter.js',
         'PlotterPanel.js',

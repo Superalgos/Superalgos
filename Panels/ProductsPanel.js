@@ -61,12 +61,9 @@ function newProductsPanel () {
 
     let storedTeams = window.localStorage.getItem('userTeams')
     let userTeams
-    let userTeam = {slug: ''}
     if (storedTeams !== null && storedTeams !== undefined && storedTeams !== '') {
       userTeams = JSON.parse(storedTeams)
-      userTeam = userTeams[0] // Currently we assume a user can be at only one team.
     }
-    if (userTeam === undefined) { userTeam = {slug: ''} }
 
        /* First thing is to build the productCards array */
 
@@ -77,16 +74,16 @@ function newProductsPanel () {
 
       for (let j = 0; j < devTeam.bots.length; j++) {
         let bot = devTeam.bots[j]
-
+        let userTeam = isUserTeam(devTeam.codeName, userTeams)
         if (bot.type !== 'Indicator' && bot.cloneId === undefined) { continue }
-        if (bot.type === 'Indicator' && (devTeam.codeName !== 'AAMasters' && devTeam.codeName !== userTeam.slug)) { continue }
+        if (bot.type === 'Indicator' && (devTeam.codeName !== 'AAMasters' && !userTeam)) { continue }
 
         if (bot.products !== undefined) {
           for (let k = 0; k < bot.products.length; k++) {
             let product = bot.products[k]
 
             if (window.localStorage.getItem('Show AAMaster Layers') === null) {
-              if (product.shareWith !== 'Public' && devTeam.codeName !== userTeam.slug) { continue }
+              if (product.shareWith !== 'Public' && !userTeam) { continue }
             }
                        /* Now we create Product objects */
 
@@ -255,6 +252,15 @@ function newProductsPanel () {
     }
 
     panelTabButton.draw()
+  }
+
+  function isUserTeam(team, userTeams){
+    for (let index = 0; index < userTeams.length; index++) {
+      if(team === userTeams[index].slug){
+        return true
+      }
+    }
+    return false
   }
 }
 

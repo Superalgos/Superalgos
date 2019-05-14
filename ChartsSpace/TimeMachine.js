@@ -1,4 +1,4 @@
- ﻿/*
+/*
 
 Markets are a function of time. When watching them, end users must be positioned at one particular point in time. The system currently allows users
 to position themselves at any time they like.
@@ -37,7 +37,7 @@ function newTimeMachine () {
   thisObject.container.frame.position.y = browserCanvas.height / 2 - TIME_MACHINE_HEIGHT / 2
 
   let controlPanelHandle             // We need this to destroy the Panel when this object is itself destroyed or no longer needs it...
-                                    // ... also to request a reference to the object for the cases we need it.
+                                   // ... also to request a reference to the object for the cases we need it.
   const SEPARATION_BETWEEN_TIMELINE_CHARTS = 1.5
 
   let timeScale
@@ -63,7 +63,7 @@ function newTimeMachine () {
   function initialize (callBackFunction) {
     if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
 
-      /* Each Time Machine has a Control Panel. */
+     /* Each Time Machine has a Control Panel. */
 
     let panelOwner = 'Global'
     controlPanelHandle = canvas.panelsSpace.createNewPanel('Time Control Panel', undefined, panelOwner)
@@ -76,13 +76,13 @@ function newTimeMachine () {
       moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, false, event.mousePosition)
     })
 
-      /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
+     /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
 
     let position = 0 // This defines the position of each chart respect to each other.
 
     let timelineChart = newTimelineChart()
 
-    timelineChart.container.connectToParent(thisObject.container, true, true)
+    timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true)
     timelineChart.container.frame.height = thisObject.container.frame.height
 
     timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
@@ -103,10 +103,10 @@ function newTimeMachine () {
       controlPanel.container.eventHandler.listenToEvent('Datetime Changed', timelineChart.setDatetime, undefined)
       timelineChart.container.eventHandler.listenToEvent('Datetime Changed', controlPanel.setDatetime)
 
-      /* Each Time Machine has a Time Scale and a Right Scale. */
+     /* Each Time Machine has a Time Scale and a Right Scale. */
 
       timeScale = newTimeScale()
-      timeScale.container.connectToParent(thisObject.container, false, false)
+      timeScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
       timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
         thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
@@ -115,7 +115,7 @@ function newTimeMachine () {
       timeScale.initialize(timeLineCoordinateSystem)
 
       rigthScale = newRateScale()
-      rigthScale.container.connectToParent(thisObject.container, false, false)
+      rigthScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
       rigthScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
@@ -143,10 +143,10 @@ function newTimeMachine () {
           let market = SUPPORTED_MARKETS[j]
 
           if (
-            exchange === DEFAULT_EXCHANGE &&
-            market.assetA === DEFAULT_MARKET.assetA &&
-            market.assetB === DEFAULT_MARKET.assetB
-          ) { continue }
+           exchange === DEFAULT_EXCHANGE &&
+           market.assetA === DEFAULT_MARKET.assetA &&
+           market.assetB === DEFAULT_MARKET.assetB
+         ) { continue }
 
           initializeTimelineChart(exchange, market)
         }
@@ -157,7 +157,7 @@ function newTimeMachine () {
 
         let timelineChart = newTimelineChart()
 
-        timelineChart.container.connectToParent(thisObject.container, true, true)
+        timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
         timelineChart.container.frame.height = thisObject.container.frame.height
 
@@ -186,27 +186,6 @@ function newTimeMachine () {
     }
   }
 
-  function drawBackground () {
-    for (let i = 0; i < this.charts.length; i++) {
-      let chart = this.charts[i]
-      chart.drawBackground()
-    }
-  }
-
-  function draw () {
-    if (thisObject.container.frame.isInViewPort()) {
-      for (let i = 0; i < this.charts.length; i++) {
-        let chart = this.charts[i]
-        chart.draw()
-      }
-
-      if (timeScale !== undefined) { timeScale.draw() }
-      if (rigthScale !== undefined) { rigthScale.draw() }
-
-      // thisObject.container.frame.draw(false, true, false)
-    }
-  }
-
   function getContainer (point, purpose) {
     let container
 
@@ -232,7 +211,9 @@ function newTimeMachine () {
       container = this.charts[i].getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
-          return container
+          if (thisObject.container.frame.isThisPointHere(point) === true) {
+            return container
+          }
         }
       }
     }
@@ -245,6 +226,46 @@ function newTimeMachine () {
       }
       return
     }
+  }
+
+  function drawBackground () {
+    thisBackground()
+
+    if (thisObject.container.frame.isInViewPort()) {
+      for (let i = 0; i < this.charts.length; i++) {
+        let chart = this.charts[i]
+        chart.drawBackground()
+      }
+    }
+  }
+
+  function draw () {
+    if (thisObject.container.frame.isInViewPort()) {
+      for (let i = 0; i < this.charts.length; i++) {
+        let chart = this.charts[i]
+        chart.draw()
+      }
+
+      if (timeScale !== undefined) { timeScale.draw() }
+      if (rigthScale !== undefined) { rigthScale.draw() }
+
+     // thisObject.container.frame.draw(false, true, false)
+    }
+  }
+
+  function thisBackground () {
+    let params = {
+      cornerRadius: 15,
+      lineWidth: 5,
+      opacity: 1,
+      container: thisObject.container,
+      borderColor: UI_COLOR.RUSTED_RED,
+      backgroundColor: UI_COLOR.WHITE,
+      fitFunction: thisObject.fitFunction,
+      coordinateSystem: timeLineCoordinateSystem
+    }
+
+    roundedCornersBackground(params)
   }
 
   function recalculateScale () {
@@ -261,10 +282,10 @@ function newTimeMachine () {
     }
 
     timeLineCoordinateSystem.initialize(
-           minValue,
-           maxValue,
-           thisObject.container.frame.width,
-           thisObject.container.frame.height
-       )
+          minValue,
+          maxValue,
+          thisObject.container.frame.width,
+          thisObject.container.frame.height
+      )
   }
 }

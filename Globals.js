@@ -19,7 +19,7 @@ UI_COLOR = {
     DARK: "48, 48, 54",
     LIGHT: "234, 226, 222",
     GREY: "150, 150, 150",
-    LIGHT_GREY: "247, 247, 247",    
+    LIGHT_GREY: "247, 247, 247",
     WHITE: "255, 255, 255",
     BLACK: "0, 0, 0",
     GOLDEN_ORANGE: "240, 162, 2",
@@ -28,7 +28,9 @@ UI_COLOR = {
     RED: "223, 70, 60",
     PATINATED_TURQUOISE: "27,153,139",
     TITANIUM_YELLOW: "244,228,9",
-    MANGANESE_PURPLE: "91,80,122"
+    MANGANESE_PURPLE: "91,80,122",
+    TURQUOISE: "74,207,217",
+    DARK_TURQUOISE: "2,149,170"
 };
 
 /* User Interface Fonts */
@@ -121,6 +123,8 @@ function convertTimePeriodToName(pTimePeriod) {
 window.AT_BREAKPOINT = false;
 
 
+const LOGGED_IN_USER_LOCAL_STORAGE = "xuser"
+const LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE =  "xaccess_token"
 
 const USDT_BTC_HTH = 19900; // This is needed to know the scale of the market time line.
 
@@ -151,6 +155,7 @@ const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
 let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the viewPort.initialize if the user had a prevous session with this same browser.
 let INITIAL_ZOOM_LEVEL = -28.25       // This is the zoom level at the view port in which the APP starts.
 let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the viewPort.initialize if the user had a prevous session with this same browser.
+let VERY_LARGE_NUMBER = 100000000000
 
 let maxDate = new Date();
 maxDate.setMilliseconds(0);
@@ -160,8 +165,10 @@ const MIN_PLOTABLE_DATE = new Date(2015, 0, 1, 0, 0, 0);
 const MAX_PLOTABLE_DATE = maxDate;
 
 const TOP_SPACE_HEIGHT = 5;
-const BOTTOM_SPACE_HEIGHT = 35;
+const COCKPIT_SPACE_HEIGHT = 40;
 const BREAKPOINT_HEIGHT = 15;
+const SIDE_PANEL_WIDTH = 450
+let COCKPIT_SPACE_POSITION = browserCanvas.height - COCKPIT_SPACE_HEIGHT
 
 const PRODUCT_CARD_STATUS = {
     ON: 'on',

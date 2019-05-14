@@ -9,9 +9,6 @@ function newSidePanel () {
     initialize: initialize
   }
 
-  const SIDE_PANEL_WIDTH = 450
-  const SIDE_PANEL_TAB_WIDTH = 400
-
   let isInitialized = false
 
   thisObject.container = newContainer()

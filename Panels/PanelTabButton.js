@@ -1,8 +1,9 @@
 function newPanelTabButton () {
   let thisObject = {
     container: undefined,
-    draw: draw,
+    fitFunction: undefined,
     parentContainer: undefined,
+    draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
     initialize: initialize
   }
@@ -203,6 +204,12 @@ function newPanelTabButton () {
     point2 = thisObject.container.frame.frameThisPoint(point2)
     point3 = thisObject.container.frame.frameThisPoint(point3)
 
+    if (thisObject.fitFunction !== undefined) {
+      point1 = thisObject.fitFunction(point1)
+      point2 = thisObject.fitFunction(point2)
+      point3 = thisObject.fitFunction(point3)
+    }
+
         /* Lets start the drawing. */
 
     browserCanvasContext.beginPath()
@@ -220,4 +227,3 @@ function newPanelTabButton () {
     browserCanvasContext.fill()
   }
 }
-

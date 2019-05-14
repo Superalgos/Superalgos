@@ -2,6 +2,7 @@ function newStrategyCollectionItem () {
   const MODULE_NAME = 'Strategy Collection Item'
   let thisObject = {
     icon: undefined,
+    strategySource: undefined,
     strategy: undefined,
     container: undefined,
     draw: draw,
@@ -17,10 +18,14 @@ function newStrategyCollectionItem () {
   thisObject.container.isClickeable = true
   thisObject.container.isDraggeable = false
 
+  let status = 'off'
+
   return thisObject
 
-  function initialize () {
-    const ITEM_WIDTH = 430
+  function initialize (strategy) {
+    thisObject.strategySource = strategy
+
+    const ITEM_WIDTH = SIDE_PANEL_WIDTH - 20
     const ITEM_HEIGHT = 80
 
     thisObject.container.frame.width = ITEM_WIDTH
@@ -37,12 +42,21 @@ function newStrategyCollectionItem () {
   }
 
   function onMouseClick (event) {
-
+    if (status === 'off') {
+      canvas.floatingSpace.makeVisible()
+      thisObject.strategy = newTradingSystem()
+      thisObject.strategy.initialize(thisObject.strategySource)
+      status = 'on'
+    } else {
+      canvas.floatingSpace.makeInvisible()
+      thisObject.strategy.finalize()
+      status = 'off'
+    }
   }
 
   function getContainer (point) {
     let container
-    if (thisObject.container.frame.isThispointHere(point, true) === true) {
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
     } else {
       return undefined
@@ -59,14 +73,14 @@ function newStrategyCollectionItem () {
   }
 
   function text () {
-    if (thisObject.strategy === undefined) {
+    if (thisObject.strategySource === undefined) {
       return
     }
 
     const LEFT_MARGIN = 80
     const TOP_MARGIN = 45
 
-    let strategy = thisObject.strategy
+    let strategy = thisObject.strategySource
 
     let labelpoint = {
       x: LEFT_MARGIN,
@@ -76,7 +90,7 @@ function newStrategyCollectionItem () {
     labelpoint = thisObject.container.frame.frameThisPoint(labelpoint)
 
     let labelToPrint = strategy.name
-    labelToPrint = labelToPrint.toUpperCase()
+    labelToPrint = ''
     labelToPrint = labelToPrint.substring(0, 30)
     let opacity = 1
     let fontSize = 15
@@ -86,7 +100,7 @@ function newStrategyCollectionItem () {
 
   function borders () {
     let params = {
-      cornerRadious: 8,
+      cornerRadius: 8,
       lineWidth: 0.1,
       opacity: 1,
       container: thisObject.container,
@@ -161,4 +175,3 @@ function newStrategyCollectionItem () {
     browserCanvasContext.drawImage(thisObject.icon, point1.x - IMAGE_SIZE / 2, point1.y - IMAGE_SIZE / 2, IMAGE_SIZE, IMAGE_SIZE)
   }
 }
-

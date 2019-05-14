@@ -154,25 +154,10 @@ function removeTime (datetime) {
   return dateOnly
 }
 
-function loadEmoji (pPath) {
-  let newImage
-
-  newImage = new Image()
-  newImage.onload = onImageLoaded
-
-  function onImageLoaded () {
-    newImage.isLoaded = true
-  }
-
-  newImage.src = window.canvasApp.urlPrefix + 'Images/Emoji/' + pPath
-
-  return newImage
-}
-
 function printLabel (labelToPrint, x, y, opacity, fontSize) {
   let labelPoint
 
-  browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+  browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
   let label = '' + labelToPrint
 
@@ -180,4 +165,11 @@ function printLabel (labelToPrint, x, y, opacity, fontSize) {
 
   browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
   browserCanvasContext.fillText(label, x, y)
+}
+
+function newUniqueId () {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8)
+    return v.toString(16)
+  })
 }

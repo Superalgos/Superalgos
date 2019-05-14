@@ -1,57 +1,63 @@
- ﻿
-function newFrame () {
-  const PANEL_CORNERS_RADIOUS = 5
-  const TITLE_BAR_HEIGHT = 14 // this must be grater than radius
 
-  let frame = {
+function newFrame () {
+  const PANEL_CORNERS_RADIUS = 5
+  const TITLE_BAR_HEIGHT = 15 // this must be grater than radius
+
+  let thisObject = {
+    type: 'Rectangle',
     containerName: '',                  // This is for debugging purposes only.
     parentFrame: undefined,             // Here we store the parent cointainer zoom object.
+    radius: 0,
+    position: undefined,
+    container: undefined,
     width: browserCanvas.width,
     height: browserCanvas.height,
-    position: undefined,
     getBodyHeight: getBodyHeight,
     draw: draw,
-    container: undefined,
+    fitIntoFrame: fitIntoFrame,
     frameThisPoint: frameThisPoint,     // This function changes the actual frame coordinate system to the screen coordinate system.
     unframeThisPoint: unframeThisPoint,
-    fitIntoFrame: fitIntoFrame,
     isThisPointHere: isThisPointHere,   // This function return true is the point received as parameter lives within this frame.
+    isThisScreenPointHere: isThisScreenPointHere,
     isInViewPort: isInViewPort,
     canYouMoveHere: canYouMoveHere,
-    canYouZoomHere: canYouZoomHere,
     initialize: initialize
   }
 
-  return frame
+  return thisObject
 
-  function initialize () {
-    var position = {
+  function initialize (pType) {
+    if (pType !== undefined) { thisObject.type = pType }
+
+    let position = {
       x: 0,
       y: 0
     }
 
-    this.position = position
+    thisObject.position = position
   }
 
   function getBodyHeight () {
-    return frame.height - TITLE_BAR_HEIGHT
+    return thisObject.height - TITLE_BAR_HEIGHT
   }
 
   function isInViewPort () {
+   /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the viewPort */
+
     point1 = {
       x: 0,
       y: 0
     }
 
     point3 = {
-      x: frame.width,
-      y: frame.height
+      x: thisObject.width,
+      y: thisObject.height
     }
 
-        /* Now the transformations. */
+       /* Now the transformations. */
 
-    point1 = transformThisPoint(point1, frame.container)
-    point3 = transformThisPoint(point3, frame.container)
+    point1 = transformThisPoint(point1, thisObject.container)
+    point3 = transformThisPoint(point3, thisObject.container)
 
     if (point1.x < viewPort.visibleArea.topRight.x && point1.y < viewPort.visibleArea.bottomRight.y && point3.x > viewPort.visibleArea.bottomLeft.x && point3.y > viewPort.visibleArea.topLeft.y) {
       return true
@@ -60,19 +66,81 @@ function newFrame () {
     }
   }
 
+  function frameThisPoint (point) {
+   /* We need not to modify the point received, so me make a copy of it. */
+
+    let checkPoint = {
+      x: point.x,
+      y: point.y
+    }
+
+    let parentPoint = {
+      x: 0,
+      y: 0
+    }
+
+    let returnPoint = {
+      x: 0,
+      y: 0
+    }
+
+    if (thisObject.parentFrame !== undefined) {
+      parentPoint = thisObject.parentFrame.frameThisPoint(checkPoint)
+
+      returnPoint.x = parentPoint.x + thisObject.position.x
+      returnPoint.y = parentPoint.y + thisObject.position.y
+    } else {
+      returnPoint.x = checkPoint.x + thisObject.position.x
+      returnPoint.y = checkPoint.y + thisObject.position.y
+    }
+
+    return returnPoint
+  }
+
+  function unframeThisPoint (point) {
+   /* We need not to modify the point received, so me make a copy of it. */
+
+    let checkPoint = {
+      x: point.x,
+      y: point.y
+    }
+
+    let parentPoint = {
+      x: 0,
+      y: 0
+    }
+
+    let returnPoint = {
+      x: 0,
+      y: 0
+    }
+
+    if (thisObject.parentFrame !== undefined) {
+      parentPoint = thisObject.parentFrame.unframeThisPoint(checkPoint)
+
+      returnPoint.x = parentPoint.x - thisObject.position.x
+      returnPoint.y = parentPoint.y - thisObject.position.y
+    } else {
+      returnPoint.x = checkPoint.x - thisObject.position.x
+      returnPoint.y = checkPoint.y - thisObject.position.y
+    }
+
+    return returnPoint
+  }
+
   function fitIntoFrame (point) {
         /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
 
-    if (point.x > frame.width) {
-      point.x = frame.width
+    if (point.x > thisObject.width) {
+      point.x = thisObject.width
     }
 
     if (point.x < 0) {
       point.x = 0
     }
 
-    if (point.y > frame.height) {
-      point.y = frame.height
+    if (point.y > thisObject.height) {
+      point.y = thisObject.height
     }
 
     if (point.y < 0) {
@@ -82,158 +150,71 @@ function newFrame () {
     return point
   }
 
-  function frameThisPoint (point) {
-    if (this.parentFrame !== undefined) {
-      point = this.parentFrame.frameThisPoint(point)
-    }
-
-    point.x = point.x + frame.position.x
-    point.y = point.y + frame.position.y
-
-    return point
-  }
-
-  function unframeThisPoint (point) {
-    if (this.parentFrame !== undefined) {
-      point = this.parentFrame.unframeThisPoint(point)
-    }
-
-    point.x = point.x - this.position.x
-    point.y = point.y - this.position.y
-
-    return point
-  }
-
   function canYouMoveHere (tempDisplacement) {
-        /*
+       /*
 
-        The current frame has a position and a displacement. We need to check that none of the boundaries points of the frame fall outside of its container frame.
-        First we apply the theoreticall displacement.
+       The current frame has a position and a displacement. We need to check that none of the boundaries points of the frame fall outside of its container frame.
+       First we apply the theoreticall displacement.
 
-        */
+       */
 
     point1 = {
-      x: this.position.x,
-      y: this.position.y
+      x: thisObject.position.x,
+      y: thisObject.position.y
     }
 
     point2 = {
-      x: this.position.x + this.width,
-      y: this.position.y
+      x: thisObject.position.x + thisObject.width,
+      y: thisObject.position.y
     }
 
     point3 = {
-      x: this.position.x + this.width,
-      y: this.position.y + this.height
+      x: thisObject.position.x + thisObject.width,
+      y: thisObject.position.y + thisObject.height
     }
 
     point4 = {
-      x: this.position.x,
-      y: this.position.y + this.height
+      x: thisObject.position.x,
+      y: thisObject.position.y + thisObject.height
     }
 
-        /* Now the transformations. */
+       /* Now the transformations. */
 
-    if (this.parentFrame !== undefined) {
-   // If there is not a parent then there is no point to check bounderies.
+    if (thisObject.parentFrame !== undefined) {
+  // If there is not a parent then there is no point to check bounderies.
 
-      point1 = this.parentFrame.frameThisPoint(point1)
-      point2 = this.parentFrame.frameThisPoint(point2)
-      point3 = this.parentFrame.frameThisPoint(point3)
-      point4 = this.parentFrame.frameThisPoint(point4)
+      point1 = thisObject.parentFrame.frameThisPoint(point1)
+      point2 = thisObject.parentFrame.frameThisPoint(point2)
+      point3 = thisObject.parentFrame.frameThisPoint(point3)
+      point4 = thisObject.parentFrame.frameThisPoint(point4)
 
-            /* We apply the temporary displacement. */
+           /* We apply the temporary displacement. */
 
       point1 = tempDisplacement.displaceThisPoint(point1)
       point2 = tempDisplacement.displaceThisPoint(point2)
       point3 = tempDisplacement.displaceThisPoint(point3)
       point4 = tempDisplacement.displaceThisPoint(point4)
 
-            /* We add the actual displacement. */
+           /* We add the actual displacement. */
 
-      point1 = this.container.displacement.displaceThisPoint(point1)
-      point2 = this.container.displacement.displaceThisPoint(point2)
-      point3 = this.container.displacement.displaceThisPoint(point3)
-      point4 = this.container.displacement.displaceThisPoint(point4)
+      point1 = thisObject.container.displacement.displaceThisPoint(point1)
+      point2 = thisObject.container.displacement.displaceThisPoint(point2)
+      point3 = thisObject.container.displacement.displaceThisPoint(point3)
+      point4 = thisObject.container.displacement.displaceThisPoint(point4)
 
-      if (this.parentFrame.isThisPointHere(point1) === false) {
+      if (thisObject.parentFrame.isThisPointHere(point1) === false) {
         return false
       }
 
-      if (this.parentFrame.isThisPointHere(point2) === false) {
+      if (thisObject.parentFrame.isThisPointHere(point2) === false) {
         return false
       }
 
-      if (this.parentFrame.isThisPointHere(point3) === false) {
+      if (thisObject.parentFrame.isThisPointHere(point3) === false) {
         return false
       }
 
-      if (this.parentFrame.isThisPointHere(point4) === false) {
-        return false
-      }
-    }
-
-    return true
-  }
-
-  function canYouZoomHere (tempZoom) {
-    point1 = {
-      x: this.position.x,
-      y: this.position.y
-    }
-
-    point2 = {
-      x: this.position.x + this.width,
-      y: this.position.y
-    }
-
-    point3 = {
-      x: this.position.x + this.width,
-      y: this.position.y + this.height
-    }
-
-    point4 = {
-      x: this.position.x,
-      y: this.position.y + this.height
-    }
-
-        /* Now the transformations. */
-
-    if (this.parentFrame !== undefined) {
-  // If there is not a parent then there is no point to check bounderies.
-
-      point1 = this.parentFrame.frameThisPoint(point1)
-      point2 = this.parentFrame.frameThisPoint(point2)
-      point3 = this.parentFrame.frameThisPoint(point3)
-      point4 = this.parentFrame.frameThisPoint(point4)
-
-            /* We add the actual displacement. */
-
-      point1 = this.container.displacement.displaceThisPoint(point1)
-      point2 = this.container.displacement.displaceThisPoint(point2)
-      point3 = this.container.displacement.displaceThisPoint(point3)
-      point4 = this.container.displacement.displaceThisPoint(point4)
-
-            /* We temp zoom. */
-
-      point1 = tempZoom.zoomThisPoint(point1)
-      point2 = tempZoom.zoomThisPoint(point2)
-      point3 = tempZoom.zoomThisPoint(point3)
-      point4 = tempZoom.zoomThisPoint(point4)
-
-      if (this.parentFrame.isThisPointHere(point1) === false) {
-        return false
-      }
-
-      if (this.parentFrame.isThisPointHere(point2) === false) {
-        return false
-      }
-
-      if (this.parentFrame.isThisPointHere(point3) === false) {
-        return false
-      }
-
-      if (this.parentFrame.isThisPointHere(point4) === false) {
+      if (thisObject.parentFrame.isThisPointHere(point4) === false) {
         return false
       }
     }
@@ -242,61 +223,104 @@ function newFrame () {
   }
 
   function isThisPointHere (point, outsideViewPort, dontTransform) {
-  // The second parameter is usefull when you want to check a point that you already know is outside the viewport.
+ // The second parameter is usefull when you want to check a point that you already know is outside the viewport.
 
-        /* We need not to modify the point received, so me make a copy of it. */
+       /* We need not to modify the point received, so me make a copy of it. */
 
-    var checkPoint = {
+    let checkPoint = {
       x: point.x,
       y: point.y
     }
 
-        /* The point received is on the screen coordinates system, which already has zoom and displacement applied. We need to remove the zoom and displacement
-        in order to have the point on the containers coordinate system and be able to compare it with its dimmensions. */
+       /* The point received is on the screen coordinates system, which already has zoom and displacement applied. We need to remove the zoom and displacement
+       in order to have the point on the containers coordinate system and be able to compare it with its dimmensions. */
     if (dontTransform === false || dontTransform === undefined) {
       if (outsideViewPort === true) {
-        checkPoint = this.container.displacement.undisplaceThisPoint(checkPoint)
-        checkPoint = this.container.frame.unframeThisPoint(checkPoint)
+        checkPoint = thisObject.container.displacement.undisplaceThisPoint(checkPoint)
+        checkPoint = thisObject.container.frame.unframeThisPoint(checkPoint)
       } else {
-        checkPoint = unTransformThisPoint(checkPoint, frame.container)
+        checkPoint = unTransformThisPoint(checkPoint, thisObject.container)
       }
     }
 
-        /* Now we check if the resulting point is whin the current Frame. */
+   /* Now we check if the resulting point is whin the current Frame. */
 
-    if (checkPoint.x < 0 || checkPoint.y < 0 || checkPoint.x > frame.width || checkPoint.y > frame.height) {
-            /* The point received is not in this frame */
+    if (thisObject.type === 'Circle') {
+      let distance = Math.sqrt(Math.pow(thisObject.position.x - point.x, 2) + Math.pow(thisObject.position.y - point.y, 2))
 
-      return false
-    } else {
-            /* The point is within this frame. */
+      if (distance < thisObject.radius) {
+        return true
+      } else {
+        return false
+      }
+    }
 
-      return true
+    if (thisObject.type === 'Rectangle') {
+      if (checkPoint.x < 0 || checkPoint.y < 0 || checkPoint.x > thisObject.width || checkPoint.y > thisObject.height) {
+        return false
+      } else {
+        return true
+      }
     }
   }
 
-  function draw (drawGrid, drawBorders, drawBackground) {
+  function isThisScreenPointHere (point) {
+    let checkPoint = {
+      x: point.x,
+      y: point.y
+    }
+
+    let thisPoint = {
+      x: thisObject.position.x,
+      y: thisObject.position.y
+    }
+
+    thisPoint = thisObject.parentFrame.frameThisPoint(thisPoint)
+
+   /* Now we check if the resulting point is whin the current Frame. */
+
+    if (thisObject.type === 'Circle') {
+      let distance = Math.sqrt(Math.pow(thisPoint.x - checkPoint.x, 2) + Math.pow(thisPoint.y - checkPoint.y, 2))
+
+      if (distance < thisObject.radius) {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    if (thisObject.type === 'Rectangle') {
+      if (checkPoint.x < 0 || checkPoint.y < 0 || checkPoint.x > thisObject.width || checkPoint.y > thisObject.height) {
+        return false
+      } else {
+        return true
+      }
+    }
+  }
+
+  function draw (drawGrid, drawBorders, drawBackground, fitFunction) {
     if (drawBorders === true) {
-      borders()
+      borders(fitFunction)
     }
 
     if (drawGrid === true) {
-      grid()
+      grid(fitFunction)
     }
 
     if (drawBackground === true) {
-      background()
+      background(fitFunction)
     }
   }
 
-  function background () {
+  function background (fitFunction) {
     let params = {
-      cornerRadious: 5,
+      cornerRadius: 5,
       lineWidth: 0.1,
       opacity: 0.75,
-      container: frame.container,
+      container: thisObject.container,
       borderColor: UI_COLOR.DARK,
-      backgroundColor: UI_COLOR.WHITE
+      backgroundColor: UI_COLOR.WHITE,
+      fitFunction: fitFunction
     }
 
     roundedCornersBackground(params)
@@ -307,25 +331,30 @@ function newFrame () {
     }
 
     titleBarPoint2 = {
-      x: frame.width,
+      x: thisObject.width,
       y: TITLE_BAR_HEIGHT
     }
 
-        /* Now the transformations. */
+       /* Now the transformations. */
 
     titleBarPoint1 = frameThisPoint(titleBarPoint1)
     titleBarPoint2 = frameThisPoint(titleBarPoint2)
 
-        /* We paint the title bar now */
+    if (fitFunction !== undefined) {
+      titleBarPoint1 = fitFunction(titleBarPoint1)
+      titleBarPoint2 = fitFunction(titleBarPoint2)
+    }
 
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 0.75)'
+       /* We paint the title bar now */
+
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'
     browserCanvasContext.beginPath()
 
     browserCanvasContext.moveTo(titleBarPoint1.x, titleBarPoint1.y)
-    browserCanvasContext.lineTo(borderPoint1.x - PANEL_CORNERS_RADIOUS, borderPoint1.y)
-    browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, PANEL_CORNERS_RADIOUS, 1.0 * Math.PI, 1.5 * Math.PI)
-    browserCanvasContext.lineTo(borderPoint2.x, borderPoint2.y - PANEL_CORNERS_RADIOUS)
-    browserCanvasContext.arc(borderPoint2.x, borderPoint2.y, PANEL_CORNERS_RADIOUS, 1.5 * Math.PI, 2.0 * Math.PI)
+    browserCanvasContext.lineTo(borderPoint1.x - PANEL_CORNERS_RADIUS, borderPoint1.y)
+    browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, PANEL_CORNERS_RADIUS, 1.0 * Math.PI, 1.5 * Math.PI)
+    browserCanvasContext.lineTo(borderPoint2.x, borderPoint2.y - PANEL_CORNERS_RADIUS)
+    browserCanvasContext.arc(borderPoint2.x, borderPoint2.y, PANEL_CORNERS_RADIUS, 1.5 * Math.PI, 2.0 * Math.PI)
     browserCanvasContext.lineTo(titleBarPoint2.x, titleBarPoint2.y)
 
     browserCanvasContext.closePath()
@@ -335,31 +364,35 @@ function newFrame () {
     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 0.75)'
     browserCanvasContext.stroke()
 
-        /* print the title */
+       /* print the title */
 
     let labelPoint
     let fontSize = 10
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira'
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
-    let label = frame.containerName
+    let label = thisObject.containerName
 
     let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
     let yOffset = (TITLE_BAR_HEIGHT - fontSize) / 2 + 2
 
     labelPoint = {
-      x: frame.width / 2 - xOffset,
+      x: thisObject.width / 2 - xOffset,
       y: TITLE_BAR_HEIGHT - yOffset
     }
 
-    labelPoint = frame.frameThisPoint(labelPoint)
+    labelPoint = thisObject.frameThisPoint(labelPoint)
+
+    if (fitFunction !== undefined) {
+      labelPoint = fitFunction(labelPoint)
+    }
 
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 
-  function borders () {
-        /* Lest get the important points of the drawing so as to apply the needed transformations. */
+  function borders (fitFunction) {
+       /* Lest get the important points of the drawing so as to apply the needed transformations. */
 
     let point1
     let point2
@@ -372,28 +405,35 @@ function newFrame () {
     }
 
     point2 = {
-      x: frame.width,
+      x: thisObject.width,
       y: 0
     }
 
     point3 = {
-      x: frame.width,
-      y: frame.height
+      x: thisObject.width,
+      y: thisObject.height
     }
 
     point4 = {
       x: 0,
-      y: frame.height
+      y: thisObject.height
     }
 
-        /* Now the transformations. */
+       /* Now the transformations. */
 
-    point1 = transformThisPoint(point1, frame.container)
-    point2 = transformThisPoint(point2, frame.container)
-    point3 = transformThisPoint(point3, frame.container)
-    point4 = transformThisPoint(point4, frame.container)
+    point1 = transformThisPoint(point1, thisObject.container)
+    point2 = transformThisPoint(point2, thisObject.container)
+    point3 = transformThisPoint(point3, thisObject.container)
+    point4 = transformThisPoint(point4, thisObject.container)
 
-        /* Lets start the drawing. */
+    if (fitFunction !== undefined) {
+      point1 = fitFunction(point1)
+      point2 = fitFunction(point2)
+      point3 = fitFunction(point3)
+      point4 = fitFunction(point4)
+    }
+
+       /* Lets start the drawing. */
 
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y)
@@ -410,45 +450,55 @@ function newFrame () {
     browserCanvasContext.closePath()
   }
 
-  function grid (smallLines) {
+  function grid (fitFunction, smallLines) {
     if (smallLines === true) {
-            /* Small Lines */
+           /* Small Lines */
 
-      var step = frame.width / 100
+      let step = thisObject.width / 100
 
       browserCanvasContext.beginPath()
 
-      for (var i = 0; i < frame.width; i = i + step) {
-        for (var j = 0; j < frame.height; j = j + step) {
+      for (let i = 0; i < thisObject.width; i = i + step) {
+        for (let j = 0; j < thisObject.height; j = j + step) {
           let point1 = {
             x: 0,
             y: j
           }
 
           let point2 = {
-            x: frame.width,
+            x: thisObject.width,
             y: j
           }
 
-          point1 = transformThisPoint(point1, frame.container)
-          point2 = transformThisPoint(point2, frame.container)
+          point1 = transformThisPoint(point1, thisObject.container)
+          point2 = transformThisPoint(point2, thisObject.container)
+
+          if (fitFunction !== undefined) {
+            point1 = fitFunction(point1)
+            point2 = fitFunction(point2)
+          }
 
           browserCanvasContext.moveTo(point1.x, point1.y)
           browserCanvasContext.lineTo(point2.x, point2.y)
         }
 
         let point3 = {
-          x: frame.width,
-          y: frame.height
+          x: thisObject.width,
+          y: thisObject.height
         }
 
         let point4 = {
           x: 0,
-          y: frame.height
+          y: thisObject.height
         }
 
-        point3 = transformThisPoint(point3, frame.container)
-        point4 = transformThisPoint(point4, frame.container)
+        point3 = transformThisPoint(point3, thisObject.container)
+        point4 = transformThisPoint(point4, thisObject.container)
+
+        if (fitFunction !== undefined) {
+          point3 = fitFunction(point3)
+          point4 = fitFunction(point4)
+        }
 
         browserCanvasContext.moveTo(point3.x, point3.y)
         browserCanvasContext.lineTo(point4.x, point4.y)
@@ -459,26 +509,31 @@ function newFrame () {
       browserCanvasContext.stroke()
     }
 
-        /* Main Lines */
+       /* Main Lines */
 
-    var step = frame.width / 20
+    let step = thisObject.width / 20
 
     browserCanvasContext.beginPath()
 
-    for (var i = 0; i < frame.width; i = i + step) {
-      for (var j = 0; j < frame.height; j = j + step) {
+    for (let i = 0; i < thisObject.width; i = i + step) {
+      for (let j = 0; j < thisObject.height; j = j + step) {
         let point1 = {
           x: 0,
           y: j
         }
 
         let point2 = {
-          x: frame.width,
+          x: thisObject.width,
           y: j
         }
 
-        point1 = transformThisPoint(point1, frame.container)
-        point2 = transformThisPoint(point2, frame.container)
+        point1 = transformThisPoint(point1, thisObject.container)
+        point2 = transformThisPoint(point2, thisObject.container)
+
+        if (fitFunction !== undefined) {
+          point1 = fitFunction(point1)
+          point2 = fitFunction(point2)
+        }
 
         browserCanvasContext.moveTo(point1.x, point1.y)
         browserCanvasContext.lineTo(point2.x, point2.y)
@@ -491,11 +546,16 @@ function newFrame () {
 
       let point4 = {
         x: i,
-        y: frame.height
+        y: thisObject.height
       }
 
-      point3 = transformThisPoint(point3, frame.container)
-      point4 = transformThisPoint(point4, frame.container)
+      point3 = transformThisPoint(point3, thisObject.container)
+      point4 = transformThisPoint(point4, thisObject.container)
+
+      if (fitFunction !== undefined) {
+        point3 = fitFunction(point3)
+        point4 = fitFunction(point4)
+      }
 
       browserCanvasContext.moveTo(point3.x, point3.y)
       browserCanvasContext.lineTo(point4.x, point4.y)

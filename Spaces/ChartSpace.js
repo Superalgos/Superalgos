@@ -1,4 +1,4 @@
- ﻿/*
+/*
 
 The chart space is where all the charts live. What this space contains is a type of object we call Time Machine. A Time Machine is a cointainer of
 charts objects. The idea is simple, all the chart objects are ploted according to the time of the Time Machine object. When the time of the Time Machine
@@ -8,13 +8,16 @@ changes, then all charts in it are replotted with the corresponging data.
 
 function newChartSpace () {
   const MODULE_NAME = 'Chart Space'
-  const INFO_LOG = false
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    visible: true,
     container: undefined,
+    fitIntoVisibleArea: fitIntoVisibleArea,
+    isThisPointVisible: isThisPointVisible,
+    physics: physics,
     drawBackground: drawBackground,
     draw: draw,
     timeMachines: [],
@@ -27,13 +30,12 @@ function newChartSpace () {
   thisObject.container.initialize(MODULE_NAME)
 
   thisObject.container.isDraggeable = false
+  thisObject.container.isWheelable = false
 
   return thisObject
 
   function finalize () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
-
       for (let i = 0; i < thisObject.timeMachines.length; i++) {
         let timeMachine = thisObject.timeMachines[i]
         timeMachine.finalize()
@@ -44,32 +46,24 @@ function newChartSpace () {
   }
 
   function initialize (callBackFunction) {
-    if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-
     let initializedCounter = 0
     let toInitialize = 1
 
-        /* We create the first of many possible time machines that could live at the Chart Space. */
+       /* We create the first of many possible time machines that could live at the Chart Space. */
 
-    var timeMachine = newTimeMachine()
+    let timeMachine = newTimeMachine()
 
-    // timeMachine.container.connectToParent(thisObject.container, true, true)
+       /* We make the time machine a little bit smaller than the current space. */
 
-        /* We make the time machine a little bit smaller than the current space. */
-
-    timeMachine.container.frame.position.x = this.container.frame.width / 2 - timeMachine.container.frame.width / 2
-    timeMachine.container.frame.position.y = this.container.frame.height / 2 - timeMachine.container.frame.height / 2
-
+    timeMachine.container.frame.position.x = thisObject.container.frame.width / 2 - timeMachine.container.frame.width / 2
+    timeMachine.container.frame.position.y = thisObject.container.frame.height / 2 - timeMachine.container.frame.height / 2
+    timeMachine.container.fitFunction = fitIntoVisibleArea
     timeMachine.initialize(onTimeMachineInitialized)
 
     function onTimeMachineInitialized (err) {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> onTimeMachineInitialized -> Entering function.') }
-
       initializedCounter++
 
       if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-        if (INFO_LOG === true) { logger.write('[INFO] initialize -> onTimeMachineInitialized -> Initialization of a Time Machine failed.') }
-
         callBackFunction(err)
         return
       }
@@ -82,37 +76,126 @@ function newChartSpace () {
     }
   }
 
+  function getContainer (point, purpose) {
+    if (thisObject.visible !== true) { return }
+
+    let container
+
+       /* Now we see which is the inner most container that has it */
+
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      container = thisObject.timeMachines[i].getContainer(point, purpose)
+      if (container !== undefined) {
+        if (container.isForThisPurpose(purpose)) {
+          if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+            return container
+          }
+        }
+      }
+    }
+
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+      return thisObject.container
+    } else {
+      return undefined
+    }
+  }
+
+  function fitIntoVisibleArea (point) {
+       /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
+
+    let returnPoint = {
+      x: point.x,
+      y: point.y
+    }
+
+    if (point.x > browserCanvas.width) {
+      returnPoint.x = browserCanvas.width
+    }
+
+    if (point.x < 0) {
+      returnPoint.x = 0
+    }
+
+    if (point.y > COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2) {
+      returnPoint.y = COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2
+    }
+
+    if (point.y < 0) {
+      returnPoint.y = 0
+    }
+
+    return returnPoint
+  }
+
+  function isThisPointVisible (point) {
+    if (point.x > browserCanvas.width) {
+      return false
+    }
+
+    if (point.x < 0) {
+      return false
+    }
+
+    if (point.y > COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2) {
+      return false
+    }
+
+    if (point.y < 0) {
+      return false
+    }
+
+    return true
+  }
+
+  function physics () {
+    thisObject.container.frame.height = COCKPIT_SPACE_POSITION
+
+    if (thisObject.container.frame.height <= 0 / 100) {
+      thisObject.visible = false
+    } else {
+      thisObject.visible = true
+    }
+
+    viewPort.resize()
+  }
+
   function drawBackground () {
-    for (var i = 0; i < thisObject.timeMachines.length; i++) {
-      var timeMachine = thisObject.timeMachines[i]
+    if (thisObject.visible !== true) { return }
+
+    drawSpaceBackground()
+
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[i]
       timeMachine.drawBackground()
     }
   }
 
-  function draw () {
-    // thisObject.container.frame.draw(false, false)
-
-    for (var i = 0; i < thisObject.timeMachines.length; i++) {
-      var timeMachine = thisObject.timeMachines[i]
-      timeMachine.draw()
+  function drawSpaceBackground () {
+    let opacity = '1'
+    let fromPoint = {
+      x: 0,
+      y: 0
     }
+
+    let toPoint = {
+      x: browserCanvas.width,
+      y: COCKPIT_SPACE_POSITION
+    }
+
+    browserCanvasContext.beginPath()
+    browserCanvasContext.rect(fromPoint.x, fromPoint.y, toPoint.x - fromPoint.x, toPoint.y - fromPoint.y)
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
+    browserCanvasContext.closePath()
+    browserCanvasContext.fill()
   }
 
-  function getContainer (point, purpose) {
-    if (INFO_LOG === true) { logger.write('[INFO] getContainer -> Entering function.') }
+  function draw () {
+    if (thisObject.visible !== true) { return }
 
-    let container
-
-        /* Now we see which is the inner most container that has it */
-
-    for (var i = 0; i < this.timeMachines.length; i++) {
-      container = this.timeMachines[i].getContainer(point, purpose)
-      if (container !== undefined) {
-        if (container.isForThisPurpose(purpose)) {
-          return container
-        }
-      }
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[i]
+      timeMachine.draw()
     }
-    return this.container
   }
 }

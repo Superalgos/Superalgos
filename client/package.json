@@ -1,7 +1,17 @@
 {
-  "name": "master-app-client",
+  "name": "@superalgos/master-app",
   "version": "0.1.6",
   "description": "Responsible for loading all web modules and running them.",
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Superalgos/MasterApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Superalgos/MasterApp/issues"
+  },
+  "homepage": "https://github.com/Superalgos/MasterApp#readme",
   "main": "src/index.js",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --hot --port 3100 --config ./webpack.config.js",
@@ -14,18 +24,7 @@
     "flow-coverage:open": "concurrently \"cd flow-coverage && http-server -c-1 \" \"open http://127.0.0.1:8080\"",
     "flow": "flow"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Algoteers/MasterApp.git"
-  },
-  "author": "Superalgos.org",
-  "license": "SEE LICENSE IN LICENSE.MD",
-  "bugs": {
-    "url": "https://github.com/Algoteers/MasterApp/issues"
-  },
-  "homepage": "https://github.com/Algoteers/MasterApp#readme",
   "devDependencies": {
-    "@advancedalgos/financial-beings-client": "0.0.5",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
@@ -39,7 +38,7 @@
     "@superalgos/operations-client": "0.0.34",
     "@superalgos/strategizer-client": "0.0.15",
     "@superalgos/teams-client": "0.0.38",
-    "@superalgos/users-client": "0.0.25",
+    "@superalgos/users-client": "0.0.26",
     "@superalgos/web-components": "0.0.22",
     "autoprefixer": "^9.2.0",
     "babel-loader": "^8.0.4",
@@ -62,7 +61,7 @@
     "html-webpack-harddisk-plugin": "^0.2.0",
     "html-webpack-plugin": "^3.2.0",
     "koa-connect": "^2.0.1",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
     "prettier-standard": "^8.0.1",
     "react-hot-loader": "^4.3.11",
@@ -99,7 +98,7 @@
     "graphql-tag": "^2.10.0",
     "jwt-decode": "^2.2.0",
     "mini-css-extract-plugin": "^0.4.4",
-    "npm": "^6.4.1",
+    "npm": "^6.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "prop-types": "^15.6.2",
     "query-string": "^6.2.0",

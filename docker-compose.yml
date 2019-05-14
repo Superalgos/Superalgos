@@ -1,0 +1,227 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:11-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
+      POSTGRES_DB: prisma
+    volumes:
+      - postgresdb_data:/var/lib/postgresql/data-teams
+    networks:
+      - superalgos_net
+
+  prisma:
+    image: prismagraphql/prisma:1.27
+    restart: always
+    environment:
+      PRISMA_CONFIG: |
+        port: 4466
+        # uncomment the next line and provide the env var PRISMA_MANAGEMENT_API_SECRET=my-secret to activate cluster security
+        managementApiSecret: prisma_secret
+        databases:
+          default:
+            connector: postgres
+            host: postgres
+            port: 5432
+            user: prisma
+            password: prisma
+            migrations: true
+    ports:
+      - "4466:4466"
+    volumes:
+      - postgresdb_data:/data/db
+    networks:
+      - superalgos_net
+    depends_on:
+      - postgres
+
+  teams-prisma:
+    image: superalgos/teams-prisma:0.1.0
+    restart: "no"
+    build: ../TeamsPrisma
+    env_file: ../TeamsPrisma/.env
+    command: ["./wait-for-it.sh", "prisma:4466", "--", "prisma", "deploy"]
+    networks:
+      - superalgos_net
+    depends_on:
+      - prisma
+
+  mongo:
+    image: mongo:4.0.9
+    restart: always
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - superalgos_net
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo
+
+  logs-api:
+    image: superalgos/logs-api:0.1.0
+    restart: always
+    build: ../LogsServerModule
+    env_file: ../LogsServerModule/.env.local
+    command: npm start
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo-express
+
+  clones-api:
+    image: superalgos/clones-api:0.1.0
+    restart: always
+    build: ../OperationsModule/server
+    env_file: ../OperationsModule/server/.env.local
+    command: npm start
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo-express
+
+  cockpit-api:
+    image: superalgos/cockpit-api:1.0.0
+    restart: always
+    build: ../CockpitServerModule
+    env_file: ../CockpitServerModule/.env.local
+    command: npm start
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo-express
+
+  strategizer-api:
+    image: superalgos/strategizer-api:0.1.0
+    restart: always
+    build: ../StrategizerServerModule
+    env_file: ../StrategizerServerModule/.env.local
+    command: npm start
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo-express
+
+  events-api:
+    image: superalgos/events-api:0.1.0
+    restart: always
+    build: ../EventsServerModule
+    env_file: ../EventsServerModule/.env.local
+    command: npm start
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo-express
+
+  users-api:
+    image: superalgos/users-api:0.1.0
+    restart: always
+    build: ../UsersModule/server
+    env_file: ../UsersModule/server/.env.local
+    command: npm start
+    ports:
+      - "4000:4000"
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo-express
+
+  keyvault-api:
+    image: superalgos/keyvault-api:0.1.0
+    restart: always
+    build: ../KeyVaultModule/server
+    env_file: ../KeyVaultModule/server/.env.local
+    command: npm start
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo-express
+
+  teams-api:
+    image: superalgos/teams-api:0.1.0
+    restart: always
+    build: ../TeamsModule/api
+    env_file: ../TeamsModule/api/.env.local
+    command: npm start
+    ports:
+      - "4001:4001"
+    networks:
+      - superalgos_net
+    depends_on:
+      - prisma
+
+  notifications-api:
+    image: superalgos/notifications-api:0.1.0
+    restart: always
+    build: ../NotificationsModule/server
+    env_file: ../NotificationsModule/server/.env.local
+    command: npm start
+    networks:
+      - superalgos_net
+    depends_on:
+      - prisma
+
+  master-app:
+    image: master-app:0.1.6
+    restart: always
+    build: ./client
+    env_file: ./client/.env.local
+    command: ['nginx']
+    ports:
+      - "3100:3100"
+    networks:
+      - superalgos_net
+    depends_on:
+      - keyvault-api
+      - clones-api
+      - users-api
+      - events-api
+      - strategizer-api
+      - logs-api
+      - cockpit-api
+      - teams-api
+      - notifications-api
+
+  master-app-api:
+    image: superalgos/master-app-api:0.1.0
+    restart: always
+    build: ./server
+    env_file: ./server/.env.local
+    command: npm start
+    ports:
+      - "4100:4100"
+    networks:
+      - superalgos_net
+    depends_on:
+      - master-app
+
+  saweb:
+    image: superalgos/saweb:0.1.0
+    restart: always
+    build: ../AAWeb
+    env_file: ../AAWeb/.env.local
+    command: node server
+    ports:
+      - "4101:4101"
+    networks:
+      - superalgos_net
+    depends_on:
+      - master-app-api
+
+networks:
+  superalgos_net:
+
+volumes:
+  mongodb_data:
+  postgresdb_data:

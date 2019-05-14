@@ -1,5 +1,5 @@
 # MasterApp
-The Master App is an application layer that wraps the client-side web modules of the various Superalgos platform modules (Users, Teams, KeyVault, Financial Beings, Hosts, etc).
+The Master App is an application layer that wraps the client-side web modules of the various Superalgos platform modules (Users, Teams, KeyVault, Events, etc).
 It provides, to these modules, an authentication layer and GraphQL data layer, among other commonly used utilities and APIs.
 
 Each client-side module is published as an NPM package and their function is best described as a

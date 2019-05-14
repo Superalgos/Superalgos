@@ -1,5 +1,13 @@
 {
-  "name": "aa-team-api",
+  "name": "@superalgos/teams-api",
+  "version": "0.1.0",
+  "description": "Superalgos Teams backend API",
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Superalgos/TeamsModule.git"
+  },
   "main": "src/index.js",
   "scripts": {
     "start": "node -r dotenv/config dist/index.js",

@@ -1,23 +1,19 @@
-FROM mhart/alpine-node:8
+FROM mhart/alpine-node:12
 
-ENV PORT=4001
+# Directory where the service will be installed
+ARG API_DIR=/usr/src/teams-api
 
-RUN mkdir -p /var/www/app && \
-    mkdir -p /var/www/app/node_modules
+# Prepare required directories
+RUN mkdir -p ${API_DIR}
 
 # Use app directory as current workdir
-WORKDIR /var/www/app
-ENV PATH  /var/www/app/node_modules/.bin:$PATH
+WORKDIR ${API_DIR}
+
 # Copy package.json to workdir
-COPY package.json /var/www/app/package.json
+COPY . ${API_DIR}/
 
 # Install dependencies
-RUN npm install
-
-# RUN npm audit fix
-
-# Copy application code
-COPY . /var/www/app
+RUN npm install --production
 
 # Expose Port
 EXPOSE $PORT

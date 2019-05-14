@@ -28,7 +28,7 @@ class Search extends Component {
           size='medium'
           title='Users Search'
           text='Find anyone involved in Advanced Algos here.'
-          backgroundUrl='https://advancedalgos.net/img/photos/users.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/users.jpg'
         />
         <div className='container'>
           <Paper className={classes.root}>

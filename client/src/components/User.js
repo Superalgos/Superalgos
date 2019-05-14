@@ -9,7 +9,7 @@ const User = () => {
         size='medium'
         title='Your Profile'
         text='Manage your profile info, pictures and more.'
-        backgroundUrl='https://advancedalgos.net/img/photos/users.jpg'
+        backgroundUrl='https://superalgos.org/img/photos/users.jpg'
       />
       <UserTabs />
     </React.Fragment>

@@ -1,5 +1,5 @@
 {
-  "name": "clones-api",
+  "name": "@superalgos/clones-api",
   "version": "0.1.0",
   "description": "Superalgos Clones backend API",
   "author": "Superalgos, ltd.",

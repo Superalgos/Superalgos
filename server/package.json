@@ -11,7 +11,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "nodemon --exec babel-node --source-maps --presets env,stage-2 --inspect src/index.js 9229"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -27,6 +28,7 @@
     "express-graphql": "0.6.12",
     "graphql": "14.0.0",
     "kubernetes-client": "6.5.1",
+    "luxon": "^1.13.2",
     "mongoose": "5.2.12",
     "winston": "3.1.0"
   }

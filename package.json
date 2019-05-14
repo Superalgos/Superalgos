@@ -1,17 +1,17 @@
 {
-  "name": "operations-test",
-  "version": "1.0.0",
+  "name": "@superalgos/operations-test",
+  "version": "0.1.0",
   "description": "Superalgos Operations backend API",
   "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
   "dependencies": {
     "axios": "0.18.0",
     "chai": "^4.2.0",
     "dotenv": "^7.0.0",
-    "mocha": "^6.0.2"
+    "mocha": "^6.1.4"
   }
 }

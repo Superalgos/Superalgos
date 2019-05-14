@@ -1,19 +1,9 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
+.env
+.env.dev
 
-# dependencies
 /node_modules
-
-# testing
 /coverage
 
-# misc
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 config
+config-dev

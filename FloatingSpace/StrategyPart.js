@@ -131,7 +131,7 @@ function newStrategyPart () {
   }
 
   function iconPhysics () {
-    icon = canvas.strategySpace.iconByPartType.get(payload.node.type)
+    icon = canvas.strategySpace.iconByPartType.get(thisObject.payload.node.type)
   }
 
   function onFocus () {

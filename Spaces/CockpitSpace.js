@@ -89,11 +89,6 @@
    }
 
    function getContainer (point) {
-     let container = thisObject.assetBalances.getContainer(point)
-     if (container !== undefined) {
-       return container
-     }
-
      if (thisObject.container.frame.isThisPointHere(point, true) === true) {
        return thisObject.container
      } else {

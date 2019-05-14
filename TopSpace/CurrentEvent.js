@@ -70,7 +70,7 @@ function newCurrentEvent () {
   thisObject.container = container
 
   thisObject.container.frame.width = 150
-  thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
+  thisObject.container.frame.height = COCKPIT_SPACE_HEIGHT
 
   resize()
 

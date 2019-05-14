@@ -79,8 +79,8 @@ function newFloatingSpace () {
       returnPoint.x = 0
     }
 
-    if (point.y < BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT) {
-      returnPoint.y = BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT
+    if (point.y < COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT) {
+      returnPoint.y = COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT
     }
 
     if (point.y > browserCanvas.height) {
@@ -99,7 +99,7 @@ function newFloatingSpace () {
       return false
     }
 
-    if (point.y < BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT) {
+    if (point.y < COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT) {
       return false
     }
 

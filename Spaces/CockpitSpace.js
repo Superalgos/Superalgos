@@ -1,6 +1,6 @@
 
- function newBottomSpace () {
-   const MODULE_NAME = 'Bottom Space'
+ function newCockpitSpace () {
+   const MODULE_NAME = 'CockpitSpace'
    const ERROR_LOG = true
 
    let thisObject = {
@@ -49,10 +49,10 @@
 
    function resize () {
      thisObject.container.frame.position.x = 0
-     thisObject.container.frame.position.y = browserCanvas.height - BOTTOM_SPACE_HEIGHT
+     thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
 
      thisObject.container.frame.width = browserCanvas.width
-     thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
+     thisObject.container.frame.height = COCKPIT_SPACE_HEIGHT
    }
 
    function physics () {
@@ -67,8 +67,8 @@
        thisObject.container.isDraggeable = false
      }
 
-     if (thisObject.container.frame.position.y > browserCanvas.height * 99.5 / 100 - BOTTOM_SPACE_HEIGHT) {
-       thisObject.container.frame.position.y = browserCanvas.height - BOTTOM_SPACE_HEIGHT
+     if (thisObject.container.frame.position.y > browserCanvas.height * 99.5 / 100 - COCKPIT_SPACE_HEIGHT) {
+       thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
        thisObject.status = 'BOTTOM'
        canvas.strategySpace.makeInvisible()
      } else {
@@ -83,7 +83,7 @@
        canvas.panelsSpace.visible = true
      }
 
-     BOTTOM_SPACE_POSITION = thisObject.container.frame.position.y
+     COCKPIT_SPACE_POSITION = thisObject.container.frame.position.y
      viewPort.resize()
    }
 
@@ -305,4 +305,3 @@
      browserCanvasContext.stroke()
    }
  }
-

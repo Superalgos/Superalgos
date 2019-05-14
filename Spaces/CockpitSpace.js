@@ -118,7 +118,7 @@
 
      browserCanvasContext.beginPath()
      browserCanvasContext.rect(zeroPoint.x, zeroPoint.y, thisObject.container.frame.width, thisObject.container.frame.height)
-     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
+     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + opacity + ')'
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
@@ -228,3 +228,4 @@
      browserCanvasContext.stroke()
    }
  }
+

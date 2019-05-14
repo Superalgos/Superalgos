@@ -71,7 +71,7 @@ function newSpeedometer () {
     browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIOUS, 0.0 * Math.PI, 2.0 * Math.PI)
     browserCanvasContext.closePath()
 
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + OPACITY + ')'
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
     browserCanvasContext.fill()
 
     /* We draw the circle bar */
@@ -234,3 +234,4 @@ function newSpeedometer () {
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }
+

@@ -23,6 +23,7 @@ function newCircularMenuItem () {
     angle: undefined,
     container: undefined,
     payload: undefined,
+    relatedStrategyPart: undefined,
     physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
@@ -72,16 +73,8 @@ function newCircularMenuItem () {
 
   function initialize (pPayload) {
     thisObject.payload = pPayload
-    /* Load Menu Images */
 
-    thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.iconPathOn)
-    thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.iconPathOff)
-
-    if (thisObject.currentStatus === true) {
-      thisObject.icon = thisObject.iconOn
-    } else {
-      thisObject.icon = thisObject.iconOff
-    }
+    iconPhysics()
 
     selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
@@ -128,6 +121,18 @@ function newCircularMenuItem () {
     if (temporaryStatus === 0) {
       labelToPrint = thisObject.label
       backgroundColorToUse = defaultBackgroudColor
+    }
+
+    iconPhysics()
+  }
+
+  function iconPhysics () {
+    if (thisObject.relatedStrategyPart !== undefined) {
+      thisObject.iconOn = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
+      thisObject.iconOff = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
+    } else {
+      thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.iconPathOn)
+      thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.iconPathOff)
     }
 
     /* Current Status sets the icon to be used */

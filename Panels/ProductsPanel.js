@@ -76,7 +76,6 @@ function newProductsPanel () {
         let bot = devTeam.bots[j]
         let userTeam = isUserTeam(devTeam.codeName, userTeams)
         if (bot.type !== 'Indicator' && bot.cloneId === undefined) { continue }
-        if (bot.type === 'Indicator' && (devTeam.codeName !== 'AAMasters' && !userTeam)) { continue }
 
         if (bot.products !== undefined) {
           for (let k = 0; k < bot.products.length; k++) {

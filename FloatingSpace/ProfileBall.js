@@ -24,8 +24,8 @@ function newProfileBall () {
   let ballStringMenu = [
     {
       visible: false,
-      imagePathOn: 'Images/menu.icon.on.1.gif',
-      imagePathOff: 'Images/menu.icon.off.1.gif',
+      iconPathOn: 'Images/menu.icon.on.1.gif',
+      iconPathOff: 'Images/menu.icon.off.1.gif',
       rawRadius: 8,
       targetRadius: 0,
       currentRadius: 0,
@@ -33,8 +33,8 @@ function newProfileBall () {
     }/*,
         {
             visible: false,
-            imagePathOn: "Images/menu.icon.on.2.gif",
-            imagePathOff: "Images/menu.icon.off.2.gif",
+            iconPathOn: "Images/menu.icon.on.2.gif",
+            iconPathOff: "Images/menu.icon.off.2.gif",
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -42,8 +42,8 @@ function newProfileBall () {
         },
         {
             visible: false,
-            imagePathOn: "Images/menu.icon.on.3.gif",
-            imagePathOff: "Images/menu.icon.off.3.gif",
+            iconPathOn: "Images/menu.icon.on.3.gif",
+            iconPathOff: "Images/menu.icon.off.3.gif",
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -51,8 +51,8 @@ function newProfileBall () {
         },
         {
             visible: false,
-            imagePathOn: "Images/menu.icon.on.4.gif",
-            imagePathOff: "Images/menu.icon.off.4.gif",
+            iconPathOn: "Images/menu.icon.on.4.gif",
+            iconPathOff: "Images/menu.icon.off.4.gif",
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -73,9 +73,9 @@ function newProfileBall () {
         function onImageLoad () {
           menuItem.canDrawIcon = true
         }
-        menuItem.iconOff.src = window.canvasApp.urlPrefix + menuItem.imagePathOff
+        menuItem.iconOff.src = window.canvasApp.urlPrefix + menuItem.iconPathOff
       }
-      menuItem.iconOn.src = window.canvasApp.urlPrefix + menuItem.imagePathOn
+      menuItem.iconOn.src = window.canvasApp.urlPrefix + menuItem.iconPathOn
       menuItem.icon = menuItem.iconOn // The default value is ON.
     }
 

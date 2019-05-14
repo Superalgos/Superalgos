@@ -15,8 +15,8 @@ function newCircularMenuItem () {
     workDoneLabel: undefined,
     workFailedLabel: undefined,
     visible: false,
-    imagePathOn: undefined,
-    imagePathOff: undefined,
+    iconPathOn: undefined,
+    iconPathOff: undefined,
     rawRadius: undefined,
     targetRadius: undefined,
     currentRadius: undefined,
@@ -74,8 +74,8 @@ function newCircularMenuItem () {
     thisObject.payload = pPayload
     /* Load Menu Images */
 
-    thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.imagePathOn)
-    thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.imagePathOff)
+    thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.iconPathOn)
+    thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.iconPathOff)
 
     if (thisObject.currentStatus === true) {
       thisObject.icon = thisObject.iconOn
@@ -217,7 +217,7 @@ function newCircularMenuItem () {
       iconSize = thisObject.currentRadius
     }
 
-    if (thisObject.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
+    if (thisObject.icon.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
       browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)
 
         /* Menu Label */

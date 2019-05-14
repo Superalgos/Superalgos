@@ -1,9 +1,9 @@
 {
-  "name": "events-server",
+  "name": "@superalgos/events-api",
   "version": "0.1.0",
-  "description": "SuperAlgos Events backend API",
-  "author": "",
-  "license": "",
+  "description": "Superalgos Events backend API",
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
   "main": "src/index.js",
   "repository": {
     "type": "git",

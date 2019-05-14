@@ -3,7 +3,7 @@ services:
   node:
     build:
       context: .
-      dockerfile: ./prod/Dockerfile
+      dockerfile: ./prod/Dockerfile.prod
     env_file: ./.env.prod
     container_name: sateamapi
     tty: true

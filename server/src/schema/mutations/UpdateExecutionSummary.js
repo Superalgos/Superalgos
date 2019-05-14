@@ -5,7 +5,7 @@ import {
   GraphQLInt,
   GraphQLFloat
 } from 'graphql'
-import { OperationsError } from '../../errors'
+import { OperationsError, AuthorizationError, AuthentificationError } from '../../errors'
 import { Clone } from '../../models'
 import logger from '../../config/logger'
 import { isDefined } from '../../config/utils'
@@ -34,7 +34,7 @@ const resolve = async (parent,
 
   if (!(context.userId === process.env.AACLOUD_ID)) {
     logger.debug('User %s is not authorized to manage team %s.', authId, team.slug)
-    throw new AutorizationError()
+    throw new AuthorizationError()
   }
 
   try {

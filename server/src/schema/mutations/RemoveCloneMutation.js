@@ -40,7 +40,7 @@ const resolve = async (parent, { id }, context) => {
     }
 
     logger.debug('removeClone -> Removing Clone from Kubernates.')
-    await removeKuberneteClone(clone)
+    await removeKuberneteClone(clone.id)
 
     const query = {
       _id: id,

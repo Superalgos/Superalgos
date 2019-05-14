@@ -114,12 +114,8 @@ const createClone = async (clone) => {
     })
 
     env.push({
-      'name': 'INITIAL_BALANCE_ASSET_A',
-      'value': clone.balanceAssetA.toString()
-    })
-    env.push({
-      'name': 'INITIAL_BALANCE_ASSET_B',
-      'value': clone.balanceAssetB.toString()
+      'name': 'TIME_PERIOD',
+      'value': clone.timePeriod.toString()
     })
 
     logger.debug('createClone Trading Configuration.')
@@ -130,13 +126,17 @@ const createClone = async (clone) => {
       })
 
       env.push({
-        'name': 'TIME_PERIOD',
-        'value': clone.timePeriod
+        'name': 'DATA_SET',
+        'value': datasetNames().get(clone.timePeriod)
       })
 
       env.push({
-        'name': 'DATA_SET',
-        'value': datasetNames().get(clone.timePeriod)
+        'name': 'INITIAL_BALANCE_ASSET_A',
+        'value': clone.balanceAssetA.toString()
+      })
+      env.push({
+        'name': 'INITIAL_BALANCE_ASSET_B',
+        'value': clone.balanceAssetB.toString()
       })
 
       if (clone.mode === BACKTEST) {

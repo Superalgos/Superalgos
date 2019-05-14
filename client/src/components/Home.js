@@ -11,7 +11,7 @@ class Home extends Component {
           size='big'
           title='Users Module'
           text='Responsible for all human users of the Advanced Algos Platform.'
-          backgroundUrl='https://advancedalgos.net/img/photos/users.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/users.jpg'
         />
         <div className='homePage container'>
           <Typography variant='h1' align='center' className='title'>Welcome to the Users Module!</Typography>

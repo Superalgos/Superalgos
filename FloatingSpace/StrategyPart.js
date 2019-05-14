@@ -83,7 +83,7 @@ function newStrategyPart () {
 
 /* Load Part Image */
 
-    icon = canvas.strategySpace.iconByPartType.get(payload.node.type)
+    iconPhysics()
 
     selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
     selfNotFocuskEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
@@ -126,6 +126,12 @@ function newStrategyPart () {
       thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x
       thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
     }
+
+    iconPhysics()
+  }
+
+  function iconPhysics () {
+    icon = canvas.strategySpace.iconByPartType.get(payload.node.type)
   }
 
   function onFocus () {
@@ -361,4 +367,3 @@ function newStrategyPart () {
     }
   }
 }
-

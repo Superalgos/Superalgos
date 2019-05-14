@@ -36,6 +36,7 @@ function newCanvas () {
     chartSpace: undefined,
     floatingSpace: undefined,
     panelsSpace: undefined,
+    cockpitSpace: undefined,
     bottomSpace: undefined,
     strategySpace: undefined,
     animation: undefined,
@@ -48,41 +49,6 @@ function newCanvas () {
   let splashScreen
   let lastContainerMouseOver
   return thisObject
-
-/*
-   The canvas object represents a layer on top of the browser canvas object.
-
-   Graphically, thiscanvas object has 5 spaces:
-
-   1. The "Top Space": It is where Team and User information is displayed.
-   2. The "Chart Space": It is where the charts are plotted.
-   3. The "Floating Space": It is where floating elements live. There is a physics engine for this layer that allows these elements to flow.
-   4. The "Panels Space": It is where panels live. --> This space has yet to be develop, currently pannels are somehow at the Chart Space.
-   5. The "Bottom Space": Includes UIControls that other panels can add there.
-   6. The "Strategy Spece": Functionality to manage Strategies
-
-   All these spaces are child objects of the Canvas object.
-
-   Canvas
-   |
-   |
-   ---> topSpace
-   |
-   |
-   ---> chartSpace
-   |
-   |
-   ---> flaotingSpace
-   |
-   |
-   ---> panelsSpace
-   |
-   |
-   ---> bottomSpace
-   |
-   |
-   ---> strategySpace
-*/
 
   function finalize () {
     try {
@@ -128,8 +94,8 @@ function newCanvas () {
       thisObject.strategySpace = newStrategySpace()
       await thisObject.strategySpace.initialize()
 
-      thisObject.bottomSpace = newBottomSpace()
-      thisObject.bottomSpace.initialize()
+      thisObject.cockpitSpace = newCockpitSpace()
+      thisObject.cockpitSpace.initialize()
 
       thisObject.panelsSpace = newPanelsSpace()
       thisObject.panelsSpace.initialize()
@@ -139,6 +105,8 @@ function newCanvas () {
 
       thisObject.chartSpace = newChartSpace()
       thisObject.chartSpace.initialize(onCharSpaceInitialized)
+
+      thisObject.bottomSpace = thisObject.cockpitSpace
 
       function onCharSpaceInitialized (err) {
         try {
@@ -174,8 +142,8 @@ function newCanvas () {
           animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics, onFunctionAdded)
           animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('ViewPort Animate', viewPort.animate, onFunctionAdded)
-          animation.addCallBackFunction('Bottom Space Draw', thisObject.bottomSpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Bottom Space Physics', thisObject.bottomSpace.physics, onFunctionAdded)
+          animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw, onFunctionAdded)
+          animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics, onFunctionAdded)
           animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Strategy Space Draw', thisObject.strategySpace.draw, onFunctionAdded)
           animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw, onFunctionAdded)
@@ -334,9 +302,9 @@ function newCanvas () {
         return
       }
 
-           /* We check if the mouse is over an element of the Bottom Space / */
+           /* We check if the mouse is over an element of the CockpitSpace / */
 
-      container = thisObject.bottomSpace.getContainer(point)
+      container = thisObject.cockpitSpace.getContainer(point)
 
       if (container !== undefined && container.isDraggeable === true) {
         containerBeingDragged = container
@@ -425,9 +393,9 @@ function newCanvas () {
         return
       }
 
-           /* We check if the mouse is over an element of the Bottom Space / */
+           /* We check if the mouse is over an element of the CockpitSpace / */
 
-      container = thisObject.bottomSpace.getContainer(point)
+      container = thisObject.cockpitSpace.getContainer(point)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)
@@ -583,10 +551,10 @@ function newCanvas () {
         }
       }
 
-           /* We check if the mouse is over an element of the Bottom Space / */
+           /* We check if the mouse is over an element of the CockpitSpace / */
 
-      if (thisObject.bottomSpace !== undefined) {
-        container = thisObject.bottomSpace.getContainer(point)
+      if (thisObject.cockpitSpace !== undefined) {
+        container = thisObject.cockpitSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
           containerFound()
@@ -665,9 +633,9 @@ function newCanvas () {
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
-           /* We try the Bottom Space. */
+           /* We try the CockpitSpace. */
 
-      container = canvas.bottomSpace.getContainer({ x: point.x, y: point.y })
+      container = canvas.cockpitSpace.getContainer({ x: point.x, y: point.y })
 
       if (container !== undefined && container.isWheelable === true) {
         container.eventHandler.raiseEvent('onMouseWheel', event)
@@ -760,4 +728,3 @@ function newCanvas () {
     }
   }
 }
-

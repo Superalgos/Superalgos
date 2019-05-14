@@ -15,14 +15,15 @@ function newCircularMenuItem () {
     workDoneLabel: undefined,
     workFailedLabel: undefined,
     visible: false,
-    imagePathOn: undefined,
-    imagePathOff: undefined,
+    iconPathOn: undefined,
+    iconPathOff: undefined,
     rawRadius: undefined,
     targetRadius: undefined,
     currentRadius: undefined,
     angle: undefined,
     container: undefined,
     payload: undefined,
+    relatedStrategyPart: undefined,
     physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
@@ -72,29 +73,8 @@ function newCircularMenuItem () {
 
   function initialize (pPayload) {
     thisObject.payload = pPayload
-    /* Load Menu Images */
 
-    thisObject.iconOn = new Image()
-    thisObject.iconOn.onload = onOnImageLoad
-
-    function onOnImageLoad () {
-      if (thisObject.imagePathOff !== undefined) {
-        thisObject.iconOff = new Image()
-        thisObject.iconOff.onload = onOffImageLoad
-
-        function onOffImageLoad () {
-          thisObject.canDrawIcon = true
-        }
-        thisObject.iconOff.src = window.canvasApp.urlPrefix + thisObject.imagePathOff
-      }
-    }
-    thisObject.iconOn.src = window.canvasApp.urlPrefix + thisObject.imagePathOn
-
-    if (thisObject.currentStatus === true) {
-      thisObject.icon = thisObject.iconOn
-    } else {
-      thisObject.icon = thisObject.iconOff
-    }
+    iconPhysics()
 
     selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
@@ -141,6 +121,18 @@ function newCircularMenuItem () {
     if (temporaryStatus === 0) {
       labelToPrint = thisObject.label
       backgroundColorToUse = defaultBackgroudColor
+    }
+
+    iconPhysics()
+  }
+
+  function iconPhysics () {
+    if (thisObject.relatedStrategyPart !== undefined) {
+      thisObject.iconOn = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
+      thisObject.iconOff = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
+    } else {
+      thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.iconPathOn)
+      thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.iconPathOff)
     }
 
     /* Current Status sets the icon to be used */
@@ -230,7 +222,7 @@ function newCircularMenuItem () {
       iconSize = thisObject.currentRadius
     }
 
-    if (thisObject.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
+    if (thisObject.icon.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
       browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)
 
         /* Menu Label */

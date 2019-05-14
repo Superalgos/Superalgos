@@ -57,13 +57,14 @@ function newCircularMenu () {
       menuItem.workDoneLabel = menuItemInitialValue.workDoneLabel
       menuItem.workFailedLabel = menuItemInitialValue.workFailedLabel
       menuItem.visible = menuItemInitialValue.visible
-      menuItem.imagePathOn = menuItemInitialValue.imagePathOn
-      menuItem.imagePathOff = menuItemInitialValue.imagePathOff
+      menuItem.iconPathOn = menuItemInitialValue.iconPathOn
+      menuItem.iconPathOff = menuItemInitialValue.iconPathOff
       menuItem.rawRadius = menuItemInitialValue.rawRadius
       menuItem.targetRadius = menuItemInitialValue.label
       menuItem.currentRadius = menuItemInitialValue.currentRadius
       menuItem.angle = menuItemInitialValue.angle
       menuItem.currentStatus = menuItemInitialValue.currentStatus
+      menuItem.relatedStrategyPart = menuItemInitialValue.relatedStrategyPart
 
       if (menuItem.label === undefined) {
         menuItem.type = 'Icon Only'

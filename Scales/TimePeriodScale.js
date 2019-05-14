@@ -187,7 +187,7 @@ to be visible at the top of the viewPort. */
 
     /* Lets start the drawing. */
 
-    let displacement = viewPort.margins.BOTTOM - BOTTOM_SPACE_HEIGHT
+    let displacement = viewPort.margins.BOTTOM - COCKPIT_SPACE_HEIGHT
 
     /*
     browserCanvasContext.beginPath()

@@ -57,7 +57,6 @@ function newStrategyPartConstructor () {
       case 'Trading System': {
         floatingObject.isPinned = true
         floatingObject.positionLocked = true
-        strategyPart.imagePath = 'Images/Icons/style-01/analysis.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -65,8 +64,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/target.png',
-            imagePathOff: 'Images/Icons/style-01/security.png',
+            iconPathOn: 'target',
+            iconPathOff: 'security',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -77,8 +76,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Reload',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/vector.png',
-            imagePathOff: 'Images/Icons/style-01/vector.png',
+            iconPathOn: 'vector',
+            iconPathOff: 'vector',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -92,8 +91,8 @@ function newStrategyPartConstructor () {
             workDoneLabel: 'Saved',
             workFailedLabel: 'Not Saved',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/upload.png',
-            imagePathOff: 'Images/Icons/style-01/upload.png',
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -104,8 +103,9 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'New Strategy',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/quality.png',
-            imagePathOff: 'Images/Icons/style-01/quality.png',
+            iconPathOn: 'quality',
+            iconPathOff: 'quality',
+            relatedStrategyPart: 'Strategy',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -116,8 +116,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Settings',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/tools.png',
-            imagePathOff: 'Images/Icons/style-01/tools.png',
+            iconPathOn: 'tools',
+            iconPathOff: 'tools',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -126,7 +126,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Strategy': {
-        strategyPart.imagePath = 'Images/Icons/style-01/quality.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -134,8 +133,8 @@ function newStrategyPartConstructor () {
             currentStatus: false,
             label: undefined,
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/target.png',
-            imagePathOff: 'Images/Icons/style-01/security.png',
+            iconPathOn: 'target',
+            iconPathOff: 'security',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -146,8 +145,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Strategy',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/trash.png',
-            imagePathOff: 'Images/Icons/style-01/trash.png',
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -158,8 +157,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Settings',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/tools.png',
-            imagePathOff: 'Images/Icons/style-01/tools.png',
+            iconPathOn: 'tools',
+            iconPathOff: 'tools',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -168,7 +167,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Strategy Entry Event': {
-        strategyPart.imagePath = 'Images/Icons/style-01/startup.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -176,8 +174,8 @@ function newStrategyPartConstructor () {
             currentStatus: false,
             label: undefined,
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/target.png',
-            imagePathOff: 'Images/Icons/style-01/security.png',
+            iconPathOn: 'target',
+            iconPathOff: 'security',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -188,8 +186,9 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/attractive.png',
-            imagePathOff: 'Images/Icons/style-01/attractive.png',
+            iconPathOn: 'attractive',
+            iconPathOff: 'attractive',
+            relatedStrategyPart: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -198,7 +197,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Strategy Exit Event': {
-        strategyPart.imagePath = 'Images/Icons/style-01/support.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -206,8 +204,8 @@ function newStrategyPartConstructor () {
             currentStatus: false,
             label: undefined,
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/target.png',
-            imagePathOff: 'Images/Icons/style-01/security.png',
+            iconPathOn: 'target',
+            iconPathOff: 'security',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -218,8 +216,9 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/attractive.png',
-            imagePathOff: 'Images/Icons/style-01/attractive.png',
+            iconPathOn: 'attractive',
+            iconPathOff: 'attractive',
+            relatedStrategyPart: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -228,7 +227,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Trade Entry Event': {
-        strategyPart.imagePath = 'Images/Icons/style-01/compass.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -236,8 +234,8 @@ function newStrategyPartConstructor () {
             currentStatus: false,
             label: undefined,
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/target.png',
-            imagePathOff: 'Images/Icons/style-01/security.png',
+            iconPathOn: 'target',
+            iconPathOff: 'security',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -248,8 +246,9 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/attractive.png',
-            imagePathOff: 'Images/Icons/style-01/attractive.png',
+            iconPathOn: 'attractive',
+            iconPathOff: 'attractive',
+            relatedStrategyPart: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -258,7 +257,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Stop': {
-        strategyPart.imagePath = 'Images/Icons/style-01/pixel.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -266,8 +264,8 @@ function newStrategyPartConstructor () {
             currentStatus: false,
             label: undefined,
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/target.png',
-            imagePathOff: 'Images/Icons/style-01/security.png',
+            iconPathOn: 'target',
+            iconPathOff: 'security',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -278,8 +276,9 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Phase',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/placeholder.png',
-            imagePathOff: 'Images/Icons/style-01/placeholder.png',
+            iconPathOn: 'placeholder',
+            iconPathOff: 'placeholder',
+            relatedStrategyPart: 'Phase',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -288,7 +287,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Take Profit': {
-        strategyPart.imagePath = 'Images/Icons/style-01/competition.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -296,8 +294,8 @@ function newStrategyPartConstructor () {
             currentStatus: false,
             label: undefined,
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/target.png',
-            imagePathOff: 'Images/Icons/style-01/security.png',
+            iconPathOn: 'target',
+            iconPathOff: 'security',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -308,8 +306,9 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Phase',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/placeholder.png',
-            imagePathOff: 'Images/Icons/style-01/placeholder.png',
+            iconPathOn: 'placeholder',
+            iconPathOff: 'placeholder',
+            relatedStrategyPart: 'Phase',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -318,7 +317,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Phase': {
-        strategyPart.imagePath = 'Images/Icons/style-01/placeholder.png'
         strategyPart.codeEditor = newCodeEditor()
         strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
         strategyPart.codeEditor.initialize()
@@ -331,8 +329,8 @@ function newStrategyPartConstructor () {
             currentStatus: false,
             label: undefined,
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/target.png',
-            imagePathOff: 'Images/Icons/style-01/security.png',
+            iconPathOn: 'target',
+            iconPathOff: 'security',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -343,8 +341,8 @@ function newStrategyPartConstructor () {
             actionFunction: strategyPart.codeEditor.activate,
             label: 'Edit Code',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/html.png',
-            imagePathOff: 'Images/Icons/style-01/html.png',
+            iconPathOn: 'html',
+            iconPathOff: 'html',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -355,8 +353,9 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/attractive.png',
-            imagePathOff: 'Images/Icons/style-01/attractive.png',
+            iconPathOn: 'attractive',
+            iconPathOff: 'attractive',
+            relatedStrategyPart: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -367,8 +366,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Phase',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/trash.png',
-            imagePathOff: 'Images/Icons/style-01/trash.png',
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -377,7 +376,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Situation': {
-        strategyPart.imagePath = 'Images/Icons/style-01/attractive.png'
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -385,8 +383,8 @@ function newStrategyPartConstructor () {
             currentStatus: false,
             label: undefined,
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/target.png',
-            imagePathOff: 'Images/Icons/style-01/security.png',
+            iconPathOn: 'target',
+            iconPathOff: 'security',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -397,8 +395,9 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Condition',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/testing.png',
-            imagePathOff: 'Images/Icons/style-01/testing.png',
+            iconPathOn: 'testing',
+            iconPathOff: 'testing',
+            relatedStrategyPart: 'Condition',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -409,8 +408,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Situation',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/trash.png',
-            imagePathOff: 'Images/Icons/style-01/trash.png',
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -419,7 +418,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Condition': {
-        strategyPart.imagePath = 'Images/Icons/style-01/testing.png'
         strategyPart.codeEditor = newCodeEditor()
         strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
         strategyPart.codeEditor.initialize()
@@ -432,8 +430,8 @@ function newStrategyPartConstructor () {
             currentStatus: false,
             label: undefined,
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/target.png',
-            imagePathOff: 'Images/Icons/style-01/security.png',
+            iconPathOn: 'target',
+            iconPathOff: 'security',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -444,8 +442,8 @@ function newStrategyPartConstructor () {
             actionFunction: strategyPart.codeEditor.activate,
             label: 'Edit Code',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/html.png',
-            imagePathOff: 'Images/Icons/style-01/html.png',
+            iconPathOn: 'html',
+            iconPathOff: 'html',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -456,8 +454,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Condition',
             visible: false,
-            imagePathOn: 'Images/Icons/style-01/trash.png',
-            imagePathOff: 'Images/Icons/style-01/trash.png',
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,

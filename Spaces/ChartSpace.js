@@ -117,8 +117,8 @@ function newChartSpace () {
       returnPoint.x = 0
     }
 
-    if (point.y > BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2) {
-      returnPoint.y = BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2
+    if (point.y > COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2) {
+      returnPoint.y = COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2
     }
 
     if (point.y < 0) {
@@ -137,7 +137,7 @@ function newChartSpace () {
       return false
     }
 
-    if (point.y > BOTTOM_SPACE_POSITION + BOTTOM_SPACE_HEIGHT / 2) {
+    if (point.y > COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2) {
       return false
     }
 
@@ -149,7 +149,7 @@ function newChartSpace () {
   }
 
   function physics () {
-    thisObject.container.frame.height = BOTTOM_SPACE_POSITION
+    thisObject.container.frame.height = COCKPIT_SPACE_POSITION
 
     if (thisObject.container.frame.height <= 0 / 100) {
       thisObject.visible = false
@@ -180,7 +180,7 @@ function newChartSpace () {
 
     let toPoint = {
       x: browserCanvas.width,
-      y: BOTTOM_SPACE_POSITION
+      y: COCKPIT_SPACE_POSITION
     }
 
     browserCanvasContext.beginPath()
@@ -199,4 +199,3 @@ function newChartSpace () {
     }
   }
 }
-

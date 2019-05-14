@@ -34,8 +34,7 @@ function newStrategyPart () {
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
 
-  let image
-  let imagePath
+  let icon
 
   let selfFocusEventSubscriptionId
   let selfNotFocuskEventSubscriptionId
@@ -63,8 +62,7 @@ function newStrategyPart () {
       thisObject.codeEditor = undefined
     }
 
-    image = undefined
-    imagePath = undefined
+    icon = undefined
   }
 
   function initialize (payload, menuItemsInitialValues) {
@@ -85,15 +83,7 @@ function newStrategyPart () {
 
 /* Load Part Image */
 
-    if (thisObject.imagePath !== undefined) {
-      image = new Image()
-      image.onload = onImageLoad
-
-      function onImageLoad () {
-        image.canDrawIcon = true
-      }
-      image.src = window.canvasApp.urlPrefix + thisObject.imagePath
-    }
+    iconPhysics()
 
     selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
     selfNotFocuskEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
@@ -136,6 +126,12 @@ function newStrategyPart () {
       thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x
       thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
     }
+
+    iconPhysics()
+  }
+
+  function iconPhysics () {
+    icon = canvas.strategySpace.iconByPartType.get(thisObject.payload.node.type)
   }
 
   function onFocus () {
@@ -268,7 +264,7 @@ function newStrategyPart () {
         }
 
         labelPoint = {
-          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
           y: position.y + radius * 2 / 3 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
@@ -360,10 +356,10 @@ function newStrategyPart () {
 
         /* Image */
 
-    if (image !== undefined) {
-      if (image.canDrawIcon === true) {
+    if (icon !== undefined) {
+      if (icon.canDrawIcon === true) {
         browserCanvasContext.drawImage(
-          image, position.x - thisObject.payload.floatingObject.currentImageSize / 2,
+          icon, position.x - thisObject.payload.floatingObject.currentImageSize / 2,
           position.y - thisObject.payload.floatingObject.currentImageSize / 2,
           thisObject.payload.floatingObject.currentImageSize,
           thisObject.payload.floatingObject.currentImageSize)

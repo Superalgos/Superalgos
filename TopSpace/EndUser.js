@@ -12,7 +12,7 @@ function newEndUser () {
   thisObject.container = container
 
   thisObject.container.frame.width = 200
-  thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT
+  thisObject.container.frame.height = COCKPIT_SPACE_HEIGHT
 
   container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 5
   container.frame.position.y = viewPort.visibleArea.bottomLeft.y + BREAKPOINT_HEIGHT

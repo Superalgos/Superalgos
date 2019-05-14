@@ -1,5 +1,5 @@
 {
-  "name": "saweb",
+  "name": "@superalgos/saweb",
   "version": "0.1.0",
   "description": "Superalgos web interface.",
   "main": "server.js",

@@ -2,14 +2,15 @@
 .vs/*
 obj/*
 bin/*
+/.vscode
 
-node_modules/*
-this.server.config.json
 .env
-dependency/
+.env.dev
+this.server.config.json
+this.server.config.dev.json
 
-\.nyc_output/
+/node_modules
+/dependency
 
-coverage/*
-
-\.vscode/
+/.nyc_output
+/coverage

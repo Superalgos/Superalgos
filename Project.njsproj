@@ -42,7 +42,6 @@
     <Compile Include="Plotter.js" />
     <Compile Include="PlotterPanel.js" />
     <Compile Include="Server\BotsScripts.js" />
-    <Compile Include="Server\Exchange\ExchangeAPI.js" />
     <Compile Include="Server\Exchange\exchangeUtils.js" />
     <Compile Include="Server\Exchange\Wrappers\beautifier.js" />
     <Compile Include="Server\Exchange\Wrappers\binance.js" />

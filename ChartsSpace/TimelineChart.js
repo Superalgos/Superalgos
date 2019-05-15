@@ -14,6 +14,7 @@ function newTimelineChart () {
   let thisObject = {
     container: undefined,
     fitFunction: undefined,
+    physics: physics,
     setDatetime: setDatetime,
     drawBackground: drawBackground,
     draw: draw,
@@ -237,6 +238,19 @@ function newTimelineChart () {
     if (container !== undefined) { return container }
 
     return container
+  }
+
+  function physics () {
+    thisObjectPhysics()
+    childrenPhysics()
+  }
+
+  function thisObjectPhysics () {
+
+  }
+
+  function childrenPhysics () {
+
   }
 
   function tooTiny () {

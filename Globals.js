@@ -122,9 +122,17 @@ function convertTimePeriodToName(pTimePeriod) {
 
 window.AT_BREAKPOINT = false;
 
+let testUser = window.localStorage.getItem("test_user")
+let LOGGED_IN_USER_LOCAL_STORAGE_KEY
+let LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY
 
-const LOGGED_IN_USER_LOCAL_STORAGE = "xuser"
-const LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE =  "xaccess_token"
+if (testUser !== null) {
+   LOGGED_IN_USER_LOCAL_STORAGE_KEY = "test_user"
+   LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY =  "test_access_token"
+} else {
+  LOGGED_IN_USER_LOCAL_STORAGE_KEY =  "user"
+  LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY = "access_token"
+}
 
 const USDT_BTC_HTH = 19900; // This is needed to know the scale of the market time line.
 

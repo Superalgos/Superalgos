@@ -292,6 +292,7 @@ to be visible at the top of the viewPort. */
     let event = {}
     event.timePeriod = thisObject.timePeriod
     thisObject.container.eventHandler.raiseEvent('Time Period Changed', event)
+    window.localStorage.setItem('Current Time Period', JSON.stringify({filePeriodIndex: filePeriodIndex, timePeriodIndex: timePeriodIndex}))
   }
 }
 

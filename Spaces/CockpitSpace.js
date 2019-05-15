@@ -6,6 +6,7 @@
      container: undefined,
      status: 'BOTTOM',
      assetBalances: undefined,
+     restartSimulation: undefined,
      draw: draw,
      physics: physics,
      getContainer: getContainer,
@@ -16,6 +17,7 @@
    thisObject.container = newContainer()
    thisObject.container.initialize(MODULE_NAME)
    thisObject.container.isClickeable = false
+   thisObject.container.detectMouseOver = true
    thisObject.container.isDraggeable = true
    thisObject.container.notDraggingOnX = true
 
@@ -34,6 +36,7 @@
      thisObject.container.finalize()
      thisObject.container = undefined
      thisObject.assetBalances = undefined
+     thisObject.restartSimulation = undefined
    }
 
    function initialize () {
@@ -42,6 +45,10 @@
 
      thisObject.assetBalances = newAssetBalances()
      thisObject.assetBalances.initialize()
+
+     thisObject.restartSimulation = newRestartSimulation()
+     thisObject.restartSimulation.container.connectToParent(thisObject.container)
+     thisObject.restartSimulation.initialize()
    }
 
    function onMouseClick (event) {
@@ -57,11 +64,19 @@
    }
 
    function physics () {
+     thisObjectPhysics()
+     childrenPhysics()
+   }
+
+   function childrenPhysics () {
+     thisObject.restartSimulation.physics()
+   }
+   function thisObjectPhysics () {
      /* Check the limits */
 
      thisObject.status = 'MIDDLE'
 
-     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
+     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
      if (user !== null) { // Only if user is logged in
        thisObject.container.isDraggeable = true
      } else {
@@ -89,6 +104,11 @@
    }
 
    function getContainer (point) {
+     let container
+
+     container = thisObject.restartSimulation.getContainer(point)
+     if (container !== undefined) { return container }
+
      if (thisObject.container.frame.isThisPointHere(point, true) === true) {
        return thisObject.container
      } else {
@@ -102,6 +122,7 @@
      drawBackground()
 
      thisObject.assetBalances.draw()
+     thisObject.restartSimulation.draw()
    }
 
    function drawBackground () {
@@ -134,7 +155,7 @@
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
-     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
+     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
      if (user !== null) { // Only if user is logged in
        arrow()
      }
@@ -228,4 +249,3 @@
      browserCanvasContext.stroke()
    }
  }
-

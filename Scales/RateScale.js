@@ -2,11 +2,12 @@ function newRateScale () {
   const MODULE_NAME = 'Right Scale'
 
   let thisObject = {
+    heightPercentage: 100,
     container: undefined,
+    physics: physics,
     draw: draw,
     getContainer: getContainer,
-    initialize: initialize,
-    heightPercentage: 100
+    initialize: initialize
   }
 
   const HEIGHT_PERCENTAGE_DEFAULT_VALUE = 50
@@ -99,6 +100,10 @@ function newRateScale () {
 
       return undefined
     }
+  }
+
+  function physics () {
+
   }
 
   function draw () {

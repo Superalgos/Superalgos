@@ -5,6 +5,7 @@ import { Clone } from '../../models'
 import { Indicator } from '../../enums/BotTypes'
 import { DateTime } from 'luxon'
 import teamQuery from '../../graphQLCalls/teamQuery'
+import cloneDetails from '../cloneDetails'
 import {
   AuthentificationError,
   OperationsError

@@ -61,7 +61,7 @@
 
      thisObject.status = 'MIDDLE'
 
-     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
+     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
      if (user !== null) { // Only if user is logged in
        thisObject.container.isDraggeable = true
      } else {
@@ -134,7 +134,7 @@
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
-     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
+     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
      if (user !== null) { // Only if user is logged in
        arrow()
      }
@@ -228,4 +228,3 @@
      browserCanvasContext.stroke()
    }
  }
-

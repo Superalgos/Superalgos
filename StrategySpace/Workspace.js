@@ -41,9 +41,9 @@ function newWorkspace () {
 
   async function saveToStrategyzer () {
     try {
-      const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE)
+      const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY)
 
-      let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
+      let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
       if (user === null) {
         if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> Can not save because user is not logged in. ') }
         return
@@ -253,9 +253,9 @@ function newWorkspace () {
 
   async function loadFromStrategyzer () {
     try {
-      const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE)
+      const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY)
 
-      let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE)
+      let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
       if (user === null) {
               // if there is no user that means that we are logged off, which means this object can not be used.
         return

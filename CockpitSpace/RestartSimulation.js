@@ -71,11 +71,32 @@ function newRestartSimulation () {
   }
 
   async function onMouseClick (event) {
+    let dateAtScreenCorner = new Date(window.localStorage.getItem('Date @ Screen Corner'))
+    let currentTimePeriod = JSON.parse(window.localStorage.getItem('Current Time Period'))
+
+    let timePeriodsMasterArray = [marketFilesPeriods, dailyFilePeriods]
+    let timePeriodArray = timePeriodsMasterArray[currentTimePeriod.filePeriodIndex]
+    let timePeriod = timePeriodArray[currentTimePeriod.timePeriodIndex][1]
+
+    let timePeriodDailyArray = []
+    let timePeriodMarketArray = []
+
+    switch (currentTimePeriod.filePeriodIndex) {
+      case 0: {
+        timePeriodMarketArray.push(timePeriod)
+        break
+      }
+      case 1: {
+        timePeriodDailyArray.push(timePeriod)
+        break
+      }
+    }
+
     let simulationParams = {
-      beginDatetime: 1554087600,
-      resumeExecution: true,
-      timePeriodDailyArray: ['05-min', '10-min'],
-      timePeriodMarketArray: ['01-hs', '02-hs']
+      beginDatetime: dateAtScreenCorner.valueOf() / 1000 | 0,
+      resumeExecution: false,
+      timePeriodDailyArray: timePeriodDailyArray,
+      timePeriodMarketArray: timePeriodMarketArray
     }
 
     let result = await graphQlRestartSimulation(simulationParams)
@@ -136,3 +157,4 @@ function newRestartSimulation () {
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }
+

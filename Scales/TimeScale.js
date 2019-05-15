@@ -2,11 +2,12 @@ function newTimeScale () {
   const MODULE_NAME = 'Time Scale'
 
   let thisObject = {
+    lenghtPercentage: undefined,
     container: undefined,
+    physics: physics,
     draw: draw,
     getContainer: getContainer,
-    initialize: initialize,
-    lenghtPercentage: undefined
+    initialize: initialize
   }
 
   const LENGHT_PERCENTAGE_DEFAULT_VALUE = 5
@@ -94,6 +95,17 @@ function newTimeScale () {
 
       return undefined
     }
+  }
+
+  function physics () {
+    let point = {
+      x: 0,
+      y: 0
+    }
+
+    let date = getDateFromPoint(point, thisObject.container.parentContainer, timeLineCoordinateSystem)
+    date = new Date(date)
+    window.localStorage.setItem('Date @ Screen Corner', date.toUTCString())
   }
 
   function draw () {
@@ -206,3 +218,4 @@ to be visible at the top of the viewPort. */
     browserCanvasContext.stroke()
   }
 }
+

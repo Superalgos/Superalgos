@@ -149,6 +149,11 @@ function newChartSpace () {
   }
 
   function physics () {
+    thisObjectPhysics()
+    childrenPhysics()
+  }
+
+  function thisObjectPhysics () {
     thisObject.container.frame.height = COCKPIT_SPACE_POSITION
 
     if (thisObject.container.frame.height <= 0 / 100) {
@@ -158,6 +163,13 @@ function newChartSpace () {
     }
 
     viewPort.resize()
+  }
+
+  function childrenPhysics () {
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[i]
+      timeMachine.physics()
+    }
   }
 
   function drawBackground () {

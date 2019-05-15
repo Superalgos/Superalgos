@@ -11,15 +11,15 @@ each one with it own charts, and each one positioned at an especific point in ti
 
 function newTimeMachine () {
   const MODULE_NAME = 'Time Machine'
-  const INFO_LOG = false
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
   let thisObject = {
     container: undefined,
+    charts: [],
+    physics: physics,
     drawBackground: drawBackground,
     draw: draw,
-    charts: [],
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
     initialize: initialize,
     finalize: finalize
@@ -41,28 +41,20 @@ function newTimeMachine () {
   const SEPARATION_BETWEEN_TIMELINE_CHARTS = 1.5
 
   let timeScale
-  let rigthScale
+  let rateScale
 
   let timeLineCoordinateSystem = newTimeLineCoordinateSystem()
 
   return thisObject
 
   function finalize () {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
-
-      for (let i = 0; i < thisObject.charts.length; i++) {
-        let chart = thisObject.charts[i]
-        chart.finalize()
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
+    for (let i = 0; i < thisObject.charts.length; i++) {
+      let chart = thisObject.charts[i]
+      chart.finalize()
     }
   }
 
   function initialize (callBackFunction) {
-    if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-
      /* Each Time Machine has a Control Panel. */
 
     let panelOwner = 'Global'
@@ -114,21 +106,19 @@ function newTimeMachine () {
 
       timeScale.initialize(timeLineCoordinateSystem)
 
-      rigthScale = newRateScale()
-      rigthScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
-      rigthScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
+      rateScale = newRateScale()
+      rateScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
+      rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
       })
 
-      rigthScale.initialize(timeLineCoordinateSystem)
+      rateScale.initialize(timeLineCoordinateSystem)
 
       initializeTheRest()
     }
 
     function initializeTheRest () {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> initializeTheRest -> Entering function.') }
-
       let leftToInitialize = SUPPORTED_EXCHANGES.length * SUPPORTED_MARKETS.length - 1 // The default exchange and market was already initialized.
       let alreadyInitialized = 0
 
@@ -153,8 +143,6 @@ function newTimeMachine () {
       }
 
       function initializeTimelineChart (exchange, market) {
-        if (INFO_LOG === true) { logger.write('[INFO] initialize -> initializeTheRest -> initializeTimelineChart -> Entering function.') }
-
         let timelineChart = newTimelineChart()
 
         timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true)
@@ -169,8 +157,6 @@ function newTimeMachine () {
         timelineChart.initialize(exchange, market, timeLineCoordinateSystem, finalSteps)
 
         function finalSteps () {
-          if (INFO_LOG === true) { logger.write('[INFO] initialize -> initializeTheRest -> initializeTimelineChart -> finalSteps -> Entering function.') }
-
           thisObject.charts.push(timelineChart)
 
           controlPanel.container.eventHandler.listenToEvent('Datetime Changed', timelineChart.setDatetime, undefined)
@@ -198,8 +184,8 @@ function newTimeMachine () {
       }
     }
 
-    if (rigthScale !== undefined) {
-      container = rigthScale.getContainer(point)
+    if (rateScale !== undefined) {
+      container = rateScale.getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
@@ -228,6 +214,24 @@ function newTimeMachine () {
     }
   }
 
+  function physics () {
+    thisObjectPhysics()
+    childrenPhysics()
+  }
+
+  function thisObjectPhysics () {
+
+  }
+
+  function childrenPhysics () {
+    timeScale.physics()
+    rateScale.physics()
+    for (let i = 0; i < thisObject.charts.length; i++) {
+      let chart = thisObject.charts[i]
+      chart.physics()
+    }
+  }
+
   function drawBackground () {
     thisBackground()
 
@@ -247,7 +251,7 @@ function newTimeMachine () {
       }
 
       if (timeScale !== undefined) { timeScale.draw() }
-      if (rigthScale !== undefined) { rigthScale.draw() }
+      if (rateScale !== undefined) { rateScale.draw() }
 
      // thisObject.container.frame.draw(false, true, false)
     }
@@ -269,8 +273,6 @@ function newTimeMachine () {
   }
 
   function recalculateScale () {
-    if (INFO_LOG === true) { logger.write('[INFO] recalculateScale -> Entering function.') }
-
     let minValue = {
       x: MIN_PLOTABLE_DATE.valueOf(),
       y: 0

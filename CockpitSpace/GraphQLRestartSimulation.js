@@ -28,9 +28,12 @@ async function graphQlRestartSimulation (simulationParams) {
     })
 
     if (graphQLServer.data.errors) {
+      console.log(err.stack)
       throw new Error(graphQLServer.data.errors[0].message)
     }
   } catch (err) {
+    console.log(err.stack)
     throw new Error('There has been an error restarting the simulation. Error: ' + err.stack)
   }
 }
+

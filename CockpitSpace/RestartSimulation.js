@@ -5,6 +5,7 @@ function newRestartSimulation () {
   let thisObject = {
     visible: true,
     container: undefined,
+    status: undefined,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -25,6 +26,7 @@ function newRestartSimulation () {
   let selfMouseNotOverEventSubscriptionId
 
   let isMouseOver = false
+  let counterTillNextState = 0
 
   return thisObject
 
@@ -40,16 +42,18 @@ function newRestartSimulation () {
   function initialize () {
     thisObject.container.frame.position.x = thisObject.container.parentContainer.frame.width * 80 / 100
     thisObject.container.frame.position.y = 6
-    thisObject.container.frame.width = 200
+    thisObject.container.frame.width = 250
     thisObject.container.frame.height = COCKPIT_SPACE_HEIGHT - 12
 
     selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
     selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+
+    thisObject.status = 'Ready'
   }
 
   function getContainer (point, purpose) {
-    if (thisObject.visible !== true) { return }
+    if (thisObject.visible !== true || thisObject.status !== 'Ready') { return }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
@@ -98,12 +102,38 @@ function newRestartSimulation () {
       timePeriodDailyArray: timePeriodDailyArray,
       timePeriodMarketArray: timePeriodMarketArray
     }
-
-    let result = await graphQlRestartSimulation(simulationParams)
+    try {
+      thisObject.status = 'Restarting'
+      await graphQlRestartSimulation(simulationParams)
+      thisObject.status = 'Calculating'
+      counterTillNextState = 1000
+    } catch (err) {
+      thisObject.status = 'Error'
+      counterTillNextState = 500
+    }
   }
 
   function physics () {
+    if (counterTillNextState > 0) {
+      counterTillNextState--
 
+      if (counterTillNextState === 0) {
+        switch (thisObject.status) {
+          case 'Ready':
+
+            break
+          case 'Restarting':
+
+            break
+          case 'Calculating':
+            thisObject.status = 'Ready'
+            break
+          case 'Error':
+            thisObject.status = 'Ready'
+            break
+        }
+      }
+    }
   }
 
   function draw () {
@@ -122,10 +152,24 @@ function newRestartSimulation () {
       opacity: 1
     }
 
-    if (isMouseOver === true) {
-      params.backgroundColor = UI_COLOR.TURQUOISE
-    } else {
-      params.backgroundColor = UI_COLOR.DARK_TURQUOISE
+    switch (thisObject.status) {
+      case 'Ready': {
+        if (isMouseOver === true) {
+          params.backgroundColor = UI_COLOR.TURQUOISE
+        } else {
+          params.backgroundColor = UI_COLOR.DARK_TURQUOISE
+        }
+        break
+      }
+      case 'Restarting':
+        params.backgroundColor = UI_COLOR.GREY
+        break
+      case 'Calculating':
+        params.backgroundColor = UI_COLOR.TITANIUM_YELLOW
+        break
+      case 'Error':
+        params.backgroundColor = UI_COLOR.RUSTED_RED
+        break
     }
 
     roundedCornersBackground(params)
@@ -145,10 +189,23 @@ function newRestartSimulation () {
 
     browserCanvasContext.font = 'bold  ' + fontSize + 'px ' + UI_FONT.PRIMARY
 
-    label = 'RESTART SIMULATION'
+    switch (thisObject.status) {
+      case 'Ready':
+        label = 'RESTART SIMULATION'
+        break
+      case 'Restarting':
+        label = 'RESTARTING...'
+        break
+      case 'Calculating':
+        label = 'CALCULATING...'
+        break
+      case 'Error':
+        label = 'NOT POSSIBLE NOW'
+        break
+    }
 
     let labelPoint = {
-      x: 21,
+      x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 15,
       y: thisObject.container.frame.height - 9
     }
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
@@ -157,4 +214,3 @@ function newRestartSimulation () {
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }
-

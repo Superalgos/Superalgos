@@ -64,6 +64,14 @@
    }
 
    function physics () {
+     thisObjectPhysics()
+     childrenPhysics()
+   }
+
+   function childrenPhysics () {
+     thisObject.restartSimulation.physics()
+   }
+   function thisObjectPhysics () {
      /* Check the limits */
 
      thisObject.status = 'MIDDLE'

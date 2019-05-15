@@ -123,7 +123,7 @@ async function createSimulatorClone(simulation, processName, userId, simulatorBo
   logger.debug('runSimulation -> Creating %s clone on the Database.', processName)
   await newClone.save()
 
-  clone = cloneDetails(bot, clone)
+  clone = cloneDetails(simulatorBot, clone)
   await createKubernetesClone(clone)
 
   logger.debug('runSimulation -> %s clone created.', processName)

@@ -92,6 +92,8 @@ function newAppLoader () {
 
         'CockpitSpace/AssetBalances.js',
         'CockpitSpace/Speedometer.js',
+        'CockpitSpace/RestartSimulation.js', 
+        'CockpitSpace/GraphQLRestartSimulation.js',
 
         'Plotter.js',
         'PlotterPanel.js',

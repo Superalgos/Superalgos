@@ -74,16 +74,6 @@ const operationsMenus = {
   ]
 }
 
-const minersMenus = {
-  title: 'Miners',
-  to: '/miners',
-  icon: Home,
-  authenticated: false,
-  submenus: [
-    { title: 'Report a Bug', to: 'https://github.com/Superalgos/minersClient/issues/new', icon: BugReport, externalLink: true }
-  ]
-}
-
 const cockpitMenus = {
   title: 'Cockpit',
   to: '/cockpit',
@@ -94,16 +84,6 @@ const cockpitMenus = {
     { title: 'Report a Bug', to: 'https://github.com/Superalgos/CockpitClientModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
-
-// const financialBeingsMenus = {
-//   title: 'FBs',
-//   to: '/financial-beings',
-//   icon: Home,
-//   authenticated: false,
-//   submenus: [
-//     { title: 'Directory', to: '/financial-beings', icon: ImportContacts }
-//   ]
-// }
 
 const strategizerMenus = {
   title: 'Strategizer',
@@ -117,10 +97,8 @@ const allMenus = [
   usersMenus,
   teamsMenus,
   eventsMenus,
-  // financialBeingsMenus,
   keyvaultMenus,
   operationsMenus,
-  // minersMenus,
   strategizerMenus,
   cockpitMenus
 ]

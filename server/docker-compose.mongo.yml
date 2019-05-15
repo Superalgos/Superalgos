@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:4.0.9
+    restart: always
+    volumes:
+      - data-volume:/data/db
+    # ports:
+    #   - "27017:27017"
+    networks:
+      - superalgos_net
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo
+
+networks:
+  superalgos_net:
+
+volumes:
+  data-volume:

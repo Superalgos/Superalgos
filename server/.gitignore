@@ -12,6 +12,7 @@ node_modules/
 # dotenv environment variables file
 .env
 .env.prod
+.env.dev
 
 # Build folder js files
 build/

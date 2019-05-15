@@ -1,22 +1,22 @@
 {
-  "name": "master-app-server",
-  "version": "0.0.1",
+  "name": "@superalgos/master-app-api",
+  "version": "0.1.0",
   "description": "Responsible for loading all web modules and running them.",
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Superalgos/MasterApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Superalgos/MasterApp/issues"
+  },
+  "homepage": "https://github.com/Superalgos/MasterApp#readme",
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Algoteers/MasterApp.git"
-  },
-  "author": "Superalgos, ltd.",
-  "license": "SEE LICENSE IN LICENSE.MD",
-  "bugs": {
-    "url": "https://github.com/Algoteers/MasterApp/issues"
-  },
-  "homepage": "https://github.com/Algoteers/MasterApp#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",

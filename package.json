@@ -1,9 +1,9 @@
 {
-  "name": "strategizer-server",
-  "version": "0.0.1",
-  "description": "Advanced Algos strategizer backend API",
-  "author": "",
-  "license": "",
+  "name": "@superalgos/strategizer-api",
+  "version": "0.1.0",
+  "description": "Superalgos strategizer backend API",
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
   "main": "src/index.js",
   "repository": {
     "type": "git",

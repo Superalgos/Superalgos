@@ -10,7 +10,7 @@ const strategy = {
             name: 'Price Collapsing',
             conditions: [
               {
-                name: '%B Moving Average going up',
+                name: '%B Moving Average going down',
                 code: "percentageBandwidth.previous.direction === 'down' && percentageBandwidth.direction === 'down'",
               },
               {

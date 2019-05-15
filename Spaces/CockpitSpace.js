@@ -17,6 +17,7 @@
    thisObject.container = newContainer()
    thisObject.container.initialize(MODULE_NAME)
    thisObject.container.isClickeable = false
+   thisObject.container.detectMouseOver = true
    thisObject.container.isDraggeable = true
    thisObject.container.notDraggingOnX = true
 

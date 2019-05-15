@@ -18,10 +18,21 @@ function newRestartSimulation () {
   thisObject.container.isDraggeable = false
   thisObject.container.isWheelable = false
   thisObject.container.isClickeable = true
+  thisObject.container.detectMouseOver = true
+
+  let selfMouseOverEventSubscriptionId
+  let selfMouseClickEventSubscriptionId
+  let selfMouseNotOverEventSubscriptionId
+
+  let isMouseOver = false
 
   return thisObject
 
   function finalize () {
+    thisObject.container.eventHandler.stopListening(selfMouseOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfMouseClickEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfMouseNotOverEventSubscriptionId)
+
     thisObject.container.finalize()
     thisObject.container = undefined
   }
@@ -29,8 +40,12 @@ function newRestartSimulation () {
   function initialize () {
     thisObject.container.frame.position.x = thisObject.container.parentContainer.frame.width * 80 / 100
     thisObject.container.frame.position.y = 6
-    thisObject.container.frame.width = 100
+    thisObject.container.frame.width = 200
     thisObject.container.frame.height = COCKPIT_SPACE_HEIGHT - 12
+
+    selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }
 
   function getContainer (point, purpose) {
@@ -43,17 +58,52 @@ function newRestartSimulation () {
     }
   }
 
+  function onMouseOver (point) {
+    if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
+      isMouseOver = true
+    } else {
+      isMouseOver = false
+    }
+  }
+
+  function onMouseNotOver (point) {
+    isMouseOver = false
+  }
+
+  async function onMouseClick (event) {
+
+  }
+
   function physics () {
 
   }
 
   function draw () {
     if (thisObject.visible !== true) { return }
-
-    drawRestartSimulation()
+    drawBackground()
+    drawText()
   }
 
-  function drawRestartSimulation () {
+  function drawBackground () {
+    let params = {
+      cornerRadius: 3,
+      lineWidth: 0.01,
+      container: thisObject.container,
+      borderColor: UI_COLOR.DARK,
+      castShadow: false,
+      opacity: 1
+    }
+
+    if (isMouseOver === true) {
+      params.backgroundColor = UI_COLOR.TURQUOISE
+    } else {
+      params.backgroundColor = UI_COLOR.DARK_TURQUOISE
+    }
+
+    roundedCornersBackground(params)
+  }
+
+  function drawText () {
     let fontSize
     let label
     let xOffset
@@ -70,7 +120,7 @@ function newRestartSimulation () {
     label = 'RESTART SIMULATION'
 
     let labelPoint = {
-      x: 0,
+      x: 21,
       y: thisObject.container.frame.height - 9
     }
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)

@@ -69,15 +69,14 @@ function newRestartSimulation () {
 
     label = 'RESTART SIMULATION'
 
-    xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
-    yOffset = -45
-
-    labelPoint = {
-      x: 0 - xOffset + (thisObject.paramsArray[1].LEFT_OFFSET - thisObject.paramsArray[0].LEFT_OFFSET) / 2 + thisObject.paramsArray[0].LEFT_OFFSET - 20,
-      y: COCKPIT_SPACE_POSITION - COCKPIT_SPACE_HEIGHT / 2 - yOffset
+    let labelPoint = {
+      x: 0,
+      y: thisObject.container.frame.height - 9
     }
+    labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }
+

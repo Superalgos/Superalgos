@@ -6,7 +6,6 @@ let viewPort = newViewPort()
 
 function newDashboard () {
   const MODULE_NAME = 'Dashboard'
-  const INFO_LOG = false
   const ERROR_LOG = true
   const INTENSIVE_LOG = false
   const logger = newWebDebugLog()
@@ -25,8 +24,6 @@ function newDashboard () {
 
   function start () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] start -> Entering function.') }
-
       /* If this method is executed for a second time, it should finalize the current execution structure */
 
       if (canvas !== undefined) { canvas.finalize() }
@@ -40,8 +37,6 @@ function newDashboard () {
       loadImages(onImagesLoaded)
 
       function onImagesLoaded () {
-        if (INFO_LOG === true) { logger.write('[INFO] start -> onImagesLoaded -> Entering function.') }
-
                 /* Next we start the App */
 
         setTimeout(delayedStart, DEBUG_START_UP_DELAY)
@@ -53,8 +48,6 @@ function newDashboard () {
 
   function delayedStart () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] delayedStart -> Entering function.') }
-
             /* For now, we are supporting only one market. */
 
       let market = {
@@ -76,8 +69,6 @@ function newDashboard () {
 
   function userProfileChanged () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] userProfileChanged -> Entering function.') }
-
       canvas.topSpace.initialize()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] userProfileChanged -> err = ' + err.stack) }
@@ -86,8 +77,6 @@ function newDashboard () {
 
   function browserResized () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] browserResized -> Entering function.') }
-
       browserCanvas = document.getElementById('canvas')
 
       browserCanvas.width = window.innerWidth
@@ -101,8 +90,6 @@ function newDashboard () {
 
   function loadImages (callBack) {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] loadImages -> Entering function.') }
-
       const accessToken = ''
 
             /*

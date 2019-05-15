@@ -7,7 +7,6 @@ let splashScreenNeeded = true
 
 function newCanvas () {
   const MODULE_NAME = 'Canvas'
-  const INFO_LOG = false
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
@@ -52,8 +51,6 @@ function newCanvas () {
 
   function finalize () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
-
       thisObject.chartSpace.finalize()
       thisObject.floatingSpace.finalize()
 
@@ -78,10 +75,8 @@ function newCanvas () {
     }
   }
 
-  async function initialize (callBackFunction) {
+  async function initialize () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-
       initializeBrowserCanvas()
 
       addCanvasEvents()
@@ -110,12 +105,9 @@ function newCanvas () {
 
       function onCharSpaceInitialized (err) {
         try {
-          if (INFO_LOG === true) { logger.write('[INFO] initialize -> onCharSpaceInitialized -> Entering function.') }
-
           viewPort.raiseEvents() // These events will impacts on objects just initialized.
         } catch (err) {
           if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCharSpaceInitialized -> err = ' + err.stack) }
-          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
 
@@ -125,90 +117,32 @@ function newCanvas () {
       splashScreen.initialize()
 
       let animation = newAnimation()
-      animation.initialize(onAnimationInitialized)
+      animation.initialize()
 
-      function onAnimationInitialized (err) {
-        try {
-          if (INFO_LOG === true) { logger.write('[INFO] initialize -> onAnimationInitialized -> Entering function.') }
-
-          thisObject.animation = animation
+      thisObject.animation = animation
 
                    /* Here we add all the functions that will be called during the animation cycle. */
 
-          animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics, onFunctionAdded)
-          animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground, onFunctionAdded)
-          animation.addCallBackFunction('Chart Space Draw', thisObject.chartSpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics, onFunctionAdded)
-          animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('ViewPort Animate', viewPort.animate, onFunctionAdded)
-          animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics, onFunctionAdded)
-          animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Strategy Space Draw', thisObject.strategySpace.draw, onFunctionAdded)
-          animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw, onFunctionAdded)
-          animation.start(onStart)
-
-          function onFunctionAdded (err) {
-            try {
-              if (INFO_LOG === true) { logger.write('[INFO] initialize -> onAnimationInitialized -> onFunctionAdded -> Entering function.') }
-
-              if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE.result) {
-                animation.stop()
-
-                if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onAnimationInitialized -> onFunctionAdded -> Animation Stopped since a vital funtion could not be added.') }
-
-                               /* Display some Error Page here. */
-              }
-            } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onAnimationInitialized -> onFunctionAdded -> err = ' + err.stack) }
-              callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-            }
-          }
-
-          function onStart (err) {
-            try {
-              if (INFO_LOG === true) { logger.write('[INFO] initialize -> onAnimationInitialized -> onStart -> Entering function.') }
-
-              switch (err.result) {
-                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                  if (INFO_LOG === true) { logger.write('[INFO] initialize -> onAnimationInitialized -> onStart ->  Received OK Response.') }
-                  callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-                  return
-                }
-
-                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                  if (INFO_LOG === true) { logger.write('[INFO] initialize -> onAnimationInitialized -> onStart -> Received FAIL Response.') }
-                  callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                  return
-                }
-
-                default: {
-                  if (INFO_LOG === true) { logger.write('[INFO] initialize -> onAnimationInitialized -> onStart -> Received Unexpected Response.') }
-                  callBackFunction(err)
-                  return
-                }
-              }
-            } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onAnimationInitialized -> onStart -> err = ' + err.stack) }
-              callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-            }
-          }
-        } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onAnimationInitialized -> err = ' + err.stack) }
-          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-        }
-      }
+      animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
+      animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
+      animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground)
+      animation.addCallBackFunction('Chart Space Draw', thisObject.chartSpace.draw)
+      animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
+      animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw)
+      animation.addCallBackFunction('ViewPort Animate', viewPort.animate)
+      animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
+      animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
+      animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
+      animation.addCallBackFunction('Strategy Space Draw', thisObject.strategySpace.draw)
+      animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
+      animation.start()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
 
   function initializeBrowserCanvas () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] initializeBrowserCanvas -> Entering function.') }
-
       browserCanvasContext = browserCanvas.getContext('2d')
       // browserCanvasContext.font = 'italic small-caps bold 12px Saira'
       browserCanvasContext.font = 'Saira'
@@ -221,8 +155,6 @@ function newCanvas () {
 
   function addCanvasEvents () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] addCanvasEvents -> Entering function.') }
-
            /* Mouse down and up events to control the drag of the canvas. */
 
       browserCanvas.addEventListener('mousedown', onMouseDown, false)
@@ -253,8 +185,6 @@ function newCanvas () {
 
   function onMouseDown (event) {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] onMouseDown -> Entering function.') }
-
            /*
 
            There are four types of elements that can be dragged.
@@ -362,8 +292,6 @@ function newCanvas () {
 
   function onMouseClick (event) {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] onMouseClick -> Entering function.') }
-
       if (ignoreNextClick === true) {
         ignoreNextClick = false
         return
@@ -611,8 +539,6 @@ function newCanvas () {
 
   function onMouseWheel (event) {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] onMouseWheel -> Entering function.') }
-
            // cross-browser wheel delta
       var event = window.event || event // old IE support
       let delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail))

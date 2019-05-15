@@ -46,8 +46,8 @@
      thisObject.assetBalances.initialize()
 
      thisObject.restartSimulation = newRestartSimulation()
-     thisObject.restartSimulation.initialize()
      thisObject.restartSimulation.container.connectToParent(thisObject.container)
+     thisObject.restartSimulation.initialize()
    }
 
    function onMouseClick (event) {

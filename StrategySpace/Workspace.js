@@ -91,7 +91,7 @@ function newWorkspace () {
                     resolve(true)
                   })
                   .catch(err => {
-                    if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> ApolloClient error getting user strategies -> err = ' + err.stack) }
+                    if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> ApolloClient error updating user strategies -> err = ' + err.stack) }
                     reject(err)
                   })
         })

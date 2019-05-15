@@ -71,7 +71,15 @@ function newRestartSimulation () {
   }
 
   async function onMouseClick (event) {
+    let simulationParams = {
+      beginDatetime: 1554087600,
+      resumeExecution: true,
+      timePeriodDailyArray: ['05-min', '10-min'],
+      timePeriodMarketArray: ['01-hs', '02-hs']
+    }
 
+    let result = await restartSimulation(simulationParams)
+    console.log('GRAPH QL EXECUTION ' + result)
   }
 
   function physics () {
@@ -129,4 +137,3 @@ function newRestartSimulation () {
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }
-

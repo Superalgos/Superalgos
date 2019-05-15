@@ -4,6 +4,7 @@ import FinancialBeings from './financial-beings'
 import Settings from './settings'
 import Teams from './teams'
 import AcceptTeamInvite from './teams/AcceptTeamInvite'
+import Landing from './landing'
 
 import { TeamBar } from './common'
 
@@ -17,6 +18,7 @@ export {
   Settings,
   Teams,
   TeamBar,
+  Landing,
   theme,
   globalStyles
 }

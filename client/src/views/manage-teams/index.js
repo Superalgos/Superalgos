@@ -1,28 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Typography from '@material-ui/core/Typography'
-import { withStyles } from '@material-ui/core/styles'
-
+import { BannerTopBar } from '../common'
 import ManageTeamsList from './components/ManageTeamsList'
 
-const styles = theme => ({
-  tableContainer: {
-    height: 320
-  }
-})
-
-const ManageTeams = ({ classes, ...props }) => (
+const ManageTeams = ({ match, ...props }) => (
   <div>
-    <Typography variant='h4' gutterBottom>
-      Manage Your Teams
-    </Typography>
-    <ManageTeamsList {...props} />
+    <BannerTopBar
+      size={match.params.slug !== undefined ? 'small' : 'medium'}
+      title='Your Teams'
+      text='Create and manage your teams here.'
+      backgroundUrl='https://superalgos.org/img/photos/teams.jpg'
+    />
+    <div className='container'>
+      <ManageTeamsList {...props} match={match} />
+    </div>
   </div>
 )
 
 ManageTeams.propTypes = {
-  classes: PropTypes.object.isRequired
+  match: PropTypes.object
 }
 
-export default withStyles(styles)(ManageTeams)
+export default ManageTeams

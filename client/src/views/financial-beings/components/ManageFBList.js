@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 
 import Grid from '@material-ui/core/Grid'
-import { MessageCard } from '@advancedalgos/web-components'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
+import { MessageCard } from '@superalgos/web-components'
 import { withStyles } from '@material-ui/core/styles'
 
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
@@ -13,10 +15,13 @@ import log from '../../../utils/log'
 import ManageFBItem from './ManageFBItem'
 
 const styles = theme => ({
+  root: {
+    flexGrow: 1
+  },
   heroContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`
+    maxWidth: 800,
+    margin: `${theme.spacing.unit * 4}px auto`,
+    padding: 0
   },
   cardGrid: {
     padding: `${theme.spacing.unit * 8}px 0`
@@ -61,36 +66,53 @@ export const ManageFBList = ({ classes }) => (
       if (!loading && !error) {
         if (data.teams_TeamsByOwner.length > 0) {
           return (
-            <React.Fragment>
-              <Grid container spacing={40}>
-                {!loading &&
-                  data.teams_TeamsByOwner.map(team => (
-                    <ManageFBItem
-                      key={team.id}
-                      team={team}
-                      classes={classes}
-                    />
-                  ))}
-                {errors}
-              </Grid>
-            </React.Fragment>
+            <div className={classes.root}>
+              <div className={classes.heroContent}>
+                <Grid container spacing={8} direction='column' alignItems='stretch'>
+                  {!loading &&
+                    data.teams_TeamsByOwner.map(team => (
+                      <ManageFBItem
+                        key={team.id}
+                        team={team}
+                        classes={classes}
+                      />
+                    ))}
+                  {errors}
+                </Grid>
+              </div>
+            </div>
           )
         } else {
           return (
-            <Grid container spacing={40}>
-              <Grid item xs={12}>
-                <MessageCard message='No financial beings yet — Create a team first!' />
-                {errors !== null && <MessageCard message={errors} />}
+            <Paper>
+              <Grid container spacing={0} direction='column' justify='center' alignItems='center' className={classes.container}>
+                <Grid item xs={10}>
+                  <Typography variant='h5' align='center'>
+                    You don&rsquo;t have any financial being. To create one, create a team first!
+                  </Typography>
+                  <Typography variant='body1' align='center' gutterBottom>
+                    After you create a team, a default trading algobot will be cloned and added to your team so
+                    that you can begin experimenting right away.
+                  </Typography>
+                </Grid>
               </Grid>
-            </Grid>
+            </Paper>
           )
         }
       } else {
         return (
-          <Grid container spacing={40}>
+          <Grid spacing={0} direction='column' justify='center' alignItems='center'>
             <Grid item xs={12}>
-              <MessageCard message='Loading...' />
-              {errors !== null && <MessageCard message={errors} />}
+              {errors === null &&
+                <Typography variant='h5' align='center' gutterBottom>
+                  Loading...
+                </Typography>
+              }
+              {errors !== null &&
+                <Typography variant='h5' align='center' gutterBottom>
+                  {errors}
+                </Typography>
+              }
             </Grid>
           </Grid>
         )

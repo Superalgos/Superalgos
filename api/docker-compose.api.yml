@@ -1,21 +1,23 @@
 version: '3'
 services:
   node:
-    image: advancedalgosteamsmodule/teammodule-api:v9
+    build:
+      context: .
+      dockerfile: ./prod/Dockerfile.prod
     env_file: ./.env.prod
-    container_name: aateamapi
+    container_name: sateamapi
     tty: true
     stdin_open: true
     volumes:
-      - ./:/var/www/app
-      - /var/www/app/node_modules
-    working_dir: /var/www/app
+      - ./dist:/usr/src/app
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
     restart: always
-    command: node -r dotenv/config src/index.js
+    command: node -r dotenv/config index.js
     expose:
       - 4001
-    network_mode: webproxy
-networks:
-  default:
-    external:
-      name: webproxy
+    # network_mode: webproxy
+# networks:
+#  default:
+#    external:
+#      name: webproxy

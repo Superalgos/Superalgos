@@ -71,13 +71,12 @@ export class ManageTeamDelete extends Component {
           let loader
           if (loading) {
             loader = (
-              <Typography variant='caption'>Submitting team...</Typography>
+              <Typography variant='caption'>Deleting team and financial being...</Typography>
             )
           }
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
-              const displayMessage = checkGraphQLError(message)
-              log.debug('createTeam error:', displayMessage)
+              log.debug('deleteTeam error:', message)
               return (
                 <Typography key={i} variant='caption'>
                   {message}

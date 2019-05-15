@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography'
 
 import InviteMemberDialog from './InviteMemberDialog'
 import ManageMembersItem from './ManageMembersItem'
-import { MessageCard } from '@advancedalgos/web-components'
+import { MessageCard } from '@superalgos/web-components'
 
 import log from '../../../utils/log'
 
@@ -63,7 +63,7 @@ export const ManageMembersTeamItem = ({ classes, team, authId }) => {
   if (team.profile.avatar !== undefined && team.profile.avatar !== 'a') {
     avatar = team.profile.avatar
   } else {
-    avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
+    avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
   }
   if (team.members.length > 0) {
     return (

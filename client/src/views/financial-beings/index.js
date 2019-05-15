@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
+import { BannerTopBar } from '../common'
 import ManageFBList from './components/ManageFBList'
 
 const styles = theme => ({
@@ -14,9 +14,7 @@ const styles = theme => ({
 
 const FinancialBeings = ({ classes }) => (
   <div>
-    <Typography variant='h4' gutterBottom>
-      Financial Beings
-    </Typography>
+    <BannerTopBar size='medium' title='Manage Your Financial Beings' text='Manage your Superalgos Financial Beings' backgroundUrl='https://superalgos.org/img/photos/teams.jpg' />
     <ManageFBList />
   </div>
 )

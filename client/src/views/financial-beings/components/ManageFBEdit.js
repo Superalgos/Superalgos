@@ -13,7 +13,7 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
-import { ImageUpload } from '@advancedalgos/web-components'
+import { ImageUpload } from '@superalgos/web-components'
 
 import UPDATE_FB from '../../../graphql/teams/UpdateFBMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
@@ -68,7 +68,7 @@ export class ManageFBEdit extends Component {
           const containerName = slug
 
           let avatar = null
-          if (this.state.avatar === null && fb.avatar === undefined) avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
+          if (this.state.avatar === null && fb.avatar === undefined) avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
           if (fb.avatar !== undefined && fb.avatar !== null) avatar = fb.avatar
           if (this.state.avatar !== null) avatar = this.state.avatar
 

@@ -5,7 +5,7 @@ import { Query } from 'react-apollo'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
-import { MessageCard } from '@advancedalgos/web-components'
+import { MessageCard } from '@superalgos/web-components'
 
 import GET_ALL_TEAMS_QUERY from '../../../graphql/teams/GetAllTeamsQuery'
 
@@ -16,27 +16,8 @@ import TeamsItem from './TeamsItem'
 import TeamsDetails from './TeamsDetails'
 
 const styles = theme => ({
-  heroContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`
-  },
-  cardGrid: {
-    padding: `${theme.spacing.unit * 8}px 0`
-  },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  cardMedia: {
-    paddingTop: '56.25%' // 16:9
-  },
-  cardContent: {
-    flexGrow: 1
-  },
-  buttonRight: {
-    justifyContent: 'flex-end'
+  teamListsContainer: {
+    margin: `${theme.spacing.unit * 3}px 0 ${theme.spacing.unit * 6}px`
   }
 })
 
@@ -62,7 +43,7 @@ export const TeamsList = ({ classes, match }) => (
         if (data.teams_Teams.edges.length > 0) {
           if (slug !== null) {
             return (
-              <Grid container spacing={40}>
+              <Grid container >
                 {!loading &&
                   data.teams_Teams.edges.map(team => {
                     if (team.node.slug === slug) {
@@ -77,42 +58,31 @@ export const TeamsList = ({ classes, match }) => (
             )
           } else {
             return (
-              <React.Fragment>
-                <div className={classes.heroContent}>
-                  <Typography
-                    variant='h3'
-                    align='center'
-                    color='textPrimary'
-                    gutterBottom
-                  >
-                    Teams
-                  </Typography>
-                </div>
-                <Grid container spacing={40}>
+              <div className={classes.teamListsContainer} >
+                <Grid container spacing={24}>
                   {!loading &&
                     data.teams_Teams.edges.map(team => (
                       <TeamsItem
                         key={team.node.id}
                         team={team.node}
-                        classes={classes}
                       />
                     ))}
                   {queryLoader}
                   {errors}
                 </Grid>
-              </React.Fragment>
+              </div>
             )
           }
         } else {
           return (
-            <Grid container spacing={40}>
+            <Grid container>
               <MessageCard message='No teams found' />
             </Grid>
           )
         }
       } else {
         return (
-          <Grid container spacing={40}>
+          <Grid container>
             <MessageCard message='Loading...' />
             {queryLoader}
             {errors}

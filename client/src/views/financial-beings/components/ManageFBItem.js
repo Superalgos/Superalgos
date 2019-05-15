@@ -18,7 +18,7 @@ export const ManageFBItem = ({ classes, team }) => {
   if (team.fb[0].avatar !== undefined && team.fb[0].avatar !== 'a') {
     avatar = team.fb[0].avatar
   } else {
-    avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
+    avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
   }
   return (
     <Grid item xs={12}>

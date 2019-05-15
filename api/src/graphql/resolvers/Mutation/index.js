@@ -2,12 +2,13 @@ import axios from 'axios'
 import { ApolloError } from 'apollo-server-express'
 
 import { getUser } from '../../../middleware/getMember'
+import { createStrategy } from './createStrategy'
 
-import { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken } from '../../../email/sendgrid'
+import { notifications_sendTeamCreateConfirmation, notifications_sendTeamMemberInvite, notifications_VerifyTeamMemberInviteToken } from '../notifications/sendgrid'
 
 import TEAMS_CONNECTIONS_FRAGMENT from '../../fragments/TeamsConnectionsFragment'
 import TEAMS_FRAGMENT from '../../fragments/TeamsFragment'
-import TEAM_FB_FRAGMENT from '../../fragments/TeamFBFragment'
+import FB_FRAGMENT from '../../fragments/FBFragment'
 
 import { logger, AuthenticationError, ServiceUnavailableError, DatabaseError, ConflictError } from '../../../logger'
 
@@ -20,14 +21,14 @@ export const resolvers = {
         create:{role:'MEMBER', email:email, team: {connect: {id: teamId}}, status:{create:{status: 'INVITED', reason: `Invited by ${team.members[0].member.alias}`}}},
         update:{role: 'MEMBER', email: email, team: {connect: {id: teamId}}, status:{create:{status: 'INVITED', reason: `Invite resent by ${team.members[0].member.alias}`}}}},
         `{ id }`)
-      const sendInvite = await sendTeamMemberInvite(email, team)
+      const sendInvite = await notifications_sendTeamMemberInvite(email, team)
       return sendInvite
     },
     async verifyTeamInvite(parent, { token }, ctx, info) {
       let verifiedToken = null
       let team = null
       try {
-        verifiedToken = await verifyInviteToken(token)
+        verifiedToken = await notifications_VerifyTeamMemberInviteToken(token)
         team = {
           email: verifiedToken.email,
           team: {
@@ -53,18 +54,17 @@ export const resolvers = {
       logger.info(JSON.stringify(await userData))
       const alias = await userData.data.users_User.alias
       const email = await userData.data.users_User.email
-      const avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
-      const banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
+      const avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
+      const banner = process.env.STORAGE_URL + '/module-teams/module-default/aa-banner-default.png'
 
       const createTeamUrl = encodeURI(`${slug}/${name}/${alias}/${botSlug}/${botName}`)
       logger.info('createTeamUrl:')
       logger.info(JSON.stringify(await createTeamUrl))
 
-      const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/newTeam/'
-      // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
+      const chartsUrl = process.env.CHARTS_URL + '/AABrowserAPI/newTeam/'
 
-      logger.info(`${platformUrl}${createTeamUrl}/${authId}`)
-      const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}/${authId}`)
+      logger.info(`${chartsUrl}${createTeamUrl}/${authId}`)
+      const createPlatformTeam = await axios.get(`${chartsUrl}${createTeamUrl}/${authId}/${process.env.AAWEB_TEAM_SHARED_SECRET}`)
         .then((result) => {
           console.log('createPlatformTeam result:', result.data)
           if(result.data.message === 'Team Name already taken'){
@@ -78,7 +78,9 @@ export const resolvers = {
 
       logger.info('createPlatformTeam')
       logger.info(await createPlatformTeam)
+      logger.info('createPlatformTeam Error')
       logger.error(await createPlatformTeam.error)
+      logger.info('createPlatformTeam Code')
       logger.error(await createPlatformTeam.code)
 
       // if (await createPlatformTeam.error && await createPlatformTeam.code === 404) throw new ApolloError(await createPlatformTeam.error, 404)
@@ -96,22 +98,54 @@ export const resolvers = {
       let createTeam
       if(existingMember !== null && existingMember.id !== null){
         logger.info('createTeam with existingMember:')
-        createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {connect: {authId: authId}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Connected to Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
+        createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {connect: {authId: authId}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Connected to Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'Trading', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
           .catch((err) => {
             logger.debug(err, 'createTeamMutation error: ')
             return new DatabaseError(err)
           })
       } else {
         logger.info('createTeam without existingMember:')
-        createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {create: {authId: authId, alias: alias, visible:'true', status: { create: { status: 'ACTIVE', reason: `Created team ${name}`}}}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Created with Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
+        createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {create: {authId: authId, alias: alias, visible: true, status: { create: { status: 'ACTIVE', reason: `Created team ${name}`}}}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Created with Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'Trading', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
           .catch((err) => {
             logger.debug(err, 'createTeamMutation error: ')
             return new DatabaseError(err)
           })
+
       }
-
-      // sendTeamCreateConfirmation(email, name, botName)
-
+      let createFB;
+      if(createTeam){
+        createFB = await ctx.db.mutation.createFinancialBeings({ data:{
+            type:'BOT',
+            kind:'Indicator',
+            name:'Simulator ' + botName,
+            slug:'simulator-' + botSlug,
+            avatar:avatar,
+            team: {
+              connect:{
+                id:createTeam.id
+              }
+            }
+          }
+        }, FB_FRAGMENT)
+            .catch((err) => {
+              logger.debug(err, 'Error creating the simulator: ')
+              return new DatabaseError(err)
+            })
+        logger.info('createTeam creating simulator success')
+        logger.info(JSON.stringify(await createFB))
+        let createdStrategy
+        if(await createFB){
+          logger.info('createStrategy:' + 'simulator-' + botSlug)
+          createdStrategy =  await createStrategy('simulator-' + botSlug)
+          logger.info('createStrategy:')
+          logger.info(JSON.stringify(await createStrategy))
+        }
+      }
+      /* **temporarily disable team creation confirmation
+      if(await createTeam && await createFB && await createStrategy){
+        notifications_sendTeamCreateConfirmation(email, name, botName)
+      }
+      */
       return createTeam
     },
     async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {
@@ -150,11 +184,10 @@ export const resolvers = {
           logger.info('deleteTeamUrl:')
           logger.info(JSON.stringify(await deleteTeamUrl))
 
-          const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/deleteTeam/'
-          // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
+          const chartsUrl = process.env.CHARTS_URL + '/AABrowserAPI/deleteTeam/'
 
-          logger.info(`${platformUrl}${deleteTeamUrl}/${authId}`)
-          const deletePlatformTeam = await axios.get(`${platformUrl}${deleteTeamUrl}/${authId}`)
+          logger.info(`${chartsUrl}${deleteTeamUrl}/${authId}`)
+          const deletePlatformTeam = await axios.get(`${chartsUrl}${deleteTeamUrl}/${authId}/${process.env.AAWEB_DELETE_TEAM_SHARED_SECRET}`)
             .then((result) => {
               console.log('deletePlatformTeam result:', result.data)
               if(result.data.result === 'Fail'){

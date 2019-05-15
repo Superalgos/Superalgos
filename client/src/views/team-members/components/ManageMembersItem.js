@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import ManageMemberDelete from './ManageMemberDelete'
 import ManageMemberRole from './ManageMemberRole'
 import ManageMemberStatus from './ManageMemberStatus'
-import { MessageCard } from '@advancedalgos/web-components'
+import { MessageCard } from '@superalgos/web-components'
 
 import log from '../../../utils/log'
 
@@ -32,7 +32,7 @@ export const ManageMembersItem = ({ classes, member, teamId, authId }) => {
           </Typography>
         </Grid>
         <Grid item xs={4}>
-          <Typography color='textSecondary' variant='body2' component='h4' align='left' >
+          <Typography color='textSecondary' variant='body1' component='h4' align='left' >
             {email !== null ? `${memberStatus[memberStatus.length - 1].status} | Sent: ${memberStatus[memberStatus.length - 1].createdAt}` : `${member.role} | Member since: `}
           </Typography>
         </Grid>

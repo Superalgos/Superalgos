@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { hot } from 'react-hot-loader'
 
 import { withStyles } from '@material-ui/core/styles'
@@ -8,10 +8,9 @@ import {
   AcceptTeamInvite,
   ManageTeams,
   TeamMembers,
-  FinancialBeings,
   Settings,
   Teams,
-  TeamBar,
+  Landing,
   globalStyles
 } from './views'
 
@@ -35,48 +34,39 @@ class App extends Component {
   }
 
   render () {
-    const { match } = this.props
-    let loggedIn
-    if (this.state.user !== null) {
-      loggedIn = (<TeamBar match={match} user={this.state.user} />)
-    } else {
-      loggedIn = ''
-    }
     return (
-      <BrowserRouter>
-        <div className='App'>
-          {loggedIn}
-          <Switch>
-            <Route exact path={`${match.path}`} component={Teams} />
-            <Route
-              exact
-              path={`${match.path}/manage-teams`}
-              render={props => <ManageTeams {...props} auth={this.props.auth} />}
-            />
-            <Route
-              exact
-              path={`${match.path}/team-members`}
-              render={props => <TeamMembers {...props} auth={this.props.auth} />}
-            />
-            <Route
-              exact
-              path={`${match.path}/financial-beings`}
-              render={props => <FinancialBeings {...props} auth={this.props.auth} />}
-            />
-            <Route
-              exact
-              path={`${match.path}/financial-beings`}
-              render={props => <Settings {...props} auth={this.props.auth} />}
-            />
-            <Route
-              exact
-              path={`${match.path}/activate-team-membership`}
-              render={props => <AcceptTeamInvite {...props} auth={this.props.auth} />}
-            />
-            <Route path='/teams/:slug' component={Teams} />
-          </Switch>
-        </div>
-      </BrowserRouter>
+      <div className='App'>
+        <Switch>
+          <Route exact path={`/teams`} component={Landing} />
+          <Route exact path={`/teams/explore`} component={Teams} />
+          <Route
+            exact
+            path={`/teams/manage-teams`}
+            render={props => <ManageTeams {...props} auth={this.props.auth} />}
+          />
+          <Route
+            exact
+            path={`/teams/manage-teams/:slug`}
+            render={props => <ManageTeams {...props} auth={this.props.auth} user={this.state.user} />}
+          />
+          <Route
+            exact
+            path={`/teams/team-members`}
+            render={props => <TeamMembers {...props} auth={this.props.auth} />}
+          />
+          <Route
+            exact
+            path={`/teams/settings`}
+            render={props => <Settings {...props} auth={this.props.auth} />}
+          />
+          <Route
+            exact
+            path={`/teams/activate-team-membership`}
+            render={props => <AcceptTeamInvite {...props} auth={this.props.auth} />}
+          />
+          <Route exact path='/teams/:slug' component={Teams} />
+        </Switch>
+      </div>
     )
   }
 }

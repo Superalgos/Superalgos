@@ -1,15 +1,9 @@
 import http from 'http'
 import { ApolloServer, makeExecutableSchema } from 'apollo-server-express'
 import { applyMiddleware as applyGraphQLMiddleware } from 'graphql-middleware'
+import { moduleAuth } from './middleware'
 import { logger } from './logger'
 
-/**
- *
- * @description Creates an Apollo Server. Setup based on `vue-cli-plugin-apollo`.
- * @param {Object} app Express application
- * @param {Object} options Apollo options
- * @returns {Object} HTTP Server
- */
 export default function createApolloServer(
   app,
   {
@@ -53,6 +47,7 @@ export default function createApolloServer(
     tracing: true,
     cacheControl: true,
     introspection: true,
+    playground: true,
     engine: engineKey ? { apiKey: engineKey } : false,
     dataSources,
     // Resolvers context in POST requests
@@ -110,6 +105,7 @@ export default function createApolloServer(
 
   // Express middleware
   server.applyMiddleware({
+    moduleAuth,
     app,
     cors,
     path: graphqlEndpoint,

@@ -78,8 +78,7 @@ function newRestartSimulation () {
       timePeriodMarketArray: ['01-hs', '02-hs']
     }
 
-    let result = await restartSimulation(simulationParams)
-    console.log('GRAPH QL EXECUTION ' + result)
+    let result = await graphQlRestartSimulation(simulationParams)
   }
 
   function physics () {

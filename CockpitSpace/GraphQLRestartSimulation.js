@@ -1,64 +1,36 @@
 
-const GRAPHQL_MUTATION_RESTART_SIMULATION = Apollo.gql`
-      mutation operations_RunSimulation(
-        $simulation: operations_SimulationInput)
-        {
-        operations_RunSimulation(simulation: $simulation)
-        }
-      `
-
-async function restartSimulation (simulationParams) {
+async function graphQlRestartSimulation (simulationParams) {
   try {
     const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY)
 
     if (accessToken === null) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] restartSimulation -> Can not restart the simulation because the user is not logged in. ') }
-      return
+      throw new Error('Can not restart the simulation because the user is not logged in. ')
     }
 
-    const apolloClient = new Apollo.lib.ApolloClient({
-      networkInterface: Apollo.lib.createNetworkInterface({
-        uri: window.canvasApp.graphQL.masterAppApiUrl,
-        transportBatching: true
-      }),
-      connectToDevTools: true
-    })
-
-    const networkInterface = Apollo.lib.createNetworkInterface({
-      uri: window.canvasApp.graphQL.masterAppApiUrl
-    })
-
-    networkInterface.use([{
-      applyMiddleware (req, next) {
-        req.options.headers = {
-          authorization: `Bearer ${accessToken}`
+    const graphQLServer = await axios({
+      url: window.canvasApp.graphQL.masterAppApiUrl,
+      method: 'post',
+      data: {
+        query: `
+              mutation operations_RunSimulation(
+                $simulation: operations_SimulationInput)
+                {
+                operations_RunSimulation(simulation: $simulation)
+                }
+              `,
+        variables: {
+          simulation: simulationParams
         }
-        next()
+      },
+      headers: {
+        authorization: 'Bearer ' + accessToken
       }
-    }])
+    })
 
-    const graphQlRestartSimuulation = () => {
-      return new Promise((resolve, reject) => {
-        apolloClient.mutate({
-          mutation: GRAPHQL_MUTATION_RESTART_SIMULATION,
-          variables: {
-            simulation: simulationParams
-          }
-        })
-        .then(response => {
-          resolve(true)
-        })
-        .catch(err => {
-          if (ERROR_LOG === true) { logger.write('[ERROR] restartSimulation -> ApolloClient error restarting simulation -> err = ' + err.stack) }
-          reject(err)
-        })
-      })
+    if (graphQLServer.data.errors) {
+      throw new Error(graphQLServer.data.errors[0].message)
     }
-
-    let result = await graphQlRestartSimuulation()
-
-    return result
   } catch (err) {
-    if (ERROR_LOG === true) { logger.write('[ERROR] restartSimulation -> err = ' + err.stack) }
+    throw new Error('There has been an error restarting the simulation. Error: ' + err.stack)
   }
 }

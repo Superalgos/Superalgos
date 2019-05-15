@@ -185,19 +185,6 @@ function newCanvas () {
 
   function onMouseDown (event) {
     try {
-           /*
-
-           There are four types of elements that can be dragged.
-
-           1. Panels.
-           2. Floating Elements (Currently only FloatingObjects).
-           3. Charts.
-           4. The Viewport.
-
-           We eveluate each space in order to see if they are holding the element being dragged, and we fallout at the Viewport.
-
-           */
-
       let point = {
         x: event.pageX,
         y: event.pageY - window.canvasApp.topMargin

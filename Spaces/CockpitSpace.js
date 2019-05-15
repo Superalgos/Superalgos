@@ -6,6 +6,7 @@
      container: undefined,
      status: 'BOTTOM',
      assetBalances: undefined,
+     restartSimulation: undefined,
      draw: draw,
      physics: physics,
      getContainer: getContainer,
@@ -34,6 +35,7 @@
      thisObject.container.finalize()
      thisObject.container = undefined
      thisObject.assetBalances = undefined
+     thisObject.restartSimulation = undefined
    }
 
    function initialize () {
@@ -42,6 +44,10 @@
 
      thisObject.assetBalances = newAssetBalances()
      thisObject.assetBalances.initialize()
+
+     thisObject.restartSimulation = newRestartSimulation()
+     thisObject.restartSimulation.initialize()
+     thisObject.restartSimulation.container.connectToParent(thisObject.container)
    }
 
    function onMouseClick (event) {
@@ -89,6 +95,11 @@
    }
 
    function getContainer (point) {
+     let container
+
+     container = thisObject.restartSimulation.getContainer(point)
+     if (container !== undefined) { return container }
+
      if (thisObject.container.frame.isThisPointHere(point, true) === true) {
        return thisObject.container
      } else {
@@ -102,6 +113,7 @@
      drawBackground()
 
      thisObject.assetBalances.draw()
+     thisObject.restartSimulation.draw()
    }
 
    function drawBackground () {

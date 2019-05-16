@@ -2,11 +2,12 @@ function newTimePeriodScale () {
   const MODULE_NAME = 'Time Period Scale'
 
   let thisObject = {
+    timePeriod: undefined,
     container: undefined,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize,
-    timePeriod: undefined
+    finalize: finalize
   }
 
   const FILES_PERIOD_DEFAULT_VALUE = 0
@@ -36,6 +37,11 @@ function newTimePeriodScale () {
   let timePeriodLabel = ''
 
   return thisObject
+
+  function finalize () {
+    thisObject.container.finalize()
+    thisObject.container = undefined
+  }
 
   function initialize (pTimeLineCoordinateSystem) {
     timeLineCoordinateSystem = pTimeLineCoordinateSystem

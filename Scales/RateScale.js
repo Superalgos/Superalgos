@@ -4,10 +4,13 @@ function newRateScale () {
   let thisObject = {
     heightPercentage: 100,
     container: undefined,
+    visible: true,
+    setMousePosition: setMousePosition,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   const HEIGHT_PERCENTAGE_DEFAULT_VALUE = 50
@@ -34,10 +37,14 @@ function newRateScale () {
     }
   }
 
-  let visible = true
   let timeLineCoordinateSystem
 
   return thisObject
+
+  function finalize () {
+    thisObject.container.finalize()
+    thisObject.container = undefined
+  }
 
   function initialize (pTimeLineCoordinateSystem) {
     timeLineCoordinateSystem = pTimeLineCoordinateSystem
@@ -54,17 +61,11 @@ function newRateScale () {
     let event = {}
     event.heightPercentage = thisObject.heightPercentage
     thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
+  }
 
-    thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
-      mouse.position.x = event.x
-      mouse.position.y = event.y
-
-      visible = true
-    })
-
-    thisObject.container.eventHandler.listenToEvent('onMouseNotOver', function (event) {
-      visible = false
-    })
+  function setMousePosition (point) {
+    mouse.position.x = point.x
+    mouse.position.y = point.y
   }
 
   function onMouseWheel (event) {
@@ -107,10 +108,10 @@ function newRateScale () {
   }
 
   function draw () {
-    if (visible === false) { return }
+    if (thisObject.visible === false) { return }
 
 /* We need this scale to match the shape of its parent when the parent is inside the viewPort, when it is not, we need the scale still
-to be visible at the top of the viewPort. */
+to be thisObject.visible at the top of the viewPort. */
 
     let frame = thisObject.container.parentContainer.frame
     let point1

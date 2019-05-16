@@ -102,9 +102,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             /* Building records */
 
             let record;
-            let profit = 0;
-            let lastProfitPercent = 0;
             let sellRate = 0;
+            let sellAmount = 0;
             let sellInstant;
 
             let previousBalanceAssetA = 0;
@@ -160,7 +159,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             let balanceAssetA = initialBalanceA;
             let balanceAssetB = 0;
+
             let lastProfit = 0;
+            let profit = 0;
+            let lastProfitPercent = 0;
 
             let roundtrips = 0;
             let fails = 0;
@@ -178,6 +180,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             yesterday.balanceAssetB = balanceAssetB;
 
             yesterday.lastProfit = 0;
+            yesterday.profit = 0;
+            yesterday.lastProfitPercent = 0;
 
             yesterday.Roundtrips = 0;
             yesterday.fails = 0;
@@ -197,7 +201,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 interExecutionMemory.balanceAssetA = balanceAssetA;
                 interExecutionMemory.balanceAssetB = balanceAssetB;
+
                 interExecutionMemory.lastProfit = lastProfit;
+                interExecutionMemory.profit = profit;
+                interExecutionMemory.lastProfitPercent = lastProfitPercent;
 
                 interExecutionMemory.roundtrips = 0;
                 interExecutionMemory.fails = 0;
@@ -215,7 +222,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* We get the initial values from the day previous to the candles we receive at the current execution */
 
-                if (currentDay.valueOf() > startDate.valueOf() + ONE_DAY_IN_MILISECONDS) { // Only after the first day we start grabbing the balance from this memory.
+                if (currentDay.valueOf() >= startDate.valueOf() + ONE_DAY_IN_MILISECONDS) { // Only after the first day we start grabbing the balance from this memory.
 
                     balanceAssetA = interExecutionMemory.balanceAssetA;
                     balanceAssetB = interExecutionMemory.balanceAssetB;
@@ -226,6 +233,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 } 
                 
                 lastProfit = interExecutionMemory.lastProfit;
+                profit = interExecutionMemory.profit;
+                lastProfitPercent = interExecutionMemory.lastProfitPercent;
 
                 roundtrips = interExecutionMemory.roundtrips;
                 fails = interExecutionMemory.fails;
@@ -722,11 +731,19 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (strategyPhase === 2) {
 
+                    rate = candle.close;
+                    sellRate = rate;
+                    sellAmount = balanceAssetA;
+
+                    stopLoss = sellRate + sellRate * stopLossPercentage / 100;
+
+                    stopLossDecay = 0;
+
                     previousBalanceAssetA = balanceAssetA;
                     lastProfit = 0;
                     lastProfitPercent = 0;
 
-                    balanceAssetB = balanceAssetA * candle.close;
+                    balanceAssetB = balanceAssetA * rate;
                     balanceAssetA = 0;
 
                     sellInstant = candle.end;
@@ -735,16 +752,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (sellInstant < currentDay.valueOf()) {
                             yesterday.balanceAssetA = balanceAssetA;
                             yesterday.balanceAssetB = balanceAssetB;
+
                             yesterday.lastProfit = lastProfit;
+                            yesterday.lastProfitPercent = lastProfitPercent;
                         }
                     }
-
-                    rate = candle.close;
-                    sellRate = rate;
-                    
-                    stopLoss = sellRate + sellRate * stopLossPercentage / 100;
-
-                    stopLossDecay = 0;
 
                     addRecord();
 
@@ -765,17 +777,18 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                     
                     lastProfit = balanceAssetA - previousBalanceAssetA;
+                    lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
+                    if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
+                    profit = balanceAssetA - initialBalanceA;
 
                     if (currentDay !== undefined) {
                         if (sellInstant < currentDay.valueOf()) {
                             yesterday.lastProfit = lastProfit;
+                            yesterday.profit = profit;
+                            yesterday.lastProfitPercent = lastProfitPercent;
                         }
                     }
 
-                    lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
-                    if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
-
-                    profit = balanceAssetA - initialBalanceA;
                     currentTrade.lastProfitPercent = lastProfitPercent;
                     currentTrade.stopRate = stopLoss;
                     
@@ -818,6 +831,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     strategyNumber = 0;
                     stopLoss = 0;
                     sellRate = 0;
+                    sellAmount = 0;
                     sellInstant = undefined;
                     buyOrder = 0;
                     strategyPhase = 0;
@@ -928,7 +942,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         buyOrder: buyOrder,
                         stopLossPhase: stopLossPhase,
                         buyOrderPhase: buyOrderPhase,
-                        orderRecord: orderRecord
+                        orderRecord: orderRecord,
+                        sellAmount: sellAmount
                     }
 
                     recordsArray.push(record);
@@ -1002,6 +1017,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     interExecutionMemory.balanceAssetA = yesterday.balanceAssetA;
                     interExecutionMemory.balanceAssetB = yesterday.balanceAssetB;
                     interExecutionMemory.lastProfit = yesterday.lastProfit;
+                    interExecutionMemory.profit = yesterday.profit;
+                    interExecutionMemory.lastProfitPercent = yesterday.lastProfitPercent;
 
                     interExecutionMemory.roundtrips = interExecutionMemory.roundtrips + yesterday.Roundtrips;
                     interExecutionMemory.fails = interExecutionMemory.fails + yesterday.fails;

@@ -81,7 +81,8 @@ function newAppLoader () {
 
         'Scales/RateScale.js',
         'Scales/TimeScale.js',
-        'Scales/TimePeriodScale.js',
+          'Scales/TimePeriodScale.js',
+          'Scales/Commons.js',
 
         'ChartsSpace/ChartUtilities.js',
         'ChartsSpace/PlottersManager.js',

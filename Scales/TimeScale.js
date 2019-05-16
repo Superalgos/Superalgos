@@ -164,21 +164,6 @@ to be visible at the top of the viewPort. */
       point4.y = point2.y + MIN_HEIGHT
     }
 
-    /* Lets start the drawing. */
-/*
-    browserCanvasContext.beginPath()
-    browserCanvasContext.moveTo(point1.x, point1.y - viewPort.margins.TOP)
-    browserCanvasContext.lineTo(point2.x, point2.y - viewPort.margins.TOP)
-    browserCanvasContext.lineTo(point3.x, point3.y - viewPort.margins.TOP)
-    browserCanvasContext.lineTo(point4.x, point4.y - viewPort.margins.TOP)
-    browserCanvasContext.lineTo(point1.x, point1.y - viewPort.margins.TOP)
-    browserCanvasContext.closePath()
-
-    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
-    browserCanvasContext.lineWidth = 1
-    browserCanvasContext.stroke()
-*/
-
     thisObject.container.frame.position.x = point1.x
     thisObject.container.frame.position.y = point1.y
 
@@ -194,28 +179,65 @@ to be visible at the top of the viewPort. */
     date = new Date(date)
 
     let label = date.toUTCString()
-    let fontSize = 10
+    let labelArray = label.split(' ')
+    let label1 = labelArray[1] + ' ' + labelArray[2] + ' ' + labelArray[3]
+    let label2 = labelArray[4]
 
-    let xOffset = label.length * fontSize * FONT_ASPECT_RATIO
+    let fontSize1 = 20
+    let fontSize2 = 10
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 0.50)'
+    const RED_LINE_HIGHT = 5
+    const OPACITY = 1
 
-    if (point.x - xOffset / 2 < point1.x || point.x + xOffset / 2 > point2.x) { return }
+    let centerPoint = {
+      x: mouse.position.x,
+      y: point1.y + viewPort.margins.BOTTOM
+    }
 
-    browserCanvasContext.fillText(label, point.x - xOffset / 2, point.y + fontSize + 7)
+    let container = newContainer()
+    container.initialize('Visible Time Scale')
+    container.frame.width = 190
+    container.frame.height = 25
+    container.frame.position.x = centerPoint.x - container.frame.width / 2
+    container.frame.position.y = centerPoint.y - container.frame.height / 2
 
-    browserCanvasContext.beginPath()
+    let params = {
+      cornerRadius: 3,
+      lineWidth: RED_LINE_HIGHT,
+      container: container,
+      borderColor: UI_COLOR.RUSTED_RED,
+      castShadow: false,
+      backgroundColor: UI_COLOR.DARK,
+      opacity: OPACITY
+    }
 
-    browserCanvasContext.moveTo(point.x, point1.y)
-    browserCanvasContext.lineTo(point.x, point5.y)
+    roundedCornersBackground(params)
 
-    browserCanvasContext.closePath()
+    /* Place the Text */
 
-    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.5)'
-    browserCanvasContext.lineWidth = 0.2
-    browserCanvasContext.setLineDash([1, 5])
-    browserCanvasContext.stroke()
+    let xOffset1 = label1.length * fontSize1 * FONT_ASPECT_RATIO
+
+    let labelPoint1 = {
+      x: mouse.position.x - xOffset1 + 15,
+      y: point1.y + viewPort.margins.BOTTOM + 6
+    }
+
+    browserCanvasContext.font = fontSize1 + 'px ' + UI_FONT.PRIMARY
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+
+    browserCanvasContext.fillText(label1, labelPoint1.x, labelPoint1.y)
+
+    let xOffset2 = label2.length * fontSize2 * FONT_ASPECT_RATIO
+
+    let labelPoint2 = {
+      x: mouse.position.x - xOffset2 / 2 - 3 + 70,
+      y: point1.y + viewPort.margins.BOTTOM + 6
+    }
+
+    browserCanvasContext.font = fontSize2 + 'px ' + UI_FONT.PRIMARY
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+
+    browserCanvasContext.fillText(label2, labelPoint2.x, labelPoint2.y)
   }
 }
 

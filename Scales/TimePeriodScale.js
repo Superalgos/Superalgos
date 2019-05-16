@@ -243,8 +243,6 @@ to be visible at the top of the viewPort. */
     let fontSize1 = 20
     let fontSize2 = 10
 
-  /* We draw the circle container */
-
     const RED_LINE_HIGHT = 5
     const OPACITY = 1
 

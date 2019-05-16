@@ -95,6 +95,7 @@ function newTimeScale () {
 
   function drawArrows () {
     if (isMouseOver !== true) { return }
+    if (thisObject.visible === false || thisObject.date === undefined) { return }
 
     const X_OFFSET = thisObject.container.frame.width / 2
     const Y_OFFSET = thisObject.container.frame.height / 2 - 10

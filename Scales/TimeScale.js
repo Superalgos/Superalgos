@@ -102,10 +102,11 @@ function newTimeScale () {
     const WIDTH = 6
     const LINE_WIDTH = 3
     const OPACITY = 0.2
+    const DISTANCE_BETWEEN_ARROWS = 10
     const MIN_DISTANCE_FROM_CENTER = 110
     const CURRENT_VALUE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.lenghtPercentage
-    const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + 100
-    let DISTANCE_BETWEEN_ARROWS = 9
+    const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + 100 + DISTANCE_BETWEEN_ARROWS
+
     let ARROW_DIRECTION = 0
 
     ARROW_DIRECTION = -1
@@ -250,3 +251,4 @@ function newTimeScale () {
     browserCanvasContext.fillText(label2, labelPoint2.x, labelPoint2.y)
   }
 }
+

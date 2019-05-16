@@ -4,8 +4,8 @@ function newRateScale () {
   let thisObject = {
     heightPercentage: 100,
     container: undefined,
+    rate: undefined,
     visible: true,
-    setMousePosition: setMousePosition,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -20,25 +20,15 @@ function newRateScale () {
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
 
-  thisObject.container.frame.width = viewPort.margins.RIGHT
-  thisObject.container.frame.height = viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y
-
-  thisObject.container.frame.position.x = viewPort.visibleArea.bottomRight.x
-  thisObject.container.frame.position.y = TOP_SPACE_HEIGHT
-
   thisObject.container.isDraggeable = false
   thisObject.container.isClickeable = false
   thisObject.container.isWheelable = true
+  thisObject.container.detectMouseOver = true
 
-  let mouse = {
-    position: {
-      x: 0,
-      y: 0
-    }
-  }
+  thisObject.container.frame.width = 110
+  thisObject.container.frame.height = 25
 
-  let timeLineCoordinateSystem
-
+  let isMouseOver
   return thisObject
 
   function finalize () {
@@ -46,10 +36,10 @@ function newRateScale () {
     thisObject.container = undefined
   }
 
-  function initialize (pTimeLineCoordinateSystem) {
-    timeLineCoordinateSystem = pTimeLineCoordinateSystem
-
+  function initialize () {
     thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     thisObject.heightPercentage = window.localStorage.getItem(MODULE_NAME)
     if (!thisObject.heightPercentage) {
@@ -63,9 +53,12 @@ function newRateScale () {
     thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
   }
 
-  function setMousePosition (point) {
-    mouse.position.x = point.x
-    mouse.position.y = point.y
+  function onMouseOver () {
+    isMouseOver = true
+  }
+
+  function onMouseNotOver () {
+    isMouseOver = false
   }
 
   function onMouseWheel (event) {
@@ -83,23 +76,9 @@ function newRateScale () {
     window.localStorage.setItem(MODULE_NAME, thisObject.heightPercentage)
   }
 
-  function getContainer (pPoint) {
-    let container
-
-/* In this case we manually frame this point since we do a very special treatment of the position of this scale. */
-    let point = {
-      x: 0,
-      y: 0
-    }
-    point.x = pPoint.x - thisObject.container.frame.position.x - viewPort.margins.RIGHT
-    point.y = pPoint.y - thisObject.container.frame.position.y
-
-    if (thisObject.container.frame.isThisPointHere(point, undefined, true) === true) {
+  function getContainer (point) {
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
-    } else {
-           /* This point does not belong to this space. */
-
-      return undefined
     }
   }
 
@@ -108,110 +87,121 @@ function newRateScale () {
   }
 
   function draw () {
-    if (thisObject.visible === false) { return }
+    drawRate()
+    drawArrows()
+  }
 
-/* We need this scale to match the shape of its parent when the parent is inside the viewPort, when it is not, we need the scale still
-to be thisObject.visible at the top of the viewPort. */
+  function drawArrows () {
+    if (isMouseOver !== true) { return }
+    if (thisObject.visible === false || thisObject.rate === undefined) { return }
 
-    let frame = thisObject.container.parentContainer.frame
-    let point1
-    let point2
-    let point3
-    let point4
+    const X_OFFSET = thisObject.container.frame.width / 2
+    const Y_OFFSET = thisObject.container.frame.height / 2
+    const HEIGHT = 6
+    const WIDTH = 18
+    const LINE_WIDTH = 3
+    const OPACITY = 0.2
+    const DISTANCE_BETWEEN_ARROWS = 10
+    const MIN_DISTANCE_FROM_CENTER = 30
+    const CURRENT_VALUE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.heightPercentage
+    const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + 115 + DISTANCE_BETWEEN_ARROWS
 
-    point1 = {
-      x: frame.width - frame.width / 10,
-      y: 0
+    let ARROW_DIRECTION = 0
+
+    ARROW_DIRECTION = -1
+    drawTwoArrows()
+    ARROW_DIRECTION = 1
+    drawTwoArrows()
+
+    function drawTwoArrows () {
+      point1 = {
+        x: X_OFFSET - WIDTH / 2,
+        y: Y_OFFSET + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION
+      }
+
+      point2 = {
+        x: X_OFFSET,
+        y: Y_OFFSET + HEIGHT * ARROW_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION
+      }
+
+      point3 = {
+        x: X_OFFSET + WIDTH / 2,
+        y: Y_OFFSET + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION
+      }
+
+      point1 = thisObject.container.frame.frameThisPoint(point1)
+      point2 = thisObject.container.frame.frameThisPoint(point2)
+      point3 = thisObject.container.frame.frameThisPoint(point3)
+
+      point4 = {
+        x: X_OFFSET - WIDTH / 2,
+        y: Y_OFFSET - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION
+      }
+
+      point5 = {
+        x: X_OFFSET,
+        y: Y_OFFSET + HEIGHT * ARROW_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION
+      }
+
+      point6 = {
+        x: X_OFFSET + WIDTH / 2,
+        y: Y_OFFSET - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION
+      }
+
+      point4 = thisObject.container.frame.frameThisPoint(point4)
+      point5 = thisObject.container.frame.frameThisPoint(point5)
+      point6 = thisObject.container.frame.frameThisPoint(point6)
+
+      point7 = {
+        x: X_OFFSET - WIDTH / 2,
+        y: Y_OFFSET - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + MAX_DISTANCE_FROM_CENTER * ARROW_DIRECTION
+      }
+
+      point8 = {
+        x: X_OFFSET,
+        y: Y_OFFSET - HEIGHT * ARROW_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + MAX_DISTANCE_FROM_CENTER * ARROW_DIRECTION
+      }
+
+      point9 = {
+        x: X_OFFSET + WIDTH / 2,
+        y: Y_OFFSET - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + MAX_DISTANCE_FROM_CENTER * ARROW_DIRECTION
+      }
+
+      point7 = thisObject.container.frame.frameThisPoint(point7)
+      point8 = thisObject.container.frame.frameThisPoint(point8)
+      point9 = thisObject.container.frame.frameThisPoint(point9)
+
+      browserCanvasContext.setLineDash([0, 0])
+
+      browserCanvasContext.beginPath()
+
+      browserCanvasContext.moveTo(point1.x, point1.y)
+      browserCanvasContext.lineTo(point2.x, point2.y)
+      browserCanvasContext.lineTo(point3.x, point3.y)
+
+      browserCanvasContext.moveTo(point4.x, point4.y)
+      browserCanvasContext.lineTo(point5.x, point5.y)
+      browserCanvasContext.lineTo(point6.x, point6.y)
+
+      browserCanvasContext.moveTo(point7.x, point7.y)
+      browserCanvasContext.lineTo(point8.x, point8.y)
+      browserCanvasContext.lineTo(point9.x, point9.y)
+
+      browserCanvasContext.lineWidth = LINE_WIDTH
+      browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', ' + OPACITY + ')'
+      browserCanvasContext.stroke()
     }
+  }
 
-    point2 = {
-      x: frame.width,
-      y: 0
-    }
+  function drawRate () {
+    if (thisObject.visible === false || thisObject.rate === undefined) { return }
 
-    point3 = {
-      x: frame.width,
-      y: frame.height
-    }
+    let label = (thisObject.rate - Math.trunc(thisObject.rate)).toFixed(2)
+    let labelArray = label.split('.')
+    let label1 = (Math.trunc(thisObject.rate)).toLocaleString()
+    let label2 = labelArray[1]
 
-    point4 = {
-      x: frame.width - frame.width / 10,
-      y: frame.height
-    }
-
-    point5 = {
-      x: 0,
-      y: 0
-    }
-
-        /* Now the transformations. */
-
-    point1 = transformThisPoint(point1, frame.container)
-    point2 = transformThisPoint(point2, frame.container)
-    point3 = transformThisPoint(point3, frame.container)
-    point4 = transformThisPoint(point4, frame.container)
-    point5 = transformThisPoint(point5, frame.container)
-
-    point1 = viewPort.fitIntoVisibleArea(point1)
-    point2 = viewPort.fitIntoVisibleArea(point2)
-    point3 = viewPort.fitIntoVisibleArea(point3)
-    point4 = viewPort.fitIntoVisibleArea(point4)
-    point5 = viewPort.fitIntoVisibleArea(point5)
-
-    if (point2.x - point1.x < MIN_WIDTH) {
-      point1.x = point2.x - MIN_WIDTH
-      point4.x = point2.x - MIN_WIDTH
-    }
-
-    /* Lets start the drawing. */
-/*
-    browserCanvasContext.beginPath()
-    browserCanvasContext.moveTo(point1.x, point1.y)
-    browserCanvasContext.lineTo(point2.x + viewPort.margins.RIGHT, point2.y)
-    browserCanvasContext.lineTo(point3.x + viewPort.margins.RIGHT, point3.y)
-    browserCanvasContext.lineTo(point4.x, point4.y)
-    browserCanvasContext.lineTo(point1.x, point1.y)
-    browserCanvasContext.closePath()
-
-    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
-    browserCanvasContext.lineWidth = 1
-    browserCanvasContext.stroke()
-*/
-    thisObject.container.frame.position.x = point1.x
-    thisObject.container.frame.position.y = point1.y
-
-    thisObject.container.frame.width = point2.x - point1.x
-    thisObject.container.frame.height = point3.y - point2.y
-
-    let point = {
-      x: point5.x + viewPort.margins.RIGHT,
-      y: mouse.position.y
-    }
-
-    let rate = getRateFromPoint(point, thisObject.container.parentContainer, timeLineCoordinateSystem)
-
-    let label = rate.toFixed(2)
-    let fontSize = 10
-
-    let xOffset = label.length * fontSize * FONT_ASPECT_RATIO
-
-    if (point.y + fontSize / 2 > point3.y || point.y - fontSize / 2 < point1.y) { return }
-
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 0.50)'
-
-    browserCanvasContext.fillText(label, point1.x + viewPort.margins.RIGHT, point.y + fontSize / 2)
-
-    browserCanvasContext.beginPath()
-
-    browserCanvasContext.moveTo(point.x, point.y)
-    browserCanvasContext.lineTo(point1.x + viewPort.margins.RIGHT, point.y)
-
-    browserCanvasContext.closePath()
-
-    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.5)'
-    browserCanvasContext.lineWidth = 0.2
-    browserCanvasContext.setLineDash([1, 5])
-    browserCanvasContext.stroke()
+    drawScaleDisplay(label1, label2, 10, 40, thisObject.container)
   }
 }
+

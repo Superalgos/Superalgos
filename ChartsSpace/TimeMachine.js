@@ -125,7 +125,7 @@ function newTimeMachine () {
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
       })
 
-      thisObject.rateScale.initialize(timeLineCoordinateSystem)
+      thisObject.rateScale.initialize()
 
       thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
@@ -138,8 +138,6 @@ function newTimeMachine () {
 
       mouse.position.x = event.x
       mouse.position.y = event.y
-
-      thisObject.rateScale.setMousePosition(event)
     }
 
     function initializeTheRest () {
@@ -246,17 +244,6 @@ function newTimeMachine () {
   }
 
   function thisObjectPhysics () {
-    /* Mouse Position Date Calculation */
-
-    let datePoint = {
-      x: mouse.position.x,
-      y: 0
-    }
-
-    let mouseDate = getDateFromPoint(datePoint, thisObject.container, timeLineCoordinateSystem)
-
-    thisObject.timeScale.date = new Date(mouseDate)
-
     /* Screen Corner Date Calculation */
 
     let point = {
@@ -272,24 +259,61 @@ function newTimeMachine () {
   function childrenPhysics () {
     thisObject.timeScale.physics()
     thisObject.rateScale.physics()
+
     for (let i = 0; i < thisObject.charts.length; i++) {
       let chart = thisObject.charts[i]
       chart.physics()
     }
 
-/* timeScale Positioning */
+    /* Mouse Position Date Calculation */
+
+    let timePoint = {
+      x: mouse.position.x,
+      y: 0
+    }
+
+    let mouseDate = getDateFromPoint(timePoint, thisObject.container, timeLineCoordinateSystem)
+
+    thisObject.timeScale.date = new Date(mouseDate)
+
+    /* Mouse Position Rate Calculation */
+
+    let ratePoint = {
+      x: 0,
+      y: mouse.position.y
+    }
+
+    let mouseRate = getRateFromPoint(ratePoint, thisObject.container, timeLineCoordinateSystem)
+
+    thisObject.rateScale.rate = mouseRate
+
+    /* timeScale Positioning */
 
     thisObject.timeScale.container.frame.position.x = mouse.position.x - thisObject.timeScale.container.frame.width / 2
 
-    let point = {
+    timePoint = {
       x: 0,
       y: 0
     }
 
-    point = transformThisPoint(point, thisObject.container.frame.container)
-    point = thisObject.container.fitFunction(point)
+    timePoint = transformThisPoint(timePoint, thisObject.container.frame.container)
+    timePoint = thisObject.container.fitFunction(timePoint)
 
-    thisObject.timeScale.container.frame.position.y = point.y
+    thisObject.timeScale.container.frame.position.y = timePoint.y
+
+    /* rateScale Positioning */
+
+    thisObject.rateScale.container.frame.position.y = mouse.position.y - thisObject.rateScale.container.frame.height / 2
+
+    ratePoint = {
+      x: 10000000000000,
+      y: 0
+    }
+
+    ratePoint = transformThisPoint(ratePoint, thisObject.container.frame.container)
+    ratePoint = thisObject.container.fitFunction(ratePoint)
+
+    thisObject.rateScale.container.frame.position.x = ratePoint.x - thisObject.rateScale.container.frame.width
   }
 
   function drawBackground () {
@@ -311,7 +335,7 @@ function newTimeMachine () {
       }
 
       if (thisObject.timeScale !== undefined) { thisObject.timeScale.draw() }
-      // if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
+      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
 
      // thisObject.container.frame.draw(false, true, false)
     }

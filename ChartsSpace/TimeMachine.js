@@ -76,10 +76,6 @@ function newTimeMachine () {
 
     recalculateScale()
 
-    thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function (event) {
-      recalculateScale()
-    })
-
      /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
 
     let position = 0 // This defines the position of each chart respect to each other.
@@ -113,8 +109,9 @@ function newTimeMachine () {
 
       thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
         thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
-        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+        recalculateScale()
         moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition)
+        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
       })
 
       thisObject.timeScale.initialize()
@@ -123,8 +120,9 @@ function newTimeMachine () {
 
       thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
-        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+        recalculateScale()
         moveToUserPosition(thisObject.container, timeLineCoordinateSystem, true, false, event.mousePosition)
+        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
       })
 
       thisObject.rateScale.initialize(timeLineCoordinateSystem)
@@ -353,4 +351,3 @@ function newTimeMachine () {
       )
   }
 }
-

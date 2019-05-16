@@ -1,4 +1,4 @@
- ﻿
+
 function newViewPort () {
   const MODULE_NAME = 'Viewport'
   const INFO_LOG = false
@@ -11,8 +11,8 @@ function newViewPort () {
 
   let ANIMATION_INCREMENT = 0.25
 
-  let TOP_MARGIN = 15 + TOP_SPACE_HEIGHT
-  let BOTTOM_MARGIN = 20 + COCKPIT_SPACE_HEIGHT
+  let TOP_MARGIN = 30 + TOP_SPACE_HEIGHT
+  let BOTTOM_MARGIN = 30 + COCKPIT_SPACE_HEIGHT
   let LEFT_MARGIN = 50
   let RIGHT_MARGIN = 50
   let MARGINS = {
@@ -83,8 +83,8 @@ function newViewPort () {
   }
 
   function resize () {
-    TOP_MARGIN = 15 + TOP_SPACE_HEIGHT
-    BOTTOM_MARGIN = 20 + browserCanvas.height - COCKPIT_SPACE_POSITION
+    TOP_MARGIN = 30 + TOP_SPACE_HEIGHT
+    BOTTOM_MARGIN = 30 + browserCanvas.height - COCKPIT_SPACE_POSITION
     LEFT_MARGIN = 50
     RIGHT_MARGIN = 50
     MARGINS = {
@@ -142,7 +142,7 @@ function newViewPort () {
       if (Math.trunc(Math.abs(targetOffset.y - offset.y) * 1000) >= Math.trunc(Math.abs(offsetIncrement.y) * 1000)) {
         offset.y = offset.y + offsetIncrement.y
 
-               // console.log("offset.y changed to " + offset.y)
+              // console.log("offset.y changed to " + offset.y)
       } else {
         offsetIncrement.y = 0
       }
@@ -161,7 +161,7 @@ function newViewPort () {
 
     thisObject.eventHandler.raiseEvent('Offset Changed', event)
 
-       // console.log("displace produced new Offset x = " + offset.x + " y = " + offset.y);
+      // console.log("displace produced new Offset x = " + offset.x + " y = " + offset.y);
   }
 
   function displaceTarget (displaceVector) {
@@ -173,7 +173,7 @@ function newViewPort () {
       y: (targetOffset.y - offset.y) / 10
     }
 
-       // console.log("displaceTarget x = " + targetOffset.x + " y = " + targetOffset.y);
+      // console.log("displaceTarget x = " + targetOffset.x + " y = " + targetOffset.y);
   }
 
   function newZoomLevel (level) {
@@ -196,13 +196,13 @@ function newViewPort () {
   }
 
   function isMinZoom () {
-       /* returns true is we are currently at the min zoom level. */
+      /* returns true is we are currently at the min zoom level. */
 
     if (thisObject.zoomTargetLevel === MIN_ZOOM_LEVEL) { return true } else { return false }
   }
 
   function applyZoom (amount) {
-        // console.log("applyZoom amount: " + amount);
+       // console.log("applyZoom amount: " + amount);
 
     if (amount > 0) {
       if (thisObject.zoomTargetLevel > -5) {
@@ -300,7 +300,7 @@ function newViewPort () {
   }
 
   function fitIntoVisibleArea (point) {
-        /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
+       /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
 
     if (point.x > thisObject.visibleArea.bottomRight.x + 1) {
       point.x = thisObject.visibleArea.bottomRight.x + 1
@@ -453,3 +453,4 @@ function newViewPort () {
     }
   }
 }
+

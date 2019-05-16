@@ -130,7 +130,7 @@
             })
 
             for (let i = 1; i < 15; i++) {
-                let strategyImage = loadEmoji("Symbols/Emoji Symbols-" + (112 + i) + ".png");
+                let strategyImage = canvas.strategySpace.iconByPartType.get('Strategy');
                 strategyImages.push(strategyImage);
             }
 
@@ -561,7 +561,7 @@
                 drawStick(recordPoint1, recordPoint3);
                 drawStick(recordPoint2, recordPoint4);
 
-                if (imageToDraw.isLoaded === true) {
+                if (imageToDraw.canDrawIcon === true) {
                     browserCanvasContext.drawImage(imageToDraw, recordPoint3.x - imageSize / 2, recordPoint3.y - imageSize / 2, imageSize, imageSize);
                     if (record.status === 1) {
                         browserCanvasContext.drawImage(imageToDraw, recordPoint4.x - imageSize / 2, recordPoint4.y - imageSize / 2, imageSize, imageSize);

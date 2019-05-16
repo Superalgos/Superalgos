@@ -136,8 +136,8 @@
 
             /* Loading a few icons */
 
-            imageStopLossPhase = loadEmoji("stop.png");
-            imageBuyOrderPhase = loadEmoji("Nature/Emoji Natur-67.png");
+            imageStopLossPhase = canvas.strategySpace.iconByPartType.get('Stop');
+            imageBuyOrderPhase = canvas.strategySpace.iconByPartType.get('Phase');
 
             callBackFunction();
 
@@ -657,9 +657,9 @@
                 browserCanvasContext.stroke()
 
 
-                if (imageStopLossPhase.isLoaded === true && stopLossPhase > 0) {
+                if (imageStopLossPhase.canDrawIcon === true && stopLossPhase > 0) {
                     browserCanvasContext.drawImage(imageStopLossPhase, recordPoint5.x - imageSize, recordPoint5.y - imageSize * 1.25, imageSize, imageSize);
-                    printLabel(stopLossPhase, recordPoint5.x - imageSize / 2, recordPoint5.y - imageSize * 1.5, '0.9', 8);
+                    printLabel(stopLossPhase, recordPoint5.x - imageSize / 2 - 3, recordPoint5.y - imageSize * 1.5, '0.9', 8);
                 }
 
                 /* Next we are drawing the Buy Order */
@@ -685,7 +685,7 @@
                 browserCanvasContext.lineWidth = 5
                 browserCanvasContext.stroke()
 
-                if (imageBuyOrderPhase.isLoaded === true && buyOrderPhase > 0) {
+                if (imageBuyOrderPhase.canDrawIcon === true && buyOrderPhase > 0) {
                     browserCanvasContext.drawImage(imageBuyOrderPhase, recordPoint9.x - imageSize * 2 / 3, recordPoint9.y + imageSize / 4, imageSize, imageSize);
                     printLabel(buyOrderPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9, '0.9', 8);
                 }
@@ -739,6 +739,7 @@
         }
     }
 }
+
 
 
 

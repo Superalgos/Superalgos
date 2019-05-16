@@ -61,7 +61,6 @@ function newTimeMachine () {
 
     thisObject.container.finalize()
     thisObject.container = undefined
-
     thisObject.timeScale.finalize()
     thisObject.timeScale = undefined
     thisObject.rateScale.finalize()
@@ -286,13 +285,13 @@ function newTimeMachine () {
 
     let point = {
       x: 0,
-      y: thisObject.container.frame.height / 10
+      y: 0
     }
 
     point = transformThisPoint(point, thisObject.container.frame.container)
-    point = viewPort.fitIntoVisibleArea(point)
+    point = thisObject.container.fitFunction(point)
 
-    thisObject.timeScale.container.frame.position.y = point.y + 6
+    thisObject.timeScale.container.frame.position.y = point.y
   }
 
   function drawBackground () {

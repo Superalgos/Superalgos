@@ -49,6 +49,16 @@ exports.newCopySimulator = function newCopySimulator(pStorage) {
             parsedConfig.products[1].dataSets[1].filePath = pTeamCodeName + "/" + parsedConfig.codeName + ".1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Daily/@Period/@Year/@Month/@Day"
             parsedConfig.products[1].dataSets[1].dataRange.filePath = pTeamCodeName + "/" + parsedConfig.codeName + ".1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Daily"
 
+            parsedConfig.products[2].storageAccount = pTeamCodeName
+            parsedConfig.products[2].dataSets[0].filePath = pTeamCodeName + "/" + parsedConfig.codeName + ".1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Market/@Period"
+            parsedConfig.products[2].dataSets[1].filePath = pTeamCodeName + "/" + parsedConfig.codeName + ".1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Daily/@Period/@Year/@Month/@Day"
+            parsedConfig.products[2].dataSets[1].dataRange.filePath = pTeamCodeName + "/" + parsedConfig.codeName + ".1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Daily"
+
+            parsedConfig.products[3].storageAccount = pTeamCodeName
+            parsedConfig.products[3].dataSets[0].filePath = pTeamCodeName + "/" + parsedConfig.codeName + ".1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Market/@Period"
+            parsedConfig.products[3].dataSets[1].filePath = pTeamCodeName + "/" + parsedConfig.codeName + ".1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Daily/@Period/@Year/@Month/@Day"
+            parsedConfig.products[3].dataSets[1].dataRange.filePath = pTeamCodeName + "/" + parsedConfig.codeName + ".1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Daily"
+
             // Write the new files
             let newSimulatorName = "simulator-" + pBotCodeName + "-Indicator-Bot"
             let newSimulatorPath = "bots/" + newSimulatorName

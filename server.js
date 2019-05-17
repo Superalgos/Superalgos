@@ -131,7 +131,7 @@ function initialize () {
             }
         }
         }
-         
+
     }
   }
 }
@@ -198,7 +198,7 @@ function onBrowserRequest (request, response) {
             processPost(request, response, onPostReceived)
 
             function onPostReceived(pData) {
-                
+
                 let request = JSON.parse(pData);
 
                 storage.readData(undefined, request.path, request.conatinerName, false, onReady)
@@ -427,22 +427,6 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'Exchange': // This means the Exchange folder.
-      {
-        let filePath = requestParameters[2]
-
-        if (requestParameters[3] !== undefined) {
-          filePath = filePath + '/' + requestParameters[3]
-        }
-
-        if (requestParameters[4] !== undefined) {
-          filePath = filePath + '/' + requestParameters[4]
-        }
-
-        respondWithFile(serverConfig.pathToCanvasApp + '/Exchange/' + filePath, response)
-      }
-      break
-
     case 'Images': // This means the Scripts folder.
       {
         let path = './Images/' + requestParameters[2]
@@ -471,9 +455,9 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'BottomSpace': // This means the BottomSpace folder.
+    case 'CockpitSpace': // This means the CockpitSpace folder.
       {
-        respondWithFile(serverConfig.pathToCanvasApp + '/BottomSpace/' + requestParameters[2], response)
+        respondWithFile(serverConfig.pathToCanvasApp + '/CockpitSpace/' + requestParameters[2], response)
       }
       break
 
@@ -482,6 +466,24 @@ function onBrowserRequest (request, response) {
         respondWithFile(serverConfig.pathToCanvasApp + '/TopSpace/' + requestParameters[2], response)
       }
       break
+
+    case 'StrategySpace': // This means the StrategySpace folder.
+        {
+              respondWithFile(serverConfig.pathToCanvasApp + '/StrategySpace/' + requestParameters[2], response)
+        }
+        break
+
+    case 'ControlsToolBox': // This means the StrategySpace folder.
+        {
+              respondWithFile(serverConfig.pathToCanvasApp + '/ControlsToolBox/' + requestParameters[2], response)
+        }
+        break
+
+    case 'Utilities': // This means the StrategySpace folder.
+        {
+              respondWithFile(serverConfig.pathToCanvasApp + '/Utilities/' + requestParameters[2], response)
+        }
+        break
 
     case 'AABrowserAPI': // This means the Scripts folder.
       {
@@ -696,128 +698,6 @@ function onBrowserRequest (request, response) {
       }
       break
 
-      case 'ExchangeAPI': // This is trying to access this library functionality from the broser.
-      {
-                /* We are going to let access the exchange only to authenticated users, that measn that we need the a valid session token. */
-        let authToken = requestParameters[3]
-
-        if (authToken !== undefined) {
-            global.CURRENT_EXECUTION_AT = "Browser"
-            global.GATEWAY_ENDPOINT = serverConfig.masterAppServerURL
-
-            global.MARKET = {
-                assetA: "USDT",
-                assetB: "BTC"
-            };
-
-            global.LOG_CONTROL = {
-                "Exchange API": {
-                    logInfo: true,
-                    logWarnings: false,
-                    logErrors: true,
-                    logContent: false,
-                    intensiveLogging: false
-                }
-            }
-
-            let logger = {
-                write: function (moduleName, message) {
-                    console.log(moduleName + " " + message);
-                }
-            }
-
-            const EXCHANGE_API = require('./Server/Exchange/ExchangeAPI');
-            let exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, authToken);
-            exchangeAPI.initialize(onInizialized);
-
-            function onInizialized(err) {
-                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Entering function."); }
-
-                switch (err.result) {
-                    case global.DEFAULT_OK_RESPONSE.result: {
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI ->  onInizialized -> Execution finished well."); }
-                        callExchangeAPIMethod();
-                        return;
-                    }
-                    case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                        console.log("[ERROR] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Retry Later. Requesting Execution Retry.");
-                        respondWithContent("", response);
-                        return;
-                    }
-                    case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                        console.log("[ERROR] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Operation Failed. Aborting the process.");
-                        respondWithContent("", response);
-                        return;
-                    }
-                }
-            }
-
-            function callExchangeAPIMethod() {
-                switch (requestParameters[2]) {
-
-                    case "getTicker": {
-                        exchangeAPI.getTicker(global.MARKET, onExchangeResponse);
-                        break;
-                    }
-
-                    case "getOpenPositions": {
-                        exchangeAPI.getOpenPositions(global.MARKET, onExchangeResponse);
-                        break;
-                    }
-
-                    case "getExecutedTrades": {
-                        exchangeAPI.getExecutedTrades(requestParameters[4], onExchangeResponse);
-                        break;
-                    }
-
-                    case "putPosition": {
-                        exchangeAPI.putPosition(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
-                        break;
-                    }
-
-                    case "movePosition": {
-                        exchangeAPI.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
-                        break;
-                    }
-
-                    case "getPublicTradeHistory": {
-                        exchangeAPI.getPublicTradeHistory(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
-                        break;
-                    }
-
-                    case "initialize": {
-                        onExchangeResponse(global.DEFAULT_OK_RESPONSE);
-                        break;
-                    }
-
-                }
-            }
-
-            function onExchangeResponse(err, exchangeResponse) {
-
-                /* Delete these secrets before they get logged. */
-
-                requestParameters[4] = "";
-                if (err.result === global.DEFAULT_OK_RESPONSE.result)
-                    respondWithContent(JSON.stringify(exchangeResponse), response);
-                else
-                    respondWithContent(JSON.stringify(err), response);
-            }
-
-            return;
-        } else {
-
-          let customResponse = {
-              result: global.CUSTOM_FAIL_RESPONSE.result,
-              message: "You are not logged in."
-          };
-
-          respondWithContent(JSON.stringify(customResponse), response);
-
-        }
-      }
-      break
-
     case 'AACloud': // This means the cloud folder.
       {
         let filePath = requestParameters[2]
@@ -975,6 +855,12 @@ function onBrowserRequest (request, response) {
         respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response)
       }
       break
+
+    case 'ChartsSpace':
+        {
+            respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response)
+        }
+        break
 
     default:
       {

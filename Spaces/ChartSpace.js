@@ -15,12 +15,12 @@ function newChartSpace () {
   let thisObject = {
     visible: true,
     container: undefined,
+    timeMachines: [],
     fitIntoVisibleArea: fitIntoVisibleArea,
     isThisPointVisible: isThisPointVisible,
     physics: physics,
     drawBackground: drawBackground,
     draw: draw,
-    timeMachines: [],
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
     initialize: initialize,
     finalize: finalize
@@ -35,14 +35,13 @@ function newChartSpace () {
   return thisObject
 
   function finalize () {
-    try {
-      for (let i = 0; i < thisObject.timeMachines.length; i++) {
-        let timeMachine = thisObject.timeMachines[i]
-        timeMachine.finalize()
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[i]
+      timeMachine.finalize()
     }
+
+    thisObject.container.finalize()
+    thisObject.container = undefined
   }
 
   function initialize (callBackFunction) {

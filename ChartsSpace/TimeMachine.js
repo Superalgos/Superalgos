@@ -16,6 +16,8 @@ function newTimeMachine () {
 
   let thisObject = {
     container: undefined,
+    timeScale: undefined,
+    rateScale: undefined,
     charts: [],
     physics: physics,
     drawBackground: drawBackground,
@@ -40,10 +42,14 @@ function newTimeMachine () {
                                    // ... also to request a reference to the object for the cases we need it.
   const SEPARATION_BETWEEN_TIMELINE_CHARTS = 1.5
 
-  let timeScale
-  let rateScale
-
   let timeLineCoordinateSystem = newTimeLineCoordinateSystem()
+
+  let mouse = {
+    position: {
+      x: 0,
+      y: 0
+    }
+  }
 
   return thisObject
 
@@ -52,6 +58,13 @@ function newTimeMachine () {
       let chart = thisObject.charts[i]
       chart.finalize()
     }
+
+    thisObject.container.finalize()
+    thisObject.container = undefined
+    thisObject.timeScale.finalize()
+    thisObject.timeScale = undefined
+    thisObject.rateScale.finalize()
+    thisObject.rateScale = undefined
   }
 
   function initialize (callBackFunction) {
@@ -62,11 +75,6 @@ function newTimeMachine () {
     let controlPanel = canvas.panelsSpace.getPanel(controlPanelHandle, panelOwner)
 
     recalculateScale()
-
-    thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function (event) {
-      recalculateScale()
-      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, false, event.mousePosition)
-    })
 
      /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
 
@@ -97,25 +105,39 @@ function newTimeMachine () {
 
      /* Each Time Machine has a Time Scale and a Right Scale. */
 
-      timeScale = newTimeScale()
-      timeScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
-      timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
+      thisObject.timeScale = newTimeScale()
+
+      thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
         thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
+        recalculateScale()
+        moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition)
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
       })
 
-      timeScale.initialize(timeLineCoordinateSystem)
+      thisObject.timeScale.initialize()
 
-      rateScale = newRateScale()
-      rateScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
-      rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
+      thisObject.rateScale = newRateScale()
+
+      thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
+        recalculateScale()
+        moveToUserPosition(thisObject.container, timeLineCoordinateSystem, true, false, event.mousePosition)
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
       })
 
-      rateScale.initialize(timeLineCoordinateSystem)
+      thisObject.rateScale.initialize()
+
+      thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
       initializeTheRest()
+    }
+
+    function onMouseOver (event) {
+      thisObject.timeScale.visible = true
+      thisObject.rateScale.visible = true
+
+      mouse.position.x = event.x
+      mouse.position.y = event.y
     }
 
     function initializeTheRest () {
@@ -175,8 +197,8 @@ function newTimeMachine () {
   function getContainer (point, purpose) {
     let container
 
-    if (timeScale !== undefined) {
-      container = timeScale.getContainer(point)
+    if (thisObject.timeScale !== undefined) {
+      container = thisObject.timeScale.getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
@@ -184,8 +206,8 @@ function newTimeMachine () {
       }
     }
 
-    if (rateScale !== undefined) {
-      container = rateScale.getContainer(point)
+    if (thisObject.rateScale !== undefined) {
+      container = thisObject.rateScale.getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
@@ -209,6 +231,8 @@ function newTimeMachine () {
     } else {
       if (purpose === GET_CONTAINER_PURPOSE.MOUSE_OVER) {
         thisObject.container.eventHandler.raiseEvent('onMouseNotOver')
+        thisObject.timeScale.visible = false
+        thisObject.rateScale.visible = false
       }
       return
     }
@@ -220,16 +244,76 @@ function newTimeMachine () {
   }
 
   function thisObjectPhysics () {
+    /* Screen Corner Date Calculation */
 
+    let point = {
+      x: 0,
+      y: 0
+    }
+
+    let cornerDate = getDateFromPoint(point, thisObject.container, timeLineCoordinateSystem)
+    cornerDate = new Date(cornerDate)
+    window.localStorage.setItem('Date @ Screen Corner', cornerDate.toUTCString())
   }
 
   function childrenPhysics () {
-    timeScale.physics()
-    rateScale.physics()
+    thisObject.timeScale.physics()
+    thisObject.rateScale.physics()
+
     for (let i = 0; i < thisObject.charts.length; i++) {
       let chart = thisObject.charts[i]
       chart.physics()
     }
+
+    /* Mouse Position Date Calculation */
+
+    let timePoint = {
+      x: mouse.position.x,
+      y: 0
+    }
+
+    let mouseDate = getDateFromPoint(timePoint, thisObject.container, timeLineCoordinateSystem)
+
+    thisObject.timeScale.date = new Date(mouseDate)
+
+    /* Mouse Position Rate Calculation */
+
+    let ratePoint = {
+      x: 0,
+      y: mouse.position.y
+    }
+
+    let mouseRate = getRateFromPoint(ratePoint, thisObject.container, timeLineCoordinateSystem)
+
+    thisObject.rateScale.rate = mouseRate
+
+    /* timeScale Positioning */
+
+    thisObject.timeScale.container.frame.position.x = mouse.position.x - thisObject.timeScale.container.frame.width / 2
+
+    timePoint = {
+      x: 0,
+      y: 0
+    }
+
+    timePoint = transformThisPoint(timePoint, thisObject.container.frame.container)
+    timePoint = thisObject.container.fitFunction(timePoint)
+
+    thisObject.timeScale.container.frame.position.y = timePoint.y
+
+    /* rateScale Positioning */
+
+    thisObject.rateScale.container.frame.position.y = mouse.position.y - thisObject.rateScale.container.frame.height / 2
+
+    ratePoint = {
+      x: 10000000000000,
+      y: 0
+    }
+
+    ratePoint = transformThisPoint(ratePoint, thisObject.container.frame.container)
+    ratePoint = thisObject.container.fitFunction(ratePoint)
+
+    thisObject.rateScale.container.frame.position.x = ratePoint.x - thisObject.rateScale.container.frame.width
   }
 
   function drawBackground () {
@@ -250,8 +334,8 @@ function newTimeMachine () {
         chart.draw()
       }
 
-      if (timeScale !== undefined) { timeScale.draw() }
-      if (rateScale !== undefined) { rateScale.draw() }
+      if (thisObject.timeScale !== undefined) { thisObject.timeScale.draw() }
+      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
 
      // thisObject.container.frame.draw(false, true, false)
     }

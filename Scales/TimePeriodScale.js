@@ -1,17 +1,13 @@
 function newTimePeriodScale () {
   const MODULE_NAME = 'Time Period Scale'
-  const INFO_LOG = false
-  const INTENSIVE_LOG = false
-  const ERROR_LOG = true
-  const logger = newWebDebugLog()
-  logger.fileName = MODULE_NAME
 
   let thisObject = {
+    timePeriod: undefined,
     container: undefined,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize,
-    timePeriod: undefined
+    finalize: finalize
   }
 
   const FILES_PERIOD_DEFAULT_VALUE = 0
@@ -32,7 +28,7 @@ function newTimePeriodScale () {
     }
   }
 
-  let visible = false
+  let visible = true
   let timeLineCoordinateSystem
   let objectStorage = {}
   let filePeriodIndex = FILES_PERIOD_DEFAULT_VALUE
@@ -42,10 +38,15 @@ function newTimePeriodScale () {
 
   return thisObject
 
+  function finalize () {
+    thisObject.container.finalize()
+    thisObject.container = undefined
+  }
+
   function initialize (pTimeLineCoordinateSystem) {
     timeLineCoordinateSystem = pTimeLineCoordinateSystem
 
-    thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel)
+    thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
     readObjectState()
     newTimePeriod()
@@ -78,6 +79,7 @@ function newTimePeriodScale () {
           }
         }
       }
+      saveObjectState()
       newTimePeriod()
     }
   }
@@ -131,6 +133,32 @@ function newTimePeriodScale () {
 
       return undefined
     }
+  }
+
+  function saveObjectState () {
+    objectStorage.filePeriodIndex = filePeriodIndex
+    objectStorage.timePeriodIndex = timePeriodIndex
+    window.localStorage.setItem(MODULE_NAME, JSON.stringify(objectStorage))
+  }
+
+  function readObjectState () {
+    let objectStorageString = window.localStorage.getItem(MODULE_NAME)
+    if (objectStorageString !== null && objectStorageString !== '') {
+      objectStorage = JSON.parse(objectStorageString)
+      filePeriodIndex = objectStorage.filePeriodIndex
+      timePeriodIndex = objectStorage.timePeriodIndex
+    }
+  }
+
+  function newTimePeriod () {
+    let timePeriodArray = timePeriodsMasterArray[filePeriodIndex]
+    thisObject.timePeriod = timePeriodArray[timePeriodIndex][0]
+    timePeriodLabel = timePeriodArray[timePeriodIndex][1]
+
+    let event = {}
+    event.timePeriod = thisObject.timePeriod
+    thisObject.container.eventHandler.raiseEvent('Time Period Changed', event)
+    window.localStorage.setItem('Current Time Period', JSON.stringify({filePeriodIndex: filePeriodIndex, timePeriodIndex: timePeriodIndex}))
   }
 
   function draw () {
@@ -191,7 +219,7 @@ to be visible at the top of the viewPort. */
 
     /* Lets start the drawing. */
 
-    let displacement = viewPort.margins.BOTTOM - BOTTOM_SPACE_HEIGHT
+    let displacement = viewPort.margins.BOTTOM - COCKPIT_SPACE_HEIGHT
 
     /*
     browserCanvasContext.beginPath()
@@ -213,59 +241,66 @@ to be visible at the top of the viewPort. */
     thisObject.container.frame.width = point2.x - point1.x
     thisObject.container.frame.height = point3.y - point2.y
 
-    let point = {
+  /* Common Variables */
+
+    let label = timePeriodLabel.split('-')
+    let label1 = label[0]
+    let label2 = label[1].toUpperCase()
+    let fontSize1 = 20
+    let fontSize2 = 10
+
+    const RED_LINE_HIGHT = 5
+    const OPACITY = 1
+
+    let centerPoint = {
       x: mouse.position.x,
       y: point1.y + viewPort.margins.BOTTOM
     }
 
-    let label = timePeriodLabel
-    let fontSize = 10
+    let container = newContainer()
+    container.initialize('Visible Time Scale')
+    container.frame.width = 60
+    container.frame.height = 25
+    container.frame.position.x = centerPoint.x - container.frame.width / 2
+    container.frame.position.y = centerPoint.y - container.frame.height / 2
 
-    let xOffset = label.length * fontSize * FONT_ASPECT_RATIO
-
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 0.50)'
-
-    if (point.x - xOffset / 2 < point1.x || point.x + xOffset / 2 > point2.x) { return }
-
-    browserCanvasContext.fillText(label, point.x - xOffset / 2, point.y + fontSize + 1)
-/*
-    browserCanvasContext.beginPath()
-
-    browserCanvasContext.moveTo(point.x, point1.y)
-    browserCanvasContext.lineTo(point.x, point5.y)
-
-    browserCanvasContext.closePath()
-
-    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.5)'
-    browserCanvasContext.lineWidth = 0.2
-    browserCanvasContext.setLineDash([1, 5])
-    browserCanvasContext.stroke()
-*/
-  }
-
-  function saveObjectState () {
-    objectStorage.filePeriodIndex = filePeriodIndex
-    objectStorage.timePeriodIndex = timePeriodIndex
-    window.localStorage.setItem(MODULE_NAME, JSON.stringify(objectStorage))
-  }
-
-  function readObjectState () {
-    let objectStorageString = window.localStorage.getItem(MODULE_NAME)
-    if (objectStorageString !== null && objectStorageString !== '') {
-      objectStorage = JSON.parse(objectStorageString)
-      filePeriodIndex = objectStorage.filePeriodIndex
-      timePeriodIndex = objectStorage.timePeriodIndex
+    let params = {
+      cornerRadius: 3,
+      lineWidth: RED_LINE_HIGHT,
+      container: container,
+      borderColor: UI_COLOR.RUSTED_RED,
+      castShadow: false,
+      backgroundColor: UI_COLOR.DARK,
+      opacity: OPACITY
     }
-  }
 
-  function newTimePeriod () {
-    let timePeriodArray = timePeriodsMasterArray[filePeriodIndex]
-    thisObject.timePeriod = timePeriodArray[timePeriodIndex][0]
-    timePeriodLabel = timePeriodArray[timePeriodIndex][1]
+    roundedCornersBackground(params)
 
-    let event = {}
-    event.timePeriod = thisObject.timePeriod
-    thisObject.container.eventHandler.raiseEvent('Time Period Changed', event)
+    /* Place the Text */
+
+    let xOffset1 = label1.length * fontSize1 * FONT_ASPECT_RATIO
+
+    let labelPoint1 = {
+      x: mouse.position.x - xOffset1 / 2 - 14,
+      y: point1.y + viewPort.margins.BOTTOM + 6
+    }
+
+    browserCanvasContext.font = fontSize1 + 'px ' + UI_FONT.PRIMARY
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+
+    browserCanvasContext.fillText(label1, labelPoint1.x, labelPoint1.y)
+
+    let xOffset2 = label2.length * fontSize2 * FONT_ASPECT_RATIO
+
+    let labelPoint2 = {
+      x: mouse.position.x - xOffset2 / 2 - 3 + 14,
+      y: point1.y + viewPort.margins.BOTTOM + 6
+    }
+
+    browserCanvasContext.font = fontSize2 + 'px ' + UI_FONT.PRIMARY
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+
+    browserCanvasContext.fillText(label2, labelPoint2.x, labelPoint2.y)
   }
 }
+

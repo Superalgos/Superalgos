@@ -4,12 +4,17 @@ function newEventHandler () {
     name: undefined,                            // This is for debugging purposes only.
     listenToEvent: listenToEvent,
     stopListening: stopListening,
-    raiseEvent: raiseEvent
+    raiseEvent: raiseEvent,
+    finalize: finalize
   }
 
-  var eventHandlers = []        // Here we store all the functions we will call when an event is raiseed.
+  let eventHandlers = []        // Here we store all the functions we will call when an event is raiseed.
 
   return thisObject
+
+  function finalize () {
+    eventHandlers = []
+  }
 
   function listenToEvent (eventType, handler, extraData) {
     let eventSubscriptionId = Math.trunc(Math.random() * 1000000)

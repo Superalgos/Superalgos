@@ -1,4 +1,4 @@
- ﻿
+
 function newViewPort () {
   const MODULE_NAME = 'Viewport'
   const INFO_LOG = false
@@ -10,11 +10,12 @@ function newViewPort () {
   const CONSOLE_LOG = true
 
   let ANIMATION_INCREMENT = 0.25
-  const TOP_MARGIN = 15 + TOP_SPACE_HEIGHT
-  const BOTTOM_MARGIN = 15 + BOTTOM_SPACE_HEIGHT
-  const LEFT_MARGIN = 50
-  const RIGHT_MARGIN = 50
-  const MARGINS = {
+
+  let TOP_MARGIN = 30 + TOP_SPACE_HEIGHT
+  let BOTTOM_MARGIN = 30 + COCKPIT_SPACE_HEIGHT
+  let LEFT_MARGIN = 50
+  let RIGHT_MARGIN = 50
+  let MARGINS = {
     TOP: TOP_MARGIN,
     BOTTOM: BOTTOM_MARGIN,
     LEFT: LEFT_MARGIN,
@@ -23,6 +24,8 @@ function newViewPort () {
 
   let thisObject = {
     visibleArea: undefined,
+    width: undefined,
+    height: undefined,
     eventHandler: undefined,
     zoomTargetLevel: undefined,
     zoomLevel: undefined,
@@ -42,6 +45,7 @@ function newViewPort () {
     animate: animate,
     draw: draw,
     raiseEvents: raiseEvents,
+    resize: resize,
     initialize: initialize
   }
 
@@ -74,6 +78,22 @@ function newViewPort () {
   return thisObject
 
   function initialize () {
+    resize()
+    readObjectState()
+  }
+
+  function resize () {
+    TOP_MARGIN = 30 + TOP_SPACE_HEIGHT
+    BOTTOM_MARGIN = 30 + browserCanvas.height - COCKPIT_SPACE_POSITION
+    LEFT_MARGIN = 50
+    RIGHT_MARGIN = 50
+    MARGINS = {
+      TOP: TOP_MARGIN,
+      BOTTOM: BOTTOM_MARGIN,
+      LEFT: LEFT_MARGIN,
+      RIGHT: RIGHT_MARGIN
+    }
+
     thisObject.visibleArea = {
       topLeft: { x: LEFT_MARGIN, y: TOP_MARGIN },
       topRight: { x: browserCanvas.width - RIGHT_MARGIN, y: TOP_MARGIN },
@@ -81,7 +101,8 @@ function newViewPort () {
       bottomLeft: { x: LEFT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN}
     }
 
-    readObjectState()
+    thisObject.width = thisObject.visibleArea.topRight.x - thisObject.visibleArea.topLeft.x
+    thisObject.height = thisObject.visibleArea.bottomRight.y - thisObject.visibleArea.topLeft.y
   }
 
   function getDisplacement () {
@@ -121,7 +142,7 @@ function newViewPort () {
       if (Math.trunc(Math.abs(targetOffset.y - offset.y) * 1000) >= Math.trunc(Math.abs(offsetIncrement.y) * 1000)) {
         offset.y = offset.y + offsetIncrement.y
 
-               // console.log("offset.y changed to " + offset.y)
+              // console.log("offset.y changed to " + offset.y)
       } else {
         offsetIncrement.y = 0
       }
@@ -140,7 +161,7 @@ function newViewPort () {
 
     thisObject.eventHandler.raiseEvent('Offset Changed', event)
 
-       // console.log("displace produced new Offset x = " + offset.x + " y = " + offset.y);
+      // console.log("displace produced new Offset x = " + offset.x + " y = " + offset.y);
   }
 
   function displaceTarget (displaceVector) {
@@ -152,7 +173,7 @@ function newViewPort () {
       y: (targetOffset.y - offset.y) / 10
     }
 
-       // console.log("displaceTarget x = " + targetOffset.x + " y = " + targetOffset.y);
+      // console.log("displaceTarget x = " + targetOffset.x + " y = " + targetOffset.y);
   }
 
   function newZoomLevel (level) {
@@ -175,13 +196,13 @@ function newViewPort () {
   }
 
   function isMinZoom () {
-       /* returns true is we are currently at the min zoom level. */
+      /* returns true is we are currently at the min zoom level. */
 
     if (thisObject.zoomTargetLevel === MIN_ZOOM_LEVEL) { return true } else { return false }
   }
 
   function applyZoom (amount) {
-        // console.log("applyZoom amount: " + amount);
+       // console.log("applyZoom amount: " + amount);
 
     if (amount > 0) {
       if (thisObject.zoomTargetLevel > -5) {
@@ -279,7 +300,7 @@ function newViewPort () {
   }
 
   function fitIntoVisibleArea (point) {
-        /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
+       /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
 
     if (point.x > thisObject.visibleArea.bottomRight.x + 1) {
       point.x = thisObject.visibleArea.bottomRight.x + 1
@@ -432,3 +453,4 @@ function newViewPort () {
     }
   }
 }
+

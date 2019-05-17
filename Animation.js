@@ -1,7 +1,6 @@
 
 function newAnimation () {
   const MODULE_NAME = 'Animation'
-  const INFO_LOG = false
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
@@ -29,75 +28,31 @@ function newAnimation () {
   return thisObject
 
   function finalize () {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
-
-      thisObject.stop()
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
-    }s
+    thisObject.stop()
   }
 
-  function initialize (callBackFunction) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
+  function initialize () {
 
-            /* Nothing to do here yet. */
-      callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE)
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-    }
   }
 
-  function start (callBackFunction) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] start -> Entering function.') }
-
-      animationLoop()  // Inside this function the animation process is started, and at the same time it creates a loop.
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] start -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-    }
+  function start () {
+    animationLoop()  // Inside this function the animation process is started, and at the same time it creates a loop.
   }
 
-  function stop (callBackFunction) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] stop -> Entering function.') }
-
-      window.cancelAnimationFrame(animationLoopHandle)
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] stop -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-    }
+  function stop () {
+    window.cancelAnimationFrame(animationLoopHandle)
   }
 
-  function addCallBackFunction (key, callBack, callBackFunction) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] addCallBackFunction -> Entering function.') }
-
-      callBackFunctions.set(key, callBack)
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] addCallBackFunction -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-    }
+  function addCallBackFunction (key, callBack) {
+    callBackFunctions.set(key, callBack)
   }
 
-  function removeCallBackFunction (key, callBackFunction) {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] removeCallBackFunction -> Entering function.') }
-
-      callBackFunctions.delete(key)
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] removeCallBackFunction -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-    }
+  function removeCallBackFunction (key) {
+    callBackFunctions.delete(key)
   }
 
   function animationLoop () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] animationLoop -> Entering function.') }
-
       if (window.canvasApp.visible === true) {
                 /* We set the canvas to its normal width and height */
 
@@ -131,8 +86,6 @@ function newAnimation () {
   }
 
   function clearBrowserCanvas () {
-    if (INFO_LOG === true) { logger.write('[INFO] clearBrowserCanvas -> Entering function.') }
-
     browserCanvasContext.beginPath()
 
     browserCanvasContext.rect(0, 0, browserCanvas.width, browserCanvas.height)
@@ -142,4 +95,3 @@ function newAnimation () {
     browserCanvasContext.fill()
   }
 }
-

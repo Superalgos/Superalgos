@@ -6,6 +6,7 @@ The Panel Space y the place wehre all panels live, no matter who create them.
 
 function newPanelsSpace () {
   let thisObject = {
+    visible: true,
     container: undefined,
     createNewPanel: createNewPanel,
     destroyPanel: destroyPanel,
@@ -16,7 +17,7 @@ function newPanelsSpace () {
     initialize: initialize
   }
 
-  var container = newContainer()
+  let container = newContainer()
   container.initialize()
   thisObject.container = container
   thisObject.container.isDraggeable = false
@@ -48,11 +49,15 @@ function newPanelsSpace () {
       case 'Products Panel':
         {
           panel = newProductsPanel()
+          panel.fitFunction = canvas.chartSpace.fitIntoVisibleArea
+          panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
           break
         }
       case 'Plotter Panel':
         {
           panel = getNewPlotterPanel(pParameters.devTeam, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelCodeName)
+          panel.fitFunction = canvas.chartSpace.fitIntoVisibleArea
+          panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
           panel.initialize()
           break
         }
@@ -76,6 +81,10 @@ function newPanelsSpace () {
       let panel = thisObject.panels[i]
 
       if (panel.handle === pPanelHandle) {
+        if (panel.finalize !== undefined) {
+          panel.finalize()
+        }
+
         thisObject.panels.splice(i, 1)  // Delete item from array.
         return
       }
@@ -96,11 +105,13 @@ function newPanelsSpace () {
   }
 
   function draw () {
+    if (thisObject.visible !== true) { return }
+
     thisObject.container.frame.draw(false, false)
 
     thisObject.panels = panelsMap.get('Global')
-    if (thisObject.panels != undefined) {
-      for (var i = 0; i < thisObject.panels.length; i++) {
+    if (thisObject.panels !== undefined) {
+      for (let i = 0; i < thisObject.panels.length; i++) {
         let panel = thisObject.panels[i]
         panel.draw()
       }
@@ -108,7 +119,7 @@ function newPanelsSpace () {
 
     thisObject.panels = panelsMap.get(window.CHART_ON_FOCUS)
     if (thisObject.panels !== undefined) {
-      for (var i = 0; i < thisObject.panels.length; i++) {
+      for (let i = 0; i < thisObject.panels.length; i++) {
         let panel = thisObject.panels[i]
         panel.draw()
       }
@@ -116,6 +127,8 @@ function newPanelsSpace () {
   }
 
   function getContainer (point) {
+    if (thisObject.visible !== true) { return }
+
     let container
 
         /*

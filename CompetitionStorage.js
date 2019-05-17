@@ -94,7 +94,7 @@ function newCompetitionStorage (pName) {
 
                 case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
                   if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileSequenceReady -> Received CUSTOM FAIL Response.') }
-                  if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileSequenceReady -> err.message = ' + err.message) }
+                  if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileSequenceReady -> err= ' + err.stack) }
                   if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileSequenceReady -> This bot has not starting competing yet.') }
 
                   break

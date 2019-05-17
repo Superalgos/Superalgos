@@ -32,13 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Animation.js" />
-    <Compile Include="BottomSpace\DeleteTradingHistory.js">
+    <Compile Include="CockpitSpace\DeleteTradingHistory.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BreakpointsBar.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BottomSpace\ChartAspectRatio.js">
+    <Compile Include="CockpitSpace\ChartAspectRatio.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CloudVM\CloudRequire.js">
@@ -85,7 +85,7 @@
     <Compile Include="ImageButton.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spaces\BottomSpace.js">
+    <Compile Include="Spaces\CockpitSpace.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Spaces\TopSpace.js">
@@ -112,7 +112,7 @@
     <Compile Include="TopSpace\EndUser.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BottomSpace\PlayStopButton.js">
+    <Compile Include="CockpitSpace\PlayStopButton.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="WebDebugLog.js">
@@ -177,7 +177,7 @@
     <Folder Include="Exchange\" />
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />
-    <Folder Include="BottomSpace\" />
+    <Folder Include="CockpitSpace\" />
     <Folder Include="Scales\" />
     <Folder Include="TopSpace\" />
     <Folder Include="Spaces\" />

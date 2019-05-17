@@ -221,7 +221,7 @@ function newPlottersManager () {
 
           let plotter = getNewPlotter(competition.plotter.host, competition.plotter.codeName, competition.plotter.moduleName)
 
-          plotter.container.connectToParent(thisObject.container, true, true)
+          plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
@@ -285,7 +285,7 @@ function newPlottersManager () {
 
                   botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + '-' + BOT)
 
-                  competitionPlotter.plotter.payload[k].profile.downLabel = bot.displayName
+                  competitionPlotter.plotter.payload[k].profile.title = bot.displayName
                   competitionPlotter.plotter.payload[k].profile.imageId = imageId
                   competitionPlotter.plotter.payload[k].profile.botAvatar = botAvatar
 
@@ -463,7 +463,7 @@ function newPlottersManager () {
 
           let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
 
-          plotter.container.connectToParent(thisObject.container, true, true)
+          plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
@@ -525,8 +525,8 @@ function newPlottersManager () {
               if (productPlotter.plotter.payload !== undefined) {
                 let imageId = pProductCard.bot.devTeam + '.' + pProductCard.bot.profilePicture
 
-                productPlotter.plotter.payload.profile.upLabel = pProductCard.product.shortDisplayName
-                productPlotter.plotter.payload.profile.downLabel = pProductCard.bot.displayName
+                productPlotter.plotter.payload.profile.subTitle = pProductCard.product.shortDisplayName
+                productPlotter.plotter.payload.profile.title = pProductCard.bot.displayName
                 productPlotter.plotter.payload.profile.imageId = imageId
                 productPlotter.plotter.payload.profile.botAvatar = pProductCard.bot.avatar
 

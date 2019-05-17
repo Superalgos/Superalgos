@@ -11,14 +11,11 @@ RUN mkdir -p ${API_DIR} && \
 WORKDIR ${API_DIR}
 
 # Copy package.json to workdir
-COPY package*.json ${API_DIR}/
+COPY . ${API_DIR}/
+COPY ./config /root/.kube
 
 # Install dependencies
 RUN npm install --production
-
-# Copy application code
-COPY . ${API_DIR}
-COPY ./config /root/.kube
 
 # Expose Port
 EXPOSE $PORT

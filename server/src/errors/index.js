@@ -6,7 +6,7 @@ export class AuthentificationError extends Error {
   }
 }
 
-export class AutorizationError extends Error {
+export class AuthorizationError extends Error {
   code = 401
   message = 'You are not authorized to perform this action.'
   constructor(){

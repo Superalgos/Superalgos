@@ -10,7 +10,7 @@ import {
   AuthentificationError,
   WrongArgumentsError,
   OperationsError,
-  AutorizationError
+  AuthorizationError
 } from '../../errors'
 import logger from '../../config/logger'
 import createKubernetesClone from '../../kubernetes/createClone'
@@ -84,7 +84,7 @@ const resolve = async (parent, { clone }, context) => {
       if (response.data.data.keyVault_AuthorizeClone === clone.keyId) {
         await createKubernetesClone(clone)
       } else {
-        throw new AutorizationError()
+        throw new AuthorizationError()
       }
     } else {
       await createKubernetesClone(clone)

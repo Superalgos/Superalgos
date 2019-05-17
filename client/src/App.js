@@ -18,11 +18,9 @@ import Users from '@superalgos/users-client'
 import Teams from '@superalgos/teams-client'
 import Events from '@superalgos/events-client'
 import KeyVault from '@superalgos/key-vault-client'
-import FinancialBeings from '@advancedalgos/financial-beings-client'
 import Operations from '@superalgos/operations-client'
 import Strategizer from '@superalgos/strategizer-client'
 import Logs from '@superalgos/logs-client'
-// import Miners from '@superalgos/miners-client'
 import Cockpit from '@superalgos/cockpit-client'
 
 export const auth = new Auth(
@@ -72,10 +70,6 @@ export const MasterApp = props => (
             <Route
               path='/events'
               render={props => <Events {...props} auth={auth} />}
-            />
-            <Route
-              path='/financial-beings'
-              render={props => <FinancialBeings {...props} auth={auth} />}
             />
             <Route
               path='/keys'

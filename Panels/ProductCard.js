@@ -7,7 +7,7 @@ function newProductCard () {
   let thisObject = {
     container: undefined,
     draw: draw,
-    status: 'off',
+    status: PRODUCT_CARD_STATUS.OFF,
     devTeam: undefined,
     bot: undefined,
     product: undefined,

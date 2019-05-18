@@ -1,7 +1,9 @@
 function newProductsPanel () {
   let thisObject = {
+    name: 'Products Panel',
     fitFunction: undefined,
     container: undefined,
+    productCards: [],
     getLoadingProductCards: getLoadingProductCards,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -20,7 +22,6 @@ function newProductsPanel () {
   thisObject.container = container
 
   let isInitialized = false
-  let productCards = []
 
   let visibleProductCards = []
   let firstVisibleCard = 1
@@ -65,7 +66,7 @@ function newProductsPanel () {
       userTeams = JSON.parse(storedTeams)
     }
 
-       /* First thing is to build the productCards array */
+       /* First thing is to build the thisObject.productCards array */
 
     let devTeams = ecosystem.getTeams()
 
@@ -119,7 +120,7 @@ function newProductsPanel () {
 
                        /* Add to the Product Array */
 
-            productCards.push(productCard)
+            thisObject.productCards.push(productCard)
 
                        /* Add to Visible Product Array */
 
@@ -153,14 +154,14 @@ function newProductsPanel () {
     let availableSlots = visibleProductCards.length
 
     if (firstVisibleCard < 1) { firstVisibleCard = 1 }
-    if (firstVisibleCard > (productCards.length - availableSlots + 1)) { firstVisibleCard = productCards.length - availableSlots + 1 }
+    if (firstVisibleCard > (thisObject.productCards.length - availableSlots + 1)) { firstVisibleCard = thisObject.productCards.length - availableSlots + 1 }
 
     visibleProductCards = []
     let lastY = 5
 
-    for (let i = 0; i < productCards.length; i++) {
+    for (let i = 0; i < thisObject.productCards.length; i++) {
       if (i + 1 >= firstVisibleCard && i + 1 < firstVisibleCard + availableSlots) {
-        let productCard = productCards[i]
+        let productCard = thisObject.productCards[i]
 
                /* Positioning within thisObject Panel */
 
@@ -185,13 +186,13 @@ function newProductsPanel () {
   }
 
   function getLoadingProductCards () {
-       /* Returns all productCards which status is LOADING */
+       /* Returns all thisObject.productCards which status is LOADING */
 
     let onProducts = []
 
-    for (let i = 0; i < productCards.length; i++) {
-      if (productCards[i].status === PRODUCT_CARD_STATUS.LOADING) {
-        onProducts.push(productCards[i])
+    for (let i = 0; i < thisObject.productCards.length; i++) {
+      if (thisObject.productCards[i].status === PRODUCT_CARD_STATUS.LOADING) {
+        onProducts.push(thisObject.productCards[i])
       }
     }
 
@@ -253,16 +254,16 @@ function newProductsPanel () {
     panelTabButton.draw()
   }
 
-  function isUserTeam(team, userTeams){
-    if(userTeams === undefined)
+  function isUserTeam (team, userTeams) {
+    if (userTeams === undefined) {
       return false
+    }
 
     for (let index = 0; index < userTeams.length; index++) {
-      if(team === userTeams[index].slug){
+      if (team === userTeams[index].slug) {
         return true
       }
     }
     return false
   }
 }
-

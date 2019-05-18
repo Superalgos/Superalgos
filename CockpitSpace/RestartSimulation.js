@@ -28,6 +28,7 @@ function newRestartSimulation () {
   let isMouseOver = false
   let counterTillNextState = 0
 
+  let productCardsToTurnOn = []
   return thisObject
 
   function finalize () {
@@ -106,11 +107,35 @@ function newRestartSimulation () {
       thisObject.status = 'Restarting'
       await graphQlRestartSimulation(simulationParams)
       thisObject.status = 'Calculating'
-      counterTillNextState = 1000
+      counterTillNextState = 1500
+      turnOffProductCards()
     } catch (err) {
       thisObject.status = 'Error'
       counterTillNextState = 500
     }
+  }
+
+  function turnOffProductCards () {
+    for (let i = 0; i < canvas.panelsSpace.panels.length; i++) {
+      let panel = canvas.panelsSpace.panels[i]
+      if (panel.name === 'Products Panel') {
+        for (j = 0; j < panel.productCards.length; j++) {
+          let productCard = panel.productCards[j]
+          if (productCard.product.relatedToTradingEngine === true && productCard.status !== PRODUCT_CARD_STATUS.OFF) {
+            productCard.turnOff()
+            productCardsToTurnOn.push(productCard)
+          }
+        }
+      }
+    }
+  }
+
+  function turnOnProductCards () {
+    for (let i = 0; i < productCardsToTurnOn.length; i++) {
+      let productCard = productCardsToTurnOn[i]
+      productCard.turnOn()
+    }
+    productCardsToTurnOn = []
   }
 
   function physics () {
@@ -127,6 +152,7 @@ function newRestartSimulation () {
             break
           case 'Calculating':
             thisObject.status = 'Ready'
+            turnOnProductCards()
             break
           case 'Error':
             thisObject.status = 'Ready'

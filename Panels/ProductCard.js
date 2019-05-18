@@ -1,10 +1,6 @@
 function newProductCard () {
-  const CONSOLE_LOG = false
-
   const MODULE_NAME = 'Product Card'
-  const INFO_LOG = false
   const ERROR_LOG = true
-  const INTENSIVE_LOG = false
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
@@ -17,6 +13,8 @@ function newProductCard () {
     product: undefined,
     code: undefined,
     fitFunction: undefined,
+    turnOff: turnOff,
+    turnOn: turnOn,
     setDatetime: setDatetime,
     setTimePeriod: setTimePeriod,
     onMarketFileLoaded: onMarketFileLoaded,
@@ -109,8 +107,6 @@ function newProductCard () {
   function initialize () {
        /* Create this objects continer */
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-
       thisObject.container = newContainer()
       thisObject.container.initialize(MODULE_NAME + thisObject.code)
       thisObject.container.detectMouseOver = true
@@ -170,7 +166,7 @@ function newProductCard () {
 
        /* Lets listen to our own events to react when we have a Mouse Click */
 
-      thisObject.container.eventHandler.listenToEvent('onMouseClick', buttonPressed)
+      thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
       thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
        /* WARNING THIS IS TEMPORARY CODE */
@@ -285,10 +281,6 @@ function newProductCard () {
     if (currentDate !== newDate) {
       if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
         dailyFileProgressBar.animatedValue = 0
-
-        if (CONSOLE_LOG === true) {
-          console.log('ProductCard -> onDayChanged -> dailyFileProgressBar.animatedValue = ' + dailyFileProgressBar.animatedValue)
-        }
       }
     }
   }
@@ -306,10 +298,6 @@ function newProductCard () {
 
       if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
         dailyFileProgressBar.animatedValue = 0
-
-        if (CONSOLE_LOG === true) {
-          console.log('ProductCard -> onTimePeriodChanged -> dailyFileProgressBar.animatedValue = ' + dailyFileProgressBar.animatedValue)
-        }
       }
     }
   }
@@ -320,10 +308,6 @@ function newProductCard () {
     marketFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
 
     if (marketFileProgressBar.value > 100) { marketFileProgressBar.value = 100 }
-
-    if (CONSOLE_LOG === true) {
-      console.log('ProductCard onMarketFileLoaded Value = ' + marketFileProgressBar.value + '% for ' + thisObject.code + '. Event = ' + JSON.stringify(event))
-    }
   }
 
   function onDailyFileLoaded (event) {
@@ -332,10 +316,6 @@ function newProductCard () {
     dailyFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
 
     if (dailyFileProgressBar.value > 100) { dailyFileProgressBar.value = 100 }
-
-    if (CONSOLE_LOG === true) {
-      console.log('ProductCard onDailyFileLoaded Value = ' + dailyFileProgressBar.value + '% for ' + thisObject.code + '. Event = ' + JSON.stringify(event))
-    }
   }
 
   function onSingleFileLoaded (event) {
@@ -344,10 +324,6 @@ function newProductCard () {
     singleFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
 
     if (singleFileProgressBar.value > 100) { singleFileProgressBar.value = 100 }
-
-    if (CONSOLE_LOG === true) {
-      console.log('ProductCard onSingleFileLoaded Value = ' + singleFileProgressBar.value + '% for ' + thisObject.code + '. Event = ' + JSON.stringify(event))
-    }
   }
 
   function onFileSequenceLoaded (event) {
@@ -356,48 +332,53 @@ function newProductCard () {
     fileSequenceProgressBar.strokeStyle = LOADING_STROKE_STYLE
 
     if (fileSequenceProgressBar.value > 100) { fileSequenceProgressBar.value = 100 }
+  }
 
-    if (CONSOLE_LOG === true) {
-      console.log('ProductCard onFileSequenceLoaded Value = ' + fileSequenceProgressBar.value + '% for ' + thisObject.code + '. Event = ' + JSON.stringify(event))
+  function turnOff () {
+    if (thisObject.status === PRODUCT_CARD_STATUS.ON) {
+      resetProgressBars()
+      changeStatusTo(PRODUCT_CARD_STATUS.OFF)
     }
   }
 
-  function buttonPressed (event) {
-    switch (thisObject.status) {
-
-      case PRODUCT_CARD_STATUS.ON:
-
-        changeStatusTo(PRODUCT_CARD_STATUS.OFF)
-
-        marketFileProgressBar.animatedValue = 0
-        marketFileProgressBar.value = 0
-        marketFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
-        marketFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
-
-        dailyFileProgressBar.animatedValue = 0
-        dailyFileProgressBar.value = 0
-        dailyFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
-        dailyFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
-
-        singleFileProgressBar.animatedValue = 0
-        singleFileProgressBar.value = 0
-        singleFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
-        singleFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
-
-        fileSequenceProgressBar.animatedValue = 0
-        fileSequenceProgressBar.value = 0
-        fileSequenceProgressBar.fillStyle = UNLOADED_FILL_STYLE
-        fileSequenceProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
-
-        break
-
-      case PRODUCT_CARD_STATUS.OFF:
-
-        changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
-
-        break
-
+  function turnOn () {
+    if (thisObject.status === PRODUCT_CARD_STATUS.OFF) {
+      changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
     }
+  }
+
+  function onMouseClick (event) {
+    switch (thisObject.status) {
+      case PRODUCT_CARD_STATUS.ON:
+        resetProgressBars()
+        changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+        break
+      case PRODUCT_CARD_STATUS.OFF:
+        changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
+        break
+    }
+  }
+
+  function resetProgressBars () {
+    marketFileProgressBar.animatedValue = 0
+    marketFileProgressBar.value = 0
+    marketFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
+    marketFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
+
+    dailyFileProgressBar.animatedValue = 0
+    dailyFileProgressBar.value = 0
+    dailyFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
+    dailyFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
+
+    singleFileProgressBar.animatedValue = 0
+    singleFileProgressBar.value = 0
+    singleFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
+    singleFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
+
+    fileSequenceProgressBar.animatedValue = 0
+    fileSequenceProgressBar.value = 0
+    fileSequenceProgressBar.fillStyle = UNLOADED_FILL_STYLE
+    fileSequenceProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
   }
 
   function onMouseOver (event) {
@@ -407,11 +388,8 @@ function newProductCard () {
   function changeStatusTo (pNewStatus) {
     if (thisObject.status !== pNewStatus) {
       thisObject.status = pNewStatus
-
       let eventData = thisObject
-
       thisObject.container.eventHandler.raiseEvent('Status Changed', eventData)
-
       window.localStorage.setItem(thisObject.code, thisObject.status)
     }
   }
@@ -422,9 +400,7 @@ function newProductCard () {
 
   function drawProductCard () {
        /*
-
        Put images on the card.
-
        */
 
     let fitImagePoint = {
@@ -443,30 +419,23 @@ function newProductCard () {
 
     if (lastMouseOver > 0) {
       /* First the Dev Team Profile Picture. */
-
       let teamImagePoint = {
         x: 2,
         y: thisObject.container.frame.height / 2 - devTeamImageSize / 2
       }
 
       teamImagePoint = thisObject.container.frame.frameThisPoint(teamImagePoint)
-
       fitImagePoint = thisObject.fitFunction(teamImagePoint)
-
       let teamImage
-
       if (legacyTeamAvatarLoaded === true) {
         teamImage = legacyTeamAvatar
       }
-
       if (teamAvatarLoaded === true) {
         teamImage = teamAvatar
       }
-
       if (teamImage !== undefined && teamImagePoint.y === fitImagePoint.y) {
         if (teamImage.naturalHeight !== 0) {
          /* The image is rounded before being displayed. */
-
           browserCanvasContext.save()
           browserCanvasContext.beginPath()
           browserCanvasContext.arc(teamImagePoint.x + devTeamImageSize / 2, teamImagePoint.y + devTeamImageSize / 2, devTeamImageSize / 2, 0, Math.PI * 2, true)
@@ -482,27 +451,21 @@ function newProductCard () {
       }
 
       /* Second the Bot's Profile Picture. */
-
       if (thisObject.bot.profilePicture !== undefined) {
         let botImagePoint = {
           x: thisObject.container.frame.width - botImageSize / 2 - 8,
           y: thisObject.container.frame.height / 2 - botImageSize / 2
         }
-
         botImagePoint = thisObject.container.frame.frameThisPoint(botImagePoint)
         fitImagePoint = thisObject.fitFunction(botImagePoint)
 
         let imageId = thisObject.bot.devTeam + '.' + thisObject.bot.profilePicture
-
         /* TODO Temporary code */
         let botImage
-
         botImage = thisObject.bot.avatar
-
         if (botImage !== undefined && botImagePoint.y === fitImagePoint.y) {
           if (botImage.naturalHeight !== 0) {
              /* The image is rounded before being displayed. */
-
             browserCanvasContext.save()
             browserCanvasContext.beginPath()
             browserCanvasContext.arc(botImagePoint.x + botImageSize / 2, botImagePoint.y + botImageSize / 2, botImageSize / 2, 0, Math.PI * 2, true)
@@ -518,33 +481,26 @@ function newProductCard () {
         }
       }
     }
-
        /* Third the Plotter's Profile Picture. */
-
     if (thisObject.product.plotter.profilePicture !== undefined) {
       let plotterImagePoint = {
         x: thisObject.container.frame.width / 2 - plotterImageSize.width / 2,
         y: thisObject.container.frame.height / 2 - plotterImageSize.height / 2
       }
-
       plotterImagePoint = thisObject.container.frame.frameThisPoint(plotterImagePoint)
       fitImagePoint = {
         x: 0,
         y: plotterImagePoint.y + plotterImageSize.height
       }
-
       fitImagePoint = thisObject.fitFunction(fitImagePoint)
-
       let imageId = thisObject.product.plotter.devTeam + '.' + thisObject.product.plotter.codeName + '.' + thisObject.product.plotter.moduleName + '.' + thisObject.product.plotter.profilePicture
       let plotterImage = legacyPlotterBanner
-
       if (plotterImage !== undefined && plotterImagePoint.y + plotterImageSize.height === fitImagePoint.y) {
         if (plotterImage.naturalHeight !== 0) {
           browserCanvasContext.drawImage(plotterImage, plotterImagePoint.x, plotterImagePoint.y, plotterImageSize.width, plotterImageSize.height)
         }
       }
     }
-
     drawProductLoadStatus()
 
     function drawProductLoadStatus () {
@@ -553,19 +509,15 @@ function newProductCard () {
       let loadingFillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'
 
       switch (thisObject.status) {
-
         case PRODUCT_CARD_STATUS.ON:
           browserCanvasContext.fillStyle = onFillStyle
           break
-
         case PRODUCT_CARD_STATUS.OFF:
           browserCanvasContext.fillStyle = offFillStyle
           break
-
         case PRODUCT_CARD_STATUS.LOADING:
           browserCanvasContext.fillStyle = loadingFillStyle
           break
-
       }
 
       let centerPoint = {
@@ -592,9 +544,7 @@ function newProductCard () {
         x: centerPoint.x - plotterImageSize.width / 2,
         y: centerPoint.y - plotterImageSize.height / 2 + 7
       }
-
            /* Now the transformations. */
-
       point1 = thisObject.container.frame.frameThisPoint(point1)
       point2 = thisObject.container.frame.frameThisPoint(point2)
       point3 = thisObject.container.frame.frameThisPoint(point3)
@@ -611,28 +561,21 @@ function newProductCard () {
       browserCanvasContext.lineTo(point3.x, point3.y)
       browserCanvasContext.lineTo(point4.x, point4.y)
       browserCanvasContext.closePath()
-
       browserCanvasContext.fill()
-
       browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
       browserCanvasContext.lineWidth = 0.1
       browserCanvasContext.stroke()
     }
-
        /*
        print the text
        */
-
     let labelPoint
     let fontSize = 10
 
     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
     let label
-
     if (lastMouseOver > 0) {
    /* devTeam */
-
       label = thisObject.devTeam.displayName
       if (label.length > 10) { label = label.substring(1, 8) + '...' }
 
@@ -643,13 +586,10 @@ function newProductCard () {
 
       labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
       labelPoint = thisObject.fitFunction(labelPoint)
-
       browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
       browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
       browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-
    /* bot */
-
       label = thisObject.bot.displayName
       if (label.length > 10) { label = label.substring(1, 8) + '...' }
 
@@ -665,23 +605,17 @@ function newProductCard () {
       browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
       browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
     }
-
        /* product */
-
     fontSize = 10
-
     label = thisObject.product.displayName
-
     labelPoint = {
       x: 65,
       y: thisObject.container.frame.height / 2 + 15
     }
-
     labelPoint = {
       x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
       y: thisObject.container.frame.height / 2 - devTeamImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 20
     }
-
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
     labelPoint = thisObject.fitFunction(labelPoint)
 

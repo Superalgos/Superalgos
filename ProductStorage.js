@@ -25,19 +25,15 @@ function newProductStorage (pName) {
     */
 
   let thisObject = {
-
+    eventHandler: undefined,
     marketFiles: [],
     dailyFiles: [],
     singleFile: [],
     fileSequences: [],
-
     setDatetime: setDatetime,
     setTimePeriod: setTimePeriod,
-
-    eventHandler: undefined,
     initialize: initialize,
     finalize: finalize
-
   }
 
   thisObject.eventHandler = newEventHandler()
@@ -181,10 +177,15 @@ function newProductStorage (pName) {
               }
 
               case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-                callBackFunction(err)
-                return
+                if (err.message === 'Dataset Unavailable.') {
+                  dataSetsToLoad--
+                  checkInitializeComplete()
+                  return
+                } else {
+                  callBackFunction(err)
+                  return
+                }
               }
-
               default: {
                 callBackFunction(err)
                 return
@@ -229,12 +230,10 @@ function newProductStorage (pName) {
                 return
               }
             }
-
             let event = {
               totalValue: 1,
               currentValue: 1
             }
-
             thisObject.eventHandler.raiseEvent('Single File Loaded', event)
 
             if (event.currentValue === event.totalValue) {
@@ -252,28 +251,23 @@ function newProductStorage (pName) {
               case GLOBAL.DEFAULT_OK_RESPONSE.result: {
                 break
               }
-
               case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
                 callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
                 return
               }
-
               case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
                 callBackFunction(err)
                 return
               }
-
               default: {
                 callBackFunction(err)
                 return
               }
             }
-
             let event = {
               totalValue: pCaller.getExpectedFiles(),
               currentValue: pCaller.getFilesLoaded()
             }
-
             thisObject.eventHandler.raiseEvent('File Sequence Loaded', event)
 
             if (event.currentValue === event.totalValue) {

@@ -129,23 +129,11 @@ function newProductStorage (pName) {
               case GLOBAL.DEFAULT_OK_RESPONSE.result: {
                 break
               }
-
               case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
                 callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
                 return
               }
-
-              case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-                callBackFunction(err)
-                return
-              }
-
-              default: {
-                callBackFunction(err)
-                return
-              }
             }
-
             let event = {
               totalValue: pCaller.getExpectedFiles(),
               currentValue: pCaller.getFilesLoaded(),
@@ -154,9 +142,14 @@ function newProductStorage (pName) {
 
             thisObject.eventHandler.raiseEvent('Market File Loaded', event)
 
+            if (event.filesNotLoaded === event.totalValue) {
+              dataSetsToLoad--
+              checkInitializeComplete()
+              return
+            }
+
             if (event.currentValue + event.filesNotLoaded === event.totalValue) {
               dataSetsLoaded++
-
               checkInitializeComplete()
             }
           } catch (err) {

@@ -107,7 +107,7 @@ function newRestartSimulation () {
       thisObject.status = 'Restarting'
       await graphQlRestartSimulation(simulationParams)
       thisObject.status = 'Calculating'
-      counterTillNextState = 1500
+      counterTillNextState = 2000
       turnOffProductCards()
     } catch (err) {
       thisObject.status = 'Error'
@@ -217,7 +217,7 @@ function newRestartSimulation () {
 
     switch (thisObject.status) {
       case 'Ready':
-        label = 'RESTART SIMULATION'
+        label = 'RESTART TRADING ENGINE'
         break
       case 'Restarting':
         label = 'RESTARTING...'
@@ -231,7 +231,7 @@ function newRestartSimulation () {
     }
 
     let labelPoint = {
-      x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 15,
+      x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 25,
       y: thisObject.container.frame.height - 9
     }
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)

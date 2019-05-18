@@ -51,6 +51,7 @@
 
     let imageStopLossPhase;
     let imageBuyOrderPhase;
+    let imageRecord;
 
     let zoomChangedEventSubscriptionId
     let offsetChangedEventSubscriptionId
@@ -75,6 +76,7 @@
 
             imageStopLossPhase = undefined;
             imageBuyOrderPhase = undefined;
+            imageRecord = undefined;
 
             /* Destroy References */
 
@@ -138,6 +140,7 @@
 
             imageStopLossPhase = canvas.strategySpace.iconByPartType.get('Stop');
             imageBuyOrderPhase = canvas.strategySpace.iconByPartType.get('Phase');
+            imageRecord = canvas.strategySpace.iconByPartType.get('Trading System');
 
             callBackFunction();
 
@@ -531,6 +534,21 @@
                     }
                 }
 
+                let recordPoint1 = {
+                    x: record.begin + timePeriod / 7 * 1.5,
+                    y: thisObject.container.frame.height
+                };
+
+                let recordPoint2 = {
+                    x: record.end + timePeriod / 7 * 5.5,
+                    y: thisObject.container.frame.height
+                };
+
+                let recordPoint3 = {
+                    x: recordPoint1.x + (recordPoint2.x - recordPoint1.x) / 2,
+                    y: thisObject.container.frame.height
+                };
+
                 let recordPoint4 = {
                     x: record.begin,
                     y: record.stopLoss
@@ -579,6 +597,9 @@
                     recordPoint9.x = 0;
                 }
 
+                recordPoint1 = timeLineCoordinateSystem.transformThisPoint(recordPoint1);
+                recordPoint2 = timeLineCoordinateSystem.transformThisPoint(recordPoint2);
+                recordPoint3 = timeLineCoordinateSystem.transformThisPoint(recordPoint3);
                 recordPoint4 = timeLineCoordinateSystem.transformThisPoint(recordPoint4);
                 recordPoint5 = timeLineCoordinateSystem.transformThisPoint(recordPoint5);
                 recordPoint6 = timeLineCoordinateSystem.transformThisPoint(recordPoint6);
@@ -586,6 +607,9 @@
                 recordPoint8 = timeLineCoordinateSystem.transformThisPoint(recordPoint8);
                 recordPoint9 = timeLineCoordinateSystem.transformThisPoint(recordPoint9);
 
+                recordPoint1 = transformThisPoint(recordPoint1, thisObject.container);
+                recordPoint2 = transformThisPoint(recordPoint2, thisObject.container);
+                recordPoint3 = transformThisPoint(recordPoint3, thisObject.container);
                 recordPoint4 = transformThisPoint(recordPoint4, thisObject.container);
                 recordPoint5 = transformThisPoint(recordPoint5, thisObject.container);
                 recordPoint6 = transformThisPoint(recordPoint6, thisObject.container);
@@ -593,16 +617,45 @@
                 recordPoint8 = transformThisPoint(recordPoint8, thisObject.container);
                 recordPoint9 = transformThisPoint(recordPoint9, thisObject.container);
 
-                if (recordPoint4.x < viewPort.visibleArea.bottomLeft.x || recordPoint4.x > viewPort.visibleArea.bottomRight.x) {
-                    continue;
-                }
-
+                recordPoint1 = viewPort.fitIntoVisibleArea(recordPoint1);
+                recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
+                recordPoint3 = viewPort.fitIntoVisibleArea(recordPoint3);
                 recordPoint4 = viewPort.fitIntoVisibleArea(recordPoint4);
                 recordPoint5 = viewPort.fitIntoVisibleArea(recordPoint5);
                 recordPoint6 = viewPort.fitIntoVisibleArea(recordPoint6);
                 recordPoint7 = viewPort.fitIntoVisibleArea(recordPoint7);
                 recordPoint8 = viewPort.fitIntoVisibleArea(recordPoint8);
                 recordPoint9 = viewPort.fitIntoVisibleArea(recordPoint9);
+
+                /* Image representing a Record */
+
+                let imageOffset = {
+                    x: 0,
+                    y: 15
+                }
+                let imageSize = (recordPoint2.x - recordPoint1.x) / 2;
+                let recordLabel = record.periods.toString()
+                if (imageSize < 8) {
+                    if (recordLabel[recordLabel.length - 1] !== '0' || imageSize < 4)
+                        recordLabel = ''
+                }
+                let labelOffset = {
+                    x: 0 - imageSize / 2 + 3 + imageOffset.x,
+                    y: -2 + imageOffset.y
+                }
+
+                if (imageRecord.canDrawIcon === true) {
+                    browserCanvasContext.drawImage(imageRecord, recordPoint1.x + imageOffset.x, recordPoint1.y + imageOffset.y, imageSize, imageSize);
+                    browserCanvasContext.save();
+                    browserCanvasContext.translate(recordPoint3.x + labelOffset.x, recordPoint3.y + labelOffset.y);
+                    browserCanvasContext.rotate(-Math.PI / 2);
+                    printLabel(recordLabel, 0, 0, '0.9', 8);
+                    browserCanvasContext.restore();
+                }
+
+                if (recordPoint4.x < viewPort.visibleArea.bottomLeft.x || recordPoint4.x > viewPort.visibleArea.bottomRight.x) {
+                    continue;
+                }
 
                 /* Next we are drawing the sellRate */
 
@@ -628,7 +681,7 @@
                 browserCanvasContext.stroke()
                 browserCanvasContext.setLineDash([0, 0])
 
-                let imageSize = 20;
+                imageSize = 20;
                 let imageToDraw;
 
                 /* Next we are drawing the stopLoss floor / ceilling */
@@ -739,6 +792,7 @@
         }
     }
 }
+
 
 
 

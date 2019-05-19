@@ -71,7 +71,7 @@
 
             let simulationLogic = {};
             let interExecutionMemory = {};
-            let currentDay;
+            let currentDay = bot.processDatetime;
 
             commons.initializeData();
 
@@ -164,6 +164,7 @@
                             record.buyOrder + "," +
                             record.stopLossPhase + "," +
                             record.buyOrderPhase + "," +
+
                             JSON.stringify(record.orderRecord) + "," +
                             record.sellAmount + "]"; 
                         

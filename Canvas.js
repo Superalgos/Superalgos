@@ -229,6 +229,11 @@ function newCanvas () {
         return
       }
 
+      if (container !== undefined && container.isClickeable === true) {
+       /* We dont want to mess up with the click */
+        return
+      }
+
            /* We check if the mouse is over a panel/ */
 
       container = thisObject.panelsSpace.getContainer(point)
@@ -641,3 +646,4 @@ function newCanvas () {
     }
   }
 }
+

@@ -28,6 +28,7 @@ function newRestartSimulation () {
   let isMouseOver = false
   let counterTillNextState = 0
 
+  let productCardsToTurnOn = []
   return thisObject
 
   function finalize () {
@@ -103,14 +104,45 @@ function newRestartSimulation () {
       timePeriodMarketArray: timePeriodMarketArray
     }
     try {
-      thisObject.status = 'Restarting'
-      await graphQlRestartSimulation(simulationParams)
-      thisObject.status = 'Calculating'
-      counterTillNextState = 1000
+      thisObject.status = 'Saving'
+      let result = await canvas.strategySpace.workplace.saveToStrategyzer()
+      if (result === true) {
+        thisObject.status = 'Restarting'
+        await graphQlRestartSimulation(simulationParams)
+        thisObject.status = 'Calculating'
+        counterTillNextState = 2000
+        turnOffProductCards()
+      } else {
+        thisObject.status = 'Error'
+        counterTillNextState = 500
+      }
     } catch (err) {
       thisObject.status = 'Error'
       counterTillNextState = 500
     }
+  }
+
+  function turnOffProductCards () {
+    for (let i = 0; i < canvas.panelsSpace.panels.length; i++) {
+      let panel = canvas.panelsSpace.panels[i]
+      if (panel.name === 'Products Panel') {
+        for (j = 0; j < panel.productCards.length; j++) {
+          let productCard = panel.productCards[j]
+          if (productCard.product.relatedToTradingEngine === true && productCard.status !== PRODUCT_CARD_STATUS.OFF) {
+            productCard.turnOff()
+            productCardsToTurnOn.push(productCard)
+          }
+        }
+      }
+    }
+  }
+
+  function turnOnProductCards () {
+    for (let i = 0; i < productCardsToTurnOn.length; i++) {
+      let productCard = productCardsToTurnOn[i]
+      productCard.turnOn()
+    }
+    productCardsToTurnOn = []
   }
 
   function physics () {
@@ -122,11 +154,15 @@ function newRestartSimulation () {
           case 'Ready':
 
             break
+          case 'Saving':
+
+            break
           case 'Restarting':
 
             break
           case 'Calculating':
             thisObject.status = 'Ready'
+            turnOnProductCards()
             break
           case 'Error':
             thisObject.status = 'Ready'
@@ -161,6 +197,9 @@ function newRestartSimulation () {
         }
         break
       }
+      case 'Saving':
+        params.backgroundColor = UI_COLOR.GREY
+        break
       case 'Restarting':
         params.backgroundColor = UI_COLOR.GREY
         break
@@ -191,21 +230,24 @@ function newRestartSimulation () {
 
     switch (thisObject.status) {
       case 'Ready':
-        label = 'RESTART SIMULATION'
+        label = 'RE-CALCULATE'
+        break
+      case 'Saving':
+        label = 'SAVING STRATEGIES CHANGES...'
         break
       case 'Restarting':
-        label = 'RESTARTING...'
+        label = 'RESTARTING TRADING ENGINE...'
         break
       case 'Calculating':
         label = 'CALCULATING...'
         break
       case 'Error':
-        label = 'NOT POSSIBLE NOW'
+        label = 'ERROR, RETRY LATER'
         break
     }
 
     let labelPoint = {
-      x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 15,
+      x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 25,
       y: thisObject.container.frame.height - 9
     }
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)

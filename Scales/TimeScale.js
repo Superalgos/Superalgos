@@ -5,6 +5,7 @@ function newTimeScale () {
     lenghtPercentage: undefined,
     container: undefined,
     date: undefined,
+    fitFunction: undefined,
     visible: true,
     physics: physics,
     draw: draw,
@@ -34,6 +35,7 @@ function newTimeScale () {
   function finalize () {
     thisObject.container.finalize()
     thisObject.container = undefined
+    thisObject.fitFunction = undefined
   }
 
   function initialize () {
@@ -202,7 +204,7 @@ function newTimeScale () {
     let label1 = labelArray[1] + ' ' + labelArray[2] + ' ' + labelArray[3]
     let label2 = labelArray[4]
 
-    drawScaleDisplay(label1, label2, 10, 60, thisObject.container)
+    drawScaleDisplay(label1, label2, 10, 60, thisObject.container, thisObject.fitFunction)
   }
 }
 

@@ -57,6 +57,7 @@ function newChartSpace () {
     timeMachine.container.frame.position.x = thisObject.container.frame.width / 2 - timeMachine.container.frame.width / 2
     timeMachine.container.frame.position.y = thisObject.container.frame.height / 2 - timeMachine.container.frame.height / 2
     timeMachine.container.fitFunction = fitIntoVisibleArea
+    timeMachine.fitFunction = fitIntoVisibleArea
     timeMachine.initialize(onTimeMachineInitialized)
 
     function onTimeMachineInitialized (err) {

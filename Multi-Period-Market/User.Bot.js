@@ -164,8 +164,10 @@
                             record.buyOrder + "," +
                             record.stopLossPhase + "," +
                             record.buyOrderPhase + "," +
-                            JSON.stringify(record.orderRecord) + "]";
 
+                            JSON.stringify(record.orderRecord) + "," +
+                            record.sellAmount + "]"; 
+                        
                         if (separator === "") { separator = ","; }
 
                         fileRecordCounter++;

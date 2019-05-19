@@ -213,7 +213,9 @@ class Auth {
 
   logout () {
     // Clear access token and ID token from local storage
-    window.localStorage.clear()
+    window.localStorage.removeItem('access_token')
+    window.localStorage.removeItem('user')
+    window.localStorage.removeItem('name')
     deleteCookie('ajs_anonymous_id')
     deleteCookie('ajs_user_id')
     deleteCookie('current_tenant')

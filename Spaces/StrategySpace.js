@@ -3,10 +3,12 @@ function newStrategySpace () {
   const MODULE_NAME = 'Strategy Space'
   let thisObject = {
     sidePanel: undefined,
-    workplace: undefined,
+    strategizerGateway: undefined,
     container: undefined,
     iconCollection: undefined,
     iconByPartType: undefined,
+    workspace: undefined,
+    isDeployed: false,
     draw: draw,
     getContainer: getContainer,
     makeVisible: makeVisible,
@@ -26,10 +28,10 @@ function newStrategySpace () {
   return thisObject
 
   async function initialize () {
-    thisObject.workplace = newWorkspace()
+    thisObject.strategizerGateway = newStrategizerGateway()
 
-    thisObject.workplace.initialize()
-    await thisObject.workplace.loadFromStrategyzer()
+    thisObject.strategizerGateway.initialize()
+    await thisObject.strategizerGateway.loadFromStrategyzer()
 
     loadIconCollection()
     buildIconByPartTypeMap()
@@ -131,11 +133,17 @@ function newStrategySpace () {
   }
 
   function makeVisible () {
-    if (thisObject.workplace.isDeployed !== true) {
-      thisObject.workplace.deploydTradingSystem()
+    if (thisObject.isDeployed !== true) {
+      deploydTradingSystem()
     }
     canvas.floatingSpace.makeVisible()
     visible = true
+  }
+
+  function deploydTradingSystem () {
+    thisObject.workspace = newWorkspace()
+    thisObject.workspace.initialize(thisObject.strategizerGateway.strategizerData)
+    thisObject.isDeployed = true
   }
 
   function makeInvisible () {
@@ -145,8 +153,8 @@ function newStrategySpace () {
   function getContainer (point) {
     let container
 
-    if (thisObject.workplace !== undefined) {
-      container = thisObject.workplace.getContainer(point)
+    if (thisObject.strategizerGateway !== undefined) {
+      container = thisObject.strategizerGateway.getContainer(point)
       if (container !== undefined) { return container }
     }
 

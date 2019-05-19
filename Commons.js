@@ -84,7 +84,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Stop Loss Management */
 
-            let stopLossPercentage = 1.5;
+            let stopLossPercentage = 50;
             let previousStopLoss = 0;
             let stopLoss = 0;
             let stopLossDecay = 0;
@@ -637,47 +637,48 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     checkStopLoss();
 
-                    function checkStopLoss() {
+                }
 
-                        let strategy = simulationLogic.strategies[strategyNumber - 1];
+                function checkStopLoss() {
 
-                        let phase = strategy.stopLoss.phases[stopLossPhase - 1];
+                    let strategy = simulationLogic.strategies[strategyNumber - 1];
 
-                        try {
-                            eval(phase.code); // Here is where we apply the formula given for the stop loss for this phase.
-                        } catch (err) {
-                            /*
-                                If the code produces an exception, we are covered.
-                            */
+                    let phase = strategy.stopLoss.phases[stopLossPhase - 1];
+
+                    try {
+                        eval(phase.code); // Here is where we apply the formula given for the stop loss for this phase.
+                    } catch (err) {
+                        /*
+                            If the code produces an exception, we are covered.
+                        */
+                    }
+
+                    if (newStopLoss < previousStopLoss) {
+                        stopLoss = newStopLoss;
+                    } else {
+                        stopLoss = previousStopLoss;
+                    }
+
+                    for (let k = 0; k < phase.situations.length; k++) {
+
+                        let situation = phase.situations[k];
+                        let passed = true;
+
+                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                            let condition = situation.conditions[m];
+                            let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name
+
+                            let value = conditions.get(key).value;
+
+                            if (value === false) { passed = false; }
                         }
 
-                        if (newStopLoss < previousStopLoss) {
-                            stopLoss = newStopLoss;
-                        } else {
-                            stopLoss = previousStopLoss;
-                        }
+                        if (passed) {
 
-                        for (let k = 0; k < phase.situations.length; k++) {
+                            stopLossPhase++;
 
-                            let situation = phase.situations[k];
-                            let passed = true;
-
-                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                let condition = situation.conditions[m];
-                                let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name
-
-                                let value = conditions.get(key).value;
-
-                                if (value === false) { passed = false; }
-                            }
-
-                            if (passed) {
-
-                                stopLossPhase++;
-
-                                return;
-                            }
+                            return;
                         }
                     }
                 }
@@ -688,41 +689,42 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     checkBuyOrder();
 
-                    function checkBuyOrder() {
+                }
 
-                        let strategy = simulationLogic.strategies[strategyNumber - 1];
+                function checkBuyOrder() {
 
-                        let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
+                    let strategy = simulationLogic.strategies[strategyNumber - 1];
 
-                        try {
-                            eval(phase.code); // Here is where we apply the formula given for the buy order at this phase.
-                        } catch (err) {
-                            /*
-                                If the code produces an exception, we are covered.
-                            */
+                    let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
+
+                    try {
+                        eval(phase.code); // Here is where we apply the formula given for the buy order at this phase.
+                    } catch (err) {
+                        /*
+                            If the code produces an exception, we are covered.
+                        */
+                    }
+
+                    for (let k = 0; k < phase.situations.length; k++) {
+
+                        let situation = phase.situations[k];
+                        let passed = true;
+
+                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                            let condition = situation.conditions[m];
+                            let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name
+
+                            let value = conditions.get(key).value;
+
+                            if (value === false) { passed = false; }
                         }
 
-                        for (let k = 0; k < phase.situations.length; k++) {
+                        if (passed) {
 
-                            let situation = phase.situations[k];
-                            let passed = true;
+                            buyOrderPhase++;
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                let condition = situation.conditions[m];
-                                let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name
-
-                                let value = conditions.get(key).value;
-
-                                if (value === false) { passed = false; }
-                            }
-
-                            if (passed) {
-
-                                buyOrderPhase++;
-
-                                return;
-                            }
+                            return;
                         }
                     }
                 }
@@ -738,6 +740,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     stopLoss = sellRate + sellRate * stopLossPercentage / 100;
 
                     stopLossDecay = 0;
+
+                    checkStopLoss();
+                    checkBuyOrder();
 
                     previousBalanceAssetA = balanceAssetA;
                     lastProfit = 0;

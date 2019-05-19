@@ -151,27 +151,13 @@
     }
 
     function getContainer(point) {
-
-        try {
-
-            let container;
-
-            /* First we check if this point is inside this space. */
-
-            if (this.container.frame.isThisPointHere(point) === true) {
-
-                return this.container;
-
-            } else {
-
-                /* This point does not belong to this space. */
-
-                return undefined;
-            }
-
-        } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] getContainer -> err = " + err.stack); }
+        let container;
+        /* First we check if this point is inside this space. */
+        if (this.container.frame.isThisPointHere(point) === true) {
+            return this.container;
+        } else {
+            /* This point does not belong to this space. */
+            return undefined;
         }
     }
 
@@ -203,14 +189,10 @@
 
                 if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
-                    let newMarketFile = marketFiles.getFile(pTimePeriod);
+                     marketFile = marketFiles.getFile(pTimePeriod);
 
-                    if (newMarketFile !== undefined) {
-
-                        marketFile = newMarketFile;
-                        recalculate();
-                    }
-
+                     recalculate();
+                  
                 } else {
 
                     let newFileCursor = dailyFiles.getFileCursor(pTimePeriod);
@@ -270,6 +252,8 @@
     function recalculate() {
 
         try {
+
+            records = []
 
             if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
@@ -631,10 +615,10 @@
 
                 let imageOffset = {
                     x: 0,
-                    y: 15
+                    y: 30
                 }
                 let imageSize = (recordPoint2.x - recordPoint1.x) / 2;
-                let recordLabel = record.periods.toString()
+                let recordLabel = record.periods.toLocaleString()
                 if (imageSize < 8) {
                     if (recordLabel[recordLabel.length - 1] !== '0' || imageSize < 4)
                         recordLabel = ''
@@ -792,6 +776,8 @@
         }
     }
 }
+
+
 
 
 

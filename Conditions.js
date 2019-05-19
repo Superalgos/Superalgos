@@ -185,21 +185,15 @@
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> Entering function."); }
-
             if (timePeriod !== pTimePeriod) {
 
                 timePeriod = pTimePeriod;
 
                 if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
-                    let newMarketFile = marketFiles.getFile(pTimePeriod);
+                    marketFile = marketFiles.getFile(pTimePeriod);
 
-                    if (newMarketFile !== undefined) {
-
-                        marketFile = newMarketFile;
-                        recalculate();
-                    }
+                    recalculate();
 
                 } else {
 
@@ -207,7 +201,7 @@
 
                     fileCursor = newFileCursor; // In this case, we explicitly want that if there is no valid cursor, we invalidate the data and show nothing.
                     recalculate();
-                   
+
                 }
             }
 
@@ -265,7 +259,7 @@
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] recalculate -> Entering function."); }
+            records = []
 
             if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 

@@ -84,6 +84,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Stop Loss Management */
 
+            const MIN_STOP_LOSS_VALUE = 1 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
             let stopLossPercentage = 50;
             let previousStopLoss = 0;
             let stopLoss = 0;
@@ -93,6 +94,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Buy Order Management */
 
+            const MIN_BUY_ORDER_VALUE = 1 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
             let buyOrderPercentage = 1;
             let previousBuyOrder = 0;
             let buyOrder = 0;
@@ -659,6 +661,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         stopLoss = previousStopLoss;
                     }
 
+                    if (stopLoss < MIN_STOP_LOSS_VALUE) {
+                        stopLoss = MIN_STOP_LOSS_VALUE
+                    }
+
                     for (let k = 0; k < phase.situations.length; k++) {
 
                         let situation = phase.situations[k];
@@ -703,6 +709,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         /*
                             If the code produces an exception, we are covered.
                         */
+                    }
+
+                    if (buyOrder < MIN_BUY_ORDER_VALUE) {
+                        buyOrder = MIN_BUY_ORDER_VALUE
                     }
 
                     for (let k = 0; k < phase.situations.length; k++) {
@@ -1313,6 +1323,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             const accessToken = await auth.authenticate()
 
+            let fbSlug = bot.codeName
+            if (process.env.TEST_FB !== undefined) {
+                fbSlug = process.env.TEST_FB
+            }
+
             const strategizerResponse = await axios({
                 url: process.env.GATEWAY_ENDPOINT,
                 method: 'post',
@@ -1404,7 +1419,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
           
                 `,
                     variables: {
-                        fbSlug: bot.codeName
+                        fbSlug: fbSlug
                     },
                 },
                 headers: {

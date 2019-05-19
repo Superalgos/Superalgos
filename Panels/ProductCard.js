@@ -335,7 +335,7 @@ function newProductCard () {
   }
 
   function turnOff () {
-    if (thisObject.status === PRODUCT_CARD_STATUS.ON) {
+    if (thisObject.status !== PRODUCT_CARD_STATUS.OFFSS) {
       resetProgressBars()
       changeStatusTo(PRODUCT_CARD_STATUS.OFF)
     }
@@ -903,3 +903,4 @@ function newProductCard () {
     browserCanvasContext.stroke()
   }
 }
+

@@ -104,11 +104,18 @@ function newRestartSimulation () {
       timePeriodMarketArray: timePeriodMarketArray
     }
     try {
-      thisObject.status = 'Restarting'
-      await graphQlRestartSimulation(simulationParams)
-      thisObject.status = 'Calculating'
-      counterTillNextState = 2000
-      turnOffProductCards()
+      thisObject.status = 'Saving'
+      let result = await canvas.strategySpace.workplace.saveToStrategyzer()
+      if (result === true) {
+        thisObject.status = 'Restarting'
+        await graphQlRestartSimulation(simulationParams)
+        thisObject.status = 'Calculating'
+        counterTillNextState = 2000
+        turnOffProductCards()
+      } else {
+        thisObject.status = 'Error'
+        counterTillNextState = 500
+      }
     } catch (err) {
       thisObject.status = 'Error'
       counterTillNextState = 500
@@ -145,6 +152,9 @@ function newRestartSimulation () {
       if (counterTillNextState === 0) {
         switch (thisObject.status) {
           case 'Ready':
+
+            break
+          case 'Saving':
 
             break
           case 'Restarting':
@@ -187,6 +197,9 @@ function newRestartSimulation () {
         }
         break
       }
+      case 'Saving':
+        params.backgroundColor = UI_COLOR.GREY
+        break
       case 'Restarting':
         params.backgroundColor = UI_COLOR.GREY
         break
@@ -217,16 +230,19 @@ function newRestartSimulation () {
 
     switch (thisObject.status) {
       case 'Ready':
-        label = 'RESTART TRADING ENGINE'
+        label = 'RE-CALCULATE'
+        break
+      case 'Saving':
+        label = 'SAVING STRATEGIES CHANGES...'
         break
       case 'Restarting':
-        label = 'RESTARTING...'
+        label = 'RESTARTING TRADING ENGINE...'
         break
       case 'Calculating':
         label = 'CALCULATING...'
         break
       case 'Error':
-        label = 'NOT POSSIBLE NOW'
+        label = 'ERROR, RETRY LATER'
         break
     }
 

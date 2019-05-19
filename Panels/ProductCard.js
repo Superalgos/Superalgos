@@ -155,7 +155,7 @@ function newProductCard () {
 
            */
 
-        const DEFAULT_ON_PRODUCT = 'AAMasters-AAOlivia-Candles'
+        const DEFAULT_ON_PRODUCT = 'Poloniex-BTC/USDT-AAMasters-AAOlivia-Candles'
 
         if (thisObject.code === DEFAULT_ON_PRODUCT) {
           changeStatusTo(PRODUCT_CARD_STATUS.LOADING)

@@ -637,33 +637,15 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (strategyPhase === 3) {
 
+                    checkStopPhases()
                     checkStopLoss();
 
                 }
 
-                function checkStopLoss() {
+                function checkStopPhases() {
 
                     let strategy = simulationLogic.strategies[strategyNumber - 1];
-
                     let phase = strategy.stopLoss.phases[stopLossPhase - 1];
-
-                    try {
-                        eval(phase.code); // Here is where we apply the formula given for the stop loss for this phase.
-                    } catch (err) {
-                        /*
-                            If the code produces an exception, we are covered.
-                        */
-                    }
-
-                    if (newStopLoss < previousStopLoss) {
-                        stopLoss = newStopLoss;
-                    } else {
-                        stopLoss = previousStopLoss;
-                    }
-
-                    if (stopLoss < MIN_STOP_LOSS_VALUE) {
-                        stopLoss = MIN_STOP_LOSS_VALUE
-                    }
 
                     for (let k = 0; k < phase.situations.length; k++) {
 
@@ -689,31 +671,44 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                /* Take Profit Management */
-
-                if (strategyPhase === 3) {
-
-                    checkBuyOrder();
-
-                }
-
-                function checkBuyOrder() {
+                function checkStopLoss() {
 
                     let strategy = simulationLogic.strategies[strategyNumber - 1];
-
-                    let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
+                    let phase = strategy.stopLoss.phases[stopLossPhase - 1];
 
                     try {
-                        eval(phase.code); // Here is where we apply the formula given for the buy order at this phase.
+                        eval(phase.code); // Here is where we apply the formula given for the stop loss for this phase.
                     } catch (err) {
                         /*
                             If the code produces an exception, we are covered.
                         */
                     }
 
-                    if (buyOrder < MIN_BUY_ORDER_VALUE) {
-                        buyOrder = MIN_BUY_ORDER_VALUE
+                    if (newStopLoss < previousStopLoss) {
+                        stopLoss = newStopLoss;
+                    } else {
+                        stopLoss = previousStopLoss;
                     }
+
+                    if (stopLoss < MIN_STOP_LOSS_VALUE) {
+                        stopLoss = MIN_STOP_LOSS_VALUE
+                    }
+
+                }
+
+                /* Take Profit Management */
+
+                if (strategyPhase === 3) {
+
+                    checkBuyOrderPhases();
+                    checkBuyOrder();
+
+                }
+
+                function checkBuyOrderPhases() {
+
+                    let strategy = simulationLogic.strategies[strategyNumber - 1];
+                    let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
 
                     for (let k = 0; k < phase.situations.length; k++) {
 
@@ -739,6 +734,24 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
+                function checkBuyOrder() {
+
+                    let strategy = simulationLogic.strategies[strategyNumber - 1];
+                    let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
+
+                    try {
+                        eval(phase.code); // Here is where we apply the formula given for the buy order at this phase.
+                    } catch (err) {
+                        /*
+                            If the code produces an exception, we are covered.
+                        */
+                    }
+
+                    if (buyOrder < MIN_BUY_ORDER_VALUE) {
+                        buyOrder = MIN_BUY_ORDER_VALUE
+                    }
+                }
+
                 /* Entering into a Trade */
 
                 if (strategyPhase === 2) {
@@ -748,6 +761,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     sellAmount = balanceAssetA;
 
                     stopLoss = sellRate + sellRate * stopLossPercentage / 100;
+                    previousStopLoss = stopLoss;
 
                     stopLossDecay = 0;
 

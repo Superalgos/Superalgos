@@ -69,11 +69,10 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
     function draw() {
 
-        thisObject.container.frame.draw(false, false, true, thisObject.fitFunction);
 
         plotCurrentRecordInfo();
 
-        panelTabButton.draw()
+
     }
 
 
@@ -81,19 +80,7 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
         if (currentRecord === undefined) { return; }
         if (currentRecord.conditionsNames === undefined) { return; }
-
-        const frameBodyHeight = thisObject.container.frame.getBodyHeight();
-        const frameTitleHeight = thisObject.container.frame.height - frameBodyHeight;
-
-        const X_AXIS = thisObject.container.frame.width * 1 / 10;
-        const Y_AXIS = frameTitleHeight + frameBodyHeight / 2;
-
-        let y = 0;
-        let increment = 0.02;
-        let opacity;
-        let label;
-        let indent = 5;
-        let showLabel;
+        if (canvas.strategySpace.workspace === undefined) { return; }
 
         browserCanvasContext.beginPath();
 
@@ -104,146 +91,86 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
             let strategy = simulationLogic.strategies[j];
 
-            showLabel = true;
-
-            if (currentRecord.strategyNumber > 0 && currentRecord.strategyNumber - 1 !== j) { showLabel = false; }
-
-            if (showLabel) { y = y + increment; }
-            opacity = '1.00';
-            label = 'Strategy: ' + strategy.name;
-            printLabel(label, X_AXIS, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
-
-            if (showLabel) { y = y + increment; }
-            opacity = '0.50';
-            label = 'Entry Points';
-            printLabel(label, X_AXIS + indent * 1, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+            if (currentRecord.strategyNumber - 1 === j) {
+                canvas.strategySpace.workspace.tradingSystem.strategies[j].payload.uiObject.isExecuting = true
+            } else {
+                canvas.strategySpace.workspace.tradingSystem.strategies[j].payload.uiObject.isExecuting = false
+            }
 
             for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
 
                 let situation = strategy.entryPoint.situations[k];
-                processSituation(situation);
+                processSituation(situation, canvas.strategySpace.workspace.tradingSystem.strategies[j].entryPoint.situations[k]);
             }
-
-            if (showLabel) { y = y + increment; }
-            opacity = '0.50';
-            label = 'Exit Points';
-            printLabel(label, X_AXIS + indent * 1, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
 
             for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
 
                 let situation = strategy.exitPoint.situations[k];
-                processSituation(situation);
+                processSituation(situation, canvas.strategySpace.workspace.tradingSystem.strategies[j].exitPoint.situations[k]);
             }
-
-            if (currentRecord.strategyNumber - 1 !== j) { showLabel = false; }
-
-            if (showLabel) { y = y + increment; }
-            opacity = '0.50';
-            label = 'Sell Points';
-            printLabel(label, X_AXIS + indent * 1, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
 
             for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
 
                 let situation = strategy.sellPoint.situations[k];
-                processSituation(situation);
+                processSituation(situation, canvas.strategySpace.workspace.tradingSystem.strategies[j].sellPoint.situations[k]);
             }
-
-            if (showLabel) { y = y + increment; }
-            opacity = '0.50';
-            label = 'Stop Loss Management';
-            printLabel(label, X_AXIS + indent * 1, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
 
             for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
 
-                let phase = strategy.stopLoss.phases[p];
+                if (currentRecord.strategyNumber - 1 === j && currentRecord.stopLossPhase - 1 === p) {
+                    canvas.strategySpace.workspace.tradingSystem.strategies[j].stopLoss.phases[p].payload.uiObject.isExecuting = true
+                } else {
+                    canvas.strategySpace.workspace.tradingSystem.strategies[j].stopLoss.phases[p].payload.uiObject.isExecuting = false
+                }
 
-                if (showLabel) { y = y + increment; }
-                opacity = '0.50';
-                label = 'Phase: ' + phase.name;
-                printLabel(label, X_AXIS + indent * 1, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+                let phase = strategy.stopLoss.phases[p];
 
                 for (let k = 0; k < phase.situations.length; k++) {
 
                     let situation = phase.situations[k];
-                    processSituation(situation);
+                    processSituation(situation, canvas.strategySpace.workspace.tradingSystem.strategies[j].stopLoss.phases[p].situations[k]);
                 }
             }
-
-            if (showLabel) { y = y + increment; }
-            opacity = '0.50';
-            label = 'Buy Order Management';
-            printLabel(label, X_AXIS + indent * 1, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
 
             for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
 
-                let phase = strategy.buyOrder.phases[p];
+                if (currentRecord.strategyNumber - 1 === j && currentRecord.buyOrderPhase - 1 === p) {
+                    canvas.strategySpace.workspace.tradingSystem.strategies[j].buyOrder.phases[p].payload.uiObject.isExecuting = true
+                } else {
+                    canvas.strategySpace.workspace.tradingSystem.strategies[j].buyOrder.phases[p].payload.uiObject.isExecuting = false
+                }
 
-                if (showLabel) { y = y + increment; }
-                opacity = '0.50';
-                label = 'Phase: ' + phase.name;
-                printLabel(label, X_AXIS + indent * 1, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+                let phase = strategy.buyOrder.phases[p];
 
                 for (let k = 0; k < phase.situations.length; k++) {
 
                     let situation = phase.situations[k];
-                    processSituation(situation);
+                    processSituation(situation, canvas.strategySpace.workspace.tradingSystem.strategies[j].buyOrder.phases[p].situations[k]);
                 }
             }
         }
 
-        function processSituation(situation) {
+        function processSituation(situation, node) {
 
-            if (showLabel) { y = y + increment; }
-            opacity = '0.50';
-            label = 'Situation: ' + situation.name;
-            printLabel(label, X_AXIS + indent * 2, frameTitleHeight + frameBodyHeight * y, opacity, UI_COLOR.DARK);
+            let highlightSituation = true
 
             for (let m = 0; m < situation.conditions.length; m++) {
-
-                let condition = situation.conditions[m];
-                let color;
-
-                if (showLabel) { y = y + increment; }
                 if (currentRecord.conditionsValues[conditionIndex] === 1) {
-                    opacity = '0.50'
-                    color = UI_COLOR.PATINATED_TURQUOISE;
+                    node.conditions[m].payload.uiObject.highlight()
                 } else {
-                    opacity = '0.50';
-                    color = UI_COLOR.RUSTED_RED;
+                    node.conditions[m].payload.uiObject.unHighlight()
+                    highlightSituation = false
                 }
                 conditionIndex++;
-                label = condition.name;
-                printLabel(label, X_AXIS + indent * 3, frameTitleHeight + frameBodyHeight * y, opacity, color);
+            }
+
+            if (highlightSituation === true) {
+                node.payload.uiObject.highlight()
+            } else {
+                node.payload.uiObject.unHighlight()
             }
         }
 
-        function printLabel(labelToPrint, x, y, opacity, color) {
-
-            if (showLabel === false) { return; }
-
-            let labelPoint;
-            let fontSize = 10;
-
-            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira';
-
-            let label = '' + labelToPrint;
-            if (isNaN(label) === false) {
-                label = Number(label).toLocaleString();
-            }
-            let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
-
-            labelPoint = {
-                x: x,
-                y: y
-            };
-
-            labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
-            labelPoint = thisObject.fitFunction(labelPoint)
-
-            browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + opacity + ')';
-            browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
-
-        }
 
         browserCanvasContext.closePath();
         browserCanvasContext.fill();
@@ -252,6 +179,10 @@ function newAAMastersPlottersTradingSimulationConditionsConditionsPanel() {
 
 
 }
+
+
+
+
 
 
 

@@ -142,6 +142,14 @@
                             let dependencyIndex = 0;
                             dataFiles = [];
 
+                            let timePeriodFilter = process.env.TIME_PERIOD
+                            if (timePeriodFilter !== undefined) {
+                                if (timePeriodFilter.indexOf(outputPeriodLabel) === -1) {
+                                    periodsControlLoop();
+                                    return;
+                                }
+                            }
+
                             dependencyLoopBody();
 
                             function dependencyLoopBody() {

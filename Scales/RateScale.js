@@ -2,10 +2,11 @@ function newRateScale () {
   const MODULE_NAME = 'Right Scale'
 
   let thisObject = {
-    heightPercentage: 100,
     container: undefined,
     rate: undefined,
+    fitFunction: undefined,
     visible: true,
+    heightPercentage: 100,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -34,6 +35,7 @@ function newRateScale () {
   function finalize () {
     thisObject.container.finalize()
     thisObject.container = undefined
+    thisObject.fitFunction = undefined
   }
 
   function initialize () {
@@ -201,7 +203,7 @@ function newRateScale () {
     let label1 = (Math.trunc(thisObject.rate)).toLocaleString()
     let label2 = labelArray[1]
 
-    drawScaleDisplay(label1, label2, 10, 40, thisObject.container)
+    drawScaleDisplay(label1, label2, 10, 40, thisObject.container, thisObject.fitFunction)
   }
 }
 

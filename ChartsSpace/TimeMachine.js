@@ -18,6 +18,7 @@ function newTimeMachine () {
     container: undefined,
     timeScale: undefined,
     rateScale: undefined,
+    fitFunction: undefined,
     charts: [],
     physics: physics,
     drawBackground: drawBackground,
@@ -65,6 +66,7 @@ function newTimeMachine () {
     thisObject.timeScale = undefined
     thisObject.rateScale.finalize()
     thisObject.rateScale = undefined
+    thisObject.fitFunction = undefined
   }
 
   function initialize (callBackFunction) {
@@ -106,6 +108,7 @@ function newTimeMachine () {
      /* Each Time Machine has a Time Scale and a Right Scale. */
 
       thisObject.timeScale = newTimeScale()
+      thisObject.timeScale.fitFunction = thisObject.fitFunction
 
       thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
         thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
@@ -117,6 +120,7 @@ function newTimeMachine () {
       thisObject.timeScale.initialize()
 
       thisObject.rateScale = newRateScale()
+      thisObject.rateScale.fitFunction = thisObject.fitFunction
 
       thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
         thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100

@@ -132,7 +132,13 @@
                             if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
                             if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Azure Storage -> readData -> onFileReceived -> Returning an empty JSON object string. "); }
 
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            let response = {
+                                result: global.DEFAULT_FAIL_RESPONSE.result,
+                                message: global.DEFAULT_FAIL_RESPONSE.message,
+                                code: 'FileNotFound'
+                            }
+
+                            callBackFunction(response);
                             return;
 
                         }

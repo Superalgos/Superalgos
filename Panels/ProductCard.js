@@ -335,7 +335,7 @@ function newProductCard () {
   }
 
   function turnOff () {
-    if (thisObject.status !== PRODUCT_CARD_STATUS.OFFSS) {
+    if (thisObject.status !== PRODUCT_CARD_STATUS.OFF) {
       resetProgressBars()
       changeStatusTo(PRODUCT_CARD_STATUS.OFF)
     }

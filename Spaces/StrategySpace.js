@@ -64,6 +64,7 @@ function newStrategySpace () {
       'analysis-1',
       'approve',
       'attach',
+      'attractive',
       'pyramid',
       'brainstorming',
       'broken-link',

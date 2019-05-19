@@ -158,7 +158,7 @@ function newStrategyPart () {
 
   function iconPhysics () {
     icon = canvas.strategySpace.iconByPartType.get(thisObject.payload.node.type)
-    executingIcon = canvas.strategySpace.iconByPartType.get('attractive')
+    executingIcon = canvas.strategySpace.iconCollection.get('attractive')
   }
 
   function onFocus () {
@@ -409,14 +409,17 @@ function newStrategyPart () {
       }
     }
 
+    if (thisObject.isExecuting === true) {
+      let a = 1
+    }
     if (executingIcon !== undefined) {
-      if (icon.canDrawIcon === true) {
-        if (thisObject.isExecuting) {
-          const DISTANCE_FROM_CENTER = 40
-          const EXECUTING_ICON_SIZE = 20
+      if (executingIcon.canDrawIcon === true) {
+        if (thisObject.isExecuting === true) {
+          const DISTANCE_FROM_CENTER = thisObject.container.frame.radius / 3 + 50
+          const EXECUTING_ICON_SIZE = 20 + thisObject.container.frame.radius / 6
 
           browserCanvasContext.drawImage(
-            icon, position.x - EXECUTING_ICON_SIZE / 2,
+            executingIcon, position.x - EXECUTING_ICON_SIZE / 2,
             position.y - EXECUTING_ICON_SIZE / 2 - DISTANCE_FROM_CENTER,
             EXECUTING_ICON_SIZE,
             EXECUTING_ICON_SIZE)

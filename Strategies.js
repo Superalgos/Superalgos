@@ -267,7 +267,7 @@
 
         try {
 
-            records = []
+            strategies = []
 
             if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 

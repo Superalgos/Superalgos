@@ -259,7 +259,7 @@
 
         try {
 
-            records = []
+            trades = []
 
             if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 

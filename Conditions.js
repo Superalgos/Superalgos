@@ -259,7 +259,7 @@
 
         try {
 
-            records = []
+            conditions = []
 
             if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 

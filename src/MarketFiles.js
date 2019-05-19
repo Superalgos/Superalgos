@@ -1,7 +1,6 @@
  ﻿
 function newMarketFiles () {
   const MODULE_NAME = 'Market Files'
-  const INFO_LOG = false
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
@@ -39,8 +38,6 @@ function newMarketFiles () {
 
   function finalize () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
-
       clearInterval(intervalHandle)
 
       filesLoaded = undefined
@@ -53,9 +50,6 @@ function newMarketFiles () {
 
   function initialize (pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDevTeam.codeName + '-' + pBot.codeName + '-' + pProduct.codeName) }
-
       exchange = ecosystem.getExchange(pProduct, pExchange)
 
       if (exchange === undefined) {
@@ -83,8 +77,6 @@ function newMarketFiles () {
 
           function onFileReceived (err, file) {
             try {
-              if (INFO_LOG === true) { logger.write('[INFO] initialize -> onFileReceived -> Entering function.') }
-
               if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 files.set(periodTime, file)
                 filesLoaded++
@@ -93,11 +85,7 @@ function newMarketFiles () {
               }
 
               if (filesLoaded + filesNotLoaded === marketFilesPeriods.length) {
-                if (filesLoaded > filesNotLoaded) {
-                  callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)
-                } else {
-                  callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE, thisObject)
-                }
+                callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)
               }
             } catch (err) {
               if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> err = ' + err.stack) }
@@ -117,8 +105,6 @@ function newMarketFiles () {
       if (finalized === true) { return }
       let updateFiles = 0
 
-      if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> Entering function.') }
-
             /* Now we will get the market files */
 
       for (let i = 0; i < marketFilesPeriods.length; i++) {
@@ -130,40 +116,10 @@ function newMarketFiles () {
 
           function onFileReceived (err, file) {
             try {
-              if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> Entering function.') }
-
-              switch (err.result) {
-                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                  if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> Received OK Response.') }
-                  break
-                }
-
-                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                  if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> Received FAIL Response.') }
-                  return
-                }
-
-                case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-                  if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> Received CUSTOM FAIL Response.') }
-                  if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> err.message = ' + err.message) }
-                  return
-                }
-
-                default: {
-                  if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> Received Unexpected Response.') }
-                  return
-                }
-              }
-
               files.set(periodTime, file)
               updateFiles++
 
               if (updateFiles === marketFilesPeriods.length) {
-                if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> All files received. ') }
-                if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> devTeam = ' + devTeam.codeName) }
-                if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> bot = ' + bot.codeName) }
-                if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> thisSet = ' + thisSet.codeName) }
-
                 thisObject.eventHandler.raiseEvent('Files Updated', undefined)
               }
             } catch (err) {

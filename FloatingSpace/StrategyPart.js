@@ -16,6 +16,9 @@ function newStrategyPart () {
     payload: undefined,
     codeEditor: undefined,
     partTitle: undefined,
+    isExecuting: undefined,
+    highlight: highlight,
+    unHighlight: unHighlight,
     physics: physics,
     drawBackground: drawBackground,
     drawMiddleground: drawMiddleground,
@@ -35,10 +38,14 @@ function newStrategyPart () {
   thisObject.container.frame.position.y = 0
 
   let icon
+  let executingIcon
 
   let selfFocusEventSubscriptionId
   let selfNotFocuskEventSubscriptionId
   let selfDisplaceEventSubscriptionId
+
+  let isHighlighted
+  let highlightCounter = 0
 
   return thisObject
 
@@ -128,10 +135,30 @@ function newStrategyPart () {
     }
 
     iconPhysics()
+    highlightPhisycs()
+  }
+
+  function highlightPhisycs () {
+    highlightCounter--
+    if (highlightCounter < 0) {
+      highlightCounter = 0
+      isHighlighted = false
+    }
+  }
+
+  function highlight () {
+    isHighlighted = true
+    highlightCounter = 30
+  }
+
+  function unHighlight () {
+    // isHighlighted = false
+    // highlightCounter = 0
   }
 
   function iconPhysics () {
     icon = canvas.strategySpace.iconByPartType.get(thisObject.payload.node.type)
+    executingIcon = canvas.strategySpace.iconByPartType.get('attractive')
   }
 
   function onFocus () {
@@ -173,7 +200,6 @@ function newStrategyPart () {
   function drawOnFocus () {
     if (thisObject.isOnFocus === true) {
       drawConnectingLine()
-      thisObject.menu.drawBackground()
 
       if (thisObject.codeEditor !== undefined) {
         thisObject.codeEditor.drawBackground()
@@ -186,10 +212,12 @@ function newStrategyPart () {
       if (thisObject.codeEditor !== undefined) {
         if (thisObject.codeEditor.visible === false) {
           drawBodyAndPicture()
+          thisObject.menu.drawBackground()
           thisObject.menu.drawForeground()
         }
       } else {
         drawBodyAndPicture()
+        thisObject.menu.drawBackground()
         thisObject.menu.drawForeground()
       }
     }
@@ -253,7 +281,7 @@ function newStrategyPart () {
     let label
 
     if (radius > 6) {
-      const MAX_LABEL_LENGTH = 30
+      const MAX_LABEL_LENGTH = 20
 
       label = thisObject.payload.subTitle
       label = addIndexNumber(label)
@@ -327,7 +355,7 @@ function newStrategyPart () {
     let radius = thisObject.container.frame.radius
 
     if (radius > 0.5) {
-      const VISIBLE_RADIUS = 5
+      let VISIBLE_RADIUS = 5
 
       let visiblePosition = {
         x: thisObject.container.frame.position.x,
@@ -346,12 +374,27 @@ function newStrategyPart () {
       browserCanvasContext.fill()
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS / 2, 0, Math.PI * 2, true)
+      browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS - 2, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
 
       browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)'
 
       browserCanvasContext.fill()
+
+      if (isHighlighted === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius
+        let OPACITY = highlightCounter / 30
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
+
+        browserCanvasContext.lineWidth = 10
+        browserCanvasContext.setLineDash([4, 20])
+        browserCanvasContext.stroke()
+      }
     }
 
         /* Image */
@@ -365,5 +408,21 @@ function newStrategyPart () {
           thisObject.payload.floatingObject.currentImageSize)
       }
     }
+
+    if (executingIcon !== undefined) {
+      if (icon.canDrawIcon === true) {
+        if (thisObject.isExecuting) {
+          const DISTANCE_FROM_CENTER = 40
+          const EXECUTING_ICON_SIZE = 20
+
+          browserCanvasContext.drawImage(
+            icon, position.x - EXECUTING_ICON_SIZE / 2,
+            position.y - EXECUTING_ICON_SIZE / 2 - DISTANCE_FROM_CENTER,
+            EXECUTING_ICON_SIZE,
+            EXECUTING_ICON_SIZE)
+        }
+      }
+    }
   }
 }
+

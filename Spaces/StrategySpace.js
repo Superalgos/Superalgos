@@ -47,7 +47,7 @@ function newStrategySpace () {
       ['Stop', 'pixel'],
       ['Take Profit', 'competition'],
       ['Phase', 'placeholder'],
-      ['Situation', 'attractive'],
+      ['Situation', 'pyramid'],
       ['Condition', 'testing']
     ]
 
@@ -64,7 +64,7 @@ function newStrategySpace () {
       'analysis-1',
       'approve',
       'attach',
-      'attractive',
+      'pyramid',
       'brainstorming',
       'broken-link',
       'chat',

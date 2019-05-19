@@ -28,7 +28,14 @@ function newAppLoader () {
 
         'Globals.js',
         'Ecosystem.js',
-        'MQService',
+          'MQService',
+
+          'ChartsSpace/ChartUtilities.js',
+          'ChartsSpace/PlottersManager.js',
+          'ChartsSpace/TimelineChart.js',
+          'ChartsSpace/TimeMachine.js',
+          'ChartsSpace/ViewPort.js',
+          'ChartsSpace/TimeLineCoordinateSystem.js',
 
         'TopSpace/CurrentEvent.js',
         'TopSpace/EndUser.js',
@@ -83,13 +90,6 @@ function newAppLoader () {
         'Scales/TimeScale.js',
           'Scales/TimePeriodScale.js',
           'Scales/Commons.js',
-
-        'ChartsSpace/ChartUtilities.js',
-        'ChartsSpace/PlottersManager.js',
-        'ChartsSpace/TimelineChart.js',
-        'ChartsSpace/TimeMachine.js',
-        'ChartsSpace/ViewPort.js',
-        'ChartsSpace/TimeLineCoordinateSystem.js',
 
         'CockpitSpace/AssetBalances.js',
         'CockpitSpace/Speedometer.js',

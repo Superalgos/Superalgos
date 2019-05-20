@@ -41,7 +41,7 @@ function newFullScreen () {
   }
 
   function initialize () {
-    thisObject.container.frame.width = 250
+    thisObject.container.frame.width = 50
     thisObject.container.frame.height = COCKPIT_SPACE_HEIGHT - 12
 
     selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
@@ -110,7 +110,7 @@ function newFullScreen () {
   }
 
   function positionPhysics () {
-    thisObject.container.frame.position.x = thisObject.container.parentContainer.frame.width * 0.70
+    thisObject.container.frame.position.x = thisObject.container.parentContainer.frame.width - thisObject.container.frame.width
     thisObject.container.frame.position.y = 6
   }
 
@@ -155,7 +155,7 @@ function newFullScreen () {
     label = 'FS'
 
     let labelPoint = {
-      x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 25,
+      x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
       y: thisObject.container.frame.height - 9
     }
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
@@ -164,3 +164,4 @@ function newFullScreen () {
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }
+

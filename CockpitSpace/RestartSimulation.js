@@ -173,7 +173,7 @@ function newRestartSimulation () {
   }
 
   function positionPhysics () {
-    thisObject.container.frame.position.x = thisObject.container.parentContainer.frame.width - thisObject.container.frame.width * 1.25
+    thisObject.container.frame.position.x = thisObject.container.parentContainer.frame.width - thisObject.container.frame.width - 50
     thisObject.container.frame.position.y = 6
   }
 

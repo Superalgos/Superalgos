@@ -43,7 +43,7 @@
 
    function initialize () {
      thisObject.container.frame.position.x = 0
-     thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
+     thisObject.container.frame.position.y = browserCanvas.height * 55 / 100 - COCKPIT_SPACE_HEIGHT
 
      canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
      selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)

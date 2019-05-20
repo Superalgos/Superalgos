@@ -381,6 +381,14 @@
                                 }
                             }
 
+                            let timePeriodFilter = process.env.TIME_PERIOD
+                            if (timePeriodFilter !== undefined) {
+                                if (timePeriodFilter.indexOf(outputPeriodLabel) === -1) {
+                                    periodsControlLoop();
+                                    return;
+                                }
+                            }
+
                             let dependencyIndex = 0;
                             dataFiles = [];
 

@@ -20,9 +20,6 @@
     <Compile Include="Conditions.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ConditionsPanel.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="SimulationExecution.js">
       <SubType>Code</SubType>
     </Compile>

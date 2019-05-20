@@ -21,13 +21,7 @@
       "moduleName": "Conditions",
       "description": "Plots Simulation Conditions.",
       "profilePicture": "Conditions.png",
-      "panels": [
-        {
-          "codeName": "ConditionsPanel",
-          "moduleName": "ConditionsPanel",
-          "event": "Current Condition Record Changed"
-        }
-      ]
+      "panels": []
     },
     {
       "codeName": "Strategies",

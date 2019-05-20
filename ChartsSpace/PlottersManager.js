@@ -11,10 +11,11 @@ function newPlottersManager () {
   let datetime = NEW_SESSION_INITIAL_DATE
 
   let thisObject = {
+    fitFunction: undefined,
+    container: undefined,
     setDatetime: setDatetime,
     setTimePeriod: setTimePeriod,
     positionAtDatetime: positionAtDatetime,
-    container: undefined,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize,
@@ -180,6 +181,7 @@ function newPlottersManager () {
             let bot = ecosystem.getBot(devTeam, participant.bot)
             participant.profilePicture = bot.profilePicture
           }
+          plotter.fitFunction = thisObject.fitFunction
           plotter.initialize(competition, storage, datetime, timePeriod, onPlotterInizialized)
 
           function onPlotterInizialized (err) {
@@ -350,6 +352,7 @@ function newPlottersManager () {
           plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true)
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
+          plotter.fitFunction = thisObject.fitFunction
           plotter.initialize(storage, exchange, market, datetime, timePeriod, onPlotterInizialized)
 
           function onPlotterInizialized () {

@@ -132,6 +132,7 @@ function newTimelineChart () {
       plotterManager.container.frame.position.x = 0
       plotterManager.container.frame.position.y = 0
 
+      plotterManager.fitFunction = thisObject.fitFunction
       plotterManager.initialize(productsPanel, pExchange, pMarket, onPlotterManagerReady)
 
       function onPlotterManagerReady (err) {

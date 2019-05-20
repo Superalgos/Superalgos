@@ -143,8 +143,10 @@ function newStrategySpace () {
 
   function deploydTradingSystem () {
     thisObject.workspace = newWorkspace()
-    thisObject.workspace.initialize(thisObject.strategizerGateway.strategizerData)
-    thisObject.isDeployed = true
+    if (thisObject.strategizerGateway.strategizerData !== undefined) {
+      thisObject.workspace.initialize(thisObject.strategizerGateway.strategizerData)
+      thisObject.isDeployed = true
+    }
   }
 
   function makeInvisible () {
@@ -173,3 +175,4 @@ function newStrategySpace () {
     }
   }
 }
+

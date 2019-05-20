@@ -126,7 +126,7 @@ function newFloatingObject () {
 
                            // The imageSize also have a target.
 
-    if (Math.abs(thisObject.currentImageSize - thisObject.targetImageSize) >= 1) {
+    if (Math.abs(thisObject.currentImageSize - thisObject.targetImageSize) >= 10) {
       if (thisObject.currentImageSize < thisObject.targetImageSize) {
         thisObject.currentImageSize = thisObject.currentImageSize + 10
       } else {

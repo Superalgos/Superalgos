@@ -441,9 +441,6 @@
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> Entering function."); }
-
-            if (marketFile === undefined) { return; } // We need the market file to be loaded to make the calculation.
 
             if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
 

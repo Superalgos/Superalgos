@@ -303,7 +303,7 @@ function newProductCard () {
   }
 
   function onMarketFileLoaded (event) {
-    marketFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue)
+    marketFileProgressBar.value = Math.trunc(event.totalValue * 100 / event.totalValue)
     marketFileProgressBar.fillStyle = LOADING_FILL_STYLE
     marketFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
 

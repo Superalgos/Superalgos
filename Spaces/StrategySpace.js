@@ -9,6 +9,7 @@ function newStrategySpace () {
     iconByPartType: undefined,
     workspace: undefined,
     isDeployed: false,
+    isInitialized: false,
     draw: draw,
     getContainer: getContainer,
     makeVisible: makeVisible,
@@ -35,6 +36,10 @@ function newStrategySpace () {
 
     loadIconCollection()
     buildIconByPartTypeMap()
+
+    if (thisObject.strategizerGateway.strategizerData !== undefined) {
+      thisObject.isInitialized = true
+    }
   }
 
   function buildIconByPartTypeMap () {

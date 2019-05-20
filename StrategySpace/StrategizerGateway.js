@@ -274,18 +274,26 @@ function newStrategizerGateway () {
 
       /* Getting the FB that own the Strategies */
 
-      let tradingSystemSimulationClone = ''
-      let clones = window.localStorage.getItem('userClones')
-      if (clones === null || clones === '') {
-        if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> no user clones found at local storage. Can not get Strategies without them. ') }
+      let teamtradingSystemSimulationFB = ''
+      let teams = window.localStorage.getItem('userTeams')
+      if (teams === null || teams === '' || teams === []) {
+        if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> no user teams found at local storage. Can not get Strategies without them. ') }
         return
       }
-      clones = JSON.parse(clones)
-      for (let i = 0; i < clones.length; i++) {
-        let clone = clones[i]
-        if (clone.botType === 'Indicator') {
-          tradingSystemSimulationClone = clone.botSlug
+      teams = JSON.parse(teams)
+      for (let i = 0; i < teams.length; i++) {
+        let team = teams[i]
+        for (let j = 0; j < team.fb.length; j++) {
+          let fb = team.fb[j]
+          if (fb.slug.indexOf('simulator') >= 0) {
+            teamtradingSystemSimulationFB = fb.slug
+          }
         }
+      }
+
+      if (teamtradingSystemSimulationFB === '') {
+        if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> no simulation FB found at user teams. ') }
+        return
       }
       /* Getting all Strategies */
 
@@ -306,7 +314,7 @@ function newStrategizerGateway () {
         return new Promise((resolve, reject) => {
           apolloClient.query({
             query: GRAPHQL_QUERY_GET_STRATEGIES,
-            variables: { fbSlug: tradingSystemSimulationClone}
+            variables: { fbSlug: teamtradingSystemSimulationFB}
           })
                   .then(response => {
                     window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb))

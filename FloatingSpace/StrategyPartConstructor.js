@@ -346,7 +346,8 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 40,
+            dontShowAtFullscreen: true
           },
           {
             action: 'Add Situation',
@@ -447,7 +448,8 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 20,
+            dontShowAtFullscreen: true
           },
           {
             action: 'Delete Condition',

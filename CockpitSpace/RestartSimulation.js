@@ -41,8 +41,6 @@ function newRestartSimulation () {
   }
 
   function initialize () {
-    thisObject.container.frame.position.x = thisObject.container.parentContainer.frame.width * 80 / 100
-    thisObject.container.frame.position.y = 6
     thisObject.container.frame.width = 250
     thisObject.container.frame.height = COCKPIT_SPACE_HEIGHT - 12
 
@@ -105,7 +103,7 @@ function newRestartSimulation () {
     }
     try {
       thisObject.status = 'Saving'
-      let result = await canvas.strategySpace.workplace.saveToStrategyzer()
+      let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(canvas.strategySpace.workspace.tradingSystem)
       if (result === true) {
         thisObject.status = 'Restarting'
         await graphQlRestartSimulation(simulationParams)
@@ -170,6 +168,13 @@ function newRestartSimulation () {
         }
       }
     }
+
+    positionPhysics()
+  }
+
+  function positionPhysics () {
+    thisObject.container.frame.position.x = thisObject.container.parentContainer.frame.width - thisObject.container.frame.width - 50
+    thisObject.container.frame.position.y = 6
   }
 
   function draw () {
@@ -256,3 +261,4 @@ function newRestartSimulation () {
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }
+

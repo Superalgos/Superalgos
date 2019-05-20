@@ -90,6 +90,8 @@ function newStrategyPartTitle () {
   }
 
   function getContainer (point) {
+    if (CURRENT_TOP_MARGIN === 0) { return } // Fullscreen mode does not allow INPUT elements
+
     let container
 
     if (thisObject.editMode === true) {
@@ -121,12 +123,12 @@ function newStrategyPartTitle () {
     if (thisObject.editMode === true) {
       let inputPosition = {
         x: 0,
-        y: 0 + window.canvasApp.topMargin
+        y: 0 + CURRENT_TOP_MARGIN
       }
 
       inputPosition = thisObject.container.frame.frameThisPoint(inputPosition)
 
-      if (inputPosition.y < window.canvasApp.topMargin) { exitEditMode() }
+      if (inputPosition.y < CURRENT_TOP_MARGIN) { exitEditMode() }
 
       let inputDiv = document.getElementById('inputDiv')
       inputDiv.style = 'position:absolute; top:' + inputPosition.y + 'px; left:' + inputPosition.x + 'px; z-index:1; '
@@ -250,7 +252,7 @@ function newStrategyPartTitle () {
   }
 
   function trimTitle (title) {
-    const MAX_LABEL_LENGTH = 25
+    const MAX_LABEL_LENGTH = 15
     if (title.length > MAX_LABEL_LENGTH) {
       title = title.substring(0, MAX_LABEL_LENGTH) + '...'
     }

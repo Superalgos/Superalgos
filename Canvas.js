@@ -187,7 +187,7 @@ function newCanvas () {
     try {
       let point = {
         x: event.pageX,
-        y: event.pageY - window.canvasApp.topMargin
+        y: event.pageY - CURRENT_TOP_MARGIN
       }
 
       dragVector.downX = point.x
@@ -290,7 +290,7 @@ function newCanvas () {
       }
       let point = {
         x: event.pageX,
-        y: event.pageY - window.canvasApp.topMargin
+        y: event.pageY - CURRENT_TOP_MARGIN
       }
 
       let container
@@ -398,7 +398,7 @@ function newCanvas () {
     try {
       let point = {
         x: event.pageX,
-        y: event.pageY - window.canvasApp.topMargin
+        y: event.pageY - CURRENT_TOP_MARGIN
       }
 
       viewPort.mousePosition.x = point.x
@@ -444,7 +444,7 @@ function newCanvas () {
 
       let point = {
         x: event.pageX,
-        y: event.pageY - window.canvasApp.topMargin
+        y: event.pageY - CURRENT_TOP_MARGIN
       }
 
       let container
@@ -539,7 +539,7 @@ function newCanvas () {
 
       let point = {
         x: event.pageX,
-        y: event.pageY - window.canvasApp.topMargin
+        y: event.pageY - CURRENT_TOP_MARGIN
       }
 
       event.mousePosition = point
@@ -593,7 +593,7 @@ function newCanvas () {
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
         let point = {
           x: event.pageX,
-          y: event.pageY - window.canvasApp.topMargin
+          y: event.pageY - CURRENT_TOP_MARGIN
         }
 
         browserCanvas.style.cursor = 'grabbing'
@@ -646,4 +646,3 @@ function newCanvas () {
     }
   }
 }
-

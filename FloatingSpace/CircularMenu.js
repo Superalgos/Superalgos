@@ -65,6 +65,7 @@ function newCircularMenu () {
       menuItem.angle = menuItemInitialValue.angle
       menuItem.currentStatus = menuItemInitialValue.currentStatus
       menuItem.relatedStrategyPart = menuItemInitialValue.relatedStrategyPart
+      menuItem.dontShowAtFullscreen = menuItemInitialValue.dontShowAtFullscreen
 
       if (menuItem.label === undefined) {
         menuItem.type = 'Icon Only'

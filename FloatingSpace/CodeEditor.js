@@ -140,7 +140,7 @@ function newCodeEditor () {
     if (thisObject.visible === true) {
       let checkPosition = {
         x: textAreaPosition.x,
-        y: textAreaPosition.y - window.canvasApp.topMargin
+        y: textAreaPosition.y - CURRENT_TOP_MARGIN
       }
       if (thisObject.isVisibleFunction(checkPosition) === false) {
         deactivate()

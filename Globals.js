@@ -165,6 +165,8 @@ let INITIAL_ZOOM_LEVEL = -28.25       // This is the zoom level at the view port
 let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the viewPort.initialize if the user had a prevous session with this same browser.
 let VERY_LARGE_NUMBER = 100000000000
 
+let CURRENT_TOP_MARGIN = window.canvasApp.topMargin
+
 let maxDate = new Date();
 maxDate.setMilliseconds(0);
 maxDate.setDate(maxDate.getDate() + 365 * 1);  // We might have charts that projects data into the future.

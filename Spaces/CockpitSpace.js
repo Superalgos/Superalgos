@@ -7,6 +7,7 @@
      status: 'BOTTOM',
      assetBalances: undefined,
      restartSimulation: undefined,
+     fullscreen: undefined,
      draw: draw,
      physics: physics,
      getContainer: getContainer,
@@ -37,9 +38,13 @@
      thisObject.container = undefined
      thisObject.assetBalances = undefined
      thisObject.restartSimulation = undefined
+     thisObject.fullscreen = undefined
    }
 
    function initialize () {
+     thisObject.container.frame.position.x = 0
+     thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
+
      canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
      selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
 
@@ -49,6 +54,10 @@
      thisObject.restartSimulation = newRestartSimulation()
      thisObject.restartSimulation.container.connectToParent(thisObject.container)
      thisObject.restartSimulation.initialize()
+
+     thisObject.fullscreen = newFullScreen()
+     thisObject.fullscreen.container.connectToParent(thisObject.container)
+     thisObject.fullscreen.initialize()
    }
 
    function onMouseClick (event) {
@@ -56,9 +65,6 @@
    }
 
    function resize () {
-     thisObject.container.frame.position.x = 0
-     thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
-
      thisObject.container.frame.width = browserCanvas.width
      thisObject.container.frame.height = COCKPIT_SPACE_HEIGHT
    }
@@ -70,6 +76,7 @@
 
    function childrenPhysics () {
      thisObject.restartSimulation.physics()
+     thisObject.fullscreen.physics()
    }
    function thisObjectPhysics () {
      /* Check the limits */
@@ -109,6 +116,9 @@
      container = thisObject.restartSimulation.getContainer(point)
      if (container !== undefined) { return container }
 
+     container = thisObject.fullscreen.getContainer(point)
+     if (container !== undefined) { return container }
+
      if (thisObject.container.frame.isThisPointHere(point, true) === true) {
        return thisObject.container
      } else {
@@ -123,6 +133,7 @@
 
      thisObject.assetBalances.draw()
      thisObject.restartSimulation.draw()
+     thisObject.fullscreen.draw()
    }
 
    function drawBackground () {

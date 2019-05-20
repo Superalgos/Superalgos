@@ -24,6 +24,7 @@ function newCircularMenuItem () {
     container: undefined,
     payload: undefined,
     relatedStrategyPart: undefined,
+    dontShowAtFullscreen: undefined,
     physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
@@ -88,6 +89,8 @@ function newCircularMenuItem () {
   }
 
   function getContainer (point) {
+    if (thisObject.dontShowAtFullscreen === true && CURRENT_TOP_MARGIN === 0) { return }
+
     let container
     if (thisObject.isDeployed === true) {
       if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
@@ -99,6 +102,8 @@ function newCircularMenuItem () {
   }
 
   function physics () {
+    if (thisObject.dontShowAtFullscreen === true && CURRENT_TOP_MARGIN === 0) { return }
+
     const INCREASE_STEP = 0.25
 
     if (Math.abs(thisObject.currentRadius - thisObject.targetRadius) >= INCREASE_STEP) {
@@ -183,6 +188,8 @@ function newCircularMenuItem () {
   }
 
   function drawBackground () {
+    if (thisObject.dontShowAtFullscreen === true && CURRENT_TOP_MARGIN === 0) { return }
+
     if (thisObject.container.frame.position.x > 0 && thisObject.isDeployed === true && thisObject.currentRadius >= thisObject.targetRadius) {
       if (thisObject.type === 'Icon & Text') {
         let params = {
@@ -206,6 +213,8 @@ function newCircularMenuItem () {
   }
 
   function drawForeground () {
+    if (thisObject.dontShowAtFullscreen === true && CURRENT_TOP_MARGIN === 0) { return }
+
     let menuPosition = {
       x: thisObject.currentRadius * 1.5,
       y: thisObject.container.frame.height / 2

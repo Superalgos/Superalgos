@@ -9,6 +9,7 @@ function newStrategySpace () {
     iconByPartType: undefined,
     workspace: undefined,
     isDeployed: false,
+    isInitialized: false,
     draw: draw,
     getContainer: getContainer,
     makeVisible: makeVisible,
@@ -35,6 +36,10 @@ function newStrategySpace () {
 
     loadIconCollection()
     buildIconByPartTypeMap()
+
+    if (thisObject.strategizerGateway.strategizerData !== undefined) {
+      thisObject.isInitialized = true
+    }
   }
 
   function buildIconByPartTypeMap () {
@@ -143,8 +148,10 @@ function newStrategySpace () {
 
   function deploydTradingSystem () {
     thisObject.workspace = newWorkspace()
-    thisObject.workspace.initialize(thisObject.strategizerGateway.strategizerData)
-    thisObject.isDeployed = true
+    if (thisObject.strategizerGateway.strategizerData !== undefined) {
+      thisObject.workspace.initialize(thisObject.strategizerGateway.strategizerData)
+      thisObject.isDeployed = true
+    }
   }
 
   function makeInvisible () {
@@ -173,3 +180,4 @@ function newStrategySpace () {
     }
   }
 }
+

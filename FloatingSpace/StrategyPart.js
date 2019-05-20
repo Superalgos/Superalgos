@@ -245,9 +245,9 @@ function newStrategyPart () {
       browserCanvasContext.beginPath()
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
-      browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)'
-      browserCanvasContext.setLineDash([1, 4])
-      browserCanvasContext.lineWidth = 1
+      browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
+      browserCanvasContext.setLineDash([3, 4])
+      browserCanvasContext.lineWidth = 2
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
     }
@@ -260,7 +260,7 @@ function newStrategyPart () {
       browserCanvasContext.beginPath()
       browserCanvasContext.arc(targetPoint.x, targetPoint.y, radius, 0, Math.PI * 2, true)
       browserCanvasContext.closePath()
-      browserCanvasContext.fillStyle = 'rgba(30, 30, 30, 1)'
+      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
       browserCanvasContext.fill()
     }
   }

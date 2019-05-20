@@ -104,7 +104,7 @@ function newCircularMenuItem () {
   function physics () {
     if (thisObject.dontShowAtFullscreen === true && CURRENT_TOP_MARGIN === 0) { return }
 
-    const INCREASE_STEP = 0.25
+    const INCREASE_STEP = 1
 
     if (Math.abs(thisObject.currentRadius - thisObject.targetRadius) >= INCREASE_STEP) {
       if (thisObject.currentRadius < thisObject.targetRadius) {
@@ -256,3 +256,4 @@ function newCircularMenuItem () {
     }
   }
 }
+

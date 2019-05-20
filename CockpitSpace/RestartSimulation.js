@@ -109,7 +109,6 @@ function newRestartSimulation () {
         await graphQlRestartSimulation(simulationParams)
         thisObject.status = 'Calculating'
         counterTillNextState = 2000
-        turnOffProductCards()
       } else {
         thisObject.status = 'Error'
         counterTillNextState = 500
@@ -159,6 +158,11 @@ function newRestartSimulation () {
 
             break
           case 'Calculating':
+            thisObject.status = 'Refreshing'
+            turnOffProductCards()
+            counterTillNextState = 250
+            break
+          case 'Refreshing':
             thisObject.status = 'Ready'
             turnOnProductCards()
             break
@@ -203,10 +207,13 @@ function newRestartSimulation () {
         break
       }
       case 'Saving':
-        params.backgroundColor = UI_COLOR.GREY
+        params.backgroundColor = UI_COLOR.MANGANESE_PURPLE
         break
       case 'Restarting':
         params.backgroundColor = UI_COLOR.GREY
+        break
+      case 'Refreshing':
+        params.backgroundColor = UI_COLOR.GOLDEN_ORANGE
         break
       case 'Calculating':
         params.backgroundColor = UI_COLOR.TITANIUM_YELLOW
@@ -243,6 +250,9 @@ function newRestartSimulation () {
       case 'Restarting':
         label = 'RESTARTING TRADING ENGINE...'
         break
+      case 'Refreshing':
+        label = 'RE-LOADING...'
+        break
       case 'Calculating':
         label = 'CALCULATING...'
         break
@@ -261,4 +271,3 @@ function newRestartSimulation () {
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }
-

@@ -57,7 +57,7 @@ function newAnimation () {
                 /* We set the canvas to its normal width and height */
 
         browserCanvas.width = window.innerWidth
-        browserCanvas.height = window.innerHeight - window.canvasApp.topMargin
+        browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
 
                 /* First thing is to clear the actual canvas */
 

@@ -7,6 +7,7 @@
      status: 'BOTTOM',
      assetBalances: undefined,
      restartSimulation: undefined,
+     fullscreen: undefined,
      draw: draw,
      physics: physics,
      getContainer: getContainer,
@@ -37,6 +38,7 @@
      thisObject.container = undefined
      thisObject.assetBalances = undefined
      thisObject.restartSimulation = undefined
+     thisObject.fullscreen = undefined
    }
 
    function initialize () {
@@ -49,6 +51,10 @@
      thisObject.restartSimulation = newRestartSimulation()
      thisObject.restartSimulation.container.connectToParent(thisObject.container)
      thisObject.restartSimulation.initialize()
+
+     thisObject.fullscreen = newFullScreen()
+     thisObject.fullscreen.container.connectToParent(thisObject.container)
+     thisObject.fullscreen.initialize()
    }
 
    function onMouseClick (event) {
@@ -70,6 +76,7 @@
 
    function childrenPhysics () {
      thisObject.restartSimulation.physics()
+     thisObject.fullscreen.physics()
    }
    function thisObjectPhysics () {
      /* Check the limits */
@@ -109,6 +116,9 @@
      container = thisObject.restartSimulation.getContainer(point)
      if (container !== undefined) { return container }
 
+     container = thisObject.fullscreen.getContainer(point)
+     if (container !== undefined) { return container }
+
      if (thisObject.container.frame.isThisPointHere(point, true) === true) {
        return thisObject.container
      } else {
@@ -123,6 +133,7 @@
 
      thisObject.assetBalances.draw()
      thisObject.restartSimulation.draw()
+     thisObject.fullscreen.draw()
    }
 
    function drawBackground () {

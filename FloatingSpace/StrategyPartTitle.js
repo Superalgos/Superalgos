@@ -121,12 +121,12 @@ function newStrategyPartTitle () {
     if (thisObject.editMode === true) {
       let inputPosition = {
         x: 0,
-        y: 0 + window.canvasApp.topMargin
+        y: 0 + CURRENT_TOP_MARGIN
       }
 
       inputPosition = thisObject.container.frame.frameThisPoint(inputPosition)
 
-      if (inputPosition.y < window.canvasApp.topMargin) { exitEditMode() }
+      if (inputPosition.y < CURRENT_TOP_MARGIN) { exitEditMode() }
 
       let inputDiv = document.getElementById('inputDiv')
       inputDiv.style = 'position:absolute; top:' + inputPosition.y + 'px; left:' + inputPosition.x + 'px; z-index:1; '

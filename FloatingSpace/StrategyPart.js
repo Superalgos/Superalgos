@@ -245,9 +245,9 @@ function newStrategyPart () {
       browserCanvasContext.beginPath()
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
-      browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)'
-      browserCanvasContext.setLineDash([1, 4])
-      browserCanvasContext.lineWidth = 1
+      browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 1)'
+      browserCanvasContext.setLineDash([3, 4])
+      browserCanvasContext.lineWidth = 2
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
     }

@@ -90,6 +90,8 @@ function newStrategyPartTitle () {
   }
 
   function getContainer (point) {
+    if (CURRENT_TOP_MARGIN === 0) { return } // Fullscreen mode does not allow INPUT elements
+
     let container
 
     if (thisObject.editMode === true) {

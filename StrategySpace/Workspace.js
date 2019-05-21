@@ -273,7 +273,13 @@ function newWorkspace () {
       case 'Download':
 
         let text = JSON.stringify(getProtocolNode(payload.node))
-        let fileName = payload.node.type + '.' + payload.node.name + '.json'
+        let nodeName = payload.node.name
+        if (nodeName === undefined) {
+          nodeName = ''
+        } else {
+          nodeName = '.' + nodeName
+        }
+        let fileName = payload.node.type + nodeName + '.json'
         download(fileName, text)
 
         break
@@ -467,6 +473,37 @@ function newWorkspace () {
         return phase
         break
       }
+      case 'Stop': {
+        let stop = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          phases: []
+        }
+
+        for (let m = 0; m < node.phases.length; m++) {
+          let phase = getProtocolNode(node.phases[m])
+          stop.phases.push(phase)
+        }
+        return stop
+        break
+      }
+      case 'Take Profit': {
+        let takeProfit = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          phases: []
+        }
+
+        for (let m = 0; m < node.phases.length; m++) {
+          let phase = getProtocolNode(node.phases[m])
+          takeProfit.phases.push(phase)
+        }
+        return takeProfit
+        break
+      }
     }
   }
 }
+

@@ -175,73 +175,7 @@ function newWorkspace () {
   }
 
   function destroyStrategyParts () {
-    let strategy = thisObject.tradingSystem
-    destroyPart(strategy)
 
-    destroyPart(strategy.entryPoint)
-    for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
-      let situation = strategy.entryPoint.situations[k]
-      destroyPart(situation)
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        destroyPart(condition)
-      }
-    }
-
-    destroyPart(strategy.exitPoint)
-    for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
-      let situation = strategy.exitPoint.situations[k]
-      destroyPart(situation)
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        destroyPart(condition)
-      }
-    }
-
-    destroyPart(strategy.sellPoint)
-    for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
-      let situation = strategy.sellPoint.situations[k]
-      destroyPart(situation)
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        destroyPart(condition)
-      }
-    }
-
-    destroyPart(strategy.stopLoss)
-    for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
-      let phase = strategy.stopLoss.phases[p]
-      destroyPart(strategy.stopLoss)
-
-      for (let k = 0; k < phase.situations.length; k++) {
-        let situation = phase.situations[k]
-        destroyPart(situation)
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-          destroyPart(condition)
-        }
-      }
-    }
-
-    destroyPart(strategy.buyOrder)
-    for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
-      let phase = strategy.buyOrder.phases[p]
-      destroyPart(strategy.buyOrder)
-
-      for (let k = 0; k < phase.situations.length; k++) {
-        let situation = phase.situations[k]
-        destroyPart(situation)
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-          destroyPart(condition)
-        }
-      }
-    }
   }
 
   async function onMenuItemClick (payload, action) {
@@ -252,20 +186,6 @@ function newWorkspace () {
           return result
           break
         }
-
-      case 'Open Settings':
-        break
-      case 'Delete Strategy':
-
-        break
-
-      case 'Reload Strategy':
-
-        break
-
-      case 'Save Strategy':
-
-        break
 
       case 'Edit Code':
 
@@ -282,6 +202,40 @@ function newWorkspace () {
         let fileName = payload.node.type + nodeName + '.json'
         download(fileName, text)
 
+        break
+
+      case 'New Strategy':
+        {
+          let strategyParent = payload.node
+
+          let strategy = {
+            name: 'New Strategy',
+            active: true,
+            entryPoint: {
+              situations: []
+            },
+            exitPoint: {
+              situations: []
+            },
+            sellPoint: {
+              situations: []
+            },
+            stopLoss: {
+              phases: []
+            },
+            buyOrder: {
+              phases: []
+            }
+          }
+
+          strategyParent.strategies.push(strategy)
+          createPart('Strategy', strategy.name, strategy, strategyParent, strategyParent, 'Strategy')
+          createPart('Strategy Entry Event', '', strategy.entryPoint, strategy, strategy)
+          createPart('Strategy Exit Event', '', strategy.exitPoint, strategy, strategy)
+          createPart('Trade Entry Event', '', strategy.sellPoint, strategy, strategy)
+          createPart('Stop', '', strategy.stopLoss, strategy, strategy)
+          createPart('Take Profit', '', strategy.buyOrder, strategy, strategy)
+        }
         break
       case 'Add Phase':
         {
@@ -618,3 +572,4 @@ function newWorkspace () {
     }
   }
 }
+

@@ -503,7 +503,51 @@ function newWorkspace () {
         return takeProfit
         break
       }
+      case 'Trade Entry Event': {
+        let event = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          situations: []
+        }
+
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = getProtocolNode(node.situations[m])
+          event.situations.push(situation)
+        }
+        return event
+        break
+      }
+      case 'Strategy Entry Event': {
+        let event = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          situations: []
+        }
+
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = getProtocolNode(node.situations[m])
+          event.situations.push(situation)
+        }
+        return event
+        break
+      }
+      case 'Strategy Exit Event': {
+        let event = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          situations: []
+        }
+
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = getProtocolNode(node.situations[m])
+          event.situations.push(situation)
+        }
+        return event
+        break
+      }
     }
   }
 }
-

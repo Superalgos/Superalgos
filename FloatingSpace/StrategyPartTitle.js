@@ -55,13 +55,13 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Strategy Entry Event': {
+      case 'Trigger On Event': {
         break
       }
-      case 'Strategy Exit Event': {
+      case 'Trigger Off Event': {
         break
       }
-      case 'Trade Entry Event': {
+      case 'Take Position Event': {
         break
       }
       case 'Stop': {

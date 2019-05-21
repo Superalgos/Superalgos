@@ -154,7 +154,7 @@ function newStrategyPartConstructor () {
           }]
         break
       }
-      case 'Strategy Entry Event': {
+      case 'Trigger On Event': {
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -196,7 +196,7 @@ function newStrategyPartConstructor () {
           }]
         break
       }
-      case 'Strategy Exit Event': {
+      case 'Trigger Off Event': {
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -238,7 +238,7 @@ function newStrategyPartConstructor () {
           }]
         break
       }
-      case 'Trade Entry Event': {
+      case 'Take Position Event': {
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -569,15 +569,15 @@ function newStrategyPartConstructor () {
         level_1()
         break
       }
-      case 'Strategy Entry Event': {
+      case 'Trigger On Event': {
         level_2()
         break
       }
-      case 'Strategy Exit Event': {
+      case 'Trigger Off Event': {
         level_2()
         break
       }
-      case 'Trade Entry Event': {
+      case 'Take Position Event': {
         level_2()
         break
       }

@@ -92,10 +92,10 @@ function newWorkspace () {
       let strategy = tradingSystem.strategies[m]
       createPart('Strategy', strategy.name, strategy, tradingSystem, tradingSystem)
 
-      createPart('Strategy Entry Event', '', strategy.entryPoint, strategy, strategy)
+      createPart('Trigger On Event', '', strategy.entryPoint, strategy, strategy)
       for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
         let situation = strategy.entryPoint.situations[k]
-        createPart('Situation', situation.name, situation, strategy.entryPoint, strategy.entryPoint, 'Strategy Entry' + ' ' + 'Situation')
+        createPart('Situation', situation.name, situation, strategy.entryPoint, strategy.entryPoint, 'Trigger On' + ' ' + 'Situation')
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
@@ -103,10 +103,10 @@ function newWorkspace () {
         }
       }
 
-      createPart('Strategy Exit Event', '', strategy.exitPoint, strategy, strategy)
+      createPart('Trigger Off Event', '', strategy.exitPoint, strategy, strategy)
       for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
         let situation = strategy.exitPoint.situations[k]
-        createPart('Situation', situation.name, situation, strategy.exitPoint, strategy.exitPoint, 'Strategy Exit' + ' ' + 'Situation')
+        createPart('Situation', situation.name, situation, strategy.exitPoint, strategy.exitPoint, 'Trigger Off' + ' ' + 'Situation')
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
@@ -114,10 +114,10 @@ function newWorkspace () {
         }
       }
 
-      createPart('Trade Entry Event', '', strategy.sellPoint, strategy, strategy)
+      createPart('Take Position Event', '', strategy.sellPoint, strategy, strategy)
       for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
         let situation = strategy.sellPoint.situations[k]
-        createPart('Situation', situation.name, situation, strategy.sellPoint, strategy.sellPoint, 'Trade Entry' + ' ' + 'Situation')
+        createPart('Situation', situation.name, situation, strategy.sellPoint, strategy.sellPoint, 'Take Position' + ' ' + 'Situation')
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
@@ -230,9 +230,9 @@ function newWorkspace () {
 
           strategyParent.strategies.push(strategy)
           createPart('Strategy', strategy.name, strategy, strategyParent, strategyParent, 'Strategy')
-          createPart('Strategy Entry Event', '', strategy.entryPoint, strategy, strategy)
-          createPart('Strategy Exit Event', '', strategy.exitPoint, strategy, strategy)
-          createPart('Trade Entry Event', '', strategy.sellPoint, strategy, strategy)
+          createPart('Trigger On Event', '', strategy.entryPoint, strategy, strategy)
+          createPart('Trigger Off Event', '', strategy.exitPoint, strategy, strategy)
+          createPart('Take Position Event', '', strategy.sellPoint, strategy, strategy)
           createPart('Stop', '', strategy.stopLoss, strategy, strategy)
           createPart('Take Profit', '', strategy.buyOrder, strategy, strategy)
         }
@@ -486,7 +486,7 @@ function newWorkspace () {
         return takeProfit
         break
       }
-      case 'Trade Entry Event': {
+      case 'Take Position Event': {
         let event = {
           type: node.type,
           subType: node.subType,
@@ -501,7 +501,7 @@ function newWorkspace () {
         return event
         break
       }
-      case 'Strategy Entry Event': {
+      case 'Trigger On Event': {
         let event = {
           type: node.type,
           subType: node.subType,
@@ -516,7 +516,7 @@ function newWorkspace () {
         return event
         break
       }
-      case 'Strategy Exit Event': {
+      case 'Trigger Off Event': {
         let event = {
           type: node.type,
           subType: node.subType,

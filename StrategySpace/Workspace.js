@@ -175,73 +175,7 @@ function newWorkspace () {
   }
 
   function destroyStrategyParts () {
-    let strategy = thisObject.tradingSystem
-    destroyPart(strategy)
 
-    destroyPart(strategy.entryPoint)
-    for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
-      let situation = strategy.entryPoint.situations[k]
-      destroyPart(situation)
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        destroyPart(condition)
-      }
-    }
-
-    destroyPart(strategy.exitPoint)
-    for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
-      let situation = strategy.exitPoint.situations[k]
-      destroyPart(situation)
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        destroyPart(condition)
-      }
-    }
-
-    destroyPart(strategy.sellPoint)
-    for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
-      let situation = strategy.sellPoint.situations[k]
-      destroyPart(situation)
-
-      for (let m = 0; m < situation.conditions.length; m++) {
-        let condition = situation.conditions[m]
-        destroyPart(condition)
-      }
-    }
-
-    destroyPart(strategy.stopLoss)
-    for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
-      let phase = strategy.stopLoss.phases[p]
-      destroyPart(strategy.stopLoss)
-
-      for (let k = 0; k < phase.situations.length; k++) {
-        let situation = phase.situations[k]
-        destroyPart(situation)
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-          destroyPart(condition)
-        }
-      }
-    }
-
-    destroyPart(strategy.buyOrder)
-    for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
-      let phase = strategy.buyOrder.phases[p]
-      destroyPart(strategy.buyOrder)
-
-      for (let k = 0; k < phase.situations.length; k++) {
-        let situation = phase.situations[k]
-        destroyPart(situation)
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-          destroyPart(condition)
-        }
-      }
-    }
   }
 
   async function onMenuItemClick (payload, action) {
@@ -253,22 +187,55 @@ function newWorkspace () {
           break
         }
 
-      case 'Open Settings':
-        break
-      case 'Delete Strategy':
-
-        break
-
-      case 'Reload Strategy':
-
-        break
-
-      case 'Save Strategy':
-
-        break
-
       case 'Edit Code':
 
+        break
+      case 'Download':
+
+        let text = JSON.stringify(getProtocolNode(payload.node))
+        let nodeName = payload.node.name
+        if (nodeName === undefined) {
+          nodeName = ''
+        } else {
+          nodeName = '.' + nodeName
+        }
+        let fileName = payload.node.type + nodeName + '.json'
+        download(fileName, text)
+
+        break
+
+      case 'New Strategy':
+        {
+          let strategyParent = payload.node
+
+          let strategy = {
+            name: 'New Strategy',
+            active: true,
+            entryPoint: {
+              situations: []
+            },
+            exitPoint: {
+              situations: []
+            },
+            sellPoint: {
+              situations: []
+            },
+            stopLoss: {
+              phases: []
+            },
+            buyOrder: {
+              phases: []
+            }
+          }
+
+          strategyParent.strategies.push(strategy)
+          createPart('Strategy', strategy.name, strategy, strategyParent, strategyParent, 'Strategy')
+          createPart('Strategy Entry Event', '', strategy.entryPoint, strategy, strategy)
+          createPart('Strategy Exit Event', '', strategy.exitPoint, strategy, strategy)
+          createPart('Trade Entry Event', '', strategy.sellPoint, strategy, strategy)
+          createPart('Stop', '', strategy.stopLoss, strategy, strategy)
+          createPart('Take Profit', '', strategy.buyOrder, strategy, strategy)
+        }
         break
       case 'Add Phase':
         {
@@ -313,6 +280,10 @@ function newWorkspace () {
           createPart('Condition', condition.name, condition, situation, situation, 'Condition')
         }
         break
+      case 'Delete Strategy': {
+        deleteStrategy(payload.node)
+        break
+      }
       case 'Delete Phase': {
         deletePhase(payload.node)
         break
@@ -330,22 +301,48 @@ function newWorkspace () {
     }
   }
 
+  function deleteStrategy (node) {
+    let payload = node.payload
+    for (let j = 0; j < payload.parentNode.strategies.length; j++) {
+      let strategy = payload.parentNode.strategies[j]
+      if (strategy.id === node.id) {
+        deleteEvent(strategy.entryPoint)
+        deleteEvent(strategy.exitPoint)
+        deleteEvent(strategy.sellPoint)
+        deleteManagedItem(strategy.stopLoss)
+        deleteManagedItem(strategy.buyOrder)
+        destroyPart(strategy)
+        payload.parentNode.strategies.splice(j, 1)
+        cleanNode(strategy)
+        return
+      }
+    }
+  }
+
+  function deleteEvent (node) {
+    while (node.situations.length > 0) {
+      deleteSituation(node.situations[0])
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteManagedItem (node) {
+    while (node.phases.length > 0) {
+      deletePhase(node.phases[0])
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
   function deletePhase (node) {
     let payload = node.payload
     for (let k = 0; k < payload.parentNode.phases.length; k++) {
       let phase = payload.parentNode.phases[k]
       if (phase.id === node.id) {
-        for (let j = 0; j < phase.situations.length; j++) {
-          let situation = phase.situations[j]
-          for (let i = 0; i < situation.conditions.length; i++) {
-            let condition = situation.conditions[i]
-            destroyPart(condition)
-            cleanNode(condition)
-          }
-          situation.conditions = []
-          destroyPart(situation)
-          phase.situations.splice(j, 1)
-          cleanNode(situation)
+        while (phase.situations.length > 0) {
+          let situation = phase.situations[0]
+          deleteSituation(situation)
         }
         phase.situations = []
         /* Before deleting this phase we need to give its chainParent to the next phase down the chain */
@@ -366,10 +363,9 @@ function newWorkspace () {
     for (let j = 0; j < payload.parentNode.situations.length; j++) {
       let situation = payload.parentNode.situations[j]
       if (situation.id === node.id) {
-        for (let i = 0; i < situation.conditions.length; i++) {
-          let condition = situation.conditions[i]
-          destroyPart(condition)
-          cleanNode(condition)
+        while (situation.conditions.length > 0) {
+          let condition = situation.conditions[0]
+          deleteCondition(condition)
         }
         situation.conditions = []
         destroyPart(situation)
@@ -406,5 +402,164 @@ function newWorkspace () {
     node.handle = undefined
     node.payload = undefined
     node.cleaned = true
+  }
+
+  function download (filename, text) {
+    let element = document.createElement('a')
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
+    element.setAttribute('download', filename)
+    element.style.display = 'none'
+    document.body.appendChild(element)
+    element.click()
+    document.body.removeChild(element)
+  }
+
+  function getProtocolNode (node) {
+    switch (node.type) {
+      case 'Condition':
+        {
+          let condition = {
+            type: node.type,
+            name: node.name,
+            code: node.code
+          }
+          return condition
+          break
+        }
+      case 'Situation': {
+        let situation = {
+          type: node.type,
+          name: node.name,
+          conditions: []
+        }
+
+        for (let m = 0; m < node.conditions.length; m++) {
+          let condition = getProtocolNode(node.conditions[m])
+          situation.conditions.push(condition)
+        }
+        return situation
+        break
+      }
+      case 'Phase': {
+        let phase = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          situations: []
+        }
+
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = getProtocolNode(node.situations[m])
+          phase.situations.push(situation)
+        }
+        return phase
+        break
+      }
+      case 'Stop': {
+        let stop = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          phases: []
+        }
+
+        for (let m = 0; m < node.phases.length; m++) {
+          let phase = getProtocolNode(node.phases[m])
+          stop.phases.push(phase)
+        }
+        return stop
+        break
+      }
+      case 'Take Profit': {
+        let takeProfit = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          phases: []
+        }
+
+        for (let m = 0; m < node.phases.length; m++) {
+          let phase = getProtocolNode(node.phases[m])
+          takeProfit.phases.push(phase)
+        }
+        return takeProfit
+        break
+      }
+      case 'Trade Entry Event': {
+        let event = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          situations: []
+        }
+
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = getProtocolNode(node.situations[m])
+          event.situations.push(situation)
+        }
+        return event
+        break
+      }
+      case 'Strategy Entry Event': {
+        let event = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          situations: []
+        }
+
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = getProtocolNode(node.situations[m])
+          event.situations.push(situation)
+        }
+        return event
+        break
+      }
+      case 'Strategy Exit Event': {
+        let event = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          situations: []
+        }
+
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = getProtocolNode(node.situations[m])
+          event.situations.push(situation)
+        }
+        return event
+        break
+      }
+      case 'Strategy': {
+        let strategy = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          entryPoint: getProtocolNode(node.entryPoint),
+          exitPoint: getProtocolNode(node.exitPoint),
+          sellPoint: getProtocolNode(node.sellPoint),
+          stopLoss: getProtocolNode(node.stopLoss),
+          buyOrder: getProtocolNode(node.buyOrder)
+        }
+        return strategy
+        break
+      }
+      case 'Trading System': {
+        let tradingSystem = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          strategies: []
+        }
+
+        for (let m = 0; m < node.strategies.length; m++) {
+          let strategy = getProtocolNode(node.strategies[m])
+          tradingSystem.strategies.push(strategy)
+        }
+        return tradingSystem
+        break
+      }
+    }
   }
 }

@@ -72,18 +72,6 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
-            action: 'Reload Trading System',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Reload',
-            visible: false,
-            iconPathOn: 'vector',
-            iconPathOff: 'vector',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -60
-          },
-          {
             action: 'Save Trading System',
             actionFunction: payload.onMenuItemClick,
             label: 'Save Changes',
@@ -96,7 +84,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           },
           {
             action: 'New Strategy',
@@ -109,19 +97,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 0
           },
           {
-            action: 'Open Settings',
+            action: 'Download',
             actionFunction: payload.onMenuItemClick,
-            label: 'Settings',
+            label: 'Download',
             visible: false,
-            iconPathOn: 'tools',
-            iconPathOff: 'tools',
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 40
           }]
         break
       }
@@ -153,12 +141,12 @@ function newStrategyPartConstructor () {
             angle: -20
           },
           {
-            action: 'Open Settings',
+            action: 'Download',
             actionFunction: payload.onMenuItemClick,
-            label: 'Settings',
+            label: 'Download',
             visible: false,
-            iconPathOn: 'tools',
-            iconPathOff: 'tools',
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -192,7 +180,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }]
         break
       }
@@ -222,7 +222,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }]
         break
       }
@@ -252,7 +264,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }]
         break
       }
@@ -282,7 +306,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }]
         break
       }
@@ -312,7 +348,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }]
         break
       }
@@ -346,7 +394,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40,
+            angle: -60,
             dontShowAtFullscreen: true
           },
           {
@@ -360,7 +408,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
           },
           {
             action: 'Delete Phase',
@@ -372,7 +420,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: 20
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
           }]
         break
       }
@@ -402,7 +462,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: -40
           },
           {
             action: 'Delete Situation',
@@ -414,7 +474,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }]
         break
       }
@@ -448,7 +520,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20,
+            angle: -40,
             dontShowAtFullscreen: true
           },
           {
@@ -461,7 +533,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }]
         break
       }

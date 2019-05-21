@@ -72,18 +72,6 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
-            action: 'Reload Trading System',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Reload',
-            visible: false,
-            iconPathOn: 'vector',
-            iconPathOff: 'vector',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -80
-          },
-          {
             action: 'Save Trading System',
             actionFunction: payload.onMenuItemClick,
             label: 'Save Changes',
@@ -112,18 +100,6 @@ function newStrategyPartConstructor () {
             angle: 0
           },
           {
-            action: 'Open Settings',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Settings',
-            visible: false,
-            iconPathOn: 'tools',
-            iconPathOff: 'tools',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 40
-          },
-          {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
             label: 'Download',
@@ -133,7 +109,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 80
+            angle: 40
           }]
         break
       }
@@ -153,18 +129,6 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
-            action: 'Open Settings',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Settings',
-            visible: false,
-            iconPathOn: 'tools',
-            iconPathOff: 'tools',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -40
-          },
-          {
             action: 'Delete Strategy',
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Strategy',
@@ -174,7 +138,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -0
+            angle: -20
           },
           {
             action: 'Download',
@@ -186,7 +150,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 20
           }]
         break
       }

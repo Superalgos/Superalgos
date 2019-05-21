@@ -326,6 +326,10 @@ function newWorkspace () {
           createPart('Condition', condition.name, condition, situation, situation, 'Condition')
         }
         break
+      case 'Delete Strategy': {
+        deleteStrategy(payload.node)
+        break
+      }
       case 'Delete Phase': {
         deletePhase(payload.node)
         break
@@ -341,6 +345,40 @@ function newWorkspace () {
       default:
 
     }
+  }
+
+  function deleteStrategy (node) {
+    let payload = node.payload
+    for (let j = 0; j < payload.parentNode.strategies.length; j++) {
+      let strategy = payload.parentNode.strategies[j]
+      if (strategy.id === node.id) {
+        deleteEvent(strategy.entryPoint)
+        deleteEvent(strategy.exitPoint)
+        deleteEvent(strategy.sellPoint)
+        deleteManagedItem(strategy.stopLoss)
+        deleteManagedItem(strategy.buyOrder)
+        destroyPart(strategy)
+        payload.parentNode.strategies.splice(j, 1)
+        cleanNode(strategy)
+        return
+      }
+    }
+  }
+
+  function deleteEvent (node) {
+    while (node.situations.length > 0) {
+      deleteSituation(node.situations[0])
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteManagedItem (node) {
+    while (node.phases.length > 0) {
+      deletePhase(node.phases[0])
+    }
+    destroyPart(node)
+    cleanNode(node)
   }
 
   function deletePhase (node) {

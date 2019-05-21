@@ -153,18 +153,6 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
-            action: 'Delete Strategy',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Delete This Strategy',
-            visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -40
-          },
-          {
             action: 'Open Settings',
             actionFunction: payload.onMenuItemClick,
             label: 'Settings',
@@ -174,7 +162,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -40
+          },
+          {
+            action: 'Delete Strategy',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Strategy',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -0
           },
           {
             action: 'Download',

@@ -45,6 +45,37 @@ function newWorkspace () {
   }
 
   function detachNode (node) {
+    switch (node.type) {
+      case 'Trading System': {
+        return
+      }
+      case 'Strategy': {
+
+      }
+        break
+      case 'Trigger On Event': {
+        return
+      }
+        break
+      case 'Trigger Off Event': {
+        return
+      }
+        break
+      case 'Take Position Event': {
+        return
+      }
+        break
+      case 'Stop': {
+        return
+      }
+        break
+      case 'Take Profit': {
+        return
+      }
+        break
+      default:
+
+    }
     node.payload.chainParent = undefined
   }
 

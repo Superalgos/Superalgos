@@ -270,6 +270,13 @@ function newWorkspace () {
       case 'Edit Code':
 
         break
+      case 'Download':
+
+        let text = JSON.stringify(getProtocolNode(payload.node))
+        let fileName = payload.node.type + '.' + payload.node.name + '.json'
+        download(fileName, text)
+
+        break
       case 'Add Phase':
         {
           let phaseParent = payload.node
@@ -406,5 +413,60 @@ function newWorkspace () {
     node.handle = undefined
     node.payload = undefined
     node.cleaned = true
+  }
+
+  function download (filename, text) {
+    let element = document.createElement('a')
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
+    element.setAttribute('download', filename)
+    element.style.display = 'none'
+    document.body.appendChild(element)
+    element.click()
+    document.body.removeChild(element)
+  }
+
+  function getProtocolNode (node) {
+    switch (node.type) {
+      case 'Condition':
+        {
+          let condition = {
+            type: node.type,
+            name: node.name,
+            code: node.code
+          }
+          return condition
+          break
+        }
+      case 'Situation': {
+        let situation = {
+          type: node.type,
+          name: node.name,
+          conditions: []
+        }
+
+        for (let m = 0; m < node.conditions.length; m++) {
+          let condition = getProtocolNode(node.conditions[m])
+          situation.conditions.push(condition)
+        }
+        return situation
+        break
+      }
+      case 'Phase': {
+        let phase = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          situations: []
+        }
+
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = getProtocolNode(node.situations[m])
+          phase.situations.push(situation)
+        }
+        return phase
+        break
+      }
+    }
   }
 }

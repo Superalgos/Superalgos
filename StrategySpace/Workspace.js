@@ -340,17 +340,9 @@ function newWorkspace () {
     for (let k = 0; k < payload.parentNode.phases.length; k++) {
       let phase = payload.parentNode.phases[k]
       if (phase.id === node.id) {
-        for (let j = 0; j < phase.situations.length; j++) {
-          let situation = phase.situations[j]
-          for (let i = 0; i < situation.conditions.length; i++) {
-            let condition = situation.conditions[i]
-            destroyPart(condition)
-            cleanNode(condition)
-          }
-          situation.conditions = []
-          destroyPart(situation)
-          phase.situations.splice(j, 1)
-          cleanNode(situation)
+        while (phase.situations.length > 0) {
+          let situation = phase.situations[0]
+          deleteSituation(situation)
         }
         phase.situations = []
         /* Before deleting this phase we need to give its chainParent to the next phase down the chain */
@@ -371,10 +363,9 @@ function newWorkspace () {
     for (let j = 0; j < payload.parentNode.situations.length; j++) {
       let situation = payload.parentNode.situations[j]
       if (situation.id === node.id) {
-        for (let i = 0; i < situation.conditions.length; i++) {
-          let condition = situation.conditions[i]
-          destroyPart(condition)
-          cleanNode(condition)
+        while (situation.conditions.length > 0) {
+          let condition = situation.conditions[0]
+          deleteCondition(condition)
         }
         situation.conditions = []
         destroyPart(situation)
@@ -572,4 +563,3 @@ function newWorkspace () {
     }
   }
 }
-

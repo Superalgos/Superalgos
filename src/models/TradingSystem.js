@@ -49,6 +49,6 @@ const tradingSystemSchema = new Schema(
   },
 );
 
-const TradingSystem = mongoose.model('Signal', tradingSystemSchema);
+const TradingSystem = mongoose.model('TradingSystem', tradingSystemSchema);
 
 export default TradingSystem;

@@ -15,14 +15,14 @@ const Type = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     fbSlug: { type: GraphQLString },
-    Strategies: {
+    strategies: {
       args: { activeOnly: { type: GraphQLBoolean } },
       type: new GraphQLList(StrategyType),
       resolve(parent, { activeOnly }) {
         if (activeOnly) {
-          return parent.Strategies.filter(Strategy => Strategy.active);
+          return parent.strategies.filter(strategy => strategy.active);
         }
-        return parent.Strategies;
+        return parent.strategies;
       },
     },
   }),

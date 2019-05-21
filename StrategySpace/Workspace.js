@@ -5,6 +5,7 @@ function newWorkspace () {
   let thisObject = {
     tradingSystem: undefined,
     container: undefined,
+    detachNode: detachNode,
     getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
@@ -41,6 +42,10 @@ function newWorkspace () {
 
   function getContainer (point) {
 
+  }
+
+  function detachNode (node) {
+    node.payload.chainParent = undefined
   }
 
   function createPart (partType, name, node, parentNode, chainParent, title) {

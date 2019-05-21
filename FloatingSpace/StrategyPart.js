@@ -47,6 +47,8 @@ function newStrategyPart () {
   let isHighlighted
   let highlightCounter = 0
 
+  let previousDistance
+  let detachFuse = 100
   return thisObject
 
   function finalize () {
@@ -127,8 +129,8 @@ function newStrategyPart () {
     }
 
     if (thisObject.payload.chainParent === undefined) {
-      thisObject.payload.targetPosition.x = canvas.floatingSpace.container.frame.width / 2,
-      thisObject.payload.targetPosition.y = canvas.floatingSpace.container.frame.height / 2
+      thisObject.payload.targetPosition.x = thisObject.payload.position.x,
+      thisObject.payload.targetPosition.y = thisObject.payload.position.y
     } else {
       thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x
       thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
@@ -136,6 +138,30 @@ function newStrategyPart () {
 
     iconPhysics()
     highlightPhisycs()
+    detachingPhysics()
+  }
+
+  function detachingPhysics () {
+    let THRESHOLD
+    if (thisObject.payload.floatingObject.isPinned === true) {
+      THRESHOLD = 1.10
+    } else {
+      THRESHOLD = 2.00
+    }
+
+    detachFuse--
+    if (detachFuse < 0) {
+      detachFuse = 0
+      if (thisObject.payload.chainParent !== undefined) {
+        let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
+        if (previousDistance !== undefined) {
+          if (distanceToChainParent / previousDistance > 1.25) {
+            canvas.strategySpace.workspace.detachNode(thisObject.payload.node)
+          }
+        }
+        previousDistance = distanceToChainParent
+      }
+    }
   }
 
   function highlightPhisycs () {

@@ -1,14 +1,21 @@
 import {
+  GraphQLString,
+  GraphQLBoolean,
   GraphQLInputObjectType,
-  GraphQLList,
 } from 'graphql';
-import { SubStrategyInputType } from './index';
+import GraphQLJSON from 'graphql-type-json';
 
 const Type = new GraphQLInputObjectType({
-  name: 'StrategyInput',
-  description: 'Payload for strategy input',
+  name: 'SubStrategyInput',
+  description: 'Payload for subStrategy input',
   fields: () => ({
-    subStrategies: { type: new GraphQLList(SubStrategyInputType) },
+    active: { type: GraphQLBoolean },
+    name: { type: GraphQLString },
+    filter: { type: GraphQLJSON },
+    triggerStage: { type: GraphQLJSON },
+    openStage: { type: GraphQLJSON },
+    manageStage: { type: GraphQLJSON },
+    closeStage: { type: GraphQLJSON },
   }),
 });
 

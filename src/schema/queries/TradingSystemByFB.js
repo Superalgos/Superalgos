@@ -3,30 +3,30 @@ import {
   GraphQLString,
 } from 'graphql';
 import { DatabaseError } from '../../errors';
-import { StrategyType } from '../types';
-import { Strategy } from '../../models';
+import { TradingSystemType } from '../types';
+import { TradingSystem } from '../../models';
 
 const args = {
   fbSlug: { type: new GraphQLNonNull(GraphQLString) },
 };
 
 const resolve = (parent, { fbSlug }) => new Promise((res, rej) => {
-  Strategy.findOne({ fbSlug }).exec((err, strategy) => {
+  TradingSystem.findOne({ fbSlug }).exec((err, tradingSystem) => {
     if (err) {
       rej(err);
       return;
     }
-    if (!strategy) {
-      rej(new DatabaseError('None of the strategy are linked to that fbSlug'));
+    if (!tradingSystem) {
+      rej(new DatabaseError('None of the tradingSystem are linked to that fbSlug'));
       return;
     }
-    res(strategy);
+    res(tradingSystem);
   });
 });
 
 const query = {
-  strategyByFb: {
-    type: StrategyType,
+  tradingSystemByFb: {
+    type: TradingSystemType,
     args,
     resolve,
   },

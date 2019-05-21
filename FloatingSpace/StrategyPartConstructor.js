@@ -81,7 +81,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -80
           },
           {
             action: 'Save Trading System',
@@ -96,7 +96,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           },
           {
             action: 'New Strategy',
@@ -109,7 +109,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 0
           },
           {
             action: 'Open Settings',
@@ -121,7 +121,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 40
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 80
           }]
         break
       }
@@ -150,7 +162,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           },
           {
             action: 'Open Settings',
@@ -162,7 +174,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }]
         break
       }

@@ -548,6 +548,35 @@ function newWorkspace () {
         return event
         break
       }
+      case 'Strategy': {
+        let strategy = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          entryPoint: getProtocolNode(node.entryPoint),
+          exitPoint: getProtocolNode(node.exitPoint),
+          sellPoint: getProtocolNode(node.sellPoint),
+          stopLoss: getProtocolNode(node.stopLoss),
+          buyOrder: getProtocolNode(node.buyOrder)
+        }
+        return strategy
+        break
+      }
+      case 'Trading System': {
+        let tradingSystem = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          strategies: []
+        }
+
+        for (let m = 0; m < node.strategies.length; m++) {
+          let strategy = getProtocolNode(node.strategies[m])
+          tradingSystem.strategies.push(strategy)
+        }
+        return tradingSystem
+        break
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import Strategy from './Strategy';
+import TradingSystem from './TradingSystem';
 
 export {
-  Strategy,
+  TradingSystem,
 };

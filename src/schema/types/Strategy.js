@@ -1,30 +1,21 @@
 import {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLList,
   GraphQLBoolean,
-  GraphQLID,
 } from 'graphql';
-import {
-  SubStrategyType,
-} from './index';
+import GraphQLJSON from 'graphql-type-json';
 
 const Type = new GraphQLObjectType({
   name: 'Strategy',
-  description: 'Everything you need to know about a strategy',
+  description: 'Strategy composing a trading system',
   fields: () => ({
-    id: { type: GraphQLID },
-    fbSlug: { type: GraphQLString },
-    subStrategies: {
-      args: { activeOnly: { type: GraphQLBoolean } },
-      type: new GraphQLList(SubStrategyType),
-      resolve(parent, { activeOnly }) {
-        if (activeOnly) {
-          return parent.subStrategies.filter(subStrategy => subStrategy.active);
-        }
-        return parent.subStrategies;
-      },
-    },
+    active: { type: GraphQLBoolean },
+    name: { type: GraphQLString },
+    filter: { type: GraphQLJSON },
+    triggerStage: { type: GraphQLJSON },
+    openStage: { type: GraphQLJSON },
+    manageStage: { type: GraphQLJSON },
+    closeStage: { type: GraphQLJSON },
   }),
 });
 

@@ -2,12 +2,12 @@ import {
   GraphQLObjectType,
 } from 'graphql';
 
-import StrategyByFbQuery from './StrategyByFB';
+import TradingSystemByFbQuery from './TradingSystemByFB';
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: Object.assign(
-    StrategyByFbQuery,
+    TradingSystemByFbQuery,
   ),
 });
 

@@ -171,11 +171,11 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Phase':
-        compatibleType = 'Stop'
+        compatibleType = 'Stop' + '.' + 'Take Profit' + '.' + 'Phase'
         compatibleSubType = undefined
         break
       case 'Situation':
-        compatibleType = 'Phase'
+        compatibleType = 'Phase' + '.' + 'Take Position Event' + '.' + 'Trigger On Event' + '.' + 'Trigger Off Event'
         compatibleSubType = undefined
         break
       case 'Condition':
@@ -192,7 +192,7 @@ function newStrategyPart () {
       let distance = nearby[0]
       let floatingObject = nearby[1]
       let nearbyNode = floatingObject.payload.node
-      if (nearbyNode.type === compatibleType) {
+      if (compatibleType.indexOf(nearbyNode.type) >= 0) {
         if (foundCompatible === false) {
           if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
             nearbyNode.payload.uiObject.getReadyToAttach()
@@ -623,4 +623,3 @@ function newStrategyPart () {
     }
   }
 }
-

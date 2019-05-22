@@ -73,10 +73,31 @@ function newWorkspace () {
         return
       }
         break
+      case 'Condition': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.conditions.length; i++) {
+          let condition = payload.parentNode.conditions[i]
+          if (condition.id === node.id) {
+            payload.parentNode.conditions.splice(i, 1)
+          }
+        }
+      }
+        break
+      case 'Situation': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.situations.length; i++) {
+          let situation = payload.parentNode.situations[i]
+          if (situation.id === node.id) {
+            payload.parentNode.situations.splice(i, 1)
+          }
+        }
+      }
+        break
       default:
 
     }
     node.payload.chainParent = undefined
+    node.payload.parentNode = undefined
   }
 
   function createPart (partType, name, node, parentNode, chainParent, title) {

@@ -328,35 +328,50 @@ function newStrategyPart () {
     switch (thisObject.payload.node.type) {
       case 'Phase': {
         let parent = thisObject.payload.parentNode
-        for (let i = 0; i < parent.phases.length; i++) {
-          let phase = parent.phases[i]
-          if (phase.id === thisObject.payload.node.id) {
-            label = label + ' #' + (i + 1)
-            return label
+        if (parent !== undefined) {
+          for (let i = 0; i < parent.phases.length; i++) {
+            let phase = parent.phases[i]
+            if (phase.id === thisObject.payload.node.id) {
+              label = label + ' #' + (i + 1)
+              return label
+            }
           }
+        } else {
+          return label
         }
+
         break
       }
       case 'Situation': {
         let parent = thisObject.payload.parentNode
-        for (let i = 0; i < parent.situations.length; i++) {
-          let situation = parent.situations[i]
-          if (situation.id === thisObject.payload.node.id) {
-            label = label + ' #' + (i + 1)
-            return label
+        if (parent !== undefined) {
+          for (let i = 0; i < parent.situations.length; i++) {
+            let situation = parent.situations[i]
+            if (situation.id === thisObject.payload.node.id) {
+              label = label + ' #' + (i + 1)
+              return label
+            }
           }
+        } else {
+          return label
         }
+
         break
       }
       case 'Condition': {
         let parent = thisObject.payload.parentNode
-        for (let i = 0; i < parent.conditions.length; i++) {
-          let condition = parent.conditions[i]
-          if (condition.id === thisObject.payload.node.id) {
-            label = label + ' #' + (i + 1)
-            return label
+        if (parent !== undefined) {
+          for (let i = 0; i < parent.conditions.length; i++) {
+            let condition = parent.conditions[i]
+            if (condition.id === thisObject.payload.node.id) {
+              label = label + ' #' + (i + 1)
+              return label
+            }
           }
+        } else {
+          return label
         }
+
         break
       }
       default: {

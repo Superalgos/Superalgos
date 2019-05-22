@@ -50,7 +50,13 @@ function newWorkspace () {
         return
       }
       case 'Strategy': {
-
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.strategies.length; i++) {
+          let strategy = payload.parentNode.strategies[i]
+          if (strategy.id === node.id) {
+            payload.parentNode.strategies.splice(i, 1)
+          }
+        }
       }
         break
       case 'Trigger On Event': {
@@ -107,9 +113,6 @@ function newWorkspace () {
         }
       }
         break
-
-      default:
-
     }
     node.payload.chainParent = undefined
     node.payload.parentNode = undefined

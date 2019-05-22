@@ -51,6 +51,9 @@ function newStrategyPart () {
 
   let previousDistance
 
+  let readyToAttachDisplayCounter = 5
+  let readyToAttachDisplayIncrement = 0.1
+
   let readyToAttachCounter = 0
   let isReadyToAttach
   let availableToAttachCounter = 0
@@ -204,6 +207,16 @@ function newStrategyPart () {
   }
 
   function attacchingCounters () {
+    if (readyToAttachDisplayCounter > 15) {
+      readyToAttachDisplayIncrement = -0.25
+    }
+
+    if (readyToAttachDisplayCounter < 5) {
+      readyToAttachDisplayIncrement = 0.25
+    }
+
+    readyToAttachDisplayCounter = readyToAttachDisplayCounter + readyToAttachDisplayIncrement
+
     readyToAttachCounter--
     if (readyToAttachCounter <= 0) {
       readyToAttachCounter = 0
@@ -549,7 +562,7 @@ function newStrategyPart () {
       }
 
       if (isReadyToAttach === true) {
-        VISIBLE_RADIUS = thisObject.container.frame.radius * 2
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 2 + readyToAttachDisplayCounter * 2
         let OPACITY = readyToAttachCounter / 10
 
         browserCanvasContext.beginPath()
@@ -558,8 +571,8 @@ function newStrategyPart () {
 
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
 
-        browserCanvasContext.lineWidth = 20
-        browserCanvasContext.setLineDash([12, 20])
+        browserCanvasContext.lineWidth = 10
+        browserCanvasContext.setLineDash([readyToAttachDisplayCounter, readyToAttachDisplayCounter * 2])
         browserCanvasContext.stroke()
       }
 

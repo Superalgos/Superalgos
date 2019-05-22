@@ -56,6 +56,9 @@ function newStrategyPart () {
   let availableToAttachCounter = 0
   let isAvailableToAttach
 
+  let isAttaching = false
+  let attachToNode
+
   return thisObject
 
   function finalize () {
@@ -79,6 +82,7 @@ function newStrategyPart () {
     }
 
     icon = undefined
+    attachToNode = undefined
   }
 
   function initialize (payload, menuItemsInitialValues) {
@@ -177,6 +181,9 @@ function newStrategyPart () {
         break
     }
     let foundCompatible = false
+    attachToNode = undefined
+    isAttaching = false
+
     for (let i = 0; i < nearbyFloatingObjects.length; i++) {
       let nearby = nearbyFloatingObjects[i]
       let distance = nearby[0]
@@ -186,6 +193,8 @@ function newStrategyPart () {
         if (foundCompatible === false) {
           if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
             nearbyNode.payload.uiObject.getReadyToAttach()
+            isAttaching = true
+            attachToNode = nearbyNode
             foundCompatible = true
           }
         }
@@ -267,6 +276,35 @@ function newStrategyPart () {
     thisObject.isOnFocus = false
     if (thisObject.codeEditor !== undefined) {
       thisObject.codeEditor.deactivate()
+    }
+
+    if (isAttaching === true) {
+      switch (thisObject.payload.node.type) {
+        case 'Strategy': {
+          thisObject.payload.parentNode = attachToNode
+          thisObject.payload.chainParent = attachToNode
+          thisObject.payload.parentNode.strategies.push(thisObject.payload.node)
+        }
+          break
+        case 'Phase': {
+          thisObject.payload.parentNode = attachToNode
+          thisObject.payload.chainParent = attachToNode
+          thisObject.payload.parentNode.phases.push(thisObject.payload.node)
+        }
+          break
+        case 'Situation': {
+          thisObject.payload.parentNode = attachToNode
+          thisObject.payload.chainParent = attachToNode
+          thisObject.payload.parentNode.situations.push(thisObject.payload.node)
+        }
+          break
+        case 'Condition': {
+          thisObject.payload.parentNode = attachToNode
+          thisObject.payload.chainParent = attachToNode
+          thisObject.payload.parentNode.conditions.push(thisObject.payload.node)
+        }
+          break
+      }
     }
   }
 
@@ -571,4 +609,3 @@ function newStrategyPart () {
     }
   }
 }
-

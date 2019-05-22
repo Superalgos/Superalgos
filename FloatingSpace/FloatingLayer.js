@@ -394,6 +394,8 @@ function newFloatingLayer () {
             targetRepulsionForce(i)
 
             gravityForce(floatingObject, payload)
+
+            proximityBetweenFloatingObjects(i)
           }
         } catch (err) {
           if (ERROR_LOG === true) { logger.write('[ERROR] physics -> applyPhysics -> err= ' + err.stack) }
@@ -542,58 +544,34 @@ function newFloatingLayer () {
   function proximityBetweenFloatingObjects (currentFloatingObject) {
     try {
       let floatingObject1 = visibleFloatingObjects[currentFloatingObject]
-
+      floatingObject1.nearbyFloatingObjects = []
       for (let i = 0; i < visibleFloatingObjects.length; i++) {
-  // The force to be applied is considering all other floatingObjects...
-
         if (i !== currentFloatingObject) {
-  // ... except for the current one.
-
           let floatingObject2 = visibleFloatingObjects[i]   // So, for each floatingObject...
 
           let d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
 
-          let force = coulomb * floatingObject2.currentMass / (d * d)  // ... and with it the repulsion force.
-
-                    /* We need to put a hard limit to this force, in order to to eject very little floatingObjects to the infinite and beyond. */
-
-          if (force > 1) {
-            force = 1
+          if (floatingObject1.nearbyFloatingObjects.length === 0) {
+            floatingObject1.nearbyFloatingObjects.push([d, floatingObject2])
+          } else {
+            let recordAdded = false
+            for (let j = 0; j < floatingObject1.nearbyFloatingObjects.length; j++) {
+              let recordedDistance = floatingObject1.nearbyFloatingObjects[0]
+              if (d < recordedDistance) {
+                floatingObject1.nearbyFloatingObjects.splice(j, 0, [d, floatingObject2])
+                recordAdded = true
+                break
+              }
+            }
+            if (recordAdded === false) {
+              floatingObject1.nearbyFloatingObjects.push([d, floatingObject2])
+            }
           }
-
-          let pos1 = {
-            x: floatingObject1.container.frame.position.x,
-            y: floatingObject1.container.frame.position.y
-          }
-
-          let pos2 = {
-            x: floatingObject2.container.frame.position.x,
-            y: floatingObject2.container.frame.position.y
-          }
-
-          let posDiff = {             // Next we need the vector resulting from the 2 positions.
-            x: pos2.x - pos1.x,
-            y: pos2.y - pos1.y
-          }
-
-          let unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
-            x: posDiff.x / d,
-            y: posDiff.y / d
-          }
-
-          let forceVector = {
-            x: unitVector.x * force,
-            y: unitVector.y * force
-          }
-
-                    /* We substract the force vector to the speed vector of the current floatingObject */
-
-          floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
-          floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
+          floatingObject1.nearbyFloatingObjects.splice(10, floatingObject1.nearbyFloatingObjects.length)
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] repulsionForceBetweenFloatingObjects -> err= ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] proximityBetweenFloatingObjects -> err= ' + err.stack) }
     }
   }
 
@@ -806,4 +784,3 @@ function newFloatingLayer () {
     }
   }
 }
-

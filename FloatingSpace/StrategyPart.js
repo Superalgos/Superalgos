@@ -17,6 +17,8 @@ function newStrategyPart () {
     codeEditor: undefined,
     partTitle: undefined,
     isExecuting: undefined,
+    getReadyToAttach: getReadyToAttach,
+    showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
     unHighlight: unHighlight,
     physics: physics,
@@ -48,6 +50,12 @@ function newStrategyPart () {
   let highlightCounter = 0
 
   let previousDistance
+
+  let readyToAttachCounter
+  let isReadyToAttach
+  let availableToAttachCounter
+  let isAvailableToAttach
+
   return thisObject
 
   function finalize () {
@@ -138,6 +146,75 @@ function newStrategyPart () {
     iconPhysics()
     highlightPhisycs()
     detachingPhysics()
+    attachingPhysics()
+  }
+
+  function attachingPhysics () {
+    attacchingCounters()
+
+    if (thisObject.isOnFocus !== true) { return }
+
+    let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
+    let compatibleType
+    let compatibleSubType
+    switch (thisObject.payload.node.type) {
+      case 'Strategy':
+        compatibleType = 'Trading System'
+        compatibleSubType = undefined
+        break
+      case 'Phase':
+        compatibleType = 'Stop'
+        compatibleSubType = undefined
+        break
+      case 'Situation':
+        compatibleType = 'Phase'
+        compatibleSubType = undefined
+        break
+      case 'Condition':
+        compatibleType = 'Situation'
+        compatibleSubType = undefined
+        break
+    }
+    for (let i = 0; i < nearbyFloatingObjects.length; i++) {
+      let nearby = nearbyFloatingObjects[i]
+      let distance = nearby[0]
+      let floatingObject = nearby[1]
+      let nearbyNode = floatingObject.payload.node
+      if (nearbyNode.type === compatibleType) {
+        if (i === 0) {
+          if (distance < thisObject.container.frame.radius + floatingObject.container.frame.radius) {
+            nearbyNode.payload.uiObject.getReadyToAttach()
+          }
+        }
+        nearbyNode.payload.uiObject.showAvailabilityToAttach()
+      }
+    }
+  }
+
+  function attacchingCounters () {
+    readyToAttachCounter--
+    if (readyToAttachCounter < 0) {
+      readyToAttachCounter = 0
+      isReadyToAttach = false
+    } else {
+      isReadyToAttach = true
+    }
+
+    availableToAttachCounter--
+    if (availableToAttachCounter < 0) {
+      availableToAttachCounter = 0
+      isAvailableToAttach = false
+    } else {
+      isAvailableToAttach = true
+    }
+  }
+
+  function getReadyToAttach () {
+    readyToAttachCounter = 10
+  }
+
+  function showAvailabilityToAttach () {
+    availableToAttachCounter = 10
   }
 
   function detachingPhysics () {
@@ -426,6 +503,36 @@ function newStrategyPart () {
 
         browserCanvasContext.lineWidth = 10
         browserCanvasContext.setLineDash([4, 20])
+        browserCanvasContext.stroke()
+      }
+
+      if (isReadyToAttach === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius
+        let OPACITY = readyToAttachCounter / 10
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
+
+        browserCanvasContext.lineWidth = 10
+        browserCanvasContext.setLineDash([16, 20])
+        browserCanvasContext.stroke()
+      }
+
+      if (isAvailableToAttach === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius
+        let OPACITY = availableToAttachCounter / 10
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', ' + OPACITY + ')'
+
+        browserCanvasContext.lineWidth = 10
+        browserCanvasContext.setLineDash([8, 20])
         browserCanvasContext.stroke()
       }
     }

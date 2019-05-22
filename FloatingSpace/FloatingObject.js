@@ -20,6 +20,7 @@ function newFloatingObject () {
     rawRadius: 0,                           // This is the radius of this floating object without zoom.
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
+    nearbyFloatingObjects: [],
     pinToggle: pinToggle,
     physics: physics,
     initializeMass: initializeMass,
@@ -65,6 +66,7 @@ function newFloatingObject () {
     thisObject.container = undefined
     thisObject.payload = undefined
     thisObject.fitFunction = undefined
+    thisObject.nearbyFloatingObjects = undefined
   }
 
   function initialize (type, payload) {

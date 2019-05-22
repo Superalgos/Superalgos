@@ -151,10 +151,6 @@ function newStrategyPart () {
     if (previousDistance !== undefined) {
       if (distanceToChainParent / previousDistance > THRESHOLD) {
         canvas.strategySpace.workspace.detachNode(thisObject.payload.node)
-      } else {
-        if (distanceToChainParent / previousDistance > 1) {
-          console.log(distanceToChainParent / previousDistance)
-        }
       }
     }
     previousDistance = distanceToChainParent

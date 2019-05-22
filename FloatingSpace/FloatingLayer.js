@@ -15,7 +15,6 @@
 
 function newFloatingLayer () {
   const MODULE_NAME = 'Floating Layer'
-  const INFO_LOG = false
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
@@ -121,8 +120,6 @@ function newFloatingLayer () {
         */
 
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] getFloatingObject -> Entering function.') }
-
       if (pFloatingObjectHandle !== undefined) {
         for (let i = 0; i < invisibleFloatingObjects.length; i++) {
           let floatingObject = invisibleFloatingObjects[i]
@@ -436,36 +433,36 @@ function newFloatingLayer () {
       const coulomb = 0.00001
       const minForce = 0.01
 
-      var d = Math.sqrt(Math.pow(payload.targetPosition.x - floatingObject.container.frame.position.x, 2) + Math.pow(payload.targetPosition.y - floatingObject.container.frame.position.y, 2))  // ... we calculate the distance ...
+      let d = Math.sqrt(Math.pow(payload.targetPosition.x - floatingObject.container.frame.position.x, 2) + Math.pow(payload.targetPosition.y - floatingObject.container.frame.position.y, 2))  // ... we calculate the distance ...
 
-      var force = coulomb * d * d / floatingObject.currentMass  // In this case the mass of the floatingObject affects the gravity force that it receives, that gives priority to target position to bigger floatingObjects.
+      let force = coulomb * d * d / floatingObject.currentMass  // In this case the mass of the floatingObject affects the gravity force that it receives, that gives priority to target position to bigger floatingObjects.
 
       if (force < minForce) { // We need this attraction force to overcome the friction we imposed to the system.
         force = minForce
       }
 
-      var pos1 = {
+      let pos1 = {
         x: floatingObject.container.frame.position.x,
         y: floatingObject.container.frame.position.y
       }
 
-      var pos2 = {
+      let pos2 = {
         x: payload.targetPosition.x,
         y: payload.targetPosition.y
       }
 
-      var posDiff = {             // Next we need the vector resulting from the 2 positions.
+      let posDiff = {             // Next we need the vector resulting from the 2 positions.
         x: pos2.x - pos1.x,
         y: pos2.y - pos1.y
       }
 
       if (d !== 0) {
-        var unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
+        let unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
           x: posDiff.x / d,
           y: posDiff.y / d
         }
 
-        var forceVector = {
+        let forceVector = {
           x: unitVector.x * force,
           y: unitVector.y * force
         }
@@ -486,19 +483,19 @@ function newFloatingLayer () {
 
       const coulomb = 2
 
-      var floatingObject1 = visibleFloatingObjects[currentFloatingObject]
+      let floatingObject1 = visibleFloatingObjects[currentFloatingObject]
 
-      for (var i = 0; i < visibleFloatingObjects.length; i++) {
+      for (let i = 0; i < visibleFloatingObjects.length; i++) {
   // The force to be applied is considering all other floatingObjects...
 
         if (i !== currentFloatingObject) {
   // ... except for the current one.
 
-          var floatingObject2 = visibleFloatingObjects[i]   // So, for each floatingObject...
+          let floatingObject2 = visibleFloatingObjects[i]   // So, for each floatingObject...
 
-          var d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
+          let d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
 
-          var force = coulomb * floatingObject2.currentMass / (d * d)  // ... and with it the repulsion force.
+          let force = coulomb * floatingObject2.currentMass / (d * d)  // ... and with it the repulsion force.
 
                     /* We need to put a hard limit to this force, in order to to eject very little floatingObjects to the infinite and beyond. */
 
@@ -506,27 +503,85 @@ function newFloatingLayer () {
             force = 1
           }
 
-          var pos1 = {
+          let pos1 = {
             x: floatingObject1.container.frame.position.x,
             y: floatingObject1.container.frame.position.y
           }
 
-          var pos2 = {
+          let pos2 = {
             x: floatingObject2.container.frame.position.x,
             y: floatingObject2.container.frame.position.y
           }
 
-          var posDiff = {             // Next we need the vector resulting from the 2 positions.
+          let posDiff = {             // Next we need the vector resulting from the 2 positions.
             x: pos2.x - pos1.x,
             y: pos2.y - pos1.y
           }
 
-          var unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
+          let unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
             x: posDiff.x / d,
             y: posDiff.y / d
           }
 
-          var forceVector = {
+          let forceVector = {
+            x: unitVector.x * force,
+            y: unitVector.y * force
+          }
+
+                    /* We substract the force vector to the speed vector of the current floatingObject */
+
+          floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
+          floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
+        }
+      }
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] repulsionForceBetweenFloatingObjects -> err= ' + err.stack) }
+    }
+  }
+
+  function proximityBetweenFloatingObjects (currentFloatingObject) {
+    try {
+      let floatingObject1 = visibleFloatingObjects[currentFloatingObject]
+
+      for (let i = 0; i < visibleFloatingObjects.length; i++) {
+  // The force to be applied is considering all other floatingObjects...
+
+        if (i !== currentFloatingObject) {
+  // ... except for the current one.
+
+          let floatingObject2 = visibleFloatingObjects[i]   // So, for each floatingObject...
+
+          let d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
+
+          let force = coulomb * floatingObject2.currentMass / (d * d)  // ... and with it the repulsion force.
+
+                    /* We need to put a hard limit to this force, in order to to eject very little floatingObjects to the infinite and beyond. */
+
+          if (force > 1) {
+            force = 1
+          }
+
+          let pos1 = {
+            x: floatingObject1.container.frame.position.x,
+            y: floatingObject1.container.frame.position.y
+          }
+
+          let pos2 = {
+            x: floatingObject2.container.frame.position.x,
+            y: floatingObject2.container.frame.position.y
+          }
+
+          let posDiff = {             // Next we need the vector resulting from the 2 positions.
+            x: pos2.x - pos1.x,
+            y: pos2.y - pos1.y
+          }
+
+          let unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
+            x: posDiff.x / d,
+            y: posDiff.y / d
+          }
+
+          let forceVector = {
             x: unitVector.x * force,
             y: unitVector.y * force
           }
@@ -548,12 +603,12 @@ function newFloatingLayer () {
 
       const coulomb = 2
 
-      var floatingObject1 = visibleFloatingObjects[currentFloatingObject]
+      let floatingObject1 = visibleFloatingObjects[currentFloatingObject]
 
-      for (var i = 0; i < visibleFloatingObjects.length; i++) {
+      for (let i = 0; i < visibleFloatingObjects.length; i++) {
   // The force to be applied is considering all other floatingObjects...
 
-        var floatingObject2 = visibleFloatingObjects[i]   // So, for each floatingObject...
+        let floatingObject2 = visibleFloatingObjects[i]   // So, for each floatingObject...
 
         let payload = {
           position: undefined
@@ -578,9 +633,9 @@ function newFloatingLayer () {
           }
         }
 
-        var d = Math.sqrt(Math.pow(payload.targetPosition.x - floatingObject1.container.frame.position.x, 2) + Math.pow(payload.targetPosition.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
+        let d = Math.sqrt(Math.pow(payload.targetPosition.x - floatingObject1.container.frame.position.x, 2) + Math.pow(payload.targetPosition.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
 
-        var force = coulomb * floatingObject2.currentMass / (d * d)  // ... and with it the repulsion force.
+        let force = coulomb * floatingObject2.currentMass / (d * d)  // ... and with it the repulsion force.
 
                 /* We need to put a hard limit to this force, in order to to eject very little floatingObjects to the infinite and beyond. */
 
@@ -588,28 +643,28 @@ function newFloatingLayer () {
           force = maxTargetRepulsionForce
         }
 
-        var pos1 = {
+        let pos1 = {
           x: floatingObject1.container.frame.position.x,
           y: floatingObject1.container.frame.position.y
         }
 
-        var pos2 = {
+        let pos2 = {
           x: payload.targetPosition.x,
           y: payload.targetPosition.y
         }
 
-        var posDiff = {             // Next we need the vector resulting from the 2 positions.
+        let posDiff = {             // Next we need the vector resulting from the 2 positions.
           x: pos2.x - pos1.x,
           y: pos2.y - pos1.y
         }
 
         if (d !== 0) {
-          var unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
+          let unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
             x: posDiff.x / d,
             y: posDiff.y / d
           }
 
-          var forceVector = {
+          let forceVector = {
             x: unitVector.x * force,
             y: unitVector.y * force
           }
@@ -647,10 +702,10 @@ function newFloatingLayer () {
     try {
             /* This function detects weather 2 floatingObjects collide with each other. */
 
-      var r1 = floatingObject1.container.frame.radius
-      var r2 = floatingObject2.container.frame.radius
+      let r1 = floatingObject1.container.frame.radius
+      let r2 = floatingObject2.container.frame.radius
 
-      var distance = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))
+      let distance = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))
 
       if (distance > (r1 + r2)) {
                 // No solutions, the circles are too far apart.
@@ -675,26 +730,26 @@ function newFloatingLayer () {
     try {
             /* This function changes speed and position of floatingObjects that are in collision */
 
-      var collisionision_angle = Math.atan2((floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y), (floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x))
+      let collisionision_angle = Math.atan2((floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y), (floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x))
 
-      var speed1 = Math.sqrt(floatingObject1.currentSpeed.x * floatingObject1.currentSpeed.x + floatingObject1.currentSpeed.y * floatingObject1.currentSpeed.y)  // Magnitude of Speed Vector for floatingObject 1
-      var speed2 = Math.sqrt(floatingObject2.currentSpeed.x * floatingObject2.currentSpeed.x + floatingObject2.currentSpeed.y * floatingObject2.currentSpeed.y)  // Magnitude of Speed Vector for floatingObject 2
+      let speed1 = Math.sqrt(floatingObject1.currentSpeed.x * floatingObject1.currentSpeed.x + floatingObject1.currentSpeed.y * floatingObject1.currentSpeed.y)  // Magnitude of Speed Vector for floatingObject 1
+      let speed2 = Math.sqrt(floatingObject2.currentSpeed.x * floatingObject2.currentSpeed.x + floatingObject2.currentSpeed.y * floatingObject2.currentSpeed.y)  // Magnitude of Speed Vector for floatingObject 2
 
-      var direction_1 = Math.atan2(floatingObject1.currentSpeed.y, floatingObject1.currentSpeed.x)
-      var direction_2 = Math.atan2(floatingObject2.currentSpeed.y, floatingObject2.currentSpeed.x)
+      let direction_1 = Math.atan2(floatingObject1.currentSpeed.y, floatingObject1.currentSpeed.x)
+      let direction_2 = Math.atan2(floatingObject2.currentSpeed.y, floatingObject2.currentSpeed.x)
 
-      var new_xspeed_1 = speed1 * Math.cos(direction_1 - collisionision_angle)
-      var new_yspeed_1 = speed1 * Math.sin(direction_1 - collisionision_angle)
-      var new_xspeed_2 = speed2 * Math.cos(direction_2 - collisionision_angle)
-      var new_yspeed_2 = speed2 * Math.sin(direction_2 - collisionision_angle)
+      let new_xspeed_1 = speed1 * Math.cos(direction_1 - collisionision_angle)
+      let new_yspeed_1 = speed1 * Math.sin(direction_1 - collisionision_angle)
+      let new_xspeed_2 = speed2 * Math.cos(direction_2 - collisionision_angle)
+      let new_yspeed_2 = speed2 * Math.sin(direction_2 - collisionision_angle)
 
-      var final_xspeed_1 = ((floatingObject1.currentMass - floatingObject2.currentMass) * new_xspeed_1 + (floatingObject2.currentMass + floatingObject2.currentMass) * new_xspeed_2) / (floatingObject1.currentMass + floatingObject2.currentMass)
-      var final_xspeed_2 = ((floatingObject1.currentMass + floatingObject1.currentMass) * new_xspeed_1 + (floatingObject2.currentMass - floatingObject1.currentMass) * new_xspeed_2) / (floatingObject1.currentMass + floatingObject2.currentMass)
-      var final_yspeed_1 = new_yspeed_1
-      var final_yspeed_2 = new_yspeed_2
+      let final_xspeed_1 = ((floatingObject1.currentMass - floatingObject2.currentMass) * new_xspeed_1 + (floatingObject2.currentMass + floatingObject2.currentMass) * new_xspeed_2) / (floatingObject1.currentMass + floatingObject2.currentMass)
+      let final_xspeed_2 = ((floatingObject1.currentMass + floatingObject1.currentMass) * new_xspeed_1 + (floatingObject2.currentMass - floatingObject1.currentMass) * new_xspeed_2) / (floatingObject1.currentMass + floatingObject2.currentMass)
+      let final_yspeed_1 = new_yspeed_1
+      let final_yspeed_2 = new_yspeed_2
 
-      var cosAngle = Math.cos(collisionision_angle)
-      var sinAngle = Math.sin(collisionision_angle)
+      let cosAngle = Math.cos(collisionision_angle)
+      let sinAngle = Math.sin(collisionision_angle)
 
       floatingObject1.currentSpeed.x = cosAngle * final_xspeed_1 - sinAngle * final_yspeed_1
       floatingObject1.currentSpeed.y = sinAngle * final_xspeed_1 + cosAngle * final_yspeed_1
@@ -702,36 +757,36 @@ function newFloatingLayer () {
       floatingObject2.currentSpeed.x = cosAngle * final_xspeed_2 - sinAngle * final_yspeed_2
       floatingObject2.currentSpeed.y = sinAngle * final_xspeed_2 + cosAngle * final_yspeed_2
 
-      var pos1 = {
+      let pos1 = {
         x: floatingObject1.container.frame.position.x,
         y: floatingObject1.container.frame.position.y
       }
 
-      var pos2 = {
+      let pos2 = {
         x: floatingObject2.container.frame.position.x,
         y: floatingObject2.container.frame.position.y
       }
 
             // get the mtd
-      var posDiff = {
+      let posDiff = {
         x: pos1.x - pos2.x,
         y: pos1.y - pos2.y
       }
 
-      var d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))
+      let d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))
 
             // minimum translation distance to push floatingObjects apart after intersecting
-      var scalar = (((floatingObject1.container.frame.radius + floatingObject2.container.frame.radius) - d) / d)
+      let scalar = (((floatingObject1.container.frame.radius + floatingObject2.container.frame.radius) - d) / d)
 
-      var minTD = {
+      let minTD = {
         x: posDiff.x * scalar,
         y: posDiff.y * scalar
       }
 
             // resolve intersection --
             // computing inverse mass quantities
-      var im1 = 1 / floatingObject1.currentMass
-      var im2 = 1 / floatingObject2.currentMass
+      let im1 = 1 / floatingObject1.currentMass
+      let im2 = 1 / floatingObject2.currentMass
 
             // push-pull them apart based off their mass
 

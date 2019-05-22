@@ -48,7 +48,6 @@ function newStrategyPart () {
   let highlightCounter = 0
 
   let previousDistance
-  let detachFuse = 100
   return thisObject
 
   function finalize () {
@@ -142,25 +141,21 @@ function newStrategyPart () {
   }
 
   function detachingPhysics () {
-    let THRESHOLD
-    if (thisObject.payload.floatingObject.isPinned === true) {
-      THRESHOLD = 1.10
-    } else {
-      THRESHOLD = 2.00
-    }
+    if (thisObject.isOnFocus !== true) { return }
 
-    detachFuse--
-    if (detachFuse < 0) {
-      detachFuse = 0
-      if (thisObject.payload.chainParent !== undefined) {
-        let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
-        if (previousDistance !== undefined) {
-          if (distanceToChainParent / previousDistance > 1.25) {
-            canvas.strategySpace.workspace.detachNode(thisObject.payload.node)
+    let THRESHOLD = 1.15
+    if (thisObject.payload.chainParent !== undefined) {
+      let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
+      if (previousDistance !== undefined) {
+        if (distanceToChainParent / previousDistance > THRESHOLD) {
+          canvas.strategySpace.workspace.detachNode(thisObject.payload.node)
+        } else {
+          if (distanceToChainParent / previousDistance > 1) {
+            console.log(distanceToChainParent / previousDistance)
           }
         }
-        previousDistance = distanceToChainParent
       }
+      previousDistance = distanceToChainParent
     }
   }
 

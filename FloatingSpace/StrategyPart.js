@@ -153,6 +153,7 @@ function newStrategyPart () {
     attacchingCounters()
 
     if (thisObject.isOnFocus !== true) { return }
+    if (thisObject.payload.chainParent !== undefined) { return }
 
     let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
     let compatibleType
@@ -175,15 +176,17 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
     }
+    let foundCompatible = false
     for (let i = 0; i < nearbyFloatingObjects.length; i++) {
       let nearby = nearbyFloatingObjects[i]
       let distance = nearby[0]
       let floatingObject = nearby[1]
       let nearbyNode = floatingObject.payload.node
       if (nearbyNode.type === compatibleType) {
-        if (i === 0) {
+        if (foundCompatible === false) {
           if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
             nearbyNode.payload.uiObject.getReadyToAttach()
+            foundCompatible = true
           }
         }
         nearbyNode.payload.uiObject.showAvailabilityToAttach()
@@ -521,7 +524,7 @@ function newStrategyPart () {
         browserCanvasContext.stroke()
       }
 
-      if (isAvailableToAttach === true) {
+      if (isAvailableToAttach === true && isReadyToAttach === false) {
         VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
         let OPACITY = availableToAttachCounter / 10
 

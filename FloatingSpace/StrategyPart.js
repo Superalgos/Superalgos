@@ -142,21 +142,22 @@ function newStrategyPart () {
 
   function detachingPhysics () {
     if (thisObject.isOnFocus !== true) { return }
+    if (thisObject.payload.chainParent === undefined) { return }
+    if (thisObject.payload.parentNode === undefined) { return }
 
     let THRESHOLD = 1.15
-    if (thisObject.payload.chainParent !== undefined) {
-      let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
-      if (previousDistance !== undefined) {
-        if (distanceToChainParent / previousDistance > THRESHOLD) {
-          canvas.strategySpace.workspace.detachNode(thisObject.payload.node)
-        } else {
-          if (distanceToChainParent / previousDistance > 1) {
-            console.log(distanceToChainParent / previousDistance)
-          }
+
+    let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
+    if (previousDistance !== undefined) {
+      if (distanceToChainParent / previousDistance > THRESHOLD) {
+        canvas.strategySpace.workspace.detachNode(thisObject.payload.node)
+      } else {
+        if (distanceToChainParent / previousDistance > 1) {
+          console.log(distanceToChainParent / previousDistance)
         }
       }
-      previousDistance = distanceToChainParent
     }
+    previousDistance = distanceToChainParent
   }
 
   function highlightPhisycs () {
@@ -464,4 +465,3 @@ function newStrategyPart () {
     }
   }
 }
-

@@ -93,6 +93,21 @@ function newWorkspace () {
         }
       }
         break
+      case 'Phase': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.phases.length; i++) {
+          let phase = payload.parentNode.phases[i]
+          if (phase.id === node.id) {
+            for (let j = i + 1; j < payload.parentNode.phases.length; j++) {
+              let phaseNode = payload.parentNode.phases[j]
+              phaseNode.payload.parentNode = undefined
+            }
+            payload.parentNode.phases.splice(i, payload.parentNode.phases.length)
+          }
+        }
+      }
+        break
+
       default:
 
     }

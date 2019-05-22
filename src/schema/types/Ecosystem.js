@@ -1,0 +1,30 @@
+import {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLID
+} from 'graphql';
+
+import { TeamType, EventHostType } from './index';
+
+const EcosystemType = new GraphQLObjectType({
+  name: 'Ecosystem',
+  fields: () => ({
+    id: { type: GraphQLID },
+    authId: { type: GraphQLString },
+    userName: { type: GraphQLString }, // TODO this field is temporary, it should be used the user module query
+    teams: {
+      type: new GraphQLList(TeamType),
+      resolve(parent) {
+        return parent.teams;
+      }
+    },
+    hosts: {
+      type: new GraphQLList(EventHostType),
+      resolve(parent) {
+        return parent.hosts;
+      }
+    }
+  }),
+});
+
+export default EcosystemType;

@@ -378,19 +378,29 @@ function newWorkspace () {
 
   function deleteStrategy (node) {
     let payload = node.payload
-    for (let j = 0; j < payload.parentNode.strategies.length; j++) {
-      let strategy = payload.parentNode.strategies[j]
-      if (strategy.id === node.id) {
-        deleteEvent(strategy.entryPoint)
-        deleteEvent(strategy.exitPoint)
-        deleteEvent(strategy.sellPoint)
-        deleteManagedItem(strategy.stopLoss)
-        deleteManagedItem(strategy.buyOrder)
-        destroyPart(strategy)
-        payload.parentNode.strategies.splice(j, 1)
-        cleanNode(strategy)
-        return
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.strategies.length; j++) {
+        let strategy = payload.parentNode.strategies[j]
+        if (strategy.id === node.id) {
+          deleteEvent(strategy.entryPoint)
+          deleteEvent(strategy.exitPoint)
+          deleteEvent(strategy.sellPoint)
+          deleteManagedItem(strategy.stopLoss)
+          deleteManagedItem(strategy.buyOrder)
+          destroyPart(strategy)
+          payload.parentNode.strategies.splice(j, 1)
+          cleanNode(strategy)
+          return
+        }
       }
+    } else {
+      deleteEvent(node.entryPoint)
+      deleteEvent(node.exitPoint)
+      deleteEvent(node.sellPoint)
+      deleteManagedItem(node.stopLoss)
+      deleteManagedItem(node.buyOrder)
+      destroyPart(node)
+      cleanNode(node)
     }
   }
 
@@ -412,55 +422,80 @@ function newWorkspace () {
 
   function deletePhase (node) {
     let payload = node.payload
-    for (let k = 0; k < payload.parentNode.phases.length; k++) {
-      let phase = payload.parentNode.phases[k]
-      if (phase.id === node.id) {
-        while (phase.situations.length > 0) {
-          let situation = phase.situations[0]
-          deleteSituation(situation)
-        }
-        phase.situations = []
+    if (payload.parentNode !== undefined) {
+      for (let k = 0; k < payload.parentNode.phases.length; k++) {
+        let phase = payload.parentNode.phases[k]
+        if (phase.id === node.id) {
+          while (phase.situations.length > 0) {
+            let situation = phase.situations[0]
+            deleteSituation(situation)
+          }
+          phase.situations = []
         /* Before deleting this phase we need to give its chainParent to the next phase down the chain */
-        if (k < payload.parentNode.phases.length - 1) {
-          payload.parentNode.phases[k + 1].payload.chainParent = payload.chainParent
-        }
+          if (k < payload.parentNode.phases.length - 1) {
+            payload.parentNode.phases[k + 1].payload.chainParent = payload.chainParent
+          }
         /* Continue destroying this phase */
-        destroyPart(phase)
-        payload.parentNode.phases.splice(k, 1)
-        cleanNode(phase)
-        return
+          destroyPart(phase)
+          payload.parentNode.phases.splice(k, 1)
+          cleanNode(phase)
+          return
+        }
       }
+    } else {
+      while (node.situations.length > 0) {
+        let situation = node.situations[0]
+        deleteSituation(situation)
+      }
+      node.situations = []
+      destroyPart(node)
+      cleanNode(node)
     }
   }
 
   function deleteSituation (node) {
     let payload = node.payload
-    for (let j = 0; j < payload.parentNode.situations.length; j++) {
-      let situation = payload.parentNode.situations[j]
-      if (situation.id === node.id) {
-        while (situation.conditions.length > 0) {
-          let condition = situation.conditions[0]
-          deleteCondition(condition)
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.situations.length; j++) {
+        let situation = payload.parentNode.situations[j]
+        if (situation.id === node.id) {
+          while (situation.conditions.length > 0) {
+            let condition = situation.conditions[0]
+            deleteCondition(condition)
+          }
+          situation.conditions = []
+          destroyPart(situation)
+          payload.parentNode.situations.splice(j, 1)
+          cleanNode(situation)
+          return
         }
-        situation.conditions = []
-        destroyPart(situation)
-        payload.parentNode.situations.splice(j, 1)
-        cleanNode(situation)
-        return
       }
+    } else {
+      while (node.conditions.length > 0) {
+        let condition = node.conditions[0]
+        deleteCondition(condition)
+      }
+      node.conditions = []
+      destroyPart(node)
+      cleanNode(node)
     }
   }
 
   function deleteCondition (node) {
     let payload = node.payload
-    for (let i = 0; i < payload.parentNode.conditions.length; i++) {
-      let condition = payload.parentNode.conditions[i]
-      if (condition.id === node.id) {
-        destroyPart(node)
-        payload.parentNode.conditions.splice(i, 1)
-        cleanNode(condition)
-        return
+    if (payload.parentNode !== undefined) {
+      for (let i = 0; i < payload.parentNode.conditions.length; i++) {
+        let condition = payload.parentNode.conditions[i]
+        if (condition.id === node.id) {
+          destroyPart(node)
+          payload.parentNode.conditions.splice(i, 1)
+          cleanNode(condition)
+          return
+        }
       }
+    } else {
+      destroyPart(node)
+      cleanNode(node)
     }
   }
 

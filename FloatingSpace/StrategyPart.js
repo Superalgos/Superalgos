@@ -301,9 +301,49 @@ function newStrategyPart () {
         }
           break
         case 'Phase': {
-          thisObject.payload.parentNode = attachToNode
-          thisObject.payload.chainParent = attachToNode
-          thisObject.payload.parentNode.phases.push(thisObject.payload.node)
+          switch (attachToNode.type) {
+            case 'Stop': {
+              thisObject.payload.parentNode = attachToNode
+              if (attachToNode.phases.length > 0) {
+                let phase = attachToNode.phases[attachToNode.phases.length - 1]
+                thisObject.payload.chainParent = phase
+              } else {
+                thisObject.payload.chainParent = attachToNode
+              }
+              attachToNode.phases.push(thisObject.payload.node)
+            }
+              break
+            case 'Take Profit': {
+              thisObject.payload.parentNode = attachToNode
+              if (attachToNode.phases.length > 0) {
+                let phase = attachToNode.phases[attachToNode.phases.length - 1]
+                thisObject.payload.chainParent = phase
+              } else {
+                thisObject.payload.chainParent = attachToNode
+              }
+              attachToNode.phases.push(thisObject.payload.node)
+            }
+              break
+            case 'Phase': {
+              thisObject.payload.parentNode = attachToNode.payload.parentNode
+              for (let i = 0; i < thisObject.payload.parentNode.phases.length; i++) {
+                let phase = thisObject.payload.parentNode.phases[i]
+                if (attachToNode.id === phase.id) {
+                  if (i === thisObject.payload.parentNode.phases.length - 1) {
+                    thisObject.payload.chainParent = attachToNode
+                    thisObject.payload.parentNode.phases.push(thisObject.payload.node)
+                  } else {
+                    thisObject.payload.chainParent = attachToNode
+                    let nextPhase = thisObject.payload.parentNode.phases[i + 1]
+                    nextPhase.payload.chainParent = thisObject.payload.node
+                    thisObject.payload.parentNode.phases.splice(i + 1, 0, thisObject.payload.node)
+                    break
+                  }
+                }
+              }
+            }
+              break
+          }
         }
           break
         case 'Situation': {
@@ -623,3 +663,4 @@ function newStrategyPart () {
     }
   }
 }
+

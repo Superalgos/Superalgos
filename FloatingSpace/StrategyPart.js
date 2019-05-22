@@ -51,9 +51,9 @@ function newStrategyPart () {
 
   let previousDistance
 
-  let readyToAttachCounter
+  let readyToAttachCounter = 0
   let isReadyToAttach
-  let availableToAttachCounter
+  let availableToAttachCounter = 0
   let isAvailableToAttach
 
   return thisObject
@@ -182,7 +182,7 @@ function newStrategyPart () {
       let nearbyNode = floatingObject.payload.node
       if (nearbyNode.type === compatibleType) {
         if (i === 0) {
-          if (distance < thisObject.container.frame.radius + floatingObject.container.frame.radius) {
+          if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
             nearbyNode.payload.uiObject.getReadyToAttach()
           }
         }
@@ -193,7 +193,7 @@ function newStrategyPart () {
 
   function attacchingCounters () {
     readyToAttachCounter--
-    if (readyToAttachCounter < 0) {
+    if (readyToAttachCounter <= 0) {
       readyToAttachCounter = 0
       isReadyToAttach = false
     } else {
@@ -201,7 +201,7 @@ function newStrategyPart () {
     }
 
     availableToAttachCounter--
-    if (availableToAttachCounter < 0) {
+    if (availableToAttachCounter <= 0) {
       availableToAttachCounter = 0
       isAvailableToAttach = false
     } else {
@@ -507,22 +507,22 @@ function newStrategyPart () {
       }
 
       if (isReadyToAttach === true) {
-        VISIBLE_RADIUS = thisObject.container.frame.radius
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 2
         let OPACITY = readyToAttachCounter / 10
 
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
 
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
 
-        browserCanvasContext.lineWidth = 10
-        browserCanvasContext.setLineDash([16, 20])
+        browserCanvasContext.lineWidth = 20
+        browserCanvasContext.setLineDash([12, 20])
         browserCanvasContext.stroke()
       }
 
       if (isAvailableToAttach === true) {
-        VISIBLE_RADIUS = thisObject.container.frame.radius
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
         let OPACITY = availableToAttachCounter / 10
 
         browserCanvasContext.beginPath()
@@ -568,3 +568,4 @@ function newStrategyPart () {
     }
   }
 }
+

@@ -556,7 +556,7 @@ function newFloatingLayer () {
           } else {
             let recordAdded = false
             for (let j = 0; j < floatingObject1.nearbyFloatingObjects.length; j++) {
-              let recordedDistance = floatingObject1.nearbyFloatingObjects[0]
+              let recordedDistance = floatingObject1.nearbyFloatingObjects[j][0]
               if (d < recordedDistance) {
                 floatingObject1.nearbyFloatingObjects.splice(j, 0, [d, floatingObject2])
                 recordAdded = true
@@ -784,3 +784,4 @@ function newFloatingLayer () {
     }
   }
 }
+

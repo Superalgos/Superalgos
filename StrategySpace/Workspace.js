@@ -88,6 +88,8 @@ function newWorkspace () {
             payload.parentNode.conditions.splice(i, 1)
           }
         }
+        node.payload.chainParent = undefined
+        node.payload.parentNode = undefined
       }
         break
       case 'Situation': {
@@ -98,6 +100,8 @@ function newWorkspace () {
             payload.parentNode.situations.splice(i, 1)
           }
         }
+        node.payload.chainParent = undefined
+        node.payload.parentNode = undefined
       }
         break
       case 'Phase': {
@@ -115,13 +119,12 @@ function newWorkspace () {
               }
             }
             payload.parentNode.phases.splice(i, 1)
+            payload.parentNode = undefined
+            return
           }
         }
       }
-        break
     }
-    node.payload.chainParent = undefined
-    node.payload.parentNode = undefined
   }
 
   function attachNode (node, attachToNode) {
@@ -169,12 +172,11 @@ function newWorkspace () {
                   let nextPhase = node.payload.parentNode.phases[i + 1]
                   nextPhase.payload.chainParent = node
                   node.payload.parentNode.phases.splice(i + 1, 0, node)
-                  break
+                  return
                 }
               }
             }
           }
-            break
         }
       }
         break

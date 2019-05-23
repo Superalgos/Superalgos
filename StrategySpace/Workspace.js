@@ -104,11 +104,16 @@ function newWorkspace () {
         for (let i = 0; i < payload.parentNode.phases.length; i++) {
           let phase = payload.parentNode.phases[i]
           if (phase.id === node.id) {
-            for (let j = i + 1; j < payload.parentNode.phases.length; j++) {
-              let phaseNode = payload.parentNode.phases[j]
-              phaseNode.payload.parentNode = undefined
+            if (i < payload.parentNode.phases.length - 1) {
+              let nextPhase = payload.parentNode.phases[i + 1]
+              if (i > 0) {
+                let previousPhase = payload.parentNode.phases[i - 1]
+                nextPhase.payload.chainParent = previousPhase
+              } else {
+                nextPhase.payload.chainParent = payload.parentNode
+              }
             }
-            payload.parentNode.phases.splice(i, payload.parentNode.phases.length)
+            payload.parentNode.phases.splice(i, 1)
           }
         }
       }

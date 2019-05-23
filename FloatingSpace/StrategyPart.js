@@ -62,6 +62,7 @@ function newStrategyPart () {
   let isAvailableToAttach
 
   let isAttaching = false
+  let isDragging = false
   let attachToNode
 
   return thisObject
@@ -122,16 +123,18 @@ function newStrategyPart () {
   function getContainer (point) {
     let container
 
-    if (thisObject.codeEditor !== undefined) {
-      container = thisObject.codeEditor.getContainer(point)
+    if (isDragging === false && thisObject.isOnFocus === true) {
+      if (thisObject.codeEditor !== undefined) {
+        container = thisObject.codeEditor.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
+      container = thisObject.partTitle.getContainer(point)
+      if (container !== undefined) { return container }
+
+      container = thisObject.menu.getContainer(point)
       if (container !== undefined) { return container }
     }
-
-    container = thisObject.partTitle.getContainer(point)
-    if (container !== undefined) { return container }
-
-    container = thisObject.menu.getContainer(point)
-    if (container !== undefined) { return container }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
@@ -166,6 +169,7 @@ function newStrategyPart () {
     attacchingCounters()
 
     if (thisObject.isOnFocus !== true) { return }
+    if (thisObject.isDragging !== true) { return }
     if (thisObject.payload.chainParent !== undefined) { return }
 
     let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
@@ -252,6 +256,8 @@ function newStrategyPart () {
   }
 
   function detachingPhysics () {
+    if (thisObject.isDragging !== true) { return }
+
     let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
     let ratio = distanceToChainParent / previousDistance
     previousDistance = distanceToChainParent
@@ -300,10 +306,6 @@ function newStrategyPart () {
     if (thisObject.codeEditor !== undefined) {
       thisObject.codeEditor.deactivate()
     }
-
-    if (isAttaching === true) {
-      canvas.strategySpace.workspace.attachNode(thisObject.payload.node, attachToNode)
-    }
   }
 
   function onDisplace (event) {
@@ -311,17 +313,27 @@ function newStrategyPart () {
   }
 
   function onDragStarted (event) {
-    console.log('DRAG STARED')
+    thisObject.partTitle.exitEditMode()
+    if (thisObject.codeEditor !== undefined) {
+      thisObject.codeEditor.deactivate()
+    }
+    isDragging = true
   }
 
   function onDragFinished (event) {
-    console.log('DRAG FINISHED')
+    if (isAttaching === true) {
+      canvas.strategySpace.workspace.attachNode(thisObject.payload.node, attachToNode)
+    }
+    isDragging = false
   }
 
   function drawBackground () {
     if (thisObject.isOnFocus === false) {
       drawConnectingLine()
-      thisObject.menu.drawBackground()
+
+      if (isDragging === false && thisObject.isOnFocus === true) {
+        thisObject.menu.drawBackground()
+      }
     }
   }
 
@@ -335,7 +347,9 @@ function newStrategyPart () {
   function drawForeground () {
     if (thisObject.isOnFocus === false) {
       drawBodyAndPicture()
-      thisObject.menu.drawForeground()
+      if (isDragging === false) {
+        thisObject.menu.drawForeground()
+      }
     }
   }
 
@@ -354,13 +368,17 @@ function newStrategyPart () {
       if (thisObject.codeEditor !== undefined) {
         if (thisObject.codeEditor.visible === false) {
           drawBodyAndPicture()
-          thisObject.menu.drawBackground()
-          thisObject.menu.drawForeground()
+          if (isDragging === false) {
+            thisObject.menu.drawBackground()
+            thisObject.menu.drawForeground()
+          }
         }
       } else {
         drawBodyAndPicture()
-        thisObject.menu.drawBackground()
-        thisObject.menu.drawForeground()
+        if (isDragging === false) {
+          thisObject.menu.drawBackground()
+          thisObject.menu.drawForeground()
+        }
       }
     }
   }

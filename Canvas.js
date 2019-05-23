@@ -392,8 +392,10 @@ function newCanvas () {
       floatingObjectDragStarted = false
       viewPortBeingDragged = false
 
-      containerBeingDragged.eventHandler.raiseEvent('onDragFinished', point)
-      containerBeingDragged = undefined
+      if (containerBeingDragged !== undefined) {
+        containerBeingDragged.eventHandler.raiseEvent('onDragFinished', event)
+        containerBeingDragged = undefined
+      }
 
       browserCanvas.style.cursor = 'auto'
     } catch (err) {
@@ -655,3 +657,4 @@ function newCanvas () {
     }
   }
 }
+

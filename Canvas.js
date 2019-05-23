@@ -207,7 +207,6 @@ function newCanvas () {
     try {
       event.preventDefault()
       event.stopPropagation()
-      console.log(event)
 
       let files = event.dataTransfer.files
 

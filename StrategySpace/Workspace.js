@@ -25,6 +25,11 @@ function newWorkspace () {
   thisObject.container.frame.width = 0
   thisObject.container.frame.height = 0
 
+  spawnPosition = {
+    x: canvas.floatingSpace.container.frame.width / 2,
+    y: canvas.floatingSpace.container.frame.height / 2
+  }
+
   return thisObject
 
   function finalize () {
@@ -46,6 +51,10 @@ function newWorkspace () {
   }
 
   function spawn (nodeText, point) {
+    point = canvas.floatingSpace.container.frameThisPoint(point)
+    spawnPosition.x = point.x
+    spawnPosition.y = point.y
+
     let dirtyNode = JSON.parse(nodeText)
     let rootNode = getProtocolNode(dirtyNode)
     createPartFromNode(rootNode, undefined, undefined)
@@ -317,8 +326,8 @@ function newWorkspace () {
     let payload = {}
     if (chainParent === undefined) {
       payload.targetPosition = {
-        x: canvas.floatingSpace.container.frame.width / 2,
-        y: canvas.floatingSpace.container.frame.height / 2
+        x: spawnPosition.x,
+        y: spawnPosition.y
       }
     } else {
       payload.targetPosition = {
@@ -864,4 +873,3 @@ function newWorkspace () {
     }
   }
 }
-

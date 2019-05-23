@@ -182,6 +182,8 @@ function newStrategyPart () {
         compatibleType = 'Situation'
         compatibleSubType = undefined
         break
+      default:
+        return
     }
     let foundCompatible = false
     attachToNode = undefined
@@ -193,6 +195,7 @@ function newStrategyPart () {
       let floatingObject = nearby[1]
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf(nearbyNode.type) >= 0) {
+        if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
         if (foundCompatible === false) {
           if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
             nearbyNode.payload.uiObject.getReadyToAttach()

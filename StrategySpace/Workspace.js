@@ -28,7 +28,6 @@ function newWorkspace () {
   return thisObject
 
   function finalize () {
-    destroyStrategyParts()
     thisObject.tradingSystem = undefined
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -48,7 +47,117 @@ function newWorkspace () {
 
   function spawn (nodeText, point) {
     let dirtyNode = JSON.parse(nodeText)
-    let node = getProtocolNode(dirtyNode)
+    let rootNode = getProtocolNode(dirtyNode)
+    createPartFromNode(rootNode, undefined, undefined)
+  }
+
+  function createPartFromNode (node, parentNode, chainParent) {
+    switch (node.type) {
+      case 'Condition':
+        {
+          let condition = node
+          createPart('Condition', condition.name, condition, parentNode, chainParent, 'Condition')
+          return
+        }
+      case 'Situation': {
+        let situation = node
+        createPart('Situation', situation.name, situation, parentNode, chainParent, 'Situation')
+        for (let m = 0; m < node.conditions.length; m++) {
+          let condition = node.conditions[m]
+          createPartFromNode(condition, situation, situation)
+        }
+        return
+      }
+      case 'Phase': {
+        let phase = node
+        createPart('Phase', phase.name, phase, parentNode, chainParent, phase.subType)
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = node.situations[m]
+          createPartFromNode(situation, phase, phase)
+        }
+        return
+      }
+      case 'Stop': {
+        let stop = node
+        createPart('Stop', stop.name, stop, parentNode, chainParent, 'Stop')
+        for (let m = 0; m < node.phases.length; m++) {
+          let phase = node.phases[m]
+          let thisChainParent
+          let lastPhase
+          if (m === 0) {
+            thisChainParent = node
+          } else {
+            thisChainParent = lastPhase
+          }
+          lastPhase = phase
+          createPartFromNode(phase, stop, thisChainParent)
+        }
+        return
+      }
+      case 'Take Profit': {
+        let takeProfit = node
+        createPart('Take Profit', takeProfit.name, takeProfit, parentNode, chainParent, 'Take Profit')
+        for (let m = 0; m < node.phases.length; m++) {
+          let phase = node.phases[m]
+          let thisChainParent
+          let lastPhase
+          if (m === 0) {
+            thisChainParent = node
+          } else {
+            thisChainParent = lastPhase
+          }
+          lastPhase = phase
+          createPartFromNode(phase, takeProfit, thisChainParent)
+        }
+        return
+      }
+      case 'Take Position Event': {
+        let event = node
+        createPart('Take Position Event', event.name, event, parentNode, chainParent, 'Take Position Event')
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = node.situations[m]
+          createPartFromNode(situation, event, event)
+        }
+        return
+      }
+      case 'Trigger On Event': {
+        let event = node
+        createPart('Trigger On Event', event.name, event, parentNode, chainParent, 'Trigger On Event')
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = node.situations[m]
+          createPartFromNode(situation, event, event)
+        }
+        return
+      }
+      case 'Trigger Off Event': {
+        let event = node
+        createPart('Trigger Off Event', event.name, event, parentNode, chainParent, 'Trigger Off Event')
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = node.situations[m]
+          createPartFromNode(situation, event, event)
+        }
+        return
+      }
+      case 'Strategy': {
+        let strategy = node
+        createPart('Strategy', strategy.name, strategy, parentNode, chainParent, 'Strategy')
+        createPartFromNode(node.entryPoint, strategy, strategy)
+        createPartFromNode(node.exitPoint, strategy, strategy)
+        createPartFromNode(node.sellPoint, strategy, strategy)
+        createPartFromNode(node.stopLoss, strategy, strategy)
+        createPartFromNode(node.buyOrder, strategy, strategy)
+        return
+      }
+      case 'Trading System': {
+        let tradingSystem = node
+        createPart('Trading System', tradingSystem.name, tradingSystem, parentNode, chainParent, 'Trading System')
+        for (let m = 0; m < node.strategies.length; m++) {
+          let strategy = node.strategies[m]
+          createPartFromNode(strategy, tradingSystem, tradingSystem)
+        }
+        return
+      }
+    }
   }
 
   function detachNode (node) {
@@ -333,10 +442,6 @@ function newWorkspace () {
         }
       }
     }
-  }
-
-  function destroyStrategyParts () {
-
   }
 
   async function onMenuItemClick (payload, action) {

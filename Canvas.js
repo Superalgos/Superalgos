@@ -224,7 +224,7 @@ function newCanvas () {
             x: event.x,
             y: event.y
           }
-          thisObject.strategySpace.spawn(reader.result, mousePosition)
+          thisObject.strategySpace.workspace.spawn(reader.result, mousePosition)
         }
       }
     } catch (err) {
@@ -706,3 +706,4 @@ function newCanvas () {
     }
   }
 }
+

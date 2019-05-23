@@ -6,6 +6,7 @@ function newWorkspace () {
     tradingSystem: undefined,
     container: undefined,
     detachNode: detachNode,
+    attachNode: attachNode,
     getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
@@ -121,6 +122,75 @@ function newWorkspace () {
     }
     node.payload.chainParent = undefined
     node.payload.parentNode = undefined
+  }
+
+  function attachNode (node, attachToNode) {
+    switch (node.type) {
+      case 'Strategy': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.strategies.push(node)
+      }
+        break
+      case 'Phase': {
+        switch (attachToNode.type) {
+          case 'Stop': {
+            node.payload.parentNode = attachToNode
+            if (attachToNode.phases.length > 0) {
+              let phase = attachToNode.phases[attachToNode.phases.length - 1]
+              node.payload.chainParent = phase
+            } else {
+              node.payload.chainParent = attachToNode
+            }
+            attachToNode.phases.push(node)
+          }
+            break
+          case 'Take Profit': {
+            node.payload.parentNode = attachToNode
+            if (attachToNode.phases.length > 0) {
+              let phase = attachToNode.phases[attachToNode.phases.length - 1]
+              node.payload.chainParent = phase
+            } else {
+              node.payload.chainParent = attachToNode
+            }
+            attachToNode.phases.push(node)
+          }
+            break
+          case 'Phase': {
+            node.payload.parentNode = attachToNode.payload.parentNode
+            for (let i = 0; i < node.payload.parentNode.phases.length; i++) {
+              let phase = node.payload.parentNode.phases[i]
+              if (attachToNode.id === phase.id) {
+                if (i === node.payload.parentNode.phases.length - 1) {
+                  node.payload.chainParent = attachToNode
+                  node.payload.parentNode.phases.push(node)
+                } else {
+                  node.payload.chainParent = attachToNode
+                  let nextPhase = node.payload.parentNode.phases[i + 1]
+                  nextPhase.payload.chainParent = node
+                  node.payload.parentNode.phases.splice(i + 1, 0, node)
+                  break
+                }
+              }
+            }
+          }
+            break
+        }
+      }
+        break
+      case 'Situation': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.situations.push(node)
+      }
+        break
+      case 'Condition': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.conditions.push(node)
+      }
+        break
+    }
   }
 
   function createPart (partType, name, node, parentNode, chainParent, title) {

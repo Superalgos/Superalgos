@@ -55,13 +55,13 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Strategy Entry Event': {
+      case 'Trigger On Event': {
         break
       }
-      case 'Strategy Exit Event': {
+      case 'Trigger Off Event': {
         break
       }
-      case 'Trade Entry Event': {
+      case 'Take Position Event': {
         break
       }
       case 'Stop': {
@@ -110,6 +110,7 @@ function newStrategyPartTitle () {
   }
 
   function physics () {
+    if (thisObject.payload.title === undefined) { return }
     let title = trimTitle(thisObject.payload.title)
 
     const FRAME_HEIGHT = 25
@@ -252,7 +253,8 @@ function newStrategyPartTitle () {
   }
 
   function trimTitle (title) {
-    const MAX_LABEL_LENGTH = 15
+    if (title === undefined) { return }
+    const MAX_LABEL_LENGTH = 35
     if (title.length > MAX_LABEL_LENGTH) {
       title = title.substring(0, MAX_LABEL_LENGTH) + '...'
     }

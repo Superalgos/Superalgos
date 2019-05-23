@@ -33,6 +33,8 @@ function newContainer () {
   let onFocusParentEvent = false
   let onNotFocusParentEvent = false
   let onDisplaceParentEvent = false
+  let onDragStartedParentEvent = false
+  let onDragFinishedParentEvent = false
 
   let isConnectedToParent = false
 
@@ -42,6 +44,8 @@ function newContainer () {
   let onFocusEventSubscriptionId
   let onNotFocusEventSubscriptionId
   let onDisplaceEventSubscriptionId
+  let onDragStartedEventSubscriptionId
+  let onDragFinishedEventSubscriptionId
 
   return thisObject
 
@@ -53,6 +57,8 @@ function newContainer () {
       thisObject.parentContainer.eventHandler.stopListening(onFocusEventSubscriptionId)
       thisObject.parentContainer.eventHandler.stopListening(onNotFocusEventSubscriptionId)
       thisObject.parentContainer.eventHandler.stopListening(onDisplaceEventSubscriptionId)
+      thisObject.parentContainer.eventHandler.stopListening(onDragStartedEventSubscriptionId)
+      thisObject.parentContainer.eventHandler.stopListening(onDragFinishedEventSubscriptionId)
 
       thisObject.parentContainer = undefined
       thisObject.eventHandler.finalize()
@@ -86,7 +92,9 @@ function newContainer () {
     onMouseNotOverEvent,
     onFocusEvent,
     onNotFocusEvent,
-    onDisplaceEvent
+    onDisplaceEvent,
+    onDragStartedEvent,
+    onDragFinishedEvent
   ) {
     connectedToParentWidth = onWidth
     connectedToParentHeight = onHeight
@@ -98,6 +106,8 @@ function newContainer () {
     onFocusParentEvent = onFocusEvent
     onNotFocusParentEvent = onNotFocusEvent
     onDisplaceParentEvent = onDisplaceEvent
+    onDragStartedParentEvent = onDragStartedEvent
+    onDragFinishedParentEvent = onDragFinishedEvent
 
     isConnectedToParent = true
 
@@ -122,6 +132,12 @@ function newContainer () {
     }
     if (onDisplaceParentEvent === true) {
       onDisplaceEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onDisplace', onDisplace)
+    }
+    if (onDragStartedParentEvent === true) {
+      onDragStartedEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onDragStarted', onDragStarted)
+    }
+    if (onDragFinishedParentEvent === true) {
+      onDragFinishedEventSubscriptionId = thisObject.parentContainer.eventHandler.listenToEvent('onDragFinished', onDragFinished)
     }
 
     if (connectedToParentWidth) {
@@ -173,6 +189,14 @@ function newContainer () {
 
   function onDisplace (event) {
     thisObject.eventHandler.raiseEvent('onDisplace', event)
+  }
+
+  function onDragStarted (event) {
+    thisObject.eventHandler.raiseEvent('onDragStarted', event)
+  }
+
+  function onDragFinished (event) {
+    thisObject.eventHandler.raiseEvent('onDragFinished', event)
   }
 
   function isForThisPurpose (purpose) {

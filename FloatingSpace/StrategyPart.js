@@ -17,6 +17,8 @@ function newStrategyPart () {
     codeEditor: undefined,
     partTitle: undefined,
     isExecuting: undefined,
+    getReadyToAttach: getReadyToAttach,
+    showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
     unHighlight: unHighlight,
     physics: physics,
@@ -43,9 +45,25 @@ function newStrategyPart () {
   let selfFocusEventSubscriptionId
   let selfNotFocuskEventSubscriptionId
   let selfDisplaceEventSubscriptionId
+  let selfDragStartedEventSubscriptionId
+  let selfDragFinishedEventSubscriptionId
 
   let isHighlighted
   let highlightCounter = 0
+
+  let previousDistance
+
+  let readyToAttachDisplayCounter = 5
+  let readyToAttachDisplayIncrement = 0.1
+
+  let readyToAttachCounter = 0
+  let isReadyToAttach
+  let availableToAttachCounter = 0
+  let isAvailableToAttach
+
+  let isAttaching = false
+  let isDragging = false
+  let attachToNode
 
   return thisObject
 
@@ -53,6 +71,8 @@ function newStrategyPart () {
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfNotFocuskEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfDisplaceEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfDragStartedEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfDragFinishedEventSubscriptionId)
 
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -70,6 +90,7 @@ function newStrategyPart () {
     }
 
     icon = undefined
+    attachToNode = undefined
   }
 
   function initialize (payload, menuItemsInitialValues) {
@@ -95,21 +116,25 @@ function newStrategyPart () {
     selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
     selfNotFocuskEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
     selfDisplaceEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDisplace', onDisplace)
+    selfDragStartedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragStarted', onDragStarted)
+    selfDragFinishedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragFinished', onDragFinished)
   }
 
   function getContainer (point) {
     let container
 
-    if (thisObject.codeEditor !== undefined) {
-      container = thisObject.codeEditor.getContainer(point)
+    if (isDragging === false && thisObject.isOnFocus === true) {
+      if (thisObject.codeEditor !== undefined) {
+        container = thisObject.codeEditor.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
+      container = thisObject.partTitle.getContainer(point)
+      if (container !== undefined) { return container }
+
+      container = thisObject.menu.getContainer(point)
       if (container !== undefined) { return container }
     }
-
-    container = thisObject.partTitle.getContainer(point)
-    if (container !== undefined) { return container }
-
-    container = thisObject.menu.getContainer(point)
-    if (container !== undefined) { return container }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
@@ -127,8 +152,8 @@ function newStrategyPart () {
     }
 
     if (thisObject.payload.chainParent === undefined) {
-      thisObject.payload.targetPosition.x = canvas.floatingSpace.container.frame.width / 2,
-      thisObject.payload.targetPosition.y = canvas.floatingSpace.container.frame.height / 2
+      thisObject.payload.targetPosition.x = thisObject.payload.position.x,
+      thisObject.payload.targetPosition.y = thisObject.payload.position.y
     } else {
       thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x
       thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
@@ -136,6 +161,117 @@ function newStrategyPart () {
 
     iconPhysics()
     highlightPhisycs()
+    detachingPhysics()
+    attachingPhysics()
+  }
+
+  function attachingPhysics () {
+    attacchingCounters()
+
+    if (thisObject.isOnFocus !== true) { return }
+    if (isDragging !== true) { return }
+    if (thisObject.payload.chainParent !== undefined) { return }
+
+    let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
+    let compatibleType
+    let compatibleSubType
+    switch (thisObject.payload.node.type) {
+      case 'Strategy':
+        compatibleType = 'Trading System'
+        compatibleSubType = undefined
+        break
+      case 'Phase':
+        compatibleType = 'Stop' + '.' + 'Take Profit' + '.' + 'Phase'
+        compatibleSubType = undefined
+        break
+      case 'Situation':
+        compatibleType = 'Phase' + '.' + 'Take Position Event' + '.' + 'Trigger On Event' + '.' + 'Trigger Off Event'
+        compatibleSubType = undefined
+        break
+      case 'Condition':
+        compatibleType = 'Situation'
+        compatibleSubType = undefined
+        break
+      default:
+        return
+    }
+    let foundCompatible = false
+    attachToNode = undefined
+    isAttaching = false
+
+    for (let i = 0; i < nearbyFloatingObjects.length; i++) {
+      let nearby = nearbyFloatingObjects[i]
+      let distance = nearby[0]
+      let floatingObject = nearby[1]
+      let nearbyNode = floatingObject.payload.node
+      if (compatibleType.indexOf(nearbyNode.type) >= 0) {
+        if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
+        if (foundCompatible === false) {
+          if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
+            nearbyNode.payload.uiObject.getReadyToAttach()
+            isAttaching = true
+            attachToNode = nearbyNode
+            foundCompatible = true
+          }
+        }
+        nearbyNode.payload.uiObject.showAvailabilityToAttach()
+      }
+    }
+  }
+
+  function attacchingCounters () {
+    if (readyToAttachDisplayCounter > 15) {
+      readyToAttachDisplayIncrement = -0.25
+    }
+
+    if (readyToAttachDisplayCounter < 5) {
+      readyToAttachDisplayIncrement = 0.25
+    }
+
+    readyToAttachDisplayCounter = readyToAttachDisplayCounter + readyToAttachDisplayIncrement
+
+    readyToAttachCounter--
+    if (readyToAttachCounter <= 0) {
+      readyToAttachCounter = 0
+      isReadyToAttach = false
+    } else {
+      isReadyToAttach = true
+    }
+
+    availableToAttachCounter--
+    if (availableToAttachCounter <= 0) {
+      availableToAttachCounter = 0
+      isAvailableToAttach = false
+    } else {
+      isAvailableToAttach = true
+    }
+  }
+
+  function getReadyToAttach () {
+    readyToAttachCounter = 10
+  }
+
+  function showAvailabilityToAttach () {
+    availableToAttachCounter = 10
+  }
+
+  function detachingPhysics () {
+    if (isDragging !== true) { return }
+
+    let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
+    let ratio = distanceToChainParent / previousDistance
+    previousDistance = distanceToChainParent
+    if (thisObject.isOnFocus !== true) { return }
+    if (thisObject.payload.chainParent === undefined) { return }
+    if (thisObject.payload.parentNode === undefined) { return }
+
+    let THRESHOLD = 1.15
+
+    if (previousDistance !== undefined) {
+      if (ratio > THRESHOLD) {
+        canvas.strategySpace.workspace.detachNode(thisObject.payload.node)
+      }
+    }
   }
 
   function highlightPhisycs () {
@@ -176,10 +312,28 @@ function newStrategyPart () {
     thisObject.partTitle.exitEditMode()
   }
 
+  function onDragStarted (event) {
+    thisObject.partTitle.exitEditMode()
+    if (thisObject.codeEditor !== undefined) {
+      thisObject.codeEditor.deactivate()
+    }
+    isDragging = true
+  }
+
+  function onDragFinished (event) {
+    if (isAttaching === true) {
+      canvas.strategySpace.workspace.attachNode(thisObject.payload.node, attachToNode)
+    }
+    isDragging = false
+  }
+
   function drawBackground () {
     if (thisObject.isOnFocus === false) {
       drawConnectingLine()
-      thisObject.menu.drawBackground()
+
+      if (isDragging === false && thisObject.isOnFocus === true) {
+        thisObject.menu.drawBackground()
+      }
     }
   }
 
@@ -193,7 +347,9 @@ function newStrategyPart () {
   function drawForeground () {
     if (thisObject.isOnFocus === false) {
       drawBodyAndPicture()
-      thisObject.menu.drawForeground()
+      if (isDragging === false) {
+        thisObject.menu.drawForeground()
+      }
     }
   }
 
@@ -212,13 +368,17 @@ function newStrategyPart () {
       if (thisObject.codeEditor !== undefined) {
         if (thisObject.codeEditor.visible === false) {
           drawBodyAndPicture()
-          thisObject.menu.drawBackground()
-          thisObject.menu.drawForeground()
+          if (isDragging === false) {
+            thisObject.menu.drawBackground()
+            thisObject.menu.drawForeground()
+          }
         }
       } else {
         drawBodyAndPicture()
-        thisObject.menu.drawBackground()
-        thisObject.menu.drawForeground()
+        if (isDragging === false) {
+          thisObject.menu.drawBackground()
+          thisObject.menu.drawForeground()
+        }
       }
     }
   }
@@ -307,35 +467,50 @@ function newStrategyPart () {
     switch (thisObject.payload.node.type) {
       case 'Phase': {
         let parent = thisObject.payload.parentNode
-        for (let i = 0; i < parent.phases.length; i++) {
-          let phase = parent.phases[i]
-          if (phase.id === thisObject.payload.node.id) {
-            label = label + ' #' + (i + 1)
-            return label
+        if (parent !== undefined) {
+          for (let i = 0; i < parent.phases.length; i++) {
+            let phase = parent.phases[i]
+            if (phase.id === thisObject.payload.node.id) {
+              label = label + ' #' + (i + 1)
+              return label
+            }
           }
+        } else {
+          return label
         }
+
         break
       }
       case 'Situation': {
         let parent = thisObject.payload.parentNode
-        for (let i = 0; i < parent.situations.length; i++) {
-          let situation = parent.situations[i]
-          if (situation.id === thisObject.payload.node.id) {
-            label = label + ' #' + (i + 1)
-            return label
+        if (parent !== undefined) {
+          for (let i = 0; i < parent.situations.length; i++) {
+            let situation = parent.situations[i]
+            if (situation.id === thisObject.payload.node.id) {
+              label = label + ' #' + (i + 1)
+              return label
+            }
           }
+        } else {
+          return label
         }
+
         break
       }
       case 'Condition': {
         let parent = thisObject.payload.parentNode
-        for (let i = 0; i < parent.conditions.length; i++) {
-          let condition = parent.conditions[i]
-          if (condition.id === thisObject.payload.node.id) {
-            label = label + ' #' + (i + 1)
-            return label
+        if (parent !== undefined) {
+          for (let i = 0; i < parent.conditions.length; i++) {
+            let condition = parent.conditions[i]
+            if (condition.id === thisObject.payload.node.id) {
+              label = label + ' #' + (i + 1)
+              return label
+            }
           }
+        } else {
+          return label
         }
+
         break
       }
       default: {
@@ -395,6 +570,36 @@ function newStrategyPart () {
         browserCanvasContext.setLineDash([4, 20])
         browserCanvasContext.stroke()
       }
+
+      if (isReadyToAttach === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 2 + readyToAttachDisplayCounter * 2
+        let OPACITY = readyToAttachCounter / 10
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
+
+        browserCanvasContext.lineWidth = 10
+        browserCanvasContext.setLineDash([readyToAttachDisplayCounter, readyToAttachDisplayCounter * 2])
+        browserCanvasContext.stroke()
+      }
+
+      if (isAvailableToAttach === true && isReadyToAttach === false) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
+        let OPACITY = availableToAttachCounter / 10
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', ' + OPACITY + ')'
+
+        browserCanvasContext.lineWidth = 10
+        browserCanvasContext.setLineDash([8, 20])
+        browserCanvasContext.stroke()
+      }
     }
 
         /* Image */
@@ -428,4 +633,3 @@ function newStrategyPart () {
     }
   }
 }
-

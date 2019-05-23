@@ -46,9 +46,9 @@ function newStrategySpace () {
     const relationshipArray = [
       ['Trading System', 'analysis'],
       ['Strategy', 'quality'],
-      ['Strategy Entry Event', 'startup'],
-      ['Strategy Exit Event', 'support'],
-      ['Trade Entry Event', 'compass'],
+      ['Trigger On Event', 'startup'],
+      ['Trigger Off Event', 'support'],
+      ['Take Position Event', 'compass'],
       ['Stop', 'pixel'],
       ['Take Profit', 'competition'],
       ['Phase', 'placeholder'],
@@ -180,4 +180,3 @@ function newStrategySpace () {
     }
   }
 }
-

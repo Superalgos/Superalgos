@@ -8,6 +8,8 @@
      assetBalances: undefined,
      restartSimulation: undefined,
      fullscreen: undefined,
+     toTop: toTop,
+     toBottom: toBottom,
      draw: draw,
      physics: physics,
      getContainer: getContainer,
@@ -74,6 +76,14 @@
    function resize () {
      thisObject.container.frame.width = browserCanvas.width
      thisObject.container.frame.height = COCKPIT_SPACE_HEIGHT
+   }
+
+   function toTop () {
+     thisObject.container.frame.position.y = 0
+   }
+
+   function toBottom () {
+     thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
    }
 
    function physics () {

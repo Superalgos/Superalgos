@@ -5,6 +5,9 @@ function newWorkspace () {
   let thisObject = {
     tradingSystem: undefined,
     container: undefined,
+    spawn: spawn,
+    detachNode: detachNode,
+    attachNode: attachNode,
     getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
@@ -22,10 +25,14 @@ function newWorkspace () {
   thisObject.container.frame.width = 0
   thisObject.container.frame.height = 0
 
+  spawnPosition = {
+    x: canvas.floatingSpace.container.frame.width / 2,
+    y: canvas.floatingSpace.container.frame.height / 2
+  }
+
   return thisObject
 
   function finalize () {
-    destroyStrategyParts()
     thisObject.tradingSystem = undefined
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -43,12 +50,284 @@ function newWorkspace () {
 
   }
 
+  function spawn (nodeText, point) {
+    point = canvas.floatingSpace.container.frameThisPoint(point)
+    spawnPosition.x = point.x
+    spawnPosition.y = point.y
+
+    let dirtyNode = JSON.parse(nodeText)
+    let rootNode = getProtocolNode(dirtyNode)
+    createPartFromNode(rootNode, undefined, undefined)
+  }
+
+  function createPartFromNode (node, parentNode, chainParent) {
+    switch (node.type) {
+      case 'Condition':
+        {
+          let condition = node
+          createPart('Condition', condition.name, condition, parentNode, chainParent, 'Condition')
+          return
+        }
+      case 'Situation': {
+        let situation = node
+        createPart('Situation', situation.name, situation, parentNode, chainParent, 'Situation')
+        for (let m = 0; m < node.conditions.length; m++) {
+          let condition = node.conditions[m]
+          createPartFromNode(condition, situation, situation)
+        }
+        return
+      }
+      case 'Phase': {
+        let phase = node
+        createPart('Phase', phase.name, phase, parentNode, chainParent, phase.subType)
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = node.situations[m]
+          createPartFromNode(situation, phase, phase)
+        }
+        return
+      }
+      case 'Stop': {
+        let lastPhase
+        let stop = node
+        createPart('Stop', stop.name, stop, parentNode, chainParent, 'Stop')
+        for (let m = 0; m < node.phases.length; m++) {
+          let phase = node.phases[m]
+          let thisChainParent
+          if (m === 0) {
+            thisChainParent = node
+          } else {
+            thisChainParent = lastPhase
+          }
+          lastPhase = phase
+          createPartFromNode(phase, stop, thisChainParent)
+        }
+        return
+      }
+      case 'Take Profit': {
+        let lastPhase
+        let takeProfit = node
+        createPart('Take Profit', takeProfit.name, takeProfit, parentNode, chainParent, 'Take Profit')
+        for (let m = 0; m < node.phases.length; m++) {
+          let phase = node.phases[m]
+          let thisChainParent
+          if (m === 0) {
+            thisChainParent = node
+          } else {
+            thisChainParent = lastPhase
+          }
+          lastPhase = phase
+          createPartFromNode(phase, takeProfit, thisChainParent)
+        }
+        return
+      }
+      case 'Take Position Event': {
+        let event = node
+        createPart('Take Position Event', event.name, event, parentNode, chainParent, 'Take Position Event')
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = node.situations[m]
+          createPartFromNode(situation, event, event)
+        }
+        return
+      }
+      case 'Trigger On Event': {
+        let event = node
+        createPart('Trigger On Event', event.name, event, parentNode, chainParent, 'Trigger On Event')
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = node.situations[m]
+          createPartFromNode(situation, event, event)
+        }
+        return
+      }
+      case 'Trigger Off Event': {
+        let event = node
+        createPart('Trigger Off Event', event.name, event, parentNode, chainParent, 'Trigger Off Event')
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = node.situations[m]
+          createPartFromNode(situation, event, event)
+        }
+        return
+      }
+      case 'Strategy': {
+        let strategy = node
+        createPart('Strategy', strategy.name, strategy, parentNode, chainParent, 'Strategy')
+        createPartFromNode(node.entryPoint, strategy, strategy)
+        createPartFromNode(node.exitPoint, strategy, strategy)
+        createPartFromNode(node.sellPoint, strategy, strategy)
+        createPartFromNode(node.stopLoss, strategy, strategy)
+        createPartFromNode(node.buyOrder, strategy, strategy)
+        return
+      }
+      case 'Trading System': {
+        let tradingSystem = node
+        createPart('Trading System', tradingSystem.name, tradingSystem, parentNode, chainParent, 'Trading System')
+        for (let m = 0; m < node.strategies.length; m++) {
+          let strategy = node.strategies[m]
+          createPartFromNode(strategy, tradingSystem, tradingSystem)
+        }
+        return
+      }
+    }
+  }
+
+  function detachNode (node) {
+    switch (node.type) {
+      case 'Trading System': {
+        return
+      }
+      case 'Strategy': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.strategies.length; i++) {
+          let strategy = payload.parentNode.strategies[i]
+          if (strategy.id === node.id) {
+            payload.parentNode.strategies.splice(i, 1)
+          }
+          payload.parentNode = undefined
+          payload.chainParent = undefined
+        }
+      }
+        break
+      case 'Trigger On Event': {
+        return
+      }
+        break
+      case 'Trigger Off Event': {
+        return
+      }
+        break
+      case 'Take Position Event': {
+        return
+      }
+        break
+      case 'Stop': {
+        return
+      }
+        break
+      case 'Take Profit': {
+        return
+      }
+        break
+      case 'Condition': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.conditions.length; i++) {
+          let condition = payload.parentNode.conditions[i]
+          if (condition.id === node.id) {
+            payload.parentNode.conditions.splice(i, 1)
+          }
+        }
+        node.payload.chainParent = undefined
+        node.payload.parentNode = undefined
+      }
+        break
+      case 'Situation': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.situations.length; i++) {
+          let situation = payload.parentNode.situations[i]
+          if (situation.id === node.id) {
+            payload.parentNode.situations.splice(i, 1)
+          }
+        }
+        node.payload.chainParent = undefined
+        node.payload.parentNode = undefined
+      }
+        break
+      case 'Phase': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.phases.length; i++) {
+          let phase = payload.parentNode.phases[i]
+          if (phase.id === node.id) {
+            if (i < payload.parentNode.phases.length - 1) {
+              let nextPhase = payload.parentNode.phases[i + 1]
+              if (i > 0) {
+                let previousPhase = payload.parentNode.phases[i - 1]
+                nextPhase.payload.chainParent = previousPhase
+              } else {
+                nextPhase.payload.chainParent = payload.parentNode
+              }
+            }
+            payload.parentNode.phases.splice(i, 1)
+            payload.parentNode = undefined
+            payload.chainParent = undefined
+            return
+          }
+        }
+      }
+    }
+  }
+
+  function attachNode (node, attachToNode) {
+    switch (node.type) {
+      case 'Strategy': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.strategies.push(node)
+      }
+        break
+      case 'Phase': {
+        switch (attachToNode.type) {
+          case 'Stop': {
+            node.payload.parentNode = attachToNode
+            if (attachToNode.phases.length > 0) {
+              let phase = attachToNode.phases[attachToNode.phases.length - 1]
+              node.payload.chainParent = phase
+            } else {
+              node.payload.chainParent = attachToNode
+            }
+            attachToNode.phases.push(node)
+          }
+            break
+          case 'Take Profit': {
+            node.payload.parentNode = attachToNode
+            if (attachToNode.phases.length > 0) {
+              let phase = attachToNode.phases[attachToNode.phases.length - 1]
+              node.payload.chainParent = phase
+            } else {
+              node.payload.chainParent = attachToNode
+            }
+            attachToNode.phases.push(node)
+          }
+            break
+          case 'Phase': {
+            node.payload.parentNode = attachToNode.payload.parentNode
+            for (let i = 0; i < node.payload.parentNode.phases.length; i++) {
+              let phase = node.payload.parentNode.phases[i]
+              if (attachToNode.id === phase.id) {
+                if (i === node.payload.parentNode.phases.length - 1) {
+                  node.payload.chainParent = attachToNode
+                  node.payload.parentNode.phases.push(node)
+                } else {
+                  node.payload.chainParent = attachToNode
+                  let nextPhase = node.payload.parentNode.phases[i + 1]
+                  nextPhase.payload.chainParent = node
+                  node.payload.parentNode.phases.splice(i + 1, 0, node)
+                  return
+                }
+              }
+            }
+          }
+        }
+      }
+        break
+      case 'Situation': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.situations.push(node)
+      }
+        break
+      case 'Condition': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.conditions.push(node)
+      }
+        break
+    }
+  }
+
   function createPart (partType, name, node, parentNode, chainParent, title) {
     let payload = {}
     if (chainParent === undefined) {
       payload.targetPosition = {
-        x: canvas.floatingSpace.container.frame.width / 2,
-        y: canvas.floatingSpace.container.frame.height / 2
+        x: spawnPosition.x,
+        y: spawnPosition.y
       }
     } else {
       payload.targetPosition = {
@@ -92,10 +371,10 @@ function newWorkspace () {
       let strategy = tradingSystem.strategies[m]
       createPart('Strategy', strategy.name, strategy, tradingSystem, tradingSystem)
 
-      createPart('Strategy Entry Event', '', strategy.entryPoint, strategy, strategy)
+      createPart('Trigger On Event', '', strategy.entryPoint, strategy, strategy)
       for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
         let situation = strategy.entryPoint.situations[k]
-        createPart('Situation', situation.name, situation, strategy.entryPoint, strategy.entryPoint, 'Strategy Entry' + ' ' + 'Situation')
+        createPart('Situation', situation.name, situation, strategy.entryPoint, strategy.entryPoint, 'Trigger On' + ' ' + 'Situation')
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
@@ -103,10 +382,10 @@ function newWorkspace () {
         }
       }
 
-      createPart('Strategy Exit Event', '', strategy.exitPoint, strategy, strategy)
+      createPart('Trigger Off Event', '', strategy.exitPoint, strategy, strategy)
       for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
         let situation = strategy.exitPoint.situations[k]
-        createPart('Situation', situation.name, situation, strategy.exitPoint, strategy.exitPoint, 'Strategy Exit' + ' ' + 'Situation')
+        createPart('Situation', situation.name, situation, strategy.exitPoint, strategy.exitPoint, 'Trigger Off' + ' ' + 'Situation')
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
@@ -114,10 +393,10 @@ function newWorkspace () {
         }
       }
 
-      createPart('Trade Entry Event', '', strategy.sellPoint, strategy, strategy)
+      createPart('Take Position Event', '', strategy.sellPoint, strategy, strategy)
       for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
         let situation = strategy.sellPoint.situations[k]
-        createPart('Situation', situation.name, situation, strategy.sellPoint, strategy.sellPoint, 'Trade Entry' + ' ' + 'Situation')
+        createPart('Situation', situation.name, situation, strategy.sellPoint, strategy.sellPoint, 'Take Position' + ' ' + 'Situation')
 
         for (let m = 0; m < situation.conditions.length; m++) {
           let condition = situation.conditions[m]
@@ -174,10 +453,6 @@ function newWorkspace () {
     }
   }
 
-  function destroyStrategyParts () {
-
-  }
-
   async function onMenuItemClick (payload, action) {
     switch (action) {
       case 'Save Trading System':
@@ -230,9 +505,9 @@ function newWorkspace () {
 
           strategyParent.strategies.push(strategy)
           createPart('Strategy', strategy.name, strategy, strategyParent, strategyParent, 'Strategy')
-          createPart('Strategy Entry Event', '', strategy.entryPoint, strategy, strategy)
-          createPart('Strategy Exit Event', '', strategy.exitPoint, strategy, strategy)
-          createPart('Trade Entry Event', '', strategy.sellPoint, strategy, strategy)
+          createPart('Trigger On Event', '', strategy.entryPoint, strategy, strategy)
+          createPart('Trigger Off Event', '', strategy.exitPoint, strategy, strategy)
+          createPart('Take Position Event', '', strategy.sellPoint, strategy, strategy)
           createPart('Stop', '', strategy.stopLoss, strategy, strategy)
           createPart('Take Profit', '', strategy.buyOrder, strategy, strategy)
         }
@@ -303,19 +578,29 @@ function newWorkspace () {
 
   function deleteStrategy (node) {
     let payload = node.payload
-    for (let j = 0; j < payload.parentNode.strategies.length; j++) {
-      let strategy = payload.parentNode.strategies[j]
-      if (strategy.id === node.id) {
-        deleteEvent(strategy.entryPoint)
-        deleteEvent(strategy.exitPoint)
-        deleteEvent(strategy.sellPoint)
-        deleteManagedItem(strategy.stopLoss)
-        deleteManagedItem(strategy.buyOrder)
-        destroyPart(strategy)
-        payload.parentNode.strategies.splice(j, 1)
-        cleanNode(strategy)
-        return
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.strategies.length; j++) {
+        let strategy = payload.parentNode.strategies[j]
+        if (strategy.id === node.id) {
+          deleteEvent(strategy.entryPoint)
+          deleteEvent(strategy.exitPoint)
+          deleteEvent(strategy.sellPoint)
+          deleteManagedItem(strategy.stopLoss)
+          deleteManagedItem(strategy.buyOrder)
+          payload.parentNode.strategies.splice(j, 1)
+          destroyPart(strategy)
+          cleanNode(strategy)
+          return
+        }
       }
+    } else {
+      deleteEvent(node.entryPoint)
+      deleteEvent(node.exitPoint)
+      deleteEvent(node.sellPoint)
+      deleteManagedItem(node.stopLoss)
+      deleteManagedItem(node.buyOrder)
+      destroyPart(node)
+      cleanNode(node)
     }
   }
 
@@ -337,55 +622,80 @@ function newWorkspace () {
 
   function deletePhase (node) {
     let payload = node.payload
-    for (let k = 0; k < payload.parentNode.phases.length; k++) {
-      let phase = payload.parentNode.phases[k]
-      if (phase.id === node.id) {
-        while (phase.situations.length > 0) {
-          let situation = phase.situations[0]
-          deleteSituation(situation)
-        }
-        phase.situations = []
+    if (payload.parentNode !== undefined) {
+      for (let k = 0; k < payload.parentNode.phases.length; k++) {
+        let phase = payload.parentNode.phases[k]
+        if (phase.id === node.id) {
+          while (phase.situations.length > 0) {
+            let situation = phase.situations[0]
+            deleteSituation(situation)
+          }
+          phase.situations = []
         /* Before deleting this phase we need to give its chainParent to the next phase down the chain */
-        if (k < payload.parentNode.phases.length - 1) {
-          payload.parentNode.phases[k + 1].payload.chainParent = payload.chainParent
-        }
+          if (k < payload.parentNode.phases.length - 1) {
+            payload.parentNode.phases[k + 1].payload.chainParent = payload.chainParent
+          }
         /* Continue destroying this phase */
-        destroyPart(phase)
-        payload.parentNode.phases.splice(k, 1)
-        cleanNode(phase)
-        return
+          payload.parentNode.phases.splice(k, 1)
+          destroyPart(phase)
+          cleanNode(phase)
+          return
+        }
       }
+    } else {
+      while (node.situations.length > 0) {
+        let situation = node.situations[0]
+        deleteSituation(situation)
+      }
+      node.situations = []
+      destroyPart(node)
+      cleanNode(node)
     }
   }
 
   function deleteSituation (node) {
     let payload = node.payload
-    for (let j = 0; j < payload.parentNode.situations.length; j++) {
-      let situation = payload.parentNode.situations[j]
-      if (situation.id === node.id) {
-        while (situation.conditions.length > 0) {
-          let condition = situation.conditions[0]
-          deleteCondition(condition)
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.situations.length; j++) {
+        let situation = payload.parentNode.situations[j]
+        if (situation.id === node.id) {
+          while (situation.conditions.length > 0) {
+            let condition = situation.conditions[0]
+            deleteCondition(condition)
+          }
+          situation.conditions = []
+          payload.parentNode.situations.splice(j, 1)
+          destroyPart(situation)
+          cleanNode(situation)
+          return
         }
-        situation.conditions = []
-        destroyPart(situation)
-        payload.parentNode.situations.splice(j, 1)
-        cleanNode(situation)
-        return
       }
+    } else {
+      while (node.conditions.length > 0) {
+        let condition = node.conditions[0]
+        deleteCondition(condition)
+      }
+      node.conditions = []
+      destroyPart(node)
+      cleanNode(node)
     }
   }
 
   function deleteCondition (node) {
     let payload = node.payload
-    for (let i = 0; i < payload.parentNode.conditions.length; i++) {
-      let condition = payload.parentNode.conditions[i]
-      if (condition.id === node.id) {
-        destroyPart(node)
-        payload.parentNode.conditions.splice(i, 1)
-        cleanNode(condition)
-        return
+    if (payload.parentNode !== undefined) {
+      for (let i = 0; i < payload.parentNode.conditions.length; i++) {
+        let condition = payload.parentNode.conditions[i]
+        if (condition.id === node.id) {
+          payload.parentNode.conditions.splice(i, 1)
+          destroyPart(node)
+          cleanNode(condition)
+          return
+        }
       }
+    } else {
+      destroyPart(node)
+      cleanNode(node)
     }
   }
 
@@ -486,7 +796,7 @@ function newWorkspace () {
         return takeProfit
         break
       }
-      case 'Trade Entry Event': {
+      case 'Take Position Event': {
         let event = {
           type: node.type,
           subType: node.subType,
@@ -501,7 +811,7 @@ function newWorkspace () {
         return event
         break
       }
-      case 'Strategy Entry Event': {
+      case 'Trigger On Event': {
         let event = {
           type: node.type,
           subType: node.subType,
@@ -516,7 +826,7 @@ function newWorkspace () {
         return event
         break
       }
-      case 'Strategy Exit Event': {
+      case 'Trigger Off Event': {
         let event = {
           type: node.type,
           subType: node.subType,

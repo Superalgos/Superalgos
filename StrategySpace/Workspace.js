@@ -51,7 +51,7 @@ function newWorkspace () {
   }
 
   function spawn (nodeText, point) {
-    point = canvas.floatingSpace.container.frameThisPoint(point)
+    point = canvas.floatingSpace.container.frame.unframeThisPoint(point)
     spawnPosition.x = point.x
     spawnPosition.y = point.y
 

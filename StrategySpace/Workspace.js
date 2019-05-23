@@ -5,6 +5,7 @@ function newWorkspace () {
   let thisObject = {
     tradingSystem: undefined,
     container: undefined,
+    spawn: spawn,
     detachNode: detachNode,
     attachNode: attachNode,
     getContainer: getContainer,
@@ -43,6 +44,11 @@ function newWorkspace () {
 
   function getContainer (point) {
 
+  }
+
+  function spawn (nodeText, point) {
+    let dirtyNode = JSON.parse(nodeText)
+    let node = getProtocolNode(dirtyNode)
   }
 
   function detachNode (node) {
@@ -753,4 +759,3 @@ function newWorkspace () {
     }
   }
 }
-

@@ -45,6 +45,8 @@ function newStrategyPart () {
   let selfFocusEventSubscriptionId
   let selfNotFocuskEventSubscriptionId
   let selfDisplaceEventSubscriptionId
+  let selfDragStartedEventSubscriptionId
+  let selfDragFinishedEventSubscriptionId
 
   let isHighlighted
   let highlightCounter = 0
@@ -68,6 +70,8 @@ function newStrategyPart () {
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfNotFocuskEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfDisplaceEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfDragStartedEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfDragFinishedEventSubscriptionId)
 
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -111,6 +115,8 @@ function newStrategyPart () {
     selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
     selfNotFocuskEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
     selfDisplaceEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDisplace', onDisplace)
+    selfDragStartedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragStarted', onDragStarted)
+    selfDragFinishedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragFinished', onDragFinished)
   }
 
   function getContainer (point) {
@@ -302,6 +308,14 @@ function newStrategyPart () {
 
   function onDisplace (event) {
     thisObject.partTitle.exitEditMode()
+  }
+
+  function onDragStarted (event) {
+    console.log('DRAG STARED')
+  }
+
+  function onDragFinished (event) {
+    console.log('DRAG FINISHED')
   }
 
   function drawBackground () {

@@ -120,6 +120,7 @@ function newWorkspace () {
             }
             payload.parentNode.phases.splice(i, 1)
             payload.parentNode = undefined
+            payload.chainParent = undefined
             return
           }
         }
@@ -464,8 +465,8 @@ function newWorkspace () {
           deleteEvent(strategy.sellPoint)
           deleteManagedItem(strategy.stopLoss)
           deleteManagedItem(strategy.buyOrder)
-          destroyPart(strategy)
           payload.parentNode.strategies.splice(j, 1)
+          destroyPart(strategy)
           cleanNode(strategy)
           return
         }
@@ -513,8 +514,8 @@ function newWorkspace () {
             payload.parentNode.phases[k + 1].payload.chainParent = payload.chainParent
           }
         /* Continue destroying this phase */
-          destroyPart(phase)
           payload.parentNode.phases.splice(k, 1)
+          destroyPart(phase)
           cleanNode(phase)
           return
         }
@@ -541,8 +542,8 @@ function newWorkspace () {
             deleteCondition(condition)
           }
           situation.conditions = []
-          destroyPart(situation)
           payload.parentNode.situations.splice(j, 1)
+          destroyPart(situation)
           cleanNode(situation)
           return
         }
@@ -564,8 +565,8 @@ function newWorkspace () {
       for (let i = 0; i < payload.parentNode.conditions.length; i++) {
         let condition = payload.parentNode.conditions[i]
         if (condition.id === node.id) {
-          destroyPart(node)
           payload.parentNode.conditions.splice(i, 1)
+          destroyPart(node)
           cleanNode(condition)
           return
         }
@@ -750,3 +751,4 @@ function newWorkspace () {
     }
   }
 }
+

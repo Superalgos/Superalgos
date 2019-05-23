@@ -202,6 +202,7 @@ function newCanvas () {
       if (container !== undefined && container.isDraggeable === true) {
         containerBeingDragged = container
         containerDragStarted = true
+        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
         return
       }
 
@@ -216,6 +217,7 @@ function newCanvas () {
       if (container !== undefined && container.isDraggeable === true) {
         containerBeingDragged = container
         containerDragStarted = true
+        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
         return
       }
 
@@ -226,6 +228,7 @@ function newCanvas () {
       if (container !== undefined && container.isDraggeable === true) {
         containerBeingDragged = container
         containerDragStarted = true
+        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
         return
       }
 
@@ -241,6 +244,7 @@ function newCanvas () {
       if (container !== undefined && container.isDraggeable === true && event.button === 2) {
         containerBeingDragged = container
         containerDragStarted = true
+        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
         return
       }
 
@@ -257,6 +261,7 @@ function newCanvas () {
         if (container.isDraggeable === true) {
           containerBeingDragged = container
           containerDragStarted = true
+          containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
           return
         } else {
           viewPortBeingDragged = true
@@ -270,6 +275,7 @@ function newCanvas () {
         containerBeingDragged = container
         containerDragStarted = true
         floatingObjectDragStarted = true
+        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
         return
       }
 
@@ -386,6 +392,7 @@ function newCanvas () {
       floatingObjectDragStarted = false
       viewPortBeingDragged = false
 
+      containerBeingDragged.eventHandler.raiseEvent('onDragFinished', point)
       containerBeingDragged = undefined
 
       browserCanvas.style.cursor = 'auto'
@@ -409,6 +416,7 @@ function newCanvas () {
           let targetContainer = thisObject.floatingSpace.getContainer(point)
           if (targetContainer !== undefined) {
             if (targetContainer.id !== containerBeingDragged.id) {
+              containerBeingDragged.eventHandler.raiseEvent('onDragFinished', point)
               containerBeingDragged = undefined
               containerDragStarted = false
               floatingObjectDragStarted = false
@@ -417,6 +425,7 @@ function newCanvas () {
               return
             }
           } else {
+            containerBeingDragged.eventHandler.raiseEvent('onDragFinished', point)
             containerDragStarted = false
             containerBeingDragged = undefined
             floatingObjectDragStarted = false

@@ -41,7 +41,7 @@ function newStrategyPartConstructor () {
     strategyPart.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
     let menuItemsInitialValues = getMenuItemsInitialValues(strategyPart, floatingObject, payload)
     strategyPart.initialize(payload, menuItemsInitialValues)
-    strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true)
+    strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true, true, true)
     payload.uiObject = strategyPart
 
     setFloatingObjectBasicProperties(floatingObject, payload)

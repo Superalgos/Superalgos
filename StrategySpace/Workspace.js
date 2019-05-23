@@ -78,12 +78,12 @@ function newWorkspace () {
         return
       }
       case 'Stop': {
+        let lastPhase
         let stop = node
         createPart('Stop', stop.name, stop, parentNode, chainParent, 'Stop')
         for (let m = 0; m < node.phases.length; m++) {
           let phase = node.phases[m]
           let thisChainParent
-          let lastPhase
           if (m === 0) {
             thisChainParent = node
           } else {
@@ -95,12 +95,12 @@ function newWorkspace () {
         return
       }
       case 'Take Profit': {
+        let lastPhase
         let takeProfit = node
         createPart('Take Profit', takeProfit.name, takeProfit, parentNode, chainParent, 'Take Profit')
         for (let m = 0; m < node.phases.length; m++) {
           let phase = node.phases[m]
           let thisChainParent
-          let lastPhase
           if (m === 0) {
             thisChainParent = node
           } else {
@@ -864,3 +864,4 @@ function newWorkspace () {
     }
   }
 }
+

@@ -57,6 +57,8 @@ function newWorkspace () {
           if (strategy.id === node.id) {
             payload.parentNode.strategies.splice(i, 1)
           }
+          payload.parentNode = undefined
+          payload.chainParent = undefined
         }
       }
         break

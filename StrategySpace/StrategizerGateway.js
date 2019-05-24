@@ -80,7 +80,7 @@ function newStrategizerGateway () {
           apolloClient.mutate({
             mutation: GRAPHQL_MUTATION_UPDATE_STRATEGIES,
             variables: {
-              id: thisObject.strategizerData.id,
+              id: tradingSystem.id,
               strategy: dataToSave.strategy
             }
           })

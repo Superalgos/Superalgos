@@ -17,31 +17,31 @@ class Home extends Component {
   }
   render () {
     let user = JSON.parse(this.state.user)
-    if(this.state.user !== undefined && this.state.user !== null){}
+    if (this.state.user !== undefined && this.state.user !== null) {}
     return (
       <React.Fragment>
         {this.state.user !== undefined && this.state.user !== null && (
           <BannerTopBar
-            size='big landing'
-            title='Superalgos Platform Demo'
-            text='The platform demo is a functional prototype built for exposing and evaluating the multitude of Superalgos platform services. The user experience has not been optimized and will be refined in future use case implementations.'
+            size='big'
+            title='Superalgos Platform'
+            text='People and machines working together to create Superalgos'
             backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
           >
             <div className='instructions'>
-              <Typography align='center' variant='h4' >DEMO OVERVIEW</Typography>
-              <Typography align='center' variant='subtitle1' >1. <Link to='/teams/manage-teams'>Create a Team and Fork the Template Bots →</Link></Typography>
-              <Typography align='center' variant='subtitle1' >2. <Link to='/strategizer'>Visit the Strategizer and learn how to build a strategy →</Link></Typography>
-              <Typography align='center' variant='subtitle1' >3. <Link to='/clones/add'>Run a clone instance of your Simulator bot to test the strategy →</Link></Typography>
-              <Typography align='center' variant='subtitle1' >4. <Link to='/charts'>View the results of your strategy in the charts →</Link></Typography>
-              <Typography align='center' variant='subtitle1' >5. <Link to='/clones/add'>Now use your strategy with your trading bot by running a backtest clone instance →</Link></Typography>
-              <Typography align='center' variant='subtitle1' gutterBottom>5. <Link to='/keys/addKey'>(Optional) Add an exchange API key to run your trading bot live →</Link></Typography>
+              <Typography align='center' variant='h4' />
+              <Typography align='center' variant='subtitle1' ><Link to='/teams/manage-teams' /></Typography>
+              <Typography align='center' variant='subtitle1' ><Link to='/strategizer' /></Typography>
+              <Typography align='center' variant='subtitle1' ><Link to='/clones/add' /></Typography>
+              <Typography align='center' variant='subtitle1' ><Link to='/charts' /></Typography>
+              <Typography align='center' variant='subtitle1' ><Link to='/clones/add' /></Typography>
+              <Typography align='center' variant='subtitle1' gutterBottom><Link to='/keys/addKey' /></Typography>
             </div>
           </BannerTopBar>
         )}
         {(this.state.user === undefined || this.state.user === null) && (
           <BannerTopBar
             size='big'
-            title='Superalgos Platform Demo'
+            title='Superalgos Platform'
             text='People and machines working together to create Superalgos'
             backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
           />
@@ -56,7 +56,7 @@ class Home extends Component {
             However, you may encounter occasional instability and errors.
             </Typography>
             <Typography align='justify'>
-            <strong>At this early stage, the focus of the Superalgos Platform is the Strategizer, a tool directed mostly at traders.</strong>
+              <strong>At this early stage, the focus of the Superalgos Platform is the Strategizer, a tool directed mostly at traders.</strong>
             To try out the Demo version hosted here you will need to Sign Up / Login.
             Once you are logged in, you will find basic instructions on how to proceed,
             at this home page (click the Superalgos logo to return to this home page).
@@ -64,7 +64,7 @@ class Home extends Component {
           </div>
           <div className='column'>
             <Typography align='justify'>
-            <strong>If you are a developer, trying out the Strategizer may open your eyes as of what may be achieved with the
+              <strong>If you are a developer, trying out the Strategizer may open your eyes as of what may be achieved with the
             Strategizer and the Superalgos Platform in general.</strong>
             </Typography>
             <Typography align='justify'>

@@ -207,8 +207,7 @@ function newWorkspace () {
           if (strategy.id === node.id) {
             payload.parentNode.strategies.splice(i, 1)
           }
-          payload.parentNode = undefined
-          payload.chainParent = undefined
+          completeDetachment(node)
         }
       }
         break
@@ -240,8 +239,7 @@ function newWorkspace () {
             payload.parentNode.conditions.splice(i, 1)
           }
         }
-        node.payload.chainParent = undefined
-        node.payload.parentNode = undefined
+        completeDetachment(node)
       }
         break
       case 'Situation': {
@@ -252,8 +250,7 @@ function newWorkspace () {
             payload.parentNode.situations.splice(i, 1)
           }
         }
-        node.payload.chainParent = undefined
-        node.payload.parentNode = undefined
+        completeDetachment(node)
       }
         break
       case 'Phase': {
@@ -271,8 +268,7 @@ function newWorkspace () {
               }
             }
             payload.parentNode.phases.splice(i, 1)
-            payload.parentNode = undefined
-            payload.chainParent = undefined
+            completeDetachment(node)
             return
           }
         }
@@ -286,6 +282,7 @@ function newWorkspace () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.strategies.push(node)
+        completeAttachment(node)
       }
         break
       case 'Phase': {
@@ -299,6 +296,7 @@ function newWorkspace () {
               node.payload.chainParent = attachToNode
             }
             attachToNode.phases.push(node)
+            completeAttachment(node)
           }
             break
           case 'Take Profit': {
@@ -310,6 +308,7 @@ function newWorkspace () {
               node.payload.chainParent = attachToNode
             }
             attachToNode.phases.push(node)
+            completeAttachment(node)
           }
             break
           case 'Phase': {
@@ -320,11 +319,13 @@ function newWorkspace () {
                 if (i === node.payload.parentNode.phases.length - 1) {
                   node.payload.chainParent = attachToNode
                   node.payload.parentNode.phases.push(node)
+                  completeAttachment(node)
                 } else {
                   node.payload.chainParent = attachToNode
                   let nextPhase = node.payload.parentNode.phases[i + 1]
                   nextPhase.payload.chainParent = node
                   node.payload.parentNode.phases.splice(i + 1, 0, node)
+                  completeAttachment(node)
                   return
                 }
               }
@@ -337,14 +338,32 @@ function newWorkspace () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.situations.push(node)
+        completeAttachment(node)
       }
         break
       case 'Condition': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.conditions.push(node)
+        completeAttachment(node)
       }
         break
+    }
+  }
+
+  function completeDetachment (node) {
+    node.payload.parentNode = undefined
+    node.payload.chainParent = undefined
+    rootNodes.push(node)
+  }
+
+  function completeAttachment (node) {
+    for (let i = 0; i < rootNodes.length; i++) {
+      let rootNode = rootNodes[i]
+      if (rootNode.id === node.id) {
+        rootNodes.splice(i, 1)
+        return
+      }
     }
   }
 

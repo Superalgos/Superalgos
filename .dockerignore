@@ -19,5 +19,3 @@ obj/*
 bin/*
 /.vscode
 Project.njsproj
-
-this.server.config.dev.json

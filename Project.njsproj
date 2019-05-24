@@ -77,7 +77,6 @@
     <Content Include="index.html" />
     <Content Include="Server\Exchange\Wrappers\binanceProperties.json" />
     <Content Include="Server\Exchange\Wrappers\poloniexProperties.json" />
-    <Content Include="this.server.config.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Azure\" />

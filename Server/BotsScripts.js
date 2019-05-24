@@ -7,18 +7,15 @@
 
     let storage;
 
-    let serverConfig;
-    let storageData;
-
     return thisObject;
 
-    function initialize(pServerConfig, pStorage, callBackFunction) {
+    function initialize(ecosystem, pStorage, callBackFunction) {
 
         storage = pStorage;
 
         let storageData = new Map(); // For backwards compatibility only. Not used.
 
-        storage.initialize(storageData, pServerConfig);
+        storage.initialize(storageData, ecosystem);
 
         callBackFunction();
     }

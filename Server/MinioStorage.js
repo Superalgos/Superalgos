@@ -10,17 +10,15 @@
     }
 
     let storageData;
-    let serverConfig;
 
     let Minio = require('minio');
     let minioClient;
 
     return thisObject;
 
-    function initialize(pStorageData, pServerConfig) {
+    function initialize(pStorageData) {
 
         storageData = pStorageData;
-        serverConfig = pServerConfig;
 
         minioClient = new Minio.Client({
             endPoint: process.env.MINIO_END_POINT,

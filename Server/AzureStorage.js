@@ -10,26 +10,14 @@
     }
 
     let storageData;
-    let serverConfig;
-
-    let Minio = require('minio');
-    let minioClient;
+    let ecosystem;
 
     return thisObject;
 
-    function initialize(pStorageData, pServerConfig) {
+    function initialize(pStorageData, pEcosystem) {
 
         storageData = pStorageData;
-        serverConfig = pServerConfig;
-
-         minioClient = new Minio.Client({
-             endPoint: process.env.MINIO_END_POINT,
-             port: JSON.parse(process.env.MINIO_PORT),
-             useSSL: JSON.parse(process.env.MINIO_USE_SSL),
-             accessKey: process.env.MINIO_ACCESS_KEY,
-             secretKey: process.env.MINIO_SECRET_KEY
-        })
-
+        ecosystem = pEcosystem;
     }
 
     function readData(pOrg, pPath, pFile, saveAtCache, callBackFunction) {
@@ -58,56 +46,8 @@
 
                 if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> readData ->  " + pOrg + '.' + pPath + '.' + pFile + " NOT found at cache."); }
 
-                let storage = require('azure-storage');
-                let connectionString;
-
-                switch (serverConfig.environment) {
-
-                    case "Develop": {
-
-                        connectionString = serverConfig.configAndPlugins.Develop.connectionString;
-                        break;
-                    }
-
-                    case "Production": {
-
-                        connectionString = serverConfig.configAndPlugins.Production.connectionString;
-                        break;
-                    }
-                }
-
-                let blobService = storage.createBlobService(connectionString);
-
-                let pParam1 = pOrg;
-                let pParam2 = pPath;
-                let pParam3 = pFile;
-                let container = 'aaplatform';
-                let azurePath = pOrg + "/" + pPath + "/" + pFile;
-
-                let bucketName = 'aaplatform';
-                let textFilename;
-
-                if (pParam1 === undefined) {
-
-                    /* This is used when the requests come from the browser, for background compatibility.  */
-
-                    container = pParam3;
-                    azurePath = pParam2;
-
-                    bucketName = pParam3;
-                    textFilename = pParam2.substring(pParam2.indexOf("/") + 1, pParam2.length);
-
-                } else {
-
-                    /* This is used for internal requests within AAWeb, for background compatibility. */
-
-                    bucketName = 'aaplatform';
-                    textFilename = pParam1 + "/" + pParam2 + "/" + pParam3;
-                }
-
-
-                blobService.getBlobToText(container, azurePath, onFileReceived);
-
+                let connectionDetails = getConnectionDetails(pOrg, pPath, pFile);
+                connectionDetails.blobService.getBlobToText(connectionDetails.container, connectionDetails.filePath, onFileReceived);
 
                 function onFileReceived(err, text, response) {
 
@@ -143,23 +83,6 @@
 
                         }
 
-                        /* TEMPORARY CODE TO UPDATE THE MINIO SERVER DURING TRANSITION. */
-
-                        // try {
-
-                        //     minioClient.putObject(bucketName, textFilename, text, 'text/plain', function (err) {
-                        //         if (err) {
-                        //             console.log("ERROR AT MINIO SERVER PUTTING OBJECT : " + err);
-                        //             return;
-                        //         }
-                        //         console.log(textFilename + ' Successfully uploaded ' + textFilename + ' the MINIO SERVER');
-                        //     })
-
-                        // } catch (err) {
-                        //     console.log("ERROR UPDATING MINIO SERVER : " + err);
-                        // }
-
-
                         callBackFunction(global.DEFAULT_OK_RESPONSE, text);
 
                     } catch (err) {
@@ -175,6 +98,7 @@
         }
     }
 
+    // TODO remove this functions and resolve them inside the Teams module.
     function writeData(pOrg, pPath, pFile, pFileContent, callBackFunction) {
 
         try {
@@ -184,29 +108,9 @@
             if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> writeData -> pPath = " + pPath); }
             if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> writeData -> pFile = " + pFile); }
 
-            let storage = require('azure-storage');
-            let connectionString;
-
-            switch (serverConfig.environment) {
-
-                case "Develop": {
-
-                    connectionString = serverConfig.configAndPlugins.Develop.connectionString;
-                    break;
-                }
-
-                case "Production": {
-
-                    connectionString = serverConfig.configAndPlugins.Production.connectionString;
-                    break;
-                }
-            }
-
-            let blobService = storage.createBlobService(connectionString);
-            let blobPath = pOrg + "/" + pPath + "/" + pFile;
             let blobText = pFileContent.toString();
-
-            blobService.createBlockBlobFromText('aaplatform', blobPath, blobText, onFileCreated);
+            let connectionDetails = getConnectionDetails(pOrg, pPath, pFile);
+            connectionDetails.blobService.createBlockBlobFromText(connectionDetails.container, connectionDetails.filePath, blobText, onFileCreated);
 
             function onFileCreated(err, text, response) {
 
@@ -252,28 +156,8 @@
             if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteBlob -> pPath = " + pPath); }
             if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteBlob -> pFile = " + pFile); }
 
-            let storage = require('azure-storage');
-            let connectionString;
-
-            switch (serverConfig.environment) {
-
-                case "Develop": {
-
-                    connectionString = serverConfig.configAndPlugins.Develop.connectionString;
-                    break;
-                }
-
-                case "Production": {
-
-                    connectionString = serverConfig.configAndPlugins.Production.connectionString;
-                    break;
-                }
-            }
-
-            let blobService = storage.createBlobService(connectionString);
-            let blobPath = pOrg + "/" + pPath + "/" + pFile;
-
-            blobService.deleteBlob('aaplatform', blobPath, onBlobDeleted);
+            let connectionDetails = getConnectionDetails(pOrg, pPath, pFile);
+            connectionDetails.blobService.deleteBlob(connectionDetails.container, connectionDetails.filePath, onBlobDeleted);
 
             function onBlobDeleted(err, text, response) {
 
@@ -317,28 +201,11 @@
             if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> createContainer -> Entering function."); }
             if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> createContainer -> pContainerName = " + pContainerName); }
 
-            let storage = require('azure-storage');
-            let connectionString;
-
-            switch (serverConfig.environment) {
-
-                case "Develop": {
-
-                    connectionString = serverConfig.configAndPlugins.Develop.connectionString;
-                    break;
-                }
-
-                case "Production": {
-
-                    connectionString = serverConfig.configAndPlugins.Production.connectionString;
-                    break;
-                }
-            }
-
-            let blobService = storage.createBlobService(connectionString);
-
             let containerName = pContainerName.toLowerCase();
 
+            let storage = require('azure-storage');
+            let connectionString = process.env.STORAGE_CONNECTION_STRING;
+            let blobService = storage.createBlobService(connectionString);
             blobService.createContainer(containerName, onContainerCreated);
 
             function onContainerCreated(err) {
@@ -366,9 +233,6 @@
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
                     }
-
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
                 }
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -388,28 +252,11 @@
             if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteContainer -> Entering function."); }
             if (CONSOLE_LOG === true) { console.log("[INFO] Azure Storage -> deleteContainer -> pContainerName = " + pContainerName); }
 
-            let storage = require('azure-storage');
-            let connectionString;
-
-            switch (serverConfig.environment) {
-
-                case "Develop": {
-
-                    connectionString = serverConfig.configAndPlugins.Develop.connectionString;
-                    break;
-                }
-
-                case "Production": {
-
-                    connectionString = serverConfig.configAndPlugins.Production.connectionString;
-                    break;
-                }
-            }
-
-            let blobService = storage.createBlobService(connectionString);
-
             let containerName = pContainerName.toLowerCase();
 
+            let storage = require('azure-storage');
+            let connectionString = process.env.STORAGE_CONNECTION_STRING;
+            let blobService = storage.createBlobService(connectionString);
             blobService.deleteContainer(containerName, onContainerDeleted);
 
             function onContainerDeleted(err) {
@@ -437,9 +284,6 @@
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
                     }
-
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
                 }
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -449,6 +293,57 @@
         } catch (err) {
             console.log("[ERROR] Azure Storage -> deleteContainer -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function getConnectionDetails(pOrg, pPath, pFile){
+        let filePath, container, host, accessKey, teamCodeName;
+
+        if (pOrg === undefined) {
+            /* This is used when the requests come from the browser, for background compatibility.  */
+            filePath = pPath;
+            teamCodeName = pFile;
+        } else {
+            /* This is used for internal requests within AAWeb, for background compatibility. */
+            filePath = pOrg + "/" + pPath + "/" + pFile;
+            teamCodeName = pOrg.split("/")[0];
+        }
+
+        // TODO Temporary looking on on the server side for the team connection, so the client calls are not modified.
+        for (let i = 0; i < ecosystem.devTeams.length; i++) {
+            const devTeam = ecosystem.devTeams[i];
+            if(devTeam.codeName.toLowerCase() === teamCodeName.toLowerCase()){
+                host = devTeam.host.storage;
+                accessKey = devTeam.host.accessKey;
+                container = devTeam.host.container;
+                break;
+            }
+        }
+
+        for (let i = 0; i < ecosystem.hosts.length; i++) {
+            const devTeam = ecosystem.hosts[i];
+            if(devTeam.codeName.toLowerCase() === teamCodeName.toLowerCase()){
+                host = devTeam.host.storage;
+                accessKey = devTeam.host.accessKey;
+                container = devTeam.host.container;
+                break;
+            }
+        }
+
+        if(host === undefined){
+            console.log("[ERROR] Azure Storage -> readData -> Host has not been found for team: " + teamCodeName );
+        }
+
+        if(accessKey === undefined){
+            console.log("[ERROR] Azure Storage -> readData -> Access key has not been found for team: " + teamCodeName);
+        }
+
+        let storage = require('azure-storage');
+        let blobService = storage.createBlobServiceWithSas(host, accessKey);
+        return {
+            blobService,
+            container,
+            filePath
         }
     }
 }

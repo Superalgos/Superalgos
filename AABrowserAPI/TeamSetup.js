@@ -6,12 +6,11 @@
         initialize: initialize
     }
 
-    let masterAppServerURL, storage
+    let storage
 
     return thisObject;
 
-    function initialize(pServerConfig, pStorage) {
-        masterAppServerURL = pServerConfig.masterAppServerURL
+    function initialize(pStorage) {
         storage = pStorage
     }
 
@@ -579,7 +578,7 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        url: masterAppServerURL
+                        url: process.env.GATEWAY_ENDPOINT
                     });
 
 
@@ -1081,7 +1080,7 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        url: masterAppServerURL
+                        url: process.env.GATEWAY_ENDPOINT
                     });
 
 

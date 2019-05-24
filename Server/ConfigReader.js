@@ -5,128 +5,30 @@
         initialize: initialize
     }
 
-    const GITHUB = require('../Server/Github');
-    let github = GITHUB.newGithub();
-
     let storage;
-
-    let serverConfig;
     let storageData;
-    let ecosystem;
     let ecosystemObject;
 
     return thisObject;
 
-    function initialize(pEcosystem, pEcosystemObject, pStorageData, pStorage, callBackFunction) {
-
+    function initialize(pEcosystemObject, pStorageData, pStorage, callBackFunction) {
         storage = pStorage;
         storageData = pStorageData;
-        ecosystem = pEcosystem;
         ecosystemObject = pEcosystemObject;
 
-        readAAWebConfig();
-
-        function readAAWebConfig() {
-
-            try {
-
-                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readAAWebConfig -> Entering function."); }
-
-                let fs = require('fs');
-
-                let fileName = './this.server.config.json';
-                fs.readFile(fileName, onFileRead);
-
-                function onFileRead(err, file) {
-
-                    try {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readAAWebConfig -> onFileRead -> Entering function."); }
-
-                        let fileText;
-
-                        fileText = file.toString();
-                        fileText = fileText.trim(); // remove first byte with some encoding.
-
-                        serverConfig = JSON.parse(fileText);
-
-                        if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader -> readAAWebConfig -> onFileRead -> fileText = " + fileText); }
-
-                        CONSOLE_LOG = serverConfig.webServerLog.console;
-                        LOG_FILE_CONTENT = serverConfig.webServerLog.fileContent;
-
-                        /* Finalize initializations. */
-
-                        storage.initialize(storageData, serverConfig);
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE, serverConfig);
-                    }
-                    catch (err) {
-                        console.log("[ERROR] ConfigReader -> readAAWebConfig -> onFileRead -> File = " + fileName + " Error = " + err);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
-
-                }
-            }
-            catch (err) {
-                console.log("[ERROR] ConfigReader -> readAAWebConfig -> Error = " + err);
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            }
+        try {
+            if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> initialize -> Initializing storage."); }
+            storage.initialize(storageData, ecosystemObject);
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
+        } catch (err) {
+            console.log("[ERROR] ConfigReader -> initialize -> Error initilizing the storage. Stack:", err.stack);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
     function loadConfigs(callBackFunction) {
 
-        readEcosystemConfig();
-
-        function readEcosystemConfig() {
-
-            try {
-
-                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readEcosystemConfig -> Entering function."); }
-
-                /*
-        
-                This configuration file is the backbone of the system. The first file we are going to get is a template where other configurations are
-                injected and the files ends up inflated with all these configs in one single JSON object that in turn is later injected into a
-                javascript module with an object that is going to instantiate it at run-time.
-        
-                */
-
-                storage.readData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', true, onDataArrived);
-
-                function onDataArrived(err, pData) {
-
-                    try {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readEcosystemConfig -> Cloud -> onDataArrived -> Entering function."); }
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                            console.log("[ERROR] ConfigReader -> readEcosystemConfig -> Cloud -> onDataArrived -> Could not read a file. ");
-                            console.log("[ERROR] ConfigReader -> readEcosystemConfig -> Cloud -> onDataArrived -> err.message = " + err.message);
-
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
-
-                        ecosystem = pData.toString();
-                        ecosystem = ecosystem.trim(); // remove first byte with some encoding.
-
-                        ecosystemObject = JSON.parse(ecosystem);
-                        readHostsConfigs();
-                    }
-                    catch (err) {
-                        console.log("[ERROR] ConfigReader -> loadConfigs -> readEcosystemConfig -> onDataArrived -> Error = " + err);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
-                }
-            }
-            catch (err) {
-                console.log("[ERROR] ConfigReader -> loadConfigs -> readEcosystemConfig -> Error = " + err);
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            }
-        }
+        readHostsConfigs();
 
         function readHostsConfigs() {
 
@@ -294,13 +196,13 @@
                 if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> Entering function."); }
 
                 /*
-        
+
                 Each bot has its configuration at its own repo since each team must be able to change it at will.
                 So what we do here is to use the master config at the AAPlatform repo that we already have on
                 memory and inject into it the config of each bot.
-        
+
                 Inmediatelly after that, we also load the Plotters configs using the same technique.
-        
+
                 */
 
                 let requestsSent = 0;
@@ -361,8 +263,6 @@
                                             configObj.repo = bot.repo;
                                             configObj.configFile = bot.configFile;
 
-                                            addStoragePermissions(configObj);                                            
-
                                             /* Here we will add all the possible Clones of this bot */
 
                                             if (configObj.genes !== undefined) {
@@ -387,9 +287,9 @@
 
                                                 }
 
-                                                /* 
+                                                /*
                                                 Now we have all the possible genes values in a multi-dimensional matrix.
-                                                We will go thorugh each of the elements of each dimension and get each combination possible with the other dimmensions. 
+                                                We will go thorugh each of the elements of each dimension and get each combination possible with the other dimmensions.
                                                 */
 
                                                 let combinations = [];
@@ -478,7 +378,7 @@
 
                                         if (requestsSent === responsesReceived) {
 
-                                            callBackFunction(global.DEFAULT_OK_RESPONSE, ecosystem, ecosystemObject);
+                                            callBackFunction(global.DEFAULT_OK_RESPONSE, ecosystemObject);
 
                                         }
 
@@ -550,7 +450,7 @@
 
                                         if (requestsSent === responsesReceived) {
 
-                                            callBackFunction(global.DEFAULT_OK_RESPONSE, ecosystem, ecosystemObject);
+                                            callBackFunction(global.DEFAULT_OK_RESPONSE, ecosystemObject);
 
                                         }
                                     }
@@ -566,48 +466,6 @@
                             console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Error = " + err);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
-                    }
-                }
-
-                function addStoragePermissions(pConfigObj) {
-
-                    try {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> addStoragePermissions -> Entering function."); }
-
-                        if (pConfigObj.storage !== undefined) { return; } // If this information is at the config file, then we take it, otherwise, we define it here. 
-
-                        let fileUri;
-                        let sas;
-
-                        switch (serverConfig.environment) {
-
-                            case "Develop": {
-
-                                fileUri = serverConfig.productsStorage.Develop.fileUri;
-                                sas = serverConfig.productsStorage.Develop.sas;
-
-                                break;
-                            }
-
-                            case "Production": {
-
-                                fileUri = serverConfig.productsStorage.Production.fileUri;
-                                sas = serverConfig.productsStorage.Production.sas;
-
-                                break;
-                            }
-                        }
-
-                        pConfigObj.storage = {
-                            sas: sas,
-                            fileUri: fileUri
-                        };
-
-                    }
-                    catch (err) {
-                        console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> addStoragePermissions -> Error = " + err);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }
 

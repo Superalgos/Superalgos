@@ -1,15 +1,11 @@
 
 require('dotenv').config()
 
-/* These 2 are global variables, that is why they do not have a let or var */
-
-CONSOLE_LOG = true
-CONSOLE_ERROR_LOG = true
-LOG_FILE_CONTENT = false
+CONSOLE_LOG = process.env.CONSOLE_LOG === "true"
+CONSOLE_ERROR_LOG = process.env.CONSOLE_ERROR_LOG === "true"
+LOG_FILE_CONTENT = process.env.LOG_FILE_CONTENT === "true"
 
 if (CONSOLE_LOG === true) { console.log('[INFO] server -> Node Server Starting.') }
-
-let serverConfig
 
 global.DEFAULT_OK_RESPONSE = {
   result: 'Ok',
@@ -36,21 +32,13 @@ global.CUSTOM_FAIL_RESPONSE = {
   message: 'Custom Message'
 }
 
-let storageData = new Map()
-
-let botScripts                 // This module is the one which grabs user bots scrips from the storage, and browserifys them.
-
-let ecosystem
-let ecosystemObject
-
-// 'use strict';
+let storageData
 let http = require('http')
 let port = process.env.PORT || 1337
-
 let isHttpServerStarted = false
-
 const AZURE_STORAGE = require('./Server/AzureStorage')
 const MINIO_STORAGE = require('./Server/MinioStorage')
+let ecosystemObject = require("./Server/config/ecosystem.json");
 
 switch (process.env.STORAGE_PROVIDER) {
     case 'Azure': {
@@ -67,9 +55,6 @@ switch (process.env.STORAGE_PROVIDER) {
     }
 }
 
-let sessionManager                                 // This module have all authenticated active sessions.
-let storageAccessManager                           // This module manages the SAS for user to access the cloud storage from the browser.
-
 initialize()
 
 function initialize () {
@@ -82,9 +67,9 @@ function initialize () {
   const CONFIG_READER = require('./Server/ConfigReader')
   let configReader = CONFIG_READER.newConfigReader()
 
-  configReader.initialize(ecosystem, ecosystemObject, storageData, storage, onInitialized)
+  configReader.initialize(ecosystemObject, storageData, storage, onInitialized)
 
-  function onInitialized (err, pServerConfig) {
+  function onInitialized (err) {
     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
       console.log('[ERROR] server -> initialize -> onInitialized -> err.message = ' + err.message)
       console.log('[ERROR] server -> initialize -> onInitialized -> Terminating Execution. ')
@@ -92,11 +77,9 @@ function initialize () {
       return
     }
 
-    serverConfig = pServerConfig
-
     configReader.loadConfigs(onConfigsLoaded)
 
-    function onConfigsLoaded (err, pEcosystem, pEcosystemObject) {
+    function onConfigsLoaded (err, pEcosystemObject) {
       if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
         console.log('[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> err.message = ' + err.message)
         console.log('[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> Terminating Execution. ')
@@ -104,34 +87,11 @@ function initialize () {
         return
       }
 
-      ecosystem = pEcosystem
       ecosystemObject = pEcosystemObject
 
-      storage.initialize(storageData, serverConfig)
+      storage.initialize(storageData, ecosystemObject) // TODO do not initialize as a general option
 
-        const SESSION_MANAGER = require('./Server/SessionManager')
-        sessionManager = SESSION_MANAGER.newSessionManager()
-
-        sessionManager.initialize(serverConfig, storage, onInitialized)
-
-        function onInitialized () {
-        const STORAGE_ACCESS_MANAGER = require('./Server/AzureStorageAccessManager')
-        storageAccessManager = STORAGE_ACCESS_MANAGER.newAzureStorageAccessManager()
-
-        storageAccessManager.initialize(serverConfig, onInitialized)
-
-        function onInitialized () {
-            const BOT_SCRIPTS = require('./Server/BotsScripts')
-            botScripts = BOT_SCRIPTS.newBotScripts()
-
-            botScripts.initialize(serverConfig, storage, onInitialized)
-
-            function onInitialized () {
-            startHtttpServer()
-            }
-        }
-        }
-
+      startHtttpServer ()
     }
   }
 }
@@ -153,7 +113,6 @@ function onBrowserRequest (request, response) {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> Entering function.') }
   if (CONSOLE_LOG === true && request.url.indexOf('NO-LOG') === -1) { console.log('[INFO] server -> onBrowserRequest -> request.url = ' + request.url) }
 
-  let htmlResponse
   let requestParameters = request.url.split('/')
 
   if (requestParameters[1].indexOf('index.html') >= 0) {
@@ -177,7 +136,7 @@ function onBrowserRequest (request, response) {
 
   switch (requestParameters[1]) {
 
-    case serverConfig.reinitializeCommand: {
+    case process.env.REINITIALIZE_COMMAND: {
       initialize()
 
       respondWithContent('Node JS Server Reinitilized.', response)
@@ -192,39 +151,39 @@ function onBrowserRequest (request, response) {
               break;
         }
 
-    case 'FileService':
-        {
+    // case 'FileService':
+    //     {
 
-            processPost(request, response, onPostReceived)
+    //         processPost(request, response, onPostReceived)
 
-            function onPostReceived(pData) {
+    //         function onPostReceived(pData) {
 
-                let request = JSON.parse(pData);
+    //             let request = JSON.parse(pData);
 
-                storage.readData(undefined, request.path, request.conatinerName, false, onReady)
+    //             storage.readData(undefined, request.path, request.conatinerName, false, onReady)
 
-                function onReady(err, pFileContent) {
+    //             function onReady(err, pFileContent) {
 
-                    let responseToClient = {
-                        err: err,
-                        text: pFileContent
-                    };
+    //                 let responseToClient = {
+    //                     err: err,
+    //                     text: pFileContent
+    //                 };
 
-                    respondWithContent(JSON.stringify(responseToClient), response);
-                }
-            }
+    //                 respondWithContent(JSON.stringify(responseToClient), response);
+    //             }
+    //         }
 
-            break;
-        }
+    //         break;
+    //     }
     case 'Plotter.js':
       {
-                /*
+        /*
 
-                This file is build dinamically because it has the code to instantiate the different configured Plotters. The instantiation code
-                will be generated using a pre-defined string with replacement points. We will go through the configuration file to learn
-                about all the possible plotters the system can load.
+        This file is built dinamically because it has the code to instantiate the different configured Plotters. The instantiation code
+        will be generated using a pre-defined string with replacement points. We will go through the configuration file to learn
+        about all the possible plotters the system can load.
 
-                */
+        */
 
         let fs = require('fs')
         try {
@@ -237,7 +196,7 @@ function onBrowserRequest (request, response) {
             try {
               let fileContent = file.toString()
 
-                            /* This is the string we will use to insert into the Plotters.js script. */
+              /* This is the string we will use to insert into the Plotters.js script. */
 
               let caseString = '' +
                                 '        case "@newFunctionName@":' + '\n' +
@@ -296,13 +255,13 @@ function onBrowserRequest (request, response) {
 
     case 'PlotterPanel.js':
       {
-                /*
+        /*
 
-                This file is build dinamically because it has the code to instantiate the different configured Plotter Panels. The instantiation code
-                will be generated using a pre-defined string with replacement points. We will go through the configuration file to learn
-                about all the possible plotters panels the system can load.
+        This file is build dinamically because it has the code to instantiate the different configured Plotter Panels. The instantiation code
+        will be generated using a pre-defined string with replacement points. We will go through the configuration file to learn
+        about all the possible plotters panels the system can load.
 
-                */
+        */
 
         let fs = require('fs')
         try {
@@ -379,12 +338,12 @@ function onBrowserRequest (request, response) {
 
     case 'Ecosystem.js':
       {
-                /*
+        /*
 
-                At this page we need to insert the configuration file for the whole system that we assamble before at the begining of this module
-                execution. So what we do is to load a template file with an insertion point where the configuration json is injected in.
+        At this page we need to insert the configuration file for the whole system that we assamble before at the begining of this module
+        execution. So what we do is to load a template file with an insertion point where the configuration json is injected in.
 
-                */
+        */
 
         let fs = require('fs')
         try {
@@ -423,7 +382,7 @@ function onBrowserRequest (request, response) {
           filePath = filePath + '/' + requestParameters[4]
         }
 
-        respondWithFile(serverConfig.pathToCloudAppWrapperComponent + '/' + filePath, response)
+        respondWithFile(process.env.PATH_TO_CLOUD_APP_WRAPPER_COMPONENT + '/' + filePath, response)
       }
       break
 
@@ -457,146 +416,33 @@ function onBrowserRequest (request, response) {
 
     case 'CockpitSpace': // This means the CockpitSpace folder.
       {
-        respondWithFile(serverConfig.pathToCanvasApp + '/CockpitSpace/' + requestParameters[2], response)
+        respondWithFile(process.env.PATH_TO_CANVAS_APP + '/CockpitSpace/' + requestParameters[2], response)
       }
       break
 
     case 'TopSpace': // This means the TopSpace folder.
       {
-        respondWithFile(serverConfig.pathToCanvasApp + '/TopSpace/' + requestParameters[2], response)
+        respondWithFile(process.env.PATH_TO_CANVAS_APP + '/TopSpace/' + requestParameters[2], response)
       }
       break
 
     case 'StrategySpace': // This means the StrategySpace folder.
         {
-              respondWithFile(serverConfig.pathToCanvasApp + '/StrategySpace/' + requestParameters[2], response)
+              respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2], response)
         }
         break
 
     case 'ControlsToolBox': // This means the StrategySpace folder.
         {
-              respondWithFile(serverConfig.pathToCanvasApp + '/ControlsToolBox/' + requestParameters[2], response)
+              respondWithFile(process.env.PATH_TO_CANVAS_APP + '/ControlsToolBox/' + requestParameters[2], response)
         }
         break
 
     case 'Utilities': // This means the StrategySpace folder.
         {
-              respondWithFile(serverConfig.pathToCanvasApp + '/Utilities/' + requestParameters[2], response)
+              respondWithFile(process.env.PATH_TO_CANVAS_APP + '/Utilities/' + requestParameters[2], response)
         }
         break
-
-    case 'AABrowserAPI': // This means the Scripts folder.
-      {
-        switch (requestParameters[2]) {
-
-          case "authenticateUser": {
-
-            const AABROWSER_API_USER_AUTHENTICATION = require('./AABrowserAPI/' + 'UserAuthentication');
-            let userAuthentication = AABROWSER_API_USER_AUTHENTICATION.newUserAuthentication();
-
-            userAuthentication.initialize(sessionManager, storageAccessManager);
-            userAuthentication.authenticateUser(requestParameters[3], onFinish);
-
-            function onFinish(err, pUserProfile) {
-
-                let responseToBrowser = {
-                    err: err,
-                    userProfile: pUserProfile
-                };
-
-                respondWithContent(JSON.stringify(responseToBrowser), response);
-            }
-
-            break;
-        }
-
-        case "newTeam": {
-
-            const AABROWSER_API_TEAM_SETUP = require('./AABrowserAPI/' + 'TeamSetup');
-            let teamSetup = AABROWSER_API_TEAM_SETUP.newTeamSetup();
-
-            teamSetup.initialize(serverConfig, storage);
-
-            let devTeamCodeName = decodeURI(requestParameters[3]);
-            let devTeamDisplayName = decodeURI(requestParameters[4]);
-            let userName = decodeURI(requestParameters[5]);
-            let botCodeName = decodeURI(requestParameters[6]);
-            let botDisplayName = decodeURI(requestParameters[7]);
-            let userId = decodeURI(requestParameters[8]);
-            let sharedSecret = decodeURI(requestParameters[9]);
-
-            if (sharedSecret !== serverConfig.newTeamSharedSecret) {
-
-                let customFailResponse = {
-                    result: global.DEFAULT_FAIL_RESPONSE.result,
-                    message: "The shared secret provided is incorrect"
-                }
-
-                respondWithContent(JSON.stringify(customFailResponse), response);
-
-                if (CONSOLE_LOG === true) { console.log("[WARN] server -> AABrowserAPI -> newTeam -> Shared Secret Received Incorrect."); }
-
-                return;
-
-            }
-
-            teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botCodeName, botDisplayName, userId, onSetupFinished);
-
-            function onSetupFinished(err) {
-
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    /* We must re-load all the webserver caches.*/
-
-                    initialize();
-              }
-
-              respondWithContent(JSON.stringify(err), response)
-            }
-            break
-          }
-
-          case 'deleteTeam': {
-            const AABROWSER_API_TEAM_SETUP = require('./AABrowserAPI/' + 'TeamSetup')
-            let teamSetup = AABROWSER_API_TEAM_SETUP.newTeamSetup()
-
-            teamSetup.initialize(serverConfig, storage)
-
-            let devTeamCodeName = decodeURI(requestParameters[3])
-            let userName = decodeURI(requestParameters[4])
-            let botCodeName = decodeURI(requestParameters[5])
-            let userId = decodeURI(requestParameters[6])
-            let sharedSecret = decodeURI(requestParameters[7])
-
-            if (sharedSecret !== serverConfig.deleteTeamSharedSecret) {
-              let customFailResponse = {
-                result: global.DEFAULT_FAIL_RESPONSE.result,
-                message: 'The shared secret provided is incorrect'
-              }
-
-              respondWithContent(JSON.stringify(customFailResponse), response)
-
-              if (CONSOLE_LOG === true) { console.log('[WARN] server -> AABrowserAPI -> deleteTeam -> Shared Secret Received Incorrect.') }
-
-              return
-            }
-
-            teamSetup.deleteTeam(devTeamCodeName, userName, botCodeName, userId, onSetupFinished)
-
-            function onSetupFinished (err) {
-              if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                                /* We must re-load all the webserver caches. */
-
-                initialize()
-              }
-
-              respondWithContent(JSON.stringify(err), response)
-            }
-            break
-          }
-        }
-      }
-      break
 
     case 'Scripts': // This means the Scripts folder.
       {
@@ -698,89 +544,6 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'AACloud': // This means the cloud folder.
-      {
-        let filePath = requestParameters[2]
-
-        if (requestParameters[3] !== undefined) {
-          filePath = filePath + '/' + requestParameters[3]
-        }
-
-        if (requestParameters[4] !== undefined) {
-          filePath = filePath + '/' + requestParameters[4]
-        }
-
-        let map = storageData
-
-        let script = map.get(filePath)
-
-        if (script !== undefined) {
-          respondWithContent(script, response)
-        } else {
-          if (CONSOLE_LOG === true) { console.log('[WARN] server -> onBrowserRequest -> readEcosystemConfig -> Script Not Found.') }
-          if (CONSOLE_LOG === true) { console.log('[WARN] server -> onBrowserRequest -> readEcosystemConfig -> requestParameters[2] = ' + requestParameters[2]) }
-
-          respondWithContent('', response)
-        }
-      }
-      break
-
-    case 'Bots': // This means the cloud folder.
-      {
-        switch (requestParameters[3]) {
-
-          case 'bots': {
-            let devTeam = requestParameters[2]
-            let source = requestParameters[3]
-            let repo = requestParameters[4]
-            let path
-
-            if (requestParameters[6] !== undefined) {
-              path = requestParameters[5] + '/' + requestParameters[6]
-            } else {
-              path = requestParameters[5]
-            }
-
-            botScripts.getScript(devTeam, source, repo, path, onScriptReady)
-
-            break
-          }
-
-          case 'members': {
-            let devTeam = requestParameters[2]
-            let source = requestParameters[3] + '/' + requestParameters[4]
-            let repo = requestParameters[5]
-            let path
-
-            if (requestParameters[7] !== undefined) {
-              path = requestParameters[6] + '/' + requestParameters[7]
-            } else {
-              path = requestParameters[6]
-            }
-
-            botScripts.getScript(devTeam, source, repo, path, onScriptReady)
-
-            break
-          }
-
-          default : {
-            if (CONSOLE_LOG === true) { console.log('[ERROR] server -> onBrowserRequest -> Bots -> Invalid Request. ') }
-          }
-        }
-
-        function onScriptReady (err, pScript) {
-          if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-            console.log('[ERROR] server -> onBrowserRequest -> Bots -> onScriptReady -> Could not read a file. ')
-            console.log('[ERROR] server -> onBrowserRequest -> Bots -> onScriptReady -> err.message = ' + err.message)
-
-            pScript = '/* Your bot source code could not be retrieved. */'
-          }
-
-          respondWithContent(pScript, response)
-        }
-      }
-      break
-
     case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
       {
         storage.readData(requestParameters[2] + '/' + 'plotters', requestParameters[3], requestParameters[4], true, onDataArrived)
@@ -816,13 +579,13 @@ function onBrowserRequest (request, response) {
       break
     case 'Panels':
       {
-        respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response)
+        respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
       }
       break
 
     case 'ChartLayers':
       {
-        respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response)
+        respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
       }
       break
 
@@ -834,31 +597,31 @@ function onBrowserRequest (request, response) {
 
     case 'Spaces':
       {
-        respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response)
+        respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
       }
       break
 
     case 'Scales':
       {
-        respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response)
+        respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
       }
       break
 
     case 'Files':
       {
-        respondWithFile(serverConfig.pathToFilesComponent + '/' + requestParameters[2], response)
+        respondWithFile(process.env.PATH_TO_FILES_COMPONENT + '/' + requestParameters[2], response)
       }
       break
 
     case 'FloatingSpace':
       {
-        respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response)
+        respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
       }
       break
 
     case 'ChartsSpace':
         {
-            respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response)
+            respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
         }
         break
 
@@ -896,17 +659,8 @@ function onBrowserRequest (request, response) {
         console.log(err)
       }
     } else {
-      respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1], response)
+      respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1], response)
     }
-  }
-
-  function sendResponseToBrowser (htmlResponse) {
-    if (CONSOLE_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> sendResponseToBrowser -> Entering function.') }
-
-    response.writeHead(200, { 'Content-Type': 'text/html' })
-    response.write(htmlResponse)
-
-    response.end('\n')
   }
 }
 

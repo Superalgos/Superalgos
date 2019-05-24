@@ -82,6 +82,9 @@ function newCanvas () {
 
            /* Instantiate all the children spaces of Canvas object */
 
+      thisObject.floatingSpace = newFloatingSpace()
+      thisObject.floatingSpace.initialize()
+
       thisObject.topSpace = newTopSpace()
       await thisObject.topSpace.initialize()
 
@@ -93,9 +96,6 @@ function newCanvas () {
 
       thisObject.panelsSpace = newPanelsSpace()
       thisObject.panelsSpace.initialize()
-
-      thisObject.floatingSpace = newFloatingSpace()
-      thisObject.floatingSpace.initialize()
 
       thisObject.chartSpace = newChartSpace()
       thisObject.chartSpace.initialize(onCharSpaceInitialized)
@@ -706,4 +706,3 @@ function newCanvas () {
     }
   }
 }
-

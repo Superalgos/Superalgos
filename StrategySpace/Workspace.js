@@ -42,12 +42,16 @@ function newWorkspace () {
   }
 
   function initialize (tradingSystem) {
-    thisObject.tradingSystem = {
-      id: tradingSystem.id,
-      strategies: tradingSystem.subStrategies
+    let savedWorkspace = window.localStorage.getItem('workspace')
+    if (savedWorkspace === null) {
+      thisObject.tradingSystem = {
+        id: tradingSystem.id,
+        strategies: tradingSystem.subStrategies
+      }
+    } else {
+      thisObject.tradingSystem = JSON.parse(savedWorkspace)
     }
     generateStrategyParts()
-
     rootNodes.set(thisObject.tradingSystem.id, thisObject.tradingSystem)
   }
 
@@ -62,7 +66,7 @@ function newWorkspace () {
     function saveRootNode (value, key, map) {
       workspaceNode = getWorkspaceNode(value)
       let textToSave = JSON.stringify(workspaceNode)
-      window.localStorage.setItem('nodeValue', textToSave)
+      window.localStorage.setItem('workspace', textToSave)
     }
   }
 
@@ -340,15 +344,24 @@ function newWorkspace () {
 
   function createPart (partType, name, node, parentNode, chainParent, title) {
     let payload = {}
-    if (chainParent === undefined) {
+
+    if (node.savedPayload !== undefined) {
       payload.targetPosition = {
-        x: spawnPosition.x,
-        y: spawnPosition.y
+        x: node.savedPayload.targetPosition.x,
+        y: node.savedPayload.targetPosition.y
       }
+      node.savedPayload.targetPosition = undefined
     } else {
-      payload.targetPosition = {
-        x: chainParent.payload.position.x,
-        y: chainParent.payload.position.y
+      if (chainParent === undefined) {
+        payload.targetPosition = {
+          x: spawnPosition.x,
+          y: spawnPosition.y
+        }
+      } else {
+        payload.targetPosition = {
+          x: chainParent.payload.position.x,
+          y: chainParent.payload.position.y
+        }
       }
     }
 
@@ -1059,5 +1072,6 @@ function newWorkspace () {
 
       }
     }
+    return savedPayload
   }
 }

@@ -36,6 +36,19 @@ function newStrategyPartConstructor () {
     floatingObject.initialize('Strategy Part', payload)
     payload.floatingObject = floatingObject
 
+    if (payload.node.savedPayload !== undefined) {
+      position = {
+        x: payload.node.savedPayload.position.x,
+        y: payload.node.savedPayload.position.y
+      }
+      floatingObject.setPosition(position)
+      payload.node.savedPayload.position = undefined
+      if (payload.node.savedPayload.floatingObject.isPinned === true) {
+        floatingObject.pinToggle()
+      }
+      payload.node.savedPayload = undefined
+    }
+
     let strategyPart = newStrategyPart()
     strategyPart.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
     strategyPart.isVisibleFunction = canvas.floatingSpace.isThisPointVisible

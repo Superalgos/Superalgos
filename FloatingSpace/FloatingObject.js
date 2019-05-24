@@ -21,6 +21,7 @@ function newFloatingObject () {
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
     nearbyFloatingObjects: [],
+    setPosition: setPosition,
     pinToggle: pinToggle,
     physics: physics,
     initializeMass: initializeMass,
@@ -267,8 +268,10 @@ function newFloatingObject () {
       y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
     }
 
-    // thisObject.container.frame.position = thisObject.container.frame.frameThisPoint(position)
+    setPosition(position)
+  }
 
+  function setPosition (position) {
     thisObject.container.frame.position.x = position.x
     thisObject.container.frame.position.y = position.y
 
@@ -309,4 +312,3 @@ function newFloatingObject () {
   function updateRadius () {
   }
 }
-

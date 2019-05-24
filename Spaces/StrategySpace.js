@@ -8,7 +8,6 @@ function newStrategySpace () {
     iconCollection: undefined,
     iconByPartType: undefined,
     workspace: undefined,
-    isDeployed: false,
     isInitialized: false,
     physics: physics,
     draw: draw,
@@ -30,16 +29,24 @@ function newStrategySpace () {
   return thisObject
 
   async function initialize () {
-    thisObject.strategizerGateway = newStrategizerGateway()
-
-    thisObject.strategizerGateway.initialize()
-    await thisObject.strategizerGateway.loadFromStrategyzer()
-
     loadIconCollection()
     buildIconByPartTypeMap()
 
-    if (thisObject.strategizerGateway.strategizerData !== undefined) {
+    thisObject.strategizerGateway = newStrategizerGateway()
+    thisObject.strategizerGateway.initialize()
+
+    let savedWorkspace = window.localStorage.getItem('workspace')
+    if (savedWorkspace === null) {
+      await thisObject.strategizerGateway.loadFromStrategyzer()
+      if (thisObject.strategizerGateway.strategizerData !== undefined) {
+        thisObject.isInitialized = true
+        thisObject.workspace = newWorkspace()
+        thisObject.workspace.initialize(thisObject.strategizerGateway.strategizerData)
+      }
+    } else {
       thisObject.isInitialized = true
+      thisObject.workspace = newWorkspace()
+      thisObject.workspace.initialize()
     }
   }
 
@@ -140,23 +147,13 @@ function newStrategySpace () {
   }
 
   function physics () {
+    if (visible !== true) { return }
     thisObject.workspace.physics()
   }
 
   function makeVisible () {
-    if (thisObject.isDeployed !== true) {
-      deploydTradingSystem()
-    }
     canvas.floatingSpace.makeVisible()
     visible = true
-  }
-
-  function deploydTradingSystem () {
-    thisObject.workspace = newWorkspace()
-    if (thisObject.strategizerGateway.strategizerData !== undefined) {
-      thisObject.workspace.initialize(thisObject.strategizerGateway.strategizerData)
-      thisObject.isDeployed = true
-    }
   }
 
   function makeInvisible () {
@@ -185,3 +182,4 @@ function newStrategySpace () {
     }
   }
 }
+

@@ -25,6 +25,7 @@ const usersMenus = {
   ]
 }
 
+/*
 const teamsMenus = {
   title: 'Teams',
   to: '/teams',
@@ -36,6 +37,7 @@ const teamsMenus = {
     { title: 'Report a Bug', to: 'https://github.com/Superalgos/TeamsModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
+*/
 
 const eventsMenus = {
   title: 'Events',
@@ -85,6 +87,7 @@ const cockpitMenus = {
   ]
 }
 
+/*
 const strategizerMenus = {
   title: 'Strategizer',
   to: '/strategizer',
@@ -92,14 +95,15 @@ const strategizerMenus = {
   authenticated: true,
   submenus: []
 }
+*/
 
 const allMenus = [
   usersMenus,
-  teamsMenus,
+  // teamsMenus,
   eventsMenus,
   keyvaultMenus,
   operationsMenus,
-  strategizerMenus,
+  // strategizerMenus,
   cockpitMenus
 ]
 

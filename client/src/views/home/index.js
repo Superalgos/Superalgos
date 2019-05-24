@@ -20,35 +20,14 @@ class Home extends Component {
     if (this.state.user !== undefined && this.state.user !== null) {}
     return (
       <React.Fragment>
-        {this.state.user !== undefined && this.state.user !== null && (
-          <BannerTopBar
-            size='big'
-            title='Superalgos Platform'
-            text='People and machines working together to create Superalgos'
-            backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
-          >
-            <div className='instructions'>
-              <Typography align='center' variant='h4' />
-              <Typography align='center' variant='subtitle1' ><Link to='/teams/manage-teams' /></Typography>
-              <Typography align='center' variant='subtitle1' ><Link to='/strategizer' /></Typography>
-              <Typography align='center' variant='subtitle1' ><Link to='/clones/add' /></Typography>
-              <Typography align='center' variant='subtitle1' ><Link to='/charts' /></Typography>
-              <Typography align='center' variant='subtitle1' ><Link to='/clones/add' /></Typography>
-              <Typography align='center' variant='subtitle1' gutterBottom><Link to='/keys/addKey' /></Typography>
-            </div>
-          </BannerTopBar>
-        )}
-        {(this.state.user === undefined || this.state.user === null) && (
-          <BannerTopBar
-            size='big'
-            title='Superalgos Platform'
-            text='People and machines working together to create Superalgos'
-            backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
-          />
-        )}
+        <BannerTopBar
+          size='big'
+          title='Superalgos Platform'
+          text='People and machines working together to create Superalgos'
+          backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
+        />
         <div className='homePage container'>
           <Typography variant='h1' align='center' className='title'>Welcome to the Superalgos Platform!</Typography>
-          <Typography variant='h2' align='center' className='subtitle'>TRY OUT THE STRATEGIZER DEMO</Typography>
           <div className='column'>
             <Typography align='justify'>
             Before you begin, please be aware this is an alpha stage deployment.
@@ -56,20 +35,12 @@ class Home extends Component {
             However, you may encounter occasional instability and errors.
             </Typography>
             <Typography align='justify'>
-              <strong>At this early stage, the focus of the Superalgos Platform is the Strategizer, a tool directed mostly at traders.</strong>
             To try out the Demo version hosted here you will need to Sign Up / Login.
             Once you are logged in, you will find basic instructions on how to proceed,
             at this home page (click the Superalgos logo to return to this home page).
             </Typography>
           </div>
           <div className='column'>
-            <Typography align='justify'>
-              <strong>If you are a developer, trying out the Strategizer may open your eyes as of what may be achieved with the
-            Strategizer and the Superalgos Platform in general.</strong>
-            </Typography>
-            <Typography align='justify'>
-            The Strategizer is conceived to work with as many indicators and pre programmed strategies as developers are willing to program.
-            </Typography>
             <Typography align='justify'>
             If you wish to set up your own indicators and strategies, please get in touch with us and we'll show you how (give us a shout in the Community Telegram)
             </Typography>

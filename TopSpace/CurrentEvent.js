@@ -8,7 +8,7 @@ function newCurrentEvent () {
 
   function buildEcosystemEventsHack (reload) {
     let hackedEcosystem = [{
-      'codeName': 'AAArena',
+      'codeName': 'AAMasters',
       'displayName': 'AA Arena',
       'competitions': [{
         'codeName': 'Weekend-Deathmatch',

@@ -1,5 +1,4 @@
- ﻿
-function newWebDebugLog () {
+ function newWebDebugLog () {
   let thisObject = {
     write: write,
     fileName: 'undefined'

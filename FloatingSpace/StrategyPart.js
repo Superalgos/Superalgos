@@ -614,9 +614,6 @@ function newStrategyPart () {
       }
     }
 
-    if (thisObject.isExecuting === true) {
-      let a = 1
-    }
     if (executingIcon !== undefined) {
       if (executingIcon.canDrawIcon === true) {
         if (thisObject.isExecuting === true) {

@@ -128,6 +128,7 @@ function newCanvas () {
       animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
       animation.addCallBackFunction('Strategy Space Draw', thisObject.strategySpace.draw)
+      animation.addCallBackFunction('Strategy Space Physics', thisObject.strategySpace.physics)
       animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
       animation.start()
     } catch (err) {

@@ -10,6 +10,7 @@ function newStrategySpace () {
     workspace: undefined,
     isDeployed: false,
     isInitialized: false,
+    physics: physics,
     draw: draw,
     getContainer: getContainer,
     makeVisible: makeVisible,
@@ -136,6 +137,10 @@ function newStrategySpace () {
       image.src = window.canvasApp.urlPrefix + PATH + name + '.png'
       thisObject.iconCollection.set(name, image)
     }
+  }
+
+  function physics () {
+    thisObject.workspace.physics()
   }
 
   function makeVisible () {

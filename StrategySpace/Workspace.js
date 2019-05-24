@@ -5,6 +5,7 @@ function newWorkspace () {
   let thisObject = {
     tradingSystem: undefined,
     container: undefined,
+    physics: physics,
     spawn: spawn,
     detachNode: detachNode,
     attachNode: attachNode,
@@ -30,6 +31,8 @@ function newWorkspace () {
     y: canvas.floatingSpace.container.frame.height / 2
   }
 
+  let rootNodes = new Map()
+
   return thisObject
 
   function finalize () {
@@ -44,10 +47,23 @@ function newWorkspace () {
       strategies: tradingSystem.subStrategies
     }
     generateStrategyParts()
+
+    rootNodes.set(thisObject.tradingSystem.id, thisObject.tradingSystem)
   }
 
   function getContainer (point) {
 
+  }
+
+  function physics () {
+    /* Here we will save all the workspace related objects into the local storage */
+    rootNodes.forEach(saveRootNode)
+
+    function saveRootNode (value, key, map) {
+      workspaceNode = getWorkspaceNode(value)
+      let textToSave = JSON.stringify(workspaceNode)
+      window.localStorage.setItem('nodeValue', textToSave)
+    }
   }
 
   function spawn (nodeText, point) {
@@ -730,15 +746,16 @@ function newWorkspace () {
         {
           let condition = {
             type: node.type,
+            subType: node.subType,
             name: node.name,
             code: node.code
           }
           return condition
-          break
         }
       case 'Situation': {
         let situation = {
           type: node.type,
+          subType: node.subType,
           name: node.name,
           conditions: []
         }
@@ -748,7 +765,6 @@ function newWorkspace () {
           situation.conditions.push(condition)
         }
         return situation
-        break
       }
       case 'Phase': {
         let phase = {
@@ -764,7 +780,6 @@ function newWorkspace () {
           phase.situations.push(situation)
         }
         return phase
-        break
       }
       case 'Stop': {
         let stop = {
@@ -779,7 +794,6 @@ function newWorkspace () {
           stop.phases.push(phase)
         }
         return stop
-        break
       }
       case 'Take Profit': {
         let takeProfit = {
@@ -794,7 +808,6 @@ function newWorkspace () {
           takeProfit.phases.push(phase)
         }
         return takeProfit
-        break
       }
       case 'Take Position Event': {
         let event = {
@@ -809,7 +822,6 @@ function newWorkspace () {
           event.situations.push(situation)
         }
         return event
-        break
       }
       case 'Trigger On Event': {
         let event = {
@@ -824,7 +836,6 @@ function newWorkspace () {
           event.situations.push(situation)
         }
         return event
-        break
       }
       case 'Trigger Off Event': {
         let event = {
@@ -839,7 +850,6 @@ function newWorkspace () {
           event.situations.push(situation)
         }
         return event
-        break
       }
       case 'Strategy': {
         let strategy = {
@@ -853,7 +863,6 @@ function newWorkspace () {
           buyOrder: getProtocolNode(node.buyOrder)
         }
         return strategy
-        break
       }
       case 'Trading System': {
         let tradingSystem = {
@@ -868,7 +877,186 @@ function newWorkspace () {
           tradingSystem.strategies.push(strategy)
         }
         return tradingSystem
-        break
+      }
+    }
+  }
+
+  function getWorkspaceNode (node) {
+    switch (node.type) {
+      case 'Condition':
+        {
+          let condition = {
+            id: node.id,
+            type: node.type,
+            subType: node.subType,
+            name: node.name,
+            code: node.code,
+            savedPayload: getSavedPayload(node)
+          }
+          return condition
+        }
+      case 'Situation': {
+        let situation = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          conditions: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.conditions.length; m++) {
+          let condition = getWorkspaceNode(node.conditions[m])
+          situation.conditions.push(condition)
+        }
+        return situation
+      }
+      case 'Phase': {
+        let phase = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          situations: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = getWorkspaceNode(node.situations[m])
+          phase.situations.push(situation)
+        }
+        return phase
+      }
+      case 'Stop': {
+        let stop = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          phases: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.phases.length; m++) {
+          let phase = getWorkspaceNode(node.phases[m])
+          stop.phases.push(phase)
+        }
+        return stop
+      }
+      case 'Take Profit': {
+        let takeProfit = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          phases: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.phases.length; m++) {
+          let phase = getWorkspaceNode(node.phases[m])
+          takeProfit.phases.push(phase)
+        }
+        return takeProfit
+      }
+      case 'Take Position Event': {
+        let event = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          situations: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = getWorkspaceNode(node.situations[m])
+          event.situations.push(situation)
+        }
+        return event
+      }
+      case 'Trigger On Event': {
+        let event = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          situations: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = getWorkspaceNode(node.situations[m])
+          event.situations.push(situation)
+        }
+        return event
+      }
+      case 'Trigger Off Event': {
+        let event = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          situations: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.situations.length; m++) {
+          let situation = getWorkspaceNode(node.situations[m])
+          event.situations.push(situation)
+        }
+        return event
+      }
+      case 'Strategy': {
+        let strategy = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          entryPoint: getWorkspaceNode(node.entryPoint),
+          exitPoint: getWorkspaceNode(node.exitPoint),
+          sellPoint: getWorkspaceNode(node.sellPoint),
+          stopLoss: getWorkspaceNode(node.stopLoss),
+          buyOrder: getWorkspaceNode(node.buyOrder),
+          savedPayload: getSavedPayload(node)
+        }
+        return strategy
+      }
+      case 'Trading System': {
+        let tradingSystem = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          strategies: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.strategies.length; m++) {
+          let strategy = getWorkspaceNode(node.strategies[m])
+          tradingSystem.strategies.push(strategy)
+        }
+        return tradingSystem
+      }
+    }
+  }
+
+  function getSavedPayload (node) {
+    let savedPayload = {
+      position: {
+        x: node.payload.position.x,
+        y: node.payload.position.y
+      },
+      targetPosition: {
+        x: node.payload.targetPosition.x,
+        y: node.payload.targetPosition.y
+      },
+      floatingObject: {
+        isPinned: node.payload.floatingObject.isPinned
+      },
+      uiObject: {
+
       }
     }
   }

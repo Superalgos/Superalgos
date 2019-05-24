@@ -116,9 +116,6 @@ class Header extends Component {
             <nav className={mobileOpen ? 'links openedMobile' : 'links'}>
               <ul className='primaryMenu'>
                 <li className='primaryLink'>
-                  <Link to='/'><TutorialIcon className='tutorialIcon' /></Link>
-                </li>
-                <li className='primaryLink'>
                   <Link to='/charts'> Charts </Link>
                 </li>
                 {menus}

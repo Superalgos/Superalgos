@@ -1,6 +1,6 @@
 import debug from 'debug'
 
-const BASE = 'advanced-algos'
+const BASE = 'superalgos'
 const COLOURS = {
   info: 'blue',
   warn: 'orange',

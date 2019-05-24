@@ -2,7 +2,7 @@ import Auth0Lock from 'auth0-lock'
 import gql from 'graphql-tag'
 
 import { getItem, setItem } from '../utils/local-storage'
-import { validObject, deleteCookie } from '../utils/js-helpers'
+import { validObject, deleteCookie, slugify, isEmpty } from '../utils/js-helpers'
 import Log from '../utils/log'
 
 import { client } from '../graphql/apollo'
@@ -25,6 +25,25 @@ const VERIFY_TEAM_INVITE = gql`
       team {
         slug
       }
+    }
+  }
+`
+const GET_TEAMS_BY_OWNER = gql`
+  query teamsByOwnerQuery {
+    teams_TeamsByOwner {
+      id
+      name
+      slug
+    }
+  }
+`
+
+const CREATE_TEAM = gql`
+  mutation CreateTeamMutation($name: String!, $slug: String!, $botName: String!, $botSlug: String!) {
+    teams_CreateTeam(name: $name, slug: $slug, botName: $botName, botSlug: $botSlug) {
+      id
+      name
+      slug
     }
   }
 `
@@ -202,6 +221,32 @@ class Auth {
       const user = {
         authId: response.data.users_Authenticate.authId,
         alias: response.data.users_Authenticate.alias
+      }
+      if (validObject(user, 'alias')) {
+        Log.info(user.alias)
+        const existingTeam = await client.query({
+          query: GET_TEAMS_BY_OWNER
+        })
+        Log.info(existingTeam)
+        Log.info(existingTeam.data.teams_TeamsByOwner)
+        if (validObject(existingTeam.data, 'teams_TeamsByOwner') && isEmpty(existingTeam.data.teams_TeamsByOwner)) {
+          const slug = slugify(user.alias)
+          const newTeam = await client.mutate({
+            mutation: CREATE_TEAM,
+            variables: {
+              name: slug,
+              slug: slug,
+              botName: `bot-${slug}`,
+              botSlug: `bot-${slug}`
+            }
+          })
+          Log.info(newTeam)
+          Log.info(newTeam.data.teams_CreateTeam)
+          if (!validObject(newTeam.data, 'teams_CreateTeam') || isEmpty(newTeam.data.teams_CreateTeam)) {
+            throw newTeam.data.error
+          }
+          Log.info('Team and Bot Creation Success')
+        }
       }
       setItem('user', JSON.stringify(user))
       window.location.href = '/'

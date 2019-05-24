@@ -41,7 +41,7 @@ function newStrategyPartConstructor () {
     strategyPart.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
     let menuItemsInitialValues = getMenuItemsInitialValues(strategyPart, floatingObject, payload)
     strategyPart.initialize(payload, menuItemsInitialValues)
-    strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true)
+    strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true, true, true)
     payload.uiObject = strategyPart
 
     setFloatingObjectBasicProperties(floatingObject, payload)
@@ -72,18 +72,6 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
-            action: 'Reload Trading System',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Reload',
-            visible: false,
-            iconPathOn: 'vector',
-            iconPathOff: 'vector',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -60
-          },
-          {
             action: 'Save Trading System',
             actionFunction: payload.onMenuItemClick,
             label: 'Save Changes',
@@ -96,7 +84,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           },
           {
             action: 'New Strategy',
@@ -109,19 +97,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 0
           },
           {
-            action: 'Open Settings',
+            action: 'Download',
             actionFunction: payload.onMenuItemClick,
-            label: 'Settings',
+            label: 'Download',
             visible: false,
-            iconPathOn: 'tools',
-            iconPathOff: 'tools',
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 40
           }]
         break
       }
@@ -153,12 +141,12 @@ function newStrategyPartConstructor () {
             angle: -20
           },
           {
-            action: 'Open Settings',
+            action: 'Download',
             actionFunction: payload.onMenuItemClick,
-            label: 'Settings',
+            label: 'Download',
             visible: false,
-            iconPathOn: 'tools',
-            iconPathOff: 'tools',
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -166,7 +154,7 @@ function newStrategyPartConstructor () {
           }]
         break
       }
-      case 'Strategy Entry Event': {
+      case 'Trigger On Event': {
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -186,17 +174,29 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
-            iconPathOn: 'attractive',
-            iconPathOff: 'attractive',
+            iconPathOn: 'pyramid',
+            iconPathOff: 'pyramid',
             relatedStrategyPart: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }]
         break
       }
-      case 'Strategy Exit Event': {
+      case 'Trigger Off Event': {
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -216,17 +216,29 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
-            iconPathOn: 'attractive',
-            iconPathOff: 'attractive',
+            iconPathOn: 'pyramid',
+            iconPathOff: 'pyramid',
             relatedStrategyPart: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }]
         break
       }
-      case 'Trade Entry Event': {
+      case 'Take Position Event': {
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -246,13 +258,25 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
-            iconPathOn: 'attractive',
-            iconPathOff: 'attractive',
+            iconPathOn: 'pyramid',
+            iconPathOff: 'pyramid',
             relatedStrategyPart: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }]
         break
       }
@@ -282,7 +306,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }]
         break
       }
@@ -312,7 +348,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }]
         break
       }
@@ -346,20 +394,21 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: -60,
+            dontShowAtFullscreen: true
           },
           {
             action: 'Add Situation',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
-            iconPathOn: 'attractive',
-            iconPathOff: 'attractive',
+            iconPathOn: 'pyramid',
+            iconPathOff: 'pyramid',
             relatedStrategyPart: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
           },
           {
             action: 'Delete Phase',
@@ -371,7 +420,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: 20
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
           }]
         break
       }
@@ -401,7 +462,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: -40
           },
           {
             action: 'Delete Situation',
@@ -413,7 +474,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }]
         break
       }
@@ -447,7 +520,8 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: -40,
+            dontShowAtFullscreen: true
           },
           {
             action: 'Delete Condition',
@@ -459,7 +533,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }]
         break
       }
@@ -483,15 +569,15 @@ function newStrategyPartConstructor () {
         level_1()
         break
       }
-      case 'Strategy Entry Event': {
+      case 'Trigger On Event': {
         level_2()
         break
       }
-      case 'Strategy Exit Event': {
+      case 'Trigger Off Event': {
         level_2()
         break
       }
-      case 'Trade Entry Event': {
+      case 'Take Position Event': {
         level_2()
         break
       }

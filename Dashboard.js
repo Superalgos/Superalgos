@@ -80,7 +80,7 @@ function newDashboard () {
       browserCanvas = document.getElementById('canvas')
 
       browserCanvas.width = window.innerWidth
-      browserCanvas.height = window.innerHeight - window.canvasApp.topMargin
+      browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
 
       viewPort.initialize()
     } catch (err) {

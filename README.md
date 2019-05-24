@@ -1,20 +1,42 @@
 # Welcome to the Canvas App
 
-The Canvas App is the built-in charting system of Superalgos. It is the software capable of running the Plotters that represent datasets graphically.
+The Canvas App provides a visual environment for the _Charting System_ and the _Strategy Designer_.
 
-![image](https://user-images.githubusercontent.com/9479367/56820881-520f0f80-684d-11e9-9f47-4b3ca38370e9.png)
+## For Developers: Installation 
 
-## Installation 
+To install the Canvas App, you need to install AAWeb, following [this guide](https://github.com/Superalgos/AAWeb/blob/develop/README.md).
 
-To install the Canvas App, you need to install AAWeb, following this guide:
+## For All Users: Demo
 
-https://github.com/Superalgos/AAWeb/blob/develop/README.md
+Use the latest Chrome version to [access the Demo](https://demo.superalgos.org).
 
-## Usage
+## Overview
 
-The first time you access the Canvas App, you will see the following screen with no chart displayed, since the app expects you to select one of the available layers at the Layers Panel on the left:
+The first time you access the _Charts_, you will see the following screen, split in half. The top half features the space used by the _Charting System_ and the bottom half features the _Strategy Designer_.
 
-![image](https://user-images.githubusercontent.com/9479367/56821029-a3b79a00-684d-11e9-8226-2471e32b70e7.png)
+Use the control in the center of the turquoise bar to pull the bar up and down in order to make more room to either application. 
+
+![image](https://user-images.githubusercontent.com/13994516/58324648-be1e6c80-7e27-11e9-906f-0f3d96c3aa7b.png)
+
+Pulling the bar to the very top of the screen causes the _Charting System_ to stop consuming resources in your local machine, and gives you an ample view of the _Strategy Designer_.
+
+The Strategy Designer allows you to manage your _Trading System_. The structure represented by the various icons nested in a hierarchy of elements is the representation of the logic behind your _Strategies_.
+
+![image](https://user-images.githubusercontent.com/13994516/58325421-f32bbe80-7e29-11e9-9478-9e6e4a02ae47.png)
+
+Pulling the bar to the very bottom of the screen causes the _Strategy Designer_ to stop consuming resources from your local machine, and offers a full-screen view of the _Charting System_.
+
+The _Charting System_ plots indicators data along with the actions taken by the _Strategy Engine_ and the _Executor_, integrated with market data.
+
+![image](https://user-images.githubusercontent.com/13994516/58325972-c37db600-7e2b-11e9-9aa2-9f6faaf8dd94.png)
+
+The _Strategy Engine_ backtests and forward tests the instructions defined on its _protocol_ file input. In coordination with the _Strategy Executor_, the engine can also live trade.
+
+The _Strategy Executor_ interprets the execution instructions embedded at a _protocol_ file. The instructions determine the type of order to use, and what to do in every possible situation that could emerge during the placement and management of exchange orders.
+
+The _protocol_ refers to the _Superalgos Protocol_. In conceptual terms, it is a file with a specific format capable of holding all the information concerning your _Trading System_. The _protocol_ allows us to standardize the way in which we describe strategies, so that the tools we develop to create or modify, visualize, backtest and deploy _Strategies_ can handle all _Strategies_ in a standardized fashion. It also allows _Strategies_ and even parts of _Strategies_ to be portable, along with many other features that will become possible in the future. 
+
+In its current early version, the _protocol_ is simply the description of a JSON object which defines the desired automation.
 
 ### Layers Panel
 

@@ -32,6 +32,8 @@ function newChartSpace () {
   thisObject.container.isDraggeable = false
   thisObject.container.isWheelable = false
 
+  let canvasBrowserResizedEventSubscriptionId
+
   return thisObject
 
   function finalize () {
@@ -40,6 +42,8 @@ function newChartSpace () {
       timeMachine.finalize()
     }
 
+    thisObject.container.eventHandler.stopListening(canvasBrowserResizedEventSubscriptionId)
+
     thisObject.container.finalize()
     thisObject.container = undefined
   }
@@ -47,6 +51,8 @@ function newChartSpace () {
   function initialize (callBackFunction) {
     let initializedCounter = 0
     let toInitialize = 1
+
+    canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
 
        /* We create the first of many possible time machines that could live at the Chart Space. */
 
@@ -57,6 +63,7 @@ function newChartSpace () {
     timeMachine.container.frame.position.x = thisObject.container.frame.width / 2 - timeMachine.container.frame.width / 2
     timeMachine.container.frame.position.y = thisObject.container.frame.height / 2 - timeMachine.container.frame.height / 2
     timeMachine.container.fitFunction = fitIntoVisibleArea
+    timeMachine.fitFunction = fitIntoVisibleArea
     timeMachine.initialize(onTimeMachineInitialized)
 
     function onTimeMachineInitialized (err) {
@@ -98,6 +105,11 @@ function newChartSpace () {
     } else {
       return undefined
     }
+  }
+
+  function resize () {
+    thisObject.container.frame.width = browserCanvas.width
+    thisObject.container.frame.height = COCKPIT_SPACE_POSITION
   }
 
   function fitIntoVisibleArea (point) {

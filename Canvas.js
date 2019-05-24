@@ -60,16 +60,15 @@ function newCanvas () {
       browserCanvas.removeEventListener('click', onMouseClick, false)
       browserCanvas.removeEventListener('mouseout', onMouseOut, false)
 
-           /* Mouse wheel events. */
-
       if (browserCanvas.removeEventListener) {
-               // IE9, Chrome, Safari, Opera
-        browserCanvas.removeEventListener('mousewheel', onMouseWheel, false)
-               // Firefox
-        browserCanvas.removeEventListener('DOMMouseScroll', onMouseWheel, false)
-      }
-           // IE 6/7/8
-      else browserCanvas.detachEvent('onmousewheel', onMouseWheel)
+        browserCanvas.removeEventListener('mousewheel', onMouseWheel, false)// IE9, Chrome, Safari, Opera
+        browserCanvas.removeEventListener('DOMMouseScroll', onMouseWheel, false) // Firefox
+      } else browserCanvas.detachEvent('onmousewheel', onMouseWheel)  // IE 6/7/8
+
+      browserCanvas.removeEventListener('dragenter', onDragEnter, false)
+      browserCanvas.removeEventListener('dragleave', onDragLeave, false)
+      browserCanvas.removeEventListener('dragover', onDragOver, false)
+      browserCanvas.removeEventListener('drop', onDragDrop, false)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
@@ -110,9 +109,6 @@ function newCanvas () {
           if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCharSpaceInitialized -> err = ' + err.stack) }
         }
       }
-
-           /* Splash Screen */
-
       splashScreen = newSplashScreen()
       splashScreen.initialize()
 
@@ -120,8 +116,6 @@ function newCanvas () {
       animation.initialize()
 
       thisObject.animation = animation
-
-                   /* Here we add all the functions that will be called during the animation cycle. */
 
       animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
       animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
@@ -144,7 +138,6 @@ function newCanvas () {
   function initializeBrowserCanvas () {
     try {
       browserCanvasContext = browserCanvas.getContext('2d')
-      // browserCanvasContext.font = 'italic small-caps bold 12px Saira'
       browserCanvasContext.font = 'Saira'
 
       viewPort.initialize()
@@ -155,24 +148,23 @@ function newCanvas () {
 
   function addCanvasEvents () {
     try {
-           /* Mouse down and up events to control the drag of the canvas. */
-
       browserCanvas.addEventListener('mousedown', onMouseDown, false)
       browserCanvas.addEventListener('mouseup', onMouseUp, false)
       browserCanvas.addEventListener('mousemove', onMouseMove, false)
       browserCanvas.addEventListener('click', onMouseClick, false)
       browserCanvas.addEventListener('mouseout', onMouseOut, false)
 
-           /* Mouse wheel events. */
-
       if (browserCanvas.addEventListener) {
-               // IE9, Chrome, Safari, Opera
-        browserCanvas.addEventListener('mousewheel', onMouseWheel, false)
-               // Firefox
-        browserCanvas.addEventListener('DOMMouseScroll', onMouseWheel, false)
-      }
-           // IE 6/7/8
-      else browserCanvas.attachEvent('onmousewheel', onMouseWheel)
+        browserCanvas.addEventListener('mousewheel', onMouseWheel, false) // IE9, Chrome, Safari, Opera
+        browserCanvas.addEventListener('DOMMouseScroll', onMouseWheel, false)  // Firefox
+      } else browserCanvas.attachEvent('onmousewheel', onMouseWheel)// IE 6/7/8
+
+      /* Dragging Files Over the Canvas */
+
+      browserCanvas.addEventListener('dragenter', onDragEnter, false)
+      browserCanvas.addEventListener('dragleave', onDragLeave, false)
+      browserCanvas.addEventListener('dragover', onDragOver, false)
+      browserCanvas.addEventListener('drop', onDragDrop, false)
 
       //  Disables the context menu when you right mouse click the canvas.
       browserCanvas.oncontextmenu = function (e) {
@@ -183,11 +175,67 @@ function newCanvas () {
     }
   }
 
+  function onDragEnter (event) {
+    try {
+      event.preventDefault()
+      event.stopPropagation()
+      thisObject.cockpitSpace.toTop()
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] onDragEnter -> err = ' + err.stack) }
+    }
+  }
+
+  function onDragLeave (event) {
+    try {
+      event.preventDefault()
+      event.stopPropagation()
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] onDragLeave -> err = ' + err.stack) }
+    }
+  }
+
+  function onDragOver (event) {
+    try {
+      event.preventDefault()
+      event.stopPropagation()
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] onDragOver -> err = ' + err.stack) }
+    }
+  }
+
+  function onDragDrop (event) {
+    try {
+      event.preventDefault()
+      event.stopPropagation()
+
+      let files = event.dataTransfer.files
+
+      handleFiles(files)
+      function handleFiles (files) {
+        ([...files]).forEach(loadFileData)
+      }
+
+      function loadFileData (file) {
+        let reader = new FileReader()
+        reader.readAsText(file)
+        reader.onloadend = function () {
+          let mousePosition = {
+            x: event.x,
+            y: event.y
+          }
+          thisObject.strategySpace.workspace.spawn(reader.result, mousePosition)
+        }
+      }
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] onDragDrop -> err = ' + err.stack) }
+    }
+  }
+
   function onMouseDown (event) {
     try {
       let point = {
         x: event.pageX,
-        y: event.pageY - window.canvasApp.topMargin
+        y: event.pageY - CURRENT_TOP_MARGIN
       }
 
       dragVector.downX = point.x
@@ -202,6 +250,7 @@ function newCanvas () {
       if (container !== undefined && container.isDraggeable === true) {
         containerBeingDragged = container
         containerDragStarted = true
+        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
         return
       }
 
@@ -216,6 +265,7 @@ function newCanvas () {
       if (container !== undefined && container.isDraggeable === true) {
         containerBeingDragged = container
         containerDragStarted = true
+        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
         return
       }
 
@@ -226,6 +276,12 @@ function newCanvas () {
       if (container !== undefined && container.isDraggeable === true) {
         containerBeingDragged = container
         containerDragStarted = true
+        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
+        return
+      }
+
+      if (container !== undefined && container.isClickeable === true) {
+       /* We dont want to mess up with the click */
         return
       }
 
@@ -236,6 +292,7 @@ function newCanvas () {
       if (container !== undefined && container.isDraggeable === true && event.button === 2) {
         containerBeingDragged = container
         containerDragStarted = true
+        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
         return
       }
 
@@ -252,6 +309,7 @@ function newCanvas () {
         if (container.isDraggeable === true) {
           containerBeingDragged = container
           containerDragStarted = true
+          containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
           return
         } else {
           viewPortBeingDragged = true
@@ -265,6 +323,7 @@ function newCanvas () {
         containerBeingDragged = container
         containerDragStarted = true
         floatingObjectDragStarted = true
+        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
         return
       }
 
@@ -285,7 +344,7 @@ function newCanvas () {
       }
       let point = {
         x: event.pageX,
-        y: event.pageY - window.canvasApp.topMargin
+        y: event.pageY - CURRENT_TOP_MARGIN
       }
 
       let container
@@ -362,38 +421,11 @@ function newCanvas () {
     deactivateDragging(event)
   }
 
-  function deactivateDragging (event) {
-    try {
-      if (containerDragStarted || viewPortBeingDragged || floatingObjectDragStarted) {
-        thisObject.eventHandler.raiseEvent('Drag Finished', undefined)
-      }
-
-      if (
-     containerDragStarted ||
-     floatingObjectDragStarted ||
-     viewPortBeingDragged
-     ) {
-        ignoreNextClick = true
-      }
-           /* Turn off all the possible things that can be dragged. */
-
-      containerDragStarted = false
-      floatingObjectDragStarted = false
-      viewPortBeingDragged = false
-
-      containerBeingDragged = undefined
-
-      browserCanvas.style.cursor = 'auto'
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onMouseUp -> err = ' + err.stack) }
-    }
-  }
-
   function onMouseMove (event) {
     try {
       let point = {
         x: event.pageX,
-        y: event.pageY - window.canvasApp.topMargin
+        y: event.pageY - CURRENT_TOP_MARGIN
       }
 
       viewPort.mousePosition.x = point.x
@@ -404,6 +436,7 @@ function newCanvas () {
           let targetContainer = thisObject.floatingSpace.getContainer(point)
           if (targetContainer !== undefined) {
             if (targetContainer.id !== containerBeingDragged.id) {
+              containerBeingDragged.eventHandler.raiseEvent('onDragFinished', point)
               containerBeingDragged = undefined
               containerDragStarted = false
               floatingObjectDragStarted = false
@@ -412,6 +445,7 @@ function newCanvas () {
               return
             }
           } else {
+            containerBeingDragged.eventHandler.raiseEvent('onDragFinished', point)
             containerDragStarted = false
             containerBeingDragged = undefined
             floatingObjectDragStarted = false
@@ -439,7 +473,7 @@ function newCanvas () {
 
       let point = {
         x: event.pageX,
-        y: event.pageY - window.canvasApp.topMargin
+        y: event.pageY - CURRENT_TOP_MARGIN
       }
 
       let container
@@ -534,7 +568,7 @@ function newCanvas () {
 
       let point = {
         x: event.pageX,
-        y: event.pageY - window.canvasApp.topMargin
+        y: event.pageY - CURRENT_TOP_MARGIN
       }
 
       event.mousePosition = point
@@ -583,12 +617,42 @@ function newCanvas () {
     }
   }
 
+  function deactivateDragging (event) {
+    try {
+      if (containerDragStarted || viewPortBeingDragged || floatingObjectDragStarted) {
+        thisObject.eventHandler.raiseEvent('Drag Finished', undefined)
+      }
+
+      if (
+     containerDragStarted ||
+     floatingObjectDragStarted ||
+     viewPortBeingDragged
+     ) {
+        ignoreNextClick = true
+      }
+           /* Turn off all the possible things that can be dragged. */
+
+      containerDragStarted = false
+      floatingObjectDragStarted = false
+      viewPortBeingDragged = false
+
+      if (containerBeingDragged !== undefined) {
+        containerBeingDragged.eventHandler.raiseEvent('onDragFinished', event)
+        containerBeingDragged = undefined
+      }
+
+      browserCanvas.style.cursor = 'auto'
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] deactivateDragging -> err = ' + err.stack) }
+    }
+  }
+
   function checkDrag (event) {
     try {
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
         let point = {
           x: event.pageX,
-          y: event.pageY - window.canvasApp.topMargin
+          y: event.pageY - CURRENT_TOP_MARGIN
         }
 
         browserCanvas.style.cursor = 'grabbing'
@@ -641,3 +705,4 @@ function newCanvas () {
     }
   }
 }
+

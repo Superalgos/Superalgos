@@ -20,6 +20,7 @@ function newFloatingObject () {
     rawRadius: 0,                           // This is the radius of this floating object without zoom.
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
+    nearbyFloatingObjects: [],
     pinToggle: pinToggle,
     physics: physics,
     initializeMass: initializeMass,
@@ -65,6 +66,7 @@ function newFloatingObject () {
     thisObject.container = undefined
     thisObject.payload = undefined
     thisObject.fitFunction = undefined
+    thisObject.nearbyFloatingObjects = undefined
   }
 
   function initialize (type, payload) {
@@ -115,32 +117,32 @@ function newFloatingObject () {
   function thisObjectPhysics () {
                            // The radius also have a target.
 
-    if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 3) {
+    if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 15) {
       if (thisObject.container.frame.radius < thisObject.targetRadius) {
-        thisObject.container.frame.radius = thisObject.container.frame.radius + 3
+        thisObject.container.frame.radius = thisObject.container.frame.radius + 15
       } else {
-        thisObject.container.frame.radius = thisObject.container.frame.radius - 3
+        thisObject.container.frame.radius = thisObject.container.frame.radius - 15
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     }
 
                            // The imageSize also have a target.
 
-    if (Math.abs(thisObject.currentImageSize - thisObject.targetImageSize) >= 1) {
+    if (Math.abs(thisObject.currentImageSize - thisObject.targetImageSize) >= 10) {
       if (thisObject.currentImageSize < thisObject.targetImageSize) {
-        thisObject.currentImageSize = thisObject.currentImageSize + 2
+        thisObject.currentImageSize = thisObject.currentImageSize + 10
       } else {
-        thisObject.currentImageSize = thisObject.currentImageSize - 2
+        thisObject.currentImageSize = thisObject.currentImageSize - 10
       }
     }
 
                            // The fontSize also have a target.
 
-    if (Math.abs(thisObject.currentFontSize - thisObject.targetFontSize) >= 0.2) {
+    if (Math.abs(thisObject.currentFontSize - thisObject.targetFontSize) >= 1) {
       if (thisObject.currentFontSize < thisObject.targetFontSize) {
-        thisObject.currentFontSize = thisObject.currentFontSize + 0.2
+        thisObject.currentFontSize = thisObject.currentFontSize + 1
       } else {
-        thisObject.currentFontSize = thisObject.currentFontSize - 0.2
+        thisObject.currentFontSize = thisObject.currentFontSize - 1
       }
     }
 
@@ -307,3 +309,4 @@ function newFloatingObject () {
   function updateRadius () {
   }
 }
+

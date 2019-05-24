@@ -31,7 +31,7 @@ function newWorkspace () {
     y: canvas.floatingSpace.container.frame.height / 2
   }
 
-  let rootNodes = new Map()
+  let rootNodes = []
 
   return thisObject
 
@@ -44,15 +44,19 @@ function newWorkspace () {
   function initialize (tradingSystem) {
     let savedWorkspace = window.localStorage.getItem('workspace')
     if (savedWorkspace === null) {
-      thisObject.tradingSystem = {
+      let adaptedTradingSystem = {
         id: tradingSystem.id,
         strategies: tradingSystem.subStrategies
       }
+      rootNodes.push(adaptedTradingSystem)
+      generateStrategyParts(adaptedTradingSystem)
     } else {
-      thisObject.tradingSystem = JSON.parse(savedWorkspace)
+      rootNodes = JSON.parse(savedWorkspace)
+      for (let i = 0; i < rootNodes.length; i++) {
+        let rootNode = rootNodes[i]
+        createPartFromNode(rootNode, undefined, undefined)
+      }
     }
-    generateStrategyParts()
-    rootNodes.set(thisObject.tradingSystem.id, thisObject.tradingSystem)
   }
 
   function getContainer (point) {
@@ -61,13 +65,14 @@ function newWorkspace () {
 
   function physics () {
     /* Here we will save all the workspace related objects into the local storage */
-    rootNodes.forEach(saveRootNode)
-
-    function saveRootNode (value, key, map) {
-      workspaceNode = getWorkspaceNode(value)
-      let textToSave = JSON.stringify(workspaceNode)
-      window.localStorage.setItem('workspace', textToSave)
+    let stringifyReadyNodes = []
+    for (let i = 0; i < rootNodes.length; i++) {
+      let rootNode = rootNodes[i]
+      let workspaceNode = getWorkspaceNode(rootNode)
+      stringifyReadyNodes.push(workspaceNode)
     }
+    let textToSave = JSON.stringify(stringifyReadyNodes)
+    window.localStorage.setItem('workspace', textToSave)
   }
 
   function spawn (nodeText, point) {
@@ -77,6 +82,7 @@ function newWorkspace () {
 
     let dirtyNode = JSON.parse(nodeText)
     let rootNode = getProtocolNode(dirtyNode)
+    rootNodes.push(rootNode)
     createPartFromNode(rootNode, undefined, undefined)
   }
 
@@ -390,9 +396,9 @@ function newWorkspace () {
     canvas.floatingSpace.strategyPartConstructor.destroyStrategyPart(node.payload)
   }
 
-  function generateStrategyParts () {
+  function generateStrategyParts (node) {
     let lastPhase
-    let tradingSystem = thisObject.tradingSystem
+    let tradingSystem = node
 
     createPart('Trading System', '', tradingSystem, undefined, undefined)
 

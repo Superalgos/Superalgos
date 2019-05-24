@@ -86,9 +86,9 @@ function newCurrentEvent () {
   return thisObject
 
   function initialize (pSharedStatus) {
-    let sessionToken = window.localStorage.getItem('sessionToken')
+    let accessToken = window.localStorage.getItem('access_token')
 
-    if (sessionToken === null || sessionToken === '') {
+    if (accessToken === null || accessToken === '') {
             /* not logged in */
       return
     }
@@ -126,9 +126,9 @@ function newCurrentEvent () {
   }
 
   function onClick () {
-    let sessionToken = window.localStorage.getItem('sessionToken')
+    let accessToken = window.localStorage.getItem('access_token')
 
-    if (sessionToken === null || sessionToken === '') {
+    if (accessToken === null || accessToken === '') {
             /* not logged in */
       return
     }
@@ -169,9 +169,9 @@ function newCurrentEvent () {
   }
 
   function draw () {
-    let sessionToken = window.localStorage.getItem('sessionToken')
+    let accessToken = window.localStorage.getItem('access_token')
 
-    if (sessionToken === null || sessionToken === '') {
+    if (accessToken === null || accessToken === '') {
             /* not logged in */
       return
     }

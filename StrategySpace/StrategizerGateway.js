@@ -264,8 +264,6 @@ function newStrategizerGateway () {
 
       const authId = user.authId
 
-      let sessionToken
-
       const apolloClient = new Apollo.lib.ApolloClient({
         networkInterface: Apollo.lib.createNetworkInterface({
           uri: window.canvasApp.graphQL.masterAppApiUrl,

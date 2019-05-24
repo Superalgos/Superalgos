@@ -44,15 +44,12 @@ function newLogin () {
               // if there is no user that means that we are logged off, which means it is time to clean the local storage of things from the last log in.
 
         window.localStorage.removeItem('loggedInUser')
-        window.localStorage.removeItem('sessionToken')
         return
       }
 
       user = JSON.parse(user)
 
       const authId = user.authId
-
-      let sessionToken
 
       const apolloClient = new Apollo.lib.ApolloClient({
         networkInterface: Apollo.lib.createNetworkInterface({
@@ -79,7 +76,6 @@ function newLogin () {
                       isTrader
                       avatarHandle
                       avatarChangeDate
-                      sessionToken
                       role {
                       id
                       }
@@ -95,8 +91,6 @@ function newLogin () {
             }
           })
                       .then(response => {
-                        sessionToken = response.data.users_UserByAuthId.sessionToken
-
                         window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.users_UserByAuthId))
                         resolve({ user: response.data.users_UserByAuthId})
                       })
@@ -342,9 +336,10 @@ function newLogin () {
       thisObject.container.eventHandler.listenToEvent('onMouseClick', onClick)
 
       async function authenticateUser () {
-        if (sessionToken === undefined) { sessionToken = '' }
+        // TODO USER_PROFILE should be retrieved from saweb-api ecosystem
+        return
 
-        let path = window.canvasApp.urlPrefix + 'AABrowserAPI/authenticateUser/' + sessionToken
+        let path = window.canvasApp.urlPrefix + 'AABrowserAPI/authenticateUser/'
 
         return new Promise(
                   function (resolve, reject) {
@@ -359,7 +354,6 @@ function newLogin () {
                       }
 
                       window.USER_PROFILE = responseFromServer.userProfile
-                      window.localStorage.setItem('sessionToken', sessionToken)
 
                       currentLabel = 'Logged In'
                       resolve()

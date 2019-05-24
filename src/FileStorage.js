@@ -1,4 +1,4 @@
-function newFileStorage () {
+function newFileStorage() {
   const MODULE_NAME = 'File Cloud'
   const INFO_LOG = false
   const ERROR_LOG = true
@@ -11,37 +11,48 @@ function newFileStorage () {
 
   return thisObject
 
-  function getBlobToText (pContainerName, pPath, callBackFunction) {
+  function getBlobToText(container, filePath, host, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] getBlobToText -> Entering function.') }
 
-      let xhttp = new XMLHttpRequest()
-      xhttp.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
-          try {
-            let response = JSON.parse(xhttp.responseText)
-            callBackFunction(response.err, response.text, '')
-          } catch (err) {
-            if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> Invalid JSON received. ') }
-            if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> response.text = ' & response.text) }
-            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE, '', '')
-          }
+      let headers
+      let accessToken = window.localStorage.getItem('access_token')
+      if(accessToken !== null){
+        headers={
+          authorization: 'Bearer ' +accessToken
         }
       }
 
-      let request = {
-        conatinerName: pContainerName,
-        path: pPath
-      }
+      axios({
+        url: host.url + 'graphql',
+        method: 'post',
+        data: {
+          query: `
+          query web_FileContent($container: String!, $filePath: String!, $accessKey: String!, $storage: String!){
+            web_FileContent(file: { container: $container, filePath: $filePath, accessKey: $accessKey, storage: $storage })
+          }
+          `,
+          variables: {
+            container: container,
+            filePath: filePath,
+            storage: host.storage,
+            accessKey: host.accessKey
+          }
+        },
+        headers: headers
+      }).then(res => {
+        if(res.data.errors){
+          if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> response.text = ' + JSON.stringify(res.data.errors)) }
+          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE, '', '')
+        }
+        let response = res.data.data.web_FileContent
+        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, response, '')
+      }).catch(error => {
+        if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> Invalid JSON received. ') }
+        if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> response.text = ' + error.message) }
+        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE, '', '')
+      })
 
-      request = JSON.stringify(request)
-
-      let path = window.canvasApp.urlPrefix + 'FileService'
-
-      let blob = new Blob([request], { type: 'text/plain' })
-
-      xhttp.open('POST', path, true)
-      xhttp.send(blob)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] getBlobToText -> err = ' + err.stack) }
     }

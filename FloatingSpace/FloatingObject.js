@@ -20,6 +20,7 @@ function newFloatingObject () {
     rawRadius: 0,                           // This is the radius of this floating object without zoom.
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
+    getPinStatus: getPinStatus,
     nearbyFloatingObjects: [],
     setPosition: setPosition,
     pinToggle: pinToggle,
@@ -98,6 +99,10 @@ function newFloatingObject () {
     } else {
       return undefined
     }
+  }
+
+  function getPinStatus () {
+    return thisObject.isPinned
   }
 
   function pinToggle () {

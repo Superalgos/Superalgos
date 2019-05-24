@@ -74,6 +74,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: true,
             label: undefined,
             visible: false,
@@ -131,6 +132,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -172,6 +174,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -214,6 +217,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -256,6 +260,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -298,6 +303,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -340,6 +346,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -387,6 +394,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -454,6 +462,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -513,6 +522,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,

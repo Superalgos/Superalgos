@@ -1,6 +1,7 @@
 import {
   GraphQLObjectType,
-  GraphQLString
+  GraphQLString,
+  GraphQLList
 } from 'graphql';
 
 import { BotType } from './index';

@@ -19,10 +19,12 @@
     "@azure/storage-blob": "^10.3.0",
     "apollo-server-express": "2.1.0",
     "axios": "0.18.0",
+    "azure-storage": "^2.10.3",
     "dotenv": "6.0.0",
     "esm": "^3.2.22",
     "express": "4.16.3",
     "graphql": "0.13.2",
+    "json-beautify": "^1.1.0",
     "mongoose": "5.3.4",
     "winston": "3.2.1"
   }

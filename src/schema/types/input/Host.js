@@ -8,6 +8,7 @@ const Type = new GraphQLInputObjectType({
   description: 'Payload for host input.',
   fields: () => ({
     url: { type: GraphQLString },
+    storage: { type: GraphQLString },
     container: { type: GraphQLString },
     accessKey: { type: GraphQLString }
   }),

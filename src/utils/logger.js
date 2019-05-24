@@ -13,7 +13,7 @@ const options = {
     timestamp: true
   },
   console: {
-    level: 'debug',
+    level: process.env.LOG_LEVEL || 'debug',
     handleExceptions: true,
     json: false,
     colorize: true,
@@ -32,7 +32,7 @@ const logger = createLogger({
           )
   ),
   transports: [
-    new transports.File(options.file),
+    // new transports.File(options.file),
     new transports.Console(options.console)
   ],
   exitOnError: false // do not exit on handled exceptions

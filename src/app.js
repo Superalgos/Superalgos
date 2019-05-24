@@ -4,6 +4,7 @@ import { ApolloServer } from 'apollo-server-express';
 import schema from './schema';
 import wrongPreshared from './errors/notAllowed.json';
 import db from './db';
+import logger from './utils/logger'
 
 const app = express();
 
@@ -42,12 +43,12 @@ server.applyMiddleware({
 });
 
 db.on('error', (err) => {
-  console.log(err);
+  logger.error(err);
 });
 db.once('open', () => {
-  console.log('Connected to the DB.');
+  logger.info('Connected to the DB.');
 });
 
 app.listen(process.env.PORT, () => {
-  console.log(`Listening on port ${process.env.PORT}`);
+  logger.info(`Listening on port ${process.env.PORT}`);
 });

@@ -14,8 +14,8 @@ const Type = new GraphQLInputObjectType({
     codeName: { type: new GraphQLNonNull(GraphQLString) },
     displayName: { type: new GraphQLNonNull(GraphQLString) },
     host: { type: HostInputType },
-    bots: { type: new GraphQLNonNull(new GraphQLList(BotInputType)) },
-    plotters: { type: new GraphQLList(BotInputType) }
+    bot: { type: new GraphQLNonNull(BotInputType) },
+    plotter: { type: BotInputType }
   }),
 });
 

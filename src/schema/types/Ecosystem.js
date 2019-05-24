@@ -1,7 +1,8 @@
 import {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLID
+  GraphQLID,
+  GraphQLList
 } from 'graphql';
 
 import { TeamType, EventHostType } from './index';

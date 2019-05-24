@@ -7,6 +7,7 @@ const HostType = new GraphQLObjectType({
   name: 'Host',
   fields: () => ({
     url: { type: GraphQLString },
+    storage: { type: GraphQLString },
     container: { type: GraphQLString },
     accessKey: { type: GraphQLString }
   }),

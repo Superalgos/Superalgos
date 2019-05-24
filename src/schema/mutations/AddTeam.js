@@ -1,17 +1,11 @@
-import { AuthenticationError } from '../../errors';
-import { TeamType } from '../types';
-import { Ecosystem } from '../../models';
-import { TeamInputType } from '../types/input';
-import logger from '../../utils/logger';
-import { createContainer } from '../../storage/AzureStorage';
+import logger from '../../utils/logger'
+import { AuthenticationError, WrongArgumentsError } from '../../errors'
+import { TeamType } from '../types'
+import { Ecosystem } from '../../models'
+import { TeamInputType } from '../types/input'
+import { createTeam } from '../../storage/CreateTeam'
 
-import {
-  GraphQLString
-} from 'graphql';
-
-export const args = {
-  team: { type: TeamInputType },
-};
+export const args = { team: { type: TeamInputType } }
 
 const resolve = async (parent, { team }, context) => {
   logger.debug('addTeam -> Entering Fuction.')
@@ -33,36 +27,42 @@ const resolve = async (parent, { team }, context) => {
       userEcosystem.authId = context.userId
     }
 
-    let containerName = team.codeName
-    await createContainer(containerName)
-    // let accessKey = await createPrivateAccessKey()
-    let accessKey = "test"
+    for (let i = 0; i < userEcosystem.teams.length; i++) {
+      const auxTeam = userEcosystem.teams[i];
+      if (auxTeam.codeName === team.codeName) {
+        throw new WrongArgumentsError("The team already exist on the user ecosystem.")
+      }
+    }
 
+    let accessKey = await createTeam(team)
     if (!team.host) {
       let nodeEndpoint = {
         url: process.env.SUPERALGOS_NODE_ENDPOINT,
-        container: containerName,
+        container: team.codeName,
         accessKey: accessKey,
       }
       team.host = nodeEndpoint
     }
 
+    let bots= []
+    bots.push(team.bot)
+    team.bots = bots
+
     userEcosystem.teams.push(team)
     await userEcosystem.save()
-
+    return team
   } catch (err) {
     logger.error('addTeam -> Error: %s', err.stack)
-    // throw new ServerError('There has been an error adding the team.')
-    return 'There has been an error adding the team.'
+    throw err
   }
-};
+}
 
 const mutation = {
   addTeam: {
-    type: GraphQLString,
+    type: TeamType,
     args,
     resolve,
-  },
-};
+  }
+}
 
 export default mutation;

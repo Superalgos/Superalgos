@@ -2,12 +2,14 @@ import {
   GraphQLObjectType,
 } from 'graphql';
 
-import TeamsQuery from './Teams';
+import EcosystemQuery from './Ecosystem';
+import FileContentQuery from './FileContent';
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: Object.assign(
-    TeamsQuery
+    EcosystemQuery,
+    FileContentQuery
   ),
 });
 

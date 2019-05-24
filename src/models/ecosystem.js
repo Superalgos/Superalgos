@@ -20,6 +20,10 @@ const ecosystemSchema = new Schema({
         type: String,
         required: true
       },
+      storage: {
+        type: String,
+        required: true
+      },
       container: {
         type: String,
         required: true
@@ -30,13 +34,21 @@ const ecosystemSchema = new Schema({
       }
     },
     bots: [{
-      repo: {
+      codeName: {
         type: String,
         required: true
       },
-      configFile: {
+      displayName: {
         type: String,
         required: true
+      },
+      repo: {
+        type: String,
+        required: false
+      },
+      configFile: {
+        type: String,
+        required: false
       }
     }],
     plotters: [{
@@ -61,6 +73,10 @@ const ecosystemSchema = new Schema({
     },
     host:{
       url: {
+        type: String,
+        required: true
+      },
+      storage: {
         type: String,
         required: true
       },

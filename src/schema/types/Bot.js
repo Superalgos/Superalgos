@@ -6,6 +6,8 @@ import {
 const BotType = new GraphQLObjectType({
   name: 'Bot',
   fields: () => ({
+    codeName: { type: GraphQLString },
+    displayName: { type: GraphQLString },
     repo: { type: GraphQLString },
     configFile: { type: GraphQLString }
   }),

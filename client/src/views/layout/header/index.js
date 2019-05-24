@@ -76,7 +76,9 @@ class Header extends Component {
     let { onTop, mobileOpen, openedMenu } = this.state
     if (window.localStorage.getItem('access_token')) {
       if (jwtDecode(window.localStorage.getItem('access_token')).exp < new Date().getTime() / 1000) {
-        window.localStorage.clear()
+        window.localStorage.removeItem('access_token')
+        window.localStorage.removeItem('user')
+        window.localStorage.removeItem('name')
         window.location.reload()
       }
     }
@@ -86,7 +88,7 @@ class Header extends Component {
       if (authenticated && !(this.state.user !== undefined && this.state.user !== null)) {
         return
       }
-      let cssChildren = submenus.length === 0 ? null : 'hasChildren';
+      let cssChildren = submenus.length === 0 ? null : 'hasChildren'
       return (
         <li
           onMouseEnter={() => this.toggleMenuOpen(index, bigScreen)}

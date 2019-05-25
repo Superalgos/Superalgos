@@ -50,6 +50,8 @@ function newWorkspace () {
       }
       rootNodes.push(adaptedTradingSystem)
       generateStrategyParts(adaptedTradingSystem)
+      thisObject.tradingSystem = adaptedTradingSystem
+      thisObject.tradingSystem.payload.uiObject.setRunningStatus()
     } else {
       rootNodes = JSON.parse(savedWorkspace)
       for (let i = 0; i < rootNodes.length; i++) {

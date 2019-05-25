@@ -6,12 +6,10 @@ function newStrategyPartConstructor () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
-
     createStrategyPart: createStrategyPart,
     destroyStrategyPart: destroyStrategyPart,
     initialize: initialize,
     finalize: finalize
-
   }
 
   let floatingLayer
@@ -36,13 +34,33 @@ function newStrategyPartConstructor () {
     floatingObject.initialize('Strategy Part', payload)
     payload.floatingObject = floatingObject
 
+    if (payload.node.savedPayload !== undefined) {
+      position = {
+        x: payload.node.savedPayload.position.x,
+        y: payload.node.savedPayload.position.y
+      }
+      floatingObject.setPosition(position)
+      payload.node.savedPayload.position = undefined
+      if (payload.node.savedPayload.floatingObject.isPinned === true) {
+        floatingObject.pinToggle()
+      }
+    }
+
     let strategyPart = newStrategyPart()
+    payload.uiObject = strategyPart
     strategyPart.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
     strategyPart.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
     let menuItemsInitialValues = getMenuItemsInitialValues(strategyPart, floatingObject, payload)
     strategyPart.initialize(payload, menuItemsInitialValues)
     strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true, true, true)
-    payload.uiObject = strategyPart
+
+    if (payload.node.savedPayload !== undefined) {
+      if (payload.node.savedPayload.uiObject.isRunning === true) {
+        strategyPart.setRunningStatus()
+        canvas.strategySpace.workspace.tradingSystem = payload.node
+      }
+    }
+    payload.node.savedPayload = undefined
 
     setFloatingObjectBasicProperties(floatingObject, payload)
 
@@ -61,6 +79,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: true,
             label: undefined,
             visible: false,
@@ -70,6 +89,18 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Run Trading System',
+            actionFunction: payload.uiObject.run,
+            label: 'Run',
+            visible: false,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
           },
           {
             action: 'Save Trading System',
@@ -84,7 +115,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -20
           },
           {
             action: 'New Strategy',
@@ -97,7 +128,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           },
           {
             action: 'Download',
@@ -109,7 +140,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }]
         break
       }
@@ -118,6 +149,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -159,6 +191,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -201,6 +234,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -243,6 +277,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -285,6 +320,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -327,6 +363,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -374,6 +411,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -441,6 +479,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,
@@ -500,6 +539,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Pin / Unpin',
             actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
             currentStatus: false,
             label: undefined,
             visible: false,

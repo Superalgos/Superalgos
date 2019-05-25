@@ -346,6 +346,7 @@ function newTimeMachine () {
   }
 
   function thisBackground () {
+    return
     let params = {
       cornerRadius: 15,
       lineWidth: 5,

@@ -82,6 +82,9 @@ function newCanvas () {
 
            /* Instantiate all the children spaces of Canvas object */
 
+      thisObject.floatingSpace = newFloatingSpace()
+      thisObject.floatingSpace.initialize()
+
       thisObject.topSpace = newTopSpace()
       await thisObject.topSpace.initialize()
 
@@ -93,9 +96,6 @@ function newCanvas () {
 
       thisObject.panelsSpace = newPanelsSpace()
       thisObject.panelsSpace.initialize()
-
-      thisObject.floatingSpace = newFloatingSpace()
-      thisObject.floatingSpace.initialize()
 
       thisObject.chartSpace = newChartSpace()
       thisObject.chartSpace.initialize(onCharSpaceInitialized)
@@ -128,6 +128,7 @@ function newCanvas () {
       animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
       animation.addCallBackFunction('Strategy Space Draw', thisObject.strategySpace.draw)
+      animation.addCallBackFunction('Strategy Space Physics', thisObject.strategySpace.physics)
       animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
       animation.start()
     } catch (err) {
@@ -705,4 +706,3 @@ function newCanvas () {
     }
   }
 }
-

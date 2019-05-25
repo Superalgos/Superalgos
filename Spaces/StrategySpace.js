@@ -8,8 +8,7 @@ function newStrategySpace () {
     iconCollection: undefined,
     iconByPartType: undefined,
     workspace: undefined,
-    isDeployed: false,
-    isInitialized: false,
+    physics: physics,
     draw: draw,
     getContainer: getContainer,
     makeVisible: makeVisible,
@@ -29,17 +28,14 @@ function newStrategySpace () {
   return thisObject
 
   async function initialize () {
-    thisObject.strategizerGateway = newStrategizerGateway()
-
-    thisObject.strategizerGateway.initialize()
-    await thisObject.strategizerGateway.loadFromStrategyzer()
-
     loadIconCollection()
     buildIconByPartTypeMap()
 
-    if (thisObject.strategizerGateway.strategizerData !== undefined) {
-      thisObject.isInitialized = true
-    }
+    thisObject.strategizerGateway = newStrategizerGateway()
+    thisObject.strategizerGateway.initialize()
+
+    thisObject.workspace = newWorkspace()
+    thisObject.workspace.initialize()
   }
 
   function buildIconByPartTypeMap () {
@@ -138,20 +134,14 @@ function newStrategySpace () {
     }
   }
 
-  function makeVisible () {
-    if (thisObject.isDeployed !== true) {
-      deploydTradingSystem()
-    }
-    canvas.floatingSpace.makeVisible()
-    visible = true
+  function physics () {
+    if (visible !== true) { return }
+    thisObject.workspace.physics()
   }
 
-  function deploydTradingSystem () {
-    thisObject.workspace = newWorkspace()
-    if (thisObject.strategizerGateway.strategizerData !== undefined) {
-      thisObject.workspace.initialize(thisObject.strategizerGateway.strategizerData)
-      thisObject.isDeployed = true
-    }
+  function makeVisible () {
+    canvas.floatingSpace.makeVisible()
+    visible = true
   }
 
   function makeInvisible () {

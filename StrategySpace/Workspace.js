@@ -42,9 +42,8 @@ function newWorkspace () {
     thisObject.container = undefined
   }
 
-  function initialize () {
-
-    let savedWorkspace = window.localStorage.getItem('xxxworkspace')
+  async function initialize () {
+    let savedWorkspace = window.localStorage.getItem('workspace')
     if (savedWorkspace === null) {
       await canvas.strategySpace.strategizerGateway.loadFromStrategyzer()
       let tradingSystem = canvas.strategySpace.strategizerGateway.strategizerData
@@ -58,7 +57,7 @@ function newWorkspace () {
         thisObject.tradingSystem = adaptedTradingSystem
         thisObject.tradingSystem.payload.uiObject.setRunningStatus()
       }
-    }  else {
+    } else {
       workspace = JSON.parse(savedWorkspace)
       rootNodes = workspace.rootNodes
       thisObject.idAtStrategizer = workspace.idAtStrategizer

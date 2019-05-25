@@ -311,7 +311,7 @@ function newStrategyPart () {
 
   function run () {
     canvas.strategySpace.workspace.tradingSystem = thisObject.payload.node
-    isRunning = true
+    thisObject.isRunning = true
     runningCounter = 30
   }
 

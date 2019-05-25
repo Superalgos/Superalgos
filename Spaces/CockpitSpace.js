@@ -47,7 +47,9 @@
      thisObject.container.frame.position.x = 0
 
      let INITIAL_POSITION
-     if (canvas.strategySpace.isInitialized === true) {
+     const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY)
+
+     if (accessToken !== null) {
        INITIAL_POSITION = 55
      } else {
        INITIAL_POSITION = 100

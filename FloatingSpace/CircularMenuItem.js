@@ -10,6 +10,7 @@ function newCircularMenuItem () {
     currentIcon: undefined,
     action: undefined,
     actionFunction: undefined,
+    actionStatus: undefined,
     label: undefined,
     workingLabel: undefined,
     workDoneLabel: undefined,
@@ -70,6 +71,7 @@ function newCircularMenuItem () {
     thisObject.currentIcon = undefined
     thisObject.payload = undefined
     thisObject.actionFunction = undefined
+    thisObject.actionStatus = undefined
   }
 
   function initialize (pPayload) {
@@ -138,6 +140,12 @@ function newCircularMenuItem () {
     } else {
       thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.iconPathOn)
       thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.iconPathOff)
+    }
+
+    /* Current Status might be linked to some other object status */
+
+    if (thisObject.actionStatus !== undefined) {
+      thisObject.currentStatus = thisObject.actionStatus()
     }
 
     /* Current Status sets the icon to be used */

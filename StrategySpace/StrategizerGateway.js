@@ -36,7 +36,7 @@ function newStrategizerGateway () {
 
   }
 
-  async function saveToStrategyzer (tradingSystem) {
+  async function saveToStrategyzer () {
     try {
       const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY)
 
@@ -73,6 +73,8 @@ function newStrategizerGateway () {
         }
       }])
 
+      let tradingSystem = canvas.strategySpace.workspace.tradingSystem
+      let idAtStrategizer = canvas.strategySpace.workspace.idAtStrategizer
       let dataToSave = buildGraphQLDataToSave(tradingSystem)
 
       const updateStrategies = () => {
@@ -80,7 +82,7 @@ function newStrategizerGateway () {
           apolloClient.mutate({
             mutation: GRAPHQL_MUTATION_UPDATE_STRATEGIES,
             variables: {
-              id: tradingSystem.id,
+              id: idAtStrategizer,
               strategy: dataToSave.strategy
             }
           })

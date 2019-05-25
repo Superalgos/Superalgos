@@ -8,7 +8,6 @@ function newStrategySpace () {
     iconCollection: undefined,
     iconByPartType: undefined,
     workspace: undefined,
-    isInitialized: false,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -35,19 +34,8 @@ function newStrategySpace () {
     thisObject.strategizerGateway = newStrategizerGateway()
     thisObject.strategizerGateway.initialize()
 
-    let savedWorkspace = window.localStorage.getItem('workspace')
-    if (savedWorkspace === null) {
-      await thisObject.strategizerGateway.loadFromStrategyzer()
-      if (thisObject.strategizerGateway.strategizerData !== undefined) {
-        thisObject.isInitialized = true
-        thisObject.workspace = newWorkspace()
-        thisObject.workspace.initialize(thisObject.strategizerGateway.strategizerData)
-      }
-    } else {
-      thisObject.isInitialized = true
-      thisObject.workspace = newWorkspace()
-      thisObject.workspace.initialize()
-    }
+    thisObject.workspace = newWorkspace()
+    thisObject.workspace.initialize()
   }
 
   function buildIconByPartTypeMap () {

@@ -108,7 +108,7 @@ function newRestartSimulation () {
     }
     try {
       thisObject.status = 'Saving'
-      let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(canvas.strategySpace.workspace.tradingSystem)
+      let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer()
       if (result === true) {
         thisObject.status = 'Restarting'
         await graphQlRestartSimulation(simulationParams)

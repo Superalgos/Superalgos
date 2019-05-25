@@ -5,6 +5,7 @@ function newWorkspace () {
   let thisObject = {
     tradingSystem: undefined,
     container: undefined,
+    idAtStrategizer: undefined,
     physics: physics,
     spawn: spawn,
     detachNode: detachNode,
@@ -41,19 +42,26 @@ function newWorkspace () {
     thisObject.container = undefined
   }
 
-  function initialize (tradingSystem) {
-    let savedWorkspace = window.localStorage.getItem('workspace')
+  function initialize () {
+
+    let savedWorkspace = window.localStorage.getItem('xxxworkspace')
     if (savedWorkspace === null) {
-      let adaptedTradingSystem = {
-        id: tradingSystem.id,
-        strategies: tradingSystem.subStrategies
+      await canvas.strategySpace.strategizerGateway.loadFromStrategyzer()
+      let tradingSystem = canvas.strategySpace.strategizerGateway.strategizerData
+      if (tradingSystem !== undefined) {
+        let adaptedTradingSystem = {
+          strategies: tradingSystem.subStrategies
+        }
+        thisObject.idAtStrategizer = tradingSystem.id
+        rootNodes.push(adaptedTradingSystem)
+        generateStrategyParts(adaptedTradingSystem)
+        thisObject.tradingSystem = adaptedTradingSystem
+        thisObject.tradingSystem.payload.uiObject.setRunningStatus()
       }
-      rootNodes.push(adaptedTradingSystem)
-      generateStrategyParts(adaptedTradingSystem)
-      thisObject.tradingSystem = adaptedTradingSystem
-      thisObject.tradingSystem.payload.uiObject.setRunningStatus()
-    } else {
-      rootNodes = JSON.parse(savedWorkspace)
+    }  else {
+      workspace = JSON.parse(savedWorkspace)
+      rootNodes = workspace.rootNodes
+      thisObject.idAtStrategizer = workspace.idAtStrategizer
       for (let i = 0; i < rootNodes.length; i++) {
         let rootNode = rootNodes[i]
         createPartFromNode(rootNode, undefined, undefined)
@@ -73,7 +81,11 @@ function newWorkspace () {
       let workspaceNode = getWorkspaceNode(rootNode)
       stringifyReadyNodes.push(workspaceNode)
     }
-    let textToSave = JSON.stringify(stringifyReadyNodes)
+    let workspace = {
+      idAtStrategizer: thisObject.idAtStrategizer,
+      rootNodes: stringifyReadyNodes
+    }
+    let textToSave = JSON.stringify(workspace)
     window.localStorage.setItem('workspace', textToSave)
   }
 
@@ -513,7 +525,7 @@ function newWorkspace () {
     switch (action) {
       case 'Save Trading System':
         {
-          let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(canvas.strategySpace.workspace.tradingSystem)
+          let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer()
           return result
           break
         }

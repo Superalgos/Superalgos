@@ -17,6 +17,8 @@ function newStrategyPart () {
     codeEditor: undefined,
     partTitle: undefined,
     isExecuting: undefined,
+    isRunning: undefined,
+    run: run,
     getReadyToAttach: getReadyToAttach,
     showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
@@ -50,6 +52,7 @@ function newStrategyPart () {
 
   let isHighlighted
   let highlightCounter = 0
+  let runningCounter = 0
 
   let previousDistance
 
@@ -160,6 +163,7 @@ function newStrategyPart () {
     }
 
     iconPhysics()
+    runningPhisycs()
     highlightPhisycs()
     detachingPhysics()
     attachingPhysics()
@@ -290,6 +294,25 @@ function newStrategyPart () {
   function unHighlight () {
     // isHighlighted = false
     // highlightCounter = 0
+  }
+
+  function runningPhisycs () {
+    if (canvas.strategySpace.workspace.tradingSystem !== undefined) {
+      if (canvas.strategySpace.workspace.tradingSystem.id !== thisObject.payload.node.id) {
+        runningCounter--
+      }
+    }
+
+    if (runningCounter < 0) {
+      runningCounter = 0
+      thisObject.isRunning = false
+    }
+  }
+
+  function run () {
+    canvas.strategySpace.workspace.tradingSystem = thisObject.payload.node
+    isRunning = true
+    runningCounter = 30
   }
 
   function iconPhysics () {
@@ -556,6 +579,21 @@ function newStrategyPart () {
 
       browserCanvasContext.fill()
 
+      if (thisObject.isRunning === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 2
+        let OPACITY = runningCounter / 30
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
+
+        browserCanvasContext.lineWidth = 10
+        browserCanvasContext.setLineDash([4, 20])
+        browserCanvasContext.stroke()
+      }
+
       if (isHighlighted === true) {
         VISIBLE_RADIUS = thisObject.container.frame.radius
         let OPACITY = highlightCounter / 30
@@ -630,3 +668,4 @@ function newStrategyPart () {
     }
   }
 }
+

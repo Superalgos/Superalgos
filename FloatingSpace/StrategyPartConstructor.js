@@ -6,12 +6,10 @@ function newStrategyPartConstructor () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
-
     createStrategyPart: createStrategyPart,
     destroyStrategyPart: destroyStrategyPart,
     initialize: initialize,
     finalize: finalize
-
   }
 
   let floatingLayer
@@ -50,12 +48,12 @@ function newStrategyPartConstructor () {
     }
 
     let strategyPart = newStrategyPart()
+    payload.uiObject = strategyPart
     strategyPart.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
     strategyPart.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
     let menuItemsInitialValues = getMenuItemsInitialValues(strategyPart, floatingObject, payload)
     strategyPart.initialize(payload, menuItemsInitialValues)
     strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true, true, true)
-    payload.uiObject = strategyPart
 
     setFloatingObjectBasicProperties(floatingObject, payload)
 
@@ -86,6 +84,18 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Run Trading System',
+            actionFunction: payload.uiObject.run,
+            label: 'Run',
+            visible: false,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          },
+          {
             action: 'Save Trading System',
             actionFunction: payload.onMenuItemClick,
             label: 'Save Changes',
@@ -98,7 +108,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -20
           },
           {
             action: 'New Strategy',
@@ -111,7 +121,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           },
           {
             action: 'Download',
@@ -123,7 +133,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }]
         break
       }

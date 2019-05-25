@@ -311,6 +311,7 @@ function newStrategyPart () {
 
   function run () {
     canvas.strategySpace.workspace.tradingSystem = thisObject.payload.node
+    canvas.cockpitSpace.restartSimulation.restart()
     thisObject.isRunning = true
     runningCounter = 30
   }
@@ -668,4 +669,3 @@ function newStrategyPart () {
     }
   }
 }
-

@@ -1094,7 +1094,7 @@ function newWorkspace () {
         isPinned: node.payload.floatingObject.isPinned
       },
       uiObject: {
-
+        isRunning: node.payload.uiObject.isRunning
       }
     }
     return savedPayload

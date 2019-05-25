@@ -44,7 +44,6 @@ function newStrategyPartConstructor () {
       if (payload.node.savedPayload.floatingObject.isPinned === true) {
         floatingObject.pinToggle()
       }
-      payload.node.savedPayload = undefined
     }
 
     let strategyPart = newStrategyPart()
@@ -54,6 +53,14 @@ function newStrategyPartConstructor () {
     let menuItemsInitialValues = getMenuItemsInitialValues(strategyPart, floatingObject, payload)
     strategyPart.initialize(payload, menuItemsInitialValues)
     strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true, true, true)
+
+    if (payload.node.savedPayload !== undefined) {
+      if (payload.node.savedPayload.uiObject.isRunning === true) {
+        strategyPart.isRunning = true
+        canvas.strategySpace.workspace.tradingSystem = payload.node
+      }
+    }
+    payload.node.savedPayload = undefined
 
     setFloatingObjectBasicProperties(floatingObject, payload)
 

@@ -6,6 +6,7 @@ function newRestartSimulation () {
     visible: true,
     container: undefined,
     status: undefined,
+    restart: restart,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -73,7 +74,11 @@ function newRestartSimulation () {
     isMouseOver = false
   }
 
-  async function onMouseClick (event) {
+  function onMouseClick (event) {
+    restart()
+  }
+
+  async function restart () {
     let dateAtScreenCorner = new Date(window.localStorage.getItem('Date @ Screen Corner'))
     let currentTimePeriod = JSON.parse(window.localStorage.getItem('Current Time Period'))
 

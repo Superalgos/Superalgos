@@ -391,6 +391,7 @@ function newWorkspace () {
   function createPart (partType, name, node, parentNode, chainParent, title) {
     let payload = {}
 
+    if (name === '' || name === undefined) { name = 'My ' + partType }
     if (node.savedPayload !== undefined) {
       payload.targetPosition = {
         x: node.savedPayload.targetPosition.x,
@@ -440,7 +441,7 @@ function newWorkspace () {
     let lastPhase
     let tradingSystem = node
 
-    createPart('Trading System', '', tradingSystem, undefined, undefined)
+    createPart('Trading System', tradingSystem.name, tradingSystem, undefined, undefined)
 
     for (m = 0; m < tradingSystem.strategies.length; m++) {
       let strategy = tradingSystem.strategies[m]

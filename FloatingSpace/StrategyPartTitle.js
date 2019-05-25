@@ -49,6 +49,7 @@ function newStrategyPartTitle () {
 
     switch (payload.node.type) {
       case 'Trading System': {
+        thisObject.allwaysVisible = true
         break
       }
       case 'Strategy': {
@@ -116,7 +117,7 @@ function newStrategyPartTitle () {
     const FRAME_HEIGHT = 25
     const FRAME_WIDTH = title.length / 2 * thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO * 1.2 * 2
     thisObject.container.frame.position.x = 0 - FRAME_WIDTH / 2
-    thisObject.container.frame.position.y = 0 - thisObject.container.frame.radius * 1 / 2 - thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO - 10 - FRAME_HEIGHT
+    thisObject.container.frame.position.y = 0 - thisObject.container.frame.radius * 1 / 2 - thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO - 20 - FRAME_HEIGHT
 
     thisObject.container.frame.width = FRAME_WIDTH
     thisObject.container.frame.height = FRAME_HEIGHT

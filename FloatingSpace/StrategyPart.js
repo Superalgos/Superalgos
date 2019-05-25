@@ -482,7 +482,7 @@ function newStrategyPart () {
 
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-          y: position.y + radius * 2 / 3 + fontSize * FONT_ASPECT_RATIO + 15
+          y: position.y + radius * 4 / 5 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -674,3 +674,4 @@ function newStrategyPart () {
     }
   }
 }
+

@@ -45,26 +45,34 @@ function newWorkspace () {
   async function initialize () {
     let savedWorkspace = window.localStorage.getItem('workspace')
     if (savedWorkspace === null) {
-      await canvas.strategySpace.strategizerGateway.loadFromStrategyzer()
-      let tradingSystem = canvas.strategySpace.strategizerGateway.strategizerData
-      if (tradingSystem !== undefined) {
-        let adaptedTradingSystem = {
-          strategies: tradingSystem.subStrategies
-        }
-        thisObject.idAtStrategizer = tradingSystem.id
-        rootNodes.push(adaptedTradingSystem)
-        generateStrategyParts(adaptedTradingSystem)
-        thisObject.tradingSystem = adaptedTradingSystem
-        thisObject.tradingSystem.payload.uiObject.setRunningStatus()
-      }
+      initializeLoadingFromStrategizer()
     } else {
       workspace = JSON.parse(savedWorkspace)
       rootNodes = workspace.rootNodes
       thisObject.idAtStrategizer = workspace.idAtStrategizer
-      for (let i = 0; i < rootNodes.length; i++) {
-        let rootNode = rootNodes[i]
-        createPartFromNode(rootNode, undefined, undefined)
+      if (thisObject.idAtStrategizer === undefined) {
+        initializeLoadingFromStrategizer()
+      } else {
+        for (let i = 0; i < rootNodes.length; i++) {
+          let rootNode = rootNodes[i]
+          createPartFromNode(rootNode, undefined, undefined)
+        }
       }
+    }
+  }
+
+  async function initializeLoadingFromStrategizer () {
+    await canvas.strategySpace.strategizerGateway.loadFromStrategyzer()
+    let tradingSystem = canvas.strategySpace.strategizerGateway.strategizerData
+    if (tradingSystem !== undefined) {
+      let adaptedTradingSystem = {
+        strategies: tradingSystem.subStrategies
+      }
+      thisObject.idAtStrategizer = tradingSystem.id
+      rootNodes.push(adaptedTradingSystem)
+      generateStrategyParts(adaptedTradingSystem)
+      thisObject.tradingSystem = adaptedTradingSystem
+      thisObject.tradingSystem.payload.uiObject.setRunningStatus()
     }
   }
 

@@ -56,7 +56,7 @@ function newStrategyPartConstructor () {
 
     if (payload.node.savedPayload !== undefined) {
       if (payload.node.savedPayload.uiObject.isRunning === true) {
-        strategyPart.isRunning = true
+        strategyPart.setRunningStatus()
         canvas.strategySpace.workspace.tradingSystem = payload.node
       }
     }

@@ -19,6 +19,7 @@ function newStrategyPart () {
     isExecuting: undefined,
     isRunning: undefined,
     run: run,
+    setRunningStatus: setRunningStatus,
     getReadyToAttach: getReadyToAttach,
     showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
@@ -312,6 +313,10 @@ function newStrategyPart () {
   function run () {
     canvas.strategySpace.workspace.tradingSystem = thisObject.payload.node
     canvas.cockpitSpace.restartSimulation.restart()
+    setRunningStatus()
+  }
+
+  function setRunningStatus () {
     thisObject.isRunning = true
     runningCounter = 30
   }

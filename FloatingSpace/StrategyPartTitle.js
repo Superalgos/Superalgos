@@ -56,6 +56,18 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
+      case 'Trigger Stage': {
+        break
+      }
+      case 'Open Stage': {
+        break
+      }
+      case 'Manage Stage': {
+        break
+      }
+      case 'Close Stage': {
+        break
+      }
       case 'Trigger On Event': {
         break
       }
@@ -63,6 +75,9 @@ function newStrategyPartTitle () {
         break
       }
       case 'Take Position Event': {
+        break
+      }
+      case 'Initial Information': {
         break
       }
       case 'Stop': {

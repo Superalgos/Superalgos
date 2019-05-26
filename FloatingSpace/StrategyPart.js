@@ -185,6 +185,46 @@ function newStrategyPart () {
         compatibleType = 'Trading System'
         compatibleSubType = undefined
         break
+      case 'Trigger Stage':
+        compatibleType = 'Strategy'
+        compatibleSubType = undefined
+        break
+      case 'Open Stage':
+        compatibleType = 'Strategy'
+        compatibleSubType = undefined
+        break
+      case 'Manage Stage':
+        compatibleType = 'Strategy'
+        compatibleSubType = undefined
+        break
+      case 'Close Stage':
+        compatibleType = 'Strategy'
+        compatibleSubType = undefined
+        break
+      case 'Take Position Event':
+        compatibleType = 'Trigger Stage'
+        compatibleSubType = undefined
+        break
+      case 'Trigger Off Event':
+        compatibleType = 'Trigger Stage'
+        compatibleSubType = undefined
+        break
+      case 'Trigger On Event':
+        compatibleType = 'Trigger Stage'
+        compatibleSubType = undefined
+        break
+      case 'Initial Information':
+        compatibleType = 'Open Stage'
+        compatibleSubType = undefined
+        break
+      case 'Stop':
+        compatibleType = 'Manage Stage'
+        compatibleSubType = undefined
+        break
+      case 'Take Profit':
+        compatibleType = 'Manage Stage'
+        compatibleSubType = undefined
+        break
       case 'Phase':
         compatibleType = 'Stop' + '.' + 'Take Profit' + '.' + 'Phase'
         compatibleSubType = undefined
@@ -674,4 +714,3 @@ function newStrategyPart () {
     }
   }
 }
-

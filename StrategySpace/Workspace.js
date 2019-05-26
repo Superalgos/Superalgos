@@ -93,7 +93,7 @@ function newWorkspace () {
       rootNodes: stringifyReadyNodes
     }
     let textToSave = JSON.stringify(workspace)
-    window.localStorage.setItem('workspace', textToSave)
+    // window.localStorage.setItem('workspace', textToSave)
   }
 
   function spawn (nodeText, point) {
@@ -167,6 +167,10 @@ function newWorkspace () {
         }
         return
       }
+      case 'Initial Definition': {
+        createPart('Initial Definition', node.name, node, parentNode, chainParent, 'Initial Definition')
+        return
+      }
       case 'Take Position Event': {
         let event = node
         createPart('Take Position Event', event.name, event, parentNode, chainParent, 'Take Position Event')
@@ -194,14 +198,62 @@ function newWorkspace () {
         }
         return
       }
+      case 'Trigger Stage': {
+        let stage = node
+        createPart('Trigger Stage', stage.name, stage, parentNode, chainParent, 'Trigger Stage')
+
+        if (node.entryPoint !== undefined) {
+          createPartFromNode(node.entryPoint, stage, stage)
+        }
+        if (node.exitPoint !== undefined) {
+          createPartFromNode(node.exitPoint, stage, stage)
+        }
+        if (node.sellPoint !== undefined) {
+          createPartFromNode(node.sellPoint, stage, stage)
+        }
+        return
+      }
+      case 'Open Stage': {
+        let stage = node
+        createPart('Open Stage', stage.name, stage, parentNode, chainParent, 'Open Stage')
+
+        if (node.initialDefinition !== undefined) {
+          createPartFromNode(node.initialDefinition, stage, stage)
+        }
+        return
+      }
+      case 'Manage Stage': {
+        let stage = node
+        createPart('Manage Stage', stage.name, stage, parentNode, chainParent, 'Manage Stage')
+
+        if (node.stopLoss !== undefined) {
+          createPartFromNode(node.stopLoss, stage, stage)
+        }
+        if (node.buyOrder !== undefined) {
+          createPartFromNode(node.buyOrder, stage, stage)
+        }
+        return
+      }
+      case 'Close Stage': {
+        let stage = node
+        createPart('Close Stage', stage.name, stage, parentNode, chainParent, 'Close Stage')
+        return
+      }
       case 'Strategy': {
         let strategy = node
         createPart('Strategy', strategy.name, strategy, parentNode, chainParent, 'Strategy')
-        createPartFromNode(node.entryPoint, strategy, strategy)
-        createPartFromNode(node.exitPoint, strategy, strategy)
-        createPartFromNode(node.sellPoint, strategy, strategy)
-        createPartFromNode(node.stopLoss, strategy, strategy)
-        createPartFromNode(node.buyOrder, strategy, strategy)
+        if (node.triggerStage !== undefined) {
+          createPartFromNode(node.triggerStage, strategy, strategy)
+        }
+        if (node.openStage !== undefined) {
+          createPartFromNode(node.openStage, strategy, strategy)
+        }
+        if (node.manageStage !== undefined) {
+          createPartFromNode(node.manageStage, strategy, strategy)
+        }
+        if (node.closeStage !== undefined) {
+          createPartFromNode(node.closeStage, strategy, strategy)
+        }
         return
       }
       case 'Trading System': {
@@ -232,6 +284,18 @@ function newWorkspace () {
         }
       }
         break
+      case 'Trigger Stage': {
+        return
+      }
+      case 'Open Stage': {
+        return
+      }
+      case 'Manage Stage': {
+        return
+      }
+      case 'Close Stage': {
+        return
+      }
       case 'Trigger On Event': {
         return
       }
@@ -241,6 +305,9 @@ function newWorkspace () {
       }
         break
       case 'Take Position Event': {
+        return
+      }
+      case 'Initial Definition': {
         return
       }
         break
@@ -562,30 +629,47 @@ function newWorkspace () {
           let strategy = {
             name: 'New Strategy',
             active: true,
-            entryPoint: {
-              situations: []
+            triggerStage: {
+              entryPoint: {
+                situations: []
+              },
+              exitPoint: {
+                situations: []
+              },
+              sellPoint: {
+                situations: []
+              }
             },
-            exitPoint: {
-              situations: []
+            openStage: {
+              initialDefinition: {}
             },
-            sellPoint: {
-              situations: []
+            manageStage: {
+              stopLoss: {
+                phases: []
+              },
+              buyOrder: {
+                phases: []
+              }
             },
-            stopLoss: {
-              phases: []
-            },
-            buyOrder: {
-              phases: []
+            closeStage: {
             }
           }
 
           strategyParent.strategies.push(strategy)
           createPart('Strategy', strategy.name, strategy, strategyParent, strategyParent, 'Strategy')
-          createPart('Trigger On Event', '', strategy.entryPoint, strategy, strategy)
-          createPart('Trigger Off Event', '', strategy.exitPoint, strategy, strategy)
-          createPart('Take Position Event', '', strategy.sellPoint, strategy, strategy)
-          createPart('Stop', '', strategy.stopLoss, strategy, strategy)
-          createPart('Take Profit', '', strategy.buyOrder, strategy, strategy)
+          createPart('Trigger Stage', '', strategy.triggerStage, strategy, strategy, 'Trigger Stage')
+          createPart('Open Stage', '', strategy.openStage, strategy, strategy, 'Open Stage')
+          createPart('Manage Stage', '', strategy.manageStage, strategy, strategy, 'Manage Stage')
+          createPart('Close Stage', '', strategy.closeStage, strategy, strategy, 'Close Stage')
+
+          createPart('Trigger On Event', '', strategy.triggerStage.entryPoint, strategy.triggerStage, strategy.triggerStage)
+          createPart('Trigger Off Event', '', strategy.triggerStage.exitPoint, strategy.triggerStage, strategy.triggerStage)
+          createPart('Take Position Event', '', strategy.triggerStage.sellPoint, strategy.triggerStage, strategy.triggerStage)
+
+          createPart('Initial Definition', '', strategy.openStage.initialDefinition, strategy.openStage, strategy.openStage)
+
+          createPart('Stop', '', strategy.manageStage.stopLoss, strategy.manageStage, strategy.manageStage)
+          createPart('Take Profit', '', strategy.manageStage.buyOrder, strategy.manageStage, strategy.manageStage)
         }
         break
       case 'Add Phase':
@@ -635,6 +719,22 @@ function newWorkspace () {
         deleteStrategy(payload.node)
         break
       }
+      case 'Delete Trigger Stage': {
+        deleteTriggerStage(payload.node)
+        break
+      }
+      case 'Delete Open Stage': {
+        deleteOpenStage(payload.node)
+        break
+      }
+      case 'Delete Manage Stage': {
+        deleteManageStage(payload.node)
+        break
+      }
+      case 'Delete Close Stage': {
+        deleteClose(payload.node)
+        break
+      }
       case 'Delete Phase': {
         deletePhase(payload.node)
         break
@@ -658,29 +758,92 @@ function newWorkspace () {
       for (let j = 0; j < payload.parentNode.strategies.length; j++) {
         let strategy = payload.parentNode.strategies[j]
         if (strategy.id === node.id) {
-          deleteEvent(strategy.entryPoint)
-          deleteEvent(strategy.exitPoint)
-          deleteEvent(strategy.sellPoint)
-          deleteManagedItem(strategy.stopLoss)
-          deleteManagedItem(strategy.buyOrder)
           payload.parentNode.strategies.splice(j, 1)
-          destroyPart(strategy)
-          cleanNode(strategy)
-          return
         }
       }
-    } else {
-      deleteEvent(node.entryPoint)
-      deleteEvent(node.exitPoint)
-      deleteEvent(node.sellPoint)
-      deleteManagedItem(node.stopLoss)
-      deleteManagedItem(node.buyOrder)
-      destroyPart(node)
-      cleanNode(node)
     }
+    deleteTriggerStage(node.triggerStage)
+    deleteOpenStage(node.openStage)
+    deleteManageStage(node.manageStage)
+    deleteCloseStage(node.closeStage)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteTriggerStage (node) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.triggerStage = undefined
+    }
+    deleteEvent(node.entryPoint)
+    deleteEvent(node.exitPoint)
+    deleteEvent(node.sellPoint)
+
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteOpenStage (node) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.openStage = undefined
+    }
+    deleteInitialDefinition(node.initialDefinition)
+
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteManageStage (node) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.manageStage = undefined
+    }
+    deleteManagedItem(node.stopLoss)
+    deleteManagedItem(node.buyOrder)
+
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteCloseStage (node) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.closeStage = undefined
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteInitialDefinition (node) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.initialDefinition = undefined
+    }
+
+    destroyPart(node)
+    cleanNode(node)
   }
 
   function deleteEvent (node) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      switch (node.type) {
+        case 'Trigger On Event': {
+          payload.parentNode.entryPoint = undefined
+          break
+        }
+        case 'Trigger Off Event': {
+          payload.parentNode.exitPoint = undefined
+          break
+        }
+        case 'Take Position Event': {
+          payload.parentNode.sellPoint = undefined
+          break
+        }
+      }
+    }
+
     while (node.situations.length > 0) {
       deleteSituation(node.situations[0])
     }
@@ -689,6 +852,20 @@ function newWorkspace () {
   }
 
   function deleteManagedItem (node) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      switch (node.type) {
+        case 'Stop Loss': {
+          payload.parentNode.stopLoss = undefined
+          break
+        }
+        case 'Take Profit': {
+          payload.parentNode.buyOrder = undefined
+          break
+        }
+      }
+    }
+
     while (node.phases.length > 0) {
       deletePhase(node.phases[0])
     }
@@ -911,16 +1088,61 @@ function newWorkspace () {
         }
         return event
       }
-      case 'Strategy': {
-        let strategy = {
+      case 'Initial Definition': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        return object
+      }
+      case 'Trigger Stage': {
+        let stage = {
           type: node.type,
           subType: node.subType,
           name: node.name,
           entryPoint: getProtocolNode(node.entryPoint),
           exitPoint: getProtocolNode(node.exitPoint),
-          sellPoint: getProtocolNode(node.sellPoint),
+          sellPoint: getProtocolNode(node.sellPoint)
+        }
+        return stage
+      }
+      case 'Open Stage': {
+        let stage = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          initialDefinition: getProtocolNode(node.initialDefinition)
+        }
+        return stage
+      }
+      case 'Manage Stage': {
+        let stage = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
           stopLoss: getProtocolNode(node.stopLoss),
           buyOrder: getProtocolNode(node.buyOrder)
+        }
+        return stage
+      }
+      case 'Close Stage': {
+        let stage = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        return stage
+      }
+      case 'Strategy': {
+        let strategy = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          triggerStage: getProtocolNode(node.triggerStage),
+          openStage: getProtocolNode(node.openStage),
+          manageStage: getProtocolNode(node.manageStage),
+          closeStage: getProtocolNode(node.closeStage)
         }
         return strategy
       }
@@ -1067,6 +1289,62 @@ function newWorkspace () {
           event.situations.push(situation)
         }
         return event
+      }
+      case 'Initial Definition': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Trigger Stage': {
+        let stage = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          entryPoint: getWorkspaceNode(node.entryPoint),
+          exitPoint: getWorkspaceNode(node.exitPoint),
+          sellPoint: getWorkspaceNode(node.sellPoint),
+          savedPayload: getSavedPayload(node)
+        }
+        return stage
+      }
+      case 'Open Stage': {
+        let stage = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          initialDefinition: getWorkspaceNode(node.initialDefinition),
+          savedPayload: getSavedPayload(node)
+        }
+        return stage
+      }
+      case 'Manage Stage': {
+        let stage = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          stopLoss: getWorkspaceNode(node.stopLoss),
+          buyOrder: getWorkspaceNode(node.buyOrder),
+          savedPayload: getSavedPayload(node)
+        }
+        return stage
+      }
+      case 'Close Stage': {
+        let stage = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          savedPayload: getSavedPayload(node)
+        }
+        return stage
       }
       case 'Strategy': {
         let strategy = {

@@ -638,8 +638,15 @@
                     y: -2 + imageOffset.y
                 }
 
+                let imagePosition = {
+                    x: recordPoint1.x + imageOffset.x,
+                    y: recordPoint1.y + imageOffset.y
+                }
+
+                imagePosition = thisObject.fitFunction(imagePosition)
+
                 if (imageRecord.canDrawIcon === true) {
-                    browserCanvasContext.drawImage(imageRecord, recordPoint1.x + imageOffset.x, recordPoint1.y + imageOffset.y, imageSize, imageSize);
+                    browserCanvasContext.drawImage(imageRecord, imagePosition.x, imagePosition.y, imageSize, imageSize);
                     browserCanvasContext.save();
                     browserCanvasContext.translate(recordPoint3.x + labelOffset.x, recordPoint3.y + labelOffset.y);
                     browserCanvasContext.rotate(-Math.PI / 2);

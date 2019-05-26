@@ -611,6 +611,16 @@
                 recordPoint8 = viewPort.fitIntoVisibleArea(recordPoint8);
                 recordPoint9 = viewPort.fitIntoVisibleArea(recordPoint9);
 
+                recordPoint1 = thisObject.fitFunction(recordPoint1);
+                recordPoint2 = thisObject.fitFunction(recordPoint2);
+                recordPoint3 = thisObject.fitFunction(recordPoint3);
+                recordPoint4 = thisObject.fitFunction(recordPoint4);
+                recordPoint5 = thisObject.fitFunction(recordPoint5);
+                recordPoint6 = thisObject.fitFunction(recordPoint6);
+                recordPoint7 = thisObject.fitFunction(recordPoint7);
+                recordPoint8 = thisObject.fitFunction(recordPoint8);
+                recordPoint9 = thisObject.fitFunction(recordPoint9);
+
                 /* Image representing a Record */
 
                 let imageOffset = {

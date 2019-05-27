@@ -23,37 +23,57 @@ function newAttachDetach () {
       }
         break
       case 'Trigger Stage': {
+        node.payload.parentNode.triggerStage = undefined
+        completeDetachment(node, rootNodes)
         return
       }
       case 'Open Stage': {
+        node.payload.parentNode.openStage = undefined
+        completeDetachment(node, rootNodes)
         return
       }
       case 'Manage Stage': {
+        node.payload.parentNode.manageStage = undefined
+        completeDetachment(node, rootNodes)
         return
       }
       case 'Close Stage': {
+        node.payload.parentNode.closeStage = undefined
+        completeDetachment(node, rootNodes)
         return
       }
       case 'Trigger On Event': {
+        node.payload.parentNode.entryPoint = undefined
+        completeDetachment(node, rootNodes)
         return
       }
         break
       case 'Trigger Off Event': {
+        node.payload.parentNode.exitPoint = undefined
+        completeDetachment(node, rootNodes)
         return
       }
         break
       case 'Take Position Event': {
+        node.payload.parentNode.sellPoint = undefined
+        completeDetachment(node, rootNodes)
         return
       }
       case 'Initial Definition': {
+        node.payload.parentNode.initialDefinition = undefined
+        completeDetachment(node, rootNodes)
         return
       }
         break
       case 'Stop': {
+        node.payload.parentNode.stopLoss = undefined
+        completeDetachment(node, rootNodes)
         return
       }
         break
       case 'Take Profit': {
+        node.payload.parentNode.buyOrder = undefined
+        completeDetachment(node, rootNodes)
         return
       }
         break

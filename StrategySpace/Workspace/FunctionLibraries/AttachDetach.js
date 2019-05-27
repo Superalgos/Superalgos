@@ -6,7 +6,7 @@ function newAttachDetach () {
 
   return thisObject
 
-  function detachNode (node) {
+  function detachNode (node, rootNodes) {
     switch (node.type) {
       case 'Trading System': {
         return
@@ -18,7 +18,7 @@ function newAttachDetach () {
           if (strategy.id === node.id) {
             payload.parentNode.strategies.splice(i, 1)
           }
-          completeDetachment(node)
+          completeDetachment(node, rootNodes)
         }
       }
         break
@@ -65,7 +65,7 @@ function newAttachDetach () {
             payload.parentNode.conditions.splice(i, 1)
           }
         }
-        completeDetachment(node)
+        completeDetachment(node, rootNodes)
       }
         break
       case 'Situation': {
@@ -76,7 +76,7 @@ function newAttachDetach () {
             payload.parentNode.situations.splice(i, 1)
           }
         }
-        completeDetachment(node)
+        completeDetachment(node, rootNodes)
       }
         break
       case 'Phase': {
@@ -94,7 +94,7 @@ function newAttachDetach () {
               }
             }
             payload.parentNode.phases.splice(i, 1)
-            completeDetachment(node)
+            completeDetachment(node, rootNodes)
             return
           }
         }
@@ -102,13 +102,13 @@ function newAttachDetach () {
     }
   }
 
-  function attachNode (node, attachToNode) {
+  function attachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
       case 'Strategy': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.strategies.push(node)
-        completeAttachment(node)
+        completeAttachment(node, rootNodes)
       }
         break
       case 'Phase': {
@@ -122,7 +122,7 @@ function newAttachDetach () {
               node.payload.chainParent = attachToNode
             }
             attachToNode.phases.push(node)
-            completeAttachment(node)
+            completeAttachment(node, rootNodes)
           }
             break
           case 'Take Profit': {
@@ -134,7 +134,7 @@ function newAttachDetach () {
               node.payload.chainParent = attachToNode
             }
             attachToNode.phases.push(node)
-            completeAttachment(node)
+            completeAttachment(node, rootNodes)
           }
             break
           case 'Phase': {
@@ -145,13 +145,13 @@ function newAttachDetach () {
                 if (i === node.payload.parentNode.phases.length - 1) {
                   node.payload.chainParent = attachToNode
                   node.payload.parentNode.phases.push(node)
-                  completeAttachment(node)
+                  completeAttachment(node, rootNodes)
                 } else {
                   node.payload.chainParent = attachToNode
                   let nextPhase = node.payload.parentNode.phases[i + 1]
                   nextPhase.payload.chainParent = node
                   node.payload.parentNode.phases.splice(i + 1, 0, node)
-                  completeAttachment(node)
+                  completeAttachment(node, rootNodes)
                   return
                 }
               }
@@ -164,26 +164,26 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.situations.push(node)
-        completeAttachment(node)
+        completeAttachment(node, rootNodes)
       }
         break
       case 'Condition': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.conditions.push(node)
-        completeAttachment(node)
+        completeAttachment(node, rootNodes)
       }
         break
     }
   }
 
-  function completeDetachment (node) {
+  function completeDetachment (node, rootNodes) {
     node.payload.parentNode = undefined
     node.payload.chainParent = undefined
     rootNodes.push(node)
   }
 
-  function completeAttachment (node) {
+  function completeAttachment (node, rootNodes) {
     for (let i = 0; i < rootNodes.length; i++) {
       let rootNode = rootNodes[i]
       if (rootNode.id === node.id) {

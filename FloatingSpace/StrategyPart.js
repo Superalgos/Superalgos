@@ -305,7 +305,12 @@ function newStrategyPart () {
 
     let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
     let ratio = distanceToChainParent / previousDistance
+    if (previousDistance === 0) {
+      previousDistance = distanceToChainParent
+      return
+    }
     previousDistance = distanceToChainParent
+
     if (thisObject.isOnFocus !== true) { return }
     if (thisObject.payload.chainParent === undefined) { return }
     if (thisObject.payload.parentNode === undefined) { return }
@@ -714,3 +719,4 @@ function newStrategyPart () {
     }
   }
 }
+

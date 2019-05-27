@@ -94,11 +94,11 @@ function newWorkspace () {
   }
 
   function detachNode (node) {
-    functionLibraryAttachDetach.detachNode(node)
+    functionLibraryAttachDetach.detachNode(node, rootNodes)
   }
 
-  function attachNode (node) {
-    functionLibraryAttachDetach.attachNode(node)
+  function attachNode (node, attachToNode) {
+    functionLibraryAttachDetach.attachNode(node, attachToNode, rootNodes)
   }
 
   function physics () {

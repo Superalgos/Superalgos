@@ -1,4 +1,4 @@
-function newDetachAttach () {
+function newAttachDetach () {
   thisObject = {
     detachNode: detachNode,
     attachNode: attachNode

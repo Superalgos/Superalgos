@@ -34,6 +34,12 @@ function newWorkspace () {
 
   let rootNodes = []
 
+  functionLibraryAttachDetach = newAttachDetach()
+  functionLibraryNodeDeleter = newNodeDeleter()
+  functionLibraryPartsFromNodes = newPartsFromNodes()
+  functionLibraryProtocolNode = newProtocolNode()
+  functionLibraryWorkspaceNodes = newWorkspaceNode()
+
   return thisObject
 
   function finalize () {
@@ -43,6 +49,12 @@ function newWorkspace () {
   }
 
   async function initialize () {
+    functionLibraryAttachDetach = newAttachDetach()
+    functionLibraryNodeDeleter = newNodeDeleter()
+    functionLibraryPartsFromNodes = newPartsFromNodes()
+    functionLibraryProtocolNode = newProtocolNode()
+    functionLibraryWorkspaceNodes = newWorkspaceNode()
+
     let savedWorkspace = window.localStorage.getItem('workspace')
     if (savedWorkspace === null) {
       initializeLoadingFromStrategizer()
@@ -55,7 +67,7 @@ function newWorkspace () {
       } else {
         for (let i = 0; i < rootNodes.length; i++) {
           let rootNode = rootNodes[i]
-          createPartFromNode(rootNode, undefined, undefined)
+          functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
         }
       }
     }
@@ -70,7 +82,7 @@ function newWorkspace () {
       }
       thisObject.idAtStrategizer = tradingSystem.id
       rootNodes.push(adaptedTradingSystem)
-      generateStrategyParts(adaptedTradingSystem)
+      functionLibraryPartsFromNodes.createPartFromNode(adaptedTradingSystem, undefined, undefined)
       thisObject.tradingSystem = adaptedTradingSystem
       thisObject.tradingSystem.payload.uiObject.setRunningStatus()
     }
@@ -81,13 +93,11 @@ function newWorkspace () {
   }
 
   function detachNode (node) {
-    let functionsLibrary = newDetachAttach()
-    functionsLibrary.detachNode(node)
+    functionLibraryAttachDetach.detachNode(node)
   }
 
   function attachNode (node) {
-    let functionsLibrary = newDetachAttach()
-    functionsLibrary.attachNode(node)
+    functionLibraryAttachDetach.attachNode(node)
   }
 
   function physics () {
@@ -95,7 +105,7 @@ function newWorkspace () {
     let stringifyReadyNodes = []
     for (let i = 0; i < rootNodes.length; i++) {
       let rootNode = rootNodes[i]
-      let workspaceNode = getWorkspaceNode(rootNode)
+      let workspaceNode = functionLibraryWorkspaceNodes.getWorkspaceNode(rootNode)
       stringifyReadyNodes.push(workspaceNode)
     }
     let workspace = {
@@ -112,101 +122,9 @@ function newWorkspace () {
     spawnPosition.y = point.y
 
     let dirtyNode = JSON.parse(nodeText)
-    let rootNode = getProtocolNode(dirtyNode)
+    let rootNode = functionLibraryProtocolNode.getProtocolNode(dirtyNode)
     rootNodes.push(rootNode)
-    createPartFromNode(rootNode, undefined, undefined)
-  }
-
-  function generateStrategyParts (node) {
-    let lastPhase
-    let tradingSystem = node
-
-    createPart('Trading System', tradingSystem.name, tradingSystem, undefined, undefined)
-
-    for (m = 0; m < tradingSystem.strategies.length; m++) {
-      let strategy = tradingSystem.strategies[m]
-      createPart('Strategy', strategy.name, strategy, tradingSystem, tradingSystem)
-
-      createPart('Trigger On Event', '', strategy.entryPoint, strategy, strategy)
-      for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
-        let situation = strategy.entryPoint.situations[k]
-        createPart('Situation', situation.name, situation, strategy.entryPoint, strategy.entryPoint, 'Trigger On' + ' ' + 'Situation')
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-          createPart('Condition', condition.name, condition, situation, situation, 'Condition')
-        }
-      }
-
-      createPart('Trigger Off Event', '', strategy.exitPoint, strategy, strategy)
-      for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
-        let situation = strategy.exitPoint.situations[k]
-        createPart('Situation', situation.name, situation, strategy.exitPoint, strategy.exitPoint, 'Trigger Off' + ' ' + 'Situation')
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-          createPart('Condition', condition.name, condition, situation, situation, 'Condition')
-        }
-      }
-
-      createPart('Take Position Event', '', strategy.sellPoint, strategy, strategy)
-      for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
-        let situation = strategy.sellPoint.situations[k]
-        createPart('Situation', situation.name, situation, strategy.sellPoint, strategy.sellPoint, 'Take Position' + ' ' + 'Situation')
-
-        for (let m = 0; m < situation.conditions.length; m++) {
-          let condition = situation.conditions[m]
-          createPart('Condition', condition.name, condition, situation, situation, 'Condition')
-        }
-      }
-
-      createPart('Stop', '', strategy.stopLoss, strategy, strategy)
-      for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
-        let phase = strategy.stopLoss.phases[p]
-
-        let chainParent
-        if (p === 0) {
-          chainParent = strategy.stopLoss
-        } else {
-          chainParent = lastPhase
-        }
-        lastPhase = phase
-        createPart('Phase', phase.name, phase, strategy.stopLoss, chainParent, 'Stop Phase')
-
-        for (let k = 0; k < phase.situations.length; k++) {
-          let situation = phase.situations[k]
-          createPart('Situation', situation.name, situation, phase, phase, 'Situation')
-
-          for (let m = 0; m < situation.conditions.length; m++) {
-            let condition = situation.conditions[m]
-            createPart('Condition', condition.name, condition, situation, situation, 'Condition')
-          }
-        }
-      }
-
-      createPart('Take Profit', '', strategy.buyOrder, strategy, strategy)
-      for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
-        let phase = strategy.buyOrder.phases[p]
-        let chainParent
-        if (p === 0) {
-          chainParent = strategy.buyOrder
-        } else {
-          chainParent = lastPhase
-        }
-        lastPhase = phase
-        createPart('Phase', phase.name, phase, strategy.buyOrder, chainParent, 'Take Profit Phase')
-
-        for (let k = 0; k < phase.situations.length; k++) {
-          let situation = phase.situations[k]
-          createPart('Situation', situation.name, situation, phase, phase, 'Situation')
-
-          for (let m = 0; m < situation.conditions.length; m++) {
-            let condition = situation.conditions[m]
-            createPart('Condition', condition.name, condition, situation, situation, 'Condition')
-          }
-        }
-      }
-    }
+    functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
   }
 
   async function onMenuItemClick (payload, action) {
@@ -223,7 +141,7 @@ function newWorkspace () {
         break
       case 'Download':
 
-        let text = JSON.stringify(getProtocolNode(payload.node))
+        let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node))
         let nodeName = payload.node.name
         if (nodeName === undefined) {
           nodeName = ''
@@ -326,35 +244,35 @@ function newWorkspace () {
         }
         break
       case 'Delete Strategy': {
-        deleteStrategy(payload.node)
+        functionLibraryNodeDeleter.deleteStrategy(payload.node)
         break
       }
       case 'Delete Trigger Stage': {
-        deleteTriggerStage(payload.node)
+        functionLibraryNodeDeleter.deleteTriggerStage(payload.node)
         break
       }
       case 'Delete Open Stage': {
-        deleteOpenStage(payload.node)
+        functionLibraryNodeDeleter.deleteOpenStage(payload.node)
         break
       }
       case 'Delete Manage Stage': {
-        deleteManageStage(payload.node)
+        functionLibraryNodeDeleter.deleteManageStage(payload.node)
         break
       }
       case 'Delete Close Stage': {
-        deleteClose(payload.node)
+        functionLibraryNodeDeleter.deleteClose(payload.node)
         break
       }
       case 'Delete Phase': {
-        deletePhase(payload.node)
+        functionLibraryNodeDeleter.deletePhase(payload.node)
         break
       }
       case 'Delete Situation': {
-        deleteSituation(payload.node)
+        functionLibraryNodeDeleter.deleteSituation(payload.node)
         break
       }
       case 'Delete Condition': {
-        deleteCondition(payload.node)
+        functionLibraryNodeDeleter.deleteCondition(payload.node)
         break
       }
       default:

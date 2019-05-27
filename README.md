@@ -36,7 +36,7 @@ The **_Charting System_** plots indicators data along with the actions taken by 
 ![image](https://user-images.githubusercontent.com/13994516/58325972-c37db600-7e2b-11e9-9aa2-9f6faaf8dd94.png)
 <br/><br/>
 
-The **_Superalgos Protocol_** (also refered to as the _protocol_) determines the structure in which all the information regarding a trading system is stored and - at the same time - provides a clear guidance on how traders using the various tools developed and distributed by the Superalgos Project shall create and automate their strategies.
+The **_Superalgos Protocol_** (also refered to as the _protocol_) determines the structure in which all the information regarding a trading system is stored and—at the same time—provides a clear guidance on how traders using the various tools developed and distributed by the Superalgos Project shall create and automate their strategies.
 
 > You don't really _need_ to know this, but for the sake of context...
 >
@@ -60,7 +60,7 @@ The layer title bar can have 3 possible background colors:
 
 ### Main Elements
 
-Notice the following 3 elements relative to the position of the mouse pointer:
+Notice the following three elements relative to the position of the mouse pointer:
 
 1. Above, the current datetime. This is the date and time at the mouse pointer position.
 2. To the right, the current rate. This is the rate (in this case USDT per BTC) at the mouse pointer position.
@@ -90,7 +90,7 @@ You may also drag and drop the panels by right-clicking on the title bar.
 
 ### Layers
 
-Superalgos is an open system, meaning anyone can build layers for this charting app. So far—with our current limited manpower—we have created 8 public layers (available without logging in) and 2 private layers (available to logged-in users):
+Superalgos is an open system, meaning anyone can build layers for the _Charting System_. So far—with our current limited manpower—we have created 8 public layers (available without logging in) and 2 private layers (available to logged-in users):
 
 #### Public Layers
 

@@ -213,7 +213,7 @@ function newStrategyPart () {
         compatibleType = 'Trigger Stage'
         compatibleSubType = undefined
         break
-      case 'Initial Information':
+      case 'Initial Definition':
         compatibleType = 'Open Stage'
         compatibleSubType = undefined
         break

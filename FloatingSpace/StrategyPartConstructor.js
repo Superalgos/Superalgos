@@ -483,7 +483,7 @@ function newStrategyPartConstructor () {
           }]
         break
       }
-      case 'Initial Information': {
+      case 'Initial Definition': {
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -500,7 +500,7 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
-            action: 'Delete Initial Information',
+            action: 'Delete Initial Definition',
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Stage',
             visible: false,
@@ -847,7 +847,7 @@ function newStrategyPartConstructor () {
         level_2()
         break
       }
-      case 'Initial Information': {
+      case 'Initial Definition': {
         level_2()
         break
       }

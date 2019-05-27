@@ -77,7 +77,7 @@ function newStrategyPartTitle () {
       case 'Take Position Event': {
         break
       }
-      case 'Initial Information': {
+      case 'Initial Definition': {
         break
       }
       case 'Stop': {
@@ -277,4 +277,3 @@ function newStrategyPartTitle () {
     return title
   }
 }
-

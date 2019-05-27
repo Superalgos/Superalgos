@@ -49,7 +49,7 @@ function newStrategySpace () {
       ['Trigger On Event', 'startup'],
       ['Trigger Off Event', 'support'],
       ['Take Position Event', 'compass'],
-      ['Initial Information', 'task'],
+      ['Initial Definition', 'task'],
       ['Stop', 'pixel'],
       ['Take Profit', 'competition'],
       ['Phase', 'placeholder'],

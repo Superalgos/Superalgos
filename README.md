@@ -44,7 +44,7 @@ The **_Superalgos Protocol_** (also refered to as the _protocol_) determines the
 >
 >The **_Strategy Executor_** interprets the execution instructions embedded at a _protocol_ file. The instructions determine the type of order to use, and what to do in every possible situation that could emerge during the placement and management of exchange orders.
 
-
+## Charts Interface
 
 ### Layers Panel
 
@@ -55,15 +55,12 @@ The layer title bar can have 3 possible background colors:
 2. **Green**: layer is on.
 3. **Yellow**: layer is loading. If it stays yellow, it means it can't load fully.
 
-Click on the "Candles" layer and wait a few seconds date is loaded and candles are plotted. You should see something like this:
-
-![image](https://user-images.githubusercontent.com/9479367/56821266-1fb1e200-684e-11e9-9492-8bcbc3ed84d8.png)
-
-As you may see, the candles belong to the BTC/USDT market @ Poloniex. Even though the app supports other markets and exchanges, it is better for us to have only this one active, while the codebase matures. 
-
-Notice the following 3 elements relative to the position of the mouse pointer:
+![Layers](https://user-images.githubusercontent.com/13994516/58434206-c04c2980-80ba-11e9-964b-8223ad99eb0b.gif)
+<br/><br/>
 
 ### Main Elements
+
+Notice the following 3 elements relative to the position of the mouse pointer:
 
 1. Above, the current datetime. This is the date and time at the mouse pointer position.
 2. To the right, the current rate. This is the rate (in this case USDT per BTC) at the mouse pointer position.
@@ -73,27 +70,23 @@ Notice the following 3 elements relative to the position of the mouse pointer:
 
 There are many things you can do with your mouse wheel. 
 
+1. Scroll over the Layers Panel to access layers that may be out of reach downwards.
 1. Scroll on top of or next to the datetime to produce a horizontal scaling.
 1. Scroll on top of or next to the displayed rate to produce a vertical scaling.
 1. Scroll on top of or next to the time period to change the time period to available values. 
 1. Scroll elsewhere over the chart to zoom in and out. The App will not only zoom in and out of the chart, but also automatically adjust the time period to the most convenient one (for the current zoom level).
-1. Scroll over the Layers Panel to access layers that may be out of reach downwards.
 
-After zooming in the main elements stay at the top, left and bottom of the viewport as you can see in the next screenshot:
+![Mouse-Wheel](https://user-images.githubusercontent.com/13994516/58434568-a01d6a00-80bc-11e9-9a58-3edd4852f07c.gif)
+<br/><br/>
 
-![image](https://user-images.githubusercontent.com/9479367/56822037-30635780-6850-11e9-8d1c-1c58959f46e9.png)
+### Minimizing & Moving Floating Panels
 
-### Moving Panels
+To minimize a panel, click on the small triangle on the right of their title bar. This will automatically position the panel at the bottom of the screen. Clicking again restores the panel to its previous position.
 
-Drag and drop right-clicking on the title bar.
+You may also drag and drop the panels by right-clicking on the title bar.
 
-### Minimizing Panels
-
-Click on the small triangle on the right of their title bar. This will automatically position the panel at the bottom of the screen. Clicking again restores the panel to its previous position.
-
-In the following image, the Layers Panel was dragged to the left and the Current Candle Panel was minimized:
- 
-![image](https://user-images.githubusercontent.com/9479367/56822276-db741100-6850-11e9-9e23-d3fabb82754c.png)
+![Panels](https://user-images.githubusercontent.com/13994516/58434864-1bcbe680-80be-11e9-8262-ccca1685f68b.gif)
+<br/><br/>
 
 ### Layers
 

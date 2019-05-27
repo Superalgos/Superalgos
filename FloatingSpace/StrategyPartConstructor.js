@@ -929,7 +929,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -40
           },
           {
             action: 'Delete Condition',
@@ -957,67 +957,66 @@ function newStrategyPartConstructor () {
           }]
         break
       }
-    }
-    case 'Code': {
-      strategyPart.codeEditor = newCodeEditor()
-      strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-      strategyPart.codeEditor.initialize()
-      strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+      case 'Code': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
 
-      menuItemsInitialValues = [
-        {
-          action: 'Pin / Unpin',
-          actionFunction: floatingObject.pinToggle,
-          actionStatus: floatingObject.getPinStatus,
-          currentStatus: false,
-          label: undefined,
-          visible: false,
-          iconPathOn: 'target',
-          iconPathOff: 'security',
-          rawRadius: 8,
-          targetRadius: 0,
-          currentRadius: 0,
-          angle: -135
-        },
-        {
-          action: 'Edit Code',
-          actionFunction: strategyPart.codeEditor.activate,
-          label: 'Edit Code',
-          visible: false,
-          iconPathOn: 'html',
-          iconPathOff: 'html',
-          rawRadius: 8,
-          targetRadius: 0,
-          currentRadius: 0,
-          angle: -40,
-          dontShowAtFullscreen: true
-        },
-        {
-          action: 'Delete Code',
-          actionFunction: payload.onMenuItemClick,
-          label: 'Delete This Code',
-          visible: false,
-          iconPathOn: 'trash',
-          iconPathOff: 'trash',
-          rawRadius: 8,
-          targetRadius: 0,
-          currentRadius: 0,
-          angle: 0
-        },
-        {
-          action: 'Download',
-          actionFunction: payload.onMenuItemClick,
-          label: 'Download',
-          visible: false,
-          iconPathOn: 'upload',
-          iconPathOff: 'upload',
-          rawRadius: 8,
-          targetRadius: 0,
-          currentRadius: 0,
-          angle: 40
-        }]
-      break
-    }
+        menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -135
+          },
+          {
+            action: 'Edit Code',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Code',
+            visible: false,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40,
+            dontShowAtFullscreen: true
+          },
+          {
+            action: 'Delete Code',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Code',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }]
+        break
+      }
       default: {
         if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> Part Type not Recognized -> type = ' + payload.node.type) }
       }

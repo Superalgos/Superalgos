@@ -4,7 +4,7 @@ import {
   GraphQLList
 } from 'graphql';
 
-import { BotType, HostType } from './index';
+import { BotType, PlotterType, HostType } from './index';
 
 const TeamType = new GraphQLObjectType({
   name: 'Team',
@@ -24,9 +24,9 @@ const TeamType = new GraphQLObjectType({
       }
     },
     plotters: {
-      type: new GraphQLList(BotType),
+      type: new GraphQLList(PlotterType),
       resolve(parent) {
-        return parent.bots;
+        return parent.plotters;
       }
     }
   }),

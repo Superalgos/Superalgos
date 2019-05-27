@@ -6,7 +6,7 @@ const ecosystemSchema = new Schema({
     type: String,
     required: true
   },
-  teams: [{
+  devTeams: [{
     codeName: {
       type: String,
       required: true
@@ -15,7 +15,7 @@ const ecosystemSchema = new Schema({
       type: String,
       required: true
     },
-    host:{
+    host: {
       url: {
         type: String,
         required: true
@@ -42,6 +42,10 @@ const ecosystemSchema = new Schema({
         type: String,
         required: true
       },
+      type: {
+        type: String,
+        required: false
+      },
       repo: {
         type: String,
         required: false
@@ -49,9 +53,115 @@ const ecosystemSchema = new Schema({
       configFile: {
         type: String,
         required: false
-      }
+      },
+      products: [{
+        codeName: {
+          type: String,
+          required: true
+        },
+        displayName: {
+          type: String,
+          required: true
+        },
+        description: {
+          type: String,
+          required: true
+        },
+        dataSets: [{
+          codeName: {
+            type: String,
+            required: true
+          },
+          type: {
+            type: String,
+            required: true
+          },
+          validPeriods: [{
+            type: String,
+            required: true
+          }],
+          filePath: {
+            type: String,
+            required: true
+          },
+          fileName: {
+            type: String,
+            required: true
+          },
+          dataRange: {
+            filePath: {
+              type: String,
+              required: false
+            },
+            fileName: {
+              type: String,
+              required: false
+            },
+          },
+        }],
+        exchangeList: [{
+          name: {
+            type: String,
+            required: true
+          }
+        }],
+        plotter: {
+          codeName: {
+            type: String,
+            required: false
+          },
+          devTeam: {
+            type: String,
+            required: false
+          },
+          moduleName: {
+            type: String,
+            required: true
+          },
+        }
+      }]
     }],
     plotters: [{
+      codeName: {
+        type: String,
+        required: true
+      },
+      displayName: {
+        type: String,
+        required: true
+      },
+      modules: [{
+        codeName: {
+          type: String,
+          required: true
+        },
+        moduleName: {
+          type: String,
+          required: true
+        },
+        description: {
+          type: String,
+          required: false
+        },
+        profilePicture: {
+          type: String,
+          required: false
+        },
+        panels: [{
+          codeName: {
+            type: String,
+            required: true
+          },
+          moduleName: {
+            type: String,
+            required: true
+          },
+          event: {
+            type: String,
+            required: true
+          }
+        }],
+      }],
       repo: {
         type: String,
         required: true
@@ -71,7 +181,7 @@ const ecosystemSchema = new Schema({
       type: String,
       required: true
     },
-    host:{
+    host: {
       url: {
         type: String,
         required: true
@@ -90,6 +200,52 @@ const ecosystemSchema = new Schema({
       }
     },
     competitions: [{
+      codeName: {
+        type: String,
+        required: true
+      },
+      displayName: {
+        type: String,
+        required: true
+      },
+      description: {
+        type: String,
+        required: false
+      },
+      startDatetime: {
+        type: String,
+        required: false
+      },
+      finishDatetime: {
+        type: String,
+        required: false
+      },
+      formula: {
+        type: String,
+        required: false
+      },
+      plotter: {
+        codeName: {
+          type: String,
+          required: false
+        },
+        host: {
+          type: String,
+          required: false
+        },
+        repo: {
+          type: String,
+          required: true
+        },
+        moduleName: {
+          type: String,
+          required: true
+        },
+      },
+      participants: [{
+        type: String,
+        required: false
+      }],
       repo: {
         type: String,
         required: true
@@ -100,6 +256,46 @@ const ecosystemSchema = new Schema({
       }
     }],
     plotters: [{
+      codeName: {
+        type: String,
+        required: true
+      },
+      displayName: {
+        type: String,
+        required: true
+      },
+      modules: [{
+        codeName: {
+          type: String,
+          required: true
+        },
+        moduleName: {
+          type: String,
+          required: true
+        },
+        description: {
+          type: String,
+          required: false
+        },
+        profilePicture: {
+          type: String,
+          required: false
+        },
+        panels: [{
+          codeName: {
+            type: String,
+            required: true
+          },
+          moduleName: {
+            type: String,
+            required: true
+          },
+          event: {
+            type: String,
+            required: true
+          }
+        }],
+      }],
       repo: {
         type: String,
         required: true

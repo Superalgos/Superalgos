@@ -27,8 +27,8 @@ const resolve = async (parent, { team }, context) => {
       userEcosystem.authId = context.userId
     }
 
-    for (let i = 0; i < userEcosystem.teams.length; i++) {
-      const auxTeam = userEcosystem.teams[i];
+    for (let i = 0; i < userEcosystem.devTeams.length; i++) {
+      const auxTeam = userEcosystem.devTeams[i];
       if (auxTeam.codeName === team.codeName) {
         throw new WrongArgumentsError("The team already exist on the user ecosystem.")
       }
@@ -44,11 +44,26 @@ const resolve = async (parent, { team }, context) => {
       team.host = nodeEndpoint
     }
 
-    let bots= []
-    bots.push(team.bot)
+    let bots = []
+    let tradingBot = {
+      codeName: team.bot.codeName,
+      displayName: team.bot.displayName,
+      repo: team.bot.codeName + '-Trading-Bot',
+      configFile: 'this.bot.config.json'
+    }
+    bots.push(tradingBot)
+
+    let simulatorBot = {
+      codeName: 'simulator-' + team.bot.codeName,
+      displayName: 'Simulator ' + team.bot.displayName,
+      repo: 'simulator-' + team.bot.codeName + '-Indicator-Bot',
+      configFile: 'this.bot.config.json'
+    }
+    bots.push(simulatorBot)
+
     team.bots = bots
 
-    userEcosystem.teams.push(team)
+    userEcosystem.devTeams.push(team)
     await userEcosystem.save()
     return team
   } catch (err) {

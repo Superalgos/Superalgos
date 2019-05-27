@@ -25,13 +25,13 @@ const resolve = async (parent, { team }, context) => {
     }
 
     let teamFound = false
-    for (let i = 0; i < userEcosystem.teams.length; i++) {
-      const auxTeam = userEcosystem.teams[i]
+    for (let i = 0; i < userEcosystem.devTeams.length; i++) {
+      const auxTeam = userEcosystem.devTeams[i]
       if (auxTeam.codeName === team.codeName) {
         logger.debug('deleteTeam -> Team found, removing.')
         teamFound = true
         await deleteTeam(team)
-        userEcosystem.teams.splice(i, 1)
+        userEcosystem.devTeams.splice(i, 1)
         await userEcosystem.save()
         break
       }

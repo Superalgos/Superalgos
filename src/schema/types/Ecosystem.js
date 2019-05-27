@@ -13,10 +13,10 @@ const EcosystemType = new GraphQLObjectType({
     id: { type: GraphQLID },
     authId: { type: GraphQLString },
     userName: { type: GraphQLString }, // TODO this field is temporary, it should be used the user module query
-    teams: {
+    devTeams: {
       type: new GraphQLList(TeamType),
       resolve(parent) {
-        return parent.teams;
+        return parent.devTeams;
       }
     },
     hosts: {

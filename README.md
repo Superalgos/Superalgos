@@ -10,13 +10,15 @@ To install the Canvas App, you need to install AAWeb, following [this guide](htt
 
 Use the latest Chrome version to [access the Demo](https://demo.superalgos.org).
 
+![Access-Demo](https://user-images.githubusercontent.com/13994516/58415158-dbe50f00-807d-11e9-812c-3b4de503bc34.gif)
+
 ## Overview
 
 The first time you access the _Charts_, you will see the following screen, split in half. The top half features the space used by the _Charting System_ and the bottom half features the _Strategy Designer_.
 
 Use the control in the center of the turquoise bar to pull the bar up and down in order to make more room to either application. 
 
-![image](https://user-images.githubusercontent.com/13994516/58324648-be1e6c80-7e27-11e9-906f-0f3d96c3aa7b.png)
+![Drag-Panels](https://user-images.githubusercontent.com/13994516/58413461-1ac49600-8079-11e9-9dd8-96f416e75b33.gif)
 
 Pulling the bar to the very top of the screen causes the _Charting System_ to stop consuming resources in your local machine, and gives you an ample view of the _Strategy Designer_.
 
@@ -24,11 +26,13 @@ The Strategy Designer allows you to manage your _Trading System_. The structure 
 
 ![image](https://user-images.githubusercontent.com/13994516/58325421-f32bbe80-7e29-11e9-9478-9e6e4a02ae47.png)
 
+
 Pulling the bar to the very bottom of the screen causes the _Strategy Designer_ to stop consuming resources from your local machine, and offers a full-screen view of the _Charting System_.
 
 The _Charting System_ plots indicators data along with the actions taken by the _Strategy Engine_ and the _Executor_, integrated with market data.
 
 ![image](https://user-images.githubusercontent.com/13994516/58325972-c37db600-7e2b-11e9-9aa2-9f6faaf8dd94.png)
+
 
 The _Strategy Engine_ backtests and forward tests the instructions defined on its _protocol_ file input. In coordination with the _Strategy Executor_, the engine can also live trade.
 

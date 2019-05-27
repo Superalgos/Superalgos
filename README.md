@@ -1,6 +1,6 @@
 # AAWeb
 
-The main function of AAWeb is to serve the js files needed at the browser to run the Canvas App. 
+The main function of AAWeb is to serve the js files needed at the browser to run the Canvas App.
 
 ## Current Status
 
@@ -22,8 +22,7 @@ You will need to clone these repos which contains the actual scripts of the Canv
 At the configuration file, you must verify that this is pointing to the place where you clonned the 2 previous repositories:
 
 ```
-  "pathToFilesComponent": "../Files-Component/src",
-  "pathToCloudAppWrapperComponent": "../CloudApp-Wrapper-Component/src",
+  "pathToFilesComponent": "../Files-Component/src"
 ```
 
 ## Execution

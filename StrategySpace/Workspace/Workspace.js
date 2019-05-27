@@ -184,6 +184,11 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addPhase(payload.node)
         }
         break
+      case 'Add Formula':
+        {
+          functionLibraryPartsFromNodes.addFormula(payload.node)
+        }
+        break
       case 'Add Situation':
         {
           functionLibraryPartsFromNodes.addSituation(payload.node)
@@ -192,6 +197,11 @@ function newWorkspace () {
       case 'Add Condition':
         {
           functionLibraryPartsFromNodes.addCondition(payload.node)
+        }
+        break
+      case 'Add Code':
+        {
+          functionLibraryPartsFromNodes.addCode(payload.node)
         }
         break
       case 'Delete Strategy': {
@@ -230,12 +240,20 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deletePhase(payload.node, rootNodes)
         break
       }
+      case 'Delete Formula': {
+        functionLibraryNodeDeleter.deleteFormula(payload.node, rootNodes)
+        break
+      }
       case 'Delete Situation': {
         functionLibraryNodeDeleter.deleteSituation(payload.node, rootNodes)
         break
       }
       case 'Delete Condition': {
         functionLibraryNodeDeleter.deleteCondition(payload.node, rootNodes)
+        break
+      }
+      case 'Delete Code': {
+        functionLibraryNodeDeleter.deleteCode(payload.node, rootNodes)
         break
       }
       default:

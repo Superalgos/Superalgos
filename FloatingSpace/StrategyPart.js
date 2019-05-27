@@ -229,12 +229,20 @@ function newStrategyPart () {
         compatibleType = 'Stop' + '.' + 'Take Profit' + '.' + 'Phase'
         compatibleSubType = undefined
         break
+      case 'Formula':
+        compatibleType = 'Phase'
+        compatibleSubType = undefined
+        break
       case 'Situation':
         compatibleType = 'Phase' + '.' + 'Take Position Event' + '.' + 'Trigger On Event' + '.' + 'Trigger Off Event'
         compatibleSubType = undefined
         break
       case 'Condition':
         compatibleType = 'Situation'
+        compatibleSubType = undefined
+        break
+      case 'Code':
+        compatibleType = 'Condition'
         compatibleSubType = undefined
         break
       default:
@@ -261,6 +269,8 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Initial Definition' && nearbyNode.initialDefinition !== undefined) { continue }
         if (thisObject.payload.node.type === 'Stop' && nearbyNode.stopLoss !== undefined) { continue }
         if (thisObject.payload.node.type === 'Take Profit' && nearbyNode.takeProfit !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Formula' && nearbyNode.formula !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Code' && nearbyNode.code !== undefined) { continue }
         /* Discard Phases without partent */
         if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
         if (foundCompatible === false) {

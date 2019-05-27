@@ -9,8 +9,10 @@ function newNodeDeleter () {
     deleteEvent: deleteEvent,
     deleteManagedItem: deleteManagedItem,
     deletePhase: deletePhase,
+    deleteFormula: deleteFormula,
     deleteSituation: deleteSituation,
-    deleteCondition: deleteCondition
+    deleteCondition: deleteCondition,
+    deleteCode: deleteCode
   }
 
   return thisObject
@@ -207,6 +209,18 @@ function newNodeDeleter () {
     }
   }
 
+  function deleteFormula (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.formula = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+
+    destroyPart(node)
+    cleanNode(node)
+  }
+
   function deleteSituation (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
@@ -253,6 +267,18 @@ function newNodeDeleter () {
       destroyPart(node)
       cleanNode(node)
     }
+  }
+
+  function deleteCode (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.code = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+
+    destroyPart(node)
+    cleanNode(node)
   }
 
   function completeDeletion (node, rootNodes) {

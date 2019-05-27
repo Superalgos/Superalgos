@@ -720,11 +720,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Phase': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
-
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -741,17 +736,17 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
-            action: 'Edit Code',
-            actionFunction: strategyPart.codeEditor.activate,
-            label: 'Edit Code',
+            action: 'Add Formula',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Formula',
             visible: false,
-            iconPathOn: 'html',
-            iconPathOff: 'html',
+            iconPathOn: 'pipette',
+            iconPathOff: 'pipette',
+            relatedStrategyPart: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60,
-            dontShowAtFullscreen: true
+            angle: -60
           },
           {
             action: 'Add Situation',
@@ -789,6 +784,66 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 60
+          }]
+        break
+      }
+      case 'Formula': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
+        menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -135
+          },
+          {
+            action: 'Edit Formula',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Formula',
+            visible: false,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40,
+            dontShowAtFullscreen: true
+          },
+          {
+            action: 'Delete Formula',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Formula',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }]
         break
       }
@@ -848,11 +903,6 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Condition': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
-
         menuItemsInitialValues = [
           {
             action: 'Pin / Unpin',
@@ -869,17 +919,17 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
-            action: 'Edit Code',
-            actionFunction: strategyPart.codeEditor.activate,
-            label: 'Edit Code',
+            action: 'Add Code',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Code',
             visible: false,
             iconPathOn: 'html',
             iconPathOff: 'html',
+            relatedStrategyPart: 'Code',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40,
-            dontShowAtFullscreen: true
+            angle: -60
           },
           {
             action: 'Delete Condition',
@@ -907,6 +957,67 @@ function newStrategyPartConstructor () {
           }]
         break
       }
+    }
+    case 'Code': {
+      strategyPart.codeEditor = newCodeEditor()
+      strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+      strategyPart.codeEditor.initialize()
+      strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
+      menuItemsInitialValues = [
+        {
+          action: 'Pin / Unpin',
+          actionFunction: floatingObject.pinToggle,
+          actionStatus: floatingObject.getPinStatus,
+          currentStatus: false,
+          label: undefined,
+          visible: false,
+          iconPathOn: 'target',
+          iconPathOff: 'security',
+          rawRadius: 8,
+          targetRadius: 0,
+          currentRadius: 0,
+          angle: -135
+        },
+        {
+          action: 'Edit Code',
+          actionFunction: strategyPart.codeEditor.activate,
+          label: 'Edit Code',
+          visible: false,
+          iconPathOn: 'html',
+          iconPathOff: 'html',
+          rawRadius: 8,
+          targetRadius: 0,
+          currentRadius: 0,
+          angle: -40,
+          dontShowAtFullscreen: true
+        },
+        {
+          action: 'Delete Code',
+          actionFunction: payload.onMenuItemClick,
+          label: 'Delete This Code',
+          visible: false,
+          iconPathOn: 'trash',
+          iconPathOff: 'trash',
+          rawRadius: 8,
+          targetRadius: 0,
+          currentRadius: 0,
+          angle: 0
+        },
+        {
+          action: 'Download',
+          actionFunction: payload.onMenuItemClick,
+          label: 'Download',
+          visible: false,
+          iconPathOn: 'upload',
+          iconPathOff: 'upload',
+          rawRadius: 8,
+          targetRadius: 0,
+          currentRadius: 0,
+          angle: 40
+        }]
+      break
+    }
       default: {
         if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> Part Type not Recognized -> type = ' + payload.node.type) }
       }
@@ -971,11 +1082,19 @@ function newStrategyPartConstructor () {
         level_4()
         break
       }
+      case 'Formula': {
+        level_5()
+        break
+      }
       case 'Situation': {
         level_5()
         break
       }
       case 'Condition': {
+        level_6()
+        break
+      }
+      case 'Code': {
         level_6()
         break
       }

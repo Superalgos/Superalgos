@@ -7,13 +7,23 @@ function newProtocolNode () {
   function getProtocolNode (node) {
     if (node === undefined) { return }
     switch (node.type) {
+      case 'Code':
+        {
+          let code = {
+            type: node.type,
+            subType: node.subType,
+            name: node.name,
+            code: node.code
+          }
+          return code
+        }
       case 'Condition':
         {
           let condition = {
             type: node.type,
             subType: node.subType,
             name: node.name,
-            code: node.code
+            code: getProtocolNode(node.code)
           }
           return condition
         }
@@ -31,12 +41,22 @@ function newProtocolNode () {
         }
         return situation
       }
+      case 'Formula':
+        {
+          let formula = {
+            type: node.type,
+            subType: node.subType,
+            name: node.name,
+            code: node.code
+          }
+          return formula
+        }
       case 'Phase': {
         let phase = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          code: node.code,
+          formula: getProtocolNode(node.formula),
           situations: []
         }
 

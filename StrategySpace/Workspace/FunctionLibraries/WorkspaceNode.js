@@ -7,6 +7,18 @@ function newWorkspaceNode () {
   function getWorkspaceNode (node) {
     if (node === undefined) { return }
     switch (node.type) {
+      case 'Code':
+        {
+          let code = {
+            id: node.id,
+            type: node.type,
+            subType: node.subType,
+            name: node.name,
+            code: node.code,
+            savedPayload: getSavedPayload(node)
+          }
+          return code
+        }
       case 'Condition':
         {
           let condition = {
@@ -14,7 +26,7 @@ function newWorkspaceNode () {
             type: node.type,
             subType: node.subType,
             name: node.name,
-            code: node.code,
+            code: getWorkspaceNode(node.code),
             savedPayload: getSavedPayload(node)
           }
           return condition
@@ -35,13 +47,25 @@ function newWorkspaceNode () {
         }
         return situation
       }
+      case 'Formula':
+        {
+          let formula = {
+            id: node.id,
+            type: node.type,
+            subType: node.subType,
+            name: node.name,
+            code: node.code,
+            savedPayload: getSavedPayload(node)
+          }
+          return formula
+        }
       case 'Phase': {
         let phase = {
           id: node.id,
           type: node.type,
           subType: node.subType,
           name: node.name,
-          code: node.code,
+          formula: getWorkspaceNode(node.formula),
           situations: [],
           savedPayload: getSavedPayload(node)
         }

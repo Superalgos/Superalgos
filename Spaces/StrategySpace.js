@@ -53,8 +53,10 @@ function newStrategySpace () {
       ['Stop', 'pixel'],
       ['Take Profit', 'competition'],
       ['Phase', 'placeholder'],
+      ['Formula', 'pipette'],
       ['Situation', 'pyramid'],
-      ['Condition', 'testing']
+      ['Condition', 'testing'],
+      ['Code', 'html']
     ]
 
     for (let i = 0; i < relationshipArray.length; i++) {

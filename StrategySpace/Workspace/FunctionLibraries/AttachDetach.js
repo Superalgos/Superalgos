@@ -47,13 +47,11 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
-        break
       case 'Trigger Off Event': {
         node.payload.parentNode.triggerOff = undefined
         completeDetachment(node, rootNodes)
         return
       }
-        break
       case 'Take Position Event': {
         node.payload.parentNode.takePosition = undefined
         completeDetachment(node, rootNodes)
@@ -64,19 +62,26 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
-        break
       case 'Stop': {
         node.payload.parentNode.stopLoss = undefined
         completeDetachment(node, rootNodes)
         return
       }
-        break
       case 'Take Profit': {
         node.payload.parentNode.takeProfit = undefined
         completeDetachment(node, rootNodes)
         return
       }
-        break
+      case 'Formula': {
+        node.payload.parentNode.formula = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Code': {
+        node.payload.parentNode.code = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Condition': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.conditions.length; i++) {
@@ -201,6 +206,13 @@ function newAttachDetach () {
         completeAttachment(node, rootNodes)
       }
         break
+      case 'Formula': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.formula = node
+        completeAttachment(node, rootNodes)
+      }
+        break
       case 'Phase': {
         switch (attachToNode.type) {
           case 'Stop': {
@@ -261,6 +273,13 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.conditions.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Code': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.code = node
         completeAttachment(node, rootNodes)
       }
         break

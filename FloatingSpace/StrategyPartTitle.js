@@ -89,10 +89,16 @@ function newStrategyPartTitle () {
       case 'Phase': {
         break
       }
+      case 'Formula': {
+        break
+      }
       case 'Situation': {
         break
       }
       case 'Condition': {
+        break
+      }
+      case 'Code': {
         break
       }
       default: {

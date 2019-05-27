@@ -4,6 +4,7 @@ function newNodeDeleter () {
     deleteTriggerStage: deleteTriggerStage,
     deleteOpenStage: deleteOpenStage,
     deleteManageStage: deleteManageStage,
+    deleteCloseStage: deleteCloseStage,
     deleteInitialDefinition: deleteInitialDefinition,
     deleteEvent: deleteEvent,
     deleteManagedItem: deleteManagedItem,
@@ -28,10 +29,18 @@ function newNodeDeleter () {
         }
       }
     }
-    deleteTriggerStage(node.triggerStage)
-    deleteOpenStage(node.openStage)
-    deleteManageStage(node.manageStage)
-    deleteCloseStage(node.closeStage)
+    if (node.triggerStage !== undefined) {
+      deleteTriggerStage(node.triggerStage)
+    }
+    if (node.openStage !== undefined) {
+      deleteOpenStage(node.openStage)
+    }
+    if (node.manageStage !== undefined) {
+      deleteManageStage(node.manageStage)
+    }
+    if (node.closeStage !== undefined) {
+      deleteCloseStage(node.closeStage)
+    }
     destroyPart(node)
     cleanNode(node)
   }
@@ -41,10 +50,15 @@ function newNodeDeleter () {
     if (payload.parentNode !== undefined) {
       payload.parentNode.triggerStage = undefined
     }
-    deleteEvent(node.entryPoint)
-    deleteEvent(node.exitPoint)
-    deleteEvent(node.sellPoint)
-
+    if (node.entryPoint !== undefined) {
+      deleteEvent(node.entryPoint)
+    }
+    if (node.exitPoint !== undefined) {
+      deleteEvent(node.exitPoint)
+    }
+    if (node.sellPoint !== undefined) {
+      deleteEvent(node.sellPoint)
+    }
     destroyPart(node)
     cleanNode(node)
   }
@@ -54,8 +68,9 @@ function newNodeDeleter () {
     if (payload.parentNode !== undefined) {
       payload.parentNode.openStage = undefined
     }
-    deleteInitialDefinition(node.initialDefinition)
-
+    if (node.initialDefinition !== undefined) {
+      deleteInitialDefinition(node.initialDefinition)
+    }
     destroyPart(node)
     cleanNode(node)
   }
@@ -65,9 +80,12 @@ function newNodeDeleter () {
     if (payload.parentNode !== undefined) {
       payload.parentNode.manageStage = undefined
     }
-    deleteManagedItem(node.stopLoss)
-    deleteManagedItem(node.buyOrder)
-
+    if (node.stopLoss !== undefined) {
+      deleteManagedItem(node.stopLoss)
+    }
+    if (node.buyOrder !== undefined) {
+      deleteManagedItem(node.buyOrder)
+    }
     destroyPart(node)
     cleanNode(node)
   }

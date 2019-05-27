@@ -502,7 +502,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Delete Initial Definition',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete This Stage',
+            label: 'Delete This Definition',
             visible: false,
             iconPathOn: 'trash',
             iconPathOff: 'trash',

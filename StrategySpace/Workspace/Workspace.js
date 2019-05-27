@@ -261,7 +261,11 @@ function newWorkspace () {
         break
       }
       case 'Delete Close Stage': {
-        functionLibraryNodeDeleter.deleteClose(payload.node)
+        functionLibraryNodeDeleter.deleteCloseStage(payload.node)
+        break
+      }
+      case 'Delete Initial Definition': {
+        functionLibraryNodeDeleter.deleteInitialDefinition(payload.node)
         break
       }
       case 'Delete Phase': {

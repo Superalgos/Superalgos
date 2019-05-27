@@ -3,7 +3,7 @@ function newPartsFromNodes () {
     createPartFromNode: createPartFromNode
   }
 
-  return newPartsFromNodes
+  return thisObject
 
   function createPartFromNode (node, parentNode, chainParent) {
     switch (node.type) {
@@ -201,7 +201,7 @@ function newPartsFromNodes () {
     payload.node = node
     payload.parentNode = parentNode
     payload.chainParent = chainParent
-    payload.onMenuItemClick = onMenuItemClick
+    payload.onMenuItemClick = canvas.strategySpace.workspace.onMenuItemClick
 
     if (node.id === undefined) {
       node.id = newUniqueId()

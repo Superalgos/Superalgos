@@ -5,6 +5,7 @@ function newProtocolNode () {
   return thisObject
 
   function getProtocolNode (node) {
+    if (node === undefined) { return }
     switch (node.type) {
       case 'Condition':
         {
@@ -46,7 +47,6 @@ function newProtocolNode () {
         return phase
       }
       case 'Stop': {
-        if (node === undefined) { return }
         let stop = {
           type: node.type,
           subType: node.subType,
@@ -61,7 +61,6 @@ function newProtocolNode () {
         return stop
       }
       case 'Take Profit': {
-        if (node === undefined) { return }
         let takeProfit = {
           type: node.type,
           subType: node.subType,
@@ -76,7 +75,6 @@ function newProtocolNode () {
         return takeProfit
       }
       case 'Take Position Event': {
-        if (node === undefined) { return }
         let event = {
           type: node.type,
           subType: node.subType,
@@ -91,7 +89,6 @@ function newProtocolNode () {
         return event
       }
       case 'Trigger On Event': {
-        if (node === undefined) { return }
         let event = {
           type: node.type,
           subType: node.subType,
@@ -106,7 +103,6 @@ function newProtocolNode () {
         return event
       }
       case 'Trigger Off Event': {
-        if (node === undefined) { return }
         let event = {
           type: node.type,
           subType: node.subType,
@@ -121,7 +117,6 @@ function newProtocolNode () {
         return event
       }
       case 'Initial Definition': {
-        if (node === undefined) { return }
         let object = {
           type: node.type,
           subType: node.subType,
@@ -130,7 +125,6 @@ function newProtocolNode () {
         return object
       }
       case 'Trigger Stage': {
-        if (node === undefined) { return }
         let stage = {
           type: node.type,
           subType: node.subType,
@@ -142,7 +136,6 @@ function newProtocolNode () {
         return stage
       }
       case 'Open Stage': {
-        if (node === undefined) { return }
         let stage = {
           type: node.type,
           subType: node.subType,
@@ -152,7 +145,6 @@ function newProtocolNode () {
         return stage
       }
       case 'Manage Stage': {
-        if (node === undefined) { return }
         let stage = {
           type: node.type,
           subType: node.subType,
@@ -163,7 +155,6 @@ function newProtocolNode () {
         return stage
       }
       case 'Close Stage': {
-        if (node === undefined) { return }
         let stage = {
           type: node.type,
           subType: node.subType,

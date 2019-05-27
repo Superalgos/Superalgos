@@ -6,6 +6,7 @@ function newWorkspace () {
     tradingSystem: undefined,
     container: undefined,
     idAtStrategizer: undefined,
+    onMenuItemClick: onMenuItemClick,
     physics: physics,
     spawn: spawn,
     detachNode: detachNode,

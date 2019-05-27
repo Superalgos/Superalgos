@@ -11,6 +11,7 @@ To install the Canvas App, you need to install AAWeb, following [this guide](htt
 Use the latest Chrome version to [access the Demo](https://demo.superalgos.org).
 
 ![Access-Demo](https://user-images.githubusercontent.com/13994516/58415158-dbe50f00-807d-11e9-812c-3b4de503bc34.gif)
+<br/><br/>
 
 ## Overview
 
@@ -19,26 +20,27 @@ The first time you access the _Charts_, you will see the following screen, split
 Use the control in the center of the turquoise bar to pull the bar up and down in order to make more room to either application. 
 
 ![Drag-Panels](https://user-images.githubusercontent.com/13994516/58413461-1ac49600-8079-11e9-9dd8-96f416e75b33.gif)
+<br/><br/>
 
 Pulling the bar to the very top of the screen causes the _Charting System_ to stop consuming resources in your local machine, and gives you an ample view of the _Strategy Designer_.
 
-The Strategy Designer allows you to manage your _Trading System_. The structure represented by the various icons nested in a hierarchy of elements is the representation of the logic behind your _Strategies_.
+The **_Strategy Designer_** allows you to manage your _Trading System_. The structure represented by the various icons nested in a hierarchy of elements is the representation of the logic behind your _Strategies_.
 
 ![image](https://user-images.githubusercontent.com/13994516/58325421-f32bbe80-7e29-11e9-9478-9e6e4a02ae47.png)
-
+<br/><br/>
 
 Pulling the bar to the very bottom of the screen causes the _Strategy Designer_ to stop consuming resources from your local machine, and offers a full-screen view of the _Charting System_.
 
-The _Charting System_ plots indicators data along with the actions taken by the _Strategy Engine_ and the _Executor_, integrated with market data.
+The **_Charting System_** plots indicators data along with the actions taken by the _Strategy Engine_ and the _Executor_, integrated with market data.
 
 ![image](https://user-images.githubusercontent.com/13994516/58325972-c37db600-7e2b-11e9-9aa2-9f6faaf8dd94.png)
+<br/><br/>
 
+The **_Strategy Engine_** backtests and forward tests the instructions defined on its _protocol_ file input. In coordination with the _Strategy Executor_, the engine can also live trade.
 
-The _Strategy Engine_ backtests and forward tests the instructions defined on its _protocol_ file input. In coordination with the _Strategy Executor_, the engine can also live trade.
+The **_Strategy Executor_** interprets the execution instructions embedded at a _protocol_ file. The instructions determine the type of order to use, and what to do in every possible situation that could emerge during the placement and management of exchange orders.
 
-The _Strategy Executor_ interprets the execution instructions embedded at a _protocol_ file. The instructions determine the type of order to use, and what to do in every possible situation that could emerge during the placement and management of exchange orders.
-
-The _protocol_ refers to the _Superalgos Protocol_. In conceptual terms, it is a file with a specific format capable of holding all the information concerning your _Trading System_. The _protocol_ allows us to standardize the way in which we describe strategies, so that the tools we develop to create or modify, visualize, backtest and deploy _Strategies_ can handle all _Strategies_ in a standardized fashion. It also allows _Strategies_ and even parts of _Strategies_ to be portable, along with many other features that will become possible in the future. 
+The _protocol_ refers to the **_Superalgos Protocol_**. In conceptual terms, it is a file with a specific format capable of holding all the information concerning your _Trading System_. The _protocol_ allows us to standardize the way in which we describe strategies, so that the tools we develop to create or modify, visualize, backtest and deploy _Strategies_ can handle all _Strategies_ in a standardized fashion. It also allows _Strategies_ and even parts of _Strategies_ to be portable, along with many other features that will become possible in the future. 
 
 In its current early version, the _protocol_ is simply the description of a JSON object which defines the desired automation.
 

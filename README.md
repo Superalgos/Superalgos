@@ -2,9 +2,7 @@
 
 The Canvas App provides a visual environment for the _Charting System_ and the _Strategy Designer_.
 
-**Installation (For Developers):**
-
-To install the Canvas App, you need to install AAWeb, following [this guide](https://github.com/Superalgos/AAWeb/blob/develop/README.md).
+**Installation (for developers):** To install the Canvas App, you need to install AAWeb, following [this guide](https://github.com/Superalgos/AAWeb/blob/develop/README.md).
 
 # Trading System Automation Demo
 

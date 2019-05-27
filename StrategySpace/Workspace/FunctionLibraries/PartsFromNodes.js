@@ -1,6 +1,10 @@
 function newPartsFromNodes () {
   thisObject = {
-    createPartFromNode: createPartFromNode
+    createPartFromNode: createPartFromNode,
+    newStrategy: newStrategy,
+    addPhase: addPhase,
+    addSituation: addSituation,
+    addCondition: addCondition
   }
 
   return thisObject
@@ -164,6 +168,91 @@ function newPartsFromNodes () {
         return
       }
     }
+  }
+
+  function newStrategy (parentNode) {
+    let strategyParent = parentNode
+    let strategy = {
+      name: 'New Strategy',
+      active: true,
+      triggerStage: {
+        entryPoint: {
+          situations: []
+        },
+        exitPoint: {
+          situations: []
+        },
+        sellPoint: {
+          situations: []
+        }
+      },
+      openStage: {
+        initialDefinition: {}
+      },
+      manageStage: {
+        stopLoss: {
+          phases: []
+        },
+        buyOrder: {
+          phases: []
+        }
+      },
+      closeStage: {
+      }
+    }
+
+    strategyParent.strategies.push(strategy)
+    createPart('Strategy', strategy.name, strategy, strategyParent, strategyParent, 'Strategy')
+    createPart('Trigger Stage', '', strategy.triggerStage, strategy, strategy, 'Trigger Stage')
+    createPart('Open Stage', '', strategy.openStage, strategy, strategy, 'Open Stage')
+    createPart('Manage Stage', '', strategy.manageStage, strategy, strategy, 'Manage Stage')
+    createPart('Close Stage', '', strategy.closeStage, strategy, strategy, 'Close Stage')
+    createPart('Trigger On Event', '', strategy.triggerStage.entryPoint, strategy.triggerStage, strategy.triggerStage)
+    createPart('Trigger Off Event', '', strategy.triggerStage.exitPoint, strategy.triggerStage, strategy.triggerStage)
+    createPart('Take Position Event', '', strategy.triggerStage.sellPoint, strategy.triggerStage, strategy.triggerStage)
+    createPart('Initial Definition', '', strategy.openStage.initialDefinition, strategy.openStage, strategy.openStage)
+    createPart('Stop', '', strategy.manageStage.stopLoss, strategy.manageStage, strategy.manageStage)
+    createPart('Take Profit', '', strategy.manageStage.buyOrder, strategy.manageStage, strategy.manageStage)
+  }
+
+  function addPhase (parentNode) {
+    let phaseParent = parentNode
+    let m = phaseParent.phases.length
+    let phase = {
+      name: 'New Phase',
+      code: '',
+      situations: []
+    }
+    phaseParent.phases.push(phase)
+    let phaseChainParent
+    if (m > 0) {
+      phaseChainParent = phaseParent.phases[m - 1]
+    } else {
+      phaseChainParent = phaseParent
+    }
+    createPart('Phase', phase.name, phase, phaseParent, phaseChainParent, 'Phase')
+  }
+
+  function addSituation (parentNode) {
+    let phase = parentNode
+    let m = phase.situations.length
+    let situation = {
+      name: 'New Situation',
+      conditions: []
+    }
+    phase.situations.push(situation)
+    createPart('Situation', situation.name, situation, phase, phase, 'Situation')
+  }
+
+  function addCondition (parentNode) {
+    let situation = parentNode
+    let m = situation.conditions.length
+    let condition = {
+      name: 'New Condition',
+      code: ''
+    }
+    situation.conditions.push(condition)
+    createPart('Condition', condition.name, condition, situation, situation, 'Condition')
   }
 
   function createPart (partType, name, node, parentNode, chainParent, title) {

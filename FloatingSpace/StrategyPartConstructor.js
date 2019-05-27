@@ -928,55 +928,55 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Trigger Stage': {
-        level_1()
+        level_2()
         break
       }
       case 'Open Stage': {
-        level_1()
+        level_2()
         break
       }
       case 'Manage Stage': {
-        level_1()
+        level_2()
         break
       }
       case 'Close Stage': {
-        level_1()
+        level_2()
         break
       }
       case 'Trigger On Event': {
-        level_2()
-        break
-      }
-      case 'Trigger Off Event': {
-        level_2()
-        break
-      }
-      case 'Take Position Event': {
-        level_2()
-        break
-      }
-      case 'Initial Definition': {
-        level_2()
-        break
-      }
-      case 'Stop': {
-        level_2()
-        break
-      }
-      case 'Take Profit': {
-        level_2()
-        break
-      }
-      case 'Phase': {
         level_3()
         break
       }
-      case 'Situation': {
+      case 'Trigger Off Event': {
+        level_3()
+        break
+      }
+      case 'Take Position Event': {
+        level_3()
+        break
+      }
+      case 'Initial Definition': {
+        level_3()
+        break
+      }
+      case 'Stop': {
+        level_3()
+        break
+      }
+      case 'Take Profit': {
+        level_3()
+        break
+      }
+      case 'Phase': {
         level_4()
         break
       }
-      case 'Condition': {
+      case 'Situation': {
         level_5()
+        break
+      }
+      case 'Condition': {
+        level_6()
         break
       }
       default: {
@@ -1045,6 +1045,16 @@ function newStrategyPartConstructor () {
 
       floatingObject.initializeMass(10)
       floatingObject.initializeRadius(25)
+      floatingObject.initializeImageSize(40)
+      floatingObject.initializeFontSize(10)
+
+      floatingObject.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'
+    }
+    function level_6 () {
+      floatingObject.friction = FRICTION
+
+      floatingObject.initializeMass(10)
+      floatingObject.initializeRadius(20)
       floatingObject.initializeImageSize(30)
       floatingObject.initializeFontSize(10)
 

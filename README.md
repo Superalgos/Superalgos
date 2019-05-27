@@ -8,7 +8,7 @@ To install the Canvas App, you need to install AAWeb, following [this guide](htt
 
 ## For All Users: Demo
 
-Use the latest Chrome version to [access the Demo](https://demo.superalgos.org).
+Use the latest Chrome version to [access the Demo](https://demo.superalgos.org), sign up, log in and click on the CHARTS link in the Menu.
 
 ![Access-Demo](https://user-images.githubusercontent.com/13994516/58415158-dbe50f00-807d-11e9-812c-3b4de503bc34.gif)
 <br/><br/>
@@ -24,14 +24,14 @@ Use the control in the center of the turquoise bar to pull the bar up and down i
 
 Pulling the bar to the very top of the screen causes the _Charting System_ to stop consuming resources in your local machine, and gives you an ample view of the _Strategy Designer_.
 
-The **_Strategy Designer_** allows you to manage your _Trading System_. The structure represented by the various icons nested in a hierarchy of elements is the representation of the logic behind your _Strategies_.
+> The **_Strategy Designer_** allows you to manage your _Trading System_. The structure represented by the various icons nested in a hierarchy of elements is the representation of the logic behind your _Strategies_.
 
 ![image](https://user-images.githubusercontent.com/13994516/58325421-f32bbe80-7e29-11e9-9478-9e6e4a02ae47.png)
 <br/><br/>
 
 Pulling the bar to the very bottom of the screen causes the _Strategy Designer_ to stop consuming resources from your local machine, and offers a full-screen view of the _Charting System_.
 
-The **_Charting System_** plots indicators data along with the actions taken by the _Strategy Engine_ and the _Executor_, integrated with market data.
+> The **_Charting System_** plots indicators data along with the actions taken by the _Strategy Engine_ and the _Executor_, integrated with market data.
 
 ![image](https://user-images.githubusercontent.com/13994516/58325972-c37db600-7e2b-11e9-9aa2-9f6faaf8dd94.png)
 <br/><br/>

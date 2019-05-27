@@ -159,6 +159,26 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.newStrategy(payload.node)
         }
         break
+      case 'Add Missing Stages':
+        {
+          functionLibraryPartsFromNodes.addMissingStages(payload.node)
+        }
+        break
+      case 'Add Missing Events':
+        {
+          functionLibraryPartsFromNodes.addMissingEvents(payload.node)
+        }
+        break
+      case 'Add Missing Items':
+        {
+          functionLibraryPartsFromNodes.addMissingItems(payload.node)
+        }
+        break
+      case 'Add Initial Definition':
+        {
+          functionLibraryPartsFromNodes.addInitialDefinition(payload.node)
+        }
+        break
       case 'Add Phase':
         {
           functionLibraryPartsFromNodes.addPhase(payload.node)

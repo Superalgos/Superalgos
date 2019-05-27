@@ -261,16 +261,25 @@ function newPartsFromNodes () {
     }
   }
 
-  function addMissingEvents () {
+  function addMissingEvents (node) {
     if (node.entryPoint === undefined) {
       node.entryPoint = {
         situations: []
       }
       createPart('Trigger On Event', '', node.entryPoint, node, node)
     }
-
-    createPart('Trigger Off Event', '', node.triggerStage.exitPoint, node.triggerStage, node.triggerStage)
-    createPart('Take Position Event', '', node.triggerStage.sellPoint, node.triggerStage, node.triggerStage)
+    if (node.exitPoint === undefined) {
+      node.exitPoint = {
+        situations: []
+      }
+      createPart('Trigger Off Event', '', node.exitPoint, node, node)
+    }
+    if (node.sellPoint === undefined) {
+      node.sellPoint = {
+        situations: []
+      }
+      createPart('Take Position Event', '', node.sellPoint, node, node)
+    }
   }
 
   function addPhase (parentNode) {

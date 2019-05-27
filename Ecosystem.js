@@ -17,12 +17,11 @@ function newEcosystem() {
         initialize: initialize
     }
 
-    let ECOSYSTEM = "@ecosystem.json@";
+    let ECOSYSTEM = JSON.parse(window.localStorage.getItem('ecosystem'));
 
     return thisObject;
 
     function initialize() {
-
 
     }
 

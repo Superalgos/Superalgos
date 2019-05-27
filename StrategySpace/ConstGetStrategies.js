@@ -6,7 +6,7 @@ const GRAPHQL_QUERY_GET_STRATEGIES = Apollo.gql`
               subStrategies(activeOnly: true){
                   name
                   active
-                  entryPoint{
+                  triggerOn{
                   situations{
                       name
                       conditions{
@@ -15,7 +15,7 @@ const GRAPHQL_QUERY_GET_STRATEGIES = Apollo.gql`
                       }
                   }
                   }
-                  exitPoint{
+                  triggerOff{
                   situations{
                       name
                       conditions{
@@ -24,7 +24,7 @@ const GRAPHQL_QUERY_GET_STRATEGIES = Apollo.gql`
                       }
                   }
                   }
-                  sellPoint{
+                  takePosition{
                   situations{
                       name
                       conditions{
@@ -55,7 +55,7 @@ const GRAPHQL_QUERY_GET_STRATEGIES = Apollo.gql`
                       }
                   }
                   }
-                  buyOrder{
+                  takeProfit{
                   phases{
                       name
                       code

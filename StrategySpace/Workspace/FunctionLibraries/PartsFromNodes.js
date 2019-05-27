@@ -108,14 +108,14 @@ function newPartsFromNodes () {
         let stage = node
         createPart('Trigger Stage', stage.name, stage, parentNode, chainParent, 'Trigger Stage')
 
-        if (node.entryPoint !== undefined) {
-          createPartFromNode(node.entryPoint, stage, stage)
+        if (node.triggerOn !== undefined) {
+          createPartFromNode(node.triggerOn, stage, stage)
         }
-        if (node.exitPoint !== undefined) {
-          createPartFromNode(node.exitPoint, stage, stage)
+        if (node.triggerOff !== undefined) {
+          createPartFromNode(node.triggerOff, stage, stage)
         }
-        if (node.sellPoint !== undefined) {
-          createPartFromNode(node.sellPoint, stage, stage)
+        if (node.takePosition !== undefined) {
+          createPartFromNode(node.takePosition, stage, stage)
         }
         return
       }
@@ -135,8 +135,8 @@ function newPartsFromNodes () {
         if (node.stopLoss !== undefined) {
           createPartFromNode(node.stopLoss, stage, stage)
         }
-        if (node.buyOrder !== undefined) {
-          createPartFromNode(node.buyOrder, stage, stage)
+        if (node.takeProfit !== undefined) {
+          createPartFromNode(node.takeProfit, stage, stage)
         }
         return
       }
@@ -180,13 +180,13 @@ function newPartsFromNodes () {
       name: 'New Strategy',
       active: true,
       triggerStage: {
-        entryPoint: {
+        triggerOn: {
           situations: []
         },
-        exitPoint: {
+        triggerOff: {
           situations: []
         },
-        sellPoint: {
+        takePosition: {
           situations: []
         }
       },
@@ -197,7 +197,7 @@ function newPartsFromNodes () {
         stopLoss: {
           phases: []
         },
-        buyOrder: {
+        takeProfit: {
           phases: []
         }
       },
@@ -211,31 +211,31 @@ function newPartsFromNodes () {
     createPart('Open Stage', '', strategy.openStage, strategy, strategy, 'Open Stage')
     createPart('Manage Stage', '', strategy.manageStage, strategy, strategy, 'Manage Stage')
     createPart('Close Stage', '', strategy.closeStage, strategy, strategy, 'Close Stage')
-    createPart('Trigger On Event', '', strategy.triggerStage.entryPoint, strategy.triggerStage, strategy.triggerStage)
-    createPart('Trigger Off Event', '', strategy.triggerStage.exitPoint, strategy.triggerStage, strategy.triggerStage)
-    createPart('Take Position Event', '', strategy.triggerStage.sellPoint, strategy.triggerStage, strategy.triggerStage)
+    createPart('Trigger On Event', '', strategy.triggerStage.triggerOn, strategy.triggerStage, strategy.triggerStage)
+    createPart('Trigger Off Event', '', strategy.triggerStage.triggerOff, strategy.triggerStage, strategy.triggerStage)
+    createPart('Take Position Event', '', strategy.triggerStage.takePosition, strategy.triggerStage, strategy.triggerStage)
     createPart('Initial Definition', '', strategy.openStage.initialDefinition, strategy.openStage, strategy.openStage)
     createPart('Stop', '', strategy.manageStage.stopLoss, strategy.manageStage, strategy.manageStage)
-    createPart('Take Profit', '', strategy.manageStage.buyOrder, strategy.manageStage, strategy.manageStage)
+    createPart('Take Profit', '', strategy.manageStage.takeProfit, strategy.manageStage, strategy.manageStage)
   }
 
   function addMissingStages (node) {
     if (node.triggerStage === undefined) {
       node.triggerStage = {
-        entryPoint: {
+        triggerOn: {
           situations: []
         },
-        exitPoint: {
+        triggerOff: {
           situations: []
         },
-        sellPoint: {
+        takePosition: {
           situations: []
         }
       }
       createPart('Trigger Stage', '', node.triggerStage, node, node, 'Trigger Stage')
-      createPart('Trigger On Event', '', node.triggerStage.entryPoint, node.triggerStage, node.triggerStage)
-      createPart('Trigger Off Event', '', node.triggerStage.exitPoint, node.triggerStage, node.triggerStage)
-      createPart('Take Position Event', '', node.triggerStage.sellPoint, node.triggerStage, node.triggerStage)
+      createPart('Trigger On Event', '', node.triggerStage.triggerOn, node.triggerStage, node.triggerStage)
+      createPart('Trigger Off Event', '', node.triggerStage.triggerOff, node.triggerStage, node.triggerStage)
+      createPart('Take Position Event', '', node.triggerStage.takePosition, node.triggerStage, node.triggerStage)
     }
     if (node.openStage === undefined) {
       node.openStage = {
@@ -250,13 +250,13 @@ function newPartsFromNodes () {
         stopLoss: {
           phases: []
         },
-        buyOrder: {
+        takeProfit: {
           phases: []
         }
       }
       createPart('Manage Stage', '', node.manageStage, node, node, 'Manage Stage')
       createPart('Stop', '', node.manageStage.stopLoss, node.manageStage, node.manageStage)
-      createPart('Take Profit', '', node.manageStage.buyOrder, node.manageStage, node.manageStage)
+      createPart('Take Profit', '', node.manageStage.takeProfit, node.manageStage, node.manageStage)
     }
     if (node.triggerStage === undefined) {
       createPart('Close Stage', '', node.closeStage, node, node, 'Close Stage')
@@ -264,23 +264,23 @@ function newPartsFromNodes () {
   }
 
   function addMissingEvents (node) {
-    if (node.entryPoint === undefined) {
-      node.entryPoint = {
+    if (node.triggerOn === undefined) {
+      node.triggerOn = {
         situations: []
       }
-      createPart('Trigger On Event', '', node.entryPoint, node, node)
+      createPart('Trigger On Event', '', node.triggerOn, node, node)
     }
-    if (node.exitPoint === undefined) {
-      node.exitPoint = {
+    if (node.triggerOff === undefined) {
+      node.triggerOff = {
         situations: []
       }
-      createPart('Trigger Off Event', '', node.exitPoint, node, node)
+      createPart('Trigger Off Event', '', node.triggerOff, node, node)
     }
-    if (node.sellPoint === undefined) {
-      node.sellPoint = {
+    if (node.takePosition === undefined) {
+      node.takePosition = {
         situations: []
       }
-      createPart('Take Position Event', '', node.sellPoint, node, node)
+      createPart('Take Position Event', '', node.takePosition, node, node)
     }
   }
 
@@ -291,11 +291,11 @@ function newPartsFromNodes () {
       }
       createPart('Stop', '', node.stopLoss, node, node)
     }
-    if (node.buyOrder === undefined) {
-      node.buyOrder = {
+    if (node.takeProfit === undefined) {
+      node.takeProfit = {
         phases: []
       }
-      createPart('Take Profit', '', node.buyOrder, node, node)
+      createPart('Take Profit', '', node.takeProfit, node, node)
     }
   }
 

@@ -148,9 +148,9 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          entryPoint: getWorkspaceNode(node.entryPoint),
-          exitPoint: getWorkspaceNode(node.exitPoint),
-          sellPoint: getWorkspaceNode(node.sellPoint),
+          triggerOn: getWorkspaceNode(node.triggerOn),
+          triggerOff: getWorkspaceNode(node.triggerOff),
+          takePosition: getWorkspaceNode(node.takePosition),
           savedPayload: getSavedPayload(node)
         }
         return stage
@@ -173,7 +173,7 @@ function newWorkspaceNode () {
           subType: node.subType,
           name: node.name,
           stopLoss: getWorkspaceNode(node.stopLoss),
-          buyOrder: getWorkspaceNode(node.buyOrder),
+          takeProfit: getWorkspaceNode(node.takeProfit),
           savedPayload: getSavedPayload(node)
         }
         return stage

@@ -54,14 +54,14 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    if (node.entryPoint !== undefined) {
-      deleteEvent(node.entryPoint)
+    if (node.triggerOn !== undefined) {
+      deleteEvent(node.triggerOn)
     }
-    if (node.exitPoint !== undefined) {
-      deleteEvent(node.exitPoint)
+    if (node.triggerOff !== undefined) {
+      deleteEvent(node.triggerOff)
     }
-    if (node.sellPoint !== undefined) {
-      deleteEvent(node.sellPoint)
+    if (node.takePosition !== undefined) {
+      deleteEvent(node.takePosition)
     }
     destroyPart(node)
     cleanNode(node)
@@ -91,8 +91,8 @@ function newNodeDeleter () {
     if (node.stopLoss !== undefined) {
       deleteManagedItem(node.stopLoss)
     }
-    if (node.buyOrder !== undefined) {
-      deleteManagedItem(node.buyOrder)
+    if (node.takeProfit !== undefined) {
+      deleteManagedItem(node.takeProfit)
     }
     destroyPart(node)
     cleanNode(node)
@@ -126,15 +126,15 @@ function newNodeDeleter () {
     if (payload.parentNode !== undefined) {
       switch (node.type) {
         case 'Trigger On Event': {
-          payload.parentNode.entryPoint = undefined
+          payload.parentNode.triggerOn = undefined
           break
         }
         case 'Trigger Off Event': {
-          payload.parentNode.exitPoint = undefined
+          payload.parentNode.triggerOff = undefined
           break
         }
         case 'Take Position Event': {
-          payload.parentNode.sellPoint = undefined
+          payload.parentNode.takePosition = undefined
           break
         }
       }
@@ -158,7 +158,7 @@ function newNodeDeleter () {
           break
         }
         case 'Take Profit': {
-          payload.parentNode.buyOrder = undefined
+          payload.parentNode.takeProfit = undefined
           break
         }
       }

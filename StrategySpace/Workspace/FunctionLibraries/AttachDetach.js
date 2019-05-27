@@ -43,19 +43,19 @@ function newAttachDetach () {
         return
       }
       case 'Trigger On Event': {
-        node.payload.parentNode.entryPoint = undefined
+        node.payload.parentNode.triggerOn = undefined
         completeDetachment(node, rootNodes)
         return
       }
         break
       case 'Trigger Off Event': {
-        node.payload.parentNode.exitPoint = undefined
+        node.payload.parentNode.triggerOff = undefined
         completeDetachment(node, rootNodes)
         return
       }
         break
       case 'Take Position Event': {
-        node.payload.parentNode.sellPoint = undefined
+        node.payload.parentNode.takePosition = undefined
         completeDetachment(node, rootNodes)
         return
       }
@@ -72,7 +72,7 @@ function newAttachDetach () {
       }
         break
       case 'Take Profit': {
-        node.payload.parentNode.buyOrder = undefined
+        node.payload.parentNode.takeProfit = undefined
         completeDetachment(node, rootNodes)
         return
       }
@@ -169,21 +169,21 @@ function newAttachDetach () {
       case 'Trigger On Event': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.entryPoint = node
+        node.payload.parentNode.triggerOn = node
         completeAttachment(node, rootNodes)
       }
         break
       case 'Trigger Off Event': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.exitPoint = node
+        node.payload.parentNode.triggerOff = node
         completeAttachment(node, rootNodes)
       }
         break
       case 'Take Position': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.sellPoint = node
+        node.payload.parentNode.takePosition = node
         completeAttachment(node, rootNodes)
       }
         break
@@ -197,7 +197,7 @@ function newAttachDetach () {
       case 'Take Profit': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.buyOrder = node
+        node.payload.parentNode.takeProfit = node
         completeAttachment(node, rootNodes)
       }
         break

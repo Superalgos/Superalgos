@@ -129,9 +129,9 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          entryPoint: getProtocolNode(node.entryPoint),
-          exitPoint: getProtocolNode(node.exitPoint),
-          sellPoint: getProtocolNode(node.sellPoint)
+          triggerOn: getProtocolNode(node.triggerOn),
+          triggerOff: getProtocolNode(node.triggerOff),
+          takePosition: getProtocolNode(node.takePosition)
         }
         return stage
       }
@@ -150,7 +150,7 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           stopLoss: getProtocolNode(node.stopLoss),
-          buyOrder: getProtocolNode(node.buyOrder)
+          takeProfit: getProtocolNode(node.takeProfit)
         }
         return stage
       }

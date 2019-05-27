@@ -255,12 +255,12 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Open Stage' && nearbyNode.openStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Manage Stage' && nearbyNode.manageStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Close Stage' && nearbyNode.closeStage !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Take Position Event' && nearbyNode.sellPoint !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trigger Off Event' && nearbyNode.exitPoint !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trigger On Event' && nearbyNode.entryPoint !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Take Position Event' && nearbyNode.takePosition !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trigger Off Event' && nearbyNode.triggerOff !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trigger On Event' && nearbyNode.triggerOn !== undefined) { continue }
         if (thisObject.payload.node.type === 'Initial Definition' && nearbyNode.initialDefinition !== undefined) { continue }
         if (thisObject.payload.node.type === 'Stop' && nearbyNode.stopLoss !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Take Profit' && nearbyNode.buyOrder !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Take Profit' && nearbyNode.takeProfit !== undefined) { continue }
         /* Discard Phases without partent */
         if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
         if (foundCompatible === false) {

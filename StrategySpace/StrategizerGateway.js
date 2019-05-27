@@ -118,25 +118,25 @@ function newStrategizerGateway () {
       let strategy = {
         name: strategizerGatewayStrategy.name,
         active: strategizerGatewayStrategy.active,
-        entryPoint: {
+        triggerOn: {
           situations: []
         },
-        exitPoint: {
+        triggerOff: {
           situations: []
         },
-        sellPoint: {
+        takePosition: {
           situations: []
         },
         stopLoss: {
           phases: []
         },
-        buyOrder: {
+        takeProfit: {
           phases: []
         }
       }
 
-      for (let k = 0; k < strategizerGatewayStrategy.entryPoint.situations.length; k++) {
-        let strategizerGatewaySituation = strategizerGatewayStrategy.entryPoint.situations[k]
+      for (let k = 0; k < strategizerGatewayStrategy.triggerOn.situations.length; k++) {
+        let strategizerGatewaySituation = strategizerGatewayStrategy.triggerOn.situations[k]
         let situation = {
           name: strategizerGatewaySituation.name,
           conditions: []
@@ -150,11 +150,11 @@ function newStrategizerGateway () {
           }
           situation.conditions.push(condition)
         }
-        strategy.entryPoint.situations.push(situation)
+        strategy.triggerOn.situations.push(situation)
       }
 
-      for (let k = 0; k < strategizerGatewayStrategy.exitPoint.situations.length; k++) {
-        let strategizerGatewaySituation = strategizerGatewayStrategy.exitPoint.situations[k]
+      for (let k = 0; k < strategizerGatewayStrategy.triggerOff.situations.length; k++) {
+        let strategizerGatewaySituation = strategizerGatewayStrategy.triggerOff.situations[k]
         let situation = {
           name: strategizerGatewaySituation.name,
           conditions: []
@@ -168,11 +168,11 @@ function newStrategizerGateway () {
           }
           situation.conditions.push(condition)
         }
-        strategy.exitPoint.situations.push(situation)
+        strategy.triggerOff.situations.push(situation)
       }
 
-      for (let k = 0; k < strategizerGatewayStrategy.sellPoint.situations.length; k++) {
-        let strategizerGatewaySituation = strategizerGatewayStrategy.sellPoint.situations[k]
+      for (let k = 0; k < strategizerGatewayStrategy.takePosition.situations.length; k++) {
+        let strategizerGatewaySituation = strategizerGatewayStrategy.takePosition.situations[k]
         let situation = {
           name: strategizerGatewaySituation.name,
           conditions: []
@@ -186,7 +186,7 @@ function newStrategizerGateway () {
           }
           situation.conditions.push(condition)
         }
-        strategy.sellPoint.situations.push(situation)
+        strategy.takePosition.situations.push(situation)
       }
 
       for (let p = 0; p < strategizerGatewayStrategy.stopLoss.phases.length; p++) {
@@ -217,8 +217,8 @@ function newStrategizerGateway () {
         strategy.stopLoss.phases.push(phase)
       }
 
-      for (let p = 0; p < strategizerGatewayStrategy.buyOrder.phases.length; p++) {
-        let strategizerGatewayPhase = strategizerGatewayStrategy.buyOrder.phases[p]
+      for (let p = 0; p < strategizerGatewayStrategy.takeProfit.phases.length; p++) {
+        let strategizerGatewayPhase = strategizerGatewayStrategy.takeProfit.phases[p]
         let phase = {
           name: strategizerGatewayPhase.name,
           code: strategizerGatewayPhase.code,
@@ -242,7 +242,7 @@ function newStrategizerGateway () {
           }
           phase.situations.push(situation)
         }
-        strategy.buyOrder.phases.push(phase)
+        strategy.takeProfit.phases.push(phase)
       }
       dataToSave.strategy.subStrategies.push(strategy)
     }

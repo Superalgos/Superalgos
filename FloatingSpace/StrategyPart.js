@@ -250,6 +250,18 @@ function newStrategyPart () {
       let floatingObject = nearby[1]
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf(nearbyNode.type) >= 0) {
+        /* Discard objects with busy coonection ports */
+        if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Open Stage' && nearbyNode.openStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Manage Stage' && nearbyNode.manageStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Close Stage' && nearbyNode.closeStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Take Position Event' && nearbyNode.sellPoint !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trigger Off Event' && nearbyNode.exitPoint !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trigger On Event' && nearbyNode.entryPoint !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Initial Definition' && nearbyNode.initialDefinition !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Stop' && nearbyNode.stopLoss !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Take Profit' && nearbyNode.buyOrder !== undefined) { continue }
+        /* Discard Phases without partent */
         if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
         if (foundCompatible === false) {
           if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
@@ -719,4 +731,3 @@ function newStrategyPart () {
     }
   }
 }
-

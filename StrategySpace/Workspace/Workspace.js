@@ -175,47 +175,47 @@ function newWorkspace () {
         }
         break
       case 'Delete Strategy': {
-        functionLibraryNodeDeleter.deleteStrategy(payload.node)
+        functionLibraryNodeDeleter.deleteStrategy(payload.node, rootNodes)
         break
       }
       case 'Delete Trigger Stage': {
-        functionLibraryNodeDeleter.deleteTriggerStage(payload.node)
+        functionLibraryNodeDeleter.deleteTriggerStage(payload.node, rootNodes)
         break
       }
       case 'Delete Open Stage': {
-        functionLibraryNodeDeleter.deleteOpenStage(payload.node)
+        functionLibraryNodeDeleter.deleteOpenStage(payload.node, rootNodes)
         break
       }
       case 'Delete Manage Stage': {
-        functionLibraryNodeDeleter.deleteManageStage(payload.node)
+        functionLibraryNodeDeleter.deleteManageStage(payload.node, rootNodes)
         break
       }
       case 'Delete Close Stage': {
-        functionLibraryNodeDeleter.deleteCloseStage(payload.node)
+        functionLibraryNodeDeleter.deleteCloseStage(payload.node, rootNodes)
         break
       }
       case 'Delete Initial Definition': {
-        functionLibraryNodeDeleter.deleteInitialDefinition(payload.node)
+        functionLibraryNodeDeleter.deleteInitialDefinition(payload.node, rootNodes)
         break
       }
       case 'Delete Event': {
-        functionLibraryNodeDeleter.deleteEvent(payload.node)
+        functionLibraryNodeDeleter.deleteEvent(payload.node, rootNodes)
         break
       }
       case 'Delete Managed Item': {
-        functionLibraryNodeDeleter.deleteManagedItem(payload.node)
+        functionLibraryNodeDeleter.deleteManagedItem(payload.node, rootNodes)
         break
       }
       case 'Delete Phase': {
-        functionLibraryNodeDeleter.deletePhase(payload.node)
+        functionLibraryNodeDeleter.deletePhase(payload.node, rootNodes)
         break
       }
       case 'Delete Situation': {
-        functionLibraryNodeDeleter.deleteSituation(payload.node)
+        functionLibraryNodeDeleter.deleteSituation(payload.node, rootNodes)
         break
       }
       case 'Delete Condition': {
-        functionLibraryNodeDeleter.deleteCondition(payload.node)
+        functionLibraryNodeDeleter.deleteCondition(payload.node, rootNodes)
         break
       }
       default:

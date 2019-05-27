@@ -131,6 +131,76 @@ function newAttachDetach () {
         completeAttachment(node, rootNodes)
       }
         break
+      case 'Trigger Stage': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.triggerStage = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Open Stage': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.openStage = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Manage Stage': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.manageStage = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Close Stage': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.closeStage = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Initial Definition': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.initialDefinition = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Trigger On Event': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.entryPoint = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Trigger Off Event': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.exitPoint = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Take Position': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.sellPoint = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Stop': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.stopLoss = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Take Profit': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.buyOrder = node
+        completeAttachment(node, rootNodes)
+      }
+        break
       case 'Phase': {
         switch (attachToNode.type) {
           case 'Stop': {

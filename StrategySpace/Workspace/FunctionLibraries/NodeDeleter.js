@@ -19,7 +19,7 @@ function newNodeDeleter () {
     canvas.floatingSpace.strategyPartConstructor.destroyStrategyPart(node.payload)
   }
 
-  function deleteStrategy (node) {
+  function deleteStrategy (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       for (let j = 0; j < payload.parentNode.strategies.length; j++) {
@@ -28,6 +28,8 @@ function newNodeDeleter () {
           payload.parentNode.strategies.splice(j, 1)
         }
       }
+    } else {
+      completeDeletion(node, rootNodes)
     }
     if (node.triggerStage !== undefined) {
       deleteTriggerStage(node.triggerStage)
@@ -45,10 +47,12 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
-  function deleteTriggerStage (node) {
+  function deleteTriggerStage (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       payload.parentNode.triggerStage = undefined
+    } else {
+      completeDeletion(node, rootNodes)
     }
     if (node.entryPoint !== undefined) {
       deleteEvent(node.entryPoint)
@@ -63,10 +67,12 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
-  function deleteOpenStage (node) {
+  function deleteOpenStage (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       payload.parentNode.openStage = undefined
+    } else {
+      completeDeletion(node, rootNodes)
     }
     if (node.initialDefinition !== undefined) {
       deleteInitialDefinition(node.initialDefinition)
@@ -75,10 +81,12 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
-  function deleteManageStage (node) {
+  function deleteManageStage (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       payload.parentNode.manageStage = undefined
+    } else {
+      completeDeletion(node, rootNodes)
     }
     if (node.stopLoss !== undefined) {
       deleteManagedItem(node.stopLoss)
@@ -90,26 +98,30 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
-  function deleteCloseStage (node) {
+  function deleteCloseStage (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       payload.parentNode.closeStage = undefined
+    } else {
+      completeDeletion(node, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)
   }
 
-  function deleteInitialDefinition (node) {
+  function deleteInitialDefinition (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       payload.parentNode.initialDefinition = undefined
+    } else {
+      completeDeletion(node, rootNodes)
     }
 
     destroyPart(node)
     cleanNode(node)
   }
 
-  function deleteEvent (node) {
+  function deleteEvent (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       switch (node.type) {
@@ -126,6 +138,8 @@ function newNodeDeleter () {
           break
         }
       }
+    } else {
+      completeDeletion(node, rootNodes)
     }
 
     while (node.situations.length > 0) {
@@ -135,7 +149,7 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
-  function deleteManagedItem (node) {
+  function deleteManagedItem (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       switch (node.type) {
@@ -148,6 +162,8 @@ function newNodeDeleter () {
           break
         }
       }
+    } else {
+      completeDeletion(node, rootNodes)
     }
 
     while (node.phases.length > 0) {
@@ -157,7 +173,7 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
-  function deletePhase (node) {
+  function deletePhase (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       for (let k = 0; k < payload.parentNode.phases.length; k++) {
@@ -185,12 +201,13 @@ function newNodeDeleter () {
         deleteSituation(situation)
       }
       node.situations = []
+      completeDeletion(node, rootNodes)
       destroyPart(node)
       cleanNode(node)
     }
   }
 
-  function deleteSituation (node) {
+  function deleteSituation (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       for (let j = 0; j < payload.parentNode.situations.length; j++) {
@@ -213,12 +230,13 @@ function newNodeDeleter () {
         deleteCondition(condition)
       }
       node.conditions = []
+      completeDeletion(node, rootNodes)
       destroyPart(node)
       cleanNode(node)
     }
   }
 
-  function deleteCondition (node) {
+  function deleteCondition (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       for (let i = 0; i < payload.parentNode.conditions.length; i++) {
@@ -231,8 +249,19 @@ function newNodeDeleter () {
         }
       }
     } else {
+      completeDeletion(node, rootNodes)
       destroyPart(node)
       cleanNode(node)
+    }
+  }
+
+  function completeDeletion (node, rootNodes) {
+    for (let i = 0; i < rootNodes.length; i++) {
+      let rootNode = rootNodes[i]
+      if (rootNode.id === node.id) {
+        rootNodes.splice(i, 1)
+        return
+      }
     }
   }
 

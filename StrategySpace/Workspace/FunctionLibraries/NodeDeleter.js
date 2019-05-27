@@ -153,7 +153,7 @@ function newNodeDeleter () {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       switch (node.type) {
-        case 'Stop Loss': {
+        case 'Stop': {
           payload.parentNode.stopLoss = undefined
           break
         }

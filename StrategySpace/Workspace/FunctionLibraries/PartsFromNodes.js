@@ -4,6 +4,8 @@ function newPartsFromNodes () {
     newStrategy: newStrategy,
     addMissingStages: addMissingStages,
     addMissingEvents: addMissingEvents,
+    addMissingItems: addMissingItems,
+    addInitialDefinition: addInitialDefinition,
     addPhase: addPhase,
     addSituation: addSituation,
     addCondition: addCondition
@@ -279,6 +281,28 @@ function newPartsFromNodes () {
         situations: []
       }
       createPart('Take Position Event', '', node.sellPoint, node, node)
+    }
+  }
+
+  function addMissingItems (node) {
+    if (node.stopLoss === undefined) {
+      node.stopLoss = {
+        phases: []
+      }
+      createPart('Stop', '', node.stopLoss, node, node)
+    }
+    if (node.buyOrder === undefined) {
+      node.buyOrder = {
+        phases: []
+      }
+      createPart('Take Profit', '', node.buyOrder, node, node)
+    }
+  }
+
+  function addInitialDefinition (node) {
+    if (node.initialDefinition === undefined) {
+      node.initialDefinition = {}
+      createPart('Initial Definition', '', node.initialDefinition, node, node)
     }
   }
 

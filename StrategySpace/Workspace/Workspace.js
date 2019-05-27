@@ -198,6 +198,14 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteInitialDefinition(payload.node)
         break
       }
+      case 'Delete Event': {
+        functionLibraryNodeDeleter.deleteEvent(payload.node)
+        break
+      }
+      case 'Delete Managed Item': {
+        functionLibraryNodeDeleter.deleteManagedItem(payload.node)
+        break
+      }
       case 'Delete Phase': {
         functionLibraryNodeDeleter.deletePhase(payload.node)
         break

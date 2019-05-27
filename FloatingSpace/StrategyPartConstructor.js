@@ -381,7 +381,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
+          },
+          {
+            action: 'Delete Event',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Event',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
           },
           {
             action: 'Download',
@@ -393,7 +405,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }]
         break
       }
@@ -424,7 +436,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
+          },
+          {
+            action: 'Delete Event',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Event',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
           },
           {
             action: 'Download',
@@ -436,7 +460,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }]
         break
       }
@@ -467,7 +491,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
+          },
+          {
+            action: 'Delete Event',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Event',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
           },
           {
             action: 'Download',
@@ -479,7 +515,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }]
         break
       }
@@ -552,7 +588,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
+          },
+          {
+            action: 'Delete Managed Item',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Item',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
           },
           {
             action: 'Download',
@@ -564,7 +612,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }]
         break
       }
@@ -595,7 +643,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
+          },
+          {
+            action: 'Delete Managed Item',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Item',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
           },
           {
             action: 'Download',
@@ -607,7 +667,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }]
         break
       }

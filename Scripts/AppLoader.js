@@ -28,25 +28,33 @@ function newAppLoader () {
 
         'Globals.js',
         'Ecosystem.js',
-          'MQService',
+        'MQService',
 
-          'ChartsSpace/ChartUtilities.js',
-          'ChartsSpace/PlottersManager.js',
-          'ChartsSpace/TimelineChart.js',
-          'ChartsSpace/TimeMachine.js',
-          'ChartsSpace/ViewPort.js',
-          'ChartsSpace/TimeLineCoordinateSystem.js',
+        'ChartsSpace/ChartUtilities.js',
+        'ChartsSpace/PlottersManager.js',
+        'ChartsSpace/TimelineChart.js',
+        'ChartsSpace/TimeMachine.js',
+        'ChartsSpace/ViewPort.js',
+        'ChartsSpace/TimeLineCoordinateSystem.js',
 
         'TopSpace/CurrentEvent.js',
         'TopSpace/EndUser.js',
         'TopSpace/Login.js',
 
         'StrategySpace/StrategizerGateway.js',
-        'StrategySpace/Workspace.js',
+        
         'StrategySpace/ConstGetStrategies.js',
         'StrategySpace/ConstNewStrategy.js',
         'StrategySpace/ConstUpdateStrategy.js',
         'StrategySpace/ConstDeleteStrategy.js',
+
+        'StrategySpace/Workspace/Workspace.js',
+        'StrategySpace/Workspace/FunctionLibraries/PartsFromNodes.js',
+        'StrategySpace/Workspace/FunctionLibraries/AttachDetach.js',
+        'StrategySpace/Workspace/FunctionLibraries/NodeDeleter.js',
+        'StrategySpace/Workspace/FunctionLibraries/ProtocolNode.js',
+          'StrategySpace/Workspace/FunctionLibraries/WorkspaceNode.js',
+                                                     
 
         'Utilities/RoundedCornersBackground.js',
 

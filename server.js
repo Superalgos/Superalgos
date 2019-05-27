@@ -468,8 +468,19 @@ function onBrowserRequest (request, response) {
       break
 
     case 'StrategySpace': // This means the StrategySpace folder.
-        {
-              respondWithFile(serverConfig.pathToCanvasApp + '/StrategySpace/' + requestParameters[2], response)
+          {     
+              if (requestParameters[3] === undefined) {
+                  respondWithFile(serverConfig.pathToCanvasApp + '/StrategySpace/' + requestParameters[2], response)
+                  return
+              }
+              if (requestParameters[4] === undefined) {
+                  respondWithFile(serverConfig.pathToCanvasApp + '/StrategySpace/' + requestParameters[2] + '/' + requestParameters[3] , response)
+                  return
+              }
+              if (requestParameters[5] === undefined) {
+                  respondWithFile(serverConfig.pathToCanvasApp + '/StrategySpace/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response)
+                  return
+              }              
         }
         break
 

@@ -39,9 +39,9 @@ The **_Charting System_** plots indicators data along with the actions taken by 
 The **_Superalgos Protocol_** (also refered to as the _protocol_) determines the structure in which all the information regarding a trading system is stored and - at the same time - provides a clear guidance on how traders using the various tools developed and distributed by the Superalgos Project shall create and automate their strategies.
 
 > You don't really _need_ to know this, but for the sake of context...
-
+>
 > The **_Strategy Engine_** backtests and forward tests the instructions defined on its _protocol_ file input. In coordination with the _Strategy Executor_, the engine can also live trade.
-
+>
 >The **_Strategy Executor_** interprets the execution instructions embedded at a _protocol_ file. The instructions determine the type of order to use, and what to do in every possible situation that could emerge during the placement and management of exchange orders.
 
 

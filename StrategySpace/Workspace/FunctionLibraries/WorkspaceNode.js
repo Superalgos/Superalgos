@@ -194,11 +194,10 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          entryPoint: getWorkspaceNode(node.entryPoint),
-          exitPoint: getWorkspaceNode(node.exitPoint),
-          sellPoint: getWorkspaceNode(node.sellPoint),
-          stopLoss: getWorkspaceNode(node.stopLoss),
-          buyOrder: getWorkspaceNode(node.buyOrder),
+          triggerStage: getWorkspaceNode(node.triggerStage),
+          openStage: getWorkspaceNode(node.openStage),
+          manageStage: getWorkspaceNode(node.manageStage),
+          closeStage: getWorkspaceNode(node.closeStage),
           savedPayload: getSavedPayload(node)
         }
         return strategy

@@ -22,6 +22,7 @@ function newFloatingObject () {
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
     isFrozen: false,
+    frozenManually: false,
     getPinStatus: getPinStatus,
     getFreezeStatus: getFreezeStatus,
     nearbyFloatingObjects: [],
@@ -126,8 +127,10 @@ function newFloatingObject () {
   function freezeToggle () {
     if (thisObject.isFrozen !== true) {
       thisObject.isFrozen = true
+      thisObject.frozenManually = true
     } else {
       thisObject.isFrozen = false
+      thisObject.frozenManually = false
     }
     return thisObject.isFrozen
   }
@@ -135,6 +138,16 @@ function newFloatingObject () {
   function physics () {
     thisObjectPhysics()
     thisObject.payload.uiObject.physics()
+    frozenPhysics()
+  }
+
+  function frozenPhysics () {
+    if (thisObject.frozenManually === false) {
+      let parent = thisObject.payload.chainParent
+      if (parent !== undefined) {
+        thisObject.isFrozen = parent.payload.floatingObject.isFrozen
+      }
+    }
   }
 
   function thisObjectPhysics () {

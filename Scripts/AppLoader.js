@@ -211,8 +211,8 @@ function newAppLoader() {
                       name
                     }
                     plotter{
-                      codeName
                       devTeam
+                      codeName
                       moduleName
                       repo
                     }
@@ -253,8 +253,14 @@ function newAppLoader() {
                   finishDatetime
                   formula
                   plotter{
+                    devTeam
                     codeName
-                    host
+                    host{
+                      url
+                      storage
+                      container
+                      accessKey
+                    }
                     moduleName
                     repo
                   }

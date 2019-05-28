@@ -10,16 +10,8 @@
     "url": "https://github.com/Superalgos/AAWeb.git"
   },
   "dependencies": {
-    "@octokit/rest": "^14.0.9",
     "@superalgos/mqservice": "0.0.12",
-    "atob": "^2.1.2",
-    "azure-storage": "^2.10.2",
     "dotenv": "^6.2.0",
-    "graphql": "^14.2.0",
-    "graphql-client": "^2.0.1",
-    "json-beautify": "^1.0.1",
-    "minio": "^7.0.5",
-    "request": "^2.88.0",
-    "winston": "^3.2.1"
+    "axios": "0.18.0"
   }
 }

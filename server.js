@@ -5,8 +5,6 @@ CONSOLE_LOG = process.env.CONSOLE_LOG === "true"
 CONSOLE_ERROR_LOG = process.env.CONSOLE_ERROR_LOG === "true"
 LOG_FILE_CONTENT = process.env.LOG_FILE_CONTENT === "true"
 
-if (CONSOLE_LOG === true) { console.log('[INFO] server -> Node Server Starting.') }
-
 global.DEFAULT_OK_RESPONSE = {
   result: 'Ok',
   message: 'Operation Succeeded'
@@ -32,37 +30,15 @@ global.CUSTOM_FAIL_RESPONSE = {
   message: 'Custom Message'
 }
 
-let storageData
 let http = require('http')
 let port = process.env.PORT || 1337
 let isHttpServerStarted = false
-const AZURE_STORAGE = require('./Server/AzureStorage')
-const MINIO_STORAGE = require('./Server/MinioStorage')
-let ecosystemObject = require("./Server/config/ecosystem.json");
 
-switch (process.env.STORAGE_PROVIDER) {
-  case 'Azure': {
-    storage = AZURE_STORAGE.newAzureStorage();
-    break;
-  }
-  case 'Minio': {
-    storage = MINIO_STORAGE.newMinioStorage();
-    break;
-  }
-  default: {
-    console.log('[ERROR] server -> Storage Provider not supported -> process.env.STORAGE_PROVIDER = ' + process.env.STORAGE_PROVIDER)
-    return;
-  }
-}
+const FILE_CLOUD = require('./Server/FileCloud')
+let fileCloud = FILE_CLOUD.newFileCloud()
+let storageData= new Map()
 
-initialize()
-
-function initialize() {
-  if (CONSOLE_LOG === true) { console.log('[INFO] server -> initialize -> Entering function.') }
-  storageData = new Map()
-  storage.initialize(storageData, ecosystemObject)
-  startHtttpServer()
-}
+startHtttpServer()
 
 function startHtttpServer() {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> startHtttpServer -> Entering function.') }
@@ -204,35 +180,13 @@ function onBrowserRequest(request, response) {
 
     case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
       {
-        storage.readData(requestParameters[2] + '/' + 'plotters', requestParameters[3], requestParameters[4], true, onDataArrived)
-
-        function onDataArrived(err, pData) {
-          if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-            console.log('[ERROR] server -> onBrowserRequest -> Plotters -> onDataArrived -> Could not read a file. ')
-            console.log('[ERROR] server -> onBrowserRequest -> Plotters -> onDataArrived -> err.message = ' + err.message)
-
-            pData = ''
-          }
-
-          respondWithContent(pData, response)
-        }
+        respondWithSourceCode (requestParameters, response)
       }
       break
 
     case 'PlotterPanels': // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
       {
-        storage.readData(requestParameters[2] + '/' + 'plotters', requestParameters[3], requestParameters[4], true, onDataArrived)
-
-        function onDataArrived(err, pData) {
-          if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-            console.log('[ERROR] server -> onBrowserRequest -> Plotters -> PlotterPanels -> Could not read a file. ')
-            console.log('[ERROR] server -> onBrowserRequest -> Plotters -> PlotterPanels -> err.message = ' + err.message)
-
-            pData = ''
-          }
-
-          respondWithContent(pData, response)
-        }
+        respondWithSourceCode (requestParameters, response)
       }
       break
     case 'Panels':
@@ -244,12 +198,6 @@ function onBrowserRequest(request, response) {
     case 'ChartLayers':
       {
         respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
-      }
-      break
-
-    case 'Azure':
-      {
-        respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response)
       }
       break
 
@@ -418,5 +366,31 @@ function returnEmptyArray(response) {
     response.end('\n')
   } catch (err) {
     console.log('[ERROR] server -> returnEmptyArray -> err.message ' + err.message)
+  }
+}
+
+function respondWithSourceCode(requestParameters, response){
+  let devTeam = requestParameters[2]
+  let codeName = requestParameters[3]
+  let moduleName = requestParameters[4]
+
+  let filePath = devTeam + '/plotters/' + codeName + '/' + moduleName
+
+  let cachedSourceCode = storageData.get(filePath)
+  if(cachedSourceCode){
+    respondWithContent(cachedSourceCode, response)
+    return
+  }
+
+  fileCloud.getBlobToText(devTeam.toLowerCase(), filePath, null, onDataArrived )
+
+  function onDataArrived(err, pData) {
+    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+      console.log('[ERROR] server -> onBrowserRequest -> respondWithSourceCode -> Could not read a file. ')
+      console.log('[ERROR] server -> onBrowserRequest -> respondWithSourceCode -> err.message = ' + err.message)
+      pData = ''
+    }
+    storageData.set(filePath, pData)
+    respondWithContent(pData, response)
   }
 }

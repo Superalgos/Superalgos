@@ -91,6 +91,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
             action: 'Run Trading System',
             actionFunction: payload.uiObject.run,
             label: 'Run',
@@ -173,6 +187,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
             action: 'Add Missing Stages',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Missing Stages',
@@ -225,6 +253,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
           },
           {
             action: 'Add Missing Events',
@@ -281,6 +323,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
             action: 'Add Initial Definition',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Initial Definition',
@@ -333,6 +389,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
           },
           {
             action: 'Add Missing Items',
@@ -389,6 +459,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
             action: 'Delete Close Stage',
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Stage',
@@ -429,6 +513,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
           },
           {
             action: 'Add Situation',
@@ -486,6 +584,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
             action: 'Add Situation',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
@@ -539,6 +651,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
           },
           {
             action: 'Add Situation',
@@ -596,6 +722,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
             action: 'Delete Initial Definition',
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Definition',
@@ -636,6 +776,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
           },
           {
             action: 'Add Phase',
@@ -693,6 +847,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
             action: 'Add Phase',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Phase',
@@ -746,6 +914,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
           },
           {
             action: 'Add Formula',
@@ -821,6 +1003,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
             action: 'Edit Formula',
             actionFunction: strategyPart.codeEditor.activate,
             label: 'Edit Formula',
@@ -874,6 +1070,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
           },
           {
             action: 'Add Situation',
@@ -931,6 +1141,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
             action: 'Add Condition',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Condition',
@@ -984,6 +1208,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
           },
           {
             action: 'Add Code',
@@ -1044,6 +1282,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
           },
           {
             action: 'Edit Code',

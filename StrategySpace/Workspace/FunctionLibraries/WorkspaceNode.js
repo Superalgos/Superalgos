@@ -270,7 +270,8 @@ function newWorkspaceNode () {
         y: node.payload.targetPosition.y
       },
       floatingObject: {
-        isPinned: node.payload.floatingObject.isPinned
+        isPinned: node.payload.floatingObject.isPinned,
+        isFrozen: (node.payload.floatingObject.isFrozen && node.payload.floatingObject.frozenManually)
       },
       uiObject: {
         isRunning: node.payload.uiObject.isRunning

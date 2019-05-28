@@ -44,6 +44,9 @@ function newStrategyPartConstructor () {
       if (payload.node.savedPayload.floatingObject.isPinned === true) {
         floatingObject.pinToggle()
       }
+      if (payload.node.savedPayload.floatingObject.isFrozen === true) {
+        floatingObject.freezeToggle()
+      }
     }
 
     let strategyPart = newStrategyPart()

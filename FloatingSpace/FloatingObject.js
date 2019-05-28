@@ -16,6 +16,7 @@ function newFloatingObject () {
     currentSpeed: 0,                        // This is the current speed of the floating object.
     currentMass: 0,                         // This is the current mass of the floating object, including its zoom applied.
     friction: 0,                            // This is a factor that will ultimatelly desacelerate the floating object.
+    targetFriction: 0,
     rawMass: 0,                             // This is the mass value without zoom.
     rawRadius: 0,                           // This is the radius of this floating object without zoom.
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.

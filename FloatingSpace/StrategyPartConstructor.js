@@ -1026,7 +1026,8 @@ function newStrategyPartConstructor () {
   }
 
   function setFloatingObjectBasicProperties (floatingObject, payload) {
-    const FRICTION = 0.98
+    const FRICTION = 0.94
+    const INITIAL_FRICTION = 0.99
 
     switch (payload.node.type) {
       case 'Trading System': {
@@ -1104,7 +1105,8 @@ function newStrategyPartConstructor () {
     }
 
     function level_0 () {
-      floatingObject.friction = 0.93
+      floatingObject.targetFriction = 0.93
+      floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(500)
       floatingObject.initializeRadius(45)
@@ -1115,7 +1117,8 @@ function newStrategyPartConstructor () {
     }
 
     function level_1 () {
-      floatingObject.friction = 0.94
+      floatingObject.targetFriction = 0.94
+      floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(250)
       floatingObject.initializeRadius(45)
@@ -1126,7 +1129,8 @@ function newStrategyPartConstructor () {
     }
 
     function level_2 () {
-      floatingObject.friction = FRICTION
+      floatingObject.targetFriction = FRICTION
+      floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(100)
       floatingObject.initializeRadius(40)
@@ -1137,7 +1141,8 @@ function newStrategyPartConstructor () {
     }
 
     function level_3 () {
-      floatingObject.friction = FRICTION
+      floatingObject.targetFriction = FRICTION
+      floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(10)
       floatingObject.initializeRadius(35)
@@ -1148,7 +1153,8 @@ function newStrategyPartConstructor () {
     }
 
     function level_4 () {
-      floatingObject.friction = FRICTION
+      floatingObject.targetFriction = FRICTION
+      floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(10)
       floatingObject.initializeRadius(30)
@@ -1159,7 +1165,8 @@ function newStrategyPartConstructor () {
     }
 
     function level_5 () {
-      floatingObject.friction = FRICTION
+      floatingObject.targetFriction = FRICTION
+      floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(10)
       floatingObject.initializeRadius(25)
@@ -1169,7 +1176,8 @@ function newStrategyPartConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'
     }
     function level_6 () {
-      floatingObject.friction = FRICTION
+      floatingObject.targetFriction = FRICTION
+      floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(10)
       floatingObject.initializeRadius(20)

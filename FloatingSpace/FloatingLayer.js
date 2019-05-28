@@ -313,6 +313,12 @@ function newFloatingLayer () {
               floatingObject.container.frame.position.y = floatingObject.container.frame.position.y + floatingObject.currentSpeed.y
             }
 
+            if (floatingObject.friction < floatingObject.targetFriction) {
+              floatingObject.friction = floatingObject.friction + 0.00001
+            } else {
+              floatingObject.friction = floatingObject.friction - 0.00001
+            }
+
             floatingObject.currentSpeed.x = floatingObject.currentSpeed.x * floatingObject.friction  // Desaceleration factor.
             floatingObject.currentSpeed.y = floatingObject.currentSpeed.y * floatingObject.friction  // Desaceleration factor.
 

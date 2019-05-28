@@ -509,10 +509,17 @@ function newStrategyPart () {
     if (thisObject.container.frame.radius > 1) {
             /* Target Line */
 
+      let LINE_STYLE
+      if (thisObject.payload.floatingObject.isFrozen === true) {
+        LINE_STYLE = UI_COLOR.TURQUOISE
+      } else {
+        LINE_STYLE = UI_COLOR.TITANIUM_YELLOW
+      }
+
       browserCanvasContext.beginPath()
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
-      browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
+      browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
       browserCanvasContext.setLineDash([3, 4])
       browserCanvasContext.lineWidth = 2
       browserCanvasContext.stroke()

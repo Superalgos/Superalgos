@@ -61,7 +61,7 @@ function newProtocolNode () {
           }
           for (let m = 0; m < node.situations.length; m++) {
             let situation = getProtocolNode(node.situations[m])
-            node.situations.push(situation)
+            event.situations.push(situation)
           }
           return event
         }

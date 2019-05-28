@@ -71,7 +71,7 @@ function newWorkspaceNode () {
           }
           for (let m = 0; m < node.situations.length; m++) {
             let situation = getWorkspaceNode(node.situations[m])
-            node.situations.push(situation)
+            event.situations.push(situation)
           }
           return event
         }
@@ -257,6 +257,9 @@ function newWorkspaceNode () {
   }
 
   function getSavedPayload (node) {
+    if (node.payload === undefined) {
+      console.log(node)
+    }
     let savedPayload = {
       position: {
         x: node.payload.position.x,

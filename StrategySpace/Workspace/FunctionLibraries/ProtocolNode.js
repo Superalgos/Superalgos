@@ -51,18 +51,27 @@ function newProtocolNode () {
           }
           return formula
         }
+      case 'Next Phase Event':
+        {
+          let event = {
+            type: node.type,
+            subType: node.subType,
+            name: node.name,
+            situations: []
+          }
+          for (let m = 0; m < node.situations.length; m++) {
+            let situation = getProtocolNode(node.situations[m])
+            node.situations.push(situation)
+          }
+          return event
+        }
       case 'Phase': {
         let phase = {
           type: node.type,
           subType: node.subType,
           name: node.name,
           formula: getProtocolNode(node.formula),
-          situations: []
-        }
-
-        for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m])
-          phase.situations.push(situation)
+          nextPhaseEvent: getProtocolNode(node.nextPhaseEvent)
         }
         return phase
       }

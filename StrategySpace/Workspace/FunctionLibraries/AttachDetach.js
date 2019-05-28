@@ -77,6 +77,11 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Next Phase Event': {
+        node.payload.parentNode.nextPhaseEvent = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Code': {
         node.payload.parentNode.code = undefined
         completeDetachment(node, rootNodes)
@@ -210,6 +215,13 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.formula = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Next Phase Event': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.nextPhaseEvent = node
         completeAttachment(node, rootNodes)
       }
         break

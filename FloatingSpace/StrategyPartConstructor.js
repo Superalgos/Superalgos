@@ -752,8 +752,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: false,
-            iconPathOn: 'pipette',
-            iconPathOff: 'pipette',
+            iconPathOn: 'schedule',
+            iconPathOff: 'schedule',
             relatedStrategyPart: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
@@ -761,13 +761,13 @@ function newStrategyPartConstructor () {
             angle: -60
           },
           {
-            action: 'Add Situation',
+            action: 'Add Next Phase Event',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Situation',
+            label: 'Add Next Phase Event',
             visible: false,
-            iconPathOn: 'pyramid',
-            iconPathOff: 'pyramid',
-            relatedStrategyPart: 'Situation',
+            iconPathOn: 'pipette',
+            iconPathOff: 'pipette',
+            relatedStrategyPart: 'Next Phase Event',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -837,6 +837,61 @@ function newStrategyPartConstructor () {
             action: 'Delete Formula',
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Formula',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }]
+        break
+      }
+      case 'Next Phase Event': {
+        menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -135
+          },
+          {
+            action: 'Add Situation',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Situation',
+            visible: false,
+            iconPathOn: 'pyramid',
+            iconPathOff: 'pyramid',
+            relatedStrategyPart: 'Situation',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          },
+          {
+            action: 'Delete Event',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Event',
             visible: false,
             iconPathOn: 'trash',
             iconPathOff: 'trash',
@@ -1095,6 +1150,10 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Formula': {
+        level_5()
+        break
+      }
+      case 'Next Phase Event': {
         level_5()
         break
       }

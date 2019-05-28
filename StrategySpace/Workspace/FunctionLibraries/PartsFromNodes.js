@@ -8,6 +8,7 @@ function newPartsFromNodes () {
     addInitialDefinition: addInitialDefinition,
     addPhase: addPhase,
     addFormula: addFormula,
+    addNextPhaseEvent: addNextPhaseEvent,
     addSituation: addSituation,
     addCondition: addCondition,
     addCode: addCode
@@ -44,15 +45,24 @@ function newPartsFromNodes () {
           createPart('Formula', node.name, node, parentNode, chainParent, 'Formula')
           return
         }
+      case 'Next Phase Event':
+        {
+          createPart('Next Phase Event', node.name, node, parentNode, chainParent, 'Next Phase Event')
+          for (let m = 0; m < node.situations.length; m++) {
+            let situation = node.situations[m]
+            createPartFromNode(situation, node, node)
+          }
+          return
+        }
       case 'Phase': {
         let phase = node
         createPart('Phase', phase.name, phase, parentNode, chainParent, phase.subType)
-        for (let m = 0; m < node.situations.length; m++) {
-          let situation = node.situations[m]
-          createPartFromNode(situation, phase, phase)
-        }
+
         if (node.formula !== undefined) {
           createPartFromNode(node.formula, phase, phase)
+        }
+        if (node.nextPhaseEvent !== undefined) {
+          createPartFromNode(node.nextPhaseEvent, phase, phase)
         }
         return
       }
@@ -330,6 +340,15 @@ function newPartsFromNodes () {
     }
   }
 
+  function addNextPhaseEvent (node) {
+    if (node.nextPhaseEvent === undefined) {
+      node.nextPhaseEvent = {
+        situations: []
+      }
+      createPart('Next Phase Event', '', node.nextPhaseEvent, node, node)
+    }
+  }
+
   function addCode (node) {
     if (node.code === undefined) {
       node.code = {}
@@ -343,7 +362,7 @@ function newPartsFromNodes () {
     let phase = {
       name: 'New Phase',
       formula: {},
-      situations: []
+      nextPhaseEvent: {}
     }
     phaseParent.phases.push(phase)
     let phaseChainParent
@@ -354,17 +373,17 @@ function newPartsFromNodes () {
     }
     createPart('Phase', phase.name, phase, phaseParent, phaseChainParent, 'Phase')
     createPart('Formula', '', phase.formula, phase, phase, 'Formula')
+    createPart('Next Phase Event', '', phase.nextPhaseEvent, phase, phase)
   }
 
   function addSituation (parentNode) {
-    let phase = parentNode
-    let m = phase.situations.length
+    let m = parentNode.situations.length
     let situation = {
       name: 'New Situation',
       conditions: []
     }
-    phase.situations.push(situation)
-    createPart('Situation', situation.name, situation, phase, phase, 'Situation')
+    parentNode.situations.push(situation)
+    createPart('Situation', situation.name, situation, parentNode, parentNode, 'Situation')
   }
 
   function addCondition (parentNode) {

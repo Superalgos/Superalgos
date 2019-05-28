@@ -59,6 +59,22 @@ function newWorkspaceNode () {
           }
           return formula
         }
+      case 'Next Phase Event':
+        {
+          let event = {
+            id: node.id,
+            type: node.type,
+            subType: node.subType,
+            name: node.name,
+            situations: [],
+            savedPayload: getSavedPayload(node)
+          }
+          for (let m = 0; m < node.situations.length; m++) {
+            let situation = getWorkspaceNode(node.situations[m])
+            node.situations.push(situation)
+          }
+          return event
+        }
       case 'Phase': {
         let phase = {
           id: node.id,
@@ -66,13 +82,8 @@ function newWorkspaceNode () {
           subType: node.subType,
           name: node.name,
           formula: getWorkspaceNode(node.formula),
-          situations: [],
+          nextPhaseEvent: getWorkspaceNode(node.nextPhaseEvent),
           savedPayload: getSavedPayload(node)
-        }
-
-        for (let m = 0; m < node.situations.length; m++) {
-          let situation = getWorkspaceNode(node.situations[m])
-          phase.situations.push(situation)
         }
         return phase
       }

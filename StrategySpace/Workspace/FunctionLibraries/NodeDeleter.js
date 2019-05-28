@@ -164,6 +164,10 @@ function newNodeDeleter () {
           payload.parentNode.takePosition = undefined
           break
         }
+        case 'Next Phase Event': {
+          payload.parentNode.nextPhaseEvent = undefined
+          break
+        }
       }
     } else {
       completeDeletion(node, rootNodes)
@@ -218,14 +222,12 @@ function newNodeDeleter () {
       completeDeletion(node, rootNodes)
     }
 
-    while (node.situations.length > 0) {
-      let situation = node.situations[0]
-      deleteSituation(situation)
-    }
-    node.situations = []
-
     if (node.formula !== undefined) {
       deleteFormula(node.formula, rootNodes)
+    }
+
+    if (node.nextPhaseEvent !== undefined) {
+      deleteEvent(node.nextPhaseEvent, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)

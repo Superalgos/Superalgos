@@ -92,6 +92,9 @@ function newStrategyPartTitle () {
       case 'Formula': {
         break
       }
+      case 'Next Phase Event': {
+        break
+      }
       case 'Situation': {
         break
       }

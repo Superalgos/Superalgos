@@ -54,6 +54,7 @@ function newStrategySpace () {
       ['Take Profit', 'competition'],
       ['Phase', 'placeholder'],
       ['Formula', 'pipette'],
+      ['Next Phase Event', 'schedule'],
       ['Situation', 'pyramid'],
       ['Condition', 'testing'],
       ['Code', 'html']

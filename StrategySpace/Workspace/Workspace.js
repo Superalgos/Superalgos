@@ -189,6 +189,11 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addFormula(payload.node)
         }
         break
+      case 'Add Next Phase Event':
+        {
+          functionLibraryPartsFromNodes.addNextPhaseEvent(payload.node)
+        }
+        break
       case 'Add Situation':
         {
           functionLibraryPartsFromNodes.addSituation(payload.node)

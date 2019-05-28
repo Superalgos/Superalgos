@@ -75,6 +75,12 @@ function newFloatingLayer () {
       if (container !== undefined) { return container }
     }
 
+    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+      let floatingObject = invisibleFloatingObjects[i]
+      container = floatingObject.getContainer(point)
+      if (container !== undefined) { return container }
+    }
+
     return container
   }
 
@@ -196,9 +202,8 @@ function newFloatingLayer () {
   function makeVisible () {
     for (let i = 0; i < invisibleFloatingObjects.length; i++) {
       let floatingObject = invisibleFloatingObjects[i]
-      payload.visible = floatingObject.payload.visible
 
-      if (floatingObject.payload.visible === true) {
+      if (floatingObject.isFrozen === false) {
         visibleFloatingObjects.push(floatingObject)
         invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
         return                     // Only one at the time.
@@ -210,7 +215,7 @@ function newFloatingLayer () {
     for (let i = 0; i < visibleFloatingObjects.length; i++) {
       let floatingObject = visibleFloatingObjects[i]
 
-      if (floatingObject.payload.visible === false) {
+      if (floatingObject.isFrozen === true) {
         invisibleFloatingObjects.push(floatingObject)
         visibleFloatingObjects.splice(i, 1)  // Delete item from array.
         return                     // Only one at the time.
@@ -248,6 +253,11 @@ function newFloatingLayer () {
                 /* This function makes all the calculations to apply phisycs on all visible floatingObjects in this layer. */
 
         try {
+          for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+            let floatingObject = invisibleFloatingObjects[i]
+            floatingObject.physics()
+          }
+
           for (let i = 0; i < visibleFloatingObjects.length; i++) {
             let floatingObject = visibleFloatingObjects[i]
 

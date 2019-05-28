@@ -114,7 +114,7 @@ function newWorkspace () {
       rootNodes: stringifyReadyNodes
     }
     let textToSave = JSON.stringify(workspace)
-    window.localStorage.setItem('workspace', textToSave)
+    // window.localStorage.setItem('workspace', textToSave)
   }
 
   function spawn (nodeText, point) {

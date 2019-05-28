@@ -1026,7 +1026,7 @@ function newStrategyPartConstructor () {
   }
 
   function setFloatingObjectBasicProperties (floatingObject, payload) {
-    const FRICTION = 0.97
+    const FRICTION = 0.98
 
     switch (payload.node.type) {
       case 'Trading System': {
@@ -1078,7 +1078,7 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Phase': {
-        level_4()
+        level_2()
         break
       }
       case 'Formula': {
@@ -1128,7 +1128,7 @@ function newStrategyPartConstructor () {
     function level_2 () {
       floatingObject.friction = FRICTION
 
-      floatingObject.initializeMass(50)
+      floatingObject.initializeMass(100)
       floatingObject.initializeRadius(40)
       floatingObject.initializeImageSize(70)
       floatingObject.initializeFontSize(10)

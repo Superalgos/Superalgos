@@ -181,32 +181,29 @@ function newNodeDeleter () {
       for (let k = 0; k < payload.parentNode.phases.length; k++) {
         let phase = payload.parentNode.phases[k]
         if (phase.id === node.id) {
-          while (phase.situations.length > 0) {
-            let situation = phase.situations[0]
-            deleteSituation(situation)
-          }
-          phase.situations = []
       /* Before deleting this phase we need to give its chainParent to the next phase down the chain */
           if (k < payload.parentNode.phases.length - 1) {
             payload.parentNode.phases[k + 1].payload.chainParent = payload.chainParent
           }
       /* Continue destroying this phase */
           payload.parentNode.phases.splice(k, 1)
-          destroyPart(phase)
-          cleanNode(phase)
-          return
         }
       }
     } else {
-      while (node.situations.length > 0) {
-        let situation = node.situations[0]
-        deleteSituation(situation)
-      }
-      node.situations = []
       completeDeletion(node, rootNodes)
-      destroyPart(node)
-      cleanNode(node)
     }
+
+    while (node.situations.length > 0) {
+      let situation = node.situations[0]
+      deleteSituation(situation)
+    }
+    node.situations = []
+
+    if (node.formula !== undefined) {
+      deleteFormula(node.formula, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
   }
 
   function deleteFormula (node, rootNodes) {
@@ -257,16 +254,16 @@ function newNodeDeleter () {
         let condition = payload.parentNode.conditions[i]
         if (condition.id === node.id) {
           payload.parentNode.conditions.splice(i, 1)
-          destroyPart(node)
-          cleanNode(condition)
-          return
         }
       }
     } else {
       completeDeletion(node, rootNodes)
-      destroyPart(node)
-      cleanNode(node)
     }
+    if (node.code !== undefined) {
+      deleteCode(node.code, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
   }
 
   function deleteCode (node, rootNodes) {

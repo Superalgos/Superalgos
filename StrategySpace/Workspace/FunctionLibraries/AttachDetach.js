@@ -185,7 +185,7 @@ function newAttachDetach () {
         completeAttachment(node, rootNodes)
       }
         break
-      case 'Take Position': {
+      case 'Take Position Event': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.takePosition = node

@@ -20,6 +20,7 @@ function newStrategyPart () {
     isRunning: undefined,
     run: run,
     setRunningStatus: setRunningStatus,
+    setNotRunningStatus: setNotRunningStatus,
     getReadyToAttach: getReadyToAttach,
     showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
@@ -378,14 +379,19 @@ function newStrategyPart () {
   }
 
   function run () {
-    canvas.strategySpace.workspace.tradingSystem = thisObject.payload.node
-    canvas.cockpitSpace.restartSimulation.restart()
     setRunningStatus()
+    canvas.cockpitSpace.restartSimulation.restart()
   }
 
   function setRunningStatus () {
+    canvas.strategySpace.workspace.tradingSystem = thisObject.payload.node
     thisObject.isRunning = true
     runningCounter = 30
+  }
+
+  function setNotRunningStatus () {
+    canvas.strategySpace.workspace.tradingSystem = undefined
+    thisObject.isRunning = false
   }
 
   function iconPhysics () {

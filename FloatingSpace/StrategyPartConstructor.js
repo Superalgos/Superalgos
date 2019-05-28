@@ -100,7 +100,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -80
           },
           {
             action: 'Save Trading System',
@@ -115,7 +115,19 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
+          },
+          {
+            action: 'Delete Trading System',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Trading System',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
           },
           {
             action: 'New Strategy',
@@ -128,7 +140,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           },
           {
             action: 'Download',
@@ -140,7 +152,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 80
           }]
         break
       }

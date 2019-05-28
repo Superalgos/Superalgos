@@ -1,5 +1,6 @@
 function newNodeDeleter () {
   thisObject = {
+    deleteTradingSystem: deleteTradingSystem,
     deleteStrategy: deleteStrategy,
     deleteTriggerStage: deleteTriggerStage,
     deleteOpenStage: deleteOpenStage,
@@ -19,6 +20,20 @@ function newNodeDeleter () {
 
   function destroyPart (node) {
     canvas.floatingSpace.strategyPartConstructor.destroyStrategyPart(node.payload)
+  }
+
+  function deleteTradingSystem (node, rootNodes) {
+    if (node.payload.uiObject.isRunning === true) {
+      strategyPart.setNotRunningStatus()
+    }
+
+    while (node.strategies.length > 0) {
+      deleteStrategy(node.strategies[0])
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
   }
 
   function deleteStrategy (node, rootNodes) {

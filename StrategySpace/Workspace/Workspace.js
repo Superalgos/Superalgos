@@ -204,6 +204,10 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addCode(payload.node)
         }
         break
+      case 'Delete Trading System': {
+        functionLibraryNodeDeleter.deleteTradingSystem(payload.node, rootNodes)
+        break
+      }
       case 'Delete Strategy': {
         functionLibraryNodeDeleter.deleteStrategy(payload.node, rootNodes)
         break

@@ -23,6 +23,16 @@ function newNodeDeleter () {
   }
 
   function deleteTradingSystem (node, rootNodes) {
+/* Can not delete if it is the last one */
+    let counter = 0
+    for (let i = 0; i < rootNodes.length; i++) {
+      let rootNode = rootNodes[i]
+      if (rootNode.type === node.type) {
+        counter++
+      }
+    }
+    if (counter <= 1) { return }
+
     if (node.payload.uiObject.isRunning === true) {
       strategyPart.setNotRunningStatus()
     }

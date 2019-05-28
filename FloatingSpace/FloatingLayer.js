@@ -81,34 +81,26 @@ function newFloatingLayer () {
   function addFloatingObject (pFloatingObject) {
     currentHandle++
     pFloatingObject.handle = currentHandle // Math.floor((Math.random() * 10000000) + 1);
-    invisibleFloatingObjects.push(pFloatingObject)
+    visibleFloatingObjects.push(pFloatingObject)
   }
 
   function removeFloatingObject (pFloatingObjectHandle) {
-    try {
-      for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-        let floatingObject = invisibleFloatingObjects[i]
+    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+      let floatingObject = invisibleFloatingObjects[i]
 
-        if (floatingObject.handle === pFloatingObjectHandle) {
-          invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
-          return
-        }
+      if (floatingObject.handle === pFloatingObjectHandle) {
+        invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
+        return
       }
+    }
 
-      for (let i = 0; i < visibleFloatingObjects.length; i++) {
-        let floatingObject = visibleFloatingObjects[i]
+    for (let i = 0; i < visibleFloatingObjects.length; i++) {
+      let floatingObject = visibleFloatingObjects[i]
 
-        if (floatingObject.handle === pFloatingObjectHandle) {
-          visibleFloatingObjects.splice(i, 1)  // Delete item from array.
-          return
-        }
+      if (floatingObject.handle === pFloatingObjectHandle) {
+        visibleFloatingObjects.splice(i, 1)  // Delete item from array.
+        return
       }
-
-      if (ERROR_LOG === true) { logger.write('[ERROR] removeFloatingObject -> Floating Object Not Found.') }
-      if (ERROR_LOG === true) { logger.write('[ERROR] removeFloatingObject -> Floating Object cannot be killed.') }
-      if (ERROR_LOG === true) { logger.write('[ERROR] removeFloatingObject -> pFloatingObjectHandle = ' + pFloatingObjectHandle) }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] removeFloatingObject -> err= ' + err.stack) }
     }
   }
 
@@ -153,126 +145,75 @@ function newFloatingLayer () {
   }
 
   function draw () {
+    drawInvisibleObjects()
     drawVisibleObjects()
+  }
 
-    function drawVisibleObjects () {
-                  /* We draw all the visibleFloatingObjects. */
-
-      for (let i = 0; i < visibleFloatingObjects.length; i++) {
-        let floatingObject = visibleFloatingObjects[i]
-        floatingObject.drawBackground()
-      }
-
-      for (let i = 0; i < visibleFloatingObjects.length; i++) {
-        let floatingObject = visibleFloatingObjects[i]
-        floatingObject.drawMiddleground()
-      }
-
-      for (let i = 0; i < visibleFloatingObjects.length; i++) {
-        let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1]
-        floatingObject.drawForeground()
-      }
-
-      for (let i = 0; i < visibleFloatingObjects.length; i++) {
-        let floatingObject = visibleFloatingObjects[i]
-        floatingObject.drawOnFocus()
-      }
-
-      makeVisible()
+  function drawInvisibleObjects () {
+    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+      let floatingObject = invisibleFloatingObjects[i]
+      floatingObject.drawBackground()
     }
 
-    function makeVisible () {
-      try {
-                  /* Now we check if any of the created FloatingObjects where enabled to run under the Physics Engine. */
-
-        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-          let floatingObject = invisibleFloatingObjects[i]
-
-          let payload = {
-            position: undefined,
-            visible: false
-          }
-
-          switch (floatingObject.type) {
-
-            case 'Profile Ball': {
-              payload.targetPosition = floatingObject.payload.profile.position
-              payload.visible = floatingObject.payload.profile.visible
-              break
-            }
-            case 'Note': {
-              if (floatingObject.payload.notes[floatingObject.payloadNoteIndex] !== undefined) {
-                payload.targetPosition = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position
-                payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
-              }
-              break
-            }
-            case 'Strategy Part': {
-              payload.targetPosition = floatingObject.payload.targetPosition
-              payload.visible = floatingObject.payload.visible
-              break
-            }
-            default: {
-              break
-            }
-          }
-
-          if (payload.visible === true) {
-            visibleFloatingObjects.push(floatingObject)
-
-            invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
-
-            return                     // Only one at the time.
-          }
-        }
-
-        makeInvisible()
-      } catch (err) {
-        if (ERROR_LOG === true) { logger.write('[ERROR] physics -> makeVisible -> err= ' + err.stack) }
-      }
+    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+      let floatingObject = invisibleFloatingObjects[i]
+      floatingObject.drawMiddleground()
     }
 
-    function makeInvisible () {
-      try {
-                  /* Finally we check if any of the currently visible floatingObjects has become invisible and must be removed from the Physics Engine. */
+    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+      let floatingObject = invisibleFloatingObjects[invisibleFloatingObjects.length - i - 1]
+      floatingObject.drawForeground()
+    }
 
-        for (let i = 0; i < visibleFloatingObjects.length; i++) {
-          let floatingObject = visibleFloatingObjects[i]
+    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+      let floatingObject = invisibleFloatingObjects[i]
+      floatingObject.drawOnFocus()
+    }
+  }
 
-          let payload = {
-            position: undefined,
-            visible: true
-          }
+  function drawVisibleObjects () {
+    for (let i = 0; i < visibleFloatingObjects.length; i++) {
+      let floatingObject = visibleFloatingObjects[i]
+      floatingObject.drawBackground()
+    }
 
-          switch (floatingObject.type) {
+    for (let i = 0; i < visibleFloatingObjects.length; i++) {
+      let floatingObject = visibleFloatingObjects[i]
+      floatingObject.drawMiddleground()
+    }
 
-            case 'Profile Ball': {
-              payload.visible = floatingObject.payload.profile.visible
-              break
-            }
-            case 'Note': {
-              payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
-              break
-            }
-            case 'Strategy Part': {
-              payload.visible = floatingObject.payload.visible
-              break
-            }
-            default: {
-              break
-            }
-          }
+    for (let i = 0; i < visibleFloatingObjects.length; i++) {
+      let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1]
+      floatingObject.drawForeground()
+    }
 
-          if (payload.visible === false) {
-            invisibleFloatingObjects.push(floatingObject)
+    for (let i = 0; i < visibleFloatingObjects.length; i++) {
+      let floatingObject = visibleFloatingObjects[i]
+      floatingObject.drawOnFocus()
+    }
+  }
 
-            visibleFloatingObjects.splice(i, 1)  // Delete item from array.
+  function makeVisible () {
+    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+      let floatingObject = invisibleFloatingObjects[i]
+      payload.visible = floatingObject.payload.visible
 
-            return                     // Only one at the time.
-          }
-        }
-      } catch (err) {
-        if (ERROR_LOG === true) { logger.write('[ERROR] physics -> makeInvisible -> err= ' + err.stack) }
+      if (floatingObject.payload.visible === true) {
+        visibleFloatingObjects.push(floatingObject)
+        invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
+        return                     // Only one at the time.
+      }
+    }
+  }
+
+  function makeInvisible () {
+    for (let i = 0; i < visibleFloatingObjects.length; i++) {
+      let floatingObject = visibleFloatingObjects[i]
+
+      if (floatingObject.payload.visible === false) {
+        invisibleFloatingObjects.push(floatingObject)
+        visibleFloatingObjects.splice(i, 1)  // Delete item from array.
+        return                     // Only one at the time.
       }
     }
   }
@@ -299,6 +240,8 @@ function newFloatingLayer () {
         */
 
     try {
+      makeVisible()
+      makeInvisible()
       applyPhysics()
 
       function applyPhysics () {
@@ -790,4 +733,3 @@ function newFloatingLayer () {
     }
   }
 }
-

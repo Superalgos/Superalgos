@@ -19,9 +19,9 @@ const resolve = (parent, { id: _id, tradingSystem: editedTradingSystem }) => new
     }
     tradingSystem.history.push({
       updatedAt: tradingSystem.updatedAt,
-      strategies: tradingSystem.strategies,
+      data: tradingSystem.data,
     });
-    tradingSystem.strategies = editedTradingSystem.strategies;
+    tradingSystem.data = editedTradingSystem.data;
     tradingSystem.save((error) => {
       if (error) {
         rej(error);

@@ -1,7 +1,6 @@
 import TradingSystemInputType from './TradingSystem';
-import StrategyInputType from './Strategy';
 
 export {
+  // eslint-disable-next-line import/prefer-default-export
   TradingSystemInputType,
-  StrategyInputType,
 };

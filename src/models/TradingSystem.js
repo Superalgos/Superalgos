@@ -8,40 +8,10 @@ const tradingSystemSchema = new Schema(
       unique: true,
       dropDups: true,
     },
-    strategies: [{
-      active: {
-        type: Boolean,
-        required: true,
-        default: true,
-      },
-      name: {
-        type: String,
-        default: '',
-      },
-      filter: Object,
-      triggerStage: Object,
-      openStage: Object,
-      manageStage: Object,
-      closeStage: Object,
-    }],
+    data: Object,
     history: [{
       updatedAt: Date,
-      strategies: [{
-        active: {
-          type: Boolean,
-          required: true,
-          default: true,
-        },
-        name: {
-          type: String,
-          default: '',
-        },
-        filter: Object,
-        triggerStage: Object,
-        openStage: Object,
-        manageStage: Object,
-        closeStage: Object,
-      }],
+      data: Object,
     }],
   },
   {

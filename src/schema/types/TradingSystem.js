@@ -1,13 +1,9 @@
 import {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLList,
-  GraphQLBoolean,
   GraphQLID,
 } from 'graphql';
-import {
-  StrategyType,
-} from './index';
+import GraphQLJSON from 'graphql-type-json';
 
 const Type = new GraphQLObjectType({
   name: 'TradingSystem',
@@ -15,16 +11,7 @@ const Type = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     fbSlug: { type: GraphQLString },
-    strategies: {
-      args: { activeOnly: { type: GraphQLBoolean } },
-      type: new GraphQLList(StrategyType),
-      resolve(parent, { activeOnly }) {
-        if (activeOnly) {
-          return parent.strategies.filter(strategy => strategy.active);
-        }
-        return parent.strategies;
-      },
-    },
+    data: { type: GraphQLJSON },
   }),
 });
 

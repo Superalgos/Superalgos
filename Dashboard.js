@@ -91,64 +91,7 @@ function newDashboard () {
   function loadImages (callBack) {
     try {
       const accessToken = ''
-
-            /*
-            Soon, we will need to get images from the Financial Beings Module. I live this core here as a sample for that:
-
-            const apolloClient = new Apollo.lib.ApolloClient({
-                networkInterface: Apollo.lib.createNetworkInterface({
-                    uri: window.canvasApp.graphQL.masterAppApiUrl,
-                    transportBatching: true,
-                }),
-                connectToDevTools: true,
-            })
-
-            const QUERY = Apollo.gql`
-            query($authId: String){
-                users_UserByAuthId (authId: $authId){
-                    id
-                    referrerId
-                    alias
-                    firstName
-                    middleName
-                    lastName
-                    bio
-                    email
-                    emailVerified
-                    isDeveloper
-                    isDataAnalyst
-                    isTrader
-                    avatarHandle
-                    avatarChangeDate
-                    sessionToken
-                    role {
-                    id
-                    }
-                }
-            }
-            `
-            const getUser = () => {
-                return new Promise((resolve, reject) => {
-                    apolloClient.query({
-                        query: QUERY,
-                        variables: {
-                            authId: authId
-                        }
-                    })
-                        .then(response => {
-                            sessionToken = response.data.users_UserByAuthId.sessionToken;
-
-                            window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.users_UserByAuthId));
-                            resolve({ user: response.data.users_UserByAuthId })
-                        })
-                        .catch(error => {
-                            console.log("apolloClient error getting user query", error)
-                            reject(error)
-                        });
-                });
-            }
-
-            */
+      // Soon, we will need to get images from the Financial Beings Module.
 
       const networkInterfaceTeams = Apollo.lib.createNetworkInterface({
         uri: window.canvasApp.graphQL.masterAppApiUrl

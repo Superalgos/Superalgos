@@ -264,8 +264,6 @@ function newStrategizerGateway () {
 
       const authId = user.authId
 
-      let sessionToken
-
       const apolloClient = new Apollo.lib.ApolloClient({
         networkInterface: Apollo.lib.createNetworkInterface({
           uri: window.canvasApp.graphQL.masterAppApiUrl,
@@ -277,18 +275,14 @@ function newStrategizerGateway () {
       /* Getting the FB that own the Strategies */
 
       let teamtradingSystemSimulationFB = ''
-      let teams = window.localStorage.getItem('userTeams')
-      if (teams === null || teams === '' || teams === []) {
-        if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> no user teams found at local storage. Can not get Strategies without them. ') }
-        return
-      }
-      teams = JSON.parse(teams)
+      let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
+      let teams = ecosystem.devTeams
       for (let i = 0; i < teams.length; i++) {
         let team = teams[i]
-        for (let j = 0; j < team.fb.length; j++) {
-          let fb = team.fb[j]
-          if (fb.slug.indexOf('simulator') >= 0) {
-            teamtradingSystemSimulationFB = fb.slug
+        for (let j = 0; j < team.bots.length; j++) {
+          let bot = team.bots[j]
+          if (bot.codeName.indexOf('simulator') >= 0) {
+            teamtradingSystemSimulationFB = bot.codeName
           }
         }
       }

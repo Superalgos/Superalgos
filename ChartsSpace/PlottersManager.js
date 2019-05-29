@@ -144,7 +144,7 @@ function newPlottersManager () {
     try {
             /* At this current version of the platform, we will support only one competition with only one plotter. */
 
-      const COMPETITION_HOST = 'AAArena'
+      const COMPETITION_HOST = 'AAMasters'
       const COMPETITION = 'Weekend-Deathmatch'
 
       let objName = COMPETITION_HOST + '-' + COMPETITION
@@ -170,7 +170,7 @@ function newPlottersManager () {
             }
           }
                     /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
-          let plotter = getNewPlotter(competition.plotter.host, competition.plotter.codeName, competition.plotter.moduleName)
+          let plotter = getNewPlotter(competition.plotter.devTeam, competition.plotter.codeName, competition.plotter.moduleName)
           plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true)
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2

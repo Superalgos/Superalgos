@@ -132,7 +132,7 @@ Notice Asset Balances in the bottom left corner of the screen. Asset A is your _
 
 ![Trading-Simulation-Asset-Balances](https://user-images.githubusercontent.com/13994516/58564447-3e304200-822d-11e9-9e90-e4f02212de5a.gif)
 <br/><br/>
-The dashed line represents the duration of the trade at the price of the _take profit_ event. Notice how the _base asset_ is exchanged for Asset B and back to the _base asset_ as the trade closes.
+The dashed line represents the duration of the trade at the price of the _take position_ event. Notice how the _base asset_ is exchanged for Asset B and back to the _base asset_ as the trade closes.
 
 ![Trading-Simulation-Trade-Duration](https://user-images.githubusercontent.com/13994516/58564452-3ec8d880-822d-11e9-8b4e-4cd892df69e7.gif)
 <br/><br/>

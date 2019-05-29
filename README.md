@@ -173,3 +173,6 @@ Notice the red horizontal bars indicating the _stop_ value for each period (cand
 ![Trading-Simulation-Strategies](https://user-images.githubusercontent.com/13994516/58565955-fd85f800-822f-11e9-9f95-9d0a477a4460.gif)
 <br/><br/>
 
+4. **Simulation Trades**: The Simulation Trades layer marks trades with a triangle whose hypotenuse connects the price at the _take position_ event with the _exit_ price. When the trade is profitable, the triangle is green; when the _exit_ happens at a loss, the triangle is red.
+
+![Trading-Simulation-Trades](https://user-images.githubusercontent.com/13994516/58574801-1a76f700-8241-11e9-9144-0db81636dace.gif)

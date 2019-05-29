@@ -35,7 +35,6 @@ function newAppLoader() {
         'ChartsSpace/TimeLineCoordinateSystem.js',
 
         'TopSpace/CurrentEvent.js',
-        'TopSpace/EndUser.js',
         'TopSpace/Login.js',
 
         'StrategySpace/StrategizerGateway.js',
@@ -190,6 +189,7 @@ function newAppLoader() {
                   codeName
                   displayName
                   type
+                  profilePicture
                   repo
                   configFile
                   products{

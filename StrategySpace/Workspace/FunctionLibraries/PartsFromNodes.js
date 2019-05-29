@@ -102,6 +102,13 @@ function newPartsFromNodes () {
       }
       case 'Initial Definition': {
         createPart('Initial Definition', node.name, node, parentNode, chainParent, 'Initial Definition')
+
+        if (node.triggerOff !== undefined) {
+          createPartFromNode(node.triggerOff, stage, stage)
+        }
+        if (node.takePosition !== undefined) {
+          createPartFromNode(node.takePosition, stage, stage)
+        }
         return
       }
       case 'Take Position Event': {
@@ -218,7 +225,16 @@ function newPartsFromNodes () {
         }
       },
       openStage: {
-        initialDefinition: {}
+        initialDefinition: {
+          stopLoss: {
+            phases: [],
+            maxPhases: 1
+          },
+          takeProfit: {
+            phases: [],
+            maxPhases: 1
+          }
+        }
       },
       manageStage: {
         stopLoss: {
@@ -244,6 +260,8 @@ function newPartsFromNodes () {
     createPart('Initial Definition', '', strategy.openStage.initialDefinition, strategy.openStage, strategy.openStage)
     createPart('Stop', '', strategy.manageStage.stopLoss, strategy.manageStage, strategy.manageStage)
     createPart('Take Profit', '', strategy.manageStage.takeProfit, strategy.manageStage, strategy.manageStage)
+    createPart('Stop', 'Initial Stop', strategy.openStage.initialDefinition.stopLoss, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
+    createPart('Take Profit', 'Initial Take Profit', strategy.openStage.initialDefinition.takeProfit, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
   }
 
   function addMissingStages (node) {
@@ -267,10 +285,20 @@ function newPartsFromNodes () {
     if (node.openStage === undefined) {
       node.openStage = {
         initialDefinition: {
+          stopLoss: {
+            phases: [],
+            maxPhases: 1
+          },
+          takeProfit: {
+            phases: [],
+            maxPhases: 1
+          }
         }
       }
       createPart('Open Stage', '', node.openStage, node, node, 'Open Stage')
       createPart('Initial Definition', '', node.openStage.initialDefinition, node.openStage, node.openStage)
+      createPart('Stop', 'Initial Stop', node.openStage.initialDefinition.stopLoss, node.openStage.initialDefinition, node.openStage.initialDefinition)
+      createPart('Take Profit', 'Initial Take Profit', node.openStage.initialDefinition.takeProfit, node.openStage.initialDefinition, node.openStage.initialDefinition)
     }
     if (node.manageStage === undefined) {
       node.manageStage = {
@@ -312,24 +340,52 @@ function newPartsFromNodes () {
   }
 
   function addMissingItems (node) {
-    if (node.stopLoss === undefined) {
-      node.stopLoss = {
-        phases: []
+    if (node.type === 'Initial Definition') {
+      if (node.stopLoss === undefined) {
+        node.stopLoss = {
+          phases: [],
+          maxPhases: 1
+        }
+        createPart('Stop', 'Initial Stop', node.stopLoss, node, node)
       }
-      createPart('Stop', '', node.stopLoss, node, node)
-    }
-    if (node.takeProfit === undefined) {
-      node.takeProfit = {
-        phases: []
+      if (node.takeProfit === undefined) {
+        node.takeProfit = {
+          phases: [],
+          maxPhases: 1
+        }
+        createPart('Take Profit', 'Initial Take Profit', node.takeProfit, node, node)
       }
-      createPart('Take Profit', '', node.takeProfit, node, node)
+    } else {
+      if (node.stopLoss === undefined) {
+        node.stopLoss = {
+          phases: []
+        }
+        createPart('Stop', '', node.stopLoss, node, node)
+      }
+      if (node.takeProfit === undefined) {
+        node.takeProfit = {
+          phases: []
+        }
+        createPart('Take Profit', '', node.takeProfit, node, node)
+      }
     }
   }
 
   function addInitialDefinition (node) {
     if (node.initialDefinition === undefined) {
-      node.initialDefinition = {}
+      node.initialDefinition = {
+        stopLoss: {
+          phases: [],
+          maxPhases: 1
+        },
+        takeProfit: {
+          phases: [],
+          maxPhases: 1
+        }
+      }
       createPart('Initial Definition', '', node.initialDefinition, node, node)
+      createPart('Stop', 'Initial Stop', node.initialDefinition.stopLoss, node.initialDefinition, node.initialDefinition)
+      createPart('Take Profit', 'Initial Take Profit', node.initialDefinition.takeProfit, node.initialDefinition, node.initialDefinition)
     }
   }
 
@@ -362,7 +418,9 @@ function newPartsFromNodes () {
     let phase = {
       name: 'New Phase',
       formula: {},
-      nextPhaseEvent: {}
+      nextPhaseEvent: {
+        situations: []
+      }
     }
     phaseParent.phases.push(phase)
     let phaseChainParent

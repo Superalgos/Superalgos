@@ -173,6 +173,8 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          stopLoss: getWorkspaceNode(node.stopLoss),
+          takeProfit: getWorkspaceNode(node.takeProfit),
           savedPayload: getSavedPayload(node)
         }
         return object

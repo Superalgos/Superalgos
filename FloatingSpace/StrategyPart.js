@@ -219,11 +219,11 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Stop':
-        compatibleType = 'Manage Stage'
+        compatibleType = 'Manage Stage' + '.' + 'Initial Definition'
         compatibleSubType = undefined
         break
       case 'Take Profit':
-        compatibleType = 'Manage Stage'
+        compatibleType = 'Manage Stage' + '.' + 'Initial Definition'
         compatibleSubType = undefined
         break
       case 'Phase':
@@ -239,7 +239,7 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Situation':
-        compatibleType = 'Phase' + '.' + 'Take Position Event' + '.' + 'Trigger On Event' + '.' + 'Trigger Off Event'
+        compatibleType = 'Take Position Event' + '.' + 'Trigger On Event' + '.' + 'Trigger Off Event' + '.' + 'Next Phase Event'
         compatibleSubType = undefined
         break
       case 'Condition':

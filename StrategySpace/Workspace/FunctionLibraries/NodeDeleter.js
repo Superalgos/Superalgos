@@ -143,7 +143,12 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-
+    if (node.stopLoss !== undefined) {
+      deleteManagedItem(node.stopLoss)
+    }
+    if (node.takeProfit !== undefined) {
+      deleteManagedItem(node.takeProfit)
+    }
     destroyPart(node)
     cleanNode(node)
   }

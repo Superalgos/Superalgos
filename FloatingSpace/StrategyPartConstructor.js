@@ -739,6 +739,18 @@ function newStrategyPartConstructor () {
             angle: 135
           },
           {
+            action: 'Add Missing Items',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Missing Items',
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          },
+          {
             action: 'Delete Initial Definition',
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Definition',
@@ -748,7 +760,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 0
           },
           {
             action: 'Download',
@@ -760,7 +772,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }]
         break
       }

@@ -149,7 +149,9 @@ function newProtocolNode () {
         let object = {
           type: node.type,
           subType: node.subType,
-          name: node.name
+          name: node.name,
+          stopLoss: getProtocolNode(node.stopLoss),
+          takeProfit: getProtocolNode(node.takeProfit)
         }
         return object
       }

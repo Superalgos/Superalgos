@@ -103,11 +103,11 @@ function newPartsFromNodes () {
       case 'Initial Definition': {
         createPart('Initial Definition', node.name, node, parentNode, chainParent, 'Initial Definition')
 
-        if (node.triggerOff !== undefined) {
-          createPartFromNode(node.triggerOff, node, node)
+        if (node.stopLoss !== undefined) {
+          createPartFromNode(node.stopLoss, node, node)
         }
-        if (node.takePosition !== undefined) {
-          createPartFromNode(node.takePosition, node, node)
+        if (node.takeProfit !== undefined) {
+          createPartFromNode(node.takeProfit, node, node)
         }
         return
       }

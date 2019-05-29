@@ -77,7 +77,7 @@ To minimize a panel, click on the small triangle on the right of their title bar
 
 You may also drag and drop the panels by right-clicking on the title bar.
 
-![Panels](https://user-images.githubusercontent.com/13994516/58434864-1bcbe680-80be-11e9-8262-ccca1685f68b.gif)
+![Panels](https://user-images.githubusercontent.com/13994516/58580610-d0e0d900-824d-11e9-8c57-501eb9429ba6.gif)
 <br/><br/>
 ### Layers
 

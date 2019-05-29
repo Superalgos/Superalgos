@@ -5,12 +5,15 @@ import MasterApp from './App'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer from './reducers/rootReducer'
+import { setInitialEcosystem } from './utils/ecosystem'
 
 const store = createStore(rootReducer)
 
 if (process.env.NODE_ENV !== 'production') {
   window.localStorage.setItem('debug', 'advanced-algos:*')
 }
+
+setInitialEcosystem()
 
 ReactDOM.render(
   <Provider store={store}>

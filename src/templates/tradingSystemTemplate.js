@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 const tradingSystem = {
-  strategies: [
-  ],
+  data: {},
 };
 
 export default tradingSystem;

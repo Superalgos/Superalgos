@@ -1,14 +1,13 @@
 import {
   GraphQLInputObjectType,
-  GraphQLList,
 } from 'graphql';
-import { StrategyInputType } from './index';
+import GraphQLJSON from 'graphql-type-json';
 
 const Type = new GraphQLInputObjectType({
   name: 'TradingSystemInput',
   description: 'Payload for trading system  input',
   fields: () => ({
-    strategies: { type: new GraphQLList(StrategyInputType) },
+    data: { type: GraphQLJSON },
   }),
 });
 

@@ -140,9 +140,6 @@ The chart features lines at %B value 30 and 70 since those are the most common v
 
 1. **Trading Simulation**: The Trading Simulation layer displays a backtest + fordwardtest (paper trading) of whatever strategies you have created in the system. At sign up, you are provided with an initial set of strategies so that you can be up and running as quickly as possible. By activating the Trading Simulation layer you should be able to see something like this:
 
-![image](https://user-images.githubusercontent.com/9479367/56860461-0799aa00-6997-11e9-9c2d-5ace122a5c25.png)
-
-Let's take a moment to analyze what you see on the chart:
-
-A. This shows you when you entered into one of your strategies (think of it as if the strategy was activated because when activation conditions were met). The first icon represents the moment when you entered into that particular strategy, and the second icon represents the moment you left the strategy.
+![Trading-Simulation](https://user-images.githubusercontent.com/13994516/58548756-3f9c4300-820a-11e9-9b39-cb7e11ae0ee6.gif)
+<br/><br/>
 

@@ -330,7 +330,7 @@ function newStrategyPart () {
 
   function detachingPhysics () {
     if (isDragging !== true) { return }
-    if (thisObject.isFrozen !== true) { return }
+    if (thisObject.isFrozen === true) { return }
 
     let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
     let ratio = distanceToChainParent / previousDistance
@@ -760,3 +760,4 @@ function newStrategyPart () {
     }
   }
 }
+

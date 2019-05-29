@@ -94,6 +94,7 @@ function newWorkspaceNode () {
           subType: node.subType,
           name: node.name,
           phases: [],
+          maxPhases: node.maxPhases,
           savedPayload: getSavedPayload(node)
         }
 
@@ -110,6 +111,7 @@ function newWorkspaceNode () {
           subType: node.subType,
           name: node.name,
           phases: [],
+          maxPhases: node.maxPhases,
           savedPayload: getSavedPayload(node)
         }
 

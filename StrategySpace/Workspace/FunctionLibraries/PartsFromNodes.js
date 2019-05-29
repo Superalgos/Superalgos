@@ -104,10 +104,10 @@ function newPartsFromNodes () {
         createPart('Initial Definition', node.name, node, parentNode, chainParent, 'Initial Definition')
 
         if (node.triggerOff !== undefined) {
-          createPartFromNode(node.triggerOff, stage, stage)
+          createPartFromNode(node.triggerOff, node, node)
         }
         if (node.takePosition !== undefined) {
-          createPartFromNode(node.takePosition, stage, stage)
+          createPartFromNode(node.takePosition, node, node)
         }
         return
       }
@@ -417,6 +417,11 @@ function newPartsFromNodes () {
   }
 
   function addPhase (parentNode) {
+    if (parentNode.maxPhases !== undefined) {
+      if (parentNode.phases.length >= parentNode.maxPhases) {
+        return
+      }
+    }
     let phaseParent = parentNode
     let m = phaseParent.phases.length
     let phase = {

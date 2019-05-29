@@ -228,6 +228,11 @@ function newAttachDetach () {
       case 'Phase': {
         switch (attachToNode.type) {
           case 'Stop': {
+            if (attachToNode.maxPhases !== undefined) {
+              if (attachToNode.phases.length >= attachToNode.maxPhases) {
+                return
+              }
+            }
             node.payload.parentNode = attachToNode
             if (attachToNode.phases.length > 0) {
               let phase = attachToNode.phases[attachToNode.phases.length - 1]
@@ -240,6 +245,11 @@ function newAttachDetach () {
           }
             break
           case 'Take Profit': {
+            if (attachToNode.maxPhases !== undefined) {
+              if (attachToNode.phases.length >= attachToNode.maxPhases) {
+                return
+              }
+            }
             node.payload.parentNode = attachToNode
             if (attachToNode.phases.length > 0) {
               let phase = attachToNode.phases[attachToNode.phases.length - 1]

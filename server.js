@@ -1,9 +1,9 @@
 
 require('dotenv').config()
 
-CONSOLE_LOG = process.env.CONSOLE_LOG === "true"
-CONSOLE_ERROR_LOG = process.env.CONSOLE_ERROR_LOG === "true"
-LOG_FILE_CONTENT = process.env.LOG_FILE_CONTENT === "true"
+CONSOLE_LOG = process.env.CONSOLE_LOG === 'true'
+CONSOLE_ERROR_LOG = process.env.CONSOLE_ERROR_LOG === 'true'
+LOG_FILE_CONTENT = process.env.LOG_FILE_CONTENT === 'true'
 
 global.DEFAULT_OK_RESPONSE = {
   result: 'Ok',
@@ -36,11 +36,11 @@ let isHttpServerStarted = false
 
 const FILE_CLOUD = require('./Server/FileCloud')
 let fileCloud = FILE_CLOUD.newFileCloud()
-let storageData= new Map()
+let storageData = new Map()
 
 startHtttpServer()
 
-function startHtttpServer() {
+function startHtttpServer () {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> startHtttpServer -> Entering function.') }
 
   try {
@@ -53,7 +53,7 @@ function startHtttpServer() {
   }
 }
 
-function onBrowserRequest(request, response) {
+function onBrowserRequest (request, response) {
   if (CONSOLE_LOG === true && request.url.indexOf('NO-LOG') === -1) { console.log('[INFO] server -> onBrowserRequest -> request.url = ' + request.url) }
 
   let requestParameters = request.url.split('/')
@@ -88,10 +88,10 @@ function onBrowserRequest(request, response) {
 
     case 'MQService':
       {
-        let filePath = "./node_modules/@superalgos/mqservice/orderLifeCicle/webDependency.js"
+        let filePath = './node_modules/@superalgos/mqservice/orderLifeCicle/webDependency.js'
 
         respondWithFile(filePath, response)
-        break;
+        break
       }
 
     case 'Plotter.js':
@@ -102,11 +102,9 @@ function onBrowserRequest(request, response) {
 
     case 'PlotterPanel.js':
       {
-
         respondWithFile('./PlotterPanel.js', response)
       }
       break
-
 
     case 'Ecosystem.js':
       {
@@ -155,8 +153,20 @@ function onBrowserRequest(request, response) {
       break
 
     case 'StrategySpace': // This means the StrategySpace folder.
+
       {
-        respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2], response)
+        if (requestParameters[3] === undefined) {
+            respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2], response)
+          return
+        }
+        if (requestParameters[4] === undefined) {
+            respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2] + '/' + requestParameters[3], response)
+          return
+        }
+        if (requestParameters[5] === undefined) {
+            respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response)
+          return
+        }
       }
       break
 
@@ -180,13 +190,13 @@ function onBrowserRequest(request, response) {
 
     case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
       {
-        respondWithSourceCode (requestParameters, response)
+        respondWithSourceCode(requestParameters, response)
       }
       break
 
     case 'PlotterPanels': // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
       {
-        respondWithSourceCode (requestParameters, response)
+        respondWithSourceCode(requestParameters, response)
       }
       break
     case 'Panels':
@@ -237,14 +247,14 @@ function onBrowserRequest(request, response) {
       }
   }
 
-  function homePage() {
+  function homePage () {
     if (requestParameters[1] === '') {
       let fs = require('fs')
       try {
         let fileName = 'index.html'
         fs.readFile(fileName, onFileRead)
 
-        function onFileRead(err, file) {
+        function onFileRead (err, file) {
           if (CONSOLE_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> onFileRead -> Entering function.') }
 
           try {
@@ -270,7 +280,7 @@ function onBrowserRequest(request, response) {
   }
 }
 
-function respondWithContent(content, response) {
+function respondWithContent (content, response) {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithContent -> Entering function.') }
 
   try {
@@ -288,7 +298,7 @@ function respondWithContent(content, response) {
   }
 }
 
-function respondWithFile(fileName, response) {
+function respondWithFile (fileName, response) {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> Entering function.') }
 
   let fs = require('fs')
@@ -300,7 +310,7 @@ function respondWithFile(fileName, response) {
 
     fs.readFile(fileName, onFileRead)
 
-    function onFileRead(err, file) {
+    function onFileRead (err, file) {
       if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> onFileRead -> Entering function.') }
 
       try {
@@ -326,14 +336,14 @@ function respondWithFile(fileName, response) {
   }
 }
 
-function respondWithImage(fileName, response) {
+function respondWithImage (fileName, response) {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithImage -> Entering function.') }
 
   let fs = require('fs')
   try {
     fs.readFile(fileName, onFileRead)
 
-    function onFileRead(err, file) {
+    function onFileRead (err, file) {
       if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithImage -> onFileRead -> Entering function.') }
 
       try {
@@ -353,7 +363,7 @@ function respondWithImage(fileName, response) {
   }
 }
 
-function returnEmptyArray(response) {
+function returnEmptyArray (response) {
   try {
     if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> returnEmptyArray -> Entering function.') }
 
@@ -369,7 +379,7 @@ function returnEmptyArray(response) {
   }
 }
 
-function respondWithSourceCode(requestParameters, response){
+function respondWithSourceCode (requestParameters, response) {
   let devTeam = requestParameters[2]
   let codeName = requestParameters[3]
   let moduleName = requestParameters[4]
@@ -377,14 +387,14 @@ function respondWithSourceCode(requestParameters, response){
   let filePath = devTeam + '/plotters/' + codeName + '/' + moduleName
 
   let cachedSourceCode = storageData.get(filePath)
-  if(cachedSourceCode){
+  if (cachedSourceCode) {
     respondWithContent(cachedSourceCode, response)
     return
   }
 
-  fileCloud.getBlobToText(devTeam.toLowerCase(), filePath, null, onDataArrived )
+  fileCloud.getBlobToText(devTeam.toLowerCase(), filePath, null, onDataArrived)
 
-  function onDataArrived(err, pData) {
+  function onDataArrived (err, pData) {
     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
       console.log('[ERROR] server -> onBrowserRequest -> respondWithSourceCode -> Could not read a file. ')
       console.log('[ERROR] server -> onBrowserRequest -> respondWithSourceCode -> err.message = ' + err.message)

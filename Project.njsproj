@@ -33,47 +33,18 @@
     <Compile Include="Ecosystem.js" />
     <Compile Include="Plotter.js" />
     <Compile Include="PlotterPanel.js" />
-    <Compile Include="Server\BotsScripts.js" />
-    <Compile Include="Server\Exchange\exchangeUtils.js" />
-    <Compile Include="Server\Exchange\Wrappers\beautifier.js" />
-    <Compile Include="Server\Exchange\Wrappers\binance.js" />
-    <Compile Include="Server\Exchange\Wrappers\binanceClient.js" />
-    <Compile Include="Server\Exchange\Wrappers\poloniex.js" />
-    <Compile Include="Server\Exchange\Wrappers\poloniexClient.js" />
     <Compile Include="Scripts\AppLoader.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Scripts\AppPreLoader.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Server\MinioStorage.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Server\SessionManager.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Server\AzureStorageAccessManager.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Scripts\require.js" />
-    <Compile Include="Server\ConfigReader.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Server\Github.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Server\AzureStorage.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="server.js" />
+    <Compile Include="Server\FileCloud.js" />
     <Content Include="index.html" />
-    <Content Include="Server\Exchange\Wrappers\binanceProperties.json" />
-    <Content Include="Server\Exchange\Wrappers\poloniexProperties.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Azure\" />
-    <Folder Include="Server\Exchange\" />
-    <Folder Include="Server\Exchange\Wrappers\" />
     <Folder Include="Scripts\" />
     <Folder Include="Server\" />
   </ItemGroup>

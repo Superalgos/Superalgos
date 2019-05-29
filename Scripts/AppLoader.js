@@ -38,11 +38,19 @@ function newAppLoader() {
         'TopSpace/Login.js',
 
         'StrategySpace/StrategizerGateway.js',
-        'StrategySpace/Workspace.js',
+        
         'StrategySpace/ConstGetStrategies.js',
         'StrategySpace/ConstNewStrategy.js',
         'StrategySpace/ConstUpdateStrategy.js',
         'StrategySpace/ConstDeleteStrategy.js',
+
+        'StrategySpace/Workspace/Workspace.js',
+        'StrategySpace/Workspace/FunctionLibraries/PartsFromNodes.js',
+        'StrategySpace/Workspace/FunctionLibraries/AttachDetach.js',
+        'StrategySpace/Workspace/FunctionLibraries/NodeDeleter.js',
+        'StrategySpace/Workspace/FunctionLibraries/ProtocolNode.js',
+          'StrategySpace/Workspace/FunctionLibraries/WorkspaceNode.js',
+                                                     
 
         'Utilities/RoundedCornersBackground.js',
 

@@ -168,5 +168,8 @@ Notice the red horizontal bars indicating the _stop_ value for each period (cand
 ![Trading-Simulation-Conditions](https://user-images.githubusercontent.com/13994516/58564448-3e304200-822d-11e9-967b-8c74fb8532fe.gif)
 <br/><br/>
 
+3. **Simulation Strategies**: The Simulation Strategies layer identifies trigger on and trigger off events, signaling the activation and deactivation of strategies.
 
+![Trading-Simulation-Strategies](https://user-images.githubusercontent.com/13994516/58565955-fd85f800-822f-11e9-9f95-9d0a477a4460.gif)
+<br/><br/>
 

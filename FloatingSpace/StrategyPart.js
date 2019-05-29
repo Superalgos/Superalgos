@@ -287,6 +287,13 @@ function newStrategyPart () {
             }
           }
         }
+        if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase') {
+          if (nearbyNode.payload.parentNode.maxPhases !== undefined) {
+            if (nearbyNode.payload.parentNode.phases.length >= nearbyNode.payload.parentNode.maxPhases) {
+              continue
+            }
+          }
+        }
         if (foundCompatible === false) {
           if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
             nearbyNode.payload.uiObject.getReadyToAttach()

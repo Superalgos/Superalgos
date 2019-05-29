@@ -5,7 +5,7 @@ import { EcosystemType } from '../types'
 const args = {}
 
 const resolve = async (parent, args, context) => {
-  logger.debug('getEcosystem -> Entering Fuction.')
+  logger.debug('getEcosystem -> Entering Function.')
 
   try {
     if (!context.userId) {

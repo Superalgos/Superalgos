@@ -44,7 +44,11 @@ const ecosystemSchema = new Schema({
       },
       type: {
         type: String,
-        required: false
+        required: true
+      },
+      profilePicture: {
+        type: String,
+        required: true
       },
       repo: {
         type: String,
@@ -225,13 +229,31 @@ const ecosystemSchema = new Schema({
         required: false
       },
       plotter: {
+        devTeam: {
+          type: String,
+          required: true
+        },
         codeName: {
           type: String,
-          required: false
+          required: true
         },
         host: {
-          type: String,
-          required: false
+          url: {
+            type: String,
+            required: true
+          },
+          storage: {
+            type: String,
+            required: true
+          },
+          container: {
+            type: String,
+            required: true
+          },
+          accessKey: {
+            type: String,
+            required: true
+          }
         },
         repo: {
           type: String,

@@ -55,7 +55,7 @@ export const copySimulator = async (storage, teamCodeName, botCodeName, botDispl
         await storage.writeFileContent(teamCodeName, newSimulatorPath + '/Multi-Period-Market/User.Bot.js', codeMarket)
 
         logger.debug('copySimulator completed for bot %s', newBotCodeName)
-
+        return parsedConfig
     } catch (err) {
         logger.error('copySimulator error for bot: %s. %s', botCodeName, err)
         throw err

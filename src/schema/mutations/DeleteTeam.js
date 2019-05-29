@@ -2,13 +2,13 @@ import logger from '../../utils/logger'
 import { AuthenticationError, WrongArgumentsError } from '../../errors'
 import { TeamType } from '../types'
 import { Ecosystem } from '../../models'
-import { TeamInputType } from '../types/input'
+import { DeleteTeamInputType } from '../types/input'
 import { deleteTeam } from '../../storage/DeleteTeam'
 
-export const args = { team: { type: TeamInputType } }
+export const args = { team: { type: DeleteTeamInputType } }
 
 const resolve = async (parent, { team }, context) => {
-  logger.debug('deleteTeam -> Entering Fuction.')
+  logger.debug('deleteTeam -> Entering Function.')
 
   if (!context.userId) {
     throw new AuthenticationError()

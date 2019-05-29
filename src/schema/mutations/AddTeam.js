@@ -3,12 +3,12 @@ import { AuthenticationError, WrongArgumentsError } from '../../errors'
 import { TeamType } from '../types'
 import { Ecosystem } from '../../models'
 import { TeamInputType } from '../types/input'
-import { createTeam } from '../../storage/CreateTeam'
+import { copyBots } from '../../storage/CopyBots'
 
 export const args = { team: { type: TeamInputType } }
 
 const resolve = async (parent, { team }, context) => {
-  logger.debug('addTeam -> Entering Fuction.')
+  logger.debug('addTeam -> Entering Function.')
 
   if (!context.userId) {
     throw new AuthenticationError()
@@ -34,34 +34,26 @@ const resolve = async (parent, { team }, context) => {
       }
     }
 
-    let accessKey = await createTeam(team)
+    let  storage = require ('../../storage/providers/AzureStorage') // Default value
+    if (process.env.STORAGE_PROVIDER === 'Minio') {
+        storage = require ('../../storage/providers/MinioStorage')
+    }
+
+    let containerName = team.codeName
+    await storage.createContainer(containerName)
+    let accessKey = storage.createPrivateAccessKey(containerName, "WRITE", 365)
+
+    let botsConfigurations = await copyBots(storage, team)
+    team.bots = botsConfigurations
     if (!team.host) {
       let nodeEndpoint = {
         url: process.env.SUPERALGOS_NODE_ENDPOINT,
+        storage: process.env.STORAGE_URL,
         container: team.codeName,
         accessKey: accessKey,
       }
       team.host = nodeEndpoint
     }
-
-    let bots = []
-    let tradingBot = {
-      codeName: team.bot.codeName,
-      displayName: team.bot.displayName,
-      repo: team.bot.codeName + '-Trading-Bot',
-      configFile: 'this.bot.config.json'
-    }
-    bots.push(tradingBot)
-
-    let simulatorBot = {
-      codeName: 'simulator-' + team.bot.codeName,
-      displayName: 'Simulator ' + team.bot.displayName,
-      repo: 'simulator-' + team.bot.codeName + '-Indicator-Bot',
-      configFile: 'this.bot.config.json'
-    }
-    bots.push(simulatorBot)
-
-    team.bots = bots
 
     userEcosystem.devTeams.push(team)
     await userEcosystem.save()

@@ -12,6 +12,7 @@ const BotType = new GraphQLObjectType({
     codeName: { type: GraphQLString },
     displayName: { type: GraphQLString },
     type: { type: GraphQLString },
+    profilePicture: { type: GraphQLString },
     repo: { type: GraphQLString },
     configFile: { type: GraphQLString },
     products: {

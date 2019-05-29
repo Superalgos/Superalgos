@@ -35,7 +35,7 @@ export const copyBot = async (storage, teamCodeName, botCodeName, botDisplayName
         await storage.writeFileContent(teamCodeName, newBotPath + '/Trading-Bot/User.Bot.js', code)
 
         logger.debug('copyBot completed for bot %s', botCodeName)
-
+        return parsedConfig
     } catch (err) {
         logger.error('copyBot error for bot: %s. %s', botCodeName, err)
         throw err

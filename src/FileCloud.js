@@ -137,7 +137,7 @@ function newFileCloud () {
 
           containerName = pDevTeam.codeName.toLowerCase()
 
-          blobService.getBlobToText(containerName, filePath + '/' + fileName, onFileReceived)
+          blobService.getBlobToText(containerName, filePath + '/' + fileName, pDevTeam.host, onFileReceived)
 
           function onFileReceived (err, text, response) {
             try {

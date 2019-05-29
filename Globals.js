@@ -134,6 +134,8 @@ if (testUser !== null) {
   LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY = "access_token"
 }
 
+const DEFAULT_FORMULA_TEXT = '// Write your formula here'
+
 const USDT_BTC_HTH = 19900; // This is needed to know the scale of the market time line.
 
 const WIDHTER_VOLUME_BAR_BASE_FACTOR = 2.5;

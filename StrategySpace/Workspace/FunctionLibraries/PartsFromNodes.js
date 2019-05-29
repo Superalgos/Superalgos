@@ -391,7 +391,9 @@ function newPartsFromNodes () {
 
   function addFormula (node) {
     if (node.formula === undefined) {
-      node.formula = {}
+      node.formula = {
+        code: DEFAULT_FORMULA_TEXT
+      }
       createPart('Formula', '', node.formula, node, node)
     }
   }
@@ -417,7 +419,9 @@ function newPartsFromNodes () {
     let m = phaseParent.phases.length
     let phase = {
       name: 'New Phase',
-      formula: {},
+      formula: {
+        code: DEFAULT_FORMULA_TEXT
+      },
       nextPhaseEvent: {
         situations: []
       }

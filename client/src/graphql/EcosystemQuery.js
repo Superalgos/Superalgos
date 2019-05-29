@@ -17,6 +17,7 @@ export const ECOSYSTEM_QUERY = gql`
           codeName
           displayName
           type
+          profilePicture
           repo
           configFile
           products{

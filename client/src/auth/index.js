@@ -252,8 +252,6 @@ class Auth {
       }
       setItem('user', JSON.stringify(user))
 
-      await setInitialEcosystem()
-
       window.location.href = '/'
       return response.data
     } catch (err) {

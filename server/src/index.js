@@ -70,23 +70,27 @@ async function run () {
     'logs_',
     process.env.LOGS_API_URL,
     process.env.LOGS_API_PRESHARED)
-  const transformeStrategizerSchema = await createTransformedRemoteSchema(
+  const transformedStrategizerSchema = await createTransformedRemoteSchema(
     'strategizer_',
     process.env.STRATEGIZER_API_URL,
     process.env.STRATEGIZER_API_PRESHARED)
-  const transformeCockpitSchema = await createTransformedRemoteSchema(
+  const transformedCockpitSchema = await createTransformedRemoteSchema(
     'cockpit_',
     process.env.COCKPIT_API_URL,
     process.env.COCKPIT_API_PRESHARED)
+  const transformedSAWeb = await createTransformedRemoteSchema(
+      'web_',
+      process.env.SAWEB_API_URL,
+      process.env.SAWEB_API_PRESHARED)
 
   var schemas = []
   var resolvers = {}
 
   if (transformedTeamsSchema) {
     schemas.push(transformedTeamsSchema)
-    if (transformedUsersSchema && transformedEventsSchema && transformeStrategizerSchema) {
+    if (transformedUsersSchema && transformedEventsSchema && transformedStrategizerSchema) {
       schemas.push(teams.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema, transformedEventsSchema, transformeStrategizerSchema))
+      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema, transformedEventsSchema, transformedStrategizerSchema))
     }
   }
   if (transformedUsersSchema) {
@@ -104,9 +108,9 @@ async function run () {
   }
   if (transformedOperationsSchema) {
     schemas.push(transformedOperationsSchema)
-    if (transformedTeamsSchema && transformeCockpitSchema) {
+    if (transformedTeamsSchema && transformedCockpitSchema) {
       schemas.push(operations.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, operations.resolver(transformedTeamsSchema, transformeCockpitSchema))
+      resolvers = Object.assign(resolvers, operations.resolver(transformedTeamsSchema, transformedCockpitSchema))
     }
   }
   if (transformedNotificationsSchema) {
@@ -115,11 +119,14 @@ async function run () {
   if (transformedLogsSchema) {
     schemas.push(transformedLogsSchema)
   }
-  if (transformeStrategizerSchema) {
-    schemas.push(transformeStrategizerSchema)
+  if (transformedStrategizerSchema) {
+    schemas.push(transformedStrategizerSchema)
   }
-  if (transformeCockpitSchema) {
-    schemas.push(transformeCockpitSchema)
+  if (transformedCockpitSchema) {
+    schemas.push(transformedCockpitSchema)
+  }
+  if (transformedSAWeb) {
+    schemas.push(transformedSAWeb)
   }
 
   const schema = mergeSchemas({

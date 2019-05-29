@@ -9,6 +9,8 @@ import { client } from '../graphql/apollo'
 
 import { AUTH_CONFIG } from './Auth0' // create by renaming Auth0.sample.js to Auth0.js and setting vars
 
+import { setInitialEcosystem } from '../utils/ecosystem'
+
 const AUTHENTICATE = gql`
   mutation authenticate($idToken: String!) {
     users_Authenticate(idToken: $idToken) {
@@ -249,6 +251,7 @@ class Auth {
         }
       }
       setItem('user', JSON.stringify(user))
+
       window.location.href = '/'
       return response.data
     } catch (err) {
@@ -261,6 +264,7 @@ class Auth {
     window.localStorage.removeItem('access_token')
     window.localStorage.removeItem('user')
     window.localStorage.removeItem('name')
+    window.localStorage.removeItem('ecosystem')
     deleteCookie('ajs_anonymous_id')
     deleteCookie('ajs_user_id')
     deleteCookie('current_tenant')

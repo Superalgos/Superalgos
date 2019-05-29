@@ -42,14 +42,22 @@ function newStrategySpace () {
     const relationshipArray = [
       ['Trading System', 'analysis'],
       ['Strategy', 'quality'],
+      ['Trigger Stage', 'chronometer'],
+      ['Open Stage', 'photo-camera'],
+      ['Manage Stage', 'video-player'],
+      ['Close Stage', 'timeline'],
       ['Trigger On Event', 'startup'],
       ['Trigger Off Event', 'support'],
       ['Take Position Event', 'compass'],
+      ['Initial Definition', 'task'],
       ['Stop', 'pixel'],
       ['Take Profit', 'competition'],
       ['Phase', 'placeholder'],
+      ['Formula', 'pipette'],
+      ['Next Phase Event', 'schedule'],
       ['Situation', 'pyramid'],
-      ['Condition', 'testing']
+      ['Condition', 'testing'],
+      ['Code', 'html']
     ]
 
     for (let i = 0; i < relationshipArray.length; i++) {

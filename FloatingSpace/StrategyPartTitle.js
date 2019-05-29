@@ -56,6 +56,18 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
+      case 'Trigger Stage': {
+        break
+      }
+      case 'Open Stage': {
+        break
+      }
+      case 'Manage Stage': {
+        break
+      }
+      case 'Close Stage': {
+        break
+      }
       case 'Trigger On Event': {
         break
       }
@@ -63,6 +75,9 @@ function newStrategyPartTitle () {
         break
       }
       case 'Take Position Event': {
+        break
+      }
+      case 'Initial Definition': {
         break
       }
       case 'Stop': {
@@ -74,10 +89,19 @@ function newStrategyPartTitle () {
       case 'Phase': {
         break
       }
+      case 'Formula': {
+        break
+      }
+      case 'Next Phase Event': {
+        break
+      }
       case 'Situation': {
         break
       }
       case 'Condition': {
+        break
+      }
+      case 'Code': {
         break
       }
       default: {
@@ -262,4 +286,3 @@ function newStrategyPartTitle () {
     return title
   }
 }
-

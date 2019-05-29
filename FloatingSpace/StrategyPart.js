@@ -20,6 +20,7 @@ function newStrategyPart () {
     isRunning: undefined,
     run: run,
     setRunningStatus: setRunningStatus,
+    setNotRunningStatus: setNotRunningStatus,
     getReadyToAttach: getReadyToAttach,
     showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
@@ -185,16 +186,68 @@ function newStrategyPart () {
         compatibleType = 'Trading System'
         compatibleSubType = undefined
         break
+      case 'Trigger Stage':
+        compatibleType = 'Strategy'
+        compatibleSubType = undefined
+        break
+      case 'Open Stage':
+        compatibleType = 'Strategy'
+        compatibleSubType = undefined
+        break
+      case 'Manage Stage':
+        compatibleType = 'Strategy'
+        compatibleSubType = undefined
+        break
+      case 'Close Stage':
+        compatibleType = 'Strategy'
+        compatibleSubType = undefined
+        break
+      case 'Take Position Event':
+        compatibleType = 'Trigger Stage'
+        compatibleSubType = undefined
+        break
+      case 'Trigger Off Event':
+        compatibleType = 'Trigger Stage'
+        compatibleSubType = undefined
+        break
+      case 'Trigger On Event':
+        compatibleType = 'Trigger Stage'
+        compatibleSubType = undefined
+        break
+      case 'Initial Definition':
+        compatibleType = 'Open Stage'
+        compatibleSubType = undefined
+        break
+      case 'Stop':
+        compatibleType = 'Manage Stage' + '.' + 'Initial Definition'
+        compatibleSubType = undefined
+        break
+      case 'Take Profit':
+        compatibleType = 'Manage Stage' + '.' + 'Initial Definition'
+        compatibleSubType = undefined
+        break
       case 'Phase':
         compatibleType = 'Stop' + '.' + 'Take Profit' + '.' + 'Phase'
         compatibleSubType = undefined
         break
+      case 'Formula':
+        compatibleType = 'Phase'
+        compatibleSubType = undefined
+        break
+      case 'Next Phase Event':
+        compatibleType = 'Phase'
+        compatibleSubType = undefined
+        break
       case 'Situation':
-        compatibleType = 'Phase' + '.' + 'Take Position Event' + '.' + 'Trigger On Event' + '.' + 'Trigger Off Event'
+        compatibleType = 'Take Position Event' + '.' + 'Trigger On Event' + '.' + 'Trigger Off Event' + '.' + 'Next Phase Event'
         compatibleSubType = undefined
         break
       case 'Condition':
         compatibleType = 'Situation'
+        compatibleSubType = undefined
+        break
+      case 'Code':
+        compatibleType = 'Condition'
         compatibleSubType = undefined
         break
       default:
@@ -210,7 +263,37 @@ function newStrategyPart () {
       let floatingObject = nearby[1]
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf(nearbyNode.type) >= 0) {
+        /* Discard objects with busy coonection ports */
+        if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Open Stage' && nearbyNode.openStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Manage Stage' && nearbyNode.manageStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Close Stage' && nearbyNode.closeStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Take Position Event' && nearbyNode.takePosition !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trigger Off Event' && nearbyNode.triggerOff !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trigger On Event' && nearbyNode.triggerOn !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Initial Definition' && nearbyNode.initialDefinition !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Stop' && nearbyNode.stopLoss !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Take Profit' && nearbyNode.takeProfit !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Formula' && nearbyNode.formula !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Next Phase Event' && nearbyNode.nextPhaseEvent !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Code' && nearbyNode.code !== undefined) { continue }
+        /* Discard Phases without partent */
         if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
+        /* Control maxPhases */
+        if (thisObject.payload.node.type === 'Phase') {
+          if (nearbyNode.maxPhases !== undefined) {
+            if (nearbyNode.phases.length >= nearbyNode.maxPhases) {
+              continue
+            }
+          }
+        }
+        if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase') {
+          if (nearbyNode.payload.parentNode.maxPhases !== undefined) {
+            if (nearbyNode.payload.parentNode.phases.length >= nearbyNode.payload.parentNode.maxPhases) {
+              continue
+            }
+          }
+        }
         if (foundCompatible === false) {
           if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
             nearbyNode.payload.uiObject.getReadyToAttach()
@@ -262,10 +345,16 @@ function newStrategyPart () {
 
   function detachingPhysics () {
     if (isDragging !== true) { return }
+    if (thisObject.isFrozen === true) { return }
 
     let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
     let ratio = distanceToChainParent / previousDistance
+    if (previousDistance === 0) {
+      previousDistance = distanceToChainParent
+      return
+    }
     previousDistance = distanceToChainParent
+
     if (thisObject.isOnFocus !== true) { return }
     if (thisObject.payload.chainParent === undefined) { return }
     if (thisObject.payload.parentNode === undefined) { return }
@@ -311,14 +400,19 @@ function newStrategyPart () {
   }
 
   function run () {
-    canvas.strategySpace.workspace.tradingSystem = thisObject.payload.node
-    canvas.cockpitSpace.restartSimulation.restart()
     setRunningStatus()
+    canvas.cockpitSpace.restartSimulation.restart()
   }
 
   function setRunningStatus () {
+    canvas.strategySpace.workspace.tradingSystem = thisObject.payload.node
     thisObject.isRunning = true
     runningCounter = 30
+  }
+
+  function setNotRunningStatus () {
+    canvas.strategySpace.workspace.tradingSystem = undefined
+    thisObject.isRunning = false
   }
 
   function iconPhysics () {
@@ -431,10 +525,17 @@ function newStrategyPart () {
     if (thisObject.container.frame.radius > 1) {
             /* Target Line */
 
+      let LINE_STYLE
+      if (thisObject.payload.floatingObject.isFrozen === true) {
+        LINE_STYLE = UI_COLOR.TURQUOISE
+      } else {
+        LINE_STYLE = UI_COLOR.TITANIUM_YELLOW
+      }
+
       browserCanvasContext.beginPath()
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
-      browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
+      browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
       browserCanvasContext.setLineDash([3, 4])
       browserCanvasContext.lineWidth = 2
       browserCanvasContext.stroke()

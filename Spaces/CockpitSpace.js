@@ -54,7 +54,14 @@
      } else {
        INITIAL_POSITION = 100
      }
+
      thisObject.container.frame.position.y = browserCanvas.height * INITIAL_POSITION / 100 - COCKPIT_SPACE_HEIGHT
+
+     let localStorage = window.localStorage.getItem(MODULE_NAME)
+     if (localStorage !== null) {
+       storage = JSON.parse(localStorage)
+       thisObject.container.frame.position.y = storage.spacePosition
+     }
 
      canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
      selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
@@ -126,6 +133,10 @@
      }
 
      COCKPIT_SPACE_POSITION = thisObject.container.frame.position.y
+     let storage = {
+       spacePosition: COCKPIT_SPACE_POSITION
+     }
+     window.localStorage.setItem(MODULE_NAME, JSON.stringify(storage))
      viewPort.resize()
    }
 

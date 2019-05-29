@@ -16,14 +16,19 @@ function newFloatingObject () {
     currentSpeed: 0,                        // This is the current speed of the floating object.
     currentMass: 0,                         // This is the current mass of the floating object, including its zoom applied.
     friction: 0,                            // This is a factor that will ultimatelly desacelerate the floating object.
+    targetFriction: 0,
     rawMass: 0,                             // This is the mass value without zoom.
     rawRadius: 0,                           // This is the radius of this floating object without zoom.
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
+    isFrozen: false,
+    frozenManually: false,
     getPinStatus: getPinStatus,
+    getFreezeStatus: getFreezeStatus,
     nearbyFloatingObjects: [],
     setPosition: setPosition,
     pinToggle: pinToggle,
+    freezeToggle: freezeToggle,
     physics: physics,
     initializeMass: initializeMass,
     initializeRadius: initializeRadius,
@@ -115,9 +120,34 @@ function newFloatingObject () {
     return thisObject.isPinned
   }
 
+  function getFreezeStatus () {
+    return thisObject.isFrozen
+  }
+
+  function freezeToggle () {
+    if (thisObject.isFrozen !== true) {
+      thisObject.isFrozen = true
+      thisObject.frozenManually = true
+    } else {
+      thisObject.isFrozen = false
+      thisObject.frozenManually = false
+    }
+    return thisObject.isFrozen
+  }
+
   function physics () {
     thisObjectPhysics()
     thisObject.payload.uiObject.physics()
+    frozenPhysics()
+  }
+
+  function frozenPhysics () {
+    if (thisObject.frozenManually === false) {
+      let parent = thisObject.payload.chainParent
+      if (parent !== undefined) {
+        thisObject.isFrozen = parent.payload.floatingObject.isFrozen
+      }
+    }
   }
 
   function thisObjectPhysics () {

@@ -61,8 +61,8 @@ function newCodeEditor () {
       }
       thisObject.iconNOT_OK.src = window.canvasApp.urlPrefix + thisObject.imagePathNOT_OK
     }
-    thisObject.iconOK.src = window.canvasApp.urlPrefix + thisObject.imagePathOK
-    thisObject.icon = thisObject.iconOK // The default value is ON.
+    // thisObject.iconOK.src = window.canvasApp.urlPrefix + thisObject.imagePathOK
+    // thisObject.icon = thisObject.iconOK // The default value is ON.
   }
 
   function deactivate () {

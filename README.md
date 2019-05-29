@@ -140,6 +140,33 @@ The chart features lines at %B value 30 and 70 since those are the most common v
 
 1. **Trading Simulation**: The Trading Simulation layer displays a backtest + fordwardtest (paper trading) of whatever strategies you have created in the system. At sign up, you are provided with an initial set of strategies so that you can be up and running as quickly as possible. By activating the Trading Simulation layer you should be able to see something like this:
 
-![Trading-Simulation](https://user-images.githubusercontent.com/13994516/58548756-3f9c4300-820a-11e9-9b39-cb7e11ae0ee6.gif)
+![Trading-Simulation](https://user-images.githubusercontent.com/13994516/58564550-6c158680-822d-11e9-8bb1-102912d4bfd0.gif)
 <br/><br/>
+
+Notice Asset Balances in the bottom left corner of the screen. Asset A is your _base asset_.
+
+![Trading-Simulation-Asset-Balances](https://user-images.githubusercontent.com/13994516/58564447-3e304200-822d-11e9-9e90-e4f02212de5a.gif)
+<br/><br/>
+
+The dashed line represents the duration of the trade at the price of the _take profit_ event. Notice how the _base asset_ is exchanged for Asset B and back to the _base asset_ as the trade closes.
+
+![Trading-Simulation-Trade-Duration](https://user-images.githubusercontent.com/13994516/58564452-3ec8d880-822d-11e9-8b4e-4cd892df69e7.gif)
+<br/><br/>
+
+Notice the green horizontal bars indicating the _take profit_ value for each period (candle). _Take profit_ is managed in _phases_, marked with the corresponding icons.
+
+![Trading-Simulation-Take-Profit](https://user-images.githubusercontent.com/13994516/58564451-3ec8d880-822d-11e9-84c4-7e2147018297.gif)
+<br/><br/>
+
+Notice the red horizontal bars indicating the _stop_ value for each period (candle). Stop is managed in _phases_, marked with the corresponding icons.
+
+![Trading-Simulation-Stop](https://user-images.githubusercontent.com/13994516/58564450-3e304200-822d-11e9-8281-cc4b9cc22746.gif)
+<br/><br/>
+
+2. **Trading Conditions**: The Trading Conditions layer helps identify which _conditions_ are met at each candle. Notice how _conditions_ are highlighted as the cursor moves through different candles.
+
+![Trading-Simulation-Conditions](https://user-images.githubusercontent.com/13994516/58564448-3e304200-822d-11e9-967b-8c74fb8532fe.gif)
+<br/><br/>
+
+
 

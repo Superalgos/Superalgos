@@ -5,7 +5,7 @@
 			"codeName": "AAMasters",
 			"displayName": "Masters",
 			"host": {
-				"url": "http://localhost:4100/",
+				"url": "https://platform-api-dev.superalgos.org/g",
 				"storage": "https://aadevelop.blob.core.windows.net",
 				"container": "aamasters",
 				"accessKey": "?st=2019-05-21T12%3A00%3A00Z&se=2020-05-22T12%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=PsGM67klPfLjdfjymziEQEQcD5Wzy3SMcZWsTCQrhd8%3D"
@@ -725,7 +725,7 @@
 			"codeName": "AAVikings",
 			"displayName": "Vikings",
 			"host": {
-				"url": "http://localhost:4100/",
+				"url": "https://platform-api-dev.superalgos.org/g",
 				"container": "aavikings",
 				"storage": "https://aadevelop.blob.core.windows.net",
 				"accessKey": "?st=2019-05-20T12%3A00%3A00Z&se=2020-05-21T12%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=hJuV9aEP4KVZo5z54FEF1BQtkbksfwkTJFv1FYkHFRg%3D"
@@ -832,7 +832,7 @@
 			"codeName": "AAMasters",
 			"displayName": "AA Arena",
 			"host": {
-				"url": "http://localhost:4100/",
+				"url": "https://platform-api-dev.superalgos.org/g",
 				"storage": "https://aadevelop.blob.core.windows.net",
 				"container": "aaplatform",
 				"accessKey": "?sv=2018-03-28&ss=b&srt=co&sp=rw&se=2020-01-04T00:00:00Z&st=2019-01-08T11:25:04Z&spr=https&sig=xZU1PO%2BdtVilqlZp%2BVRWW55LYl8oGZU7x4JnP%2BhMc%2FY%3D"
@@ -849,7 +849,7 @@
 						"devTeam": "AAMasters",
 						"codeName": "PlottersROI",
 						"host": {
-							"url": "http://localhost:4100/",
+							"url": "https://platform-api-dev.superalgos.org/g",
 							"storage": "https://aadevelop.blob.core.windows.net",
 							"container": "aamasters",
 							"accessKey": "?st=2019-05-21T12%3A00%3A00Z&se=2020-05-22T12%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=PsGM67klPfLjdfjymziEQEQcD5Wzy3SMcZWsTCQrhd8%3D"

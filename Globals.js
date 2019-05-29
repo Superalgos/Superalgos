@@ -135,6 +135,7 @@ if (testUser !== null) {
 }
 
 const DEFAULT_FORMULA_TEXT = '// Write your formula here'
+const DEFAULT_CODE_TEXT = '// Write your code here'
 
 const USDT_BTC_HTH = 19900; // This is needed to know the scale of the market time line.
 

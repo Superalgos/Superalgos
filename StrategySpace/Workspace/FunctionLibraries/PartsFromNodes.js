@@ -409,7 +409,9 @@ function newPartsFromNodes () {
 
   function addCode (node) {
     if (node.code === undefined) {
-      node.code = {}
+      node.code = {
+        code: DEFAULT_CODE_TEXT
+      }
       createPart('Code', '', node.code, node, node)
     }
   }
@@ -453,7 +455,9 @@ function newPartsFromNodes () {
     let m = situation.conditions.length
     let condition = {
       name: 'New Condition',
-      code: {}
+      code: {
+        code: DEFAULT_CODE_TEXT
+      }
     }
     situation.conditions.push(condition)
     createPart('Condition', condition.name, condition, situation, situation, 'Condition')

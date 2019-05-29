@@ -1,19 +1,6 @@
-﻿
-function getNewPlotterPanel(pDevTeamOrHost, pPlotter, pModule, pPanel) {
-
-    let plotterPanel;
-    let fullCode = pDevTeamOrHost + pPlotter + pModule + pPanel;
-    fullCode = fullCode.replace(/-/g, "");
-
-    switch (fullCode) {
-
-// Cases 
-
-        default:
-            {
-                throw ("getNewPlotterPanel: " + fullCode + " not found.")
-            }
-    }
-
-    return plotterPanel;
+﻿function getNewPlotterPanel(pDevTeamOrHost, pPlotter, pModule, pPanel) {
+    let functionName = pDevTeamOrHost + pPlotter + pModule + pPanel;
+    functionName = functionName.replace(/-/g, "");
+    functionName = 'new' + functionName
+    return window[functionName]();
 }

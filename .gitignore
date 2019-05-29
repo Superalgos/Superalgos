@@ -6,8 +6,6 @@ bin/*
 
 .env
 .env.dev
-this.server.config.json
-this.server.config.dev.json
 
 /node_modules
 /dependency

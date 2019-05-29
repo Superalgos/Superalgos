@@ -30,14 +30,6 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AABrowserAPI\CopySimulator.js" />
-    <Compile Include="AABrowserAPI\TeamSetup.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="AABrowserAPI\UserAuthentication.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Azure\azure-storage.blob.js" />
     <Compile Include="Ecosystem.js" />
     <Compile Include="Plotter.js" />
     <Compile Include="PlotterPanel.js" />
@@ -77,12 +69,10 @@
     <Content Include="index.html" />
     <Content Include="Server\Exchange\Wrappers\binanceProperties.json" />
     <Content Include="Server\Exchange\Wrappers\poloniexProperties.json" />
-    <Content Include="this.server.config.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Azure\" />
     <Folder Include="Server\Exchange\" />
-    <Folder Include="AABrowserAPI\" />
     <Folder Include="Server\Exchange\Wrappers\" />
     <Folder Include="Scripts\" />
     <Folder Include="Server\" />

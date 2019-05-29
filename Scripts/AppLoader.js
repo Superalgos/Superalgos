@@ -1,10 +1,9 @@
 let dashboard
 
-function newAppLoader () {
+function newAppLoader() {
   const MODULE_NAME = 'App Loader'
   const INFO_LOG = false
   const ERROR_LOG = true
-  const INTENSIVE_LOG = false
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
@@ -14,17 +13,15 @@ function newAppLoader () {
 
   return thisObject
 
-  function loadModules () {
+  async function loadModules() {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] loadModules -> Entering function.') }
 
+      let ecosystem = await loadEcosystem()
+      window.localStorage.setItem('ecosystem', JSON.stringify(ecosystem))
+      let plotters = getPlotters(ecosystem)
+
       let modulesArray = [
-
-                /* CloudWebScripts */
-
-                /* Plotters */
-
-                /* PlotterPanels */
 
         'Globals.js',
         'Ecosystem.js',
@@ -38,7 +35,6 @@ function newAppLoader () {
         'ChartsSpace/TimeLineCoordinateSystem.js',
 
         'TopSpace/CurrentEvent.js',
-        'TopSpace/EndUser.js',
         'TopSpace/Login.js',
 
         'StrategySpace/StrategizerGateway.js',
@@ -96,14 +92,14 @@ function newAppLoader () {
 
         'Scales/RateScale.js',
         'Scales/TimeScale.js',
-          'Scales/TimePeriodScale.js',
-          'Scales/Commons.js',
+        'Scales/TimePeriodScale.js',
+        'Scales/Commons.js',
 
         'CockpitSpace/AssetBalances.js',
         'CockpitSpace/Speedometer.js',
-        'CockpitSpace/RestartSimulation.js', 
-          'CockpitSpace/GraphQLRestartSimulation.js',
-          'CockpitSpace/FullScreen.js',
+        'CockpitSpace/RestartSimulation.js',
+        'CockpitSpace/GraphQLRestartSimulation.js',
+        'CockpitSpace/FullScreen.js',
 
         'Plotter.js',
         'PlotterPanel.js',
@@ -121,11 +117,11 @@ function newAppLoader () {
         'Container.js',
         'Displace.js',
 
-        'Azure/azure-storage.blob.js',
-
         'Utilities.js',
         'Dashboard.js'
       ]
+
+      modulesArray = modulesArray.concat(plotters)
 
       let downloadedCounter = 0
       let versionParam = window.canvasApp.version
@@ -142,7 +138,7 @@ function newAppLoader () {
         if (INFO_LOG === true) { logger.write('[INFO] loadModules -> path = ' + path) }
         if (INFO_LOG === true) { logger.write('[INFO] loadModules -> total requested = ' + (i + 1)) }
 
-        function onRequired (pModule) {
+        function onRequired(pModule) {
           try {
             if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> Entering function.') }
             if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> Module Downloaded.') }
@@ -168,4 +164,207 @@ function newAppLoader () {
       if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> err = ' + err) }
     }
   }
+
+  async function loadEcosystem() {
+    if (INFO_LOG === true) { logger.write('[INFO] loadEcosystem -> Entering function.') }
+
+    let headers
+    let accessToken = window.localStorage.getItem('access_token')
+    if (accessToken !== null) {
+      headers = {
+        authorization: 'Bearer ' + accessToken
+      }
+    }
+
+    let response = await axios({
+      url: window.canvasApp.graphQL.masterAppApiUrl,
+      method: 'post',
+      data: {
+        query: `
+          query {
+            web_GetEcosystem {
+              id
+              devTeams {
+                codeName
+                displayName
+                host {
+                  url
+                  storage
+                  container
+                  accessKey
+                }
+                bots {
+                  codeName
+                  displayName
+                  type
+                  profilePicture
+                  repo
+                  configFile
+                  products{
+                    codeName
+                    displayName
+                    description
+                    dataSets{
+                      codeName
+                      type
+                      validPeriods
+                      filePath
+                      fileName
+                      dataRange{
+                        filePath
+                        fileName
+                      }
+                    }
+                    exchangeList{
+                      name
+                    }
+                    plotter{
+                      devTeam
+                      codeName
+                      moduleName
+                      repo
+                    }
+                  }
+                }
+                plotters {
+                  codeName
+                  displayName
+                  modules{
+                    codeName
+                    moduleName
+                    description
+                    profilePicture
+                    panels{
+                      codeName
+                      moduleName
+                      event
+                    }
+                  }
+                  repo
+                  configFile
+                }
+              }
+              hosts {
+                codeName
+                displayName
+                host {
+                  url
+                  storage
+                  container
+                  accessKey
+                }
+                competitions {
+                  codeName
+                  displayName
+                  description
+                  startDatetime
+                  finishDatetime
+                  formula
+                  plotter{
+                    devTeam
+                    codeName
+                    host{
+                      url
+                      storage
+                      container
+                      accessKey
+                    }
+                    moduleName
+                    repo
+                  }
+                  rules
+                  prizes
+                  participants
+                  repo
+                  configFile
+                }
+                plotters {
+                  codeName
+                  displayName
+                  modules{
+                    codeName
+                    moduleName
+                    description
+                    profilePicture
+                    panels{
+                      codeName
+                      moduleName
+                      event
+                    }
+                  }
+                  repo
+                  configFile
+                }
+              }
+            }
+          }
+          `
+      },
+      headers: headers
+    })
+
+    if (response.data.errors) {
+      if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> loadEcosystem -> response.text = ' + JSON.stringify(res.data.errors)) }
+      throw error
+    }
+
+    return response.data.data.web_GetEcosystem
+  }
+
+  function getPlotters(ecosystem) {
+    if (INFO_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> Entering function.') }
+
+
+    let plotters = []
+    let devTeams = ecosystem.devTeams
+    let hosts = ecosystem.hosts
+
+    plotters = plotters.concat(addScript(devTeams))
+    plotters = plotters.concat(addScript(hosts))
+
+    return plotters
+  }
+
+  function addScript(pDevTeamsOrHosts) {
+    if (INFO_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> addScript -> Entering function.') }
+    const htmlLinePlotter = 'Plotters/@devTeam@/@repo@/@module@.js'
+    const htmlLinePlotterPanel = 'PlotterPanels/@devTeam@/@repo@/@module@.js'
+    let plotters = []
+
+    for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
+      let devTeam = pDevTeamsOrHosts[i]
+      for (let j = 0; j < devTeam.plotters.length; j++) {
+        let plotter = devTeam.plotters[j]
+        if (plotter.modules !== undefined) {
+          for (let k = 0; k < plotter.modules.length; k++) {
+            let module = plotter.modules[k]
+            let htmlLineCopy = htmlLinePlotter
+
+            let stringToInsert
+            stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName)
+            stringToInsert = stringToInsert.replace('@repo@', plotter.repo)
+            stringToInsert = stringToInsert.replace('@module@', module.moduleName)
+
+            plotters.push(stringToInsert)
+
+            if (module.panels !== undefined) {
+              for (let l = 0; l < module.panels.length; l++) {
+                let panel = module.panels[l]
+                let htmlLineCopy = htmlLinePlotterPanel
+
+                let stringToInsert
+                stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName)
+                stringToInsert = stringToInsert.replace('@repo@', plotter.repo)
+                stringToInsert = stringToInsert.replace('@module@', panel.moduleName)
+
+                plotters.push(stringToInsert)
+              }
+            }
+          }
+        }
+      }
+    }
+    return plotters
+  }
+
 }

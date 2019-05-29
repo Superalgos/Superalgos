@@ -279,6 +279,14 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Code' && nearbyNode.code !== undefined) { continue }
         /* Discard Phases without partent */
         if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
+        /* Control maxPhases */
+        if (thisObject.payload.node.type === 'Phase') {
+          if (nearbyNode.maxPhases !== undefined) {
+            if (nearbyNode.phases.length >= nearbyNode.maxPhases) {
+              continue
+            }
+          }
+        }
         if (foundCompatible === false) {
           if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
             nearbyNode.payload.uiObject.getReadyToAttach()

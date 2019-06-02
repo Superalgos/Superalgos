@@ -3,7 +3,7 @@ import {
   GraphQLString,
   GraphQLID,
 } from 'graphql';
-import GraphQLJSON from 'graphql-type-json';
+import GraphQLJSON from './GraphQLJSONObject';
 
 const Type = new GraphQLObjectType({
   name: 'TradingSystem',

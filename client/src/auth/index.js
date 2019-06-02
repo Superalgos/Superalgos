@@ -2,12 +2,14 @@ import Auth0Lock from 'auth0-lock'
 import gql from 'graphql-tag'
 
 import { getItem, setItem } from '../utils/local-storage'
-import { validObject, deleteCookie } from '../utils/js-helpers'
+import { validObject, deleteCookie, slugify, isEmpty } from '../utils/js-helpers'
 import Log from '../utils/log'
 
 import { client } from '../graphql/apollo'
 
 import { AUTH_CONFIG } from './Auth0' // create by renaming Auth0.sample.js to Auth0.js and setting vars
+
+import { setInitialEcosystem } from '../utils/ecosystem'
 
 const AUTHENTICATE = gql`
   mutation authenticate($idToken: String!) {
@@ -25,6 +27,25 @@ const VERIFY_TEAM_INVITE = gql`
       team {
         slug
       }
+    }
+  }
+`
+const GET_TEAMS_BY_OWNER = gql`
+  query teamsByOwnerQuery {
+    teams_TeamsByOwner {
+      id
+      name
+      slug
+    }
+  }
+`
+
+const CREATE_TEAM = gql`
+  mutation CreateTeamMutation($name: String!, $slug: String!, $botName: String!, $botSlug: String!) {
+    teams_CreateTeam(name: $name, slug: $slug, botName: $botName, botSlug: $botSlug) {
+      id
+      name
+      slug
     }
   }
 `
@@ -203,7 +224,34 @@ class Auth {
         authId: response.data.users_Authenticate.authId,
         alias: response.data.users_Authenticate.alias
       }
+      if (validObject(user, 'alias')) {
+        Log.info(user.alias)
+        const existingTeam = await client.query({
+          query: GET_TEAMS_BY_OWNER
+        })
+        Log.info(existingTeam)
+        Log.info(existingTeam.data.teams_TeamsByOwner)
+        if (validObject(existingTeam.data, 'teams_TeamsByOwner') && isEmpty(existingTeam.data.teams_TeamsByOwner)) {
+          const slug = slugify(user.alias)
+          const newTeam = await client.mutate({
+            mutation: CREATE_TEAM,
+            variables: {
+              name: slug,
+              slug: slug,
+              botName: `bot-${slug}`,
+              botSlug: `bot-${slug}`
+            }
+          })
+          Log.info(newTeam)
+          Log.info(newTeam.data.teams_CreateTeam)
+          if (!validObject(newTeam.data, 'teams_CreateTeam') || isEmpty(newTeam.data.teams_CreateTeam)) {
+            throw newTeam.data.error
+          }
+          Log.info('Team and Bot Creation Success')
+        }
+      }
       setItem('user', JSON.stringify(user))
+
       window.location.href = '/'
       return response.data
     } catch (err) {
@@ -213,7 +261,10 @@ class Auth {
 
   logout () {
     // Clear access token and ID token from local storage
-    window.localStorage.clear()
+    window.localStorage.removeItem('access_token')
+    window.localStorage.removeItem('user')
+    window.localStorage.removeItem('name')
+    window.localStorage.removeItem('ecosystem')
     deleteCookie('ajs_anonymous_id')
     deleteCookie('ajs_user_id')
     deleteCookie('current_tenant')

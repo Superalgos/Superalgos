@@ -15,7 +15,9 @@ const authRetryLink = onError(
       // User access token has expired
       // console.log('authLink: ', graphQLErrors) // check for error message to intercept and resend with Auth0 access token
       if (graphQLErrors[0].message === 'Context creation failed: jwt expired') {
-        window.localStorage.clear()
+        window.localStorage.removeItem('access_token')
+        window.localStorage.removeItem('user')
+        window.localStorage.removeItem('name')
         location.reload()
       } else if (graphQLErrors[0].message === 'Not logged in') {
         // We assume we have auth0 access token needed to run the async request
@@ -74,7 +76,7 @@ const defaultOptions = {
     errorPolicy: 'all'
   },
   query: {
-    fetchPolicy: 'cache-and-network',
+    fetchPolicy: 'network-only',
     errorPolicy: 'all'
   },
   mutate: {

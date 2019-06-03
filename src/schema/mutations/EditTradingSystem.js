@@ -17,6 +17,10 @@ const resolve = (parent, { id: _id, tradingSystem: editedTradingSystem }) => new
       rej(err);
       return;
     }
+    if (!tradingSystem) {
+      rej(err);
+      return;
+    }
     tradingSystem.history.push({
       updatedAt: tradingSystem.updatedAt,
       data: tradingSystem.data,

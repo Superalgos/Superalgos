@@ -17,6 +17,7 @@ const resolve = (parent, { fbSlug, tradingSystem }) => {
     tradingSystem = defaultTradingSystem;
   }
   tradingSystem.fbSlug = fbSlug;
+  tradingSystem.history = [];
   const newTradingSystem = new TradingSystem(tradingSystem);
 
   return new Promise((res, rej) => {

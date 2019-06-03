@@ -14,7 +14,7 @@ export const linkSchemaDefs =
         ): [events_Event]
     }
     extend type teams_FinancialBeings {
-      strategy: strategizer_Strategy
+      strategy: strategizer_TradingSystem
     }
   `
 
@@ -26,7 +26,7 @@ export const resolver = (usersSchema, eventsSchema, strategizerSchema) => ({
         return info.mergeInfo.delegateToSchema({
           schema: strategizerSchema,
           operation: 'query',
-          fieldName: 'strategizer_StrategyByFb',
+          fieldName: 'strategizer_TradingSystemByFb',
           args: { fbSlug },
           context,
           info

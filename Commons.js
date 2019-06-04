@@ -329,22 +329,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     let strategy = tradingSystem.strategies[j];
 
-                    for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
+                    for (let k = 0; k < strategy.triggerOn.situations.length; k++) {
 
-                        let situation = strategy.entryPoint.situations[k];
-
-                        for (let m = 0; m < situation.conditions.length; m++) {
-
-                            let condition = situation.conditions[m];
-                            let key = strategy.name + '-' + situation.name + '-' + condition.name;
-
-                            newCondition(key, condition.code);
-                        }
-                    }
-
-                    for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
-
-                        let situation = strategy.exitPoint.situations[k];
+                        let situation = strategy.triggerOn.situations[k];
 
                         for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -355,9 +342,22 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
+                    for (let k = 0; k < strategy.triggerOff.situations.length; k++) {
 
-                        let situation = strategy.sellPoint.situations[k];
+                        let situation = strategy.triggerOff.situations[k];
+
+                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                            let condition = situation.conditions[m];
+                            let key = strategy.name + '-' + situation.name + '-' + condition.name;
+
+                            newCondition(key, condition.code);
+                        }
+                    }
+
+                    for (let k = 0; k < strategy.takePosition.situations.length; k++) {
+
+                        let situation = strategy.takePosition.situations[k];
 
                         for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -459,9 +459,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                             let strategy = tradingSystem.strategies[j];
 
-                            for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
+                            for (let k = 0; k < strategy.triggerOn.situations.length; k++) {
 
-                                let situation = strategy.entryPoint.situations[k];
+                                let situation = strategy.triggerOn.situations[k];
                                 let passed = true;
 
                                 for (let m = 0; m < situation.conditions.length; m++) {
@@ -498,9 +498,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         let strategy = tradingSystem.strategies[strategyNumber - 1];
 
-                        for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
+                        for (let k = 0; k < strategy.triggerOff.situations.length; k++) {
 
-                            let situation = strategy.exitPoint.situations[k];
+                            let situation = strategy.triggerOff.situations[k];
                             let passed = true;
 
                             for (let m = 0; m < situation.conditions.length; m++) {
@@ -603,9 +603,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         let strategy = tradingSystem.strategies[strategyNumber - 1];
 
-                        for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
+                        for (let k = 0; k < strategy.takePosition.situations.length; k++) {
 
-                            let situation = strategy.sellPoint.situations[k];
+                            let situation = strategy.takePosition.situations[k];
                             let passed = true;
 
                             for (let m = 0; m < situation.conditions.length; m++) {

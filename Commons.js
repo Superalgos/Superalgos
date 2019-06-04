@@ -436,31 +436,36 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
 
-                        for (let k = 0; k < strategy.takePosition.situations.length; k++) {
+                        let triggerStage = strategy.triggerStage
 
-                            let situation = strategy.takePosition.situations[k];
-                            let passed = true;
+                        if (triggerStage !== undefined) {
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
+                            for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
 
-                                let condition = situation.conditions[m];
-                                let key = strategy.name + '-' + situation.name + '-' + condition.name
+                                let situation = triggerStage.takePosition.situations[k];
+                                let passed = true;
 
-                                let value = conditions.get(key).value;
+                                for (let m = 0; m < situation.conditions.length; m++) {
 
-                                if (value === false) { passed = false; }
-                            }
+                                    let condition = situation.conditions[m];
+                                    let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
 
-                            if (passed) {
+                                    let value = conditions.get(key).value;
 
-                                type = '"Sell"';
+                                    if (value === false) { passed = false; }
+                                }
 
-                                strategyStage = 'Open Stage';
-                                stopLossPhase = 1;
-                                takeProfitPhase = 1;
-                                currentTrade.begin = candle.begin;
-                                currentTrade.beginRate = candle.close;
-                                return;
+                                if (passed) {
+
+                                    type = '"Sell"';
+
+                                    strategyStage = 'Open Stage';
+                                    stopLossPhase = 1;
+                                    takeProfitPhase = 1;
+                                    currentTrade.begin = candle.begin;
+                                    currentTrade.beginRate = candle.close;
+                                    return;
+                                }
                             }
                         }
                     }

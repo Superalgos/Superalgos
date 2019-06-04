@@ -391,31 +391,36 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
 
-                        for (let k = 0; k < strategy.triggerOff.situations.length; k++) {
+                        let triggerStage = strategy.triggerStage
 
-                            let situation = strategy.triggerOff.situations[k];
-                            let passed = true;
+                        if (triggerStage !== undefined) {
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
+                            for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
 
-                                let condition = situation.conditions[m];
-                                let key = strategy.name + '-' + situation.name + '-' + condition.name
+                                let situation = triggerStage.triggerOff.situations[k];
+                                let passed = true;
 
-                                let value = conditions.get(key).value;
+                                for (let m = 0; m < situation.conditions.length; m++) {
 
-                                if (value === false) { passed = false; }
-                            }
+                                    let condition = situation.conditions[m];
+                                    let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
 
-                            if (passed) {
+                                    let value = conditions.get(key).value;
 
-                                currentStrategy.number = currentStrategyNumber - 1
-                                currentStrategy.end = candle.end;
-                                currentStrategy.endRate = candle.min;
-                                currentStrategy.status = 1;
-                                strategyStage = 'No Stage';
-                                currentStrategyNumber = 0;
+                                    if (value === false) { passed = false; }
+                                }
 
-                                return;
+                                if (passed) {
+
+                                    currentStrategy.number = currentStrategyNumber - 1
+                                    currentStrategy.end = candle.end;
+                                    currentStrategy.endRate = candle.min;
+                                    currentStrategy.status = 1;
+                                    strategyStage = 'No Stage';
+                                    currentStrategyNumber = 0;
+
+                                    return;
+                                }
                             }
                         }
                     }

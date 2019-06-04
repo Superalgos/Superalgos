@@ -111,7 +111,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let anualizedRateOfReturn = 0;
             let type = '""';
             let rate = 0;
-            let newStopLoss;
 
             /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need thse variables. */
 
@@ -671,17 +670,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let phase = strategy.stopLoss.phases[stopLossPhase - 1];
 
                     try {
-                        eval(phase.code); // Here is where we apply the formula given for the stop loss for this phase.
+                        stopLoss = eval(phase.code); // Here is where we apply the formula given for the stop loss for this phase.
                     } catch (err) {
                         /*
                             If the code produces an exception, we are covered.
                         */
-                    }
-
-                    if (newStopLoss < previousStopLoss) {
-                        stopLoss = newStopLoss;
-                    } else {
-                        stopLoss = previousStopLoss;
                     }
 
                     if (stopLoss < MIN_STOP_LOSS_VALUE) {
@@ -734,7 +727,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let phase = strategy.takeProfit.phases[takeProfitPhase - 1];
 
                     try {
-                        eval(phase.code); // Here is where we apply the formula given for the buy order at this phase.
+                        takeProfit = eval(phase.code); // Here is where we apply the formula given for the buy order at this phase.
                     } catch (err) {
                         /*
                             If the code produces an exception, we are covered.

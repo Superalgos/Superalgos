@@ -550,7 +550,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 if (strategyStage === 'Manage Stage') {
 
                     checkStopPhases()
-                    checkStopLoss();
+                    calculateStopLoss();
 
                 }
 
@@ -583,7 +583,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                function checkStopLoss() {
+                function calculateStopLoss() {
 
                     let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
                     let phase = strategy.stopLoss.phases[stopLossPhase - 1];
@@ -607,7 +607,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 if (strategyStage === 'Manage Stage') {
 
                     checkTakeProfitPhases();
-                    checkTakeProfit();
+                    calculateTakeProfit();
 
                 }
 
@@ -640,7 +640,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                function checkTakeProfit() {
+                function calculateTakeProfit() {
 
                     let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
                     let phase = strategy.takeProfit.phases[takeProfitPhase - 1];
@@ -669,8 +669,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     stopLoss = positionRate + positionRate * 1 / 100;
                     previousStopLoss = stopLoss;
 
-                    checkStopLoss();
-                    checkTakeProfit();
+                    calculateStopLoss();
+                    calculateTakeProfit();
 
                     previousBalanceAssetA = balanceAssetA;
                     lastProfit = 0;

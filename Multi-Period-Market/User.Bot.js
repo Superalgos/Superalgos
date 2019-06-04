@@ -69,7 +69,7 @@
             let tradesArray = [];
             let lastObjectsArray = [];
 
-            let simulationLogic = {};
+            let tradingSystem = {};
             let interExecutionMemory = {};
             let currentDay = bot.processDatetime;
 
@@ -115,7 +115,7 @@
                 strategiesArray,
                 tradesArray,
                 lastObjectsArray,
-                simulationLogic,
+                tradingSystem,
                 timePeriod,
                 currentDay,
                 startDate,
@@ -250,7 +250,7 @@
                     }
 
                     fileContent = "[" + fileContent + "]";
-                    fileContent = "[" + JSON.stringify(simulationLogic) + "," + JSON.stringify(lastObjectsArray) + "," + fileContent + "]";
+                    fileContent = "[" + JSON.stringify(tradingSystem) + "," + JSON.stringify(lastObjectsArray) + "," + fileContent + "]";
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;

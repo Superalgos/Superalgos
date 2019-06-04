@@ -59,7 +59,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
         strategiesArray,
         tradesArray,
         lastObjectsArray,
-        simulationLogic,
+        tradingSystem,
         timePeriod,
         currentDay,
         startDate,
@@ -256,7 +256,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 
             }
 
-            simulationLogic.strategies = await getStrategies();
+            tradingSystem.strategies = await getStrategies();
            
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
 
@@ -325,9 +325,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 conditionsArrayRecord.push(candle.begin);
                 conditionsArrayRecord.push(candle.end);
 
-                for (let j = 0; j < simulationLogic.strategies.length; j++) {
+                for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
-                    let strategy = simulationLogic.strategies[j];
+                    let strategy = tradingSystem.strategies[j];
 
                     for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
 
@@ -455,9 +455,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     function checkEntryPoints() {
 
-                        for (let j = 0; j < simulationLogic.strategies.length; j++) {
+                        for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
-                            let strategy = simulationLogic.strategies[j];
+                            let strategy = tradingSystem.strategies[j];
 
                             for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
 
@@ -496,7 +496,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     function checkExitPoints() {
 
-                        let strategy = simulationLogic.strategies[strategyNumber - 1];
+                        let strategy = tradingSystem.strategies[strategyNumber - 1];
 
                         for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
 
@@ -601,7 +601,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     function checkSellPoints() {
 
-                        let strategy = simulationLogic.strategies[strategyNumber - 1];
+                        let strategy = tradingSystem.strategies[strategyNumber - 1];
 
                         for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
 
@@ -644,7 +644,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function checkStopPhases() {
 
-                    let strategy = simulationLogic.strategies[strategyNumber - 1];
+                    let strategy = tradingSystem.strategies[strategyNumber - 1];
                     let phase = strategy.stopLoss.phases[stopLossPhase - 1];
 
                     for (let k = 0; k < phase.situations.length; k++) {
@@ -673,7 +673,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function checkStopLoss() {
 
-                    let strategy = simulationLogic.strategies[strategyNumber - 1];
+                    let strategy = tradingSystem.strategies[strategyNumber - 1];
                     let phase = strategy.stopLoss.phases[stopLossPhase - 1];
 
                     try {
@@ -707,7 +707,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function checkBuyOrderPhases() {
 
-                    let strategy = simulationLogic.strategies[strategyNumber - 1];
+                    let strategy = tradingSystem.strategies[strategyNumber - 1];
                     let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
 
                     for (let k = 0; k < phase.situations.length; k++) {
@@ -736,7 +736,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function checkBuyOrder() {
 
-                    let strategy = simulationLogic.strategies[strategyNumber - 1];
+                    let strategy = tradingSystem.strategies[strategyNumber - 1];
                     let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
 
                     try {

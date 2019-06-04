@@ -68,7 +68,7 @@
             let strategiesArray = [];
             let tradesArray = [];
 
-            let simulationLogic = {};
+            let tradingSystem = {};
             let lastObjectsArray = [];
 
             commons.initializeData();
@@ -113,7 +113,7 @@
                 strategiesArray,
                 tradesArray,
                 lastObjectsArray,
-                simulationLogic,
+                tradingSystem,
                 timePeriod,
                 currentDay,
                 startDate,
@@ -260,7 +260,7 @@
                     }
 
                     fileContent = "[" + fileContent + "]";
-                    fileContent = "[" + JSON.stringify(simulationLogic) + "," + JSON.stringify(lastObjectsArray) + "," + fileContent + "]";
+                    fileContent = "[" + JSON.stringify(tradingSystem) + "," + JSON.stringify(lastObjectsArray) + "," + fileContent + "]";
 
                     let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';

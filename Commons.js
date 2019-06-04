@@ -71,6 +71,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
 
+            tradingSystem.strategies = await getStrategies();
+
             /* Initial Values */
 
             let initialDate = startDate;      
@@ -85,7 +87,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             /* Stop Loss Management */
 
             const MIN_STOP_LOSS_VALUE = 1 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
-            let stopLossPercentage = 50;
             let previousStopLoss = 0;
             let stopLoss = 0;
             let stopLossPhase = 0;
@@ -251,8 +252,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
                 
             }
-
-            tradingSystem.strategies = await getStrategies();
            
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
 
@@ -756,7 +755,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     sellRate = rate;
                     sellAmount = balanceAssetA;
 
-                    stopLoss = sellRate + sellRate * stopLossPercentage / 100;
+                    stopLoss = sellRate + sellRate * 1 / 100;
                     previousStopLoss = stopLoss;
 
                     checkStopLoss();

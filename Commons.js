@@ -347,29 +347,34 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                             let strategy = tradingSystem.strategies[j];
 
-                            for (let k = 0; k < strategy.triggerOn.situations.length; k++) {
+                            let triggerStage = strategy.triggerStage
 
-                                let situation = strategy.triggerOn.situations[k];
-                                let passed = true;
+                            if (triggerStage !== undefined) {
 
-                                for (let m = 0; m < situation.conditions.length; m++) {
+                                for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
 
-                                    let condition = situation.conditions[m];
-                                    let key = strategy.name + '-' + situation.name + '-' + condition.name
+                                    let situation = triggerStage.triggerOn.situations[k];
+                                    let passed = true;
 
-                                    let value = conditions.get(key).value;
+                                    for (let m = 0; m < situation.conditions.length; m++) {
 
-                                    if (value === false) { passed = false; }
-                                }
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
 
-                                if (passed) {
+                                        let value = conditions.get(key).value;
 
-                                    strategyStage = 'Trigger Stage';
-                                    currentStrategyNumber = j + 1;
-                                    currentStrategy.begin = candle.begin;
-                                    currentStrategy.beginRate = candle.min;
-                                    currentStrategy.endRate = candle.min; // In case the strategy does not get exited
-                                    return;
+                                        if (value === false) { passed = false; }
+                                    }
+
+                                    if (passed) {
+
+                                        strategyStage = 'Trigger Stage';
+                                        currentStrategyNumber = j + 1;
+                                        currentStrategy.begin = candle.begin;
+                                        currentStrategy.beginRate = candle.min;
+                                        currentStrategy.endRate = candle.min; // In case the strategy does not get exited
+                                        return;
+                                    }
                                 }
                             }
                         }

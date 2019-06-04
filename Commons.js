@@ -81,7 +81,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Strategy and Phases */
 
-            let strategyNumber = 0;
+            let currentStrategyNumber = 0;
             let strategyPhase = 0;  // So far we will consider 5 possible phases: 0 = Initial state, 1 = Signal to buy, 2 = Buy, 3 = After Buy, 4 = Sell.
 
             /* Stop Loss Management */
@@ -323,7 +323,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Trigger On Conditions */
 
-                if (strategyNumber === 0 &&
+                if (currentStrategyNumber === 0 &&
                     balanceAssetA > minimunBalanceA) {
 
                     /*
@@ -363,7 +363,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 if (passed) {
 
                                     strategyPhase = 1;
-                                    strategyNumber = j + 1;
+                                    currentStrategyNumber = j + 1;
                                     currentStrategy.begin = candle.begin;
                                     currentStrategy.beginRate = candle.min;
                                     currentStrategy.endRate = candle.min; // In case the strategy does not get exited
@@ -382,7 +382,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     function checkTriggerOff() {
 
-                        let strategy = tradingSystem.strategies[strategyNumber - 1];
+                        let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
 
                         for (let k = 0; k < strategy.triggerOff.situations.length; k++) {
 
@@ -401,12 +401,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                             if (passed) {
 
-                                currentStrategy.number = strategyNumber - 1
+                                currentStrategy.number = currentStrategyNumber - 1
                                 currentStrategy.end = candle.end;
                                 currentStrategy.endRate = candle.min;
                                 currentStrategy.status = 1;
                                 strategyPhase = 0;
-                                strategyNumber = 0;
+                                currentStrategyNumber = 0;
 
                                 return;
                             }
@@ -443,7 +443,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentTrade.exitType = 1;
                         currentTrade.endRate = stopLoss;
 
-                        currentStrategy.number = strategyNumber - 1
+                        currentStrategy.number = currentStrategyNumber - 1
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
                         currentStrategy.status = 1;
@@ -472,7 +472,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentTrade.exitType = 2;
                         currentTrade.endRate = takeProfit;
 
-                        currentStrategy.number = strategyNumber - 1
+                        currentStrategy.number = currentStrategyNumber - 1
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
                         currentStrategy.status = 1;
@@ -487,7 +487,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     function checkTakePosition() {
 
-                        let strategy = tradingSystem.strategies[strategyNumber - 1];
+                        let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
 
                         for (let k = 0; k < strategy.takePosition.situations.length; k++) {
 
@@ -530,7 +530,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function checkStopPhases() {
 
-                    let strategy = tradingSystem.strategies[strategyNumber - 1];
+                    let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
                     let phase = strategy.stopLoss.phases[stopLossPhase - 1];
 
                     for (let k = 0; k < phase.situations.length; k++) {
@@ -559,7 +559,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function checkStopLoss() {
 
-                    let strategy = tradingSystem.strategies[strategyNumber - 1];
+                    let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
                     let phase = strategy.stopLoss.phases[stopLossPhase - 1];
 
                     try {
@@ -587,7 +587,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function checkTakeProfitPhases() {
 
-                    let strategy = tradingSystem.strategies[strategyNumber - 1];
+                    let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
                     let phase = strategy.takeProfit.phases[takeProfitPhase - 1];
 
                     for (let k = 0; k < phase.situations.length; k++) {
@@ -616,7 +616,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function checkTakeProfit() {
 
-                    let strategy = tradingSystem.strategies[strategyNumber - 1];
+                    let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
                     let phase = strategy.takeProfit.phases[takeProfitPhase - 1];
 
                     try {
@@ -735,7 +735,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     addRecord();
 
-                    strategyNumber = 0;
+                    currentStrategyNumber = 0;
                     stopLoss = 0;
                     positionRate = 0;
                     positionSize = 0;
@@ -844,7 +844,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         anualizedRateOfReturn: anualizedRateOfReturn,
                         positionRate: positionRate,
                         lastProfitPercent: lastProfitPercent,
-                        strategy: strategyNumber,
+                        strategy: currentStrategyNumber,
                         strategyPhase: strategyPhase,
                         takeProfit: takeProfit,
                         stopLossPhase: stopLossPhase,
@@ -861,7 +861,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     /* Prepare the information for the Conditions File */
 
-                    conditionsArrayRecord.push(strategyNumber);
+                    conditionsArrayRecord.push(currentStrategyNumber);
                     conditionsArrayRecord.push(strategyPhase);
                     conditionsArrayRecord.push(stopLossPhase);
                     conditionsArrayRecord.push(takeProfitPhase);

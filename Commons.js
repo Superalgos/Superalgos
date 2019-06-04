@@ -101,7 +101,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             /* Building records */
 
             let positionRate = 0;
-            let sellAmount = 0;
+            let positionSize = 0;
             let sellInstant;
 
             let previousBalanceAssetA = 0;
@@ -745,7 +745,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     marketRate = candle.close;
                     positionRate = marketRate;
-                    sellAmount = balanceAssetA;
+                    positionSize = balanceAssetA;
 
                     stopLoss = positionRate + positionRate * 1 / 100;
                     previousStopLoss = stopLoss;
@@ -845,7 +845,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     strategyNumber = 0;
                     stopLoss = 0;
                     positionRate = 0;
-                    sellAmount = 0;
+                    positionSize = 0;
                     sellInstant = undefined;
                     takeProfit = 0;
                     strategyPhase = 0;
@@ -957,7 +957,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         stopLossPhase: stopLossPhase,
                         takeProfitPhase: takeProfitPhase,
                         orderRecord: orderRecord,
-                        sellAmount: sellAmount
+                        positionSize: positionSize
                     }
 
                     recordsArray.push(simulationRecord);

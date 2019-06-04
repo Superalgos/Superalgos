@@ -167,7 +167,7 @@
                             record.stopLossPhase + "," +
                             record.takeProfitPhase + "," +
                             JSON.stringify(record.orderRecord) + "," +
-                            record.sellAmount + "]"; 
+                            record.positionSize + "]"; 
 
                         if (separator === "") { separator = ","; }
 

@@ -9,9 +9,9 @@
   "author": "Superalgos, ltd.",
   "license": "Apache-2.0",
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "0.19.0",
     "chai": "^4.2.0",
-    "dotenv": "^7.0.0",
+    "dotenv": "8.0.0",
     "mocha": "^6.1.4"
   }
 }

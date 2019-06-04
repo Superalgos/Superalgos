@@ -1,5 +1,5 @@
 import { GraphQLNonNull, GraphQLID, GraphQLString } from 'graphql'
-import { AuthentificationError, OperationsError } from '../../errors'
+import { AuthenticationError, OperationsError } from '../../errors'
 import { Clone } from '../../models'
 import logger from '../../config/logger'
 import removeKuberneteClone from '../../kubernetes/removeClone'
@@ -17,7 +17,7 @@ const resolve = async (parent, { id }, context) => {
   logger.debug('removeClone -> Entering Fuction.')
 
   if (!context.userId) {
-    throw new AuthentificationError()
+    throw new AuthenticationError()
   }
   try {
     let clone = await Clone.findOne({

@@ -7,7 +7,7 @@ import teamQuery from '../../graphQLCalls/teamQuery'
 import authorizeClone from '../../graphQLCalls/authorizeClone'
 import cloneDetails from '../cloneDetails'
 import {
-  AuthentificationError,
+  AuthenticationError,
   WrongArgumentsError,
   OperationsError,
   AuthorizationError
@@ -25,7 +25,7 @@ const resolve = async (parent, { clone }, context) => {
   logger.debug('addClone -> Entering Fuction.')
 
   if (!context.userId) {
-    throw new AuthentificationError()
+    throw new AuthenticationError()
   }
 
   if (!Object.values(CloneModeEnum).includes(clone.mode)) {

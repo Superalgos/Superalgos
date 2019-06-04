@@ -7,7 +7,7 @@ import { DateTime } from 'luxon'
 import teamQuery from '../../graphQLCalls/teamQuery'
 import cloneDetails from '../cloneDetails'
 import {
-  AuthentificationError,
+  AuthenticationError,
   OperationsError
 } from '../../errors'
 import logger from '../../config/logger'
@@ -21,7 +21,7 @@ const resolve = async (parent, { simulation }, context) => {
   logger.debug('runSimulation -> Entering Fuction.')
 
   if (!context.userId) {
-    throw new AuthentificationError()
+    throw new AuthenticationError()
   }
 
   try {

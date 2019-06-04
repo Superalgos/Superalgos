@@ -1005,42 +1005,51 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (triggerStage !== undefined) {
 
-                for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
+                if (triggerStage.triggerOn !== undefined) {
 
-                    let situation = triggerStage.triggerOn.situations[k];
+                    for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
 
-                    for (let m = 0; m < situation.conditions.length; m++) {
+                        let situation = triggerStage.triggerOn.situations[k];
 
-                        let condition = situation.conditions[m];
-                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
+                        for (let m = 0; m < situation.conditions.length; m++) {
 
-                        newCondition(key, condition.code);
+                            let condition = situation.conditions[m];
+                            let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
+
+                            newCondition(key, condition.code);
+                        }
                     }
                 }
 
-                for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
+                if (triggerStage.triggerOff !== undefined) {
 
-                    let situation = triggerStage.triggerOff.situations[k];
+                    for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
 
-                    for (let m = 0; m < situation.conditions.length; m++) {
+                        let situation = triggerStage.triggerOff.situations[k];
 
-                        let condition = situation.conditions[m];
-                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
+                        for (let m = 0; m < situation.conditions.length; m++) {
 
-                        newCondition(key, condition.code);
+                            let condition = situation.conditions[m];
+                            let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
+
+                            newCondition(key, condition.code);
+                        }
                     }
                 }
 
-                for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
+                if (triggerStage.takePosition !== undefined) {
 
-                    let situation = triggerStage.takePosition.situations[k];
+                    for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
 
-                    for (let m = 0; m < situation.conditions.length; m++) {
+                        let situation = triggerStage.takePosition.situations[k];
 
-                        let condition = situation.conditions[m];
-                        let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
+                        for (let m = 0; m < situation.conditions.length; m++) {
 
-                        newCondition(key, condition.code);
+                            let condition = situation.conditions[m];
+                            let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
+
+                            newCondition(key, condition.code);
+                        }
                     }
                 }
             }
@@ -1053,38 +1062,44 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (initialDefinition !== undefined) {
 
-                    for (let p = 0; p < initialDefinition.stopLoss.phases.length; p++) {
+                    if (initialDefinition.stopLoss !== undefined) {
 
-                        let phase = initialDefinition.stopLoss.phases[p];
+                        for (let p = 0; p < initialDefinition.stopLoss.phases.length; p++) {
 
-                        for (let k = 0; k < phase.situations.length; k++) {
+                            let phase = initialDefinition.stopLoss.phases[p];
 
-                            let situation = phase.situations[k];
+                            for (let k = 0; k < phase.situations.length; k++) {
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
+                                let situation = phase.situations[k];
 
-                                let condition = situation.conditions[m];
-                                let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+                                for (let m = 0; m < situation.conditions.length; m++) {
 
-                                newCondition(key, condition.code);
+                                    let condition = situation.conditions[m];
+                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+
+                                    newCondition(key, condition.code);
+                                }
                             }
                         }
                     }
 
-                    for (let p = 0; p < initialDefinition.takeProfit.phases.length; p++) {
+                    if (initialDefinition.takeProfit !== undefined) {
 
-                        let phase = initialDefinition.takeProfit.phases[p];
+                        for (let p = 0; p < initialDefinition.takeProfit.phases.length; p++) {
 
-                        for (let k = 0; k < phase.situations.length; k++) {
+                            let phase = initialDefinition.takeProfit.phases[p];
 
-                            let situation = phase.situations[k];
+                            for (let k = 0; k < phase.situations.length; k++) {
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
+                                let situation = phase.situations[k];
 
-                                let condition = situation.conditions[m];
-                                let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+                                for (let m = 0; m < situation.conditions.length; m++) {
 
-                                newCondition(key, condition.code);
+                                    let condition = situation.conditions[m];
+                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+
+                                    newCondition(key, condition.code);
+                                }
                             }
                         }
                     }
@@ -1095,38 +1110,44 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (manageStage !== undefined) {
 
-                for (let p = 0; p < manageStage.stopLoss.phases.length; p++) {
+                if (manageStage.stopLoss !== undefined) {
 
-                    let phase = manageStage.stopLoss.phases[p];
+                    for (let p = 0; p < manageStage.stopLoss.phases.length; p++) {
 
-                    for (let k = 0; k < phase.situations.length; k++) {
+                        let phase = manageStage.stopLoss.phases[p];
 
-                        let situation = phase.situations[k];
+                        for (let k = 0; k < phase.situations.length; k++) {
 
-                        for (let m = 0; m < situation.conditions.length; m++) {
+                            let situation = phase.situations[k];
 
-                            let condition = situation.conditions[m];
-                            let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+                            for (let m = 0; m < situation.conditions.length; m++) {
 
-                            newCondition(key, condition.code);
+                                let condition = situation.conditions[m];
+                                let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+
+                                newCondition(key, condition.code);
+                            }
                         }
                     }
                 }
 
-                for (let p = 0; p < manageStage.takeProfit.phases.length; p++) {
+                if (manageStage.takeProfit !== undefined) {
 
-                    let phase = manageStage.takeProfit.phases[p];
+                    for (let p = 0; p < manageStage.takeProfit.phases.length; p++) {
 
-                    for (let k = 0; k < phase.situations.length; k++) {
+                        let phase = manageStage.takeProfit.phases[p];
 
-                        let situation = phase.situations[k];
+                        for (let k = 0; k < phase.situations.length; k++) {
 
-                        for (let m = 0; m < situation.conditions.length; m++) {
+                            let situation = phase.situations[k];
 
-                            let condition = situation.conditions[m];
-                            let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+                            for (let m = 0; m < situation.conditions.length; m++) {
 
-                            newCondition(key, condition.code);
+                                let condition = situation.conditions[m];
+                                let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+
+                                newCondition(key, condition.code);
+                            }
                         }
                     }
                 }

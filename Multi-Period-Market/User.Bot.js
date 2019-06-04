@@ -161,9 +161,9 @@
                             record.lastProfitPercent + "," +
                             record.strategy + "," +
                             record.strategyPhase + "," +
-                            record.buyOrder + "," +
+                            record.takeProfit + "," +
                             record.stopLossPhase + "," +
-                            record.buyOrderPhase + "," +
+                            record.takeProfitPhase + "," +
 
                             JSON.stringify(record.orderRecord) + "," +
                             record.sellAmount + "]"; 

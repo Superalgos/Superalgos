@@ -95,11 +95,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             /* Buy Order Management */
 
             const MIN_BUY_ORDER_VALUE = 1 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
-            let buyOrderPercentage = 1;
-            let previousBuyOrder = 0;
-            let buyOrder = 0;
-            let buyOrderDecay = 0;
-            let buyOrderPhase = 0;
+            let takeProfitPercentage = 1;
+            let previousTakeProfit = 0;
+            let takeProfit = 0;
+            let takeProfitDecay = 0;
+            let takeProfitPhase = 0;
 
             /* Building records */
 
@@ -386,9 +386,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
+                    for (let p = 0; p < strategy.takeProfit.phases.length; p++) {
 
-                        let phase = strategy.buyOrder.phases[p];
+                        let phase = strategy.takeProfit.phases[p];
 
                         for (let k = 0; k < phase.situations.length; k++) {
 
@@ -565,9 +565,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     /* Buy Order condition: Here we verify if the Buy Order was filled or not. */
 
-                    if (candle.min <= buyOrder) {
+                    if (candle.min <= takeProfit) {
 
-                        balanceAssetA = balanceAssetB / buyOrder;
+                        balanceAssetA = balanceAssetB / takeProfit;
                         balanceAssetB = 0;
 
                         if (currentDay !== undefined) {
@@ -578,13 +578,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
                         }
 
-                        rate = buyOrder;
-                        type = '"Buy@BuyOrder"';
+                        rate = takeProfit;
+                        type = '"Buy@TakeProfit"';
                         strategyPhase = 4;
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;    
                         currentTrade.exitType = 2;
-                        currentTrade.endRate = buyOrder;
+                        currentTrade.endRate = takeProfit;
 
                         currentStrategy.number = strategyNumber - 1
                         currentStrategy.end = candle.end;
@@ -624,7 +624,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                 strategyPhase = 2;
                                 stopLossPhase = 1;
-                                buyOrderPhase = 1;
+                                takeProfitPhase = 1;
                                 currentTrade.begin = candle.begin;
                                 currentTrade.beginRate = candle.close;
                                 return;
@@ -700,15 +700,15 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (strategyPhase === 3) {
 
-                    checkBuyOrderPhases();
-                    checkBuyOrder();
+                    checkTakeProfitPhases();
+                    checkTakeProfit();
 
                 }
 
-                function checkBuyOrderPhases() {
+                function checkTakeProfitPhases() {
 
                     let strategy = tradingSystem.strategies[strategyNumber - 1];
-                    let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
+                    let phase = strategy.takeProfit.phases[takeProfitPhase - 1];
 
                     for (let k = 0; k < phase.situations.length; k++) {
 
@@ -727,17 +727,17 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         if (passed) {
 
-                            buyOrderPhase++;
+                            takeProfitPhase++;
 
                             return;
                         }
                     }
                 }
 
-                function checkBuyOrder() {
+                function checkTakeProfit() {
 
                     let strategy = tradingSystem.strategies[strategyNumber - 1];
-                    let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
+                    let phase = strategy.takeProfit.phases[takeProfitPhase - 1];
 
                     try {
                         eval(phase.code); // Here is where we apply the formula given for the buy order at this phase.
@@ -747,8 +747,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         */
                     }
 
-                    if (buyOrder < MIN_BUY_ORDER_VALUE) {
-                        buyOrder = MIN_BUY_ORDER_VALUE
+                    if (takeProfit < MIN_BUY_ORDER_VALUE) {
+                        takeProfit = MIN_BUY_ORDER_VALUE
                     }
                 }
 
@@ -766,7 +766,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     stopLossDecay = 0;
 
                     checkStopLoss();
-                    checkBuyOrder();
+                    checkTakeProfit();
 
                     previousBalanceAssetA = balanceAssetA;
                     lastProfit = 0;
@@ -862,10 +862,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     sellRate = 0;
                     sellAmount = 0;
                     sellInstant = undefined;
-                    buyOrder = 0;
+                    takeProfit = 0;
                     strategyPhase = 0;
                     stopLossPhase = 0;
-                    buyOrderPhase = 0;
+                    takeProfitPhase = 0;
                     continue;
 
                 }
@@ -911,7 +911,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         ORDER_TYPE.Limit,
                         rate,
                         stopLoss,
-                        buyOrder,
+                        takeProfit,
                         ORDER_DIRECTION.Sell,
                         -1,
                         ORDER_STATUS.Signaled,
@@ -968,9 +968,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         lastProfitPercent: lastProfitPercent,
                         strategy: strategyNumber,
                         strategyPhase: strategyPhase,
-                        buyOrder: buyOrder,
+                        takeProfit: takeProfit,
                         stopLossPhase: stopLossPhase,
-                        buyOrderPhase: buyOrderPhase,
+                        takeProfitPhase: takeProfitPhase,
                         orderRecord: orderRecord,
                         sellAmount: sellAmount
                     }
@@ -986,7 +986,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     conditionsArrayRecord.push(strategyNumber);
                     conditionsArrayRecord.push(strategyPhase);
                     conditionsArrayRecord.push(stopLossPhase);
-                    conditionsArrayRecord.push(buyOrderPhase);
+                    conditionsArrayRecord.push(takeProfitPhase);
                     conditionsArrayRecord.push(conditionsArrayValues);
 
                     conditionsArray.push(conditionsArrayRecord);

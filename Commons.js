@@ -318,114 +318,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 conditionsArrayRecord.push(candle.begin);
                 conditionsArrayRecord.push(candle.end);
 
-                for (let j = 0; j < tradingSystem.strategies.length; j++) {
+                evaluateConditions(tradingSystem, conditions);
 
-                    let strategy = tradingSystem.strategies[j];
-
-                    for (let k = 0; k < strategy.triggerOn.situations.length; k++) {
-
-                        let situation = strategy.triggerOn.situations[k];
-
-                        for (let m = 0; m < situation.conditions.length; m++) {
-
-                            let condition = situation.conditions[m];
-                            let key = strategy.name + '-' + situation.name + '-' + condition.name;
-
-                            newCondition(key, condition.code);
-                        }
-                    }
-
-                    for (let k = 0; k < strategy.triggerOff.situations.length; k++) {
-
-                        let situation = strategy.triggerOff.situations[k];
-
-                        for (let m = 0; m < situation.conditions.length; m++) {
-
-                            let condition = situation.conditions[m];
-                            let key = strategy.name + '-' + situation.name + '-' + condition.name;
-
-                            newCondition(key, condition.code);
-                        }
-                    }
-
-                    for (let k = 0; k < strategy.takePosition.situations.length; k++) {
-
-                        let situation = strategy.takePosition.situations[k];
-
-                        for (let m = 0; m < situation.conditions.length; m++) {
-
-                            let condition = situation.conditions[m];
-                            let key = strategy.name + '-' + situation.name + '-' + condition.name;
-
-                            newCondition(key, condition.code);
-                        }
-                    }
-
-                    for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
-
-                        let phase = strategy.stopLoss.phases[p];
-
-                        for (let k = 0; k < phase.situations.length; k++) {
-
-                            let situation = phase.situations[k];
-
-                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                let condition = situation.conditions[m];
-                                let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name;
-
-                                newCondition(key, condition.code);
-                            }
-                        }
-                    }
-
-                    for (let p = 0; p < strategy.takeProfit.phases.length; p++) {
-
-                        let phase = strategy.takeProfit.phases[p];
-
-                        for (let k = 0; k < phase.situations.length; k++) {
-
-                            let situation = phase.situations[k];
-
-                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                let condition = situation.conditions[m];
-                                let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name;
-
-                                newCondition(key, condition.code);
-                            }
-                        }
-                    }
-                }
-
-                function newCondition(key, code) {
-
-                    let condition;
-                    let value = false;
-
-                    try {
-                        value = eval(code);
-                    } catch (err) {
-                        /*
-                            One possible error is that the conditions references a .previous that is undefined. For this
-                            reason and others, we will simply set the value to false.
-                        */
-                        value = false
-                    }
-
-                    condition = {
-                        key: key,
-                        value: value
-                    };
-
-                    conditions.set(condition.key, condition);
-
-                    if (condition.value) {
-                        conditionsArrayValues.push(1);
-                    } else {
-                        conditionsArrayValues.push(0);
-                    }
-                }
 
 
                 /* Strategy Enter Condition */
@@ -1074,6 +968,175 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             logger.write(MODULE_NAME, "[ERROR] runSimulation -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function evaluateConditions(tradingSystem, conditions) {
+
+        for (let j = 0; j < tradingSystem.strategies.length; j++) {
+
+            let strategy = tradingSystem.strategies[j];
+
+            let triggerStage = strategy.triggerStage
+
+            if (triggerStage !== undefined) {
+
+                for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
+
+                    let situation = triggerStage.triggerOn.situations[k];
+
+                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                        let condition = situation.conditions[m];
+                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
+
+                        newCondition(key, condition.code);
+                    }
+                }
+
+                for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
+
+                    let situation = triggerStage.triggerOff.situations[k];
+
+                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                        let condition = situation.conditions[m];
+                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
+
+                        newCondition(key, condition.code);
+                    }
+                }
+
+                for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
+
+                    let situation = triggerStage.takePosition.situations[k];
+
+                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                        let condition = situation.conditions[m];
+                        let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
+
+                        newCondition(key, condition.code);
+                    }
+                }
+            }
+
+            let openStage = strategy.openStage
+
+            if (openStage !== undefined) {
+
+                let initialDefinition = openStage.initialDefinition
+
+                if (initialDefinition !== undefined) {
+
+                    for (let p = 0; p < initialDefinition.stopLoss.phases.length; p++) {
+
+                        let phase = initialDefinition.stopLoss.phases[p];
+
+                        for (let k = 0; k < phase.situations.length; k++) {
+
+                            let situation = phase.situations[k];
+
+                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                let condition = situation.conditions[m];
+                                let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+
+                                newCondition(key, condition.code);
+                            }
+                        }
+                    }
+
+                    for (let p = 0; p < initialDefinition.takeProfit.phases.length; p++) {
+
+                        let phase = initialDefinition.takeProfit.phases[p];
+
+                        for (let k = 0; k < phase.situations.length; k++) {
+
+                            let situation = phase.situations[k];
+
+                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                let condition = situation.conditions[m];
+                                let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+
+                                newCondition(key, condition.code);
+                            }
+                        }
+                    }
+                }
+            }
+
+            let manageStage = strategy.manageStage
+
+            if (manageStage !== undefined) {
+
+                for (let p = 0; p < manageStage.stopLoss.phases.length; p++) {
+
+                    let phase = manageStage.stopLoss.phases[p];
+
+                    for (let k = 0; k < phase.situations.length; k++) {
+
+                        let situation = phase.situations[k];
+
+                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                            let condition = situation.conditions[m];
+                            let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+
+                            newCondition(key, condition.code);
+                        }
+                    }
+                }
+
+                for (let p = 0; p < manageStage.takeProfit.phases.length; p++) {
+
+                    let phase = manageStage.takeProfit.phases[p];
+
+                    for (let k = 0; k < phase.situations.length; k++) {
+
+                        let situation = phase.situations[k];
+
+                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                            let condition = situation.conditions[m];
+                            let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+
+                            newCondition(key, condition.code);
+                        }
+                    }
+                }
+            }
+        }
+
+        function newCondition(key, code) {
+
+            let condition;
+            let value = false;
+
+            try {
+                value = eval(code);
+            } catch (err) {
+                /*
+                    One possible error is that the conditions references a .previous that is undefined. For this
+                    reason and others, we will simply set the value to false.
+                */
+                value = false
+            }
+
+            condition = {
+                key: key,
+                value: value
+            };
+
+            conditions.set(condition.key, condition);
+
+            if (condition.value) {
+                conditionsArrayValues.push(1);
+            } else {
+                conditionsArrayValues.push(0);
+            }
+        }
+
     }
 
     function buildLRC(dataFile, callBackFunction) {

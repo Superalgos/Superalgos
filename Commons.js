@@ -482,7 +482,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Checking if Stop or Take Profit were hit */
 
-                if (strategyStage === 'Manage Stage') {
+                if (
+                    strategyStage === 'Open Stage' ||
+                    strategyStage === 'Manage Stage'
+                ) {
 
                     /* Checking what happened since the last execution. We need to know if the Stop Loss
                         or our Take Profit were hit. */
@@ -547,7 +550,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Stop Loss Management */
 
-                if (strategyStage === 'Manage Stage') {
+                if (
+                    strategyStage === 'Open Stage' ||
+                    strategyStage === 'Manage Stage'
+                ) {
 
                     checkStopPhases()
                     calculateStopLoss();
@@ -604,7 +610,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Take Profit Management */
 
-                if (strategyStage === 'Manage Stage') {
+                if (
+                    strategyStage === 'Open Stage' ||
+                    strategyStage === 'Manage Stage'
+                ) {
 
                     checkTakeProfitPhases();
                     calculateTakeProfit();

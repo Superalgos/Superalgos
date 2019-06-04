@@ -321,8 +321,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 evaluateConditions(tradingSystem, conditions);
 
 
-
-                /* Strategy Enter Condition */
+                /* Trigger On Conditions */
 
                 if (strategyNumber === 0 &&
                     balanceAssetA > minimunBalanceA) {
@@ -331,16 +330,16 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     Here we need to pick a strategy, or if there is not suitable strategy for the current
                     market conditions, we pass until the next period.
     
-                    To pick a new strategy we will evaluate what we call an entering condition. Once we enter
+                    To pick a new strategy we will evaluate what we call the trigger on. Once we enter
                     into one strategy, we will ignore market conditions for others. However there is also
-                    a strategy exit condition which can be hit before entering into a trade. If hit, we would
+                    a strategy trigger off which can be hit before taking a position. If hit, we would
                     be outside a strategy again and looking for the condition to enter all over again.
 
                     */
 
-                    checkEntryPoints();
+                    checkTriggerOn();
 
-                    function checkEntryPoints() {
+                    function checkTriggerOn() {
 
                         for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
@@ -375,13 +374,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                /* Strategy Exit Condition */
+                /* Trigger Off Condition */
 
                 if (strategyPhase === 1) {
 
-                    checkExitPoints();
+                    checkTriggerOff();
 
-                    function checkExitPoints() {
+                    function checkTriggerOff() {
 
                         let strategy = tradingSystem.strategies[strategyNumber - 1];
 

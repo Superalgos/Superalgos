@@ -102,7 +102,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             let positionRate = 0;
             let positionSize = 0;
-            let sellInstant;
+            let positionInstant;
 
             let previousBalanceAssetA = 0;
             let hitRatio = 0;
@@ -536,7 +536,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         balanceAssetB = 0;
 
                         if (currentDay !== undefined) {
-                            if (sellInstant < currentDay.valueOf()) {
+                            if (positionInstant < currentDay.valueOf()) {
                                 yesterday.balanceAssetA = balanceAssetA;
                                 yesterday.balanceAssetB = balanceAssetB;
                             }
@@ -564,7 +564,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         balanceAssetB = 0;
 
                         if (currentDay !== undefined) {
-                            if (sellInstant < currentDay.valueOf()) {
+                            if (positionInstant < currentDay.valueOf()) {
                                 yesterday.balanceAssetA = balanceAssetA;
                                 yesterday.balanceAssetB = balanceAssetB;
 
@@ -760,10 +760,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     balanceAssetB = balanceAssetA * marketRate;
                     balanceAssetA = 0;
 
-                    sellInstant = candle.end;
+                    positionInstant = candle.end;
 
                     if (currentDay !== undefined) {
-                        if (sellInstant < currentDay.valueOf()) {
+                        if (positionInstant < currentDay.valueOf()) {
                             yesterday.balanceAssetA = balanceAssetA;
                             yesterday.balanceAssetB = balanceAssetB;
 
@@ -785,7 +785,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     roundtrips++;
 
                     if (currentDay !== undefined) {
-                        if (sellInstant < currentDay.valueOf()) {
+                        if (positionInstant < currentDay.valueOf()) {
                             yesterday.Roundtrips++;
                         }                        
                     }
@@ -796,7 +796,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     profit = balanceAssetA - initialBalanceA;
 
                     if (currentDay !== undefined) {
-                        if (sellInstant < currentDay.valueOf()) {
+                        if (positionInstant < currentDay.valueOf()) {
                             yesterday.lastProfit = lastProfit;
                             yesterday.profit = profit;
                             yesterday.lastProfitPercent = lastProfitPercent;
@@ -812,7 +812,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         hits++;
 
                         if (currentDay !== undefined) {
-                            if (sellInstant < currentDay.valueOf()) {
+                            if (positionInstant < currentDay.valueOf()) {
                                 yesterday.hits++;
                             }
                         }
@@ -821,7 +821,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         fails++;
 
                         if (currentDay !== undefined) {
-                            if (sellInstant < currentDay.valueOf()) {
+                            if (positionInstant < currentDay.valueOf()) {
                                 yesterday.fails++;
                             }
                         }
@@ -832,7 +832,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     anualizedRateOfReturn = ROI / days * 365;
 
                     if (currentDay !== undefined) {
-                        if (sellInstant < currentDay.valueOf()) {
+                        if (positionInstant < currentDay.valueOf()) {
                             yesterday.ROI = ROI;
                             yesterday.hitRatio = hitRatio;
                             yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
@@ -846,7 +846,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     stopLoss = 0;
                     positionRate = 0;
                     positionSize = 0;
-                    sellInstant = undefined;
+                    positionInstant = undefined;
                     takeProfit = 0;
                     strategyPhase = 0;
                     stopLossPhase = 0;

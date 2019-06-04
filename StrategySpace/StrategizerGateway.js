@@ -47,207 +47,78 @@ function newStrategizerGateway () {
       }
 
       user = JSON.parse(user)
+      let fbSlug = 'simulator' + '-' + user.alias
 
-      const authId = user.authId
+      /* See if we need to update or create a new record at the strategizer */
 
-      const apolloClient = new Apollo.lib.ApolloClient({
-        networkInterface: Apollo.lib.createNetworkInterface({
-          uri: window.canvasApp.graphQL.masterAppApiUrl,
-          transportBatching: true
-        }),
-        connectToDevTools: true
-      })
-
-      /* Updating all Strategies */
-
-      const networkInterface = Apollo.lib.createNetworkInterface({
-        uri: window.canvasApp.graphQL.masterAppApiUrl
-      })
-
-      networkInterface.use([{
-        applyMiddleware (req, next) {
-          req.options.headers = {
-            authorization: `Bearer ${accessToken}`
-          }
-          next()
-        }
-      }])
-
-      let tradingSystem = canvas.strategySpace.workspace.tradingSystem
+      let tradingSystem = canvas.strategySpace.workspace.getProtocolTradingSystem()
       let idAtStrategizer = canvas.strategySpace.workspace.idAtStrategizer
-      let dataToSave = buildGraphQLDataToSave(tradingSystem)
 
-      const updateStrategies = () => {
-        return new Promise((resolve, reject) => {
-          apolloClient.mutate({
-            mutation: GRAPHQL_MUTATION_UPDATE_STRATEGIES,
+      if (idAtStrategizer === undefined) {
+        let response = await axios({
+          url: window.canvasApp.graphQL.masterAppApiUrl,
+          method: 'post',
+          data: {
+            query: `
+            mutation strategizer_CreateTradingSystem
+            (
+              $fbSlug: String!, $data: strategizer_JSON!
+            )
+            {
+              strategizer_CreateTradingSystem(fbSlug: $fbSlug, tradingSystem: { data: $data })
+              {
+                id
+              }
+            }
+                  `,
+            variables: {
+              fbSlug: fbSlug,
+              data: tradingSystem
+            }
+          },
+          headers: {
+            authorization: 'Bearer ' + accessToken
+          }
+        })
+
+        if (response.data.errors) {
+          console.log('Error getting events: ' + JSON.stringify(response.data.errors))
+          throw 'Error getting events: ' + JSON.stringify(response.data.errors)
+        } else {
+          canvas.strategySpace.workspace.idAtStrategizer = response.data.data.strategizer_CreateTradingSystem.id
+        }
+      } else {
+        const graphQLServer = await axios({
+          url: window.canvasApp.graphQL.masterAppApiUrl,
+          method: 'post',
+          data: {
+            query: `
+            mutation strategizer_EditTradingSystem
+            (
+              $id: ID!, $data: strategizer_JSON!
+            )
+            {
+              strategizer_EditTradingSystem(id: $id, tradingSystem: { data: $data })
+              {
+                id
+              }
+            }
+                  `,
             variables: {
               id: idAtStrategizer,
-              strategy: dataToSave.strategy
+              data: tradingSystem
             }
-          })
-                  .then(response => {
-                    resolve(true)
-                  })
-                  .catch(err => {
-                    if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> ApolloClient error updating user strategies -> err = ' + err.stack) }
-                    reject(err)
-                  })
+          },
+          headers: {
+            authorization: 'Bearer ' + accessToken
+          }
         })
       }
 
-      let result = await updateStrategies()
-
-      return result
+      return true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> err = ' + err.stack) }
     }
-  }
-
-  function buildGraphQLDataToSave (tradingSystem) {
-    let graphQL_Mutation = ''
-
-    let dataToSave = {
-      strategy: {
-        subStrategies: []
-      }
-    }
-
-    for (m = 0; m < tradingSystem.strategies.length; m++) {
-      let strategizerGatewayStrategy = tradingSystem.strategies[m]
-      let strategy = {
-        name: strategizerGatewayStrategy.name,
-        active: strategizerGatewayStrategy.active,
-        triggerOn: {
-          situations: []
-        },
-        triggerOff: {
-          situations: []
-        },
-        takePosition: {
-          situations: []
-        },
-        stopLoss: {
-          phases: []
-        },
-        takeProfit: {
-          phases: []
-        }
-      }
-
-      for (let k = 0; k < strategizerGatewayStrategy.triggerOn.situations.length; k++) {
-        let strategizerGatewaySituation = strategizerGatewayStrategy.triggerOn.situations[k]
-        let situation = {
-          name: strategizerGatewaySituation.name,
-          conditions: []
-        }
-
-        for (let m = 0; m < strategizerGatewaySituation.conditions.length; m++) {
-          let strategizerGatewayCondition = strategizerGatewaySituation.conditions[m]
-          let condition = {
-            name: strategizerGatewayCondition.name,
-            code: strategizerGatewayCondition.code
-          }
-          situation.conditions.push(condition)
-        }
-        strategy.triggerOn.situations.push(situation)
-      }
-
-      for (let k = 0; k < strategizerGatewayStrategy.triggerOff.situations.length; k++) {
-        let strategizerGatewaySituation = strategizerGatewayStrategy.triggerOff.situations[k]
-        let situation = {
-          name: strategizerGatewaySituation.name,
-          conditions: []
-        }
-
-        for (let m = 0; m < strategizerGatewaySituation.conditions.length; m++) {
-          let strategizerGatewayCondition = strategizerGatewaySituation.conditions[m]
-          let condition = {
-            name: strategizerGatewayCondition.name,
-            code: strategizerGatewayCondition.code
-          }
-          situation.conditions.push(condition)
-        }
-        strategy.triggerOff.situations.push(situation)
-      }
-
-      for (let k = 0; k < strategizerGatewayStrategy.takePosition.situations.length; k++) {
-        let strategizerGatewaySituation = strategizerGatewayStrategy.takePosition.situations[k]
-        let situation = {
-          name: strategizerGatewaySituation.name,
-          conditions: []
-        }
-
-        for (let m = 0; m < strategizerGatewaySituation.conditions.length; m++) {
-          let strategizerGatewayCondition = strategizerGatewaySituation.conditions[m]
-          let condition = {
-            name: strategizerGatewayCondition.name,
-            code: strategizerGatewayCondition.code
-          }
-          situation.conditions.push(condition)
-        }
-        strategy.takePosition.situations.push(situation)
-      }
-
-      for (let p = 0; p < strategizerGatewayStrategy.stopLoss.phases.length; p++) {
-        let strategizerGatewayPhase = strategizerGatewayStrategy.stopLoss.phases[p]
-        let phase = {
-          name: strategizerGatewayPhase.name,
-          code: strategizerGatewayPhase.code,
-          situations: []
-        }
-
-        for (let k = 0; k < strategizerGatewayPhase.situations.length; k++) {
-          let strategizerGatewaySituation = strategizerGatewayPhase.situations[k]
-          let situation = {
-            name: strategizerGatewaySituation.name,
-            conditions: []
-          }
-
-          for (let m = 0; m < strategizerGatewaySituation.conditions.length; m++) {
-            let strategizerGatewayCondition = strategizerGatewaySituation.conditions[m]
-            let condition = {
-              name: strategizerGatewayCondition.name,
-              code: strategizerGatewayCondition.code
-            }
-            situation.conditions.push(condition)
-          }
-          phase.situations.push(situation)
-        }
-        strategy.stopLoss.phases.push(phase)
-      }
-
-      for (let p = 0; p < strategizerGatewayStrategy.takeProfit.phases.length; p++) {
-        let strategizerGatewayPhase = strategizerGatewayStrategy.takeProfit.phases[p]
-        let phase = {
-          name: strategizerGatewayPhase.name,
-          code: strategizerGatewayPhase.code,
-          situations: []
-        }
-
-        for (let k = 0; k < strategizerGatewayPhase.situations.length; k++) {
-          let strategizerGatewaySituation = strategizerGatewayPhase.situations[k]
-          let situation = {
-            name: strategizerGatewaySituation.name,
-            conditions: []
-          }
-
-          for (let m = 0; m < strategizerGatewaySituation.conditions.length; m++) {
-            let strategizerGatewayCondition = strategizerGatewaySituation.conditions[m]
-            let condition = {
-              name: strategizerGatewayCondition.name,
-              code: strategizerGatewayCondition.code
-            }
-            situation.conditions.push(condition)
-          }
-          phase.situations.push(situation)
-        }
-        strategy.takeProfit.phases.push(phase)
-      }
-      dataToSave.strategy.subStrategies.push(strategy)
-    }
-
-    return dataToSave
   }
 
   async function loadFromStrategyzer () {
@@ -261,81 +132,44 @@ function newStrategizerGateway () {
       }
 
       user = JSON.parse(user)
+      let fbSlug = 'simulator' + '-' + user.alias
 
-      const authId = user.authId
-
-      const apolloClient = new Apollo.lib.ApolloClient({
-        networkInterface: Apollo.lib.createNetworkInterface({
-          uri: window.canvasApp.graphQL.masterAppApiUrl,
-          transportBatching: true
-        }),
-        connectToDevTools: true
-      })
-
-      /* Getting the FB that own the Strategies */
-
-      let teamtradingSystemSimulationFB = ''
-      let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
-      let teams = ecosystem.devTeams
-      for (let i = 0; i < teams.length; i++) {
-        let team = teams[i]
-        for (let j = 0; j < team.bots.length; j++) {
-          let bot = team.bots[j]
-          if (bot.codeName.indexOf('simulator') >= 0) {
-            teamtradingSystemSimulationFB = bot.codeName
+      let response = await axios({
+        url: window.canvasApp.graphQL.masterAppApiUrl,
+        method: 'post',
+        data: {
+          query:
+          `             
+          query($fbSlug: String!){
+          strategizer_TradingSystemByFb(fbSlug: $fbSlug){
+            id
+            fbSlug
+            data
           }
         }
-      }
-
-      if (teamtradingSystemSimulationFB === '') {
-        if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> no simulation FB found at user teams. ') }
-        return
-      }
-      /* Getting all Strategies */
-
-      const networkInterface = Apollo.lib.createNetworkInterface({
-        uri: window.canvasApp.graphQL.masterAppApiUrl
-      })
-
-      networkInterface.use([{
-        applyMiddleware (req, next) {
-          req.options.headers = {
-            authorization: `Bearer ${accessToken}`
+        `,
+          variables: {
+            fbSlug: fbSlug
           }
-          next()
+        },
+        headers: {
+          authorization: 'Bearer ' + accessToken
         }
-      }])
-
-      const getStrategies = () => {
-        return new Promise((resolve, reject) => {
-          apolloClient.query({
-            query: GRAPHQL_QUERY_GET_STRATEGIES,
-            variables: { fbSlug: teamtradingSystemSimulationFB}
-          })
-                  .then(response => {
-                    window.localStorage.setItem('userStrategies', JSON.stringify(response.data.strategizer_StrategyByFb))
-                    thisObject.strategizerData = JSON.parse(JSON.stringify(response.data.strategizer_StrategyByFb))
-
-                    resolve({ strategies: response.data.strategizer_StrategyByFb.subStrategies})
-                  })
-                  .catch(err => {
-                    if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> ApolloClient error getting user strategies -> err = ' + err.stack) }
-                    reject(err)
-                  })
-        })
-      }
-
-          // To avoid race conditions, add asynchronous fetches to array
-      let fetchDataPromises = []
-
-      fetchDataPromises.push(getStrategies())
-
-          // When all asynchronous fetches resolve, authenticate user or throw error.
-      await Promise.all(fetchDataPromises).then(result => {
-
-      }, err => {
-        if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> GraphQL Fetch Error -> err = ' + err.stack) }
       })
+
+      if (response.data.errors) {
+        if (response.data.errors[0] === 'Ressource not found : None of the tradingSystem are linked to that fbSlug') {
+          return false
+        } else {
+          logger.write('[ERROR] Error while getting Trading System from Strategizer: ' + JSON.stringify(response.data.errors))
+          return false
+        }
+      } else {
+        window.localStorage.setItem('userStrategies', JSON.stringify(response.data.data.strategizer_TradingSystemByFb.data))
+        thisObject.strategizerData = JSON.parse(JSON.stringify(response.data.data.strategizer_TradingSystemByFb.data))
+        canvas.strategySpace.workspace.idAtStrategizer = response.data.data.strategizer_TradingSystemByFb.id
+        return true
+      }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> err = ' + err.stack) }
     }

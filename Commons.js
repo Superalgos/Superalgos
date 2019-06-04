@@ -256,7 +256,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 
             }
 
-            simulationLogic.strategies = await getStrategy();
+            simulationLogic.strategies = await getStrategies();
            
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
 
@@ -1331,7 +1331,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
         }
     }
 
-    async function getStrategy() {
+    async function getStrategies() {
 
         try {
 
@@ -1347,90 +1347,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 method: 'post',
                 data: {
                     query: `
-                query($fbSlug: String!){
-           
-                    strategizer_StrategyByFb(fbSlug: $fbSlug){
-                    subStrategies(activeOnly: true){
-                        name
-                        entryPoint{
-                        situations{
-                            name
-                            conditions{
-                            name
-                            code
-                            }
-                        }
-                        }
-                        exitPoint{
-                        situations{
-                            name
-                            conditions{
-                            name
-                            code
-                            }
-                        }
-                        }
-                        sellPoint{
-                        situations{
-                            name
-                            conditions{
-                            name
-                            code
-                            }
-                        }
-                        }
-                        buyPoint{
-                        situations{
-                            name
-                            conditions{
-                            name
-                            code
-                            }
-                        }
-                        }
-                        stopLoss{
-                        phases{
-                            name
-                            code
-                            situations{
-                            name
-                            conditions{
-                                name
-                                code
-                            }
-                            }
-                        }
-                        }
-                        buyOrder{
-                        phases{
-                            name
-                            code
-                            situations{
-                            name
-                            conditions{
-                                name
-                                code
-                            }
-                            }
-                        }
-                        }
-                        sellOrder{
-                        phases{
-                            name
-                            code
-                            situations{
-                            name
-                            conditions{
-                                name
-                                code
-                            }
-                            }
-                        }
-                        }
+                    query($fbSlug: String!){
+                      strategizer_TradingSystemByFb(fbSlug: $fbSlug){
+                        id
+                        fbSlug
+                        data
+                      }
                     }
-                    }
-                }
-          
                 `,
                     variables: {
                         fbSlug: fbSlug
@@ -1444,7 +1367,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             if (strategizerResponse.data.errors)
                 throw new Error(strategizerResponse.data.errors[0].message)
 
-            return strategizerResponse.data.data.strategizer_StrategyByFb.subStrategies;
+            return strategizerResponse.data.data.strategizer_TradingSystemByFb.data.strategies;
 
         } catch (error) {
             throw new Error('There has been an error getting the strategy to run on the simulator. Error: ' + error)

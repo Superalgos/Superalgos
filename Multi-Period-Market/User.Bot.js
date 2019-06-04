@@ -142,7 +142,7 @@
                             record.begin + "," +
                             record.end + "," +
                             record.type + "," +
-                            record.rate + "," +
+                            record.marketRate + "," +
                             record.amount + "," +
                             record.balanceA + "," +
                             record.balanceB + "," +
@@ -157,7 +157,7 @@
                             record.periods + "," +
                             record.days + "," +
                             record.anualizedRateOfReturn + "," +
-                            record.sellRate + "," +
+                            record.positionRate + "," +
                             record.lastProfitPercent + "," +
                             record.strategy + "," +
                             record.strategyPhase + "," +

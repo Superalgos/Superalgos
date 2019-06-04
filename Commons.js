@@ -100,7 +100,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Building records */
 
-            let sellRate = 0;
+            let positionRate = 0;
             let sellAmount = 0;
             let sellInstant;
 
@@ -110,7 +110,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let days = 0;
             let anualizedRateOfReturn = 0;
             let type = '""';
-            let rate = 0;
+            let marketRate = 0;
 
             /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need thse variables. */
 
@@ -542,7 +542,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
                         }
 
-                        rate = stopLoss;
+                        marketRate = stopLoss;
                         type = '"Buy@StopLoss"';
                         strategyPhase = 4;
                         currentTrade.end = candle.end;
@@ -571,7 +571,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
                         }
 
-                        rate = takeProfit;
+                        marketRate = takeProfit;
                         type = '"Buy@TakeProfit"';
                         strategyPhase = 4;
                         currentTrade.end = candle.end;
@@ -743,11 +743,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (strategyPhase === 2) {
 
-                    rate = candle.close;
-                    sellRate = rate;
+                    marketRate = candle.close;
+                    positionRate = marketRate;
                     sellAmount = balanceAssetA;
 
-                    stopLoss = sellRate + sellRate * 1 / 100;
+                    stopLoss = positionRate + positionRate * 1 / 100;
                     previousStopLoss = stopLoss;
 
                     checkStopLoss();
@@ -757,7 +757,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     lastProfit = 0;
                     lastProfitPercent = 0;
 
-                    balanceAssetB = balanceAssetA * rate;
+                    balanceAssetB = balanceAssetA * marketRate;
                     balanceAssetA = 0;
 
                     sellInstant = candle.end;
@@ -844,7 +844,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     strategyNumber = 0;
                     stopLoss = 0;
-                    sellRate = 0;
+                    positionRate = 0;
                     sellAmount = 0;
                     sellInstant = undefined;
                     takeProfit = 0;
@@ -857,7 +857,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Not a buy or sell condition */
 
-                rate = candle.close;
+                marketRate = candle.close;
                 addRecord();
 
                 function addRecord() {
@@ -894,7 +894,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         "BTC_USDT",
                         0,
                         ORDER_TYPE.Limit,
-                        rate,
+                        marketRate,
                         stopLoss,
                         takeProfit,
                         ORDER_DIRECTION.Sell,
@@ -934,7 +934,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         begin: candle.begin,
                         end: candle.end,
                         type: type,
-                        rate: rate,
+                        marketRate: marketRate,
                         amount: 1,
                         balanceA: balanceAssetA,
                         balanceB: balanceAssetB,
@@ -949,7 +949,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         periods: periods,
                         days: days,
                         anualizedRateOfReturn: anualizedRateOfReturn,
-                        sellRate: sellRate,
+                        positionRate: positionRate,
                         lastProfitPercent: lastProfitPercent,
                         strategy: strategyNumber,
                         strategyPhase: strategyPhase,

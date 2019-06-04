@@ -503,7 +503,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         marketRate = stopLoss;
                         type = '"Buy@StopLoss"';
-                        strategyStage = 4;
+                        strategyStage = 'Close Stage';
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 1;
@@ -532,7 +532,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         marketRate = takeProfit;
                         type = '"Buy@TakeProfit"';
-                        strategyStage = 4;
+                        strategyStage = 'Close Stage';
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;    
                         currentTrade.exitType = 2;
@@ -693,7 +693,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     addRecord();
 
-                    strategyStage = 3;
+                    strategyStage = 'Manage Stage';
                     continue;
                 }
 

@@ -160,7 +160,7 @@
                             record.positionRate + "," +
                             record.lastProfitPercent + "," +
                             record.strategy + "," +
-                            record.strategyPhase + "," +
+                            "'" + record.strategyStage + "'" + "," +
                             record.takeProfit + "," +
                             record.stopLossPhase + "," +
                             record.takeProfitPhase + "," +

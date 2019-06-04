@@ -100,7 +100,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Building records */
 
-            let record;
             let sellRate = 0;
             let sellAmount = 0;
             let sellInstant;
@@ -873,7 +872,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     // Since we are going to write the message to a file that the Simulation Executor is going to read, we use the abbreviations.
                     let messageType;
                     let message;
-                    let record;
+                    let simulationRecord;
                     let orderRecord;
 
                     messageId++;
@@ -938,7 +937,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         "")
                     }
 
-                    record = {
+                    simulationRecord = {
                         begin: candle.begin,
                         end: candle.end,
                         type: type,
@@ -968,7 +967,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         sellAmount: sellAmount
                     }
 
-                    recordsArray.push(record);
+                    recordsArray.push(simulationRecord);
 
                     previousStopLoss = stopLoss;
 

@@ -351,29 +351,32 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                             if (triggerStage !== undefined) {
 
-                                for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
+                                if (triggerStage.triggerOn !== undefined) {
 
-                                    let situation = triggerStage.triggerOn.situations[k];
-                                    let passed = true;
+                                    for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
 
-                                    for (let m = 0; m < situation.conditions.length; m++) {
+                                        let situation = triggerStage.triggerOn.situations[k];
+                                        let passed = true;
 
-                                        let condition = situation.conditions[m];
-                                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
+                                        for (let m = 0; m < situation.conditions.length; m++) {
 
-                                        let value = conditions.get(key).value;
+                                            let condition = situation.conditions[m];
+                                            let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
 
-                                        if (value === false) { passed = false; }
-                                    }
+                                            let value = conditions.get(key).value;
 
-                                    if (passed) {
+                                            if (value === false) { passed = false; }
+                                        }
 
-                                        strategyStage = 'Trigger Stage';
-                                        currentStrategyNumber = j + 1;
-                                        currentStrategy.begin = candle.begin;
-                                        currentStrategy.beginRate = candle.min;
-                                        currentStrategy.endRate = candle.min; // In case the strategy does not get exited
-                                        return;
+                                        if (passed) {
+
+                                            strategyStage = 'Trigger Stage';
+                                            currentStrategyNumber = j + 1;
+                                            currentStrategy.begin = candle.begin;
+                                            currentStrategy.beginRate = candle.min;
+                                            currentStrategy.endRate = candle.min; // In case the strategy does not get exited
+                                            return;
+                                        }
                                     }
                                 }
                             }
@@ -395,31 +398,34 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         if (triggerStage !== undefined) {
 
-                            for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
+                            if (triggerStage.triggerOff !== undefined) {
 
-                                let situation = triggerStage.triggerOff.situations[k];
-                                let passed = true;
+                                for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
 
-                                for (let m = 0; m < situation.conditions.length; m++) {
+                                    let situation = triggerStage.triggerOff.situations[k];
+                                    let passed = true;
 
-                                    let condition = situation.conditions[m];
-                                    let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
+                                    for (let m = 0; m < situation.conditions.length; m++) {
 
-                                    let value = conditions.get(key).value;
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
 
-                                    if (value === false) { passed = false; }
-                                }
+                                        let value = conditions.get(key).value;
 
-                                if (passed) {
+                                        if (value === false) { passed = false; }
+                                    }
 
-                                    currentStrategy.number = currentStrategyNumber - 1
-                                    currentStrategy.end = candle.end;
-                                    currentStrategy.endRate = candle.min;
-                                    currentStrategy.status = 1;
-                                    strategyStage = 'No Stage';
-                                    currentStrategyNumber = 0;
+                                    if (passed) {
 
-                                    return;
+                                        currentStrategy.number = currentStrategyNumber - 1
+                                        currentStrategy.end = candle.end;
+                                        currentStrategy.endRate = candle.min;
+                                        currentStrategy.status = 1;
+                                        strategyStage = 'No Stage';
+                                        currentStrategyNumber = 0;
+
+                                        return;
+                                    }
                                 }
                             }
                         }
@@ -440,31 +446,34 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         if (triggerStage !== undefined) {
 
-                            for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
+                            if (triggerStage.takePosition !== undefined) {
 
-                                let situation = triggerStage.takePosition.situations[k];
-                                let passed = true;
+                                for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
 
-                                for (let m = 0; m < situation.conditions.length; m++) {
+                                    let situation = triggerStage.takePosition.situations[k];
+                                    let passed = true;
 
-                                    let condition = situation.conditions[m];
-                                    let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
+                                    for (let m = 0; m < situation.conditions.length; m++) {
 
-                                    let value = conditions.get(key).value;
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
 
-                                    if (value === false) { passed = false; }
-                                }
+                                        let value = conditions.get(key).value;
 
-                                if (passed) {
+                                        if (value === false) { passed = false; }
+                                    }
 
-                                    type = '"Sell"';
+                                    if (passed) {
 
-                                    strategyStage = 'Open Stage';
-                                    stopLossPhase = 1;
-                                    takeProfitPhase = 1;
-                                    currentTrade.begin = candle.begin;
-                                    currentTrade.beginRate = candle.close;
-                                    return;
+                                        type = '"Sell"';
+
+                                        strategyStage = 'Open Stage';
+                                        stopLossPhase = 1;
+                                        takeProfitPhase = 1;
+                                        currentTrade.begin = candle.begin;
+                                        currentTrade.beginRate = candle.close;
+                                        return;
+                                    }
                                 }
                             }
                         }

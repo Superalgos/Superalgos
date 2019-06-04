@@ -91,14 +91,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let stopLoss = 0;
             let stopLossPhase = 0;
 
-            /* Buy Order Management */
+            /* Take Profit Management */
 
-            const MIN_BUY_ORDER_VALUE = 1 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
+            const MIN_TAKE_PROFIT_VALUE = 1 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
             let previousTakeProfit = 0;
             let takeProfit = 0;
             let takeProfitPhase = 0;
 
-            /* Building records */
+            /* Simulation Records */
 
             let positionRate = 0;
             let positionSize = 0;
@@ -526,7 +526,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 if (strategyPhase === 3) {
 
                     /* Checking what happened since the last execution. We need to know if the Stop Loss
-                        or our Buy Order were hit. */
+                        or our Take Profit were hit. */
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
@@ -556,7 +556,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentStrategy.status = 1;
                     }
 
-                    /* Buy Order condition: Here we verify if the Buy Order was filled or not. */
+                    /* Take Profit condition: Here we verify if the Take Profit was filled or not. */
 
                     if (candle.min <= takeProfit) {
 
@@ -590,9 +590,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (strategyPhase === 1) {
 
-                    checkSellPoints();
+                    checkTakePosition();
 
-                    function checkSellPoints() {
+                    function checkTakePosition() {
 
                         let strategy = tradingSystem.strategies[strategyNumber - 1];
 
@@ -676,7 +676,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             If the code produces an exception, we are covered.
                         */
                     }
-
+                    if (isNaN(stopLoss)) { stopLoss = 0; }
                     if (stopLoss < MIN_STOP_LOSS_VALUE) {
                         stopLoss = MIN_STOP_LOSS_VALUE
                     }
@@ -733,9 +733,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             If the code produces an exception, we are covered.
                         */
                     }
-
-                    if (takeProfit < MIN_BUY_ORDER_VALUE) {
-                        takeProfit = MIN_BUY_ORDER_VALUE
+                    if (isNaN(takeProfit)) { takeProfit = 0; }
+                    if (takeProfit < MIN_TAKE_PROFIT_VALUE) {
+                        takeProfit = MIN_TAKE_PROFIT_VALUE
                     }
                 }
 

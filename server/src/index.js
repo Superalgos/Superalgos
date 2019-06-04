@@ -14,9 +14,6 @@ import logger from './logger'
 
 async function getUserId (authId) {
   try {
-    if(authId === process.env.AACLOUD_ID){
-      return authId
-    }
 
     const userData = await axios({
       url: process.env.USERS_API_URL,
@@ -181,7 +178,8 @@ async function run () {
     const response = {
       headers: Object.assign(
         res.locals.userId ? { userId: res.locals.userId } : {},
-        req.headers.authorization ? { authorization: req.headers.authorization } : {}
+        req.headers.authorization ? { authorization: req.headers.authorization } : {},
+        req.headers.access_token ? { access_token: req.headers.access_token } : {}
       )
     }
     return response

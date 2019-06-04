@@ -1,6 +1,8 @@
 import logger from '../../utils/logger'
 import { FileInputType } from '../types/input'
 import { GraphQLString } from 'graphql'
+import { getFileContent } from '../../storage/providers/MinioStorage'
+import { getFileContentRemote } from '../../storage/providers/AzureStorage'
 
 export const args = { file: { type: FileInputType } }
 
@@ -9,31 +11,18 @@ const resolve = async (parent, { file }, context) => {
 
   try {
 
-    let storage = require('../../storage/providers/AzureStorage') // Default value
-    if (process.env.STORAGE_PROVIDER === 'Minio') {
-      storage = require('../storage/providers/MinioStorage')
+    let fileContent
+    if (file.storage === 'localStorage') {
+      //TODO Add permissions
+      fileContent = await getFileContent(file.container, file.filePath)
+    } else {
+      fileContent = await getFileContentRemote(file.container, file.filePath, file.storage, file.accessKey)
     }
 
-    //Temporary fix for plotter and plotter pannels
-    if (file.storage === '' && file.accessKey === ''){
-      let defaultEcosystem = require('../../config/ecosystem.json')
-      for (let index = 0; index < defaultEcosystem.devTeams.length; index++) {
-        const devTeam = defaultEcosystem.devTeams[index];
-        if(devTeam.codeName.toLowerCase() === file.container){
-          file.storage = devTeam.host.storage
-          file.accessKey = devTeam.host.accessKey
-        }
-      }
-    }
-    if (file.storage === '' || file.accessKey === ''){
-      throw "Wrong parameters."
-    }
-
-    let fileContent = await storage.getFileContentRemote(file.container, file.filePath, file.storage, file.accessKey)
     return fileContent
 
   } catch (err) {
-    logger.error('getFileContent -> Error: %s', err.stack)
+    logger.error('getFileContent -> Error: %s', err.message)
     throw err
   }
 }

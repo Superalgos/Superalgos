@@ -3,7 +3,7 @@ import { AuthenticationError, WrongArgumentsError } from '../../errors'
 import { TeamType } from '../types'
 import { Ecosystem } from '../../models'
 import { DeleteTeamInputType } from '../types/input'
-import { deleteTeam } from '../../storage/DeleteTeam'
+import { deleteContainer } from '../../storage/providers/MinioStorage'
 
 export const args = { team: { type: DeleteTeamInputType } }
 
@@ -30,7 +30,7 @@ const resolve = async (parent, { team }, context) => {
       if (auxTeam.codeName === team.codeName) {
         logger.debug('deleteTeam -> Team found, removing.')
         teamFound = true
-        await deleteTeam(team)
+        await deleteContainer(team.codeName)
         userEcosystem.devTeams.splice(i, 1)
         await userEcosystem.save()
         break

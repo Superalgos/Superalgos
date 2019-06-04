@@ -1,12 +1,9 @@
-﻿exports.newDataDependencies = function newDataDependencies(BOT, logger, DATA_SET, BLOB_STORAGE, UTILITIES) {
+﻿exports.newDataDependencies = function newDataDependencies(BOT, logger, DATA_SET) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
     const MODULE_NAME = "Data Dependencies";
-
-    let bot = BOT;
-    let ownerBot;                       // This is the bot owner of the Data Set. 
 
     let thisObject = {
         config: undefined,
@@ -43,7 +40,7 @@
 
             for (let i = 0; i < thisObject.config.length; i++) {
 
-                let dataSetModule = DATA_SET.newDataSet(BOT, logger, BLOB_STORAGE, UTILITIES);
+                let dataSetModule = DATA_SET.newDataSet(BOT, logger);
 
                 dataSetModule.initialize(thisObject.config[i], onInitilized);
 

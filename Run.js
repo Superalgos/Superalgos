@@ -1,7 +1,5 @@
 ﻿require('dotenv').config()
 
-global.CURRENT_ENVIRONMENT = "Develop";
-global.CURRENT_EXECUTION_AT = "Node";
 global.SHALL_BOT_STOP = false;
 global.AT_BREAKPOINT = false; // This is used only when running at the browser.
 global.RUN_AS_TEAM = false;
@@ -38,7 +36,6 @@ function readExecutionConfiguration() {
         let startMode
 
         // Environment Configuration
-        global.CURRENT_ENVIRONMENT = process.env.PLATFORM_ENVIRONMENT
         global.GATEWAY_ENDPOINT = process.env.GATEWAY_ENDPOINT
 
         // General Financial Being Configuration
@@ -57,8 +54,7 @@ function readExecutionConfiguration() {
                 run: "false",
                 resumeExecution: process.env.RESUME_EXECUTION,
                 beginDatetime: process.env.BEGIN_DATE_TIME,
-                endDatetime: process.env.END_DATE_TIME,
-                waitTime: process.env.WAIT_TIME
+                endDatetime: process.env.END_DATE_TIME
             }
 
             let competition = {
@@ -123,7 +119,19 @@ function readExecutionConfiguration() {
             dataSet: process.env.DATA_SET
         };
 
-        readStoragePermissions();
+        // var cloneExecutorConfig = require('./package.json');
+        // global.CLONE_EXECUTOR = {
+        //     codeName: 'clone-executor',
+        //     codeName: 'clone-executor',
+        //     version: cloneExecutorConfig.version
+        // }
+
+        global.CLONE_EXECUTOR = {
+            codeName: 'AACloud',
+            version: '1.1'
+        }
+
+        startRoot();
     }
 
     catch (err) {
@@ -162,61 +170,6 @@ function getTimePeriod(timePeriod) {
         }
     } else {
         return undefined
-    }
-}
-
-function readStoragePermissions() {
-    try {
-        console.log("[INFO] Run -> readStoragePermissions -> Entering function. ");
-
-        /* Dinamically generating the azure storage  permissions for the bot to run */
-        global.STORAGE_BASE_URL = process.env.STORAGE_BASE_URL
-        global.USER_PROFILE = {}
-        const MAX_STORAGE_PERMISSION_DAYS = 10;
-        const STORAGE_ACCESS_MANAGER = require('./StorageAccessManager');
-        storageAccessManager = STORAGE_ACCESS_MANAGER.newStorageAccessManager();
-
-        storageAccessManager.initialize(process.env.STORAGE_CONNECTION_STRING, onInitialized);
-
-        function onInitialized() {
-
-            /* Here we will rearrange the storage permissions array into a map, so that it can be easily consumed when needed. */
-
-            let permissionsMap = new Map;
-
-            let containers = ["AAPlatform", "AAMasters", "AAVikings", global.DEV_TEAM]
-            let container;
-            let key;
-            let value;
-
-            for (let i = 0; i < containers.length; i++) {
-
-                container = containers[i];
-                let readPermission = storageAccessManager.getPermission(container.toLowerCase(), "READ", MAX_STORAGE_PERMISSION_DAYS);
-
-                key = container + ".READ";
-                value = readPermission;
-
-                permissionsMap.set(key, value);
-
-            }
-
-            let writePermission = storageAccessManager.getPermission(container.toLowerCase(), "WRITE", MAX_STORAGE_PERMISSION_DAYS);
-
-            key = container + ".WRITE";
-            value = writePermission;
-
-            permissionsMap.set(key, value);
-
-            global.USER_PROFILE.storagePermissions = permissionsMap;
-            global.USER_PROFILE.connectionString = "";
-            process.env.STORAGE_CONNECTION_STRING = "";
-
-            startRoot();
-
-        }
-    } catch (err) {
-        console.log("[ERROR] Run -> readStoragePermissions -> err = " + err.message);
     }
 }
 

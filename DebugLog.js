@@ -6,9 +6,9 @@
     let executionDatetime = "D." + global.EXECUTION_DATETIME.getUTCFullYear() +
         "." + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) +
         "." + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) +
-        ".T." + pad(global.EXECUTION_DATETIME.getUTCHours(),2) +
-        "." + pad(global.EXECUTION_DATETIME.getUTCMinutes(),2) +
-        "." + pad(global.EXECUTION_DATETIME.getUTCSeconds(),2);
+        ".T." + pad(global.EXECUTION_DATETIME.getUTCHours(), 2) +
+        "." + pad(global.EXECUTION_DATETIME.getUTCMinutes(), 2) +
+        "." + pad(global.EXECUTION_DATETIME.getUTCSeconds(), 2);
 
     let messageId = 0;
 
@@ -63,72 +63,49 @@
             let contentToPersist = accumulatedLog;
             accumulatedLog = "[";
 
-            const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
-            let cloudStorage = BLOB_STORAGE.newBlobStorage(thisObject.bot);
+            const FILE_STORAGE = require('./Integrations/FileStorage.js');
+            let fileStorage = FILE_STORAGE.newFileStorage();
 
-            cloudStorage.initialize(thisObject.bot.devTeam, onInizialized, true);
+            let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/" + executionDatetime;
 
-            function onInizialized(err) {
+            if (thisObject.bot.debug.year !== undefined) {
 
-                try {
-
-                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                        let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/" + executionDatetime;
-
-                        if (thisObject.bot.debug.year !== undefined) {
-
-                            filePath = filePath + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month;
-                        }
-
-                        let fileName;
-
-                        if (internalLoopCounter >= 0) {
-
-                            fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + "." + pad(internalLoopCounter, 4) + ".json";
-
-                        } else {
-
-                            fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + ".json";
-
-                        }
-
-                        writeLog();
-
-                        function writeLog() {
-
-                            cloudStorage.createTextFile(filePath, fileName, contentToPersist + '\r\n' + "]", onFileCreated);
-
-                            function onFileCreated(err) {
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = " + err.message);
-                                    console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> filePath = " + filePath);
-                                    console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> fileName = " + fileName);
-
-                                    setTimeout(writeLog, 10000); // Lets retry until we make it.
-                                    return;
-                                }
-
-                                contentToPersist = "";
-                                //thisObject = {};
-                            }
-                        }
-
-                    } else {
-
-                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> cloud storge failed to initialize. ");
-                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> err.message = " + err.message);
-                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> contentToPersist = " + contentToPersist);
-
-                    }
-
-                } catch (err) {
-                    console.log("[ERROR] DebugLog -> persist -> onInizialized -> err = " + err.message);
-                    console.log("[ERROR] DebugLog -> persist -> onInizialized -> contentToPersist = " + contentToPersist);
-                }
+                filePath = filePath + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month;
             }
 
+            let fileName;
+
+            if (internalLoopCounter >= 0) {
+
+                fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + "." + pad(internalLoopCounter, 4) + ".json";
+
+            } else {
+
+                fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + ".json";
+
+            }
+
+            writeLog();
+
+            function writeLog() {
+
+                fileStorage.createTextFile(global.DEV_TEAM, filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated);
+
+                function onFileCreated(err) {
+
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = " + err.message);
+                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> filePath = " + filePath);
+                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> fileName = " + fileName);
+
+                        setTimeout(writeLog, 10000); // Lets retry until we make it.
+                        return;
+                    }
+
+                    contentToPersist = "";
+                    //thisObject = {};
+                }
+            }
         } catch (err) {
             console.log("[ERROR] DebugLog -> persist -> err = " + err.message);
             console.log("[ERROR] DebugLog -> persist -> onInizialized -> contentToPersist = " + contentToPersist);
@@ -139,12 +116,6 @@
     function write(pModule, pMessage) {
 
         try {
-
-            if (global.CURRENT_EXECUTION_AT === "IDE") {
-
-                console.log("CloneExecutor" + spacePad(pModule, 50) + " : " + pMessage);
-
-            }
 
             if (disableLogging === true) { return; }
 

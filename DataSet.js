@@ -1,4 +1,4 @@
-﻿exports.newDataSet = function newDataSet(BOT, logger, BLOB_STORAGE, UTILITIES) {
+﻿exports.newDataSet = function newDataSet(BOT, logger) {
 
     const MODULE_NAME = "Data Set";
 
@@ -12,13 +12,10 @@
 
     let dependencyConfig;
 
-    /* Utilities needed. */
-
-    let utilities = UTILITIES.newCloudUtilities(bot, logger);
-
     /* Storage account to be used here. */
 
-    let cloudStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    let fileStorage = FILE_STORAGE.newFileStorage();
 
     return thisObject;
 
@@ -26,31 +23,15 @@
 
         try {
 
+
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
+
             logger.fileName = MODULE_NAME + "." + pDependencyConfig.bot + "." + pDependencyConfig.product + "." + pDependencyConfig.dataSet;
 
             dependencyConfig = pDependencyConfig;
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
-            initializeStorage();
-
-            function initializeStorage() {
-
-                cloudStorage.initialize(dependencyConfig.devTeam, onInizialized);
-
-                function onInizialized(err) {
-
-                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> initializeStorage -> onInizialized -> Entering function."); }
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                    } else {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> initializeStorage -> onInizialized -> err = " + err.message);
-                        callBackFunction(err);
-                    }
-                }
-            }
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -62,13 +43,12 @@
         try {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTextFile -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTextFile -> pFolderPath = " + pFolderPath); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTextFile -> pFileName = " + pFileName); }
 
-            let filePathRoot = dependencyConfig.devTeam + "/" + dependencyConfig.bot + "." + dependencyConfig.botVersion.major + "." + dependencyConfig.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + dependencyConfig.dataSetVersion;
+            let filePathRoot = dependencyConfig.devTeam + "/" + dependencyConfig.bot + "." + dependencyConfig.botVersion.major + "." + dependencyConfig.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + dependencyConfig.dataSetVersion;
             let filePath = filePathRoot + "/Output/" + pFolderPath;
+            filePath += '/' + pFileName
 
-            cloudStorage.getTextFile(filePath, pFileName, onFileReceived);
+            fileStorage.getTextFile(dependencyConfig.devTeam, filePath, onFileReceived); // TODO pass credentials?
 
             function onFileReceived(err, text) {
 
@@ -106,10 +86,10 @@
                 return;
             }
 
-            let filePathRoot = dependencyConfig.devTeam + "/" + dependencyConfig.bot + "." + dependencyConfig.botVersion.major + "." + dependencyConfig.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + dependencyConfig.dataSetVersion;
-            let filePath = filePathRoot + "/Output/" + pFolderPath;
+            let filePathRoot = dependencyConfig.devTeam + "/" + dependencyConfig.bot + "." + dependencyConfig.botVersion.major + "." + dependencyConfig.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + dependencyConfig.dataSetVersion;
+            let filePath = filePathRoot + "/Output/" + pFolderPath + '/' + pFileName;
 
-            cloudStorage.createTextFile(filePath, pFileName, pFileContent, onFileCreated);
+            fileStorage.createTextFile(dependencyConfig.devTeam, filePath, pFileContent, onFileCreated); // TODO pass credentials? Why should this bot write on other devTeam folder?
 
             function onFileCreated(err) {
 

@@ -1,4 +1,4 @@
-﻿exports.newContext = function newContext(BOT, logger, BLOB_STORAGE, UTILITIES, STATUS_REPORT) {
+﻿exports.newContext = function newContext(BOT, logger, UTILITIES) {
 
     let bot = BOT;
 
@@ -61,17 +61,16 @@
 
     /* Utilities needed. */
 
-    let utilities = UTILITIES.newCloudUtilities(bot, logger);
+    let utilities = UTILITIES.newCloudUtilities(logger);
 
     /* Storage account to be used here. */
 
-    let cloudStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+	let fileStorage = FILE_STORAGE.newFileStorage();
 
     let statusDependencies;
 
     let runIndex;  // This is the index for this run and depends on the startMode.
-
-    let totalAlgobots;
 
     return thisObject;
 
@@ -82,7 +81,6 @@
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             statusDependencies = pStatusDependencies;
-            totalAlgobots = pTotalAlgobots;
 
             /*
 
@@ -90,26 +88,9 @@
             of the process.
 
             */
-            initializeStorage();
+            thisObject.newHistoryRecord.date = bot.processDatetime;
 
-            function initializeStorage() {
-
-                cloudStorage.initialize(bot.devTeam, onInizialized);
-
-                function onInizialized(err) {
-
-                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                        thisObject.newHistoryRecord.date = bot.processDatetime;
-
-                        getStatusReport(onDone);
-
-                    } else {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> initializeStorage -> onInizialized -> err = " + err.message);
-                        callBackFunction(err);
-                    }
-                }
-            }
+            getStatusReport(onDone);
 
             function onDone(err) {
                 try {
@@ -180,13 +161,10 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
-                    let fileName = "Execution.History." + bot.startMode + "." + runIndex + ".json";
-                    let filePath = bot.filePathRoot + "/Output/" + bot.process;
+                    let fileName = "/Execution.History." + bot.startMode + "." + runIndex + ".json";
+                    let filePath = bot.filePathRoot + "/Output/" + bot.process + fileName;
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getExecutionHistory -> fileName = " + fileName); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getExecutionHistory -> filePath = " + filePath); }
-
-                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+                    fileStorage.getTextFile(global.DEV_TEAM, filePath, onFileReceived);
 
                     function onFileReceived(err, text) {
 
@@ -243,14 +221,11 @@
                     thisObject.statusReport.runs[runIndex].lastExecution = bot.processDatetime;
                     thisObject.statusReport.runs[runIndex].endDatetime = bot.processDatetime;
 
-                    let fileName = "Execution.Context." + bot.startMode + "." + runIndex + ".json";
+                    let fileName = "/Execution.Context." + bot.startMode + "." + runIndex + ".json";
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                    let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
+                    let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath + fileName;
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getExecutionContext -> fileName = " + fileName); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getExecutionContext -> filePath = " + filePath); }
-
-                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+                    fileStorage.getTextFile(global.DEV_TEAM, filePath, onFileReceived);
 
                     function onFileReceived(err, text) {
 
@@ -416,9 +391,9 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> Entering function."); }
 
-                    let fileName = "Execution.Context." + bot.startMode + "." + runIndex +".json";
+                    let fileName = "/Execution.Context." + bot.startMode + "." + runIndex +".json";
                     let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCMinutes(), 2);
-                    let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
+                    let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath + fileName;
                     let fileContent = JSON.stringify(thisObject.executionContext);
 
                     if(fileContent === undefined){
@@ -430,7 +405,7 @@
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> filePath = " + filePath); }
                     if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> fileContent = " + fileContent); }
 
-                    cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(global.DEV_TEAM, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -459,8 +434,8 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> Entering function."); }
 
-                    let fileName = "Execution.History." + bot.startMode + "." + runIndex + ".json";
-                    let filePath = bot.filePathRoot + "/Output/" + bot.process;
+                    let fileName = "/Execution.History." + bot.startMode + "." + runIndex + ".json";
+                    let filePath = bot.filePathRoot + "/Output/" + bot.process + fileName;
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> fileName = " + fileName); }
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> filePath = " + filePath); }
@@ -494,7 +469,7 @@
 
                     let fileContent = JSON.stringify(thisObject.executionHistory);
 
-                    cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(global.DEV_TEAM, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -513,10 +488,10 @@
                         /* Here we will write the file containing the max sequence number. */
 
                         fileContent = runIndex;
-                        fileName = "Execution.History." + bot.startMode + "." + "Sequence" + ".json";
-                        filePath = bot.filePathRoot + "/Output/" + bot.process;
+                        fileName = "/Execution.History." + bot.startMode + "." + "Sequence" + ".json";
+                        filePath = bot.filePathRoot + "/Output/" + bot.process + fileName;
 
-                        cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onSequenceFileCreated);
+                        fileStorage.createTextFile(global.DEV_TEAM, filePath, fileContent + '\n', onSequenceFileCreated);
 
                         function onSequenceFileCreated(err) {
 

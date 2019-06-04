@@ -1,10 +1,7 @@
 ﻿
-exports.newCloudUtilities = function newCloudUtilities(BOT, logger) {
+exports.newCloudUtilities = function newCloudUtilities(logger) {
 
     const FULL_LOG = true;
-
-    let bot = BOT;
-    const ROOT_DIR = '../';
 
     const MODULE_NAME = "Cloud Utilities";
 

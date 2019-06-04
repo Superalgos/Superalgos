@@ -1,6 +1,6 @@
-﻿exports.newStatusReport = function newStatusReport(BOT, logger, BLOB_STORAGE, UTILITIES) {
+﻿exports.newStatusReport = function newStatusReport(BOT, logger, UTILITIES) {
 
-    /* 
+    /*
 
     A Status Report is a file that every bot reads at the begining of its execution and saves after it finishes its job.
     The purpose of the file is to record checkpoint information of what was the last thing done by the bot and helpfull enough to start the next execution.
@@ -25,11 +25,12 @@
 
     /* Utilities needed. */
 
-    let utilities = UTILITIES.newCloudUtilities(bot, logger);
+    let utilities = UTILITIES.newCloudUtilities(logger);
 
     /* Storage account to be used here. */
 
-    let cloudStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    let fileStorage = FILE_STORAGE.newFileStorage();
 
     let month;
     let year;
@@ -51,31 +52,9 @@
 
                 logger.fileName = MODULE_NAME + "." + pOwner.bot + "." + pOwner.process + "." + year + "." + month;
 
-                timePath = "/" + year + "/" + month; 
+                timePath = "/" + year + "/" + month;
             }
-
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-
-
-            initializeStorage();
-
-            function initializeStorage() {
-
-                cloudStorage.initialize(owner.devTeam, onInizialized);
-
-                function onInizialized(err) {
-
-                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> initializeStorage -> onInizialized -> Entering function."); }
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                    } else {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> initializeStorage -> onInizialized -> err = " + err.message);
-                        callBackFunction(err);
-                    }
-                }
-            }
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -86,7 +65,7 @@
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> load -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] load -> Entering function."); }
 
             let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
             let filePath;
@@ -96,7 +75,7 @@
 
             if (ownerId !== botId) {
 
-                let rootPath = owner.devTeam + "/" + owner.bot + "." + owner.botVersion.major + "." + owner.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + owner.dataSetVersion;
+                let rootPath = owner.devTeam + "/" + owner.bot + "." + owner.botVersion.major + "." + owner.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + owner.dataSetVersion;
 
                 filePath = rootPath + "/Reports/" + owner.process + timePath;
 
@@ -110,18 +89,16 @@
                 fileName = bot.startMode + "." + fileName;
             }
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> load -> fileName = " + fileName); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> load -> filePath = " + filePath); }
+            filePath += '/' + fileName
 
-            cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+            fileStorage.getTextFile(global.DEV_TEAM, filePath, onFileReceived);
 
             function onFileReceived(err, text) {
 
-                if (
-                    err.result === global.CUSTOM_FAIL_RESPONSE.result &&
-                    (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
-                ) {
-                    logger.write(MODULE_NAME, "[INFO] initialize -> load -> onFileReceived -> err = " + err.message);
+                if ( err.result === global.CUSTOM_FAIL_RESPONSE.result && (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
+                    || err.code === "The specified key does not exist.") {
+
+                    logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = " + err.message);
 
                     /* In this case we can assume that this is the first execution ever of this bot.*/
 
@@ -131,19 +108,19 @@
                         result: global.CUSTOM_OK_RESPONSE.result,
                         message: "Status Report was never created."
                     };
-                    logger.write(MODULE_NAME, "[WARN] initialize -> load -> onFileReceived -> customOK = " + customOK.message);
+                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customOK = " + customOK.message);
                     callBackFunction(customOK);
                     return;
                 }
 
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> load -> onFileReceived -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = " + err.message);
                     callBackFunction(err);
                     return;
                 }
 
                 if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
-                    logger.write(MODULE_NAME, "[INFO] initialize -> load -> onFileReceived -> Content received = " + text);
+                    logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> Content received = " + text);
                 }
 
                 try {
@@ -158,20 +135,20 @@
                     is being updated at the moment of the read. The bot can not run without a valid Status Report but we can request the platform to retry later.
                     */
 
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> load -> onFileReceived -> Error Parsing the Status report. -> Err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> Error Parsing the Status report. -> Err = " + err.message);
 
                     let customFail = {
                         result: global.CUSTOM_FAIL_RESPONSE.result,
                         message: "Status Report is corrupt."
                     };
-                    logger.write(MODULE_NAME, "[WARN] initialize -> load -> onFileReceived -> customFail = " + customFail.message);
+                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customFail = " + customFail.message);
                     callBackFunction(customFail);
                     return;
                 }
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> load -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] load -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -203,12 +180,14 @@
                 fileName = bot.startMode + "." + fileName;
             }
 
+            filePath += '/' + fileName
+
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> fileName = " + fileName); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> filePath = " + filePath); }
 
             let fileContent = JSON.stringify(thisObject.file);
 
-            cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+            fileStorage.createTextFile(global.DEV_TEAM, filePath, fileContent + '\n', onFileCreated);
 
             function onFileCreated(err) {
 
@@ -237,15 +216,15 @@
 
     function verifyMarketComplete(callBackFunction) {
 
-    /*
-    The mission of this function is to update the main status report on a scheme where there are monthly sub reports.
-    This report contains the date of the last file sucessfully checked but in a consecutive way.
+        /*
+        The mission of this function is to update the main status report on a scheme where there are monthly sub reports.
+        This report contains the date of the last file sucessfully checked but in a consecutive way.
 
-    For example: if the market starts in March, and March, April and June are checked, then the file will be the last of June even if September is also checked.
+        For example: if the market starts in March, and March, April and June are checked, then the file will be the last of June even if September is also checked.
 
-    IMPORTANT NOTE: Once executed, this function will leave thisObject in an inconsistant state, so you need to re-initialize it if you wish to use it again.
+        IMPORTANT NOTE: Once executed, this function will leave thisObject in an inconsistant state, so you need to re-initialize it if you wish to use it again.
 
-    */
+        */
 
         try {
 
@@ -478,8 +457,7 @@
                 }
             }
         }
-        catch (err)
-        {
+        catch (err) {
             logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             return;

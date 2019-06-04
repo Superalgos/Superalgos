@@ -1,9 +1,8 @@
-﻿exports.newMultiPeriodDaily = function newMultiPeriodDaily(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, USER_BOT_MODULE, COMMONS_MODULE) {
+﻿exports.newMultiPeriodDaily = function newMultiPeriodDaily(bot, logger, COMMONS, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
     const MODULE_NAME = "Multi Period Daily";
-    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
     const GMT_SECONDS = ':00.000 GMT+0000';
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
@@ -12,7 +11,7 @@
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities(bot, logger);
+    let utilities = UTILITIES.newCloudUtilities(logger);
 
     let statusDependencies;
     let dataDependencies;
@@ -20,7 +19,9 @@
     let dataFiles = [];
 
     let usertBot;
-    let currentBotStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+
+    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+	let fileStorage = FILE_STORAGE.newFileStorage();
 
     let processConfig;
 
@@ -57,20 +58,8 @@
 
             }
 
-            currentBotStorage.initialize(bot.devTeam, onStorageInizialized);
-
-            function onStorageInizialized(err) {
-
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE);
-                    usertBot.initialize(dataDependencies, callBackFunction);
-
-                } else {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> onStorageInizialized -> err = " + err.message);
-                    callBackFunction(err);
-                }
-            }
+            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES);
+            usertBot.initialize(dataDependencies, callBackFunction);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
@@ -423,7 +412,7 @@
                                             let filePath = dependency.product + '/' + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                            storage.getTextFile(filePath, fileName, onFileReceived, true);
+                                            storage.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -492,7 +481,7 @@
                                             let filePath = dependency.product + '/' + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                            storage.getTextFile(filePath, fileName, onFileReceived, true);
+                                            storage.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -720,13 +709,13 @@
 
                     let fileContent = JSON.stringify(dataRange);
 
-                    let fileName = 'Data.Range.' + market.assetA + '_' + market.assetB + '.json';
-                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
+                    let fileName = '/Data.Range.' + market.assetA + '_' + market.assetB + '.json';
+                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process + fileName;
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> filePath = " + filePath); }
 
-                    currentBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(global.DEV_TEAM, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

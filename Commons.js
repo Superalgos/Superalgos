@@ -82,7 +82,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             /* Strategy and Phases */
 
             let currentStrategyNumber = 0;
-            let strategyPhase = 0;  // So far we will consider 5 possible phases: 0 = Initial state, 1 = Signal to buy, 2 = Buy, 3 = After Buy, 4 = Sell.
+            let strategyStage = 'No Stage';   
 
             /* Stop Loss Management */
 
@@ -320,11 +320,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 evaluateConditions(tradingSystem, conditions);
 
-
-                /* Trigger On Conditions */
-
                 if (currentStrategyNumber === 0 &&
                     balanceAssetA > minimunBalanceA) {
+
+                    /* Trigger On Conditions */
 
                     /*
                     Here we need to pick a strategy, or if there is not suitable strategy for the current
@@ -362,7 +361,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                 if (passed) {
 
-                                    strategyPhase = 1;
+                                    strategyStage = 'Trigger Stage';
                                     currentStrategyNumber = j + 1;
                                     currentStrategy.begin = candle.begin;
                                     currentStrategy.beginRate = candle.min;
@@ -376,7 +375,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Trigger Off Condition */
 
-                if (strategyPhase === 1) {
+                if (strategyStage === 'Trigger Stage') {
 
                     checkTriggerOff();
 
@@ -405,7 +404,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 currentStrategy.end = candle.end;
                                 currentStrategy.endRate = candle.min;
                                 currentStrategy.status = 1;
-                                strategyPhase = 0;
+                                strategyStage = 'No Stage';
                                 currentStrategyNumber = 0;
 
                                 return;
@@ -416,7 +415,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Checking if Stop or Take Profit were hit */
 
-                if (strategyPhase === 3) {
+                if (strategyStage === 'Manage Stage') {
 
                     /* Checking what happened since the last execution. We need to know if the Stop Loss
                         or our Take Profit were hit. */
@@ -437,7 +436,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         marketRate = stopLoss;
                         type = '"Buy@StopLoss"';
-                        strategyPhase = 4;
+                        strategyStage = 4;
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 1;
@@ -466,7 +465,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         marketRate = takeProfit;
                         type = '"Buy@TakeProfit"';
-                        strategyPhase = 4;
+                        strategyStage = 4;
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;    
                         currentTrade.exitType = 2;
@@ -481,7 +480,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Trade Enter Condition */
 
-                if (strategyPhase === 1) {
+                if (strategyStage === 'Trigger Stage') {
 
                     checkTakePosition();
 
@@ -508,7 +507,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                 type = '"Sell"';
 
-                                strategyPhase = 2;
+                                strategyStage = 'Open Stage';
                                 stopLossPhase = 1;
                                 takeProfitPhase = 1;
                                 currentTrade.begin = candle.begin;
@@ -521,7 +520,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Stop Loss Management */
 
-                if (strategyPhase === 3) {
+                if (strategyStage === 'Manage Stage') {
 
                     checkStopPhases()
                     checkStopLoss();
@@ -578,7 +577,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Take Profit Management */
 
-                if (strategyPhase === 3) {
+                if (strategyStage === 'Manage Stage') {
 
                     checkTakeProfitPhases();
                     checkTakeProfit();
@@ -634,7 +633,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Entering into a Trade */
 
-                if (strategyPhase === 2) {
+                if (strategyStage === 'Open Stage') {
 
                     marketRate = candle.close;
                     positionRate = marketRate;
@@ -667,13 +666,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     addRecord();
 
-                    strategyPhase = 3;
+                    strategyStage = 3;
                     continue;
                 }
 
                 /* Exiting a Trade */
 
-                if (strategyPhase === 4) {
+                if (strategyStage === 'Close Stage') {
 
                     roundtrips++;
 
@@ -741,7 +740,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     positionSize = 0;
                     positionInstant = undefined;
                     takeProfit = 0;
-                    strategyPhase = 0;
+                    strategyStage = 'No Stage';
                     stopLossPhase = 0;
                     takeProfitPhase = 0;
                     continue;
@@ -763,13 +762,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     messageId++;
 
-                    if (strategyPhase === 2 || strategyPhase === 3) {
+                    if (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') {
 
-                        if (strategyPhase === 2) {
+                        if (strategyStage === 'Open Stage') {
                             messageType = MESSAGE_TYPE.Order;
                             orderId++;
                         }
-                        if (strategyPhase === 3) {
+                        if (strategyStage === 'Manage Stage') {
                             messageType = MESSAGE_TYPE.OrderUpdate;
                         }
 
@@ -845,7 +844,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         positionRate: positionRate,
                         lastProfitPercent: lastProfitPercent,
                         strategy: currentStrategyNumber,
-                        strategyPhase: strategyPhase,
+                        strategyStage: strategyStage,
                         takeProfit: takeProfit,
                         stopLossPhase: stopLossPhase,
                         takeProfitPhase: takeProfitPhase,
@@ -862,7 +861,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     /* Prepare the information for the Conditions File */
 
                     conditionsArrayRecord.push(currentStrategyNumber);
-                    conditionsArrayRecord.push(strategyPhase);
+                    conditionsArrayRecord.push(strategyStage);
                     conditionsArrayRecord.push(stopLossPhase);
                     conditionsArrayRecord.push(takeProfitPhase);
                     conditionsArrayRecord.push(conditionsArrayValues);

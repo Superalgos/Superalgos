@@ -320,20 +320,23 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 evaluateConditions(tradingSystem, conditions);
 
-                if (currentStrategyNumber === 0 &&
-                    balanceAssetA > minimunBalanceA) {
+                if (
+                    strategyStage === 'No Stage' &&
+                    currentStrategyNumber === 0 &&
+                    balanceAssetA > minimunBalanceA
+                ) {
 
                     /* Trigger On Conditions */
 
                     /*
                     Here we need to pick a strategy, or if there is not suitable strategy for the current
                     market conditions, we pass until the next period.
-    
+        
                     To pick a new strategy we will evaluate what we call the trigger on. Once we enter
                     into one strategy, we will ignore market conditions for others. However there is also
                     a strategy trigger off which can be hit before taking a position. If hit, we would
                     be outside a strategy again and looking for the condition to enter all over again.
-
+    
                     */
 
                     checkTriggerOn();
@@ -413,6 +416,46 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
+                /* Take Position Condition */
+
+                if (strategyStage === 'Trigger Stage') {
+
+                    checkTakePosition();
+
+                    function checkTakePosition() {
+
+                        let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
+
+                        for (let k = 0; k < strategy.takePosition.situations.length; k++) {
+
+                            let situation = strategy.takePosition.situations[k];
+                            let passed = true;
+
+                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                let condition = situation.conditions[m];
+                                let key = strategy.name + '-' + situation.name + '-' + condition.name
+
+                                let value = conditions.get(key).value;
+
+                                if (value === false) { passed = false; }
+                            }
+
+                            if (passed) {
+
+                                type = '"Sell"';
+
+                                strategyStage = 'Open Stage';
+                                stopLossPhase = 1;
+                                takeProfitPhase = 1;
+                                currentTrade.begin = candle.begin;
+                                currentTrade.beginRate = candle.close;
+                                return;
+                            }
+                        }
+                    }
+                }
+
                 /* Checking if Stop or Take Profit were hit */
 
                 if (strategyStage === 'Manage Stage') {
@@ -475,46 +518,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
                         currentStrategy.status = 1;
-                    }
-                }
-
-                /* Trade Enter Condition */
-
-                if (strategyStage === 'Trigger Stage') {
-
-                    checkTakePosition();
-
-                    function checkTakePosition() {
-
-                        let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
-
-                        for (let k = 0; k < strategy.takePosition.situations.length; k++) {
-
-                            let situation = strategy.takePosition.situations[k];
-                            let passed = true;
-
-                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                let condition = situation.conditions[m];
-                                let key = strategy.name + '-' + situation.name + '-' + condition.name
-
-                                let value = conditions.get(key).value;
-
-                                if (value === false) { passed = false; }
-                            }
-
-                            if (passed) {
-
-                                type = '"Sell"';
-
-                                strategyStage = 'Open Stage';
-                                stopLossPhase = 1;
-                                takeProfitPhase = 1;
-                                currentTrade.begin = candle.begin;
-                                currentTrade.beginRate = candle.close;
-                                return;
-                            }
-                        }
                     }
                 }
 

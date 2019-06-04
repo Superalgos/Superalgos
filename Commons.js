@@ -88,17 +88,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let stopLossPercentage = 50;
             let previousStopLoss = 0;
             let stopLoss = 0;
-            let stopLossDecay = 0;
-            let stopLossDecayIncrement = 0.06;
             let stopLossPhase = 0;
 
             /* Buy Order Management */
 
             const MIN_BUY_ORDER_VALUE = 1 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
-            let takeProfitPercentage = 1;
             let previousTakeProfit = 0;
             let takeProfit = 0;
-            let takeProfitDecay = 0;
             let takeProfitPhase = 0;
 
             /* Building records */
@@ -762,8 +758,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     stopLoss = sellRate + sellRate * stopLossPercentage / 100;
                     previousStopLoss = stopLoss;
-
-                    stopLossDecay = 0;
 
                     checkStopLoss();
                     checkTakeProfit();

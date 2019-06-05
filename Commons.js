@@ -90,6 +90,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let previousStopLoss = 0;
             let stopLoss = 0;
             let stopLossPhase = 0;
+            let stopLossStage = 'No Stage';  
 
             /* Take Profit Management */
 
@@ -97,6 +98,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let previousTakeProfit = 0;
             let takeProfit = 0;
             let takeProfitPhase = 0;
+            let takeProfitStage = 'No Stage';  
 
             /* Simulation Records */
 
@@ -111,6 +113,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let anualizedRateOfReturn = 0;
             let type = '""';
             let marketRate = 0;
+            let takePositionNow = false
 
             /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need thse variables. */
 
@@ -468,10 +471,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                         type = '"Sell"';
 
                                         strategyStage = 'Open Stage';
+                                        stopLossStage = 'Open Stage';
+                                        takeProfitStage = 'Open Stage';
                                         stopLossPhase = 1;
                                         takeProfitPhase = 1;
                                         currentTrade.begin = candle.begin;
                                         currentTrade.beginRate = candle.close;
+                                        takePositionNow = true
                                         return;
                                     }
                                 }
@@ -507,6 +513,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         marketRate = stopLoss;
                         type = '"Buy@StopLoss"';
                         strategyStage = 'Close Stage';
+                        stopLossStage = 'No Stage';
+                        takeProfitStage = 'No Stage';
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 1;
@@ -536,6 +544,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         marketRate = takeProfit;
                         type = '"Buy@TakeProfit"';
                         strategyStage = 'Close Stage';
+                        stopLossStage = 'No Stage';
+                        takeProfitStage = 'No Stage';
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;    
                         currentTrade.exitType = 2;
@@ -572,7 +582,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let initialDefinitionKey = ''
                     let p
 
-                    if (strategyStage === 'Open Stage' && openStage !== undefined) {
+                    if (stopLossStage === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.stopLoss !== undefined) {
                                 parentNode = openStage.initialDefinition
@@ -583,7 +593,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    if (strategyStage === 'Manage Stage' && manageStage !== undefined) {
+                    if (stopLossStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.stopLoss !== undefined) {
                             parentNode = manageStage
                             stageKey = 'manageStage'
@@ -611,7 +621,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (passed) {
 
                             stopLossPhase++;
-
+                            stopLossStage = 'Manage Stage'
+                            if (takeProfitPhase > 1) { strategyStage = 'Manage Stage'}
                             return;
                         }
                     }
@@ -624,7 +635,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let manageStage = strategy.manageStage
                     let phase 
 
-                    if (strategyStage === 'Open Stage' && openStage !== undefined) {
+                    if (stopLossStage === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.stopLoss !== undefined) {
                                 phase = openStage.initialDefinition.stopLoss.phases[stopLossPhase - 1];
@@ -632,7 +643,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    if (strategyStage === 'Manage Stage' && manageStage !== undefined) {
+                    if (stopLossStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.stopLoss !== undefined) {
                             phase = manageStage.stopLoss.phases[stopLossPhase - 2];
                         }
@@ -675,7 +686,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let initialDefinitionKey = ''
                     let p
 
-                    if (strategyStage === 'Open Stage' && openStage !== undefined) {
+                    if (takeProfitStage === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.takeProfit !== undefined) {
                                 parentNode = openStage.initialDefinition
@@ -686,7 +697,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    if (strategyStage === 'Manage Stage' && manageStage !== undefined) {
+                    if (takeProfitStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.takeProfit !== undefined) {
                             parentNode = manageStage
                             stageKey = 'manageStage'
@@ -714,7 +725,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (passed) {
 
                             takeProfitPhase++;
-
+                            takeProfitStage = 'Manage Stage'
+                            if (stopLossPhase > 1) { strategyStage = 'Manage Stage' }
                             return;
                         }
                     }
@@ -727,7 +739,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let manageStage = strategy.manageStage
                     let phase
 
-                    if (strategyStage === 'Open Stage' && openStage !== undefined) {
+                    if (takeProfitStage === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.takeProfit !== undefined) {
                                 phase = openStage.initialDefinition.takeProfit.phases[takeProfitPhase - 1];
@@ -735,7 +747,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    if (strategyStage === 'Manage Stage' && manageStage !== undefined) {
+                    if (takeProfitStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.takeProfit !== undefined) {
                             phase = manageStage.takeProfit.phases[takeProfitPhase - 2];
                         }
@@ -756,7 +768,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Taking a Position */
 
-                if (strategyStage === 'Open Stage') {
+                if (
+                    takePositionNow === true
+                ) {
 
                     marketRate = candle.close;
                     positionRate = marketRate;
@@ -787,13 +801,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    addRecord();
 
-                    strategyStage = 'Manage Stage';
+                    addRecord();
                     continue;
                 }
 
-                /* Exiting a Trade */
+                /* Closing a Position */
 
                 if (strategyStage === 'Close Stage') {
 
@@ -864,6 +877,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     positionInstant = undefined;
                     takeProfit = 0;
                     strategyStage = 'No Stage';
+                    stopLossStage = 'No Stage';
+                    takeProfitStage = 'No Stage';
                     stopLossPhase = 0;
                     takeProfitPhase = 0;
                     continue;

@@ -323,6 +323,211 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 evaluateConditions(tradingSystem, conditions);
 
+                function evaluateConditions(tradingSystem, conditions) {
+
+                    for (let j = 0; j < tradingSystem.strategies.length; j++) {
+
+                        let strategy = tradingSystem.strategies[j];
+
+                        let triggerStage = strategy.triggerStage
+
+                        if (triggerStage !== undefined) {
+
+                            if (triggerStage.triggerOn !== undefined) {
+
+                                for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
+
+                                    let situation = triggerStage.triggerOn.situations[k];
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
+
+                                        if (condition.code !== undefined) {
+                                            newCondition(key, condition.code.code);
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (triggerStage.triggerOff !== undefined) {
+
+                                for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
+
+                                    let situation = triggerStage.triggerOff.situations[k];
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
+
+                                        if (condition.code !== undefined) {
+                                            newCondition(key, condition.code.code);
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (triggerStage.takePosition !== undefined) {
+
+                                for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
+
+                                    let situation = triggerStage.takePosition.situations[k];
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
+
+                                        if (condition.code !== undefined) {
+                                            newCondition(key, condition.code.code);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        let openStage = strategy.openStage
+
+                        if (openStage !== undefined) {
+
+                            let initialDefinition = openStage.initialDefinition
+
+                            if (initialDefinition !== undefined) {
+
+                                if (initialDefinition.stopLoss !== undefined) {
+
+                                    for (let p = 0; p < initialDefinition.stopLoss.phases.length; p++) {
+
+                                        let phase = initialDefinition.stopLoss.phases[p];
+
+                                        for (let k = 0; k < phase.situations.length; k++) {
+
+                                            let situation = phase.situations[k];
+
+                                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                let condition = situation.conditions[m];
+                                                let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+
+                                                if (condition.code !== undefined) {
+                                                    newCondition(key, condition.code.code);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (initialDefinition.takeProfit !== undefined) {
+
+                                    for (let p = 0; p < initialDefinition.takeProfit.phases.length; p++) {
+
+                                        let phase = initialDefinition.takeProfit.phases[p];
+
+                                        for (let k = 0; k < phase.situations.length; k++) {
+
+                                            let situation = phase.situations[k];
+
+                                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                let condition = situation.conditions[m];
+                                                let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+
+                                                if (condition.code !== undefined) {
+                                                    newCondition(key, condition.code.code);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        let manageStage = strategy.manageStage
+
+                        if (manageStage !== undefined) {
+
+                            if (manageStage.stopLoss !== undefined) {
+
+                                for (let p = 0; p < manageStage.stopLoss.phases.length; p++) {
+
+                                    let phase = manageStage.stopLoss.phases[p];
+
+                                    for (let k = 0; k < phase.situations.length; k++) {
+
+                                        let situation = phase.situations[k];
+
+                                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                                            let condition = situation.conditions[m];
+                                            let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+
+                                            if (condition.code !== undefined) {
+                                                newCondition(key, condition.code.code);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (manageStage.takeProfit !== undefined) {
+
+                                for (let p = 0; p < manageStage.takeProfit.phases.length; p++) {
+
+                                    let phase = manageStage.takeProfit.phases[p];
+
+                                    for (let k = 0; k < phase.situations.length; k++) {
+
+                                        let situation = phase.situations[k];
+
+                                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                                            let condition = situation.conditions[m];
+                                            let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+
+                                            if (condition.code !== undefined) {
+                                                newCondition(key, condition.code.code);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    function newCondition(key, code) {
+
+                        let condition;
+                        let value = false;
+
+                        try {
+                            value = eval(code);
+                        } catch (err) {
+                            /*
+                                One possible error is that the conditions references a .previous that is undefined. For this
+                                reason and others, we will simply set the value to false.
+                            */
+                            value = false
+                        }
+
+                        condition = {
+                            key: key,
+                            value: value
+                        };
+
+                        conditions.set(condition.key, condition);
+
+                        if (condition.value) {
+                            conditionsArrayValues.push(1);
+                        } else {
+                            conditionsArrayValues.push(0);
+                        }
+                    }
+
+                }
+
+
                 if (
                     strategyStage === 'No Stage' &&
                     currentStrategyIndex === 0 &&
@@ -1103,210 +1308,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             logger.write(MODULE_NAME, "[ERROR] runSimulation -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
-    }
-
-    function evaluateConditions(tradingSystem, conditions) {
-
-        for (let j = 0; j < tradingSystem.strategies.length; j++) {
-
-            let strategy = tradingSystem.strategies[j];
-
-            let triggerStage = strategy.triggerStage
-
-            if (triggerStage !== undefined) {
-
-                if (triggerStage.triggerOn !== undefined) {
-
-                    for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
-
-                        let situation = triggerStage.triggerOn.situations[k];
-
-                        for (let m = 0; m < situation.conditions.length; m++) {
-
-                            let condition = situation.conditions[m];
-                            let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
-
-                            if (condition.code !== undefined) {
-                                newCondition(key, condition.code.code);
-                            }
-                        }
-                    }
-                }
-
-                if (triggerStage.triggerOff !== undefined) {
-
-                    for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
-
-                        let situation = triggerStage.triggerOff.situations[k];
-
-                        for (let m = 0; m < situation.conditions.length; m++) {
-
-                            let condition = situation.conditions[m];
-                            let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
-
-                            if (condition.code !== undefined) {
-                                newCondition(key, condition.code.code);
-                            }
-                        }
-                    }
-                }
-
-                if (triggerStage.takePosition !== undefined) {
-
-                    for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
-
-                        let situation = triggerStage.takePosition.situations[k];
-
-                        for (let m = 0; m < situation.conditions.length; m++) {
-
-                            let condition = situation.conditions[m];
-                            let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
-
-                            if (condition.code !== undefined) {
-                                newCondition(key, condition.code.code);
-                            }
-                        }
-                    }
-                }
-            }
-
-            let openStage = strategy.openStage
-
-            if (openStage !== undefined) {
-
-                let initialDefinition = openStage.initialDefinition
-
-                if (initialDefinition !== undefined) {
-
-                    if (initialDefinition.stopLoss !== undefined) {
-
-                        for (let p = 0; p < initialDefinition.stopLoss.phases.length; p++) {
-
-                            let phase = initialDefinition.stopLoss.phases[p];
-
-                            for (let k = 0; k < phase.situations.length; k++) {
-
-                                let situation = phase.situations[k];
-
-                                for (let m = 0; m < situation.conditions.length; m++) {
-
-                                    let condition = situation.conditions[m];
-                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
-
-                                    if (condition.code !== undefined) {
-                                        newCondition(key, condition.code.code);
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    if (initialDefinition.takeProfit !== undefined) {
-
-                        for (let p = 0; p < initialDefinition.takeProfit.phases.length; p++) {
-
-                            let phase = initialDefinition.takeProfit.phases[p];
-
-                            for (let k = 0; k < phase.situations.length; k++) {
-
-                                let situation = phase.situations[k];
-
-                                for (let m = 0; m < situation.conditions.length; m++) {
-
-                                    let condition = situation.conditions[m];
-                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
-
-                                    if (condition.code !== undefined) {
-                                        newCondition(key, condition.code.code);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            let manageStage = strategy.manageStage
-
-            if (manageStage !== undefined) {
-
-                if (manageStage.stopLoss !== undefined) {
-
-                    for (let p = 0; p < manageStage.stopLoss.phases.length; p++) {
-
-                        let phase = manageStage.stopLoss.phases[p];
-
-                        for (let k = 0; k < phase.situations.length; k++) {
-
-                            let situation = phase.situations[k];
-
-                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                let condition = situation.conditions[m];
-                                let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
-
-                                if (condition.code !== undefined) {
-                                    newCondition(key, condition.code.code);
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (manageStage.takeProfit !== undefined) {
-
-                    for (let p = 0; p < manageStage.takeProfit.phases.length; p++) {
-
-                        let phase = manageStage.takeProfit.phases[p];
-
-                        for (let k = 0; k < phase.situations.length; k++) {
-
-                            let situation = phase.situations[k];
-
-                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                let condition = situation.conditions[m];
-                                let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
-
-                                if (condition.code !== undefined) {
-                                    newCondition(key, condition.code.code);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        function newCondition(key, code) {
-
-            let condition;
-            let value = false;
-
-            try {
-                value = eval(code);
-            } catch (err) {
-                /*
-                    One possible error is that the conditions references a .previous that is undefined. For this
-                    reason and others, we will simply set the value to false.
-                */
-                value = false
-            }
-
-            condition = {
-                key: key,
-                value: value
-            };
-
-            conditions.set(condition.key, condition);
-
-            if (condition.value) {
-                conditionsArrayValues.push(1);
-            } else {
-                conditionsArrayValues.push(0);
-            }
-        }
-
     }
 
     function buildLRC(dataFile, callBackFunction) {

@@ -666,7 +666,35 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 function checkTakeProfitPhases() {
 
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
-                    let phase = strategy.takeProfit.phases[takeProfitPhase - 1];
+
+                    let openStage = strategy.openStage
+                    let manageStage = strategy.manageStage
+                    let parentNode
+                    let j = currentStrategyIndex
+                    let stageKey
+                    let initialDefinitionKey = ''
+                    let p
+
+                    if (strategyStage === 'Open Stage' && openStage !== undefined) {
+                        if (openStage.initialDefinition !== undefined) {
+                            if (openStage.initialDefinition.takeProfit !== undefined) {
+                                parentNode = openStage.initialDefinition
+                                initialDefinitionKey = '-' + 'initialDefinition'
+                                stageKey = 'openStage'
+                                p = takeProfitPhase - 1
+                            }
+                        }
+                    }
+
+                    if (strategyStage === 'Manage Stage' && manageStage !== undefined) {
+                        if (manageStage.takeProfit !== undefined) {
+                            parentNode = manageStage
+                            stageKey = 'manageStage'
+                            p = takeProfitPhase - 2
+                        }
+                    }
+
+                    let phase = parentNode.takeProfit.phases[p];
 
                     for (let k = 0; k < phase.situations.length; k++) {
 
@@ -676,7 +704,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         for (let m = 0; m < situation.conditions.length; m++) {
 
                             let condition = situation.conditions[m];
-                            let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name
+                            let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
                             let value = conditions.get(key).value;
 
@@ -692,25 +720,41 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                function calculateTakeProfit() {
+                function calculateTakeProfitLoss() {
 
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
-                    let phase = strategy.takeProfit.phases[takeProfitPhase - 1];
+                    let openStage = strategy.openStage
+                    let manageStage = strategy.manageStage
+                    let phase
 
-                    try {
-                        takeProfit = eval(phase.code); // Here is where we apply the formula given for the buy order at this phase.
-                    } catch (err) {
-                        /*
-                            If the code produces an exception, we are covered.
-                        */
+                    if (strategyStage === 'Open Stage' && openStage !== undefined) {
+                        if (openStage.initialDefinition !== undefined) {
+                            if (openStage.initialDefinition.takeProfit !== undefined) {
+                                phase = openStage.initialDefinition.takeProfit.phases[takeProfitPhase - 1];
+                            }
+                        }
                     }
-                    if (isNaN(takeProfit)) { takeProfit = 0; }
-                    if (takeProfit < MIN_TAKE_PROFIT_VALUE) {
-                        takeProfit = MIN_TAKE_PROFIT_VALUE
+
+                    if (strategyStage === 'Manage Stage' && manageStage !== undefined) {
+                        if (manageStage.takeProfit !== undefined) {
+                            phase = manageStage.takeProfit.phases[takeProfitPhase - 2];
+                        }
+                    }
+
+                    if (phase.formula !== undefined) {
+                        try {
+                            takeProfit = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
+                        } catch (err) {
+                            phase.formula.error = err.message
+                        }
+                        if (isNaN(takeProfit)) { takeProfit = 0; }
+                        if (takeProfit < MIN_TAKE_PROFIT_VALUE) {
+                            takeProfit = MIN_TAKE_PROFIT_VALUE
+                        }
                     }
                 }
 
-                /* Entering into a Trade */
+                /* Taking a Position */
 
                 if (strategyStage === 'Open Stage') {
 

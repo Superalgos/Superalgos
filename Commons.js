@@ -81,7 +81,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Strategy and Phases */
 
-            let currentStrategyNumber = 0;
+            let currentStrategyIndex = 0;
             let strategyStage = 'No Stage';   
 
             /* Stop Loss Management */
@@ -322,7 +322,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (
                     strategyStage === 'No Stage' &&
-                    currentStrategyNumber === 0 &&
+                    currentStrategyIndex === 0 &&
                     balanceAssetA > minimunBalanceA
                 ) {
 
@@ -371,7 +371,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                         if (passed) {
 
                                             strategyStage = 'Trigger Stage';
-                                            currentStrategyNumber = j + 1;
+                                            currentStrategyIndex = j;
                                             currentStrategy.begin = candle.begin;
                                             currentStrategy.beginRate = candle.min;
                                             currentStrategy.endRate = candle.min; // In case the strategy does not get exited
@@ -392,7 +392,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     function checkTriggerOff() {
 
-                        let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
+                        let strategy = tradingSystem.strategies[currentStrategyIndex];
 
                         let triggerStage = strategy.triggerStage
 
@@ -417,12 +417,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                     if (passed) {
 
-                                        currentStrategy.number = currentStrategyNumber - 1
+                                        currentStrategy.number = currentStrategyIndex
                                         currentStrategy.end = candle.end;
                                         currentStrategy.endRate = candle.min;
                                         currentStrategy.status = 1;
                                         strategyStage = 'No Stage';
-                                        currentStrategyNumber = 0;
+                                        currentStrategyIndex = 0;
 
                                         return;
                                     }
@@ -440,7 +440,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     function checkTakePosition() {
 
-                        let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
+                        let strategy = tradingSystem.strategies[currentStrategyIndex];
 
                         let triggerStage = strategy.triggerStage
 
@@ -512,7 +512,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentTrade.exitType = 1;
                         currentTrade.endRate = stopLoss;
 
-                        currentStrategy.number = currentStrategyNumber - 1
+                        currentStrategy.number = currentStrategyIndex
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
                         currentStrategy.status = 1;
@@ -541,7 +541,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentTrade.exitType = 2;
                         currentTrade.endRate = takeProfit;
 
-                        currentStrategy.number = currentStrategyNumber - 1
+                        currentStrategy.number = currentStrategyIndex
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
                         currentStrategy.status = 1;
@@ -562,8 +562,36 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function checkStopPhases() {
 
-                    let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
-                    let phase = strategy.stopLoss.phases[stopLossPhase - 1];
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+
+                    let openStage = strategy.openStage
+                    let manageStage = strategy.manageStage
+                    let parentNode 
+                    let j = currentStrategyIndex
+                    let stageKey
+                    let initialDefinitionKey = ''
+                    let p
+
+                    if (strategyStage === 'Open Stage' && openStage !== undefined) {
+                        if (openStage.initialDefinition !== undefined) {
+                            if (openStage.initialDefinition.stopLoss !== undefined) {
+                                parentNode = openStage.initialDefinition
+                                initialDefinitionKey = '-' + 'initialDefinition'
+                                stageKey = 'openStage'
+                                p = stopLossPhase - 1
+                            } 
+                        }
+                    }
+
+                    if (strategyStage === 'Manage Stage' && manageStage !== undefined) {
+                        if (manageStage.stopLoss !== undefined) {
+                            parentNode = manageStage
+                            stageKey = 'manageStage'
+                            p = stopLossPhase - 2
+                        } 
+                    }
+
+                    let phase = parentNode.stopLoss.phases[p];
 
                     for (let k = 0; k < phase.situations.length; k++) {
 
@@ -573,7 +601,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         for (let m = 0; m < situation.conditions.length; m++) {
 
                             let condition = situation.conditions[m];
-                            let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name
+                            let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
                             let value = conditions.get(key).value;
 
@@ -591,21 +619,36 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function calculateStopLoss() {
 
-                    let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
-                    let phase = strategy.stopLoss.phases[stopLossPhase - 1];
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let openStage = strategy.openStage
+                    let manageStage = strategy.manageStage
+                    let phase 
 
-                    try {
-                        stopLoss = eval(phase.code); // Here is where we apply the formula given for the stop loss for this phase.
-                    } catch (err) {
-                        /*
-                            If the code produces an exception, we are covered.
-                        */
-                    }
-                    if (isNaN(stopLoss)) { stopLoss = 0; }
-                    if (stopLoss < MIN_STOP_LOSS_VALUE) {
-                        stopLoss = MIN_STOP_LOSS_VALUE
+                    if (strategyStage === 'Open Stage' && openStage !== undefined) {
+                        if (openStage.initialDefinition !== undefined) {
+                            if (openStage.initialDefinition.stopLoss !== undefined) {
+                                phase = openStage.initialDefinition.stopLoss.phases[stopLossPhase - 1];
+                            }
+                        }
                     }
 
+                    if (strategyStage === 'Manage Stage' && manageStage !== undefined) {
+                        if (manageStage.stopLoss !== undefined) {
+                            phase = manageStage.stopLoss.phases[stopLossPhase - 2];
+                        }
+                    }
+
+                    if (phase.formula !== undefined) {
+                        try {
+                            stopLoss = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
+                        } catch (err) {
+                            phase.formula.error = err.message
+                        }
+                        if (isNaN(stopLoss)) { stopLoss = 0; }
+                        if (stopLoss < MIN_STOP_LOSS_VALUE) {
+                            stopLoss = MIN_STOP_LOSS_VALUE
+                        }
+                    }
                 }
 
                 /* Take Profit Management */
@@ -622,7 +665,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function checkTakeProfitPhases() {
 
-                    let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
                     let phase = strategy.takeProfit.phases[takeProfitPhase - 1];
 
                     for (let k = 0; k < phase.situations.length; k++) {
@@ -651,7 +694,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 function calculateTakeProfit() {
 
-                    let strategy = tradingSystem.strategies[currentStrategyNumber - 1];
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
                     let phase = strategy.takeProfit.phases[takeProfitPhase - 1];
 
                     try {
@@ -770,7 +813,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     addRecord();
 
-                    currentStrategyNumber = 0;
+                    currentStrategyIndex = 0;
                     stopLoss = 0;
                     positionRate = 0;
                     positionSize = 0;
@@ -879,7 +922,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         anualizedRateOfReturn: anualizedRateOfReturn,
                         positionRate: positionRate,
                         lastProfitPercent: lastProfitPercent,
-                        strategy: currentStrategyNumber,
+                        strategy: currentStrategyIndex,
                         strategyStage: strategyStage,
                         takeProfit: takeProfit,
                         stopLossPhase: stopLossPhase,
@@ -896,7 +939,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     /* Prepare the information for the Conditions File */
 
-                    conditionsArrayRecord.push(currentStrategyNumber);
+                    conditionsArrayRecord.push(currentStrategyIndex);
                     conditionsArrayRecord.push(strategyStage);
                     conditionsArrayRecord.push(stopLossPhase);
                     conditionsArrayRecord.push(takeProfitPhase);

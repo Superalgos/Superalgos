@@ -402,17 +402,21 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                         let phase = initialDefinition.stopLoss.phases[p];
 
-                                        for (let k = 0; k < phase.situations.length; k++) {
+                                        let nextPhaseEvent = phase.nextPhaseEvent;
+                                        if (nextPhaseEvent !== undefined) {
 
-                                            let situation = phase.situations[k];
+                                            for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
-                                            for (let m = 0; m < situation.conditions.length; m++) {
+                                                let situation = nextPhaseEvent.situations[k];
 
-                                                let condition = situation.conditions[m];
-                                                let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+                                                for (let m = 0; m < situation.conditions.length; m++) {
 
-                                                if (condition.code !== undefined) {
-                                                    newCondition(key, condition.code.code);
+                                                    let condition = situation.conditions[m];
+                                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+
+                                                    if (condition.code !== undefined) {
+                                                        newCondition(key, condition.code.code);
+                                                    }
                                                 }
                                             }
                                         }
@@ -425,17 +429,21 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                         let phase = initialDefinition.takeProfit.phases[p];
 
-                                        for (let k = 0; k < phase.situations.length; k++) {
+                                        let nextPhaseEvent = phase.nextPhaseEvent;
+                                        if (nextPhaseEvent !== undefined) {
 
-                                            let situation = phase.situations[k];
+                                            for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
-                                            for (let m = 0; m < situation.conditions.length; m++) {
+                                                let situation = nextPhaseEvent.situations[k];
 
-                                                let condition = situation.conditions[m];
-                                                let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+                                                for (let m = 0; m < situation.conditions.length; m++) {
 
-                                                if (condition.code !== undefined) {
-                                                    newCondition(key, condition.code.code);
+                                                    let condition = situation.conditions[m];
+                                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+
+                                                    if (condition.code !== undefined) {
+                                                        newCondition(key, condition.code.code);
+                                                    }
                                                 }
                                             }
                                         }
@@ -454,17 +462,21 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                     let phase = manageStage.stopLoss.phases[p];
 
-                                    for (let k = 0; k < phase.situations.length; k++) {
+                                    let nextPhaseEvent = phase.nextPhaseEvent;
+                                    if (nextPhaseEvent !== undefined) {
 
-                                        let situation = phase.situations[k];
+                                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
-                                        for (let m = 0; m < situation.conditions.length; m++) {
+                                            let situation = nextPhaseEvent.situations[k];
 
-                                            let condition = situation.conditions[m];
-                                            let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+                                            for (let m = 0; m < situation.conditions.length; m++) {
 
-                                            if (condition.code !== undefined) {
-                                                newCondition(key, condition.code.code);
+                                                let condition = situation.conditions[m];
+                                                let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+
+                                                if (condition.code !== undefined) {
+                                                    newCondition(key, condition.code.code);
+                                                }
                                             }
                                         }
                                     }
@@ -477,17 +489,21 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                     let phase = manageStage.takeProfit.phases[p];
 
-                                    for (let k = 0; k < phase.situations.length; k++) {
+                                    let nextPhaseEvent = phase.nextPhaseEvent;
+                                    if (nextPhaseEvent !== undefined) {
 
-                                        let situation = phase.situations[k];
+                                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
-                                        for (let m = 0; m < situation.conditions.length; m++) {
+                                            let situation = nextPhaseEvent.situations[k];
 
-                                            let condition = situation.conditions[m];
-                                            let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+                                            for (let m = 0; m < situation.conditions.length; m++) {
 
-                                            if (condition.code !== undefined) {
-                                                newCondition(key, condition.code.code);
+                                                let condition = situation.conditions[m];
+                                                let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+
+                                                if (condition.code !== undefined) {
+                                                    newCondition(key, condition.code.code);
+                                                }
                                             }
                                         }
                                     }

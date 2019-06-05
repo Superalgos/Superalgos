@@ -626,7 +626,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
                                     let condition = situation.conditions[m];
-                                    let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
+                                    let key = currentStrategyIndex + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
 
                                     let value = conditions.get(key).value;
 

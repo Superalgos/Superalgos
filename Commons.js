@@ -811,27 +811,31 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     let phase = parentNode.stopLoss.phases[p];
 
-                    for (let k = 0; k < phase.situations.length; k++) {
+                    let nextPhaseEvent = phase.nextPhaseEvent;
+                    if (nextPhaseEvent !== undefined) {
 
-                        let situation = phase.situations[k];
-                        let passed = true;
+                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
-                        for (let m = 0; m < situation.conditions.length; m++) {
+                            let situation = nextPhaseEvent.situations[k];
+                            let passed = true;
 
-                            let condition = situation.conditions[m];
-                            let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+                            for (let m = 0; m < situation.conditions.length; m++) {
 
-                            let value = conditions.get(key).value;
+                                let condition = situation.conditions[m];
+                                let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
-                            if (value === false) { passed = false; }
-                        }
+                                let value = conditions.get(key).value;
 
-                        if (passed) {
+                                if (value === false) { passed = false; }
+                            }
 
-                            stopLossPhase++;
-                            stopLossStage = 'Manage Stage'
-                            if (takeProfitPhase > 1) { strategyStage = 'Manage Stage'}
-                            return;
+                            if (passed) {
+
+                                stopLossPhase++;
+                                stopLossStage = 'Manage Stage'
+                                if (takeProfitPhase > 1) { strategyStage = 'Manage Stage' }
+                                return;
+                            }
                         }
                     }
                 }
@@ -915,27 +919,31 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     let phase = parentNode.takeProfit.phases[p];
 
-                    for (let k = 0; k < phase.situations.length; k++) {
+                    let nextPhaseEvent = phase.nextPhaseEvent;
+                    if (nextPhaseEvent !== undefined) {
 
-                        let situation = phase.situations[k];
-                        let passed = true;
+                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
-                        for (let m = 0; m < situation.conditions.length; m++) {
+                            let situation = nextPhaseEvent.situations[k];
+                            let passed = true;
 
-                            let condition = situation.conditions[m];
-                            let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+                            for (let m = 0; m < situation.conditions.length; m++) {
 
-                            let value = conditions.get(key).value;
+                                let condition = situation.conditions[m];
+                                let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
-                            if (value === false) { passed = false; }
-                        }
+                                let value = conditions.get(key).value;
 
-                        if (passed) {
+                                if (value === false) { passed = false; }
+                            }
 
-                            takeProfitPhase++;
-                            takeProfitStage = 'Manage Stage'
-                            if (stopLossPhase > 1) { strategyStage = 'Manage Stage' }
-                            return;
+                            if (passed) {
+
+                                takeProfitPhase++;
+                                takeProfitStage = 'Manage Stage'
+                                if (stopLossPhase > 1) { strategyStage = 'Manage Stage' }
+                                return;
+                            }
                         }
                     }
                 }

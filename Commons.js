@@ -1176,6 +1176,26 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         "")
                     }
 
+                    let strategyStageNumber 
+                    switch (strategyStage) {
+                        case 'Trigger Stage': {
+                            strategyStageNumber = 1
+                            break
+                        }
+                        case 'Open Stage': {
+                            strategyStageNumber = 2
+                            break
+                        }
+                        case 'Manage Stage': {
+                            strategyStageNumber = 3
+                            break
+                        }
+                        case 'Close Stage': {
+                            strategyStageNumber = 4
+                            break
+                        }
+                    }
+
                     simulationRecord = {
                         begin: candle.begin,
                         end: candle.end,
@@ -1198,7 +1218,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         positionRate: positionRate,
                         lastProfitPercent: lastProfitPercent,
                         strategy: currentStrategyIndex,
-                        strategyStage: strategyStage,
+                        strategyStageNumber: strategyStageNumber,
                         takeProfit: takeProfit,
                         stopLossPhase: stopLossPhase,
                         takeProfitPhase: takeProfitPhase,
@@ -1215,7 +1235,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     /* Prepare the information for the Conditions File */
 
                     conditionsArrayRecord.push(currentStrategyIndex);
-                    conditionsArrayRecord.push(strategyStage);
+                    conditionsArrayRecord.push(strategyStageNumber);
                     conditionsArrayRecord.push(stopLossPhase);
                     conditionsArrayRecord.push(takeProfitPhase);
                     conditionsArrayRecord.push(conditionsArrayValues);

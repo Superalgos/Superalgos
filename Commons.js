@@ -648,52 +648,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                /* Take Position Condition */
-
-                if (strategyStage === 'Trigger Stage') {
-
-                    let strategy = tradingSystem.strategies[currentStrategyIndex];
-
-                    let triggerStage = strategy.triggerStage
-
-                    if (triggerStage !== undefined) {
-
-                        if (triggerStage.takePosition !== undefined) {
-
-                            for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
-
-                                let situation = triggerStage.takePosition.situations[k];
-                                let passed = true;
-
-                                for (let m = 0; m < situation.conditions.length; m++) {
-
-                                    let condition = situation.conditions[m];
-                                    let key = currentStrategyIndex + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
-
-                                    let value = conditions.get(key).value;
-
-                                    if (value === false) { passed = false; }
-                                }
-
-                                if (passed) {
-
-                                    type = '"Sell"';
-
-                                    strategyStage = 'Open Stage';
-                                    stopLossStage = 'Open Stage';
-                                    takeProfitStage = 'Open Stage';
-                                    stopLossPhase = 1;
-                                    takeProfitPhase = 1;
-                                    currentTrade.begin = candle.begin;
-                                    currentTrade.beginRate = candle.close;
-                                    takePositionNow = true
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-
                 /* Checking if Stop or Take Profit were hit */
 
                 if (
@@ -763,6 +717,52 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
                         currentStrategy.status = 1;
+                    }
+                }
+
+                /* Take Position Condition */
+
+                if (strategyStage === 'Trigger Stage') {
+
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+
+                    let triggerStage = strategy.triggerStage
+
+                    if (triggerStage !== undefined) {
+
+                        if (triggerStage.takePosition !== undefined) {
+
+                            for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
+
+                                let situation = triggerStage.takePosition.situations[k];
+                                let passed = true;
+
+                                for (let m = 0; m < situation.conditions.length; m++) {
+
+                                    let condition = situation.conditions[m];
+                                    let key = currentStrategyIndex + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
+
+                                    let value = conditions.get(key).value;
+
+                                    if (value === false) { passed = false; }
+                                }
+
+                                if (passed) {
+
+                                    type = '"Sell"';
+
+                                    strategyStage = 'Open Stage';
+                                    stopLossStage = 'Open Stage';
+                                    takeProfitStage = 'Open Stage';
+                                    stopLossPhase = 1;
+                                    takeProfitPhase = 1;
+                                    currentTrade.begin = candle.begin;
+                                    currentTrade.beginRate = candle.close;
+                                    takePositionNow = true
+                                    break;
+                                }
+                            }
+                        }
                     }
                 }
 

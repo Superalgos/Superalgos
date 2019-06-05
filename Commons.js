@@ -861,6 +861,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
+                    if (phase === undefined) {
+                        console.log('O AQUI ES')
+                    }
+
                     if (phase.formula !== undefined) {
                         try {
                             stopLoss = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
@@ -969,6 +973,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
+                    if (phase === undefined) {
+                        console.log('AQUI ES')
+                    }
+
                     if (phase.formula !== undefined) {
                         try {
                             takeProfit = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
@@ -987,6 +995,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 if (
                     takePositionNow === true
                 ) {
+                    takePositionNow = false
 
                     marketRate = candle.close;
                     positionRate = marketRate;

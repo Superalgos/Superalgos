@@ -1112,7 +1112,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             let condition = situation.conditions[m];
                             let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
 
-                            newCondition(key, condition.code);
+                            if (condition.code !== undefined) {
+                                newCondition(key, condition.code.code);
+                            }
                         }
                     }
                 }
@@ -1128,7 +1130,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             let condition = situation.conditions[m];
                             let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
 
-                            newCondition(key, condition.code);
+                            if (condition.code !== undefined) {
+                                newCondition(key, condition.code.code);
+                            }
                         }
                     }
                 }
@@ -1144,7 +1148,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             let condition = situation.conditions[m];
                             let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
 
-                            newCondition(key, condition.code);
+                            if (condition.code !== undefined) {
+                                newCondition(key, condition.code.code);
+                            }
                         }
                     }
                 }
@@ -1173,7 +1179,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     let condition = situation.conditions[m];
                                     let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
-                                    newCondition(key, condition.code);
+                                    if (condition.code !== undefined) {
+                                        newCondition(key, condition.code.code);
+                                    }
                                 }
                             }
                         }
@@ -1194,7 +1202,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     let condition = situation.conditions[m];
                                     let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
-                                    newCondition(key, condition.code);
+                                    if (condition.code !== undefined) {
+                                        newCondition(key, condition.code.code);
+                                    }
                                 }
                             }
                         }
@@ -1221,7 +1231,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 let condition = situation.conditions[m];
                                 let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
-                                newCondition(key, condition.code);
+                                if (condition.code !== undefined) {
+                                    newCondition(key, condition.code.code);
+                                }
                             }
                         }
                     }
@@ -1242,7 +1254,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 let condition = situation.conditions[m];
                                 let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
-                                newCondition(key, condition.code);
+                                if (condition.code !== undefined) {
+                                    newCondition(key, condition.code.code);
+                                }
                             }
                         }
                     }

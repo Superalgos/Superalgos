@@ -861,10 +861,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    if (phase === undefined) {
-                        console.log('O AQUI ES')
-                    }
-
                     if (phase.formula !== undefined) {
                         try {
                             stopLoss = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
@@ -971,10 +967,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (manageStage.takeProfit !== undefined) {
                             phase = manageStage.takeProfit.phases[takeProfitPhase - 2];
                         }
-                    }
-
-                    if (phase === undefined) {
-                        console.log('AQUI ES')
                     }
 
                     if (phase.formula !== undefined) {

@@ -500,6 +500,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         let condition;
                         let value = false;
+                        let error = ''
 
                         try {
                             value = eval(code);
@@ -509,11 +510,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 reason and others, we will simply set the value to false.
                             */
                             value = false
+                            error = err.message
                         }
 
                         condition = {
                             key: key,
-                            value: value
+                            value: value,
+                            error: error
                         };
 
                         conditions.set(condition.key, condition);

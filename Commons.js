@@ -801,7 +801,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-
                     addRecord();
                     continue;
                 }

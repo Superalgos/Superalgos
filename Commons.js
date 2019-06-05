@@ -345,7 +345,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                         let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
 
                                         if (condition.code !== undefined) {
-                                            newCondition(key, condition.code.code);
+                                            newCondition(key, condition.code);
                                         }
                                     }
                                 }
@@ -363,7 +363,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                         let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
 
                                         if (condition.code !== undefined) {
-                                            newCondition(key, condition.code.code);
+                                            newCondition(key, condition.code);
                                         }
                                     }
                                 }
@@ -381,7 +381,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                         let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
 
                                         if (condition.code !== undefined) {
-                                            newCondition(key, condition.code.code);
+                                            newCondition(key, condition.code);
                                         }
                                     }
                                 }
@@ -415,7 +415,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                     let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
                                                     if (condition.code !== undefined) {
-                                                        newCondition(key, condition.code.code);
+                                                        newCondition(key, condition.code);
                                                     }
                                                 }
                                             }
@@ -442,7 +442,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                     let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
                                                     if (condition.code !== undefined) {
-                                                        newCondition(key, condition.code.code);
+                                                        newCondition(key, condition.code);
                                                     }
                                                 }
                                             }
@@ -475,7 +475,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                 let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
                                                 if (condition.code !== undefined) {
-                                                    newCondition(key, condition.code.code);
+                                                    newCondition(key, condition.code);
                                                 }
                                             }
                                         }
@@ -502,7 +502,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                 let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
                                                 if (condition.code !== undefined) {
-                                                    newCondition(key, condition.code.code);
+                                                    newCondition(key, condition.code);
                                                 }
                                             }
                                         }
@@ -512,27 +512,25 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    function newCondition(key, code) {
+                    function newCondition(key, node) {
 
                         let condition;
-                        let value = false;
                         let error = ''
 
                         try {
-                            value = eval(code);
+                            node.value = eval(node.code);
                         } catch (err) {
                             /*
                                 One possible error is that the conditions references a .previous that is undefined. For this
                                 reason and others, we will simply set the value to false.
                             */
-                            value = false
-                            error = err.message
+                            node.value = false
+                            node.error = err.message
                         }
 
                         condition = {
                             key: key,
-                            value: value,
-                            error: error
+                            value: node.value
                         };
 
                         conditions.set(condition.key, condition);
@@ -863,7 +861,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (phase.formula !== undefined) {
                         try {
-                            stopLoss = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
+                            phase.formula.value = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
+                            stopLoss = phase.formula.value
                         } catch (err) {
                             phase.formula.error = err.message
                         }
@@ -971,7 +970,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (phase.formula !== undefined) {
                         try {
-                            takeProfit = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
+                            phase.formula.value  = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
+                            takeProfit = phase.formula.value 
                         } catch (err) {
                             phase.formula.error = err.message
                         }

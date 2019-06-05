@@ -948,7 +948,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                function calculateTakeProfitLoss() {
+                function calculateTakeProfit() {
 
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
                     let openStage = strategy.openStage

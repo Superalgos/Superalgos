@@ -1179,7 +1179,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let strategyStageNumber 
                     switch (strategyStage) {
                         case 'No Stage': {
-                            strategyStageNumber = 1
+                            strategyStageNumber = 0
                             break
                         }
                         case 'Trigger Stage': {

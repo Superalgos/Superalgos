@@ -29,7 +29,7 @@ function newWorkspace () {
   thisObject.container.frame.width = 0
   thisObject.container.frame.height = 0
 
-  spawnPosition = {
+  let spawnPosition = {
     x: canvas.floatingSpace.container.frame.width / 2,
     y: canvas.floatingSpace.container.frame.height / 2
   }

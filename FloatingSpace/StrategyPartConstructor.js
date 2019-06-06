@@ -13,6 +13,10 @@ function newStrategyPartConstructor () {
   }
 
   let floatingLayer
+  let spawnPosition = {
+    x: canvas.floatingSpace.container.frame.width / 2,
+    y: canvas.floatingSpace.container.frame.height / 2
+  }
 
   return thisObject
 
@@ -39,6 +43,10 @@ function newStrategyPartConstructor () {
         x: payload.node.savedPayload.position.x,
         y: payload.node.savedPayload.position.y
       }
+
+      if (position.x === null) { position.x = spawnPosition.x }
+      if (position.y === null) { position.y = spawnPosition.y }
+
       floatingObject.setPosition(position)
       payload.node.savedPayload.position = undefined
       if (payload.node.savedPayload.floatingObject.isPinned === true) {

@@ -17,6 +17,11 @@ function newPartsFromNodes () {
     addCode: addCode
   }
 
+  let spawnPosition = {
+    x: canvas.floatingSpace.container.frame.width / 2,
+    y: canvas.floatingSpace.container.frame.height / 2
+  }
+
   return thisObject
 
   function createPartFromNode (node, parentNode, chainParent) {
@@ -539,6 +544,9 @@ function newPartsFromNodes () {
         y: node.savedPayload.targetPosition.y
       }
       node.savedPayload.targetPosition = undefined
+
+      if (payload.targetPosition.x === null) { payload.targetPosition.x = spawnPosition.x }
+      if (payload.targetPosition.y === null) { payload.targetPosition.y = spawnPosition.y }
     } else {
       if (chainParent === undefined) {
         payload.targetPosition = {

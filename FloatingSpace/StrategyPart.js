@@ -186,7 +186,7 @@ function newStrategyPart () {
         compatibleType = 'Trading System'
         compatibleSubType = undefined
         break
-      case 'Base Assets':
+      case 'Base Asset':
         compatibleType = 'Parameters'
         compatibleSubType = undefined
         break

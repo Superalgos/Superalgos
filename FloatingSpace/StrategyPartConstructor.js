@@ -239,7 +239,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Add Missing Parameters',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Missing Parameters',
+            label: 'Add Missing Params',
             visible: false,
             iconPathOn: 'settings',
             iconPathOff: 'settings',

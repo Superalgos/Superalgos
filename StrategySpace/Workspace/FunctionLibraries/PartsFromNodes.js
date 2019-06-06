@@ -141,6 +141,13 @@ function newPartsFromNodes () {
         }
         return
       }
+      case 'Position Size': {
+        createPart('Position Size', node.name, node, parentNode, chainParent, 'Position Size')
+        if (node.formula !== undefined) {
+          createPartFromNode(node.formula, node, node)
+        }
+        return
+      }
       case 'Trigger Stage': {
         let stage = node
         createPart('Trigger Stage', stage.name, stage, parentNode, chainParent, 'Trigger Stage')
@@ -196,6 +203,20 @@ function newPartsFromNodes () {
         }
         if (node.closeStage !== undefined) {
           createPartFromNode(node.closeStage, strategy, strategy)
+        }
+        return
+      }
+      case 'Base Asset': {
+        createPart('Base Asset', node.name, node, parentNode, chainParent, 'Base Asset')
+        if (node.formula !== undefined) {
+          createPartFromNode(node.formula, node, nodes)
+        }
+        return
+      }
+      case 'Parameters': {
+        createPart('Parameters', node.name, node, parentNode, chainParent, 'Parameters')
+        if (node.baseAsset !== undefined) {
+          createPartFromNode(node.baseAsset, node, node)
         }
         return
       }

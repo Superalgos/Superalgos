@@ -155,6 +155,15 @@ function newProtocolNode () {
         }
         return object
       }
+      case 'Position Size': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          formula: getProtocolNode(node.formula)
+        }
+        return object
+      }
       case 'Trigger Stage': {
         let stage = {
           type: node.type,
@@ -204,6 +213,24 @@ function newProtocolNode () {
           closeStage: getProtocolNode(node.closeStage)
         }
         return strategy
+      }
+      case 'Base Asset': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          formula: getProtocolNode(node.formula)
+        }
+        return object
+      }
+      case 'Parameters': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          baseAsset: getProtocolNode(node.baseAsset)
+        }
+        return object
       }
       case 'Trading System': {
         let tradingSystem = {

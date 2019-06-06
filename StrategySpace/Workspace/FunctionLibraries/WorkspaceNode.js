@@ -181,6 +181,17 @@ function newWorkspaceNode () {
         }
         return object
       }
+      case 'Position Size': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          formula: getWorkspaceNode(node.formula),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
       case 'Trigger Stage': {
         let stage = {
           id: node.id,
@@ -240,6 +251,28 @@ function newWorkspaceNode () {
           savedPayload: getSavedPayload(node)
         }
         return strategy
+      }
+      case 'Base Asset': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          formula: getWorkspaceNode(node.formula)
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Parameters': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          baseAsset: getWorkspaceNode(node.baseAsset)
+          savedPayload: getSavedPayload(node)
+        }
+        return object
       }
       case 'Trading System': {
         let tradingSystem = {

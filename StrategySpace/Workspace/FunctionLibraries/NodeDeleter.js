@@ -63,7 +63,7 @@ function deleteParameters() (node, rootNodes) {
   cleanNode(node)
 }
 
-function deleteBaseAsset() (node, rootNodes) {
+function deleteBaseAsset (node, rootNodes) {
   let payload = node.payload
   if (payload.parentNode !== undefined) {
     payload.parentNode.baseAsset = undefined
@@ -76,21 +76,6 @@ function deleteBaseAsset() (node, rootNodes) {
   destroyPart(node)
   cleanNode(node)
 }
-
-function deletePositionSize() (node, rootNodes) {
-  let payload = node.payload
-  if (payload.parentNode !== undefined) {
-    payload.parentNode.positionSize = undefined
-  } else {
-    completeDeletion(node, rootNodes)
-  }
-  if (node.formula !== undefined) {
-    deleteFormula(node.formula, rootNodes)
-  }
-  destroyPart(node)
-  cleanNode(node)
-}
-
 
   function deleteStrategy (node, rootNodes) {
     let payload = node.payload
@@ -182,6 +167,20 @@ function deletePositionSize() (node, rootNodes) {
     cleanNode(node)
   }
 
+  function deletePositionSize (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.positionSize = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    if (node.formula !== undefined) {
+      deleteFormula(node.formula, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+  
   function deleteInitialDefinition (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {

@@ -258,7 +258,7 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getWorkspaceNode(node.formula)
+          formula: getWorkspaceNode(node.formula),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -269,7 +269,7 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          baseAsset: getWorkspaceNode(node.baseAsset)
+          baseAsset: getWorkspaceNode(node.baseAsset),
           savedPayload: getSavedPayload(node)
         }
         return object

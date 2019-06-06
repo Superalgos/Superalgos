@@ -702,7 +702,7 @@ function newStrategyPart () {
       }
 
       if (isHighlighted === true) {
-        VISIBLE_RADIUS = thisObject.container.frame.radius
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 1
         let OPACITY = highlightCounter / 30
 
         browserCanvasContext.beginPath()

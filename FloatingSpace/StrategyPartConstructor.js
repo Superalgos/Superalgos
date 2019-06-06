@@ -1429,7 +1429,7 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Condition': {
-        level_6()
+        level_5()
         break
       }
       case 'Code': {

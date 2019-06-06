@@ -171,7 +171,8 @@ function newProtocolNode () {
           name: node.name,
           triggerOn: getProtocolNode(node.triggerOn),
           triggerOff: getProtocolNode(node.triggerOff),
-          takePosition: getProtocolNode(node.takePosition)
+          takePosition: getProtocolNode(node.takePosition),
+          positionSize: getProtocolNode(node.positionSize)
         }
         return stage
       }
@@ -237,7 +238,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          strategies: []
+          strategies: [],
+          parameters: getProtocolNode(node.parameters)
         }
 
         for (let m = 0; m < node.strategies.length; m++) {

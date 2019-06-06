@@ -117,7 +117,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -80
+            angle: -70
           },
           {
             action: 'Save Trading System',
@@ -132,7 +132,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -50
+            angle: -40
           },
           {
             action: 'Delete Trading System',
@@ -144,7 +144,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -10
           },
           {
             action: 'New Strategy',
@@ -157,7 +157,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +20
+            angle: +10
           },
           {
             action: 'Add Parameters',
@@ -170,7 +170,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 50
+            angle: 40
           },
           {
             action: 'Download',
@@ -182,7 +182,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 80
+            angle: 70
           }]
         break
       }
@@ -431,7 +431,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -60
           },
           {
             action: 'Add Position Size',
@@ -444,7 +444,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -20
           },
           {
             action: 'Delete Trigger Stage',
@@ -456,7 +456,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           },
           {
             action: 'Download',
@@ -468,7 +468,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }]
         break
       }

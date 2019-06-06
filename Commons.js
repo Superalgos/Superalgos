@@ -71,7 +71,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
 
-            tradingSystem.strategies = await getStrategies();
+            tradingSystem = await getTradingSystem();
 
             /* Initial Values */
 
@@ -1586,7 +1586,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
         }
     }
 
-    async function getStrategies() {
+    async function getTradingSystem() {
 
         try {
 
@@ -1622,7 +1622,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             if (strategizerResponse.data.errors)
                 throw new Error(strategizerResponse.data.errors[0].message)
 
-            return strategizerResponse.data.data.strategizer_TradingSystemByFb.data.strategies;
+            return strategizerResponse.data.data.strategizer_TradingSystemByFb.data;
 
         } catch (error) {
             throw new Error('There has been an error getting the strategy to run on the simulator. Error: ' + error)

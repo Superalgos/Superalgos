@@ -2,9 +2,12 @@ function newPartsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
     newStrategy: newStrategy,
+    addParameters: addParameters,
+    addMissingParameters: addMissingParameters,
     addMissingStages: addMissingStages,
     addMissingEvents: addMissingEvents,
     addMissingItems: addMissingItems,
+    addPositionSize: addPositionSize,
     addInitialDefinition: addInitialDefinition,
     addPhase: addPhase,
     addFormula: addFormula,
@@ -264,6 +267,29 @@ function newPartsFromNodes () {
     createPart('Take Profit', 'Initial Take Profit', strategy.openStage.initialDefinition.takeProfit, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
   }
 
+  function addParameters (node) {
+    if (node.parameters === undefined) {
+      node.parameters = {
+        name: 'Parameters'
+      }
+      createPart('Parameters', '', node.parameters, node, node)
+      addMissingParameters(node.parameters)
+    }
+  }
+
+  function addMissingParameters (node) {
+    if (node.baseAsset === undefined) {
+      node.baseAsset = {
+        name: 'Base Asset',
+        formula: {
+          code: DEFAULT_FORMULA_TEXT
+        }
+      }
+      createPart('Base Asset', '', node.baseAsset, node, node)
+      createPart('Formula', '', node.baseAsset.formula, node.baseAsset, node.baseAsset)
+    }
+  }
+
   function addMissingStages (node) {
     if (node.triggerStage === undefined) {
       node.triggerStage = {
@@ -336,6 +362,19 @@ function newPartsFromNodes () {
         situations: []
       }
       createPart('Take Position Event', '', node.takePosition, node, node)
+    }
+  }
+
+  function addPositionSize (node) {
+    if (node.positionSize === undefined) {
+      node.positionSize = {
+        name: 'Position Size',
+        formula: {
+          code: DEFAULT_FORMULA_TEXT
+        }
+      }
+      createPart('Position Size', '', node.positionSize, node, node)
+      createPart('Formula', '', node.positionSize.formula, node.positionSize, node.positionSize)
     }
   }
 

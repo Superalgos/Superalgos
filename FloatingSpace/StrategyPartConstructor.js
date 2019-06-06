@@ -132,7 +132,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -50
           },
           {
             action: 'Delete Trading System',
@@ -144,7 +144,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
           },
           {
             action: 'New Strategy',
@@ -157,7 +157,20 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: +20
+          },
+          {
+            action: 'Add Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Parameters',
+            visible: false,
+            iconPathOn: 'quality',
+            iconPathOff: 'quality',
+            relatedStrategyPart: 'Parameters',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 50
           },
           {
             action: 'Download',
@@ -415,6 +428,19 @@ function newStrategyPartConstructor () {
             visible: false,
             iconPathOn: 'target',
             iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          },
+          {
+            action: 'Add Position Size',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Position Size',
+            visible: false,
+            iconPathOn: 'responsive',
+            iconPathOff: 'responsive',
+            relatedStrategyPart: 'Position Size',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,

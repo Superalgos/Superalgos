@@ -169,6 +169,16 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.newStrategy(payload.node)
         }
         break
+      case 'Add Parameters':
+        {
+          functionLibraryPartsFromNodes.addParameters(payload.node)
+        }
+        break
+      case 'Add Missing Parameters':
+        {
+          functionLibraryPartsFromNodes.addMissingParameters(payload.node)
+        }
+        break
       case 'Add Missing Stages':
         {
           functionLibraryPartsFromNodes.addMissingStages(payload.node)
@@ -177,6 +187,11 @@ function newWorkspace () {
       case 'Add Missing Events':
         {
           functionLibraryPartsFromNodes.addMissingEvents(payload.node)
+        }
+        break
+      case 'Add Position Size':
+        {
+          functionLibraryPartsFromNodes.addPositionSize(payload.node)
         }
         break
       case 'Add Missing Items':
@@ -223,6 +238,14 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteTradingSystem(payload.node, rootNodes)
         break
       }
+      case 'Delete Parameters': {
+        functionLibraryNodeDeleter.deleteParameters(payload.node, rootNodes)
+        break
+      }
+      case 'Delete Base Asset': {
+        functionLibraryNodeDeleter.deleteBaseAsset(payload.node, rootNodes)
+        break
+      }
       case 'Delete Strategy': {
         functionLibraryNodeDeleter.deleteStrategy(payload.node, rootNodes)
         break
@@ -241,6 +264,10 @@ function newWorkspace () {
       }
       case 'Delete Close Stage': {
         functionLibraryNodeDeleter.deleteCloseStage(payload.node, rootNodes)
+        break
+      }
+      case 'Delete Position Size': {
+        functionLibraryNodeDeleter.deletePositionSize(payload.node, rootNodes)
         break
       }
       case 'Delete Initial Definition': {

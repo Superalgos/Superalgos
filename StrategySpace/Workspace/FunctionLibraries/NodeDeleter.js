@@ -1,11 +1,14 @@
 function newNodeDeleter () {
   thisObject = {
     deleteTradingSystem: deleteTradingSystem,
+    deleteParameters: deleteParameters,
+    deleteBaseAsset: deleteBaseAsset,
     deleteStrategy: deleteStrategy,
     deleteTriggerStage: deleteTriggerStage,
     deleteOpenStage: deleteOpenStage,
     deleteManageStage: deleteManageStage,
     deleteCloseStage: deleteCloseStage,
+    deletePositionSize: deletePositionSize,
     deleteInitialDefinition: deleteInitialDefinition,
     deleteEvent: deleteEvent,
     deleteManagedItem: deleteManagedItem,
@@ -38,13 +41,56 @@ function newNodeDeleter () {
     }
 
     while (node.strategies.length > 0) {
-      deleteStrategy(node.strategies[0])
+      deleteStrategy(node.strategies[0], rootNodes)
     }
 
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
   }
+
+function deleteParameters() (node, rootNodes) {
+  let payload = node.payload
+  if (payload.parentNode !== undefined) {
+    payload.parentNode.parameters = undefined
+  } else {
+    completeDeletion(node, rootNodes)
+  }
+  if (node.baseAsset !== undefined) {
+    deleteBaseAsset(node.baseAsset, rootNodes)
+  }
+  destroyPart(node)
+  cleanNode(node)
+}
+
+function deleteBaseAsset() (node, rootNodes) {
+  let payload = node.payload
+  if (payload.parentNode !== undefined) {
+    payload.parentNode.baseAsset = undefined
+  } else {
+    completeDeletion(node, rootNodes)
+  }
+  if (node.formula !== undefined) {
+    deleteFormula(node.formula, rootNodes)
+  }
+  destroyPart(node)
+  cleanNode(node)
+}
+
+function deletePositionSize() (node, rootNodes) {
+  let payload = node.payload
+  if (payload.parentNode !== undefined) {
+    payload.parentNode.positionSize = undefined
+  } else {
+    completeDeletion(node, rootNodes)
+  }
+  if (node.formula !== undefined) {
+    deleteFormula(node.formula, rootNodes)
+  }
+  destroyPart(node)
+  cleanNode(node)
+}
+
 
   function deleteStrategy (node, rootNodes) {
     let payload = node.payload
@@ -59,16 +105,16 @@ function newNodeDeleter () {
       completeDeletion(node, rootNodes)
     }
     if (node.triggerStage !== undefined) {
-      deleteTriggerStage(node.triggerStage)
+      deleteTriggerStage(node.triggerStage, rootNodes)
     }
     if (node.openStage !== undefined) {
-      deleteOpenStage(node.openStage)
+      deleteOpenStage(node.openStage, rootNodes)
     }
     if (node.manageStage !== undefined) {
-      deleteManageStage(node.manageStage)
+      deleteManageStage(node.manageStage, rootNodes)
     }
     if (node.closeStage !== undefined) {
-      deleteCloseStage(node.closeStage)
+      deleteCloseStage(node.closeStage, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)
@@ -82,13 +128,13 @@ function newNodeDeleter () {
       completeDeletion(node, rootNodes)
     }
     if (node.triggerOn !== undefined) {
-      deleteEvent(node.triggerOn)
+      deleteEvent(node.triggerOn, rootNodes)
     }
     if (node.triggerOff !== undefined) {
-      deleteEvent(node.triggerOff)
+      deleteEvent(node.triggerOff, rootNodes)
     }
     if (node.takePosition !== undefined) {
-      deleteEvent(node.takePosition)
+      deleteEvent(node.takePosition, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)
@@ -102,7 +148,7 @@ function newNodeDeleter () {
       completeDeletion(node, rootNodes)
     }
     if (node.initialDefinition !== undefined) {
-      deleteInitialDefinition(node.initialDefinition)
+      deleteInitialDefinition(node.initialDefinition, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)
@@ -116,10 +162,10 @@ function newNodeDeleter () {
       completeDeletion(node, rootNodes)
     }
     if (node.stopLoss !== undefined) {
-      deleteManagedItem(node.stopLoss)
+      deleteManagedItem(node.stopLoss, rootNodes)
     }
     if (node.takeProfit !== undefined) {
-      deleteManagedItem(node.takeProfit)
+      deleteManagedItem(node.takeProfit, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)
@@ -144,10 +190,10 @@ function newNodeDeleter () {
       completeDeletion(node, rootNodes)
     }
     if (node.stopLoss !== undefined) {
-      deleteManagedItem(node.stopLoss)
+      deleteManagedItem(node.stopLoss, rootNodes)
     }
     if (node.takeProfit !== undefined) {
-      deleteManagedItem(node.takeProfit)
+      deleteManagedItem(node.takeProfit, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)
@@ -179,7 +225,7 @@ function newNodeDeleter () {
     }
 
     while (node.situations.length > 0) {
-      deleteSituation(node.situations[0])
+      deleteSituation(node.situations[0], rootNodes)
     }
     destroyPart(node)
     cleanNode(node)
@@ -258,7 +304,7 @@ function newNodeDeleter () {
         if (situation.id === node.id) {
           while (situation.conditions.length > 0) {
             let condition = situation.conditions[0]
-            deleteCondition(condition)
+            deleteCondition(condition, rootNodes)
           }
           situation.conditions = []
           payload.parentNode.situations.splice(j, 1)

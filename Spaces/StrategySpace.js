@@ -41,11 +41,14 @@ function newStrategySpace () {
   function buildIconByPartTypeMap () {
     const relationshipArray = [
       ['Trading System', 'analysis'],
+      ['Parameters', 'settings'],
+      ['Base Asset', 'sitemap'],
       ['Strategy', 'quality'],
       ['Trigger Stage', 'chronometer'],
       ['Open Stage', 'photo-camera'],
       ['Manage Stage', 'video-player'],
       ['Close Stage', 'timeline'],
+      ['Position Size', 'responsive'],
       ['Trigger On Event', 'startup'],
       ['Trigger Off Event', 'support'],
       ['Take Position Event', 'compass'],

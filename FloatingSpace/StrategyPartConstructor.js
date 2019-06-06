@@ -173,6 +173,143 @@ function newStrategyPartConstructor () {
           }]
         break
       }
+      case 'Parameters': {
+        menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
+            action: 'Delete Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Trading System',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          },
+          {
+            action: 'Add Missing Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Missing Parameters',
+            visible: false,
+            iconPathOn: 'settings',
+            iconPathOff: 'settings',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }]
+        break
+      }
+      case 'Base Asset': {
+        menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
+            action: 'Delete Base Asset',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Base Asset',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          },
+          {
+            action: 'Add Formula',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Formula',
+            visible: false,
+            iconPathOn: 'pipette',
+            iconPathOff: 'pipette',
+            relatedStrategyPart: 'Formula',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }]
+        break
+      }
       case 'Strategy': {
         menuItemsInitialValues = [
           {
@@ -498,6 +635,75 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 20
+          }]
+        break
+      }
+      case 'Position Size': {
+        menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
+            action: 'Delete Position Size',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Trading System',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          },
+          {
+            action: 'Add Formula',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Formula',
+            visible: false,
+            iconPathOn: 'pipette',
+            iconPathOff: 'pipette',
+            relatedStrategyPart: 'Formula',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }]
         break
       }
@@ -949,8 +1155,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: false,
-            iconPathOn: 'schedule',
-            iconPathOff: 'schedule',
+            iconPathOn: 'pipette',
+            iconPathOff: 'pipette',
             relatedStrategyPart: 'Formula',
             rawRadius: 8,
             targetRadius: 0,

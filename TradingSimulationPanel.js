@@ -131,7 +131,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         y = y + increment;
         printLabel('Take Profit', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.buyOrder, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
+        printLabel(currentRecord.innerRecord.takeProfit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Trades', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');

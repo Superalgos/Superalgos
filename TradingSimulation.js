@@ -335,9 +335,9 @@
                         record.lastProfitPercent = dailyFile[i][19];
                         record.strategy = dailyFile[i][20];
                         record.strategyPhase = dailyFile[i][21];
-                        record.buyOrder = dailyFile[i][22];
+                        record.takeProfit = dailyFile[i][22];
                         record.stopLossPhase = dailyFile[i][23];
-                        record.buyOrderPhase = dailyFile[i][24];
+                        record.takeProfitPhase = dailyFile[i][24];
                         record.sellAmount = dailyFile[i][26]; // 25 is the message for the executor
 
                         if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
@@ -425,9 +425,9 @@
                 record.lastProfitPercent = marketFile[i][19];
                 record.strategy = marketFile[i][20];
                 record.strategyPhase = marketFile[i][21];
-                record.buyOrder = marketFile[i][22];
+                record.takeProfit = marketFile[i][22];
                 record.stopLossPhase = marketFile[i][23];
-                record.buyOrderPhase = marketFile[i][24];
+                record.takeProfitPhase = marketFile[i][24];
                 record.sellAmount = marketFile[i][26]; // 25 is the message for the executor
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
@@ -506,15 +506,15 @@
                 }
 
                 let stopLossPhase = 0;
-                let buyOrderPhase = 0;
+                let takeProfitPhase = 0;
 
                 if (i > 0) {
                     if (record.stopLossPhase !== records[i - 1].stopLossPhase) {
                         stopLossPhase = record.stopLossPhase;
                     }
 
-                    if (record.buyOrderPhase !== records[i - 1].buyOrderPhase) {
-                        buyOrderPhase = record.buyOrderPhase;
+                    if (record.takeProfitPhase !== records[i - 1].takeProfitPhase) {
+                        takeProfitPhase = record.takeProfitPhase;
                     }
                 }
 
@@ -567,15 +567,15 @@
 
                 let recordPoint8 = {
                     x: record.begin,
-                    y: record.buyOrder
+                    y: record.takeProfit
                 };
 
                 let recordPoint9 = {
                     x: record.end,
-                    y: record.buyOrder
+                    y: record.takeProfit
                 };
 
-                if (record.buyOrder === 0) { // Put these points out of range if buyOrder is zero.
+                if (record.takeProfit === 0) { // Put these points out of range if takeProfit is zero.
 
                     recordPoint8.x = 0;
                     recordPoint9.x = 0;
@@ -739,9 +739,9 @@
                 browserCanvasContext.lineWidth = 5
                 browserCanvasContext.stroke()
 
-                if (imageBuyOrderPhase.canDrawIcon === true && buyOrderPhase > 0) {
+                if (imageBuyOrderPhase.canDrawIcon === true && takeProfitPhase > 0) {
                     browserCanvasContext.drawImage(imageBuyOrderPhase, recordPoint9.x - imageSize * 2 / 3, recordPoint9.y + imageSize / 4, imageSize, imageSize);
-                    printLabel(buyOrderPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9, '0.9', 8);
+                    printLabel(takeProfitPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9, '0.9', 8);
                 }
 
             }

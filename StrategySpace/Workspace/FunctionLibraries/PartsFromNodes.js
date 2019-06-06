@@ -166,6 +166,9 @@ function newPartsFromNodes () {
         if (node.takePosition !== undefined) {
           createPartFromNode(node.takePosition, stage, stage)
         }
+        if (node.positionSize !== undefined) {
+          createPartFromNode(node.positionSize, stage, stage)
+        }
         return
       }
       case 'Open Stage': {
@@ -214,7 +217,7 @@ function newPartsFromNodes () {
       case 'Base Asset': {
         createPart('Base Asset', node.name, node, parentNode, chainParent, 'Base Asset')
         if (node.formula !== undefined) {
-          createPartFromNode(node.formula, node, nodes)
+          createPartFromNode(node.formula, node, node)
         }
         return
       }
@@ -231,6 +234,9 @@ function newPartsFromNodes () {
         for (let m = 0; m < node.strategies.length; m++) {
           let strategy = node.strategies[m]
           createPartFromNode(strategy, tradingSystem, tradingSystem)
+        }
+        if (node.parameters !== undefined) {
+          createPartFromNode(node.parameters, node, node)
         }
         return
       }

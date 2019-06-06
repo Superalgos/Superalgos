@@ -201,6 +201,7 @@ function newWorkspaceNode () {
           triggerOn: getWorkspaceNode(node.triggerOn),
           triggerOff: getWorkspaceNode(node.triggerOff),
           takePosition: getWorkspaceNode(node.takePosition),
+          positionSize: getWorkspaceNode(node.positionSize),
           savedPayload: getSavedPayload(node)
         }
         return stage
@@ -281,6 +282,7 @@ function newWorkspaceNode () {
           subType: node.subType,
           name: node.name,
           strategies: [],
+          parameters: getWorkspaceNode(node.parameters),
           savedPayload: getSavedPayload(node)
         }
 

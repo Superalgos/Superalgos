@@ -49,33 +49,33 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
-function deleteParameters() (node, rootNodes) {
-  let payload = node.payload
-  if (payload.parentNode !== undefined) {
-    payload.parentNode.parameters = undefined
-  } else {
-    completeDeletion(node, rootNodes)
+  function deleteParameters (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.parameters = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    if (node.baseAsset !== undefined) {
+      deleteBaseAsset(node.baseAsset, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
   }
-  if (node.baseAsset !== undefined) {
-    deleteBaseAsset(node.baseAsset, rootNodes)
-  }
-  destroyPart(node)
-  cleanNode(node)
-}
 
-function deleteBaseAsset (node, rootNodes) {
-  let payload = node.payload
-  if (payload.parentNode !== undefined) {
-    payload.parentNode.baseAsset = undefined
-  } else {
-    completeDeletion(node, rootNodes)
+  function deleteBaseAsset (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.baseAsset = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    if (node.formula !== undefined) {
+      deleteFormula(node.formula, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
   }
-  if (node.formula !== undefined) {
-    deleteFormula(node.formula, rootNodes)
-  }
-  destroyPart(node)
-  cleanNode(node)
-}
 
   function deleteStrategy (node, rootNodes) {
     let payload = node.payload
@@ -180,7 +180,7 @@ function deleteBaseAsset (node, rootNodes) {
     destroyPart(node)
     cleanNode(node)
   }
-  
+
   function deleteInitialDefinition (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {

@@ -182,6 +182,14 @@ function newStrategyPart () {
     let compatibleType
     let compatibleSubType
     switch (thisObject.payload.node.type) {
+      case 'Parameters':
+        compatibleType = 'Trading System'
+        compatibleSubType = undefined
+        break
+      case 'Base Assets':
+        compatibleType = 'Parameters'
+        compatibleSubType = undefined
+        break
       case 'Strategy':
         compatibleType = 'Trading System'
         compatibleSubType = undefined
@@ -200,6 +208,10 @@ function newStrategyPart () {
         break
       case 'Close Stage':
         compatibleType = 'Strategy'
+        compatibleSubType = undefined
+        break
+      case 'Position Size':
+        compatibleType = 'Trigger Stage'
         compatibleSubType = undefined
         break
       case 'Take Position Event':
@@ -231,7 +243,7 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Formula':
-        compatibleType = 'Phase'
+        compatibleType = 'Base Asset' + '.' + 'Position Size' + '.' + 'Phase'
         compatibleSubType = undefined
         break
       case 'Next Phase Event':
@@ -264,10 +276,13 @@ function newStrategyPart () {
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf(nearbyNode.type) >= 0) {
         /* Discard objects with busy coonection ports */
+        if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Base Asset' && nearbyNode.baseAsset !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Open Stage' && nearbyNode.openStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Manage Stage' && nearbyNode.manageStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Close Stage' && nearbyNode.closeStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Position Size' && nearbyNode.positionSize !== undefined) { continue }
         if (thisObject.payload.node.type === 'Take Position Event' && nearbyNode.takePosition !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger Off Event' && nearbyNode.triggerOff !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger On Event' && nearbyNode.triggerOn !== undefined) { continue }

@@ -11,6 +11,16 @@ function newAttachDetach () {
       case 'Trading System': {
         return
       }
+      case 'Parameters': {
+        node.payload.parentNode.parameters = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Base Asset': {
+        node.payload.parentNode.baseAsset = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Strategy': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.strategies.length; i++) {
@@ -39,6 +49,11 @@ function newAttachDetach () {
       }
       case 'Close Stage': {
         node.payload.parentNode.closeStage = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Position Size': {
+        node.payload.parentNode.positionSize = undefined
         completeDetachment(node, rootNodes)
         return
       }
@@ -134,6 +149,20 @@ function newAttachDetach () {
 
   function attachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
+      case 'Parameters': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.parameters = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Base Asset': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.baseAsset = node
+        completeAttachment(node, rootNodes)
+      }
+        break
       case 'Strategy': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
@@ -166,6 +195,13 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.closeStage = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Position Size': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.positionSize = node
         completeAttachment(node, rootNodes)
       }
         break

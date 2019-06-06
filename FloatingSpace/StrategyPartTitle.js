@@ -52,6 +52,12 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
+      case 'Parameters': {
+        break
+      }
+      case 'Base Asset': {
+        break
+      }
       case 'Strategy': {
         thisObject.allwaysVisible = true
         break
@@ -66,6 +72,9 @@ function newStrategyPartTitle () {
         break
       }
       case 'Close Stage': {
+        break
+      }
+      case 'Position Size': {
         break
       }
       case 'Trigger On Event': {

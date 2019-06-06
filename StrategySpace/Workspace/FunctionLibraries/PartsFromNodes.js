@@ -251,6 +251,11 @@ function newPartsFromNodes () {
         },
         takePosition: {
           situations: []
+        },
+        positionSize: {
+          formula: {
+            code: DEFAULT_FORMULA_TEXT
+          }
         }
       },
       openStage: {
@@ -291,6 +296,8 @@ function newPartsFromNodes () {
     createPart('Take Profit', '', strategy.manageStage.takeProfit, strategy.manageStage, strategy.manageStage)
     createPart('Stop', 'Initial Stop', strategy.openStage.initialDefinition.stopLoss, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
     createPart('Take Profit', 'Initial Take Profit', strategy.openStage.initialDefinition.takeProfit, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
+    createPart('Position Size', '', strategy.triggerStage.positionSize, strategy.triggerStage, strategy.triggerStage)
+    createPart('Formula', '', strategy.triggerStage.positionSize.formula, strategy.triggerStage.positionSize, strategy.triggerStage.positionSize)
   }
 
   function addParameters (node) {
@@ -327,12 +334,19 @@ function newPartsFromNodes () {
         },
         takePosition: {
           situations: []
+        },
+        positionSize: {
+          formula: {
+            code: DEFAULT_FORMULA_TEXT
+          }
         }
       }
       createPart('Trigger Stage', '', node.triggerStage, node, node, 'Trigger Stage')
       createPart('Trigger On Event', '', node.triggerStage.triggerOn, node.triggerStage, node.triggerStage)
       createPart('Trigger Off Event', '', node.triggerStage.triggerOff, node.triggerStage, node.triggerStage)
       createPart('Take Position Event', '', node.triggerStage.takePosition, node.triggerStage, node.triggerStage)
+      createPart('Position Size', '', node.triggerStage.positionSize, node.triggerStage, node.triggerStage)
+      createPart('Formula', '', node.triggerStage.positionSize.formula, node.triggerStage.positionSize, node.triggerStage.positionSize)
     }
     if (node.openStage === undefined) {
       node.openStage = {

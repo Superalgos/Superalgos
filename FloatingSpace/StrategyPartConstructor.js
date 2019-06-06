@@ -1600,6 +1600,14 @@ function newStrategyPartConstructor () {
         level_0()
         break
       }
+      case 'Parameters': {
+        level_3()
+        break
+      }
+      case 'Base Asset': {
+        level_3()
+        break
+      }
       case 'Strategy': {
         level_1()
         break
@@ -1618,6 +1626,10 @@ function newStrategyPartConstructor () {
       }
       case 'Close Stage': {
         level_2()
+        break
+      }
+      case 'Position Size': {
+        level_3()
         break
       }
       case 'Trigger On Event': {

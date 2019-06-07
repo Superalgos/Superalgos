@@ -70,7 +70,6 @@ function newWorkspace () {
         let rootNode = rootNodes[i]
         functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
       }
-      console.log('paso por aca')
       isInitialized = true
     }
   }

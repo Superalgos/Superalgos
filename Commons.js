@@ -663,7 +663,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (candle.max >= stopLoss) {
 
-                        balanceAssetA = balanceAssetB / stopLoss;
+                        balanceAssetA = balanceAssetA + balanceAssetB / stopLoss;
                         balanceAssetB = 0;
 
                         if (currentDay !== undefined) {
@@ -693,7 +693,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (candle.min <= takeProfit) {
 
-                        balanceAssetA = balanceAssetB / takeProfit;
+                        balanceAssetA = balanceAssetA + balanceAssetB / takeProfit;
                         balanceAssetB = 0;
 
                         if (currentDay !== undefined) {
@@ -1021,8 +1021,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     lastProfit = 0;
                     lastProfitPercent = 0;
 
-                    balanceAssetB = balanceAssetA * marketRate;
-                    balanceAssetA = 0;
+                    balanceAssetB = balanceAssetB + positionSize * marketRate;
+                    balanceAssetA = balanceAssetA - positionSize;
 
                     positionInstant = candle.end;
 

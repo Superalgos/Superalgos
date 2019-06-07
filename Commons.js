@@ -79,6 +79,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let initialBalanceA = 1;
             let minimunBalanceA = 0.5;
 
+            /* We overide the initial balance with whatever was set as position size */
+
+
+
             /* Strategy and Phases */
 
             let currentStrategyIndex = 0;
@@ -87,7 +91,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             /* Stop Loss Management */
 
             const MIN_STOP_LOSS_VALUE = 1 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
-            let previousStopLoss = 0;
             let stopLoss = 0;
             let stopLossPhase = 0;
             let stopLossStage = 'No Stage';  
@@ -989,12 +992,27 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 ) {
                     takePositionNow = false
 
+                    positionSize = balanceAssetA; // This is by default if no size was defined by the user
+
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let triggerStage = strategy.triggerStage
+
+                    if (triggerStage !== undefined) {
+                        if (triggerStage.positionSize !== undefined) {
+                            if (triggerStage.positionSize.formula !== undefined) {
+                                try {
+                                    triggerStage.positionSize.formula.value = eval(triggerStage.positionSize.formula.code); 
+                                    positionSize = phase.formula.value
+                                } catch (err) {
+                                    triggerStage.positionSize.formula.error = err.message
+                                }
+                                if (isNaN(positionSize)) { positionSize = balanceAssetA; }
+                            }
+                        }
+                    }
+
                     marketRate = candle.close;
                     positionRate = marketRate;
-                    positionSize = balanceAssetA;
-
-                    stopLoss = positionRate + positionRate * 1 / 100;
-                    previousStopLoss = stopLoss;
 
                     calculateStopLoss();
                     calculateTakeProfit();
@@ -1231,8 +1249,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
 
                     recordsArray.push(simulationRecord);
-
-                    previousStopLoss = stopLoss;
 
                     type = '""';
 

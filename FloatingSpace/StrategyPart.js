@@ -796,7 +796,7 @@ function newStrategyPart () {
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
 
         browserCanvasContext.lineWidth = 10
-        browserCanvasContext.setLineDash([4, 20])
+        browserCanvasContext.setLineDash([19, 20])
         browserCanvasContext.stroke()
       }
 
@@ -850,11 +850,15 @@ function newStrategyPart () {
 
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {
+        let additionalImageSize = 0
+        if (thisObject.isExecuting === true) { additionalImageSize = 20 }
+        let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
+
         browserCanvasContext.drawImage(
-          icon, position.x - thisObject.payload.floatingObject.currentImageSize / 2,
-          position.y - thisObject.payload.floatingObject.currentImageSize / 2,
-          thisObject.payload.floatingObject.currentImageSize,
-          thisObject.payload.floatingObject.currentImageSize)
+          icon, position.x - totalImageSize / 2,
+          position.y - totalImageSize / 2,
+          totalImageSize,
+          totalImageSize)
       }
     }
 

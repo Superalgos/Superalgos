@@ -24,7 +24,7 @@ function newStrategyPart () {
     getReadyToAttach: getReadyToAttach,
     showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
-    unHighlight: unHighlight,
+    setErrorMessage: setErrorMessage,
     physics: physics,
     drawBackground: drawBackground,
     drawMiddleground: drawMiddleground,
@@ -54,6 +54,10 @@ function newStrategyPart () {
 
   let isHighlighted
   let highlightCounter = 0
+
+  let hasError
+  let errorMessageCounter = 0
+
   let runningCounter = 0
 
   let previousDistance
@@ -69,6 +73,8 @@ function newStrategyPart () {
   let isAttaching = false
   let isDragging = false
   let attachToNode
+
+  let errorMessage = ''
 
   return thisObject
 
@@ -167,6 +173,7 @@ function newStrategyPart () {
     iconPhysics()
     runningPhisycs()
     highlightPhisycs()
+    errorMessagePhisycs()
     detachingPhysics()
     attachingPhysics()
   }
@@ -391,14 +398,25 @@ function newStrategyPart () {
     }
   }
 
+  function errorMessagePhisycs () {
+    errorMessageCounter--
+    if (errorMessageCounter < 0) {
+      errorMessageCounter = 0
+      hasError = false
+    }
+  }
+
   function highlight () {
     isHighlighted = true
     highlightCounter = 30
   }
 
-  function unHighlight () {
-    // isHighlighted = false
-    // highlightCounter = 0
+  function setErrorMessage (message) {
+    if (message !== undefined) {
+      errorMessage = message
+      hasError = true
+      errorMessageCounter = 30
+    }
   }
 
   function runningPhisycs () {
@@ -500,6 +518,7 @@ function newStrategyPart () {
         thisObject.codeEditor.drawForeground()
       }
 
+      drawErrorMessage()
       drawText()
       thisObject.partTitle.draw()
 
@@ -599,6 +618,45 @@ function newStrategyPart () {
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
           y: position.y + radius * 4 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+        }
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+        browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
+        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      }
+    }
+  }
+
+  function drawErrorMessage () {
+    if (hasError === false) { return }
+
+/* Text Follows */
+    let position = {
+      x: 0,
+      y: 0
+    }
+
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    let radius = thisObject.container.frame.radius
+            /* Label Text */
+    let labelPoint
+    let fontSize = thisObject.payload.floatingObject.currentFontSize * 1 / 2
+    let label
+
+    if (radius > 6) {
+      const MAX_LABEL_LENGTH = 50
+
+      label = errorMessage
+
+      if (label !== undefined) {
+        if (label.length > MAX_LABEL_LENGTH) {
+          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+        }
+
+        labelPoint = {
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+          y: position.y + radius * 3 / 5 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -716,6 +774,21 @@ function newStrategyPart () {
         browserCanvasContext.stroke()
       }
 
+      if (hasError === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 1
+        let OPACITY = errorMessageCounter / 30
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
+
+        browserCanvasContext.lineWidth = 20
+        browserCanvasContext.setLineDash([4, 20])
+        browserCanvasContext.stroke()
+      }
+
       if (isHighlighted === true) {
         VISIBLE_RADIUS = thisObject.container.frame.radius * 1
         let OPACITY = highlightCounter / 30
@@ -790,4 +863,3 @@ function newStrategyPart () {
     }
   }
 }
-

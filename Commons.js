@@ -951,7 +951,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             stopLoss = phase.formula.value
                             if (stopLoss === Infinity) {
                                 phase.formula.error = "Formula evaluates to Infinity."
-                                takeProfit = MAX_STOP_LOSS_VALUE
+                                stopLoss = MAX_STOP_LOSS_VALUE
+                                phase.formula.value = stopLoss
                             }
                         } catch (err) {
                             phase.formula.error = err.message
@@ -1064,7 +1065,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             takeProfit = phase.formula.value 
                             if (takeProfit === Infinity) {
                                 phase.formula.error = "Formula evaluates to Infinity."
-                                takeProfit =  MAX_TAKE_PROFIT_VALUE
+                                takeProfit = MAX_TAKE_PROFIT_VALUE
+                                phase.formula.value = takeProfit
                             }
                         } catch (err) {
                             phase.formula.error = err.message

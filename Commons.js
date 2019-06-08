@@ -96,7 +96,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             if (receivedParameters.name !== undefined) {
                                 baseAsset = receivedParameters.name;
                                 if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
-                                    tradingSystem.parameters.baseAsset.formula.error = 'The only supported assets so far are BTC and USDT. Using default BTC.'
+                                    tradingSystem.parameters.baseAsset.formula.error = baseAsset + ' is not supported. Using default: BTC.'
                                     baseAsset = 'BTC'
                                 }
                             }

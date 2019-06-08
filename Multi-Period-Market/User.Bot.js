@@ -238,12 +238,14 @@
                         let conditions = "";
                         let conditionsSeparator = "";
 
-                        for (let j = 0; j < record.length - 1; j++) {
+                        for (let j = 0; j < record.length - 3; j++) {
                             conditions = conditions + conditionsSeparator + record[j];
                             if (conditionsSeparator === "") { conditionsSeparator = ","; }
                         }
 
-                        conditions = conditions + conditionsSeparator + '[' + record[record.length - 1] + ']';   // The last item contains an Array of condition values.
+                        conditions = conditions + conditionsSeparator + '[' + record[record.length - 3] + ']';   // The last item contains an Array of condition values.
+                        conditions = conditions + conditionsSeparator + '[' + record[record.length - 2] + ']';   // The last item contains an Array of formulaErrors.
+                        conditions = conditions + conditionsSeparator + '[' + record[record.length - 1] + ']';   // The last item contains an Array of formulaValues.
 
                         fileContent = fileContent + separator + '[' + conditions + ']';
 

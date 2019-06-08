@@ -375,17 +375,20 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
 
                 let conditions = new Map;       // Here we store the conditions values that will be use in the simulator for decision making.
+                let formulas = new Map;
                 let conditionsArrayRecord = []; // These are the records that will be saved in a file for the plotter to consume.
                 let conditionsArrayValues = []; // Here we store the conditions values that will be written on file for the plotter.
+                let formulasErrors = []; // Here we store the errors produced by all phase formulas.
+                let formulasValues = []; // Here we store the values produced by all phase formulas.
 
                 /* We define and evaluate all conditions to be used later during the simulation loop. */
 
                 conditionsArrayRecord.push(candle.begin);
                 conditionsArrayRecord.push(candle.end);
 
-                evaluateConditions(tradingSystem, conditions);
+                evaluateConditionsAndFormulas(tradingSystem, conditions);
 
-                function evaluateConditions(tradingSystem, conditions) {
+                function evaluateConditionsAndFormulas(tradingSystem, conditions) {
 
                     for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
@@ -464,6 +467,32 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                         let phase = initialDefinition.stopLoss.phases[p];
 
+                                        /* Evaluate Formula */
+                                        let formulaValue
+                                        let formulaError = ''
+
+                                        if (phase.formula !== undefined) {
+                                            try {
+                                                formulaValue = eval(phase.formula.code); 
+                                                if (formulaValue === Infinity) {
+                                                    formulaError= "Formula evaluates to Infinity."
+                                                    formulaValue = MAX_STOP_LOSS_VALUE
+                                                }
+                                            } catch (err) {
+                                                formulaError = err.message
+                                            }
+                                            if (isNaN(formulaValue)) { formulaValue = 0; }
+                                            if (formulaValue < MIN_STOP_LOSS_VALUE) {
+                                                formulaValue = MIN_STOP_LOSS_VALUE
+                                            }
+                                        }
+
+                                        formulasErrors.push('"' + formulaError + '"')
+                                        formulasValues.push( formulaValue)
+                                        let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p;
+                                        formulas.set(key, formulaValue)
+
+                                        /* next phase event */
                                         let nextPhaseEvent = phase.nextPhaseEvent;
                                         if (nextPhaseEvent !== undefined) {
 
@@ -491,6 +520,32 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                         let phase = initialDefinition.takeProfit.phases[p];
 
+                                        /* Evaluate Formula */
+                                        let formulaValue
+                                        let formulaError = ''
+
+                                        if (phase.formula !== undefined) {
+                                            try {
+                                                formulaValue = eval(phase.formula.code);
+                                                if (formulaValue === Infinity) {
+                                                    formulaError = "Formula evaluates to Infinity."
+                                                    formulaValue = MAX_TAKE_PROFIT_VALUE
+                                                }
+                                            } catch (err) {
+                                                formulaError = err.message
+                                            }
+                                            if (isNaN(formulaValue)) { formulaValue = 0; }
+                                            if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
+                                                formulaValue = MIN_TAKE_PROFIT_VALUE
+                                            }
+                                        }
+
+                                        formulasErrors.push('"' + formulaError + '"')
+                                        formulasValues.push(formulaValue)
+                                        let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p;
+                                        formulas.set(key, formulaValue)
+
+                                        /* next phase event */
                                         let nextPhaseEvent = phase.nextPhaseEvent;
                                         if (nextPhaseEvent !== undefined) {
 
@@ -524,6 +579,32 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                     let phase = manageStage.stopLoss.phases[p];
 
+                                    /* Evaluate Formula */
+                                    let formulaValue
+                                    let formulaError = ''
+
+                                    if (phase.formula !== undefined) {
+                                        try {
+                                            formulaValue = eval(phase.formula.code);
+                                            if (formulaValue === Infinity) {
+                                                formulaError = "Formula evaluates to Infinity."
+                                                formulaValue = MAX_STOP_LOSS_VALUE
+                                            }
+                                        } catch (err) {
+                                            formulaError = err.message
+                                        }
+                                        if (isNaN(formulaValue)) { formulaValue = 0; }
+                                        if (formulaValue < MIN_STOP_LOSS_VALUE) {
+                                            formulaValue = MIN_STOP_LOSS_VALUE
+                                        }
+                                    }
+
+                                    formulasErrors.push('"' + formulaError + '"')
+                                    formulasValues.push(formulaValue)
+                                    let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p;
+                                    formulas.set(key, formulaValue)
+
+                                    /* next phase event */
                                     let nextPhaseEvent = phase.nextPhaseEvent;
                                     if (nextPhaseEvent !== undefined) {
 
@@ -551,6 +632,32 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                     let phase = manageStage.takeProfit.phases[p];
 
+                                    /* Evaluate Formula */
+                                    let formulaValue
+                                    let formulaError = ''
+
+                                    if (phase.formula !== undefined) {
+                                        try {
+                                            formulaValue = eval(phase.formula.code);
+                                            if (formulaValue === Infinity) {
+                                                formulaError = "Formula evaluates to Infinity."
+                                                formulaValue = MAX_TAKE_PROFIT_VALUE
+                                            }
+                                        } catch (err) {
+                                            formulaError = err.message
+                                        }
+                                        if (isNaN(formulaValue)) { formulaValue = 0; }
+                                        if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
+                                            formulaValue = MIN_TAKE_PROFIT_VALUE
+                                        }
+                                    }
+
+                                    formulasErrors.push('"' + formulaError + '"')
+                                    formulasValues.push(formulaValue)
+                                    let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p;
+                                    formulas.set(key, formulaValue)
+
+                                    /* next phase event */
                                     let nextPhaseEvent = phase.nextPhaseEvent;
                                     if (nextPhaseEvent !== undefined) {
 
@@ -930,11 +1037,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
                     let phase 
+                    let key
 
                     if (stopLossStage === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.stopLoss !== undefined) {
                                 phase = openStage.initialDefinition.stopLoss.phases[stopLossPhase - 1];
+                                key = currentStrategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (stopLossPhase - 1);
                             }
                         }
                     }
@@ -942,23 +1051,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if (stopLossStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.stopLoss !== undefined) {
                             phase = manageStage.stopLoss.phases[stopLossPhase - 2];
+                            key = currentStrategyIndex + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (stopLossPhase - 2);
                         }
                     }
 
                     if (phase.formula !== undefined) {
-                        try {
-                            stopLoss = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
-                            if (stopLoss === Infinity) {
-                                phase.formula.error = "Formula evaluates to Infinity."
-                                stopLoss = MAX_STOP_LOSS_VALUE
-                            }
-                        } catch (err) {
-                            phase.formula.error = err.message
-                        }
-                        if (isNaN(stopLoss)) { stopLoss = 0; }
-                        if (stopLoss < MIN_STOP_LOSS_VALUE) {
-                            stopLoss = MIN_STOP_LOSS_VALUE
-                        }
+                        stopLoss = formulas.get(key)
                     }
                 }
 
@@ -1042,11 +1140,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
                     let phase
+                    let key
 
                     if (takeProfitStage === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.takeProfit !== undefined) {
                                 phase = openStage.initialDefinition.takeProfit.phases[takeProfitPhase - 1];
+                                key = currentStrategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (stopLossPhase - 1);
                             }
                         }
                     }
@@ -1054,6 +1154,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if (takeProfitStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.takeProfit !== undefined) {
                             phase = manageStage.takeProfit.phases[takeProfitPhase - 2];
+                            key = currentStrategyIndex + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (stopLossPhase - 2);
                         }
                     }
 
@@ -1377,6 +1478,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     conditionsArrayRecord.push(stopLossPhase);
                     conditionsArrayRecord.push(takeProfitPhase);
                     conditionsArrayRecord.push(conditionsArrayValues);
+                    conditionsArrayRecord.push(formulasErrors);
+                    conditionsArrayRecord.push(formulasValues);
 
                     conditionsArray.push(conditionsArrayRecord);
 

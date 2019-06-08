@@ -75,11 +75,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Initial Default Values */
 
-            let initialDate = startDate;      
-            let initialBalanceA = 1;
-            let minimunBalanceA = 0.5;
-            let initialBalanceB = 0;
-            let minimunBalanceB = 0;
+            let initialDate = startDate;    
+
+            const DEFAULT_BASE_ASSET_BALANCE = 1
+            const DEFAULT_BASE_ASSET_MINIMUN_BALANCE = 0.5
+            let initialBalanceA 
+            let minimunBalanceA  
+            let initialBalanceB 
+            let minimunBalanceB 
             let baseAsset = 'BTC'
 
             /* Parameters Processing */
@@ -90,14 +93,45 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         let receivedParameters 
                         try {
                             receivedParameters = JSON.parse(tradingSystem.parameters.baseAsset.formula.code);
-                            if (receivedParameters.initialBalance !== undefined) {
-                                initialBalanceA = receivedParameters.initialBalance;
-                            }
-                            if (receivedParameters.minimunBalance !== undefined) {
-                                minimunBalanceA = receivedParameters.minimunBalance;
-                            }
+
                             if (receivedParameters.name !== undefined) {
                                 baseAsset = receivedParameters.name;
+                                if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
+                                    tradingSystem.parameters.baseAsset.formula.error = 'The only supported assets so far are BTC and USDT. Using default BTC.'
+                                    baseAsset = 'BTC'
+                                }
+                            }
+
+                            if (baseAsset === 'BTC') {
+                                if (receivedParameters.initialBalance !== undefined) {
+                                    initialBalanceA = receivedParameters.initialBalance;
+                                    initialBalanceB = 0
+                                } else {
+                                    initialBalanceA = DEFAULT_BASE_ASSET_BALANCE;
+                                    initialBalanceB = 0
+                                }
+                                if (receivedParameters.minimunBalance !== undefined) {
+                                    minimunBalanceA = receivedParameters.minimunBalance;
+                                    minimunBalanceB = 0
+                                } else {
+                                    minimunBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
+                                    minimunBalanceB = 0
+                                }
+                            } else {
+                                if (receivedParameters.initialBalance !== undefined) {
+                                    initialBalanceB = receivedParameters.initialBalance;
+                                    initialBalanceA = 0
+                                } else {
+                                    initialBalanceB = DEFAULT_BASE_ASSET_BALANCE;
+                                    initialBalanceA = 0
+                                }
+                                if (receivedParameters.minimunBalance !== undefined) {
+                                    minimunBalanceB = receivedParameters.minimunBalance;
+                                    minimunBalanceA = 0
+                                } else {
+                                    minimunBalanceB = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
+                                    minimunBalanceA = 0
+                                }
                             }
                         } catch (err) {
                             tradingSystem.parameters.baseAsset.formula.error = err.message
@@ -184,7 +218,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             */
 
             let balanceAssetA = initialBalanceA;
-            let balanceAssetB = 0;
+            let balanceAssetB = initialBalanceB;
 
             let lastProfit = 0;
             let profit = 0;

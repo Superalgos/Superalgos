@@ -712,7 +712,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     currentStrategy.endRate = candle.min;
                                     currentStrategy.status = 1;
                                     strategyStage = 'No Stage';
-                                    currentStrategyIndex = 0;
+                                    currentStrategyIndex = -1;
                                     break;
                                 }
                             }
@@ -1215,7 +1215,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     addRecord();
 
-                    currentStrategyIndex = 0;
+                    currentStrategyIndex = -1;
                     stopLoss = 0;
                     positionRate = 0;
                     positionSize = 0;

@@ -79,10 +79,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             const DEFAULT_BASE_ASSET_BALANCE = 1
             const DEFAULT_BASE_ASSET_MINIMUN_BALANCE = 0.5
-            let initialBalanceA 
-            let minimunBalanceA  
-            let initialBalanceB 
-            let minimunBalanceB 
+            let initialBalanceA = DEFAULT_BASE_ASSET_BALANCE
+            let minimunBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE
+            let initialBalanceB = 0
+            let minimunBalanceB = 0
             let baseAsset = 'BTC'
 
             /* Parameters Processing */
@@ -142,7 +142,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Strategy and Phases */
 
-            let currentStrategyIndex = 0;
+            let currentStrategyIndex = -1;
             let strategyStage = 'No Stage';   
 
             /* Stop Loss Management */
@@ -607,60 +607,73 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (
                     strategyStage === 'No Stage' &&
-                    currentStrategyIndex === 0 &&
-                    balanceAssetA > minimunBalanceA
+                    currentStrategyIndex === -1 
                 ) {
+                    let minimunBalance
+                    let balance 
 
-                    /* Trigger On Conditions */
+                    if (baseAsset === 'BTC') {
+                        balance = balanceAssetA
+                        minimunBalance = minimunBalanceA
+                    } else {
+                        balance = balanceAssetB
+                        minimunBalance = minimunBalanceB
+                    }
 
-                    /*
-                    Here we need to pick a strategy, or if there is not suitable strategy for the current
-                    market conditions, we pass until the next period.
+                    if (balance > minimunBalance) {
+                        /* Trigger On Conditions */
+
+                        /*
+                        Here we need to pick a strategy, or if there is not suitable strategy for the current
+                        market conditions, we pass until the next period.
+            
+                        To pick a new strategy we will evaluate what we call the trigger on. Once we enter
+                        into one strategy, we will ignore market conditions for others. However there is also
+                        a strategy trigger off which can be hit before taking a position. If hit, we would
+                        be outside a strategy again and looking for the condition to enter all over again.
         
-                    To pick a new strategy we will evaluate what we call the trigger on. Once we enter
-                    into one strategy, we will ignore market conditions for others. However there is also
-                    a strategy trigger off which can be hit before taking a position. If hit, we would
-                    be outside a strategy again and looking for the condition to enter all over again.
-    
-                    */
+                        */
 
-                    for (let j = 0; j < tradingSystem.strategies.length; j++) {
+                        for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
-                        let strategy = tradingSystem.strategies[j];
+                            let strategy = tradingSystem.strategies[j];
 
-                        let triggerStage = strategy.triggerStage
+                            let triggerStage = strategy.triggerStage
 
-                        if (triggerStage !== undefined) {
+                            if (triggerStage !== undefined) {
 
-                            if (triggerStage.triggerOn !== undefined) {
+                                if (triggerStage.triggerOn !== undefined) {
 
-                                for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
+                                    for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
 
-                                    let situation = triggerStage.triggerOn.situations[k];
-                                    let passed = true;
+                                        let situation = triggerStage.triggerOn.situations[k];
+                                        let passed = true;
 
-                                    for (let m = 0; m < situation.conditions.length; m++) {
+                                        for (let m = 0; m < situation.conditions.length; m++) {
 
-                                        let condition = situation.conditions[m];
-                                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
+                                            let condition = situation.conditions[m];
+                                            let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
 
-                                        let value = conditions.get(key).value;
+                                            let value = conditions.get(key).value;
 
-                                        if (value === false) { passed = false; }
-                                    }
+                                            if (value === false) { passed = false; }
+                                        }
 
-                                    if (passed) {
+                                        if (passed) {
 
-                                        strategyStage = 'Trigger Stage';
-                                        currentStrategyIndex = j;
-                                        currentStrategy.begin = candle.begin;
-                                        currentStrategy.beginRate = candle.min;
-                                        currentStrategy.endRate = candle.min; // In case the strategy does not get exited
-                                        break;
+                                            strategyStage = 'Trigger Stage';
+                                            currentStrategyIndex = j;
+                                            currentStrategy.begin = candle.begin;
+                                            currentStrategy.beginRate = candle.min;
+                                            currentStrategy.endRate = candle.min; // In case the strategy does not get exited
+                                            break;
+                                        }
                                     }
                                 }
                             }
                         }
+                    } else {
+                        tradingSystem.error = "Balance below the minimun. No more strategies will be executed."
                     }
                 }
 

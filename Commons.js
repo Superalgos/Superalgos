@@ -148,6 +148,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             /* Stop Loss Management */
 
             const MIN_STOP_LOSS_VALUE = 1 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
+            const MAX_STOP_LOSS_VALUE = Number.MAX_SAFE_INTEGER
             let stopLoss = 0;
             let stopLossPhase = 0;
             let stopLossStage = 'No Stage';  
@@ -155,6 +156,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             /* Take Profit Management */
 
             const MIN_TAKE_PROFIT_VALUE = 1 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
+            const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
             let previousTakeProfit = 0;
             let takeProfit = 0;
             let takeProfitPhase = 0;
@@ -947,6 +949,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         try {
                             phase.formula.value = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
                             stopLoss = phase.formula.value
+                            if (stopLoss === Infinity) {
+                                phase.formula.error = "Formula evaluates to Infinity."
+                                takeProfit = MAX_STOP_LOSS_VALUE
+                            }
                         } catch (err) {
                             phase.formula.error = err.message
                         }
@@ -1056,6 +1062,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         try {
                             phase.formula.value  = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
                             takeProfit = phase.formula.value 
+                            if (takeProfit === Infinity) {
+                                phase.formula.error = "Formula evaluates to Infinity."
+                                takeProfit =  MAX_TAKE_PROFIT_VALUE
+                            }
                         } catch (err) {
                             phase.formula.error = err.message
                         }

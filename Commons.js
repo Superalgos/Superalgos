@@ -732,7 +732,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                    if (candle.max >= stopLoss) {
+                    if ((baseAsset === 'BTC' && candle.max >= stopLoss) || (baseAsset !== 'BTC' && candle.min <= stopLoss)) {
 
                         if (baseAsset === 'BTC') {
                             balanceAssetA = balanceAssetA + balanceAssetB / stopLoss;
@@ -767,7 +767,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     /* Take Profit condition: Here we verify if the Take Profit was filled or not. */
 
-                    if (candle.min <= takeProfit) {
+                    if ((baseAsset === 'BTC' && candle.min <= takeProfit) || (baseAsset !== 'BTC' && candle.max >= takeProfit)) {
 
                         if (baseAsset === 'BTC') {
                             balanceAssetA = balanceAssetA + balanceAssetB / takeProfit;
@@ -1174,9 +1174,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     currentTrade.lastProfitPercent = lastProfitPercent;
                     currentTrade.stopRate = stopLoss;
-                    
-                    //if (isNaN(ROI)) { ROI = 0; }
-
+                   
                     if (lastProfit > 0) {
                         hits++;
 
@@ -1196,9 +1194,15 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    ROI = (initialBalanceA + profit) / initialBalanceA - 1;
-                    hitRatio = hits / roundtrips;
-                    anualizedRateOfReturn = ROI / days * 365;
+                    if (baseAsset === 'BTC') {
+                        ROI = (initialBalanceA + profit) / initialBalanceA - 1;
+                        hitRatio = hits / roundtrips;
+                        anualizedRateOfReturn = ROI / days * 365;
+                    } else {
+                        ROI = (initialBalanceB + profit) / initialBalanceB - 1;
+                        hitRatio = hits / roundtrips;
+                        anualizedRateOfReturn = ROI / days * 365;
+                    }  
 
                     if (currentDay !== undefined) {
                         if (positionInstant < currentDay.valueOf()) {

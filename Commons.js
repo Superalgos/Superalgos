@@ -167,6 +167,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let positionInstant;
 
             let previousBalanceAssetA = 0;
+            let previousBalanceAssetB = 0;
             let hitRatio = 0;
             let ROI = 0;
             let days = 0;
@@ -733,8 +734,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (candle.max >= stopLoss) {
 
-                        balanceAssetA = balanceAssetA + balanceAssetB / stopLoss;
-                        balanceAssetB = 0;
+                        if (baseAsset === 'BTC') {
+                            balanceAssetA = balanceAssetA + balanceAssetB / stopLoss;
+                            balanceAssetB = 0;
+                        } else {
+                            balanceAssetB = balanceAssetB + balanceAssetA / stopLoss;
+                            balanceAssetA = 0;
+                        }                        
 
                         if (currentDay !== undefined) {
                             if (positionInstant < currentDay.valueOf()) {
@@ -763,8 +769,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (candle.min <= takeProfit) {
 
-                        balanceAssetA = balanceAssetA + balanceAssetB / takeProfit;
-                        balanceAssetB = 0;
+                        if (baseAsset === 'BTC') {
+                            balanceAssetA = balanceAssetA + balanceAssetB / takeProfit;
+                            balanceAssetB = 0;
+                        } else {
+                            balanceAssetB = balanceAssetB + balanceAssetA / takeProfit;
+                            balanceAssetA = 0;
+                        }   
 
                         if (currentDay !== undefined) {
                             if (positionInstant < currentDay.valueOf()) {
@@ -1062,8 +1073,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 ) {
                     takePositionNow = false
 
-                    positionSize = balanceAssetA; // This is by default if no size was defined by the user
-
+                    /* positionSize default is the whole balance if no size was defined by the user */
+                    if (baseAsset === 'BTC') {
+                        positionSize = balanceAssetA; 
+                    } else {
+                        positionSize = balanceAssetB; 
+                    }  
+                    
+                    /* Check if the user defined a position size */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
                     let triggerStage = strategy.triggerStage
 
@@ -1076,7 +1093,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 } catch (err) {
                                     triggerStage.positionSize.formula.error = err.message
                                 }
-                                if (isNaN(positionSize)) { positionSize = balanceAssetA; }
+                                if (isNaN(positionSize)) {
+                                    if (baseAsset === 'BTC') {
+                                        positionSize = balanceAssetA;
+                                    } else {
+                                        positionSize = balanceAssetB;
+                                    }  
+                                }
                             }
                         }
                     }
@@ -1088,11 +1111,18 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     calculateTakeProfit();
 
                     previousBalanceAssetA = balanceAssetA;
+                    previousBalanceAssetB = balanceAssetB;
+
                     lastProfit = 0;
                     lastProfitPercent = 0;
 
-                    balanceAssetB = balanceAssetB + positionSize * marketRate;
-                    balanceAssetA = balanceAssetA - positionSize;
+                    if (baseAsset === 'BTC') {
+                        balanceAssetB = balanceAssetB + positionSize * marketRate;
+                        balanceAssetA = balanceAssetA - positionSize;
+                    } else {
+                        balanceAssetA = balanceAssetA + positionSize / marketRate;
+                        balanceAssetB = balanceAssetB - positionSize;
+                    }  
 
                     positionInstant = candle.end;
 
@@ -1121,11 +1151,18 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             yesterday.Roundtrips++;
                         }                        
                     }
-                    
-                    lastProfit = balanceAssetA - previousBalanceAssetA;
-                    lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
-                    if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
-                    profit = balanceAssetA - initialBalanceA;
+
+                    if (baseAsset === 'BTC') {
+                        lastProfit = balanceAssetA - previousBalanceAssetA;
+                        lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
+                        if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
+                        profit = balanceAssetA - initialBalanceA;
+                    } else {
+                        lastProfit = balanceAssetB - previousBalanceAssetB;
+                        lastProfitPercent = lastProfit / previousBalanceAssetB * 100;
+                        if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
+                        profit = balanceAssetB - initialBalanceB;
+                    }  
 
                     if (currentDay !== undefined) {
                         if (positionInstant < currentDay.valueOf()) {

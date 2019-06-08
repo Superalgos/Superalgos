@@ -738,7 +738,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             balanceAssetA = balanceAssetA + balanceAssetB / stopLoss;
                             balanceAssetB = 0;
                         } else {
-                            balanceAssetB = balanceAssetB + balanceAssetA / stopLoss;
+                            balanceAssetB = balanceAssetB + balanceAssetA * stopLoss;
                             balanceAssetA = 0;
                         }                        
 
@@ -773,7 +773,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             balanceAssetA = balanceAssetA + balanceAssetB / takeProfit;
                             balanceAssetB = 0;
                         } else {
-                            balanceAssetB = balanceAssetB + balanceAssetA / takeProfit;
+                            balanceAssetB = balanceAssetB + balanceAssetA * takeProfit;
                             balanceAssetA = 0;
                         }   
 

@@ -59,7 +59,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
         strategiesArray,
         tradesArray,
         lastObjectsArray,
-        tradingSystem,
         timePeriod,
         currentDay,
         startDate,
@@ -71,7 +70,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
 
-            tradingSystem = await getTradingSystem();
+            let tradingSystem = await getTradingSystem();
 
             /* Initial Default Values */
 
@@ -1457,7 +1456,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
             }
 
-            callback();
+            callback(tradingSystem);
 
             function getElement(pArray, begin, end) {
 

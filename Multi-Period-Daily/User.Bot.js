@@ -113,13 +113,17 @@
                 strategiesArray,
                 tradesArray,
                 lastObjectsArray,
-                tradingSystem,
                 timePeriod,
                 currentDay,
                 startDate,
                 endDate,
                 interExecutionMemory,
-                writeRecordsFile)
+                writeFiles)
+
+            function writeFiles(pTradingSystem) {
+                tradingSystem = pTradingSystem
+                writeRecordsFile() 
+            }
 
             function writeRecordsFile() {
 

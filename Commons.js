@@ -1089,7 +1089,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             if (triggerStage.positionSize.formula !== undefined) {
                                 try {
                                     triggerStage.positionSize.formula.value = eval(triggerStage.positionSize.formula.code); 
-                                    positionSize = phase.formula.value
+                                    positionSize = triggerStage.positionSize.formula.value
                                 } catch (err) {
                                     triggerStage.positionSize.formula.error = err.message
                                 }

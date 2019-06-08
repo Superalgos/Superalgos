@@ -1146,7 +1146,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.takeProfit !== undefined) {
                                 phase = openStage.initialDefinition.takeProfit.phases[takeProfitPhase - 1];
-                                key = currentStrategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (stopLossPhase - 1);
+                                key = currentStrategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (takeProfitPhase - 1);
                             }
                         }
                     }
@@ -1154,24 +1154,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if (takeProfitStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.takeProfit !== undefined) {
                             phase = manageStage.takeProfit.phases[takeProfitPhase - 2];
-                            key = currentStrategyIndex + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (stopLossPhase - 2);
+                            key = currentStrategyIndex + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (takeProfitPhase - 2);
                         }
                     }
 
                     if (phase.formula !== undefined) {
-                        try {
-                            takeProfit  = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
-                            if (takeProfit === Infinity) {
-                                phase.formula.error = "Formula evaluates to Infinity."
-                                takeProfit = MAX_TAKE_PROFIT_VALUE
-                            }
-                        } catch (err) {
-                            phase.formula.error = err.message
-                        }
-                        if (isNaN(takeProfit)) { takeProfit = 0; }
-                        if (takeProfit < MIN_TAKE_PROFIT_VALUE) {
-                            takeProfit = MIN_TAKE_PROFIT_VALUE
-                        }
+                        takeProfit = formulas.get(key)
                     }
                 }
 

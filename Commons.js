@@ -578,21 +578,22 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         let condition;
                         let error = ''
+                        let value 
 
                         try {
-                            node.value = eval(node.code);
+                            value = eval(node.code);
                         } catch (err) {
                             /*
                                 One possible error is that the conditions references a .previous that is undefined. For this
                                 reason and others, we will simply set the value to false.
                             */
-                            node.value = false
+                            value = false
                             node.error = err.message
                         }
 
                         condition = {
                             key: key,
-                            value: node.value
+                            value: value
                         };
 
                         conditions.set(condition.key, condition);
@@ -946,12 +947,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (phase.formula !== undefined) {
                         try {
-                            phase.formula.value = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
-                            stopLoss = phase.formula.value
+                            stopLoss = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
                             if (stopLoss === Infinity) {
                                 phase.formula.error = "Formula evaluates to Infinity."
                                 stopLoss = MAX_STOP_LOSS_VALUE
-                                phase.formula.value = stopLoss
                             }
                         } catch (err) {
                             phase.formula.error = err.message
@@ -1060,12 +1059,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (phase.formula !== undefined) {
                         try {
-                            phase.formula.value  = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
-                            takeProfit = phase.formula.value 
+                            takeProfit  = eval(phase.formula.code); // Here is where we apply the formula given for the stop loss.
                             if (takeProfit === Infinity) {
                                 phase.formula.error = "Formula evaluates to Infinity."
                                 takeProfit = MAX_TAKE_PROFIT_VALUE
-                                phase.formula.value = takeProfit
                             }
                         } catch (err) {
                             phase.formula.error = err.message
@@ -1099,8 +1096,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (triggerStage.positionSize !== undefined) {
                             if (triggerStage.positionSize.formula !== undefined) {
                                 try {
-                                    triggerStage.positionSize.formula.value = eval(triggerStage.positionSize.formula.code); 
-                                    positionSize = triggerStage.positionSize.formula.value
+                                    positionSize = eval(triggerStage.positionSize.formula.code); 
                                 } catch (err) {
                                     triggerStage.positionSize.formula.error = err.message
                                 }

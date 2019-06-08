@@ -73,15 +73,38 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             tradingSystem = await getTradingSystem();
 
-            /* Initial Values */
+            /* Initial Default Values */
 
             let initialDate = startDate;      
             let initialBalanceA = 1;
             let minimunBalanceA = 0.5;
+            let initialBalanceB = 0;
+            let minimunBalanceB = 0;
+            let baseAsset = 'BTC'
 
-            /* We overide the initial balance with whatever was set as position size */
+            /* Parameters Processing */
 
-
+            if (tradingSystem.parameters !== undefined) {
+                if (tradingSystem.parameters.baseAsset !== undefined) {
+                    if (tradingSystem.parameters.baseAsset.formula !== undefined) {
+                        let receivedParameters 
+                        try {
+                            receivedParameters = JSON.parse(tradingSystem.parameters.baseAsset.formula.code);
+                            if (receivedParameters.initialBalance !== undefined) {
+                                initialBalanceA = receivedParameters.initialBalance;
+                            }
+                            if (receivedParameters.minimunBalance !== undefined) {
+                                minimunBalanceA = receivedParameters.minimunBalance;
+                            }
+                            if (receivedParameters.name !== undefined) {
+                                baseAsset = receivedParameters.name;
+                            }
+                        } catch (err) {
+                            tradingSystem.parameters.baseAsset.formula.error = err.message
+                        }
+                    }
+                }
+            }
 
             /* Strategy and Phases */
 

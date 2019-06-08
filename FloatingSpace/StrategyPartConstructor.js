@@ -1685,7 +1685,7 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Code': {
-        level_6()
+        level_5()
         break
       }
       default: {

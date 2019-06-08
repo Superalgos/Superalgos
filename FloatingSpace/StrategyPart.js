@@ -518,10 +518,6 @@ function newStrategyPart () {
         thisObject.codeEditor.drawForeground()
       }
 
-      drawErrorMessage()
-      drawText()
-      thisObject.partTitle.draw()
-
       if (thisObject.codeEditor !== undefined) {
         if (thisObject.codeEditor.visible === false) {
           drawBodyAndPicture()
@@ -537,6 +533,10 @@ function newStrategyPart () {
           thisObject.menu.drawForeground()
         }
       }
+
+      drawErrorMessage()
+      drawText()
+      thisObject.partTitle.draw()
     }
   }
 
@@ -641,11 +641,11 @@ function newStrategyPart () {
     let radius = thisObject.container.frame.radius
             /* Label Text */
     let labelPoint
-    let fontSize = thisObject.payload.floatingObject.currentFontSize * 1 / 2
+    let fontSize = thisObject.payload.floatingObject.currentFontSize * 3 / 4
     let label
 
     if (radius > 6) {
-      const MAX_LABEL_LENGTH = 50
+      const MAX_LABEL_LENGTH = 40
 
       label = errorMessage
 
@@ -656,11 +656,11 @@ function newStrategyPart () {
 
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-          y: position.y + radius * 3 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+          y: position.y + radius * 2 / 5 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-        browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
     }
@@ -759,6 +759,17 @@ function newStrategyPart () {
 
       browserCanvasContext.fill()
 
+      if (thisObject.isOnFocus === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS - 2, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.5)'
+
+        browserCanvasContext.fill()
+      }
+
       if (thisObject.isRunning === true) {
         VISIBLE_RADIUS = thisObject.container.frame.radius * 2
         let OPACITY = runningCounter / 30
@@ -767,7 +778,7 @@ function newStrategyPart () {
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
 
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', ' + OPACITY + ')'
 
         browserCanvasContext.lineWidth = 10
         browserCanvasContext.setLineDash([4, 20])
@@ -784,7 +795,7 @@ function newStrategyPart () {
 
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
 
-        browserCanvasContext.lineWidth = 20
+        browserCanvasContext.lineWidth = 10
         browserCanvasContext.setLineDash([4, 20])
         browserCanvasContext.stroke()
       }
@@ -863,3 +874,4 @@ function newStrategyPart () {
     }
   }
 }
+

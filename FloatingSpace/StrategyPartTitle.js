@@ -288,7 +288,7 @@ function newStrategyPartTitle () {
 
   function trimTitle (title) {
     if (title === undefined) { return }
-    const MAX_LABEL_LENGTH = 35
+    const MAX_LABEL_LENGTH = 30
     if (title.length > MAX_LABEL_LENGTH) {
       title = title.substring(0, MAX_LABEL_LENGTH) + '...'
     }

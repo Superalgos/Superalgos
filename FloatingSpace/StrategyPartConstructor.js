@@ -13,10 +13,6 @@ function newStrategyPartConstructor () {
   }
 
   let floatingLayer
-  let spawnPosition = {
-    x: canvas.floatingSpace.container.frame.width / 2,
-    y: canvas.floatingSpace.container.frame.height / 2
-  }
 
   return thisObject
 

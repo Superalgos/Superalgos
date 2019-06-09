@@ -25,6 +25,7 @@ function newStrategyPart () {
     showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
     setErrorMessage: setErrorMessage,
+    setValue: setValue,
     physics: physics,
     drawBackground: drawBackground,
     drawMiddleground: drawMiddleground,
@@ -58,6 +59,8 @@ function newStrategyPart () {
   let hasError
   let errorMessageCounter = 0
 
+  let hasValue
+  let valueCounter = 0
   let runningCounter = 0
 
   let previousDistance
@@ -75,6 +78,7 @@ function newStrategyPart () {
   let attachToNode
 
   let errorMessage = ''
+  let formulaValue = 0
 
   return thisObject
 
@@ -174,6 +178,7 @@ function newStrategyPart () {
     runningPhisycs()
     highlightPhisycs()
     errorMessagePhisycs()
+    valuePhisycs()
     detachingPhysics()
     attachingPhysics()
   }
@@ -406,6 +411,14 @@ function newStrategyPart () {
     }
   }
 
+  function valuePhisycs () {
+    valueCounter--
+    if (valueCounter < 0) {
+      valueCounter = 0
+      hasValue = false
+    }
+  }
+
   function highlight () {
     isHighlighted = true
     highlightCounter = 30
@@ -416,6 +429,14 @@ function newStrategyPart () {
       errorMessage = message
       hasError = true
       errorMessageCounter = 30
+    }
+  }
+
+  function setValue (value) {
+    if (value !== undefined) {
+      formulaValue = value
+      hasValue = true
+      valueCounter = 30
     }
   }
 
@@ -495,6 +516,7 @@ function newStrategyPart () {
 
   function drawMiddleground () {
     if (thisObject.isOnFocus === false) {
+      drawValue()
       drawText()
       thisObject.partTitle.draw()
     }
@@ -535,6 +557,7 @@ function newStrategyPart () {
       }
 
       drawErrorMessage()
+      drawValue()
       drawText()
       thisObject.partTitle.draw()
     }
@@ -666,6 +689,45 @@ function newStrategyPart () {
     }
   }
 
+  function drawValue () {
+    if (hasValue === false) { return }
+
+/* Text Follows */
+    let position = {
+      x: 0,
+      y: 0
+    }
+
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    let radius = thisObject.container.frame.radius
+            /* Label Text */
+    let labelPoint
+    let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
+    let label
+
+    if (radius > 6) {
+      const MAX_LABEL_LENGTH = 30
+
+      label = formulaValue.toFixed(2)
+
+      if (label !== undefined) {
+        if (label.length > MAX_LABEL_LENGTH) {
+          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+        }
+
+        labelPoint = {
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+          y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+        }
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', 1)'
+        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      }
+    }
+  }
+
   function addIndexNumber (label) {
     switch (thisObject.payload.node.type) {
       case 'Phase': {
@@ -765,7 +827,7 @@ function newStrategyPart () {
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS - 2, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
 
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.5)'
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.25)'
 
         browserCanvasContext.fill()
       }
@@ -878,4 +940,3 @@ function newStrategyPart () {
     }
   }
 }
-

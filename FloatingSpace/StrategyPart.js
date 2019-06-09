@@ -436,7 +436,7 @@ function newStrategyPart () {
     if (value !== undefined) {
       formulaValue = value
       hasValue = true
-      valueCounter = 30
+      valueCounter = 5
     }
   }
 
@@ -940,3 +940,4 @@ function newStrategyPart () {
     }
   }
 }
+

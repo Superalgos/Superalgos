@@ -1734,7 +1734,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(10)
+      floatingObject.initializeMass(20)
       floatingObject.initializeRadius(35)
       floatingObject.initializeImageSize(60)
       floatingObject.initializeFontSize(10)
@@ -1746,7 +1746,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(10)
+      floatingObject.initializeMass(20)
       floatingObject.initializeRadius(30)
       floatingObject.initializeImageSize(50)
       floatingObject.initializeFontSize(10)
@@ -1758,7 +1758,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(10)
+      floatingObject.initializeMass(20)
       floatingObject.initializeRadius(25)
       floatingObject.initializeImageSize(40)
       floatingObject.initializeFontSize(10)
@@ -1769,7 +1769,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(10)
+      floatingObject.initializeMass(20)
       floatingObject.initializeRadius(20)
       floatingObject.initializeImageSize(30)
       floatingObject.initializeFontSize(10)

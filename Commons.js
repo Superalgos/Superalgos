@@ -78,10 +78,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             const DEFAULT_BASE_ASSET_BALANCE = 1
             const DEFAULT_BASE_ASSET_MINIMUN_BALANCE = 0.5
+            const DEFAULT_BASE_ASSET_MAXIMUN_BALANCE = 2
+
             let initialBalanceA = DEFAULT_BASE_ASSET_BALANCE
             let minimunBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE
+            let maximunBalanceA = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE
             let initialBalanceB = 0
             let minimunBalanceB = 0
+            let maximunBalanceB = 0
             let baseAsset = 'BTC'
 
             /* Parameters Processing */
@@ -116,6 +120,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     minimunBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
                                     minimunBalanceB = 0
                                 }
+                                if (receivedParameters.maximunBalance !== undefined) {
+                                    maximunBalanceA = receivedParameters.maximunBalance;
+                                    maximunBalanceB = 0
+                                } else {
+                                    maximunBalanceA = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
+                                    maximunBalanceB = 0
+                                }
                             } else {
                                 if (receivedParameters.initialBalance !== undefined) {
                                     initialBalanceB = receivedParameters.initialBalance;
@@ -130,6 +141,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 } else {
                                     minimunBalanceB = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
                                     minimunBalanceA = 0
+                                }
+                                if (receivedParameters.maximunBalance !== undefined) {
+                                    maximunBalanceB = receivedParameters.maximunBalance;
+                                    maximunBalanceA = 0
+                                } else {
+                                    maximunBalanceB = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
+                                    maximunBalanceA = 0
                                 }
                             }
                         } catch (err) {
@@ -720,17 +738,20 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     currentStrategyIndex === -1 
                 ) {
                     let minimunBalance
+                    let maximunBalance
                     let balance 
 
                     if (baseAsset === 'BTC') {
                         balance = balanceAssetA
                         minimunBalance = minimunBalanceA
+                        maximunBalance = maximunBalanceA
                     } else {
                         balance = balanceAssetB
                         minimunBalance = minimunBalanceB
+                        maximunBalance = maximunBalanceB
                     }
 
-                    if (balance > minimunBalance) {
+                    if (balance > minimunBalance && balance < maximunBalance) {
                         /* Trigger On Conditions */
 
                         /*
@@ -1452,7 +1473,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         stopLossPhase: stopLossPhase,
                         takeProfitPhase: takeProfitPhase,
                         orderRecord: orderRecord,
-                        positionSize: positionSize
+                        positionSize: positionSize,
+                        initialBalanceA: initialBalanceA,
+                        minimunBalanceA: minimunBalanceA,
+                        maximunBalanceA: maximunBalanceA,
+                        initialBalanceB: initialBalanceB,
+                        minimunBalanceB: minimunBalanceB,
+                        maximunBalanceB: maximunBalanceB
                     }
 
                     recordsArray.push(simulationRecord);

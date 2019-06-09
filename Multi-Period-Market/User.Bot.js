@@ -168,9 +168,14 @@
                             record.takeProfit + "," +
                             record.stopLossPhase + "," +
                             record.takeProfitPhase + "," +
-
                             JSON.stringify(record.orderRecord) + "," +
-                            record.positionSize + "]"; 
+                            record.positionSize + "," +
+                            record.initialBalanceA + "," +
+                            record.minimunBalanceA + "," +
+                            record.maximunBalanceA + "," +
+                            record.initialBalanceB + "," +
+                            record.minimunBalanceB + "," +
+                            record.maximunBalanceB + "]"; 
                         
                         if (separator === "") { separator = ","; }
 

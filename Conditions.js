@@ -620,6 +620,11 @@
                                         }
                                     }
                                     formulaErrorsIndex++
+
+                                    if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase - 1 === p) {
+                                        canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
+                                    }
+                                    formulaValuesIndex++
                                 }
 
                                 let nextPhaseEvent = phase.nextPhaseEvent;
@@ -659,6 +664,11 @@
                                         }
                                     }
                                     formulaErrorsIndex++
+
+                                    if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase - 1 === p) {
+                                        canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
+                                    }
+                                    formulaValuesIndex++
                                 }
 
                                 let nextPhaseEvent = phase.nextPhaseEvent;
@@ -705,6 +715,10 @@
                                     }
                                 }
                                 formulaErrorsIndex++
+                                if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase - 2 === p) {
+                                    canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
+                                }
+                                formulaValuesIndex++
                             }
 
                             let nextPhaseEvent = phase.nextPhaseEvent;
@@ -744,6 +758,11 @@
                                     }
                                 }
                                 formulaErrorsIndex++
+
+                                if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase - 2 === p) {
+                                    canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
+                                }
+                                formulaValuesIndex++
                             }
 
                             let nextPhaseEvent = phase.nextPhaseEvent;
@@ -845,6 +864,7 @@
         }
     }
 }
+
 
 
 

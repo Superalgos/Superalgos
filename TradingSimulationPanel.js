@@ -20,7 +20,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
     let currentRecord;
     let panelTabButton
- 
+
 
     return thisObject;
 
@@ -208,9 +208,9 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         params = {}
         params.VALUE = currentRecord.innerRecord.balanceA;
-        params.INIT_VALUE = 1
-        params.MIN_VALUE = 0.5
-        params.MAX_VALUE = 2
+        params.INIT_VALUE = currentRecord.innerRecord.initialBalanceA
+        params.MIN_VALUE = currentRecord.innerRecord.minimunBalanceA
+        params.MAX_VALUE = currentRecord.innerRecord.maximunBalanceA
         params.ASSET_LABEL = 'Asset A'
         params.ASSET_NAME = DEFAULT_MARKET.assetB + ' '
         params.LEFT_OFFSET = 100
@@ -219,9 +219,9 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         params = {}
         params.VALUE = currentRecord.innerRecord.balanceB;
-        params.MIN_VALUE = 0
-        params.INIT_VALUE = currentRecord.innerRecord.rate * currentRecord.innerRecord.sellAmount;
-        params.MAX_VALUE = params.INIT_VALUE * 2;
+        params.MIN_VALUE = currentRecord.innerRecord.minimunBalanceB
+        params.INIT_VALUE = currentRecord.innerRecord.initialBalanceB
+        params.MAX_VALUE = currentRecord.innerRecord.maximunBalanceB
         params.ASSET_LABEL = 'Asset B'
         params.ASSET_NAME = DEFAULT_MARKET.assetA + ' '
         params.LEFT_OFFSET = 220
@@ -231,6 +231,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         canvas.cockpitSpace.assetBalances.setParamsArray(paramsArray)
     }
 }
+
 
 
 

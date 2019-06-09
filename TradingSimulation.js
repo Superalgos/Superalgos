@@ -338,7 +338,13 @@
                         record.takeProfit = dailyFile[i][22];
                         record.stopLossPhase = dailyFile[i][23];
                         record.takeProfitPhase = dailyFile[i][24];
-                        record.sellAmount = dailyFile[i][26]; // 25 is the message for the executor
+                        record.positionSize = dailyFile[i][26]; // 25 is the message for the executor
+                        record.initialBalanceA = dailyFile[i][27];
+                        record.minimunBalanceA = dailyFile[i][28];
+                        record.maximunBalanceA = dailyFile[i][29];
+                        record.initialBalanceB = dailyFile[i][30];
+                        record.minimunBalanceB = dailyFile[i][31];
+                        record.maximunBalanceB = dailyFile[i][32];
 
                         if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
 
@@ -428,7 +434,13 @@
                 record.takeProfit = marketFile[i][22];
                 record.stopLossPhase = marketFile[i][23];
                 record.takeProfitPhase = marketFile[i][24];
-                record.sellAmount = marketFile[i][26]; // 25 is the message for the executor
+                record.positionSize = marketFile[i][26]; // 25 is the message for the executor
+                record.initialBalanceA = marketFile[i][27];
+                record.minimunBalanceA = marketFile[i][28];
+                record.maximunBalanceA = marketFile[i][29];
+                record.initialBalanceB = marketFile[i][30];
+                record.minimunBalanceB = marketFile[i][31];
+                record.maximunBalanceB = marketFile[i][32];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 

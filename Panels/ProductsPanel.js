@@ -60,7 +60,7 @@ function newProductsPanel () {
 
        /* First thing is to build the thisObject.productCards array */
 
-    let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
+    let ecosystem = JSON.parse(window.localStorage.getItem('TEST_ecosystem'))
 
     for (let i = 0; i < ecosystem.devTeams.length; i++) {
       let devTeam = ecosystem.devTeams[i]

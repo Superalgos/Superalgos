@@ -52,6 +52,12 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
+      case 'Parameters': {
+        break
+      }
+      case 'Base Asset': {
+        break
+      }
       case 'Strategy': {
         thisObject.allwaysVisible = true
         break
@@ -66,6 +72,9 @@ function newStrategyPartTitle () {
         break
       }
       case 'Close Stage': {
+        break
+      }
+      case 'Position Size': {
         break
       }
       case 'Trigger On Event': {
@@ -279,7 +288,7 @@ function newStrategyPartTitle () {
 
   function trimTitle (title) {
     if (title === undefined) { return }
-    const MAX_LABEL_LENGTH = 35
+    const MAX_LABEL_LENGTH = 30
     if (title.length > MAX_LABEL_LENGTH) {
       title = title.substring(0, MAX_LABEL_LENGTH) + '...'
     }

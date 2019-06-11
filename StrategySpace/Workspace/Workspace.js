@@ -7,6 +7,7 @@ function newWorkspace () {
     container: undefined,
     idAtStrategizer: undefined,
     onMenuItemClick: onMenuItemClick,
+    getProtocolTradingSystem: getProtocolTradingSystem,
     physics: physics,
     spawn: spawn,
     detachNode: detachNode,
@@ -41,6 +42,7 @@ function newWorkspace () {
   functionLibraryProtocolNode = newProtocolNode()
   functionLibraryWorkspaceNodes = newWorkspaceNode()
 
+  let isInitialized = false
   return thisObject
 
   function finalize () {
@@ -63,34 +65,41 @@ function newWorkspace () {
       workspace = JSON.parse(savedWorkspace)
       rootNodes = workspace.rootNodes
       thisObject.idAtStrategizer = workspace.idAtStrategizer
-      if (thisObject.idAtStrategizer === undefined) {
-        initializeLoadingFromStrategizer()
-      } else {
-        for (let i = 0; i < rootNodes.length; i++) {
-          let rootNode = rootNodes[i]
-          functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
-        }
+
+      for (let i = 0; i < rootNodes.length; i++) {
+        let rootNode = rootNodes[i]
+        functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
       }
+      isInitialized = true
     }
   }
 
   async function initializeLoadingFromStrategizer () {
-    await canvas.strategySpace.strategizerGateway.loadFromStrategyzer()
-    let tradingSystem = canvas.strategySpace.strategizerGateway.strategizerData
-    if (tradingSystem !== undefined) {
-      let adaptedTradingSystem = {
-        strategies: tradingSystem.subStrategies
+    let result = await canvas.strategySpace.strategizerGateway.loadFromStrategyzer()
+    if (result === true) {
+      thisObject.tradingSystem = canvas.strategySpace.strategizerGateway.strategizerData
+      rootNodes.push(thisObject.tradingSystem)
+      functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
+      thisObject.tradingSystem.payload.uiObject.setRunningStatus()
+    } else {
+      // First use of the Designer, lets help by creating the first Trading System
+      thisObject.tradingSystem = {
+        type: 'Trading System',
+        strategies: []
       }
-      thisObject.idAtStrategizer = tradingSystem.id
-      rootNodes.push(adaptedTradingSystem)
-      functionLibraryPartsFromNodes.createPartFromNode(adaptedTradingSystem, undefined, undefined)
-      thisObject.tradingSystem = adaptedTradingSystem
+      rootNodes.push(thisObject.tradingSystem)
+      functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
       thisObject.tradingSystem.payload.uiObject.setRunningStatus()
     }
+    isInitialized = true
   }
 
   function getContainer (point) {
 
+  }
+
+  function getProtocolTradingSystem () {
+    return functionLibraryProtocolNode.getProtocolNode(thisObject.tradingSystem)
   }
 
   function detachNode (node) {
@@ -102,6 +111,7 @@ function newWorkspace () {
   }
 
   function physics () {
+    if (isInitialized !== true) { return }
     /* Here we will save all the workspace related objects into the local storage */
     let stringifyReadyNodes = []
     for (let i = 0; i < rootNodes.length; i++) {
@@ -159,6 +169,16 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.newStrategy(payload.node)
         }
         break
+      case 'Add Parameters':
+        {
+          functionLibraryPartsFromNodes.addParameters(payload.node)
+        }
+        break
+      case 'Add Missing Parameters':
+        {
+          functionLibraryPartsFromNodes.addMissingParameters(payload.node)
+        }
+        break
       case 'Add Missing Stages':
         {
           functionLibraryPartsFromNodes.addMissingStages(payload.node)
@@ -167,6 +187,11 @@ function newWorkspace () {
       case 'Add Missing Events':
         {
           functionLibraryPartsFromNodes.addMissingEvents(payload.node)
+        }
+        break
+      case 'Add Position Size':
+        {
+          functionLibraryPartsFromNodes.addPositionSize(payload.node)
         }
         break
       case 'Add Missing Items':
@@ -213,6 +238,14 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteTradingSystem(payload.node, rootNodes)
         break
       }
+      case 'Delete Parameters': {
+        functionLibraryNodeDeleter.deleteParameters(payload.node, rootNodes)
+        break
+      }
+      case 'Delete Base Asset': {
+        functionLibraryNodeDeleter.deleteBaseAsset(payload.node, rootNodes)
+        break
+      }
       case 'Delete Strategy': {
         functionLibraryNodeDeleter.deleteStrategy(payload.node, rootNodes)
         break
@@ -231,6 +264,10 @@ function newWorkspace () {
       }
       case 'Delete Close Stage': {
         functionLibraryNodeDeleter.deleteCloseStage(payload.node, rootNodes)
+        break
+      }
+      case 'Delete Position Size': {
+        functionLibraryNodeDeleter.deletePositionSize(payload.node, rootNodes)
         break
       }
       case 'Delete Initial Definition': {

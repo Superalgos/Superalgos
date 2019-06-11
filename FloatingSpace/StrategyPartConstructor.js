@@ -39,6 +39,10 @@ function newStrategyPartConstructor () {
         x: payload.node.savedPayload.position.x,
         y: payload.node.savedPayload.position.y
       }
+
+      if (position.x === null) { position.x = spawnPosition.x }
+      if (position.y === null) { position.y = spawnPosition.y }
+
       floatingObject.setPosition(position)
       payload.node.savedPayload.position = undefined
       if (payload.node.savedPayload.floatingObject.isPinned === true) {
@@ -101,7 +105,7 @@ function newStrategyPartConstructor () {
             label: undefined,
             visible: false,
             iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOff: 'targeting',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -117,7 +121,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -80
+            angle: -70
           },
           {
             action: 'Save Trading System',
@@ -144,7 +148,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -10
           },
           {
             action: 'New Strategy',
@@ -154,6 +158,19 @@ function newStrategyPartConstructor () {
             iconPathOn: 'quality',
             iconPathOff: 'quality',
             relatedStrategyPart: 'Strategy',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: +10
+          },
+          {
+            action: 'Add Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Parameters',
+            visible: false,
+            iconPathOn: 'quality',
+            iconPathOff: 'quality',
+            relatedStrategyPart: 'Parameters',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -169,7 +186,144 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 80
+            angle: 70
+          }]
+        break
+      }
+      case 'Parameters': {
+        menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
+            action: 'Delete Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Trading System',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          },
+          {
+            action: 'Add Missing Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Missing Params',
+            visible: false,
+            iconPathOn: 'settings',
+            iconPathOff: 'settings',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }]
+        break
+      }
+      case 'Base Asset': {
+        menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
+            action: 'Delete Base Asset',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Base Asset',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          },
+          {
+            action: 'Add Formula',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Formula',
+            visible: false,
+            iconPathOn: 'pipette',
+            iconPathOff: 'pipette',
+            relatedStrategyPart: 'Formula',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }]
         break
       }
@@ -196,8 +350,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -264,8 +418,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -281,7 +435,20 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -60
+          },
+          {
+            action: 'Add Position Size',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Position Size',
+            visible: false,
+            iconPathOn: 'responsive',
+            iconPathOff: 'responsive',
+            relatedStrategyPart: 'Position Size',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
           },
           {
             action: 'Delete Trigger Stage',
@@ -293,7 +460,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           },
           {
             action: 'Download',
@@ -305,7 +472,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }]
         break
       }
@@ -332,8 +499,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -400,8 +567,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -468,8 +635,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -501,6 +668,75 @@ function newStrategyPartConstructor () {
           }]
         break
       }
+      case 'Position Size': {
+        menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
+            action: 'Delete Position Size',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Trading System',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          },
+          {
+            action: 'Add Formula',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Formula',
+            visible: false,
+            iconPathOn: 'pipette',
+            iconPathOff: 'pipette',
+            relatedStrategyPart: 'Formula',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }]
+        break
+      }
       case 'Trigger On Event': {
         menuItemsInitialValues = [
           {
@@ -524,8 +760,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -593,8 +829,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -662,8 +898,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -731,8 +967,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -799,8 +1035,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -868,8 +1104,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -937,8 +1173,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -949,8 +1185,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: false,
-            iconPathOn: 'schedule',
-            iconPathOff: 'schedule',
+            iconPathOn: 'pipette',
+            iconPathOff: 'pipette',
             relatedStrategyPart: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
@@ -1024,8 +1260,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1093,8 +1329,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1162,8 +1398,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1231,8 +1467,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1305,8 +1541,8 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'security',
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1368,6 +1604,14 @@ function newStrategyPartConstructor () {
         level_0()
         break
       }
+      case 'Parameters': {
+        level_3()
+        break
+      }
+      case 'Base Asset': {
+        level_3()
+        break
+      }
       case 'Strategy': {
         level_1()
         break
@@ -1386,6 +1630,10 @@ function newStrategyPartConstructor () {
       }
       case 'Close Stage': {
         level_2()
+        break
+      }
+      case 'Position Size': {
+        level_3()
         break
       }
       case 'Trigger On Event': {
@@ -1429,11 +1677,11 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Condition': {
-        level_6()
+        level_5()
         break
       }
       case 'Code': {
-        level_6()
+        level_5()
         break
       }
       default: {
@@ -1482,7 +1730,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(10)
+      floatingObject.initializeMass(20)
       floatingObject.initializeRadius(35)
       floatingObject.initializeImageSize(60)
       floatingObject.initializeFontSize(10)
@@ -1494,7 +1742,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(10)
+      floatingObject.initializeMass(20)
       floatingObject.initializeRadius(30)
       floatingObject.initializeImageSize(50)
       floatingObject.initializeFontSize(10)
@@ -1506,7 +1754,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(10)
+      floatingObject.initializeMass(20)
       floatingObject.initializeRadius(25)
       floatingObject.initializeImageSize(40)
       floatingObject.initializeFontSize(10)
@@ -1517,7 +1765,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(10)
+      floatingObject.initializeMass(20)
       floatingObject.initializeRadius(20)
       floatingObject.initializeImageSize(30)
       floatingObject.initializeFontSize(10)

@@ -2,9 +2,12 @@ function newPartsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
     newStrategy: newStrategy,
+    addParameters: addParameters,
+    addMissingParameters: addMissingParameters,
     addMissingStages: addMissingStages,
     addMissingEvents: addMissingEvents,
     addMissingItems: addMissingItems,
+    addPositionSize: addPositionSize,
     addInitialDefinition: addInitialDefinition,
     addPhase: addPhase,
     addFormula: addFormula,
@@ -138,6 +141,13 @@ function newPartsFromNodes () {
         }
         return
       }
+      case 'Position Size': {
+        createPart('Position Size', node.name, node, parentNode, chainParent, 'Position Size')
+        if (node.formula !== undefined) {
+          createPartFromNode(node.formula, node, node)
+        }
+        return
+      }
       case 'Trigger Stage': {
         let stage = node
         createPart('Trigger Stage', stage.name, stage, parentNode, chainParent, 'Trigger Stage')
@@ -150,6 +160,9 @@ function newPartsFromNodes () {
         }
         if (node.takePosition !== undefined) {
           createPartFromNode(node.takePosition, stage, stage)
+        }
+        if (node.positionSize !== undefined) {
+          createPartFromNode(node.positionSize, stage, stage)
         }
         return
       }
@@ -196,12 +209,29 @@ function newPartsFromNodes () {
         }
         return
       }
+      case 'Base Asset': {
+        createPart('Base Asset', node.name, node, parentNode, chainParent, 'Base Asset')
+        if (node.formula !== undefined) {
+          createPartFromNode(node.formula, node, node)
+        }
+        return
+      }
+      case 'Parameters': {
+        createPart('Parameters', node.name, node, parentNode, chainParent, 'Parameters')
+        if (node.baseAsset !== undefined) {
+          createPartFromNode(node.baseAsset, node, node)
+        }
+        return
+      }
       case 'Trading System': {
         let tradingSystem = node
         createPart('Trading System', tradingSystem.name, tradingSystem, parentNode, chainParent, 'Trading System')
         for (let m = 0; m < node.strategies.length; m++) {
           let strategy = node.strategies[m]
           createPartFromNode(strategy, tradingSystem, tradingSystem)
+        }
+        if (node.parameters !== undefined) {
+          createPartFromNode(node.parameters, node, node)
         }
         return
       }
@@ -222,6 +252,11 @@ function newPartsFromNodes () {
         },
         takePosition: {
           situations: []
+        },
+        positionSize: {
+          formula: {
+            code: DEFAULT_FORMULA_TEXT
+          }
         }
       },
       openStage: {
@@ -262,6 +297,31 @@ function newPartsFromNodes () {
     createPart('Take Profit', '', strategy.manageStage.takeProfit, strategy.manageStage, strategy.manageStage)
     createPart('Stop', 'Initial Stop', strategy.openStage.initialDefinition.stopLoss, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
     createPart('Take Profit', 'Initial Take Profit', strategy.openStage.initialDefinition.takeProfit, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
+    createPart('Position Size', '', strategy.triggerStage.positionSize, strategy.triggerStage, strategy.triggerStage)
+    createPart('Formula', '', strategy.triggerStage.positionSize.formula, strategy.triggerStage.positionSize, strategy.triggerStage.positionSize)
+  }
+
+  function addParameters (node) {
+    if (node.parameters === undefined) {
+      node.parameters = {
+        name: 'Parameters'
+      }
+      createPart('Parameters', '', node.parameters, node, node)
+      addMissingParameters(node.parameters)
+    }
+  }
+
+  function addMissingParameters (node) {
+    if (node.baseAsset === undefined) {
+      node.baseAsset = {
+        name: 'Base Asset',
+        formula: {
+          code: DEFAULT_FORMULA_TEXT
+        }
+      }
+      createPart('Base Asset', '', node.baseAsset, node, node)
+      createPart('Formula', '', node.baseAsset.formula, node.baseAsset, node.baseAsset)
+    }
   }
 
   function addMissingStages (node) {
@@ -275,12 +335,19 @@ function newPartsFromNodes () {
         },
         takePosition: {
           situations: []
+        },
+        positionSize: {
+          formula: {
+            code: DEFAULT_FORMULA_TEXT
+          }
         }
       }
       createPart('Trigger Stage', '', node.triggerStage, node, node, 'Trigger Stage')
       createPart('Trigger On Event', '', node.triggerStage.triggerOn, node.triggerStage, node.triggerStage)
       createPart('Trigger Off Event', '', node.triggerStage.triggerOff, node.triggerStage, node.triggerStage)
       createPart('Take Position Event', '', node.triggerStage.takePosition, node.triggerStage, node.triggerStage)
+      createPart('Position Size', '', node.triggerStage.positionSize, node.triggerStage, node.triggerStage)
+      createPart('Formula', '', node.triggerStage.positionSize.formula, node.triggerStage.positionSize, node.triggerStage.positionSize)
     }
     if (node.openStage === undefined) {
       node.openStage = {
@@ -336,6 +403,19 @@ function newPartsFromNodes () {
         situations: []
       }
       createPart('Take Position Event', '', node.takePosition, node, node)
+    }
+  }
+
+  function addPositionSize (node) {
+    if (node.positionSize === undefined) {
+      node.positionSize = {
+        name: 'Position Size',
+        formula: {
+          code: DEFAULT_FORMULA_TEXT
+        }
+      }
+      createPart('Position Size', '', node.positionSize, node, node)
+      createPart('Formula', '', node.positionSize.formula, node.positionSize, node.positionSize)
     }
   }
 
@@ -479,6 +559,9 @@ function newPartsFromNodes () {
         y: node.savedPayload.targetPosition.y
       }
       node.savedPayload.targetPosition = undefined
+
+      if (payload.targetPosition.x === null) { payload.targetPosition.x = spawnPosition.x }
+      if (payload.targetPosition.y === null) { payload.targetPosition.y = spawnPosition.y }
     } else {
       if (chainParent === undefined) {
         payload.targetPosition = {

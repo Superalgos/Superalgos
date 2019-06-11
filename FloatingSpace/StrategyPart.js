@@ -24,7 +24,8 @@ function newStrategyPart () {
     getReadyToAttach: getReadyToAttach,
     showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
-    unHighlight: unHighlight,
+    setErrorMessage: setErrorMessage,
+    setValue: setValue,
     physics: physics,
     drawBackground: drawBackground,
     drawMiddleground: drawMiddleground,
@@ -54,6 +55,12 @@ function newStrategyPart () {
 
   let isHighlighted
   let highlightCounter = 0
+
+  let hasError
+  let errorMessageCounter = 0
+
+  let hasValue
+  let valueCounter = 0
   let runningCounter = 0
 
   let previousDistance
@@ -69,6 +76,9 @@ function newStrategyPart () {
   let isAttaching = false
   let isDragging = false
   let attachToNode
+
+  let errorMessage = ''
+  let formulaValue = 0
 
   return thisObject
 
@@ -167,6 +177,8 @@ function newStrategyPart () {
     iconPhysics()
     runningPhisycs()
     highlightPhisycs()
+    errorMessagePhisycs()
+    valuePhisycs()
     detachingPhysics()
     attachingPhysics()
   }
@@ -182,6 +194,14 @@ function newStrategyPart () {
     let compatibleType
     let compatibleSubType
     switch (thisObject.payload.node.type) {
+      case 'Parameters':
+        compatibleType = 'Trading System'
+        compatibleSubType = undefined
+        break
+      case 'Base Asset':
+        compatibleType = 'Parameters'
+        compatibleSubType = undefined
+        break
       case 'Strategy':
         compatibleType = 'Trading System'
         compatibleSubType = undefined
@@ -200,6 +220,10 @@ function newStrategyPart () {
         break
       case 'Close Stage':
         compatibleType = 'Strategy'
+        compatibleSubType = undefined
+        break
+      case 'Position Size':
+        compatibleType = 'Trigger Stage'
         compatibleSubType = undefined
         break
       case 'Take Position Event':
@@ -231,7 +255,7 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Formula':
-        compatibleType = 'Phase'
+        compatibleType = 'Base Asset' + '.' + 'Position Size' + '.' + 'Phase'
         compatibleSubType = undefined
         break
       case 'Next Phase Event':
@@ -264,10 +288,13 @@ function newStrategyPart () {
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf(nearbyNode.type) >= 0) {
         /* Discard objects with busy coonection ports */
+        if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Base Asset' && nearbyNode.baseAsset !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Open Stage' && nearbyNode.openStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Manage Stage' && nearbyNode.manageStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Close Stage' && nearbyNode.closeStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Position Size' && nearbyNode.positionSize !== undefined) { continue }
         if (thisObject.payload.node.type === 'Take Position Event' && nearbyNode.takePosition !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger Off Event' && nearbyNode.triggerOff !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger On Event' && nearbyNode.triggerOn !== undefined) { continue }
@@ -376,14 +403,41 @@ function newStrategyPart () {
     }
   }
 
+  function errorMessagePhisycs () {
+    errorMessageCounter--
+    if (errorMessageCounter < 0) {
+      errorMessageCounter = 0
+      hasError = false
+    }
+  }
+
+  function valuePhisycs () {
+    valueCounter--
+    if (valueCounter < 0) {
+      valueCounter = 0
+      hasValue = false
+    }
+  }
+
   function highlight () {
     isHighlighted = true
     highlightCounter = 30
   }
 
-  function unHighlight () {
-    // isHighlighted = false
-    // highlightCounter = 0
+  function setErrorMessage (message) {
+    if (message !== undefined) {
+      errorMessage = message
+      hasError = true
+      errorMessageCounter = 30
+    }
+  }
+
+  function setValue (value) {
+    if (value !== undefined) {
+      formulaValue = value
+      hasValue = true
+      valueCounter = 5
+    }
   }
 
   function runningPhisycs () {
@@ -462,6 +516,7 @@ function newStrategyPart () {
 
   function drawMiddleground () {
     if (thisObject.isOnFocus === false) {
+      drawValue()
       drawText()
       thisObject.partTitle.draw()
     }
@@ -485,9 +540,6 @@ function newStrategyPart () {
         thisObject.codeEditor.drawForeground()
       }
 
-      drawText()
-      thisObject.partTitle.draw()
-
       if (thisObject.codeEditor !== undefined) {
         if (thisObject.codeEditor.visible === false) {
           drawBodyAndPicture()
@@ -503,6 +555,11 @@ function newStrategyPart () {
           thisObject.menu.drawForeground()
         }
       }
+
+      drawErrorMessage()
+      drawValue()
+      drawText()
+      thisObject.partTitle.draw()
     }
   }
 
@@ -588,6 +645,84 @@ function newStrategyPart () {
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
         browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
+        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      }
+    }
+  }
+
+  function drawErrorMessage () {
+    if (hasError === false) { return }
+
+/* Text Follows */
+    let position = {
+      x: 0,
+      y: 0
+    }
+
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    let radius = thisObject.container.frame.radius
+            /* Label Text */
+    let labelPoint
+    let fontSize = thisObject.payload.floatingObject.currentFontSize * 3 / 4
+    let label
+
+    if (radius > 6) {
+      const MAX_LABEL_LENGTH = 40
+
+      label = errorMessage
+
+      if (label !== undefined) {
+        if (label.length > MAX_LABEL_LENGTH) {
+          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+        }
+
+        labelPoint = {
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+          y: position.y + radius * 2 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+        }
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
+        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      }
+    }
+  }
+
+  function drawValue () {
+    if (hasValue === false) { return }
+
+/* Text Follows */
+    let position = {
+      x: 0,
+      y: 0
+    }
+
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    let radius = thisObject.container.frame.radius
+            /* Label Text */
+    let labelPoint
+    let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
+    let label
+
+    if (radius > 6) {
+      const MAX_LABEL_LENGTH = 30
+
+      label = formulaValue.toFixed(2)
+
+      if (label !== undefined) {
+        if (label.length > MAX_LABEL_LENGTH) {
+          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+        }
+
+        labelPoint = {
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+          y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+        }
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', 1)'
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
     }
@@ -686,6 +821,17 @@ function newStrategyPart () {
 
       browserCanvasContext.fill()
 
+      if (thisObject.isOnFocus === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS - 2, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.25)'
+
+        browserCanvasContext.fill()
+      }
+
       if (thisObject.isRunning === true) {
         VISIBLE_RADIUS = thisObject.container.frame.radius * 2
         let OPACITY = runningCounter / 30
@@ -694,15 +840,30 @@ function newStrategyPart () {
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
 
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', ' + OPACITY + ')'
 
         browserCanvasContext.lineWidth = 10
         browserCanvasContext.setLineDash([4, 20])
         browserCanvasContext.stroke()
       }
 
+      if (hasError === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 1
+        let OPACITY = errorMessageCounter / 30
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
+
+        browserCanvasContext.lineWidth = 10
+        browserCanvasContext.setLineDash([19, 20])
+        browserCanvasContext.stroke()
+      }
+
       if (isHighlighted === true) {
-        VISIBLE_RADIUS = thisObject.container.frame.radius
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 1
         let OPACITY = highlightCounter / 30
 
         browserCanvasContext.beginPath()
@@ -751,11 +912,15 @@ function newStrategyPart () {
 
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {
+        let additionalImageSize = 0
+        if (thisObject.isExecuting === true) { additionalImageSize = 20 }
+        let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
+
         browserCanvasContext.drawImage(
-          icon, position.x - thisObject.payload.floatingObject.currentImageSize / 2,
-          position.y - thisObject.payload.floatingObject.currentImageSize / 2,
-          thisObject.payload.floatingObject.currentImageSize,
-          thisObject.payload.floatingObject.currentImageSize)
+          icon, position.x - totalImageSize / 2,
+          position.y - totalImageSize / 2,
+          totalImageSize,
+          totalImageSize)
       }
     }
 

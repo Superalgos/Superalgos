@@ -189,6 +189,8 @@ const PRODUCT_CARD_STATUS = {
     OFF: 'off'
 };
 
+let spawnPosition // this is used in several places.
+
 /* Here we list the valid Time Periods: */
 
 const PERIOD_24_HS = "24-hs";

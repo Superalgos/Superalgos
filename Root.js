@@ -607,7 +607,6 @@
                                 logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> Failed to initialize the bot. ");
                                 console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = " + err.message);
                                 logger.persist();
-                                throw new Error("Root -> start -> findProcess -> runIndicatorBot -> onInitializeReady -> Failed to initialize the bot.")
                             }
                         }
                     }

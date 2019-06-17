@@ -19,18 +19,18 @@ exports.getStrategy = async function () {
                 method: 'post',
                 data: {
                     query: `
-                query($fbSlug: String!){
-                    strategizer_TradingSystemByFb(fbSlug: $fbSlug){
-                        data
+                    query($fbSlug: String!){
+                        strategizer_TradingSystemByFb(fbSlug: $fbSlug){
+                            data
+                        }
                     }
-                }
-                `,
+                    `,
                     variables: {
                         fbSlug: fbSlug
                     },
                 },
                 headers: {
-                    access_token: process.env.ACCESS_TOKEN
+                    access_token: process.env.ACCESS_TOKEN_STRATEGY
                 }
             })
 

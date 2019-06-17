@@ -13,7 +13,7 @@ exports.newFileStorage = function newFileStorage() {
 
   function getTextFile(container, filePath, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] getTextFile -> getBlobToText -> Entering function: ' + filePath) }
+      if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Entering function: ' + filePath) }
 
       axios({
         url: process.env.HOST_URL + 'graphql',
@@ -47,20 +47,20 @@ exports.newFileStorage = function newFileStorage() {
         else
           callBackFunction(global.CUSTOM_FAIL_RESPONSE)
       }).catch(error => {
-        if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> getBlobToText -> Invalid JSON received. ') }
-        if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> getBlobToText -> response.text = ' + error.message) }
+        if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> Invalid JSON received. ') }
+        if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> response.text = ' + error.message) }
         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
       })
     } catch (err) {
-      if (ERROR_LOG === true) { console.log('[ERROR] getTextFile -> getBlobToText -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { console.log('[ERROR] getTextFile -> err = ' + err.stack) }
     }
   }
 
-  function createTextFile(container, filePath, fileContent, callBackFunction) {
+  async function createTextFile(container, filePath, fileContent, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] getTextFile -> createTextFile -> Entering function: ' + filePath) }
+      if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + filePath) }
 
-      axios({
+      let response = await axios({
         url: process.env.HOST_URL + 'graphql',
         method: 'post',
         data: {
@@ -79,26 +79,32 @@ exports.newFileStorage = function newFileStorage() {
             }
           }
         }
-      }).then(res => {
-        if (res.data.errors) {
-          let error = {
-            code: res.data.errors[0]
-          }
-          callBackFunction(error)
-          return
-        }
-        let response = res.data.data.web_CreateFile
-        if (response)
-          callBackFunction(global.DEFAULT_OK_RESPONSE)
-        else
-          callBackFunction(global.CUSTOM_FAIL_RESPONSE)
-      }).catch(error => {
-        if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> getBlobToText -> Invalid JSON received. ') }
-        if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> getBlobToText -> response.text = ' + error.message) }
-        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
       })
+
+      if(!response){
+        console.log('[ERROR] createTextFile -> err = ')
+      }
+
+      // .then(res => {
+      //   if (res.data.errors) {
+      //     let error = {
+      //       code: res.data.errors[0]
+      //     }
+      //     callBackFunction(error)
+      //     return
+      //   }
+      //   let response = res.data.data.web_CreateFile
+      //   if (response)
+      //     callBackFunction(global.DEFAULT_OK_RESPONSE)
+      //   else
+      //     callBackFunction(global.CUSTOM_FAIL_RESPONSE)
+      // }).catch(error => {
+      //   if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] createTextFile -> Invalid JSON received. ') }
+      //   if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] createTextFile -> response.text = ' + error.message) }
+      //   callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+      // })
     } catch (err) {
-      if (ERROR_LOG === true) { console.log('[ERROR] createTextFile -> getBlobToText -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { console.log('[ERROR] createTextFile -> err = ' + err.stack) }
     }
   }
 

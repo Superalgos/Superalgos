@@ -4,8 +4,10 @@ import { Clone } from '../../models'
 import { CloneModeEnum } from '../../enums/CloneMode'
 import { BotTypesEnum } from '../../enums/BotTypes'
 import teamQuery from '../../graphQLCalls/teamQuery'
-import authorizeClone from '../../graphQLCalls/authorizeClone'
+import authorizeKey from '../../graphQLCalls/authorizeKey'
+import authorizeStrategy from '../../graphQLCalls/authorizeStrategy'
 import cloneDetails from '../cloneDetails'
+import ecosystemQuery from '../../graphQLCalls/ecosystemQuery'
 import {
   AuthenticationError,
   WrongArgumentsError,
@@ -74,21 +76,44 @@ const resolve = async (parent, { clone }, context) => {
     newClone.authId = context.userId
     clone.id = newClone._id
 
+    let ecosystem = await ecosystemQuery(context.authorization)
+    for (let i = 0; i < ecosystem.devTeams.length; i++) {
+      const devTeam = ecosystem.devTeams[i];
+      if (devTeam.codeName === clone.teamSlug) {
+        clone.host = devTeam.host
+        break
+      }
+    }
+
+    if (!clone.host) {
+      throw new WrongArgumentsError('Team not found at the user ecosystem.')
+    }
+
     logger.debug('addClone -> Creating the clone on the Database.')
     let savedClone = await newClone.save()
 
+    logger.debug('addClone -> Authorizing clone to use the strategy.')
+    let strategyResponse = await authorizeStrategy(context.authorization, clone.botSlug, clone.id, false)
+    if (isDefined(strategyResponse.data.data.strategizer_AuthorizeStrategy)) {
+      clone.accessTokenStrategy = strategyResponse.data.data.strategizer_AuthorizeStrategy
+    } else {
+      logger.debug('addClone -> Authorizing clone to use the strategy fail.')
+      throw new AuthorizationError()
+    }
+
     if (clone.mode === LIVE || clone.mode === COMPETITION) {
       logger.debug('addClone -> Authorizing clone to use the key.')
-      let response = await authorizeClone(context.authorization, clone.keyId, clone.id, false)
-      logger.debug('addClone -> Authorizing clone to use the key.')
-      if (response.data.data.keyVault_AuthorizeClone === clone.keyId) {
-        await createKubernetesClone(clone)
+
+      let keyResponse = await authorizeKey(context.authorization, clone.keyId, clone.id, false)
+      if (isDefined(keyResponse.data.data.keyVault_AuthorizeClone)) {
+        clone.accessTokenKey = keyResponse.data.data.keyVault_AuthorizeClone
       } else {
+        logger.error('addClone -> Authorizing clone to use the key fail.')
         throw new AuthorizationError()
       }
-    } else {
-      await createKubernetesClone(clone)
     }
+
+    await createKubernetesClone(clone)
 
     logger.debug('addClone -> Clone created sucessfully.')
     return savedClone

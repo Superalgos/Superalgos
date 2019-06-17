@@ -6,7 +6,8 @@ import removeKuberneteClone from '../../kubernetes/removeClone'
 import teamQuery from '../../graphQLCalls/teamQuery'
 import { isDefined } from '../../config/utils'
 import cloneDetails from '../cloneDetails'
-import authorizeClone from '../../graphQLCalls/authorizeClone'
+import authorizeKey from '../../graphQLCalls/authorizeKey'
+import authorizeStrategy from '../../graphQLCalls/authorizeStrategy'
 import { LIVE, COMPETITION } from '../../enums/CloneMode'
 
 const args = {
@@ -36,7 +37,8 @@ const resolve = async (parent, { id }, context) => {
 
     if ((clone.mode === LIVE || clone.mode === COMPETITION) && isDefined(clone.keyId)) {
       logger.debug('removeClone -> Release the clone key.')
-      await authorizeClone(context.authorization, clone.keyId, clone.id, true)
+      await authorizeKey(context.authorization, clone.keyId, clone.id, true)
+      await authorizeStrategy(context.authorization, clone.botSlug, clone.id, true)
     }
 
     logger.debug('removeClone -> Removing Clone from Kubernates.')

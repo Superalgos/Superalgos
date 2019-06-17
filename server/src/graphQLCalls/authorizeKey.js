@@ -1,8 +1,8 @@
 import logger from '../config/logger'
 import axios from 'axios'
 
-const authorizeClon = (authorization, keyId, cloneId, releaseClon) => {
-  logger.debug('authorizeClon -> Entering function.')
+const authorizeKey = (authorization, keyId, cloneId, releaseClon) => {
+  logger.debug('authorizeKey -> Entering function.')
 
   return axios({
     url: process.env.GATEWAY_ENDPOINT,
@@ -25,4 +25,4 @@ const authorizeClon = (authorization, keyId, cloneId, releaseClon) => {
   })
 }
 
-export default authorizeClon
+export default authorizeKey

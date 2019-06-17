@@ -30,6 +30,6 @@
     "kubernetes-client": "6.5.1",
     "luxon": "^1.13.2",
     "mongoose": "5.2.12",
-    "winston": "3.1.0"
+    "winston": "3.2.1"
   }
 }

@@ -12,68 +12,28 @@ const createClone = async (clone) => {
     const client = new Client({ config: config.fromKubeconfig(), version: '1.9' })
     deploymentManifest.metadata.name = clone.id
 
-    logger.debug('createClone Environment and Auth Configuration.')
+    logger.debug('createClone Environment and Storage Configuration.')
     let env = []
-    env.push({
-      'name': 'PLATFORM_ENVIRONMENT',
-      'value': process.env.PLATFORM_ENVIRONMENT
-    })
     env.push({
       'name': 'GATEWAY_ENDPOINT',
       'value': process.env.GATEWAY_ENDPOINT
     })
     env.push({
-      'name': 'STORAGE_BASE_URL',
-      'value': process.env.STORAGE_BASE_URL
+      'name': 'HOST_URL',
+      'value': clone.host.url
     })
     env.push({
-      'name': 'STORAGE_CONNECTION_STRING',
-      'value': process.env.STORAGE_CONNECTION_STRING
+      'name': 'HOST_STORAGE',
+      'value': clone.host.storage
     })
     env.push({
-      'name': 'AUTH_URL',
-      'value': process.env.AUTH_URL
+      'name': 'HOST_ACCESS_KEY',
+      'value': clone.host.accessKey
     })
     env.push({
-      'name': 'AUTH_CLIENT_ID',
-      'value': process.env.AUTH_CLIENT_ID
+      'name': 'ACCESS_TOKEN_STRATEGY',
+      'value': clone.accessTokenStrategy
     })
-    env.push({
-      'name': 'AUTH_CLIENT_SECRET',
-      'value': process.env.AUTH_CLIENT_SECRET
-    })
-    env.push({
-      'name': 'AUTH_AUDIENCE',
-      'value': process.env.AUTH_AUDIENCE
-    })
-
-    env.push({
-      'name': 'STORAGE_PROVIDER',
-      'value': process.env.STORAGE_PROVIDER
-    })
-
-    if (process.env.STORAGE_PROVIDER === 'Minio') {
-      env.push({
-        'name': 'MINIO_END_POINT',
-        'value': process.env.MINIO_END_POINT
-      })
-      env.push({
-        'name': 'MINIO_PORT',
-        'value': process.env.MINIO_PORT
-      })
-      env.push({
-        'name': 'MINIO_USE_SSL',
-        'value': process.env.MINIO_USE_SSL
-      })
-      env.push({
-        'name': 'MINIO_ACCESS_KEY',
-        'value': process.env.MINIO_ACCESS_KEY
-      })
-      env.push({
-        'name': 'MINIO_SECRET_KEY',
-        'value': process.env.MINIO_SECRET_KEY
-      })
-    }
 
     logger.debug('createClone General Financial Being Configuration.')
     env.push({
@@ -167,10 +127,18 @@ const createClone = async (clone) => {
           'name': 'KEY_ID',
           'value': clone.keyId
         })
+        env.push({
+          'name': 'ACCESS_TOKEN',
+          'value': clone.accessTokenKey
+        })
       } else if (clone.mode === LIVE) {
         env.push({
           'name': 'KEY_ID',
           'value': clone.keyId
+        })
+        env.push({
+          'name': 'ACCESS_TOKEN',
+          'value': clone.accessTokenKey
         })
       }
     } else if (clone.botType === Indicator || clone.botType === Sensor) {

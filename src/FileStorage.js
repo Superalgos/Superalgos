@@ -17,9 +17,9 @@ function newFileStorage() {
 
       let headers
       let accessToken = window.localStorage.getItem('access_token')
-      if(accessToken !== null){
-        headers={
-          authorization: 'Bearer ' +accessToken
+      if (accessToken !== null) {
+        headers = {
+          authorization: 'Bearer ' + accessToken
         }
       }
 
@@ -28,31 +28,38 @@ function newFileStorage() {
         method: 'post',
         data: {
           query: `
-          query web_FileContent($container: String!, $filePath: String!, $accessKey: String!, $storage: String!){
-            web_FileContent(file: { container: $container, filePath: $filePath, accessKey: $accessKey, storage: $storage })
+          query web_FileContent($file: web_FileInput){
+            web_FileContent(file: $file)
           }
           `,
           variables: {
-            container: container,
-            filePath: filePath,
-            storage: host.storage,
-            accessKey: host.accessKey
+            file: {
+              container: container,
+              filePath: filePath,
+              storage: host.storage,
+              accessKey: host.accessKey
+            }
           }
         },
         headers: headers
       }).then(res => {
-        if(res.data.errors){
-          if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> response.text = ' + JSON.stringify(res.data.errors)) }
-          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE, '', '')
+        if (res.data.errors) {
+          let error = {
+            code: res.data.errors[0]
+          }
+          callBackFunction(error)
+          return
         }
         let response = res.data.data.web_FileContent
-        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, response, '')
+        if (response)
+          callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, response)
+        else
+          callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE)
       }).catch(error => {
         if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> Invalid JSON received. ') }
         if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> response.text = ' + error.message) }
-        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE, '', '')
+        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
       })
-
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] getBlobToText -> err = ' + err.stack) }
     }

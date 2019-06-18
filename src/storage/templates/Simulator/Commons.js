@@ -1,5 +1,4 @@
-﻿const axios = require('axios')
-const auth = require('./utils/auth')
+﻿const strategy = require('./Integrations/Strategy')
 
 exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
@@ -59,7 +58,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
         strategiesArray,
         tradesArray,
         lastObjectsArray,
-        simulationLogic,
         timePeriod,
         currentDay,
         startDate,
@@ -71,51 +69,130 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
 
-            /* Initial Values */
+            let tradingSystem = await strategy.getStrategy();
 
-            let initialDate = startDate;      
-            let initialBalanceA = 1;
-            let minimunBalanceA = 0.5;
+            /* Initial Default Values */
+
+            let initialDate = startDate;    
+
+            const DEFAULT_BASE_ASSET_BALANCE = 1
+            const DEFAULT_BASE_ASSET_MINIMUN_BALANCE = 0.5
+            const DEFAULT_BASE_ASSET_MAXIMUN_BALANCE = 2
+
+            let initialBalanceA = DEFAULT_BASE_ASSET_BALANCE
+            let minimunBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE
+            let maximunBalanceA = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE
+            let initialBalanceB = 0
+            let minimunBalanceB = 0
+            let maximunBalanceB = 0
+            let baseAsset = 'BTC'
+
+            /* Parameters Processing */
+
+            if (tradingSystem.parameters !== undefined) {
+                if (tradingSystem.parameters.baseAsset !== undefined) {
+                    if (tradingSystem.parameters.baseAsset.formula !== undefined) {
+                        let receivedParameters 
+                        try {
+                            receivedParameters = JSON.parse(tradingSystem.parameters.baseAsset.formula.code);
+
+                            if (receivedParameters.name !== undefined) {
+                                baseAsset = receivedParameters.name;
+                                if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
+                                    tradingSystem.parameters.baseAsset.formula.error = baseAsset + ' is not supported. Using default: BTC.'
+                                    baseAsset = 'BTC'
+                                }
+                            }
+
+                            if (baseAsset === 'BTC') {
+                                if (receivedParameters.initialBalance !== undefined) {
+                                    initialBalanceA = receivedParameters.initialBalance;
+                                    initialBalanceB = 0
+                                } else {
+                                    initialBalanceA = DEFAULT_BASE_ASSET_BALANCE;
+                                    initialBalanceB = 0
+                                }
+                                if (receivedParameters.minimunBalance !== undefined) {
+                                    minimunBalanceA = receivedParameters.minimunBalance;
+                                    minimunBalanceB = 0
+                                } else {
+                                    minimunBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
+                                    minimunBalanceB = 0
+                                }
+                                if (receivedParameters.maximunBalance !== undefined) {
+                                    maximunBalanceA = receivedParameters.maximunBalance;
+                                    maximunBalanceB = 0
+                                } else {
+                                    maximunBalanceA = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
+                                    maximunBalanceB = 0
+                                }
+                            } else {
+                                if (receivedParameters.initialBalance !== undefined) {
+                                    initialBalanceB = receivedParameters.initialBalance;
+                                    initialBalanceA = 0
+                                } else {
+                                    initialBalanceB = DEFAULT_BASE_ASSET_BALANCE;
+                                    initialBalanceA = 0
+                                }
+                                if (receivedParameters.minimunBalance !== undefined) {
+                                    minimunBalanceB = receivedParameters.minimunBalance;
+                                    minimunBalanceA = 0
+                                } else {
+                                    minimunBalanceB = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
+                                    minimunBalanceA = 0
+                                }
+                                if (receivedParameters.maximunBalance !== undefined) {
+                                    maximunBalanceB = receivedParameters.maximunBalance;
+                                    maximunBalanceA = 0
+                                } else {
+                                    maximunBalanceB = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
+                                    maximunBalanceA = 0
+                                }
+                            }
+                        } catch (err) {
+                            tradingSystem.parameters.baseAsset.formula.error = err.message
+                        }
+                    }
+                }
+            }
 
             /* Strategy and Phases */
 
-            let strategyNumber = 0;
-            let strategyPhase = 0;  // So far we will consider 5 possible phases: 0 = Initial state, 1 = Signal to buy, 2 = Buy, 3 = After Buy, 4 = Sell.
+            let currentStrategyIndex = -1;
+            let strategyStage = 'No Stage';   
 
             /* Stop Loss Management */
 
             const MIN_STOP_LOSS_VALUE = 1 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
-            let stopLossPercentage = 50;
-            let previousStopLoss = 0;
+            const MAX_STOP_LOSS_VALUE = Number.MAX_SAFE_INTEGER
             let stopLoss = 0;
-            let stopLossDecay = 0;
-            let stopLossDecayIncrement = 0.06;
             let stopLossPhase = 0;
+            let stopLossStage = 'No Stage';  
 
-            /* Buy Order Management */
+            /* Take Profit Management */
 
-            const MIN_BUY_ORDER_VALUE = 1 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
-            let buyOrderPercentage = 1;
-            let previousBuyOrder = 0;
-            let buyOrder = 0;
-            let buyOrderDecay = 0;
-            let buyOrderPhase = 0;
+            const MIN_TAKE_PROFIT_VALUE = 1 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
+            const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
+            let previousTakeProfit = 0;
+            let takeProfit = 0;
+            let takeProfitPhase = 0;
+            let takeProfitStage = 'No Stage';  
 
-            /* Building records */
+            /* Simulation Records */
 
-            let record;
-            let sellRate = 0;
-            let sellAmount = 0;
-            let sellInstant;
+            let positionRate = 0;
+            let positionSize = 0;
+            let positionInstant;
 
             let previousBalanceAssetA = 0;
+            let previousBalanceAssetB = 0;
             let hitRatio = 0;
             let ROI = 0;
             let days = 0;
             let anualizedRateOfReturn = 0;
             let type = '""';
-            let rate = 0;
-            let newStopLoss;
+            let marketRate = 0;
+            let takePositionNow = false
 
             /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need thse variables. */
 
@@ -160,7 +237,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             */
 
             let balanceAssetA = initialBalanceA;
-            let balanceAssetB = 0;
+            let balanceAssetB = initialBalanceB;
 
             let lastProfit = 0;
             let profit = 0;
@@ -255,8 +332,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
                 
             }
-
-            simulationLogic.strategies = await getStrategy();
            
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
 
@@ -317,157 +392,442 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
 
                 let conditions = new Map;       // Here we store the conditions values that will be use in the simulator for decision making.
+                let formulas = new Map;
                 let conditionsArrayRecord = []; // These are the records that will be saved in a file for the plotter to consume.
                 let conditionsArrayValues = []; // Here we store the conditions values that will be written on file for the plotter.
+                let formulasErrors = []; // Here we store the errors produced by all phase formulas.
+                let formulasValues = []; // Here we store the values produced by all phase formulas.
 
                 /* We define and evaluate all conditions to be used later during the simulation loop. */
 
                 conditionsArrayRecord.push(candle.begin);
                 conditionsArrayRecord.push(candle.end);
 
-                for (let j = 0; j < simulationLogic.strategies.length; j++) {
+                evaluateConditionsAndFormulas(tradingSystem, conditions);
 
-                    let strategy = simulationLogic.strategies[j];
+                function evaluateConditionsAndFormulas(tradingSystem, conditions) {
 
-                    for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
+                    for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
-                        let situation = strategy.entryPoint.situations[k];
+                        let strategy = tradingSystem.strategies[j];
 
-                        for (let m = 0; m < situation.conditions.length; m++) {
+                        let triggerStage = strategy.triggerStage
 
-                            let condition = situation.conditions[m];
-                            let key = strategy.name + '-' + situation.name + '-' + condition.name;
+                        if (triggerStage !== undefined) {
 
-                            newCondition(key, condition.code);
+                            if (triggerStage.triggerOn !== undefined) {
+
+                                for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
+
+                                    let situation = triggerStage.triggerOn.situations[k];
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
+
+                                        if (condition.code !== undefined) {
+                                            newCondition(key, condition.code);
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (triggerStage.triggerOff !== undefined) {
+
+                                for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
+
+                                    let situation = triggerStage.triggerOff.situations[k];
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
+
+                                        if (condition.code !== undefined) {
+                                            newCondition(key, condition.code);
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (triggerStage.takePosition !== undefined) {
+
+                                for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
+
+                                    let situation = triggerStage.takePosition.situations[k];
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
+
+                                        if (condition.code !== undefined) {
+                                            newCondition(key, condition.code);
+                                        }
+                                    }
+                                }
+                            }
                         }
-                    }
 
-                    for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
+                        let openStage = strategy.openStage
 
-                        let situation = strategy.exitPoint.situations[k];
+                        if (openStage !== undefined) {
 
-                        for (let m = 0; m < situation.conditions.length; m++) {
+                            let initialDefinition = openStage.initialDefinition
 
-                            let condition = situation.conditions[m];
-                            let key = strategy.name + '-' + situation.name + '-' + condition.name;
+                            if (initialDefinition !== undefined) {
 
-                            newCondition(key, condition.code);
+                                if (initialDefinition.stopLoss !== undefined) {
+
+                                    for (let p = 0; p < initialDefinition.stopLoss.phases.length; p++) {
+
+                                        let phase = initialDefinition.stopLoss.phases[p];
+
+                                        /* Evaluate Formula */
+                                        let formulaValue
+                                        let formulaError = ''
+
+                                        if (phase.formula !== undefined) {
+                                            try {
+                                                formulaValue = eval(phase.formula.code); 
+                                                if (formulaValue === Infinity) {
+                                                    formulaError= "Formula evaluates to Infinity."
+                                                    formulaValue = MAX_STOP_LOSS_VALUE
+                                                }
+                                            } catch (err) {
+                                                formulaError = err.message
+                                            }
+                                            if (isNaN(formulaValue)) { formulaValue = 0; }
+                                            if (formulaValue < MIN_STOP_LOSS_VALUE) {
+                                                formulaValue = MIN_STOP_LOSS_VALUE
+                                            }
+                                        }
+
+                                        formulasErrors.push('"' + formulaError + '"')
+                                        formulasValues.push( formulaValue)
+                                        let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p;
+                                        formulas.set(key, formulaValue)
+
+                                        /* next phase event */
+                                        let nextPhaseEvent = phase.nextPhaseEvent;
+                                        if (nextPhaseEvent !== undefined) {
+
+                                            for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+
+                                                let situation = nextPhaseEvent.situations[k];
+
+                                                for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                    let condition = situation.conditions[m];
+                                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+
+                                                    if (condition.code !== undefined) {
+                                                        newCondition(key, condition.code);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (initialDefinition.takeProfit !== undefined) {
+
+                                    for (let p = 0; p < initialDefinition.takeProfit.phases.length; p++) {
+
+                                        let phase = initialDefinition.takeProfit.phases[p];
+
+                                        /* Evaluate Formula */
+                                        let formulaValue
+                                        let formulaError = ''
+
+                                        if (phase.formula !== undefined) {
+                                            try {
+                                                formulaValue = eval(phase.formula.code);
+                                                if (formulaValue === Infinity) {
+                                                    formulaError = "Formula evaluates to Infinity."
+                                                    formulaValue = MAX_TAKE_PROFIT_VALUE
+                                                }
+                                            } catch (err) {
+                                                formulaError = err.message
+                                            }
+                                            if (isNaN(formulaValue)) { formulaValue = 0; }
+                                            if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
+                                                formulaValue = MIN_TAKE_PROFIT_VALUE
+                                            }
+                                        }
+
+                                        formulasErrors.push('"' + formulaError + '"')
+                                        formulasValues.push(formulaValue)
+                                        let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p;
+                                        formulas.set(key, formulaValue)
+
+                                        /* next phase event */
+                                        let nextPhaseEvent = phase.nextPhaseEvent;
+                                        if (nextPhaseEvent !== undefined) {
+
+                                            for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+
+                                                let situation = nextPhaseEvent.situations[k];
+
+                                                for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                    let condition = situation.conditions[m];
+                                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+
+                                                    if (condition.code !== undefined) {
+                                                        newCondition(key, condition.code);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
-                    }
 
-                    for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
+                        let manageStage = strategy.manageStage
 
-                        let situation = strategy.sellPoint.situations[k];
+                        if (manageStage !== undefined) {
 
-                        for (let m = 0; m < situation.conditions.length; m++) {
+                            if (manageStage.stopLoss !== undefined) {
 
-                            let condition = situation.conditions[m];
-                            let key = strategy.name + '-' + situation.name + '-' + condition.name;
+                                for (let p = 0; p < manageStage.stopLoss.phases.length; p++) {
 
-                            newCondition(key, condition.code);
-                        }
-                    }
+                                    let phase = manageStage.stopLoss.phases[p];
 
-                    for (let p = 0; p < strategy.stopLoss.phases.length; p++) {
+                                    /* Evaluate Formula */
+                                    let formulaValue
+                                    let formulaError = ''
 
-                        let phase = strategy.stopLoss.phases[p];
+                                    if (phase.formula !== undefined) {
+                                        try {
+                                            formulaValue = eval(phase.formula.code);
+                                            if (formulaValue === Infinity) {
+                                                formulaError = "Formula evaluates to Infinity."
+                                                formulaValue = MAX_STOP_LOSS_VALUE
+                                            }
+                                        } catch (err) {
+                                            formulaError = err.message
+                                        }
+                                        if (isNaN(formulaValue)) { formulaValue = 0; }
+                                        if (formulaValue < MIN_STOP_LOSS_VALUE) {
+                                            formulaValue = MIN_STOP_LOSS_VALUE
+                                        }
+                                    }
 
-                        for (let k = 0; k < phase.situations.length; k++) {
+                                    formulasErrors.push('"' + formulaError + '"')
+                                    formulasValues.push(formulaValue)
+                                    let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p;
+                                    formulas.set(key, formulaValue)
 
-                            let situation = phase.situations[k];
+                                    /* next phase event */
+                                    let nextPhaseEvent = phase.nextPhaseEvent;
+                                    if (nextPhaseEvent !== undefined) {
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
+                                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
-                                let condition = situation.conditions[m];
-                                let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name;
+                                            let situation = nextPhaseEvent.situations[k];
 
-                                newCondition(key, condition.code);
+                                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                let condition = situation.conditions[m];
+                                                let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+
+                                                if (condition.code !== undefined) {
+                                                    newCondition(key, condition.code);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (manageStage.takeProfit !== undefined) {
+
+                                for (let p = 0; p < manageStage.takeProfit.phases.length; p++) {
+
+                                    let phase = manageStage.takeProfit.phases[p];
+
+                                    /* Evaluate Formula */
+                                    let formulaValue
+                                    let formulaError = ''
+
+                                    if (phase.formula !== undefined) {
+                                        try {
+                                            formulaValue = eval(phase.formula.code);
+                                            if (formulaValue === Infinity) {
+                                                formulaError = "Formula evaluates to Infinity."
+                                                formulaValue = MAX_TAKE_PROFIT_VALUE
+                                            }
+                                        } catch (err) {
+                                            formulaError = err.message
+                                        }
+                                        if (isNaN(formulaValue)) { formulaValue = 0; }
+                                        if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
+                                            formulaValue = MIN_TAKE_PROFIT_VALUE
+                                        }
+                                    }
+
+                                    formulasErrors.push('"' + formulaError + '"')
+                                    formulasValues.push(formulaValue)
+                                    let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p;
+                                    formulas.set(key, formulaValue)
+
+                                    /* next phase event */
+                                    let nextPhaseEvent = phase.nextPhaseEvent;
+                                    if (nextPhaseEvent !== undefined) {
+
+                                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+
+                                            let situation = nextPhaseEvent.situations[k];
+
+                                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                let condition = situation.conditions[m];
+                                                let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+
+                                                if (condition.code !== undefined) {
+                                                    newCondition(key, condition.code);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
 
-                    for (let p = 0; p < strategy.buyOrder.phases.length; p++) {
+                    function newCondition(key, node) {
 
-                        let phase = strategy.buyOrder.phases[p];
+                        let condition;
+                        let error = ''
+                        let value 
 
-                        for (let k = 0; k < phase.situations.length; k++) {
+                        try {
+                            value = eval(node.code);
+                        } catch (err) {
+                            /*
+                                One possible error is that the conditions references a .previous that is undefined. For this
+                                reason and others, we will simply set the value to false.
+                            */
+                            value = false
+                            node.error = err.message
+                        }
 
-                            let situation = phase.situations[k];
+                        condition = {
+                            key: key,
+                            value: value
+                        };
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
+                        conditions.set(condition.key, condition);
 
-                                let condition = situation.conditions[m];
-                                let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name;
-
-                                newCondition(key, condition.code);
-                            }
+                        if (condition.value) {
+                            conditionsArrayValues.push(1);
+                        } else {
+                            conditionsArrayValues.push(0);
                         }
                     }
+
                 }
 
-                function newCondition(key, code) {
 
-                    let condition;
-                    let value = false;
+                if (
+                    strategyStage === 'No Stage' &&
+                    currentStrategyIndex === -1 
+                ) {
+                    let minimunBalance
+                    let maximunBalance
+                    let balance 
 
-                    try {
-                        value = eval(code);
-                    } catch (err) {
-                        /*
-                            One possible error is that the conditions references a .previous that is undefined. For this
-                            reason and others, we will simply set the value to false.
-                        */
-                        value = false
-                    }
-
-                    condition = {
-                        key: key,
-                        value: value
-                    };
-
-                    conditions.set(condition.key, condition);
-
-                    if (condition.value) {
-                        conditionsArrayValues.push(1);
+                    if (baseAsset === 'BTC') {
+                        balance = balanceAssetA
+                        minimunBalance = minimunBalanceA
+                        maximunBalance = maximunBalanceA
                     } else {
-                        conditionsArrayValues.push(0);
+                        balance = balanceAssetB
+                        minimunBalance = minimunBalanceB
+                        maximunBalance = maximunBalanceB
+                    }
+
+                    if (balance > minimunBalance && balance < maximunBalance) {
+                        /* Trigger On Conditions */
+
+                        /*
+                        Here we need to pick a strategy, or if there is not suitable strategy for the current
+                        market conditions, we pass until the next period.
+            
+                        To pick a new strategy we will evaluate what we call the trigger on. Once we enter
+                        into one strategy, we will ignore market conditions for others. However there is also
+                        a strategy trigger off which can be hit before taking a position. If hit, we would
+                        be outside a strategy again and looking for the condition to enter all over again.
+        
+                        */
+
+                        for (let j = 0; j < tradingSystem.strategies.length; j++) {
+
+                            let strategy = tradingSystem.strategies[j];
+
+                            let triggerStage = strategy.triggerStage
+
+                            if (triggerStage !== undefined) {
+
+                                if (triggerStage.triggerOn !== undefined) {
+
+                                    for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
+
+                                        let situation = triggerStage.triggerOn.situations[k];
+                                        let passed = true;
+
+                                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                                            let condition = situation.conditions[m];
+                                            let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
+
+                                            let value = conditions.get(key).value;
+
+                                            if (value === false) { passed = false; }
+                                        }
+
+                                        if (passed) {
+
+                                            strategyStage = 'Trigger Stage';
+                                            currentStrategyIndex = j;
+                                            currentStrategy.begin = candle.begin;
+                                            currentStrategy.beginRate = candle.min;
+                                            currentStrategy.endRate = candle.min; // In case the strategy does not get exited
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        tradingSystem.error = "Balance below the minimun. No more strategies will be executed."
                     }
                 }
 
+                /* Trigger Off Condition */
 
-                /* Strategy Enter Condition */
+                if (strategyStage === 'Trigger Stage') {
 
-                if (strategyNumber === 0 &&
-                    balanceAssetA > minimunBalanceA) {
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
 
-                    /*
-                    Here we need to pick a strategy, or if there is not suitable strategy for the current
-                    market conditions, we pass until the next period.
-    
-                    To pick a new strategy we will evaluate what we call an entering condition. Once we enter
-                    into one strategy, we will ignore market conditions for others. However there is also
-                    a strategy exit condition which can be hit before entering into a trade. If hit, we would
-                    be outside a strategy again and looking for the condition to enter all over again.
+                    let triggerStage = strategy.triggerStage
 
-                    */
+                    if (triggerStage !== undefined) {
 
-                    checkEntryPoints();
+                        if (triggerStage.triggerOff !== undefined) {
 
-                    function checkEntryPoints() {
+                            for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
 
-                        for (let j = 0; j < simulationLogic.strategies.length; j++) {
-
-                            let strategy = simulationLogic.strategies[j];
-
-                            for (let k = 0; k < strategy.entryPoint.situations.length; k++) {
-
-                                let situation = strategy.entryPoint.situations[k];
+                                let situation = triggerStage.triggerOff.situations[k];
                                 let passed = true;
 
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
                                     let condition = situation.conditions[m];
-                                    let key = strategy.name + '-' + situation.name + '-' + condition.name
+                                    let key = currentStrategyIndex + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
 
                                     let value = conditions.get(key).value;
 
@@ -476,53 +836,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                 if (passed) {
 
-                                    strategyPhase = 1;
-                                    strategyNumber = j + 1;
-                                    currentStrategy.begin = candle.begin;
-                                    currentStrategy.beginRate = candle.min;
-                                    currentStrategy.endRate = candle.min; // In case the strategy does not get exited
-                                    return;
+                                    currentStrategy.number = currentStrategyIndex
+                                    currentStrategy.end = candle.end;
+                                    currentStrategy.endRate = candle.min;
+                                    currentStrategy.status = 1;
+                                    strategyStage = 'No Stage';
+                                    currentStrategyIndex = -1;
+                                    break;
                                 }
-                            }
-                        }
-                    }
-                }
-
-                /* Strategy Exit Condition */
-
-                if (strategyPhase === 1) {
-
-                    checkExitPoints();
-
-                    function checkExitPoints() {
-
-                        let strategy = simulationLogic.strategies[strategyNumber - 1];
-
-                        for (let k = 0; k < strategy.exitPoint.situations.length; k++) {
-
-                            let situation = strategy.exitPoint.situations[k];
-                            let passed = true;
-
-                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                let condition = situation.conditions[m];
-                                let key = strategy.name + '-' + situation.name + '-' + condition.name
-
-                                let value = conditions.get(key).value;
-
-                                if (value === false) { passed = false; }
-                            }
-
-                            if (passed) {
-
-                                currentStrategy.number = strategyNumber - 1
-                                currentStrategy.end = candle.end;
-                                currentStrategy.endRate = candle.min;
-                                currentStrategy.status = 1;
-                                strategyPhase = 0;
-                                strategyNumber = 0;
-
-                                return;
                             }
                         }
                     }
@@ -530,88 +851,189 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Checking if Stop or Take Profit were hit */
 
-                if (strategyPhase === 3) {
+                if (
+                    strategyStage === 'Open Stage' ||
+                    strategyStage === 'Manage Stage'
+                ) {
 
                     /* Checking what happened since the last execution. We need to know if the Stop Loss
-                        or our Buy Order were hit. */
+                        or our Take Profit were hit. */
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                    if (candle.max >= stopLoss) {
+                    if ((baseAsset === 'BTC' && candle.max >= stopLoss) || (baseAsset !== 'BTC' && candle.min <= stopLoss)) {
 
-                        balanceAssetA = balanceAssetB / stopLoss;
-                        balanceAssetB = 0;
+                        if (baseAsset === 'BTC') {
+                            balanceAssetA = balanceAssetA + balanceAssetB / stopLoss;
+                            balanceAssetB = 0;
+                        } else {
+                            balanceAssetB = balanceAssetB + balanceAssetA * stopLoss;
+                            balanceAssetA = 0;
+                        }                        
 
                         if (currentDay !== undefined) {
-                            if (sellInstant < currentDay.valueOf()) {
+                            if (positionInstant < currentDay.valueOf()) {
                                 yesterday.balanceAssetA = balanceAssetA;
                                 yesterday.balanceAssetB = balanceAssetB;
                             }
                         }
 
-                        rate = stopLoss;
+                        marketRate = stopLoss;
                         type = '"Buy@StopLoss"';
-                        strategyPhase = 4;
+                        strategyStage = 'Close Stage';
+                        stopLossStage = 'No Stage';
+                        takeProfitStage = 'No Stage';
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 1;
                         currentTrade.endRate = stopLoss;
 
-                        currentStrategy.number = strategyNumber - 1
+                        currentStrategy.number = currentStrategyIndex
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
                         currentStrategy.status = 1;
                     }
 
-                    /* Buy Order condition: Here we verify if the Buy Order was filled or not. */
+                    /* Take Profit condition: Here we verify if the Take Profit was filled or not. */
 
-                    if (candle.min <= buyOrder) {
+                    if ((baseAsset === 'BTC' && candle.min <= takeProfit) || (baseAsset !== 'BTC' && candle.max >= takeProfit)) {
 
-                        balanceAssetA = balanceAssetB / buyOrder;
-                        balanceAssetB = 0;
+                        if (baseAsset === 'BTC') {
+                            balanceAssetA = balanceAssetA + balanceAssetB / takeProfit;
+                            balanceAssetB = 0;
+                        } else {
+                            balanceAssetB = balanceAssetB + balanceAssetA * takeProfit;
+                            balanceAssetA = 0;
+                        }   
 
                         if (currentDay !== undefined) {
-                            if (sellInstant < currentDay.valueOf()) {
+                            if (positionInstant < currentDay.valueOf()) {
                                 yesterday.balanceAssetA = balanceAssetA;
                                 yesterday.balanceAssetB = balanceAssetB;
 
                             }
                         }
 
-                        rate = buyOrder;
-                        type = '"Buy@BuyOrder"';
-                        strategyPhase = 4;
+                        marketRate = takeProfit;
+                        type = '"Buy@TakeProfit"';
+                        strategyStage = 'Close Stage';
+                        stopLossStage = 'No Stage';
+                        takeProfitStage = 'No Stage';
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;    
                         currentTrade.exitType = 2;
-                        currentTrade.endRate = buyOrder;
+                        currentTrade.endRate = takeProfit;
 
-                        currentStrategy.number = strategyNumber - 1
+                        currentStrategy.number = currentStrategyIndex
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
                         currentStrategy.status = 1;
                     }
                 }
 
-                /* Trade Enter Condition */
+                /* Take Position Condition */
 
-                if (strategyPhase === 1) {
+                if (strategyStage === 'Trigger Stage') {
 
-                    checkSellPoints();
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
 
-                    function checkSellPoints() {
+                    let triggerStage = strategy.triggerStage
 
-                        let strategy = simulationLogic.strategies[strategyNumber - 1];
+                    if (triggerStage !== undefined) {
 
-                        for (let k = 0; k < strategy.sellPoint.situations.length; k++) {
+                        if (triggerStage.takePosition !== undefined) {
 
-                            let situation = strategy.sellPoint.situations[k];
+                            for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
+
+                                let situation = triggerStage.takePosition.situations[k];
+                                let passed = true;
+
+                                for (let m = 0; m < situation.conditions.length; m++) {
+
+                                    let condition = situation.conditions[m];
+                                    let key = currentStrategyIndex + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
+
+                                    let value = conditions.get(key).value;
+
+                                    if (value === false) { passed = false; }
+                                }
+
+                                if (passed) {
+
+                                    type = '"Sell"';
+
+                                    strategyStage = 'Open Stage';
+                                    stopLossStage = 'Open Stage';
+                                    takeProfitStage = 'Open Stage';
+                                    stopLossPhase = 1;
+                                    takeProfitPhase = 1;
+                                    currentTrade.begin = candle.begin;
+                                    currentTrade.beginRate = candle.close;
+                                    takePositionNow = true
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                /* Stop Loss Management */
+
+                if (
+                    strategyStage === 'Open Stage' ||
+                    strategyStage === 'Manage Stage'
+                ) {
+
+                    checkStopPhases()
+                    calculateStopLoss();
+
+                }
+
+                function checkStopPhases() {
+
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+
+                    let openStage = strategy.openStage
+                    let manageStage = strategy.manageStage
+                    let parentNode 
+                    let j = currentStrategyIndex
+                    let stageKey
+                    let initialDefinitionKey = ''
+                    let p
+
+                    if (stopLossStage === 'Open Stage' && openStage !== undefined) {
+                        if (openStage.initialDefinition !== undefined) {
+                            if (openStage.initialDefinition.stopLoss !== undefined) {
+                                parentNode = openStage.initialDefinition
+                                initialDefinitionKey = '-' + 'initialDefinition'
+                                stageKey = 'openStage'
+                                p = stopLossPhase - 1
+                            } 
+                        }
+                    }
+
+                    if (stopLossStage === 'Manage Stage' && manageStage !== undefined) {
+                        if (manageStage.stopLoss !== undefined) {
+                            parentNode = manageStage
+                            stageKey = 'manageStage'
+                            p = stopLossPhase - 2
+                        } 
+                    }
+
+                    let phase = parentNode.stopLoss.phases[p];
+
+                    let nextPhaseEvent = phase.nextPhaseEvent;
+                    if (nextPhaseEvent !== undefined) {
+
+                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+
+                            let situation = nextPhaseEvent.situations[k];
                             let passed = true;
 
                             for (let m = 0; m < situation.conditions.length; m++) {
 
                                 let condition = situation.conditions[m];
-                                let key = strategy.name + '-' + situation.name + '-' + condition.name
+                                let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
                                 let value = conditions.get(key).value;
 
@@ -620,165 +1042,208 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                             if (passed) {
 
-                                type = '"Sell"';
-
-                                strategyPhase = 2;
-                                stopLossPhase = 1;
-                                buyOrderPhase = 1;
-                                currentTrade.begin = candle.begin;
-                                currentTrade.beginRate = candle.close;
+                                stopLossPhase++;
+                                stopLossStage = 'Manage Stage'
+                                if (takeProfitPhase > 1) { strategyStage = 'Manage Stage' }
                                 return;
                             }
                         }
                     }
                 }
 
-                /* Stop Loss Management */
+                function calculateStopLoss() {
 
-                if (strategyPhase === 3) {
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let openStage = strategy.openStage
+                    let manageStage = strategy.manageStage
+                    let phase 
+                    let key
 
-                    checkStopPhases()
-                    checkStopLoss();
-
-                }
-
-                function checkStopPhases() {
-
-                    let strategy = simulationLogic.strategies[strategyNumber - 1];
-                    let phase = strategy.stopLoss.phases[stopLossPhase - 1];
-
-                    for (let k = 0; k < phase.situations.length; k++) {
-
-                        let situation = phase.situations[k];
-                        let passed = true;
-
-                        for (let m = 0; m < situation.conditions.length; m++) {
-
-                            let condition = situation.conditions[m];
-                            let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name
-
-                            let value = conditions.get(key).value;
-
-                            if (value === false) { passed = false; }
-                        }
-
-                        if (passed) {
-
-                            stopLossPhase++;
-
-                            return;
+                    if (stopLossStage === 'Open Stage' && openStage !== undefined) {
+                        if (openStage.initialDefinition !== undefined) {
+                            if (openStage.initialDefinition.stopLoss !== undefined) {
+                                phase = openStage.initialDefinition.stopLoss.phases[stopLossPhase - 1];
+                                key = currentStrategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (stopLossPhase - 1);
+                            }
                         }
                     }
-                }
 
-                function checkStopLoss() {
-
-                    let strategy = simulationLogic.strategies[strategyNumber - 1];
-                    let phase = strategy.stopLoss.phases[stopLossPhase - 1];
-
-                    try {
-                        eval(phase.code); // Here is where we apply the formula given for the stop loss for this phase.
-                    } catch (err) {
-                        /*
-                            If the code produces an exception, we are covered.
-                        */
+                    if (stopLossStage === 'Manage Stage' && manageStage !== undefined) {
+                        if (manageStage.stopLoss !== undefined) {
+                            phase = manageStage.stopLoss.phases[stopLossPhase - 2];
+                            key = currentStrategyIndex + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (stopLossPhase - 2);
+                        }
                     }
 
-                    if (newStopLoss < previousStopLoss) {
-                        stopLoss = newStopLoss;
-                    } else {
-                        stopLoss = previousStopLoss;
+                    if (phase.formula !== undefined) {
+                        stopLoss = formulas.get(key)
                     }
-
-                    if (stopLoss < MIN_STOP_LOSS_VALUE) {
-                        stopLoss = MIN_STOP_LOSS_VALUE
-                    }
-
                 }
 
                 /* Take Profit Management */
 
-                if (strategyPhase === 3) {
+                if (
+                    strategyStage === 'Open Stage' ||
+                    strategyStage === 'Manage Stage'
+                ) {
 
-                    checkBuyOrderPhases();
-                    checkBuyOrder();
+                    checkTakeProfitPhases();
+                    calculateTakeProfit();
 
                 }
 
-                function checkBuyOrderPhases() {
+                function checkTakeProfitPhases() {
 
-                    let strategy = simulationLogic.strategies[strategyNumber - 1];
-                    let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
 
-                    for (let k = 0; k < phase.situations.length; k++) {
+                    let openStage = strategy.openStage
+                    let manageStage = strategy.manageStage
+                    let parentNode
+                    let j = currentStrategyIndex
+                    let stageKey
+                    let initialDefinitionKey = ''
+                    let p
 
-                        let situation = phase.situations[k];
-                        let passed = true;
-
-                        for (let m = 0; m < situation.conditions.length; m++) {
-
-                            let condition = situation.conditions[m];
-                            let key = strategy.name + '-' + phase.name + '-' + situation.name + '-' + condition.name
-
-                            let value = conditions.get(key).value;
-
-                            if (value === false) { passed = false; }
-                        }
-
-                        if (passed) {
-
-                            buyOrderPhase++;
-
-                            return;
+                    if (takeProfitStage === 'Open Stage' && openStage !== undefined) {
+                        if (openStage.initialDefinition !== undefined) {
+                            if (openStage.initialDefinition.takeProfit !== undefined) {
+                                parentNode = openStage.initialDefinition
+                                initialDefinitionKey = '-' + 'initialDefinition'
+                                stageKey = 'openStage'
+                                p = takeProfitPhase - 1
+                            }
                         }
                     }
-                }
 
-                function checkBuyOrder() {
-
-                    let strategy = simulationLogic.strategies[strategyNumber - 1];
-                    let phase = strategy.buyOrder.phases[buyOrderPhase - 1];
-
-                    try {
-                        eval(phase.code); // Here is where we apply the formula given for the buy order at this phase.
-                    } catch (err) {
-                        /*
-                            If the code produces an exception, we are covered.
-                        */
+                    if (takeProfitStage === 'Manage Stage' && manageStage !== undefined) {
+                        if (manageStage.takeProfit !== undefined) {
+                            parentNode = manageStage
+                            stageKey = 'manageStage'
+                            p = takeProfitPhase - 2
+                        }
                     }
 
-                    if (buyOrder < MIN_BUY_ORDER_VALUE) {
-                        buyOrder = MIN_BUY_ORDER_VALUE
+                    let phase = parentNode.takeProfit.phases[p];
+
+                    let nextPhaseEvent = phase.nextPhaseEvent;
+                    if (nextPhaseEvent !== undefined) {
+
+                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+
+                            let situation = nextPhaseEvent.situations[k];
+                            let passed = true;
+
+                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                let condition = situation.conditions[m];
+                                let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+
+                                let value = conditions.get(key).value;
+
+                                if (value === false) { passed = false; }
+                            }
+
+                            if (passed) {
+
+                                takeProfitPhase++;
+                                takeProfitStage = 'Manage Stage'
+                                if (stopLossPhase > 1) { strategyStage = 'Manage Stage' }
+                                return;
+                            }
+                        }
                     }
                 }
 
-                /* Entering into a Trade */
+                function calculateTakeProfit() {
 
-                if (strategyPhase === 2) {
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let openStage = strategy.openStage
+                    let manageStage = strategy.manageStage
+                    let phase
+                    let key
 
-                    rate = candle.close;
-                    sellRate = rate;
-                    sellAmount = balanceAssetA;
+                    if (takeProfitStage === 'Open Stage' && openStage !== undefined) {
+                        if (openStage.initialDefinition !== undefined) {
+                            if (openStage.initialDefinition.takeProfit !== undefined) {
+                                phase = openStage.initialDefinition.takeProfit.phases[takeProfitPhase - 1];
+                                key = currentStrategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (takeProfitPhase - 1);
+                            }
+                        }
+                    }
 
-                    stopLoss = sellRate + sellRate * stopLossPercentage / 100;
-                    previousStopLoss = stopLoss;
+                    if (takeProfitStage === 'Manage Stage' && manageStage !== undefined) {
+                        if (manageStage.takeProfit !== undefined) {
+                            phase = manageStage.takeProfit.phases[takeProfitPhase - 2];
+                            key = currentStrategyIndex + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (takeProfitPhase - 2);
+                        }
+                    }
 
-                    stopLossDecay = 0;
+                    if (phase.formula !== undefined) {
+                        takeProfit = formulas.get(key)
+                    }
+                }
 
-                    checkStopLoss();
-                    checkBuyOrder();
+                /* Taking a Position */
+
+                if (
+                    takePositionNow === true
+                ) {
+                    takePositionNow = false
+
+                    /* positionSize default is the whole balance if no size was defined by the user */
+                    if (baseAsset === 'BTC') {
+                        positionSize = balanceAssetA; 
+                    } else {
+                        positionSize = balanceAssetB; 
+                    }  
+                    
+                    /* Check if the user defined a position size */
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let triggerStage = strategy.triggerStage
+
+                    if (triggerStage !== undefined) {
+                        if (triggerStage.positionSize !== undefined) {
+                            if (triggerStage.positionSize.formula !== undefined) {
+                                try {
+                                    positionSize = eval(triggerStage.positionSize.formula.code); 
+                                } catch (err) {
+                                    triggerStage.positionSize.formula.error = err.message
+                                }
+                                if (isNaN(positionSize)) {
+                                    if (baseAsset === 'BTC') {
+                                        positionSize = balanceAssetA;
+                                    } else {
+                                        positionSize = balanceAssetB;
+                                    }  
+                                }
+                            }
+                        }
+                    }
+
+                    marketRate = candle.close;
+                    positionRate = marketRate;
+
+                    calculateStopLoss();
+                    calculateTakeProfit();
 
                     previousBalanceAssetA = balanceAssetA;
+                    previousBalanceAssetB = balanceAssetB;
+
                     lastProfit = 0;
                     lastProfitPercent = 0;
 
-                    balanceAssetB = balanceAssetA * rate;
-                    balanceAssetA = 0;
+                    if (baseAsset === 'BTC') {
+                        balanceAssetB = balanceAssetB + positionSize * marketRate;
+                        balanceAssetA = balanceAssetA - positionSize;
+                    } else {
+                        balanceAssetA = balanceAssetA + positionSize / marketRate;
+                        balanceAssetB = balanceAssetB - positionSize;
+                    }  
 
-                    sellInstant = candle.end;
+                    positionInstant = candle.end;
 
                     if (currentDay !== undefined) {
-                        if (sellInstant < currentDay.valueOf()) {
+                        if (positionInstant < currentDay.valueOf()) {
                             yesterday.balanceAssetA = balanceAssetA;
                             yesterday.balanceAssetB = balanceAssetB;
 
@@ -788,30 +1253,35 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
 
                     addRecord();
-
-                    strategyPhase = 3;
                     continue;
                 }
 
-                /* Exiting a Trade */
+                /* Closing a Position */
 
-                if (strategyPhase === 4) {
+                if (strategyStage === 'Close Stage') {
 
                     roundtrips++;
 
                     if (currentDay !== undefined) {
-                        if (sellInstant < currentDay.valueOf()) {
+                        if (positionInstant < currentDay.valueOf()) {
                             yesterday.Roundtrips++;
                         }                        
                     }
-                    
-                    lastProfit = balanceAssetA - previousBalanceAssetA;
-                    lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
-                    if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
-                    profit = balanceAssetA - initialBalanceA;
+
+                    if (baseAsset === 'BTC') {
+                        lastProfit = balanceAssetA - previousBalanceAssetA;
+                        lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
+                        if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
+                        profit = balanceAssetA - initialBalanceA;
+                    } else {
+                        lastProfit = balanceAssetB - previousBalanceAssetB;
+                        lastProfitPercent = lastProfit / previousBalanceAssetB * 100;
+                        if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
+                        profit = balanceAssetB - initialBalanceB;
+                    }  
 
                     if (currentDay !== undefined) {
-                        if (sellInstant < currentDay.valueOf()) {
+                        if (positionInstant < currentDay.valueOf()) {
                             yesterday.lastProfit = lastProfit;
                             yesterday.profit = profit;
                             yesterday.lastProfitPercent = lastProfitPercent;
@@ -820,14 +1290,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     currentTrade.lastProfitPercent = lastProfitPercent;
                     currentTrade.stopRate = stopLoss;
-                    
-                    //if (isNaN(ROI)) { ROI = 0; }
-
+                   
                     if (lastProfit > 0) {
                         hits++;
 
                         if (currentDay !== undefined) {
-                            if (sellInstant < currentDay.valueOf()) {
+                            if (positionInstant < currentDay.valueOf()) {
                                 yesterday.hits++;
                             }
                         }
@@ -836,18 +1304,24 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         fails++;
 
                         if (currentDay !== undefined) {
-                            if (sellInstant < currentDay.valueOf()) {
+                            if (positionInstant < currentDay.valueOf()) {
                                 yesterday.fails++;
                             }
                         }
                     }
 
-                    ROI = (initialBalanceA + profit) / initialBalanceA - 1;
-                    hitRatio = hits / roundtrips;
-                    anualizedRateOfReturn = ROI / days * 365;
+                    if (baseAsset === 'BTC') {
+                        ROI = (initialBalanceA + profit) / initialBalanceA - 1;
+                        hitRatio = hits / roundtrips;
+                        anualizedRateOfReturn = ROI / days * 365;
+                    } else {
+                        ROI = (initialBalanceB + profit) / initialBalanceB - 1;
+                        hitRatio = hits / roundtrips;
+                        anualizedRateOfReturn = ROI / days * 365;
+                    }  
 
                     if (currentDay !== undefined) {
-                        if (sellInstant < currentDay.valueOf()) {
+                        if (positionInstant < currentDay.valueOf()) {
                             yesterday.ROI = ROI;
                             yesterday.hitRatio = hitRatio;
                             yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
@@ -857,22 +1331,24 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     addRecord();
 
-                    strategyNumber = 0;
+                    currentStrategyIndex = -1;
                     stopLoss = 0;
-                    sellRate = 0;
-                    sellAmount = 0;
-                    sellInstant = undefined;
-                    buyOrder = 0;
-                    strategyPhase = 0;
+                    positionRate = 0;
+                    positionSize = 0;
+                    positionInstant = undefined;
+                    takeProfit = 0;
+                    strategyStage = 'No Stage';
+                    stopLossStage = 'No Stage';
+                    takeProfitStage = 'No Stage';
                     stopLossPhase = 0;
-                    buyOrderPhase = 0;
+                    takeProfitPhase = 0;
                     continue;
 
                 }
 
                 /* Not a buy or sell condition */
 
-                rate = candle.close;
+                marketRate = candle.close;
                 addRecord();
 
                 function addRecord() {
@@ -880,18 +1356,18 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     // Since we are going to write the message to a file that the Simulation Executor is going to read, we use the abbreviations.
                     let messageType;
                     let message;
-                    let record;
+                    let simulationRecord;
                     let orderRecord;
 
                     messageId++;
 
-                    if (strategyPhase === 2 || strategyPhase === 3) {
+                    if (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') {
 
-                        if (strategyPhase === 2) {
+                        if (strategyStage === 'Open Stage') {
                             messageType = MESSAGE_TYPE.Order;
                             orderId++;
                         }
-                        if (strategyPhase === 3) {
+                        if (strategyStage === 'Manage Stage') {
                             messageType = MESSAGE_TYPE.OrderUpdate;
                         }
 
@@ -909,9 +1385,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         "BTC_USDT",
                         0,
                         ORDER_TYPE.Limit,
-                        rate,
+                        marketRate,
                         stopLoss,
-                        buyOrder,
+                        takeProfit,
                         ORDER_DIRECTION.Sell,
                         -1,
                         ORDER_STATUS.Signaled,
@@ -945,11 +1421,35 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         "")
                     }
 
-                    record = {
+                    let strategyStageNumber 
+                    switch (strategyStage) {
+                        case 'No Stage': {
+                            strategyStageNumber = 0
+                            break
+                        }
+                        case 'Trigger Stage': {
+                            strategyStageNumber = 1
+                            break
+                        }
+                        case 'Open Stage': {
+                            strategyStageNumber = 2
+                            break
+                        }
+                        case 'Manage Stage': {
+                            strategyStageNumber = 3
+                            break
+                        }
+                        case 'Close Stage': {
+                            strategyStageNumber = 4
+                            break
+                        }
+                    }
+
+                    simulationRecord = {
                         begin: candle.begin,
                         end: candle.end,
                         type: type,
-                        rate: rate,
+                        marketRate: marketRate,
                         amount: 1,
                         balanceA: balanceAssetA,
                         balanceB: balanceAssetB,
@@ -964,30 +1464,36 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         periods: periods,
                         days: days,
                         anualizedRateOfReturn: anualizedRateOfReturn,
-                        sellRate: sellRate,
+                        positionRate: positionRate,
                         lastProfitPercent: lastProfitPercent,
-                        strategy: strategyNumber,
-                        strategyPhase: strategyPhase,
-                        buyOrder: buyOrder,
+                        strategy: currentStrategyIndex,
+                        strategyStageNumber: strategyStageNumber,
+                        takeProfit: takeProfit,
                         stopLossPhase: stopLossPhase,
-                        buyOrderPhase: buyOrderPhase,
+                        takeProfitPhase: takeProfitPhase,
                         orderRecord: orderRecord,
-                        sellAmount: sellAmount
+                        positionSize: positionSize,
+                        initialBalanceA: initialBalanceA,
+                        minimunBalanceA: minimunBalanceA,
+                        maximunBalanceA: maximunBalanceA,
+                        initialBalanceB: initialBalanceB,
+                        minimunBalanceB: minimunBalanceB,
+                        maximunBalanceB: maximunBalanceB
                     }
 
-                    recordsArray.push(record);
-
-                    previousStopLoss = stopLoss;
+                    recordsArray.push(simulationRecord);
 
                     type = '""';
 
                     /* Prepare the information for the Conditions File */
 
-                    conditionsArrayRecord.push(strategyNumber);
-                    conditionsArrayRecord.push(strategyPhase);
+                    conditionsArrayRecord.push(currentStrategyIndex);
+                    conditionsArrayRecord.push(strategyStageNumber);
                     conditionsArrayRecord.push(stopLossPhase);
-                    conditionsArrayRecord.push(buyOrderPhase);
+                    conditionsArrayRecord.push(takeProfitPhase);
                     conditionsArrayRecord.push(conditionsArrayValues);
+                    conditionsArrayRecord.push(formulasErrors);
+                    conditionsArrayRecord.push(formulasValues);
 
                     conditionsArray.push(conditionsArrayRecord);
 
@@ -1063,7 +1569,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
             }
 
-            callback();
+            callback(tradingSystem);
 
             function getElement(pArray, begin, end) {
 
@@ -1328,126 +1834,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] buildCandles -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    async function getStrategy() {
-
-        try {
-
-            const accessToken = await auth.authenticate()
-
-            let fbSlug = bot.codeName
-            if (process.env.TEST_FB !== undefined) {
-                fbSlug = process.env.TEST_FB
-            }
-
-            const strategizerResponse = await axios({
-                url: process.env.GATEWAY_ENDPOINT,
-                method: 'post',
-                data: {
-                    query: `
-                query($fbSlug: String!){
-           
-                    strategizer_StrategyByFb(fbSlug: $fbSlug){
-                    subStrategies(activeOnly: true){
-                        name
-                        entryPoint{
-                        situations{
-                            name
-                            conditions{
-                            name
-                            code
-                            }
-                        }
-                        }
-                        exitPoint{
-                        situations{
-                            name
-                            conditions{
-                            name
-                            code
-                            }
-                        }
-                        }
-                        sellPoint{
-                        situations{
-                            name
-                            conditions{
-                            name
-                            code
-                            }
-                        }
-                        }
-                        buyPoint{
-                        situations{
-                            name
-                            conditions{
-                            name
-                            code
-                            }
-                        }
-                        }
-                        stopLoss{
-                        phases{
-                            name
-                            code
-                            situations{
-                            name
-                            conditions{
-                                name
-                                code
-                            }
-                            }
-                        }
-                        }
-                        buyOrder{
-                        phases{
-                            name
-                            code
-                            situations{
-                            name
-                            conditions{
-                                name
-                                code
-                            }
-                            }
-                        }
-                        }
-                        sellOrder{
-                        phases{
-                            name
-                            code
-                            situations{
-                            name
-                            conditions{
-                                name
-                                code
-                            }
-                            }
-                        }
-                        }
-                    }
-                    }
-                }
-          
-                `,
-                    variables: {
-                        fbSlug: fbSlug
-                    },
-                },
-                headers: {
-                    authorization: 'Bearer ' + accessToken
-                }
-            })
-
-            if (strategizerResponse.data.errors)
-                throw new Error(strategizerResponse.data.errors[0].message)
-
-            return strategizerResponse.data.data.strategizer_StrategyByFb.subStrategies;
-
-        } catch (error) {
-            throw new Error('There has been an error getting the strategy to run on the simulator. Error: ' + error)
         }
     }
 };

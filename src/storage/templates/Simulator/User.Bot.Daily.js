@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -18,7 +18,9 @@
     };
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
-    let thisBotStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+
+    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    let botStorage = FILE_STORAGE.newFileStorage();
 
     let dataDependencies;
 
@@ -35,19 +37,8 @@
 
             dataDependencies = pDataDependencies;
 
-            thisBotStorage.initialize(bot.devTeam, onStorageInizialized);
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
-            function onStorageInizialized(err) {
-
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                } else {
-                    logger.write(MODULE_NAME, "[ERROR] initializeStorage -> onStorageInizialized -> err = " + err.stack);
-                    callBackFunction(err);
-                }
-            }
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -68,7 +59,7 @@
             let strategiesArray = [];
             let tradesArray = [];
 
-            let simulationLogic = {};
+            let tradingSystem = {};
             let lastObjectsArray = [];
 
             commons.initializeData();
@@ -113,13 +104,17 @@
                 strategiesArray,
                 tradesArray,
                 lastObjectsArray,
-                simulationLogic,
                 timePeriod,
                 currentDay,
                 startDate,
                 endDate,
                 interExecutionMemory,
-                writeRecordsFile)
+                writeFiles)
+
+            function writeFiles(pTradingSystem) {
+                tradingSystem = pTradingSystem
+                writeRecordsFile() 
+            }
 
             function writeRecordsFile() {
 
@@ -144,7 +139,7 @@
                             record.begin + "," +
                             record.end + "," +
                             record.type + "," +
-                            record.rate + "," +
+                            record.marketRate + "," +
                             record.amount + "," +
                             record.balanceA + "," +
                             record.balanceB + "," +
@@ -159,15 +154,21 @@
                             record.periods + "," +
                             record.days + "," +
                             record.anualizedRateOfReturn + "," +
-                            record.sellRate + "," +
+                            record.positionRate + "," +
                             record.lastProfitPercent + "," +
                             record.strategy + "," +
-                            record.strategyPhase + "," +
-                            record.buyOrder + "," +
+                            record.strategyStageNumber + "," +
+                            record.takeProfit + "," +
                             record.stopLossPhase + "," +
-                            record.buyOrderPhase + "," +
+                            record.takeProfitPhase + "," +
                             JSON.stringify(record.orderRecord) + "," +
-                            record.sellAmount + "]"; 
+                            record.positionSize + "," +
+                            record.initialBalanceA + "," +
+                            record.minimunBalanceA + "," +
+                            record.maximunBalanceA + "," +
+                            record.initialBalanceB + "," +
+                            record.minimunBalanceB + "," +
+                            record.maximunBalanceB + "]"; 
 
                         if (separator === "") { separator = ","; }
 
@@ -180,10 +181,11 @@
                     let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                     let filePath = filePathRoot + "/Output/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+                    filePath += '/' + fileName
 
-                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    botStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -244,12 +246,14 @@
 
                         if (record.begin < currentDay.valueOf()) { continue; }
 
-                        for (let j = 0; j < record.length - 1; j++) {
+                        for (let j = 0; j < record.length - 3; j++) {
                             conditions = conditions + conditionsSeparator + record[j];
                             if (conditionsSeparator === "") { conditionsSeparator = ","; }
                         }
 
-                        conditions = conditions + conditionsSeparator + '[' + record[record.length - 1] + ']';   // The last item contains an Array of condition values.
+                        conditions = conditions + conditionsSeparator + '[' + record[record.length - 3] + ']';   // The last item contains an Array of condition values.
+                        conditions = conditions + conditionsSeparator + '[' + record[record.length - 2] + ']';   // The last item contains an Array of formulaErrors.
+                        conditions = conditions + conditionsSeparator + '[' + record[record.length - 1] + ']';   // The last item contains an Array of formulaValues.
 
                         fileContent = fileContent + separator + '[' + conditions + ']';
 
@@ -260,15 +264,16 @@
                     }
 
                     fileContent = "[" + fileContent + "]";
-                    fileContent = "[" + JSON.stringify(simulationLogic) + "," + JSON.stringify(lastObjectsArray) + "," + fileContent + "]";
+                    fileContent = "[" + JSON.stringify(tradingSystem) + "," + JSON.stringify(lastObjectsArray) + "," + fileContent + "]";
 
                     let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                     let filePath = filePathRoot + "/Output/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+                    filePath += '/' + fileName
 
-                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    botStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -341,10 +346,11 @@
                     let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                     let filePath = filePathRoot + "/Output/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+                    filePath += '/' + fileName
 
-                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    botStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -420,10 +426,11 @@
                     let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                     let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+                    filePath += '/' + fileName
 
-                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    botStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

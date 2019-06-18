@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -17,8 +17,8 @@
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities(bot, logger);
-    let thisBotStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    let botStorage = FILE_STORAGE.newFileStorage();
 
     let dataDependencies;
 
@@ -35,19 +35,8 @@
 
             dataDependencies = pDataDependencies;
 
-            thisBotStorage.initialize(bot.devTeam, onStorageInizialized);
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
-            function onStorageInizialized(err) {
-
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                } else {
-                    logger.write(MODULE_NAME, "[ERROR] initializeStorage -> onStorageInizialized -> err = " + err.stack);
-                    callBackFunction(err);
-                }
-            }
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -187,10 +176,11 @@
 
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                     let filePath = filePathRoot + "/Output/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
+                    filePath += '/' + fileName
 
-                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    botStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -264,10 +254,11 @@
                     fileContent = "[" + JSON.stringify(tradingSystem) + "," + JSON.stringify(lastObjectsArray) + "," + fileContent + "]";
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                     let filePath = filePathRoot + "/Output/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
+                    filePath += '/' + fileName
 
-                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    botStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -333,10 +324,11 @@
                     fileContent = "[" + fileContent + "]";
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                     let filePath = filePathRoot + "/Output/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
+                    filePath += '/' + fileName
 
-                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    botStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -405,10 +397,11 @@
                     fileContent = "[" + fileContent + "]";
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                     let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
+                    filePath += '/' + fileName
 
-                    thisBotStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    botStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

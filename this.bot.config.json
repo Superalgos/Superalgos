@@ -14,25 +14,6 @@
     {
       "name": "Multi-Period-Market",
       "description": "Produces a single file for each time period covering all the market.",
-      "startMode": {
-        "allMonths": {
-          "run": "false",
-          "minYear": "",
-          "maxYear": ""
-        },
-        "oneMonth": {
-          "run": "false",
-          "year": "",
-          "month": ""
-        },
-        "noTime": {
-          "run": "true"
-        },
-        "fixedInterval": {
-          "run": "false",
-          "interval": 0
-        }
-      },
       "normalWaitTime": 60000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
@@ -129,25 +110,6 @@
     {
       "name": "Multi-Period-Daily",
       "description": "Produces a Daily File at each time period.",
-      "startMode": {
-        "allMonths": {
-          "run": "false",
-          "minYear": "",
-          "maxYear": ""
-        },
-        "oneMonth": {
-          "run": "false",
-          "year": "",
-          "month": ""
-        },
-        "noTime": {
-          "run": "true"
-        },
-        "fixedInterval": {
-          "run": "false",
-          "interval": 0
-        }
-      },
       "normalWaitTime": 60000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,

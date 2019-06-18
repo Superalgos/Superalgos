@@ -1,5 +1,4 @@
-﻿const axios = require('axios')
-const auth = require('./utils/auth')
+﻿const strategy = require('./Integrations/Strategy')
 
 exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
@@ -70,7 +69,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
 
-            let tradingSystem = await getTradingSystem();
+            let tradingSystem = await strategy.getStrategy();
 
             /* Initial Default Values */
 
@@ -1835,49 +1834,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] buildCandles -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    async function getTradingSystem() {
-
-        try {
-
-            const accessToken = await auth.authenticate()
-
-            let fbSlug = bot.codeName
-            if (process.env.TEST_FB !== undefined) {
-                fbSlug = process.env.TEST_FB
-            }
-
-            const strategizerResponse = await axios({
-                url: process.env.GATEWAY_ENDPOINT,
-                method: 'post',
-                data: {
-                    query: `
-                    query($fbSlug: String!){
-                      strategizer_TradingSystemByFb(fbSlug: $fbSlug){
-                        id
-                        fbSlug
-                        data
-                      }
-                    }
-                `,
-                    variables: {
-                        fbSlug: fbSlug
-                    },
-                },
-                headers: {
-                    authorization: 'Bearer ' + accessToken
-                }
-            })
-
-            if (strategizerResponse.data.errors)
-                throw new Error(strategizerResponse.data.errors[0].message)
-
-            return strategizerResponse.data.data.strategizer_TradingSystemByFb.data;
-
-        } catch (error) {
-            throw new Error('There has been an error getting the strategy to run on the simulator. Error: ' + error)
         }
     }
 };

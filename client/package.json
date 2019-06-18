@@ -1,6 +1,6 @@
 {
   "name": "@superalgos/master-app",
-  "version": "0.1.6",
+  "version": "0.1.0",
   "description": "Responsible for loading all web modules and running them.",
   "author": "Superalgos, ltd.",
   "license": "Apache-2.0",

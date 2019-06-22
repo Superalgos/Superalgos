@@ -13,10 +13,10 @@ exports.newFileStorage = function newFileStorage() {
 
   function getTextFile(container, filePath, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Entering function: ' + filePath) }
+      if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Entering function: '+ container.toLowerCase()  + '/' + filePath) }
 
       axios({
-        url: process.env.HOST_URL + 'graphql',
+        url: process.env.GATEWAY_ENDPOINT_K8S,
         method: 'post',
         data: {
           query: `
@@ -46,13 +46,16 @@ exports.newFileStorage = function newFileStorage() {
           callBackFunction(global.DEFAULT_OK_RESPONSE, response)
         else
           callBackFunction(global.CUSTOM_FAIL_RESPONSE)
+
       }).catch(error => {
         if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> Invalid JSON received. ') }
-        if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> response.text = ' + error.message) }
+        if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> error = ', error) }
         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
       })
     } catch (err) {
-      if (ERROR_LOG === true) { console.log('[ERROR] getTextFile -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { console.log('[ERROR] getTextFile -> err = ', err) }
+      if (ERROR_LOG === true) { console.log('[ERROR] getTextFile -> stack = ', err.stack) }
+      callBackFunction(global.DEFAULT_FAIL_RESPONSE)
     }
   }
 
@@ -61,7 +64,7 @@ exports.newFileStorage = function newFileStorage() {
       if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + filePath) }
 
       let response = await axios({
-        url: process.env.HOST_URL + 'graphql',
+        url: process.env.GATEWAY_ENDPOINT_K8S,
         method: 'post',
         data: {
           query: `
@@ -73,38 +76,23 @@ exports.newFileStorage = function newFileStorage() {
             file: {
               container: container.toLowerCase(),
               filePath,
-              storage: process.env.HOST_STORAGE,
-              accessKey: process.env.HOST_ACCESS_KEY,
+              storage: 'localStorage',
+              accessKey: '', //TODO Pending
               fileContent
             }
           }
         }
       })
 
-      if(!response){
-        console.log('[ERROR] createTextFile -> err = ')
-      }
+      if (!response || response.data.errors)
+        callBackFunction(global.CUSTOM_FAIL_RESPONSE)
+      else
+        callBackFunction(global.DEFAULT_OK_RESPONSE)
 
-      // .then(res => {
-      //   if (res.data.errors) {
-      //     let error = {
-      //       code: res.data.errors[0]
-      //     }
-      //     callBackFunction(error)
-      //     return
-      //   }
-      //   let response = res.data.data.web_CreateFile
-      //   if (response)
-      //     callBackFunction(global.DEFAULT_OK_RESPONSE)
-      //   else
-      //     callBackFunction(global.CUSTOM_FAIL_RESPONSE)
-      // }).catch(error => {
-      //   if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] createTextFile -> Invalid JSON received. ') }
-      //   if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] createTextFile -> response.text = ' + error.message) }
-      //   callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-      // })
     } catch (err) {
-      if (ERROR_LOG === true) { console.log('[ERROR] createTextFile -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { console.log('[ERROR] createTextFile -> err = ', err.stack) }
+      if (ERROR_LOG === true) { console.log('[ERROR] createTextFile -> stack = ', err.stack) }
+      callBackFunction(global.DEFAULT_FAIL_RESPONSE)
     }
   }
 

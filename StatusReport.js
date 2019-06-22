@@ -91,7 +91,7 @@
 
             filePath += '/' + fileName
 
-            fileStorage.getTextFile(global.DEV_TEAM, filePath, onFileReceived);
+            fileStorage.getTextFile(owner.devTeam, filePath, onFileReceived);
 
             function onFileReceived(err, text) {
 
@@ -187,7 +187,7 @@
 
             let fileContent = JSON.stringify(thisObject.file);
 
-            fileStorage.createTextFile(global.DEV_TEAM, filePath, fileContent + '\n', onFileCreated);
+            fileStorage.createTextFile(owner.devTeam, filePath, fileContent + '\n', onFileCreated);
 
             function onFileCreated(err) {
 

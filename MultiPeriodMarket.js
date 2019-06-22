@@ -16,6 +16,9 @@
 
     let usertBot;
 
+    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    let fileStorage = FILE_STORAGE.newFileStorage();
+
     let processConfig;
 
     return thisObject;
@@ -51,7 +54,7 @@
 
             }
 
-            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES);
+            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, fileStorage);
             usertBot.initialize(dataDependencies, callBackFunction);
 
         } catch (err) {

@@ -11,6 +11,7 @@
     const MULTI_PERIOD_MARKET = require(ROOT_DIR + 'MultiPeriodMarket');
     const MULTI_PERIOD_DAILY = require(ROOT_DIR + 'MultiPeriodDaily');
     const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    let fileStorage = FILE_STORAGE.newFileStorage();
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -37,8 +38,6 @@
 
             UI_COMMANDS = pUI_COMMANDS;
             processConfig = pProcessConfig;
-
-            let fileStorage = FILE_STORAGE.newFileStorage();
 
             let filePath;
 
@@ -339,7 +338,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
 
-                            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES);
+                            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, fileStorage);
 
                             usertBot.initialize(statusDependencies, pMonth, pYear, onInizialized);
 

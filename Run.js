@@ -35,9 +35,6 @@ function readExecutionConfiguration() {
         console.log("[INFO] Run -> readExecutionConfiguration -> Entering function. ");
         let startMode
 
-        // Environment Configuration
-        global.GATEWAY_ENDPOINT = process.env.GATEWAY_ENDPOINT
-
         // General Financial Being Configuration
         global.DEV_TEAM = process.env.DEV_TEAM
         global.CURRENT_BOT_REPO = process.env.BOT + "-" + process.env.TYPE + "-Bot"

@@ -15,7 +15,7 @@ exports.getStrategy = async function () {
             }
 
             const strategizerResponse = await axios({
-                url: process.env.STRATEGIZER_ENDPOINT || process.env.GATEWAY_ENDPOINT,
+                url: process.env.STRATEGIZER_ENDPOINT || process.env.GATEWAY_ENDPOINT_K8S,
                 method: 'post',
                 data: {
                     query: `
@@ -42,6 +42,6 @@ exports.getStrategy = async function () {
         return global.STRATEGY
 
     } catch (error) {
-        throw new Error('There has been an error getting the strategy: ' + error)
+        throw new Error('There has been an error getting the strategy: ', error)
     }
 }

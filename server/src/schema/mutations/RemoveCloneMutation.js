@@ -35,10 +35,10 @@ const resolve = async (parent, { id }, context) => {
     let bot = allUserBotsResponse.data.data.teams_FbByOwner.edges[0].node
     clone = cloneDetails(bot, clone)
 
+    await authorizeStrategy(context.authorization, clone.botSlug, clone.id, true)
     if ((clone.mode === LIVE || clone.mode === COMPETITION) && isDefined(clone.keyId)) {
       logger.debug('removeClone -> Release the clone key.')
       await authorizeKey(context.authorization, clone.keyId, clone.id, true)
-      await authorizeStrategy(context.authorization, clone.botSlug, clone.id, true)
     }
 
     logger.debug('removeClone -> Removing Clone from Kubernates.')

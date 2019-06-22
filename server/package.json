@@ -27,7 +27,7 @@
     "express": "4.16.3",
     "express-graphql": "0.6.12",
     "graphql": "14.0.0",
-    "kubernetes-client": "6.5.1",
+    "kubernetes-client": "8.2.0",
     "luxon": "^1.13.2",
     "mongoose": "5.2.12",
     "winston": "3.2.1"

@@ -1,6 +1,6 @@
 var assert = require('chai').assert
 const axios = require('axios')
-const { activeCloneList } = require('./activeCloneListDemo')
+const { activeCloneList } = require('./activeCloneList')
 require('dotenv').config()
 
 describe('Admin clones Clones', function () {

@@ -5,12 +5,18 @@ import { Client, config } from 'kubernetes-client'
 import deploymentManifest from '../config/clone-deployment.json'
 import { BACKTEST, COMPETITION, LIVE, NO_TIME } from '../enums/CloneMode'
 import { Trading, Indicator, Sensor } from '../enums/BotTypes'
+import kubeconfig from './kubeConfig'
 
 const createClone = async (clone) => {
   try {
     logger.debug('createClone %s', clone.id)
-    const client = new Client({ config: config.fromKubeconfig(), version: '1.9' })
+
+    const Request = require('kubernetes-client/backends/request')
+    const backend = new Request(Request.config.fromKubeconfig(kubeconfig()))
+    const client = new Client({ backend, version: '1.9' })
+
     deploymentManifest.metadata.name = clone.id
+    deploymentManifest.spec.template.spec.containers[0].image = process.env.CLONE_EXECUTOR_IMAGE
 
     logger.debug('createClone Environment and Storage Configuration.')
     let env = []
@@ -19,17 +25,18 @@ const createClone = async (clone) => {
       'value': process.env.GATEWAY_ENDPOINT
     })
     env.push({
-      'name': 'HOST_URL',
-      'value': clone.host.url
+      'name': 'GATEWAY_ENDPOINT_K8S',
+      'value': process.env.GATEWAY_ENDPOINT_K8S
     })
     env.push({
       'name': 'HOST_STORAGE',
-      'value': clone.host.storage
+      'value': 'localStorage'
     })
-    env.push({
-      'name': 'HOST_ACCESS_KEY',
-      'value': clone.host.accessKey
-    })
+    // TODO Pending setting private bots
+    // env.push({
+    //   'name': 'HOST_ACCESS_KEY',
+    //   'value': clone.host.accessKey
+    // })
     env.push({
       'name': 'ACCESS_TOKEN_STRATEGY',
       'value': clone.accessTokenStrategy
@@ -176,6 +183,7 @@ const createClone = async (clone) => {
 
     logger.debug('createClone %s on Kubernates success.', clone.id)
   } catch (err) {
+    logger.error('Error creating clone: %s', err)
     throw new KubernateError(err)
   }
 }

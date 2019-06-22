@@ -19,7 +19,9 @@
             "env": [
             ]
           }
-        ]
+        ],
+        "hostNetwork": true,
+        "dnsPolicy": "ClusterFirstWithHostNet"
       },
       "metadata": {
         "labels": {

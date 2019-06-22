@@ -76,19 +76,6 @@ const resolve = async (parent, { clone }, context) => {
     newClone.authId = context.userId
     clone.id = newClone._id
 
-    let ecosystem = await ecosystemQuery(context.authorization)
-    for (let i = 0; i < ecosystem.devTeams.length; i++) {
-      const devTeam = ecosystem.devTeams[i];
-      if (devTeam.codeName === clone.teamSlug) {
-        clone.host = devTeam.host
-        break
-      }
-    }
-
-    if (!clone.host) {
-      throw new WrongArgumentsError('Team not found at the user ecosystem.')
-    }
-
     logger.debug('addClone -> Creating the clone on the Database.')
     let savedClone = await newClone.save()
 
@@ -97,8 +84,7 @@ const resolve = async (parent, { clone }, context) => {
     if (isDefined(strategyResponse.data.data.strategizer_AuthorizeStrategy)) {
       clone.accessTokenStrategy = strategyResponse.data.data.strategizer_AuthorizeStrategy
     } else {
-      logger.debug('addClone -> Authorizing clone to use the strategy fail.')
-      throw new AuthorizationError()
+      logger.warn('addClone -> Authorizing clone to use the strategy fail.')
     }
 
     if (clone.mode === LIVE || clone.mode === COMPETITION) {

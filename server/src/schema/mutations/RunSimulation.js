@@ -12,6 +12,8 @@ import {
 } from '../../errors'
 import logger from '../../config/logger'
 import createKubernetesClone from '../../kubernetes/createClone'
+import authorizeStrategy from '../../graphQLCalls/authorizeStrategy'
+import { isDefined } from '../../config/utils'
 
 const args = {
   simulation: { type: SimulationInputType }
@@ -49,6 +51,8 @@ const resolve = async (parent, { simulation }, context) => {
 
               logger.debug('runSimulation -> Stop running clones.')
 
+              await authorizeStrategy(context.authorization, bot.slug, clones[i]._id, true)
+
               await removeKuberneteClone(clones[i]._id)
               logger.debug('runSimulation -> Clone Removed from Kubernetes: %s.', clones[i]._id)
 
@@ -73,20 +77,20 @@ const resolve = async (parent, { simulation }, context) => {
     if (simulatorBot !== undefined) {
       if (simulation.timePeriodDailyArray !== undefined && simulation.timePeriodDailyArray.length > 0) {
         simulation.timePeriod = simulation.timePeriodDailyArray
-        await createSimulatorClone(simulation, "Multi-Period-Daily", context.userId, simulatorBot)
+        await createSimulatorClone(simulation, "Multi-Period-Daily", context.userId, simulatorBot, context.authorization)
       }
 
       if (simulation.timePeriodMarketArray !== undefined && simulation.timePeriodMarketArray.length > 0) {
         simulation.timePeriod = simulation.timePeriodMarketArray
-        await createSimulatorClone(simulation, "Multi-Period-Market", context.userId, simulatorBot)
+        await createSimulatorClone(simulation, "Multi-Period-Market", context.userId, simulatorBot, context.authorization)
       }
 
       if (simulation.timePeriodDailyArray === undefined && simulation.timePeriodMarketArray === undefined) {
         simulation.timePeriod = ["15-min", "10-min", "05-min"]
-        await createSimulatorClone(simulation, "Multi-Period-Daily", context.userId, simulatorBot)
+        await createSimulatorClone(simulation, "Multi-Period-Daily", context.userId, simulatorBot, context.authorization)
 
         simulation.timePeriod = ["24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs"]
-        await createSimulatorClone(simulation, "Multi-Period-Market", context.userId, simulatorBot)
+        await createSimulatorClone(simulation, "Multi-Period-Market", context.userId, simulatorBot, context.authorization)
       }
 
       return "Simulation Clones Recreated."
@@ -99,7 +103,7 @@ const resolve = async (parent, { simulation }, context) => {
   }
 }
 
-async function createSimulatorClone(simulation, processName, userId, simulatorBot) {
+async function createSimulatorClone(simulation, processName, userId, simulatorBot, authorization) {
   let clone = {
     teamId: simulatorBot.team.id,
     botId: simulatorBot.id,
@@ -122,6 +126,14 @@ async function createSimulatorClone(simulation, processName, userId, simulatorBo
 
   logger.debug('runSimulation -> Creating %s clone on the Database.', processName)
   await newClone.save()
+
+  logger.debug('runSimulation -> Authorizing clone to use the strategy.')
+  let strategyResponse = await authorizeStrategy(authorization, clone.botSlug, clone.id, false)
+  if (isDefined(strategyResponse.data.data.strategizer_AuthorizeStrategy)) {
+    clone.accessTokenStrategy = strategyResponse.data.data.strategizer_AuthorizeStrategy
+  } else {
+    logger.warn('runSimulation -> Authorizing clone to use the strategy fail.')
+  }
 
   clone = cloneDetails(simulatorBot, clone)
   await createKubernetesClone(clone)

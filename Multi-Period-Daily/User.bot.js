@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileStorage) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -17,15 +17,10 @@
     const VOLUMES_FOLDER_NAME = "Volumes";
     const VOLUMES_ONE_MIN = "One-Min";
 
-    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
-
     thisObject = {
         initialize: initialize,
         start: start
     };
-
-    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-    let bruceStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
@@ -44,20 +39,7 @@
 
             statusDependencies = pStatusDependencies;
 
-            commons.initializeStorage(oliviaStorage, bruceStorage, onInizialized);
-
-            function onInizialized(err) {
-
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Initialization Succeed."); }
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                } else {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> err = " + err.message);
-                    callBackFunction(err);
-                }
-            }
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
@@ -69,7 +51,7 @@
 
 This process is going to do the following:
 
-Read the candles and volumes from Bruce and produce a file for each day and for each period with candles and volumes. 
+Read the candles and volumes from Bruce and produce a file for each day and for each period with candles and volumes.
 
 */
 
@@ -281,9 +263,9 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                     function periodsLoop() {
 
                         /*
-        
+
                         We will iterate through all posible periods.
-        
+
                         */
 
                         let n = 0   // loop Variable representing each possible period as defined at the periods array.
@@ -307,11 +289,9 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                                 let fileName = market.assetA + '_' + market.assetB + ".json"
                                 let filePathRoot = bot.devTeam + "/" + "AABruce" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                                filePath += '/' + fileName
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> fileName = " + fileName); }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> filePath = " + filePath); }
-
-                                bruceStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
 
                                 console.log("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> getting file at dateForPath = " + dateForPath);
 
@@ -353,7 +333,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                                         const inputCandlesPerdiod = 60 * 1000;              // 1 min
                                         const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
 
-                                        let totalOutputCandles = inputFilePeriod / outputPeriod; 
+                                        let totalOutputCandles = inputFilePeriod / outputPeriod;
                                         let beginingOutputTime = contextVariables.lastCandleFile.valueOf();
 
                                         for (let i = 0; i < totalOutputCandles; i++) {
@@ -435,11 +415,9 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
                                     let filePathRoot = bot.devTeam + "/" + "AABruce" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
+                                    filePath += '/' + fileName
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> fileName = " + fileName); }
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> filePath = " + filePath); }
-
-                                    bruceStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                    fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
 
                                     console.log("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
 
@@ -600,11 +578,9 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                         let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                         let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+                        filePath += '/' + fileName
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> fileName = " + fileName); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> filePath = " + filePath); }
-
-                        oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                         console.log("[INFO] start -> writeFiles -> writeCandles -> creating file at filePath = " + filePath);
 
@@ -653,11 +629,9 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                         let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                         let filePath = bot.filePathRoot  + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+                        filePath += '/' + fileName
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> fileName = " + fileName); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> filePath = " + filePath); }
-
-                        oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                         console.log("[INFO] start -> writeFiles -> writeVolumes -> creating file at filePath = " + filePath);
 
@@ -743,11 +717,9 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                     let fileName = 'Data.Range.' + market.assetA + '_' + market.assetB + '.json';
                     let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
+                    filePath += '/' + fileName
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> fileName = " + fileName); }
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> filePath = " + filePath); }
-
-                    oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

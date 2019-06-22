@@ -79,13 +79,6 @@ function onBrowserRequest (request, response) {
 
   switch (requestParameters[1]) {
 
-    case process.env.REINITIALIZE_COMMAND: {
-      initialize()
-
-      respondWithContent('Node JS Server Reinitilized.', response)
-    }
-      break
-
     case 'MQService':
       {
         let filePath = './node_modules/@superalgos/mqservice/orderLifeCicle/webDependency.js'
@@ -396,8 +389,7 @@ function respondWithSourceCode (requestParameters, response) {
 
   function onDataArrived (err, pData) {
     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-      console.log('[ERROR] server -> onBrowserRequest -> respondWithSourceCode -> Could not read a file. ')
-      console.log('[ERROR] server -> onBrowserRequest -> respondWithSourceCode -> err.message = ' + err.message)
+      console.log('[ERROR] server -> onBrowserRequest -> respondWithSourceCode -> Could not read a file -> err.message = ' + err.message, err.stack)
       pData = ''
     }
     storageData.set(filePath, pData)

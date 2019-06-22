@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:12
 
 # Directory where the service will be installed
-ARG API_DIR=/usr/src/saweb
+ARG API_DIR=/usr/src/aaweb
 
 # Prepare required directories
 RUN mkdir -p ${API_DIR}

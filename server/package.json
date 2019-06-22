@@ -21,15 +21,15 @@
     "nodemon": "1.18.10"
   },
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "0.19.0",
     "cors": "2.8.4",
-    "dotenv": "6.0.0",
+    "dotenv": "8.0.0",
     "express": "4.16.3",
     "express-graphql": "0.6.12",
     "graphql": "14.0.0",
-    "kubernetes-client": "6.5.1",
+    "kubernetes-client": "8.2.0",
     "luxon": "^1.13.2",
     "mongoose": "5.2.12",
-    "winston": "3.1.0"
+    "winston": "3.2.1"
   }
 }

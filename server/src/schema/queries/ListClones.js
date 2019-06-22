@@ -1,5 +1,5 @@
 import { GraphQLList, GraphQLString, GraphQLBoolean } from 'graphql'
-import { AuthentificationError, OperationsError } from '../../errors'
+import { AuthenticationError, OperationsError } from '../../errors'
 import { CloneType } from '../types'
 import { Clone } from '../../models'
 import logger from '../../config/logger'
@@ -17,7 +17,7 @@ const resolve = async (parent, { botType, queryLogs }, context) => {
   logger.debug('List Clones -> Entering Fuction.')
   try {
     if (!context.userId) {
-      throw new AuthentificationError()
+      throw new AuthenticationError()
     }
 
     let clones = await Clone.find({

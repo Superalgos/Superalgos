@@ -1,10 +1,14 @@
 import logger from '../config/logger'
 import { Client, config } from 'kubernetes-client'
+import kubeconfig from './kubeConfig'
 
 const removeClone = async (cloneId) => {
   try {
     logger.debug('removeClone %s', cloneId)
-    const client = new Client({config: config.fromKubeconfig(), version: '1.9'})
+
+    const Request = require('kubernetes-client/backends/request')
+    const backend = new Request(Request.config.fromKubeconfig(kubeconfig()))
+    const client = new Client({ backend, version: '1.9' })
 
     let query = {
       'qs': {

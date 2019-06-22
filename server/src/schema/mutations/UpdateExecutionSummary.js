@@ -5,7 +5,7 @@ import {
   GraphQLInt,
   GraphQLFloat
 } from 'graphql'
-import { OperationsError, AuthorizationError, AuthentificationError } from '../../errors'
+import { OperationsError, AuthorizationError, AuthenticationError } from '../../errors'
 import { Clone } from '../../models'
 import logger from '../../config/logger'
 import { isDefined } from '../../config/utils'
@@ -29,7 +29,7 @@ const resolve = async (parent,
   logger.debug('UpdateExecutionSummary -> Entering Function.')
 
   if (!context.userId) {
-    throw new AuthentificationError()
+    throw new AuthenticationError()
   }
 
   if (!(context.userId === process.env.AACLOUD_ID)) {

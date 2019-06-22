@@ -11,6 +11,7 @@ import { createTransformedRemoteSchema } from './createRemoteSchema'
 import { teams, events, operations } from './links'
 
 import logger from './logger'
+import bodyParser from 'body-parser'
 
 async function getUserId (authId) {
   try {
@@ -132,6 +133,9 @@ async function run () {
   })
 
   const app = express()
+
+  app.use(bodyParser.json({limit: '50mb'}));
+  app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
   app.use('/graphql',
     jwt({

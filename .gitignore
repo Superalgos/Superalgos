@@ -14,3 +14,9 @@ npm-debug.log*
 .DS_Store
 client/package-lock.json
 
+
+docker-compose\.demo\.yml
+
+docker-compose\.demo_with_prisma\.yml
+
+env_demo/

@@ -1,7 +1,5 @@
 # Ignore files to be uploaded to the image
-.env
-.env.dev
-.env.prod
+.env*
 .git
 .gitignore
 Dockerfile

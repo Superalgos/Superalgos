@@ -10,9 +10,7 @@ node_modules/
 .npm
 
 # dotenv environment variables file
-.env
-.env.prod
-.env.dev
+.env*
 
 # Build folder js files
 build/

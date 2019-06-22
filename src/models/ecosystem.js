@@ -30,7 +30,7 @@ const ecosystemSchema = new Schema({
       },
       accessKey: {
         type: String,
-        required: true
+        required: false
       }
     },
     bots: [{
@@ -200,7 +200,7 @@ const ecosystemSchema = new Schema({
       },
       accessKey: {
         type: String,
-        required: true
+        required: false
       }
     },
     competitions: [{
@@ -252,7 +252,7 @@ const ecosystemSchema = new Schema({
           },
           accessKey: {
             type: String,
-            required: true
+            required: false
           }
         },
         repo: {

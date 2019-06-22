@@ -5,8 +5,12 @@ import schema from './schema';
 import wrongPreshared from './errors/notAllowed.json';
 import db from './db';
 import logger from './utils/logger'
+import bodyParser from 'body-parser'
 
 const app = express();
+
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 app.post('/graphql', (req, res, next) => {
   if (req.headers.preshared === process.env.PRESHARED_GATEWAY_KEY) {

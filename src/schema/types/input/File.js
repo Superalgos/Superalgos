@@ -11,7 +11,7 @@ const Type = new GraphQLInputObjectType({
     container: { type: new GraphQLNonNull(GraphQLString) },
     filePath: { type: new GraphQLNonNull(GraphQLString) },
     storage: { type: new GraphQLNonNull(GraphQLString) },
-    accessKey: { type: new GraphQLNonNull(GraphQLString) },
+    accessKey: { type: GraphQLString },
     fileContent: { type: GraphQLString }
   }),
 });

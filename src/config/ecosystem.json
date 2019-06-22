@@ -5,10 +5,10 @@
 			"codeName": "AAMasters",
 			"displayName": "Masters",
 			"host": {
-				"url": "https://platform-api-dev.superalgos.org/",
-				"storage": "https://aadevelop.blob.core.windows.net",
+				"url": "https://demo-api-dev.superalgos.org/",
+				"storage": "localStorage",
 				"container": "aamasters",
-				"accessKey": "?st=2019-05-21T12%3A00%3A00Z&se=2020-05-22T12%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=PsGM67klPfLjdfjymziEQEQcD5Wzy3SMcZWsTCQrhd8%3D"
+				"accessKey": ""
 			},
 			"bots": [
 				{
@@ -725,10 +725,10 @@
 			"codeName": "AAVikings",
 			"displayName": "Vikings",
 			"host": {
-				"url": "https://platform-api-dev.superalgos.org/",
+				"url": "https://demo-api-dev.superalgos.org/",
 				"container": "aavikings",
-				"storage": "https://aadevelop.blob.core.windows.net",
-				"accessKey": "?st=2019-05-20T12%3A00%3A00Z&se=2020-05-21T12%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=hJuV9aEP4KVZo5z54FEF1BQtkbksfwkTJFv1FYkHFRg%3D"
+				"storage": "localStorage",
+				"accessKey": ""
 			},
 			"bots": [
 				{
@@ -832,10 +832,10 @@
 			"codeName": "AAMasters",
 			"displayName": "AA Arena",
 			"host": {
-				"url": "https://platform-api-dev.superalgos.org/",
-				"storage": "https://aadevelop.blob.core.windows.net",
+				"url": "https://demo-api-dev.superalgos.org/",
+				"storage": "localStorage",
 				"container": "aaplatform",
-				"accessKey": "?sv=2018-03-28&ss=b&srt=co&sp=rw&se=2020-01-04T00:00:00Z&st=2019-01-08T11:25:04Z&spr=https&sig=xZU1PO%2BdtVilqlZp%2BVRWW55LYl8oGZU7x4JnP%2BhMc%2FY%3D"
+				"accessKey": ""
 			},
 			"competitions": [
 				{
@@ -849,10 +849,10 @@
 						"devTeam": "AAMasters",
 						"codeName": "PlottersROI",
 						"host": {
-							"url": "https://platform-api-dev.superalgos.org/",
-							"storage": "https://aadevelop.blob.core.windows.net",
+							"url": "https://demo-api-dev.superalgos.org/",
+							"storage": "localStorage",
 							"container": "aamasters",
-							"accessKey": "?st=2019-05-21T12%3A00%3A00Z&se=2020-05-22T12%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=PsGM67klPfLjdfjymziEQEQcD5Wzy3SMcZWsTCQrhd8%3D"
+							"accessKey": ""
 						},
 						"moduleName": "CombinedProfits",
 						"repo": "Plotters-ROI"

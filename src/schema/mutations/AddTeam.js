@@ -3,7 +3,9 @@ import { AuthenticationError, WrongArgumentsError } from '../../errors'
 import { TeamType } from '../types'
 import { Ecosystem } from '../../models'
 import { TeamInputType } from '../types/input'
-import { copyBots } from '../../storage/CopyBots'
+import { copyBot } from '../../storage/CopyBot'
+import { copySimulator } from '../../storage/CopySimulator'
+import { createContainer, writeFileContent } from '../../storage/providers/MinioStorage'
 
 export const args = { team: { type: TeamInputType } }
 
@@ -34,23 +36,22 @@ const resolve = async (parent, { team }, context) => {
       }
     }
 
-    let  storage = require ('../../storage/providers/AzureStorage') // Default value
-    if (process.env.STORAGE_PROVIDER === 'Minio') {
-        storage = require ('../../storage/providers/MinioStorage')
-    }
+    // Teams will be created on a local minio container
+    let botsConfigurations = []
+    await createContainer(team.codeName)
+    let tradingBot = await copyBot(team.codeName, team.bot.codeName, team.bot.displayName, writeFileContent)
+    botsConfigurations.push(tradingBot)
+    let simulatorBot = await copySimulator(team.codeName, team.bot.codeName, team.bot.displayName, writeFileContent)
+    botsConfigurations.push(simulatorBot)
 
-    let containerName = team.codeName
-    await storage.createContainer(containerName)
-    let accessKey = storage.createPrivateAccessKey(containerName, "WRITE", 365)
-
-    let botsConfigurations = await copyBots(storage, team)
     team.bots = botsConfigurations
+
     if (!team.host) {
       let nodeEndpoint = {
-        url: process.env.SUPERALGOS_NODE_ENDPOINT,
-        storage: process.env.STORAGE_URL,
+        url: process.env.NODE_ENDPOINT,
+        storage: 'localStorage',
         container: team.codeName,
-        accessKey: accessKey,
+        accessKey: '',
       }
       team.host = nodeEndpoint
     }

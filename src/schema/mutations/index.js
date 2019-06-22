@@ -1,16 +1,18 @@
 import {
   GraphQLObjectType,
-} from 'graphql';
+} from 'graphql'
 
-import AddTeamMutation from './AddTeam';
-import DeleteTeamMutation from './DeleteTeam';
+import AddTeamMutation from './AddTeam'
+import DeleteTeamMutation from './DeleteTeam'
+import CreateFileMutation from './CreateFile'
 
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: Object.assign(
     AddTeamMutation,
-    DeleteTeamMutation
-  ),
-});
+    DeleteTeamMutation,
+    CreateFileMutation
+  )
+})
 
-export default Mutation;
+export default Mutation

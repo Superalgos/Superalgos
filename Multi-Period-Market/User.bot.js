@@ -101,7 +101,7 @@ LRCIndicator.prototype.calculate = function (price) {
   this.result = ((this.depth - 1) * reg[0]) + reg[1]
 }
 
-exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
+exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileStorage) {
   const FULL_LOG = false
   const LOG_FILE_CONTENT = false
   const USE_PARTIAL_LAST_CANDLE = true // When running live the last candle generated is a partial candle.
@@ -110,17 +110,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
   const MODULE_NAME = 'User Bot'
 
-  const EXCHANGE_NAME = 'Poloniex'
-
   thisObject = {
     initialize: initialize,
     start: start
   }
-
-  let gaussStorage = BLOB_STORAGE.newBlobStorage(bot, logger)
-  let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger)
-
-  let utilities = UTILITIES.newCloudUtilities(bot, logger)
 
   let statusDependencies
 
@@ -133,28 +126,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
       if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] initialize -> Entering function.') }
 
       statusDependencies = pStatusDependencies
+      callBackFunction(global.DEFAULT_OK_RESPONSE)
 
-      gaussStorage.initialize(bot.devTeam, onGaussInizialized)
-
-      function onGaussInizialized(err) {
-        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-          if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] initialize -> onGaussInizialized -> Initialization Succeed.') }
-          oliviaStorage.initialize('AAMasters', onOliviaInizialized)
-        } else {
-          logger.write(MODULE_NAME, '[ERROR] initialize -> onGaussInizialized -> err = ' + err.message)
-          callBackFunction(err)
-        }
-      }
-
-      function onOliviaInizialized(err) {
-        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-          if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] initialize -> onOliviaInizialized -> Initialization Succeed.') }
-          callBackFunction(global.DEFAULT_OK_RESPONSE)
-        } else {
-          logger.write(MODULE_NAME, '[ERROR] initialize -> onOliviaInizialized -> err = ' + err.message)
-          callBackFunction(err)
-        }
-      }
     } catch (err) {
       logger.write(MODULE_NAME, '[ERROR] initialize -> err = ' + err.message)
       callBackFunction(global.DEFAULT_FAIL_RESPONSE)
@@ -178,7 +151,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
       if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> Entering function.') }
 
       let market = global.MARKET
-      let reportFilePath = EXCHANGE_NAME + '/Processes/' + bot.process
+      let reportFilePath = global.EXCHANGE_NAME + '/Processes/' + bot.process
       let executionTime
       let lastCandles
       let marketFileCache = new Map()
@@ -402,10 +375,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                     onMarketFileReceived(global.DEFAULT_OK_RESPONSE, marketFileCache.get(n))
                   } else {
-                    let filePath = 'AAMasters/AAOlivia.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Candles/Multi-Period-Market/' + folderName
+                    let filePath = 'AAMasters/AAOlivia.1.0/AACloud.1.1/' + global.EXCHANGE_NAME + '/dataSet.V1/Output/Candles/Multi-Period-Market/' + folderName
                     let fileName = market.assetA + '_' + market.assetB + '.json'
 
-                    oliviaStorage.getTextFile(filePath, fileName, onFileReceived)
+                    fileStorage.getTextFile(bot.devTeam, filePath + '/' + fileName, onFileReceived)
                   }
 
                   function onFileReceived(err, text) {
@@ -513,9 +486,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                   let timeToValidate = new Date(executionTime.valueOf() + outputPeriod)
                   if (isPeriodOnHeadOfMarket(timeToValidate)) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> savePoint -> getCurrentContent -> file = ' + fileName + filePath) }
-
-                    gaussStorage.getTextFile(filePath, fileName, onFileRetrieved)
+                    fileStorage.getTextFile(bot.devTeam, filePath + '/' + fileName, onFileRetrieved)
                   } else {
                     // Move to the next period without writing report
                     setTimeout(function () { controlLoop() }, 0)
@@ -551,8 +522,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> savePoint -> createFile -> Entering function.') }
 
                     let fileContent = JSON.stringify(lrcPointsFileCache.get(n))
-
-                    gaussStorage.createTextFile(filePath, fileName, fileContent, onFileCreated)
+                    fileStorage.createTextFile(bot.devTeam, filePath + '/' + fileName, fileContent, onFileCreated)
 
                     function onFileCreated(err) {
 
@@ -577,7 +547,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> savePoint -> appendToFile -> Entering function.') }
 
-                    gaussStorage.createTextFile(filePath, fileName, JSON.stringify(fileContent), onExistingFileUpdated)
+                    fileStorage.createTextFile(bot.devTeam, filePath + '/' + fileName, JSON.stringify(fileContent), onExistingFileUpdated)
 
                     function onExistingFileUpdated(err) {
 

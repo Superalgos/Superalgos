@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileStorage) {
 
     const FULL_LOG = true;
     const INTENSIVE_LOG = false;
@@ -15,15 +15,10 @@
     const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands";
     const PERCENTAGE_BANDWIDTH_FOLDER_NAME = "Percentage-Bandwidth";
 
-    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
-
     thisObject = {
         initialize: initialize,
         start: start
     };
-
-    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-    let chrisStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
@@ -42,20 +37,7 @@
 
             statusDependencies = pStatusDependencies;
 
-            commons.initializeStorage(oliviaStorage, chrisStorage, onInizialized);
-
-            function onInizialized(err) {
-
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Initialization Succeed."); }
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                } else {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> err = " + err.message);
-                    callBackFunction(err);
-                }
-            }
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
@@ -64,11 +46,11 @@
     }
 
     /*
-    
+
     This process is going to do the following:
-    
+
     Read the candles from Olivia and produce daily files with bollinger bands.
-    
+
     */
 
     function start(callBackFunction) {
@@ -221,7 +203,7 @@
                         */
 
                         contextVariables.lastBandFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
-                        contextVariables.lastBandFile = new Date(contextVariables.lastBandFile.valueOf() + ONE_DAY_IN_MILISECONDS); 
+                        contextVariables.lastBandFile = new Date(contextVariables.lastBandFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined"); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> contextVariables.lastBandFile = " + contextVariables.lastBandFile); }
@@ -293,9 +275,9 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> periodsLoop -> Entering function."); }
 
                             /*
-            
+
                             We will iterate through all posible timePeriods.
-            
+
                             */
 
                             n = 0   // loop Variable representing each possible period as defined at the periods array.
@@ -332,10 +314,11 @@
                                     let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                    filePath += '/' + fileName
 
-                                    oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+                                    fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived, true);
 
                                     function onCurrentDayFileReceived(err, text) {
 
@@ -371,10 +354,11 @@
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                    filePath += '/' + fileName
 
-                                    oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+                                    fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived, true);
 
                                     function onCurrentDayFileReceived(err, text) {
 
@@ -501,7 +485,7 @@
                                         }
                                         standardDeviation = standardDeviation / numberOfPeriodsBB;
                                         standardDeviation = Math.sqrt(standardDeviation);
-                                        if (standardDeviation === 0) { standardDeviation = 0.000000001; } // This is to prevent a division by zero later.  
+                                        if (standardDeviation === 0) { standardDeviation = 0.000000001; } // This is to prevent a division by zero later.
 
                                         band = {
                                             begin: candles[i].begin,
@@ -524,7 +508,7 @@
                                         upperBB = band.movingAverage + band.deviation;
 
                                         let value = (candles[i].close - lowerBB) / (upperBB - lowerBB) * 100;
-                                        
+
                                         /* Moving Average Calculation */
 
                                         let numberOfPreviousPeriods;
@@ -600,10 +584,11 @@
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+                                    filePath += '/' + fileName
 
-                                    chrisStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                                     function onFileCreated(err) {
 
@@ -658,7 +643,7 @@
                                             pB.end + "," +
                                             pB.value + "," +
                                             pB.movingAverage + "," +
-                                            pB.bandwidth + "]"; 
+                                            pB.bandwidth + "]";
 
                                         if (separator === "") { separator = ","; }
 
@@ -671,10 +656,11 @@
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+                                    filePath += '/' + fileName
 
-                                    chrisStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                                     function onFileCreated(err) {
 
@@ -827,10 +813,9 @@
                     let fileName = 'Data.Range.' + market.assetA + '_' + market.assetB + '.json';
                     let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> fileName = " + fileName); }
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> filePath = " + filePath); }
+                    filePath += '/' + fileName
 
-                    chrisStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

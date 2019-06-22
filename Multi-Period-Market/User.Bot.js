@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileStorage) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -11,17 +11,10 @@
     const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands";
     const PERCENTAGE_BANDWIDTH_FOLDER_NAME = "Percentage-Bandwidth";
 
-    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
-
     thisObject = {
         initialize: initialize,
         start: start
     };
-
-    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-    let chrisStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-
-    let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let statusDependencies;
 
@@ -38,20 +31,7 @@
 
             statusDependencies = pStatusDependencies;
 
-            commons.initializeStorage(oliviaStorage, chrisStorage, onInizialized);
-
-            function onInizialized(err) {
-
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Initialization Succeed."); }
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                } else {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> err = " + err.message);
-                    callBackFunction(err);
-                }
-            }
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
@@ -60,11 +40,11 @@
     }
 
     /*
-    
+
     This process is going to do the following:
-    
+
     Read the candles from Olivia and produce the bollinger bands out of them.
-    
+
     */
 
     function start(callBackFunction) {
@@ -94,9 +74,9 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> periodsLoop -> Entering function."); }
 
                             /*
-            
+
                             We will iterate through all posible periods.
-            
+
                             */
 
                             n = 0   // loop Variable representing each possible period as defined at the periods array.
@@ -129,10 +109,11 @@
 
                                     let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                                    filePath += '/' + fileName
 
-                                    oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                    fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
 
                                     function onFileReceived(err, text) {
 
@@ -215,7 +196,7 @@
 
                                                         let movingAverage = 0;
                                                         for (let j = i - numberOfPeriodsBB + 1; j < i + 1; j++) { // go through the last numberOfPeriodsBB candles to calculate the moving average.
-                                                            movingAverage = movingAverage + candles[j].close;     
+                                                            movingAverage = movingAverage + candles[j].close;
                                                         }
                                                         movingAverage = movingAverage / numberOfPeriodsBB;
 
@@ -225,8 +206,8 @@
                                                         }
                                                         standardDeviation = standardDeviation / numberOfPeriodsBB;
                                                         standardDeviation = Math.sqrt(standardDeviation);
-                                                        if (standardDeviation === 0) { standardDeviation = 0.000000001; } // This is to prevent a division by zero later.  
-                                                      
+                                                        if (standardDeviation === 0) { standardDeviation = 0.000000001; } // This is to prevent a division by zero later.
+
                                                         band = {
                                                             begin: candles[i].begin,
                                                             end: candles[i].end,
@@ -248,7 +229,7 @@
                                                         let value = (candles[i].close - lowerBB) / (upperBB - lowerBB) * 100;
 
                                                         /* Moving Average Calculation */
-                                                        
+
                                                         let numberOfPreviousPeriods;
                                                         let currentPosition = pBArray.length;
 
@@ -318,10 +299,11 @@
 
                                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                                     let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                                                    filePath += '/' + fileName
 
-                                                    chrisStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                                                     function onFileCreated(err) {
 
@@ -377,7 +359,7 @@
                                                             pB.end + "," +
                                                             pB.value + "," +
                                                             pB.movingAverage + "," +
-                                                            pB.bandwidth + "]"; 
+                                                            pB.bandwidth + "]";
 
                                                         if (separator === "") { separator = ","; }
 
@@ -389,10 +371,11 @@
 
                                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                                     let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                                                    filePath += '/' + fileName
 
-                                                    chrisStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                                                     function onFileCreated(err) {
 

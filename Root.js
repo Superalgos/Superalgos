@@ -72,8 +72,6 @@
 
     const FULL_LOG = true;
 
-    let cloudStorage;
-
     let logDisplace = "CloneExecutor" + "                                              ";
     let UI_COMMANDS;
 
@@ -126,46 +124,8 @@
 
             UI_COMMANDS = pUI_COMMANDS;
 
-            const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
-            cloudStorage = BLOB_STORAGE.newBlobStorage();
+            callBackFunction();
 
-            cloudStorage.initialize("AAPlatform", onInizialized, true);
-
-            function onInizialized(err) {
-
-                console.log(logDisplace + "Root : [INFO] initialize -> onInizialized -> Entering function. ");
-
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    let filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
-
-                    let fileName = "this.config.json";
-
-                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
-
-                    function onFileReceived(err, text) {
-
-                        console.log(logDisplace + "Root : [INFO] initialize -> onInizialized -> onFileReceived -> Entering function. ");
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            console.log(logDisplace + "Root : [INFO] initialize -> onInizialized -> onFileReceived -> err = " + err.message);
-                            return;
-                        }
-
-                        try {
-                            global.PLATFORM_CONFIG = JSON.parse(text);
-                            callBackFunction();
-                        } catch (err) {
-                            console.log(logDisplace  + "Root : [ERROR] initialize -> onInizialized -> onFileReceived -> err = " + err.message);
-                            return;
-                        }
-                    }
-
-                } else {
-                    console.log(logDisplace  + "Root : [ERROR] initialize -> onInizialized ->  err = " + err.message);
-                    return;
-                }
-            }
         }
         catch (err) {
             console.log(logDisplace  + "Root : [ERROR] initialize -> err.message = " + err.message);
@@ -205,43 +165,29 @@
             try {
                 console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> Entering function. ");
 
-                const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
-                let cloudStorage = BLOB_STORAGE.newBlobStorage(cloneToExecute);
+                const FILE_STORAGE = require('./Integrations/FileStorage.js');
+                let fileStorage = FILE_STORAGE.newFileStorage();
 
-                cloudStorage.initialize("AAPlatform", onInizialized, true);
+                let filePath = global.DEV_TEAM + '/bots/' + global.CURRENT_BOT_REPO + '/this.bot.config.json';
 
-                function onInizialized(err) {
+                fileStorage.getTextFile(global.DEV_TEAM, filePath, onFileReceived);
 
-                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                function onFileReceived(err, text) {
 
-                        let filePath = global.DEV_TEAM + "/" + "bots" + "/" + cloneToExecute.repo; // DevTeams bots only are run at the cloud.
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + err.message);
+                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> filePath = " + filePath);
+                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> fileName = " + fileName);
 
-                        let fileName = "this.bot.config.json";
+                        return;
+                    }
 
-                        cloudStorage.getTextFile(filePath, fileName, onFileReceived);
-
-                        function onFileReceived(err, text) {
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + err.message);
-                                console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> filePath = " + filePath);
-                                console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> fileName = " + fileName);
-
-                                return;
-                            }
-
-                            try {
-                                botConfig = JSON.parse(text);
-                                botConfig.repo = cloneToExecute.repo;
-                                findProcess();
-                            } catch (err) {
-                                console.log(logDisplace  + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + err.message);
-                                return;
-                            }
-                        }
-
-                    } else {
-                        console.log(logDisplace  + "Root : [ERROR] start -> getBotConfig -> onInizialized ->  err = " + err.message);
+                    try {
+                        botConfig = JSON.parse(text);
+                        botConfig.repo = cloneToExecute.repo;
+                        findProcess();
+                    } catch (err) {
+                        console.log(logDisplace  + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + err.message);
                         return;
                     }
                 }
@@ -266,9 +212,9 @@
 
                 /* File Path Root */
 
-                botConfig.filePathRoot = botConfig.devTeam + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
+                botConfig.filePathRoot = botConfig.devTeam + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
-                if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> cloneToExecute.process = " + cloneToExecute.process); }
+                if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> filePathRoot = " + botConfig.filePathRoot); }
 
                 /* Now we loop throug all the configured processes at each bots configuration until we find the one we are supposed to run at this Node.js process. */
 
@@ -288,6 +234,7 @@
                             processConfig.timePeriod = global.EXECUTION_CONFIG.timePeriod
                         }
 
+                        // TODO Pending. Move this if inside IndicatorBotProcessMainLoop line 270
                         if (processConfig.framework !== undefined) {
                             if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market") {
                                 if (processConfig.startMode.noTime.beginDatetime !== undefined) {
@@ -472,12 +419,7 @@
                                     botConfig.startMode = "Backtest";
                                     console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
 
-                                    botConfig.backtest = processConfig.startMode.backtest;
-
-                                    /* We override these waitTimes to the one specified at the backtest configuration. */
-
-                                    processConfig.normalWaitTime = processConfig.startMode.backtest.waitTime;
-                                    processConfig.retryWaitTime = processConfig.startMode.backtest.waitTime;
+                                    botConfig.backtest = processConfig.startMode.backtest
 
                                     /* Backtest Mode does not support Resume Execution, so this is the only way. */
 
@@ -665,7 +607,6 @@
                                 logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> Failed to initialize the bot. ");
                                 console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = " + err.message);
                                 logger.persist();
-                                throw new Error("Root -> start -> findProcess -> runIndicatorBot -> onInitializeReady -> Failed to initialize the bot.")
                             }
                         }
                     }
@@ -755,12 +696,9 @@
 
                                 let clonName = botConfig.codeName + "-" + "Clon" + clonKey;
                                 clonName += ".1.0";
+                                clonName += "-" + process.env.CLONE_ID;
 
-                                if (global.CURRENT_EXECUTION_AT === "Node") {
-                                    clonName += "-" + process.env.CLONE_ID;
-                                }
-
-                                botConfig.filePathRoot = botConfig.devTeam + "/" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
+                                botConfig.filePathRoot = botConfig.devTeam + "/" + clonName + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
                                 botConfig.instance = clonName;
                                 botConfig.instanceIndex = i;
@@ -779,14 +717,10 @@
 
                             let genes = {};
                             let clonName = botConfig.codeName;
-
-                            if (global.CURRENT_EXECUTION_AT === "Node") {
-                                clonName += "-" + process.env.CLONE_ID;
-                            }
-
+                            clonName += "-" + process.env.CLONE_ID;
                             clonName += ".1.0";
 
-                            botConfig.filePathRoot = botConfig.devTeam + "/" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
+                            botConfig.filePathRoot = botConfig.devTeam + "/" + clonName + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
                             pBotConfig.instance = clonName;
                             pBotConfig.instanceIndex = 0;

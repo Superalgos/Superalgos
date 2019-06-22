@@ -32,7 +32,7 @@
         addExtraData: addExtraData
     };
 
-    let utilities = UTILITIES.newCloudUtilities(bot, logger);
+    let utilities = UTILITIES.newCloudUtilities(logger);
 
     let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
     let openPositions = [];         // These are the open positions the bot knows it made by itself.
@@ -134,11 +134,11 @@
                     /* Procedure to get the current market rate. */
 
                     let key =
-                        global.PLATFORM_CONFIG.marketRateProvider.devTeam + "-" +
-                        global.PLATFORM_CONFIG.marketRateProvider.bot + "-" +
-                        global.PLATFORM_CONFIG.marketRateProvider.product + "-" +
-                        global.PLATFORM_CONFIG.marketRateProvider.dataSet + "-" +
-                        global.PLATFORM_CONFIG.marketRateProvider.dataSetVersion;
+                        bot.marketRateProvider.devTeam + "-" +
+                        bot.marketRateProvider.bot + "-" +
+                        bot.marketRateProvider.product + "-" +
+                        bot.marketRateProvider.dataSet + "-" +
+                        bot.marketRateProvider.dataSetVersion;
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> key = " + key); }
 
@@ -146,9 +146,9 @@
 
                     let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
                     let fileName = '' + global.MARKET.assetA + '_' + global.MARKET.assetB + '.json';
-                    let filePath = global.PLATFORM_CONFIG.marketRateProvider.product + "/" + global.PLATFORM_CONFIG.marketRateProvider.dataSet + "/" + dateForPath;
+                    let filePath = bot.marketRateProvider.product + "/" + bot.marketRateProvider.dataSet + "/" + dateForPath;
 
-                    dataSet.getTextFile(filePath, fileName, onFileReceived, true);
+                    dataSet.getTextFile(filePath, fileName, onFileReceived);
 
                     function onFileReceived(err, text) {
 

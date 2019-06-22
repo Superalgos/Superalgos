@@ -1,4 +1,4 @@
-﻿exports.newStatusDependencies = function newStatusDependencies(BOT, logger, STATUS_REPORT, BLOB_STORAGE, UTILITIES) {
+﻿exports.newStatusDependencies = function newStatusDependencies(BOT, logger, STATUS_REPORT, UTILITIES) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -7,13 +7,10 @@
 
     let thisObject = {
         config: undefined,
-        statusReports: new Map(),              
+        statusReports: new Map(),
         initialize: initialize,
         keys: []
     };
-
-    let bot = BOT;
-    let ownerBot;                       // This is the bot owner of the Status Report. Only owners can save the report and override the existing content.
 
     return thisObject;
 
@@ -35,7 +32,7 @@
 
             for (let i = 0; i < pStatusDependenciesConfig.length; i++) {
 
-                let statusReportModule = STATUS_REPORT.newStatusReport(BOT, logger, BLOB_STORAGE, UTILITIES);
+                let statusReportModule = STATUS_REPORT.newStatusReport(BOT, logger, UTILITIES);
 
                 statusReportModule.initialize(pStatusDependenciesConfig[i], pMonth, pYear, onInitilized);
 

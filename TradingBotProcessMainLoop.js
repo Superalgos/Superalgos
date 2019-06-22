@@ -8,10 +8,9 @@
     let USER_BOT_MODULE;
     let COMMONS_MODULE;
 
-    const operationsIntegration = require('./Integrations/OperationsModuleIntegration')
-
-    const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    let fileStorage = FILE_STORAGE.newFileStorage();
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
 
     let nextLoopTimeoutHandle;
@@ -24,7 +23,6 @@
 
     bot["botCache"] = new Map();
     let processConfig;
-    let cloudStorage;
     let UI_COMMANDS;
 
     return thisObject;
@@ -39,78 +37,43 @@
             UI_COMMANDS = pUI_COMMANDS;
             processConfig = pProcessConfig;
 
-            cloudStorage = BLOB_STORAGE.newBlobStorage(bot, parentLogger);
+            let filePath;
+            if (global.RUN_AS_TEAM) {
+                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
+            } else {
+                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
+            }
+            filePath += "/User.Bot.js"
 
-            cloudStorage.initialize("AAPlatform", onInizialized);
+            fileStorage.getTextFile(global.DEV_TEAM, filePath, onBotDownloaded);
 
-            function onInizialized(err) {
+            function onBotDownloaded(err, text) {
 
-                if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Entering function."); }
+                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    let filePath;
-
-                    switch (global.CURRENT_EXECUTION_AT) { // This is what determines if the bot is loaded from the devTeam or an endUser copy.
-                        case "Node": {
-                            if (global.RUN_AS_TEAM) {
-                                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
-                            } else {
-                                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
-                            }
-
-                            break;
-                        }
-                        case "IDE": {
-                            filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // This works like Cloud except of a few things.
-                            break;
-                        }
-                        default: {
-                            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Node' or 'IDE'.");
-                            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> global.CURRENT_EXECUTION_AT = " + global.CURRENT_EXECUTION_AT);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
-                    }
-
-                    const CLOUD_REQUIRE = require(ROOT_DIR + 'CloudRequire');
-                    let cloudRequire = CLOUD_REQUIRE.newCloudRequire(bot, parentLogger);
-
-                    cloudRequire.downloadBot(cloudStorage, filePath, onBotDownloaded);
-
-                    function onBotDownloaded(err, pMODULE) {
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err.message = " + err.message);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
-
-                        USER_BOT_MODULE = pMODULE;
-
-                        filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
-
-                        cloudRequire.downloadCommons(cloudStorage, filePath, onCommonsDownloaded);
-
-                        function onCommonsDownloaded(err, pMODULE) {
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> onCommonsDownloaded -> err.message = " + err.message);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                return;
-                            }
-
-                            COMMONS_MODULE = pMODULE;
-
-                            callBackFunction(global.DEFAULT_OK_RESPONSE);
-                        }
-                    }
-
-                } else {
-                    parentLogger.write(MODULE_NAME, "[ERROR] Root -> start -> getBotConfig -> onInizialized ->  err = " + err.message);
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
+                USER_BOT_MODULE = {}
+                USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
+
+                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
+                filePath += "/Commons.js"
+
+                fileStorage.getTextFile(global.DEV_TEAM, filePath, onCommonsDownloaded);
+
+                function onCommonsDownloaded(err, text) {
+
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " + err.code || err.message);
+                        callBackFunction(global.DEFAULT_OK_RESPONSE);
+                        return;
+                    }
+                    COMMONS_MODULE = {}
+                    COMMONS_MODULE.newCommons = eval(text); // TODO This needs to be changed function
+
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
                 }
             }
         } catch (err) {
@@ -182,6 +145,9 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Live Mode detected."); }
 
+                            if(process.env.NORMAL_WAIT_TIME !== undefined)
+                                processConfig.normalWaitTime = process.env.NORMAL_WAIT_TIME
+
                             // This will be considered the process date and time, so as to have it consistenly all over the execution.
 
                             let localDate = new Date();
@@ -206,6 +172,12 @@
                         case 'Backtest': {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Backtesting Mode detected."); }
+
+                            if(process.env.NORMAL_WAIT_TIME !== undefined) {
+                                processConfig.normalWaitTime = process.env.NORMAL_WAIT_TIME
+                            } else {
+                                processConfig.normalWaitTime = 1
+                            }
 
                             let timePeriod;
 
@@ -265,20 +237,17 @@
 
                                 }
 
-                                if (global.CURRENT_EXECUTION_AT === "Node") {
+                                if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
 
-                                    if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> End of Backtesting Period reached. Exiting Bot Process Loop."); }
 
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> End of Backtesting Period reached. Exiting Bot Process Loop."); }
-
-                                        logger.persist();
-                                        clearInterval(fixedTimeLoopIntervalHandle);
-                                        clearTimeout(nextLoopTimeoutHandle);
-                                        clearTimeout(checkLoopHealthHandle);
-                                        bot.enableCheckLoopHealth = false;
-                                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                        return;
-                                    }
+                                    logger.persist();
+                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                    clearTimeout(nextLoopTimeoutHandle);
+                                    clearTimeout(checkLoopHealthHandle);
+                                    bot.enableCheckLoopHealth = false;
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    return;
                                 }
                             }
                             break;
@@ -286,6 +255,10 @@
                         case 'Competition': {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Competition Mode detected."); }
+
+                            if(process.env.NORMAL_WAIT_TIME !== undefined) {
+                                processConfig.normalWaitTime = process.env.NORMAL_WAIT_TIME
+                            }
 
                             let localDate = new Date();
 
@@ -304,33 +277,30 @@
 
                             }
 
-                            if (global.CURRENT_EXECUTION_AT === "Node") {
+                            let beginDatetime = new Date(bot.competition.beginDatetime);
 
-                                let beginDatetime = new Date(bot.competition.beginDatetime);
+                            if (bot.processDatetime.valueOf() < beginDatetime.valueOf()) {
 
-                                if (bot.processDatetime.valueOf() < beginDatetime.valueOf()) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Competition not started yet. Wainting for the competition to start."); }
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Competition not started yet. Wainting for the competition to start."); }
+                                nextWaitTime = 'Normal';
+                                loopControl(nextWaitTime);
+                                return;
+                            }
 
-                                    nextWaitTime = 'Normal';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
+                            let endDatetime = new Date(bot.competition.endDatetime);
 
-                                let endDatetime = new Date(bot.competition.endDatetime);
+                            if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
 
-                                if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> End of Competition Period reached. Exiting Bot Process Loop."); }
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> End of Competition Period reached. Exiting Bot Process Loop."); }
-
-                                    logger.persist();
-                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                    clearTimeout(nextLoopTimeoutHandle);
-                                    clearTimeout(checkLoopHealthHandle);
-                                    bot.enableCheckLoopHealth = false;
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                    return;
-                                }
+                                logger.persist();
+                                clearInterval(fixedTimeLoopIntervalHandle);
+                                clearTimeout(nextLoopTimeoutHandle);
+                                clearTimeout(checkLoopHealthHandle);
+                                bot.enableCheckLoopHealth = false;
+                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                return;
                             }
 
                             break;
@@ -377,7 +347,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeStatusDependencies ->  Entering function."); }
 
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, logger, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, logger, STATUS_REPORT, UTILITIES);
 
                             statusDependencies.initialize(processConfig.statusDependencies, undefined, undefined, onInizialized);
 
@@ -451,7 +421,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies ->  Entering function."); }
 
-                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(bot, logger, DATA_SET, BLOB_STORAGE, UTILITIES);
+                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(bot, logger, DATA_SET);
 
                             dataDependencies.initialize(processConfig.dataDependencies, onInizialized);
 
@@ -525,7 +495,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeContext ->  Entering function."); }
 
-                            context = CONTEXT.newContext(bot, logger, BLOB_STORAGE, UTILITIES, STATUS_REPORT);
+                            context = CONTEXT.newContext(bot, logger, UTILITIES);
                             context.initialize(statusDependencies, pTotalAlgobots, onInizialized);
 
                             function onInizialized(err) {
@@ -968,24 +938,6 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> updateClonesModule ->  Entering function."); }
 
-                            if (global.CURRENT_EXECUTION_AT === "Node") {
-
-                                // Update clones module with latest context informations
-
-                                let lastExecution = context.newHistoryRecord
-                                let date = lastExecution.date / 1000 | 0
-                                let buyAvgRate = lastExecution.buyAvgRate
-                                let sellAvgRate = lastExecution.sellAvgRate
-                                let marketRate = lastExecution.marketRate
-                                let combinedProfitsA = lastExecution.combinedProfitsA
-                                let combinedProfitsB = lastExecution.combinedProfitsB
-
-                                await operationsIntegration.updateExecutionResults(date, buyAvgRate, sellAvgRate,
-                                    marketRate, combinedProfitsA, combinedProfitsB)
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> updateClonesModule ->  Clones Module Updated."); }
-                            }
-
                             nextWaitTime = 'Normal';
                             loopControl(nextWaitTime);
 
@@ -1012,7 +964,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!"); }
 
-                            if(global.FULL_LOG === 'true' || bot.startMode === 'Competition'){
+                            if (global.FULL_LOG === 'true' || bot.startMode === 'Competition') {
                                 logger.persist();
                             }
 
@@ -1036,7 +988,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Normal -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
                                     checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
-                                    if(global.FULL_LOG === 'true' || bot.startMode === 'Competition'){
+                                    if (global.FULL_LOG === 'true' || bot.startMode === 'Competition') {
                                         logger.persist();
                                     }
                                 }
@@ -1065,10 +1017,6 @@
                     }
 
                     function checkLoopHealth(pLastLoop) {
-
-                        if (global.CURRENT_EXECUTION_AT !== "Node") {
-                            return;
-                        }
 
                         if (bot.startMode === 'Backtest') { return; }
 
@@ -1108,64 +1056,16 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> shallWeStop -> Entering function. "); }
 
-                            cloudStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+                            let stop = false
+                            if (process.env.STOP_GRACEFULLY !== undefined)
+                                stop = JSON.parse(process.env.STOP_GRACEFULLY)
 
-                            cloudStorage.initialize("AAPlatform", onInizialized);
-
-                            function onInizialized(err) {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> shallWeStop -> onInizialized -> Entering function."); }
-
-                                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                                    let filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
-
-                                    let fileName = "this.config.json";
-
-                                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
-
-                                    function onFileReceived(err, text) {
-
-                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                            /*
-                                            If for any reason this config file cannot be read, we are not going to abort the loop for that. Instead we are going to assume
-                                            that there are no instructions to stop and we will keep the show running.
-                                            */
-
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> err.message = " + err.message);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> The config file cound not be read. ");
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> We will ignore its content and continue running the loop. ");
-
-                                            continueCallBack();
-                                            return;
-                                        }
-
-                                        try {
-
-                                            let configRead = JSON.parse(text);
-
-                                            if (configRead.stopGracefully === false && global.SHALL_BOT_STOP === false) {
-                                                continueCallBack();
-                                            } else {
-                                                stopCallBack();
-                                            }
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> err.message = " + err.message);
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
-                                        }
-                                    }
-                                }
+                            if (!stop && global.SHALL_BOT_STOP === false) {
+                                continueCallBack();
+                            } else {
+                                stopCallBack();
                             }
-                        }
-                        catch (err) {
+                        } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> err.message = " + err.message);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);

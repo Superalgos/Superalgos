@@ -9,7 +9,7 @@ bin/*
 *.cache
 node_modules/*
 exchange/Auth0.js
-.env
+.env*
 
 \.vscode/
 Project.njsproj

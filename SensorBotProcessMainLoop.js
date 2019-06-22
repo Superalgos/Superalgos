@@ -8,7 +8,8 @@
     let USER_BOT_MODULE;
     let COMMONS_MODULE;
 
-    const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
+    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    let fileStorage = FILE_STORAGE.newFileStorage();
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -36,64 +37,46 @@
             UI_COMMANDS = pUI_COMMANDS;
             processConfig = pProcessConfig;
 
-            cloudStorage = BLOB_STORAGE.newBlobStorage(bot, parentLogger);
+            let filePath;
+            if (global.RUN_AS_TEAM) {
+                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
+            } else {
+                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
+            }
+            filePath += "/User.Bot.js"
 
-            cloudStorage.initialize("AAPlatform", onInizialized);
+            fileStorage.getTextFile(global.DEV_TEAM, filePath, onBotDownloaded);
 
-            function onInizialized(err) {
+            function onBotDownloaded(err, text) {
 
-                if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Entering function."); }
+                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    let filePath;
-
-                    if (global.RUN_AS_TEAM) {
-                        filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
-                    } else {
-                        filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
-                    }
-
-                    const CLOUD_REQUIRE = require(ROOT_DIR + 'CloudRequire');
-                    let cloudRequire = CLOUD_REQUIRE.newCloudRequire(bot, parentLogger);
-
-                    cloudRequire.downloadBot(cloudStorage, filePath, onBotDownloaded);
-
-                    function onBotDownloaded(err, pMODULE) {
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err.message = " + err.message);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
-
-                        USER_BOT_MODULE = pMODULE;
-
-                        filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
-
-                        cloudRequire.downloadCommons(cloudStorage, filePath, onCommonsDownloaded);
-
-                        function onCommonsDownloaded(err, pMODULE) {
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> onCommonsDownloaded -> err.message = " + err.message);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                return;
-                            }
-
-                            COMMONS_MODULE = pMODULE;
-
-                            callBackFunction(global.DEFAULT_OK_RESPONSE);
-                        }
-                    }
-
-                } else {
-                    parentLogger.write(MODULE_NAME, "[ERROR] Root -> start -> getBotConfig -> onInizialized ->  err = " + err.message);
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
+                USER_BOT_MODULE = {}
+                USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
+
+                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
+                filePath += "/Commons.js"
+
+                fileStorage.getTextFile(global.DEV_TEAM, filePath, onCommonsDownloaded);
+
+                function onCommonsDownloaded(err, text) {
+
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " + err.code || err.message);
+                        callBackFunction(global.DEFAULT_OK_RESPONSE);
+                        return;
+                    }
+                    COMMONS_MODULE = {}
+                    COMMONS_MODULE.newCommons = eval(text); // TODO This needs to be changed function
+
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
                 }
             }
+
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -172,7 +155,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeStatusDependencies ->  Entering function."); }
 
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, logger, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, logger, STATUS_REPORT, UTILITIES);
 
                             statusDependencies.initialize(processConfig.statusDependencies, pMonth, pYear, onInizialized);
 
@@ -320,7 +303,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
 
-                            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE, STATUS_REPORT, exchangeAPI);
+                            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, fileStorage, STATUS_REPORT, exchangeAPI);
 
                             usertBot.initialize(statusDependencies, pMonth, pYear, onInizialized);
 
@@ -643,10 +626,6 @@
 
                     function checkLoopHealth(pLastLoop) {
 
-                        if (global.CURRENT_EXECUTION_AT !== "Node") {
-                            return;
-                        }
-
                         if (bot.enableCheckLoopHealth === false) {
 
                             logger.write(MODULE_NAME, "[WARN] run -> loop -> checkLoopHealth -> bot.enableCheckLoopHealth = " + bot.enableCheckLoopHealth);
@@ -683,64 +662,16 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> shallWeStop -> Entering function. "); }
 
-                            cloudStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+                            let stop = false
+                            if (process.env.STOP_GRACEFULLY !== undefined)
+                                stop = JSON.parse(process.env.STOP_GRACEFULLY)
 
-                            cloudStorage.initialize("AAPlatform", onInizialized);
-
-                            function onInizialized(err) {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> shallWeStop -> onInizialized -> Entering function."); }
-
-                                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                                    let filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
-
-                                    let fileName = "this.config.json";
-
-                                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
-
-                                    function onFileReceived(err, text) {
-
-                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                            /*
-                                            If for any reason this config file cannot be read, we are not going to abort the loop for that. Instead we are going to assume
-                                            that there are no instructions to stop and we will keep the show running.
-                                            */
-
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> err.message = " + err.message);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> The config file cound not be read. ");
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> We will ignore its content and continue running the loop. ");
-
-                                            continueCallBack();
-                                            return;
-                                        }
-
-                                        try {
-
-                                            let configRead = JSON.parse(text);
-
-                                            if (configRead.stopGracefully === false && global.SHALL_BOT_STOP === false) {
-                                                continueCallBack();
-                                            } else {
-                                                stopCallBack();
-                                            }
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> err.message = " + err.message);
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
-                                        }
-                                    }
-                                }
+                            if (!stop && global.SHALL_BOT_STOP === false) {
+                                continueCallBack();
+                            } else {
+                                stopCallBack();
                             }
-                        }
-                        catch (err) {
+                        } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> err.message = " + err.message);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);

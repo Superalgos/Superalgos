@@ -1,17 +1,13 @@
-﻿exports.newMultiPeriodMarket = function newMultiPeriodMarket(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, USER_BOT_MODULE, COMMONS_MODULE) {
+﻿exports.newMultiPeriodMarket = function newMultiPeriodMarket(bot, logger, COMMONS, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
     const MODULE_NAME = "Multi Period Market";
 
-    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
-
     thisObject = {
         initialize: initialize,
         start: start
     };
-
-    let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let statusDependencies;
     let dataDependencies;
@@ -19,6 +15,9 @@
     let dataFiles = [];
 
     let usertBot;
+
+    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    let fileStorage = FILE_STORAGE.newFileStorage();
 
     let processConfig;
 
@@ -47,7 +46,7 @@
                     dependency.bot + "-" +
                     dependency.product + "-" +
                     dependency.dataSet + "-" +
-                    dependency.dataSetVersion 
+                    dependency.dataSetVersion
 
                 storage = dataDependencies.dataSets.get(key);
 
@@ -55,7 +54,7 @@
 
             }
 
-            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE);
+            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, fileStorage);
             usertBot.initialize(dataDependencies, callBackFunction);
 
         } catch (err) {
@@ -114,9 +113,9 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoop -> Entering function."); }
 
                             /*
-            
+
                             We will iterate through all posible periods.
-            
+
                             */
 
                             n = 0   // loop Variable representing each possible period as defined at the periods array.
@@ -173,7 +172,7 @@
 
                                             let filePath = dependency.product + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
 
-                                            storage.getTextFile(filePath, fileName, onFileReceived, true);
+                                            storage.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -239,7 +238,7 @@
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
-                           
+
                             function callTheBot() {
 
                                 try {

@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileStorage) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -16,9 +16,6 @@
         initialize: initialize,
         start: start
     };
-
-    const FILE_STORAGE = require('./Integrations/FileStorage.js');
-    let botStorage = FILE_STORAGE.newFileStorage();
 
     let dataDependencies;
 
@@ -164,8 +161,8 @@
                             record.maximunBalanceA + "," +
                             record.initialBalanceB + "," +
                             record.minimunBalanceB + "," +
-                            record.maximunBalanceB + "]"; 
-                        
+                            record.maximunBalanceB + "]";
+
                         if (separator === "") { separator = ","; }
 
                         fileRecordCounter++;
@@ -180,7 +177,7 @@
                     let filePath = filePathRoot + "/Output/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
                     filePath += '/' + fileName
 
-                    botStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -258,7 +255,7 @@
                     let filePath = filePathRoot + "/Output/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
                     filePath += '/' + fileName
 
-                    botStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -328,7 +325,7 @@
                     let filePath = filePathRoot + "/Output/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
                     filePath += '/' + fileName
 
-                    botStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -401,7 +398,7 @@
                     let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
                     filePath += '/' + fileName
 
-                    botStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

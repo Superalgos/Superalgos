@@ -232,10 +232,10 @@
         "devTeam": "AAMasters",
         "bot": "AABruce",
         "host": {
-            "url": "http://localhost:4100/",
-            "storage": "https://aadevelop.blob.core.windows.net",
+            "url": "https://demo-dev.superalgos.org/",
+            "storage": "localStorage",
             "container": "aamasters",
-            "accessKey": "?st=2019-05-21T12%3A00%3A00Z&se=2020-05-22T12%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=PsGM67klPfLjdfjymziEQEQcD5Wzy3SMcZWsTCQrhd8%3D"
+            "accessKey": ""
         },
         "botVersion": {
             "major": 1,

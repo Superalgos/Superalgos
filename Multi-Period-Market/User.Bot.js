@@ -1,28 +1,20 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileStorage) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
     const MODULE_NAME = "User Bot";
 
-    const EXCHANGE_NAME = "Poloniex";
-
     const TRADES_FOLDER_NAME = "Trades";
 
     const CANDLES_FOLDER_NAME = "Candles";
-    const BOLINGER_BANDS_FOLDER_NAME = "Boliniger-Bands";
-
-    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
+    const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands";
+    const PERCENTAGE_BANDWIDTH_FOLDER_NAME = "Percentage-Bandwidth";
 
     thisObject = {
         initialize: initialize,
         start: start
     };
-
-    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-    let chrisStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-
-    let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let statusDependencies;
 
@@ -39,20 +31,7 @@
 
             statusDependencies = pStatusDependencies;
 
-            commons.initializeStorage(oliviaStorage, chrisStorage, onInizialized);
-
-            function onInizialized(err) {
-
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Initialization Succeed."); }
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                } else {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> err = " + err.message);
-                    callBackFunction(err);
-                }
-            }
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
@@ -61,11 +40,11 @@
     }
 
     /*
-    
+
     This process is going to do the following:
-    
-    Read the candles and volumes from Olivia and produce the bollinger bands out of them.
-    
+
+    Read the candles from Olivia and produce the bollinger bands out of them.
+
     */
 
     function start(callBackFunction) {
@@ -76,11 +55,11 @@
 
             let market = global.MARKET;
 
-            buildStairs();
+            buildBands();
 
-            function buildStairs() {
+            function buildBands() {
 
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> Entering function."); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> Entering function."); }
 
                 try {
 
@@ -92,12 +71,12 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> periodsLoop -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> periodsLoop -> Entering function."); }
 
                             /*
-            
+
                             We will iterate through all posible periods.
-            
+
                             */
 
                             n = 0   // loop Variable representing each possible period as defined at the periods array.
@@ -106,7 +85,7 @@
 
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -115,7 +94,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> Entering function."); }
 
                             const outputPeriod = global.marketFilesPeriods[n][0];
                             const timePeriod = global.marketFilesPeriods[n][1];
@@ -126,25 +105,26 @@
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> Entering function."); }
 
                                     let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                                    filePath += '/' + fileName
 
-                                    oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                    fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
 
                                     function onFileReceived(err, text) {
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> Entering function."); }
-                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> text = " + text); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> text = " + text); }
 
                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
                                                 callBackFunction(err);
                                                 return;
 
@@ -153,13 +133,12 @@
                                             let marketFile = JSON.parse(text);
 
                                             let candles = [];
-                                            let stairsArray = [];
 
                                             buildCandles();
 
                                             function buildCandles() {
 
-                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> buildCandles -> Entering function."); }
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> buildCandles -> Entering function."); }
 
                                                 try {
 
@@ -184,156 +163,131 @@
                                                         candle.begin = marketFile[i][4];
                                                         candle.end = marketFile[i][5];
 
-                                                        if (candle.open > candle.close) { candle.direction = 'down'; }
-                                                        if (candle.open < candle.close) { candle.direction = 'up'; }
-                                                        if (candle.open === candle.close) { candle.direction = 'side'; }
-
                                                         candles.push(candle);
 
                                                     }
 
-                                                    findCandleStairs();
+                                                    buildBands();
 
                                                 }
                                                 catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> buildCandles -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> buildCandles -> err = " + err.message);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
 
-                                            function findCandleStairs() {
+                                            function buildBands() {
 
                                                 try {
 
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> findCandleStairs -> Entering function."); }
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> buildBands -> Entering function."); }
 
-                                                    /* Finding stairs */
+                                                    let bandsArray = [];
+                                                    let pBArray = [];
+                                                    let numberOfPeriodsBB = 20;
+                                                    let numberOfStandardDeviations = 2;
+                                                    let numberOfPeriodsPB = 5;
 
-                                                    let stairs;
+                                                    /* Building bands */
 
-                                                    for (let i = 0; i < candles.length - 1; i++) {
+                                                    let band;
 
-                                                        let currentCandle = candles[i];
-                                                        let nextCandle = candles[i + 1];
+                                                    for (let i = numberOfPeriodsBB - 1; i < candles.length; i++) { // Go through all the candles to generate a band segment for each of them.
 
-                                                        if (currentCandle.direction === nextCandle.direction && currentCandle.direction !== 'side') {
-
-                                                            if (stairs === undefined) {
-
-                                                                stairs = {
-                                                                    open: undefined,
-                                                                    close: undefined,
-                                                                    min: 10000000000000,
-                                                                    max: 0,
-                                                                    begin: undefined,
-                                                                    end: undefined,
-                                                                    direction: undefined,
-                                                                    candleCount: 0,
-                                                                    firstMin: 0,
-                                                                    firstMax: 0,
-                                                                    lastMin: 0,
-                                                                    lastMax: 0
-                                                                };
-
-                                                                stairs.direction = currentCandle.direction;
-                                                                stairs.candleCount = 2;
-
-                                                                stairs.begin = currentCandle.begin;
-                                                                stairs.end = nextCandle.end;
-
-                                                                stairs.open = currentCandle.open;
-                                                                stairs.close = nextCandle.close;
-
-                                                                if (currentCandle.min < nextCandle.min) { stairs.min = currentCandle.min; } else { stairs.min = nextCandle.min; }
-                                                                if (currentCandle.max > nextCandle.max) { stairs.max = currentCandle.max; } else { stairs.max = nextCandle.max; }
-
-                                                                if (stairs.direction === 'up') {
-
-                                                                    stairs.firstMin = currentCandle.open;
-                                                                    stairs.firstMax = currentCandle.close;
-
-                                                                    stairs.lastMin = nextCandle.open;
-                                                                    stairs.lastMax = nextCandle.close;
-
-                                                                } else {
-
-                                                                    stairs.firstMin = currentCandle.close;
-                                                                    stairs.firstMax = currentCandle.open;
-
-                                                                    stairs.lastMin = nextCandle.close;
-                                                                    stairs.lastMax = nextCandle.open;
-
-                                                                }
-
-
-                                                            } else {
-
-                                                                stairs.candleCount++;
-                                                                stairs.end = nextCandle.end;
-                                                                stairs.close = nextCandle.close;
-
-                                                                if (stairs.min < nextCandle.min) { stairs.min = currentCandle.min; }
-                                                                if (stairs.max > nextCandle.max) { stairs.max = currentCandle.max; }
-
-                                                                if (stairs.direction === 'up') {
-
-                                                                    stairs.lastMin = nextCandle.open;
-                                                                    stairs.lastMax = nextCandle.close;
-
-                                                                } else {
-
-                                                                    stairs.lastMin = nextCandle.close;
-                                                                    stairs.lastMax = nextCandle.open;
-
-                                                                }
-
-                                                            }
-
-                                                        } else {
-
-                                                            if (stairs !== undefined) {
-                                                                stairsArray.push(stairs);
-                                                                stairs = undefined;
-                                                            }
+                                                        let movingAverage = 0;
+                                                        for (let j = i - numberOfPeriodsBB + 1; j < i + 1; j++) { // go through the last numberOfPeriodsBB candles to calculate the moving average.
+                                                            movingAverage = movingAverage + candles[j].close;
                                                         }
+                                                        movingAverage = movingAverage / numberOfPeriodsBB;
+
+                                                        let standardDeviation = 0;
+                                                        for (let j = i - numberOfPeriodsBB + 1; j < i + 1; j++) { // go through the last numberOfPeriodsBB candles to calculate the standard deviation.
+                                                            standardDeviation = standardDeviation + Math.pow (candles[j].close - movingAverage, 2);
+                                                        }
+                                                        standardDeviation = standardDeviation / numberOfPeriodsBB;
+                                                        standardDeviation = Math.sqrt(standardDeviation);
+                                                        if (standardDeviation === 0) { standardDeviation = 0.000000001; } // This is to prevent a division by zero later.
+
+                                                        band = {
+                                                            begin: candles[i].begin,
+                                                            end: candles[i].end,
+                                                            movingAverage: movingAverage,
+                                                            standardDeviation: standardDeviation,
+                                                            deviation: standardDeviation * numberOfStandardDeviations
+                                                        };
+
+                                                        bandsArray.push(band);
+
+                                                        /* Calculating %B */
+
+                                                        let lowerBB;
+                                                        let upperBB;
+
+                                                        lowerBB = band.movingAverage - band.deviation;
+                                                        upperBB = band.movingAverage + band.deviation;
+
+                                                        let value = (candles[i].close - lowerBB) / (upperBB - lowerBB) * 100;
+
+                                                        /* Moving Average Calculation */
+
+                                                        let numberOfPreviousPeriods;
+                                                        let currentPosition = pBArray.length;
+
+                                                        if (currentPosition < numberOfPeriodsPB) { // Avoinding to get into negative array indexes
+                                                            numberOfPreviousPeriods = currentPosition;
+                                                        } else {
+                                                            numberOfPreviousPeriods = numberOfPeriodsPB;
+                                                        }
+
+                                                        movingAverage = 0;
+                                                        for (let j = currentPosition - numberOfPreviousPeriods; j < currentPosition; j++) { // go through the last numberOfPeriodsPBs to calculate the moving average.
+                                                            movingAverage = movingAverage + pBArray[j].value;
+                                                        }
+                                                        movingAverage = movingAverage + value;
+                                                        movingAverage = movingAverage / (numberOfPreviousPeriods + 1);
+
+                                                        let bandwidth = (upperBB- lowerBB) / band.movingAverage;
+
+                                                        let percentageBandwidth = {
+                                                            begin: candles[i].begin,
+                                                            end: candles[i].end,
+                                                            value: value,
+                                                            movingAverage: movingAverage,
+                                                            bandwidth: bandwidth
+                                                        };
+
+                                                        pBArray.push(percentageBandwidth);
                                                     }
 
-                                                    writeCandleStairsFile();
+                                                    writeBandsFile(bandsArray, pBArray);
                                                 }
                                                 catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> findCandleStairs -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> buildBands -> err = " + err.message);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
 
-                                            function writeCandleStairsFile() {
+                                            function writeBandsFile(pBands, pPB) {
 
                                                 try {
 
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> Entering function."); }
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> Entering function."); }
 
                                                     let separator = "";
                                                     let fileRecordCounter = 0;
 
                                                     let fileContent = "";
 
-                                                    for (i = 0; i < stairsArray.length; i++) {
+                                                    for (i = 0; i < pBands.length; i++) {
 
-                                                        let stairs = stairsArray[i];
+                                                        let band = pBands[i];
 
                                                         fileContent = fileContent + separator + '[' +
-                                                            stairs.open + "," +
-                                                            stairs.close + "," +
-                                                            stairs.min + "," +
-                                                            stairs.max + "," +
-                                                            stairs.begin + "," +
-                                                            stairs.end + "," +
-                                                            '"' + stairs.direction + '"' + "," +
-                                                            stairs.candleCount + "," +
-                                                            stairs.firstMin + "," +
-                                                            stairs.firstMax + "," +
-                                                            stairs.lastMin + "," +
-                                                            stairs.lastMax + "]";
+                                                            band.begin + "," +
+                                                            band.end + "," +
+                                                            band.movingAverage + "," +
+                                                            band.standardDeviation + "," +
+                                                            band.deviation + "]";
 
                                                         if (separator === "") { separator = ","; }
 
@@ -345,23 +299,96 @@
 
                                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                                    let filePath = filePathRoot + "/Output/" + BOLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                                    let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                                                    filePath += '/' + fileName
 
-                                                    chrisStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                                                     function onFileCreated(err) {
 
                                                         try {
 
-                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> Entering function."); }
-                                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> fileContent = " + fileContent); }
+                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> Entering function."); }
+                                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> fileContent = " + fileContent); }
 
                                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> err = " + err.message);
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> filePath = " + filePath);
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> err = " + err.message);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> filePath = " + filePath);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+
+                                                                callBackFunction(err);
+                                                                return;
+
+                                                            }
+
+                                                            writePBFile(pPB);
+
+                                                        }
+                                                        catch (err) {
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> err = " + err.message);
+                                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                        }
+                                                    }
+                                                }
+                                                catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> err = " + err.message);
+                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                }
+                                            }
+
+
+                                            function writePBFile(pPercentageBandwidths) {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> Entering function."); }
+
+                                                    let separator = "";
+                                                    let fileRecordCounter = 0;
+
+                                                    let fileContent = "";
+
+                                                    for (i = 0; i < pPercentageBandwidths.length; i++) {
+
+                                                        let pB = pPercentageBandwidths[i];
+
+                                                        fileContent = fileContent + separator + '[' +
+                                                            pB.begin + "," +
+                                                            pB.end + "," +
+                                                            pB.value + "," +
+                                                            pB.movingAverage + "," +
+                                                            pB.bandwidth + "]";
+
+                                                        if (separator === "") { separator = ","; }
+
+                                                        fileRecordCounter++;
+
+                                                    }
+
+                                                    fileContent = "[" + fileContent + "]";
+
+                                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                                    let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                                                    filePath += '/' + fileName
+
+                                                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+
+                                                    function onFileCreated(err) {
+
+                                                        try {
+
+                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> Entering function."); }
+                                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> fileContent = " + fileContent); }
+
+                                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> err = " + err.message);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> filePath = " + filePath);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
 
                                                                 callBackFunction(err);
                                                                 return;
@@ -372,32 +399,33 @@
 
                                                         }
                                                         catch (err) {
-                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> err = " + err.message);
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> err = " + err.message);
                                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                         }
                                                     }
                                                 }
                                                 catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> err = " + err.message);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
+
                                         }
                                         catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
                                 }
                                 catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -406,7 +434,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> controlLoop -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> controlLoop -> Entering function."); }
 
                             n++;
 
@@ -421,14 +449,14 @@
                             }
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> controlLoop -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> controlLoop -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }

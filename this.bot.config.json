@@ -84,7 +84,7 @@
             "major": 1,
             "minor": 0
           },
-          "process": "Poloniex-Historic-Trades",
+          "process": "Historic-Trades",
           "dataSetVersion": "dataSet.V1"
         },
         {
@@ -116,6 +116,7 @@
       "displayName": "Candle-Stairs Patters",
       "description": "Two sets of files per period that contains candle-stairs patterns.",
       "storageAccount": "aatom",
+      "shareWith": "Public",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",
@@ -139,6 +140,9 @@
       "exchangeList": [
         {
           "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
         }
       ],
       "plotter": {
@@ -152,6 +156,7 @@
       "displayName": "Volume-Stairs Patters",
       "description": "Two sets of files per period that contains volume-stairs patterns.",
       "storageAccount": "aatom",
+      "shareWith": "Public",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",
@@ -175,6 +180,9 @@
       "exchangeList": [
         {
           "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
         }
       ],
       "plotter": {

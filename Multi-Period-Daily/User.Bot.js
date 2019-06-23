@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileStorage) {
 
     const FULL_LOG = true;
     const INTENSIVE_LOG = false;
@@ -10,8 +10,6 @@
 
     const MODULE_NAME = "User Bot";
 
-    const EXCHANGE_NAME = "Poloniex";
-
     const TRADES_FOLDER_NAME = "Trades";
 
     const CANDLES_FOLDER_NAME = "Candles";
@@ -20,15 +18,10 @@
     const VOLUMES_FOLDER_NAME = "Volumes";
     const VOLUME_STAIRS_FOLDER_NAME = "Volume-Stairs";
 
-    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
-
     thisObject = {
         initialize: initialize,
         start: start
     };
-
-    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-    let tomStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
@@ -46,21 +39,7 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             statusDependencies = pStatusDependencies;
-
-            commons.initializeStorage(oliviaStorage, tomStorage, onInizialized);
-
-            function onInizialized(err) {
-
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Initialization Succeed."); }
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                } else {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> err = " + err.message);
-                    callBackFunction(err);
-                }
-            }
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
@@ -69,11 +48,11 @@
     }
 
     /*
-    
+
     This process is going to do the following:
-    
+
     Read the candles and volumes from Olivia and produce for each market two files with candles stairs and volumes stairs respectively.
-    
+
     */
 
     function start(callBackFunction) {
@@ -114,7 +93,7 @@
 
                     /* We look first for Charly in order to get when the market starts. */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -303,9 +282,9 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> periodsLoop -> Entering function."); }
 
                             /*
-            
+
                             We will iterate through all posible timePeriods.
-            
+
                             */
 
                             n = 0   // loop Variable representing each possible period as defined at the periods array.
@@ -359,10 +338,11 @@
                                             let dateForPath = fileDate.getUTCFullYear() + '/' + utilities.pad(fileDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(fileDate.getUTCDate(), 2);
                                             let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                                            let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                            let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                             let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                            filePath += '/' + fileName
 
-                                            tomStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                            fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
 
                                             function onFileReceived(err, text) {
 
@@ -385,7 +365,7 @@
 
                                                     if (stairsFile.length > 0) {
 
-                                                        endOfLastCandleStair = stairsFile[stairsFile.length - 1][5]; // We get from the last regord the end value. Position 5 = Stairs.end 
+                                                        endOfLastCandleStair = stairsFile[stairsFile.length - 1][5]; // We get from the last regord the end value. Position 5 = Stairs.end
                                                         getEndOfLastVolumeStair();
 
                                                     } else {
@@ -435,10 +415,11 @@
                                             let dateForPath = fileDate.getUTCFullYear() + '/' + utilities.pad(fileDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(fileDate.getUTCDate(), 2);
                                             let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                                            let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                            let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                             let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                            filePath += '/' + fileName
 
-                                            tomStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                            fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
 
                                             function onFileReceived(err, text) {
 
@@ -520,8 +501,8 @@
 
                                     let candles = [];                   // Here we will put all the candles of the 2 files read.
 
-                                    let previousDayStairsArray = [];    // Here All the stairs of the previous day. 
-                                    let processDayStairsArray = [];     // Here All the stairs of the process day. 
+                                    let previousDayStairsArray = [];    // Here All the stairs of the previous day.
+                                    let processDayStairsArray = [];     // Here All the stairs of the process day.
 
                                     let previousDayFile;
                                     let processDayFile;
@@ -537,10 +518,11 @@
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                             let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                             let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                            filePath += '/' + fileName
 
-                                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+                                            fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived, true);
 
                                             function onCurrentDayFileReceived(err, text) {
 
@@ -576,10 +558,11 @@
                                             let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                             let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                             let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                            filePath += '/' + fileName
 
-                                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+                                            fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived, true);
 
                                             function onCurrentDayFileReceived(err, text) {
 
@@ -767,7 +750,7 @@
                                                     if (stairs !== undefined) {
 
                                                         /*
-                                                        Here we detect stairs that started at process day - 2. 
+                                                        Here we detect stairs that started at process day - 2.
                                                         */
 
                                                         if (stairs.begin > endOfLastCandleStair) {
@@ -873,10 +856,11 @@
                                                     let dateForPath = pDate.getUTCFullYear() + '/' + utilities.pad(pDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(pDate.getUTCDate(), 2);
                                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                                     let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+                                                    filePath += '/' + fileName
 
-                                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                                                     function onFileCreated(err) {
 
@@ -931,8 +915,8 @@
 
                                     let volumes = [];
 
-                                    let previousDayStairsArray = [];    // Here All the stairs of the previous day. 
-                                    let processDayStairsArray = [];     // Here All the stairs of the process day. 
+                                    let previousDayStairsArray = [];    // Here All the stairs of the previous day.
+                                    let processDayStairsArray = [];     // Here All the stairs of the process day.
 
                                     let previousDayFile;
                                     let processDayFile;
@@ -948,10 +932,11 @@
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                             let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                             let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                            filePath += '/' + fileName
 
-                                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+                                            fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived, true);
 
                                             function onCurrentDayFileReceived(err, text) {
 
@@ -987,10 +972,11 @@
                                             let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                             let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                             let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                            filePath += '/' + fileName
 
-                                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+                                            fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived, true);
 
                                             function onCurrentDayFileReceived(err, text) {
 
@@ -1291,7 +1277,7 @@
                                                         if (stairs !== undefined) {
 
                                                             /*
-                                                           Here we detect stairs that started at process day - 2. 
+                                                           Here we detect stairs that started at process day - 2.
                                                            */
 
                                                             if (stairs.type === 'sell') {
@@ -1415,10 +1401,11 @@
                                                     let dateForPath = pDate.getUTCFullYear() + '/' + utilities.pad(pDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(pDate.getUTCDate(), 2);
                                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                                     let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+                                                    filePath += '/' + fileName
 
-                                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                                                     function onFileCreated(err) {
 
@@ -1579,11 +1566,9 @@
 
                     let fileName = 'Data.Range.' + market.assetA + '_' + market.assetB + '.json';
                     let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
+                    filePath += '/' + fileName
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> fileName = " + fileName); }
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> filePath = " + filePath); }
-
-                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileStorage) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -9,8 +9,6 @@
 
     const MODULE_NAME = "User Bot";
 
-    const EXCHANGE_NAME = "Poloniex";
-
     const TRADES_FOLDER_NAME = "Trades";
 
     const CANDLES_FOLDER_NAME = "Candles";
@@ -19,15 +17,10 @@
     const VOLUMES_FOLDER_NAME = "Volumes";
     const VOLUMES_ONE_MIN = "One-Min";
 
-    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
-
     thisObject = {
         initialize: initialize,
         start: start
     };
-
-    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-    let bruceStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
@@ -45,22 +38,7 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             statusDependencies = pStatusDependencies;
-
-            commons.initializeStorage(oliviaStorage, bruceStorage, onInizialized);
-
-            function onInizialized(err) {
-
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Initialization Succeed."); }
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                } else {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> err = " + err.message);
-                    callBackFunction(err);
-                }
-            }
-
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -82,7 +60,7 @@
 
     2. We know from out status report which was the last DAY we processed from Bruce, but we must be carefull, because that day mightn not have been complete, if the
     last run found the head of the market. That means that we have to be carefull not to append candles that are already there. To simplify what we do is to discard
-    all candles of the last processed day, and then we can process that full day again adding all the candles. 
+    all candles of the last processed day, and then we can process that full day again adding all the candles.
 
 */
 
@@ -116,7 +94,7 @@
 
                     /* We look first for Charly in order to get when the market starts. */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -152,7 +130,7 @@
 
                     /* Second, we get the report from Bruce, to know when the marted ends. */
 
-                    reportKey = "AAMasters" + "-" + "AABruce" + "-" + "One-Min-Daily-Candles-Volumes" + "-" + "dataSet.V1" + "-" +  bot.processDatetime.getUTCFullYear() + "-" + utilities.pad(bot.processDatetime.getUTCMonth() + 1,2);
+                    reportKey = "AAMasters" + "-" + "AABruce" + "-" + "Single-Period-Daily" + "-" + "dataSet.V1" + "-" +  bot.processDatetime.getUTCFullYear() + "-" + utilities.pad(bot.processDatetime.getUTCMonth() + 1,2);
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -274,13 +252,12 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> Entering function."); }
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
+                            filePath += '/' + fileName
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> fileName = " + fileName); }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> filePath = " + filePath); }
+                            fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
-                            oliviaStorage.getTextFile(filePath, fileName, onFileReceived);
+                            console.log("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> getting file.");
 
                             function onFileReceived(err, text) {
 
@@ -314,13 +291,12 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> Entering function."); }
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
+                            filePath += '/' + fileName
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> fileName = " + fileName); }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> filePath = " + filePath); }
+                            fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
-                            oliviaStorage.getTextFile(filePath, fileName, onFileReceived);
+                            console.log("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> getting file.");
 
                             function onFileReceived(err, text) {
 
@@ -350,7 +326,7 @@
                                     callBackFunction(err);
                                 }
                             }
-                        } 
+                        }
 
                     }
 
@@ -429,9 +405,9 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> Entering function."); }
 
                         /*
-        
+
                         We will iterate through all posible periods.
-        
+
                         */
 
                         let n = 0   // loop Variable representing each possible period as defined at the periods array.
@@ -513,7 +489,7 @@
                             /*
                             From here on is where every iteration of the loop fully runs. Here is where we read Bruce's files and add their content to whatever
                             we already have in our arrays in-memory. In this way the process will run as many days needed and it should only stop when it reaches
-                            the head of the market. 
+                            the head of the market.
                             */
 
                             nextCandleFile();
@@ -524,13 +500,13 @@
 
                                 let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                 let fileName = market.assetA + '_' + market.assetB + ".json"
-                                let filePathRoot = bot.devTeam + "/" + "AABruce" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                let filePathRoot = bot.devTeam + "/" + "AABruce" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                                filePath += '/' + fileName
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> fileName = " + fileName); }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> filePath = " + filePath); }
+                                fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
 
-                                bruceStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                console.log("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> getting file at dateForPath = " + dateForPath);
 
                                 function onFileReceived(err, text) {
 
@@ -552,9 +528,19 @@
                                                 return;
                                             }
                                         } else {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.message);
-                                            callBackFunction(err);
-                                            return;
+
+                                            if (err.message === 'File does not exist.') {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Dependency Not Ready -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                return;
+
+                                            } else {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
                                         }
 
                                         const inputCandlesPerdiod = 60 * 1000;              // 1 min
@@ -645,13 +631,13 @@
 
                                     let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
-                                    let filePathRoot = bot.devTeam + "/" + "AABruce" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.devTeam + "/" + "AABruce" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
+                                    filePath += '/' + fileName
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> fileName = " + fileName); }
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> filePath = " + filePath); }
+                                    fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
 
-                                    bruceStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                    console.log("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
 
                                     function onFileReceived(err, text) {
 
@@ -793,11 +779,11 @@
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                         let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
- 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> fileName = " + fileName); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> filePath = " + filePath); }
+                        filePath += '/' + fileName
 
-                        oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+
+                        console.log("[INFO] start -> writeFiles -> writeCandles -> creating file at filePath = " + filePath);
 
                         function onFileCreated(err) {
 
@@ -843,11 +829,11 @@
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                         let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
+                        filePath += '/' + fileName
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> fileName = " + fileName); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> filePath = " + filePath); }
+                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
-                        oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                        console.log("[INFO] start -> writeFiles -> writeVolumes -> creating file at filePath = " + filePath);
 
                         function onFileCreated(err) {
 
@@ -868,7 +854,7 @@
                             callBack();
                         }
                     }
-                }           
+                }
                 catch (err) {
                 logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> err = " + err.message);
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);

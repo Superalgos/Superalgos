@@ -1,50 +1,48 @@
-# I'm Charly, an e-bot!
-AKA an extractor algobot running on the AAPlatform by Advanced Algos Ltd.
+# Charly
 
-### My Specialty
-I get trades data for all markets --both historic and live-- assuring consistency using recursive processes, and store it in a highly fragmented and usable dataset.
+Charly is a Sensor bot that is capable of extracting trades from exchanges. It has 3 main processes which together creates an ongoing dataset of trades guaranteed to be reliable.
 
-### Ideal for
-My dataset is fundamental for building candles and calculating volumes, along with many other indicators based on actual trade information.
+## Live Trades
 
-### Details
+This process extracts the latest 2 minutes of trade records and save 2 files of 1 minute each. The last file written is overwritten at the next run, allowing the process to complete with the trades that happened after the previous execution retrieval of data. 
 
-| **Name** | **Type** | **Version** | **Release Date** | **Current dataSet** |
-|----------|----------|----------|----------|----------|
-| Charly |Extraction | 1.0 | Jan 2018 | dataSet.V1 |
+### Start Mode
 
-# My Product
+The process need to run every 1 minute in noTime mode. 
 
-### Current Dataset Scope
-* **Exchanges**: Poloniex
-* **Markets**: USDT-BTC (only this market available at this point in time; the rest will follow soon)
-* **Range**: Market Start Date – Current Time (-0 to 59 secs)
+```
+"startMode": {
+        "noTime": {
+          "run": "false"
+        }
+      }
+```
 
-### Current Dataset
-* **Version:** dataSet.V1
-* **Update Frequency**: 1 minute
-* **Cloud Output Location:** Charly > dataSet.V1
-* **Folder Structure Tree**: Output > Trades > ExchangeName > Year > Month > Day > Hour > Minute
-* **Files Structure**: One .json file per pair (e.g.: BTC_BCH.json, BTC_BCN.json, ... , ETH_BCH, ETH_BCN, etc.) stored at the Minute level of the Folder Tree Structure
-* **In-File Record Structure**:
-  * Trade ID at Exchange, numeric;
-  * Trade Type, “sell” or “buy”;
-  * Trade Rate, decimal;
-  * Trade Amount A, decimal;
-  * Trade Amount B, decimal;
-  * Trade Seconds, numeric, 0 to 59
-* **In-File Record Example**: 
-  * [[19057863,"buy",7350.00000000,15.09998700,0.00205442,0],[19057864,"sell",7349.27989360,1.49682783,0.00020367,2], ... ,[19057865,"sell",7346.00000000,146.92000000,0.02000000,2],[19057869,"buy",7342.00000000,73.42000000,0.01000000,4]]
+## Hole Fixing
 
+When the Live Trades process goes down, the exchange goes down or anything in the middle goes down, data from the exchange can not be retrieved. Once Live Trades is running normally again a whole on the dataset appears between the last files saved and the new files after the restart.
 
-### Compatible Plotters
-Not applicable.
+The Hole Fixing process is there to detect those holes and retrieve the missing information, allowing the dataset to be 100% reliable. 
 
-### Dependencies
-None.
+### Start Mode
 
-### Data as a Service (DaaS) Fees
-No fees.
+This process runs every 1 minute under allMonths start mode, where a yearly range must be specified (initial processing year and final processing year)
+
+```
+"startMode": {
+        "allMonths": {
+          "run": "true",
+          "minYear": "2019",
+          "maxYear": "2021"
+        }
+      }
+```
+
+## Historic Trades
+
+This process is designed to grabb historical trades information from an exchange, starting from the latest trades, and going all the way back to the begining of the market, respecting the exchange limits on trades per batch extracted.
+
+This process is currently not being mantained, meaning that there is no guarantee that it can still run.
 
 # Disclaimer
 

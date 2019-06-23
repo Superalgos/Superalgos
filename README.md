@@ -1,21 +1,14 @@
-# I'm Bruce, an i-bot!
-AKA an indicator algobot running on the AAPlatform by Advanced Algos Ltd.
+# Bruce
 
-### My Specialty
-I produce two datasets:
-* One with candles at 1 minute resolution;
-* One with volumes at 1 minute resolution.
+Bruce is a low level Indicator bot that has as an input trades files and outputs 1 minute candles packaged on daily files.
 
-### Ideal for
-My datasets are ideal for analysing candle shapes and types, candle patterns, volume fluctuations and for producing all kinds of studies based in those two (candles & volumes) Technical Analysis fundamentals, and serve as the basis for producing candles and volumes in other resolution levels. 
+## Single Period Daily
 
-### Details
+This process reads trades packed in 1 minutes files. For every day it creates a file with candles at 1 minute.
 
-| **Name** | **Type** | **Version** | **Release Date** | **Current dataSet** |
-|----------|----------|----------|----------|----------|
-| Bruce | Indicator | 1.0 | 28 Feb 2018 | dataSet.V1 |
+### Start Mode
 
-# My Products
+This process runs every 1 minute under allMonths start mode, where a yearly range must be specified (initial processing year and final processing year)
 
 ## Dataset 1: Candles in 1 Minute Resolutions
 
@@ -37,7 +30,7 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
   * Close, decimal;
   * Begin, decimal;
   * End, decimal;
-* **In-File Record Example**: 
+* **In-File Record Example**:
   * [[13760.00000003,13799.99999984,13799.99999984,13785.89250371,1514764800000,1514764859999],[13760,13785.89250371,13766.22307573,13785.89250322,1514764860000,1514764919999], ... ,[13760,13785.89250322,13760.00000114,13760.00000089,1514764920000,1514764979999]]
 
 ## Dataset 2: Volumes in 1 Minute Resolutions
@@ -58,7 +51,7 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
   * Sell Volume, decimal;
   * Open Volume, decimal;
   * Close Volume, decimal
-* **In-File Record Example**: 
+* **In-File Record Example**:
   * [[7412.27033867,7414.5873403,7414.57532252,7414.5873403],[7390.42410104,7414.5873403,7412.06261697,7390.42410104], ... ,[7390,7392.88810353,7392.88810353,7390]]
 
 ### Compatible Plotters

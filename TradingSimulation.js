@@ -189,10 +189,10 @@
 
                 if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
-                     marketFile = marketFiles.getFile(pTimePeriod);
+                    marketFile = marketFiles.getFile(pTimePeriod);
 
-                     recalculate();
-                  
+                    recalculate();
+
                 } else {
 
                     let newFileCursor = dailyFiles.getFileCursor(pTimePeriod);
@@ -670,7 +670,7 @@
                     continue;
                 }
 
-                /* Next we are drawing the sellRate */
+                /* Next we are drawing the position Rate */
 
                 browserCanvasContext.beginPath();
 
@@ -697,8 +697,12 @@
                 imageSize = 20;
                 let imageToDraw;
 
-                /* Next we are drawing the stopLoss floor / ceilling */
+                /* Depending on what is on top, it is also the text and image of the take profit / stop loss */
 
+                let yOffset = 0
+                if (record.takeProfit > record.stopLoss) { yOffset = imageSize * 2 }
+
+                /* Next we are drawing the stopLoss floor / ceilling */
 
                 browserCanvasContext.beginPath();
 
@@ -724,12 +728,11 @@
 
 
                 if (imageStopLossPhase.canDrawIcon === true && stopLossPhase > 0) {
-                    browserCanvasContext.drawImage(imageStopLossPhase, recordPoint5.x - imageSize, recordPoint5.y - imageSize * 1.25, imageSize, imageSize);
-                    printLabel(stopLossPhase, recordPoint5.x - imageSize / 2 - 3, recordPoint5.y - imageSize * 1.5, '0.9', 8);
+                    browserCanvasContext.drawImage(imageStopLossPhase, recordPoint5.x - imageSize, recordPoint5.y - imageSize * 1.25 + yOffset, imageSize, imageSize);
+                    printLabel(stopLossPhase, recordPoint5.x - imageSize / 2 - 3, recordPoint5.y - imageSize * 1.5 + yOffset * 2, '0.9', 8);
                 }
 
-                /* Next we are drawing the Buy Order */
-
+                /* Next we are drawing the Take Profit */
 
                 browserCanvasContext.beginPath();
 
@@ -752,8 +755,8 @@
                 browserCanvasContext.stroke()
 
                 if (imageBuyOrderPhase.canDrawIcon === true && takeProfitPhase > 0) {
-                    browserCanvasContext.drawImage(imageBuyOrderPhase, recordPoint9.x - imageSize * 2 / 3, recordPoint9.y + imageSize / 4, imageSize, imageSize);
-                    printLabel(takeProfitPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9, '0.9', 8);
+                    browserCanvasContext.drawImage(imageBuyOrderPhase, recordPoint9.x - imageSize * 2 / 3, recordPoint9.y + imageSize / 4 - yOffset, imageSize, imageSize);
+                    printLabel(takeProfitPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9 - yOffset * 2, '0.9', 8);
                 }
 
             }
@@ -805,6 +808,7 @@
         }
     }
 }
+
 
 
 

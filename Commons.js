@@ -502,12 +502,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                             if (formulaValue < MIN_STOP_LOSS_VALUE) {
                                                 formulaValue = MIN_STOP_LOSS_VALUE
                                             }
-                                        }
 
-                                        formulasErrors.push('"' + formulaError + '"')
-                                        formulasValues.push( formulaValue)
-                                        let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p;
-                                        formulas.set(key, formulaValue)
+                                            formulasErrors.push('"' + formulaError + '"')
+                                            formulasValues.push(formulaValue)
+                                            let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p;
+                                            formulas.set(key, formulaValue)
+                                        }
 
                                         /* next phase event */
                                         let nextPhaseEvent = phase.nextPhaseEvent;
@@ -555,12 +555,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                             if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
                                                 formulaValue = MIN_TAKE_PROFIT_VALUE
                                             }
-                                        }
 
-                                        formulasErrors.push('"' + formulaError + '"')
-                                        formulasValues.push(formulaValue)
-                                        let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p;
-                                        formulas.set(key, formulaValue)
+                                            formulasErrors.push('"' + formulaError + '"')
+                                            formulasValues.push(formulaValue)
+                                            let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p;
+                                            formulas.set(key, formulaValue)
+                                        }
 
                                         /* next phase event */
                                         let nextPhaseEvent = phase.nextPhaseEvent;
@@ -614,12 +614,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                         if (formulaValue < MIN_STOP_LOSS_VALUE) {
                                             formulaValue = MIN_STOP_LOSS_VALUE
                                         }
-                                    }
 
-                                    formulasErrors.push('"' + formulaError + '"')
-                                    formulasValues.push(formulaValue)
-                                    let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p;
-                                    formulas.set(key, formulaValue)
+                                        formulasErrors.push('"' + formulaError + '"')
+                                        formulasValues.push(formulaValue)
+                                        let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p;
+                                        formulas.set(key, formulaValue)
+                                    }
 
                                     /* next phase event */
                                     let nextPhaseEvent = phase.nextPhaseEvent;
@@ -667,12 +667,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                         if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
                                             formulaValue = MIN_TAKE_PROFIT_VALUE
                                         }
-                                    }
 
-                                    formulasErrors.push('"' + formulaError + '"')
-                                    formulasValues.push(formulaValue)
-                                    let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p;
-                                    formulas.set(key, formulaValue)
+                                        formulasErrors.push('"' + formulaError + '"')
+                                        formulasValues.push(formulaValue)
+                                        let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p;
+                                        formulas.set(key, formulaValue)
+                                    }
 
                                     /* next phase event */
                                     let nextPhaseEvent = phase.nextPhaseEvent;

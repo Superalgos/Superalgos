@@ -374,6 +374,7 @@
                     for (let i = 0; i < tradesArray.length; i++) {
 
                         let record = tradesArray[i];
+                        if (record.stopRate === undefined) { record.stopRate = 0 }
 
                         fileContent = fileContent + separator + '[' +
                             record.begin + "," +

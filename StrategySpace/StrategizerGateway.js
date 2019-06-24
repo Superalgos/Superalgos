@@ -132,14 +132,14 @@ function newStrategizerGateway () {
       }
 
       user = JSON.parse(user)
-      let fbSlug = 'simulator' + '-' + user.alias
+      let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias
 
       let response = await axios({
         url: window.canvasApp.graphQL.masterAppApiUrl,
         method: 'post',
         data: {
           query:
-          `             
+          `
           query($fbSlug: String!){
           strategizer_TradingSystemByFb(fbSlug: $fbSlug){
             id

@@ -112,6 +112,8 @@ services:
     build: ../OperationsModule/server
     env_file: ./env/clones-api.env
     command: npm start
+    ports:
+      - "4003:4003"
     networks:
       - superalgos_net
     depends_on:
@@ -123,6 +125,8 @@ services:
     build: ../CockpitServerModule
     env_file: ./env/cockpit-api.env
     command: npm start
+    ports:
+      - "4009:4009"
     networks:
       - superalgos_net
     depends_on:
@@ -134,6 +138,8 @@ services:
     build: ../StrategizerServerModule
     env_file: ./env/strategizer-api.env
     command: npm start
+    ports:
+      - "4008:4008"
     networks:
       - superalgos_net
     depends_on:
@@ -145,6 +151,8 @@ services:
     build: ../EventsServerModule
     env_file: ./env/events-api.env
     command: npm start
+    ports:
+      - "4005:4005"
     networks:
       - superalgos_net
     depends_on:
@@ -169,6 +177,8 @@ services:
     build: ../KeyVaultModule/server
     env_file: ./env/keyvault-api.env
     command: npm start
+    ports:
+      - "4002:4002"
     networks:
       - superalgos_net
     depends_on:

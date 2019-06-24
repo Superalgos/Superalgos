@@ -50,7 +50,7 @@
     let records = [];                   // Here we keep the records to be ploted every time the Draw() function is called by the AAWebPlatform.
 
     let imageStopLossPhase;
-    let imageBuyOrderPhase;
+    let imageTakeProfitPhase;
     let imageRecord;
 
     let zoomChangedEventSubscriptionId
@@ -75,7 +75,7 @@
             /* icons */
 
             imageStopLossPhase = undefined;
-            imageBuyOrderPhase = undefined;
+            imageTakeProfitPhase = undefined;
             imageRecord = undefined;
 
             /* Destroy References */
@@ -139,7 +139,7 @@
             /* Loading a few icons */
 
             imageStopLossPhase = canvas.strategySpace.iconByPartType.get('Stop');
-            imageBuyOrderPhase = canvas.strategySpace.iconByPartType.get('Phase');
+            imageTakeProfitPhase = canvas.strategySpace.iconByPartType.get('Take Profit');
             imageRecord = canvas.strategySpace.iconByPartType.get('Trading System');
 
             callBackFunction();
@@ -754,8 +754,8 @@
                 browserCanvasContext.lineWidth = 5
                 browserCanvasContext.stroke()
 
-                if (imageBuyOrderPhase.canDrawIcon === true && takeProfitPhase > 0) {
-                    browserCanvasContext.drawImage(imageBuyOrderPhase, recordPoint9.x - imageSize * 2 / 3, recordPoint9.y + imageSize / 4 - yOffset, imageSize, imageSize);
+                if (imageTakeProfitPhase.canDrawIcon === true && takeProfitPhase > 0) {
+                    browserCanvasContext.drawImage(imageTakeProfitPhase, recordPoint9.x - imageSize * 2 / 3, recordPoint9.y + imageSize / 4 - yOffset, imageSize, imageSize);
                     printLabel(takeProfitPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9 - yOffset * 2, '0.9', 8);
                 }
 

@@ -401,6 +401,7 @@
                         at the current date. */
 
                         if (record.end < currentDay.valueOf()) { continue; }
+                        if (record.stopRate === undefined) { record.stopRate = 0}
 
                         fileContent = fileContent + separator + '[' +
                             record.begin + "," +

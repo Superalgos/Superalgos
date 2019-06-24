@@ -73,7 +73,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Initial Default Values */
 
-            let initialDate = startDate;    
+            let initialDate = startDate;
 
             const DEFAULT_BASE_ASSET_BALANCE = 1
             const DEFAULT_BASE_ASSET_MINIMUN_BALANCE = 0.5
@@ -92,7 +92,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             if (tradingSystem.parameters !== undefined) {
                 if (tradingSystem.parameters.baseAsset !== undefined) {
                     if (tradingSystem.parameters.baseAsset.formula !== undefined) {
-                        let receivedParameters 
+                        let receivedParameters
                         try {
                             receivedParameters = JSON.parse(tradingSystem.parameters.baseAsset.formula.code);
 
@@ -159,7 +159,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             /* Strategy and Phases */
 
             let currentStrategyIndex = -1;
-            let strategyStage = 'No Stage';   
+            let strategyStage = 'No Stage';
 
             /* Stop Loss Management */
 
@@ -167,7 +167,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             const MAX_STOP_LOSS_VALUE = Number.MAX_SAFE_INTEGER
             let stopLoss = 0;
             let stopLossPhase = 0;
-            let stopLossStage = 'No Stage';  
+            let stopLossStage = 'No Stage';
 
             /* Take Profit Management */
 
@@ -176,7 +176,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let previousTakeProfit = 0;
             let takeProfit = 0;
             let takeProfitPhase = 0;
-            let takeProfitStage = 'No Stage';  
+            let takeProfitStage = 'No Stage';
 
             /* Simulation Records */
 
@@ -309,8 +309,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     yesterday.balanceAssetA = balanceAssetA;
                     yesterday.balanceAssetB = balanceAssetB;
 
-                } 
-                
+                }
+
                 lastProfit = interExecutionMemory.lastProfit;
                 profit = interExecutionMemory.profit;
                 lastProfitPercent = interExecutionMemory.lastProfitPercent;
@@ -330,9 +330,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 yesterday.hitRatio = hitRatio;
                 yesterday.ROI = ROI;
                 yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
-                
+
             }
-           
+
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
 
             for (let i = 0; i < candles.length; i++) {
@@ -490,7 +490,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                         if (phase.formula !== undefined) {
                                             try {
-                                                formulaValue = eval(phase.formula.code); 
+                                                formulaValue = eval(phase.formula.code);
                                                 if (formulaValue === Infinity) {
                                                     formulaError= "Formula evaluates to Infinity."
                                                     formulaValue = MAX_STOP_LOSS_VALUE
@@ -502,12 +502,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                             if (formulaValue < MIN_STOP_LOSS_VALUE) {
                                                 formulaValue = MIN_STOP_LOSS_VALUE
                                             }
-                                        }
 
-                                        formulasErrors.push('"' + formulaError + '"')
-                                        formulasValues.push( formulaValue)
-                                        let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p;
-                                        formulas.set(key, formulaValue)
+                                            formulasErrors.push('"' + formulaError + '"')
+                                            formulasValues.push(formulaValue)
+                                            let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p;
+                                            formulas.set(key, formulaValue)
+                                        }
 
                                         /* next phase event */
                                         let nextPhaseEvent = phase.nextPhaseEvent;
@@ -555,12 +555,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                             if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
                                                 formulaValue = MIN_TAKE_PROFIT_VALUE
                                             }
-                                        }
 
-                                        formulasErrors.push('"' + formulaError + '"')
-                                        formulasValues.push(formulaValue)
-                                        let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p;
-                                        formulas.set(key, formulaValue)
+                                            formulasErrors.push('"' + formulaError + '"')
+                                            formulasValues.push(formulaValue)
+                                            let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p;
+                                            formulas.set(key, formulaValue)
+                                        }
 
                                         /* next phase event */
                                         let nextPhaseEvent = phase.nextPhaseEvent;
@@ -614,12 +614,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                         if (formulaValue < MIN_STOP_LOSS_VALUE) {
                                             formulaValue = MIN_STOP_LOSS_VALUE
                                         }
-                                    }
 
-                                    formulasErrors.push('"' + formulaError + '"')
-                                    formulasValues.push(formulaValue)
-                                    let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p;
-                                    formulas.set(key, formulaValue)
+                                        formulasErrors.push('"' + formulaError + '"')
+                                        formulasValues.push(formulaValue)
+                                        let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p;
+                                        formulas.set(key, formulaValue)
+                                    }
 
                                     /* next phase event */
                                     let nextPhaseEvent = phase.nextPhaseEvent;
@@ -667,12 +667,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                         if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
                                             formulaValue = MIN_TAKE_PROFIT_VALUE
                                         }
-                                    }
 
-                                    formulasErrors.push('"' + formulaError + '"')
-                                    formulasValues.push(formulaValue)
-                                    let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p;
-                                    formulas.set(key, formulaValue)
+                                        formulasErrors.push('"' + formulaError + '"')
+                                        formulasValues.push(formulaValue)
+                                        let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p;
+                                        formulas.set(key, formulaValue)
+                                    }
 
                                     /* next phase event */
                                     let nextPhaseEvent = phase.nextPhaseEvent;
@@ -702,7 +702,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         let condition;
                         let error = ''
-                        let value 
+                        let value
 
                         try {
                             value = eval(node.code);
@@ -734,11 +734,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (
                     strategyStage === 'No Stage' &&
-                    currentStrategyIndex === -1 
+                    currentStrategyIndex === -1
                 ) {
                     let minimunBalance
                     let maximunBalance
-                    let balance 
+                    let balance
 
                     if (baseAsset === 'BTC') {
                         balance = balanceAssetA
@@ -756,12 +756,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         /*
                         Here we need to pick a strategy, or if there is not suitable strategy for the current
                         market conditions, we pass until the next period.
-            
+
                         To pick a new strategy we will evaluate what we call the trigger on. Once we enter
                         into one strategy, we will ignore market conditions for others. However there is also
                         a strategy trigger off which can be hit before taking a position. If hit, we would
                         be outside a strategy again and looking for the condition to enter all over again.
-        
+
                         */
 
                         for (let j = 0; j < tradingSystem.strategies.length; j++) {
@@ -869,7 +869,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         } else {
                             balanceAssetB = balanceAssetB + balanceAssetA * stopLoss;
                             balanceAssetA = 0;
-                        }                        
+                        }
 
                         if (currentDay !== undefined) {
                             if (positionInstant < currentDay.valueOf()) {
@@ -904,7 +904,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         } else {
                             balanceAssetB = balanceAssetB + balanceAssetA * takeProfit;
                             balanceAssetA = 0;
-                        }   
+                        }
 
                         if (currentDay !== undefined) {
                             if (positionInstant < currentDay.valueOf()) {
@@ -920,7 +920,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
                         currentTrade.end = candle.end;
-                        currentTrade.status = 1;    
+                        currentTrade.status = 1;
                         currentTrade.exitType = 2;
                         currentTrade.endRate = takeProfit;
 
@@ -995,7 +995,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
-                    let parentNode 
+                    let parentNode
                     let j = currentStrategyIndex
                     let stageKey
                     let initialDefinitionKey = ''
@@ -1008,7 +1008,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 initialDefinitionKey = '-' + 'initialDefinition'
                                 stageKey = 'openStage'
                                 p = stopLossPhase - 1
-                            } 
+                            }
                         }
                     }
 
@@ -1017,7 +1017,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             parentNode = manageStage
                             stageKey = 'manageStage'
                             p = stopLossPhase - 2
-                        } 
+                        }
                     }
 
                     let phase = parentNode.stopLoss.phases[p];
@@ -1056,7 +1056,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
-                    let phase 
+                    let phase
                     let key
 
                     if (stopLossStage === 'Open Stage' && openStage !== undefined) {
@@ -1192,11 +1192,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     /* positionSize default is the whole balance if no size was defined by the user */
                     if (baseAsset === 'BTC') {
-                        positionSize = balanceAssetA; 
+                        positionSize = balanceAssetA;
                     } else {
-                        positionSize = balanceAssetB; 
-                    }  
-                    
+                        positionSize = balanceAssetB;
+                    }
+
                     /* Check if the user defined a position size */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
                     let triggerStage = strategy.triggerStage
@@ -1205,7 +1205,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (triggerStage.positionSize !== undefined) {
                             if (triggerStage.positionSize.formula !== undefined) {
                                 try {
-                                    positionSize = eval(triggerStage.positionSize.formula.code); 
+                                    positionSize = eval(triggerStage.positionSize.formula.code);
                                 } catch (err) {
                                     triggerStage.positionSize.formula.error = err.message
                                 }
@@ -1214,7 +1214,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                         positionSize = balanceAssetA;
                                     } else {
                                         positionSize = balanceAssetB;
-                                    }  
+                                    }
                                 }
                             }
                         }
@@ -1238,7 +1238,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     } else {
                         balanceAssetA = balanceAssetA + positionSize / marketRate;
                         balanceAssetB = balanceAssetB - positionSize;
-                    }  
+                    }
 
                     positionInstant = candle.end;
 
@@ -1265,7 +1265,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if (currentDay !== undefined) {
                         if (positionInstant < currentDay.valueOf()) {
                             yesterday.Roundtrips++;
-                        }                        
+                        }
                     }
 
                     if (baseAsset === 'BTC') {
@@ -1278,7 +1278,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         lastProfitPercent = lastProfit / previousBalanceAssetB * 100;
                         if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
                         profit = balanceAssetB - initialBalanceB;
-                    }  
+                    }
 
                     if (currentDay !== undefined) {
                         if (positionInstant < currentDay.valueOf()) {
@@ -1290,7 +1290,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     currentTrade.lastProfitPercent = lastProfitPercent;
                     currentTrade.stopRate = stopLoss;
-                   
+
                     if (lastProfit > 0) {
                         hits++;
 
@@ -1318,7 +1318,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         ROI = (initialBalanceB + profit) / initialBalanceB - 1;
                         hitRatio = hits / roundtrips;
                         anualizedRateOfReturn = ROI / days * 365;
-                    }  
+                    }
 
                     if (currentDay !== undefined) {
                         if (positionInstant < currentDay.valueOf()) {
@@ -1421,7 +1421,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         "")
                     }
 
-                    let strategyStageNumber 
+                    let strategyStageNumber
                     switch (strategyStage) {
                         case 'No Stage': {
                             strategyStageNumber = 0
@@ -1837,6 +1837,3 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
         }
     }
 };
-
-
-

@@ -113,7 +113,7 @@ function newRestartSimulation () {
         thisObject.status = 'Restarting'
         await graphQlRestartSimulation(simulationParams)
         thisObject.status = 'Calculating'
-        counterTillNextState = 250
+        counterTillNextState = 50
       } else {
         thisObject.status = 'Error'
         counterTillNextState = 500
@@ -131,7 +131,7 @@ function newRestartSimulation () {
       if (panel.name === 'Products Panel') {
         for (j = 0; j < panel.productCards.length; j++) {
           let productCard = panel.productCards[j]
-          if (productCard.product.codeName in (productCardsToTurnOff) && productCard.status !== PRODUCT_CARD_STATUS.OFF) {
+          if (productCardsToTurnOff.includes(productCard.product.codeName) && productCard.status !== PRODUCT_CARD_STATUS.OFF) {
             productCard.turnOff()
             productCardsToTurnOn.push(productCard)
           }
@@ -166,7 +166,7 @@ function newRestartSimulation () {
           case 'Calculating':
             thisObject.status = 'Refreshing'
             turnOffProductCards()
-            counterTillNextState = 50
+            counterTillNextState = 10
             break
           case 'Refreshing':
             thisObject.status = 'Ready'

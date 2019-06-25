@@ -125,12 +125,13 @@ function newRestartSimulation () {
   }
 
   function turnOffProductCards () {
+    let productCardsToTurnOff = ['Trading-Simulation', 'Simulation-Conditions', 'Simulation-Strategies', 'Simulation-Trades']
     for (let i = 0; i < canvas.panelsSpace.panels.length; i++) {
       let panel = canvas.panelsSpace.panels[i]
       if (panel.name === 'Products Panel') {
         for (j = 0; j < panel.productCards.length; j++) {
           let productCard = panel.productCards[j]
-          if (productCard.product.relatedToTradingEngine === true && productCard.status !== PRODUCT_CARD_STATUS.OFF) {
+          if (productCard.product.codeName in (productCardsToTurnOff) && productCard.status !== PRODUCT_CARD_STATUS.OFF) {
             productCard.turnOff()
             productCardsToTurnOn.push(productCard)
           }

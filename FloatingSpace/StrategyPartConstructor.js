@@ -223,7 +223,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Delete Parameters',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Trading System',
+            label: 'Delete Parameters',
             visible: false,
             iconPathOn: 'trash',
             iconPathOff: 'trash',

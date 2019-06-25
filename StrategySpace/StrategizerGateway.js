@@ -47,7 +47,7 @@ function newStrategizerGateway () {
       }
 
       user = JSON.parse(user)
-      let fbSlug = 'simulator' + '-' + user.alias
+      let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias
 
       /* See if we need to update or create a new record at the strategizer */
 

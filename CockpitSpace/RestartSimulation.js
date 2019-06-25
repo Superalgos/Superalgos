@@ -113,7 +113,7 @@ function newRestartSimulation () {
         thisObject.status = 'Restarting'
         await graphQlRestartSimulation(simulationParams)
         thisObject.status = 'Calculating'
-        counterTillNextState = 2000
+        counterTillNextState = 250
       } else {
         thisObject.status = 'Error'
         counterTillNextState = 500
@@ -165,7 +165,7 @@ function newRestartSimulation () {
           case 'Calculating':
             thisObject.status = 'Refreshing'
             turnOffProductCards()
-            counterTillNextState = 250
+            counterTillNextState = 50
             break
           case 'Refreshing':
             thisObject.status = 'Ready'
@@ -276,3 +276,4 @@ function newRestartSimulation () {
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }
+

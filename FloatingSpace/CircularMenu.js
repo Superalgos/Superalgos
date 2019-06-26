@@ -114,7 +114,7 @@ function newCircularMenu () {
   function onNotFocus () {
     for (let i = 0; i < menuItems.length; i++) {
       let menutItem = menuItems[i]
-      menutItem.targetRadius = menutItem.rawRadius * 0 - i * 5
+      menutItem.targetRadius = menutItem.rawRadius * 0 - i * 4
       menutItem.isDeployed = false
     }
     thisObject.isDeployed = false

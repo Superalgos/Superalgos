@@ -500,6 +500,8 @@ function newStrategyPart () {
   function onDragFinished (event) {
     if (isAttaching === true) {
       canvas.strategySpace.workspace.attachNode(thisObject.payload.node, attachToNode)
+      attachToNode = undefined
+      isAttaching = false
     }
     isDragging = false
   }

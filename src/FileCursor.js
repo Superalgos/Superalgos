@@ -1,5 +1,5 @@
- ﻿
-function newFileCursor () {
+
+function newFileCursor() {
   const MODULE_NAME = 'File Cursor'
   const INFO_LOG = false
   const ERROR_LOG = true
@@ -37,7 +37,7 @@ function newFileCursor () {
 
   return thisObject
 
-  function finalize () {
+  function finalize() {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
 
@@ -54,7 +54,7 @@ function newFileCursor () {
     }
   }
 
-  function initialize (pFileCloud, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
+  function initialize(pFileCloud, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDevTeam.codeName + '-' + pBot.codeName + '-' + pSet.codeName + '-' + pPeriodName) }
@@ -88,25 +88,25 @@ function newFileCursor () {
     }
   }
 
-  function updateFiles () {
+  function updateFiles() {
     try {
       if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> Entering function.') }
 
-            /*
+      /*
 
-            In order to know if we need to update any file we follow this logic:
+      In order to know if we need to update any file we follow this logic:
 
-            1. If the current date is already a file in the cursor, we need to update it.
-            2. If the current date is one day ahead of a file in the cursor, we need to add this one to the cursor.
+      1. If the current date is already a file in the cursor, we need to update it.
+      2. If the current date is one day ahead of a file in the cursor, we need to add this one to the cursor.
 
-            */
+      */
 
       let targetDate
       let dateString
       let file
 
-            /* Situation 1 */
+      /* Situation 1 */
 
       targetDate = new Date()
       dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2)
@@ -121,7 +121,7 @@ function newFileCursor () {
         return
       }
 
-            /* Situation 2 */
+      /* Situation 2 */
 
       targetDate = new Date((new Date()).valueOf() - ONE_DAY_IN_MILISECONDS)
       dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2)
@@ -139,7 +139,7 @@ function newFileCursor () {
         return
       }
 
-      function onFileReceived (err, file) {
+      function onFileReceived(err, file) {
         try {
           if (finalized === true) { return }
           if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> Entering function.') }
@@ -178,21 +178,21 @@ function newFileCursor () {
     }
   }
 
-  function setTimePeriod (pTimePeriod, pDatetime) {
+  function setTimePeriod(pTimePeriod, pDatetime) {
     try {
       if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> Entering function.') }
 
-            /*
+      /*
 
-            We are implementing here an algorithm designed to save bandwidth, memory and processing power at the browser.
-            We say there is a saving mode where the cursor is running at a minimum size. When the end user aproaches the time period the cursor
-            is set, then it should exit the saving mode and go to its actual size.
+      We are implementing here an algorithm designed to save bandwidth, memory and processing power at the browser.
+      We say there is a saving mode where the cursor is running at a minimum size. When the end user aproaches the time period the cursor
+      is set, then it should exit the saving mode and go to its actual size.
 
-            To do this we are going to measure the distance from the Time Period received to the one the cursors was initialized with.
-            If these periods are consecutive, it means that the cursor should exit saving mode and load its full size.
+      To do this we are going to measure the distance from the Time Period received to the one the cursors was initialized with.
+      If these periods are consecutive, it means that the cursor should exit saving mode and load its full size.
 
-            */
+      */
 
       cursorDate = removeTime(pDatetime) // Adjust the cursor date to the one received.
 
@@ -224,7 +224,7 @@ function newFileCursor () {
         enterSavingMode()
       }
 
-      function enterSavingMode () {
+      function enterSavingMode() {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> enterSavingMode -> Entering function.') }
 
@@ -303,7 +303,7 @@ function newFileCursor () {
         }
       }
 
-      function exitSavingMode () {
+      function exitSavingMode() {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> exitSavingMode -> Entering function.') }
 
@@ -386,7 +386,7 @@ function newFileCursor () {
     }
   }
 
-  function setDatetime (pDatetime) {
+  function setDatetime(pDatetime) {
     try {
       if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] setDatetime -> Entering function.') }
@@ -402,7 +402,7 @@ function newFileCursor () {
     }
   }
 
-  function reload (callBackFunction) {
+  function reload(callBackFunction) {
     try {
       if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] reload -> Entering function.') }
@@ -416,7 +416,7 @@ function newFileCursor () {
     }
   }
 
-  function getFiles (callBackFunction) {
+  function getFiles(callBackFunction) {
     try {
       if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] getFiles -> Entering function.') }
@@ -428,14 +428,14 @@ function newFileCursor () {
 
       getNextFile()
 
-      function getNextFile () {
+      function getNextFile() {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFiles -> getNextFile -> Entering function.') }
 
           let targetDate = new Date(cursorDate)
           targetDate.setUTCDate(targetDate.getUTCDate() + j)
 
-                    /* Small algorith to allow load first the current date, then alternate between the most forwad and the most backwards ones. */
+          /* Small algorith to allow load first the current date, then alternate between the most forwad and the most backwards ones. */
           if (j === 0) { j++ } else {
             if (j < 0) {
               j = -j
@@ -448,7 +448,7 @@ function newFileCursor () {
           let compareTargetDate = new Date(targetDate.valueOf())
 
           if (beginDateRange !== undefined) {
-            let compareBeginDate = beginDateRange
+            let compareBeginDate = removeTime(beginDateRange)
 
             if (compareTargetDate.valueOf() < compareBeginDate) {
               controlLoop()
@@ -457,7 +457,7 @@ function newFileCursor () {
           }
 
           if (endDateRange !== undefined) {
-            let compareEndDate = endDateRange
+            let compareEndDate = removeTime(endDateRange)
 
             if (compareTargetDate.valueOf() > compareEndDate) {
               controlLoop()
@@ -474,7 +474,7 @@ function newFileCursor () {
             controlLoop()
           } else {
             if (thisObject.files.get(dateString) === undefined) {
- // We dont reload files we already have.
+              // We dont reload files we already have.
 
               fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
             } else {
@@ -487,7 +487,7 @@ function newFileCursor () {
         }
       }
 
-      function onFileReceived (err, file) {
+      function onFileReceived(err, file) {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFiles -> onFileReceived -> Entering function.') }
 
@@ -532,7 +532,7 @@ function newFileCursor () {
         }
       }
 
-      function controlLoop () {
+      function controlLoop() {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFiles -> controlLoop -> Entering function.') }
 
@@ -556,7 +556,7 @@ function newFileCursor () {
     }
   }
 
-  function collectGarbage (callBackFunction) {
+  function collectGarbage(callBackFunction) {
     try {
       if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] collectGarbage -> Entering function.') }
@@ -579,10 +579,11 @@ function newFileCursor () {
     }
   }
 
-  function getExpectedFiles () {
+  function getExpectedFiles() {
     if (finalized === true) { return }
     if (INFO_LOG === true) { logger.write('[INFO] getExpectedFiles -> Entering function.') }
 
     return minCursorSize
   }
 }
+

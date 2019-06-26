@@ -570,6 +570,7 @@
                 browserCanvasContext.fill();
 
                 browserCanvasContext.lineWidth = 1;
+                browserCanvasContext.setLineDash([0, 0])
                 browserCanvasContext.stroke();
 
                 if (
@@ -585,8 +586,8 @@
                 } else {
 
 
-                    printLabel(line1, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line1.length * FONT_ASPECT_RATIO, recordPoint4.y - 30, '0.50', 12);
-                    printLabel(line2, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line2.length * FONT_ASPECT_RATIO, recordPoint4.y - 15, '0.50', 12);
+                    printLabel(line1, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line1.length * FONT_ASPECT_RATIO, recordPoint4.y - 30, '1', 12);
+                    printLabel(line2, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line2.length * FONT_ASPECT_RATIO, recordPoint4.y - 15, '1', 12);
 
 
                 }
@@ -644,6 +645,7 @@
         }
     }
 }
+
 
 
 

@@ -139,7 +139,7 @@
             /* Loading a few icons */
 
             imageStopLossPhase = canvas.strategySpace.iconByPartType.get('Stop');
-            imageTakeProfitPhase = canvas.strategySpace.iconByPartType.get('Take Profit');
+            imageTakeProfitPhase = canvas.strategySpace.iconByPartType.get('Phase');
             imageRecord = canvas.strategySpace.iconByPartType.get('Trading System');
 
             callBackFunction();
@@ -662,7 +662,7 @@
                     browserCanvasContext.save();
                     browserCanvasContext.translate(recordPoint3.x + labelOffset.x, recordPoint3.y + labelOffset.y);
                     browserCanvasContext.rotate(-Math.PI / 2);
-                    printLabel(recordLabel, 0, 0, '0.9', 8);
+                    printLabel(recordLabel, 0, 0, '1', 8);
                     browserCanvasContext.restore();
                 }
 
@@ -729,7 +729,7 @@
 
                 if (imageStopLossPhase.canDrawIcon === true && stopLossPhase > 0) {
                     browserCanvasContext.drawImage(imageStopLossPhase, recordPoint5.x - imageSize, recordPoint5.y - imageSize * 1.25 + yOffset, imageSize, imageSize);
-                    printLabel(stopLossPhase, recordPoint5.x - imageSize / 2 - 3, recordPoint5.y - imageSize * 1.5 + yOffset * 2, '0.9', 8);
+                    printLabel(stopLossPhase - 1, recordPoint5.x - imageSize / 2 - 3, recordPoint5.y - imageSize * 1.5 + yOffset * 2, '1', 9);
                 }
 
                 /* Next we are drawing the Take Profit */
@@ -756,7 +756,7 @@
 
                 if (imageTakeProfitPhase.canDrawIcon === true && takeProfitPhase > 0) {
                     browserCanvasContext.drawImage(imageTakeProfitPhase, recordPoint9.x - imageSize * 2 / 3, recordPoint9.y + imageSize / 4 - yOffset, imageSize, imageSize);
-                    printLabel(takeProfitPhase, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9 - yOffset * 2, '0.9', 8);
+                    printLabel(takeProfitPhase - 1, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9 - yOffset * 2, '1', 9);
                 }
 
             }
@@ -808,6 +808,7 @@
         }
     }
 }
+
 
 
 

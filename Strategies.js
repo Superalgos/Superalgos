@@ -548,6 +548,7 @@
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)';
                     browserCanvasContext.lineWidth = 1
 
+                    browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke()
                 }
 
@@ -589,7 +590,7 @@
                     }
 
                     browserCanvasContext.setLineDash([4, 3])
-                    browserCanvasContext.lineWidth = 0.2
+                    browserCanvasContext.lineWidth = 0.5
                     browserCanvasContext.stroke()
                     browserCanvasContext.setLineDash([0, 0])
 
@@ -648,6 +649,7 @@
         }
     }
 }
+
 
 
 

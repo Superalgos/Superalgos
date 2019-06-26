@@ -1596,7 +1596,7 @@ function newStrategyPartConstructor () {
   }
 
   function setFloatingObjectBasicProperties (floatingObject, payload) {
-    const FRICTION = 0.94
+    const FRICTION = 0.95
     const INITIAL_FRICTION = 0.99
 
     switch (payload.node.type) {

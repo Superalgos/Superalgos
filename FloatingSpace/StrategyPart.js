@@ -738,7 +738,16 @@ function newStrategyPart () {
           for (let i = 0; i < parent.phases.length; i++) {
             let phase = parent.phases[i]
             if (phase.id === thisObject.payload.node.id) {
-              label = label + ' #' + (i + 1)
+              let parentParent = parent.payload.parentNode
+              if (parentParent !== undefined) {
+                if (parentParent.type === 'Initial Definition') {
+                  label = label + ' #' + (i)
+                } else {
+                  label = label + ' #' + (i + 1)
+                }
+              } else {
+                label = label + ' #' + (i + 1)
+              }
               return label
             }
           }

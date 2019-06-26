@@ -504,6 +504,11 @@ function newPartsFromNodes () {
     }
     let phaseParent = parentNode
     let m = phaseParent.phases.length
+
+    if (phaseParent.payload.parentNode !== undefined) {
+      if (phaseParent.payload.parentNode.type === 'Initial Definition' && m > 0) { return }
+    }
+
     let phase = {
       name: 'New Phase',
       formula: {

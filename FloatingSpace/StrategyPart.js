@@ -79,6 +79,7 @@ function newStrategyPart () {
 
   let errorMessage = ''
   let formulaValue = 0
+  let detachingEnabled = false
 
   return thisObject
 
@@ -373,6 +374,7 @@ function newStrategyPart () {
   function detachingPhysics () {
     if (isDragging !== true) { return }
     if (thisObject.isFrozen === true) { return }
+    if (detachingEnabled === false) { return }
 
     let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
     let ratio = distanceToChainParent / previousDistance
@@ -433,7 +435,7 @@ function newStrategyPart () {
   }
 
   function setValue (value) {
-    if (value !== undefined && isNaN(value) === false && (typeof value !== 'boolean')) {
+    if (value !== undefined) {
       formulaValue = value
       hasValue = true
       valueCounter = 5
@@ -495,6 +497,11 @@ function newStrategyPart () {
       thisObject.codeEditor.deactivate()
     }
     isDragging = true
+    if (event.button === 2) {
+      detachingEnabled = true
+    } else {
+      detachingEnabled = false
+    }
   }
 
   function onDragFinished (event) {
@@ -738,16 +745,7 @@ function newStrategyPart () {
           for (let i = 0; i < parent.phases.length; i++) {
             let phase = parent.phases[i]
             if (phase.id === thisObject.payload.node.id) {
-              let parentParent = parent.payload.parentNode
-              if (parentParent !== undefined) {
-                if (parentParent.type === 'Initial Definition') {
-                  label = label + ' #' + (i)
-                } else {
-                  label = label + ' #' + (i + 1)
-                }
-              } else {
-                label = label + ' #' + (i + 1)
-              }
+              label = label + ' #' + (i + 1)
               return label
             }
           }
@@ -951,3 +949,4 @@ function newStrategyPart () {
     }
   }
 }
+

@@ -1,5 +1,4 @@
-﻿function newAAMastersPlottersBollingerBandsBollingerBands ()
-{
+﻿function newAAMastersPlottersBollingerBandsBollingerBands() {
 
     const MODULE_NAME = "Bands Plotter";
     const ERROR_LOG = true;
@@ -18,11 +17,11 @@
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
         draw: draw,
-        recalculateScale: recalculateScale, 
+        recalculateScale: recalculateScale,
 
         /* Events declared outside the plotter. */
 
-        onDailyFileLoaded: onDailyFileLoaded, 
+        onDailyFileLoaded: onDailyFileLoaded,
 
         // Secondary functions and properties.
 
@@ -536,7 +535,7 @@
                     if (userPositionDate >= band.begin && userPositionDate <= band.end) {
                         /* highlight the current band */
                         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.05)'; // Current band accroding to time
-                    }  
+                    }
 
                     if (
                         bandPoint1.x < viewPort.visibleArea.topLeft.x + 50
@@ -563,7 +562,7 @@
                     browserCanvasContext.closePath();
 
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)';
- 
+
                     if (userPositionDate >= band.begin && userPositionDate <= band.end) {
 
                         /* highlight the current band */
@@ -581,9 +580,10 @@
                         };
 
                         thisObject.container.eventHandler.raiseEvent("Current Band Changed", currentBand);
-                    }  
- 
+                    }
+
                     browserCanvasContext.lineWidth = 0.2;
+                    browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke();
 
 
@@ -607,8 +607,9 @@
                         /* highlight the current band */
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current band accroding to time
                     }
-                   
+
                     browserCanvasContext.lineWidth = 0.2;
+                    browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke();
                 }
             }
@@ -659,4 +660,5 @@
         }
     }
 }
+
 

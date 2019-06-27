@@ -17,11 +17,11 @@
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
         draw: draw,
-        recalculateScale: recalculateScale, 
+        recalculateScale: recalculateScale,
 
         /* Events declared outside the plotter. */
 
-        onDailyFileLoaded: onDailyFileLoaded, 
+        onDailyFileLoaded: onDailyFileLoaded,
 
         // Secondary functions and properties.
 
@@ -226,7 +226,7 @@
             /* Now we calculate which candle has this new time, because it will give us the y coordinate. */
 
             let candleFound = false;
-            let lastClose; 
+            let lastClose;
 
             for (let i = 0; i < candles.length; i++) {
 
@@ -668,9 +668,10 @@
 
                     if (userPositionDate >= candle.begin && userPositionDate <= candle.end) {
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current candle accroding to time
-                    } 
+                    }
 
                     browserCanvasContext.lineWidth = 1;
+                    browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke();
 
                     browserCanvasContext.beginPath();
@@ -707,7 +708,7 @@
                         };
                         thisObject.container.eventHandler.raiseEvent("Current Candle Changed", currentCandle);
                     }
-          
+
                     if (
                         candlePoint1.x < viewPort.visibleArea.topLeft.x + 50
                         ||
@@ -719,6 +720,7 @@
                     }
 
                     browserCanvasContext.lineWidth = 1;
+                    browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke();
 
 
@@ -770,4 +772,5 @@
         }
     }
 }
+
 

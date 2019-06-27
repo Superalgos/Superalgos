@@ -10,7 +10,7 @@
 
         /* Events declared outside the plotter. */
 
-        onDailyFileLoaded: onDailyFileLoaded, 
+        onDailyFileLoaded: onDailyFileLoaded,
 
         // Main functions and properties.
 
@@ -20,7 +20,7 @@
         getContainer: getContainer,
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
-        recalculateScale: recalculateScale, 
+        recalculateScale: recalculateScale,
         draw: draw
     };
 
@@ -718,11 +718,12 @@
 
                         if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
                             browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current bar accroding to time
-                        } 
+                        }
 
                         browserCanvasContext.fill();
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 0.40)';
                         browserCanvasContext.lineWidth = 1;
+                        browserCanvasContext.setLineDash([0, 0])
                         browserCanvasContext.stroke();
 
 
@@ -739,12 +740,13 @@
 
                         if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
                             browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current volume accroding to time
-                        } 
+                        }
 
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', 0.40)';
 
                         browserCanvasContext.fill();
                         browserCanvasContext.lineWidth = 1;
+                        browserCanvasContext.setLineDash([0, 0])
                         browserCanvasContext.stroke();
 
                         if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
@@ -828,4 +830,5 @@
         }
     }
 }
+
 

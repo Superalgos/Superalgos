@@ -413,7 +413,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 evaluateConditionsAndFormulas(tradingSystem, conditions);
 
-                function evaluateConditionsAndFormulas(tradingSystem, conditions) {
+                function evaluateConditionsAndFormulas(tradingSystem, conditions)    {
 
                     for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
@@ -856,88 +856,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                /* Checking if Stop or Take Profit were hit */
-
-                if (
-                    strategyStage === 'Open Stage' ||
-                    strategyStage === 'Manage Stage'
-                ) {
-
-                    /* Checking what happened since the last execution. We need to know if the Stop Loss
-                        or our Take Profit were hit. */
-
-                    /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
-
-                    if ((baseAsset === 'BTC' && candle.max >= stopLoss) || (baseAsset !== 'BTC' && candle.min <= stopLoss)) {
-
-                        if (baseAsset === 'BTC') {
-                            balanceAssetA = balanceAssetA + balanceAssetB / stopLoss;
-                            balanceAssetB = 0;
-                        } else {
-                            balanceAssetB = balanceAssetB + balanceAssetA * stopLoss;
-                            balanceAssetA = 0;
-                        }                        
-
-                        if (currentDay !== undefined) {
-                            if (positionInstant < currentDay.valueOf()) {
-                                yesterday.balanceAssetA = balanceAssetA;
-                                yesterday.balanceAssetB = balanceAssetB;
-                            }
-                        }
-
-                        marketRate = stopLoss;
-                        type = '"Buy@StopLoss"';
-                        strategyStage = 'Close Stage';
-                        stopLossStage = 'No Stage';
-                        takeProfitStage = 'No Stage';
-                        currentTrade.end = candle.end;
-                        currentTrade.status = 1;
-                        currentTrade.exitType = 1;
-                        currentTrade.endRate = stopLoss;
-
-                        currentStrategy.number = currentStrategyIndex
-                        currentStrategy.end = candle.end;
-                        currentStrategy.endRate = candle.min;
-                        currentStrategy.status = 1;
-                    }
-
-                    /* Take Profit condition: Here we verify if the Take Profit was filled or not. */
-
-                    if ((baseAsset === 'BTC' && candle.min <= takeProfit) || (baseAsset !== 'BTC' && candle.max >= takeProfit)) {
-
-                        if (baseAsset === 'BTC') {
-                            balanceAssetA = balanceAssetA + balanceAssetB / takeProfit;
-                            balanceAssetB = 0;
-                        } else {
-                            balanceAssetB = balanceAssetB + balanceAssetA * takeProfit;
-                            balanceAssetA = 0;
-                        }   
-
-                        if (currentDay !== undefined) {
-                            if (positionInstant < currentDay.valueOf()) {
-                                yesterday.balanceAssetA = balanceAssetA;
-                                yesterday.balanceAssetB = balanceAssetB;
-
-                            }
-                        }
-
-                        marketRate = takeProfit;
-                        type = '"Buy@TakeProfit"';
-                        strategyStage = 'Close Stage';
-                        stopLossStage = 'No Stage';
-                        takeProfitStage = 'No Stage';
-                        currentTrade.end = candle.end;
-                        currentTrade.status = 1;    
-                        currentTrade.exitType = 2;
-                        currentTrade.endRate = takeProfit;
-
-                        currentStrategy.number = currentStrategyIndex
-                        currentStrategy.end = candle.end;
-                        currentStrategy.endRate = candle.min;
-                        currentStrategy.status = 1;
-                    }
-                }
-
                 /* Take Position Condition */
 
                 if (strategyStage === 'Trigger Stage') {
@@ -1082,8 +1000,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    if (phase.formula !== undefined) {
-                        stopLoss = formulas.get(key)
+                    if (phase !== undefined) {
+                        if (phase.formula !== undefined) {
+                            stopLoss = formulas.get(key)
+                        }
                     }
                 }
 
@@ -1185,8 +1105,92 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    if (phase.formula !== undefined) {
-                        takeProfit = formulas.get(key)
+                    if (phase !== undefined) {
+                        if (phase.formula !== undefined) {
+                            takeProfit = formulas.get(key)
+                        }
+                    }
+                }
+
+                /* Checking if Stop or Take Profit were hit */
+
+                if (
+                    strategyStage === 'Open Stage' ||
+                    strategyStage === 'Manage Stage'
+                ) {
+
+                    /* Checking what happened since the last execution. We need to know if the Stop Loss
+                        or our Take Profit were hit. */
+
+                    /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
+
+                    if ((baseAsset === 'BTC' && candle.max >= stopLoss) || (baseAsset !== 'BTC' && candle.min <= stopLoss)) {
+
+                        if (baseAsset === 'BTC') {
+                            balanceAssetA = balanceAssetA + balanceAssetB / stopLoss;
+                            balanceAssetB = 0;
+                        } else {
+                            balanceAssetB = balanceAssetB + balanceAssetA * stopLoss;
+                            balanceAssetA = 0;
+                        }
+
+                        if (currentDay !== undefined) {
+                            if (positionInstant < currentDay.valueOf()) {
+                                yesterday.balanceAssetA = balanceAssetA;
+                                yesterday.balanceAssetB = balanceAssetB;
+                            }
+                        }
+
+                        marketRate = stopLoss;
+                        type = '"Buy@StopLoss"';
+                        strategyStage = 'Close Stage';
+                        stopLossStage = 'No Stage';
+                        takeProfitStage = 'No Stage';
+                        currentTrade.end = candle.end;
+                        currentTrade.status = 1;
+                        currentTrade.exitType = 1;
+                        currentTrade.endRate = stopLoss;
+
+                        currentStrategy.number = currentStrategyIndex
+                        currentStrategy.end = candle.end;
+                        currentStrategy.endRate = candle.min;
+                        currentStrategy.status = 1;
+                    }
+
+                    /* Take Profit condition: Here we verify if the Take Profit was filled or not. */
+
+                    if ((baseAsset === 'BTC' && candle.min <= takeProfit) || (baseAsset !== 'BTC' && candle.max >= takeProfit)) {
+
+                        if (baseAsset === 'BTC') {
+                            balanceAssetA = balanceAssetA + balanceAssetB / takeProfit;
+                            balanceAssetB = 0;
+                        } else {
+                            balanceAssetB = balanceAssetB + balanceAssetA * takeProfit;
+                            balanceAssetA = 0;
+                        }
+
+                        if (currentDay !== undefined) {
+                            if (positionInstant < currentDay.valueOf()) {
+                                yesterday.balanceAssetA = balanceAssetA;
+                                yesterday.balanceAssetB = balanceAssetB;
+
+                            }
+                        }
+
+                        marketRate = takeProfit;
+                        type = '"Buy@TakeProfit"';
+                        strategyStage = 'Close Stage';
+                        stopLossStage = 'No Stage';
+                        takeProfitStage = 'No Stage';
+                        currentTrade.end = candle.end;
+                        currentTrade.status = 1;
+                        currentTrade.exitType = 2;
+                        currentTrade.endRate = takeProfit;
+
+                        currentStrategy.number = currentStrategyIndex
+                        currentStrategy.end = candle.end;
+                        currentStrategy.endRate = candle.min;
+                        currentStrategy.status = 1;
                     }
                 }
 

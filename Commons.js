@@ -791,7 +791,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                             let condition = situation.conditions[m];
                                             let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
 
-                                            let value = conditions.get(key).value;
+                                            let value = false
+                                            if (conditions.get(key) !== undefined) {
+                                                value = conditions.get(key).value;
+                                            }
 
                                             if (value === false) { passed = false; }
                                         }
@@ -836,7 +839,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     let condition = situation.conditions[m];
                                     let key = currentStrategyIndex + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
 
-                                    let value = conditions.get(key).value;
+                                    let value = false
+                                    if (conditions.get(key) !== undefined) {
+                                        value = conditions.get(key).value;
+                                    }
 
                                     if (value === false) { passed = false; }
                                 }
@@ -878,7 +884,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     let condition = situation.conditions[m];
                                     let key = currentStrategyIndex + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
 
-                                    let value = conditions.get(key).value;
+                                    let value = false
+                                    if (conditions.get(key) !== undefined) {
+                                        value = conditions.get(key).value;
+                                    }
 
                                     if (value === false) { passed = false; }
                                 }
@@ -960,7 +969,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 let condition = situation.conditions[m];
                                 let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
-                                let value = conditions.get(key).value;
+                                let value = false
+                                if (conditions.get(key) !== undefined) {
+                                    value = conditions.get(key).value;
+                                }
 
                                 if (value === false) { passed = false; }
                             }
@@ -1065,7 +1077,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 let condition = situation.conditions[m];
                                 let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
-                                let value = conditions.get(key).value;
+                                let value = false
+                                if (conditions.get(key) !== undefined) {
+                                    value = conditions.get(key).value;
+                                }
 
                                 if (value === false) { passed = false; }
                             }

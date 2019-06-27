@@ -433,7 +433,7 @@ function newStrategyPart () {
   }
 
   function setValue (value) {
-    if (value !== undefined) {
+    if (value !== undefined && isNaN(value) === false) {
       formulaValue = value
       hasValue = true
       valueCounter = 5
@@ -951,4 +951,3 @@ function newStrategyPart () {
     }
   }
 }
-

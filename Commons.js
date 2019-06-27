@@ -400,7 +400,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* We set some variables that would be nice if they have a value before the formulas are calculated. */
 
-                if (strategyStage === 'Trigger Stage') {
+                if (strategyStage === 'Trigger Stage' || strategyStage === 'No Stage') {
 
                     positionRate = candle.close;
 
@@ -1388,56 +1388,56 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
 
                         orderRecord = createMessage(
-                        messageId,
-                        MESSAGE_ENTITY.SimulationEngine,
-                        MESSAGE_ENTITY.SimulationExecutor,
-                        messageType,
-                        (new Date()).valueOf(),
-                        orderId.toString(),
-                        ORDER_CREATOR.SimulationEngine,
-                        (new Date()).valueOf(),
-                        ORDER_OWNER.User,
-                        global.EXCHANGE_NAME,
-                        "BTC_USDT",
-                        0,
-                        ORDER_TYPE.Limit,
-                        marketRate,
-                        stopLoss,
-                        takeProfit,
-                        ORDER_DIRECTION.Sell,
-                        -1,
-                        ORDER_STATUS.Signaled,
-                        0,
-                        "")
+                            messageId,
+                            MESSAGE_ENTITY.SimulationEngine,
+                            MESSAGE_ENTITY.SimulationExecutor,
+                            messageType,
+                            (new Date()).valueOf(),
+                            orderId.toString(),
+                            ORDER_CREATOR.SimulationEngine,
+                            (new Date()).valueOf(),
+                            ORDER_OWNER.User,
+                            global.EXCHANGE_NAME,
+                            "BTC_USDT",
+                            0,
+                            ORDER_TYPE.Limit,
+                            marketRate,
+                            stopLoss,
+                            takeProfit,
+                            ORDER_DIRECTION.Sell,
+                            -1,
+                            ORDER_STATUS.Signaled,
+                            0,
+                            "")
 
                     }
                     else {
 
                         orderRecord = createMessage(
-                        messageId,
-                        MESSAGE_ENTITY.SimulationEngine,
-                        MESSAGE_ENTITY.SimulationExecutor,
-                        MESSAGE_TYPE.HeartBeat,
-                        (new Date()).valueOf(),
-                        "",
-                        "",
-                        0,
-                        "",
-                        "",
-                        "",
-                        0,
-                        "",
-                        0,
-                        0,
-                        0,
-                        "",
-                        0,
-                        "",
-                        0,
-                        "")
+                            messageId,
+                            MESSAGE_ENTITY.SimulationEngine,
+                            MESSAGE_ENTITY.SimulationExecutor,
+                            MESSAGE_TYPE.HeartBeat,
+                            (new Date()).valueOf(),
+                            "",
+                            "",
+                            0,
+                            "",
+                            "",
+                            "",
+                            0,
+                            "",
+                            0,
+                            0,
+                            0,
+                            "",
+                            0,
+                            "",
+                            0,
+                            "")
                     }
 
-                    let strategyStageNumber 
+                    let strategyStageNumber
                     switch (strategyStage) {
                         case 'No Stage': {
                             strategyStageNumber = 0
@@ -1459,6 +1459,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             strategyStageNumber = 4
                             break
                         }
+                    }
+
+                    if (balanceAssetA === Infinity) {
+                        balanceAssetA = Number.MAX_SAFE_INTEGER
+                    }
+
+                    if (balanceAssetB === Infinity) {
+                        balanceAssetB = Number.MAX_SAFE_INTEGER
                     }
 
                     simulationRecord = {

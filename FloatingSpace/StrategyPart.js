@@ -433,7 +433,7 @@ function newStrategyPart () {
   }
 
   function setValue (value) {
-    if (value !== undefined && isNaN(value) === false) {
+    if (value !== undefined && isNaN(value) === false && (typeof value !== 'boolean')) {
       formulaValue = value
       hasValue = true
       valueCounter = 5

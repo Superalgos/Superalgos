@@ -79,6 +79,7 @@ function newStrategyPart () {
 
   let errorMessage = ''
   let formulaValue = 0
+  let detachingEnabled = false
 
   return thisObject
 
@@ -373,6 +374,7 @@ function newStrategyPart () {
   function detachingPhysics () {
     if (isDragging !== true) { return }
     if (thisObject.isFrozen === true) { return }
+    if (detachingEnabled === false) { return }
 
     let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
     let ratio = distanceToChainParent / previousDistance
@@ -495,6 +497,11 @@ function newStrategyPart () {
       thisObject.codeEditor.deactivate()
     }
     isDragging = true
+    if (event.button === 2) {
+      detachingEnabled = true
+    } else {
+      detachingEnabled = false
+    }
   }
 
   function onDragFinished (event) {

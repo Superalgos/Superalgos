@@ -789,18 +789,23 @@
 
                 for (let m = 0; m < situation.conditions.length; m++) {
 
-                    node.conditions[m].payload.uiObject.setErrorMessage(situation.conditions[m].error)
+                    let condition = node.conditions[m]
+                    if (condition !== undefined) {
+                        condition.payload.uiObject.setErrorMessage(situation.conditions[m].error)
 
-                    if (situation.conditions[m].code !== undefined) {
-                        node.conditions[m].code.payload.uiObject.setErrorMessage(situation.conditions[m].code.error)
-                    }
+                        if (situation.conditions[m].code !== undefined) {
+                            if (condition.code !== undefined) {
+                                condition.code.payload.uiObject.setErrorMessage(situation.conditions[m].code.error)
+                            }
+                        }
 
-                    if (currentRecord.conditionsValues[conditionIndex] === 1) {
-                        node.conditions[m].payload.uiObject.highlight()
-                    } else {
-                        highlightSituation = false
-                    }
-                    conditionIndex++;
+                        if (currentRecord.conditionsValues[conditionIndex] === 1) {
+                            condition.payload.uiObject.highlight()
+                        } else {
+                            highlightSituation = false
+                        }
+                        conditionIndex++;
+                    } 
                 }
 
                 if (highlightSituation === true) {

@@ -398,14 +398,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 let formulasErrors = []; // Here we store the errors produced by all phase formulas.
                 let formulasValues = []; // Here we store the values produced by all phase formulas.
 
-                /* We set some variables that would be nice if they have a value before the formulas are calculated. */
-
-                if (strategyStage === 'Trigger Stage' || strategyStage === 'No Stage') {
-
-                    positionRate = candle.close;
-
-                }
-
                 /* We define and evaluate all conditions to be used later during the simulation loop. */
 
                 conditionsArrayRecord.push(candle.begin);
@@ -1247,6 +1239,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
 
                     marketRate = candle.close;
+                    positionRate = candle.close;
 
                     previousBalanceAssetA = balanceAssetA;
                     previousBalanceAssetB = balanceAssetB;

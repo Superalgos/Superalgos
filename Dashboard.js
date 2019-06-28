@@ -153,7 +153,7 @@ function newDashboard () {
           })
                         .then(response => {
                           teams = response.data.teams_Teams
-                          window.localStorage.setItem('Teams', JSON.stringify(response.data.teams_Teams))
+                          //window.localStorage.setItem('Teams', JSON.stringify(response.data.teams_Teams))
                           resolve({ teams: response.data.teams_Teams })
                         })
                         .catch(err => {

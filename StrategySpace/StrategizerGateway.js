@@ -47,7 +47,7 @@ function newStrategizerGateway () {
       }
 
       user = JSON.parse(user)
-      let fbSlug = 'simulator' + '-' + user.alias
+      let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias.replace('.','')
 
       /* See if we need to update or create a new record at the strategizer */
 
@@ -132,7 +132,7 @@ function newStrategizerGateway () {
       }
 
       user = JSON.parse(user)
-      let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias
+      let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias.replace('.','')
 
       let response = await axios({
         url: window.canvasApp.graphQL.masterAppApiUrl,
@@ -147,7 +147,8 @@ function newStrategizerGateway () {
             data
           }
         }
-        `,
+        `,
+
           variables: {
             fbSlug: fbSlug
           }

@@ -44,6 +44,10 @@ function newNodeDeleter () {
       deleteStrategy(node.strategies[0], rootNodes)
     }
 
+    if (node.parameters !== undefined) {
+      deleteParameters(node.parameters, rootNodes)
+    }
+
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
@@ -120,6 +124,9 @@ function newNodeDeleter () {
     }
     if (node.takePosition !== undefined) {
       deleteEvent(node.takePosition, rootNodes)
+    }
+    if (node.positionSize !== undefined) {
+      deletePositionSize(node.positionSize, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)

@@ -113,7 +113,7 @@ function newRestartSimulation () {
         thisObject.status = 'Restarting'
         await graphQlRestartSimulation(simulationParams)
         thisObject.status = 'Calculating'
-        counterTillNextState = 2000
+        counterTillNextState = 50
       } else {
         thisObject.status = 'Error'
         counterTillNextState = 500
@@ -125,12 +125,13 @@ function newRestartSimulation () {
   }
 
   function turnOffProductCards () {
+    let productCardsToTurnOff = ['Trading-Simulation', 'Simulation-Conditions', 'Simulation-Strategies', 'Simulation-Trades']
     for (let i = 0; i < canvas.panelsSpace.panels.length; i++) {
       let panel = canvas.panelsSpace.panels[i]
       if (panel.name === 'Products Panel') {
         for (j = 0; j < panel.productCards.length; j++) {
           let productCard = panel.productCards[j]
-          if (productCard.product.relatedToTradingEngine === true && productCard.status !== PRODUCT_CARD_STATUS.OFF) {
+          if (productCardsToTurnOff.includes(productCard.product.codeName) && productCard.status !== PRODUCT_CARD_STATUS.OFF) {
             productCard.turnOff()
             productCardsToTurnOn.push(productCard)
           }
@@ -165,7 +166,7 @@ function newRestartSimulation () {
           case 'Calculating':
             thisObject.status = 'Refreshing'
             turnOffProductCards()
-            counterTillNextState = 250
+            counterTillNextState = 10
             break
           case 'Refreshing':
             thisObject.status = 'Ready'
@@ -276,3 +277,4 @@ function newRestartSimulation () {
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }
+

@@ -236,7 +236,8 @@ function newCanvas () {
     try {
       let point = {
         x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN
+        y: event.pageY - CURRENT_TOP_MARGIN,
+        button: event.button
       }
 
       dragVector.downX = point.x
@@ -706,3 +707,4 @@ function newCanvas () {
     }
   }
 }
+

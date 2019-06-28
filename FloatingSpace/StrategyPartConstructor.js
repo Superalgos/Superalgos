@@ -223,7 +223,7 @@ function newStrategyPartConstructor () {
           {
             action: 'Delete Parameters',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Trading System',
+            label: 'Delete Parameters',
             visible: false,
             iconPathOn: 'trash',
             iconPathOff: 'trash',
@@ -1596,7 +1596,7 @@ function newStrategyPartConstructor () {
   }
 
   function setFloatingObjectBasicProperties (floatingObject, payload) {
-    const FRICTION = 0.94
+    const FRICTION = 0.95
     const INITIAL_FRICTION = 0.99
 
     switch (payload.node.type) {
@@ -1730,7 +1730,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(20)
+      floatingObject.initializeMass(50)
       floatingObject.initializeRadius(35)
       floatingObject.initializeImageSize(60)
       floatingObject.initializeFontSize(10)

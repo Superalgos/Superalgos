@@ -73,7 +73,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Initial Default Values */
 
-            let initialDate = startDate;    
+            let initialDate = startDate;
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> initialDate = " + initialDate); }
 
             const DEFAULT_BASE_ASSET_BALANCE = 1
             const DEFAULT_BASE_ASSET_MINIMUN_BALANCE = 0.5
@@ -334,6 +335,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             }
            
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Main Simulation Loop -> candles.length = " + candles.length); }
 
             for (let i = 0; i < candles.length; i++) {
 
@@ -1595,6 +1597,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     interExecutionMemory.anualizedRateOfReturn = yesterday.anualizedRateOfReturn;
                 }
             }
+
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> callback -> recordsArray.length = " + recordsArray.length); }
 
             callback(tradingSystem);
 

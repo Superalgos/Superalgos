@@ -805,7 +805,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
                         }
                     } else {
-                        tradingSystem.error = "Balance below the minimum. No more strategies will be executed."
+                        if (balance < minimumBalance) {
+                            tradingSystem.error = "Balance below the minimum."
+                        }
+                        if (balance > maximumBalance) {
+                            tradingSystem.error = "Balance above the maximum."
+                        }                        
                     }
                 }
 

@@ -326,7 +326,7 @@
                         record.begin = dailyFile[i][0];
                         record.end = dailyFile[i][1];
                         record.status = dailyFile[i][2];
-                        record.lastProfitPercent = dailyFile[i][3];
+                        record.lastTradeROI = dailyFile[i][3];
                         record.beginRate = dailyFile[i][4];
                         record.endRate = dailyFile[i][5];
                         record.exitType = dailyFile[i][6];
@@ -400,7 +400,7 @@
                 record.begin = marketFile[i][0];
                 record.end = marketFile[i][1];
                 record.status = marketFile[i][2];
-                record.lastProfitPercent = marketFile[i][3];
+                record.lastTradeROI = marketFile[i][3];
                 record.beginRate = marketFile[i][4];
                 record.endRate = marketFile[i][5];
                 record.exitType = marketFile[i][6];
@@ -534,13 +534,13 @@
                     }
                 }
 
-                if (record.lastProfitPercent < 0) {
+                if (record.lastTradeROI < 0) {
 
-                    line2 = (record.lastProfitPercent).toFixed(2) + ' %';
+                    line2 = (record.lastTradeROI).toFixed(2) + ' %';
 
                 } else {
 
-                    line2 = (record.lastProfitPercent).toFixed(2) + ' %';
+                    line2 = (record.lastTradeROI).toFixed(2) + ' %';
                 }
 
                 /* Draw the triangle  that represents the trade. */
@@ -555,7 +555,7 @@
 
                 let opacity = '0.25';
 
-                if (record.lastProfitPercent > 0) {
+                if (record.lastTradeROI > 0) {
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')';
                     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + ')';
                 } else {

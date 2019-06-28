@@ -104,19 +104,13 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         let increment = 0.025;
 
         y = y + increment;
-        printLabel('Profit', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.profit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
+        printLabel('Current Trade', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 12);
 
         y = y + increment;
-        printLabel('Last Profit', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
+        printLabel('Size', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.lastProfit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
-
-        y = y + increment;
-        printLabel('Last Profit %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
-        y = y + increment;
-        printLabel((currentRecord.innerRecord.lastProfitPercent).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
+        printLabel(currentRecord.innerRecord.positionSize, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Rate', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
@@ -132,6 +126,31 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         printLabel('Take Profit', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
         y = y + increment;
         printLabel(currentRecord.innerRecord.takeProfit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
+
+
+        y = y + increment;
+        y = y + increment;
+        printLabel('Latest Trade', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 12);
+
+        y = y + increment;
+        printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
+        y = y + increment;
+        printLabel(currentRecord.innerRecord.lastTradeProfitLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
+
+        y = y + increment;
+        printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
+        y = y + increment;
+        printLabel((currentRecord.innerRecord.lastTradeROI).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
+
+
+        y = y + increment;
+        y = y + increment;
+        printLabel('Totals Accumulated', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 12);
+
+        y = y + increment;
+        printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
+        y = y + increment;
+        printLabel(currentRecord.innerRecord.profit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.50', 10);
 
         y = y + increment;
         printLabel('Trades', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1');
@@ -231,6 +250,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         canvas.cockpitSpace.assetBalances.setParamsArray(paramsArray)
     }
 }
+
 
 
 

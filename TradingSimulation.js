@@ -321,7 +321,7 @@
                         record.balanceA = dailyFile[i][5];
                         record.balanceB = dailyFile[i][6];
                         record.profit = dailyFile[i][7];
-                        record.lastProfit = dailyFile[i][8];
+                        record.lastTradeProfitLoss = dailyFile[i][8];
                         record.stopLoss = dailyFile[i][9];
                         record.roundtrips = dailyFile[i][10];
                         record.hits = dailyFile[i][11];
@@ -332,7 +332,7 @@
                         record.days = dailyFile[i][16];
                         record.anualizedRateOfReturn = dailyFile[i][17];
                         record.sellRate = dailyFile[i][18];
-                        record.lastProfitPercent = dailyFile[i][19];
+                        record.lastTradeROI = dailyFile[i][19];
                         record.strategy = dailyFile[i][20];
                         record.strategyPhase = dailyFile[i][21];
                         record.takeProfit = dailyFile[i][22];
@@ -417,7 +417,7 @@
                 record.balanceA = marketFile[i][5];
                 record.balanceB = marketFile[i][6];
                 record.profit = marketFile[i][7];
-                record.lastProfit = marketFile[i][8];
+                record.lastTradeProfitLoss = marketFile[i][8];
                 record.stopLoss = marketFile[i][9];
                 record.roundtrips = marketFile[i][10];
                 record.hits = marketFile[i][11];
@@ -428,7 +428,7 @@
                 record.days = marketFile[i][16];
                 record.anualizedRateOfReturn = marketFile[i][17];
                 record.sellRate = marketFile[i][18];
-                record.lastProfitPercent = marketFile[i][19];
+                record.lastTradeROI = marketFile[i][19];
                 record.strategy = marketFile[i][20];
                 record.strategyPhase = marketFile[i][21];
                 record.takeProfit = marketFile[i][22];
@@ -542,55 +542,60 @@
 
                 let recordPoint3 = {
                     x: recordPoint1.x + (recordPoint2.x - recordPoint1.x) / 2,
-                    y: thisObject.container.frame.height
+                    y: 0
                 };
 
                 let recordPoint4 = {
+                    x: record.begin + timePeriod / 7 * 1.5,
+                    y: thisObject.container.frame.height * 3
+                };
+
+                let recordPoint5 = {
                     x: record.begin,
                     y: record.stopLoss
                 };
 
-                let recordPoint5 = {
+                let recordPoint6 = {
                     x: record.end,
                     y: record.stopLoss
                 };
 
                 if (record.stopLoss === 0) { // Put these points out of range if stopLoss is zero.
 
-                    recordPoint4.x = 0;
                     recordPoint5.x = 0;
+                    recordPoint6.x = 0;
                 }
 
-                let recordPoint6 = {
+                let recordPoint7 = {
                     x: record.begin,
                     y: record.sellRate
                 };
 
-                let recordPoint7 = {
+                let recordPoint8 = {
                     x: record.end,
                     y: record.sellRate
                 };
 
                 if (record.sellRate === 0) { // Put these points out of range if sellRate is zero.
 
-                    recordPoint6.x = 0;
                     recordPoint7.x = 0;
+                    recordPoint8.x = 0;
                 }
 
-                let recordPoint8 = {
+                let recordPoint9 = {
                     x: record.begin,
                     y: record.takeProfit
                 };
 
-                let recordPoint9 = {
+                let recordPoint10 = {
                     x: record.end,
                     y: record.takeProfit
                 };
 
                 if (record.takeProfit === 0) { // Put these points out of range if takeProfit is zero.
 
-                    recordPoint8.x = 0;
                     recordPoint9.x = 0;
+                    recordPoint10.x = 0;
                 }
 
                 recordPoint1 = timeLineCoordinateSystem.transformThisPoint(recordPoint1);
@@ -602,6 +607,7 @@
                 recordPoint7 = timeLineCoordinateSystem.transformThisPoint(recordPoint7);
                 recordPoint8 = timeLineCoordinateSystem.transformThisPoint(recordPoint8);
                 recordPoint9 = timeLineCoordinateSystem.transformThisPoint(recordPoint9);
+                recordPoint10 = timeLineCoordinateSystem.transformThisPoint(recordPoint10);
 
                 recordPoint1 = transformThisPoint(recordPoint1, thisObject.container);
                 recordPoint2 = transformThisPoint(recordPoint2, thisObject.container);
@@ -612,6 +618,7 @@
                 recordPoint7 = transformThisPoint(recordPoint7, thisObject.container);
                 recordPoint8 = transformThisPoint(recordPoint8, thisObject.container);
                 recordPoint9 = transformThisPoint(recordPoint9, thisObject.container);
+                recordPoint10 = transformThisPoint(recordPoint10, thisObject.container);
 
                 recordPoint1 = viewPort.fitIntoVisibleArea(recordPoint1);
                 recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
@@ -622,6 +629,7 @@
                 recordPoint7 = viewPort.fitIntoVisibleArea(recordPoint7);
                 recordPoint8 = viewPort.fitIntoVisibleArea(recordPoint8);
                 recordPoint9 = viewPort.fitIntoVisibleArea(recordPoint9);
+                recordPoint10 = viewPort.fitIntoVisibleArea(recordPoint10);
 
                 recordPoint1 = thisObject.fitFunction(recordPoint1);
                 recordPoint2 = thisObject.fitFunction(recordPoint2);
@@ -632,12 +640,13 @@
                 recordPoint7 = thisObject.fitFunction(recordPoint7);
                 recordPoint8 = thisObject.fitFunction(recordPoint8);
                 recordPoint9 = thisObject.fitFunction(recordPoint9);
+                recordPoint10 = thisObject.fitFunction(recordPoint10);
 
                 /* Image representing a Record */
 
                 let imageOffset = {
                     x: 0,
-                    y: 30
+                    y: -30
                 }
                 let imageSize = (recordPoint2.x - recordPoint1.x) / 2;
                 let recordLabel = record.periods.toLocaleString()
@@ -647,12 +656,12 @@
                 }
                 let labelOffset = {
                     x: 0 - imageSize / 2 + 3 + imageOffset.x,
-                    y: -2 + imageOffset.y
+                    y: -2 - imageOffset.y
                 }
 
                 let imagePosition = {
-                    x: recordPoint1.x + imageOffset.x,
-                    y: recordPoint1.y + imageOffset.y
+                    x: recordPoint4.x + imageOffset.x,
+                    y: recordPoint4.y + imageOffset.y
                 }
 
                 imagePosition = thisObject.fitFunction(imagePosition)
@@ -666,7 +675,7 @@
                     browserCanvasContext.restore();
                 }
 
-                if (recordPoint4.x < viewPort.visibleArea.bottomLeft.x || recordPoint4.x > viewPort.visibleArea.bottomRight.x) {
+                if (recordPoint5.x < viewPort.visibleArea.bottomLeft.x || recordPoint5.x > viewPort.visibleArea.bottomRight.x) {
                     continue;
                 }
 
@@ -674,8 +683,8 @@
 
                 browserCanvasContext.beginPath();
 
-                browserCanvasContext.moveTo(recordPoint6.x, recordPoint6.y);
-                browserCanvasContext.lineTo(recordPoint7.x, recordPoint7.y);
+                browserCanvasContext.moveTo(recordPoint7.x, recordPoint7.y);
+                browserCanvasContext.lineTo(recordPoint8.x, recordPoint8.y);
 
                 browserCanvasContext.closePath();
 
@@ -707,13 +716,13 @@
                 browserCanvasContext.beginPath();
 
 
-                browserCanvasContext.moveTo(recordPoint4.x, recordPoint4.y);
-                browserCanvasContext.lineTo(recordPoint5.x, recordPoint5.y);
+                browserCanvasContext.moveTo(recordPoint5.x, recordPoint5.y);
+                browserCanvasContext.lineTo(recordPoint6.x, recordPoint6.y);
 
 
                 browserCanvasContext.closePath();
 
-                let opacity = 0.8
+                let opacity = 1
 
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + '';
 
@@ -723,25 +732,25 @@
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
                 }
 
-                browserCanvasContext.lineWidth = 5
+                browserCanvasContext.lineWidth = 1
                 browserCanvasContext.stroke()
 
 
                 if (imageStopLossPhase.canDrawIcon === true && stopLossPhase > 0) {
-                    browserCanvasContext.drawImage(imageStopLossPhase, recordPoint5.x - imageSize, recordPoint5.y - imageSize * 1.25 + yOffset, imageSize, imageSize);
-                    printLabel(stopLossPhase - 1, recordPoint5.x - imageSize / 2 - 3, recordPoint5.y - imageSize * 1.5 + yOffset * 2, '1', 9);
+                    browserCanvasContext.drawImage(imageStopLossPhase, recordPoint6.x - imageSize, recordPoint6.y - imageSize * 1.25 + yOffset, imageSize, imageSize);
+                    printLabel(stopLossPhase - 1, recordPoint6.x - imageSize / 2 - 3, recordPoint6.y - imageSize * 1.5 + yOffset * 2, '1', 9);
                 }
 
                 /* Next we are drawing the Take Profit */
 
                 browserCanvasContext.beginPath();
 
-                browserCanvasContext.moveTo(recordPoint8.x, recordPoint8.y);
-                browserCanvasContext.lineTo(recordPoint9.x, recordPoint9.y);
+                browserCanvasContext.moveTo(recordPoint9.x, recordPoint9.y);
+                browserCanvasContext.lineTo(recordPoint10.x, recordPoint10.y);
 
                 browserCanvasContext.closePath();
 
-                opacity = 0.6
+                opacity = 1
 
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + '';
 
@@ -751,16 +760,14 @@
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current record accroding to time
                 }
 
-                browserCanvasContext.lineWidth = 5
+                browserCanvasContext.lineWidth = 1
                 browserCanvasContext.stroke()
 
                 if (imageTakeProfitPhase.canDrawIcon === true && takeProfitPhase > 0) {
-                    browserCanvasContext.drawImage(imageTakeProfitPhase, recordPoint9.x - imageSize * 2 / 3, recordPoint9.y + imageSize / 4 - yOffset, imageSize, imageSize);
-                    printLabel(takeProfitPhase - 1, recordPoint9.x - imageSize * 1 / 3, recordPoint9.y + imageSize * 1.9 - yOffset * 2, '1', 9);
+                    browserCanvasContext.drawImage(imageTakeProfitPhase, recordPoint10.x - imageSize * 2 / 3, recordPoint10.y + imageSize / 4 - yOffset, imageSize, imageSize);
+                    printLabel(takeProfitPhase - 1, recordPoint10.x - imageSize * 1 / 3, recordPoint10.y + imageSize * 1.9 - yOffset * 2, '1', 9);
                 }
-
             }
-
 
         } catch (err) {
 
@@ -808,6 +815,8 @@
         }
     }
 }
+
+
 
 
 

@@ -161,11 +161,11 @@
                             JSON.stringify(record.orderRecord) + "," +
                             record.positionSize + "," +
                             record.initialBalanceA + "," +
-                            record.minimunBalanceA + "," +
-                            record.maximunBalanceA + "," +
+                            record.minimumBalanceA + "," +
+                            record.maximumBalanceA + "," +
                             record.initialBalanceB + "," +
-                            record.minimunBalanceB + "," +
-                            record.maximunBalanceB + "]";
+                            record.minimumBalanceB + "," +
+                            record.maximumBalanceB + "]";
 
                         if (separator === "") { separator = ","; }
 

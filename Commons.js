@@ -80,11 +80,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             const DEFAULT_BASE_ASSET_MAXIMUN_BALANCE = 2
 
             let initialBalanceA = DEFAULT_BASE_ASSET_BALANCE
-            let minimunBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE
-            let maximunBalanceA = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE
+            let minimumBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE
+            let maximumBalanceA = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE
             let initialBalanceB = 0
-            let minimunBalanceB = 0
-            let maximunBalanceB = 0
+            let minimumBalanceB = 0
+            let maximumBalanceB = 0
             let baseAsset = 'BTC'
 
             /* Parameters Processing */
@@ -112,19 +112,19 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     initialBalanceA = DEFAULT_BASE_ASSET_BALANCE;
                                     initialBalanceB = 0
                                 }
-                                if (receivedParameters.minimunBalance !== undefined) {
-                                    minimunBalanceA = receivedParameters.minimunBalance;
-                                    minimunBalanceB = 0
+                                if (receivedParameters.minimumBalance !== undefined) {
+                                    minimumBalanceA = receivedParameters.minimumBalance;
+                                    minimumBalanceB = 0
                                 } else {
-                                    minimunBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
-                                    minimunBalanceB = 0
+                                    minimumBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
+                                    minimumBalanceB = 0
                                 }
-                                if (receivedParameters.maximunBalance !== undefined) {
-                                    maximunBalanceA = receivedParameters.maximunBalance;
-                                    maximunBalanceB = 0
+                                if (receivedParameters.maximumBalance !== undefined) {
+                                    maximumBalanceA = receivedParameters.maximumBalance;
+                                    maximumBalanceB = 0
                                 } else {
-                                    maximunBalanceA = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
-                                    maximunBalanceB = 0
+                                    maximumBalanceA = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
+                                    maximumBalanceB = 0
                                 }
                             } else {
                                 if (receivedParameters.initialBalance !== undefined) {
@@ -134,19 +134,19 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     initialBalanceB = DEFAULT_BASE_ASSET_BALANCE;
                                     initialBalanceA = 0
                                 }
-                                if (receivedParameters.minimunBalance !== undefined) {
-                                    minimunBalanceB = receivedParameters.minimunBalance;
-                                    minimunBalanceA = 0
+                                if (receivedParameters.minimumBalance !== undefined) {
+                                    minimumBalanceB = receivedParameters.minimumBalance;
+                                    minimumBalanceA = 0
                                 } else {
-                                    minimunBalanceB = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
-                                    minimunBalanceA = 0
+                                    minimumBalanceB = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
+                                    minimumBalanceA = 0
                                 }
-                                if (receivedParameters.maximunBalance !== undefined) {
-                                    maximunBalanceB = receivedParameters.maximunBalance;
-                                    maximunBalanceA = 0
+                                if (receivedParameters.maximumBalance !== undefined) {
+                                    maximumBalanceB = receivedParameters.maximumBalance;
+                                    maximumBalanceA = 0
                                 } else {
-                                    maximunBalanceB = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
-                                    maximunBalanceA = 0
+                                    maximumBalanceB = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
+                                    maximumBalanceA = 0
                                 }
                             }
                         } catch (err) {
@@ -744,21 +744,21 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     strategyStage === 'No Stage' &&
                     currentStrategyIndex === -1 
                 ) {
-                    let minimunBalance
-                    let maximunBalance
+                    let minimumBalance
+                    let maximumBalance
                     let balance 
 
                     if (baseAsset === 'BTC') {
                         balance = balanceAssetA
-                        minimunBalance = minimunBalanceA
-                        maximunBalance = maximunBalanceA
+                        minimumBalance = minimumBalanceA
+                        maximumBalance = maximumBalanceA
                     } else {
                         balance = balanceAssetB
-                        minimunBalance = minimunBalanceB
-                        maximunBalance = maximunBalanceB
+                        minimumBalance = minimumBalanceB
+                        maximumBalance = maximumBalanceB
                     }
 
-                    if (balance > minimunBalance && balance < maximunBalance) {
+                    if (balance > minimumBalance && balance < maximumBalance) {
 
                         /*
                         Here we need to pick a strategy, or if there is not suitable strategy for the current
@@ -813,7 +813,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
                         }
                     } else {
-                        tradingSystem.error = "Balance below the minimun. No more strategies will be executed."
+                        tradingSystem.error = "Balance below the minimum. No more strategies will be executed."
                     }
                 }
 
@@ -1503,11 +1503,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         orderRecord: orderRecord,
                         positionSize: positionSize,
                         initialBalanceA: initialBalanceA,
-                        minimunBalanceA: minimunBalanceA,
-                        maximunBalanceA: maximunBalanceA,
+                        minimumBalanceA: minimumBalanceA,
+                        maximumBalanceA: maximumBalanceA,
                         initialBalanceB: initialBalanceB,
-                        minimunBalanceB: minimunBalanceB,
-                        maximunBalanceB: maximunBalanceB
+                        minimumBalanceB: minimumBalanceB,
+                        maximumBalanceB: maximumBalanceB
                     }
 
                     recordsArray.push(simulationRecord);

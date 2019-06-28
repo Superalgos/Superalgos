@@ -33,7 +33,7 @@ function newLogin() {
 
       if (accessToken) {
         await getEvents(accessToken, sharedStatus)
-        await getClones(accessToken)
+        // await getClones(accessToken)
       }
 
       thisObject.container.eventHandler.listenToEvent('onMouseClick', onClick)
@@ -120,7 +120,6 @@ function newLogin() {
               stateDatetime
               createDatetime
               lastLogs
-              runAsTeam
               summaryDate
               buyAverage
               sellAverage

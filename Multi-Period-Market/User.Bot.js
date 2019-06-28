@@ -137,7 +137,7 @@
                             record.balanceA + "," +
                             record.balanceB + "," +
                             record.profit + "," +
-                            record.lastProfit + "," +
+                            record.lastTradeProfitLoss + "," +
                             record.stopLoss + "," +
                             record.roundtrips + "," +
                             record.hits + "," +
@@ -148,7 +148,7 @@
                             record.days + "," +
                             record.anualizedRateOfReturn + "," +
                             record.positionRate + "," +
-                            record.lastProfitPercent + "," +
+                            record.lastTradeROI + "," +
                             record.strategy + "," +
                             record.strategyStageNumber  + "," +
                             record.takeProfit + "," +
@@ -380,7 +380,7 @@
                             record.begin + "," +
                             record.end + "," +
                             record.status + "," +
-                            record.lastProfitPercent + "," +
+                            record.lastTradeROI + "," +
                             record.beginRate + "," +
                             record.endRate + "," +
                             record.exitType + "," +

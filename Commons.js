@@ -239,9 +239,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let balanceAssetA = initialBalanceA;
             let balanceAssetB = initialBalanceB;
 
-            let lastProfit = 0;
+            let lastTradeProfitLoss = 0;
             let profit = 0;
-            let lastProfitPercent = 0;
+            let lastTradeROI = 0;
 
             let roundtrips = 0;
             let fails = 0;
@@ -258,9 +258,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             yesterday.balanceAssetA = balanceAssetA;
             yesterday.balanceAssetB = balanceAssetB;
 
-            yesterday.lastProfit = 0;
+            yesterday.lastTradeProfitLoss = 0;
             yesterday.profit = 0;
-            yesterday.lastProfitPercent = 0;
+            yesterday.lastTradeROI = 0;
 
             yesterday.Roundtrips = 0;
             yesterday.fails = 0;
@@ -281,9 +281,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 interExecutionMemory.balanceAssetA = balanceAssetA;
                 interExecutionMemory.balanceAssetB = balanceAssetB;
 
-                interExecutionMemory.lastProfit = lastProfit;
+                interExecutionMemory.lastTradeProfitLoss = lastTradeProfitLoss;
                 interExecutionMemory.profit = profit;
-                interExecutionMemory.lastProfitPercent = lastProfitPercent;
+                interExecutionMemory.lastTradeROI = lastTradeROI;
 
                 interExecutionMemory.roundtrips = 0;
                 interExecutionMemory.fails = 0;
@@ -311,9 +311,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 } 
                 
-                lastProfit = interExecutionMemory.lastProfit;
+                lastTradeProfitLoss = interExecutionMemory.lastTradeProfitLoss;
                 profit = interExecutionMemory.profit;
-                lastProfitPercent = interExecutionMemory.lastProfitPercent;
+                lastTradeROI = interExecutionMemory.lastTradeROI;
 
                 roundtrips = interExecutionMemory.roundtrips;
                 fails = interExecutionMemory.fails;
@@ -739,6 +739,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 }
 
+                /* Trigger On Conditions */
                 if (
                     strategyStage === 'No Stage' &&
                     currentStrategyIndex === -1 
@@ -758,7 +759,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
 
                     if (balance > minimunBalance && balance < maximunBalance) {
-                        /* Trigger On Conditions */
 
                         /*
                         Here we need to pick a strategy, or if there is not suitable strategy for the current
@@ -818,7 +818,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
 
                 /* Trigger Off Condition */
-
                 if (strategyStage === 'Trigger Stage') {
 
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
@@ -863,7 +862,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
 
                 /* Take Position Condition */
-
                 if (strategyStage === 'Trigger Stage') {
 
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
@@ -912,10 +910,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
 
                 /* Stop Loss Management */
-
                 if (
-                    strategyStage === 'Open Stage' ||
-                    strategyStage === 'Manage Stage'
+                    (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') &&
+                    takePositionNow !== true
                 ) {
 
                     checkStopPhases()
@@ -1020,10 +1017,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
 
                 /* Take Profit Management */
-
                 if (
-                    strategyStage === 'Open Stage' ||
-                    strategyStage === 'Manage Stage'
+                    (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') &&
+                    takePositionNow !== true
                 ) {
 
                     checkTakeProfitPhases();
@@ -1128,10 +1124,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
 
                 /* Checking if Stop or Take Profit were hit */
-
                 if (
-                    strategyStage === 'Open Stage' ||
-                    strategyStage === 'Manage Stage'
+                    (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') &&
+                    takePositionNow !== true
                 ) {
 
                     /* Checking what happened since the last execution. We need to know if the Stop Loss
@@ -1210,7 +1205,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
 
                 /* Taking a Position */
-
                 if (
                     takePositionNow === true
                 ) {
@@ -1254,14 +1248,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     marketRate = candle.close;
 
-                    calculateStopLoss();
-                    calculateTakeProfit();
-
                     previousBalanceAssetA = balanceAssetA;
                     previousBalanceAssetB = balanceAssetB;
 
-                    lastProfit = 0;
-                    lastProfitPercent = 0;
+                    lastTradeProfitLoss = 0;
+                    lastTradeROI = 0;
 
                     if (baseAsset === 'BTC') {
                         balanceAssetB = balanceAssetB + positionSize * positionRate;
@@ -1278,8 +1269,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             yesterday.balanceAssetA = balanceAssetA;
                             yesterday.balanceAssetB = balanceAssetB;
 
-                            yesterday.lastProfit = lastProfit;
-                            yesterday.lastProfitPercent = lastProfitPercent;
+                            yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
+                            yesterday.lastTradeROI = lastTradeROI;
                         }
                     }
 
@@ -1288,7 +1279,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
 
                 /* Closing a Position */
-
                 if (strategyStage === 'Close Stage') {
 
                     roundtrips++;
@@ -1300,29 +1290,29 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
 
                     if (baseAsset === 'BTC') {
-                        lastProfit = balanceAssetA - previousBalanceAssetA;
-                        lastProfitPercent = lastProfit / previousBalanceAssetA * 100;
-                        if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
+                        lastTradeProfitLoss = balanceAssetA - previousBalanceAssetA;
+                        lastTradeROI = lastTradeProfitLoss * 100 / positionSize;
+                        if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
                         profit = balanceAssetA - initialBalanceA;
                     } else {
-                        lastProfit = balanceAssetB - previousBalanceAssetB;
-                        lastProfitPercent = lastProfit / previousBalanceAssetB * 100;
-                        if (isNaN(lastProfitPercent)) { lastProfitPercent = 0; }
+                        lastTradeProfitLoss = balanceAssetB - previousBalanceAssetB;
+                        lastTradeROI = lastTradeProfitLoss * 100 / positionSize;
+                        if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
                         profit = balanceAssetB - initialBalanceB;
                     }  
 
                     if (currentDay !== undefined) {
                         if (positionInstant < currentDay.valueOf()) {
-                            yesterday.lastProfit = lastProfit;
+                            yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
                             yesterday.profit = profit;
-                            yesterday.lastProfitPercent = lastProfitPercent;
+                            yesterday.lastTradeROI = lastTradeROI;
                         }
                     }
 
-                    currentTrade.lastProfitPercent = lastProfitPercent;
+                    currentTrade.lastTradeROI = lastTradeROI;
                     currentTrade.stopRate = stopLoss;
                    
-                    if (lastProfit > 0) {
+                    if (lastTradeProfitLoss > 0) {
                         hits++;
 
                         if (currentDay !== undefined) {
@@ -1493,7 +1483,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         balanceA: balanceAssetA,
                         balanceB: balanceAssetB,
                         profit: profit,
-                        lastProfit: lastProfit,
+                        lastTradeProfitLoss: lastTradeProfitLoss,
                         stopLoss: stopLoss,
                         roundtrips: roundtrips,
                         hits: hits,
@@ -1504,7 +1494,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         days: days,
                         anualizedRateOfReturn: anualizedRateOfReturn,
                         positionRate: positionRate,
-                        lastProfitPercent: lastProfitPercent,
+                        lastTradeROI: lastTradeROI,
                         strategy: currentStrategyIndex,
                         strategyStageNumber: strategyStageNumber,
                         takeProfit: takeProfit,
@@ -1562,7 +1552,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         (currentTrade.begin !== 0 && i === candles.length - 1 && lastCandle.end !== lastInstantOfTheDay)
                     ) {
 
-                        currentTrade.profit = lastProfit;
+                        currentTrade.profit = lastTradeProfitLoss;
 
                         tradesArray.push(currentTrade);
 
@@ -1570,7 +1560,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             begin: 0,
                             end: 0,
                             status: 0,
-                            lastProfitPercent: 0,
+                            lastTradeROI: 0,
                             exitType: 0,
                             beginRate: 0,
                             endRate: 0
@@ -1590,9 +1580,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     interExecutionMemory.balanceAssetA = yesterday.balanceAssetA;
                     interExecutionMemory.balanceAssetB = yesterday.balanceAssetB;
-                    interExecutionMemory.lastProfit = yesterday.lastProfit;
+                    interExecutionMemory.lastTradeProfitLoss = yesterday.lastTradeProfitLoss;
                     interExecutionMemory.profit = yesterday.profit;
-                    interExecutionMemory.lastProfitPercent = yesterday.lastProfitPercent;
+                    interExecutionMemory.lastTradeROI = yesterday.lastTradeROI;
 
                     interExecutionMemory.roundtrips = interExecutionMemory.roundtrips + yesterday.Roundtrips;
                     interExecutionMemory.fails = interExecutionMemory.fails + yesterday.fails;

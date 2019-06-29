@@ -67,7 +67,7 @@ function newWorkspace () {
       initializeLoadingFromStrategizer()
     } else {
       workspaceNode = JSON.parse(savedWorkspace)
-
+      functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
       for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
         let rootNode = workspaceNode.rootNodes[i]
         functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)

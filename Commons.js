@@ -53,21 +53,23 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
     }
 
     async function runSimulation(
-        recordsArray,
-        conditionsArray,
-        strategiesArray,
-        tradesArray,
-        lastObjectsArray,
         timePeriod,
         currentDay,
         startDate,
         endDate,
         interExecutionMemory,
-        callback) {
+        callback,
+        callBackFunction) {
 
         try {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
+
+            let recordsArray = [];
+            let conditionsArray = [];
+            let strategiesArray = [];
+            let tradesArray = [];
+            let lastObjectsArray = [];
 
             let tradingSystem = await strategy.getStrategy();
 
@@ -1600,7 +1602,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> callback -> recordsArray.length = " + recordsArray.length); }
 
-            callback(tradingSystem);
+            callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, tradesArray, lastObjectsArray);
 
             function getElement(pArray, begin, end) {
 

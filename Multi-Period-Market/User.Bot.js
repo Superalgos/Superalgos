@@ -49,11 +49,11 @@
             let market = global.MARKET;
             let dataFile;
 
-            let recordsArray = [];
-            let conditionsArray = [];
-            let strategiesArray = [];
-            let tradesArray = [];
-            let lastObjectsArray = [];
+            let recordsArray
+            let conditionsArray
+            let strategiesArray
+            let tradesArray
+            let lastObjectsArray 
 
             let tradingSystem = {};
             let interExecutionMemory = {};
@@ -96,20 +96,23 @@
             }
 
             commons.runSimulation(
-                recordsArray,
-                conditionsArray,
-                strategiesArray,
-                tradesArray,
-                lastObjectsArray,
                 timePeriod,
                 currentDay,
                 startDate,
                 endDate,
                 interExecutionMemory,
-                writeFiles)
+                writeFiles,
+                callBackFunction)
 
-            function writeFiles(pTradingSystem) {
+            function writeFiles(pTradingSystem, pRecordsArray, pConditionsArray, pStrategiesArray, pTradesArray, pLastObjectsArray) {
+
                 tradingSystem = pTradingSystem
+                recordsArray = pRecordsArray
+                conditionsArray = pConditionsArray
+                strategiesArray = pStrategiesArray
+                tradesArray = pTradesArray
+                lastObjectsArray = pLastObjectsArray
+
                 writeRecordsFile()
             }
 

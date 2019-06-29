@@ -34,7 +34,7 @@ function newFloatingObject () {
     initializeRadius: initializeRadius,
     initializeImageSize: initializeImageSize,
     initializeFontSize: initializeFontSize,
-    radomizeCurrentPosition: radomizeCurrentPosition,
+    initializeCurrentPosition: initializeCurrentPosition,
     radomizeCurrentSpeed: radomizeCurrentSpeed,
     drawBackground: drawBackground,
     drawMiddleground: drawMiddleground,
@@ -89,7 +89,7 @@ function newFloatingObject () {
 
     /* Assign a position and speed */
 
-    thisObject.radomizeCurrentPosition(thisObject.payload.targetPosition)
+    thisObject.initializeCurrentPosition(thisObject.payload.targetPosition)
     thisObject.radomizeCurrentSpeed()
   }
 
@@ -297,10 +297,19 @@ function newFloatingObject () {
     thisObject.currentFontSize = size / 3
   }
 
-  function radomizeCurrentPosition (arroundPoint) {
-    let position = {
-      x: Math.floor((Math.random() * (200) - 100)) + arroundPoint.x,
-      y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
+  function initializeCurrentPosition (arroundPoint) {
+    let position
+
+    if (thisObject.payload.position === undefined) {
+      position = {
+        x: Math.floor((Math.random() * (200) - 100)) + arroundPoint.x,
+        y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
+      }
+    } else {
+      position = {
+        x: thisObject.payload.position.x,
+        y: thisObject.payload.position.y
+      }
     }
 
     setPosition(position)

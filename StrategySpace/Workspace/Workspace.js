@@ -33,13 +33,14 @@ function newWorkspace () {
     y: canvas.floatingSpace.container.frame.height / 2
   }
 
-  let rootNodes = []
+  let workspaceNode = {}
+  workspaceNode.rootNodes = []
 
   functionLibraryAttachDetach = newAttachDetach()
   functionLibraryNodeDeleter = newNodeDeleter()
   functionLibraryPartsFromNodes = newPartsFromNodes()
   functionLibraryProtocolNode = newProtocolNode()
-  functionLibraryWorkspaceNodes = newWorkspaceNode()
+  functionLibraryWorkspaceNodes = newStringifyNode()
 
   let isInitialized = false
   return thisObject
@@ -57,27 +58,18 @@ function newWorkspace () {
     }
     user = JSON.parse(user)
 
-    functionLibraryAttachDetach = newAttachDetach()
-    functionLibraryNodeDeleter = newNodeDeleter()
-    functionLibraryPartsFromNodes = newPartsFromNodes()
-    functionLibraryProtocolNode = newProtocolNode()
-    functionLibraryWorkspaceNodes = newWorkspaceNode()
-
     let savedWorkspace = window.localStorage.getItem(user.alias + '.' + 'workspace')
     if (savedWorkspace === null) {
-      let workspaceNode = {
-        name: 'My Workspace',
-        type: 'Workspace'
-      }
+      workspaceNode.type = 'Workspace'
+      workspaceNode.name = 'My Workspace'
       functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
       spawnPosition.y = spawnPosition.y + 250
       initializeLoadingFromStrategizer()
     } else {
-      workspace = JSON.parse(savedWorkspace)
-      rootNodes = workspace.rootNodes
+      workspaceNode = JSON.parse(savedWorkspace)
 
-      for (let i = 0; i < rootNodes.length; i++) {
-        let rootNode = rootNodes[i]
+      for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
+        let rootNode = workspaceNode.rootNodes[i]
         functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
       }
       isInitialized = true
@@ -88,7 +80,7 @@ function newWorkspace () {
     let result = await canvas.strategySpace.strategizerGateway.loadFromStrategyzer()
     if (result === true) {
       thisObject.tradingSystem = canvas.strategySpace.strategizerGateway.strategizerData
-      rootNodes.push(thisObject.tradingSystem)
+      workspaceNode.rootNodes.push(thisObject.tradingSystem)
       functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
       thisObject.tradingSystem.payload.uiObject.setRunningStatus()
     } else {
@@ -97,7 +89,7 @@ function newWorkspace () {
         type: 'Trading System',
         strategies: []
       }
-      rootNodes.push(thisObject.tradingSystem)
+      workspaceNode.rootNodes.push(thisObject.tradingSystem)
       functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
       thisObject.tradingSystem.payload.uiObject.setRunningStatus()
     }
@@ -113,11 +105,11 @@ function newWorkspace () {
   }
 
   function detachNode (node) {
-    functionLibraryAttachDetach.detachNode(node, rootNodes)
+    functionLibraryAttachDetach.detachNode(node, workspaceNode.rootNodes)
   }
 
   function attachNode (node, attachToNode) {
-    functionLibraryAttachDetach.attachNode(node, attachToNode, rootNodes)
+    functionLibraryAttachDetach.attachNode(node, attachToNode, workspaceNode.rootNodes)
   }
 
   function physics () {
@@ -135,12 +127,14 @@ function newWorkspace () {
 
   function stringifyWorkspace () {
     let stringifyReadyNodes = []
-    for (let i = 0; i < rootNodes.length; i++) {
-      let rootNode = rootNodes[i]
-      let workspaceNode = functionLibraryWorkspaceNodes.getWorkspaceNode(rootNode)
-      stringifyReadyNodes.push(workspaceNode)
+    for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
+      let rootNode = workspaceNode.rootNodes[i]
+      let workspace = functionLibraryWorkspaceNodes.prepareForStringify(rootNode)
+      stringifyReadyNodes.push(workspace)
     }
     let workspace = {
+      type: 'Workspace',
+      name: workspaceNode.name,
       rootNodes: stringifyReadyNodes
     }
     return JSON.stringify(workspace)
@@ -153,7 +147,7 @@ function newWorkspace () {
 
     let dirtyNode = JSON.parse(nodeText)
     let rootNode = functionLibraryProtocolNode.getProtocolNode(dirtyNode)
-    rootNodes.push(rootNode)
+    workspaceNode.rootNodes.push(rootNode)
     functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
   }
 
@@ -263,71 +257,71 @@ function newWorkspace () {
         }
         break
       case 'Delete Trading System': {
-        functionLibraryNodeDeleter.deleteTradingSystem(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteTradingSystem(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Parameters': {
-        functionLibraryNodeDeleter.deleteParameters(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteParameters(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Base Asset': {
-        functionLibraryNodeDeleter.deleteBaseAsset(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteBaseAsset(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Strategy': {
-        functionLibraryNodeDeleter.deleteStrategy(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteStrategy(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Trigger Stage': {
-        functionLibraryNodeDeleter.deleteTriggerStage(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteTriggerStage(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Open Stage': {
-        functionLibraryNodeDeleter.deleteOpenStage(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteOpenStage(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Manage Stage': {
-        functionLibraryNodeDeleter.deleteManageStage(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteManageStage(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Close Stage': {
-        functionLibraryNodeDeleter.deleteCloseStage(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteCloseStage(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Position Size': {
-        functionLibraryNodeDeleter.deletePositionSize(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deletePositionSize(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Initial Definition': {
-        functionLibraryNodeDeleter.deleteInitialDefinition(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteInitialDefinition(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Event': {
-        functionLibraryNodeDeleter.deleteEvent(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteEvent(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Managed Item': {
-        functionLibraryNodeDeleter.deleteManagedItem(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteManagedItem(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Phase': {
-        functionLibraryNodeDeleter.deletePhase(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deletePhase(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Formula': {
-        functionLibraryNodeDeleter.deleteFormula(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteFormula(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Situation': {
-        functionLibraryNodeDeleter.deleteSituation(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteSituation(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Condition': {
-        functionLibraryNodeDeleter.deleteCondition(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteCondition(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Code': {
-        functionLibraryNodeDeleter.deleteCode(payload.node, rootNodes)
+        functionLibraryNodeDeleter.deleteCode(payload.node, workspaceNode.rootNodes)
         break
       }
       default:

@@ -578,6 +578,12 @@ function newPartsFromNodes () {
           x: spawnPosition.x,
           y: spawnPosition.y
         }
+        if (partType === 'Workspace' || partType === 'Trading System') {
+          payload.position = {
+            x: spawnPosition.x,
+            y: spawnPosition.y
+          }
+        }
       } else {
         payload.targetPosition = {
           x: chainParent.payload.position.x,

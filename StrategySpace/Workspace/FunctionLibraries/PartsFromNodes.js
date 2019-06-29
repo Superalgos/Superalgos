@@ -235,6 +235,11 @@ function newPartsFromNodes () {
         }
         return
       }
+      case 'Workspace': {
+        let workspace = node
+        createPart('Workspace', workspace.name, workspace, parentNode, chainParent, 'Workspace')
+        return
+      }
     }
   }
 

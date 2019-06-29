@@ -79,6 +79,52 @@ function newStrategyPartConstructor () {
   function getMenuItemsInitialValues (strategyPart, floatingObject, payload) {
     let menuItemsInitialValues = []
     switch (payload.node.type) {
+      case 'Workspace': {
+        floatingObject.isPinned = true
+        floatingObject.positionLocked = true
+        menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -135
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'broken-link',
+            iconPathOff: 'targeting',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }]
+        break
+      }
       case 'Trading System': {
         floatingObject.isPinned = true
         floatingObject.positionLocked = true
@@ -1600,6 +1646,10 @@ function newStrategyPartConstructor () {
     const INITIAL_FRICTION = 0.99
 
     switch (payload.node.type) {
+      case 'Workspace': {
+        level_0()
+        break
+      }
       case 'Trading System': {
         level_0()
         break

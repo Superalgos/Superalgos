@@ -51,14 +51,22 @@ function newWorkspace () {
   }
 
   async function initialize () {
+    let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
+    if (user === null) {
+      return
+    }
+    user = JSON.parse(user)
+
     functionLibraryAttachDetach = newAttachDetach()
     functionLibraryNodeDeleter = newNodeDeleter()
     functionLibraryPartsFromNodes = newPartsFromNodes()
     functionLibraryProtocolNode = newProtocolNode()
     functionLibraryWorkspaceNodes = newWorkspaceNode()
 
-    let savedWorkspace = window.localStorage.getItem('workspace')
+    let savedWorkspace = window.localStorage.getItem(user.alias + '.' + 'workspace')
     if (savedWorkspace === null) {
+      let workspaceNode
+      functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
       initializeLoadingFromStrategizer()
     } else {
       workspace = JSON.parse(savedWorkspace)
@@ -111,6 +119,12 @@ function newWorkspace () {
   function physics () {
     if (isInitialized !== true) { return }
     /* Here we will save all the workspace related objects into the local storage */
+    let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
+    if (user === null) {
+      return
+    }
+    user = JSON.parse(user)
+
     let stringifyReadyNodes = []
     for (let i = 0; i < rootNodes.length; i++) {
       let rootNode = rootNodes[i]
@@ -121,7 +135,7 @@ function newWorkspace () {
       rootNodes: stringifyReadyNodes
     }
     let textToSave = JSON.stringify(workspace)
-    window.localStorage.setItem('workspace', textToSave)
+    window.localStorage.setItem(user.alias + '.' + 'workspace', textToSave)
   }
 
   function spawn (nodeText, point) {

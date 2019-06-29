@@ -145,10 +145,20 @@ function newWorkspace () {
     spawnPosition.x = point.x
     spawnPosition.y = point.y
 
-    let dirtyNode = JSON.parse(nodeText)
-    let rootNode = functionLibraryProtocolNode.getProtocolNode(dirtyNode)
-    workspaceNode.rootNodes.push(rootNode)
-    functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+    let droppedNode = JSON.parse(nodeText)
+
+    if (droppedNode.type === 'Workspace') {
+      workspaceNode = droppedNode
+      functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
+      for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
+        let rootNode = workspaceNode.rootNodes[i]
+        functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+      }
+    } else {
+      let rootNode = functionLibraryProtocolNode.getProtocolNode(droppedNode)
+      workspaceNode.rootNodes.push(rootNode)
+      functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+    }
   }
 
   async function onMenuItemClick (payload, action) {

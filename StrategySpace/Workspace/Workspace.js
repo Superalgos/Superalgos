@@ -70,7 +70,7 @@ function newWorkspace () {
         type: 'Workspace'
       }
       functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
-      spawnPosition.y = spawnPosition.y + 100
+      spawnPosition.y = spawnPosition.y + 250
       initializeLoadingFromStrategizer()
     } else {
       workspace = JSON.parse(savedWorkspace)

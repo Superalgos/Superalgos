@@ -44,7 +44,7 @@ function newAppLoader() {
         'StrategySpace/Workspace/FunctionLibraries/AttachDetach.js',
         'StrategySpace/Workspace/FunctionLibraries/NodeDeleter.js',
         'StrategySpace/Workspace/FunctionLibraries/ProtocolNode.js',
-        'StrategySpace/Workspace/FunctionLibraries/WorkspaceNode.js',
+        'StrategySpace/Workspace/FunctionLibraries/StringifyNode.js',
                                                      
 
         'Utilities/RoundedCornersBackground.js',

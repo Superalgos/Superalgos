@@ -166,7 +166,6 @@ function newStrategizerGateway () {
           return false
         }
       } else {
-        window.localStorage.setItem('userStrategies', JSON.stringify(response.data.data.strategizer_TradingSystemByFb.data))
         thisObject.strategizerData = JSON.parse(JSON.stringify(response.data.data.strategizer_TradingSystemByFb.data))
         window.localStorage.setItem(MODULE_NAME, response.data.data.strategizer_TradingSystemByFb.id)
         return true

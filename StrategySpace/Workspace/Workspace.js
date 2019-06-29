@@ -5,7 +5,6 @@ function newWorkspace () {
   let thisObject = {
     tradingSystem: undefined,
     container: undefined,
-    idAtStrategizer: undefined,
     onMenuItemClick: onMenuItemClick,
     getProtocolTradingSystem: getProtocolTradingSystem,
     physics: physics,
@@ -64,7 +63,6 @@ function newWorkspace () {
     } else {
       workspace = JSON.parse(savedWorkspace)
       rootNodes = workspace.rootNodes
-      thisObject.idAtStrategizer = workspace.idAtStrategizer
 
       for (let i = 0; i < rootNodes.length; i++) {
         let rootNode = rootNodes[i]
@@ -120,7 +118,6 @@ function newWorkspace () {
       stringifyReadyNodes.push(workspaceNode)
     }
     let workspace = {
-      idAtStrategizer: thisObject.idAtStrategizer,
       rootNodes: stringifyReadyNodes
     }
     let textToSave = JSON.stringify(workspace)

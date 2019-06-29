@@ -1,10 +1,10 @@
-function newWorkspaceNode () {
+function newStringifyNode () {
   thisObject = {
-    getWorkspaceNode: getWorkspaceNode
+    prepareForStringify: prepareForStringify
   }
   return thisObject
 
-  function getWorkspaceNode (node) {
+  function prepareForStringify (node) {
     if (node === undefined) { return }
     switch (node.type) {
       case 'Code':
@@ -26,7 +26,7 @@ function newWorkspaceNode () {
             type: node.type,
             subType: node.subType,
             name: node.name,
-            code: getWorkspaceNode(node.code),
+            code: prepareForStringify(node.code),
             savedPayload: getSavedPayload(node)
           }
           return condition
@@ -42,7 +42,7 @@ function newWorkspaceNode () {
         }
 
         for (let m = 0; m < node.conditions.length; m++) {
-          let condition = getWorkspaceNode(node.conditions[m])
+          let condition = prepareForStringify(node.conditions[m])
           situation.conditions.push(condition)
         }
         return situation
@@ -70,7 +70,7 @@ function newWorkspaceNode () {
             savedPayload: getSavedPayload(node)
           }
           for (let m = 0; m < node.situations.length; m++) {
-            let situation = getWorkspaceNode(node.situations[m])
+            let situation = prepareForStringify(node.situations[m])
             event.situations.push(situation)
           }
           return event
@@ -81,8 +81,8 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getWorkspaceNode(node.formula),
-          nextPhaseEvent: getWorkspaceNode(node.nextPhaseEvent),
+          formula: prepareForStringify(node.formula),
+          nextPhaseEvent: prepareForStringify(node.nextPhaseEvent),
           savedPayload: getSavedPayload(node)
         }
         return phase
@@ -99,7 +99,7 @@ function newWorkspaceNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = getWorkspaceNode(node.phases[m])
+          let phase = prepareForStringify(node.phases[m])
           stop.phases.push(phase)
         }
         return stop
@@ -116,7 +116,7 @@ function newWorkspaceNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = getWorkspaceNode(node.phases[m])
+          let phase = prepareForStringify(node.phases[m])
           takeProfit.phases.push(phase)
         }
         return takeProfit
@@ -132,7 +132,7 @@ function newWorkspaceNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getWorkspaceNode(node.situations[m])
+          let situation = prepareForStringify(node.situations[m])
           event.situations.push(situation)
         }
         return event
@@ -148,7 +148,7 @@ function newWorkspaceNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getWorkspaceNode(node.situations[m])
+          let situation = prepareForStringify(node.situations[m])
           event.situations.push(situation)
         }
         return event
@@ -164,7 +164,7 @@ function newWorkspaceNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getWorkspaceNode(node.situations[m])
+          let situation = prepareForStringify(node.situations[m])
           event.situations.push(situation)
         }
         return event
@@ -175,8 +175,8 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: getWorkspaceNode(node.stopLoss),
-          takeProfit: getWorkspaceNode(node.takeProfit),
+          stopLoss: prepareForStringify(node.stopLoss),
+          takeProfit: prepareForStringify(node.takeProfit),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -187,7 +187,7 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getWorkspaceNode(node.formula),
+          formula: prepareForStringify(node.formula),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -198,10 +198,10 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerOn: getWorkspaceNode(node.triggerOn),
-          triggerOff: getWorkspaceNode(node.triggerOff),
-          takePosition: getWorkspaceNode(node.takePosition),
-          positionSize: getWorkspaceNode(node.positionSize),
+          triggerOn: prepareForStringify(node.triggerOn),
+          triggerOff: prepareForStringify(node.triggerOff),
+          takePosition: prepareForStringify(node.takePosition),
+          positionSize: prepareForStringify(node.positionSize),
           savedPayload: getSavedPayload(node)
         }
         return stage
@@ -212,7 +212,7 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          initialDefinition: getWorkspaceNode(node.initialDefinition),
+          initialDefinition: prepareForStringify(node.initialDefinition),
           savedPayload: getSavedPayload(node)
         }
         return stage
@@ -223,8 +223,8 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: getWorkspaceNode(node.stopLoss),
-          takeProfit: getWorkspaceNode(node.takeProfit),
+          stopLoss: prepareForStringify(node.stopLoss),
+          takeProfit: prepareForStringify(node.takeProfit),
           savedPayload: getSavedPayload(node)
         }
         return stage
@@ -245,10 +245,10 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerStage: getWorkspaceNode(node.triggerStage),
-          openStage: getWorkspaceNode(node.openStage),
-          manageStage: getWorkspaceNode(node.manageStage),
-          closeStage: getWorkspaceNode(node.closeStage),
+          triggerStage: prepareForStringify(node.triggerStage),
+          openStage: prepareForStringify(node.openStage),
+          manageStage: prepareForStringify(node.manageStage),
+          closeStage: prepareForStringify(node.closeStage),
           savedPayload: getSavedPayload(node)
         }
         return strategy
@@ -259,7 +259,7 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getWorkspaceNode(node.formula),
+          formula: prepareForStringify(node.formula),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -270,7 +270,7 @@ function newWorkspaceNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          baseAsset: getWorkspaceNode(node.baseAsset),
+          baseAsset: prepareForStringify(node.baseAsset),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -282,12 +282,12 @@ function newWorkspaceNode () {
           subType: node.subType,
           name: node.name,
           strategies: [],
-          parameters: getWorkspaceNode(node.parameters),
+          parameters: prepareForStringify(node.parameters),
           savedPayload: getSavedPayload(node)
         }
 
         for (let m = 0; m < node.strategies.length; m++) {
-          let strategy = getWorkspaceNode(node.strategies[m])
+          let strategy = prepareForStringify(node.strategies[m])
           tradingSystem.strategies.push(strategy)
         }
         return tradingSystem

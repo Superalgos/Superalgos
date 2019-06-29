@@ -47,12 +47,12 @@ function newStrategizerGateway () {
       }
 
       user = JSON.parse(user)
-      let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias.replace('.','')
+      let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias.replace('.', '')
 
       /* See if we need to update or create a new record at the strategizer */
 
       let tradingSystem = canvas.strategySpace.workspace.getProtocolTradingSystem()
-      let idAtStrategizer = canvas.strategySpace.workspace.idAtStrategizer
+      let idAtStrategizer = window.localStorage.getItem(MODULE_NAME)
 
       if (idAtStrategizer === undefined) {
         let response = await axios({
@@ -85,7 +85,7 @@ function newStrategizerGateway () {
           console.log('Error getting events: ' + JSON.stringify(response.data.errors))
           throw 'Error getting events: ' + JSON.stringify(response.data.errors)
         } else {
-          canvas.strategySpace.workspace.idAtStrategizer = response.data.data.strategizer_CreateTradingSystem.id
+          window.localStorage.setItem(MODULE_NAME, response.data.data.strategizer_CreateTradingSystem.id)
         }
       } else {
         const graphQLServer = await axios({
@@ -132,7 +132,7 @@ function newStrategizerGateway () {
       }
 
       user = JSON.parse(user)
-      let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias.replace('.','')
+      let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias.replace('.', '')
 
       let response = await axios({
         url: window.canvasApp.graphQL.masterAppApiUrl,
@@ -166,9 +166,8 @@ function newStrategizerGateway () {
           return false
         }
       } else {
-        window.localStorage.setItem('userStrategies', JSON.stringify(response.data.data.strategizer_TradingSystemByFb.data))
         thisObject.strategizerData = JSON.parse(JSON.stringify(response.data.data.strategizer_TradingSystemByFb.data))
-        canvas.strategySpace.workspace.idAtStrategizer = response.data.data.strategizer_TradingSystemByFb.id
+        window.localStorage.setItem(MODULE_NAME, response.data.data.strategizer_TradingSystemByFb.id)
         return true
       }
     } catch (err) {

@@ -235,6 +235,11 @@ function newPartsFromNodes () {
         }
         return
       }
+      case 'Workspace': {
+        let workspace = node
+        createPart('Workspace', workspace.name, workspace, parentNode, chainParent, 'Workspace')
+        return
+      }
     }
   }
 
@@ -572,6 +577,12 @@ function newPartsFromNodes () {
         payload.targetPosition = {
           x: spawnPosition.x,
           y: spawnPosition.y
+        }
+        if (partType === 'Workspace' || partType === 'Trading System') {
+          payload.position = {
+            x: spawnPosition.x,
+            y: spawnPosition.y
+          }
         }
       } else {
         payload.targetPosition = {

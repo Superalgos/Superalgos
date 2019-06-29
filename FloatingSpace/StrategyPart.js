@@ -849,7 +849,7 @@ function newStrategyPart () {
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
 
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', ' + OPACITY + ')'
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
 
         browserCanvasContext.lineWidth = 10
         browserCanvasContext.setLineDash([4, 20])

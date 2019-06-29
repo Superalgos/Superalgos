@@ -1,5 +1,6 @@
 function newNodeDeleter () {
   thisObject = {
+    deleteWorkspace: deleteWorkspace,
     deleteTradingSystem: deleteTradingSystem,
     deleteParameters: deleteParameters,
     deleteBaseAsset: deleteBaseAsset,
@@ -25,19 +26,104 @@ function newNodeDeleter () {
     canvas.floatingSpace.strategyPartConstructor.destroyStrategyPart(node.payload)
   }
 
-  function deleteTradingSystem (node, rootNodes) {
-/* Can not delete if it is the last one */
-    let counter = 0
-    for (let i = 0; i < rootNodes.length; i++) {
-      let rootNode = rootNodes[i]
-      if (rootNode.type === node.type) {
-        counter++
+  function deleteWorkspace (node, rootNodes) {
+    while (node.rootNodes.length > 0) {
+      let rootNode = node.rootNodes[0]
+      switch (rootNode.type) {
+
+        case 'Trading System': {
+          deleteTradingSystem(rootNode, rootNodes, true)
+          break
+        }
+        case 'Parameters': {
+          deleteParameters(rootNode, rootNodes)
+          break
+        }
+        case 'Base Asset': {
+          deleteBaseAsset(rootNode, rootNodes)
+          break
+        }
+        case 'Strategy': {
+          deleteStrategy(rootNode, rootNodes)
+          break
+        }
+        case 'Trigger Stage': {
+          deleteTriggerStage(rootNode, rootNodes)
+          break
+        }
+        case 'Open Stage': {
+          deleteOpenStage(rootNode, rootNodes)
+          break
+        }
+        case 'Manage Stage': {
+          deleteManageStage(rootNode, rootNodes)
+          break
+        }
+        case 'Close Stage': {
+          deleteCloseStage(rootNode, rootNodes)
+          break
+        }
+        case 'Position Size': {
+          deletePositionSize(rootNode, rootNodes)
+          break
+        }
+        case 'Initial Definition': {
+          deleteInitialDefinition(rootNode, rootNodes)
+          break
+        }
+        case 'Event': {
+          deleteEvent(rootNode, rootNodes)
+          break
+        }
+        case 'Managed Item': {
+          deleteManagedItem(rootNode, rootNodes)
+          break
+        }
+        case 'Phase': {
+          deletePhase(rootNode, rootNodes)
+          break
+        }
+        case 'Formula': {
+          deleteFormula(rootNode, rootNodes)
+          break
+        }
+        case 'Situation': {
+          deleteSituation(rootNode, rootNodes)
+          break
+        }
+        case 'Condition': {
+          deleteCondition(rootNode, rootNodes)
+          break
+        }
+        case 'Code': {
+          deleteCode(rootNode, rootNodes)
+          break
+        }
+        default:
+
       }
     }
-    if (counter <= 1) { return }
+
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteTradingSystem (node, rootNodes, forced) {
+    if (forced !== true) {
+      /* Can not delete if it is the last one */
+      let counter = 0
+      for (let i = 0; i < rootNodes.length; i++) {
+        let rootNode = rootNodes[i]
+        if (rootNode.type === node.type) {
+          counter++
+        }
+      }
+      if (counter <= 1) { return }
+    }
 
     if (node.payload.uiObject.isRunning === true) {
-      strategyPart.setNotRunningStatus()
+      node.payload.uiObject.setNotRunningStatus()
     }
 
     while (node.strategies.length > 0) {

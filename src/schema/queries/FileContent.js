@@ -7,7 +7,7 @@ import { getFileContentRemote } from '../../storage/providers/AzureStorage'
 export const args = { file: { type: FileInputType } }
 
 const resolve = async (parent, { file }, context) => {
-  logger.debug('getFileContent -> Entering Function: ' + file.filePath)
+  logger.debug('getFileContent -> Entering Function: ' + file.container + '/' + file.filePath)
 
   try {
 

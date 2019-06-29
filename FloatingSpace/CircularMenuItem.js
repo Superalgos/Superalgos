@@ -5,6 +5,7 @@ function newCircularMenuItem () {
   let thisObject = {
     type: undefined,
     isDeployed: undefined,
+    askConfirmation: undefined,
     iconOn: undefined,
     iconOff: undefined,
     currentIcon: undefined,
@@ -170,7 +171,7 @@ function newCircularMenuItem () {
   }
 
   async function onMouseClick (event) {
-    if (temporaryStatus === 0) {
+    if (temporaryStatus === 0 && thisObject.askConfirmation !== true) {
       if (thisObject.workingLabel !== undefined) {
         setTemporaryStatus(thisObject.workingLabel, UI_COLOR.GREY, 500)
       }
@@ -186,6 +187,14 @@ function newCircularMenuItem () {
           setTemporaryStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500)
         }
       }
+    }
+
+    if (temporaryStatus > 0 && thisObject.askConfirmation === true) {
+      thisObject.currentStatus = await thisObject.actionFunction(thisObject.payload, thisObject.action)
+    }
+
+    if (temporaryStatus === 0 && thisObject.askConfirmation === true) {
+      setTemporaryStatus('Confirm to Delete', UI_COLOR.GREY, 50)
     }
   }
 

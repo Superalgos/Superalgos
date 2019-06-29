@@ -67,6 +67,7 @@ function newCircularMenu () {
       menuItem.currentStatus = menuItemInitialValue.currentStatus
       menuItem.relatedStrategyPart = menuItemInitialValue.relatedStrategyPart
       menuItem.dontShowAtFullscreen = menuItemInitialValue.dontShowAtFullscreen
+      menuItem.askConfirmation = menuItemInitialValue.askConfirmation
 
       if (menuItem.label === undefined) {
         menuItem.type = 'Icon Only'

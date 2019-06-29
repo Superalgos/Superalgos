@@ -186,6 +186,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Trading System',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete Trading System',
             visible: false,
@@ -268,6 +269,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Parameters',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete Parameters',
             visible: false,
@@ -336,6 +338,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Base Asset',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete Base Asset',
             visible: false,
@@ -417,6 +420,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Strategy',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Strategy',
             visible: false,
@@ -498,6 +502,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Trigger Stage',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Stage',
             visible: false,
@@ -566,6 +571,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Open Stage',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Stage',
             visible: false,
@@ -634,6 +640,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Manage Stage',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Stage',
             visible: false,
@@ -690,6 +697,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Close Stage',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Stage',
             visible: false,
@@ -746,6 +754,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Position Size',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete Trading System',
             visible: false,
@@ -828,6 +837,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Event',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Event',
             visible: false,
@@ -897,6 +907,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Event',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Event',
             visible: false,
@@ -966,6 +977,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Event',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Event',
             visible: false,
@@ -1034,6 +1046,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Initial Definition',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Definition',
             visible: false,
@@ -1103,6 +1116,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Managed Item',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Item',
             visible: false,
@@ -1172,6 +1186,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Managed Item',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Item',
             visible: false,
@@ -1254,6 +1269,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Phase',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Phase',
             visible: false,
@@ -1328,6 +1344,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Formula',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Formula',
             visible: false,
@@ -1397,6 +1414,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Event',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Event',
             visible: false,
@@ -1466,6 +1484,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Situation',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Situation',
             visible: false,
@@ -1535,6 +1554,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Condition',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Condition',
             visible: false,
@@ -1609,6 +1629,7 @@ function newStrategyPartConstructor () {
           },
           {
             action: 'Delete Code',
+            askConfirmation: true,
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Code',
             visible: false,

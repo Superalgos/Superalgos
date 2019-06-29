@@ -65,8 +65,12 @@ function newWorkspace () {
 
     let savedWorkspace = window.localStorage.getItem(user.alias + '.' + 'workspace')
     if (savedWorkspace === null) {
-      let workspaceNode
-      functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
+      let workspaceNode = {
+        name: 'My Workspace',
+        type: 'Workspace'
+      }
+      functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
+      spawnPosition.y = spawnPosition.y + 100
       initializeLoadingFromStrategizer()
     } else {
       workspace = JSON.parse(savedWorkspace)
@@ -125,6 +129,11 @@ function newWorkspace () {
     }
     user = JSON.parse(user)
 
+    let textToSave = stringifyWorkspace()
+    window.localStorage.setItem(user.alias + '.' + 'workspace', textToSave)
+  }
+
+  function stringifyWorkspace () {
     let stringifyReadyNodes = []
     for (let i = 0; i < rootNodes.length; i++) {
       let rootNode = rootNodes[i]
@@ -134,8 +143,7 @@ function newWorkspace () {
     let workspace = {
       rootNodes: stringifyReadyNodes
     }
-    let textToSave = JSON.stringify(workspace)
-    window.localStorage.setItem(user.alias + '.' + 'workspace', textToSave)
+    return JSON.stringify(workspace)
   }
 
   function spawn (nodeText, point) {
@@ -151,6 +159,14 @@ function newWorkspace () {
 
   async function onMenuItemClick (payload, action) {
     switch (action) {
+      case 'Download Workspace':
+        {
+          let text = stringifyWorkspace()
+          let fileName = payload.node.type + ' - ' + payload.node.name + '.json'
+          download(fileName, text)
+        }
+
+        break
       case 'Save Trading System':
         {
           let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer()
@@ -162,16 +178,17 @@ function newWorkspace () {
 
         break
       case 'Download':
-
-        let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node))
-        let nodeName = payload.node.name
-        if (nodeName === undefined) {
-          nodeName = ''
-        } else {
-          nodeName = '.' + nodeName
+        {
+          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node))
+          let nodeName = payload.node.name
+          if (nodeName === undefined) {
+            nodeName = ''
+          } else {
+            nodeName = '.' + nodeName
+          }
+          let fileName = payload.node.type + ' - ' + nodeName + '.json'
+          download(fileName, text)
         }
-        let fileName = payload.node.type + nodeName + '.json'
-        download(fileName, text)
 
         break
 

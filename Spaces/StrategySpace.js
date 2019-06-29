@@ -40,6 +40,7 @@ function newStrategySpace () {
 
   function buildIconByPartTypeMap () {
     const relationshipArray = [
+      ['Workspace', 'design-tool'],
       ['Trading System', 'analysis'],
       ['Parameters', 'settings'],
       ['Base Asset', 'sitemap'],

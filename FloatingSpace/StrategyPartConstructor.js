@@ -112,7 +112,7 @@ function newStrategyPartConstructor () {
             angle: 135
           },
           {
-            action: 'Download',
+            action: 'Download Workspace',
             actionFunction: payload.onMenuItemClick,
             label: 'Download',
             visible: false,

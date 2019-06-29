@@ -48,6 +48,10 @@ function newStrategyPartTitle () {
     thisObject.payload = payload
 
     switch (payload.node.type) {
+      case 'Workspace': {
+        thisObject.allwaysVisible = true
+        break
+      }
       case 'Trading System': {
         thisObject.allwaysVisible = true
         break

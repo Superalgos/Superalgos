@@ -90,7 +90,11 @@ function newSpeedometer () {
 
     if (CURRENT_VALUE_ANGLE > INIT_VALUE_ANGLE) { CURRENT_VALUE_ANGLE = INIT_VALUE_ANGLE }
 
-    if (thisObject.params.VALUE > 0) {
+    if (
+    thisObject.params.VALUE > 0 &&
+     thisObject.params.ASSET_NAME === thisObject.params.BASE_ASSET &&
+     thisObject.params.POSITION_TAKEN === false
+    ) {
       browserCanvasContext.setLineDash([0, 0])
 
       browserCanvasContext.beginPath()
@@ -183,7 +187,7 @@ function newSpeedometer () {
       if (label === 0) { label = label.toFixed(2) } else { label = label.toLocaleString() }
     }
 
-    label = label.substring(0, 5)
+    label = label.substring(0, 6)
 
     xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO + 7
 
@@ -220,7 +224,7 @@ function newSpeedometer () {
 
     browserCanvasContext.font = 'bold  ' + fontSize + 'px ' + UI_FONT.PRIMARY
 
-    label = thisObject.params.ASSET_NAME
+    label = thisObject.params.ASSET_NAME + ' '
 
     xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO + 3
     yOffset = -15
@@ -230,7 +234,12 @@ function newSpeedometer () {
       y: centerPoint.y - yOffset
     }
 
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')'
+    if (thisObject.params.ASSET_NAME === thisObject.params.BASE_ASSET) {
+      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
+    } else {
+      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')'
+    }
+
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }

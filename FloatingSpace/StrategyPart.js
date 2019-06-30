@@ -79,7 +79,7 @@ function newStrategyPart () {
 
   let errorMessage = ''
   let formulaValue = 0
-  let detachingEnabled = false
+  let rightDragging = false
 
   return thisObject
 
@@ -189,6 +189,7 @@ function newStrategyPart () {
 
     if (thisObject.isOnFocus !== true) { return }
     if (isDragging !== true) { return }
+    if (rightDragging !== true) { return }
     if (thisObject.payload.chainParent !== undefined) { return }
 
     let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
@@ -374,7 +375,7 @@ function newStrategyPart () {
   function detachingPhysics () {
     if (isDragging !== true) { return }
     if (thisObject.isFrozen === true) { return }
-    if (detachingEnabled === false) { return }
+    if (rightDragging === false) { return }
 
     let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
     let ratio = distanceToChainParent / previousDistance
@@ -498,9 +499,9 @@ function newStrategyPart () {
     }
     isDragging = true
     if (event.button === 2) {
-      detachingEnabled = true
+      rightDragging = true
     } else {
-      detachingEnabled = false
+      rightDragging = false
     }
   }
 

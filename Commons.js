@@ -1476,6 +1476,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         balanceAssetB = Number.MAX_SAFE_INTEGER
                     }
 
+                    let quotedBaseAsset = '"' + baseAsset + '"'
+
                     simulationRecord = {
                         begin: candle.begin,
                         end: candle.end,
@@ -1509,7 +1511,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         maximumBalanceA: maximumBalanceA,
                         initialBalanceB: initialBalanceB,
                         minimumBalanceB: minimumBalanceB,
-                        maximumBalanceB: maximumBalanceB
+                        maximumBalanceB: maximumBalanceB,
+                        baseAsset: quotedBaseAsset
                     }
 
                     recordsArray.push(simulationRecord);

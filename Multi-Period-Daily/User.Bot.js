@@ -168,7 +168,8 @@
                             record.maximumBalanceA + "," +
                             record.initialBalanceB + "," +
                             record.minimumBalanceB + "," +
-                            record.maximumBalanceB + "]";
+                            record.maximumBalanceB + "," +
+                            record.baseAsset + "]";
 
                         if (separator === "") { separator = ","; }
 

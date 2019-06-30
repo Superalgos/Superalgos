@@ -345,6 +345,7 @@
                         record.initialBalanceB = dailyFile[i][30];
                         record.minimunBalanceB = dailyFile[i][31];
                         record.maximunBalanceB = dailyFile[i][32];
+                        record.baseAsset = dailyFile[i][33];
 
                         if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
 
@@ -441,6 +442,7 @@
                 record.initialBalanceB = marketFile[i][30];
                 record.minimunBalanceB = marketFile[i][31];
                 record.maximunBalanceB = marketFile[i][32];
+                record.baseAsset = marketFile[i][33];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -815,6 +817,7 @@
         }
     }
 }
+
 
 
 

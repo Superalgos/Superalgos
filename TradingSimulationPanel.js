@@ -224,6 +224,11 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         /* Parameters */
         let params
         let paramsArray = []
+        let positionTaken = false
+
+        if (currentRecord.innerRecord.positionSize > 0) {
+            positionTaken = true
+        }
 
         params = {}
         params.VALUE = currentRecord.innerRecord.balanceA;
@@ -231,8 +236,10 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         params.MIN_VALUE = currentRecord.innerRecord.minimunBalanceA
         params.MAX_VALUE = currentRecord.innerRecord.maximunBalanceA
         params.ASSET_LABEL = 'Asset A'
-        params.ASSET_NAME = DEFAULT_MARKET.assetB + ' '
+        params.ASSET_NAME = DEFAULT_MARKET.assetB
         params.LEFT_OFFSET = 100
+        params.POSITION_TAKEN = positionTaken
+        params.BASE_ASSET = currentRecord.innerRecord.baseAsset
 
         paramsArray.push(params)
 
@@ -242,14 +249,17 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         params.INIT_VALUE = currentRecord.innerRecord.initialBalanceB
         params.MAX_VALUE = currentRecord.innerRecord.maximunBalanceB
         params.ASSET_LABEL = 'Asset B'
-        params.ASSET_NAME = DEFAULT_MARKET.assetA + ' '
+        params.ASSET_NAME = DEFAULT_MARKET.assetA
         params.LEFT_OFFSET = 220
+        params.POSITION_TAKEN = positionTaken
+        params.BASE_ASSET = currentRecord.innerRecord.baseAsset
 
         paramsArray.push(params)
 
         canvas.cockpitSpace.assetBalances.setParamsArray(paramsArray)
     }
 }
+
 
 
 

@@ -1786,7 +1786,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = 0.93
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(500)
+      floatingObject.initializeMass(400)
       floatingObject.initializeRadius(45)
       floatingObject.initializeImageSize(80)
       floatingObject.initializeFontSize(10)
@@ -1798,7 +1798,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = 0.94
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(250)
+      floatingObject.initializeMass(200)
       floatingObject.initializeRadius(45)
       floatingObject.initializeImageSize(80)
       floatingObject.initializeFontSize(10)

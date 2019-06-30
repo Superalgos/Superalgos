@@ -240,6 +240,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         params.LEFT_OFFSET = 100
         params.POSITION_TAKEN = positionTaken
         params.BASE_ASSET = currentRecord.innerRecord.baseAsset
+        params.DECIMALS = 4
 
         paramsArray.push(params)
 
@@ -253,6 +254,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         params.LEFT_OFFSET = 220
         params.POSITION_TAKEN = positionTaken
         params.BASE_ASSET = currentRecord.innerRecord.baseAsset
+        params.DECIMALS = 2
 
         paramsArray.push(params)
 

@@ -178,16 +178,27 @@ function newSpeedometer () {
     /* We put the thisObject.params.VALUE in the middle */
 
     fontSize = 22
-
+    if (thisObject.params.VALUE > 999) {
+      fontSize = 18
+    }
+    if (thisObject.params.VALUE > 9999) {
+      fontSize = 14
+    }
+    if (thisObject.params.VALUE > 99999) {
+      fontSize = 10
+    }
     browserCanvasContext.font = 'bold  ' + fontSize + 'px ' + UI_FONT.PRIMARY
 
     label = thisObject.params.VALUE
+
     if (isNaN(label) === false) {
       label = Number(label)
+
+      label = Math.trunc(label * Math.pow(10, thisObject.params.DECIMALS)) / Math.pow(10, thisObject.params.DECIMALS)
       if (label === 0) { label = label.toFixed(2) } else { label = label.toLocaleString() }
     }
 
-    label = label.substring(0, 6)
+    // label = label.substring(0, 6)
 
     xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO + 7
 

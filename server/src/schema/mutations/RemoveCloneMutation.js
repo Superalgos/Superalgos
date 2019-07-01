@@ -7,7 +7,6 @@ import teamQuery from '../../graphQLCalls/teamQuery'
 import { isDefined } from '../../config/utils'
 import cloneDetails from '../cloneDetails'
 import authorizeKey from '../../graphQLCalls/authorizeKey'
-import authorizeStrategy from '../../graphQLCalls/authorizeStrategy'
 import { LIVE, COMPETITION } from '../../enums/CloneMode'
 
 const args = {
@@ -35,7 +34,6 @@ const resolve = async (parent, { id }, context) => {
     let bot = allUserBotsResponse.data.data.teams_FbByOwner.edges[0].node
     clone = cloneDetails(bot, clone)
 
-    await authorizeStrategy(context.authorization, clone.botSlug, clone.id, true)
     if ((clone.mode === LIVE || clone.mode === COMPETITION) && isDefined(clone.keyId)) {
       logger.debug('removeClone -> Release the clone key.')
       await authorizeKey(context.authorization, clone.keyId, clone.id, true)

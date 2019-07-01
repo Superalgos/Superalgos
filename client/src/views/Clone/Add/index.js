@@ -36,7 +36,6 @@ class AddClone extends Component {
       state: '',
       stateDatetime: 0,
       createDatetime: 0,
-      runAsTeam: false,
       teams: [],
       teamId: '',
       keyId: '',
@@ -524,7 +523,6 @@ class AddClone extends Component {
     }
 
     if (this.state.selectedBot.kind === "Trading") {
-      variables.clone.runAsTeam = this.state.runAsTeam
       variables.clone.processName = 'Trading-Process'
       variables.clone.timePeriod = this.state.timePeriod
       if (this.state.mode === "backtest") {
@@ -541,7 +539,6 @@ class AddClone extends Component {
       variables.clone.startYear = this.state.startYear
       variables.clone.endYear = this.state.endYear
       variables.clone.month = this.state.month
-      variables.clone.runAsTeam = true
       variables.clone.beginDatetime = this.state.beginDatetime.valueOf() / 1000 | 0
     }
 
@@ -570,7 +567,6 @@ class AddClone extends Component {
         state: '',
         stateDatetime: 0,
         createDatetime: 0,
-        runAsTeam: false,
         exchangeName: exchanges.Poloniex,
         processName: indicatorProcessNames.Daily,
         teams: [],

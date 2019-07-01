@@ -15,7 +15,6 @@ export const clone = gql`
     stateDatetime
     createDatetime
     lastLogs
-    runAsTeam
     summaryDate
     buyAverage
     sellAverage

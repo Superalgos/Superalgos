@@ -1,7 +1,9 @@
 {
   "name": "@superalgos/operations-client",
-  "version": "0.0.34",
+  "version": "0.0.38",
   "description": "Superalgos Operations client-side web app",
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
   "main": "src/index.js",
   "dependencies": {
     "@material-ui/core": "^3.2.2",
@@ -15,22 +17,9 @@
     "react": "^16.6.1",
     "react-apollo": "^2.2.4",
     "react-dom": "^16.6.1",
-    "react-number-format": "^4.0.6",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "react-hot-loader": "^4.3.11"
-  },
-  "scripts": {
-    "start": "set PORT=3002 && react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }

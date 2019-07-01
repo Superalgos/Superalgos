@@ -625,7 +625,7 @@ function newFloatingLayer () {
         pDelta = -1
       }
 
-      maxTargetRepulsionForce = maxTargetRepulsionForce + pDelta / 10000
+      maxTargetRepulsionForce = maxTargetRepulsionForce + pDelta / 1000
 
       if (maxTargetRepulsionForce < 0.0001) {
         maxTargetRepulsionForce = 0.0001

@@ -31,13 +31,16 @@ function newFloatingSpace () {
   thisObject.container.isWheelable = true
   thisObject.container.detectMouseOver = true
   thisObject.container.frame.radius = 0
-  thisObject.container.frame.width = browserCanvas.width * 10
-  thisObject.container.frame.height = browserCanvas.height * 10
+
+  let devicePixelRatio = window.devicePixelRatio
+  const SPACE_SIZE = 10
+
+  thisObject.container.frame.width = browserCanvas.width * devicePixelRatio * SPACE_SIZE
+  thisObject.container.frame.height = browserCanvas.height * devicePixelRatio * SPACE_SIZE
   thisObject.container.frame.position.x = browserCanvas.width / 2 - thisObject.container.frame.width / 2
   thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
 
   let visible = false
-
   return thisObject
 
   function finalize () {
@@ -134,7 +137,17 @@ function newFloatingSpace () {
   }
 
   function physics () {
+    browserZoomPhysics()
     thisObject.floatingLayer.physics()
+  }
+
+  function browserZoomPhysics () {
+    if (devicePixelRatio !== window.devicePixelRatio) {
+      devicePixelRatio = window.devicePixelRatio
+
+      thisObject.container.frame.position.x = browserCanvas.width / 2 - thisObject.container.frame.width / 2
+      thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
+    }
   }
 
   function draw () {
@@ -155,4 +168,3 @@ function newFloatingSpace () {
     browserCanvasContext.fill()
   }
 }
-

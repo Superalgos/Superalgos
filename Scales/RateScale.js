@@ -15,7 +15,7 @@ function newRateScale () {
   }
 
   const HEIGHT_PERCENTAGE_DEFAULT_VALUE = 50
-  const STEP_SIZE = 5
+  const STEP_SIZE = 2
   const MIN_WIDTH = 50
 
   thisObject.container = newContainer()

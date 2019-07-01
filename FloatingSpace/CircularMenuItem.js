@@ -6,6 +6,7 @@ function newCircularMenuItem () {
     type: undefined,
     isDeployed: undefined,
     askConfirmation: undefined,
+    confirmationLabel: undefined,
     iconOn: undefined,
     iconOff: undefined,
     currentIcon: undefined,
@@ -194,7 +195,7 @@ function newCircularMenuItem () {
     }
 
     if (temporaryStatus === 0 && thisObject.askConfirmation === true) {
-      setTemporaryStatus('Confirm to Delete', UI_COLOR.GREY, 50)
+      setTemporaryStatus(thisObject.confirmationLabel, UI_COLOR.GREY, 50)
     }
   }
 

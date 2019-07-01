@@ -58,6 +58,10 @@ const ecosystemSchema = new Schema({
         type: String,
         required: false
       },
+      cloneId: {
+        type: String,
+        required: false
+      },
       products: [{
         codeName: {
           type: String,

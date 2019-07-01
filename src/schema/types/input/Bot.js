@@ -11,7 +11,8 @@ const Type = new GraphQLInputObjectType({
     codeName: { type: new GraphQLNonNull(GraphQLString) },
     displayName: { type: new GraphQLNonNull(GraphQLString) },
     repo: { type: GraphQLString },
-    configFile: { type: GraphQLString }
+    configFile: { type: GraphQLString },
+    cloneId: { type: GraphQLString }
   }),
 });
 

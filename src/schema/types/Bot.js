@@ -15,6 +15,7 @@ const BotType = new GraphQLObjectType({
     profilePicture: { type: GraphQLString },
     repo: { type: GraphQLString },
     configFile: { type: GraphQLString },
+    cloneId: { type: GraphQLString },
     products: {
       type: new GraphQLList(ProductType),
       resolve(parent) {

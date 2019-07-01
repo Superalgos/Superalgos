@@ -10,26 +10,24 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "nodemon --exec babel-node --source-maps --presets env,stage-2 --inspect src/index.js 9229"
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-preset-env": "1.7.0",
-    "babel-preset-stage-2": "6.24.1",
-    "nodemon": "1.18.10"
+    "nodemon": "^1.19.1"
   },
   "dependencies": {
-    "axios": "0.19.0",
-    "cors": "2.8.4",
-    "dotenv": "8.0.0",
-    "express": "4.16.3",
-    "express-graphql": "0.6.12",
-    "graphql": "14.0.0",
-    "kubernetes-client": "8.2.0",
-    "luxon": "^1.13.2",
-    "mongoose": "5.2.12",
-    "winston": "3.2.1"
+    "@kubernetes/client-node": "^0.10.2",
+    "axios": "^0.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.3.1",
+    "kubernetes-client": "^8.3.0",
+    "luxon": "^1.16.0",
+    "mongoose": "^5.6.1",
+    "winston": "^3.2.1"
   }
 }

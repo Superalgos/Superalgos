@@ -9,7 +9,6 @@ const cloneDetails = (selectedBot, clone) => {
     clone.teamName = selectedBot.team.name
     clone.teamSlug = selectedBot.team.slug
     clone.teamAvatar = selectedBot.team.profile.avatar
-    clone.userLoggedIn = selectedBot.team.members[0].member.alias
     clone.botType = selectedBot.kind
   }
   return clone

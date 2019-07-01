@@ -40,7 +40,6 @@ const cloneSchema = new Schema({
   },
   stateDatetime: Number,
   createDatetime: Number,
-  runAsTeam: Boolean,
   active: Boolean,
   summaryDate: Number,
   buyAverage: Number,

@@ -35,7 +35,7 @@
     "@superalgos/events-client": "0.0.2",
     "@superalgos/key-vault-client": "0.0.32",
     "@superalgos/logs-client": "0.0.1",
-    "@superalgos/operations-client": "0.0.34",
+    "@superalgos/operations-client": "0.0.38",
     "@superalgos/strategizer-client": "0.0.18",
     "@superalgos/teams-client": "0.0.40",
     "@superalgos/users-client": "0.0.27",

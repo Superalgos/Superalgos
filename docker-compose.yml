@@ -83,7 +83,7 @@ services:
       - mongo
 
   saweb-api:
-    image: superalgos/saweb:0.1.0
+    image: superalgos/saweb-api:0.1.0
     restart: always
     build: ../saweb-api
     env_file: ./env/saweb-api.env
@@ -101,6 +101,8 @@ services:
     build: ../LogsServerModule
     env_file: ./env/logs-api.env
     command: npm start
+    ports:
+      - "4007:4007"
     networks:
       - superalgos_net
     depends_on:
@@ -137,7 +139,7 @@ services:
     restart: always
     build: ../StrategizerServerModule
     env_file: ./env/strategizer-api.env
-    command: npm start
+    command: node .
     ports:
       - "4008:4008"
     networks:
@@ -163,7 +165,7 @@ services:
     restart: always
     build: ../UsersModule/server
     env_file: ./env/users-api.env
-    command: npm start
+    command: node .
     ports:
       - "4000:4000"
     networks:
@@ -203,6 +205,8 @@ services:
     build: ../NotificationsModule/server
     env_file: ./env/notifications-api.env
     command: npm start
+    ports:
+      - "4006:4006"
     networks:
       - superalgos_net
     depends_on:
@@ -235,7 +239,7 @@ services:
     restart: always
     build: ./server
     env_file: ./env/master-app-api.env
-    command: npm start
+    command: node .
     ports:
       - "4100:4100"
     networks:

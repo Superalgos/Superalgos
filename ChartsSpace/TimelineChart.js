@@ -345,7 +345,7 @@ function newTimelineChart () {
     let imageHeight = 42
     let imageWidth = 150
 
-    const MAX_COLUMNS = 16
+    const MAX_COLUMNS = 32
     const MAX_ROWS = 5
     const Y_TOP_MARGIN = 30
     const MIN_ROW_HIGHT = 100

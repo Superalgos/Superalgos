@@ -118,17 +118,18 @@ function newCanvas () {
       thisObject.animation = animation
 
       animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
+      animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
+      animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
+      animation.addCallBackFunction('Strategy Space Physics', thisObject.strategySpace.physics)
+
       animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
       animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground)
       animation.addCallBackFunction('Chart Space Draw', thisObject.chartSpace.draw)
-      animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
       animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw)
       animation.addCallBackFunction('ViewPort Animate', viewPort.animate)
       animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
-      animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
       animation.addCallBackFunction('Strategy Space Draw', thisObject.strategySpace.draw)
-      animation.addCallBackFunction('Strategy Space Physics', thisObject.strategySpace.physics)
       animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
       animation.start()
     } catch (err) {

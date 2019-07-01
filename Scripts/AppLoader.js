@@ -45,7 +45,7 @@ function newAppLoader() {
         'StrategySpace/Workspace/FunctionLibraries/NodeDeleter.js',
         'StrategySpace/Workspace/FunctionLibraries/ProtocolNode.js',
         'StrategySpace/Workspace/FunctionLibraries/StringifyNode.js',
-                                                     
+
 
         'Utilities/RoundedCornersBackground.js',
 
@@ -195,6 +195,7 @@ function newAppLoader() {
                   profilePicture
                   repo
                   configFile
+                  cloneId
                   products{
                     codeName
                     displayName

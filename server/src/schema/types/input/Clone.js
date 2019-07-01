@@ -18,7 +18,6 @@ const Type = new GraphQLInputObjectType({
     beginDatetime: { type: GraphQLInt },
     endDatetime: { type: GraphQLInt },
     waitTime: { type: GraphQLInt },
-    runAsTeam: { type: GraphQLBoolean },
     startYear: { type: GraphQLInt },
     endYear: { type: GraphQLInt },
     month: { type: GraphQLInt },

@@ -1,7 +1,7 @@
 import logger from '../config/logger'
 import { toPlatformDatetime, isDefined } from '../config/utils'
 import { KubernateError } from '../errors'
-import { Client, config } from 'kubernetes-client'
+import { Client } from 'kubernetes-client'
 import deploymentManifest from '../config/clone-deployment.json'
 import { BACKTEST, COMPETITION, LIVE, NO_TIME } from '../enums/CloneMode'
 import { Trading, Indicator, Sensor } from '../enums/BotTypes'
@@ -37,10 +37,13 @@ const createClone = async (clone) => {
     //   'name': 'HOST_ACCESS_KEY',
     //   'value': clone.host.accessKey
     // })
-    env.push({
-      'name': 'ACCESS_TOKEN_STRATEGY',
-      'value': clone.accessTokenStrategy
-    })
+
+    if(clone.authorization){
+      env.push({
+        'name': 'AUTHORIZATION',
+        'value': clone.authorization
+      })
+    }
 
     logger.debug('createClone General Financial Being Configuration.')
     env.push({
@@ -62,14 +65,6 @@ const createClone = async (clone) => {
     env.push({
       'name': 'START_MODE',
       'value': clone.mode
-    })
-    env.push({
-      'name': 'RUN_AS_TEAM',
-      'value': clone.runAsTeam.toString()
-    })
-    env.push({
-      'name': 'USER_LOGGED_IN',
-      'value': clone.userLoggedIn
     })
     env.push({
       'name': 'PROCESS',

@@ -12,8 +12,6 @@ import {
 } from '../../errors'
 import logger from '../../config/logger'
 import createKubernetesClone from '../../kubernetes/createClone'
-import authorizeStrategy from '../../graphQLCalls/authorizeStrategy'
-import { isDefined } from '../../config/utils'
 
 const args = {
   simulation: { type: SimulationInputType }
@@ -50,8 +48,6 @@ const resolve = async (parent, { simulation }, context) => {
               (simulation.timePeriodDailyArray === undefined && simulation.timePeriodMarketArray === undefined)) {
 
               logger.debug('runSimulation -> Stop running clones.')
-
-              await authorizeStrategy(context.authorization, bot.slug, clones[i]._id, true)
 
               await removeKuberneteClone(clones[i]._id)
               logger.debug('runSimulation -> Clone Removed from Kubernetes: %s.', clones[i]._id)
@@ -113,12 +109,12 @@ async function createSimulatorClone(simulation, processName, userId, simulatorBo
     resumeExecution: simulation.resumeExecution,
     exchangeName: "Poloniex", // TODO pending enable multiple exchange
     beginDatetime: simulation.beginDatetime,
-    runAsTeam: true,
     processName: processName,
     createDatetime: new Date().valueOf() / 1000 | 0,
     active: true,
     authId: userId,
-    timePeriod: simulation.timePeriod
+    timePeriod: simulation.timePeriod.toString(),
+    authorization: authorization
   }
 
   let newClone = new Clone(clone)
@@ -126,14 +122,6 @@ async function createSimulatorClone(simulation, processName, userId, simulatorBo
 
   logger.debug('runSimulation -> Creating %s clone on the Database.', processName)
   await newClone.save()
-
-  logger.debug('runSimulation -> Authorizing clone to use the strategy.')
-  let strategyResponse = await authorizeStrategy(authorization, clone.botSlug, clone.id, false)
-  if (isDefined(strategyResponse.data.data.strategizer_AuthorizeStrategy)) {
-    clone.accessTokenStrategy = strategyResponse.data.data.strategizer_AuthorizeStrategy
-  } else {
-    logger.warn('runSimulation -> Authorizing clone to use the strategy fail.')
-  }
 
   clone = cloneDetails(simulatorBot, clone)
   await createKubernetesClone(clone)

@@ -15,7 +15,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Charly Hole-Fixing
@@ -30,7 +29,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2021,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Bruce Single-Period-Daily
@@ -45,7 +43,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2021,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Olivia Multi-Period-Daily
@@ -60,7 +57,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Olivia Multi-Period-Market
@@ -75,7 +71,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// AATom Multi-Period-Daily
@@ -90,7 +85,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// AATom Multi-Period-Market
@@ -105,7 +99,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Chris Multi-Period-Daily
@@ -120,7 +113,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Chris Multi-Period-Market
@@ -135,7 +127,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// AAPaula Multi-Period-Daily
@@ -150,7 +141,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// AAPaula Multi-Period-Market
@@ -165,7 +155,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Gauss Multi-Period-Daily
@@ -180,7 +169,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Gauss Multi-Period-Market
@@ -195,7 +183,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 
@@ -212,7 +199,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2021,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Charly Hole-Fixing
@@ -227,7 +213,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2021,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Bruce Single-Period-Daily
@@ -242,7 +227,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2021,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Olivia Multi-Period-Daily
@@ -257,7 +241,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Olivia Multi-Period-Market
@@ -272,7 +255,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// AATom Multi-Period-Daily
@@ -287,7 +269,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// AATom Multi-Period-Market
@@ -302,7 +283,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Chris Multi-Period-Daily
@@ -317,7 +297,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Chris Multi-Period-Market
@@ -332,7 +311,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// AAPaula Multi-Period-Daily
@@ -347,7 +325,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// AAPaula Multi-Period-Market
@@ -362,7 +339,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Gauss Multi-Period-Daily
@@ -377,7 +353,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 		// Gauss Multi-Period-Market
@@ -392,7 +367,6 @@ exports.activeCloneList = function (exchangeName) {
 			'startYear': 2019,
 			'endYear': 2019,
 			'month': 1,
-			'runAsTeam': true,
 			'beginDatetime': 1553641200
 		})
 	}

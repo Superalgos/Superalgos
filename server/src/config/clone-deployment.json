@@ -11,6 +11,7 @@
     "template": {
       "spec": {
         "restartPolicy": "OnFailure",
+        "ttlSecondsAfterFinished": 1,
         "containers": [
           {
             "name": "clone-executor",
@@ -20,8 +21,7 @@
             ]
           }
         ],
-        "hostNetwork": true,
-        "dnsPolicy": "ClusterFirstWithHostNet"
+        "hostNetwork": true
       },
       "metadata": {
         "labels": {

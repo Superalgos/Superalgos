@@ -1,5 +1,5 @@
 import logger from '../config/logger'
-import { Client, config } from 'kubernetes-client'
+import { Client } from 'kubernetes-client'
 import kubeconfig from './kubeConfig'
 
 const removeClone = async (cloneId) => {

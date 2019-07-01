@@ -5,9 +5,7 @@ import { CloneModeEnum } from '../../enums/CloneMode'
 import { BotTypesEnum } from '../../enums/BotTypes'
 import teamQuery from '../../graphQLCalls/teamQuery'
 import authorizeKey from '../../graphQLCalls/authorizeKey'
-import authorizeStrategy from '../../graphQLCalls/authorizeStrategy'
 import cloneDetails from '../cloneDetails'
-import ecosystemQuery from '../../graphQLCalls/ecosystemQuery'
 import {
   AuthenticationError,
   WrongArgumentsError,
@@ -28,6 +26,8 @@ const resolve = async (parent, { clone }, context) => {
 
   if (!context.userId) {
     throw new AuthenticationError()
+  } else {
+    clone.authorization = context.authorization
   }
 
   if (!Object.values(CloneModeEnum).includes(clone.mode)) {
@@ -78,14 +78,6 @@ const resolve = async (parent, { clone }, context) => {
 
     logger.debug('addClone -> Creating the clone on the Database.')
     let savedClone = await newClone.save()
-
-    logger.debug('addClone -> Authorizing clone to use the strategy.')
-    let strategyResponse = await authorizeStrategy(context.authorization, clone.botSlug, clone.id, false)
-    if (isDefined(strategyResponse.data.data.strategizer_AuthorizeStrategy)) {
-      clone.accessTokenStrategy = strategyResponse.data.data.strategizer_AuthorizeStrategy
-    } else {
-      logger.warn('addClone -> Authorizing clone to use the strategy fail.')
-    }
 
     if (clone.mode === LIVE || clone.mode === COMPETITION) {
       logger.debug('addClone -> Authorizing clone to use the key.')

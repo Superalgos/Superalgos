@@ -1,4 +1,5 @@
 const axios = require('axios')
+const Ecosystem = require('./Ecosystem')
 
 exports.newFileStorage = function newFileStorage() {
   const INFO_LOG = true
@@ -11,12 +12,14 @@ exports.newFileStorage = function newFileStorage() {
 
   return thisObject
 
-  function getTextFile(container, filePath, callBackFunction) {
+  async function getTextFile(container, filePath, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Entering function: '+ container.toLowerCase()  + '/' + filePath) }
+      if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Entering function: ' + container.toLowerCase() + '/' + filePath) }
+
+      let host = await getDevTeamHost(container)
 
       axios({
-        url: process.env.GATEWAY_ENDPOINT_K8S,
+        url: host.url + 'graphql',
         method: 'post',
         data: {
           query: `
@@ -28,8 +31,8 @@ exports.newFileStorage = function newFileStorage() {
             file: {
               container: container.toLowerCase(),
               filePath,
-              storage: process.env.HOST_STORAGE,
-              accessKey: process.env.HOST_ACCESS_KEY
+              storage: host.storage,
+              accessKey: host.accessKey
             }
           }
         }
@@ -61,7 +64,7 @@ exports.newFileStorage = function newFileStorage() {
 
   async function createTextFile(container, filePath, fileContent, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + filePath) }
+      if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + container.toLowerCase() + '/' + filePath) }
 
       let response = await axios({
         url: process.env.GATEWAY_ENDPOINT_K8S,
@@ -96,4 +99,15 @@ exports.newFileStorage = function newFileStorage() {
     }
   }
 
+  async function getDevTeamHost(devTeamName) {
+    let ecosystem = await Ecosystem.getEcosystem()
+
+    for (var i = 0; i < ecosystem.devTeams.length; i++) {
+      for (key in ecosystem.devTeams[i]) {
+        if (key ==='codeName' && ecosystem.devTeams[i][key].indexOf(devTeamName)!=-1) {
+          return ecosystem.devTeams[i].host
+        }
+      }
+    }
+  }
 }

@@ -44,9 +44,7 @@ function newFileStorage() {
         headers: headers
       }).then(res => {
         if (res.data.errors) {
-          let error = {
-            code: res.data.errors[0]
-          }
+          let error = { code: res.data.errors[0] }
           callBackFunction(error)
           return
         }
@@ -56,9 +54,14 @@ function newFileStorage() {
         else
           callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE)
       }).catch(error => {
-        if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> Invalid JSON received. ') }
-        if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> response.text = ' + error.message) }
-        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+        if (error.message === 'Request aborted' || error.message === 'Network Error') {
+          let error = { code: 'The specified key does not exist.' }
+          callBackFunction(error)
+        } else {
+          if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> Invalid JSON received. ') }
+          if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> response.text = ' + error.message) }
+          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+        }
       })
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] getBlobToText -> err = ' + err.stack) }

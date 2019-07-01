@@ -573,7 +573,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
   async function getSignalsByCloneId(orderStatus) {
     try {
       const cockPit = await axios({
-        url: process.env.GATEWAY_ENDPOINT,
+        url: process.env.GATEWAY_ENDPOINT_K8S,
         method: 'post',
         data: {
           query: `
@@ -594,7 +594,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
           },
         },
         headers: {
-          authorization: 'Bearer ' + global.ACCESS_TOKEN
+          authorization: process.env.AUTHORIZATION
         }
       })
 
@@ -610,7 +610,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
   async function updateSignal(signalId, message) {
     try {
       const cockPit = await axios({
-        url: process.env.GATEWAY_ENDPOINT,
+        url: process.env.GATEWAY_ENDPOINT_K8S,
         method: 'post',
         data: {
           query: `
@@ -631,7 +631,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
           },
         },
         headers: {
-          authorization: 'Bearer ' + global.ACCESS_TOKEN
+          authorization: process.env.AUTHORIZATION
         }
       })
 
@@ -646,7 +646,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
   async function createSignal(message) {
     try {
       const cockPit = await axios({
-        url: process.env.GATEWAY_ENDPOINT,
+        url: process.env.GATEWAY_ENDPOINT_K8S,
         method: 'post',
         data: {
           query: `
@@ -667,7 +667,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
           },
         },
         headers: {
-          authorization: 'Bearer ' + global.ACCESS_TOKEN
+          authorization: process.env.AUTHORIZATION
         }
       })
 
@@ -682,7 +682,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
   async function getAutopilot() {
     try {
       const cockPit = await axios({
-        url: process.env.GATEWAY_ENDPOINT,
+        url: process.env.GATEWAY_ENDPOINT_K8S,
         method: 'post',
         data: {
           query: `
@@ -699,7 +699,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
           },
         },
         headers: {
-          authorization: 'Bearer ' + global.ACCESS_TOKEN
+          authorization: process.env.AUTHORIZATION
         }
       })
 

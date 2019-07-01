@@ -49,11 +49,11 @@
             let market = global.MARKET;
             let dataFile;
 
-            let recordsArray = [];
-            let conditionsArray = [];
-            let strategiesArray = [];
-            let tradesArray = [];
-            let lastObjectsArray = [];
+            let recordsArray
+            let conditionsArray
+            let strategiesArray
+            let tradesArray
+            let lastObjectsArray
 
             let tradingSystem = {};
             let interExecutionMemory = {};
@@ -96,20 +96,23 @@
             }
 
             commons.runSimulation(
-                recordsArray,
-                conditionsArray,
-                strategiesArray,
-                tradesArray,
-                lastObjectsArray,
                 timePeriod,
                 currentDay,
                 startDate,
                 endDate,
                 interExecutionMemory,
-                writeFiles)
+                writeFiles,
+                callBackFunction)
 
-            function writeFiles(pTradingSystem) {
+            function writeFiles(pTradingSystem, pRecordsArray, pConditionsArray, pStrategiesArray, pTradesArray, pLastObjectsArray) {
+
                 tradingSystem = pTradingSystem
+                recordsArray = pRecordsArray
+                conditionsArray = pConditionsArray
+                strategiesArray = pStrategiesArray
+                tradesArray = pTradesArray
+                lastObjectsArray = pLastObjectsArray
+
                 writeRecordsFile()
             }
 
@@ -137,7 +140,7 @@
                             record.balanceA + "," +
                             record.balanceB + "," +
                             record.profit + "," +
-                            record.lastProfit + "," +
+                            record.lastTradeProfitLoss + "," +
                             record.stopLoss + "," +
                             record.roundtrips + "," +
                             record.hits + "," +
@@ -148,7 +151,7 @@
                             record.days + "," +
                             record.anualizedRateOfReturn + "," +
                             record.positionRate + "," +
-                            record.lastProfitPercent + "," +
+                            record.lastTradeROI + "," +
                             record.strategy + "," +
                             record.strategyStageNumber  + "," +
                             record.takeProfit + "," +
@@ -157,11 +160,11 @@
                             JSON.stringify(record.orderRecord) + "," +
                             record.positionSize + "," +
                             record.initialBalanceA + "," +
-                            record.minimunBalanceA + "," +
-                            record.maximunBalanceA + "," +
+                            record.minimumBalanceA + "," +
+                            record.maximumBalanceA + "," +
                             record.initialBalanceB + "," +
-                            record.minimunBalanceB + "," +
-                            record.maximunBalanceB + "]";
+                            record.minimumBalanceB + "," +
+                            record.maximumBalanceB + "]";
 
                         if (separator === "") { separator = ","; }
 
@@ -374,12 +377,13 @@
                     for (let i = 0; i < tradesArray.length; i++) {
 
                         let record = tradesArray[i];
+                        if (record.stopRate === undefined) { record.stopRate = 0 }
 
                         fileContent = fileContent + separator + '[' +
                             record.begin + "," +
                             record.end + "," +
                             record.status + "," +
-                            record.lastProfitPercent + "," +
+                            record.lastTradeROI + "," +
                             record.beginRate + "," +
                             record.endRate + "," +
                             record.exitType + "," +
@@ -440,3 +444,4 @@
         }
     }
 };
+

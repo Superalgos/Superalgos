@@ -264,8 +264,7 @@
         "devTeam": "AAMasters",
         "codeName": "PlottersTradingSimulation",
         "moduleName": "TradingSimulation"
-      },
-      "relatedToTradingEngine":  true
+      }
     },
     {
       "codeName": "Simulation-Conditions",
@@ -304,8 +303,7 @@
         "devTeam": "AAMasters",
         "codeName": "PlottersTradingSimulation",
         "moduleName": "Conditions"
-      },
-      "relatedToTradingEngine": true
+      }
     },
     {
       "codeName": "Simulation-Strategies",
@@ -344,8 +342,7 @@
         "devTeam": "AAMasters",
         "codeName": "PlottersTradingSimulation",
         "moduleName": "Strategies"
-      },
-      "relatedToTradingEngine": true
+      }
     },
     {
       "codeName": "Simulation-Trades",
@@ -384,8 +381,7 @@
         "devTeam": "AAMasters",
         "codeName": "PlottersTradingSimulation",
         "moduleName": "Trades"
-      },
-      "relatedToTradingEngine": true
+      }
     }
   ]
 }

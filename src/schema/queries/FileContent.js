@@ -7,7 +7,7 @@ import { getFileContentRemote } from '../../storage/providers/AzureStorage'
 export const args = { file: { type: FileInputType } }
 
 const resolve = async (parent, { file }, context) => {
-  logger.debug('getFileContent -> Entering Function: ' + file.filePath)
+  logger.debug('getFileContent -> Entering Function: ' + file.container + '/' + file.filePath)
 
   try {
 
@@ -22,6 +22,9 @@ const resolve = async (parent, { file }, context) => {
     return fileContent
 
   } catch (err) {
+    if(err.message === 'The specified key does not exist.')
+      logger.warn('getFileContent -> Error: %s', err.message)
+    else
     logger.error('getFileContent -> Error: %s', err.message)
     throw err
   }

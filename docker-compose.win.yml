@@ -82,7 +82,7 @@ services:
       - mongo
 
   saweb-api:
-    image: superalgos/saweb:0.1.0
+    image: superalgos/saweb-api:0.1.0
     restart: always
     env_file: ./env/saweb-api.env
     command: node .
@@ -114,7 +114,7 @@ services:
       - mongo-express
 
   cockpit-api:
-    image: superalgos/cockpit-api:1.0.0
+    image: superalgos/cockpit-api:0.1.0
     restart: always
     env_file: ./env/cockpit-api.env
     command: npm start
@@ -127,7 +127,7 @@ services:
     image: superalgos/strategizer-api:0.1.0
     restart: always
     env_file: ./env/strategizer-api.env
-    command: npm start
+    command: node .
     networks:
       - superalgos_net
     depends_on:
@@ -147,7 +147,7 @@ services:
     image: superalgos/users-api:0.1.0
     restart: always
     env_file: ./env/users-api.env
-    command: npm start
+    command: node .
     ports:
       - "4000:4000"
     networks:
@@ -212,7 +212,7 @@ services:
     image: superalgos/master-app-api:0.1.0
     restart: always
     env_file: ./env/master-app-api.env
-    command: npm start
+    command: node .
     ports:
       - "4100:4100"
     networks:

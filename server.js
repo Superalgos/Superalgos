@@ -36,7 +36,6 @@ let isHttpServerStarted = false
 
 const FILE_CLOUD = require('./Server/FileCloud')
 let fileCloud = FILE_CLOUD.newFileCloud()
-let storageData = new Map()
 
 startHtttpServer()
 
@@ -379,12 +378,6 @@ function respondWithSourceCode (requestParameters, response) {
 
   let filePath = devTeam + '/plotters/' + codeName + '/' + moduleName
 
-  let cachedSourceCode = storageData.get(filePath)
-  if (cachedSourceCode) {
-    respondWithContent(cachedSourceCode, response)
-    return
-  }
-
   fileCloud.getBlobToText(devTeam.toLowerCase(), filePath, null, onDataArrived)
 
   function onDataArrived (err, pData) {
@@ -392,7 +385,6 @@ function respondWithSourceCode (requestParameters, response) {
       console.log('[ERROR] server -> onBrowserRequest -> respondWithSourceCode -> Could not read a file -> err.message = ' + err.message, err.stack)
       pData = ''
     }
-    storageData.set(filePath, pData)
     respondWithContent(pData, response)
   }
 }

@@ -33,10 +33,10 @@ function newFloatingSpace () {
   thisObject.container.frame.radius = 0
 
   let devicePixelRatio = window.devicePixelRatio
-  const SPACE_SIZE = 10
+  const SPACE_SIZE = 50000
 
-  thisObject.container.frame.width = browserCanvas.width * devicePixelRatio * SPACE_SIZE
-  thisObject.container.frame.height = browserCanvas.height * devicePixelRatio * SPACE_SIZE
+  thisObject.container.frame.width = devicePixelRatio * SPACE_SIZE
+  thisObject.container.frame.height = devicePixelRatio * SPACE_SIZE
   thisObject.container.frame.position.x = browserCanvas.width / 2 - thisObject.container.frame.width / 2
   thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
 

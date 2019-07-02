@@ -732,10 +732,10 @@ function newFloatingLayer () {
       pos2.x = pos2.x - minTD.x * (im2 / (im1 + im2))
       pos2.y = pos2.y - minTD.y * (im2 / (im1 + im2))
 
-      if (floatingObject1.positionLocked === false) {
+      if (floatingObject1.positionLocked === false && isNaN(pos1.x) === false && isNaN(pos1.y) === false) {
         floatingObject1.container.frame.position = pos1
       }
-      if (floatingObject2.positionLocked === false) {
+      if (floatingObject2.positionLocked === false && isNaN(pos2.x) === false && isNaN(pos2.y) === false) {
         floatingObject2.container.frame.position = pos2
       }
     } catch (err) {
@@ -743,3 +743,4 @@ function newFloatingLayer () {
     }
   }
 }
+

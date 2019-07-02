@@ -32,7 +32,6 @@ function newStrategySpace () {
     buildIconByPartTypeMap()
 
     thisObject.strategizerGateway = newStrategizerGateway()
-    thisObject.strategizerGateway.initialize()
 
     thisObject.workspace = newWorkspace()
     thisObject.workspace.initialize()

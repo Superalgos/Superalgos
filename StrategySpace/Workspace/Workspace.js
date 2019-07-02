@@ -11,7 +11,6 @@ function newWorkspace () {
     spawn: spawn,
     detachNode: detachNode,
     attachNode: attachNode,
-    getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
   }
@@ -58,9 +57,10 @@ function newWorkspace () {
     }
     user = JSON.parse(user)
 
-    let idAtStrategizer = window.localStorage.getItem(CANVAS_APP_NAME + '.' + user.alias + '.' + 'Strategizer Gateway')
-    let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + user.alias + '.' + 'Workspace')
-    if (savedWorkspace === null || savedWorkspace === null) {
+    let idAtStrategizer = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Strategizer Gateway' + '.' + user.alias)
+    let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias)
+
+    if (savedWorkspace === null || idAtStrategizer === null) {
       workspaceNode.type = 'Workspace'
       workspaceNode.name = 'My Workspace'
       functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
@@ -84,21 +84,8 @@ function newWorkspace () {
       workspaceNode.rootNodes.push(thisObject.tradingSystem)
       functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
       thisObject.tradingSystem.payload.uiObject.setRunningStatus()
-    } else {
-      // First use of the Designer, lets help by creating the first Trading System
-      thisObject.tradingSystem = {
-        type: 'Trading System',
-        strategies: []
-      }
-      workspaceNode.rootNodes.push(thisObject.tradingSystem)
-      functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
-      thisObject.tradingSystem.payload.uiObject.setRunningStatus()
+      isInitialized = true
     }
-    isInitialized = true
-  }
-
-  function getContainer (point) {
-
   }
 
   function getProtocolTradingSystem () {
@@ -123,7 +110,7 @@ function newWorkspace () {
     user = JSON.parse(user)
 
     let textToSave = stringifyWorkspace()
-    window.localStorage.setItem(user.alias + '.' + 'workspace', textToSave)
+    window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias, textToSave)
   }
 
   function stringifyWorkspace () {

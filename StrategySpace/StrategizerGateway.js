@@ -1,7 +1,6 @@
 
 function newStrategizerGateway () {
   const MODULE_NAME = 'Strategizer Gateway'
-  const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
@@ -10,8 +9,7 @@ function newStrategizerGateway () {
     strategizerData: undefined,
     container: undefined,
     loadFromStrategyzer: loadFromStrategyzer,
-    saveToStrategyzer: saveToStrategyzer,
-    initialize: initialize
+    saveToStrategyzer: saveToStrategyzer
   }
 
   let colletionItems = []
@@ -29,11 +27,9 @@ function newStrategizerGateway () {
   thisObject.container.isDraggeable = false
   thisObject.container.isClickeable = false
 
+  let graphQLServer
+
   return thisObject
-
-  function initialize () {
-
-  }
 
   async function loadFromStrategyzer () {
     try {
@@ -52,7 +48,7 @@ function newStrategizerGateway () {
       user = JSON.parse(user)
       let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias.replace('.', '')
 
-      let graphQLServer = await axios({
+      graphQLServer = await axios({
         url: window.canvasApp.graphQL.masterAppApiUrl,
         method: 'post',
         data: {
@@ -82,11 +78,12 @@ function newStrategizerGateway () {
       } else {
         thisObject.strategizerData = JSON.parse(JSON.stringify(graphQLServer.data.data.strategizer_TradingSystemByFb.data))
         thisObject.idAtStrategizer = graphQLServer.data.data.strategizer_TradingSystemByFb.id
-        window.localStorage.setItem(CANVAS_APP_NAME + '.' + MODULE_NAME + '.' + user.alias, thisObject.idAtStrategizer))
+        window.localStorage.setItem(CANVAS_APP_NAME + '.' + MODULE_NAME + '.' + user.alias, thisObject.idAtStrategizer)
         return true
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] loadFromStrategyzer -> err = ' + err.stack) }
+      logger.write('[ERROR] loadFromStrategyzer -> err = ' + err.stack)
+      logger.write('[ERROR] loadFromStrategyzer -> GraphQL Error: ' + JSON.stringify(graphQLServer.data.errors))
     }
   }
 
@@ -120,7 +117,7 @@ function newStrategizerGateway () {
         logger.write('[ERROR] saveToStrategyzer -> Can not save when idAtStrategizer is null or undefined.')
         return
       }
-      const graphQLServer = await axios({
+      graphQLServer = await axios({
         url: window.canvasApp.graphQL.masterAppApiUrl,
         method: 'post',
         data: {
@@ -152,7 +149,8 @@ function newStrategizerGateway () {
 
       return true
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> err = ' + err.stack) }
+      logger.write('[ERROR] saveToStrategyzer -> err = ' + err.stack)
+      logger.write('[ERROR] loadFromStrategyzer -> GraphQL Error: ' + JSON.stringify(graphQLServer.data.errors))
     }
   }
 }

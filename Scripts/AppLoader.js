@@ -151,12 +151,12 @@ function newAppLoader() {
               dashboard.start()
             }
           } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> onRequired -> err = ' + err) }
+            if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> onRequired -> err = ' + err.stack) }
           }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> err = ' + err.stack) }
     }
   }
 

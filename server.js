@@ -49,7 +49,7 @@ function startHtttpServer () {
       isHttpServerStarted = true
     }
   } catch (err) {
-    console.log('[ERROR] server -> startHtttpServer -> Error = ' + err)
+    console.log('[ERROR] server -> startHtttpServer -> Error = ' + err.stack)
   }
 }
 
@@ -261,7 +261,7 @@ function onBrowserRequest (request, response) {
 
             respondWithContent(fileContent, response)
           } catch (err) {
-            console.log('[ERROR] server -> onBrowserRequest -> File Not Found: ' + fileName + ' or Error = ' + err)
+            console.log('[ERROR] server -> onBrowserRequest -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
           }
         }
       } catch (err) {
@@ -320,7 +320,7 @@ function respondWithFile (fileName, response) {
         // console.log("File Sent: " + fileName);
         //
       } catch (err) {
-        console.log('[ERROR] server -> respondWithFile -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err)
+        console.log('[ERROR] server -> respondWithFile -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
         returnEmptyArray()
       }
     }
@@ -348,11 +348,11 @@ function respondWithImage (fileName, response) {
         response.writeHead(200, { 'Content-Type': 'image/png' })
         response.end(file, 'binary')
       } catch (err) {
-        console.log('[ERROR] server -> respondWithImage -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err)
+        console.log('[ERROR] server -> respondWithImage -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
       }
     }
   } catch (err) {
-    console.log('[ERROR] server -> respondWithImage -> err = ' + err)
+    console.log('[ERROR] server -> respondWithImage -> err = ' + err.stack)
   }
 }
 

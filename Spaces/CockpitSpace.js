@@ -47,20 +47,18 @@
      thisObject.container.frame.position.x = 0
 
      let INITIAL_POSITION
-     const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY)
-
-     if (accessToken !== null) {
-       INITIAL_POSITION = 55
+     if (canvas.strategySpace.workspace.enabled === true) {
+       let localStorage = window.localStorage.getItem(MODULE_NAME)
+       if (localStorage !== null) {
+         storage = JSON.parse(localStorage)
+         thisObject.container.frame.position.y = storage.spacePosition
+       } else {
+         INITIAL_POSITION = 55
+         thisObject.container.frame.position.y = browserCanvas.height * INITIAL_POSITION / 100 - COCKPIT_SPACE_HEIGHT
+       }
      } else {
        INITIAL_POSITION = 100
-     }
-
-     thisObject.container.frame.position.y = browserCanvas.height * INITIAL_POSITION / 100 - COCKPIT_SPACE_HEIGHT
-
-     let localStorage = window.localStorage.getItem(MODULE_NAME)
-     if (localStorage !== null) {
-       storage = JSON.parse(localStorage)
-       thisObject.container.frame.position.y = storage.spacePosition
+       thisObject.container.frame.position.y = browserCanvas.height * INITIAL_POSITION / 100 - COCKPIT_SPACE_HEIGHT
      }
 
      canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
@@ -101,7 +99,9 @@
    }
 
    function childrenPhysics () {
-     thisObject.restartSimulation.physics()
+     if (canvas.strategySpace.workspace.enabled === true) {
+       thisObject.restartSimulation.physics()
+     }
      thisObject.fullscreen.physics()
    }
    function thisObjectPhysics () {
@@ -109,8 +109,7 @@
 
      thisObject.status = 'MIDDLE'
 
-     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
-     if (user !== null) { // Only if user is logged in
+     if (canvas.strategySpace.workspace.enabled === true) {
        thisObject.container.isDraggeable = true
      } else {
        thisObject.container.isDraggeable = false
@@ -143,8 +142,10 @@
    function getContainer (point) {
      let container
 
-     container = thisObject.restartSimulation.getContainer(point)
-     if (container !== undefined) { return container }
+     if (canvas.strategySpace.workspace.enabled === true) {
+       container = thisObject.restartSimulation.getContainer(point)
+       if (container !== undefined) { return container }
+     }
 
      container = thisObject.fullscreen.getContainer(point)
      if (container !== undefined) { return container }
@@ -162,7 +163,9 @@
      drawBackground()
 
      thisObject.assetBalances.draw()
-     thisObject.restartSimulation.draw()
+     if (canvas.strategySpace.workspace.enabled === true) {
+       thisObject.restartSimulation.draw()
+     }
      thisObject.fullscreen.draw()
    }
 
@@ -196,8 +199,7 @@
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
-     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
-     if (user !== null) { // Only if user is logged in
+     if (canvas.strategySpace.workspace.enabled === true) {
        arrow()
      }
    }

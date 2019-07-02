@@ -5,13 +5,13 @@ function newWorkspace () {
   let thisObject = {
     tradingSystem: undefined,
     container: undefined,
+    enabled: false,
     onMenuItemClick: onMenuItemClick,
     getProtocolTradingSystem: getProtocolTradingSystem,
     physics: physics,
     spawn: spawn,
     detachNode: detachNode,
     attachNode: attachNode,
-    getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
   }
@@ -42,7 +42,6 @@ function newWorkspace () {
   functionLibraryProtocolNode = newProtocolNode()
   functionLibraryWorkspaceNodes = newStringifyNode()
 
-  let isInitialized = false
   return thisObject
 
   function finalize () {
@@ -58,8 +57,10 @@ function newWorkspace () {
     }
     user = JSON.parse(user)
 
-    let savedWorkspace = window.localStorage.getItem(user.alias + '.' + 'workspace')
-    if (savedWorkspace === null) {
+    let idAtStrategizer = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Strategizer Gateway' + '.' + user.alias)
+    let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias)
+
+    if (savedWorkspace === null || idAtStrategizer === null) {
       workspaceNode.type = 'Workspace'
       workspaceNode.name = 'My Workspace'
       functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
@@ -72,7 +73,7 @@ function newWorkspace () {
         let rootNode = workspaceNode.rootNodes[i]
         functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
       }
-      isInitialized = true
+      thisObject.enabled = true
     }
   }
 
@@ -83,21 +84,8 @@ function newWorkspace () {
       workspaceNode.rootNodes.push(thisObject.tradingSystem)
       functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
       thisObject.tradingSystem.payload.uiObject.setRunningStatus()
-    } else {
-      // First use of the Designer, lets help by creating the first Trading System
-      thisObject.tradingSystem = {
-        type: 'Trading System',
-        strategies: []
-      }
-      workspaceNode.rootNodes.push(thisObject.tradingSystem)
-      functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
-      thisObject.tradingSystem.payload.uiObject.setRunningStatus()
+      thisObject.enabled = true
     }
-    isInitialized = true
-  }
-
-  function getContainer (point) {
-
   }
 
   function getProtocolTradingSystem () {
@@ -113,7 +101,7 @@ function newWorkspace () {
   }
 
   function physics () {
-    if (isInitialized !== true) { return }
+    if (thisObject.enabled !== true) { return }
     /* Here we will save all the workspace related objects into the local storage */
     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
     if (user === null) {
@@ -122,7 +110,7 @@ function newWorkspace () {
     user = JSON.parse(user)
 
     let textToSave = stringifyWorkspace()
-    window.localStorage.setItem(user.alias + '.' + 'workspace', textToSave)
+    window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias, textToSave)
   }
 
   function stringifyWorkspace () {

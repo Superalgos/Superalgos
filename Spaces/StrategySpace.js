@@ -32,7 +32,6 @@ function newStrategySpace () {
     buildIconByPartTypeMap()
 
     thisObject.strategizerGateway = newStrategizerGateway()
-    thisObject.strategizerGateway.initialize()
 
     thisObject.workspace = newWorkspace()
     thisObject.workspace.initialize()
@@ -162,11 +161,6 @@ function newStrategySpace () {
 
   function getContainer (point) {
     let container
-
-    if (thisObject.strategizerGateway !== undefined) {
-      container = thisObject.strategizerGateway.getContainer(point)
-      if (container !== undefined) { return container }
-    }
 
     if (thisObject.sidePanel !== undefined) {
       container = thisObject.sidePanel.getContainer(point)

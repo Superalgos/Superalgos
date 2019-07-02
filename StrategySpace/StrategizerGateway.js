@@ -83,7 +83,6 @@ function newStrategizerGateway () {
       }
     } catch (err) {
       logger.write('[ERROR] loadFromStrategyzer -> err = ' + err.stack)
-      logger.write('[ERROR] loadFromStrategyzer -> GraphQL Error: ' + JSON.stringify(graphQLServer.data.errors))
     }
   }
 
@@ -150,7 +149,6 @@ function newStrategizerGateway () {
       return true
     } catch (err) {
       logger.write('[ERROR] saveToStrategyzer -> err = ' + err.stack)
-      logger.write('[ERROR] loadFromStrategyzer -> GraphQL Error: ' + JSON.stringify(graphQLServer.data.errors))
     }
   }
 }

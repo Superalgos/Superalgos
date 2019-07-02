@@ -112,7 +112,7 @@ function newStrategizerGateway () {
         return
       }
 
-      let idAtStrategizer = window.localStorage.getItem(MODULE_NAME)
+      let idAtStrategizer = window.localStorage.getItem(CANVAS_APP_NAME + '.' + MODULE_NAME + '.' + user.alias)
       if (idAtStrategizer === undefined || idAtStrategizer === null) {
         logger.write('[ERROR] saveToStrategyzer -> Can not save when idAtStrategizer is null or undefined.')
         return

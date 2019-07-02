@@ -5,6 +5,7 @@ function newWorkspace () {
   let thisObject = {
     tradingSystem: undefined,
     container: undefined,
+    enabled: false,
     onMenuItemClick: onMenuItemClick,
     getProtocolTradingSystem: getProtocolTradingSystem,
     physics: physics,
@@ -41,7 +42,6 @@ function newWorkspace () {
   functionLibraryProtocolNode = newProtocolNode()
   functionLibraryWorkspaceNodes = newStringifyNode()
 
-  let isInitialized = false
   return thisObject
 
   function finalize () {
@@ -73,7 +73,7 @@ function newWorkspace () {
         let rootNode = workspaceNode.rootNodes[i]
         functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
       }
-      isInitialized = true
+      thisObject.enabled = true
     }
   }
 
@@ -84,7 +84,7 @@ function newWorkspace () {
       workspaceNode.rootNodes.push(thisObject.tradingSystem)
       functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
       thisObject.tradingSystem.payload.uiObject.setRunningStatus()
-      isInitialized = true
+      thisObject.enabled = true
     }
   }
 
@@ -101,7 +101,7 @@ function newWorkspace () {
   }
 
   function physics () {
-    if (isInitialized !== true) { return }
+    if (thisObject.enabled !== true) { return }
     /* Here we will save all the workspace related objects into the local storage */
     let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
     if (user === null) {

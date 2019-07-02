@@ -163,11 +163,6 @@ function newStrategySpace () {
   function getContainer (point) {
     let container
 
-    if (thisObject.strategizerGateway !== undefined) {
-      container = thisObject.strategizerGateway.getContainer(point)
-      if (container !== undefined) { return container }
-    }
-
     if (thisObject.sidePanel !== undefined) {
       container = thisObject.sidePanel.getContainer(point)
       if (container !== undefined) { return container }

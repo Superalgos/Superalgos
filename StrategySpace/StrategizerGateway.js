@@ -6,12 +6,11 @@ function newStrategizerGateway () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    idAtStrategizer: undefined,
     strategizerData: undefined,
     container: undefined,
     loadFromStrategyzer: loadFromStrategyzer,
     saveToStrategyzer: saveToStrategyzer,
-    draw: draw,
-    getContainer: getContainer,
     initialize: initialize
   }
 
@@ -36,105 +35,24 @@ function newStrategizerGateway () {
 
   }
 
-  async function saveToStrategyzer () {
-    try {
-      const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY)
-
-      let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
-      if (user === null) {
-        if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> Can not save because user is not logged in. ') }
-        return
-      }
-
-      user = JSON.parse(user)
-      let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias.replace('.', '')
-
-      /* See if we need to update or create a new record at the strategizer */
-
-      let tradingSystem = canvas.strategySpace.workspace.getProtocolTradingSystem()
-      let idAtStrategizer = window.localStorage.getItem(MODULE_NAME)
-
-      if (idAtStrategizer === undefined) {
-        let response = await axios({
-          url: window.canvasApp.graphQL.masterAppApiUrl,
-          method: 'post',
-          data: {
-            query: `
-            mutation strategizer_CreateTradingSystem
-            (
-              $fbSlug: String!, $data: strategizer_JSON!
-            )
-            {
-              strategizer_CreateTradingSystem(fbSlug: $fbSlug, tradingSystem: { data: $data })
-              {
-                id
-              }
-            }
-                  `,
-            variables: {
-              fbSlug: fbSlug,
-              data: tradingSystem
-            }
-          },
-          headers: {
-            authorization: 'Bearer ' + accessToken
-          }
-        })
-
-        if (response.data.errors) {
-          console.log('Error getting events: ' + JSON.stringify(response.data.errors))
-          throw 'Error getting events: ' + JSON.stringify(response.data.errors)
-        } else {
-          window.localStorage.setItem(MODULE_NAME, response.data.data.strategizer_CreateTradingSystem.id)
-        }
-      } else {
-        const graphQLServer = await axios({
-          url: window.canvasApp.graphQL.masterAppApiUrl,
-          method: 'post',
-          data: {
-            query: `
-            mutation strategizer_EditTradingSystem
-            (
-              $id: ID!, $data: strategizer_JSON!
-            )
-            {
-              strategizer_EditTradingSystem(id: $id, tradingSystem: { data: $data })
-              {
-                id
-              }
-            }
-                  `,
-            variables: {
-              id: idAtStrategizer,
-              data: tradingSystem
-            }
-          },
-          headers: {
-            authorization: 'Bearer ' + accessToken
-          }
-        })
-      }
-
-      return true
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> err = ' + err.stack) }
-    }
-  }
-
   async function loadFromStrategyzer () {
     try {
       const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY)
+      if (accessToken === null) {
+        logger.write('[ERROR] loadFromStrategyzer -> Can load from strategizer because the accessToken is missing.')
+        return
+      }
 
       let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
       if (user === null) {
-              // if there is no user that means that we are logged off, which means this object can not be used.
+        logger.write('[ERROR] saveToStrategyzer -> Can not load from strategizer because user is not logged in. ')
         return
       }
 
       user = JSON.parse(user)
       let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias.replace('.', '')
 
-      let response = await axios({
+      let graphQLServer = await axios({
         url: window.canvasApp.graphQL.masterAppApiUrl,
         method: 'post',
         data: {
@@ -158,16 +76,13 @@ function newStrategizerGateway () {
         }
       })
 
-      if (response.data.errors) {
-        if (response.data.errors[0] === 'Ressource not found : None of the tradingSystem are linked to that fbSlug') {
-          return false
-        } else {
-          logger.write('[ERROR] Error while getting Trading System from Strategizer: ' + JSON.stringify(response.data.errors))
-          return false
-        }
+      if (graphQLServer.data.errors) {
+        logger.write('[ERROR] loadFromStrategyzer -> GraphQL Error: ' + JSON.stringify(graphQLServer.data.errors))
+        return false
       } else {
-        thisObject.strategizerData = JSON.parse(JSON.stringify(response.data.data.strategizer_TradingSystemByFb.data))
-        window.localStorage.setItem(MODULE_NAME, response.data.data.strategizer_TradingSystemByFb.id)
+        thisObject.strategizerData = JSON.parse(JSON.stringify(graphQLServer.data.data.strategizer_TradingSystemByFb.data))
+        thisObject.idAtStrategizer = graphQLServer.data.data.strategizer_TradingSystemByFb.id
+        window.localStorage.setItem(CANVAS_APP_NAME + '.' + MODULE_NAME + '.' + user.alias, thisObject.idAtStrategizer))
         return true
       }
     } catch (err) {
@@ -175,13 +90,69 @@ function newStrategizerGateway () {
     }
   }
 
-  function getContainer (point) {
-    let container
+  async function saveToStrategyzer () {
+    try {
+      const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY)
+      if (accessToken === null) {
+        logger.write('[ERROR] saveToStrategyzer -> Can not save because the accessToken is missing.')
+        return
+      }
 
-    return undefined
-  }
+      let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
+      if (user === null) {
+        logger.write('[ERROR] saveToStrategyzer -> Can not save because user is not logged in. ')
+        return
+      }
 
-  function draw () {
+      user = JSON.parse(user)
+      let fbSlug = 'simulator' + '-' + 'bot' + '-' + user.alias.replace('.', '')
 
+      /* See if we need to update or create a new record at the strategizer */
+
+      let tradingSystem = canvas.strategySpace.workspace.getProtocolTradingSystem()
+      if (tradingSystem === undefined || idAtStrategizer === null) {
+        logger.write('[ERROR] saveToStrategyzer -> Can not save when tradingSystem is null or undefined.')
+        return
+      }
+
+      let idAtStrategizer = window.localStorage.getItem(MODULE_NAME)
+      if (idAtStrategizer === undefined || idAtStrategizer === null) {
+        logger.write('[ERROR] saveToStrategyzer -> Can not save when idAtStrategizer is null or undefined.')
+        return
+      }
+      const graphQLServer = await axios({
+        url: window.canvasApp.graphQL.masterAppApiUrl,
+        method: 'post',
+        data: {
+          query: `
+            mutation strategizer_EditTradingSystem
+            (
+              $id: ID!, $data: strategizer_JSON!
+            )
+            {
+              strategizer_EditTradingSystem(id: $id, tradingSystem: { data: $data })
+              {
+                id
+              }
+            }
+                  `,
+          variables: {
+            id: idAtStrategizer,
+            data: tradingSystem
+          }
+        },
+        headers: {
+          authorization: 'Bearer ' + accessToken
+        }
+      })
+
+      if (graphQLServer.data.errors) {
+        logger.write('[ERROR] saveToStrategyzer -> GraphsQL Error -> graphQLServer.data.errors = ' + JSON.stringify(graphQLServer.data.errors))
+      }
+
+      return true
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] saveToStrategyzer -> err = ' + err.stack) }
+    }
   }
 }

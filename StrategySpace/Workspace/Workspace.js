@@ -58,8 +58,9 @@ function newWorkspace () {
     }
     user = JSON.parse(user)
 
-    let savedWorkspace = window.localStorage.getItem(user.alias + '.' + 'workspace')
-    if (savedWorkspace === null) {
+    let idAtStrategizer = window.localStorage.getItem(CANVAS_APP_NAME + '.' + user.alias + '.' + 'Strategizer Gateway')
+    let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + user.alias + '.' + 'Workspace')
+    if (savedWorkspace === null || savedWorkspace === null) {
       workspaceNode.type = 'Workspace'
       workspaceNode.name = 'My Workspace'
       functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)

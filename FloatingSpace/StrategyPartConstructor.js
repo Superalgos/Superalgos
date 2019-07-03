@@ -51,6 +51,9 @@ function newStrategyPartConstructor () {
       if (payload.node.savedPayload.floatingObject.isFrozen === true) {
         floatingObject.freezeToggle()
       }
+      if (payload.node.savedPayload.floatingObject.isTensed === true) {
+        floatingObject.tensionToggle()
+      }
     }
 
     let strategyPart = newStrategyPart()
@@ -67,9 +70,10 @@ function newStrategyPartConstructor () {
         canvas.strategySpace.workspace.tradingSystem = payload.node
       }
     }
-    payload.node.savedPayload = undefined
 
     setFloatingObjectBasicProperties(floatingObject, payload)
+
+    payload.node.savedPayload = undefined
 
     floatingLayer.addFloatingObject(floatingObject)
 
@@ -96,20 +100,6 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'targeting',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
           },
           {
             action: 'Download Workspace',
@@ -142,6 +132,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
           },
           {
             action: 'Freeze / Unfreeze',
@@ -255,6 +259,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
+          },
+          {
             action: 'Freeze / Unfreeze',
             actionFunction: floatingObject.freezeToggle,
             actionStatus: floatingObject.getFreezeStatus,
@@ -323,6 +341,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
           },
           {
             action: 'Freeze / Unfreeze',
@@ -396,6 +428,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
+          },
+          {
             action: 'Freeze / Unfreeze',
             actionFunction: floatingObject.freezeToggle,
             actionStatus: floatingObject.getFreezeStatus,
@@ -464,6 +510,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
           },
           {
             action: 'Freeze / Unfreeze',
@@ -549,6 +609,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
+          },
+          {
             action: 'Freeze / Unfreeze',
             actionFunction: floatingObject.freezeToggle,
             actionStatus: floatingObject.getFreezeStatus,
@@ -617,6 +691,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
           },
           {
             action: 'Freeze / Unfreeze',
@@ -689,6 +777,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
+          },
+          {
             action: 'Freeze / Unfreeze',
             actionFunction: floatingObject.freezeToggle,
             actionStatus: floatingObject.getFreezeStatus,
@@ -745,6 +847,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
           },
           {
             action: 'Freeze / Unfreeze',
@@ -818,6 +934,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
+          },
+          {
             action: 'Freeze / Unfreeze',
             actionFunction: floatingObject.freezeToggle,
             actionStatus: floatingObject.getFreezeStatus,
@@ -887,6 +1017,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
           },
           {
             action: 'Freeze / Unfreeze',
@@ -960,6 +1104,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
+          },
+          {
             action: 'Freeze / Unfreeze',
             actionFunction: floatingObject.freezeToggle,
             actionStatus: floatingObject.getFreezeStatus,
@@ -1031,6 +1189,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
+          },
+          {
             action: 'Freeze / Unfreeze',
             actionFunction: floatingObject.freezeToggle,
             actionStatus: floatingObject.getFreezeStatus,
@@ -1099,6 +1271,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
           },
           {
             action: 'Freeze / Unfreeze',
@@ -1172,6 +1358,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
+          },
+          {
             action: 'Freeze / Unfreeze',
             actionFunction: floatingObject.freezeToggle,
             actionStatus: floatingObject.getFreezeStatus,
@@ -1241,6 +1441,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
           },
           {
             action: 'Freeze / Unfreeze',
@@ -1332,6 +1546,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
+          },
+          {
             action: 'Freeze / Unfreeze',
             actionFunction: floatingObject.freezeToggle,
             actionStatus: floatingObject.getFreezeStatus,
@@ -1401,6 +1629,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
           },
           {
             action: 'Freeze / Unfreeze',
@@ -1474,6 +1716,20 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
+          },
+          {
             action: 'Freeze / Unfreeze',
             actionFunction: floatingObject.freezeToggle,
             actionStatus: floatingObject.getFreezeStatus,
@@ -1543,6 +1799,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
           },
           {
             action: 'Freeze / Unfreeze',
@@ -1619,6 +1889,20 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
+          },
+          {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
           },
           {
             action: 'Freeze / Unfreeze',
@@ -1804,6 +2088,10 @@ function newStrategyPartConstructor () {
       floatingObject.initializeFontSize(10)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+
+      if (payload.node.savedPayload === undefined) {
+        floatingObject.tensionToggle()
+      }
     }
 
     function level_2 () {
@@ -1816,6 +2104,10 @@ function newStrategyPartConstructor () {
       floatingObject.initializeFontSize(10)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
+
+      if (payload.node.savedPayload === undefined) {
+        floatingObject.tensionToggle()
+      }
     }
 
     function level_3 () {
@@ -1828,6 +2120,10 @@ function newStrategyPartConstructor () {
       floatingObject.initializeFontSize(10)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
+
+      if (payload.node.savedPayload === undefined) {
+        floatingObject.tensionToggle()
+      }
     }
 
     function level_4 () {

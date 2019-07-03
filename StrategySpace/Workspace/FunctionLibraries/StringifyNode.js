@@ -310,7 +310,8 @@ function newStringifyNode () {
       },
       floatingObject: {
         isPinned: node.payload.floatingObject.isPinned,
-        isFrozen: (node.payload.floatingObject.isFrozen && node.payload.floatingObject.frozenManually)
+        isFrozen: (node.payload.floatingObject.isFrozen && node.payload.floatingObject.frozenManually),
+        isTensed: (node.payload.floatingObject.isTensed && node.payload.floatingObject.tensedManually)
       },
       uiObject: {
         isRunning: node.payload.uiObject.isRunning

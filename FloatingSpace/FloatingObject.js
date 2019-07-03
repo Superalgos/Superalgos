@@ -22,13 +22,16 @@ function newFloatingObject () {
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
     isFrozen: false,
+    isTensed: false,
     frozenManually: false,
     getPinStatus: getPinStatus,
     getFreezeStatus: getFreezeStatus,
+    getTensionStatus: getTensionStatus,
     nearbyFloatingObjects: [],
     setPosition: setPosition,
     pinToggle: pinToggle,
     freezeToggle: freezeToggle,
+    tensionToggle: tensionToggle,
     physics: physics,
     initializeMass: initializeMass,
     initializeRadius: initializeRadius,
@@ -124,6 +127,10 @@ function newFloatingObject () {
     return thisObject.isFrozen
   }
 
+  function getTensionStatus () {
+    return thisObject.isTensed
+  }
+
   function freezeToggle () {
     if (thisObject.isFrozen !== true) {
       thisObject.isFrozen = true
@@ -135,10 +142,22 @@ function newFloatingObject () {
     return thisObject.isFrozen
   }
 
+  function tensionToggle () {
+    if (thisObject.isTensed !== true) {
+      thisObject.isTensed = true
+      thisObject.tensedManually = true
+    } else {
+      thisObject.isTensed = false
+      thisObject.tensedManually = false
+    }
+    return thisObject.isTensed
+  }
+
   function physics () {
     thisObjectPhysics()
     thisObject.payload.uiObject.physics()
     frozenPhysics()
+    tensionPhysics()
   }
 
   function frozenPhysics () {
@@ -146,6 +165,15 @@ function newFloatingObject () {
       let parent = thisObject.payload.chainParent
       if (parent !== undefined) {
         thisObject.isFrozen = parent.payload.floatingObject.isFrozen
+      }
+    }
+  }
+
+  function tensionPhysics () {
+    if (thisObject.tensedManually === false) {
+      let parent = thisObject.payload.chainParent
+      if (parent !== undefined) {
+        thisObject.isTensed = parent.payload.floatingObject.isTensed
       }
     }
   }
@@ -298,12 +326,21 @@ function newFloatingObject () {
   }
 
   function initializeCurrentPosition (arroundPoint) {
-    let position
+    let position = {}
 
     if (thisObject.payload.position === undefined) {
-      position = {
-        x: Math.floor((Math.random() * (200) - 100)) + arroundPoint.x,
-        y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
+      if (thisObject.payload.chainParent !== undefined) {
+        position.x = thisObject.payload.chainParent.payload.position.x + 250
+        if (thisObject.payload.node.type === thisObject.payload.chainParent.type) {
+          position.y = thisObject.payload.chainParent.payload.position.y
+        } else {
+          position.y = thisObject.payload.chainParent.payload.position.y + Math.floor((Math.random() * (1000) - 500))
+        }
+      } else {
+        position = {
+          x: Math.floor((Math.random() * (200) - 100)) + arroundPoint.x,
+          y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
+        }
       }
     } else {
       position = {

@@ -203,7 +203,7 @@ function newFloatingLayer () {
     for (let i = 0; i < invisibleFloatingObjects.length; i++) {
       let floatingObject = invisibleFloatingObjects[i]
 
-      if (floatingObject.isFrozen === false) {
+      if (floatingObject.isFrozen === false && floatingObject.isTensed === false) {
         visibleFloatingObjects.push(floatingObject)
         invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
         return                     // Only one at the time.
@@ -215,7 +215,7 @@ function newFloatingLayer () {
     for (let i = 0; i < visibleFloatingObjects.length; i++) {
       let floatingObject = visibleFloatingObjects[i]
 
-      if (floatingObject.isFrozen === true) {
+      if (floatingObject.isFrozen === true || floatingObject.isTensed === true) {
         invisibleFloatingObjects.push(floatingObject)
         visibleFloatingObjects.splice(i, 1)  // Delete item from array.
         return                     // Only one at the time.

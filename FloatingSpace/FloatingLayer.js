@@ -203,7 +203,7 @@ function newFloatingLayer () {
     for (let i = 0; i < invisibleFloatingObjects.length; i++) {
       let floatingObject = invisibleFloatingObjects[i]
 
-      if (floatingObject.isFrozen === false && floatingObject.isTensed === false) {
+      if (floatingObject.isFrozen === false) {
         visibleFloatingObjects.push(floatingObject)
         invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
         return                     // Only one at the time.
@@ -215,7 +215,7 @@ function newFloatingLayer () {
     for (let i = 0; i < visibleFloatingObjects.length; i++) {
       let floatingObject = visibleFloatingObjects[i]
 
-      if (floatingObject.isFrozen === true || floatingObject.isTensed === true) {
+      if (floatingObject.isFrozen === true) {
         invisibleFloatingObjects.push(floatingObject)
         visibleFloatingObjects.splice(i, 1)  // Delete item from array.
         return                     // Only one at the time.
@@ -429,9 +429,10 @@ function newFloatingLayer () {
         }
 
               /* We add the force vector to the speed vector */
-
-        floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x
-        floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y
+        if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
+          floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x
+          floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y
+        }
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] gravityForce -> err= ' + err.stack) }
@@ -490,9 +491,10 @@ function newFloatingLayer () {
           }
 
                     /* We substract the force vector to the speed vector of the current floatingObject */
-
-          floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
-          floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
+          if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
+            floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
+            floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
+          }
         }
       }
     } catch (err) {
@@ -608,8 +610,10 @@ function newFloatingLayer () {
 
                   /* We substract the force vector to the speed vector of the current floatingObject */
 
-          floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
-          floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
+          if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
+            floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
+            floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
+          }
         }
       }
     } catch (err) {

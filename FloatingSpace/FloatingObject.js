@@ -186,17 +186,36 @@ function newFloatingObject () {
         let parentChildren = canvas.strategySpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
         let axisCount = parentChildren.childrenCount
         let axisIndex = parentChildren.childIndex
+        let baseAngle = 0
 
-        if (parent.payload.chainParent !== undefined) {
+        if (axisIndex === undefined) {
+          axisCount = 1
+          axisIndex = axisCount
+        }
+
+        if (parent.payload.chainParent !== undefined && parent.payload.angle !== undefined) {
           axisCount++
           axisIndex++
+          baseAngle = parent.payload.angle + 180
         }
 
         let angleStep = 360 / axisCount
-        let myAngle = axisIndex * axisCount
 
-        thisObject.container.frame.position.x = parent.payload.position.x + distanceToChainParent * Math.cos(toRadians(myAngle))
-        thisObject.container.frame.position.y = parent.payload.position.y + distanceToChainParent * Math.sin(toRadians(myAngle))
+        thisObject.payload.angle = baseAngle + (axisIndex - 1) * angleStep
+        if (thisObject.payload.angle >= 360) {
+          thisObject.payload.angle = thisObject.payload.angle - 360
+        }
+
+        newPosition = {
+          x: parent.payload.position.x + distanceToChainParent * Math.cos(toRadians(thisObject.payload.angle)),
+          y: parent.payload.position.y + distanceToChainParent * Math.sin(toRadians(thisObject.payload.angle))
+        }
+        if (isNaN(newPosition.x) === false) {
+          thisObject.container.frame.position.x = newPosition.x
+        }
+        if (isNaN(newPosition.y) === false) {
+          thisObject.container.frame.position.y = newPosition.y
+        }
       }
     }
   }
@@ -352,19 +371,15 @@ function newFloatingObject () {
     let position = {}
 
     if (thisObject.payload.position === undefined) {
-      if (thisObject.payload.chainParent !== undefined) {
+    /*  if (thisObject.payload.chainParent !== undefined) {
         position.x = thisObject.payload.chainParent.payload.position.x + 250
-        if (thisObject.payload.node.type === thisObject.payload.chainParent.type) {
-          position.y = thisObject.payload.chainParent.payload.position.y
-        } else {
-          position.y = thisObject.payload.chainParent.payload.position.y + Math.floor((Math.random() * (1000) - 500))
-        }
-      } else {
-        position = {
-          x: Math.floor((Math.random() * (200) - 100)) + arroundPoint.x,
-          y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
-        }
+        position.y = thisObject.payload.chainParent.payload.position.y
+      } else { */
+      position = {
+        x: Math.floor((Math.random() * (200) - 100)) + arroundPoint.x,
+        y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
       }
+      // }
     } else {
       position = {
         x: thisObject.payload.position.x,
@@ -416,3 +431,4 @@ function newFloatingObject () {
   function updateRadius () {
   }
 }
+

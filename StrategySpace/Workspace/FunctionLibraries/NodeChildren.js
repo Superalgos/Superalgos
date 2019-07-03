@@ -290,9 +290,14 @@ function newNodeChildren () {
     }
     for (let i = 0; i < parentNode.phases.length; i++) {
       let child = parentNode.phases[i]
-      response.childrenCount++
+
       if (child.id === childNode.id) {
-        response.childIndex = response.childrenCount
+        if (childNode.payload.chainParent !== undefined) {
+          if (childNode.payload.chainParent.id === parentNode.id) {
+            response.childrenCount++
+            response.childIndex = response.childrenCount
+          }
+        }
       }
     }
     return response
@@ -305,9 +310,14 @@ function newNodeChildren () {
     }
     for (let i = 0; i < parentNode.phases.length; i++) {
       let child = parentNode.phases[i]
-      response.childrenCount++
+
       if (child.id === childNode.id) {
-        response.childIndex = response.childrenCount
+        if (childNode.payload.chainParent !== undefined) {
+          if (childNode.payload.chainParent.id === parentNode.id) {
+            response.childrenCount++
+            response.childIndex = response.childrenCount
+          }
+        }
       }
     }
     return response
@@ -378,3 +388,4 @@ function newNodeChildren () {
     return response
   }
 }
+

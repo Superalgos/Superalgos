@@ -22,13 +22,16 @@ function newFloatingObject () {
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
     isFrozen: false,
+    isTensed: false,
     frozenManually: false,
     getPinStatus: getPinStatus,
     getFreezeStatus: getFreezeStatus,
+    getTensionStatus: getTensionStatus,
     nearbyFloatingObjects: [],
     setPosition: setPosition,
     pinToggle: pinToggle,
     freezeToggle: freezeToggle,
+    tensionToggle: tensionToggle,
     physics: physics,
     initializeMass: initializeMass,
     initializeRadius: initializeRadius,
@@ -124,6 +127,10 @@ function newFloatingObject () {
     return thisObject.isFrozen
   }
 
+  function getTensionStatus () {
+    return thisObject.isTensed
+  }
+
   function freezeToggle () {
     if (thisObject.isFrozen !== true) {
       thisObject.isFrozen = true
@@ -135,10 +142,22 @@ function newFloatingObject () {
     return thisObject.isFrozen
   }
 
+  function tensionToggle () {
+    if (thisObject.isTensed !== true) {
+      thisObject.isTensed = true
+      thisObject.tensedManually = true
+    } else {
+      thisObject.isTensed = false
+      thisObject.tensedManually = false
+    }
+    return thisObject.isTensed
+  }
+
   function physics () {
     thisObjectPhysics()
     thisObject.payload.uiObject.physics()
     frozenPhysics()
+    tensionPhysics()
   }
 
   function frozenPhysics () {
@@ -146,6 +165,49 @@ function newFloatingObject () {
       let parent = thisObject.payload.chainParent
       if (parent !== undefined) {
         thisObject.isFrozen = parent.payload.floatingObject.isFrozen
+      }
+    }
+  }
+
+  function tensionPhysics () {
+    /* Tension Effect */
+    if (thisObject.isTensed === true) {
+      let parent = thisObject.payload.chainParent
+      if (parent !== undefined) {
+        let distanceToChainParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
+        let parentChildren = canvas.strategySpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
+        let axisCount = parentChildren.childrenCount
+        let axisIndex = parentChildren.childIndex
+        let baseAngle = 0
+
+        if (axisIndex === undefined) {
+          axisCount = 1
+          axisIndex = axisCount
+        }
+
+        if (parent.payload.chainParent !== undefined && parent.payload.angle !== undefined) {
+          axisCount++
+          axisIndex++
+          baseAngle = parent.payload.angle + 180
+        }
+
+        let angleStep = 360 / axisCount
+
+        thisObject.payload.angle = baseAngle + (axisIndex - 1) * angleStep
+        if (thisObject.payload.angle >= 360) {
+          thisObject.payload.angle = thisObject.payload.angle - 360
+        }
+
+        newPosition = {
+          x: parent.payload.position.x + distanceToChainParent * Math.cos(toRadians(thisObject.payload.angle)),
+          y: parent.payload.position.y + distanceToChainParent * Math.sin(toRadians(thisObject.payload.angle))
+        }
+        if (isNaN(newPosition.x) === false) {
+          thisObject.container.frame.position.x = newPosition.x
+        }
+        if (isNaN(newPosition.y) === false) {
+          thisObject.container.frame.position.y = newPosition.y
+        }
       }
     }
   }
@@ -298,12 +360,12 @@ function newFloatingObject () {
   }
 
   function initializeCurrentPosition (arroundPoint) {
-    let position
+    let position = {}
 
     if (thisObject.payload.position === undefined) {
       position = {
-        x: Math.floor((Math.random() * (200) - 100)) + arroundPoint.x,
-        y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
+        x: Math.floor((Math.random() * (1000) - 500)) + arroundPoint.x,
+        y: Math.floor((Math.random() * (1000) - 500)) + arroundPoint.y
       }
     } else {
       position = {
@@ -356,3 +418,4 @@ function newFloatingObject () {
   function updateRadius () {
   }
 }
+

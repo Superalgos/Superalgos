@@ -592,11 +592,12 @@ function newStrategyPart () {
     if (thisObject.container.frame.radius > 1) {
             /* Target Line */
 
-      let LINE_STYLE
+      let LINE_STYLE = UI_COLOR.TITANIUM_YELLOW
+      if (thisObject.payload.floatingObject.isTensed === true) {
+        LINE_STYLE = UI_COLOR.GOLDEN_ORANGE
+      }
       if (thisObject.payload.floatingObject.isFrozen === true) {
         LINE_STYLE = UI_COLOR.TURQUOISE
-      } else {
-        LINE_STYLE = UI_COLOR.TITANIUM_YELLOW
       }
 
       browserCanvasContext.beginPath()

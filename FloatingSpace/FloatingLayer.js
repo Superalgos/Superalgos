@@ -429,9 +429,10 @@ function newFloatingLayer () {
         }
 
               /* We add the force vector to the speed vector */
-
-        floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x
-        floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y
+        if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
+          floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x
+          floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y
+        }
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] gravityForce -> err= ' + err.stack) }
@@ -490,9 +491,10 @@ function newFloatingLayer () {
           }
 
                     /* We substract the force vector to the speed vector of the current floatingObject */
-
-          floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
-          floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
+          if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
+            floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
+            floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
+          }
         }
       }
     } catch (err) {
@@ -608,8 +610,10 @@ function newFloatingLayer () {
 
                   /* We substract the force vector to the speed vector of the current floatingObject */
 
-          floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
-          floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
+          if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
+            floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
+            floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
+          }
         }
       }
     } catch (err) {
@@ -732,10 +736,10 @@ function newFloatingLayer () {
       pos2.x = pos2.x - minTD.x * (im2 / (im1 + im2))
       pos2.y = pos2.y - minTD.y * (im2 / (im1 + im2))
 
-      if (floatingObject1.positionLocked === false) {
+      if (floatingObject1.positionLocked === false && isNaN(pos1.x) === false && isNaN(pos1.y) === false) {
         floatingObject1.container.frame.position = pos1
       }
-      if (floatingObject2.positionLocked === false) {
+      if (floatingObject2.positionLocked === false && isNaN(pos2.x) === false && isNaN(pos2.y) === false) {
         floatingObject2.container.frame.position = pos2
       }
     } catch (err) {
@@ -743,3 +747,4 @@ function newFloatingLayer () {
     }
   }
 }
+

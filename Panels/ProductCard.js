@@ -356,6 +356,9 @@ function newProductCard () {
       case PRODUCT_CARD_STATUS.OFF:
         changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
         break
+      case PRODUCT_CARD_STATUS.LOADING:
+        changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+        break
     }
   }
 

@@ -45,11 +45,12 @@ exports.newFileStorage = function newFileStorage() {
           return
         }
         let response = res.data.data.web_FileContent
-        if (response)
+        if (response){
           callBackFunction(global.DEFAULT_OK_RESPONSE, response)
-        else
-          callBackFunction(global.CUSTOM_FAIL_RESPONSE)
-
+        } else{
+          let error = { code: 'The specified key does not exist.' }
+          callBackFunction(error)
+        }
       }).catch(error => {
         if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> Invalid JSON received. ') }
         if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> error = ', error) }
@@ -104,7 +105,7 @@ exports.newFileStorage = function newFileStorage() {
 
     for (var i = 0; i < ecosystem.devTeams.length; i++) {
       for (key in ecosystem.devTeams[i]) {
-        if (key ==='codeName' && ecosystem.devTeams[i][key].indexOf(devTeamName)!=-1) {
+        if (key ==='codeName' && ecosystem.devTeams[i][key].toLowerCase().indexOf(devTeamName.toLowerCase())!=-1) {
           return ecosystem.devTeams[i].host
         }
       }

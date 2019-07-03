@@ -104,7 +104,7 @@ let lock = new Auth0Lock(
 )
 
 class Auth {
-  constructor (cb, apolloClient) {
+  constructor(cb, apolloClient) {
     this.handleAuthentication()
     // binds  functions to keep this context
     this.apolloClient = apolloClient
@@ -116,13 +116,13 @@ class Auth {
     this.checkSession = this.checkSession.bind(this)
   }
 
-  login () {
+  login() {
     // Call the show method to display the widget.
     Log.info('logging in')
     lock.show()
   }
 
-  async loginInvite (jwt) {
+  async loginInvite(jwt) {
     let email
     let team
     try {
@@ -151,7 +151,7 @@ class Auth {
     lockInvite.show()
   }
 
-  handleAuthentication () {
+  handleAuthentication() {
     // Add a callback for Lock's `authenticated` event
     lock.on('authenticated', this.setSession.bind(this))
     // Add a callback for Lock's `authorization_error` event
@@ -161,7 +161,7 @@ class Auth {
     })
   }
 
-  checkSession () {
+  checkSession() {
     return new Promise((resolve, reject) => {
       // Add a callback for Lock's `authenticated` event
       lock.checkSession(
@@ -183,15 +183,12 @@ class Auth {
     })
   }
 
-  setSession (authResult) {
+  async setSession(authResult) {
     if (authResult && authResult.accessToken && authResult.idToken) {
       // Set the time that the access token will expire at
       let expiresAt = JSON.stringify(
         authResult.expiresIn * 1000 + new Date().getTime()
       )
-      setItem('access_token', authResult.accessToken)
-      setItem('id_token', authResult.idToken)
-      setItem('expires_at', expiresAt)
       const data = {
         status: `success`,
         accessToken: authResult.accessToken,
@@ -201,65 +198,69 @@ class Auth {
       Log.info('setSession idTokenPayload:')
       Log.info(authResult.idTokenPayload)
 
-      this.signinOrCreateAccount({ ...data })
-      this.cb(data)
-      const user = {
-        authId: authResult.idTokenPayload.sub,
-        alias: authResult.idTokenPayload.nickname
-      }
-      setItem('user', JSON.stringify(user))
-      return true
-    }
-  }
-
-  async signinOrCreateAccount ({ accessToken, idToken, expiresAt }) {
-    try {
-      const response = await client.mutate({
-        mutation: AUTHENTICATE,
-        variables: { idToken }
-      })
-      Log.info('auth.signinOrCreateAccount data:')
-      Log.info(response)
-      const user = {
-        authId: response.data.users_Authenticate.authId,
-        alias: response.data.users_Authenticate.alias
-      }
-      if (validObject(user, 'alias')) {
-        Log.info(user.alias)
-        const existingTeam = await client.query({
-          query: GET_TEAMS_BY_OWNER
-        })
-        Log.info(existingTeam)
-        Log.info(existingTeam.data.teams_TeamsByOwner)
-        if (validObject(existingTeam.data, 'teams_TeamsByOwner') && isEmpty(existingTeam.data.teams_TeamsByOwner)) {
-          const slug = slugify(user.alias)
-          const newTeam = await client.mutate({
-            mutation: CREATE_TEAM,
-            variables: {
-              name: slug,
-              slug: slug,
-              botName: `bot-${slug}`,
-              botSlug: `bot-${slug}`
-            }
-          })
-          Log.info(newTeam)
-          Log.info(newTeam.data.teams_CreateTeam)
-          if (!validObject(newTeam.data, 'teams_CreateTeam') || isEmpty(newTeam.data.teams_CreateTeam)) {
-            throw newTeam.data.error
-          }
-          Log.info('Team and Bot Creation Success')
+      try {
+        setItem('access_token', authResult.accessToken)
+        setItem('id_token', authResult.idToken)
+        setItem('expires_at', expiresAt)
+        await this.signinOrCreateAccount({ ...data })
+        this.cb(data)
+        const user = {
+          authId: authResult.idTokenPayload.sub,
+          alias: authResult.idTokenPayload.nickname
         }
-      }
-      setItem('user', JSON.stringify(user))
 
-      window.location.href = '/'
-      return response.data
-    } catch (err) {
-      return console.log('Sign in or create account error: ', err)
+        setItem('user', JSON.stringify(user))
+        window.location.href = '/'
+        return true
+      } catch (err) {
+        window.localStorage.removeItem('access_token')
+        window.localStorage.removeItem('id_token')
+        window.localStorage.removeItem('expires_at')
+        console.log('Sign in or create account error: ', err)
+      }
     }
   }
 
-  logout () {
+  async signinOrCreateAccount({ accessToken, idToken, expiresAt }) {
+    const response = await client.mutate({
+      mutation: AUTHENTICATE,
+      variables: { idToken }
+    })
+    Log.info('auth.signinOrCreateAccount data:')
+    Log.info(response)
+    const user = {
+      authId: response.data.users_Authenticate.authId,
+      alias: response.data.users_Authenticate.alias
+    }
+    if (validObject(user, 'alias')) {
+      Log.info(user.alias)
+      const existingTeam = await client.query({
+        query: GET_TEAMS_BY_OWNER
+      })
+      Log.info(existingTeam)
+      Log.info(existingTeam.data.teams_TeamsByOwner)
+      if (validObject(existingTeam.data, 'teams_TeamsByOwner') && isEmpty(existingTeam.data.teams_TeamsByOwner)) {
+        const slug = slugify(user.alias)
+        const newTeam = await client.mutate({
+          mutation: CREATE_TEAM,
+          variables: {
+            name: slug,
+            slug: slug,
+            botName: `bot-${slug}`,
+            botSlug: `bot-${slug}`
+          }
+        })
+        Log.info(newTeam)
+        Log.info(newTeam.data.teams_CreateTeam)
+        if (!validObject(newTeam.data, 'teams_CreateTeam') || isEmpty(newTeam.data.teams_CreateTeam)) {
+          throw newTeam.data.error
+        }
+        Log.info('Team and Bot Creation Success')
+      }
+    }
+  }
+
+  logout() {
     // Clear access token and ID token from local storage
     window.localStorage.removeItem('access_token')
     window.localStorage.removeItem('user')
@@ -272,7 +273,7 @@ class Auth {
     lock.logout({ returnTo: AUTH_CONFIG.logoutUrl })
   }
 
-  async isAuthenticated () {
+  async isAuthenticated() {
     // check session and run Auth0 SS0
     const getUser = await getItem('authUser')
     const getExpires = await getItem('expires_at')

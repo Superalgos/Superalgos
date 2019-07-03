@@ -1969,7 +1969,7 @@ function newStrategyPartConstructor () {
 
   function setFloatingObjectBasicProperties (floatingObject, payload) {
     const FRICTION = 0.95
-    const INITIAL_FRICTION = 0.99
+    const INITIAL_FRICTION = 0.97
 
     switch (payload.node.type) {
       case 'Workspace': {
@@ -2045,11 +2045,11 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Next Phase Event': {
-        level_5()
+        level_4()
         break
       }
       case 'Situation': {
-        level_5()
+        level_4()
         break
       }
       case 'Condition': {
@@ -2136,6 +2136,10 @@ function newStrategyPartConstructor () {
       floatingObject.initializeFontSize(10)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
+
+      if (payload.node.savedPayload === undefined) {
+        floatingObject.tensionToggle()
+      }
     }
 
     function level_5 () {
@@ -2174,3 +2178,4 @@ function newStrategyPartConstructor () {
     payload.uiObject = undefined
   }
 }
+

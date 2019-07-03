@@ -170,14 +170,6 @@ function newFloatingObject () {
   }
 
   function tensionPhysics () {
-    /* Tension Inheritance */
-    if (thisObject.tensedManually === false) {
-      let parent = thisObject.payload.chainParent
-      if (parent !== undefined) {
-        thisObject.isTensed = parent.payload.floatingObject.isTensed
-      }
-    }
-
     /* Tension Effect */
     if (thisObject.isTensed === true) {
       let parent = thisObject.payload.chainParent
@@ -371,15 +363,10 @@ function newFloatingObject () {
     let position = {}
 
     if (thisObject.payload.position === undefined) {
-    /*  if (thisObject.payload.chainParent !== undefined) {
-        position.x = thisObject.payload.chainParent.payload.position.x + 250
-        position.y = thisObject.payload.chainParent.payload.position.y
-      } else { */
       position = {
-        x: Math.floor((Math.random() * (200) - 100)) + arroundPoint.x,
-        y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
+        x: Math.floor((Math.random() * (1000) - 500)) + arroundPoint.x,
+        y: Math.floor((Math.random() * (1000) - 500)) + arroundPoint.y
       }
-      // }
     } else {
       position = {
         x: thisObject.payload.position.x,

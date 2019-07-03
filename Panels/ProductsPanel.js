@@ -67,7 +67,7 @@ function newProductsPanel () {
 
       for (let j = 0; j < devTeam.bots.length; j++) {
         let bot = devTeam.bots[j]
-        if (bot.type !== 'Indicator' && bot.cloneId === undefined) { continue }
+        if (bot.type !== 'Indicator' && (bot.cloneId === undefined || bot.cloneId === null)) { continue }
 
         if (bot.products !== undefined) {
           for (let k = 0; k < bot.products.length; k++) {

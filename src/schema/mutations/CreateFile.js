@@ -6,7 +6,7 @@ import { writeFileContent } from '../../storage/providers/MinioStorage'
 export const args = { file: { type: FileInputType } }
 
 const resolve = async (parent, { file }, context) => {
-  logger.debug('createFile -> Entering Function.')
+  logger.debug('createFile -> Entering Function: ' + file.container + '/' + file.filePath)
   try {
     //TODO Add permissions
     await writeFileContent(file.container, file.filePath, file.fileContent)

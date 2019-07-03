@@ -183,6 +183,20 @@ function newFloatingObject () {
       let parent = thisObject.payload.chainParent
       if (parent !== undefined) {
         let distanceToChainParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
+        let parentChildren = canvas.strategySpace.workspace.nodeChildren.childrenCount(parent)
+        let axisCount = parentChildren.childrenCount
+        let axisIndex = parentChildren.childIndex
+
+        if (parent.payload.chainParent !== undefined) {
+          axisCount++
+          axisIndex++
+        }
+
+        let angleStep = 360 / axisCount
+        let myAngle = axisIndex * axisCount
+
+        thisObject.container.frame.position.x = parent.payload.position.x + distanceToChainParent * Math.cos(toRadians(myAngle))
+        thisObject.container.frame.position.y = parent.payload.position.y + distanceToChainParent * Math.sin(toRadians(myAngle))
       }
     }
   }

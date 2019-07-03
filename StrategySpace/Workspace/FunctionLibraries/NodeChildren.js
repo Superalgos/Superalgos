@@ -5,305 +5,219 @@ function newNodeChildren () {
 
   return thisObject
 
-  function childrenCount (node) {
-    switch (node.type) {
+  function childrenCount (parentNode, childNode) {
+    switch (parentNode.type) {
 
       case 'Trading System': {
-        return countChildrenTradingSystem(node)
+        return countChildrenTradingSystem(parentNode, childNode)
       }
       case 'Parameters': {
-        return countChildrenParameters(node)
+        return countChildrenParameters(parentNode, childNode)
       }
       case 'Base Asset': {
-        return countChildrenBaseAsset(node)
+        return countChildrenBaseAsset(parentNode, childNode)
       }
       case 'Strategy': {
-        return countChildrenStrategy(node)
+        return countChildrenStrategy(parentNode, childNode)
       }
       case 'Trigger Stage': {
-        return countChildrenTriggerStage(node)
+        return countChildrenTriggerStage(parentNode, childNode)
       }
       case 'Open Stage': {
-        return countChildrenOpenStage(node)
+        return countChildrenOpenStage(parentNode, childNode)
       }
       case 'Manage Stage': {
-        return countChildrenManageStage(node)
+        return countChildrenManageStage(parentNode, childNode)
       }
       case 'Close Stage': {
-        return countChildrenCloseStage(node)
+        return countChildrenCloseStage(parentNode, childNode)
       }
       case 'Position Size': {
-        return countChildrenPositionSize(node)
+        return countChildrenPositionSize(parentNode, childNode)
       }
       case 'Initial Definition': {
-        return countChildrenInitialDefinition(node)
+        return countChildrenInitialDefinition(parentNode, childNode)
       }
       case 'Event': {
-        return countChildrenEvent(node)
+        return countChildrenEvent(parentNode, childNode)
       }
-      case 'Managed Item': {
-        return countChildrenManagedItem(node)
+      case 'Stop': {
+        return countChildrenStop(parentNode, childNode)
+      }
+      case 'Take Profit': {
+        return countChildrenTakeProfit(parentNode, childNode)
       }
       case 'Phase': {
-        return countChildrenPhase(node)
+        return countChildrenPhase(parentNode, childNode)
       }
       case 'Formula': {
-        return countChildrenFormula(node)
+        return countChildrenFormula(parentNode, childNode)
       }
       case 'Situation': {
-        return countChildrenSituation(node)
+        return countChildrenSituation(parentNode, childNode)
       }
       case 'Condition': {
-        return countChildrenCondition(node)
+        return countChildrenCondition(parentNode, childNode)
       }
       case 'Code': {
-        return countChildrenCode(node)
+        return countChildrenCode(parentNode, childNode)
+      }
+      default: {
+        console.log('WARNING this parentNode type is not listed at NodeChildren: ' + parentNode.type)
       }
     }
   }
 
-  function countChildrenTradingSystem (node) {
+  function countChildrenTradingSystem (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
     }
 
-    for (let i = 0; i < node.strategies.length; i++) {
-      let child = node.strategies[i]
+    for (let i = 0; i < parentNode.strategies.length; i++) {
+      let child = parentNode.strategies[i]
       response.childrenCount++
-      if (child.id === node.id) {
+      if (child.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
 
-    if (node.parameters !== undefined) {
+    if (parentNode.parameters !== undefined) {
       response.childrenCount++
-      if (node.parameters.id === node.id) {
+      if (parentNode.parameters.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
     return response
   }
 
-  function countChildrenParameters (node) {
+  function countChildrenParameters (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (node.baseAsset !== undefined) {
+    if (parentNode.baseAsset !== undefined) {
       response.childrenCount++
-      if (node.baseAsset.id === node.id) {
+      if (parentNode.baseAsset.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
     return response
   }
 
-  function countChildrenBaseAsset (node) {
+  function countChildrenBaseAsset (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (node.formula !== undefined) {
+    if (parentNode.formula !== undefined) {
       response.childrenCount++
-      if (node.formula.id === node.id) {
+      if (parentNode.formula.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
     return response
   }
 
-  function countChildrenStrategy (node) {
+  function countChildrenStrategy (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (node.triggerStage !== undefined) {
+    if (parentNode.triggerStage !== undefined) {
       response.childrenCount++
-      if (node.triggerStage.id === node.id) {
+      if (parentNode.triggerStage.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
-    if (node.openStage !== undefined) {
+    if (parentNode.openStage !== undefined) {
       response.childrenCount++
-      if (node.openStage.id === node.id) {
+      if (parentNode.openStage.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
-    if (node.manageStage !== undefined) {
+    if (parentNode.manageStage !== undefined) {
       response.childrenCount++
-      if (node.manageStage.id === node.id) {
+      if (parentNode.manageStage.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
-    if (node.closeStage !== undefined) {
+    if (parentNode.closeStage !== undefined) {
       response.childrenCount++
-      if (node.closeStage.id === node.id) {
+      if (parentNode.closeStage.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
     return response
   }
 
-  function countChildrenTriggerStage (node) {
+  function countChildrenTriggerStage (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (node.triggerOn !== undefined) {
+    if (parentNode.triggerOn !== undefined) {
       response.childrenCount++
-      if (node.triggerOn.id === node.id) {
+      if (parentNode.triggerOn.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
-    if (node.triggerOff !== undefined) {
+    if (parentNode.triggerOff !== undefined) {
       response.childrenCount++
-      if (node.triggerOff.id === node.id) {
+      if (parentNode.triggerOff.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
-    if (node.takePosition !== undefined) {
+    if (parentNode.takePosition !== undefined) {
       response.childrenCount++
-      if (node.takePosition.id === node.id) {
+      if (parentNode.takePosition.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
-    if (node.positionSize !== undefined) {
+    if (parentNode.positionSize !== undefined) {
       response.childrenCount++
-      if (node.positionSize.id === node.id) {
+      if (parentNode.positionSize.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
     return response
   }
 
-  function countChildrenOpenStage (node) {
+  function countChildrenOpenStage (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (node.initialDefinition !== undefined) {
+    if (parentNode.initialDefinition !== undefined) {
       response.childrenCount++
-      if (node.initialDefinition.id === node.id) {
+      if (parentNode.initialDefinition.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
     return response
   }
 
-  function countChildrenManageStage (node) {
+  function countChildrenManageStage (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (node.stopLoss !== undefined) {
+    if (parentNode.stopLoss !== undefined) {
       response.childrenCount++
-      if (node.stopLoss.id === node.id) {
+      if (parentNode.stopLoss.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
-    if (node.takeProfit !== undefined) {
+    if (parentNode.takeProfit !== undefined) {
       response.childrenCount++
-      if (node.takeProfit.id === node.id) {
+      if (parentNode.takeProfit.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
     return response
   }
 
-  function countChildrenCloseStage (node) {
-    let response = {
-      childrenCount: 0,
-      childIndex: undefined
-    }
-    return response
-  }
-
-  function countChildrenPositionSize (node) {
-    let response = {
-      childrenCount: 0,
-      childIndex: undefined
-    }
-    if (node.formula !== undefined) {
-      response.childrenCount++
-      if (node.formula.id === node.id) {
-        response.childIndex = response.childrenCount
-      }
-    }
-    return response
-  }
-
-  function countChildrenInitialDefinition (node) {
-    let response = {
-      childrenCount: 0,
-      childIndex: undefined
-    }
-    if (node.stopLoss !== undefined) {
-      response.childrenCount++
-      if (node.stopLoss.id === node.id) {
-        response.childIndex = response.childrenCount
-      }
-    }
-    if (node.takeProfit !== undefined) {
-      response.childrenCount++
-      if (node.takeProfit.id === node.id) {
-        response.childIndex = response.childrenCount
-      }
-    }
-    return response
-  }
-
-  function countChildrenEvent (node) {
-    let response = {
-      childrenCount: 0,
-      childIndex: undefined
-    }
-    for (let i = 0; i < node.situations.length; i++) {
-      let child = node.situations[i]
-      response.childrenCount++
-      if (child.id === node.id) {
-        response.childIndex = response.childrenCount
-      }
-    }
-    return response
-  }
-
-  function countChildrenManagedItem (node) {
-    let response = {
-      childrenCount: 0,
-      childIndex: undefined
-    }
-    for (let i = 0; i < node.phases.length; i++) {
-      let child = node.phases[i]
-      response.childrenCount++
-      if (child.id === node.id) {
-        response.childIndex = response.childrenCount
-      }
-    }
-    return response
-  }
-
-  function countChildrenPhase (node) {
-    let response = {
-      childrenCount: 0,
-      childIndex: undefined
-    }
-    if (node.formula !== undefined) {
-      response.childrenCount++
-      if (node.formula.id === node.id) {
-        response.childIndex = response.childrenCount
-      }
-    }
-    if (node.nextPhaseEvent !== undefined) {
-      response.childrenCount++
-      if (node.nextPhaseEvent.id === node.id) {
-        response.childIndex = response.childrenCount
-      }
-    }
-    return response
-  }
-
-  function countChildrenFormula (node) {
+  function countChildrenCloseStage (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
@@ -311,36 +225,143 @@ function newNodeChildren () {
     return response
   }
 
-  function countChildrenSituation (node) {
+  function countChildrenPositionSize (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
     }
-    for (let i = 0; i < node.conditions.length; i++) {
-      let child = node.conditions[i]
+    if (parentNode.formula !== undefined) {
       response.childrenCount++
-      if (child.id === node.id) {
+      if (parentNode.formula.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
     return response
   }
 
-  function countChildrenCondition (node) {
+  function countChildrenInitialDefinition (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (node.code !== undefined) {
+    if (parentNode.stopLoss !== undefined) {
       response.childrenCount++
-      if (node.code.id === node.id) {
+      if (parentNode.stopLoss.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.takeProfit !== undefined) {
+      response.childrenCount++
+      if (parentNode.takeProfit.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
     return response
   }
 
-  function countChildrenCode (node) {
+  function countChildrenEvent (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    for (let i = 0; i < parentNode.situations.length; i++) {
+      let child = parentNode.situations[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenStop (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    for (let i = 0; i < parentNode.phases.length; i++) {
+      let child = parentNode.phases[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenTakeProfit (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    for (let i = 0; i < parentNode.phases.length; i++) {
+      let child = parentNode.phases[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenPhase (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.formula !== undefined) {
+      response.childrenCount++
+      if (parentNode.formula.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.nextPhaseEvent !== undefined) {
+      response.childrenCount++
+      if (parentNode.nextPhaseEvent.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenFormula (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenSituation (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    for (let i = 0; i < parentNode.conditions.length; i++) {
+      let child = parentNode.conditions[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenCondition (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.code !== undefined) {
+      response.childrenCount++
+      if (parentNode.code.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenCode (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined

@@ -6,7 +6,7 @@ function newWorkspace () {
     tradingSystem: undefined,
     container: undefined,
     enabled: false,
-    nodeChilren: undefined,
+    nodeChildren: undefined,
     onMenuItemClick: onMenuItemClick,
     getProtocolTradingSystem: getProtocolTradingSystem,
     physics: physics,
@@ -42,7 +42,7 @@ function newWorkspace () {
   let functionLibraryPartsFromNodes = newPartsFromNodes()
   let functionLibraryProtocolNode = newProtocolNode()
   let functionLibraryWorkspaceNodes = newStringifyNode()
-  thisObject.nodeChilren = newNodeChildren()
+  thisObject.nodeChildren = newNodeChildren()
 
   return thisObject
 

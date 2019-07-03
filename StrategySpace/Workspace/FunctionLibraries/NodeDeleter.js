@@ -99,8 +99,10 @@ function newNodeDeleter () {
           deleteCode(rootNode, rootNodes)
           break
         }
-        default:
 
+        default: {
+          console.log('WARNING this node type is not listed at NodeDeleter: ' + node.type)
+        }
       }
     }
 

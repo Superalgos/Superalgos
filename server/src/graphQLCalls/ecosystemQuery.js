@@ -31,7 +31,7 @@ const ecosystemQuery = async (authorization) => {
   })
 
   if (response.data.errors) {
-    throw error
+    throw response.data.errors
   }
 
   return response.data.data.web_GetEcosystem

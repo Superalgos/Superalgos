@@ -7,11 +7,11 @@ import teamQuery from '../../graphQLCalls/teamQuery'
 import { isDefined } from '../../config/utils'
 import cloneDetails from '../cloneDetails'
 import authorizeKey from '../../graphQLCalls/authorizeKey'
-import { LIVE, COMPETITION } from '../../enums/CloneMode'
+import { LIVE, COMPETITION, BACKTEST } from '../../enums/CloneMode'
+import { Trading } from '../../enums/BotTypes'
+import removeBotMutation from '../../graphQLCalls/removeBotMutation'
 
-const args = {
-  id: { type: new GraphQLNonNull(GraphQLID) }
-}
+const args = { id: { type: new GraphQLNonNull(GraphQLID) } }
 
 const resolve = async (parent, { id }, context) => {
   logger.debug('removeClone -> Entering Fuction.')
@@ -41,6 +41,28 @@ const resolve = async (parent, { id }, context) => {
 
     logger.debug('removeClone -> Removing Clone from Kubernates.')
     await removeKuberneteClone(clone.id)
+
+    if (clone.botType === Trading) {
+      let productCodeName
+      if (clone.mode === LIVE) {
+        productCodeName = 'Live Trading History'
+      }
+      if (clone.mode === COMPETITION) {
+        productCodeName = 'Competition Trading History'
+      }
+      if (clone.mode === BACKTEST) {
+        productCodeName = 'Backtest Trading History'
+      }
+
+      let newEcosystemBot = {
+        devTeam: clone.teamSlug,
+        codeName: clone.botSlug,
+        cloneId: clone.id,
+        productCodeName
+      }
+
+      await removeBotMutation(context.authorization, newEcosystemBot)
+    }
 
     const query = {
       _id: id,

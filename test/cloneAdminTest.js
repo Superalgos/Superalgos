@@ -2,49 +2,87 @@ var assert = require('chai').assert
 const axios = require('axios')
 const { activeCloneList } = require('./activeCloneList')
 require('dotenv').config()
+var cloneList = activeCloneList("Poloniex")
 
 describe('Admin clones Clones', function () {
 	it('Remove clones', async function () {
 		this.timeout(300000)
-		var error
-		try {
-			var clones = await getClones()
-			for (let clone of clones) {
-				await removeClone(clone.id, clone.botName)
-			}
-		} catch (err) {
-			console.log('Error: ' + err)
-			error = err
+		var clones = await getClones()
+		for (let clone of clones) {
+			await removeClone(clone.id, clone.botName)
 		}
-		assert.equal(error, undefined)
+		assert.isOk('everything', 'everything is ok')
 	})
-	it('Add COSS Live Indicator Clones', async function () {
-		this.timeout(300000)
-		var error
-		var clones = activeCloneList("Coss")
-		try {
-			for (let clone of clones) {
-				await createClone(clone)
-			}
-		} catch (err) {
-			console.log('Error: ' + err)
-			error = err
-		}
-		assert.equal(error, undefined)
-	})
-	it('Add POLONIEX Live Indicator Clones', async function () {
-		this.timeout(300000)
-		var error
-		var clones = activeCloneList("Poloniex")
-		try {
-			for (let clone of clones) {
-				await createClone(clone)
-			}
-		} catch (err) {
-			console.log('Error: ' + err)
-			error = err
-		}
-		assert.equal(error, undefined)
+	// it('Add COSS Live Indicator Clones', async function () {
+	// 	this.timeout(300000)
+	// 	var error
+	// 	var clones = activeCloneList("Coss")
+	// 	try {
+	// 		for (let clone of clones) {
+	// 			await createClone(clone)
+	// 		}
+	// 	} catch (err) {
+	// 		console.log('Error: ' + err)
+	// 		error = err
+	// 	}
+	// 	assert.equal(error, undefined)
+	// })
+	// it('Add POLONIEX Live Indicator Clones', async function () {
+	// 	this.timeout(300000)
+	// 	var error
+	// 	var clones = activeCloneList("Poloniex")
+	// 	try {
+	// 		for (let clone of clones) {
+	// 			await createClone(clone)
+	// 		}
+	// 	} catch (err) {
+	// 		console.log('Error: ' + err)
+	// 		error = err
+	// 	}
+	// 	assert.equal(error, undefined)
+	// })
+	describe('Poloniex clones', function () {
+		it('Add Charly', async function () {
+			this.timeout(3000)
+			await createClone(cloneList[0])
+			await createClone(cloneList[1])
+			assert.isOk('everything', 'everything is ok')
+		})
+		it('Add Bruce', async function () {
+			this.timeout(3000)
+			await createClone(cloneList[2])
+			assert.isOk('everything', 'everything is ok')
+		})
+		it('Add Olivia', async function () {
+			this.timeout(3000)
+			await createClone(cloneList[3])
+			await createClone(cloneList[4])
+			assert.isOk('everything', 'everything is ok')
+		})
+		it('Add Tom', async function () {
+			this.timeout(3000)
+			await createClone(cloneList[5])
+			await createClone(cloneList[6])
+			assert.isOk('everything', 'everything is ok')
+		})
+		it('Add Chris', async function () {
+			this.timeout(3000)
+			await createClone(cloneList[7])
+			await createClone(cloneList[8])
+			assert.isOk('everything', 'everything is ok')
+		})
+		it('Add Paula', async function () {
+			this.timeout(3000)
+			await createClone(cloneList[9])
+			await createClone(cloneList[10])
+			assert.isOk('everything', 'everything is ok')
+		})
+		it('Add Gauss', async function () {
+			this.timeout(6000)
+			await createClone(cloneList[11])
+			await createClone(cloneList[12])
+			assert.isOk('everything', 'everything is ok')
+		})
 	})
 })
 

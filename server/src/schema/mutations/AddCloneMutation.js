@@ -1,10 +1,10 @@
 import { CloneInputType } from '../types/input'
 import { CloneType } from '../types'
 import { Clone } from '../../models'
-import { CloneModeEnum } from '../../enums/CloneMode'
 import { BotTypesEnum } from '../../enums/BotTypes'
 import teamQuery from '../../graphQLCalls/teamQuery'
 import authorizeKey from '../../graphQLCalls/authorizeKey'
+import addBotMutation from '../../graphQLCalls/addBotMutation'
 import cloneDetails from '../cloneDetails'
 import {
   AuthenticationError,
@@ -15,7 +15,8 @@ import {
 import logger from '../../config/logger'
 import createKubernetesClone from '../../kubernetes/createClone'
 import { isDefined } from '../../config/utils'
-import { LIVE, COMPETITION } from '../../enums/CloneMode'
+import { CloneModeEnum, LIVE, COMPETITION, BACKTEST } from '../../enums/CloneMode'
+import { Trading } from '../../enums/BotTypes'
 
 const args = {
   clone: { type: CloneInputType }
@@ -92,6 +93,28 @@ const resolve = async (parent, { clone }, context) => {
     }
 
     await createKubernetesClone(clone)
+
+    if(clone.botType === Trading){
+      let productCodeName
+      if(clone.mode === LIVE){
+        productCodeName = 'Live Trading History'
+      }
+      if(clone.mode === COMPETITION){
+        productCodeName = 'Competition Trading History'
+      }
+      if(clone.mode === BACKTEST){
+        productCodeName = 'Backtest Trading History'
+      }
+
+      let newEcosystemBot = {
+        devTeam: clone.teamSlug,
+        codeName: clone.botSlug,
+        cloneId: clone.id,
+        productCodeName
+      }
+
+      await addBotMutation(context.authorization, newEcosystemBot)
+    }
 
     logger.debug('addClone -> Clone created sucessfully.')
     return savedClone

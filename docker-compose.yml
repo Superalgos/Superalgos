@@ -82,6 +82,19 @@ services:
     depends_on:
       - mongo
 
+  clones-api:
+    image: superalgos/clones-api:0.1.0
+    restart: always
+    build: ../OperationsModule/server
+    env_file: ./env/clones-api.env
+    command: npm start
+    ports:
+      - "4003:4003"
+    networks:
+      - superalgos_net
+    depends_on:
+      - mongo-express
+
   saweb-api:
     image: superalgos/saweb-api:0.1.0
     restart: always
@@ -103,19 +116,6 @@ services:
     command: npm start
     ports:
       - "4007:4007"
-    networks:
-      - superalgos_net
-    depends_on:
-      - mongo-express
-
-  clones-api:
-    image: superalgos/clones-api:0.1.0
-    restart: always
-    build: ../OperationsModule/server
-    env_file: ./env/clones-api.env
-    command: npm start
-    ports:
-      - "4003:4003"
     networks:
       - superalgos_net
     depends_on:
@@ -239,7 +239,7 @@ services:
     restart: always
     build: ./server
     env_file: ./env/master-app-api.env
-    command: node .
+    command: sh -c './wait-for master-app:3100 -- node .'
     ports:
       - "4100:4100"
     networks:
@@ -257,8 +257,6 @@ services:
       - "4101:4101"
     networks:
       - superalgos_net
-    depends_on:
-      - master-app-api
 
   kubernetes:
     image: qoomon/docker-host:2.2.0

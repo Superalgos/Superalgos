@@ -45,7 +45,7 @@ function newAppLoader() {
         'StrategySpace/Workspace/FunctionLibraries/NodeDeleter.js',
         'StrategySpace/Workspace/FunctionLibraries/ProtocolNode.js',
         'StrategySpace/Workspace/FunctionLibraries/StringifyNode.js',
-
+        'StrategySpace/Workspace/FunctionLibraries/NodeChildren.js',
 
         'Utilities/RoundedCornersBackground.js',
 
@@ -151,12 +151,12 @@ function newAppLoader() {
               dashboard.start()
             }
           } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> onRequired -> err = ' + err) }
+            if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> onRequired -> err = ' + err.stack) }
           }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> err = ' + err.stack) }
     }
   }
 

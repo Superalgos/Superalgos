@@ -183,7 +183,7 @@ function newFloatingObject () {
       let parent = thisObject.payload.chainParent
       if (parent !== undefined) {
         let distanceToChainParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
-        let parentChildren = canvas.strategySpace.workspace.nodeChildren.childrenCount(parent)
+        let parentChildren = canvas.strategySpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
         let axisCount = parentChildren.childrenCount
         let axisIndex = parentChildren.childIndex
 

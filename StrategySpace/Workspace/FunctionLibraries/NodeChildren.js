@@ -38,7 +38,16 @@ function newNodeChildren () {
       case 'Initial Definition': {
         return countChildrenInitialDefinition(parentNode, childNode)
       }
-      case 'Event': {
+      case 'Next Phase Event': {
+        return countChildrenEvent(parentNode, childNode)
+      }
+      case 'Trigger On Event': {
+        return countChildrenEvent(parentNode, childNode)
+      }
+      case 'Trigger Off Event': {
+        return countChildrenEvent(parentNode, childNode)
+      }
+      case 'Take Position Event': {
         return countChildrenEvent(parentNode, childNode)
       }
       case 'Stop': {

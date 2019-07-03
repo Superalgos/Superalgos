@@ -170,10 +170,19 @@ function newFloatingObject () {
   }
 
   function tensionPhysics () {
+    /* Tension Inheritance */
     if (thisObject.tensedManually === false) {
       let parent = thisObject.payload.chainParent
       if (parent !== undefined) {
         thisObject.isTensed = parent.payload.floatingObject.isTensed
+      }
+    }
+
+    /* Tension Effect */
+    if (thisObject.isTensed === true) {
+      let parent = thisObject.payload.chainParent
+      if (parent !== undefined) {
+        let distanceToChainParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
       }
     }
   }

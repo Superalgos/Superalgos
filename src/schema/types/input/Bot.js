@@ -8,9 +8,9 @@ const Type = new GraphQLInputObjectType({
   name: 'BotInput',
   description: 'Payload for bot input.',
   fields: () => ({
-    devTeam: { type: new GraphQLNonNull(GraphQLString) },
     codeName: { type: new GraphQLNonNull(GraphQLString) },
-    productCodeName: { type: new GraphQLNonNull(GraphQLString) },
+    productCodeName: { type: GraphQLString },
+    devTeam: { type: GraphQLString},
     displayName: { type: GraphQLString },
     repo: { type: GraphQLString },
     configFile: { type: GraphQLString },

@@ -1,31 +1,23 @@
-class ClientError extends Error {
-  constructor(args) {
-    super(args);
+export class AuthenticationError extends Error {
+  constructor(message) {
+    super(message)
+    this.code = 401
+    this.message = 'Autentification not found, you have to be authentificated to perform this action.'
   }
 }
 
-class ServerError extends Error {
-  constructor(args) {
-    super(args);
+export class WrongArgumentsError extends Error {
+  constructor(message) {
+    super(message)
+    this.code = 400
+    this.message = `Wrong arguments : ${this.message}`
   }
 }
 
-export class AuthenticationError extends ClientError {
-  // code = 401
-  // message = 'Authentication not found, you have to be authenticated to perform this action'
-}
-
-export class DatabaseError extends ClientError {
-  // code = 404
-  // message = `Ressource not found : ${this.message}`
-}
-
-export class WrongArgumentsError extends ClientError {
-  // code = 400
-  // message = `Wrong arguments : ${this.message}`
-}
-
-export class ServiceUnavailableError extends ServerError {
-  // code = 503
-  // message = `At least one service is unresponding ${this.message}`
+export class ServiceUnavailableError extends Error {
+  constructor(message) {
+    super(message)
+    this.code = 503
+    this.message = `At least one service is unresponding ${this.message}`
+  }
 }

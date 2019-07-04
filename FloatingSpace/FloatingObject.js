@@ -364,8 +364,8 @@ function newFloatingObject () {
 
     if (thisObject.payload.position === undefined) {
       position = {
-        x: Math.floor((Math.random() * (1000) - 500)) + arroundPoint.x,
-        y: Math.floor((Math.random() * (1000) - 500)) + arroundPoint.y
+        x: Math.floor((Math.random() * (200) - 100)) + arroundPoint.x,
+        y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
       }
     } else {
       position = {

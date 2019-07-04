@@ -315,7 +315,7 @@ function newFloatingLayer () {
               floatingObject.currentSpeed.y = floatingObject.currentSpeed.y - 0.005
             }
 
-            const MAX_SPEED = 50
+            const MAX_SPEED = 10
 
             if (floatingObject.currentSpeed.x > MAX_SPEED) {
               floatingObject.currentSpeed.x = MAX_SPEED

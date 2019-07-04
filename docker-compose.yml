@@ -1,19 +1,6 @@
 version: "3"
 
 services:
-  minio:
-    image: minio/minio:RELEASE.2019-05-23T00-29-34Z
-    volumes:
-      - 'D:\data:/data'
-    ports:
-      - "9000:9000"
-    environment:
-      MINIO_ACCESS_KEY: minio
-      MINIO_SECRET_KEY: minio123
-    command: server /data
-    networks:
-      - superalgos_net
-
   postgres:
     image: postgres:11-alpine
     restart: always
@@ -23,6 +10,19 @@ services:
       POSTGRES_DB: prisma
     volumes:
       - postgresdb_data:/var/lib/postgresql/data-teams
+    networks:
+      - superalgos_net
+
+  minio:
+    image: minio/minio:RELEASE.2019-06-27T21-13-50Z
+    volumes:
+      - 'D:\data:/data'
+    ports:
+      - "9000:9000"
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+    command: server /data
     networks:
       - superalgos_net
 
@@ -51,16 +51,29 @@ services:
     depends_on:
       - postgres
 
-  teams-prisma:
+  teams-deploy:
     image: superalgos/teams-prisma:0.1.0
     restart: "no"
     build: ../TeamsPrisma
     env_file: ./env/teams-prisma.env
-    command: ["./wait-for-it.sh", "prisma:4466", "--", "prisma", "deploy"]
+    command: sh -c './wait-for prisma:4466 -- prisma deploy'
     networks:
       - superalgos_net
     depends_on:
       - prisma
+
+  teams-api:
+    image: superalgos/teams-api:0.1.0
+    restart: always
+    build: ../TeamsModule/api
+    env_file: ./env/teams-api.env
+    command: sh -c './wait-for prisma:4466 -- node .'
+    ports:
+      - "4001:4001"
+    networks:
+      - superalgos_net
+    depends_on:
+      - teams-deploy
 
   mongo:
     image: mongo:4.0.9
@@ -100,7 +113,7 @@ services:
     restart: always
     build: ../LogsServerModule
     env_file: ./env/logs-api.env
-    command: npm start
+    command: node .
     ports:
       - "4007:4007"
     networks:
@@ -113,7 +126,7 @@ services:
     restart: always
     build: ../OperationsModule/server
     env_file: ./env/clones-api.env
-    command: npm start
+    command: node .
     ports:
       - "4003:4003"
     networks:
@@ -126,7 +139,7 @@ services:
     restart: always
     build: ../CockpitServerModule
     env_file: ./env/cockpit-api.env
-    command: npm start
+    command: node .
     ports:
       - "4009:4009"
     networks:
@@ -152,7 +165,7 @@ services:
     restart: always
     build: ../EventsServerModule
     env_file: ./env/events-api.env
-    command: npm start
+    command: node .
     ports:
       - "4005:4005"
     networks:
@@ -178,7 +191,7 @@ services:
     restart: always
     build: ../KeyVaultModule/server
     env_file: ./env/keyvault-api.env
-    command: npm start
+    command: node .
     ports:
       - "4002:4002"
     networks:
@@ -186,25 +199,12 @@ services:
     depends_on:
       - mongo-express
 
-  teams-api:
-    image: superalgos/teams-api:0.1.0
-    restart: always
-    build: ../TeamsModule/api
-    env_file: ./env/teams-api.env
-    command: npm start
-    ports:
-      - "4001:4001"
-    networks:
-      - superalgos_net
-    depends_on:
-      - prisma
-
   notifications-api:
     image: superalgos/notifications-api:0.1.0
     restart: always
     build: ../NotificationsModule/server
     env_file: ./env/notifications-api.env
-    command: npm start
+    command: node .
     ports:
       - "4006:4006"
     networks:
@@ -222,30 +222,17 @@ services:
       - "3100:3100"
     networks:
       - superalgos_net
-    depends_on:
-      - keyvault-api
-      - clones-api
-      - users-api
-      - events-api
-      - strategizer-api
-      - logs-api
-      - cockpit-api
-      - teams-api
-      - notifications-api
-      - saweb-api
 
   master-app-api:
     image: superalgos/master-app-api:0.1.0
     restart: always
     build: ./server
     env_file: ./env/master-app-api.env
-    command: node .
+    command: sh -c './wait-for users-api:4000 -- ./wait-for teams-api:4001 -- ./wait-for keyvault-api:4002 -- ./wait-for clones-api:4003 -- ./wait-for saweb-api:4004 -- ./wait-for events-api:4005 -- ./wait-for notifications-api:4006 -- ./wait-for logs-api:4007 -- ./wait-for strategizer-api:4008 -- ./wait-for cockpit-api:4009 --  node .'
     ports:
       - "4100:4100"
     networks:
       - superalgos_net
-    depends_on:
-      - master-app
 
   aaweb:
     image: superalgos/aaweb:0.1.0
@@ -257,8 +244,6 @@ services:
       - "4101:4101"
     networks:
       - superalgos_net
-    depends_on:
-      - master-app-api
 
   kubernetes:
     image: qoomon/docker-host:2.2.0

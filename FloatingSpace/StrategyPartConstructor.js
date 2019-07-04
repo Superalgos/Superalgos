@@ -2070,7 +2070,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = 0.93
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(400)
+      floatingObject.initializeMass(1000)
       floatingObject.initializeRadius(45)
       floatingObject.initializeImageSize(80)
       floatingObject.initializeFontSize(10)
@@ -2082,7 +2082,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = 0.94
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(200)
+      floatingObject.initializeMass(750)
       floatingObject.initializeRadius(45)
       floatingObject.initializeImageSize(80)
       floatingObject.initializeFontSize(10)
@@ -2098,7 +2098,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(100)
+      floatingObject.initializeMass(500)
       floatingObject.initializeRadius(40)
       floatingObject.initializeImageSize(70)
       floatingObject.initializeFontSize(10)
@@ -2114,7 +2114,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(50)
+      floatingObject.initializeMass(250)
       floatingObject.initializeRadius(35)
       floatingObject.initializeImageSize(60)
       floatingObject.initializeFontSize(10)
@@ -2130,7 +2130,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(20)
+      floatingObject.initializeMass(100)
       floatingObject.initializeRadius(30)
       floatingObject.initializeImageSize(50)
       floatingObject.initializeFontSize(10)
@@ -2146,7 +2146,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(20)
+      floatingObject.initializeMass(50)
       floatingObject.initializeRadius(25)
       floatingObject.initializeImageSize(40)
       floatingObject.initializeFontSize(10)
@@ -2157,7 +2157,7 @@ function newStrategyPartConstructor () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
 
-      floatingObject.initializeMass(20)
+      floatingObject.initializeMass(25)
       floatingObject.initializeRadius(20)
       floatingObject.initializeImageSize(30)
       floatingObject.initializeFontSize(10)

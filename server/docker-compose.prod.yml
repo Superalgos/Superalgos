@@ -14,7 +14,7 @@ services:
       - /var/www/app/node_modules
     working_dir: /var/www/app
     restart: always
-    command: npm start
+    command: node .
     expose:
       - 4100
     network_mode: webproxy

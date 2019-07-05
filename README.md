@@ -190,14 +190,14 @@ In the example above, conditions A and B are mathematical comparison statements 
 
 #### Candles
 
-**candle.min:** 
-**candle.max:** 
-**candle.open:** 
-**candle.close:** 
-**candle.begin:** 
-**candle.end:** 
-**candle.direction (Down | Up | Side):** 
-**candle.previous:** 
+**candle.min:** The minimum value of the current candle.
+**candle.max:** The maximum value of the current candle.
+**candle.open:** The value at which the current candle opened.
+**candle.close:** The latest value of the current candle.
+**candle.begin:** Datetime in which the current period started (UNIX Epoch time).
+**candle.end:** Datetime in which the current period ends (UNIX Epoch time).
+**candle.direction:** Down: candle.close > candle.open | Up: candle.close < candle.open | Side: candle.close = candle.open
+**candle.previous:** Refers to the previous candle
 
 Bollinger Band
 

@@ -191,57 +191,93 @@ In the example above, conditions A and B are mathematical comparison statements 
 #### Candles
 
 **candle.min:** The minimum value of the current candle.
+
 **candle.max:** The maximum value of the current candle.
+
 **candle.open:** The value at which the current candle opened.
+
 **candle.close:** The latest value of the current candle.
+
 **candle.begin:** Datetime in which the current period started (UNIX Epoch time).
+
 **candle.end:** Datetime in which the current period ends (UNIX Epoch time).
+
 **candle.direction:** Down: candle.close > candle.open | Up: candle.close < candle.open | Side: candle.close = candle.open
+
 **candle.previous:** Refers to the previous candle
 
 Bollinger Band 
 
 **bollingerBand.begin:** 
+
 **bollingerBand.end:** 
+
 **bollingerBand.movingAverage:** 
+
 **bollingerBand.standardDeviation:** 
+
 **bollingerBand.deviation:** 
+
 **bollingerBand.direction (Down | Up | Side):** 
+
 **bollingerBand.previous:** 
 
 Percentage Bandwidth
 
 **percentageBandwidth.begin:** 
+
 **percentageBandwidth.end:** 
+
 **percentageBandwidth.value:** 
+
 **percentageBandwidth.movingAverage:** 
+
 **percentageBandwidth.bandwith:** 
+
 **percentageBandwidth.direction (Down | Up | Side):** 
+
 **percentageBandwidth.previous:** 
 
 Bollinger Channels
 
 **bollingerChannel.begin:** 
+
 **bollingerChannel.end:** 
+
 **bollingerChannel.direction (Down | Up | Side):** 
+
 **bollingerChannel.period:** 
+
 **bollingerChannel.firstMovingAverage:** 
+
 **bollingerChannel.lastMovingAverage:** 
+
 **bollingerChannel.firstDeviation:** 
+
 **bollingerChannel.lastDeviation:** 
+
 **bollingerChannel.previous:** 
 
 Bollinger SubChannels
 
 **bollingerSubChannel.begin:** 
+
 **bollingerSubChannel.end:** 
+
 **bollingerSubChannel.direction (Down | Up | Side):** 
+
 **bollingerSubChannel.slope (Steep | Medium | Gentle | Side):** 
+
 **bollingerSubChannel.period:** 
+
 **bollingerSubChannel.firstMovingAverage:** 
+
 **bollingerSubChannel.lastMovingAverage:** 
+
 **bollingerSubChannel.firstDeviation:** 
+
 **bollingerSubChannel.lastDeviation:** 
+
 **bollingerSubChannel.previous:** 
 
 Internal
@@ -249,25 +285,35 @@ Internal
 **strategyStage (No Stage | Trigger Stage | Open Stage | Manage Stage | Close Stage):** 
 
 **stopLoss:** 
+
 **stopLossPhase (0 | 1 | ...):** 
 
 **takeProfit:** 
+
 **takeProfitPhase:** 
 
 **positionRate:** 
+
 **positionSize:** 
+
 **positionInstant:** 
 
 **balanceAssetA:** 
+
 **balanceAssetB:** 
 
 **lastTradeProfitLoss:** 
+
 **lastTradeROI:** 
 
 **profit:** 
+
 **roundtrips:** 
+
 **fails:** 
+
 **hits:** 
+
 **periods:** 
 
 

@@ -186,9 +186,9 @@ Situation 1
   
 In the example above, conditions A and B are mathematical comparison statements that may evaluate either _true_ or _false_. In the case both would evaluate _true_ then Situation 1 would be true.
 
-### Available Variables
+## Available Variables
 
-#### Candles
+### Candles
 
 **candle.min:** The minimum price of the current candle.
 
@@ -202,7 +202,7 @@ In the example above, conditions A and B are mathematical comparison statements 
 
 **candle.previous:** Refers to the previous candle. You may use _candle.previous_ to fetch any of the variables of the previous candle (i.e.: _candle.previous.close_). You may also use as many _.previous_ as required to fetch values of more than one period behind the current one (i.e.: _candle.previous.previous.max_ returns the maximum value of two candles before the current one).
 
-#### [Bollinger Band](https://en.wikipedia.org/wiki/Bollinger_bands) 
+### [Bollinger Band](https://en.wikipedia.org/wiki/Bollinger_bands) 
 
 **bollingerBand.movingAverage:** The value of the current moving average (20 periods).
 
@@ -217,7 +217,7 @@ In the example above, conditions A and B are mathematical comparison statements 
 
 **bollingerBand.previous:** Use _.previous_ like with candles (see _candle.previous_ above).
 
-#### Percentage Bandwidth
+### Percentage Bandwidth
 
 **percentageBandwidth.value:** The current value of the percentage bandwidth.
 
@@ -232,7 +232,7 @@ In the example above, conditions A and B are mathematical comparison statements 
 
 **percentageBandwidth.previous:** Use _.previous_ like with candles (see _candle.previous_ above).
 
-#### Bollinger Channels
+### Bollinger Channels
 
 **bollingerChannel.begin:** 
 
@@ -252,7 +252,7 @@ In the example above, conditions A and B are mathematical comparison statements 
 
 **bollingerChannel.previous:** 
 
-#### Bollinger SubChannels
+### Bollinger SubChannels
 
 **bollingerSubChannel.begin:** 
 
@@ -274,7 +274,7 @@ In the example above, conditions A and B are mathematical comparison statements 
 
 **bollingerSubChannel.previous:** 
 
-#### Internal
+### Internal
 
 **strategyStage (No Stage | Trigger Stage | Open Stage | Manage Stage | Close Stage):** 
 

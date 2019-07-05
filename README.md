@@ -190,41 +190,47 @@ In the example above, conditions A and B are mathematical comparison statements 
 
 #### Candles
 
-**candle.min:** The minimum value of the current candle.
+**candle.min:** The minimum price of the current candle.
 
-**candle.max:** The maximum value of the current candle.
+**candle.max:** The maximum price of the current candle.
 
-**candle.open:** The value at which the current candle opened.
+**candle.open:** The price at which the current candle opened.
 
-**candle.close:** The latest value of the current candle.
+**candle.close:** The latest price of the current candle.
 
 **candle.direction:** Down: candle.close > candle.open | Up: candle.close < candle.open | Side: candle.close = candle.open
 
-**candle.previous:** Refers to the previous candle. You may use _candle.previous_ to fetch any of the variables of the previous candle (i.e.: candle.previous.close). You may also use as many _.previous_ as required to fetch values of more than one period behind the current one (i.e.: candle.previous.previous.max returns the maximum value of two candles before the current one).
+**candle.previous:** Refers to the previous candle. You may use _candle.previous_ to fetch any of the variables of the previous candle (i.e.: _candle.previous.close_). You may also use as many _.previous_ as required to fetch values of more than one period behind the current one (i.e.: _candle.previous.previous.max_ returns the maximum value of two candles before the current one).
 
-#### Bollinger Band 
+#### [Bollinger Band](https://en.wikipedia.org/wiki/Bollinger_bands) 
 
-**bollingerBand.movingAverage:** The value of the current Moving Average (20 periods).
+**bollingerBand.movingAverage:** The value of the current moving average (20 periods).
 
-**bollingerBand.standardDeviation:** The value of current the [Standard Deviation](https://en.wikipedia.org/wiki/Standard_deviation).
+**bollingerBand.standardDeviation:** The value of current the [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation).
 
 **bollingerBand.deviation:** bollingerBand.standardDeviation * 2
 
-**bollingerBand.direction:**  Down: bollingerBand.previous.movingAverage > bollingerBand.movingAverage | Up: bollingerBand.previous.movingAverage < bollingerBand.movingAverage | Side: bollingerBand.previous.movingAverage = bollingerBand.movingAverage)
+**bollingerBand.direction:**  
+* Down: bollingerBand.previous.movingAverage > bollingerBand.movingAverage 
+* Up: bollingerBand.previous.movingAverage < bollingerBand.movingAverage
+* Side: bollingerBand.previous.movingAverage = bollingerBand.movingAverage)
 
 **bollingerBand.previous:** Use _.previous_ like with candles (see _candle.previous_ above).
 
 #### Percentage Bandwidth
 
-**percentageBandwidth.value:** 
+**percentageBandwidth.value:** The current value of the percentage bandwidth.
 
-**percentageBandwidth.movingAverage:** 
+**percentageBandwidth.movingAverage:** The current value of the percentage bandwidth moving average.
 
-**percentageBandwidth.bandwith:** 
+**percentageBandwidth.bandwith:** The current bandwith.
 
-**percentageBandwidth.direction (Down | Up | Side):** 
+**percentageBandwidth.direction:** 
+* Down: percentageBandwidth.previous.movingAverage > percentageBandwidth.movingAverage
+* Up: percentageBandwidth.previous.movingAverage < percentageBandwidth.movingAverage
+* Side: percentageBandwidth.previous.movingAverage = percentageBandwidth.movingAverage)
 
-**percentageBandwidth.previous:** 
+**percentageBandwidth.previous:** Use _.previous_ like with candles (see _candle.previous_ above).
 
 #### Bollinger Channels
 

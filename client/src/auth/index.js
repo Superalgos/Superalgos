@@ -153,7 +153,49 @@ class Auth {
 
   handleAuthentication() {
     // Add a callback for Lock's `authenticated` event
-    lock.on('authenticated', this.setSession.bind(this))
+    lock.on('authenticated', async (authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        // Set the time that the access token will expire at
+        let expiresAt = JSON.stringify(
+          authResult.expiresIn * 1000 + new Date().getTime()
+        )
+        const data = {
+          status: `success`,
+          accessToken: authResult.accessToken,
+          idToken: authResult.idToken,
+          expiresAt
+        }
+        Log.info('setSession idTokenPayload:')
+        Log.info(authResult.idTokenPayload)
+
+        try {
+          setItem('access_token', authResult.accessToken)
+          setItem('id_token', authResult.idToken)
+          setItem('expires_at', expiresAt)
+          setItem('user', JSON.stringify(user))
+          await this.signinOrCreateAccount({ ...data })
+          this.cb(data)
+          const user = {
+            authId: authResult.idTokenPayload.sub,
+            alias: authResult.idTokenPayload.nickname
+          }
+
+          setItem('access_token', authResult.accessToken)
+          setItem('id_token', authResult.idToken)
+          setItem('expires_at', expiresAt)
+          setItem('user', JSON.stringify(user))
+          window.location.href = '/'
+          return true
+        } catch (err) {
+          console.log('Sign in or create account error: ', err)
+          window.localStorage.removeItem('access_token')
+          window.localStorage.removeItem('id_token')
+          window.localStorage.removeItem('expires_at')
+          window.localStorage.removeItem('user')
+          return false
+        }
+      }
+    })
     // Add a callback for Lock's `authorization_error` event
     lock.on('authorization_error', err => {
       const data = { status: `error`, errMessage: err.error }
@@ -181,44 +223,6 @@ class Auth {
         }
       )
     })
-  }
-
-  async setSession(authResult) {
-    if (authResult && authResult.accessToken && authResult.idToken) {
-      // Set the time that the access token will expire at
-      let expiresAt = JSON.stringify(
-        authResult.expiresIn * 1000 + new Date().getTime()
-      )
-      const data = {
-        status: `success`,
-        accessToken: authResult.accessToken,
-        idToken: authResult.idToken,
-        expiresAt
-      }
-      Log.info('setSession idTokenPayload:')
-      Log.info(authResult.idTokenPayload)
-
-      try {
-        setItem('access_token', authResult.accessToken)
-        setItem('id_token', authResult.idToken)
-        setItem('expires_at', expiresAt)
-        await this.signinOrCreateAccount({ ...data })
-        this.cb(data)
-        const user = {
-          authId: authResult.idTokenPayload.sub,
-          alias: authResult.idTokenPayload.nickname
-        }
-
-        setItem('user', JSON.stringify(user))
-        window.location.href = '/'
-        return true
-      } catch (err) {
-        window.localStorage.removeItem('access_token')
-        window.localStorage.removeItem('id_token')
-        window.localStorage.removeItem('expires_at')
-        console.log('Sign in or create account error: ', err)
-      }
-    }
   }
 
   async signinOrCreateAccount({ accessToken, idToken, expiresAt }) {

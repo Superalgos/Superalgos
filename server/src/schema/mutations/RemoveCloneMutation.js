@@ -42,28 +42,6 @@ const resolve = async (parent, { id }, context) => {
     logger.debug('removeClone -> Removing Clone from Kubernates.')
     await removeKuberneteClone(clone.id)
 
-    if (clone.botType === Trading) {
-      let productCodeName
-      if (clone.mode === LIVE) {
-        productCodeName = 'Live Trading History'
-      }
-      if (clone.mode === COMPETITION) {
-        productCodeName = 'Competition Trading History'
-      }
-      if (clone.mode === BACKTEST) {
-        productCodeName = 'Backtest Trading History'
-      }
-
-      let newEcosystemBot = {
-        devTeam: clone.teamSlug,
-        codeName: clone.botSlug,
-        cloneId: clone.id,
-        productCodeName
-      }
-
-      await removeBotMutation(context.authorization, newEcosystemBot)
-    }
-
     const query = {
       _id: id,
       authId: context.userId

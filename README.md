@@ -161,28 +161,28 @@ Notice the red horizontal bars indicating the _stop_ value for each period (cand
 
 The Strategy Designer organizes strategies following the framework established by the _Superalgos Protocol_. If you are not familiar with the protocol, please read either of the following articles:
 
-* Superalgos Protocol V0.1 - the Short Version, for Experienced Traders.
+* Superalgos Protocol V0.1 - the Short Version, for Experienced Traders (link pending).
 
-* Superalgos Protocol V0.1 - the Long Version, for Beginner Traders.
+* Superalgos Protocol V0.1 - the Long Version, for Beginner Traders (link pending).
 
-The Strategy Designer provides a Graphic User Interface for traders to input the rules and _formulas_ that determine the behaviour of the strategy. Overall, traders need to define the rules to _trigger on_ and _trigger off_ the strategy, to _take a position_, to manage _take profit_ targets and _stop loss_.
+The Strategy Designer provides a Graphic User Interface for traders to input the rules and _formulas_ that determine the behaviour of the strategy. Traders need to define the rules to _trigger on_ and _trigger off_ the strategy, to _take a position_, to manage _take profit_ targets and _stop loss_.
 
-The protocol calls any set of rules a _situation_, in the sense that you are trying to determine what is going on with the market and if the 'situation' is right, certain _actions_ or _events_ should be triggered.
+The protocol calls these sets of rules _situations_, in the sense that you are trying to determine what is going on with the market and, if the 'situation' is right, certain _actions_ or _events_ should be triggered.
 
 In other words, you define _situations_ in which you wish a certain _event_ to happen (i.e.: trigger on the strategy, take a position, etc.) and each situation is described as a set of _conditions_ that need to be met in order for the _event_ to be triggered.
 
-When all _conditions_ within a _situation_ evaluate _true_, then the _situation_ evaluates _true_.
+When **all** _conditions_ within a _situation_ evaluate _true_, then the _situation_ evaluates _true_.
 
-Events may be triggered in different situations, meaning that you are free to define different _situations_ upon which the event would be triggered. In such case, when any of the _situations_ evaluate _true_, then the event shall be triggered.
+Events may be triggered in different situations, meaning that you are free to define different _situations_ upon which the event would be triggered. In such case, when **any** of the _situations_ evaluate _true_, then the event shall be triggered.
 
-In order to define _conditions_ you will create _statements_ using any of the available _variables_ that describe what is happening with the market. Remember, _conditions_ need to evaluate either _true_ or _false_.
+In order to define _conditions_ you will use _statements_ using any of the available _variables_ that describe what is happening with the market. Remember, _conditions_ need to evaluate either _true_ or _false_.
 
 **For example:**
 
 Situation 1
 
-  Condition A: candle.close > bollingerBand.MovingAverage
-  Condition B: candle.previous.max > bollingerBand.MovingAverage
+* Condition A: candle.close > bollingerBand.MovingAverage
+* Condition B: candle.previous.max > bollingerBand.MovingAverage
   
 In the example above, conditions A and B are mathematical comparison statements that may evaluate either _true_ or _false_. In the case both would evaluate _true_ then Situation 1 would be true.
 
@@ -198,35 +198,23 @@ In the example above, conditions A and B are mathematical comparison statements 
 
 **candle.close:** The latest value of the current candle.
 
-**candle.begin:** Datetime in which the current period started (UNIX Epoch time).
-
-**candle.end:** Datetime in which the current period ends (UNIX Epoch time).
-
 **candle.direction:** Down: candle.close > candle.open | Up: candle.close < candle.open | Side: candle.close = candle.open
 
-**candle.previous:** Refers to the previous candle
+**candle.previous:** Refers to the previous candle. You may use _candle.previous_ to fetch any of the variables of the previous candle (i.e.: candle.previous.close). You may also use as many _.previous_ as required to fetch values of more than one period behind the current one (i.e.: candle.previous.previous.max returns the maximum value of two candles before the current one).
 
-Bollinger Band 
+#### Bollinger Band 
 
-**bollingerBand.begin:** 
+**bollingerBand.movingAverage:** The value of the current Moving Average (20 periods).
 
-**bollingerBand.end:** 
+**bollingerBand.standardDeviation:** The value of current the [Standard Deviation](https://en.wikipedia.org/wiki/Standard_deviation).
 
-**bollingerBand.movingAverage:** 
+**bollingerBand.deviation:** bollingerBand.standardDeviation * 2
 
-**bollingerBand.standardDeviation:** 
+**bollingerBand.direction:**  Down: bollingerBand.previous.movingAverage > bollingerBand.movingAverage | Up: bollingerBand.previous.movingAverage < bollingerBand.movingAverage | Side: bollingerBand.previous.movingAverage = bollingerBand.movingAverage)
 
-**bollingerBand.deviation:** 
+**bollingerBand.previous:** Use _.previous_ like with candles (see _candle.previous_ above).
 
-**bollingerBand.direction (Down | Up | Side):** 
-
-**bollingerBand.previous:** 
-
-Percentage Bandwidth
-
-**percentageBandwidth.begin:** 
-
-**percentageBandwidth.end:** 
+#### Percentage Bandwidth
 
 **percentageBandwidth.value:** 
 
@@ -238,7 +226,7 @@ Percentage Bandwidth
 
 **percentageBandwidth.previous:** 
 
-Bollinger Channels
+#### Bollinger Channels
 
 **bollingerChannel.begin:** 
 
@@ -258,7 +246,7 @@ Bollinger Channels
 
 **bollingerChannel.previous:** 
 
-Bollinger SubChannels
+#### Bollinger SubChannels
 
 **bollingerSubChannel.begin:** 
 
@@ -280,7 +268,7 @@ Bollinger SubChannels
 
 **bollingerSubChannel.previous:** 
 
-Internal
+#### Internal
 
 **strategyStage (No Stage | Trigger Stage | Open Stage | Manage Stage | Close Stage):** 
 

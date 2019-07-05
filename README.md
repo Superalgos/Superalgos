@@ -199,7 +199,7 @@ In the example above, conditions A and B are mathematical comparison statements 
 **candle.direction:** Down: candle.close > candle.open | Up: candle.close < candle.open | Side: candle.close = candle.open
 **candle.previous:** Refers to the previous candle
 
-Bollinger Band
+Bollinger Band 
 
 **bollingerBand.begin:** 
 **bollingerBand.end:** 

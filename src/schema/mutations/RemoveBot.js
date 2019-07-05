@@ -23,7 +23,7 @@ const resolve = async (parent, { bot }, context) => {
       if (auxTeam.codeName === bot.devTeam) {
         for (let j = 0; j < auxTeam.bots.length; j++) {
           const auxBot = auxTeam.bots[j]
-          if (auxBot.codeName + '-' + bot.cloneId === bot.codeName) {
+          if (auxBot.codeName === bot.codeName && auxBot.cloneId === bot.cloneId) {
             for (let k = 0; k < auxBot.products.length; k++) {
               const auxProduct = auxBot.products[k]
               if (auxProduct.codeName === bot.productCodeName) {

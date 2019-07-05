@@ -65,6 +65,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
 
+            let executionArray = [];
             let recordsArray = [];
             let conditionsArray = [];
             let strategiesArray = [];
@@ -893,7 +894,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                 if (passed) {
 
-                                    type = '"Sell"';
+                                    type = '"Take Position"';
 
                                     strategyStage = 'Open Stage';
                                     stopLossStage = 'Open Stage';
@@ -1153,7 +1154,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
 
                         marketRate = stopLoss;
-                        type = '"Buy@StopLoss"';
+                        type = '"Close@StopLoss"';
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
@@ -1189,7 +1190,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
 
                         marketRate = takeProfit;
-                        type = '"Buy@TakeProfit"';
+                        type = '"Close@TakeProfit"';
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
@@ -1380,21 +1381,25 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let messageType;
                     let message;
                     let simulationRecord;
-                    let orderRecord;
+                    let executionRecord;
+                    let executionMessage;
 
                     messageId++;
 
-                    if (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') {
+                    if (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage' || type === '"Close@TakeProfit"' || type === '"Close@StopLoss"') {
 
-                        if (strategyStage === 'Open Stage') {
+                        if (type === '"Take Position"') {
                             messageType = MESSAGE_TYPE.Order;
                             orderId++;
-                        }
-                        if (strategyStage === 'Manage Stage') {
-                            messageType = MESSAGE_TYPE.OrderUpdate;
+                        } else {
+                            if (type === '"Close@TakeProfit"' || type === '"Close@StopLoss"') {
+                                messageType = MESSAGE_TYPE.OrderUpdate;
+                            } else {
+                                messageType = MESSAGE_TYPE.OrderUpdate;
+                            }
                         }
 
-                        orderRecord = createMessage(
+                        executionMessage = createMessage(
                             messageId,
                             MESSAGE_ENTITY.SimulationEngine,
                             MESSAGE_ENTITY.SimulationExecutor,
@@ -1420,7 +1425,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                     else {
 
-                        orderRecord = createMessage(
+                        executionMessage = createMessage(
                             messageId,
                             MESSAGE_ENTITY.SimulationEngine,
                             MESSAGE_ENTITY.SimulationExecutor,
@@ -1443,6 +1448,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             0,
                             "")
                     }
+
+                    executionRecord = {
+                        begin: candle.begin,
+                        end: candle.end,
+                        executionRecord: executionMessage
+                    }
+
+                    executionArray.push(executionRecord)
 
                     let strategyStageNumber
                     switch (strategyStage) {
@@ -1504,7 +1517,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         takeProfit: takeProfit,
                         stopLossPhase: stopLossPhase,
                         takeProfitPhase: takeProfitPhase,
-                        orderRecord: orderRecord,
+                        executionRecord: executionMessage,
                         positionSize: positionSize,
                         initialBalanceA: initialBalanceA,
                         minimumBalanceA: minimumBalanceA,
@@ -1605,7 +1618,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> callback -> recordsArray.length = " + recordsArray.length); }
 
-            callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, tradesArray, lastObjectsArray);
+            callback(tradingSystem, executionArray, recordsArray, conditionsArray, strategiesArray, tradesArray, lastObjectsArray);
 
             function getElement(pArray, begin, end) {
 
@@ -1653,17 +1666,17 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (previous !== undefined) {
 
-                    if (previous._15 > LRC._15) { LRC.direction15 = 'down'; }
-                    if (previous._15 < LRC._15) { LRC.direction15 = 'up'; }
-                    if (previous._15 === LRC._15) { LRC.direction15 = 'side'; }
+                    if (previous._15 > LRC._15) { LRC.direction15 = 'Down'; }
+                    if (previous._15 < LRC._15) { LRC.direction15 = 'Up'; }
+                    if (previous._15 === LRC._15) { LRC.direction15 = 'Side'; }
 
-                    if (previous._30 > LRC._30) { LRC.direction30 = 'down'; }
-                    if (previous._30 < LRC._30) { LRC.direction30 = 'up'; }
-                    if (previous._30 === LRC._30) { LRC.direction30 = 'side'; }
+                    if (previous._30 > LRC._30) { LRC.direction30 = 'Down'; }
+                    if (previous._30 < LRC._30) { LRC.direction30 = 'Up'; }
+                    if (previous._30 === LRC._30) { LRC.direction30 = 'Side'; }
 
-                    if (previous._60 > LRC._60) { LRC.direction60 = 'down'; }
-                    if (previous._60 < LRC._60) { LRC.direction60 = 'up'; }
-                    if (previous._60 === LRC._60) { LRC.direction60 = 'side'; }
+                    if (previous._60 > LRC._60) { LRC.direction60 = 'Down'; }
+                    if (previous._60 < LRC._60) { LRC.direction60 = 'Up'; }
+                    if (previous._60 === LRC._60) { LRC.direction60 = 'Side'; }
 
                 }
 
@@ -1700,9 +1713,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (previous !== undefined) {
 
-                    if (previous.movingAverage > percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'down'; }
-                    if (previous.movingAverage < percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'up'; }
-                    if (previous.movingAverage === percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'side'; }
+                    if (previous.movingAverage > percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'Down'; }
+                    if (previous.movingAverage < percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'Up'; }
+                    if (previous.movingAverage === percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'Side'; }
 
                 }
 
@@ -1739,9 +1752,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (previous !== undefined) {
 
-                    if (previous.movingAverage > bollingerBand.movingAverage) { bollingerBand.direction = 'down'; }
-                    if (previous.movingAverage < bollingerBand.movingAverage) { bollingerBand.direction = 'up'; }
-                    if (previous.movingAverage === bollingerBand.movingAverage) { bollingerBand.direction = 'side'; }
+                    if (previous.movingAverage > bollingerBand.movingAverage) { bollingerBand.direction = 'Down'; }
+                    if (previous.movingAverage < bollingerBand.movingAverage) { bollingerBand.direction = 'Up'; }
+                    if (previous.movingAverage === bollingerBand.movingAverage) { bollingerBand.direction = 'Side'; }
 
                 }
 
@@ -1856,9 +1869,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 candle.begin = dataFile[i][4];
                 candle.end = dataFile[i][5];
 
-                if (candle.open > candle.close) { candle.direction = 'down'; }
-                if (candle.open < candle.close) { candle.direction = 'up'; }
-                if (candle.open === candle.close) { candle.direction = 'side'; }
+                if (candle.open > candle.close) { candle.direction = 'Down'; }
+                if (candle.open < candle.close) { candle.direction = 'Up'; }
+                if (candle.open === candle.close) { candle.direction = 'Side'; }
 
                 candle.previous = previous;
 

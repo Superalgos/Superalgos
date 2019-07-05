@@ -156,3 +156,118 @@ Notice the red horizontal bars indicating the _stop_ value for each period (cand
 
 ![Trading-Simulation-Trades](https://user-images.githubusercontent.com/13994516/58574801-1a76f700-8241-11e9-9144-0db81636dace.gif)
 <br/><br/>
+
+## Strategy Designer
+
+The Strategy Designer organizes strategies following the framework established by the _Superalgos Protocol_. If you are not familiar with the protocol, please read either of the following articles:
+
+* Superalgos Protocol V0.1 - the Short Version, for Experienced Traders.
+
+* Superalgos Protocol V0.1 - the Long Version, for Beginner Traders.
+
+The Strategy Designer provides a Graphic User Interface for traders to input the rules and _formulas_ that determine the behaviour of the strategy. Overall, traders need to define the rules to _trigger on_ and _trigger off_ the strategy, to _take a position_, to manage _take profit_ targets and _stop loss_.
+
+The protocol calls any set of rules a _situation_, in the sense that you are trying to determine what is going on with the market and if the 'situation' is right, certain _actions_ or _events_ should be triggered.
+
+In other words, you define _situations_ in which you wish a certain _event_ to happen (i.e.: trigger on the strategy, take a position, etc.) and each situation is described as a set of _conditions_ that need to be met in order for the _event_ to be triggered.
+
+When all _conditions_ within a _situation_ evaluate _true_, then the _situation_ evaluates _true_.
+
+Events may be triggered in different situations, meaning that you are free to define different _situations_ upon which the event would be triggered. In such case, when any of the _situations_ evaluate _true_, then the event shall be triggered.
+
+In order to define _conditions_ you will create _statements_ using any of the available _variables_ that describe what is happening with the market. Remember, _conditions_ need to evaluate either _true_ or _false_.
+
+**For example:**
+
+Situation 1
+
+  Condition A: candle.close > bollingerBand.MovingAverage
+  Condition B: candle.previous.max > bollingerBand.MovingAverage
+  
+In the example above, conditions A and B are mathematical comparison statements that may evaluate either _true_ or _false_. In the case both would evaluate _true_ then Situation 1 would be true.
+
+### Available Variables
+
+#### Candles
+
+**candle.min:** 
+**candle.max:** 
+**candle.open:** 
+**candle.close:** 
+**candle.begin:** 
+**candle.end:** 
+**candle.direction (Down | Up | Side):** 
+**candle.previous:** 
+
+Bollinger Band
+
+**bollingerBand.begin:** 
+**bollingerBand.end:** 
+**bollingerBand.movingAverage:** 
+**bollingerBand.standardDeviation:** 
+**bollingerBand.deviation:** 
+**bollingerBand.direction (Down | Up | Side):** 
+**bollingerBand.previous:** 
+
+Percentage Bandwidth
+
+**percentageBandwidth.begin:** 
+**percentageBandwidth.end:** 
+**percentageBandwidth.value:** 
+**percentageBandwidth.movingAverage:** 
+**percentageBandwidth.bandwith:** 
+**percentageBandwidth.direction (Down | Up | Side):** 
+**percentageBandwidth.previous:** 
+
+Bollinger Channels
+
+**bollingerChannel.begin:** 
+**bollingerChannel.end:** 
+**bollingerChannel.direction (Down | Up | Side):** 
+**bollingerChannel.period:** 
+**bollingerChannel.firstMovingAverage:** 
+**bollingerChannel.lastMovingAverage:** 
+**bollingerChannel.firstDeviation:** 
+**bollingerChannel.lastDeviation:** 
+**bollingerChannel.previous:** 
+
+Bollinger SubChannels
+
+**bollingerSubChannel.begin:** 
+**bollingerSubChannel.end:** 
+**bollingerSubChannel.direction (Down | Up | Side):** 
+**bollingerSubChannel.slope (Steep | Medium | Gentle | Side):** 
+**bollingerSubChannel.period:** 
+**bollingerSubChannel.firstMovingAverage:** 
+**bollingerSubChannel.lastMovingAverage:** 
+**bollingerSubChannel.firstDeviation:** 
+**bollingerSubChannel.lastDeviation:** 
+**bollingerSubChannel.previous:** 
+
+Internal
+
+**strategyStage (No Stage | Trigger Stage | Open Stage | Manage Stage | Close Stage):** 
+
+**stopLoss:** 
+**stopLossPhase (0 | 1 | ...):** 
+
+**takeProfit:** 
+**takeProfitPhase:** 
+
+**positionRate:** 
+**positionSize:** 
+**positionInstant:** 
+
+**balanceAssetA:** 
+**balanceAssetB:** 
+
+**lastTradeProfitLoss:** 
+**lastTradeROI:** 
+
+**profit:** 
+**roundtrips:** 
+**fails:** 
+**hits:** 
+**periods:** 
+
+

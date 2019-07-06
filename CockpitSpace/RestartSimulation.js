@@ -30,6 +30,8 @@ function newRestartSimulation () {
   let counterTillNextState = 0
 
   let productCardsToTurnOn = []
+
+  let executionFocusExists = false
   return thisObject
 
   function finalize () {
@@ -53,7 +55,7 @@ function newRestartSimulation () {
   }
 
   function getContainer (point, purpose) {
-    if (thisObject.visible !== true || thisObject.status !== 'Ready') { return }
+    if (thisObject.visible !== true || thisObject.status !== 'Ready' || executionFocusExists === false) { return }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
@@ -180,6 +182,15 @@ function newRestartSimulation () {
     }
 
     positionPhysics()
+    executionFocusPhysics()
+  }
+
+  function executionFocusPhysics () {
+    if (canvas.strategySpace.workspace.tradingSystem !== undefined) {
+      executionFocusExists = true
+    } else {
+      executionFocusExists = false
+    }
   }
 
   function positionPhysics () {
@@ -188,7 +199,7 @@ function newRestartSimulation () {
   }
 
   function draw () {
-    if (thisObject.visible !== true) { return }
+    if (thisObject.visible !== true || executionFocusExists === false) { return }
     drawBackground()
     drawText()
   }

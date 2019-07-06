@@ -30,6 +30,8 @@ function newRestartSimulation () {
   let counterTillNextState = 0
 
   let productCardsToTurnOn = []
+
+  let executionFocusExists = false
   return thisObject
 
   function finalize () {
@@ -53,7 +55,7 @@ function newRestartSimulation () {
   }
 
   function getContainer (point, purpose) {
-    if (thisObject.visible !== true || thisObject.status !== 'Ready') { return }
+    if (thisObject.visible !== true || thisObject.status !== 'Ready' || executionFocusExists === false) { return }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
@@ -165,11 +167,21 @@ function newRestartSimulation () {
             break
           case 'Calculating':
             thisObject.status = 'Refreshing'
-            turnOffProductCards()
-            counterTillNextState = 10
+            counterTillNextState = 15
             break
           case 'Refreshing':
+            thisObject.status = 'Reviewing'
+            turnOffProductCards()
+            turnOnProductCards()
+            counterTillNextState = 150
+            break
+          case 'Reviewing':
+            thisObject.status = '2nd Refresh'
+            counterTillNextState = 25
+            break
+          case '2nd Refresh':
             thisObject.status = 'Ready'
+            turnOffProductCards()
             turnOnProductCards()
             break
           case 'Error':
@@ -180,6 +192,15 @@ function newRestartSimulation () {
     }
 
     positionPhysics()
+    executionFocusPhysics()
+  }
+
+  function executionFocusPhysics () {
+    if (canvas.strategySpace.workspace.tradingSystem !== undefined) {
+      executionFocusExists = true
+    } else {
+      executionFocusExists = false
+    }
   }
 
   function positionPhysics () {
@@ -188,7 +209,7 @@ function newRestartSimulation () {
   }
 
   function draw () {
-    if (thisObject.visible !== true) { return }
+    if (thisObject.visible !== true || executionFocusExists === false) { return }
     drawBackground()
     drawText()
   }
@@ -213,7 +234,7 @@ function newRestartSimulation () {
         break
       }
       case 'Saving':
-        params.backgroundColor = UI_COLOR.MANGANESE_PURPLE
+        params.backgroundColor = UI_COLOR.GREY
         break
       case 'Restarting':
         params.backgroundColor = UI_COLOR.GREY
@@ -223,6 +244,12 @@ function newRestartSimulation () {
         break
       case 'Calculating':
         params.backgroundColor = UI_COLOR.TITANIUM_YELLOW
+        break
+      case 'Reviewing':
+        params.backgroundColor = UI_COLOR.GREY
+        break
+      case '2nd Refresh':
+        params.backgroundColor = UI_COLOR.GOLDEN_ORANGE
         break
       case 'Error':
         params.backgroundColor = UI_COLOR.RUSTED_RED
@@ -248,7 +275,7 @@ function newRestartSimulation () {
 
     switch (thisObject.status) {
       case 'Ready':
-        label = 'RE-CALCULATE'
+        label = 'RUN SIMULATION'
         break
       case 'Saving':
         label = 'SAVING STRATEGIES CHANGES...'
@@ -261,6 +288,12 @@ function newRestartSimulation () {
         break
       case 'Calculating':
         label = 'CALCULATING...'
+        break
+      case 'Reviewing':
+        label = 'WAITING TO UPDATE...'
+        break
+      case '2nd Refresh':
+        label = 'UPDATING...'
         break
       case 'Error':
         label = 'ERROR, RETRY LATER'
@@ -277,4 +310,3 @@ function newRestartSimulation () {
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }
-

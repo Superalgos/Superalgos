@@ -631,8 +631,8 @@ function newFloatingLayer () {
 
       maxTargetRepulsionForce = maxTargetRepulsionForce + pDelta / 1000
 
-      if (maxTargetRepulsionForce < 0.0001) {
-        maxTargetRepulsionForce = 0.0001
+      if (maxTargetRepulsionForce < 0.0000000001) {
+        maxTargetRepulsionForce = 0.0000000001
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] changeTargetRepulsion -> err= ' + err.stack) }

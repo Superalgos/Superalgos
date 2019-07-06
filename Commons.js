@@ -362,16 +362,16 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                let channel = getElement(bollingerChannelsArray, candle.begin, candle.end);
-                let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
+                let bollingerChannel = getElement(bollingerChannelsArray, candle.begin, candle.end);
+                let bollingerSubChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
 
                 let lastObjects = {
                     candle: clone(candle),
                     //LRC: clone(LRC),
                     bollingerBand: clone(bollingerBand),
                     percentageBandwidth: clone(percentageBandwidth),
-                    channel: clone(channel),
-                    subChannel: clone(subChannel)
+                    bollingerChannel: clone(bollingerChannel),
+                    bollingerSubChannel: clone(bollingerSubChannel)
                 }
 
                 function clone(obj) {
@@ -387,8 +387,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 //lastObjects.LRC.previous = undefined;
                 lastObjects.bollingerBand.previous = undefined;
                 lastObjects.percentageBandwidth.previous = undefined;
-                lastObjects.channel.previous = undefined;
-                lastObjects.subChannel.previous = undefined;
+                lastObjects.bollingerChannel.previous = undefined;
+                lastObjects.bollingerSubChannel.previous = undefined;
 
                 lastObjectsArray.push(lastObjects);
 

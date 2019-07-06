@@ -51,6 +51,8 @@
     let conditions = [];
     let headers;
 
+    let noTradingSystemOnFocusErrorDisplayed = false
+
     return thisObject;
 
     function finalize() {
@@ -517,6 +519,15 @@
         if (currentRecord === undefined) { return; }
         if (currentRecord.conditionsNames === undefined) { return; }
         if (canvas.strategySpace.workspace === undefined) { return; }
+        if (canvas.strategySpace.workspace.tradingSystem === undefined) {
+            if (noTradingSystemOnFocusErrorDisplayed === false) {
+                if (ERROR_LOG === true) { logger.write("[WARN] sendRecordInfoToStrategySpace -> No Trading System with Execution Focus."); }
+                noTradingSystemOnFocusErrorDisplayed = true
+            }
+            return
+        } else {
+            noTradingSystemOnFocusErrorDisplayed = false
+        }
 
         try {
 
@@ -805,7 +816,7 @@
                             highlightSituation = false
                         }
                         conditionIndex++;
-                    } 
+                    }
                 }
 
                 if (highlightSituation === true) {
@@ -869,6 +880,7 @@
         }
     }
 }
+
 
 
 

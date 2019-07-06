@@ -25,8 +25,7 @@
                     y: 0
                 },
                 visible: false
-            },
-            notes: []
+            }
         }
     };
 
@@ -46,12 +45,8 @@
     let fileSequence;
     let plotElements = [];                      // This is where the elements to be plotted are stored before plotting.
     let plotLines = [];                         // Here we store the lines of open positions.
-    let notes = [];                             // Here we store the notes with messages from the bot.
-
-    let notesChangedEventRaised = true;         // This controls when to raise the event that notes changed.
 
     let previousNotesSetKey;
-    let currentNotesSetKey;
 
     let offsetChangedEventSubscriptionId
     let filesUpdatedEventSubscriptionId
@@ -76,11 +71,9 @@
             fileSequence = undefined;
             plotElements = undefined;
             plotLines = undefined;
-            notes = undefined;
 
         } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> finalize -> err = " + err.stack.stack); }
         }
     }
 
@@ -93,8 +86,8 @@
 
             fileSequence = pStorage.fileSequences[0];
 
-            recalculate(callBackFunction);
-            recalculateScale(callBackFunction);
+            recalculate();
+            recalculateScale();
 
             filesUpdatedEventSubscriptionId = fileSequence.eventHandler.listenToEvent("Files Updated", onFilesUpdated); // Only the first sequence is supported right now.
             offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
@@ -102,100 +95,62 @@
             /* Ready for when dimmension changes. */
 
             dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
-                recalculate(callBackFunction);
-                recalculateScale(callBackFunction);
+                recalculate();
+                recalculateScale();
             })
             callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> initialize -> err = " + err.stack); }
             callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
         }
     }
 
     function getContainer(point) {
-
         try {
-
             let container;
-
             /* First we check if this point is inside this space. */
-
             if (this.container.frame.isThisPointHere(point) === true) {
-
                 return this.container;
-
             } else {
-
                 /* This point does not belong to this space. */
-
                 return undefined;
             }
-
         } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> initialize -> err = " + err.stack); }
         }
     }
 
     function onFilesUpdated() {
-
         recalculate();
-
     }
 
     function setTimePeriod(pTimePeriod) {
-
-        try {
-
-            timePeriod = pTimePeriod;
-
-            recalculate();
-
-        } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err); }
-        }
+        timePeriod = pTimePeriod;
+        recalculate();
     }
 
     function setDatetime(newDatetime) {
-
-        try {
-
-            datetime = newDatetime;
-
-        } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err); }
-        }
+        datetime = newDatetime;
     }
 
     function onOffsetChanged() {
-
         if (Math.random() * 100 > 95) {
-
             recalculate()
-        };
-
+        }
     }
 
-    function recalculate(callBackFunction) {
-
+    function recalculate() {
         try {
-
             if (fileSequence === undefined) { return; }
-
             /*
     
             We are going to filter the records depending on the Time Period. We want that for a 1 min time peroid all the records appears on screen,
             but for higher periods, we will filter out some records, so that they do not overlap ever. 
     
             */
-
             plotElements = [];
             plotLines = [];
-            notes = [];
 
             let lastSellRate;
             let lastSellDate;
@@ -243,26 +198,8 @@
                         profitsAssetA: file[i][11],
                         profitsAssetB: file[i][12],
                         combinedProfitsA: file[i][13],
-                        combinedProfitsB: file[i][14],
-
-                        messageRelevance: file[i][15],
-                        messageTitle: file[i][16],
-                        messageBody: file[i][17],
-
-                        mqServiceMessages: file[i][18]
+                        combinedProfitsB: file[i][14]
                     };
-
-                    /*
-
-                    Now we are going to inflate the mqService Messages in order to use them during the plotting.
-
-                    */
-
-                    if (newHistoryRecord.mqServiceMessages !== undefined) {
-                        for (let i = 0; i < newHistoryRecord.mqServiceMessages.length; i++) {
-                            let mqMessage = mqServiceMessages[i];
-                        }
-                    } 
 
                     /* Finally we add this History Record to the Array */
 
@@ -274,14 +211,11 @@
                     if (timePeriod <= 1 * 60 * 1000) {
 
                         if (newHistoryRecord.lastSellRate > 0) {
-
                             lastSellRate = newHistoryRecord.lastSellRate;
                             lastSellDate = newHistoryRecord.date;
-
                         }
 
                         if (newHistoryRecord.sellExecRate > 0) {
-
                             let newLine = {
                                 type: "sell",
                                 x1: lastSellDate,
@@ -289,20 +223,15 @@
                                 x2: newHistoryRecord.date,
                                 y2: newHistoryRecord.sellExecRate
                             };
-
                             lines.push(newLine);
-
                         }
 
                         if (newHistoryRecord.lastBuyRate > 0) {
-
                             lastBuyRate = newHistoryRecord.lastBuyRate;
                             lastBuyDate = newHistoryRecord.date;
-
                         }
 
                         if (newHistoryRecord.buyExecRate > 0) {
-
                             let newLine = {
                                 type: "buy",
                                 x1: lastBuyDate,
@@ -310,12 +239,9 @@
                                 x2: newHistoryRecord.date,
                                 y2: newHistoryRecord.buyExecRate
                             };
-
                             lines.push(newLine);
-
                         }
                     }
-
                 }
 
                 /* We allways want to put the last record of the file on the filterd dataset, so as to allways show the latest advance of the bot. */
@@ -342,13 +268,7 @@
                         profitsAssetA: file[i][11],
                         profitsAssetB: file[i][12],
                         combinedProfitsA: file[i][13],
-                        combinedProfitsB: file[i][14],
-
-                        messageRelevance: file[i][15],
-                        messageTitle: file[i][16],
-                        messageBody: file[i][17],
-
-                        mqServiceMessages: file[i][18]
+                        combinedProfitsB: file[i][14]
                     };
 
                     history.push(newHistoryRecord);
@@ -378,61 +298,26 @@
                         profitsAssetA: file[i][11],
                         profitsAssetB: file[i][12],
                         combinedProfitsA: file[i][13],
-                        combinedProfitsB: file[i][14],
-
-                        messageRelevance: file[i][15],
-                        messageTitle: file[i][16],
-                        messageBody: file[i][17]
+                        combinedProfitsB: file[i][14]
                     };
 
-                    if (newHistoryRecord.messageTitle !== "" && newHistoryRecord.messageBody !== "") {
-
-                        if (newHistoryRecord.messageRelevance >= 0 && newHistoryRecord.messageRelevance <= 10) {
-
-                            let relevanceTimePeriod = (dailyFilePeriods[10 - newHistoryRecord.messageRelevance][0]);
-
-                            if (timePeriod <= relevanceTimePeriod) {
-
-                                let note = {
-                                    title: newHistoryRecord.messageTitle,
-                                    body: newHistoryRecord.messageBody,
-                                    date: newHistoryRecord.date,
-                                    rate: newHistoryRecord.marketRate,
-                                    position: {
-                                        x: 0,
-                                        y: 0
-                                    },
-                                    visible: false
-                                };
-
-                                notes.push(note);
-                            }
-                        }
-                    }
                 }
-
                 plotElements.push(history);
                 plotLines.push(lines);
-
             }
-
-            notesChangedEventRaised = false;
 
             thisObject.container.eventHandler.raiseEvent("History Changed", history);
 
         } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> recalculate -> err = " + err.stack); }
         }
     }
 
-    function recalculateScale(callBackFunction) {
+    function recalculateScale() {
 
         try {
 
             if (fileSequence === undefined) { return; } // We need the market file to be loaded to make the calculation.
-
             if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
 
             let minValue = {
@@ -453,32 +338,16 @@
             );
 
         } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> recalculateScale -> err = " + err.stack); }
         }
     }
 
     function draw() {
-
-        try {
-
-            if (INTENSIVE_LOG === true) { logger.write("[INFO] draw -> Entering function."); }
-
             plotChart();
-
-        } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err = " + err); }
-        }
     }
 
     function plotChart() {
-
         try {
-
-            if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
-
             let point = {
                 x: 0,
                 y: 0
@@ -665,13 +534,10 @@
 
                         browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
                         browserCanvasContext.stroke();
-
                     }
 
                     /* Draw a red inverted triangle on sell */
-
                     if (record.lastSellRate > 0) {
-
                         opacity = '0.5';
 
                         let point1 = {
@@ -731,7 +597,6 @@
                     }
 
                     /* Draw a green triangle on buy */
-
                     if (record.lastBuyRate > 0) {
 
                         opacity = '0.5';
@@ -791,15 +656,9 @@
                         browserCanvasContext.stroke();
 
                     }
-
-
-                    /* Since there is at least some point plotted, then the profile should be visible. */
-
-                    thisObject.payload.profile.visible = true;
                 }
 
                 /* Draw the lines connecting plot elements. */
-
                 let lines = plotLines[j];
 
                 for (let i = 0; i < lines.length; i++) {
@@ -834,83 +693,15 @@
                     browserCanvasContext.closePath();
 
                     if (line.type === "sell") {
-
                         browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, ' + opacity + ')';
-
                     } else {
-
                         browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
-
                     }
-
                     browserCanvasContext.stroke();
-
                 }
-
-                /* Now we calculate the anchor position of notes. */
-
-                currentNotesSetKey = "";
-
-                for (let i = 0; i < notes.length; i++) {
-
-                    let note = notes[i];
-
-                    opacity = '0.2';
-
-                    note.position = {
-                        x: note.date,
-                        y: note.rate
-                    };
-
-                    note.position = timeLineCoordinateSystem.transformThisPoint(note.position);
-                    note.position = transformThisPoint(note.position, thisObject.container);
-
-                    if (note.position.x < (viewPort.visibleArea.bottomRight.x / 2) * (-1) || note.position.x > (viewPort.visibleArea.bottomRight.x) * (1.5)) {
-                        note.visible = false;
-                        currentNotesSetKey = currentNotesSetKey + "0";
-                    } else {
-                        note.visible = true;
-                        currentNotesSetKey = currentNotesSetKey + "1";
-                    }
-                }
-
-                if (notesChangedEventRaised === false) {
-
-                    /* In this case the event is raised because we might have a different set of notes. */
-
-                    thisObject.container.eventHandler.raiseEvent("Notes Changed", notes);
-                    thisObject.payload.notes = notes;
-
-                    notesChangedEventRaised = true;
-
-                } else {
-
-                    if (currentNotesSetKey !== previousNotesSetKey) {
-
-                        /* In this case the event is raised because the visibility of some of the notes changed. */
-
-                        thisObject.container.eventHandler.raiseEvent("Notes Changed", notes);
-                        thisObject.payload.notes = notes;
-
-                        previousNotesSetKey = currentNotesSetKey;
-                    }
-                }
-
             }
-
-            /*
-    
-            We replace the coordinate of the profile point so that whoever has a reference to it, gets the new position.
-            We will use the last point plotted on screen as the profilePoint.
-    
-            */
-
-            thisObject.payload.profile.position.x = point.x;
-            thisObject.payload.profile.position.y = point.y;
-
         } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> plotChart -> err = " + err.stack); }
         }
     }
 }

@@ -501,7 +501,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                     formulaValue = MAX_STOP_LOSS_VALUE
                                                 }
                                             } catch (err) {
-                                                if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0 && i <= 5) {
+                                                if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
                                                     /*
                                                         We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
                                                     */
@@ -560,7 +560,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                     formulaValue = MAX_TAKE_PROFIT_VALUE
                                                 }
                                             } catch (err) {
-                                                if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0 && i <= 5) {
+                                                if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
                                                     /*
                                                         We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
                                                     */
@@ -625,7 +625,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                 formulaValue = MAX_STOP_LOSS_VALUE
                                             }
                                         } catch (err) {
-                                            if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0 && i <= 5) {
+                                            if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
                                                 /*
                                                     We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
                                                 */
@@ -684,7 +684,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                 formulaValue = MAX_TAKE_PROFIT_VALUE
                                             }
                                         } catch (err) {
-                                            if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0 && i <= 5) {
+                                            if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
                                                 /*
                                                     We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
                                                 */
@@ -742,7 +742,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             */
                             value = false
 
-                            if (node.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0 && i <= 5) {
+                            if (node.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
                                 /*
                                     We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
                                 */

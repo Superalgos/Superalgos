@@ -501,7 +501,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                     formulaValue = MAX_STOP_LOSS_VALUE
                                                 }
                                             } catch (err) {
-                                                formulaError = err.message
+                                                if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0 && i <= 5) {
+                                                    /*
+                                                        We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                                    */
+                                                } else {
+                                                    formulaError = err.message
+                                                }
                                             }
                                             if (isNaN(formulaValue)) { formulaValue = 0; }
                                             if (formulaValue < MIN_STOP_LOSS_VALUE) {
@@ -554,7 +560,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                     formulaValue = MAX_TAKE_PROFIT_VALUE
                                                 }
                                             } catch (err) {
-                                                formulaError = err.message
+                                                if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0 && i <= 5) {
+                                                    /*
+                                                        We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                                    */
+                                                } else {
+                                                    formulaError = err.message
+                                                }
                                             }
                                             if (isNaN(formulaValue)) { formulaValue = 0; }
                                             if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
@@ -613,7 +625,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                 formulaValue = MAX_STOP_LOSS_VALUE
                                             }
                                         } catch (err) {
-                                            formulaError = err.message
+                                            if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0 && i <= 5) {
+                                                /*
+                                                    We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                                */
+                                            } else {
+                                                formulaError = err.message
+                                            }
                                         }
                                         if (isNaN(formulaValue)) { formulaValue = 0; }
                                         if (formulaValue < MIN_STOP_LOSS_VALUE) {
@@ -666,7 +684,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                 formulaValue = MAX_TAKE_PROFIT_VALUE
                                             }
                                         } catch (err) {
-                                            formulaError = err.message
+                                            if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0 && i <= 5) {
+                                                /*
+                                                    We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                                */
+                                            } else {
+                                                formulaError = err.message
+                                            }
                                         }
                                         if (isNaN(formulaValue)) { formulaValue = 0; }
                                         if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
@@ -717,7 +741,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 reason and others, we will simply set the value to false.
                             */
                             value = false
-                            node.error = err.message
+
+                            if (node.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0 && i <= 5) {
+                                /*
+                                    We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                */
+                            } else {
+                                node.error = err.message
+                            }
                         }
 
                         condition = {
@@ -810,11 +841,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
                         }
                     } else {
+                        let stopRunningDate = new Date(candle.begin)
                         if (balance < minimumBalance) {
-                            tradingSystem.error = "Balance below the minimum."
+                            tradingSystem.error = "Min Balance @ " + stopRunningDate.toUTCString()
                         }
                         if (balance > maximumBalance) {
-                            tradingSystem.error = "Balance above the maximum."
+                            tradingSystem.error = "Max Balance @ " + stopRunningDate.toUTCString()
                         }                        
                     }
                 }

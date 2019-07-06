@@ -167,13 +167,13 @@ function newRestartSimulation () {
             break
           case 'Calculating':
             thisObject.status = 'Refreshing'
-            counterTillNextState = 25
+            counterTillNextState = 15
             break
           case 'Refreshing':
             thisObject.status = 'Reviewing'
             turnOffProductCards()
             turnOnProductCards()
-            counterTillNextState = 250
+            counterTillNextState = 150
             break
           case 'Reviewing':
             thisObject.status = '2nd Refresh'

@@ -156,3 +156,158 @@ Notice the red horizontal bars indicating the _stop_ value for each period (cand
 
 ![Trading-Simulation-Trades](https://user-images.githubusercontent.com/13994516/58574801-1a76f700-8241-11e9-9144-0db81636dace.gif)
 <br/><br/>
+
+## Strategy Designer
+
+The Strategy Designer organizes strategies following the framework established by the _Superalgos Protocol_. If you are not familiar with the protocol, please read either of the following articles:
+
+* Superalgos Protocol V0.1 - the Short Version, for Experienced Traders (link pending).
+
+* Superalgos Protocol V0.1 - the Long Version, for Beginner Traders (link pending).
+
+The Strategy Designer provides a Graphic User Interface for traders to input the rules and _formulas_ that determine the behaviour of the strategy. Traders need to define the rules to _trigger on_ and _trigger off_ the strategy, to _take a position_, to manage _take profit_ targets and _stop loss_.
+
+The protocol calls these sets of rules _situations_, in the sense that you are trying to determine what is going on with the market and, if the 'situation' is right, certain _actions_ or _events_ should be triggered.
+
+In other words, you define _situations_ in which you wish a certain _event_ to happen (i.e.: trigger on the strategy, take a position, etc.) and each situation is described as a set of _conditions_ that need to be met in order for the _event_ to be triggered.
+
+When **all** _conditions_ within a _situation_ evaluate _true_, then the _situation_ evaluates _true_.
+
+Events may be triggered in different situations, meaning that you are free to define different _situations_ upon which the event would be triggered. In such case, when **any** of the _situations_ evaluate _true_, then the event shall be triggered.
+
+In order to define _conditions_ you will use _statements_ using any of the available _variables_ that describe what is happening with the market. Remember, _conditions_ need to evaluate either _true_ or _false_.
+
+**For example:**
+
+Situation 1
+
+* Condition A: candle.close > bollingerBand.MovingAverage
+* Condition B: candle.previous.max > bollingerBand.MovingAverage
+  
+In the example above, conditions A and B are mathematical comparison statements that may evaluate either _true_ or _false_. In the case both would evaluate _true_ then Situation 1 would be true.
+
+## Available Variables
+
+### Candles
+
+**candle.min:** The minimum price of the current candle.
+
+**candle.max:** The maximum price of the current candle.
+
+**candle.open:** The price at which the current candle opened.
+
+**candle.close:** The latest price of the current candle.
+
+**candle.direction:** Down: candle.close > candle.open | Up: candle.close < candle.open | Side: candle.close = candle.open
+
+**candle.previous:** Refers to the previous candle. You may use _candle.previous_ to fetch any of the variables of the previous candle (i.e.: _candle.previous.close_). You may also use as many _.previous_ as required to fetch values of more than one period behind the current one (i.e.: _candle.previous.previous.max_ returns the maximum value of two candles before the current one).
+
+### [Bollinger Band](https://en.wikipedia.org/wiki/Bollinger_bands) 
+
+**bollingerBand.movingAverage:** The value of the current moving average (20 periods).
+
+**bollingerBand.standardDeviation:** The value of current the [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation).
+
+**bollingerBand.deviation:** bollingerBand.standardDeviation * 2
+
+**bollingerBand.direction:**  
+* Down: bollingerBand.previous.movingAverage > bollingerBand.movingAverage 
+* Up: bollingerBand.previous.movingAverage < bollingerBand.movingAverage
+* Side: bollingerBand.previous.movingAverage = bollingerBand.movingAverage)
+
+**bollingerBand.previous:** Use _.previous_ like with candles (see _candle.previous_ above).
+
+### Percentage Bandwidth
+
+**percentageBandwidth.value:** The current value of the percentage bandwidth.
+
+**percentageBandwidth.movingAverage:** The current value of the percentage bandwidth moving average.
+
+**percentageBandwidth.bandwith:** The current bandwith.
+
+**percentageBandwidth.direction:** 
+* Down: percentageBandwidth.previous.movingAverage > percentageBandwidth.movingAverage
+* Up: percentageBandwidth.previous.movingAverage < percentageBandwidth.movingAverage
+* Side: percentageBandwidth.previous.movingAverage = percentageBandwidth.movingAverage)
+
+**percentageBandwidth.previous:** Use _.previous_ like with candles (see _candle.previous_ above).
+
+### Bollinger Channels
+
+**bollingerChannel.begin:** 
+
+**bollingerChannel.end:** 
+
+**bollingerChannel.direction (Down | Up | Side):** 
+
+**bollingerChannel.period:** 
+
+**bollingerChannel.firstMovingAverage:** 
+
+**bollingerChannel.lastMovingAverage:** 
+
+**bollingerChannel.firstDeviation:** 
+
+**bollingerChannel.lastDeviation:** 
+
+**bollingerChannel.previous:** 
+
+### Bollinger SubChannels
+
+**bollingerSubChannel.begin:** 
+
+**bollingerSubChannel.end:** 
+
+**bollingerSubChannel.direction (Down | Up | Side):** 
+
+**bollingerSubChannel.slope (Steep | Medium | Gentle | Side):** 
+
+**bollingerSubChannel.period:** 
+
+**bollingerSubChannel.firstMovingAverage:** 
+
+**bollingerSubChannel.lastMovingAverage:** 
+
+**bollingerSubChannel.firstDeviation:** 
+
+**bollingerSubChannel.lastDeviation:** 
+
+**bollingerSubChannel.previous:** 
+
+### Internal
+
+**strategyStage (No Stage | Trigger Stage | Open Stage | Manage Stage | Close Stage):** 
+
+**stopLoss:** 
+
+**stopLossPhase (0 | 1 | ...):** 
+
+**takeProfit:** 
+
+**takeProfitPhase:** 
+
+**positionRate:** 
+
+**positionSize:** 
+
+**positionInstant:** 
+
+**balanceAssetA:** 
+
+**balanceAssetB:** 
+
+**lastTradeProfitLoss:** 
+
+**lastTradeROI:** 
+
+**profit:** 
+
+**roundtrips:** 
+
+**fails:** 
+
+**hits:** 
+
+**periods:** 
+
+

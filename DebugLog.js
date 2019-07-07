@@ -1,4 +1,4 @@
-﻿exports.newDebugLog = function newDebugLog() {
+exports.newDebugLog = function newDebugLog() {
 
     const ROOT_DIR = './';
     const MODULE_NAME = "DebugLog";
@@ -140,11 +140,6 @@
     function pad(str, max) {
         str = str.toString();
         return str.length < max ? pad("0" + str, max) : str;
-    }
-
-    function spacePad(str, max) {
-        str = str.toString();
-        return str.length < max ? spacePad(" " + str, max) : str;
     }
 
 };

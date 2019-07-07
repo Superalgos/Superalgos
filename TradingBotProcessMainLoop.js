@@ -37,12 +37,7 @@
             UI_COMMANDS = pUI_COMMANDS;
             processConfig = pProcessConfig;
 
-            let filePath;
-            if (global.RUN_AS_TEAM) {
-                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
-            } else {
-                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
-            }
+            let filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name
             filePath += "/User.Bot.js"
 
             fileStorage.getTextFile(global.DEV_TEAM, filePath, onBotDownloaded);

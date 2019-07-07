@@ -2,7 +2,6 @@
 
 global.SHALL_BOT_STOP = false;
 global.AT_BREAKPOINT = false; // This is used only when running at the browser.
-global.RUN_AS_TEAM = false;
 global.FULL_LOG = process.env.FULL_LOG;
 
 /* Default parameters can be changed by the execution configuration */
@@ -38,8 +37,6 @@ function readExecutionConfiguration() {
         // General Financial Being Configuration
         global.DEV_TEAM = process.env.DEV_TEAM
         global.CURRENT_BOT_REPO = process.env.BOT + "-" + process.env.TYPE + "-Bot"
-        global.RUN_AS_TEAM = (process.env.RUN_AS_TEAM === "true")
-        global.USER_LOGGED_IN = process.env.USER_LOGGED_IN
 
         if (process.env.TYPE === 'Trading') {
             let live = {
@@ -115,13 +112,6 @@ function readExecutionConfiguration() {
             timePeriodFileStorage: process.env.TIME_PERIOD,
             dataSet: process.env.DATA_SET
         };
-
-        // var cloneExecutorConfig = require('./package.json');
-        // global.CLONE_EXECUTOR = {
-        //     codeName: 'clone-executor',
-        //     codeName: 'clone-executor',
-        //     version: cloneExecutorConfig.version
-        // }
 
         global.CLONE_EXECUTOR = {
             codeName: 'AACloud',

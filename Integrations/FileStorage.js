@@ -1,4 +1,5 @@
 const axios = require('axios')
+const Ecosystem = require('./Ecosystem')
 
 exports.newFileStorage = function newFileStorage() {
   const INFO_LOG = true
@@ -11,12 +12,14 @@ exports.newFileStorage = function newFileStorage() {
 
   return thisObject
 
-  function getTextFile(container, filePath, callBackFunction) {
+  async function getTextFile(container, filePath, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Entering function: '+ container.toLowerCase()  + '/' + filePath) }
+      if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Entering function: ' + container.toLowerCase() + '/' + filePath) }
+
+      let host = await getDevTeamHost(container)
 
       axios({
-        url: process.env.GATEWAY_ENDPOINT_K8S,
+        url: host.url + 'graphql',
         method: 'post',
         data: {
           query: `
@@ -28,10 +31,13 @@ exports.newFileStorage = function newFileStorage() {
             file: {
               container: container.toLowerCase(),
               filePath,
-              storage: process.env.HOST_STORAGE,
-              accessKey: process.env.HOST_ACCESS_KEY
+              storage: host.storage,
+              accessKey: host.accessKey
             }
           }
+        },
+        headers: {
+          authorization: process.env.AUTHORIZATION
         }
       }).then(res => {
         if (res.data.errors) {
@@ -42,11 +48,12 @@ exports.newFileStorage = function newFileStorage() {
           return
         }
         let response = res.data.data.web_FileContent
-        if (response)
+        if (response) {
           callBackFunction(global.DEFAULT_OK_RESPONSE, response)
-        else
-          callBackFunction(global.CUSTOM_FAIL_RESPONSE)
-
+        } else {
+          let error = { code: 'The specified key does not exist.' }
+          callBackFunction(error)
+        }
       }).catch(error => {
         if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> Invalid JSON received. ') }
         if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> error = ', error) }
@@ -61,7 +68,9 @@ exports.newFileStorage = function newFileStorage() {
 
   async function createTextFile(container, filePath, fileContent, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + filePath) }
+      if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + container.toLowerCase() + '/' + filePath) }
+
+      let host = await getDevTeamHost(container)
 
       let response = await axios({
         url: process.env.GATEWAY_ENDPOINT_K8S,
@@ -77,10 +86,13 @@ exports.newFileStorage = function newFileStorage() {
               container: container.toLowerCase(),
               filePath,
               storage: 'localStorage',
-              accessKey: '', //TODO Pending
+              accessKey: host.ownerKey,
               fileContent
             }
           }
+        },
+        headers: {
+          authorization: process.env.AUTHORIZATION
         }
       })
 
@@ -96,4 +108,13 @@ exports.newFileStorage = function newFileStorage() {
     }
   }
 
+  async function getDevTeamHost(devTeamName) {
+    let ecosystem = await Ecosystem.getEcosystem()
+
+    for (var i = 0; i < ecosystem.devTeams.length; i++) {
+      if (ecosystem.devTeams[i].codeName.toLowerCase() === devTeamName.toLowerCase()) {
+        return ecosystem.devTeams[i].host
+      }
+    }
+  }
 }

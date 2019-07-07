@@ -286,8 +286,6 @@
 
                     bot.processDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
 
-                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + " bot.processDatetime = " + bot.processDatetime.toISOString());
-
                     advanceTime();
 
                     function advanceTime() {
@@ -298,6 +296,8 @@
 
                             bot.processDatetime = new Date(bot.processDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(bot.processDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
+
+                            console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + " bot.processDatetime = " + bot.processDatetime.toISOString());
 
                             if(global.FULL_LOG === 'true'){
                                 logger.newInternalLoop(bot.codeName, bot.process);

@@ -33,6 +33,8 @@
     <Compile Include="CloudRequire.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Integrations\FileStorage.js" />
+    <Compile Include="Integrations\Strategy.js" />
     <Compile Include="MinioBlobStorage.js">
       <SubType>Code</SubType>
     </Compile>

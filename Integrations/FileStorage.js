@@ -35,6 +35,9 @@ exports.newFileStorage = function newFileStorage() {
               accessKey: host.accessKey
             }
           }
+        },
+        headers: {
+          authorization: process.env.AUTHORIZATION
         }
       }).then(res => {
         if (res.data.errors) {
@@ -45,9 +48,9 @@ exports.newFileStorage = function newFileStorage() {
           return
         }
         let response = res.data.data.web_FileContent
-        if (response){
+        if (response) {
           callBackFunction(global.DEFAULT_OK_RESPONSE, response)
-        } else{
+        } else {
           let error = { code: 'The specified key does not exist.' }
           callBackFunction(error)
         }
@@ -67,6 +70,8 @@ exports.newFileStorage = function newFileStorage() {
     try {
       if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + container.toLowerCase() + '/' + filePath) }
 
+      let host = await getDevTeamHost(container)
+
       let response = await axios({
         url: process.env.GATEWAY_ENDPOINT_K8S,
         method: 'post',
@@ -81,10 +86,13 @@ exports.newFileStorage = function newFileStorage() {
               container: container.toLowerCase(),
               filePath,
               storage: 'localStorage',
-              accessKey: '', //TODO Pending
+              accessKey: host.ownerKey,
               fileContent
             }
           }
+        },
+        headers: {
+          authorization: process.env.AUTHORIZATION
         }
       })
 
@@ -104,10 +112,8 @@ exports.newFileStorage = function newFileStorage() {
     let ecosystem = await Ecosystem.getEcosystem()
 
     for (var i = 0; i < ecosystem.devTeams.length; i++) {
-      for (key in ecosystem.devTeams[i]) {
-        if (key ==='codeName' && ecosystem.devTeams[i][key].toLowerCase().indexOf(devTeamName.toLowerCase())!=-1) {
-          return ecosystem.devTeams[i].host
-        }
+      if (ecosystem.devTeams[i].codeName.toLowerCase() === devTeamName.toLowerCase()) {
+        return ecosystem.devTeams[i].host
       }
     }
   }

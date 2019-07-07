@@ -343,16 +343,25 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             for (let i = 0; i < candles.length; i++) {
 
                 /* Update all the data objects available for the simulation. */
-
+                
                 let candle = candles[i];
                 let percentageBandwidth = percentageBandwidthMap.get(candle.begin);
                 let bollingerBand = bollingerBandsMap.get(candle.begin);
+                let bollingerChannel = getElement(bollingerChannelsArray, candle.begin, candle.end);
+                let bollingerSubChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
+
                 //let LRC = LRCMap.get(candle.begin);
 
-                //if (LRC === undefined) { continue; }
-                if (percentageBandwidth === undefined) { continue; } // percentageBandwidth might start after the first few candles.
-                if (candle.begin < initialDate.valueOf()) { continue; }
+                /* If any of the needed indicators is missing, then that period is not calculated */
 
+                if (candle.begin < initialDate.valueOf()) { continue; }
+                if (bollingerBand === undefined) { continue; }  
+                if (percentageBandwidth === undefined) { continue; } // percentageBandwidth might start after the first few candles.
+                if (bollingerChannel === undefined) { continue; } 
+                if (bollingerSubChannel === undefined) { continue; } 
+
+                //if (LRC === undefined) { continue; }
+                
                 periods++;
                 days = periods * timePeriod / ONE_DAY_IN_MILISECONDS;
 
@@ -361,9 +370,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         yesterday.Periods++;
                     }
                 }
-
-                let bollingerChannel = getElement(bollingerChannelsArray, candle.begin, candle.end);
-                let bollingerSubChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
 
                 let lastObjects = {
                     candle: clone(candle),
@@ -1280,6 +1286,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
+                    calculateTakeProfit();
+                    calculateStopLoss();
+
                     marketRate = candle.close;
                     positionRate = candle.close;
 
@@ -1664,12 +1673,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         return element
                     }
                 }
-
-                element = {
-                    direction: 'unknown',
-                    slope: 'unknown'
-                };
-                return element;
             }
         }
         catch (err) {

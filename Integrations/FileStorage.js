@@ -35,9 +35,6 @@ exports.newFileStorage = function newFileStorage() {
               accessKey: host.accessKey
             }
           }
-        },
-        headers: {
-          authorization: process.env.AUTHORIZATION
         }
       }).then(res => {
         if (res.data.errors) {
@@ -90,9 +87,6 @@ exports.newFileStorage = function newFileStorage() {
               fileContent
             }
           }
-        },
-        headers: {
-          authorization: process.env.AUTHORIZATION
         }
       })
 

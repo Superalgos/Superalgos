@@ -1,7 +1,7 @@
 version: '3'
 services:
   node:
-    image: superalgos/clone-executor:1.0.32
+    image: superalgos/clone-executor:1.0.37
     build:
       context: .
       dockerfile: ./Dockerfile

@@ -342,8 +342,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             for (let i = 0; i < candles.length; i++) {
 
-                /* Update all the data objects available for the simulation. */
-                 
+
                 let candle = candles[i];
                 let percentageBandwidth = percentageBandwidthMap.get(candle.begin);
                 let bollingerBand = bollingerBandsMap.get(candle.begin);
@@ -365,9 +364,24 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 periods++;
                 days = periods * timePeriod / ONE_DAY_IN_MILISECONDS;
 
-                if (currentDay !== undefined) {
+                if (currentDay !== undefined) { // This means that we are processing Daily Files 
                     if (candle.end < currentDay.valueOf()) {
                         yesterday.Periods++;
+                    }
+
+                    /* We skip the candle at the head of the market because i has not closed yet. */
+                    let candlesPerDay = ONE_DAY_IN_MILISECONDS / timePeriod
+                    if (i === candles.length - 1) {
+                        if ((i > candlesPerDay && i < candlesPerDay * 2) || (i < candlesPerDay)) {
+                            /*We are at the head of the market, thus we skip the last candle because it has not close yet. */
+                            continue;
+                            /* Note here that in the last candle of the first day or the second day it will use an incomplete candle and partially calculated indicators.
+                               if we skip these two periods, then there will be a hole in the file since the last period will be missing. */
+                        }
+                    }
+                } else { // We are processing Market Files
+                    if (i === candles.length - 1) {
+                        continue;
                     }
                 }
 
@@ -1714,6 +1728,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         return element
                     }
                 }
+
+                element = {
+                    direction: 'unknown',
+                    slope: 'unknown'
+                }
+                return element
             }
         }
         catch (err) {

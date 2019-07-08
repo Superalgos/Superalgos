@@ -372,7 +372,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     /* We skip the candle at the head of the market because i has not closed yet. */
                     let candlesPerDay = ONE_DAY_IN_MILISECONDS / timePeriod
                     if (i === candles.length - 1) {
-                        if ((i > candlesPerDay && i < candlesPerDay * 2) || (i < candlesPerDay)) {
+                        if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && i < candlesPerDay * 2) ) {
                             /*We are at the head of the market, thus we skip the last candle because it has not close yet. */
                             continue;
                             /* Note here that in the last candle of the first day or the second day it will use an incomplete candle and partially calculated indicators.

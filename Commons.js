@@ -184,8 +184,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Simulation Records */
 
-            let positionRate = 0;
-            let positionSize = 0;
+            let tradePositionRate = 0;
+            let tradePositionSize = 0;
             let positionInstant;
 
             let previousBalanceAssetA = 0;
@@ -343,7 +343,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             for (let i = 0; i < candles.length; i++) {
 
                 /* Update all the data objects available for the simulation. */
-                
+                 
                 let candle = candles[i];
                 let percentageBandwidth = percentageBandwidthMap.get(candle.begin);
                 let bollingerBand = bollingerBandsMap.get(candle.begin);
@@ -361,7 +361,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 if (bollingerSubChannel === undefined) { continue; } 
 
                 //if (LRC === undefined) { continue; }
-                
+
                 periods++;
                 days = periods * timePeriod / ONE_DAY_IN_MILISECONDS;
 
@@ -421,6 +421,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
                         let strategy = tradingSystem.strategies[j];
+
+                        let positionSize = 0  
+                        let positionRate = 0   
+
+                        /* Continue with the rest of the formulas and conditions */
 
                         let triggerStage = strategy.triggerStage
 
@@ -485,9 +490,66 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         if (openStage !== undefined) {
 
+                            /* Default Values*/
+                            if (baseAsset === 'BTC') {
+                                positionSize = balanceAssetA;
+                                positionRate = candle.close;
+                            } else {
+                                positionSize = balanceAssetB;
+                                positionRate = candle.close;
+                            }
+
                             let initialDefinition = openStage.initialDefinition
 
                             if (initialDefinition !== undefined) {
+
+                                if (tradePositionSize !== 0) {
+                                    positionSize = tradePositionSize
+                                } else {
+                                    if (initialDefinition.positionSize !== undefined) {
+                                        if (initialDefinition.positionSize.formula !== undefined) {
+                                            try {
+                                                positionSize = eval(initialDefinition.positionSize.formula.code);
+                                            } catch (err) {
+                                                initialDefinition.positionSize.formula.error = err.message
+                                            }
+                                            if (isNaN(positionSize)) {
+                                                if (baseAsset === 'BTC') {
+                                                    positionSize = balanceAssetA;
+                                                } else {
+                                                    positionSize = balanceAssetB;
+                                                }
+                                            } else {
+                                                if (baseAsset === 'BTC') {
+                                                    if (positionSize > balanceAssetA) { positionSize = balanceAssetA }
+                                                } else {
+                                                    if (positionSize > balanceAssetB) { positionSize = balanceAssetB }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (tradePositionRate !== 0) {
+                                    positionRate = tradePositionRate
+                                } else {
+                                    if (initialDefinition.positionRate !== undefined) {
+                                        if (initialDefinition.positionRate.formula !== undefined) {
+                                            try {
+                                                positionRate = eval(initialDefinition.positionRate.formula.code);
+                                            } catch (err) {
+                                                initialDefinition.positionRate.formula.error = err.message
+                                            }
+                                            if (isNaN(positionRate)) {
+                                                if (baseAsset === 'BTC') {
+                                                    positionRate = candle.close;
+                                                } else {
+                                                    positionRate = candle.close;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
 
                                 if (initialDefinition.stopLoss !== undefined) {
 
@@ -607,6 +669,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     }
                                 }
                             }
+
+                            strategy.positionSize = positionSize
+                            strategy.positionRate = positionRate
                         }
 
                         let manageStage = strategy.manageStage
@@ -731,46 +796,45 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 }
                             }
                         }
-                    }
 
-                    function newCondition(key, node) {
+                        function newCondition(key, node) {
 
-                        let condition;
-                        let error = ''
-                        let value 
+                            let condition;
+                            let error = ''
+                            let value
 
-                        try {
-                            value = eval(node.code);
-                        } catch (err) {
-                            /*
-                                One possible error is that the conditions references a .previous that is undefined. For this
-                                reason and others, we will simply set the value to false.
-                            */
-                            value = false
-
-                            if (node.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
+                            try {
+                                value = eval(node.code);
+                            } catch (err) {
                                 /*
-                                    We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                    One possible error is that the conditions references a .previous that is undefined. For this
+                                    reason and others, we will simply set the value to false.
                                 */
+                                value = false
+
+                                if (node.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
+                                    /*
+                                        We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                    */
+                                } else {
+                                    node.error = err.message
+                                }
+                            }
+
+                            condition = {
+                                key: key,
+                                value: value
+                            };
+
+                            conditions.set(condition.key, condition);
+
+                            if (condition.value) {
+                                conditionsArrayValues.push(1);
                             } else {
-                                node.error = err.message
+                                conditionsArrayValues.push(0);
                             }
                         }
-
-                        condition = {
-                            key: key,
-                            value: value
-                        };
-
-                        conditions.set(condition.key, condition);
-
-                        if (condition.value) {
-                            conditionsArrayValues.push(1);
-                        } else {
-                            conditionsArrayValues.push(0);
-                        }
                     }
-
                 }
 
                 /* Trigger On Conditions */
@@ -1250,47 +1314,24 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 ) {
                     takePositionNow = false
 
-                    /* positionSize default is the whole balance if no size was defined by the user */
+                    /* tradePositionSize default is the whole balance if no size was defined by the user */
                     if (baseAsset === 'BTC') {
-                        positionSize = balanceAssetA; 
+                        tradePositionSize = balanceAssetA;
                     } else {
-                        positionSize = balanceAssetB; 
-                    }  
-                    
-                    /* Check if the user defined a position size */
-                    let strategy = tradingSystem.strategies[currentStrategyIndex];
-                    let triggerStage = strategy.triggerStage
-
-                    if (triggerStage !== undefined) {
-                        if (triggerStage.positionSize !== undefined) {
-                            if (triggerStage.positionSize.formula !== undefined) {
-                                try {
-                                    positionSize = eval(triggerStage.positionSize.formula.code); 
-                                } catch (err) {
-                                    triggerStage.positionSize.formula.error = err.message
-                                }
-                                if (isNaN(positionSize)) {
-                                    if (baseAsset === 'BTC') {
-                                        positionSize = balanceAssetA;
-                                    } else {
-                                        positionSize = balanceAssetB;
-                                    }
-                                } else {
-                                    if (baseAsset === 'BTC') {
-                                        if (positionSize > balanceAssetA) { positionSize = balanceAssetA}
-                                    } else {
-                                        if (positionSize > balanceAssetB) { positionSize = balanceAssetB}
-                                    }  
-                                }
-                            }
-                        }
+                        tradePositionSize = balanceAssetB;
                     }
+                    tradePositionRate = candle.close
+
+                    /* Check if the user defined a position size or rate */
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+
+                    tradePositionSize = strategy.positionSize;
+                    tradePositionRate = strategy.positionRate;
 
                     calculateTakeProfit();
                     calculateStopLoss();
 
-                    marketRate = candle.close;
-                    positionRate = candle.close;
+                    marketRate = candle.close;                    
 
                     previousBalanceAssetA = balanceAssetA;
                     previousBalanceAssetB = balanceAssetB;
@@ -1299,11 +1340,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     lastTradeROI = 0;
 
                     if (baseAsset === 'BTC') {
-                        balanceAssetB = balanceAssetB + positionSize * positionRate;
-                        balanceAssetA = balanceAssetA - positionSize;
+                        balanceAssetB = balanceAssetB + tradePositionSize * tradePositionRate;
+                        balanceAssetA = balanceAssetA - tradePositionSize;
                     } else {
-                        balanceAssetA = balanceAssetA + positionSize / positionRate;
-                        balanceAssetB = balanceAssetB - positionSize;
+                        balanceAssetA = balanceAssetA + tradePositionSize / tradePositionRate;
+                        balanceAssetB = balanceAssetB - tradePositionSize;
                     }  
 
                     positionInstant = candle.end;
@@ -1335,12 +1376,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (baseAsset === 'BTC') {
                         lastTradeProfitLoss = balanceAssetA - previousBalanceAssetA;
-                        lastTradeROI = lastTradeProfitLoss * 100 / positionSize;
+                        lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
                         if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
                         profit = balanceAssetA - initialBalanceA;
                     } else {
                         lastTradeProfitLoss = balanceAssetB - previousBalanceAssetB;
-                        lastTradeROI = lastTradeProfitLoss * 100 / positionSize;
+                        lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
                         if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
                         profit = balanceAssetB - initialBalanceB;
                     }  
@@ -1398,8 +1439,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     currentStrategyIndex = -1;
                     stopLoss = 0;
-                    positionRate = 0;
-                    positionSize = 0;
+                    tradePositionRate = 0;
+                    tradePositionSize = 0;
                     positionInstant = undefined;
                     takeProfit = 0;
                     strategyStage = 'No Stage';
@@ -1454,7 +1495,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             "BTC_USDT",
                             0,
                             ORDER_TYPE.Limit,
-                            marketRate,
+                            tradePositionRate,
                             stopLoss,
                             takeProfit,
                             ORDER_DIRECTION.Sell,
@@ -1551,7 +1592,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         periods: periods,
                         days: days,
                         anualizedRateOfReturn: anualizedRateOfReturn,
-                        positionRate: positionRate,
+                        positionRate: tradePositionRate,
                         lastTradeROI: lastTradeROI,
                         strategy: currentStrategyIndex,
                         strategyStageNumber: strategyStageNumber,
@@ -1559,7 +1600,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         stopLossPhase: stopLossPhase,
                         takeProfitPhase: takeProfitPhase,
                         executionRecord: executionMessage,
-                        positionSize: positionSize,
+                        positionSize: tradePositionSize,
                         initialBalanceA: initialBalanceA,
                         minimumBalanceA: minimumBalanceA,
                         maximumBalanceA: maximumBalanceA,

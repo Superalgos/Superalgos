@@ -6,6 +6,7 @@ import { TeamInputType } from '../types/input'
 import { copyBot } from '../../storage/CopyBot'
 import { copySimulator } from '../../storage/CopySimulator'
 import { createContainer, writeFileContent } from '../../storage/providers/MinioStorage'
+import crypto from 'crypto'
 
 export const args = { team: { type: TeamInputType } }
 
@@ -51,7 +52,8 @@ const resolve = async (parent, { team }, context) => {
         url: process.env.NODE_ENDPOINT,
         storage: 'localStorage',
         container: team.codeName,
-        accessKey: '',
+        accessKey: crypto.randomBytes(128).toString('hex'),
+        ownerKey: crypto.randomBytes(128).toString('hex')
       }
       team.host = nodeEndpoint
     }

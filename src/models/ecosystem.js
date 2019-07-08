@@ -31,6 +31,10 @@ const ecosystemSchema = new Schema({
       accessKey: {
         type: String,
         required: false
+      },
+      ownerKey: {
+        type: String,
+        required: false
       }
     },
     bots: [{

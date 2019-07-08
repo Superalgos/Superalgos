@@ -10,6 +10,7 @@ function newNodeDeleter () {
     deleteManageStage: deleteManageStage,
     deleteCloseStage: deleteCloseStage,
     deletePositionSize: deletePositionSize,
+    deletePositionRate: deletePositionRate,
     deleteInitialDefinition: deleteInitialDefinition,
     deleteEvent: deleteEvent,
     deleteManagedItem: deleteManagedItem,
@@ -65,6 +66,10 @@ function newNodeDeleter () {
         }
         case 'Position Size': {
           deletePositionSize(rootNode, rootNodes)
+          break
+        }
+        case 'Position Rate': {
+          deletePositionRate(rootNode, rootNodes)
           break
         }
         case 'Initial Definition': {
@@ -213,9 +218,6 @@ function newNodeDeleter () {
     if (node.takePosition !== undefined) {
       deleteEvent(node.takePosition, rootNodes)
     }
-    if (node.positionSize !== undefined) {
-      deletePositionSize(node.positionSize, rootNodes)
-    }
     destroyPart(node)
     cleanNode(node)
   }
@@ -276,6 +278,20 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
+  function deletePositionRate (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.positionRate = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    if (node.formula !== undefined) {
+      deleteFormula(node.formula, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
   function deleteInitialDefinition (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
@@ -288,6 +304,12 @@ function newNodeDeleter () {
     }
     if (node.takeProfit !== undefined) {
       deleteManagedItem(node.takeProfit, rootNodes)
+    }
+    if (node.positionSize !== undefined) {
+      deletePositionSize(node.positionSize, rootNodes)
+    }
+    if (node.positionRate !== undefined) {
+      deletePositionSize(node.positionRate, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)

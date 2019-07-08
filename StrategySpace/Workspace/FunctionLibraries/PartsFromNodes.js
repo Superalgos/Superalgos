@@ -7,7 +7,6 @@ function newPartsFromNodes () {
     addMissingStages: addMissingStages,
     addMissingEvents: addMissingEvents,
     addMissingItems: addMissingItems,
-    addPositionSize: addPositionSize,
     addInitialDefinition: addInitialDefinition,
     addPhase: addPhase,
     addFormula: addFormula,
@@ -112,6 +111,12 @@ function newPartsFromNodes () {
         if (node.takeProfit !== undefined) {
           createPartFromNode(node.takeProfit, node, node)
         }
+        if (node.positionSize !== undefined) {
+          createPartFromNode(node.positionSize, node, node)
+        }
+        if (node.positionRate !== undefined) {
+          createPartFromNode(node.positionRate, node, node)
+        }
         return
       }
       case 'Take Position Event': {
@@ -148,6 +153,13 @@ function newPartsFromNodes () {
         }
         return
       }
+      case 'Position Rate': {
+        createPart('Position Rate', node.name, node, parentNode, chainParent, 'Position Rate')
+        if (node.formula !== undefined) {
+          createPartFromNode(node.formula, node, node)
+        }
+        return
+      }
       case 'Trigger Stage': {
         let stage = node
         createPart('Trigger Stage', stage.name, stage, parentNode, chainParent, 'Trigger Stage')
@@ -160,9 +172,6 @@ function newPartsFromNodes () {
         }
         if (node.takePosition !== undefined) {
           createPartFromNode(node.takePosition, stage, stage)
-        }
-        if (node.positionSize !== undefined) {
-          createPartFromNode(node.positionSize, stage, stage)
         }
         return
       }
@@ -298,11 +307,12 @@ function newPartsFromNodes () {
     createPart('Trigger Off Event', '', strategy.triggerStage.triggerOff, strategy.triggerStage, strategy.triggerStage)
     createPart('Take Position Event', '', strategy.triggerStage.takePosition, strategy.triggerStage, strategy.triggerStage)
     createPart('Initial Definition', '', strategy.openStage.initialDefinition, strategy.openStage, strategy.openStage)
+    createPart('Position Size', '', strategy.openStage.initialDefinition.positionSize, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
+    createPart('Position Rate', '', strategy.openStage.initialDefinition.positionRate, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
     createPart('Stop', '', strategy.manageStage.stopLoss, strategy.manageStage, strategy.manageStage)
     createPart('Take Profit', '', strategy.manageStage.takeProfit, strategy.manageStage, strategy.manageStage)
     createPart('Stop', 'Initial Stop', strategy.openStage.initialDefinition.stopLoss, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
     createPart('Take Profit', 'Initial Take Profit', strategy.openStage.initialDefinition.takeProfit, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
-    createPart('Position Size', '', strategy.triggerStage.positionSize, strategy.triggerStage, strategy.triggerStage)
     createPart('Formula', '', strategy.triggerStage.positionSize.formula, strategy.triggerStage.positionSize, strategy.triggerStage.positionSize)
   }
 
@@ -351,7 +361,6 @@ function newPartsFromNodes () {
       createPart('Trigger On Event', '', node.triggerStage.triggerOn, node.triggerStage, node.triggerStage)
       createPart('Trigger Off Event', '', node.triggerStage.triggerOff, node.triggerStage, node.triggerStage)
       createPart('Take Position Event', '', node.triggerStage.takePosition, node.triggerStage, node.triggerStage)
-      createPart('Position Size', '', node.triggerStage.positionSize, node.triggerStage, node.triggerStage)
       createPart('Formula', '', node.triggerStage.positionSize.formula, node.triggerStage.positionSize, node.triggerStage.positionSize)
     }
     if (node.openStage === undefined) {
@@ -371,6 +380,8 @@ function newPartsFromNodes () {
       createPart('Initial Definition', '', node.openStage.initialDefinition, node.openStage, node.openStage)
       createPart('Stop', 'Initial Stop', node.openStage.initialDefinition.stopLoss, node.openStage.initialDefinition, node.openStage.initialDefinition)
       createPart('Take Profit', 'Initial Take Profit', node.openStage.initialDefinition.takeProfit, node.openStage.initialDefinition, node.openStage.initialDefinition)
+      createPart('Position Size', 'Position Size', node.openStage.initialDefinition.positionSize, node.openStage.initialDefinition, node.openStage.initialDefinition)
+      createPart('Position Rate', 'Position Rate', node.openStage.initialDefinition.positionRate, node.openStage.initialDefinition, node.openStage.initialDefinition)
     }
     if (node.manageStage === undefined) {
       node.manageStage = {
@@ -411,19 +422,6 @@ function newPartsFromNodes () {
     }
   }
 
-  function addPositionSize (node) {
-    if (node.positionSize === undefined) {
-      node.positionSize = {
-        name: 'Position Size',
-        formula: {
-          code: DEFAULT_FORMULA_TEXT
-        }
-      }
-      createPart('Position Size', '', node.positionSize, node, node)
-      createPart('Formula', '', node.positionSize.formula, node.positionSize, node.positionSize)
-    }
-  }
-
   function addMissingItems (node) {
     if (node.type === 'Initial Definition') {
       if (node.stopLoss === undefined) {
@@ -439,6 +437,26 @@ function newPartsFromNodes () {
           maxPhases: 1
         }
         createPart('Take Profit', 'Initial Take Profit', node.takeProfit, node, node)
+      }
+      if (node.positionSize === undefined) {
+        node.positionSize = {
+          name: 'Position Size',
+          formula: {
+            code: DEFAULT_FORMULA_TEXT
+          }
+        }
+        createPart('Position Size', '', node.positionSize, node, node)
+        createPart('Formula', '', node.positionSize.formula, node.positionSize, node.positionSize)
+      }
+      if (node.positionRate === undefined) {
+        node.positionRate = {
+          name: 'Position Rate',
+          formula: {
+            code: DEFAULT_FORMULA_TEXT
+          }
+        }
+        createPart('Position Rate', '', node.positionRate, node, node)
+        createPart('Formula', '', node.positionRate.formula, node.positionRate, node.positionRate)
       }
     } else {
       if (node.stopLoss === undefined) {
@@ -471,6 +489,10 @@ function newPartsFromNodes () {
       createPart('Initial Definition', '', node.initialDefinition, node, node)
       createPart('Stop', 'Initial Stop', node.initialDefinition.stopLoss, node.initialDefinition, node.initialDefinition)
       createPart('Take Profit', 'Initial Take Profit', node.initialDefinition.takeProfit, node.initialDefinition, node.initialDefinition)
+      createPart('Position Size', '', node.initialDefinition.positionSize, node.initialDefinition, node.initialDefinition)
+      createPart('Formula', '', node.initialDefinition.positionSize.formula, node.initialDefinition.positionSize, node.initialDefinition.positionSize)
+      createPart('Position Rate', '', node.initialDefinition.positionRate, node.initialDefinition, node.initialDefinition)
+      createPart('Formula', '', node.initialDefinition.positionRate.formula, node.initialDefinition.positionRate, node.initialDefinition.positionRate)
     }
   }
 

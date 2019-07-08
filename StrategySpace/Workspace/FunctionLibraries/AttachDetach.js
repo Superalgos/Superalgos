@@ -57,6 +57,11 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Position Rate': {
+        node.payload.parentNode.positionRate = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Trigger On Event': {
         node.payload.parentNode.triggerOn = undefined
         completeDetachment(node, rootNodes)
@@ -202,6 +207,13 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.positionSize = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Position Rate': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.positionRate = node
         completeAttachment(node, rootNodes)
       }
         break

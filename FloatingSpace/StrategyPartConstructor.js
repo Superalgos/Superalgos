@@ -549,20 +549,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
-          },
-          {
-            action: 'Add Position Size',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Position Size',
-            visible: false,
-            iconPathOn: 'responsive',
-            iconPathOff: 'responsive',
-            relatedStrategyPart: 'Position Size',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -20
+            angle: -40
           },
           {
             action: 'Delete Trigger Stage',
@@ -576,7 +563,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 0
           },
           {
             action: 'Download',
@@ -588,7 +575,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 40
           }]
         break
       }
@@ -881,7 +868,92 @@ function newStrategyPartConstructor () {
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Trading System',
+            label: 'Delete Position Size',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          },
+          {
+            action: 'Add Formula',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Formula',
+            visible: false,
+            iconPathOn: 'pipette',
+            iconPathOff: 'pipette',
+            relatedStrategyPart: 'Formula',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          },
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }]
+        break
+      }
+      case 'Position Rate': {
+        menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -135
+          },
+          {
+            action: 'Tense / Untense',
+            actionFunction: floatingObject.tensionToggle,
+            actionStatus: floatingObject.getTensionStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'compass',
+            iconPathOff: 'headphones',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 180
+          },
+          {
+            action: 'Freeze / Unfreeze',
+            actionFunction: floatingObject.freezeToggle,
+            actionStatus: floatingObject.getFreezeStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'targeting',
+            iconPathOff: 'broken-link',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 135
+          },
+          {
+            action: 'Delete Position Rate',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Position Rate',
             visible: false,
             iconPathOn: 'trash',
             iconPathOff: 'trash',
@@ -2012,6 +2084,10 @@ function newStrategyPartConstructor () {
         level_3()
         break
       }
+      case 'Position Rate': {
+        level_3()
+        break
+      }
       case 'Trigger On Event': {
         level_3()
         break
@@ -2178,4 +2254,3 @@ function newStrategyPartConstructor () {
     payload.uiObject = undefined
   }
 }
-

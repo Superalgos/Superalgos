@@ -35,6 +35,9 @@ function newNodeChildren () {
       case 'Position Size': {
         return countChildrenPositionSize(parentNode, childNode)
       }
+      case 'Position Rate': {
+        return countChildrenPositionSize(parentNode, childNode)
+      }
       case 'Initial Definition': {
         return countChildrenInitialDefinition(parentNode, childNode)
       }
@@ -183,12 +186,6 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
-    if (parentNode.positionSize !== undefined) {
-      response.childrenCount++
-      if (parentNode.positionSize.id === childNode.id) {
-        response.childIndex = response.childrenCount
-      }
-    }
     return response
   }
 
@@ -248,10 +245,30 @@ function newNodeChildren () {
     return response
   }
 
+  function countChildrenPositionRate (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.formula !== undefined) {
+      response.childrenCount++
+      if (parentNode.formula.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
   function countChildrenInitialDefinition (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
+    }
+    if (parentNode.positionSize !== undefined) {
+      response.childrenCount++
+      if (parentNode.positionSize.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
     }
     if (parentNode.stopLoss !== undefined) {
       response.childrenCount++
@@ -262,6 +279,12 @@ function newNodeChildren () {
     if (parentNode.takeProfit !== undefined) {
       response.childrenCount++
       if (parentNode.takeProfit.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.positionRate !== undefined) {
+      response.childrenCount++
+      if (parentNode.positionRate.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }

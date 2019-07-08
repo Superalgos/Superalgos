@@ -212,11 +212,6 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addMissingEvents(payload.node)
         }
         break
-      case 'Add Position Size':
-        {
-          functionLibraryPartsFromNodes.addPositionSize(payload.node)
-        }
-        break
       case 'Add Missing Items':
         {
           functionLibraryPartsFromNodes.addMissingItems(payload.node)
@@ -290,6 +285,10 @@ function newWorkspace () {
         break
       }
       case 'Delete Position Size': {
+        functionLibraryNodeDeleter.deletePositionSize(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Position Rate': {
         functionLibraryNodeDeleter.deletePositionSize(payload.node, workspaceNode.rootNodes)
         break
       }

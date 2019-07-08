@@ -49,6 +49,7 @@ function newStrategySpace () {
       ['Manage Stage', 'video-player'],
       ['Close Stage', 'timeline'],
       ['Position Size', 'responsive'],
+      ['Position Rate', 'promotion'],
       ['Trigger On Event', 'startup'],
       ['Trigger Off Event', 'support'],
       ['Take Position Event', 'compass'],

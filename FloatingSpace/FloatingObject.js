@@ -63,6 +63,7 @@ function newFloatingObject () {
   let selfMouseClickEventSubscriptionId
   let spaceMouseOverEventSubscriptionId
   let spaceFocusAquiredEventSubscriptionId
+  let lastParentAngle
 
   return thisObject
 
@@ -189,6 +190,13 @@ function newFloatingObject () {
           axisCount++
           axisIndex++
           baseAngle = parent.payload.angle + 180
+          lastParentAngle = parent.payload.angle
+        } else {
+          if (lastParentAngle !== undefined) {
+            axisCount++
+            axisIndex++
+            baseAngle = lastParentAngle + 180
+          }
         }
 
         let angleStep = 360 / axisCount

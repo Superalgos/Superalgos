@@ -225,7 +225,11 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Position Size':
-        compatibleType = '->' + 'Trigger Stage'
+        compatibleType = '->' + 'Initial Definition'
+        compatibleSubType = undefined
+        break
+      case 'Position Rate':
+        compatibleType = '->' + 'Initial Definition'
         compatibleSubType = undefined
         break
       case 'Take Position Event':
@@ -257,7 +261,7 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Formula':
-        compatibleType = '->' + 'Base Asset' + '->' + 'Position Size' + '->' + 'Phase'
+        compatibleType = '->' + 'Base Asset' + '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase'
         compatibleSubType = undefined
         break
       case 'Next Phase Event':
@@ -297,6 +301,7 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Manage Stage' && nearbyNode.manageStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Close Stage' && nearbyNode.closeStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Position Size' && nearbyNode.positionSize !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Position Rate' && nearbyNode.positionRate !== undefined) { continue }
         if (thisObject.payload.node.type === 'Take Position Event' && nearbyNode.takePosition !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger Off Event' && nearbyNode.triggerOff !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger On Event' && nearbyNode.triggerOn !== undefined) { continue }

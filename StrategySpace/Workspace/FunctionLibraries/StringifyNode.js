@@ -177,11 +177,24 @@ function newStringifyNode () {
           name: node.name,
           stopLoss: prepareForStringify(node.stopLoss),
           takeProfit: prepareForStringify(node.takeProfit),
+          positionSize: prepareForStringify(node.positionSize),
+          positionRate: prepareForStringify(node.positionRate),
           savedPayload: getSavedPayload(node)
         }
         return object
       }
       case 'Position Size': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          formula: prepareForStringify(node.formula),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Position Rate': {
         let object = {
           id: node.id,
           type: node.type,
@@ -201,7 +214,6 @@ function newStringifyNode () {
           triggerOn: prepareForStringify(node.triggerOn),
           triggerOff: prepareForStringify(node.triggerOff),
           takePosition: prepareForStringify(node.takePosition),
-          positionSize: prepareForStringify(node.positionSize),
           savedPayload: getSavedPayload(node)
         }
         return stage

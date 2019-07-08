@@ -151,11 +151,22 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           stopLoss: getProtocolNode(node.stopLoss),
-          takeProfit: getProtocolNode(node.takeProfit)
+          takeProfit: getProtocolNode(node.takeProfit),
+          positionSize: getProtocolNode(node.positionSize),
+          positionRate: getProtocolNode(node.positionRate)
         }
         return object
       }
       case 'Position Size': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          formula: getProtocolNode(node.formula)
+        }
+        return object
+      }
+      case 'Position Rate': {
         let object = {
           type: node.type,
           subType: node.subType,
@@ -171,8 +182,7 @@ function newProtocolNode () {
           name: node.name,
           triggerOn: getProtocolNode(node.triggerOn),
           triggerOff: getProtocolNode(node.triggerOff),
-          takePosition: getProtocolNode(node.takePosition),
-          positionSize: getProtocolNode(node.positionSize)
+          takePosition: getProtocolNode(node.takePosition)
         }
         return stage
       }

@@ -151,7 +151,9 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           stopLoss: getProtocolNode(node.stopLoss),
-          takeProfit: getProtocolNode(node.takeProfit)
+          takeProfit: getProtocolNode(node.takeProfit),
+          positionSize: getProtocolNode(node.positionSize),
+          positionRate: getProtocolNode(node.positionRate)
         }
         return object
       }
@@ -180,8 +182,7 @@ function newProtocolNode () {
           name: node.name,
           triggerOn: getProtocolNode(node.triggerOn),
           triggerOff: getProtocolNode(node.triggerOff),
-          takePosition: getProtocolNode(node.takePosition),
-          positionSize: getProtocolNode(node.positionSize)
+          takePosition: getProtocolNode(node.takePosition)
         }
         return stage
       }

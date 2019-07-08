@@ -177,6 +177,8 @@ function newStringifyNode () {
           name: node.name,
           stopLoss: prepareForStringify(node.stopLoss),
           takeProfit: prepareForStringify(node.takeProfit),
+          positionSize: prepareForStringify(node.positionSize),
+          positionRate: prepareForStringify(node.positionRate),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -212,7 +214,6 @@ function newStringifyNode () {
           triggerOn: prepareForStringify(node.triggerOn),
           triggerOff: prepareForStringify(node.triggerOff),
           takePosition: prepareForStringify(node.takePosition),
-          positionSize: prepareForStringify(node.positionSize),
           savedPayload: getSavedPayload(node)
         }
         return stage

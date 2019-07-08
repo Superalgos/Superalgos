@@ -81,6 +81,9 @@ function newStrategyPartTitle () {
       case 'Position Size': {
         break
       }
+      case 'Position Rate': {
+        break
+      }
       case 'Trigger On Event': {
         break
       }

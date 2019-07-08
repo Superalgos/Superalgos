@@ -192,6 +192,17 @@ function newStringifyNode () {
         }
         return object
       }
+      case 'Position Rate': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          formula: prepareForStringify(node.formula),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
       case 'Trigger Stage': {
         let stage = {
           id: node.id,

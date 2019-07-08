@@ -164,6 +164,15 @@ function newProtocolNode () {
         }
         return object
       }
+      case 'Position Rate': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          formula: getProtocolNode(node.formula)
+        }
+        return object
+      }
       case 'Trigger Stage': {
         let stage = {
           type: node.type,

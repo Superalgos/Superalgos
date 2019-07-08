@@ -49,10 +49,12 @@ function newFileStorage() {
           return
         }
         let response = res.data.data.web_FileContent
-        if (response)
+        if (response){
           callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, response)
-        else
-          callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE)
+        } else {
+          let error = { code: 'The specified key does not exist.' }
+          callBackFunction(error)
+        }
       }).catch(error => {
         if (error.message === 'Request aborted' || error.message === 'Network Error') {
           let error = { code: 'The specified key does not exist.' }

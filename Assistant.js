@@ -200,12 +200,12 @@
                                     }
                                 }
                             } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + JSON.stringify(err));
                                 logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             }
                         } else {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + JSON.stringify(err));
                             callBackFunction(err);
                         }
                     }

@@ -1729,11 +1729,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                element = {
-                    direction: 'unknown',
-                    slope: 'unknown'
-                }
-                return element
+                return 
             }
         }
         catch (err) {
@@ -1881,11 +1877,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     begin: dataFile[i][0],
                     end: dataFile[i][1],
                     direction: dataFile[i][2],
-                    period: dataFile[i][3],
-                    firstMovingAverage: dataFile[i][4],
-                    lastMovingAverage: dataFile[i][5],
-                    firstDeviation: dataFile[i][6],
-                    lastDeviation: dataFile[i][7]
+                    period: dataFile[i][3]
                 };
 
                 bollingerChannel.previous = previous;

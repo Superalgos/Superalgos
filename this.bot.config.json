@@ -79,7 +79,7 @@
             "major": 1,
             "minor": 0
           },
-          "product": "Bollinger-Channels",
+          "product": "Bollinger-Standard-Channels",
           "dataSetVersion": "dataSet.V1",
           "dataSet": "Multi-Period-Market"
         },
@@ -166,7 +166,7 @@
           },
           "product": "LRC-Points",
           "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Market"
+          "dataSet": "Multi-Period-Daily"
         },
         {
           "devTeam": "AAMasters",
@@ -177,7 +177,7 @@
           },
           "product": "Percentage-Bandwidth",
           "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Market"
+          "dataSet": "Multi-Period-Daily"
         },
         {
           "devTeam": "AAMasters",
@@ -188,7 +188,7 @@
           },
           "product": "Bollinger-Bands",
           "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Market"
+          "dataSet": "Multi-Period-Daily"
         },
         {
           "devTeam": "AAMasters",
@@ -197,9 +197,9 @@
             "major": 1,
             "minor": 0
           },
-          "product": "Bollinger-Channels",
+          "product": "Bollinger-Standard-Channels",
           "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Market"
+          "dataSet": "Multi-Period-Daily"
         },
         {
           "devTeam": "AAMasters",
@@ -210,7 +210,7 @@
           },
           "product": "Bollinger-Sub-Channels",
           "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Market"
+          "dataSet": "Multi-Period-Daily"
         },
         {
           "devTeam": "AAMasters",
@@ -221,7 +221,7 @@
           },
           "product": "Candles",
           "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Market"
+          "dataSet": "Multi-Period-Daily"
         }
       ]
     }

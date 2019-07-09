@@ -140,8 +140,8 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Live Mode detected."); }
 
-                            if(process.env.NORMAL_WAIT_TIME !== undefined)
-                                processConfig.normalWaitTime = process.env.NORMAL_WAIT_TIME
+                            if(process.env.WAIT_TIME !== undefined)
+                                processConfig.normalWaitTime = process.env.WAIT_TIME
 
                             // This will be considered the process date and time, so as to have it consistenly all over the execution.
 
@@ -168,74 +168,19 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Backtesting Mode detected."); }
 
-                            if(process.env.NORMAL_WAIT_TIME !== undefined) {
-                                processConfig.normalWaitTime = process.env.NORMAL_WAIT_TIME
-                            } else {
-                                processConfig.normalWaitTime = 1
-                            }
-
-                            let timePeriod;
-
-                            if (UI_COMMANDS.timePeriod !== undefined) {
-
-                                timePeriod = UI_COMMANDS.timePeriod;
-
-                            } else {
-
-                                timePeriod = processConfig.timePeriod;
-
+                            if(process.env.WAIT_TIME !== undefined) {
+                                processConfig.normalWaitTime = JSON.parse(process.env.WAIT_TIME)
                             }
 
                             if (bot.hasTheBotJustStarted === true) {
-
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Setting initial datetime."); }
-
-                                if (UI_COMMANDS.beginDatetime !== undefined) {
-
-                                    bot.processDatetime = new Date(UI_COMMANDS.beginDatetime.valueOf());   //datetime is comming from the UI.
-
-                                } else {
-
-                                    bot.processDatetime = new Date(bot.backtest.beginDatetime); // Set the starting time as the configured beginDatetime.
-
-                                }
-
-                                /*
-                                We will standarize the backtesting execution time, setting the exact time a fraction after the start of the candle or timePeriod.
-                                */
-
-                                let totalMiliseconds = bot.processDatetime.valueOf();
-                                totalMiliseconds = Math.trunc(totalMiliseconds / timePeriod) * timePeriod + timePeriod / 6;
-
-                                bot.processDatetime = new Date(totalMiliseconds);
-
+                                bot.processDatetime = new Date(bot.backtest.beginDatetime); // Set the starting time as the configured beginDatetime.
                             } else {
-
-                                bot.processDatetime = new Date(bot.processDatetime.valueOf() + timePeriod); // We advance time here.
-
-
-                                if (UI_COMMANDS.eventHandler !== undefined) {
-
-                                    UI_COMMANDS.eventHandler.raiseEvent('Bot Execution Changed Datetime', bot.processDatetime);
-
-                                }
-
-                                let endDatetime;
-
-                                if (UI_COMMANDS.endDatetime !== undefined) {
-
-                                    endDatetime = new Date(UI_COMMANDS.endDatetime.valueOf());
-
-                                } else {
-
-                                    endDatetime = new Date(bot.backtest.endDatetime);
-
-                                }
+                                bot.processDatetime = new Date(bot.processDatetime.valueOf() + 60000); // We advance time here.
+                                let endDatetime = new Date(bot.backtest.endDatetime);
 
                                 if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
-
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> End of Backtesting Period reached. Exiting Bot Process Loop."); }
-
                                     logger.persist();
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
@@ -251,8 +196,8 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Competition Mode detected."); }
 
-                            if(process.env.NORMAL_WAIT_TIME !== undefined) {
-                                processConfig.normalWaitTime = process.env.NORMAL_WAIT_TIME
+                            if(process.env.WAIT_TIME !== undefined) {
+                                processConfig.normalWaitTime = process.env.WAIT_TIME
                             }
 
                             let localDate = new Date();

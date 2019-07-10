@@ -41,7 +41,7 @@ exports.newFileStorage = function newFileStorage() {
 
       currentRetry = 0
       if (response.data.errors) {
-        callBackFunction({ code: res.data.errors[0] })
+        callBackFunction({ code: response.data.errors[0] })
         return
       }
 

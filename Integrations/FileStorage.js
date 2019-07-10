@@ -15,7 +15,7 @@ exports.newFileStorage = function newFileStorage() {
 
   async function getTextFile(container, filePath, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] getTextFile: ' + container.toLowerCase() + '/' + filePath.substring(filePath.length - 110, filePath.length)) }
+      if (INFO_LOG === true) { console.log('[INFO] getTextFile: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length)) }
 
       let host = await getDevTeamHost(container)
 
@@ -53,8 +53,8 @@ exports.newFileStorage = function newFileStorage() {
 
     } catch (err) {
       if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET') && currentRetry < MAX_RETRY) {
-        if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Retrying connection to the server because received error: ' + err.code) }
         currentRetry++
+        if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry) }
         getTextFile(container, filePath, callBackFunction)
       } else {
         currentRetry = 0
@@ -66,7 +66,7 @@ exports.newFileStorage = function newFileStorage() {
 
   async function createTextFile(container, filePath, fileContent, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + container.toLowerCase() + '/' + filePath.substring(filePath.length - 110, filePath.length)) }
+      if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length)) }
 
       let host = await getDevTeamHost(container)
 
@@ -99,14 +99,14 @@ exports.newFileStorage = function newFileStorage() {
           message: response.data.errors[0]
         }
         callBackFunction(customErr)
-      } else{
+      } else {
         callBackFunction(global.DEFAULT_OK_RESPONSE)
       }
 
     } catch (err) {
-      if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET') && currentRetry < MAX_RETRY) {
-        if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Retrying connection to the server because received error: ' + err.code) }
+      if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET' || err.message === "Request failed with status code 413") && currentRetry < MAX_RETRY) {
         currentRetry++
+        if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry) }
         createTextFile(container, filePath, fileContent, callBackFunction)
       } else {
         currentRetry = 0

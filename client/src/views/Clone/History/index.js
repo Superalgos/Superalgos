@@ -48,11 +48,12 @@ class HistoryClones extends Component {
         </React.Fragment>
       )
     } else if (data.error) {
+      console.log('Error Listing clones.', data.error)
       return (
         <TopBar
           size='big'
           title='Bot Clone History'
-          text='Please login to gain access to your Bot Clones.'
+          text='There has been an error listing the clones.'
           backgroundUrl='https://superalgos.org/img/photos/clones-original.jpg'
         />
       )

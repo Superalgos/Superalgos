@@ -35,7 +35,7 @@ exports.newDebugLog = function newDebugLog() {
             disableLogging = pdisableLogging
 
         } catch (err) {
-            console.log("[ERROR] Debug Log -> initialize -> err = " + err.message);
+            console.log("[ERROR] Debug Log -> initialize -> err = ", err);
         }
     }
 
@@ -94,9 +94,7 @@ exports.newDebugLog = function newDebugLog() {
                 function onFileCreated(err) {
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = " + err.message);
-                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> filePath = " + filePath);
-                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> fileName = " + fileName);
+                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = ", err);
 
                         setTimeout(writeLog, 10000); // Lets retry until we make it.
                         return;
@@ -107,7 +105,7 @@ exports.newDebugLog = function newDebugLog() {
                 }
             }
         } catch (err) {
-            console.log("[ERROR] DebugLog -> persist -> err = " + err.message);
+            console.log("[ERROR] DebugLog -> persist -> err = ", err);
             console.log("[ERROR] DebugLog -> persist -> onInizialized -> contentToPersist = " + contentToPersist);
         }
     }
@@ -128,12 +126,15 @@ exports.newDebugLog = function newDebugLog() {
 
             /* When writting one file for all modules we use this. */
 
-            let logLine = '\r\n' + "['" + newDate + "'," + messageId + ",'" + pModule + "','" + pMessage + "']";
+            let message = "['" + newDate + "'," + messageId + ",'" + pModule + "','" + pMessage + "']"
+            let logLine = '\r\n' + message;
+
+            console.log(message)
 
             accumulatedLog = accumulatedLog + logLine;
 
         } catch (err) {
-            console.log("[ERROR] DebugLog -> write -> err = " + err.message);
+            console.log("[ERROR] DebugLog -> write -> err = ", err);
         }
     }
 

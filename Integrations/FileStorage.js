@@ -3,7 +3,8 @@ const Ecosystem = require('./Ecosystem')
 
 exports.newFileStorage = function newFileStorage() {
   const INFO_LOG = true
-  const ERROR_LOG = true
+  const MAX_RETRY = 30
+  let currentRetry = 0
 
   let thisObject = {
     getTextFile,
@@ -14,11 +15,11 @@ exports.newFileStorage = function newFileStorage() {
 
   async function getTextFile(container, filePath, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Entering function: ' + container.toLowerCase() + '/' + filePath) }
+      if (INFO_LOG === true) { console.log('[INFO] getTextFile: ' + container.toLowerCase() + '/' + filePath.substring(filePath.length -110 , filePath.length)) }
 
       let host = await getDevTeamHost(container)
 
-      axios({
+      let response = await axios({
         url: host.url + 'graphql',
         method: 'post',
         data: {
@@ -35,40 +36,37 @@ exports.newFileStorage = function newFileStorage() {
               accessKey: host.accessKey
             }
           }
-        },
-        headers: {
-          authorization: process.env.AUTHORIZATION
         }
-      }).then(res => {
-        if (res.data.errors) {
-          let error = {
-            code: res.data.errors[0]
-          }
-          callBackFunction(error)
-          return
-        }
-        let response = res.data.data.web_FileContent
-        if (response) {
-          callBackFunction(global.DEFAULT_OK_RESPONSE, response)
-        } else {
-          let error = { code: 'The specified key does not exist.' }
-          callBackFunction(error)
-        }
-      }).catch(error => {
-        if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> Invalid JSON received. ') }
-        if (ERROR_LOG === true) { console.log('newFileStorage: [ERROR] getTextFile -> error = ', error) }
-        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
       })
+
+      currentRetry = 0
+      if (response.data.errors) {
+        callBackFunction({ code: res.data.errors[0] })
+        return
+      }
+
+      if (response.data.data.web_FileContent) {
+        callBackFunction(global.DEFAULT_OK_RESPONSE, response.data.data.web_FileContent)
+      } else {
+        callBackFunction({ code: 'The specified key does not exist.' })
+      }
+
     } catch (err) {
-      if (ERROR_LOG === true) { console.log('[ERROR] getTextFile -> err = ', err) }
-      if (ERROR_LOG === true) { console.log('[ERROR] getTextFile -> stack = ', err.stack) }
-      callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+      if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET') && currentRetry < MAX_RETRY) {
+        if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Retrying connection to the server because received error: '+err.code) }
+        currentRetry++
+        getTextFile(container, filePath, callBackFunction)
+      } else {
+        currentRetry = 0
+        console.log('[ERROR] getTextFile -> error = ', err)
+        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+      }
     }
   }
 
   async function createTextFile(container, filePath, fileContent, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + container.toLowerCase() + '/' + filePath) }
+      if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + container.toLowerCase() + '/' + filePath.substring(filePath.length -110 , filePath.length)) }
 
       let host = await getDevTeamHost(container)
 
@@ -90,11 +88,10 @@ exports.newFileStorage = function newFileStorage() {
               fileContent
             }
           }
-        },
-        headers: {
-          authorization: process.env.AUTHORIZATION
         }
       })
+
+      currentRetry = 0
 
       if (!response || response.data.errors)
         callBackFunction(global.CUSTOM_FAIL_RESPONSE)
@@ -102,9 +99,15 @@ exports.newFileStorage = function newFileStorage() {
         callBackFunction(global.DEFAULT_OK_RESPONSE)
 
     } catch (err) {
-      if (ERROR_LOG === true) { console.log('[ERROR] createTextFile -> err = ', err.stack) }
-      if (ERROR_LOG === true) { console.log('[ERROR] createTextFile -> stack = ', err.stack) }
-      callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+      if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET') && currentRetry < MAX_RETRY) {
+        if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Retrying connection to the server because received error: '+err.code) }
+        currentRetry++
+        createTextFile(container, filePath, fileContent, callBackFunction)
+      } else {
+        currentRetry = 0
+        console.log('[ERROR] createTextFile -> error = ', err)
+        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+      }
     }
   }
 

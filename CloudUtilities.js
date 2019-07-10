@@ -46,7 +46,7 @@ exports.newCloudUtilities = function newCloudUtilities(logger) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> loop -> checkLoop -> Entering function."); }
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = " + err.message);
+                        logger.write(MODULE_NAME, "[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = ", err);
                         callBackFunction(err);
                         return;
                     }

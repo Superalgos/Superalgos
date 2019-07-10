@@ -119,7 +119,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> err = ", err);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -150,7 +150,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> getStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> getStatusReport -> err = ", err);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -169,7 +169,7 @@
                     function onFileReceived(err, text) {
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionHistory -> onFileReceived -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionHistory -> onFileReceived -> err = ", err);
                             callBack(err);
                             return;
                         }
@@ -204,7 +204,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionHistory -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionHistory -> err = ", err);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -230,7 +230,7 @@
                     function onFileReceived(err, text) {
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionContext -> onFileReceived -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionContext -> onFileReceived -> err = ", err);
                             callBack(err);
                             return;
                         }
@@ -271,7 +271,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionContext -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionContext -> err = ", err);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -333,13 +333,13 @@
                     callBack(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> createConext -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> createConext -> err = ", err);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = ", err);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -380,7 +380,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] saveThemAll -> onDone -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] saveThemAll -> onDone -> err = ", err);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -401,8 +401,6 @@
                         callBackFunction(global.DEFAULT_ERROR_RESPONSE);
                     }
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> fileName = " + fileName); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> filePath = " + filePath); }
                     if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> fileContent = " + fileContent); }
 
                     fileStorage.createTextFile(global.DEV_TEAM, filePath, fileContent + '\n', onFileCreated);
@@ -412,7 +410,7 @@
                         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> onFileCreated -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExecutionContext -> onFileCreated -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExecutionContext -> onFileCreated -> err = ", err);
                             callBack(err);
                             return;
                         }
@@ -423,7 +421,7 @@
 
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExecutionContext -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExecutionContext -> err = ", err);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -436,9 +434,6 @@
 
                     let fileName = "/Execution.History." + bot.startMode + "." + runIndex + ".json";
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + fileName;
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> fileName = " + fileName); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> filePath = " + filePath); }
 
                     let newRecord = [
                         thisObject.newHistoryRecord.date.valueOf(),
@@ -476,7 +471,7 @@
                         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> onFileCreated -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> onFileCreated -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> onFileCreated -> err = ", err);
                             callBack(err);
                             return;
                         }
@@ -498,7 +493,7 @@
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> onFileCreated -> onSequenceFileCreated -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> onFileCreated -> onSequenceFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> onFileCreated -> onSequenceFileCreated -> err = ", err);
                                 callBack(err);
                                 return;
                             }
@@ -510,7 +505,7 @@
 
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> err = ", err);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -526,7 +521,7 @@
 
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeStatusReport -> err = ", err);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }

@@ -1,6 +1,6 @@
 {
   "name": "@superalgos/clone-executor",
-  "version": "1.0.32",
+  "version": "1.0.40",
   "description": "Module responsible for executing the bots on the cloud.",
   "author": "Superalgos, ltd.",
   "license": "Apache-2.0",

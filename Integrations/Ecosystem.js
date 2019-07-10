@@ -19,6 +19,7 @@ exports.getEcosystem = async function () {
                               storage
                               container
                               accessKey
+                              ownerKey
                             }
                             bots {
                               codeName

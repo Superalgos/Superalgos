@@ -73,7 +73,7 @@
             }
 
         } catch (err) {
-            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = ", err);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -197,7 +197,7 @@
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> err = ", err);
                                     logger.persist();
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
@@ -208,7 +208,7 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> err = ", err);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
@@ -271,7 +271,7 @@
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeContext ->  onInizialized -> onInizialized -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeContext ->  onInizialized -> onInizialized -> err = ", err);
                                     logger.persist();
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
@@ -282,7 +282,7 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> err = ", err);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
@@ -380,7 +380,7 @@
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized -> err = ", err);
                                     logger.persist();
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
@@ -391,7 +391,7 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> err = ", err);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
@@ -510,7 +510,7 @@
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> err = ", err);
                                     logger.persist();
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
@@ -521,7 +521,7 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> err = ", err);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
@@ -679,7 +679,7 @@
                     }
 
                 } catch (err) {
-                    parentLogger.write(MODULE_NAME, "[ERROR] run -> loop -> err = " + err.message);
+                    parentLogger.write(MODULE_NAME, "[ERROR] run -> loop -> err = ", err);
                     clearInterval(fixedTimeLoopIntervalHandle);
                     clearTimeout(nextLoopTimeoutHandle);
                     clearTimeout(checkLoopHealthHandle);
@@ -690,7 +690,7 @@
         }
 
         catch (err) {
-            parentLogger.write(MODULE_NAME, "[ERROR] run -> err = " + err.message);
+            parentLogger.write(MODULE_NAME, "[ERROR] run -> err = ", err);
             clearInterval(fixedTimeLoopIntervalHandle);
             clearTimeout(nextLoopTimeoutHandle);
             clearTimeout(checkLoopHealthHandle);

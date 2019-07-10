@@ -33,7 +33,7 @@
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = ", err);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -59,7 +59,7 @@
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> err = ", err);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -100,7 +100,7 @@
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> err = ", err);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

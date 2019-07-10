@@ -117,7 +117,7 @@
                     logInfo: true,
                     logWarnings: false,
                     logErrors: true,
-                    logContent: true,
+                    logContent: false,
                     intensiveLogging: false
                 }
             };
@@ -175,9 +175,7 @@
                 function onFileReceived(err, text) {
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + err.message);
-                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> filePath = " + filePath);
-                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> fileName = " + fileName);
+                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = ", err);
 
                         return;
                     }
@@ -187,7 +185,7 @@
                         botConfig.repo = cloneToExecute.repo;
                         findProcess();
                     } catch (err) {
-                        console.log(logDisplace  + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + err.message);
+                        console.log(logDisplace  + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = ", err);
                         return;
                     }
                 }
@@ -523,7 +521,7 @@
 
                                     } else {
 
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> err = ", err);
                                         logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
                                         logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bye.");
                                         logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
@@ -535,16 +533,16 @@
                                 }
 
                             } else {
-                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> err = ", err);
                                 logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> Bot will not be started. ");
-                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> err = " + err.message);
+                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> err = ", err);
 
                                 logger.persist();
                             }
                         }
                     }
                     catch (err) {
-                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> err = " + err.message);
+                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> err = ", err);
                     }
                 }
 
@@ -593,7 +591,7 @@
 
                                     } else {
 
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> err = ", err);
                                         logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
                                         logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bye.");
                                         logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
@@ -603,15 +601,15 @@
                                 }
 
                             } else {
-                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = ", err);
                                 logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> Failed to initialize the bot. ");
-                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = " + err.message);
+                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = ", err);
                                 logger.persist();
                             }
                         }
                     }
                     catch (err) {
-                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> err = " + err.message);
+                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> err = ", err);
 
                     }
                 }
@@ -770,7 +768,7 @@
 
                                         } else {
 
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> err = ", err);
                                             logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
                                             logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bye.");
                                             logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
@@ -780,9 +778,9 @@
                                     }
 
                                 } else {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> err = ", err);
                                     logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> Bot will not be started. ");
-                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> err = " + err.message);
+                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> err = ", err);
 
                                     logger.persist();
                                 }
@@ -790,7 +788,7 @@
                         }
                     }
                     catch (err) {
-                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> err = " + err.message);
+                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> err = ", err);
                     }
                 }
 

@@ -158,7 +158,7 @@
                         let candleArray;
 
                         if (err.result === global.CUSTOM_FAIL_RESPONSE.result) {  // Just past midnight, this file will not exist for a couple of minutes.
-                            if (err.message === "File does not exist.") {
+                            if (err.message === "File does not exist." || err.message === "The specified key does not exist.") {
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
                             }

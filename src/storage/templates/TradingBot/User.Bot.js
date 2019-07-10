@@ -1,4 +1,4 @@
-exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
+exports.newUserBot = function newUserBot(bot, logger) {
 
   // Variable used for logs, which will be passed to the logger instance
   const MODULE_NAME = 'User Bot'
@@ -45,9 +45,12 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
       let key = bot.devTeam + '-simulator-' + bot.codeName + '-Trading-Simulation-' + bot.dataSet + '-dataSet.V1'
       fileStorage = assistant.dataDependencies.dataSets.get(key)
 
-      if (fileStorage !== undefined){
+      if (fileStorage !== undefined) {
+        assistant.rememberThis('lastSimulatorEngineMessageId', 0)
+        assistant.rememberThis('lastStopLoss', 0)
+        assistant.rememberThis('lastTakeProfit', 0)
         callBackFunction(global.DEFAULT_OK_RESPONSE)
-      }else{
+      } else {
         logError('initialize -> Failed to initialize storage. Key not found:' + key)
         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
       }
@@ -96,18 +99,22 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
       let simulatorEngineMessage = getSimulatorEngineMessageFromFile(indicatorFileContent)
       let autopilotResponse = await getAutopilot()
 
+      let stopLoss, takeProfit
       if (simulatorEngineMessage === undefined) {
-        logWarn('start -> Indicator message not found.')
-        throw global.DEFAULT_RETRY_RESPONSE
+        logWarn('start -> Simulator message not available. Will proceed to check SL and TP from previous execution.')
+        stopLoss = assistant.remindMeOf('lastStopLoss')
+        takeProfit = assistant.remindMeOf('lastTakeProfit')
+      } else {
+        logInfo('Processing simulator record: ' + JSON.stringify(simulatorEngineMessage))
+        stopLoss = simulatorEngineMessage.order.stop
+        takeProfit = simulatorEngineMessage.order.takeProfit
       }
-
-      logInfo('Processing indicator message: ' + JSON.stringify(simulatorEngineMessage))
 
       // Checking Stop Loss
       let assetABalance = assistant.getAvailableBalance().assetA
       let currentRate = assistant.getMarketRate()
 
-      if (simulatorEngineMessage !== undefined && assetABalance > 0 && currentRate >= simulatorEngineMessage.order.stop) {
+      if (stopLoss > 0 && assetABalance > 0 && currentRate >= stopLoss) {
         logInfo('Closing trade with Stop Loss.')
         try {
           let position = await createBuyPosition(currentRate)
@@ -116,8 +123,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
           simulatorExecutorMessage.id = position.id
           simulatorExecutorMessage.order.id = position.id
           simulatorExecutorMessage.order.rate = currentRate
-          simulatorExecutorMessage.order.stop = simulatorEngineMessage.order.stop
-          simulatorExecutorMessage.order.takeProfit = simulatorEngineMessage.order.takeProfit
+          simulatorExecutorMessage.order.stop = stopLoss
+          simulatorExecutorMessage.order.takeProfit = takeProfit
           simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Buy
           simulatorExecutorMessage.order.size = assetABalance
           simulatorExecutorMessage.order.status = ORDER_STATUS.Placed
@@ -125,13 +132,16 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
 
           let message = createMessageFromObject(simulatorExecutorMessage)
           assistant.addExtraData(message)
+          assistant.rememberThis('lastSimulatorEngineMessageId', 0)
+          assistant.rememberThis('lastStopLoss', 0)
+          assistant.rememberThis('lastTakeProfit', 0)
         } catch (error) {
           let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
           simulatorExecutorMessage.from = MESSAGE_ENTITY.TradingAssistant
           simulatorExecutorMessage.to = MESSAGE_ENTITY.SimulationExecutor
           simulatorExecutorMessage.order.rate = position.rate
-          simulatorExecutorMessage.order.stop = simulatorEngineMessage.order.stop
-          simulatorExecutorMessage.order.takeProfit = simulatorEngineMessage.order.takeProfit
+          simulatorExecutorMessage.order.stop = stopLoss
+          simulatorExecutorMessage.order.takeProfit = takeProfit
           simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Buy
           simulatorExecutorMessage.order.size = assetABalance
           simulatorExecutorMessage.order.status = ORDER_STATUS.Rejected
@@ -144,8 +154,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
       }
 
       // Checking Take Profits
-      if (simulatorEngineMessage !== undefined && assetABalance > 0 && currentRate <= simulatorEngineMessage.order.takeProfit) {
-        logInfo('Closing trade with Take Profits.')
+      if (takeProfit > 0 && assetABalance > 0 && currentRate <= takeProfit) {
+        logInfo('Closing trade with Take Profit.')
         try {
           let position = await createBuyPosition(currentRate, assetABalance)
 
@@ -153,8 +163,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
           simulatorExecutorMessage.id = position.id
           simulatorExecutorMessage.order.id = position.id
           simulatorExecutorMessage.order.rate = currentRate
-          simulatorExecutorMessage.order.stop = simulatorEngineMessage.order.stop
-          simulatorExecutorMessage.order.takeProfit = simulatorEngineMessage.order.takeProfit
+          simulatorExecutorMessage.order.stop = stopLoss
+          simulatorExecutorMessage.order.takeProfit = takeProfit
           simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Buy
           simulatorExecutorMessage.order.size = assetABalance
           simulatorExecutorMessage.order.status = ORDER_STATUS.Placed
@@ -162,13 +172,16 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
 
           let message = createMessageFromObject(simulatorExecutorMessage)
           assistant.addExtraData(message)
+          assistant.rememberThis('lastSimulatorEngineMessageId', 0)
+          assistant.rememberThis('lastStopLoss', 0)
+          assistant.rememberThis('lastTakeProfit', 0)
         } catch (error) {
           let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
           simulatorExecutorMessage.from = MESSAGE_ENTITY.TradingAssistant
           simulatorExecutorMessage.to = MESSAGE_ENTITY.SimulationExecutor
           simulatorExecutorMessage.order.rate = currentRate
-          simulatorExecutorMessage.order.stop = simulatorEngineMessage.order.stop
-          simulatorExecutorMessage.order.takeProfit = simulatorEngineMessage.order.takeProfit
+          simulatorExecutorMessage.order.stop = stopLoss
+          simulatorExecutorMessage.order.takeProfit = takeProfit
           simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Buy
           simulatorExecutorMessage.order.size = assetABalance
           simulatorExecutorMessage.order.status = ORDER_STATUS.Rejected
@@ -180,13 +193,16 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
         }
       }
 
-      if (autopilotResponse.autopilot || autopilotControl) {
-        await manageCloneInAutopilotOn(simulatorEngineMessage)
-      } else {
-        await manageCloneInAutopilotOff(simulatorEngineMessage)
+      if (simulatorEngineMessage !== undefined) {
+        if (autopilotResponse.autopilot || autopilotControl) {
+          await manageCloneInAutopilotOn(simulatorEngineMessage)
+        } else {
+          await manageCloneInAutopilotOff(simulatorEngineMessage)
+        }
       }
     } catch (error) {
-      if (error.stack) logError(JSON.stringify(error.stack))
+      logError('Error on executorLogic: ' + error)
+      logError('Stack: ' + JSON.stringify(error.stack))
       throw error
     }
   }
@@ -197,6 +213,12 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
 
     if (simulatorEngineMessage.messageType === MESSAGE_TYPE.Order
       && simulatorEngineMessage.order.direction === ORDER_DIRECTION.Sell) {
+
+      let lastSimulatorEngineMessageId = assistant.remindMeOf('lastSimulatorEngineMessageId')
+      if (lastSimulatorEngineMessageId >= simulatorEngineMessage.id) {
+        logInfo("manageCloneInAutopilotOn -> Order message was previously processed.")
+        return
+      }
 
       try {
         let position = await createSellPosition(currentRate, assetBBalance)
@@ -211,6 +233,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
 
         let message = createMessageFromObject(simulatorExecutorMessage)
         assistant.addExtraData(message)
+        assistant.rememberThis('lastSimulatorEngineMessageId', parseInt(simulatorEngineMessage.id))
+        assistant.rememberThis('lastStopLoss', simulatorEngineMessage.order.stop)
+        assistant.rememberThis('lastTakeProfit', simulatorEngineMessage.order.takeProfit)
       } catch (error) {
         let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
         simulatorExecutorMessage.from = MESSAGE_ENTITY.TradingAssistant
@@ -542,12 +567,12 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
 
         logWarn('getSimulatorEngineMessageFromFile -> The indicator message was not found at time: ' + bot.processDatetime.valueOf())
       } else {
-        // Running live we will process last available Indicator Message only if it's delayed 25 minutes top
-        let maxTolerance = 120 * 60 * 1000
+        // Running live we will process last available Indicator Message only if it's delayed 10 minutes top
+        let maxTolerance = 10 * 60 * 1000
         if (bot.processDatetime.valueOf() <= (lastAvailableDateTime + maxTolerance)) {
           return getMessage(indicatorFileContent[lastIndexIndicatorFile][25])
         } else {
-          logWarn('getSimulatorEngineMessageFromFile -> Last available indicator older than 2 hours. Skipping execution.')
+          logWarn('getSimulatorEngineMessageFromFile -> Last available indicator older than 10 minutes.')
         }
       }
     } catch (error) {
@@ -720,7 +745,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS_MODULE) {
     fileStorage.getTextFile[util.promisify.custom] = n => new Promise((resolve, reject) => {
       fileStorage.getTextFile(containerName, blobName, (result, fileContent) => {
         if (result !== global.DEFAULT_OK_RESPONSE) {
-          console.log('[WARN] getFileContent -> The indicator dependency is not ready. Will retry later.')
+          let errorMessage = '[WARN] getFileContent -> The indicator dependency is not ready. Will retry later.'
+          console.log(errorMessage)
+          logWarn(errorMessage)
           reject(global.DEFAULT_RETRY_RESPONSE)
         } else {
           resolve(fileContent)

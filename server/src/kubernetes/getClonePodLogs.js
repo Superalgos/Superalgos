@@ -20,7 +20,7 @@ const getClonePodLogs = async (cloneName) => {
 
     let queryLogs = {
       'qs': {
-        'tailLines': '20'
+        'tailLines': '300'
       }
     }
     if(pod.body.items[0] !== undefined){

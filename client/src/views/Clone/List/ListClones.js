@@ -209,6 +209,7 @@ class ListClones extends Component {
           open={this.state.isLogsDialogOpen}
           onClose={this.handleLogsDialogClose}
           aria-labelledby="logs-dialog-title"
+          fullScreen
         >
           <DialogTitle id="logs-dialog-title">
             Last clone logs

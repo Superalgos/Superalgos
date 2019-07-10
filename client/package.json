@@ -1,6 +1,6 @@
 {
   "name": "@superalgos/operations-client",
-  "version": "0.0.38",
+  "version": "0.0.41",
   "description": "Superalgos Operations client-side web app",
   "author": "Superalgos, ltd.",
   "license": "Apache-2.0",

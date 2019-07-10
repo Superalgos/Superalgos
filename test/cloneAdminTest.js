@@ -14,7 +14,7 @@ describe('Admin clones Clones', function () {
 		assert.isOk('everything', 'everything is ok')
 	})
 	// it('Add COSS Live Indicator Clones', async function () {
-	// 	this.timeout(300000)
+	// 	this.timeout(1000000)
 	// 	var error
 	// 	var clones = activeCloneList("Coss")
 	// 	try {
@@ -28,7 +28,7 @@ describe('Admin clones Clones', function () {
 	// 	assert.equal(error, undefined)
 	// })
 	// it('Add POLONIEX Live Indicator Clones', async function () {
-	// 	this.timeout(300000)
+	// 	this.timeout(1000000)
 	// 	var error
 	// 	var clones = activeCloneList("Poloniex")
 	// 	try {
@@ -43,36 +43,36 @@ describe('Admin clones Clones', function () {
 	// })
 	describe('Poloniex clones', function () {
 		it('Add Charly', async function () {
-			this.timeout(3000)
+			this.timeout(10000)
 			await createClone(cloneList[0])
 			await createClone(cloneList[1])
 			assert.isOk('everything', 'everything is ok')
 		})
 		it('Add Bruce', async function () {
-			this.timeout(3000)
+			this.timeout(10000)
 			await createClone(cloneList[2])
 			assert.isOk('everything', 'everything is ok')
 		})
 		it('Add Olivia', async function () {
-			this.timeout(3000)
+			this.timeout(10000)
 			await createClone(cloneList[3])
 			await createClone(cloneList[4])
 			assert.isOk('everything', 'everything is ok')
 		})
 		it('Add Tom', async function () {
-			this.timeout(3000)
+			this.timeout(10000)
 			await createClone(cloneList[5])
 			await createClone(cloneList[6])
 			assert.isOk('everything', 'everything is ok')
 		})
 		it('Add Chris', async function () {
-			this.timeout(3000)
+			this.timeout(10000)
 			await createClone(cloneList[7])
 			await createClone(cloneList[8])
 			assert.isOk('everything', 'everything is ok')
 		})
 		it('Add Paula', async function () {
-			this.timeout(3000)
+			this.timeout(10000)
 			await createClone(cloneList[9])
 			await createClone(cloneList[10])
 			assert.isOk('everything', 'everything is ok')

@@ -32,19 +32,19 @@ const createClone = async (clone) => {
       'name': 'HOST_STORAGE',
       'value': 'localStorage'
     })
-    // TODO Pending setting private bots
-    // env.push({
-    //   'name': 'HOST_ACCESS_KEY',
-    //   'value': clone.host.accessKey
-    // })
-
-    if(clone.authorization){
+    if (clone.authorization) {
       env.push({
         'name': 'AUTHORIZATION',
         'value': clone.authorization
       })
     }
 
+    if (JSON.parse(process.env.FULL_LOG)) {
+      env.push({
+        'name': 'FULL_LOG',
+        'value': process.env.FULL_LOG
+      })
+    }
     logger.debug('createClone General Financial Being Configuration.')
     env.push({
       'name': 'DEV_TEAM',

@@ -15,7 +15,7 @@ exports.newFileStorage = function newFileStorage() {
 
   async function getTextFile(container, filePath, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] getTextFile: ' + container.toLowerCase() + '/' + filePath.substring(filePath.length -110 , filePath.length)) }
+      if (INFO_LOG === true) { console.log('[INFO] getTextFile: ' + container.toLowerCase() + '/' + filePath.substring(filePath.length - 110, filePath.length)) }
 
       let host = await getDevTeamHost(container)
 
@@ -53,7 +53,7 @@ exports.newFileStorage = function newFileStorage() {
 
     } catch (err) {
       if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET') && currentRetry < MAX_RETRY) {
-        if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Retrying connection to the server because received error: '+err.code) }
+        if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Retrying connection to the server because received error: ' + err.code) }
         currentRetry++
         getTextFile(container, filePath, callBackFunction)
       } else {
@@ -66,7 +66,7 @@ exports.newFileStorage = function newFileStorage() {
 
   async function createTextFile(container, filePath, fileContent, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + container.toLowerCase() + '/' + filePath.substring(filePath.length -110 , filePath.length)) }
+      if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + container.toLowerCase() + '/' + filePath.substring(filePath.length - 110, filePath.length)) }
 
       let host = await getDevTeamHost(container)
 
@@ -93,14 +93,19 @@ exports.newFileStorage = function newFileStorage() {
 
       currentRetry = 0
 
-      if (!response || response.data.errors)
-        callBackFunction(global.CUSTOM_FAIL_RESPONSE)
-      else
+      if (!response || response.data.errors) {
+        let customErr = {
+          result: global.CUSTOM_FAIL_RESPONSE.result,
+          message: response.data.errors[0]
+        }
+        callBackFunction(customErr)
+      } else{
         callBackFunction(global.DEFAULT_OK_RESPONSE)
+      }
 
     } catch (err) {
       if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET') && currentRetry < MAX_RETRY) {
-        if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Retrying connection to the server because received error: '+err.code) }
+        if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Retrying connection to the server because received error: ' + err.code) }
         currentRetry++
         createTextFile(container, filePath, fileContent, callBackFunction)
       } else {

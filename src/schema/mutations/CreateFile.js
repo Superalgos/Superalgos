@@ -8,7 +8,6 @@ import getDevTeamHost from '../../utils/getDevTeamHost'
 export const args = { file: { type: FileInputType } }
 
 const resolve = async (parent, { file }, context) => {
-  logger.debug('createFile -> Entering Function: ' + file.container + '/' + file.filePath)
   try {
     if (file.accessKey === undefined || file.accessKey === null) {
       throw new WrongArgumentsError()
@@ -19,8 +18,10 @@ const resolve = async (parent, { file }, context) => {
     if (host === undefined || host === null) {
       throw new AuthenticationError()
     }
-
+    let date = new Date()
     await writeFileContent(file.container, file.filePath, file.fileContent)
+    let dateAfter = new Date()
+    logger.info('createFile: ' + file.container + '/...' + file.filePath.substring(file.filePath.length -110 , file.filePath.length) + ', ' + (dateAfter - date))
     return 'File created.'
   } catch (err) {
     logger.error('createFile -> Error: %s', err.message)

@@ -90,7 +90,7 @@
             "major": 1,
             "minor": 0
           },
-          "product": "Bollinger-Sub-Channels",
+          "product": "Bollinger-Standard-Sub-Channels",
           "dataSetVersion": "dataSet.V1",
           "dataSet": "Multi-Period-Market"
         },
@@ -208,7 +208,7 @@
             "major": 1,
             "minor": 0
           },
-          "product": "Bollinger-Sub-Channels",
+          "product": "Bollinger-Standard-Sub-Channels",
           "dataSetVersion": "dataSet.V1",
           "dataSet": "Multi-Period-Daily"
         },

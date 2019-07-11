@@ -1489,9 +1489,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             orderId++;
                         } else {
                             if (type === '"Close@TakeProfit"' || type === '"Close@StopLoss"') {
-                                messageType = MESSAGE_TYPE.OrderUpdate;
-                            } else {
                                 messageType = MESSAGE_TYPE.OrderClose;
+                            } else {
+                                messageType = MESSAGE_TYPE.OrderUpdate;
                             }
                         }
 

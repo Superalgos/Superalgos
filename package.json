@@ -1,6 +1,6 @@
 {
   "name": "@superalgos/clone-executor",
-  "version": "1.0.43",
+  "version": "1.0.44",
   "description": "Module responsible for executing the bots on the cloud.",
   "author": "Superalgos, ltd.",
   "license": "Apache-2.0",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@superalgos/exchange-gateway": "0.0.6",
-    "@superalgos/mqservice": "^0.0.14",
+    "@superalgos/mqservice": "^0.0.16",
     "axios": "^0.19.0",
     "dotenv": "^8.0.0",
     "winston": "^3.2.1"

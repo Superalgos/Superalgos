@@ -113,23 +113,26 @@ exports.newUserBot = function newUserBot(bot, logger) {
         logInfo('Processing simulator record: ' + JSON.stringify(simulatorEngineMessage))
         receivedMessageId = simulatorEngineMessage.id
 
+
         // Verify if there is an inconsistent state between the simulator and executor
+        let isMessageAnOrderUpdate = (simulatorEngineMessage.messageType === MESSAGE_TYPE.OrderUpdate)
+        let isMessageAnOrderClose = (simulatorEngineMessage.messageType === MESSAGE_TYPE.OrderClose)
+        let isStopLoss = (simulatorEngineMessage.order.exitOutcome === ORDER_EXIT_OUTCOME.StopLoss)
+        let isTakeProfit = (simulatorEngineMessage.order.exitOutcome === ORDER_EXIT_OUTCOME.StopLoss)
+
         let isATradeOpen = (getValueFromPreviousExecution('lastSimulatorEngineMessageId') > 0)
         let isMessageAHeartBeat = (simulatorEngineMessage.messageType === MESSAGE_TYPE.HeartBeat)
         if (isATradeOpen && isMessageAHeartBeat) {
           logWarn('An inconsisten state was detected: there is an open trade and a close trade was expected.')
-          let skippedMessageOrderClose = getSkippedMessageOrderClose(indicatorFileContent)
-          if (skippedMessageOrderClose === undefined) {
+          simulatorEngineMessage = getSkippedMessageOrderClose(indicatorFileContent)
+          if (simulatorEngineMessage === undefined) {
             logWarn('There was not a Skipped Message Order Close. Closing the position the best possible.')
             stopLoss = assistant.getMarketRate()
             takeProfit = assistant.getMarketRate()
           } else {
             let lastSimulatorEngineMessageId = getValueFromPreviousExecution('lastSimulatorEngineMessageId')
-            if (skippedMessageOrderClose.id > lastSimulatorEngineMessageId) {
+            if (simulatorEngineMessage.id > lastSimulatorEngineMessageId) {
               logWarn('The Skipped Message Order Close was found and using it to set the SL and TP.')
-              isMessageAnOrderClose = (simulatorEngineMessage.messageType === MESSAGE_TYPE.OrderClose)
-              isStopLoss = (simulatorEngineMessage.order.exitOutcome === ORDER_EXIT_OUTCOME.StopLoss)
-              isTakeProfit = (simulatorEngineMessage.order.exitOutcome === ORDER_EXIT_OUTCOME.StopLoss)
             } else {
               logWarn('One Message Order Close was found but is older than the Open Order. Closing the position the best possible.')
               stopLoss = assistant.getMarketRate()
@@ -137,12 +140,6 @@ exports.newUserBot = function newUserBot(bot, logger) {
             }
           }
         }
-
-        // Validations to check the sync state between the simulator and executor
-        let isMessageAnOrderUpdate = (simulatorEngineMessage.messageType === MESSAGE_TYPE.OrderUpdate)
-        let isMessageAnOrderClose = (simulatorEngineMessage.messageType === MESSAGE_TYPE.OrderClose)
-        let isStopLoss = (simulatorEngineMessage.order.exitOutcome === ORDER_EXIT_OUTCOME.StopLoss)
-        let isTakeProfit = (simulatorEngineMessage.order.exitOutcome === ORDER_EXIT_OUTCOME.StopLoss)
 
         if (isMessageAnOrderUpdate) {
           stopLoss = simulatorEngineMessage.order.stop

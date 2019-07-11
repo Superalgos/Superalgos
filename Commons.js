@@ -1491,8 +1491,16 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             if (type === '"Close@TakeProfit"' || type === '"Close@StopLoss"') {
                                 messageType = MESSAGE_TYPE.OrderUpdate;
                             } else {
-                                messageType = MESSAGE_TYPE.OrderUpdate;
+                                messageType = MESSAGE_TYPE.OrderClose;
                             }
+                        }
+
+                        let exitOutcome = ""
+                        if (messageType === MESSAGE_TYPE.OrderClose && type === '"Close@TakeProfit"') {
+                            exitOutcome = "TP"
+                        }
+                        if (messageType === MESSAGE_TYPE.OrderClose && type === '"Close@TakeProfit"') {
+                            exitOutcome = "SL"
                         }
 
                         executionMessage = createMessage(
@@ -1516,7 +1524,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             -1,
                             ORDER_STATUS.Signaled,
                             0,
-                            "")
+                            exitOutcome)
 
                     }
                     else {

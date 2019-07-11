@@ -42,13 +42,10 @@ exports.newUserBot = function newUserBot(bot, logger) {
         throw new Error("Execution Parameter Data Set not defined.")
       }
 
-      let key = bot.devTeam + '-simulator-' + bot.codeName + '-Trading-Simulation-' + bot.dataSet + '-dataSet.V1'
+      let key = bot.devTeam + '-simulator-' + bot.codeName + '-Trading-Execution-' + bot.dataSet + '-dataSet.V1'
       fileStorage = assistant.dataDependencies.dataSets.get(key)
 
       if (fileStorage !== undefined) {
-        assistant.rememberThis('lastSimulatorEngineMessageId', 0)
-        assistant.rememberThis('lastStopLoss', 0)
-        assistant.rememberThis('lastTakeProfit', 0)
         callBackFunction(global.DEFAULT_OK_RESPONSE)
       } else {
         logError('initialize -> Failed to initialize storage. Key not found:' + key)
@@ -93,21 +90,72 @@ exports.newUserBot = function newUserBot(bot, logger) {
     })
   }
 
+  function getValueFromPreviousExecution(key) {
+    let value = assistant.remindMeOf(key)
+    if (value === undefined)
+      value = 0
+    return value
+  }
+
   async function executorLogic() {
     try {
       let indicatorFileContent = await getIndicatorFile()
       let simulatorEngineMessage = getSimulatorEngineMessageFromFile(indicatorFileContent)
       let autopilotResponse = await getAutopilot()
 
-      let stopLoss, takeProfit
+      let stopLoss, takeProfit, receivedMessageId
       if (simulatorEngineMessage === undefined) {
         logWarn('start -> Simulator message not available. Will proceed to check SL and TP from previous execution.')
-        stopLoss = assistant.remindMeOf('lastStopLoss')
-        takeProfit = assistant.remindMeOf('lastTakeProfit')
+        stopLoss = getValueFromPreviousExecution('lastStopLoss')
+        takeProfit = getValueFromPreviousExecution('lastTakeProfit')
+        receivedMessageId = 0
       } else {
         logInfo('Processing simulator record: ' + JSON.stringify(simulatorEngineMessage))
-        stopLoss = simulatorEngineMessage.order.stop
-        takeProfit = simulatorEngineMessage.order.takeProfit
+        receivedMessageId = simulatorEngineMessage.id
+
+        // Verify if there is an inconsistent state between the simulator and executor
+        let isATradeOpen = (getValueFromPreviousExecution('lastSimulatorEngineMessageId') > 0)
+        let isMessageAHeartBeat = (simulatorEngineMessage.messageType === MESSAGE_TYPE.HeartBeat)
+        if (isATradeOpen && isMessageAHeartBeat) {
+          logWarn('An inconsisten state was detected: there is an open trade and a close trade was expected.')
+          let skippedMessageOrderClose = getSkippedMessageOrderClose(indicatorFileContent)
+          if (skippedMessageOrderClose === undefined) {
+            logWarn('There was not a Skipped Message Order Close. Closing the position the best possible.')
+            stopLoss = assistant.getMarketRate()
+            takeProfit = assistant.getMarketRate()
+          } else {
+            let lastSimulatorEngineMessageId = getValueFromPreviousExecution('lastSimulatorEngineMessageId')
+            if (skippedMessageOrderClose.id > lastSimulatorEngineMessageId) {
+              logWarn('The Skipped Message Order Close was found and using it to set the SL and TP.')
+              isMessageAnOrderClose = (simulatorEngineMessage.messageType === MESSAGE_TYPE.OrderClose)
+              isStopLoss = (simulatorEngineMessage.order.exitOutcome === ORDER_EXIT_OUTCOME.StopLoss)
+              isTakeProfit = (simulatorEngineMessage.order.exitOutcome === ORDER_EXIT_OUTCOME.StopLoss)
+            } else {
+              logWarn('One Message Order Close was found but is older than the Open Order. Closing the position the best possible.')
+              stopLoss = assistant.getMarketRate()
+              takeProfit = assistant.getMarketRate()
+            }
+          }
+        }
+
+        // Validations to check the sync state between the simulator and executor
+        let isMessageAnOrderUpdate = (simulatorEngineMessage.messageType === MESSAGE_TYPE.OrderUpdate)
+        let isMessageAnOrderClose = (simulatorEngineMessage.messageType === MESSAGE_TYPE.OrderClose)
+        let isStopLoss = (simulatorEngineMessage.order.exitOutcome === ORDER_EXIT_OUTCOME.StopLoss)
+        let isTakeProfit = (simulatorEngineMessage.order.exitOutcome === ORDER_EXIT_OUTCOME.StopLoss)
+
+        if (isMessageAnOrderUpdate) {
+          stopLoss = simulatorEngineMessage.order.stop
+          takeProfit = simulatorEngineMessage.order.takeProfit
+        } else if (isMessageAnOrderClose && isStopLoss) {
+          stopLoss = assistant.getMarketRate()
+          takeProfit = 0
+        } else if (isMessageAnOrderClose && isTakeProfit) {
+          stopLoss = 0
+          takeProfit = assistant.getMarketRate()
+        }
+        assistant.rememberThis('lastStopLoss', stopLoss)
+        assistant.rememberThis('lastTakeProfit', takeProfit)
       }
 
       // Checking Stop Loss
@@ -120,7 +168,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
           let position = await createBuyPosition(currentRate)
 
           let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
-          simulatorExecutorMessage.id = position.id
+          simulatorExecutorMessage.id = receivedMessageId
           simulatorExecutorMessage.order.id = position.id
           simulatorExecutorMessage.order.rate = currentRate
           simulatorExecutorMessage.order.stop = stopLoss
@@ -137,6 +185,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
           assistant.rememberThis('lastTakeProfit', 0)
         } catch (error) {
           let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
+          simulatorExecutorMessage.id = receivedMessageId
           simulatorExecutorMessage.from = MESSAGE_ENTITY.TradingAssistant
           simulatorExecutorMessage.to = MESSAGE_ENTITY.SimulationExecutor
           simulatorExecutorMessage.order.rate = position.rate
@@ -160,7 +209,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
           let position = await createBuyPosition(currentRate, assetABalance)
 
           let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
-          simulatorExecutorMessage.id = position.id
+          simulatorExecutorMessage.id = receivedMessageId
           simulatorExecutorMessage.order.id = position.id
           simulatorExecutorMessage.order.rate = currentRate
           simulatorExecutorMessage.order.stop = stopLoss
@@ -177,6 +226,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
           assistant.rememberThis('lastTakeProfit', 0)
         } catch (error) {
           let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
+          simulatorExecutorMessage.id = receivedMessageId
           simulatorExecutorMessage.from = MESSAGE_ENTITY.TradingAssistant
           simulatorExecutorMessage.to = MESSAGE_ENTITY.SimulationExecutor
           simulatorExecutorMessage.order.rate = currentRate
@@ -185,6 +235,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
           simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Buy
           simulatorExecutorMessage.order.size = assetABalance
           simulatorExecutorMessage.order.status = ORDER_STATUS.Rejected
+          simulatorExecutorMessage.order.statusDetails = error.message
 
           let message = createMessageFromObject(simulatorExecutorMessage)
           assistant.addExtraData(message)
@@ -214,7 +265,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
     if (simulatorEngineMessage.messageType === MESSAGE_TYPE.Order
       && simulatorEngineMessage.order.direction === ORDER_DIRECTION.Sell) {
 
-      let lastSimulatorEngineMessageId = assistant.remindMeOf('lastSimulatorEngineMessageId')
+      let lastSimulatorEngineMessageId = getValueFromPreviousExecution('lastSimulatorEngineMessageId')
       if (lastSimulatorEngineMessageId >= simulatorEngineMessage.id) {
         logInfo("manageCloneInAutopilotOn -> Order message was previously processed.")
         return
@@ -223,7 +274,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
       try {
         let position = await createSellPosition(currentRate, assetBBalance)
         let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
-        simulatorExecutorMessage.id = position.id
+        simulatorExecutorMessage.id = simulatorEngineMessage.id
         simulatorExecutorMessage.order.id = position.id
         simulatorExecutorMessage.order.rate = currentRate
         simulatorExecutorMessage.order.stop = simulatorEngineMessage.order.stop
@@ -233,11 +284,12 @@ exports.newUserBot = function newUserBot(bot, logger) {
 
         let message = createMessageFromObject(simulatorExecutorMessage)
         assistant.addExtraData(message)
-        assistant.rememberThis('lastSimulatorEngineMessageId', parseInt(simulatorEngineMessage.id))
+        assistant.rememberThis('lastSimulatorEngineMessageId', simulatorEngineMessage.id)
         assistant.rememberThis('lastStopLoss', simulatorEngineMessage.order.stop)
         assistant.rememberThis('lastTakeProfit', simulatorEngineMessage.order.takeProfit)
       } catch (error) {
         let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
+        simulatorExecutorMessage.id = receivedMessageId
         simulatorExecutorMessage.from = MESSAGE_ENTITY.TradingAssistant
         simulatorExecutorMessage.to = MESSAGE_ENTITY.SimulationExecutor
         simulatorExecutorMessage.messageType = MESSAGE_TYPE.Order
@@ -247,6 +299,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
         simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Sell
         simulatorExecutorMessage.order.size = assetBBalance
         simulatorExecutorMessage.order.status = ORDER_STATUS.Rejected
+        simulatorExecutorMessage.order.statusDetails = error.message
 
         let message = createMessageFromObject(simulatorExecutorMessage)
         assistant.addExtraData(message)
@@ -272,7 +325,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
 
           // 1) Save audit containing what we received from the cockpit
           let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
-          simulatorExecutorMessage.id = 0
+          simulatorExecutorMessage.id = simulatorEngineMessage.id
           simulatorExecutorMessage.from = MESSAGE_ENTITY.TradingCokpit
           simulatorExecutorMessage.to = MESSAGE_ENTITY.SimulationExecutor
           simulatorExecutorMessage.order = acceptedSignal.orderData // we save the order as received
@@ -285,7 +338,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
 
           // 3) Save the audit of the order placed
           simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
-          simulatorExecutorMessage.id = position.id
+          simulatorExecutorMessage.id = simulatorEngineMessage.id
           simulatorExecutorMessage.from = MESSAGE_ENTITY.SimulationExecutor
           simulatorExecutorMessage.to = MESSAGE_ENTITY.TradingAssistant
           simulatorExecutorMessage.dateTime = position.date
@@ -307,12 +360,13 @@ exports.newUserBot = function newUserBot(bot, logger) {
         } catch (error) {
           // Update the cockpit with the error
           let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
-          simulatorExecutorMessage.id = 0
+          simulatorExecutorMessage.id = simulatorEngineMessage.id
           simulatorExecutorMessage.from = MESSAGE_ENTITY.SimulationExecutor
           simulatorExecutorMessage.to = MESSAGE_ENTITY.TradingCokpit
           simulatorExecutorMessage.messageType = MESSAGE_TYPE.Order
           simulatorExecutorMessage.dateTime = bot.processDatetime.valueOf()
           simulatorExecutorMessage.order.status = ORDER_STATUS.Rejected
+          simulatorExecutorMessage.order.statusDetails = error.message
 
           simulatorExecutorMessage.order = acceptedSignal.order
 
@@ -405,7 +459,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
 
       // 2) Save the audit message for the received info from Trading Simulator
       let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
-      simulatorExecutorMessage.id = 0
+      simulatorExecutorMessage.id = simulatorEngineMessage.id
       simulatorExecutorMessage.to = MESSAGE_ENTITY.TradingCokpit
       simulatorExecutorMessage.messageType = MESSAGE_TYPE.Order
       simulatorExecutorMessage.order.id = 0
@@ -524,17 +578,17 @@ exports.newUserBot = function newUserBot(bot, logger) {
 
   // Storage functions
   async function getIndicatorFile() {
-    logInfo('getIndicatorFile -> Entering function.')
+    logInfo('getIndicatorFile -> Entering function. ' + bot.processDatetime.toISOString())
 
     let filePath
     if (bot.processes[0].timePeriod > 2700000) {
       // Market Files
-      filePath = 'Trading-Simulation/' + bot.dataSet + '/' + bot.timePeriodFileStorage
+      filePath = 'Trading-Execution/' + bot.dataSet + '/' + bot.timePeriodFileStorage
     } else {
       // Daily Files
       let dateTime = bot.processDatetime
       let datePath = dateTime.getUTCFullYear() + '/' + pad(dateTime.getUTCMonth() + 1, 2) + '/' + pad(dateTime.getUTCDate(), 2)
-      filePath = 'Trading-Simulation/' + bot.dataSet + '/' + bot.timePeriodFileStorage + '/' + datePath
+      filePath = 'Trading-Execution/' + bot.dataSet + '/' + bot.timePeriodFileStorage + '/' + datePath
     }
 
     /*
@@ -561,7 +615,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
       if (bot.processDatetime.valueOf() <= lastAvailableDateTime || !isExecutionToday()) {
         for (let i = 0; i < indicatorFileContent.length; i++) {
           if (bot.processDatetime.valueOf() >= indicatorFileContent[i][0] && bot.processDatetime.valueOf() < indicatorFileContent[i][1]) {
-            return getMessage(indicatorFileContent[i][25])
+            return getMessage(indicatorFileContent[i][2])
           }
         }
 
@@ -570,13 +624,29 @@ exports.newUserBot = function newUserBot(bot, logger) {
         // Running live we will process last available Indicator Message only if it's delayed 10 minutes top
         let maxTolerance = 10 * 60 * 1000
         if (bot.processDatetime.valueOf() <= (lastAvailableDateTime + maxTolerance)) {
-          return getMessage(indicatorFileContent[lastIndexIndicatorFile][25])
+          return getMessage(indicatorFileContent[lastIndexIndicatorFile][2])
         } else {
           logWarn('getSimulatorEngineMessageFromFile -> Last available indicator older than 10 minutes.')
         }
       }
     } catch (error) {
       logError('getSimulatorEngineMessageFromFile -> error = ' + error.message)
+      throw global.DEFAULT_RETRY_RESPONSE
+    }
+  }
+
+  function getSkippedMessageOrderClose(indicatorFileContent) {
+    try {
+      let lastIndexIndicatorFile = indicatorFileContent.length - 1
+
+      for (let i = lastIndexIndicatorFile; i >= 0; i--) {
+        let simulatorMessage = getMessage(indicatorFileContent[i][2])
+        if (simulatorMessage.messageType === MESSAGE_TYPE.OrderClose) {
+          return simulatorMessage
+        }
+      }
+    } catch (error) {
+      logError('getSkippedMessageOrderClose -> error = ' + error.message)
       throw global.DEFAULT_RETRY_RESPONSE
     }
   }
@@ -774,16 +844,18 @@ exports.newUserBot = function newUserBot(bot, logger) {
     simulatorExecutorMessage.dateTime = bot.processDatetime.valueOf()
 
     simulatorExecutorMessage.order = {}
+    simulatorExecutorMessage.order.id = 0
     simulatorExecutorMessage.order.dateTime = bot.processDatetime.valueOf()
     simulatorExecutorMessage.order.creator = ORDER_CREATOR.SimulationEngine
     simulatorExecutorMessage.order.owner = ORDER_OWNER.User
     simulatorExecutorMessage.order.exchange = global.EXCHANGE_NAME
-    simulatorExecutorMessage.order.market = global.MARKET.name
+    simulatorExecutorMessage.order.market = global.MARKET.assetA + '_' + global.MARKET.assetB
     simulatorExecutorMessage.order.marginEnabled = ORDER_MARGIN_ENABLED.False
     simulatorExecutorMessage.order.type = ORDER_TYPE.Limit
     simulatorExecutorMessage.order.status = ORDER_STATUS.Placed
     simulatorExecutorMessage.order.sizeFilled = 0
     simulatorExecutorMessage.order.exitOutcome = ''
+    simulatorExecutorMessage.order.statusMessage = ''
 
     return simulatorExecutorMessage
   }

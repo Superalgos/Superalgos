@@ -16,6 +16,7 @@ const resolve = async (parent, { file }, context) => {
     let host = await getDevTeamHost(file.container, file.accessKey)
 
     if (host === undefined || host === null) {
+      logger.error('Error getting file:' + JSON.stringify(file))
       throw new AuthenticationError()
     }
 

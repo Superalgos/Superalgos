@@ -29,7 +29,7 @@ const resolve = async (parent, { bot }, context) => {
               if (auxProduct.codeName === bot.productCodeName) {
                 newBotClone = {
                   displayName: auxBot.displayName,
-                  codeName: auxBot.codeName + '-' + bot.cloneId,
+                  codeName: auxBot.codeName,
                   type: auxBot.type,
                   profilePicture: auxBot.profilePicture,
                   cloneId: bot.cloneId,

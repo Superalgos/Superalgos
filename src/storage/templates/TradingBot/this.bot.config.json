@@ -7,7 +7,7 @@
         "minor": 0,
         "patch": 0
     },
-    "devTeam": "aavikings",
+    "devTeam": "vikings",
     "profilePicture": "bumblebee.png",
     "dataSetVersion": "dataSet.V1",
     "processes": [
@@ -73,7 +73,7 @@
                         "major": 1,
                         "minor": 0
                     },
-                    "product": "Trading-Simulation",
+                    "product": "Trading-Execution",
                     "dataSetVersion": "dataSet.V1",
                     "dataSet": "Multi-Period-Market"
                 },
@@ -84,7 +84,7 @@
                         "major": 1,
                         "minor": 0
                     },
-                    "product": "Trading-Simulation",
+                    "product": "Trading-Execution",
                     "dataSetVersion": "dataSet.V1",
                     "dataSet": "Multi-Period-Daily"
                 }
@@ -101,27 +101,7 @@
                 {
                     "codeName": "Oficial History",
                     "type": "File Sequence",
-                    "validPeriods": [
-                        "24-hs",
-                        "12-hs",
-                        "08-hs",
-                        "06-hs",
-                        "04-hs",
-                        "03-hs",
-                        "02-hs",
-                        "01-hs",
-                        "45-min",
-                        "40-min",
-                        "30-min",
-                        "20-min",
-                        "15-min",
-                        "10-min",
-                        "05-min",
-                        "04-min",
-                        "03-min",
-                        "02-min",
-                        "01-min"
-                    ],
+                    "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
                     "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
                     "fileName": "Execution.History.Live.@Sequence.json"
                 }
@@ -131,11 +111,11 @@
                     "name": "Poloniex"
                 }
             ],
-            "plotter": {
-                "devTeam": "AAMasters",
-                "codeName": "PlottersTradingSimulation",
-                "moduleName": "SimulationExecution"
-            }
+          "plotter": {
+            "devTeam": "AAMasters",
+            "codeName": "PlottersTradingSimulation",
+            "moduleName": "SimulationExecution"
+          }
         },
         {
             "codeName": "Backtest Trading History",
@@ -146,27 +126,7 @@
                 {
                     "codeName": "Backtest History",
                     "type": "File Sequence",
-                    "validPeriods": [
-                        "24-hs",
-                        "12-hs",
-                        "08-hs",
-                        "06-hs",
-                        "04-hs",
-                        "03-hs",
-                        "02-hs",
-                        "01-hs",
-                        "45-min",
-                        "40-min",
-                        "30-min",
-                        "20-min",
-                        "15-min",
-                        "10-min",
-                        "05-min",
-                        "04-min",
-                        "03-min",
-                        "02-min",
-                        "01-min"
-                    ],
+                    "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
                     "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
                     "fileName": "Execution.History.Backtest.@Sequence.json"
                 }
@@ -176,11 +136,11 @@
                     "name": "Poloniex"
                 }
             ],
-            "plotter": {
-                "devTeam": "AAMasters",
-                "codeName": "PlottersTradingSimulation",
-                "moduleName": "SimulationExecution"
-            }
+          "plotter": {
+            "devTeam": "AAMasters",
+            "codeName": "PlottersTradingSimulation",
+            "moduleName": "SimulationExecution"
+          }
         },
         {
             "codeName": "Competition Trading History",
@@ -191,27 +151,7 @@
                 {
                     "codeName": "Competition History",
                     "type": "File Sequence",
-                    "validPeriods": [
-                        "24-hs",
-                        "12-hs",
-                        "08-hs",
-                        "06-hs",
-                        "04-hs",
-                        "03-hs",
-                        "02-hs",
-                        "01-hs",
-                        "45-min",
-                        "40-min",
-                        "30-min",
-                        "20-min",
-                        "15-min",
-                        "10-min",
-                        "05-min",
-                        "04-min",
-                        "03-min",
-                        "02-min",
-                        "01-min"
-                    ],
+                    "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
                     "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
                     "fileName": "Execution.History.Competition.@Sequence.json"
                 }
@@ -221,11 +161,11 @@
                     "name": "Poloniex"
                 }
             ],
-            "plotter": {
-                "devTeam": "AAMasters",
-                "codeName": "PlottersTradingSimulation",
-                "moduleName": "SimulationExecution"
-            }
+          "plotter": {
+            "devTeam": "AAMasters",
+            "codeName": "PlottersTradingSimulation",
+            "moduleName": "SimulationExecution"
+          }
         }
     ],
     "marketRateProvider": {

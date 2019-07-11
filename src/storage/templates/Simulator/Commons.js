@@ -65,6 +65,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
 
+            let executionArray = [];
             let recordsArray = [];
             let conditionsArray = [];
             let strategiesArray = [];
@@ -183,8 +184,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             /* Simulation Records */
 
-            let positionRate = 0;
-            let positionSize = 0;
+            let tradePositionRate = 0;
+            let tradePositionSize = 0;
             let positionInstant;
 
             let previousBalanceAssetA = 0;
@@ -341,36 +342,56 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             for (let i = 0; i < candles.length; i++) {
 
-                /* Update all the data objects available for the simulation. */
 
                 let candle = candles[i];
                 let percentageBandwidth = percentageBandwidthMap.get(candle.begin);
                 let bollingerBand = bollingerBandsMap.get(candle.begin);
+                let bollingerChannel = getElement(bollingerChannelsArray, candle.begin, candle.end);
+                let bollingerSubChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
+
                 //let LRC = LRCMap.get(candle.begin);
 
-                //if (LRC === undefined) { continue; }
-                if (percentageBandwidth === undefined) { continue; } // percentageBandwidth might start after the first few candles.
+                /* If any of the needed indicators is missing, then that period is not calculated */
+
                 if (candle.begin < initialDate.valueOf()) { continue; }
+                if (bollingerBand === undefined) { continue; }
+                if (percentageBandwidth === undefined) { continue; } // percentageBandwidth might start after the first few candles.
+                if (bollingerChannel === undefined) { continue; }
+                if (bollingerSubChannel === undefined) { continue; }
+
+                //if (LRC === undefined) { continue; }
 
                 periods++;
                 days = periods * timePeriod / ONE_DAY_IN_MILISECONDS;
 
-                if (currentDay !== undefined) {
+                if (currentDay !== undefined) { // This means that we are processing Daily Files
                     if (candle.end < currentDay.valueOf()) {
                         yesterday.Periods++;
                     }
-                }
 
-                let channel = getElement(bollingerChannelsArray, candle.begin, candle.end);
-                let subChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
+                    /* We skip the candle at the head of the market because i has not closed yet. */
+                    let candlesPerDay = ONE_DAY_IN_MILISECONDS / timePeriod
+                    if (i === candles.length - 1) {
+                        if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2) ) {
+                            /*We are at the head of the market, thus we skip the last candle because it has not close yet. */
+                            continue;
+                            /* Note here that in the last candle of the first day or the second day it will use an incomplete candle and partially calculated indicators.
+                               if we skip these two periods, then there will be a hole in the file since the last period will be missing. */
+                        }
+                    }
+                } else { // We are processing Market Files
+                    if (i === candles.length - 1) {
+                        continue;
+                    }
+                }
 
                 let lastObjects = {
                     candle: clone(candle),
                     //LRC: clone(LRC),
                     bollingerBand: clone(bollingerBand),
                     percentageBandwidth: clone(percentageBandwidth),
-                    channel: clone(channel),
-                    subChannel: clone(subChannel)
+                    bollingerChannel: clone(bollingerChannel),
+                    bollingerSubChannel: clone(bollingerSubChannel)
                 }
 
                 function clone(obj) {
@@ -386,8 +407,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 //lastObjects.LRC.previous = undefined;
                 lastObjects.bollingerBand.previous = undefined;
                 lastObjects.percentageBandwidth.previous = undefined;
-                lastObjects.channel.previous = undefined;
-                lastObjects.subChannel.previous = undefined;
+                lastObjects.bollingerChannel.previous = undefined;
+                lastObjects.bollingerSubChannel.previous = undefined;
 
                 lastObjectsArray.push(lastObjects);
 
@@ -414,6 +435,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
                         let strategy = tradingSystem.strategies[j];
+
+                        let positionSize = 0
+                        let positionRate = 0
+
+                        /* Continue with the rest of the formulas and conditions */
 
                         let triggerStage = strategy.triggerStage
 
@@ -478,9 +504,66 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         if (openStage !== undefined) {
 
+                            /* Default Values*/
+                            if (baseAsset === 'BTC') {
+                                positionSize = balanceAssetA;
+                                positionRate = candle.close;
+                            } else {
+                                positionSize = balanceAssetB;
+                                positionRate = candle.close;
+                            }
+
                             let initialDefinition = openStage.initialDefinition
 
                             if (initialDefinition !== undefined) {
+
+                                if (tradePositionSize !== 0) {
+                                    positionSize = tradePositionSize
+                                } else {
+                                    if (initialDefinition.positionSize !== undefined) {
+                                        if (initialDefinition.positionSize.formula !== undefined) {
+                                            try {
+                                                positionSize = eval(initialDefinition.positionSize.formula.code);
+                                            } catch (err) {
+                                                initialDefinition.positionSize.formula.error = err.message
+                                            }
+                                            if (isNaN(positionSize)) {
+                                                if (baseAsset === 'BTC') {
+                                                    positionSize = balanceAssetA;
+                                                } else {
+                                                    positionSize = balanceAssetB;
+                                                }
+                                            } else {
+                                                if (baseAsset === 'BTC') {
+                                                    if (positionSize > balanceAssetA) { positionSize = balanceAssetA }
+                                                } else {
+                                                    if (positionSize > balanceAssetB) { positionSize = balanceAssetB }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (tradePositionRate !== 0) {
+                                    positionRate = tradePositionRate
+                                } else {
+                                    if (initialDefinition.positionRate !== undefined) {
+                                        if (initialDefinition.positionRate.formula !== undefined) {
+                                            try {
+                                                positionRate = eval(initialDefinition.positionRate.formula.code);
+                                            } catch (err) {
+                                                initialDefinition.positionRate.formula.error = err.message
+                                            }
+                                            if (isNaN(positionRate)) {
+                                                if (baseAsset === 'BTC') {
+                                                    positionRate = candle.close;
+                                                } else {
+                                                    positionRate = candle.close;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
 
                                 if (initialDefinition.stopLoss !== undefined) {
 
@@ -500,7 +583,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                     formulaValue = MAX_STOP_LOSS_VALUE
                                                 }
                                             } catch (err) {
-                                                formulaError = err.message
+                                                if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
+                                                    /*
+                                                        We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                                    */
+                                                } else {
+                                                    formulaError = err.message
+                                                }
                                             }
                                             if (isNaN(formulaValue)) { formulaValue = 0; }
                                             if (formulaValue < MIN_STOP_LOSS_VALUE) {
@@ -553,7 +642,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                     formulaValue = MAX_TAKE_PROFIT_VALUE
                                                 }
                                             } catch (err) {
-                                                formulaError = err.message
+                                                if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
+                                                    /*
+                                                        We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                                    */
+                                                } else {
+                                                    formulaError = err.message
+                                                }
                                             }
                                             if (isNaN(formulaValue)) { formulaValue = 0; }
                                             if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
@@ -588,6 +683,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     }
                                 }
                             }
+
+                            strategy.positionSize = positionSize
+                            strategy.positionRate = positionRate
                         }
 
                         let manageStage = strategy.manageStage
@@ -612,7 +710,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                 formulaValue = MAX_STOP_LOSS_VALUE
                                             }
                                         } catch (err) {
-                                            formulaError = err.message
+                                            if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
+                                                /*
+                                                    We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                                */
+                                            } else {
+                                                formulaError = err.message
+                                            }
                                         }
                                         if (isNaN(formulaValue)) { formulaValue = 0; }
                                         if (formulaValue < MIN_STOP_LOSS_VALUE) {
@@ -665,7 +769,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                                 formulaValue = MAX_TAKE_PROFIT_VALUE
                                             }
                                         } catch (err) {
-                                            formulaError = err.message
+                                            if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
+                                                /*
+                                                    We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                                */
+                                            } else {
+                                                formulaError = err.message
+                                            }
                                         }
                                         if (isNaN(formulaValue)) { formulaValue = 0; }
                                         if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
@@ -700,39 +810,45 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 }
                             }
                         }
-                    }
 
-                    function newCondition(key, node) {
+                        function newCondition(key, node) {
 
-                        let condition;
-                        let error = ''
-                        let value
+                            let condition;
+                            let error = ''
+                            let value
 
-                        try {
-                            value = eval(node.code);
-                        } catch (err) {
-                            /*
-                                One possible error is that the conditions references a .previous that is undefined. For this
-                                reason and others, we will simply set the value to false.
-                            */
-                            value = false
-                            node.error = err.message
+                            try {
+                                value = eval(node.code);
+                            } catch (err) {
+                                /*
+                                    One possible error is that the conditions references a .previous that is undefined. For this
+                                    reason and others, we will simply set the value to false.
+                                */
+                                value = false
+
+                                if (node.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
+                                    /*
+                                        We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                    */
+                                } else {
+                                    node.error = err.message
+                                }
+                            }
+
+                            condition = {
+                                key: key,
+                                value: value
+                            };
+
+                            conditions.set(condition.key, condition);
+
+                            if (condition.value) {
+                                conditionsArrayValues.push(1);
+                            } else {
+                                conditionsArrayValues.push(0);
+                            }
                         }
-
-                        condition = {
-                            key: key,
-                            value: value
-                        };
-
-                        conditions.set(condition.key, condition);
-
-                        if (condition.value) {
-                            conditionsArrayValues.push(1);
-                        } else {
-                            conditionsArrayValues.push(0);
-                        }
                     }
-
                 }
 
                 /* Trigger On Conditions */
@@ -809,11 +925,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
                         }
                     } else {
+                        let stopRunningDate = new Date(candle.begin)
                         if (balance < minimumBalance) {
-                            tradingSystem.error = "Balance below the minimum."
+                            tradingSystem.error = "Min Balance @ " + stopRunningDate.toUTCString()
                         }
                         if (balance > maximumBalance) {
-                            tradingSystem.error = "Balance above the maximum."
+                            tradingSystem.error = "Max Balance @ " + stopRunningDate.toUTCString()
                         }
                     }
                 }
@@ -893,7 +1010,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                 if (passed) {
 
-                                    type = '"Sell"';
+                                    type = '"Take Position"';
 
                                     strategyStage = 'Open Stage';
                                     stopLossStage = 'Open Stage';
@@ -1153,7 +1270,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
 
                         marketRate = stopLoss;
-                        type = '"Buy@StopLoss"';
+                        type = '"Close@StopLoss"';
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
@@ -1189,7 +1306,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
 
                         marketRate = takeProfit;
-                        type = '"Buy@TakeProfit"';
+                        type = '"Close@TakeProfit"';
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
@@ -1211,44 +1328,24 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 ) {
                     takePositionNow = false
 
-                    /* positionSize default is the whole balance if no size was defined by the user */
+                    /* tradePositionSize default is the whole balance if no size was defined by the user */
                     if (baseAsset === 'BTC') {
-                        positionSize = balanceAssetA;
+                        tradePositionSize = balanceAssetA;
                     } else {
-                        positionSize = balanceAssetB;
+                        tradePositionSize = balanceAssetB;
                     }
+                    tradePositionRate = candle.close
 
-                    /* Check if the user defined a position size */
+                    /* Check if the user defined a position size or rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
-                    let triggerStage = strategy.triggerStage
 
-                    if (triggerStage !== undefined) {
-                        if (triggerStage.positionSize !== undefined) {
-                            if (triggerStage.positionSize.formula !== undefined) {
-                                try {
-                                    positionSize = eval(triggerStage.positionSize.formula.code);
-                                } catch (err) {
-                                    triggerStage.positionSize.formula.error = err.message
-                                }
-                                if (isNaN(positionSize)) {
-                                    if (baseAsset === 'BTC') {
-                                        positionSize = balanceAssetA;
-                                    } else {
-                                        positionSize = balanceAssetB;
-                                    }
-                                } else {
-                                    if (baseAsset === 'BTC') {
-                                        if (positionSize > balanceAssetA) { positionSize = balanceAssetA}
-                                    } else {
-                                        if (positionSize > balanceAssetB) { positionSize = balanceAssetB}
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    tradePositionSize = strategy.positionSize;
+                    tradePositionRate = strategy.positionRate;
+
+                    calculateTakeProfit();
+                    calculateStopLoss();
 
                     marketRate = candle.close;
-                    positionRate = candle.close;
 
                     previousBalanceAssetA = balanceAssetA;
                     previousBalanceAssetB = balanceAssetB;
@@ -1257,11 +1354,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     lastTradeROI = 0;
 
                     if (baseAsset === 'BTC') {
-                        balanceAssetB = balanceAssetB + positionSize * positionRate;
-                        balanceAssetA = balanceAssetA - positionSize;
+                        balanceAssetB = balanceAssetB + tradePositionSize * tradePositionRate;
+                        balanceAssetA = balanceAssetA - tradePositionSize;
                     } else {
-                        balanceAssetA = balanceAssetA + positionSize / positionRate;
-                        balanceAssetB = balanceAssetB - positionSize;
+                        balanceAssetA = balanceAssetA + tradePositionSize / tradePositionRate;
+                        balanceAssetB = balanceAssetB - tradePositionSize;
                     }
 
                     positionInstant = candle.end;
@@ -1293,12 +1390,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (baseAsset === 'BTC') {
                         lastTradeProfitLoss = balanceAssetA - previousBalanceAssetA;
-                        lastTradeROI = lastTradeProfitLoss * 100 / positionSize;
+                        lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
                         if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
                         profit = balanceAssetA - initialBalanceA;
                     } else {
                         lastTradeProfitLoss = balanceAssetB - previousBalanceAssetB;
-                        lastTradeROI = lastTradeProfitLoss * 100 / positionSize;
+                        lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
                         if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
                         profit = balanceAssetB - initialBalanceB;
                     }
@@ -1356,8 +1453,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     currentStrategyIndex = -1;
                     stopLoss = 0;
-                    positionRate = 0;
-                    positionSize = 0;
+                    tradePositionRate = 0;
+                    tradePositionSize = 0;
                     positionInstant = undefined;
                     takeProfit = 0;
                     strategyStage = 'No Stage';
@@ -1380,21 +1477,33 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let messageType;
                     let message;
                     let simulationRecord;
-                    let orderRecord;
+                    let executionRecord;
+                    let executionMessage;
 
                     messageId++;
 
-                    if (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') {
+                    if (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage' || type === '"Close@TakeProfit"' || type === '"Close@StopLoss"') {
 
-                        if (strategyStage === 'Open Stage') {
+                        if (type === '"Take Position"') {
                             messageType = MESSAGE_TYPE.Order;
                             orderId++;
-                        }
-                        if (strategyStage === 'Manage Stage') {
-                            messageType = MESSAGE_TYPE.OrderUpdate;
+                        } else {
+                            if (type === '"Close@TakeProfit"' || type === '"Close@StopLoss"') {
+                                messageType = MESSAGE_TYPE.OrderClose;
+                            } else {
+                                messageType = MESSAGE_TYPE.OrderUpdate;
+                            }
                         }
 
-                        orderRecord = createMessage(
+                        let exitOutcome = ""
+                        if (messageType === MESSAGE_TYPE.OrderClose && type === '"Close@TakeProfit"') {
+                            exitOutcome = "TP"
+                        }
+                        if (messageType === MESSAGE_TYPE.OrderClose && type === '"Close@StopLoss"') {
+                            exitOutcome = "SL"
+                        }
+
+                        executionMessage = createMessage(
                             messageId,
                             MESSAGE_ENTITY.SimulationEngine,
                             MESSAGE_ENTITY.SimulationExecutor,
@@ -1408,19 +1517,19 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             "BTC_USDT",
                             0,
                             ORDER_TYPE.Limit,
-                            marketRate,
+                            tradePositionRate,
                             stopLoss,
                             takeProfit,
                             ORDER_DIRECTION.Sell,
                             -1,
                             ORDER_STATUS.Signaled,
                             0,
-                            "")
+                            exitOutcome)
 
                     }
                     else {
 
-                        orderRecord = createMessage(
+                        executionMessage = createMessage(
                             messageId,
                             MESSAGE_ENTITY.SimulationEngine,
                             MESSAGE_ENTITY.SimulationExecutor,
@@ -1443,6 +1552,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             0,
                             "")
                     }
+
+                    executionRecord = {
+                        begin: candle.begin,
+                        end: candle.end,
+                        executionRecord: executionMessage
+                    }
+
+                    executionArray.push(executionRecord)
 
                     let strategyStageNumber
                     switch (strategyStage) {
@@ -1497,15 +1614,15 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         periods: periods,
                         days: days,
                         anualizedRateOfReturn: anualizedRateOfReturn,
-                        positionRate: positionRate,
+                        positionRate: tradePositionRate,
                         lastTradeROI: lastTradeROI,
                         strategy: currentStrategyIndex,
                         strategyStageNumber: strategyStageNumber,
                         takeProfit: takeProfit,
                         stopLossPhase: stopLossPhase,
                         takeProfitPhase: takeProfitPhase,
-                        orderRecord: orderRecord,
-                        positionSize: positionSize,
+                        executionRecord: executionMessage,
+                        positionSize: tradePositionSize,
                         initialBalanceA: initialBalanceA,
                         minimumBalanceA: minimumBalanceA,
                         maximumBalanceA: maximumBalanceA,
@@ -1605,7 +1722,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> callback -> recordsArray.length = " + recordsArray.length); }
 
-            callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, tradesArray, lastObjectsArray);
+            callback(tradingSystem, executionArray, recordsArray, conditionsArray, strategiesArray, tradesArray, lastObjectsArray);
 
             function getElement(pArray, begin, end) {
 
@@ -1620,11 +1737,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                element = {
-                    direction: 'unknown',
-                    slope: 'unknown'
-                };
-                return element;
+                return
             }
         }
         catch (err) {
@@ -1653,17 +1766,17 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (previous !== undefined) {
 
-                    if (previous._15 > LRC._15) { LRC.direction15 = 'down'; }
-                    if (previous._15 < LRC._15) { LRC.direction15 = 'up'; }
-                    if (previous._15 === LRC._15) { LRC.direction15 = 'side'; }
+                    if (previous._15 > LRC._15) { LRC.direction15 = 'Down'; }
+                    if (previous._15 < LRC._15) { LRC.direction15 = 'Up'; }
+                    if (previous._15 === LRC._15) { LRC.direction15 = 'Side'; }
 
-                    if (previous._30 > LRC._30) { LRC.direction30 = 'down'; }
-                    if (previous._30 < LRC._30) { LRC.direction30 = 'up'; }
-                    if (previous._30 === LRC._30) { LRC.direction30 = 'side'; }
+                    if (previous._30 > LRC._30) { LRC.direction30 = 'Down'; }
+                    if (previous._30 < LRC._30) { LRC.direction30 = 'Up'; }
+                    if (previous._30 === LRC._30) { LRC.direction30 = 'Side'; }
 
-                    if (previous._60 > LRC._60) { LRC.direction60 = 'down'; }
-                    if (previous._60 < LRC._60) { LRC.direction60 = 'up'; }
-                    if (previous._60 === LRC._60) { LRC.direction60 = 'side'; }
+                    if (previous._60 > LRC._60) { LRC.direction60 = 'Down'; }
+                    if (previous._60 < LRC._60) { LRC.direction60 = 'Up'; }
+                    if (previous._60 === LRC._60) { LRC.direction60 = 'Side'; }
 
                 }
 
@@ -1700,9 +1813,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (previous !== undefined) {
 
-                    if (previous.movingAverage > percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'down'; }
-                    if (previous.movingAverage < percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'up'; }
-                    if (previous.movingAverage === percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'side'; }
+                    if (previous.movingAverage > percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'Down'; }
+                    if (previous.movingAverage < percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'Up'; }
+                    if (previous.movingAverage === percentageBandwidth.movingAverage) { percentageBandwidth.direction = 'Side'; }
 
                 }
 
@@ -1739,9 +1852,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 if (previous !== undefined) {
 
-                    if (previous.movingAverage > bollingerBand.movingAverage) { bollingerBand.direction = 'down'; }
-                    if (previous.movingAverage < bollingerBand.movingAverage) { bollingerBand.direction = 'up'; }
-                    if (previous.movingAverage === bollingerBand.movingAverage) { bollingerBand.direction = 'side'; }
+                    if (previous.movingAverage > bollingerBand.movingAverage) { bollingerBand.direction = 'Down'; }
+                    if (previous.movingAverage < bollingerBand.movingAverage) { bollingerBand.direction = 'Up'; }
+                    if (previous.movingAverage === bollingerBand.movingAverage) { bollingerBand.direction = 'Side'; }
 
                 }
 
@@ -1772,11 +1885,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     begin: dataFile[i][0],
                     end: dataFile[i][1],
                     direction: dataFile[i][2],
-                    period: dataFile[i][3],
-                    firstMovingAverage: dataFile[i][4],
-                    lastMovingAverage: dataFile[i][5],
-                    firstDeviation: dataFile[i][6],
-                    lastDeviation: dataFile[i][7]
+                    period: dataFile[i][3]
                 };
 
                 bollingerChannel.previous = previous;
@@ -1856,9 +1965,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 candle.begin = dataFile[i][4];
                 candle.end = dataFile[i][5];
 
-                if (candle.open > candle.close) { candle.direction = 'down'; }
-                if (candle.open < candle.close) { candle.direction = 'up'; }
-                if (candle.open === candle.close) { candle.direction = 'side'; }
+                if (candle.open > candle.close) { candle.direction = 'Down'; }
+                if (candle.open < candle.close) { candle.direction = 'Up'; }
+                if (candle.open === candle.close) { candle.direction = 'Side'; }
 
                 candle.previous = previous;
 

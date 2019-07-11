@@ -9,7 +9,8 @@ const HostType = new GraphQLObjectType({
     url: { type: GraphQLString },
     storage: { type: GraphQLString },
     container: { type: GraphQLString },
-    accessKey: { type: GraphQLString }
+    accessKey: { type: GraphQLString },
+    ownerKey: { type: GraphQLString }
   }),
 });
 

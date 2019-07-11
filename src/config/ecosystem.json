@@ -8,7 +8,7 @@
 				"url": "https://demo-api-dev.superalgos.org/",
 				"storage": "localStorage",
 				"container": "aamasters",
-				"accessKey": ""
+				"accessKey": "09e890b76767ede3e10f0526b5036600a6b8d3faac540336e12b493fdb2aa9ed46f86094c34652f99fb6322e5f09806412f17725807f85e4dc4169bd22dd59f0b23aba5251f5544478a1aabf5a2dea5260e6eb0c29af3a788208af85025a02f94950437d501b91fd55b9d97b3d6ac3af4e1161321f78b73ca0fda524dc3a5d03"
 			},
 			"bots": [
 				{
@@ -728,7 +728,7 @@
 				"url": "https://demo-api-dev.superalgos.org/",
 				"container": "aavikings",
 				"storage": "localStorage",
-				"accessKey": ""
+				"accessKey": "0f38fea438be5adfc5873228f503c55353fb334406128b16a958851b8e47c118a08f0105dd8985d5479758fc4cc3f56c2e2364c2d7c3d0fdffba8d7e9356056a34629e3b926b1ebb940122d973db30b04fc18fab542cbc1afdc032dccf64b0fe308ee6bbc74f82bd350aaebf723428a50d8a699fa2b4b96d58716986ed24069f"
 			},
 			"bots": [
 				{
@@ -834,8 +834,8 @@
 			"host": {
 				"url": "https://demo-api-dev.superalgos.org/",
 				"storage": "localStorage",
-				"container": "aaplatform",
-				"accessKey": ""
+				"container": "aamasters",
+				"accessKey": "09e890b76767ede3e10f0526b5036600a6b8d3faac540336e12b493fdb2aa9ed46f86094c34652f99fb6322e5f09806412f17725807f85e4dc4169bd22dd59f0b23aba5251f5544478a1aabf5a2dea5260e6eb0c29af3a788208af85025a02f94950437d501b91fd55b9d97b3d6ac3af4e1161321f78b73ca0fda524dc3a5d03"
 			},
 			"competitions": [
 				{

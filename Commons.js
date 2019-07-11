@@ -1499,7 +1499,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (messageType === MESSAGE_TYPE.OrderClose && type === '"Close@TakeProfit"') {
                             exitOutcome = "TP"
                         }
-                        if (messageType === MESSAGE_TYPE.OrderClose && type === '"Close@TakeProfit"') {
+                        if (messageType === MESSAGE_TYPE.OrderClose && type === '"Close@StopLoss"') {
                             exitOutcome = "SL"
                         }
 

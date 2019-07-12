@@ -678,7 +678,13 @@
 							"moduleName": "SimulationExecution",
 							"description": "Plots Simulation Execution.",
 							"profilePicture": "SimulationExecution.png",
-							"panels": []
+							"panels": [
+							        {
+								  "codeName": "SimulationExecutionPanel",
+								  "moduleName": "SimulationExecutionPanel",
+								  "event": "Current Record Changed"
+								}
+							]
 						}
 					],
 					"repo": "Plotters-Trading-Simulation",

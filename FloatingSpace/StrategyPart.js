@@ -137,8 +137,6 @@ function newStrategyPart () {
   }
 
   function getContainer (point) {
-    if (thisObject.payload.floatingObject.isCollapsed === true && thisObject.payload.floatingObject.collapsedManually === false) { return }
-
     let container
 
     if (isDragging === false && thisObject.isOnFocus === true) {
@@ -522,7 +520,6 @@ function newStrategyPart () {
   }
 
   function drawBackground () {
-    if (thisObject.payload.floatingObject.isCollapsed === true && thisObject.payload.floatingObject.collapsedManually === false) { return }
     if (thisObject.isOnFocus === false) {
       drawConnectingLine()
 
@@ -533,7 +530,6 @@ function newStrategyPart () {
   }
 
   function drawMiddleground () {
-    if (thisObject.payload.floatingObject.isCollapsed === true && thisObject.payload.floatingObject.collapsedManually === false) { return }
     if (thisObject.isOnFocus === false) {
       drawValue()
       drawText()
@@ -542,7 +538,6 @@ function newStrategyPart () {
   }
 
   function drawForeground () {
-    if (thisObject.payload.floatingObject.isCollapsed === true && thisObject.payload.floatingObject.collapsedManually === false) { return }
     if (thisObject.isOnFocus === false) {
       drawBodyAndPicture()
       if (isDragging === false) {

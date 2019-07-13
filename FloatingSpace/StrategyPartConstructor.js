@@ -80,6 +80,57 @@ function newStrategyPartConstructor () {
     return
   }
 
+  function addLeftIcons (menuItemsInitialValues, floatingObject) {
+    menuItemsInitialValues.push(
+      {
+        action: 'Tense / Untense',
+        actionFunction: floatingObject.tensionToggle,
+        actionStatus: floatingObject.getTensionStatus,
+        currentStatus: true,
+        label: undefined,
+        visible: false,
+        iconPathOn: 'compass',
+        iconPathOff: 'headphones',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        angle: -165
+      }
+      )
+    menuItemsInitialValues.push(
+      {
+        action: 'Freeze / Unfreeze',
+        actionFunction: floatingObject.freezeToggle,
+        actionStatus: floatingObject.getFreezeStatus,
+        currentStatus: true,
+        label: undefined,
+        visible: false,
+        iconPathOn: 'broken-link',
+        iconPathOff: 'targeting',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        angle: 165
+      }
+      )
+    menuItemsInitialValues.push(
+      {
+        action: 'Collapse / Uncollapse',
+        actionFunction: floatingObject.collapseToggle,
+        actionStatus: floatingObject.getCollapeseStatus,
+        currentStatus: false,
+        label: undefined,
+        visible: false,
+        iconPathOn: 'tap',
+        iconPathOff: 'layout',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        angle: 135
+      }
+      )
+  }
+
   function getMenuItemsInitialValues (strategyPart, floatingObject, payload) {
     let menuItemsInitialValues = []
     switch (payload.node.type) {
@@ -118,63 +169,8 @@ function newStrategyPartConstructor () {
       case 'Trading System': {
         floatingObject.isPinned = true
         floatingObject.positionLocked = true
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -165
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'targeting',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 165
-          },
-          {
-            action: 'Collapse / Uncollapse',
-            actionFunction: floatingObject.collapseToggle,
-            actionStatus: floatingObject.getCollapeseStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'tap',
-            iconPathOff: 'layout',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Run Trading System',
             actionFunction: payload.uiObject.run,
@@ -186,7 +182,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -70
-          },
+          }
+          )
+        menuItemsInitialValues.push(
           {
             action: 'Save Trading System',
             actionFunction: payload.onMenuItemClick,
@@ -201,7 +199,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+          )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Trading System',
             askConfirmation: true,
@@ -215,7 +215,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -10
-          },
+          }
+          )
+        menuItemsInitialValues.push(
           {
             action: 'New Strategy',
             actionFunction: payload.onMenuItemClick,
@@ -228,7 +230,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: +10
-          },
+          }
+          )
+        menuItemsInitialValues.push(
           {
             action: 'Add Parameters',
             actionFunction: payload.onMenuItemClick,
@@ -241,7 +245,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          },
+          }
+          )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -253,7 +259,8 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 70
-          }]
+          }
+        )
         break
       }
       case 'Parameters': {

@@ -102,6 +102,7 @@ function newFloatingObject () {
   }
 
   function getContainer (point) {
+    if (thisObject.isCollapsed === true && thisObject.collapsedManually === false) { return }
     let container
 
     container = thisObject.payload.uiObject.getContainer(point)
@@ -336,14 +337,17 @@ function newFloatingObject () {
   }
 
   function drawBackground () {
+    if (thisObject.isCollapsed === true && thisObject.collapsedManually === false) { return }
     thisObject.payload.uiObject.drawBackground()
   }
 
   function drawMiddleground () {
+    if (thisObject.isCollapsed === true && thisObject.collapsedManually === false) { return }
     thisObject.payload.uiObject.drawMiddleground()
   }
 
   function drawForeground () {
+    if (thisObject.isCollapsed === true && thisObject.collapsedManually === false) { return }
     thisObject.payload.uiObject.drawForeground()
   }
 
@@ -455,4 +459,3 @@ function newFloatingObject () {
   function updateRadius () {
   }
 }
-

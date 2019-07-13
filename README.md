@@ -6,7 +6,7 @@ The Canvas App provides a visual environment for the _Charting System_ and the _
 
 # Trading System Automation Demo
 
-Use the latest Chrome version to [access the Demo](https://demo.superalgos.org), sign up, log in and click on the CHARTS link in the Menu.
+Use the latest Chrome version to access the Demo (to become available soon), sign up, log in and click on the CHARTS link in the Menu.
 
 ![Access-Demo](https://user-images.githubusercontent.com/13994516/58415158-dbe50f00-807d-11e9-812c-3b4de503bc34.gif)
 <br/><br/>
@@ -198,7 +198,10 @@ In the example above, conditions A and B are mathematical comparison statements 
 
 **candle.close:** The latest price of the current candle.
 
-**candle.direction:** Down: candle.close > candle.open | Up: candle.close < candle.open | Side: candle.close = candle.open
+**candle.direction:** 
+* Down: candle.close > candle.open
+* Up: candle.close < candle.open
+* Side: candle.close = candle.open
 
 **candle.previous:** Refers to the previous candle. You may use _candle.previous_ to fetch any of the variables of the previous candle (i.e.: _candle.previous.close_). You may also use as many _.previous_ as required to fetch values of more than one period behind the current one (i.e.: _candle.previous.previous.max_ returns the maximum value of two candles before the current one).
 
@@ -234,29 +237,11 @@ In the example above, conditions A and B are mathematical comparison statements 
 
 ### Bollinger Channels
 
-**bollingerChannel.begin:** 
-
-**bollingerChannel.end:** 
-
 **bollingerChannel.direction (Down | Up | Side):** 
 
-**bollingerChannel.period:** 
-
-**bollingerChannel.firstMovingAverage:** 
-
-**bollingerChannel.lastMovingAverage:** 
-
-**bollingerChannel.firstDeviation:** 
-
-**bollingerChannel.lastDeviation:** 
-
-**bollingerChannel.previous:** 
+**bollingerChannel.period:** The number of periods the channel spans at the moment the variable is being read. For instance, if a channel spans 10 candles and the variable is checked on the fourth candle, then _bollingerChannel.period_ = 4. Put in other words, it is the current span of the channel.
 
 ### Bollinger SubChannels
-
-**bollingerSubChannel.begin:** 
-
-**bollingerSubChannel.end:** 
 
 **bollingerSubChannel.direction (Down | Up | Side):** 
 
@@ -278,36 +263,36 @@ In the example above, conditions A and B are mathematical comparison statements 
 
 **strategyStage (No Stage | Trigger Stage | Open Stage | Manage Stage | Close Stage):** 
 
-**stopLoss:** 
+**stopLoss:** The value of your Stop in the active phase.
 
-**stopLossPhase (0 | 1 | ...):** 
+**stopLossPhase (0 | 1 | ...):** The number of the active Stop phase.
 
-**takeProfit:** 
+**takeProfit:** The value of the Take Profit in the active phase.
 
-**takeProfitPhase:** 
+**takeProfitPhase:** The number of the active Stop phase.
 
-**positionRate:** 
+**positionRate:** The price at which the position was taken.
 
-**positionSize:** 
+**positionSize:** The size of the position.
 
-**positionInstant:** 
+**positionInstant:** The datetime in which the position was taken.
 
-**balanceAssetA:** 
+**balanceAssetA:** The balance of your _base asset_.
 
-**balanceAssetB:** 
+**balanceAssetB:** The balance of the second asset.
 
-**lastTradeProfitLoss:** 
+**lastTradeProfitLoss:** The P&L value for the latest completed trade (roundtrip).
 
-**lastTradeROI:** 
+**lastTradeROI:** The ROI of your latest trade.
 
-**profit:** 
+**profit:** The total P&L during the current execution period.
 
-**roundtrips:** 
+**roundtrips:** The total number of trades in the current execution.
 
-**fails:** 
+**fails:** The number of trades resulting in losses in the current execution.
 
-**hits:** 
+**hits:** The number of trades resulting in profits in the current execution.
 
-**periods:** 
+**periods:** The number of candles evaluated in the current execution.
 
 

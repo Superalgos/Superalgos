@@ -70,7 +70,7 @@ function newTimeScale () {
       if (thisObject.lenghtPercentage < STEP_SIZE) { thisObject.lenghtPercentage = STEP_SIZE }
     } else {
       thisObject.lenghtPercentage = thisObject.lenghtPercentage + STEP_SIZE
-      if (thisObject.lenghtPercentage > 200) { thisObject.lenghtPercentage = 200 }
+      if (thisObject.lenghtPercentage > 400) { thisObject.lenghtPercentage = 400 }
     }
 
     event.lenghtPercentage = thisObject.lenghtPercentage
@@ -107,7 +107,7 @@ function newTimeScale () {
     const DISTANCE_BETWEEN_ARROWS = 10
     const MIN_DISTANCE_FROM_CENTER = 110
     const CURRENT_VALUE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.lenghtPercentage
-    const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + 200 + DISTANCE_BETWEEN_ARROWS
+    const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + 400 + DISTANCE_BETWEEN_ARROWS
 
     let ARROW_DIRECTION = 0
 

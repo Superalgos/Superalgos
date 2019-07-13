@@ -749,6 +749,12 @@ function newStrategyPart () {
       case 'Phase': {
         let parent = thisObject.payload.parentNode
         if (parent !== undefined) {
+          let granParent = parent.payload.parentNode
+          if (granParent !== undefined) {
+            if (granParent.type === 'Initial Definition') {
+              return label + ' #' + 0
+            }
+          }
           for (let i = 0; i < parent.phases.length; i++) {
             let phase = parent.phases[i]
             if (phase.id === thisObject.payload.node.id) {

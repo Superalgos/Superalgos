@@ -145,7 +145,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 180
+            angle: -165
           },
           {
             action: 'Freeze / Unfreeze',
@@ -156,6 +156,20 @@ function newStrategyPartConstructor () {
             visible: false,
             iconPathOn: 'broken-link',
             iconPathOff: 'targeting',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 165
+          },
+          {
+            action: 'Collapse / Uncollapse',
+            actionFunction: floatingObject.collapseToggle,
+            actionStatus: floatingObject.getCollapeseStatus,
+            currentStatus: false,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'tap',
+            iconPathOff: 'layout',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,

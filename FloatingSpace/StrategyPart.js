@@ -137,6 +137,8 @@ function newStrategyPart () {
   }
 
   function getContainer (point) {
+    if (thisObject.payload.floatingObject.isCollapsed === true && thisObject.payload.floatingObject.collapsedManually === false) { return }
+
     let container
 
     if (isDragging === false && thisObject.isOnFocus === true) {
@@ -379,7 +381,7 @@ function newStrategyPart () {
 
   function detachingPhysics () {
     if (isDragging !== true) { return }
-    if (thisObject.isFrozen === true) { return }
+    if (thisObject.payload.floatingObject.isFrozen === true) { return }
     if (rightDragging === false) { return }
 
     let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
@@ -520,6 +522,7 @@ function newStrategyPart () {
   }
 
   function drawBackground () {
+    if (thisObject.payload.floatingObject.isCollapsed === true && thisObject.payload.floatingObject.collapsedManually === false) { return }
     if (thisObject.isOnFocus === false) {
       drawConnectingLine()
 
@@ -530,6 +533,7 @@ function newStrategyPart () {
   }
 
   function drawMiddleground () {
+    if (thisObject.payload.floatingObject.isCollapsed === true && thisObject.payload.floatingObject.collapsedManually === false) { return }
     if (thisObject.isOnFocus === false) {
       drawValue()
       drawText()
@@ -538,6 +542,7 @@ function newStrategyPart () {
   }
 
   function drawForeground () {
+    if (thisObject.payload.floatingObject.isCollapsed === true && thisObject.payload.floatingObject.collapsedManually === false) { return }
     if (thisObject.isOnFocus === false) {
       drawBodyAndPicture()
       if (isDragging === false) {

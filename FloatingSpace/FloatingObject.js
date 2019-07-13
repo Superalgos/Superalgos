@@ -23,14 +23,18 @@ function newFloatingObject () {
     isPinned: false,
     isFrozen: false,
     isTensed: false,
+    isCollapsed: false,
     frozenManually: false,
+    collapsedManually: false,
     getPinStatus: getPinStatus,
     getFreezeStatus: getFreezeStatus,
+    getCollapseStatus: getCollapseStatus,
     getTensionStatus: getTensionStatus,
     nearbyFloatingObjects: [],
     setPosition: setPosition,
     pinToggle: pinToggle,
     freezeToggle: freezeToggle,
+    collapseToggle: collapseToggle,
     tensionToggle: tensionToggle,
     physics: physics,
     initializeMass: initializeMass,
@@ -128,6 +132,10 @@ function newFloatingObject () {
     return thisObject.isFrozen
   }
 
+  function getCollapseStatus () {
+    return thisObject.isCollapsed
+  }
+
   function getTensionStatus () {
     return thisObject.isTensed
   }
@@ -141,6 +149,17 @@ function newFloatingObject () {
       thisObject.frozenManually = false
     }
     return thisObject.isFrozen
+  }
+
+  function collapseToggle () {
+    if (thisObject.isCollapsed !== true) {
+      thisObject.isCollapsed = true
+      thisObject.collapsedManually = true
+    } else {
+      thisObject.isCollapsed = false
+      thisObject.collapsedManually = false
+    }
+    return thisObject.isCollapsed
   }
 
   function tensionToggle () {
@@ -158,6 +177,7 @@ function newFloatingObject () {
     thisObjectPhysics()
     thisObject.payload.uiObject.physics()
     frozenPhysics()
+    collapsePhysics()
     tensionPhysics()
   }
 
@@ -166,6 +186,15 @@ function newFloatingObject () {
       let parent = thisObject.payload.chainParent
       if (parent !== undefined) {
         thisObject.isFrozen = parent.payload.floatingObject.isFrozen
+      }
+    }
+  }
+
+  function collapsePhysics () {
+    if (thisObject.collapsedManually === false) {
+      let parent = thisObject.payload.chainParent
+      if (parent !== undefined) {
+        thisObject.isCollapsed = parent.payload.floatingObject.isCollapsed
       }
     }
   }

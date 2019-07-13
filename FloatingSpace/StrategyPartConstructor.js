@@ -51,6 +51,9 @@ function newStrategyPartConstructor () {
       if (payload.node.savedPayload.floatingObject.isFrozen === true) {
         floatingObject.freezeToggle()
       }
+      if (payload.node.savedPayload.floatingObject.isCollapsed === true) {
+        floatingObject.collapseToggle()
+      }
       if (payload.node.savedPayload.floatingObject.isTensed === true) {
         floatingObject.tensionToggle()
       }

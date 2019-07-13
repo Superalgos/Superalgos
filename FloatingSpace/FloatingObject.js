@@ -24,6 +24,7 @@ function newFloatingObject () {
     isFrozen: false,
     isTensed: false,
     isCollapsed: false,
+    isParentCollapsed: false,
     frozenManually: false,
     collapsedManually: false,
     getPinStatus: getPinStatus,
@@ -102,7 +103,7 @@ function newFloatingObject () {
   }
 
   function getContainer (point) {
-    if (thisObject.isCollapsed === true && thisObject.collapsedManually === false) { return }
+    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
     let container
 
     container = thisObject.payload.uiObject.getContainer(point)
@@ -192,9 +193,10 @@ function newFloatingObject () {
   }
 
   function collapsePhysics () {
-    if (thisObject.collapsedManually === false) {
-      let parent = thisObject.payload.chainParent
-      if (parent !== undefined) {
+    let parent = thisObject.payload.chainParent
+    if (parent !== undefined) {
+      thisObject.isParentCollapsed = parent.payload.floatingObject.isCollapsed
+      if (thisObject.collapsedManually === false) {
         thisObject.isCollapsed = parent.payload.floatingObject.isCollapsed
       }
     }
@@ -337,17 +339,17 @@ function newFloatingObject () {
   }
 
   function drawBackground () {
-    if (thisObject.isCollapsed === true && thisObject.collapsedManually === false) { return }
+    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
     thisObject.payload.uiObject.drawBackground()
   }
 
   function drawMiddleground () {
-    if (thisObject.isCollapsed === true && thisObject.collapsedManually === false) { return }
+    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
     thisObject.payload.uiObject.drawMiddleground()
   }
 
   function drawForeground () {
-    if (thisObject.isCollapsed === true && thisObject.collapsedManually === false) { return }
+    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
     thisObject.payload.uiObject.drawForeground()
   }
 
@@ -459,3 +461,4 @@ function newFloatingObject () {
   function updateRadius () {
   }
 }
+

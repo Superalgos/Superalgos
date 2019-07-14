@@ -513,10 +513,11 @@
 
                 if (userPositionDate >= record.begin && userPositionDate <= record.end) {
 
-                    let currentRecord = {
-                        innerRecord: record
+                    let eventRecords = {
+                        currentRecord: record,
+                        lastRecord: records[records.length - 1]
                     };
-                    thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);
+                    thisObject.container.eventHandler.raiseEvent("Current Record Changed", eventRecords);
                 }
 
                 let stopLossPhase = 0;
@@ -549,7 +550,7 @@
 
                 let recordPoint4 = {
                     x: record.begin + timePeriod / 7 * 1.5,
-                    y: thisObject.container.frame.height * 3
+                    y: thisObject.container.frame.height * 100
                 };
 
                 let recordPoint5 = {
@@ -817,6 +818,7 @@
         }
     }
 }
+
 
 
 

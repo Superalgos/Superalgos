@@ -15,10 +15,11 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
     container.initialize();
     thisObject.container = container;
 
-    container.displacement.containerName = "Simulation";
-    container.frame.containerName = "Simulation";
+    container.displacement.containerName = "Trading Simulation";
+    container.frame.containerName = "Trading Simulation";
 
     let currentRecord;
+    let lastRecord;
     let panelTabButton
 
 
@@ -26,10 +27,10 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
     function initialize() {
 
-        thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL;
+        thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL * 2;
         thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2;
 
-        thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 1;
+        thisObject.container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 1;
         thisObject.container.frame.position.y = viewPort.visibleArea.topRight.y;
 
         panelTabButton = newPanelTabButton()
@@ -67,9 +68,10 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
     }
 
 
-    function onEventRaised(lastCurrentRecord) {
+    function onEventRaised(records) {
 
-        currentRecord = lastCurrentRecord;
+        currentRecord = records.currentRecord;
+        lastRecord = records.lastRecord
 
     }
 
@@ -87,7 +89,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
     function plotCurrentRecordInfo() {
 
         if (currentRecord === undefined) { return; }
-        if (currentRecord.innerRecord === undefined) { return; }
+        if (lastRecord === undefined) { return; }
 
         const frameBodyHeight = thisObject.container.frame.getBodyHeight();
         const frameTitleHeight = thisObject.container.frame.height - frameBodyHeight;
@@ -105,92 +107,149 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         y = y + increment;
         y = y + increment;
-        printLabel('Current Trade', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', 12);
+        printLabel('Current Trade', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 14);
 
         y = y + increment;
         printLabel('Size', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.positionSize, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.positionSize, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
         printLabel('Rate', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.sellRate, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.sellRate, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
         printLabel('Stop', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.stopLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.stopLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
         printLabel('Take Profit', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.takeProfit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.takeProfit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
 
         y = y + increment;
         y = y + increment;
-        printLabel('Latest Trade', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', 12);
-
-        y = y + increment;
-        printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel(currentRecord.innerRecord.lastTradeProfitLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel((currentRecord.innerRecord.lastTradeROI).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-
-        y = y + increment;
-        y = y + increment;
-        printLabel('Totals Accumulated', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', 12);
+        printLabel('Latest Trade', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 14);
 
         y = y + increment;
         printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.profit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Trades', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel(currentRecord.innerRecord.roundtrips, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Hits', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel(currentRecord.innerRecord.hits, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Fails', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel(currentRecord.innerRecord.fails, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Hit Ratio', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel((currentRecord.innerRecord.hitRatio * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.lastTradeProfitLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
         printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel((currentRecord.innerRecord.ROI * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel((currentRecord.lastTradeROI).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+
+
+
+        let bifurcationLevel = y
+        y = y + increment;
+        y = y + increment;
+        printLabel('Partial Results', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1', 14);
 
         y = y + increment;
-        printLabel('Periods', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Profit / Loss', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.periods, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.profit, X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
-        printLabel('Days', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Trades', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel(currentRecord.innerRecord.days, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.roundtrips, X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
-        printLabel('Anualized Rate of Return', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Hits', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel((currentRecord.innerRecord.anualizedRateOfReturn * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.hits, X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Fails', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel(currentRecord.fails, X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Hit Ratio', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel((currentRecord.hitRatio * 100).toFixed(2) + ' %', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('ROI', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel((currentRecord.ROI * 100).toFixed(2) + ' %', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Periods', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel(currentRecord.periods, X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Days', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel(currentRecord.days, X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Anualized Rate of Return', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel((currentRecord.anualizedRateOfReturn * 100).toFixed(2) + ' %', X_AXIS - thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+
+        y = bifurcationLevel
+
+        y = y + increment;
+        y = y + increment;
+        printLabel('Final Results', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1', 14);
+
+        y = y + increment;
+        printLabel('Profit / Loss', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel(lastRecord.profit, X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Trades', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel(lastRecord.roundtrips, X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Hits', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel(lastRecord.hits, X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Fails', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel(lastRecord.fails, X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Hit Ratio', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel((lastRecord.hitRatio * 100).toFixed(2) + ' %', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('ROI', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel((lastRecord.ROI * 100).toFixed(2) + ' %', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Periods', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel(lastRecord.periods, X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Days', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel(lastRecord.days, X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Anualized Rate of Return', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel((lastRecord.anualizedRateOfReturn * 100).toFixed(2) + ' %', X_AXIS + thisObject.container.frame.width / 4, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+
 
         function printLabel(labelToPrint, x, y, opacity, fontSize) {
 
@@ -226,34 +285,34 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         let paramsArray = []
         let positionTaken = false
 
-        if (currentRecord.innerRecord.positionSize > 0) {
+        if (currentRecord.positionSize > 0) {
             positionTaken = true
         }
 
         params = {}
-        params.VALUE = currentRecord.innerRecord.balanceA;
-        params.INIT_VALUE = currentRecord.innerRecord.initialBalanceA
-        params.MIN_VALUE = currentRecord.innerRecord.minimunBalanceA
-        params.MAX_VALUE = currentRecord.innerRecord.maximunBalanceA
+        params.VALUE = currentRecord.balanceA;
+        params.INIT_VALUE = currentRecord.initialBalanceA
+        params.MIN_VALUE = currentRecord.minimunBalanceA
+        params.MAX_VALUE = currentRecord.maximunBalanceA
         params.ASSET_LABEL = 'Asset A'
         params.ASSET_NAME = DEFAULT_MARKET.assetB
         params.LEFT_OFFSET = 100
         params.POSITION_TAKEN = positionTaken
-        params.BASE_ASSET = currentRecord.innerRecord.baseAsset
+        params.BASE_ASSET = currentRecord.baseAsset
         params.DECIMALS = 4
 
         paramsArray.push(params)
 
         params = {}
-        params.VALUE = currentRecord.innerRecord.balanceB;
-        params.MIN_VALUE = currentRecord.innerRecord.minimunBalanceB
-        params.INIT_VALUE = currentRecord.innerRecord.initialBalanceB
-        params.MAX_VALUE = currentRecord.innerRecord.maximunBalanceB
+        params.VALUE = currentRecord.balanceB;
+        params.MIN_VALUE = currentRecord.minimunBalanceB
+        params.INIT_VALUE = currentRecord.initialBalanceB
+        params.MAX_VALUE = currentRecord.maximunBalanceB
         params.ASSET_LABEL = 'Asset B'
         params.ASSET_NAME = DEFAULT_MARKET.assetA
         params.LEFT_OFFSET = 220
         params.POSITION_TAKEN = positionTaken
-        params.BASE_ASSET = currentRecord.innerRecord.baseAsset
+        params.BASE_ASSET = currentRecord.baseAsset
         params.DECIMALS = 2
 
         paramsArray.push(params)
@@ -261,6 +320,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         canvas.cockpitSpace.assetBalances.setParamsArray(paramsArray)
     }
 }
+
 
 
 

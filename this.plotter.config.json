@@ -45,6 +45,11 @@
       "description": "Plots Simulation Execution.",
       "profilePicture": "SimulationExecution.png",
       "panels": [
+        {
+          "codeName": "SimulationExecutionPanel",
+          "moduleName": "SimulationExecutionPanel",
+          "event": "Current Record Changed"
+        }
       ]
     }
   ]

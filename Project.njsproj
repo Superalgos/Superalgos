@@ -23,6 +23,9 @@
     <Compile Include="SimulationExecution.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SimulationExecutionPanel.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Strategies.js">
       <SubType>Code</SubType>
     </Compile>

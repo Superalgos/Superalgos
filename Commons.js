@@ -1487,12 +1487,18 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (type === '"Take Position"') {
                             messageType = MESSAGE_TYPE.Order;
                             orderId++;
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> addRecord -> Taking Position Now. "); }
+
                         } else {
                             if (type === '"Close@TakeProfit"' || type === '"Close@StopLoss"') {
                                 messageType = MESSAGE_TYPE.OrderClose;
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> addRecord -> Closing Position Now. "); }
+
                             } else {
                                 messageType = MESSAGE_TYPE.OrderUpdate;
-                            }
+                            }                            
                         }
 
                         let exitOutcome = ""

@@ -8,10 +8,8 @@ export default async function getDevTeamHost(devTeamName, accessKey, ownerKey) {
     } else {
         host = teamCache.get(devTeamName + '.ownerKey')
     }
-    if (host) {
-        if (host.accessKey === accessKey || host.ownerKey === ownerKey) {
-            return host
-        }
+    if (host && (host.accessKey === accessKey || host.ownerKey === ownerKey)) {
+        return host
     } else {
         let ecosystem = await Ecosystem.find()
 

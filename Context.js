@@ -302,8 +302,12 @@
                     runIndex = thisObject.statusReport.runs.length - 1;
 
                     thisObject.executionHistory = [];
+
+                    if (process.env.INITIAL_BALANCE_ASSET_A === undefined || process.env.INITIAL_BALANCE_ASSET_B === undefined) { throw new Error("Environment Variables INITIAL_INVESTMENT_A and INITIAL_INVESTMENT_B cannot be undefined.") }
+
 					const INITIAL_INVESTMENT_A = Number(process.env.INITIAL_BALANCE_ASSET_A);
                     const INITIAL_INVESTMENT_B = Number(process.env.INITIAL_BALANCE_ASSET_B);
+
 
                     thisObject.executionContext = {
                         investment: {                               // This is used to calculate profits.

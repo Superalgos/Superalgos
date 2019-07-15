@@ -1,4 +1,4 @@
-﻿exports.newDataSet = function newDataSet(BOT, logger) {
+exports.newDataSet = function newDataSet(BOT, logger) {
 
     const MODULE_NAME = "Data Set";
 
@@ -48,7 +48,7 @@
             let filePath = filePathRoot + "/Output/" + pFolderPath;
             filePath += '/' + pFileName
 
-            fileStorage.getTextFile(dependencyConfig.devTeam, filePath, onFileReceived); // TODO pass credentials?
+            fileStorage.getTextFile(dependencyConfig.devTeam, filePath, onFileReceived);
 
             function onFileReceived(err, text) {
 
@@ -89,7 +89,7 @@
             let filePathRoot = dependencyConfig.devTeam + "/" + dependencyConfig.bot + "." + dependencyConfig.botVersion.major + "." + dependencyConfig.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + dependencyConfig.dataSetVersion;
             let filePath = filePathRoot + "/Output/" + pFolderPath + '/' + pFileName;
 
-            fileStorage.createTextFile(dependencyConfig.devTeam, filePath, pFileContent, onFileCreated); // TODO pass credentials? Why should this bot write on other devTeam folder?
+            fileStorage.createTextFile(dependencyConfig.devTeam, filePath, pFileContent, onFileCreated);
 
             function onFileCreated(err) {
 

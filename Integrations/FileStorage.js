@@ -2,20 +2,29 @@ const axios = require('axios')
 const Ecosystem = require('./Ecosystem')
 
 exports.newFileStorage = function newFileStorage() {
-  const INFO_LOG = true
+  const MODULE_NAME = 'FileStorage'
   const MAX_RETRY = 30
   let currentRetry = 0
 
-  let thisObject = {
+  return {
     getTextFile,
     createTextFile
   }
 
-  return thisObject
+  function logInfo(message) {
+    log('[INFO] ' + message)
+  }
+  function log(message) {
+    console.log( "['" + new Date().toISOString() + "', 0,'" + MODULE_NAME + "','" + message + "']")
+  }
+
+  function logError(message) {
+    log('[ERROR] ' + message)
+  }
 
   async function getTextFile(container, filePath, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] getTextFile: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length)) }
+      logInfo('getTextFile: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length))
 
       let host = await getDevTeamHost(container)
 
@@ -52,13 +61,13 @@ exports.newFileStorage = function newFileStorage() {
       }
 
     } catch (err) {
-      if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET') && currentRetry < MAX_RETRY) {
+      if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET' || err.code === 'ENOTFOUND') && currentRetry < MAX_RETRY) {
         currentRetry++
-        if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry) }
+        logInfo('getTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry)
         getTextFile(container, filePath, callBackFunction)
       } else {
         currentRetry = 0
-        console.log('[ERROR] getTextFile -> error = ', err)
+        logError('getTextFile -> error = '+ err.message)
         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
       }
     }
@@ -66,7 +75,7 @@ exports.newFileStorage = function newFileStorage() {
 
   async function createTextFile(container, filePath, fileContent, callBackFunction) {
     try {
-      if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Entering function: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length)) }
+      logInfo('createTextFile -> Entering function: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length))
 
       let host = await getDevTeamHost(container)
 
@@ -104,13 +113,13 @@ exports.newFileStorage = function newFileStorage() {
       }
 
     } catch (err) {
-      if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET' || err.message === "Request failed with status code 413") && currentRetry < MAX_RETRY) {
+      if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET' || err.code === 'ENOTFOUND' || err.message === "Request failed with status code 413") && currentRetry < MAX_RETRY) {
         currentRetry++
-        if (INFO_LOG === true) { console.log('[INFO] createTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry) }
+        logInfo('createTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry)
         createTextFile(container, filePath, fileContent, callBackFunction)
       } else {
         currentRetry = 0
-        console.log('[ERROR] createTextFile -> error = ', err)
+        logError('createTextFile -> error = '+ err.message)
         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
       }
     }

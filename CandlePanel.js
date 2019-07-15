@@ -56,7 +56,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
             if (point.x === checkPoint.x && point.y === checkPoint.y) {
                 return thisObject.container;
             }
-        }  
+        }
     }
 
 
@@ -88,10 +88,10 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
         const X_AXIS = thisObject.container.frame.width / 2;
         const Y_AXIS = frameTitleHeight + frameBodyHeight / 2;
- 
+
         let candlePoint1 = {
             x: X_AXIS - currentCandle.bodyWidth / 2,
-            y: Y_AXIS - currentCandle.bodyHeight / 2 
+            y: Y_AXIS - currentCandle.bodyHeight / 2
         };
 
         let candlePoint2 = {
@@ -106,7 +106,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
         let candlePoint4 = {
             x: X_AXIS - currentCandle.bodyWidth / 2,
-            y: Y_AXIS + currentCandle.bodyHeight / 2 
+            y: Y_AXIS + currentCandle.bodyHeight / 2
         };
 
 
@@ -122,12 +122,12 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
         let stickPoint3 = {
             x: X_AXIS + currentCandle.stickWidth / 2,
-            y: candlePoint1.y - currentCandle.stickStart + currentCandle.stickHeight 
+            y: candlePoint1.y - currentCandle.stickStart + currentCandle.stickHeight
         };
 
         let stickPoint4 = {
             x: X_AXIS - currentCandle.stickWidth / 2,
-            y: candlePoint1.y - currentCandle.stickStart + currentCandle.stickHeight 
+            y: candlePoint1.y - currentCandle.stickStart + currentCandle.stickHeight
         };
 
 
@@ -256,15 +256,15 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
         /* put the labels with the candles values */
 
-        
+
 
 
         let y;
 
-        printLabel('High', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '1');
+        printLabel('Max', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '1');
         printLabel(currentCandle.innerCandle.max, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '0.50');
 
-        printLabel('Low', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '1');
+        printLabel('Min', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '1');
         printLabel(currentCandle.innerCandle.min, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '0.50');
 
 
@@ -273,7 +273,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
         if (y < frameTitleHeight + frameBodyHeight * 0.15) { y = frameTitleHeight + frameBodyHeight * 0.15; }
         if (y > frameTitleHeight + frameBodyHeight * 0.80) { y = frameTitleHeight + frameBodyHeight * 0.80; }
 
-        printLabel('Open', X_AXIS * 1 / 2, y  , '1');
+        printLabel('Open', X_AXIS * 1 / 2, y, '1');
         printLabel(currentCandle.innerCandle.open, X_AXIS * 1 / 2, y + frameBodyHeight * 0.05, '0.50');
 
         y = Y_AXIS + currentCandle.bodyHeight / 2;
@@ -281,10 +281,10 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
         if (y < frameTitleHeight + frameBodyHeight * 0.15) { y = frameTitleHeight + frameBodyHeight * 0.15; }
         if (y > frameTitleHeight + frameBodyHeight * 0.80) { y = frameTitleHeight + frameBodyHeight * 0.80; }
 
-        printLabel('Close', X_AXIS * 3 / 2, y , '1');
-        printLabel(currentCandle.innerCandle.close, X_AXIS * 3 / 2, y  + frameBodyHeight * 0.05, '0.50');
+        printLabel('Close', X_AXIS * 3 / 2, y, '1');
+        printLabel(currentCandle.innerCandle.close, X_AXIS * 3 / 2, y + frameBodyHeight * 0.05, '0.50');
 
-       
+
 
         function printLabel(labelToPrint, x, y, opacity) {
 
@@ -319,4 +319,5 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
 
 }
+
 

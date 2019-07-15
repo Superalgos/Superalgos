@@ -401,10 +401,10 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
         printLabel(currentRecord.buyExecRate, X_AXIS, frameTitleHeight + frameBodyHeight * 0.50 / 2, '0.50');
 
         printLabel('ROI Asset A', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.25 / 2), '1');
-        printLabel((currentRecord.combinedProfitsA).toFixed(2) + '%', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.30 / 2), '0.50');
+        printLabel((currentRecord.combinedProfitsB).toFixed(2) + '%', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.30 / 2), '0.50');
 
         printLabel('ROI Asset B', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.15 / 2), '1');
-        printLabel((currentRecord.combinedProfitsB).toFixed(2) + '%', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.20 / 2), '0.50');
+        printLabel((currentRecord.combinedProfitsA).toFixed(2) + '%', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.20 / 2), '0.50');
 
         printLabel('Datetime', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.05 / 2), '1');
         printLabel(recordDate.toUTCString(), X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.1 / 2), '0.50');
@@ -443,6 +443,7 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
 
 
 }
+
 
 
 

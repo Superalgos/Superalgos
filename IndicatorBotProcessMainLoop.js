@@ -563,7 +563,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeProcessFramework ->  Entering function."); }
 
-                            processFramework.initialize(processConfig, statusDependencies, dataDependencies, onInizialized, dataDependencies);
+                            processFramework.initialize(processConfig, statusDependencies, dataDependencies, undefined, onInizialized);
 
                             function onInizialized(err) {
 

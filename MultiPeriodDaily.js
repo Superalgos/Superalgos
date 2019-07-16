@@ -27,7 +27,7 @@
 
     return thisObject;
 
-    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
+    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, pAssistant, callBackFunction) {
 
         try {
 
@@ -59,7 +59,7 @@
             }
 
             usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, fileStorage);
-            usertBot.initialize(dataDependencies, callBackFunction);
+            usertBot.initialize(dataDependencies, callBackFunction, pAssistant);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = ", err);

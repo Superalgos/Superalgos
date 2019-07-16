@@ -124,9 +124,9 @@ exports.newUserBot = function newUserBot(bot, logger) {
 
         let existsAnOpenTrade = (openTradeSimulatorMessageId > 0)
         if (existsAnOpenTrade) {
-          if (isMessageAnOrder && simulatorEngineMessage.id === openTradeSimulatorMessageId) {
-            logInfo('We just put an order with the latest simualtor record available, checking SL and TP.')
-          } else if (isMessageAnOrderUpdate) {
+          let isOrderMessage = isMessageAnOrder && simulatorEngineMessage.id === openTradeSimulatorMessageId
+          if (isOrderMessage || isMessageAnOrderUpdate) {
+            logInfo('Moving the position because it is the same message that caused the open trade or because it is an update.' )
             await openOrMoveTrade(simulatorEngineMessage)
           } else if (isMessageAnOrderClose) {
             assistant.rememberThis('closeTradeSimulatorMessageId', simulatorEngineMessage.id)
@@ -170,6 +170,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
             logInfo('Nothing to do, there is not an open order.')
           }
         }
+        assistant.addExtraData(simulatorEngineMessage) // Adding the record used for the execution
       }
     } catch (error) {
       logError('Error on executorLogic: ' + JSON.stringify(error))
@@ -675,12 +676,14 @@ exports.newUserBot = function newUserBot(bot, logger) {
       } else {
         // Running live we will process last available Indicator Message only if it's delayed 30 minutes top
         let maxTolerance = 30 * 60 * 1000
+        let lastAvailableDateTimeEnd = indicatorFileContent[lastIndexIndicatorFile][1]
+        let minutesDelayed = (bot.processDatetime.valueOf() - lastAvailableDateTimeEnd) / 60 / 1000
+        logWarn('getSimulatorEngineMessageFromFile -> Last available indicator is delayed: ' + minutesDelayed.toFixed(2) + ' minutes.')
         if (bot.processDatetime.valueOf() <= (lastAvailableDateTime + maxTolerance)) {
-          let minutesDelayed = (bot.processDatetime.valueOf() - lastAvailableDateTime) / 60 / 1000
-          logWarn('getSimulatorEngineMessageFromFile -> Last available indicator is delayed: ' + minutesDelayed.toFixed(2) + ' minutes.')
           return getMessage(indicatorFileContent[lastIndexIndicatorFile][2])
         } else {
           logWarn('getSimulatorEngineMessageFromFile -> Last available indicator older than 30 minutes: ' + JSON.stringify(indicatorFileContent[lastIndexIndicatorFile]))
+          assistant.addExtraData(indicatorFileContent[lastIndexIndicatorFile]) // Adding the record used for the execution
         }
       }
     } catch (error) {

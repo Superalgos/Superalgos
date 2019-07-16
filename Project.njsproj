@@ -47,6 +47,9 @@
     <Compile Include="AzureBlobStorage.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TradingEngineProcessMainLoop.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="utils\auth.js">
       <SubType>Code</SubType>
     </Compile>

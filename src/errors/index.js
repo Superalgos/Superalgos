@@ -2,7 +2,7 @@ export class AuthenticationError extends Error {
   constructor(message) {
     super(message)
     this.code = 401
-    this.message = 'Autentification not found, you have to be authentificated to perform this action.'
+    this.message = 'Authentication not found, you have to be authenticated to perform this action.'
   }
 }
 

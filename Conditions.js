@@ -696,6 +696,12 @@
                             }
                         }
                     }
+
+                    let openExecution = openStage.openExecution
+
+                    if (openExecution !== undefined) {
+                        canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.openExecution.payload.uiObject.setErrorMessage(openStage.openExecution.error)
+                    }
                 }
 
                 let manageStage = strategy.manageStage
@@ -788,6 +794,19 @@
                                 }
                             }
                         }
+                    }
+                }
+
+
+                let closeStage = strategy.closeStage
+
+                if (closeStage !== undefined) {
+                    canvas.strategySpace.workspace.tradingSystem.strategies[j].closeStage.payload.uiObject.setErrorMessage(closeStage.error)
+
+                    let closeExecution = closeStage.closeExecution
+
+                    if (closeExecution !== undefined) {
+                        canvas.strategySpace.workspace.tradingSystem.strategies[j].closeStage.closeExecution.payload.uiObject.setErrorMessage(closeStage.closeExecution.error)
                     }
                 }
             }

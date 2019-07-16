@@ -680,6 +680,8 @@ exports.newUserBot = function newUserBot(bot, logger) {
         let minutesDelayed = (bot.processDatetime.valueOf() - lastAvailableDateTimeEnd) / 60 / 1000
         logWarn('getSimulatorEngineMessageFromFile -> Last available indicator is delayed: ' + minutesDelayed.toFixed(2) + ' minutes.')
         if (bot.processDatetime.valueOf() <= (lastAvailableDateTime + maxTolerance)) {
+          let minutesDelayed = (bot.processDatetime.valueOf() - lastAvailableDateTime) / 60 / 1000
+          logWarn('getSimulatorEngineMessageFromFile -> Last available indicator is delayed: ' + minutesDelayed.toFixed(2) + ' minutes.')
           return getMessage(indicatorFileContent[lastIndexIndicatorFile][2])
         } else {
           logWarn('getSimulatorEngineMessageFromFile -> Last available indicator older than 30 minutes: ' + JSON.stringify(indicatorFileContent[lastIndexIndicatorFile]))

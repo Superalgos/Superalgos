@@ -183,6 +183,26 @@ function newStringifyNode () {
         }
         return object
       }
+      case 'Open Execution': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Close Execution': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
       case 'Position Size': {
         let object = {
           id: node.id,

@@ -12,6 +12,8 @@ function newNodeDeleter () {
     deletePositionSize: deletePositionSize,
     deletePositionRate: deletePositionRate,
     deleteInitialDefinition: deleteInitialDefinition,
+    deleteOpenExecution: deleteOpenExecution,
+    deleteCloseExecution: deleteCloseExecution,
     deleteEvent: deleteEvent,
     deleteManagedItem: deleteManagedItem,
     deletePhase: deletePhase,
@@ -74,6 +76,14 @@ function newNodeDeleter () {
         }
         case 'Initial Definition': {
           deleteInitialDefinition(rootNode, rootNodes)
+          break
+        }
+        case 'Open Execution': {
+          deleteOpenExecution(rootNode, rootNodes)
+          break
+        }
+        case 'Close Execution': {
+          deleteCloseExecution(rootNode, rootNodes)
           break
         }
         case 'Event': {
@@ -232,6 +242,11 @@ function newNodeDeleter () {
     if (node.initialDefinition !== undefined) {
       deleteInitialDefinition(node.initialDefinition, rootNodes)
     }
+
+    if (node.openExecution !== undefined) {
+      deleteOpenExecution(node.openExecution, rootNodes)
+    }
+
     destroyPart(node)
     cleanNode(node)
   }
@@ -259,6 +274,9 @@ function newNodeDeleter () {
       payload.parentNode.closeStage = undefined
     } else {
       completeDeletion(node, rootNodes)
+    }
+    if (node.closeExecution !== undefined) {
+      deleteCloseExecution(node.closeExecution, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)
@@ -310,6 +328,28 @@ function newNodeDeleter () {
     }
     if (node.positionRate !== undefined) {
       deletePositionSize(node.positionRate, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteOpenExecution (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.openExecution = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteCloseExecution (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.closeExecution = undefined
+    } else {
+      completeDeletion(node, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)

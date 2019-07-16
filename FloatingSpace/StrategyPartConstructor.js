@@ -524,7 +524,21 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -60
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Open Execution',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Open Execution',
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
           }
         )
         menuItemsInitialValues.push(
@@ -540,7 +554,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           }
         )
         menuItemsInitialValues.push(
@@ -554,7 +568,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }
         )
         break
@@ -611,6 +625,20 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
+            action: 'Add Close Execution',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Close Execution',
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
             action: 'Delete Close Stage',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
@@ -622,7 +650,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 0
           }
         )
         menuItemsInitialValues.push(
@@ -636,7 +664,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }
         )
         break
@@ -930,6 +958,74 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
+          }
+        )
+        break
+      }
+      case 'Open Execution': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Open Execution',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Definition',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+        )
+        break
+      }
+      case 'Close Execution': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Close Execution',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Definition',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }
         )
         break
@@ -1421,6 +1517,14 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Initial Definition': {
+        level_3()
+        break
+      }
+      case 'Open Execution': {
+        level_3()
+        break
+      }
+      case 'Close Execution': {
         level_3()
         break
       }

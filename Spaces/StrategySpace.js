@@ -54,6 +54,8 @@ function newStrategySpace () {
       ['Trigger Off Event', 'support'],
       ['Take Position Event', 'compass'],
       ['Initial Definition', 'task'],
+      ['Open Execution', 'piggy-bank'],
+      ['Close Execution', 'piggy-bank'],
       ['Stop', 'pixel'],
       ['Take Profit', 'competition'],
       ['Phase', 'placeholder'],

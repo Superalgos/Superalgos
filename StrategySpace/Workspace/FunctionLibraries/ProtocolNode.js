@@ -157,6 +157,22 @@ function newProtocolNode () {
         }
         return object
       }
+      case 'Open Execution': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        return object
+      }
+      case 'Close Execution': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        return object
+      }
       case 'Position Size': {
         let object = {
           type: node.type,

@@ -8,6 +8,8 @@ function newPartsFromNodes () {
     addMissingEvents: addMissingEvents,
     addMissingItems: addMissingItems,
     addInitialDefinition: addInitialDefinition,
+    addOpenExecution: addOpenExecution,
+    addCloseExecution: addCloseExecution,
     addPhase: addPhase,
     addFormula: addFormula,
     addNextPhaseEvent: addNextPhaseEvent,
@@ -102,6 +104,16 @@ function newPartsFromNodes () {
         }
         return
       }
+      case 'Open Execution':
+        {
+          createPart('Open Execution', node.name, node, parentNode, chainParent, 'Open Execution')
+          return
+        }
+      case 'Close Execution':
+        {
+          createPart('Close Execution', node.name, node, parentNode, chainParent, 'Close Execution')
+          return
+        }
       case 'Initial Definition': {
         createPart('Initial Definition', node.name, node, parentNode, chainParent, 'Initial Definition')
 
@@ -498,6 +510,20 @@ function newPartsFromNodes () {
     }
   }
 
+  function addOpenExecution (node) {
+    if (node.openExecution === undefined) {
+      node.openExecution = {}
+      createPart('Open Execution', '', node.openExecution, node, node)
+    }
+  }
+
+  function addCloseExecution (node) {
+    if (node.closeExecution === undefined) {
+      node.closeExecution = {}
+      createPart('Open Execution', '', node.closeExecution, node, node)
+    }
+  }
+
   function addFormula (node) {
     if (node.formula === undefined) {
       node.formula = {
@@ -637,4 +663,3 @@ function newPartsFromNodes () {
     canvas.floatingSpace.strategyPartConstructor.createStrategyPart(payload)
   }
 }
-

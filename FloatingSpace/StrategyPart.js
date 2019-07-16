@@ -248,6 +248,14 @@ function newStrategyPart () {
         compatibleType = '->' + 'Open Stage'
         compatibleSubType = undefined
         break
+      case 'Open Execution':
+        compatibleType = '->' + 'Open Stage'
+        compatibleSubType = undefined
+        break
+      case 'Close Execution':
+        compatibleType = '->' + 'Close Stage'
+        compatibleSubType = undefined
+        break
       case 'Stop':
         compatibleType = '->' + 'Manage Stage' + '->' + 'Initial Definition'
         compatibleSubType = undefined
@@ -306,6 +314,8 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Trigger Off Event' && nearbyNode.triggerOff !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger On Event' && nearbyNode.triggerOn !== undefined) { continue }
         if (thisObject.payload.node.type === 'Initial Definition' && nearbyNode.initialDefinition !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Open Execution' && nearbyNode.openExecution !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Close Execution' && nearbyNode.closeExecution !== undefined) { continue }
         if (thisObject.payload.node.type === 'Stop' && nearbyNode.stopLoss !== undefined) { continue }
         if (thisObject.payload.node.type === 'Take Profit' && nearbyNode.takeProfit !== undefined) { continue }
         if (thisObject.payload.node.type === 'Formula' && nearbyNode.formula !== undefined) { continue }
@@ -962,4 +972,3 @@ function newStrategyPart () {
     }
   }
 }
-

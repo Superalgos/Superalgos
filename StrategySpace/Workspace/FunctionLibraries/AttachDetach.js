@@ -82,6 +82,16 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Open Execution': {
+        node.payload.parentNode.openExecution = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Close Execution': {
+        node.payload.parentNode.closeExecution = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Stop': {
         node.payload.parentNode.stopLoss = undefined
         completeDetachment(node, rootNodes)
@@ -221,6 +231,20 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.initialDefinition = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Open Execution': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.openExecution = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Close Execution': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.closeExecution = node
         completeAttachment(node, rootNodes)
       }
         break

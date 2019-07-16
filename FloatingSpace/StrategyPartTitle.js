@@ -96,6 +96,12 @@ function newStrategyPartTitle () {
       case 'Initial Definition': {
         break
       }
+      case 'Open Execution': {
+        break
+      }
+      case 'Close Execution': {
+        break
+      }
       case 'Stop': {
         break
       }

@@ -41,6 +41,12 @@ function newNodeChildren () {
       case 'Initial Definition': {
         return countChildrenInitialDefinition(parentNode, childNode)
       }
+      case 'Open Execution': {
+        return countChildrenOpenExecution(parentNode, childNode)
+      }
+      case 'Close Execution': {
+        return countChildrenCloseExecution(parentNode, childNode)
+      }
       case 'Next Phase Event': {
         return countChildrenEvent(parentNode, childNode)
       }
@@ -287,6 +293,22 @@ function newNodeChildren () {
       if (parentNode.positionRate.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
+    }
+    return response
+  }
+
+  function countChildrenOpenExecution (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenCloseExecution (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
     }
     return response
   }

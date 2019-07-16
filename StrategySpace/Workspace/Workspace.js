@@ -222,6 +222,16 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addInitialDefinition(payload.node)
         }
         break
+      case 'Add Open Execution':
+        {
+          functionLibraryPartsFromNodes.addOpenExecution(payload.node)
+        }
+        break
+      case 'Add Close Execution':
+        {
+          functionLibraryPartsFromNodes.addCloseExecution(payload.node)
+        }
+        break
       case 'Add Phase':
         {
           functionLibraryPartsFromNodes.addPhase(payload.node)

@@ -74,7 +74,7 @@
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pTotalAlgobots, callBackFunction) {
+    function initialize(pStatusDependencies, callBackFunction) {
 
         try {
 

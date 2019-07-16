@@ -38,7 +38,7 @@ function readExecutionConfiguration() {
         global.DEV_TEAM = process.env.DEV_TEAM
         global.CURRENT_BOT_REPO = process.env.BOT + "-" + process.env.TYPE + "-Bot"
 
-        if (process.env.TYPE === 'Trading') {
+        if (process.env.TYPE === 'Trading' || process.env.TYPE === 'Trading-Engine') {
             let live = {
                 run: "false",
                 resumeExecution: process.env.RESUME_EXECUTION

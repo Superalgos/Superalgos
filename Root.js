@@ -236,13 +236,13 @@
                         // TODO Pending. Move this if inside IndicatorBotProcessMainLoop line 270
                         if (processConfig.framework !== undefined) {
                             if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market") {
-                                if (processConfig.startMode.noTime.beginDatetime !== undefined) {
-                                    processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
-                                    processConfig.framework.startDate.resumeExecution = false;
-                                }else{
-                                    processConfig.framework.startDate.resumeExecution = true;
+                                processConfig.framework.startDate.resumeExecution = false;
+                                if (processConfig.startMode.noTime !== undefined) {
+                                    if (processConfig.startMode.noTime.beginDatetime !== undefined) {
+                                        processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
+                                        processConfig.framework.startDate.resumeExecution = false;
+                                    }
                                 }
-
                             }
                         }
 
@@ -406,6 +406,10 @@
                                     switch (botConfig.type) {
                                         case 'Trading': {
                                             runTradingBot(botConfig, processConfig);
+                                            break;
+                                        }
+                                        case 'Trading-Engine': {
+                                            runTradingEngine(botConfig, processConfig);
                                             break;
                                         }
                                         default: {
@@ -684,7 +688,7 @@
 
                                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                    tradingBotMainLoop.run(pGenes, pTotalInstances, whenRunFinishes);
+                                    tradingBotMainLoop.run(pGenes, whenRunFinishes);
 
                                     function whenRunFinishes(err) {
 

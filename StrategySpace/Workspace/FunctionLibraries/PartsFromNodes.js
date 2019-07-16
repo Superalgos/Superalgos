@@ -396,7 +396,9 @@ function newPartsFromNodes () {
       createPart('Stop', '', node.manageStage.stopLoss, node.manageStage, node.manageStage)
       createPart('Take Profit', '', node.manageStage.takeProfit, node.manageStage, node.manageStage)
     }
-    if (node.triggerStage === undefined) {
+    if (node.closeStage === undefined) {
+      node.closeStage = {
+      }
       createPart('Close Stage', '', node.closeStage, node, node, 'Close Stage')
     }
   }
@@ -635,3 +637,4 @@ function newPartsFromNodes () {
     canvas.floatingSpace.strategyPartConstructor.createStrategyPart(payload)
   }
 }
+

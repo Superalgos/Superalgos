@@ -207,7 +207,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          initialDefinition: getProtocolNode(node.initialDefinition)
+          initialDefinition: getProtocolNode(node.initialDefinition),
+          openExecution: getProtocolNode(node.openExecution)
         }
         return stage
       }
@@ -225,7 +226,8 @@ function newProtocolNode () {
         let stage = {
           type: node.type,
           subType: node.subType,
-          name: node.name
+          name: node.name,
+          closeExecution: getProtocolNode(node.closeExecution)
         }
         return stage
       }

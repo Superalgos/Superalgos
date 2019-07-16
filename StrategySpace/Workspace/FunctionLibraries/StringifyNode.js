@@ -245,6 +245,7 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           initialDefinition: prepareForStringify(node.initialDefinition),
+          openExecution: prepareForStringify(node.openExecution),
           savedPayload: getSavedPayload(node)
         }
         return stage
@@ -267,6 +268,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          closeExecution: prepareForStringify(node.closeExecution),
           savedPayload: getSavedPayload(node)
         }
         return stage

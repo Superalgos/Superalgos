@@ -194,6 +194,9 @@ function newPartsFromNodes () {
         if (node.initialDefinition !== undefined) {
           createPartFromNode(node.initialDefinition, stage, stage)
         }
+        if (node.openExecution !== undefined) {
+          createPartFromNode(node.openExecution, stage, stage)
+        }
         return
       }
       case 'Manage Stage': {
@@ -211,6 +214,10 @@ function newPartsFromNodes () {
       case 'Close Stage': {
         let stage = node
         createPart('Close Stage', stage.name, stage, parentNode, chainParent, 'Close Stage')
+
+        if (node.closeExecution !== undefined) {
+          createPartFromNode(node.closeExecution, stage, stage)
+        }
         return
       }
       case 'Strategy': {

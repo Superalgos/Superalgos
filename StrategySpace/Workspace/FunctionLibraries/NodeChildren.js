@@ -206,6 +206,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.openExecution !== undefined) {
+      response.childrenCount++
+      if (parentNode.openExecution.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 
@@ -233,6 +239,12 @@ function newNodeChildren () {
     let response = {
       childrenCount: 0,
       childIndex: undefined
+    }
+    if (parentNode.closeExecution !== undefined) {
+      response.childrenCount++
+      if (parentNode.closeExecution.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
     }
     return response
   }

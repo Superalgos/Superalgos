@@ -306,6 +306,14 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteInitialDefinition(payload.node, workspaceNode.rootNodes)
         break
       }
+      case 'Delete Open Execution': {
+        functionLibraryNodeDeleter.deleteOpenExecution(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Close Execution': {
+        functionLibraryNodeDeleter.deleteCloseExecution(payload.node, workspaceNode.rootNodes)
+        break
+      }
       case 'Delete Event': {
         functionLibraryNodeDeleter.deleteEvent(payload.node, workspaceNode.rootNodes)
         break

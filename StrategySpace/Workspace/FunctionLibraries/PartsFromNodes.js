@@ -527,7 +527,7 @@ function newPartsFromNodes () {
   function addCloseExecution (node) {
     if (node.closeExecution === undefined) {
       node.closeExecution = {}
-      createPart('Open Execution', '', node.closeExecution, node, node)
+      createPart('Close Execution', '', node.closeExecution, node, node)
     }
   }
 

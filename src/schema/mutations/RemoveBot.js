@@ -29,6 +29,7 @@ const resolve = async (parent, { bot }, context) => {
               if (auxProduct.codeName === bot.productCodeName) {
                 removedBotClone = auxBot
                 auxTeam.bots.splice(j, 1)
+                userEcosystem.markModified("devTeams")
                 break
               }
             }

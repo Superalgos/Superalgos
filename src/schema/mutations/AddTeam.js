@@ -39,7 +39,17 @@ const resolve = async (parent, { team }, context) => {
 
     // Teams will be created on a local minio container
     let botsConfigurations = []
-    await createContainer(team.codeName)
+    try {
+      await createContainer(team.codeName)
+    } catch (err) {
+      if (err.message !== 'Your previous request to create the named bucket succeeded and you already own it.') {
+        logger.error('addTeam -> Error: %s', err.stack)
+        throw err
+      } else {
+        logger.warn('addTeam -> %s', err.message)
+      }
+    }
+
     let tradingBot = await copyBot(team.codeName, team.bot.codeName, team.bot.displayName, writeFileContent)
     botsConfigurations.push(tradingBot)
     let simulatorBot = await copySimulator(team.codeName, team.bot.codeName, team.bot.displayName, writeFileContent)
@@ -59,6 +69,7 @@ const resolve = async (parent, { team }, context) => {
     }
 
     userEcosystem.devTeams.push(team)
+    userEcosystem.markModified("devTeams")
     await userEcosystem.save()
     return team
   } catch (err) {

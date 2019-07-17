@@ -32,6 +32,7 @@ const resolve = async (parent, { team }, context) => {
         teamFound = true
         await deleteContainer(team.codeName)
         userEcosystem.devTeams.splice(i, 1)
+        userEcosystem.markModified("devTeams")
         await userEcosystem.save()
         break
       }

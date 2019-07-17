@@ -20,3 +20,7 @@ docker-compose\.demo\.yml
 docker-compose\.demo_with_prisma\.yml
 
 env_demo/
+
+client/\.env-demo
+
+docker-compose\.demo\.prisma\.yml

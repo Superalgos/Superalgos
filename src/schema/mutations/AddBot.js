@@ -36,6 +36,7 @@ const resolve = async (parent, { bot }, context) => {
                   products: [auxProduct]
                 }
                 auxTeam.bots.push(newBotClone)
+                userEcosystem.markModified("devTeams")
                 break
               }
             }

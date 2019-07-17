@@ -300,7 +300,7 @@ function newAppLoader() {
     })
 
     if (response.data.errors) {
-      if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> loadEcosystem -> response.text = ' + JSON.stringify(res.data.errors)) }
+      if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> loadEcosystem -> response.text = ' + JSON.stringify(response.data.errors)) }
       throw error
     }
 

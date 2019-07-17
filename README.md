@@ -245,19 +245,7 @@ In the example above, conditions A and B are mathematical comparison statements 
 
 **bollingerSubChannel.direction (Down | Up | Side):** 
 
-**bollingerSubChannel.slope (Steep | Medium | Gentle | Side):** 
-
-**bollingerSubChannel.period:** 
-
-**bollingerSubChannel.firstMovingAverage:** 
-
-**bollingerSubChannel.lastMovingAverage:** 
-
-**bollingerSubChannel.firstDeviation:** 
-
-**bollingerSubChannel.lastDeviation:** 
-
-**bollingerSubChannel.previous:** 
+**bollingerSubChannel.period:** The number of periods the subchannel spans at the moment the variable is being read. For instance, if a subchannel spans 10 candles and the variable is checked on the fourth candle, then _bollingerChannel.period_ = 4. Put in other words, it is the current span of the subchannel.
 
 ### Internal
 

@@ -1,9 +1,11 @@
 function newFileStorage() {
   const MODULE_NAME = 'File Cloud'
   const INFO_LOG = false
-  const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
+
+  const MAX_RETRY = 2
+  let currentRetry = 0
 
   let thisObject = {
     getBlobToText: getBlobToText
@@ -11,7 +13,7 @@ function newFileStorage() {
 
   return thisObject
 
-  function getBlobToText(container, filePath, host, callBackFunction) {
+  async function getBlobToText(container, filePath, host, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] getBlobToText -> Entering function.') }
 
@@ -23,7 +25,7 @@ function newFileStorage() {
         }
       }
 
-      axios({
+      let response = await axios({
         url: host.url + 'graphql',
         method: 'post',
         data: {
@@ -34,39 +36,41 @@ function newFileStorage() {
           `,
           variables: {
             file: {
-              container: container,
-              filePath: filePath,
+              container: container.toLowerCase(),
+              filePath,
               storage: host.storage,
               accessKey: host.accessKey
             }
           }
         },
         headers: headers
-      }).then(res => {
-        if (res.data.errors) {
-          let error = { code: res.data.errors[0] }
-          callBackFunction(error)
-          return
-        }
-        let response = res.data.data.web_FileContent
-        if (response){
-          callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, response)
-        } else {
-          let error = { code: 'The specified key does not exist.' }
-          callBackFunction(error)
-        }
-      }).catch(error => {
-        if (error.message === 'Request aborted' || error.message === 'Network Error') {
-          let error = { code: 'The specified key does not exist.' }
-          callBackFunction(error)
-        } else {
-          if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> Invalid JSON received. ') }
-          if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> getBlobToText -> response.text = ' + error.message) }
-          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-        }
       })
+
+      currentRetry = 0
+      if (response.data.errors) {
+        let error = { code: response.data.errors[0] }
+        callBackFunction(error)
+        return
+      }
+
+      if (response.data.data.web_FileContent) {
+        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, response.data.data.web_FileContent)
+      } else {
+        callBackFunction({ code: 'The specified key does not exist.' })
+      }
+
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] getBlobToText -> err = ' + err.stack) }
+      if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET') && currentRetry < MAX_RETRY) {
+        currentRetry++
+        if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry) }
+        getBlobToText(container, filePath, host, callBackFunction)
+      }else if (err.message === 'Request aborted') {
+        let err = { code: 'The specified key does not exist.' }
+        callBackFunction(err)
+      } else {
+        console.log('Error geting the file from the serever:', err)
+        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      }
     }
   }
 }

@@ -17,6 +17,8 @@ services:
     image: minio/minio:RELEASE.2019-07-05T21-20-21Z
     volumes:
       - 'C:\superalgos\data:/data'
+    ports:
+      - "9000:9000"
     environment:
       MINIO_ACCESS_KEY: minio
       MINIO_SECRET_KEY: minio123
@@ -40,6 +42,8 @@ services:
             user: prisma
             password: prisma
             migrations: true
+    ports:
+      - "4466:4466"
     volumes:
       - postgresdb_data:/data/db
     networks:
@@ -62,6 +66,8 @@ services:
     restart: always
     env_file: ./env/teams-api.env
     command: sh -c './wait-for prisma:4466 -- node .'
+    ports:
+      - "4001:4001"
     networks:
       - superalgos_net
     depends_on:
@@ -92,6 +98,8 @@ services:
     restart: always
     env_file: ./env/saweb-api.env
     command: node .
+    ports:
+      - "4004:4004"
     networks:
       - superalgos_net
     depends_on:
@@ -102,6 +110,8 @@ services:
     restart: always
     env_file: ./env/logs-api.env
     command: node .
+    ports:
+      - "4007:4007"
     networks:
       - superalgos_net
     depends_on:
@@ -112,6 +122,8 @@ services:
     restart: always
     env_file: ./env/clones-api.env
     command: node .
+    ports:
+      - "4003:4003"
     networks:
       - superalgos_net
     depends_on:
@@ -122,6 +134,8 @@ services:
     restart: always
     env_file: ./env/cockpit-api.env
     command: node .
+    ports:
+      - "4009:4009"
     networks:
       - superalgos_net
     depends_on:
@@ -132,6 +146,8 @@ services:
     restart: always
     env_file: ./env/strategizer-api.env
     command: node .
+    ports:
+      - "4008:4008"
     networks:
       - superalgos_net
     depends_on:
@@ -142,6 +158,8 @@ services:
     restart: always
     env_file: ./env/events-api.env
     command: node .
+    ports:
+      - "4005:4005"
     networks:
       - superalgos_net
     depends_on:
@@ -152,6 +170,8 @@ services:
     restart: always
     env_file: ./env/users-api.env
     command: node .
+    ports:
+      - "4000:4000"
     networks:
       - superalgos_net
     depends_on:
@@ -162,6 +182,8 @@ services:
     restart: always
     env_file: ./env/keyvault-api.env
     command: node .
+    ports:
+      - "4002:4002"
     networks:
       - superalgos_net
     depends_on:
@@ -172,6 +194,8 @@ services:
     restart: always
     env_file: ./env/notifications-api.env
     command: node .
+    ports:
+      - "4006:4006"
     networks:
       - superalgos_net
     depends_on:
@@ -191,7 +215,7 @@ services:
     image: superalgos/master-app-api:0.1.0
     restart: always
     env_file: ./env/master-app-api.env
-    command: sh -c './wait-for users-api:4000 -- ./wait-for teams-api:4001 -- ./wait-for keyvault-api:4002 -- ./wait-for clones-api:4003 -- ./wait-for saweb-api:4004 -- ./wait-for events-api:4005 -- ./wait-for notifications-api:4006 -- ./wait-for logs-api:4007 -- ./wait-for strategizer-api:4008 -- ./wait-for cockpit-api:4009 -- node .'
+    command: sh -c './wait-for users-api:4000 -- ./wait-for teams-api:4001 -- ./wait-for keyvault-api:4002 -- ./wait-for clones-api:4003 -- ./wait-for saweb-api:4004 -- ./wait-for events-api:4005 -- ./wait-for notifications-api:4006 -- ./wait-for logs-api:4007 -- ./wait-for strategizer-api:4008 -- ./wait-for cockpit-api:4009 --  node .'
     ports:
       - "4100:4100"
     networks:

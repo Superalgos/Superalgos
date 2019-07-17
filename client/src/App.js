@@ -39,7 +39,6 @@ export const MasterApp = props => (
             <Route
               path='/callback'
               render={props => {
-                auth.handleAuthentication(props)
                 return <Callback {...props} />
               }}
             />

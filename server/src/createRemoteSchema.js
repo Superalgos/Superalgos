@@ -31,7 +31,7 @@ export const createRemoteSchema = async (uri, preshared_key) => {
         headers: {
           Authorization: previousContext.graphqlContext.headers.authorization ? previousContext.graphqlContext.headers.authorization : '',
           UserId: previousContext.graphqlContext.headers.userId ? previousContext.graphqlContext.headers.userId : '',
-          access_token: previousContext.graphqlContext.headers.access_token ? previousContext.graphqlContext.headers.access_token : ''
+          keyvault: previousContext.graphqlContext.headers.keyvault ? previousContext.graphqlContext.headers.keyvault : ''
         }
       }
     )

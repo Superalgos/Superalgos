@@ -189,7 +189,7 @@ services:
     image: superalgos/master-app-api:0.1.0
     restart: always
     env_file: ./env/master-app-api.env
-    command: sh -c './wait-for users-api:4000 -- ./wait-for teams-api:4001 -- ./wait-for keyvault-api:4002 -- ./wait-for clones-api:4003 -- ./wait-for saweb-api:4004 -- ./wait-for events-api:4005 -- ./wait-for notifications-api:4006 -- ./wait-for logs-api:4007 -- ./wait-for strategizer-api:4008 -- ./wait-for cockpit-api:4009 -- node .'
+    command: sh -c './wait-for users-api:4000 -- ./wait-for teams-api:4001 -- ./wait-for keyvault-api:4002 -- ./wait-for clones-api:4003 -- ./wait-for saweb-api:4004 -- ./wait-for events-api:4005 -- ./wait-for notifications-api:4006 -- ./wait-for logs-api:4007 -- ./wait-for strategizer-api:4008 -- ./wait-for cockpit-api:4009 --  node .'
     ports:
       - "4100:4100"
     networks:

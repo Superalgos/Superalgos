@@ -1,15 +1,10 @@
 import Auth0Lock from 'auth0-lock'
 import gql from 'graphql-tag'
-
 import { getItem, setItem } from '../utils/local-storage'
 import { validObject, deleteCookie, slugify, isEmpty } from '../utils/js-helpers'
 import Log from '../utils/log'
-
 import { client } from '../graphql/apollo'
-
 import { AUTH_CONFIG } from './Auth0' // create by renaming Auth0.sample.js to Auth0.js and setting vars
-
-import { setInitialEcosystem } from '../utils/ecosystem'
 
 const AUTHENTICATE = gql`
   mutation authenticate($idToken: String!) {
@@ -187,7 +182,7 @@ class Auth {
           window.location.href = '/'
           return true
         } catch (err) {
-          console.log('Sign in or create account error: ', err)
+          console.log('Sign in or create account error.')
           window.localStorage.removeItem('access_token')
           window.localStorage.removeItem('id_token')
           window.localStorage.removeItem('expires_at')

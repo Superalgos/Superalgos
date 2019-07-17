@@ -182,7 +182,7 @@ async function run () {
       headers: Object.assign(
         res.locals.userId ? { userId: res.locals.userId } : {},
         req.headers.authorization ? { authorization: req.headers.authorization } : {},
-        req.headers.access_token ? { access_token: req.headers.access_token } : {}
+        req.headers.keyvault ? { keyvault: req.headers.keyvault } : {}
       )
     }
     return response

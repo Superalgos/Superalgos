@@ -51,6 +51,9 @@ function newStrategyPartConstructor () {
       if (payload.node.savedPayload.floatingObject.isFrozen === true) {
         floatingObject.freezeToggle()
       }
+      if (payload.node.savedPayload.floatingObject.isCollapsed === true) {
+        floatingObject.collapseToggle()
+      }
       if (payload.node.savedPayload.floatingObject.isTensed === true) {
         floatingObject.tensionToggle()
       }
@@ -78,6 +81,73 @@ function newStrategyPartConstructor () {
     floatingLayer.addFloatingObject(floatingObject)
 
     return
+  }
+
+  function addLeftIcons (menuItemsInitialValues, floatingObject) {
+    menuItemsInitialValues.push(
+      {
+        action: 'Pin / Unpin',
+        actionFunction: floatingObject.pinToggle,
+        actionStatus: floatingObject.getPinStatus,
+        currentStatus: false,
+        label: undefined,
+        visible: false,
+        iconPathOn: 'target',
+        iconPathOff: 'security',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        angle: -135
+      }
+      )
+    menuItemsInitialValues.push(
+      {
+        action: 'Tense / Untense',
+        actionFunction: floatingObject.tensionToggle,
+        actionStatus: floatingObject.getTensionStatus,
+        currentStatus: true,
+        label: undefined,
+        visible: false,
+        iconPathOn: 'compass',
+        iconPathOff: 'headphones',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        angle: -165
+      }
+      )
+    menuItemsInitialValues.push(
+      {
+        action: 'Freeze / Unfreeze',
+        actionFunction: floatingObject.freezeToggle,
+        actionStatus: floatingObject.getFreezeStatus,
+        currentStatus: true,
+        label: undefined,
+        visible: false,
+        iconPathOn: 'broken-link',
+        iconPathOff: 'targeting',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        angle: 165
+      }
+      )
+    menuItemsInitialValues.push(
+      {
+        action: 'Collapse / Uncollapse',
+        actionFunction: floatingObject.collapseToggle,
+        actionStatus: floatingObject.getCollapeseStatus,
+        currentStatus: false,
+        label: undefined,
+        visible: false,
+        iconPathOn: 'tap',
+        iconPathOff: 'layout',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        angle: 135
+      }
+      )
   }
 
   function getMenuItemsInitialValues (strategyPart, floatingObject, payload) {
@@ -118,49 +188,8 @@ function newStrategyPartConstructor () {
       case 'Trading System': {
         floatingObject.isPinned = true
         floatingObject.positionLocked = true
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'broken-link',
-            iconPathOff: 'targeting',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Run Trading System',
             actionFunction: payload.uiObject.run,
@@ -172,7 +201,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -70
-          },
+          }
+          )
+        menuItemsInitialValues.push(
           {
             action: 'Save Trading System',
             actionFunction: payload.onMenuItemClick,
@@ -187,7 +218,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+          )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Trading System',
             askConfirmation: true,
@@ -201,7 +234,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -10
-          },
+          }
+          )
+        menuItemsInitialValues.push(
           {
             action: 'New Strategy',
             actionFunction: payload.onMenuItemClick,
@@ -214,7 +249,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: +10
-          },
+          }
+          )
+        menuItemsInitialValues.push(
           {
             action: 'Add Parameters',
             actionFunction: payload.onMenuItemClick,
@@ -227,7 +264,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          },
+          }
+          )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -239,53 +278,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 70
-          }]
+          }
+        )
         break
       }
       case 'Parameters': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Delete Parameters',
             askConfirmation: true,
@@ -299,7 +298,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Add Missing Parameters',
             actionFunction: payload.onMenuItemClick,
@@ -311,7 +312,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -323,53 +326,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Base Asset': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Delete Base Asset',
             askConfirmation: true,
@@ -383,7 +346,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Add Formula',
             actionFunction: payload.onMenuItemClick,
@@ -396,7 +361,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -408,53 +375,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Strategy': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Missing Stages',
             actionFunction: payload.onMenuItemClick,
@@ -466,7 +393,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Strategy',
             askConfirmation: true,
@@ -480,7 +409,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -492,7 +423,8 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Trigger Stage': {
@@ -580,49 +512,8 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Open Stage': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Initial Definition',
             actionFunction: payload.onMenuItemClick,
@@ -634,7 +525,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Open Stage',
             askConfirmation: true,
@@ -648,7 +541,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -660,53 +555,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Manage Stage': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Missing Items',
             actionFunction: payload.onMenuItemClick,
@@ -718,7 +573,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Manage Stage',
             askConfirmation: true,
@@ -732,7 +589,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -744,53 +603,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Close Stage': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Delete Close Stage',
             askConfirmation: true,
@@ -804,7 +623,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -20
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -816,53 +637,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 20
-          }]
+          }
+        )
         break
       }
       case 'Position Size': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Delete Position Size',
             askConfirmation: true,
@@ -876,7 +657,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Add Formula',
             actionFunction: payload.onMenuItemClick,
@@ -889,7 +672,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -901,53 +686,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Position Rate': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Delete Position Rate',
             askConfirmation: true,
@@ -961,7 +706,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Add Formula',
             actionFunction: payload.onMenuItemClick,
@@ -974,7 +721,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -986,53 +735,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Trigger On Event': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Situation',
             actionFunction: payload.onMenuItemClick,
@@ -1045,7 +754,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Event',
             askConfirmation: true,
@@ -1059,7 +770,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -1071,53 +784,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Trigger Off Event': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Situation',
             actionFunction: payload.onMenuItemClick,
@@ -1130,7 +803,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Event',
             askConfirmation: true,
@@ -1144,7 +819,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -1156,53 +833,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Take Position Event': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Situation',
             actionFunction: payload.onMenuItemClick,
@@ -1215,7 +852,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Event',
             askConfirmation: true,
@@ -1229,7 +868,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -1241,53 +882,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Initial Definition': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Missing Items',
             actionFunction: payload.onMenuItemClick,
@@ -1299,7 +900,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Initial Definition',
             askConfirmation: true,
@@ -1313,7 +916,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -1325,53 +930,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Stop': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Phase',
             actionFunction: payload.onMenuItemClick,
@@ -1384,7 +949,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Managed Item',
             askConfirmation: true,
@@ -1398,7 +965,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -1410,53 +979,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Take Profit': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Phase',
             actionFunction: payload.onMenuItemClick,
@@ -1469,7 +998,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Managed Item',
             askConfirmation: true,
@@ -1483,7 +1014,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -1495,53 +1028,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Phase': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Formula',
             actionFunction: payload.onMenuItemClick,
@@ -1554,7 +1047,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -60
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Add Next Phase Event',
             actionFunction: payload.onMenuItemClick,
@@ -1567,7 +1062,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -20
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Phase',
             askConfirmation: true,
@@ -1581,7 +1078,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 20
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -1593,7 +1092,8 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 60
-          }]
+          }
+        )
         break
       }
       case 'Formula': {
@@ -1602,49 +1102,8 @@ function newStrategyPartConstructor () {
         strategyPart.codeEditor.initialize()
         strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
 
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Edit Formula',
             actionFunction: strategyPart.codeEditor.activate,
@@ -1657,7 +1116,9 @@ function newStrategyPartConstructor () {
             currentRadius: 0,
             angle: -40,
             dontShowAtFullscreen: true
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Formula',
             askConfirmation: true,
@@ -1671,7 +1132,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -1683,53 +1146,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Next Phase Event': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Situation',
             actionFunction: payload.onMenuItemClick,
@@ -1742,7 +1165,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Event',
             askConfirmation: true,
@@ -1756,7 +1181,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -1768,53 +1195,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Situation': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Condition',
             actionFunction: payload.onMenuItemClick,
@@ -1827,7 +1214,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Situation',
             askConfirmation: true,
@@ -1841,7 +1230,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -1853,53 +1244,13 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Condition': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Code',
             actionFunction: payload.onMenuItemClick,
@@ -1912,7 +1263,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Condition',
             askConfirmation: true,
@@ -1926,7 +1279,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -1938,7 +1293,8 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Code': {
@@ -1947,49 +1303,8 @@ function newStrategyPartConstructor () {
         strategyPart.codeEditor.initialize()
         strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
 
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Edit Code',
             actionFunction: strategyPart.codeEditor.activate,
@@ -2002,7 +1317,9 @@ function newStrategyPartConstructor () {
             currentRadius: 0,
             angle: -40,
             dontShowAtFullscreen: true
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Code',
             askConfirmation: true,
@@ -2016,7 +1333,9 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Download',
             actionFunction: payload.onMenuItemClick,
@@ -2028,7 +1347,8 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       default: {

@@ -7,6 +7,22 @@ function newFileStorage() {
   const MAX_RETRY = 2
   let currentRetry = 0
 
+  const recoverableErrors = [
+    'SOCKETTIMEDOUT',
+    'TIMEDOUT',
+    'CONNRESET',
+    'CONNREFUSED',
+    'NOTFOUND',
+    'ENOTFOUND',
+    'ECONNREFUSED',
+    'CONNREFUSED',
+    'NOTFOUND',
+    'ESOCKETTIMEDOUT',
+    'ECONNRESET',
+    'ETIMEDOUT',
+    'EAI_AGAIN'
+  ]
+
   let thisObject = {
     getBlobToText: getBlobToText
   }
@@ -46,7 +62,6 @@ function newFileStorage() {
         headers: headers
       })
 
-      currentRetry = 0
       if (response.data.errors) {
         let error = { code: response.data.errors[0] }
         callBackFunction(error)
@@ -60,7 +75,7 @@ function newFileStorage() {
       }
 
     } catch (err) {
-      if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET') && currentRetry < MAX_RETRY) {
+      if (verifyRetry(err.code) && currentRetry < MAX_RETRY) {
         currentRetry++
         if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry) }
         getBlobToText(container, filePath, host, callBackFunction)
@@ -72,5 +87,15 @@ function newFileStorage() {
         callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
       }
     }
+  }
+
+  function verifyRetry(errorCode) {
+    for (let i = 0; i < recoverableErrors.length; i++) {
+      const error = recoverableErrors[i];
+      if (error === errorCode) {
+        return true
+      }
+    }
+    return false
   }
 }

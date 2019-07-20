@@ -311,10 +311,9 @@ In the example above, conditions A and B are mathematical comparison statements 
 **periods:** 
 
 
-## Maintainers
+## Maintainer
 
-[Luis-Fernando-Molina](https://avatars1.githubusercontent.com/u/9479367?s=460&amp;v=4)[Luis Fernando Molina](https://github.com/Luis-Fernando-Molina)
-
-
-
+[![Luis-Fernando-Molina](https://avatars1.githubusercontent.com/u/9479367?s=130&amp;v=4)](https://github.com/Luis-Fernando-Molina) |
+---|
+[Luis-Fernando-Molina](https://github.com/jaredallard) |  
 

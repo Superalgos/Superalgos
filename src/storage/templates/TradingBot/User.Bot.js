@@ -126,7 +126,7 @@ exports.newUserBot = function newUserBot(bot, logger) {
         if (existsAnOpenTrade) {
           let isOrderMessage = isMessageAnOrder && simulatorEngineMessage.id === openTradeSimulatorMessageId
           if (isOrderMessage || isMessageAnOrderUpdate) {
-            logInfo('Moving the position because it is the same message that caused the open trade or because it is an update.' )
+            logInfo('Moving the position because it is the same message that caused the open trade or because it is an update.')
             await openOrMoveTrade(simulatorEngineMessage)
           } else if (isMessageAnOrderClose) {
             assistant.rememberThis('closeTradeSimulatorMessageId', simulatorEngineMessage.id)
@@ -179,11 +179,21 @@ exports.newUserBot = function newUserBot(bot, logger) {
   }
 
   async function closeTrade(stopLoss, takeProfit, openTradeSimulatorMessageId) {
-    let assetABalance = assistant.getAvailableBalance().assetA
     let currentRate = assistant.getMarketRate()
+    let wasExecuted = false
+    let tradeSize = assistant.getAvailableBalance().assetA
+    let tradeDirection = ORDER_DIRECTION.Buy
+    let closeTradeSimulatorMessageId = getValueFromPreviousExecution('closeTradeSimulatorMessageId')
+
+    if (process.env.BASE_ASSET === 'assetA') {
+      wasExecuted = closeTradeSimulatorMessageId > 0 && assistant.getAvailableBalance().assetB === 0 && assistant.getAvailableBalance().assetA > 0
+      tradeSize = assistant.getAvailableBalance().assetB
+      tradeDirection = ORDER_DIRECTION.Sell
+    } else {
+      wasExecuted = closeTradeSimulatorMessageId > 0 && assistant.getAvailableBalance().assetA === 0 && assistant.getAvailableBalance().assetB > 0
+    }
 
     // Check completion of current positions at the exchange
-    let closeTradeSimulatorMessageId = getValueFromPreviousExecution('closeTradeSimulatorMessageId')
     let positions = assistant.getPositions()
     let isPositionExecuted = false
     for (let i = 0; i < positions.length; i++) {
@@ -193,7 +203,6 @@ exports.newUserBot = function newUserBot(bot, logger) {
         break
       }
     }
-    let wasExecuted = closeTradeSimulatorMessageId > 0 && assistant.getAvailableBalance().assetA === 0 && assistant.getAvailableBalance().assetB > 0
 
     if (isPositionExecuted || wasExecuted) {
       assistant.rememberThis('openTradeSimulatorMessageId', 0)
@@ -208,8 +217,8 @@ exports.newUserBot = function newUserBot(bot, logger) {
       simulatorExecutorMessage.order.rate = currentRate
       simulatorExecutorMessage.order.stop = stopLoss
       simulatorExecutorMessage.order.takeProfit = takeProfit
-      simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Buy
-      simulatorExecutorMessage.order.size = assetABalance
+      simulatorExecutorMessage.order.direction = tradeDirection
+      simulatorExecutorMessage.order.size = tradeSize
       simulatorExecutorMessage.order.status = ORDER_STATUS.Placed
       simulatorExecutorMessage.order.exitOutcome = ORDER_EXIT_OUTCOME.StopLoss
 
@@ -217,51 +226,24 @@ exports.newUserBot = function newUserBot(bot, logger) {
       assistant.addExtraData(message)
     }
 
-    // Checking Stop Loss
-    if (stopLoss > 0 && closeTradeSimulatorMessageId > 0) {
-      logInfo('Closing trade with Stop Loss.')
-      try {
-        let position = await createBuyPosition(currentRate)
-        assistant.rememberThis('closeTradePositionId', position.id)
-
-        let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
-        simulatorExecutorMessage.id = openTradeSimulatorMessageId
-        simulatorExecutorMessage.order.id = position.id
-        simulatorExecutorMessage.order.rate = currentRate
-        simulatorExecutorMessage.order.stop = stopLoss
-        simulatorExecutorMessage.order.takeProfit = takeProfit
-        simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Buy
-        simulatorExecutorMessage.order.size = assetABalance
-        simulatorExecutorMessage.order.status = ORDER_STATUS.Placed
-        simulatorExecutorMessage.order.exitOutcome = ORDER_EXIT_OUTCOME.StopLoss
-
-        let message = createMessageFromObject(simulatorExecutorMessage)
-        assistant.addExtraData(message)
-
-      } catch (error) {
-        let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
-        simulatorExecutorMessage.id = openTradeSimulatorMessageId
-        simulatorExecutorMessage.from = MESSAGE_ENTITY.TradingAssistant
-        simulatorExecutorMessage.to = MESSAGE_ENTITY.SimulationExecutor
-        simulatorExecutorMessage.order.rate = currentRate
-        simulatorExecutorMessage.order.stop = stopLoss
-        simulatorExecutorMessage.order.takeProfit = takeProfit
-        simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Buy
-        simulatorExecutorMessage.order.size = assetABalance
-        simulatorExecutorMessage.order.status = ORDER_STATUS.Rejected
-
-        let message = createMessageFromObject(simulatorExecutorMessage)
-        assistant.addExtraData(message)
-      } finally {
-        return
+    // Checking Stop Loss & Take Profit
+    if ((takeProfit > 0 || stopLoss > 0) && closeTradeSimulatorMessageId > 0) {
+      let exitOutcome
+      if (takeProfit > 0) {
+        logInfo('Closing trade with Take Profit.')
+        exitOutcome = ORDER_EXIT_OUTCOME.TakeProfit
+      } else {
+        logInfo('Closing trade with Stop Loss.')
+        exitOutcome = ORDER_EXIT_OUTCOME.StopLoss
       }
-    }
 
-    // Checking Take Profits
-    if (takeProfit > 0 && closeTradeSimulatorMessageId > 0) {
-      logInfo('Closing trade with Take Profit.')
       try {
-        let position = await createBuyPosition(currentRate, assetABalance)
+        let position
+        if (process.env.BASE_ASSET === 'assetA') {
+          position = await createSellPosition(currentRate)
+        } else {
+          position = await createBuyPosition(currentRate)
+        }
         assistant.rememberThis('closeTradePositionId', position.id)
 
         let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
@@ -270,13 +252,14 @@ exports.newUserBot = function newUserBot(bot, logger) {
         simulatorExecutorMessage.order.rate = currentRate
         simulatorExecutorMessage.order.stop = stopLoss
         simulatorExecutorMessage.order.takeProfit = takeProfit
-        simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Buy
-        simulatorExecutorMessage.order.size = assetABalance
+        simulatorExecutorMessage.order.direction = tradeDirection
+        simulatorExecutorMessage.order.size = tradeSize
         simulatorExecutorMessage.order.status = ORDER_STATUS.Placed
-        simulatorExecutorMessage.order.exitOutcome = ORDER_EXIT_OUTCOME.TakeProfit
+        simulatorExecutorMessage.order.exitOutcome = exitOutcome
 
         let message = createMessageFromObject(simulatorExecutorMessage)
         assistant.addExtraData(message)
+
       } catch (error) {
         let simulatorExecutorMessage = buildBasicSimulatorExecutorMessage()
         simulatorExecutorMessage.id = openTradeSimulatorMessageId
@@ -285,9 +268,10 @@ exports.newUserBot = function newUserBot(bot, logger) {
         simulatorExecutorMessage.order.rate = currentRate
         simulatorExecutorMessage.order.stop = stopLoss
         simulatorExecutorMessage.order.takeProfit = takeProfit
-        simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Buy
-        simulatorExecutorMessage.order.size = assetABalance
+        simulatorExecutorMessage.order.direction = tradeDirection
+        simulatorExecutorMessage.order.size = tradeSize
         simulatorExecutorMessage.order.status = ORDER_STATUS.Rejected
+        simulatorExecutorMessage.order.exitOutcome = exitOutcome
         simulatorExecutorMessage.order.statusDetails = error.message
 
         let message = createMessageFromObject(simulatorExecutorMessage)
@@ -296,7 +280,6 @@ exports.newUserBot = function newUserBot(bot, logger) {
         return
       }
     }
-
   }
 
   async function openOrMoveTrade(simulatorEngineMessage) {
@@ -312,12 +295,24 @@ exports.newUserBot = function newUserBot(bot, logger) {
   }
 
   async function openTradeAutopilotOn(simulatorEngineMessage) {
-    let assetBBalance = assistant.getAvailableBalance().assetB
     let currentRate = assistant.getMarketRate()
+    let tradeSize = assistant.getAvailableBalance().assetB
+    let tradeDirection = ORDER_DIRECTION.Sell
+
+    if (process.env.BASE_ASSET === 'assetA') {
+      tradeSize = assistant.getAvailableBalance().assetA
+      tradeDirection = ORDER_DIRECTION.Buy
+    }
 
     try {
       // Create a new position or move existing position to complete the order execution
-      let position = await createSellPosition(currentRate, assetBBalance)
+      let position
+      if (process.env.BASE_ASSET === 'assetA') {
+        position = await createBuyPosition(currentRate)
+      } else {
+        position = await createSellPosition(currentRate)
+      }
+
       assistant.rememberThis('openTradePositionId', position.id)
       assistant.rememberThis('openTradeSimulatorMessageId', simulatorEngineMessage.id)
       assistant.rememberThis('lastStopLoss', simulatorEngineMessage.order.stop)
@@ -329,8 +324,8 @@ exports.newUserBot = function newUserBot(bot, logger) {
       simulatorExecutorMessage.order.rate = currentRate
       simulatorExecutorMessage.order.stop = simulatorEngineMessage.order.stop
       simulatorExecutorMessage.order.takeProfit = simulatorEngineMessage.order.takeProfit
-      simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Sell
-      simulatorExecutorMessage.order.size = assetBBalance
+      simulatorExecutorMessage.order.direction = tradeDirection
+      simulatorExecutorMessage.order.size = tradeSize
 
       let message = createMessageFromObject(simulatorExecutorMessage)
       assistant.addExtraData(message)
@@ -343,8 +338,8 @@ exports.newUserBot = function newUserBot(bot, logger) {
       simulatorExecutorMessage.order.rate = currentRate
       simulatorExecutorMessage.order.stop = simulatorEngineMessage.order.stop
       simulatorExecutorMessage.order.takeProfit = simulatorEngineMessage.order.takeProfit
-      simulatorExecutorMessage.order.direction = ORDER_DIRECTION.Sell
-      simulatorExecutorMessage.order.size = assetBBalance
+      simulatorExecutorMessage.order.direction = tradeDirection
+      simulatorExecutorMessage.order.size = tradeSize
       simulatorExecutorMessage.order.status = ORDER_STATUS.Rejected
       simulatorExecutorMessage.order.statusDetails = error.message
 
@@ -564,8 +559,8 @@ exports.newUserBot = function newUserBot(bot, logger) {
       })
 
       let putPosition = util.promisify(assistant.putPosition)
-      await putPosition('buy', currentRate, amountToBuy, amountB)
-      return positions[0]
+      let position = await putPosition('buy', currentRate, amountToBuy, amountB)
+      return position
     } else {
       logInfo('createBuyPosition -> Not enough available balance to buy.')
       throw new Error('There is not enough available balance to buy.')
@@ -680,8 +675,6 @@ exports.newUserBot = function newUserBot(bot, logger) {
         let minutesDelayed = (bot.processDatetime.valueOf() - lastAvailableDateTimeEnd) / 60 / 1000
         logWarn('getSimulatorEngineMessageFromFile -> Last available indicator is delayed: ' + minutesDelayed.toFixed(2) + ' minutes.')
         if (bot.processDatetime.valueOf() <= (lastAvailableDateTime + maxTolerance)) {
-          let minutesDelayed = (bot.processDatetime.valueOf() - lastAvailableDateTime) / 60 / 1000
-          logWarn('getSimulatorEngineMessageFromFile -> Last available indicator is delayed: ' + minutesDelayed.toFixed(2) + ' minutes.')
           return getMessage(indicatorFileContent[lastIndexIndicatorFile][2])
         } else {
           logWarn('getSimulatorEngineMessageFromFile -> Last available indicator older than 30 minutes: ' + JSON.stringify(indicatorFileContent[lastIndexIndicatorFile]))

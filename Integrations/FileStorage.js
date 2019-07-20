@@ -4,7 +4,24 @@ const Ecosystem = require('./Ecosystem')
 exports.newFileStorage = function newFileStorage() {
   const MODULE_NAME = 'FileStorage'
   const MAX_RETRY = 30
-  let currentRetry = 0
+  let currentRetryGetTextFile = 0
+  let currentRetryWriteTextFile = 0
+
+  const recoverableErrors = [
+    'SOCKETTIMEDOUT',
+    'TIMEDOUT',
+    'CONNRESET',
+    'CONNREFUSED',
+    'NOTFOUND',
+    'ENOTFOUND',
+    'ECONNREFUSED',
+    'CONNREFUSED',
+    'NOTFOUND',
+    'ESOCKETTIMEDOUT',
+    'ECONNRESET',
+    'ETIMEDOUT',
+    'EAI_AGAIN'
+  ]
 
   return {
     getTextFile,
@@ -15,7 +32,7 @@ exports.newFileStorage = function newFileStorage() {
     log('[INFO] ' + message)
   }
   function log(message) {
-    console.log( "['" + new Date().toISOString() + "', 0,'" + MODULE_NAME + "','" + message + "']")
+    console.log("['" + new Date().toISOString() + "', 0,'" + MODULE_NAME + "','" + message + "']")
   }
 
   function logError(message) {
@@ -48,7 +65,6 @@ exports.newFileStorage = function newFileStorage() {
         }
       })
 
-      currentRetry = 0
       if (response.data.errors) {
         callBackFunction({ code: response.data.errors[0] })
         return
@@ -61,13 +77,13 @@ exports.newFileStorage = function newFileStorage() {
       }
 
     } catch (err) {
-      if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET' || err.code === 'ENOTFOUND') && currentRetry < MAX_RETRY) {
-        currentRetry++
-        logInfo('getTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry)
+      if (verifyRetry(err.code) && currentRetryGetTextFile < MAX_RETRY) {
+        currentRetryGetTextFile++
+        logInfo('getTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetryGetTextFile)
         getTextFile(container, filePath, callBackFunction)
       } else {
-        currentRetry = 0
-        logError('getTextFile -> error = '+ err.message)
+        currentRetryGetTextFile = 0
+        logError('getTextFile -> error = ' + err.message)
         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
       }
     }
@@ -100,8 +116,6 @@ exports.newFileStorage = function newFileStorage() {
         }
       })
 
-      currentRetry = 0
-
       if (!response || response.data.errors) {
         let customErr = {
           result: global.CUSTOM_FAIL_RESPONSE.result,
@@ -113,13 +127,13 @@ exports.newFileStorage = function newFileStorage() {
       }
 
     } catch (err) {
-      if ((err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET' || err.code === 'ENOTFOUND' || err.message === "Request failed with status code 413") && currentRetry < MAX_RETRY) {
-        currentRetry++
-        logInfo('createTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry)
+      if (verifyRetry(err.code) && currentRetryWriteTextFile < MAX_RETRY) {
+        currentRetryWriteTextFile++
+        logInfo('createTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetryWriteTextFile)
         createTextFile(container, filePath, fileContent, callBackFunction)
       } else {
-        currentRetry = 0
-        logError('createTextFile -> error = '+ err.message)
+        currentRetryWriteTextFile = 0
+        logError('createTextFile -> error = ' + err.message)
         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
       }
     }
@@ -133,5 +147,15 @@ exports.newFileStorage = function newFileStorage() {
         return ecosystem.devTeams[i].host
       }
     }
+  }
+
+  function verifyRetry(errorCode) {
+    for (let i = 0; i < recoverableErrors.length; i++) {
+      const error = recoverableErrors[i];
+      if (error === errorCode) {
+        return true
+      }
+    }
+    return false
   }
 }

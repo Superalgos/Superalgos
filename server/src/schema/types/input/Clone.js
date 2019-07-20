@@ -27,8 +27,9 @@ const Type = new GraphQLInputObjectType({
     keyId: { type: GraphQLString },
     timePeriod: { type: GraphQLString },
     exchangeName: { type: GraphQLString },
-    balanceAssetA: { type: GraphQLFloat },
-    balanceAssetB: { type: GraphQLFloat },
+    balanceBaseAsset: { type: GraphQLFloat },
+    market: { type: GraphQLString },
+    baseAsset: { type: GraphQLString },
     accessCode: { type: GraphQLString }
   })
 })

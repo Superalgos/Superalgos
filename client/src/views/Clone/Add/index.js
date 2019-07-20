@@ -6,10 +6,10 @@ import TopBar from '../../BannerTopBar'
 import { withStyles } from '@material-ui/core/styles'
 import classNames from 'classnames'
 import styles from './styles'
-import { isDefined, getIndicatorYears } from '../../../utils'
+import { isDefined } from '../../../utils'
 import {
-  tradingStartModes, indicatorStartModes, availableMonths, availableTimePeriods,
-  sensorProcessNames, indicatorProcessNames, tradingProcessNames, botTypes, exchanges
+  tradingStartModes, availableTimePeriods,
+  sensorProcessNames, indicatorProcessNames, botTypes, exchanges, markets, baseAssets
 } from '../../../GraphQL/models'
 
 import {
@@ -28,10 +28,10 @@ class AddClone extends Component {
     this.state = {
       user: JSON.parse(user),
       selectedBot: { 'id': '' },
-      mode: "noTime",
+      mode: tradingStartModes.backtest,
       resumeExecution: false,
-      beginDatetime: DateTime.local().minus({ days: 8 }).startOf('day'),
-      endDatetime: DateTime.local(),
+      beginDatetime: DateTime.utc().minus({ days: 8 }).startOf('day'),
+      endDatetime: DateTime.utc(),
       waitTime: 1,
       state: '',
       stateDatetime: 0,
@@ -43,7 +43,9 @@ class AddClone extends Component {
       processName: indicatorProcessNames.Daily,
       accessCodeOption: false,
       accessCode: '',
-      balanceAssetB: 0.001,
+      baseAssetBalance: 0,
+      market: markets.USDT_BTC,
+      baseAsset: baseAssets.assetA,
 
       // Indicator Bot
       startYear: 2019,
@@ -51,7 +53,7 @@ class AddClone extends Component {
       month: 1,
 
       //TradingBot
-      timePeriod: '01-hs',
+      timePeriod: '',
 
       //Error handlers
       botError: false,
@@ -62,7 +64,7 @@ class AddClone extends Component {
       processNameError: false,
       keyIdError: false,
       accessCodeError: false,
-      balanceAssetBError: false
+      baseAssetBalanceError: false
     }
   }
 
@@ -176,8 +178,51 @@ class AddClone extends Component {
                 ))}
               </TextField>
 
+              <TextField label="Simulation Time Period Output to use"
+                select
+                className={classNames(classes.margin, classes.textField, classes.form)}
+                value={this.state.timePeriod}
+                onChange={(e) => this.setState({ timePeriod: e.target.value })}
+                fullWidth
+              >
+                {availableTimePeriods.map((option, index) => (
+                  <MenuItem key={index} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </TextField>
+
               {this.state.selectedBot.kind === botTypes.Trading &&
                 <React.Fragment>
+
+                  <TextField label="Market"
+                    select
+                    className={classNames(classes.margin, classes.textField, classes.form)}
+                    value={this.state.market}
+                    onChange={(e) => this.setState({ market: e.target.value })}
+                    fullWidth
+                  >
+                    {Object.keys(markets).map((option, index) => (
+                      <MenuItem key={index} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+
+                  <TextField label="Base Asset"
+                    select
+                    className={classNames(classes.margin, classes.textField, classes.form)}
+                    value={this.state.baseAsset}
+                    onChange={(e) => this.setState({ baseAsset: e.target.value })}
+                    fullWidth
+                  >
+                    {Object.keys(baseAssets).map((option, index) => (
+                      <MenuItem key={index} value={option}>
+                        {baseAssets[option]}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+
                   <Typography className={classes.typography} variant='subtitle1' align='justify'>
                     Available Running Modes are Backtest and Live.
                       <ul>
@@ -293,7 +338,7 @@ class AddClone extends Component {
                       <Typography className={classes.typography} variant='subtitle1' align='justify'>
                         Because we are still in early alpha-testing phase,
                         Live Trading Clones are limited to an initial investment
-                        of 0.001 BTC. If you choose to run this bot or any modified
+                        of 0.001 BTC or 10 USDT. If you choose to run this bot or any modified
                         version of the code, you are doing it at your own risk.
                       </Typography>
 
@@ -328,34 +373,16 @@ class AddClone extends Component {
                       />
 
                       <TextField
-                        label="BTC Initial Balance"
+                        label="Initial Balance"
                         className={classNames(classes.margin, classes.textField, classes.form)}
-                        value={this.state.balanceAssetB}
-                        onChange={(e) => this.setState({ balanceAssetB: e.target.value })}
-                        onBlur={(e) => this.setState({ balanceAssetBError: false })}
-                        error={this.state.balanceAssetBError}
+                        value={this.state.baseAssetBalance}
+                        onChange={(e) => this.setState({ baseAssetBalance: e.target.value })}
+                        onBlur={(e) => this.setState({ baseAssetBalanceError: false })}
+                        error={this.state.baseAssetBalanceError}
                         fullWidth
                       />
                     </React.Fragment>
                   }
-
-                  <Typography className={classes.typography} variant='subtitle1' align='justify'>
-                    The Time Period in which the bot will operate.
-                    </Typography>
-
-                  <TextField label="Time Period"
-                    select
-                    className={classNames(classes.margin, classes.textField, classes.form)}
-                    value={this.state.timePeriod}
-                    onChange={(e) => this.setState({ timePeriod: e.target.value })}
-                    fullWidth
-                  >
-                    {availableTimePeriods.map((option, index) => (
-                      <MenuItem key={index} value={option}>
-                        {option}
-                      </MenuItem>
-                    ))}
-                  </TextField>
 
                 </React.Fragment>
               }
@@ -400,7 +427,7 @@ class AddClone extends Component {
                 </React.Fragment>
               }
 
-              {(this.state.mode === "noTime" && this.state.selectedBot.kind !== botTypes.Sensor) &&
+              {(this.state.mode === "noTime" && this.state.selectedBot.kind === botTypes.Indicator) &&
                 <React.Fragment>
                   <Typography className={classes.typography} variant='subtitle1' align='justify'>
                     The Resume Execution option let's you pick up the context of
@@ -525,21 +552,27 @@ class AddClone extends Component {
     if (this.state.selectedBot.kind === "Trading") {
       variables.clone.processName = 'Trading-Process'
       variables.clone.timePeriod = this.state.timePeriod
+      variables.clone.baseAsset = this.state.baseAsset
+      variables.clone.market = this.state.market
       if (this.state.mode === "backtest") {
-        variables.clone.beginDatetime = this.state.beginDatetime.valueOf() / 1000 | 0
-        variables.clone.endDatetime = this.state.endDatetime.valueOf() / 1000 | 0
+        let beginDate = DateTime.fromISO(this.state.beginDatetime.toISO({ includeOffset: false }), { zone: "UTC" });
+        let endDate = DateTime.fromISO(this.state.endDatetime.toISO({ includeOffset: false }), { zone: "UTC" });
+        variables.clone.beginDatetime = beginDate.valueOf() / 1000 | 0
+        variables.clone.endDatetime = endDate.valueOf() / 1000 | 0
         variables.clone.waitTime = this.state.waitTime
       } else {
         variables.clone.keyId = this.state.keyId
         variables.clone.accessCode = this.state.accessCode
-        variables.clone.balanceAssetB = Number(this.state.balanceAssetB)
+        variables.clone.baseAssetBalance = Number(this.state.baseAssetBalance)
       }
     } else {
+      let beginDate = DateTime.fromISO(this.state.beginDatetime.toISO({ includeOffset: false }), { zone: "UTC" });
+
       variables.clone.processName = this.state.processName
       variables.clone.startYear = this.state.startYear
       variables.clone.endYear = this.state.endYear
       variables.clone.month = this.state.month
-      variables.clone.beginDatetime = this.state.beginDatetime.valueOf() / 1000 | 0
+      variables.clone.beginDatetime = beginDate.valueOf() / 1000 | 0
     }
 
     return this.props.addCloneMutation({
@@ -561,8 +594,8 @@ class AddClone extends Component {
         selectedBot: { 'id': '' },
         mode: 'noTime',
         resumeExecution: false,
-        beginDatetime: DateTime.local().minus({ days: 8 }).startOf('day'),
-        endDatetime: DateTime.local(),
+        beginDatetime: DateTime.utc().minus({ days: 8 }).startOf('day'),
+        endDatetime: DateTime.utc(),
         waitTime: 1,
         state: '',
         stateDatetime: 0,
@@ -574,7 +607,9 @@ class AddClone extends Component {
         keyId: '',
         accessCodeOption: false,
         accessCode: '',
-        balanceAssetB: 0.001,
+        baseAssetBalance: 0,
+        market: markets.USDT_BTC,
+        baseAsset: baseAssets.assetA,
 
         // Indicator Bot
         startYear: 2019,
@@ -582,7 +617,7 @@ class AddClone extends Component {
         month: 1,
 
         //TradingBot
-        timePeriod: '01-hs',
+        timePeriod: '',
 
         //Error handlers
         botError: false,
@@ -593,7 +628,7 @@ class AddClone extends Component {
         processNameError: false,
         keyIdError: false,
         accessCodeError: false,
-        balanceAssetBError: false
+        baseAssetBalanceError: false
       })
   };
 
@@ -632,15 +667,16 @@ class AddClone extends Component {
         isError = true
         this.setState(state => ({ accessCodeError: true }));
       }
-      if (this.state.balanceAssetB.length < 1 || isNaN(this.state.balanceAssetB)) {
+      if (this.state.baseAssetBalance.length < 1 || isNaN(this.state.baseAssetBalance)) {
         isError = true
-        this.setState(state => ({ balanceAssetBError: true }));
+        this.setState(state => ({ baseAssetBalanceError: true }));
       }
     }
 
     return isError;
 
   }
+
 }
 
 export default compose(

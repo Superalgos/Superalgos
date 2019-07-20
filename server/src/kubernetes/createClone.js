@@ -95,6 +95,10 @@ const createClone = async (clone) => {
       })
 
       env.push({
+        'name': 'BASE_ASSET',
+        'value': clone.baseAsset
+      })
+      env.push({
         'name': 'INITIAL_BALANCE_ASSET_A',
         'value': clone.balanceAssetA.toString()
       })

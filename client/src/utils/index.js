@@ -73,11 +73,3 @@ export function slugify (string) {
     .replace(/-+$/, '') // Trim - from end of text
 }
 
-export function getIndicatorYears () {
-  const localDate = new Date()
-  let availableYears = []
-  for (var i = 2015; i <= localDate.getUTCFullYear(); i++) {
-    availableYears[i - 2015] = i
-  }
-  return availableYears
-}

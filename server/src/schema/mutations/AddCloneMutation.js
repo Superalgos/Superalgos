@@ -52,13 +52,28 @@ const resolve = async (parent, { clone }, context) => {
   // TODO Temporary Limitations on bot creation
   if (clone.accessCode !== undefined && clone.accessCode.length > 0) {
     if (clone.accessCode === process.env.ACCESS_CODE) {
-      clone.balanceAssetA = Number(process.env.DEFAULT_BALANCE_ASSET_A)
+      if (clone.baseAsset === 'assetB') {
+        clone.balanceAssetA = 0
+        clone.balanceAssetB = clone.balanceBaseAsset
+      } else if (clone.baseAsset === 'assetA') {
+        clone.balanceAssetA = clone.balanceBaseAsset
+        clone.balanceAssetB = 0
+      } else {
+        throw new Error('Invalid base asset.')
+      }
     } else {
       throw new Error('Invalid access code.')
     }
   } else {
-    clone.balanceAssetA = Number(process.env.DEFAULT_BALANCE_ASSET_A)
-    clone.balanceAssetB = Number(process.env.DEFAULT_BALANCE_ASSET_B)
+    if (clone.baseAsset === 'assetB') {
+      clone.balanceAssetA = 0
+      clone.balanceAssetB = Number(process.env.DEFAULT_BALANCE_ASSET_B)
+    } else if (clone.baseAsset === 'assetA') {
+      clone.balanceAssetA = Number(process.env.DEFAULT_BALANCE_ASSET_A)
+      clone.balanceAssetB = 0
+    } else {
+      throw new Error('Invalid base asset.')
+    }
   }
 
   if (!(clone.teamSlug === "AAMasters" || clone.teamSlug === "AAVikings")) {
@@ -94,15 +109,15 @@ const resolve = async (parent, { clone }, context) => {
 
     await createKubernetesClone(clone)
 
-    if(clone.botType === Trading){
+    if (clone.botType === Trading) {
       let productCodeName
-      if(clone.mode === LIVE){
+      if (clone.mode === LIVE) {
         productCodeName = 'Live Trading History'
       }
-      if(clone.mode === COMPETITION){
+      if (clone.mode === COMPETITION) {
         productCodeName = 'Competition Trading History'
       }
-      if(clone.mode === BACKTEST){
+      if (clone.mode === BACKTEST) {
         productCodeName = 'Backtest Trading History'
       }
 

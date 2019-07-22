@@ -243,6 +243,12 @@
                                         processConfig.framework.startDate.resumeExecution = false;
                                     }
                                 }
+                                if (processConfig.startMode.live !== undefined) {
+                                    if (processConfig.startMode.live.beginDatetime !== undefined) {
+                                        processConfig.framework.startDate.fixedDate = processConfig.startMode.live.beginDatetime;
+                                        processConfig.framework.startDate.resumeExecution = false;
+                                    }
+                                }
                             }
                         }
 

@@ -284,7 +284,7 @@
                     let n;
                     let botNeverRan = true;
 
-                    bot.processDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    bot.multiPeriodDailyProcessDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
 
                     advanceTime();
 
@@ -294,21 +294,21 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> Entering function."); }
 
-                            bot.processDatetime = new Date(bot.processDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
-                            previousDay = new Date(bot.processDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
+                            bot.multiPeriodDailyProcessDatetime = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
+                            previousDay = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                            console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + " bot.processDatetime = " + bot.processDatetime.toISOString());
+                            console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + " bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime.toISOString());
 
                             if(global.FULL_LOG === 'true'){
                                 logger.newInternalLoop(bot.codeName, bot.process);
                             }
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> bot.processDatetime = " + bot.processDatetime); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> previousDay = " + previousDay); }
 
                             /* Validation that we are not going past the head of the market. */
 
-                            if (bot.processDatetime.valueOf() > contextVariables.dateEndOfMarket.valueOf()) {
+                            if (bot.multiPeriodDailyProcessDatetime.valueOf() > contextVariables.dateEndOfMarket.valueOf()) {
 
                                 const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> " + logText); }
@@ -395,7 +395,7 @@
                                     let previousFile;
                                     let currentFile;
 
-                                    if (bot.processDatetime.valueOf() > contextVariables.dateBeginOfMarket.valueOf()) {
+                                    if (bot.multiPeriodDailyProcessDatetime.valueOf() > contextVariables.dateBeginOfMarket.valueOf()) {
                                         getPreviousFile();
                                     } else {
                                         previousFile = [];
@@ -473,7 +473,7 @@
 
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> Entering function."); }
 
-                                            let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
+                                            let dateForPath = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
                                             let filePath = dependency.product + '/' + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
@@ -563,7 +563,7 @@
                                         dataFiles,
                                         timePeriod,
                                         outputPeriodLabel,
-                                        bot.processDatetime,
+                                        bot.multiPeriodDailyProcessDatetime,
                                         contextVariables.dateBeginOfMarket,
                                         contextVariables.dateEndOfMarket,
                                         interExecutionMemoryArray[n],
@@ -632,7 +632,7 @@
                                             return;
                                         }
 
-                                        writeStatusReport(bot.processDatetime, advanceTime);
+                                        writeStatusReport(bot.multiPeriodDailyProcessDatetime, advanceTime);
 
                                     } catch (err) {
                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods ->  controlLoop -> onWritten -> err = ", err);
@@ -667,7 +667,7 @@
 
                         let folderName = bot.products[productIndex].codeName;
 
-                        writeDataRange(contextVariables.dateBeginOfMarket, bot.processDatetime, folderName, controlLoop);
+                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodDailyProcessDatetime, folderName, controlLoop);
                     }
 
                     function controlLoop() {

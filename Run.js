@@ -41,7 +41,9 @@ function readExecutionConfiguration() {
         if (process.env.TYPE === 'Trading' || process.env.TYPE === 'Trading-Engine') {
             let live = {
                 run: "false",
-                resumeExecution: process.env.RESUME_EXECUTION
+                resumeExecution: process.env.RESUME_EXECUTION,
+                beginDatetime: process.env.BEGIN_DATE_TIME,
+                endDatetime: process.env.END_DATE_TIME
             }
 
             let backtest = {

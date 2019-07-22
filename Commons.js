@@ -10,7 +10,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             createMessage, getMessage, getExpandedMessage
     } = orderMessage.newOrderMessage()
 
-
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
@@ -58,6 +57,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
         startDate,
         endDate,
         interExecutionMemory,
+        assistant,
         callback,
         callBackFunction) {
 
@@ -197,6 +197,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let type = '""';
             let marketRate = 0;
             let takePositionNow = false
+
+            /* Assistant Info */
+
+            let ticker = assistant.getTicker();
 
             /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need thse variables. */
 
@@ -340,7 +344,18 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Main Simulation Loop -> candles.length = " + candles.length); }
 
-            for (let i = 0; i < candles.length; i++) {
+            let i
+            initializeLoop()
+
+            function initializeLoop() {
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> initializeLoop -> Entering function."); }
+                i = 0
+                loop()
+            }
+
+            function loop() {
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Entering function."); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> i = " + i); }
 
 
                 let candle = candles[i];
@@ -353,13 +368,28 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* If any of the needed indicators is missing, then that period is not calculated */
 
-                if (candle.begin < initialDate.valueOf()) { continue; }
-                if (bollingerBand === undefined) { continue; }  
-                if (percentageBandwidth === undefined) { continue; } // percentageBandwidth might start after the first few candles.
-                if (bollingerChannel === undefined) { continue; } 
-                if (bollingerSubChannel === undefined) { continue; } 
+                if (candle.begin < initialDate.valueOf()) {
+                    controlLoop();
+                    return
+                }
+                if (bollingerBand === undefined) {
+                    controlLoop();
+                    return
+                }
+                if (percentageBandwidth === undefined) {
+                    controlLoop();
+                    return
+                } // percentageBandwidth might start after the first few candles.
+                if (bollingerChannel === undefined) {
+                    controlLoop();
+                    return
+                }
+                if (bollingerSubChannel === undefined) {
+                    controlLoop();
+                    return
+                }
 
-                //if (LRC === undefined) { continue; }
+                //if (LRC === undefined) { controlLoop(); return}
 
                 periods++;
                 days = periods * timePeriod / ONE_DAY_IN_MILISECONDS;
@@ -372,16 +402,18 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     /* We skip the candle at the head of the market because i has not closed yet. */
                     let candlesPerDay = ONE_DAY_IN_MILISECONDS / timePeriod
                     if (i === candles.length - 1) {
-                        if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2) ) {
+                        if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
                             /*We are at the head of the market, thus we skip the last candle because it has not close yet. */
-                            continue;
+                            controlLoop();
+                            return
                             /* Note here that in the last candle of the first day or the second day it will use an incomplete candle and partially calculated indicators.
-                               if we skip these two periods, then there will be a hole in the file since the last period will be missing. */
+                                if we skip these two periods, then there will be a hole in the file since the last period will be missing. */
                         }
                     }
                 } else { // We are processing Market Files
                     if (i === candles.length - 1) {
-                        continue;
+                        controlLoop();
+                        return
                     }
                 }
 
@@ -413,7 +445,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 lastObjectsArray.push(lastObjects);
 
                 if (lastObjectsArray.length > 5) {
-                    lastObjectsArray.splice(0,1);
+                    lastObjectsArray.splice(0, 1);
                 }
 
                 let conditions = new Map;       // Here we store the conditions values that will be use in the simulator for decision making.
@@ -430,14 +462,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 evaluateConditionsAndFormulas(tradingSystem, conditions);
 
-                function evaluateConditionsAndFormulas(tradingSystem, conditions)    {
+                function evaluateConditionsAndFormulas(tradingSystem, conditions) {
 
                     for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
                         let strategy = tradingSystem.strategies[j];
 
-                        let positionSize = 0  
-                        let positionRate = 0   
+                        let positionSize = 0
+                        let positionRate = 0
 
                         /* Continue with the rest of the formulas and conditions */
 
@@ -577,9 +609,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                         if (phase.formula !== undefined) {
                                             try {
-                                                formulaValue = eval(phase.formula.code); 
+                                                formulaValue = eval(phase.formula.code);
                                                 if (formulaValue === Infinity) {
-                                                    formulaError= "Formula evaluates to Infinity."
+                                                    formulaError = "Formula evaluates to Infinity."
                                                     formulaValue = MAX_STOP_LOSS_VALUE
                                                 }
                                             } catch (err) {
@@ -854,11 +886,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 /* Trigger On Conditions */
                 if (
                     strategyStage === 'No Stage' &&
-                    currentStrategyIndex === -1 
+                    currentStrategyIndex === -1
                 ) {
                     let minimumBalance
                     let maximumBalance
-                    let balance 
+                    let balance
 
                     if (baseAsset === 'BTC') {
                         balance = balanceAssetA
@@ -875,12 +907,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         /*
                         Here we need to pick a strategy, or if there is not suitable strategy for the current
                         market conditions, we pass until the next period.
-            
+                
                         To pick a new strategy we will evaluate what we call the trigger on. Once we enter
                         into one strategy, we will ignore market conditions for others. However there is also
                         a strategy trigger off which can be hit before taking a position. If hit, we would
                         be outside a strategy again and looking for the condition to enter all over again.
-        
+            
                         */
 
                         for (let j = 0; j < tradingSystem.strategies.length; j++) {
@@ -931,7 +963,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                         if (balance > maximumBalance) {
                             tradingSystem.error = "Max Balance @ " + stopRunningDate.toUTCString()
-                        }                        
+                        }
                     }
                 }
 
@@ -1044,7 +1076,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
-                    let parentNode 
+                    let parentNode
                     let j = currentStrategyIndex
                     let stageKey
                     let initialDefinitionKey = ''
@@ -1057,7 +1089,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 initialDefinitionKey = '-' + 'initialDefinition'
                                 stageKey = 'openStage'
                                 p = stopLossPhase - 1
-                            } 
+                            }
                         }
                     }
 
@@ -1066,7 +1098,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             parentNode = manageStage
                             stageKey = 'manageStage'
                             p = stopLossPhase - 2
-                        } 
+                        }
                     }
 
                     let phase = parentNode.stopLoss.phases[p];
@@ -1108,7 +1140,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
-                    let phase 
+                    let phase
                     let key
 
                     if (stopLossStage === 'Open Stage' && openStage !== undefined) {
@@ -1328,53 +1360,127 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 ) {
                     takePositionNow = false
 
-                    /* tradePositionSize default is the whole balance if no size was defined by the user */
-                    if (baseAsset === 'BTC') {
-                        tradePositionSize = balanceAssetA;
-                    } else {
-                        tradePositionSize = balanceAssetB;
-                    }
-                    tradePositionRate = candle.close
-
-                    /* Check if the user defined a position size or rate */
+                    /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
 
                     tradePositionSize = strategy.positionSize;
                     tradePositionRate = strategy.positionRate;
 
-                    calculateTakeProfit();
-                    calculateStopLoss();
+                    /* We see if we need to put the actual order at the exchange. */
 
-                    marketRate = candle.close;                    
+                    if (interExecutionMemory.executionContext !== undefined) {
+                        switch (interExecutionMemory.executionContext.status) {
+                            case "Without a Position": { // We need to put the order because It was not put yet.
 
-                    previousBalanceAssetA = balanceAssetA;
-                    previousBalanceAssetB = balanceAssetB;
+                                if (strategy.openStage !== undefined) {
+                                    if (strategy.openStage.openExecution !== undefined) {
+                                        putOrder()
+                                        return
+                                    }
+                                }
 
-                    lastTradeProfitLoss = 0;
-                    lastTradeROI = 0;
-
-                    if (baseAsset === 'BTC') {
-                        balanceAssetB = balanceAssetB + tradePositionSize * tradePositionRate;
-                        balanceAssetA = balanceAssetA - tradePositionSize;
-                    } else {
-                        balanceAssetA = balanceAssetA + tradePositionSize / tradePositionRate;
-                        balanceAssetB = balanceAssetB - tradePositionSize;
-                    }  
-
-                    positionInstant = candle.end;
-
-                    if (currentDay !== undefined) {
-                        if (positionInstant < currentDay.valueOf()) {
-                            yesterday.balanceAssetA = balanceAssetA;
-                            yesterday.balanceAssetB = balanceAssetB;
-
-                            yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
-                            yesterday.lastTradeROI = lastTradeROI;
+                                break
+                            }
+                            case "In a Position": { // This should mean that we already put the order at the exchange.
+                                break
+                            }
+                            case "Taking Position": { // Waiting for a confirmation that the position was taken.
+                                break
+                            }
+                        }
+                    } else { // The context does not exist so it means we are not in a position.
+                        if (strategy.openStage !== undefined) {
+                            if (strategy.openStage.openExecution !== undefined) {
+                                putOrder()
+                                return
+                            }
                         }
                     }
 
-                    addRecord();
-                    continue;
+                    takePositionAtSimulation()
+
+                    function putOrder() {
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOrder -> Entering function."); }
+
+                        let positionDirection
+                        if (baseAsset === 'BTC') {
+                            positionDirection = "sell"
+                        } else {
+                            positionDirection = "buy"
+                        }
+
+                        interExecutionMemory.executionContext = {
+                            status: "Taking Position"
+                        }
+
+                        assistant.putPosition(positionDirection, tradePositionRate, tradePositionSize * tradePositionRate, tradePositionSize, onOrderPut)
+
+                        function onOrderPut(err) {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOrder -> onOrderPut -> Entering function."); }
+
+                            switch (err.result) {
+                                case global.DEFAULT_OK_RESPONSE.result: {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
+                                    interExecutionMemory.executionContext = {
+                                        status: "In a Position"
+                                    }
+                                    takePositionAtSimulation()
+                                    return;
+                                }
+                                case global.DEFAULT_FAIL_RESPONSE.result: {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
+                                    /* We will assume that the problem is temporary, and expect that it will work at the next execution.*/
+                                    strategy.openStage.openExecution.error = err.message
+                                    takePositionAtSimulation()
+                                    return;
+                                }
+                            }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
+                            strategy.openStage.openExecution.error = err.message
+                        }
+                    }
+
+                    function takePositionAtSimulation() {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionAtSimulation -> Entering function."); }
+
+                        /* Continue with the simulation */
+
+                        calculateTakeProfit();
+                        calculateStopLoss();
+
+                        marketRate = candle.close;
+
+                        previousBalanceAssetA = balanceAssetA;
+                        previousBalanceAssetB = balanceAssetB;
+
+                        lastTradeProfitLoss = 0;
+                        lastTradeROI = 0;
+
+                        if (baseAsset === 'BTC') {
+                            balanceAssetB = balanceAssetB + tradePositionSize * tradePositionRate;
+                            balanceAssetA = balanceAssetA - tradePositionSize;
+                        } else {
+                            balanceAssetA = balanceAssetA + tradePositionSize / tradePositionRate;
+                            balanceAssetB = balanceAssetB - tradePositionSize;
+                        }
+
+                        positionInstant = candle.end;
+
+                        if (currentDay !== undefined) {
+                            if (positionInstant < currentDay.valueOf()) {
+                                yesterday.balanceAssetA = balanceAssetA;
+                                yesterday.balanceAssetB = balanceAssetB;
+
+                                yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
+                                yesterday.lastTradeROI = lastTradeROI;
+                            }
+                        }
+
+                        addRecord();
+                        controlLoop();
+                        return
+                    }
                 }
 
                 /* Closing a Position */
@@ -1385,7 +1491,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if (currentDay !== undefined) {
                         if (positionInstant < currentDay.valueOf()) {
                             yesterday.Roundtrips++;
-                        }                        
+                        }
                     }
 
                     if (baseAsset === 'BTC') {
@@ -1398,7 +1504,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
                         if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
                         profit = balanceAssetB - initialBalanceB;
-                    }  
+                    }
 
                     if (currentDay !== undefined) {
                         if (positionInstant < currentDay.valueOf()) {
@@ -1410,7 +1516,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     currentTrade.lastTradeROI = lastTradeROI;
                     currentTrade.stopRate = stopLoss;
-                   
+
                     if (lastTradeProfitLoss > 0) {
                         hits++;
 
@@ -1438,7 +1544,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         ROI = (initialBalanceB + profit) / initialBalanceB - 1;
                         hitRatio = hits / roundtrips;
                         anualizedRateOfReturn = ROI / days * 365;
-                    }  
+                    }
 
                     if (currentDay !== undefined) {
                         if (positionInstant < currentDay.valueOf()) {
@@ -1462,7 +1568,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     takeProfitStage = 'No Stage';
                     stopLossPhase = 0;
                     takeProfitPhase = 0;
-                    continue;
+                    controlLoop();
+                    return
 
                 }
 
@@ -1470,8 +1577,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 marketRate = candle.close;
                 addRecord();
+                controlLoop();
+                return
 
                 function addRecord() {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> addRecord -> Entering function."); }
 
                     // Since we are going to write the message to a file that the Simulation Executor is going to read, we use the abbreviations.
                     let messageType;
@@ -1498,7 +1608,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                             } else {
                                 messageType = MESSAGE_TYPE.OrderUpdate;
-                            }                            
+                            }
                         }
 
                         let exitOutcome = ""
@@ -1698,38 +1808,53 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
             }
 
-            /*
-            Before returning we need to see if we have to record some of our counters at the interExecutionMemory.
-            To do that, the condition to be met is that this execution must include all candles of the currentDay.
-            */
-
-            if (currentDay !== undefined) {
-
-                if (lastCandle.end === lastInstantOfTheDay) {
-
-                    interExecutionMemory.balanceAssetA = yesterday.balanceAssetA;
-                    interExecutionMemory.balanceAssetB = yesterday.balanceAssetB;
-                    interExecutionMemory.lastTradeProfitLoss = yesterday.lastTradeProfitLoss;
-                    interExecutionMemory.profit = yesterday.profit;
-                    interExecutionMemory.lastTradeROI = yesterday.lastTradeROI;
-
-                    interExecutionMemory.roundtrips = interExecutionMemory.roundtrips + yesterday.Roundtrips;
-                    interExecutionMemory.fails = interExecutionMemory.fails + yesterday.fails;
-                    interExecutionMemory.hits = interExecutionMemory.hits + yesterday.hits;
-                    interExecutionMemory.periods = interExecutionMemory.periods + yesterday.Periods;
-
-                    interExecutionMemory.messageId = interExecutionMemory.messageId + yesterday.messageId;
-                    interExecutionMemory.orderId = interExecutionMemory.orderId + yesterday.orderId;
-
-                    interExecutionMemory.hitRatio = yesterday.hitRatio;
-                    interExecutionMemory.ROI = yesterday.ROI;
-                    interExecutionMemory.anualizedRateOfReturn = yesterday.anualizedRateOfReturn;
+            function controlLoop() {
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> Entering function."); }
+                i++
+                if (i < candles.length) {
+                    loop()
+                } else {
+                    afterLoop()
                 }
             }
 
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> callback -> recordsArray.length = " + recordsArray.length); }
+            function afterLoop() {
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> afterLoop -> Entering function."); }
 
-            callback(tradingSystem, executionArray, recordsArray, conditionsArray, strategiesArray, tradesArray, lastObjectsArray);
+                /*
+                Before returning we need to see if we have to record some of our counters at the interExecutionMemory.
+                To do that, the condition to be met is that this execution must include all candles of the currentDay.
+                */
+
+                if (currentDay !== undefined) {
+
+                    if (lastCandle.end === lastInstantOfTheDay) {
+
+                        interExecutionMemory.balanceAssetA = yesterday.balanceAssetA;
+                        interExecutionMemory.balanceAssetB = yesterday.balanceAssetB;
+                        interExecutionMemory.lastTradeProfitLoss = yesterday.lastTradeProfitLoss;
+                        interExecutionMemory.profit = yesterday.profit;
+                        interExecutionMemory.lastTradeROI = yesterday.lastTradeROI;
+
+                        interExecutionMemory.roundtrips = interExecutionMemory.roundtrips + yesterday.Roundtrips;
+                        interExecutionMemory.fails = interExecutionMemory.fails + yesterday.fails;
+                        interExecutionMemory.hits = interExecutionMemory.hits + yesterday.hits;
+                        interExecutionMemory.periods = interExecutionMemory.periods + yesterday.Periods;
+
+                        interExecutionMemory.messageId = interExecutionMemory.messageId + yesterday.messageId;
+                        interExecutionMemory.orderId = interExecutionMemory.orderId + yesterday.orderId;
+
+                        interExecutionMemory.hitRatio = yesterday.hitRatio;
+                        interExecutionMemory.ROI = yesterday.ROI;
+                        interExecutionMemory.anualizedRateOfReturn = yesterday.anualizedRateOfReturn;
+                    }
+                }
+
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> callback -> recordsArray.length = " + recordsArray.length); }
+
+                callback(tradingSystem, executionArray, recordsArray, conditionsArray, strategiesArray, tradesArray, lastObjectsArray);
+            }
+
 
             function getElement(pArray, begin, end) {
 

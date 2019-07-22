@@ -21,10 +21,11 @@
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let dataDependencies;
+    let assistant;
 
     return thisObject;
 
-    function initialize(pDataDependencies, callBackFunction) {
+    function initialize(pDataDependencies, callBackFunction, pAssistant) {
 
         try {
 
@@ -34,6 +35,7 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             dataDependencies = pDataDependencies;
+            assistant = pAssistant;
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
@@ -102,6 +104,7 @@
                 startDate,
                 endDate,
                 interExecutionMemory,
+                assistant,
                 writeFiles,
                 callBackFunction)
 

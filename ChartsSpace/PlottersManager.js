@@ -214,7 +214,7 @@ function newPlottersManager () {
                   let imageId = participant.devTeam + '.' + participant.profilePicture
                   const TEAM = devTeam.codeName.toLowerCase()
                   const BOT = bot.codeName.toLowerCase()
-
+/*
                   let botAvatar = new Image()
                   botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + '-' + BOT)
                   competitionPlotter.plotter.payload[k].profile.title = bot.displayName
@@ -225,6 +225,8 @@ function newPlottersManager () {
                   function onProfileBallCreated (err, pProfileHandle) {
                     competitionPlotter.plotter.payload[k].profile.handle = pProfileHandle
                   }
+
+*/
                 }
               }
               callBack(GLOBAL.DEFAULT_OK_RESPONSE)

@@ -241,27 +241,21 @@ function onBrowserRequest(request, response) {
     case 'UserEcosystem.js':
       {
         let fs = require('fs')
+
         try {
-          let filePath = process.env.ECOSYSTEM_PATH + 'ecosystem.json'
+          let filePath = process.env.CONFIG_PATH + '/ecosystem.json'
           fs.readFile(filePath, onFileRead)
-
-          function onFileRead(err, userEcosystem) {
-            response.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
-            response.setHeader('Pragma', 'no-cache') // HTTP 1.0.
-            response.setHeader('Expires', '0') // Proxies.
-
-            if (err) {
-              response.writeHead(404, { 'Content-Type': 'text/html' })
-            } else {
-              let responseContent = 'function getUserEcosystem(){ return ' + userEcosystem + '}'
-              response.writeHead(200, { 'Content-Type': 'text/html' })
-              response.write(responseContent)
-            }
-
-            response.end('\n')
-          }
         } catch (e) {
-          console.log('[ERROR] Error reading the user ecosystem')
+          console.log('[ERROR] Error reading the user ecosystem.', e)
+        }
+
+        function onFileRead(err, userEcosystem) {
+          if (err) {
+            respondWithContent(undefined, response)
+          } else {
+            let responseContent = 'function getUserEcosystem(){ return ' + userEcosystem + '}'
+            respondWithContent(responseContent, response)
+          }
         }
       }
       break
@@ -271,6 +265,46 @@ function onBrowserRequest(request, response) {
         respondWithFile(process.env.STORAGE_PATH + '/' + request.url.substring(9), response)
       }
       break
+
+    case 'ReadUserConfig':
+      {
+        respondWithFile(process.env.CONFIG_PATH + '/userConfig.json', response)
+      }
+      break
+
+    case 'WriteUserConfig':
+      {
+        let fs = require('fs')
+        let body = '';
+
+        request.on('data', function (data) {
+            body += data;
+            // Too much POST data
+            if (body.length > 1e6)
+                request.connection.destroy();
+        });
+
+        request.on('end', function () {
+          try {
+            let filePath = process.env.CONFIG_PATH + '/userConfig.json'
+            fs.writeFile(filePath, body, onFileWrite)
+          } catch (e) {
+            console.log('[ERROR] Error writing user config.', e)
+            respondWithContent(undefined, response)
+          }
+
+          function onFileWrite(err) {
+            if (err) {
+              respondWithContent(undefined, response)
+            } else {
+              let responseContent = 'User config updated.'
+              respondWithContent(responseContent, response)
+            }
+          }
+        });
+      }
+      break
+
     default:
       {
         homePage()
@@ -310,6 +344,31 @@ function onBrowserRequest(request, response) {
   }
 }
 
+function respondWithFile(fileName, response) {
+  if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> Entering function.') }
+
+  let fs = require('fs')
+  if (fileName.indexOf('undefined') > 0) {
+    console.log('[WRN] server -> respondWithFile -> Received request for undefined file. ')
+    respondWithContent(undefined, response)
+  } else {
+    try {
+      fs.readFile(fileName, onFileRead)
+
+      function onFileRead(err, file) {
+        if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> onFileRead -> Entering function.') }
+        if (!err) {
+          respondWithContent(file.toString(), response)
+        } else {
+          respondWithContent(undefined, response)
+        }
+      }
+    } catch (err) {
+      returnEmptyArray()
+    }
+  }
+}
+
 function respondWithContent(content, response) {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithContent -> Entering function.') }
 
@@ -319,51 +378,16 @@ function respondWithContent(content, response) {
     response.setHeader('Expires', '0') // Proxies.
     response.setHeader('Access-Control-Allow-Origin', '*') // Allows to access data from other domains.
 
-    response.writeHead(200, { 'Content-Type': 'text/html' })
-    response.write(content)
+    if (content !== undefined) {
+      response.writeHead(200, { 'Content-Type': 'text/html' })
+      response.write(content)
+    } else {
+      response.writeHead(404, { 'Content-Type': 'text/html' });
+      response.write('The specified key does not exist.')
+    }
     response.end('\n')
-    // console.log("Content Sent: " + content);
   } catch (err) {
     returnEmptyArray(response)
-  }
-}
-
-function respondWithFile(fileName, response) {
-  if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> Entering function.') }
-
-  let fs = require('fs')
-  try {
-    if (fileName.indexOf('undefined') > 0) {
-      console.log('[WRN] server -> respondWithFile -> Received request for undefined file. ')
-      return
-    }
-
-    fs.readFile(fileName, onFileRead)
-
-    function onFileRead(err, file) {
-      if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> onFileRead -> Entering function.') }
-
-      try {
-        response.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
-        response.setHeader('Pragma', 'no-cache') // HTTP 1.0.
-        response.setHeader('Expires', '0') // Proxies.
-        response.setHeader('Access-Control-Allow-Origin', '*') // Allows to access data from other domains.
-
-        if (!err) {
-          // response.writeHead(200, { 'Content-Type': 'text/html' });
-          response.write(file.toString())
-        } else {
-          response.writeHead(404, { 'Content-Type': 'text/html' });
-          response.write('The specified key does not exist.')
-        }
-        response.end('\n')
-      } catch (err) {
-        console.log('[ERROR] server -> respondWithFile -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
-        returnEmptyArray()
-      }
-    }
-  } catch (err) {
-    returnEmptyArray()
   }
 }
 

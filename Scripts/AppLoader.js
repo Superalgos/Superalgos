@@ -30,6 +30,7 @@ function newAppLoader() {
       }
 
       modulesArray = modulesArray.concat([
+        'ChartsSpace/ViewPort.js',
 
         'Globals.js',
         'Ecosystem.js',
@@ -39,7 +40,6 @@ function newAppLoader() {
         'ChartsSpace/PlottersManager.js',
         'ChartsSpace/TimelineChart.js',
         'ChartsSpace/TimeMachine.js',
-        'ChartsSpace/ViewPort.js',
         'ChartsSpace/TimeLineCoordinateSystem.js',
 
         'TopSpace/CurrentEvent.js',
@@ -153,9 +153,10 @@ function newAppLoader() {
 
             if (downloadedCounter === modulesArray.length) {
               if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> Starting Advanced Algos Platform.') }
-
-              dashboard = newDashboard()
-              dashboard.start()
+              setTimeout(() => {
+                dashboard = newDashboard()
+                dashboard.start()
+              }, 500)
 
             }
           } catch (err) {

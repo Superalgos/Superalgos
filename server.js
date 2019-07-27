@@ -266,6 +266,11 @@ function onBrowserRequest(request, response) {
       }
       break
 
+    case 'Storage':
+      {
+        respondWithFile(process.env.STORAGE_PATH + '/' + request.url.substring(9), response)
+      }
+      break
     default:
       {
         homePage()
@@ -339,18 +344,19 @@ function respondWithFile(fileName, response) {
       if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> onFileRead -> Entering function.') }
 
       try {
-        let htmlResponse = file.toString()
-
         response.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
         response.setHeader('Pragma', 'no-cache') // HTTP 1.0.
         response.setHeader('Expires', '0') // Proxies.
         response.setHeader('Access-Control-Allow-Origin', '*') // Allows to access data from other domains.
 
-        // response.writeHead(200, { 'Content-Type': 'text/html' });
-        response.write(htmlResponse)
+        if (!err) {
+          // response.writeHead(200, { 'Content-Type': 'text/html' });
+          response.write(file.toString())
+        } else {
+          response.writeHead(404, { 'Content-Type': 'text/html' });
+          response.write('The specified key does not exist.')
+        }
         response.end('\n')
-        // console.log("File Sent: " + fileName);
-        //
       } catch (err) {
         console.log('[ERROR] server -> respondWithFile -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
         returnEmptyArray()

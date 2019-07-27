@@ -34,12 +34,9 @@ let http = require('http')
 let port = process.env.PORT || 1337
 let isHttpServerStarted = false
 
-const FILE_CLOUD = require('./Server/FileCloud')
-let fileCloud = FILE_CLOUD.newFileCloud()
-
 startHtttpServer()
 
-function startHtttpServer () {
+function startHtttpServer() {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> startHtttpServer -> Entering function.') }
 
   try {
@@ -52,7 +49,7 @@ function startHtttpServer () {
   }
 }
 
-function onBrowserRequest (request, response) {
+function onBrowserRequest(request, response) {
   if (CONSOLE_LOG === true && request.url.indexOf('NO-LOG') === -1) { console.log('[INFO] server -> onBrowserRequest -> request.url = ' + request.url) }
 
   let requestParameters = request.url.split('/')
@@ -148,15 +145,15 @@ function onBrowserRequest (request, response) {
 
       {
         if (requestParameters[3] === undefined) {
-            respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2], response)
+          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2], response)
           return
         }
         if (requestParameters[4] === undefined) {
-            respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2] + '/' + requestParameters[3], response)
+          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2] + '/' + requestParameters[3], response)
           return
         }
         if (requestParameters[5] === undefined) {
-            respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response)
+          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response)
           return
         }
       }
@@ -182,13 +179,21 @@ function onBrowserRequest (request, response) {
 
     case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
       {
-        respondWithSourceCode(requestParameters, response)
+        let devTeam = requestParameters[2]
+        let codeName = requestParameters[3]
+        let moduleName = requestParameters[4]
+        let filePath = './Plotters/' + devTeam + '/plotters/' + codeName + '/' + moduleName
+        respondWithFile(filePath, response)
       }
       break
 
     case 'PlotterPanels': // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
       {
-        respondWithSourceCode(requestParameters, response)
+        let devTeam = requestParameters[2]
+        let codeName = requestParameters[3]
+        let moduleName = requestParameters[4]
+        let filePath = './Plotters/' + devTeam + '/plotters/' + codeName + '/' + moduleName
+        respondWithFile(filePath, response)
       }
       break
     case 'Panels':
@@ -233,20 +238,48 @@ function onBrowserRequest (request, response) {
       }
       break
 
+    case 'UserEcosystem.js':
+      {
+        let fs = require('fs')
+        try {
+          let filePath = process.env.ECOSYSTEM_PATH + 'ecosystem.json'
+          fs.readFile(filePath, onFileRead)
+
+          function onFileRead(err, userEcosystem) {
+            response.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
+            response.setHeader('Pragma', 'no-cache') // HTTP 1.0.
+            response.setHeader('Expires', '0') // Proxies.
+
+            if (err) {
+              response.writeHead(404, { 'Content-Type': 'text/html' })
+            } else {
+              let responseContent = 'function getUserEcosystem(){ return ' + userEcosystem + '}'
+              response.writeHead(200, { 'Content-Type': 'text/html' })
+              response.write(responseContent)
+            }
+
+            response.end('\n')
+          }
+        } catch (e) {
+          console.log('[ERROR] Error reading the user ecosystem')
+        }
+      }
+      break
+
     default:
       {
         homePage()
       }
   }
 
-  function homePage () {
+  function homePage() {
     if (requestParameters[1] === '') {
       let fs = require('fs')
       try {
         let fileName = 'index.html'
         fs.readFile(fileName, onFileRead)
 
-        function onFileRead (err, file) {
+        function onFileRead(err, file) {
           if (CONSOLE_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> onFileRead -> Entering function.') }
 
           try {
@@ -272,7 +305,7 @@ function onBrowserRequest (request, response) {
   }
 }
 
-function respondWithContent (content, response) {
+function respondWithContent(content, response) {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithContent -> Entering function.') }
 
   try {
@@ -290,7 +323,7 @@ function respondWithContent (content, response) {
   }
 }
 
-function respondWithFile (fileName, response) {
+function respondWithFile(fileName, response) {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> Entering function.') }
 
   let fs = require('fs')
@@ -302,7 +335,7 @@ function respondWithFile (fileName, response) {
 
     fs.readFile(fileName, onFileRead)
 
-    function onFileRead (err, file) {
+    function onFileRead(err, file) {
       if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> onFileRead -> Entering function.') }
 
       try {
@@ -328,14 +361,14 @@ function respondWithFile (fileName, response) {
   }
 }
 
-function respondWithImage (fileName, response) {
+function respondWithImage(fileName, response) {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithImage -> Entering function.') }
 
   let fs = require('fs')
   try {
     fs.readFile(fileName, onFileRead)
 
-    function onFileRead (err, file) {
+    function onFileRead(err, file) {
       if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithImage -> onFileRead -> Entering function.') }
 
       try {
@@ -355,7 +388,7 @@ function respondWithImage (fileName, response) {
   }
 }
 
-function returnEmptyArray (response) {
+function returnEmptyArray(response) {
   try {
     if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> returnEmptyArray -> Entering function.') }
 
@@ -368,23 +401,5 @@ function returnEmptyArray (response) {
     response.end('\n')
   } catch (err) {
     console.log('[ERROR] server -> returnEmptyArray -> err.message ' + err.message)
-  }
-}
-
-function respondWithSourceCode (requestParameters, response) {
-  let devTeam = requestParameters[2]
-  let codeName = requestParameters[3]
-  let moduleName = requestParameters[4]
-
-  let filePath = devTeam + '/plotters/' + codeName + '/' + moduleName
-
-  fileCloud.getBlobToText(devTeam.toLowerCase(), filePath, null, onDataArrived)
-
-  function onDataArrived (err, pData) {
-    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-      console.log('[ERROR] server -> onBrowserRequest -> respondWithSourceCode -> Could not read a file -> err.message = ' + err.message, err.stack)
-      pData = ''
-    }
-    respondWithContent(pData, response)
   }
 }

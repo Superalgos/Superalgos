@@ -26,9 +26,9 @@ GLOBAL.CUSTOM_OK_RESPONSE = {
 GLOBAL.CUSTOM_FAIL_RESPONSE = {
     result: "Fail Because",
     message: "Custom Message"
-}; 
+};
 
-let browserCanvas;                 // This is the canvas object of the browser. 
+let browserCanvas;                 // This is the canvas object of the browser.
 
 function spacePad(str, max) {
     str = str.toString();
@@ -167,8 +167,3 @@ function callServer(pContentToSend, pPath, callBackFunction) {
         }
     }
 }
-
-
-
-
-

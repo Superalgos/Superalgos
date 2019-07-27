@@ -18,6 +18,9 @@ function newEcosystem() {
     }
 
     let ECOSYSTEM = JSON.parse(window.localStorage.getItem('ecosystem'));
+    if (ECOSYSTEM === null || ECOSYSTEM === undefined) {
+        ECOSYSTEM = getUserEcosystem()
+    }
 
     return thisObject;
 

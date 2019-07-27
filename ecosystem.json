@@ -1,0 +1,891 @@
+{
+	"devTeams": [
+		{
+			"codeName": "AAMasters",
+			"displayName": "Masters",
+			"host": {
+				"url": "https://demo-api-dev.superalgos.org/",
+				"storage": "localStorage",
+				"container": "aamasters",
+				"accessKey": "09e890b76767ede3e10f0526b5036600a6b8d3faac540336e12b493fdb2aa9ed46f86094c34652f99fb6322e5f09806412f17725807f85e4dc4169bd22dd59f0b23aba5251f5544478a1aabf5a2dea5260e6eb0c29af3a788208af85025a02f94950437d501b91fd55b9d97b3d6ac3af4e1161321f78b73ca0fda524dc3a5d03"
+			},
+			"bots": [
+				{
+					"codeName": "AAOlivia",
+					"displayName": "Olivia",
+					"type": "Indicator",
+					"profilePicture": "Olivia.png",
+					"repo": "AAOlivia-Indicator-Bot",
+					"configFile": "this.bot.config.json",
+					"products": [
+						{
+							"codeName": "Candles",
+							"displayName": "Candles",
+							"description": "Two sets of files per period that contains candles.",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validPeriods": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Market/@Period",
+									"fileName": "@AssetA_@AssetB.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validPeriods": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@AssetA_@AssetB.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily",
+										"fileName": "Data.Range.@AssetA_@AssetB.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"devTeam": "AAMasters",
+								"codeName": "PlottersCandlesVolumes",
+								"moduleName": "Candles"
+							}
+						},
+						{
+							"codeName": "Volumes",
+							"displayName": "Buy and Sell Volumes",
+							"description": "Two sets of files per period that contains buy and sell volumes.",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validPeriods": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Market/@Period",
+									"fileName": "@AssetA_@AssetB.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validPeriods": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@AssetA_@AssetB.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily",
+										"fileName": "Data.Range.@AssetA_@AssetB.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"devTeam": "AAMasters",
+								"codeName": "PlottersCandlesVolumes",
+								"moduleName": "Volumes"
+							}
+						}
+					]
+				},
+				{
+					"codeName": "AATom",
+					"displayName": "Tom",
+					"type": "Indicator",
+					"profilePicture": "Tom.png",
+					"repo": "AATom-Indicator-Bot",
+					"configFile": "this.bot.config.json",
+					"products": [
+						{
+							"codeName": "Candle-Stairs",
+							"displayName": "Candle-Stairs Patters",
+							"description": "Two sets of files per period that contains candle-stairs patterns.",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validPeriods": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period",
+									"fileName": "@AssetA_@AssetB.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validPeriods": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@AssetA_@AssetB.json",
+									"dataRange": {
+										"filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily",
+										"fileName": "Data.Range.@AssetA_@AssetB.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"devTeam": "AAMasters",
+								"codeName": "PlottersStairsPatterns",
+								"moduleName": "CandleStairs"
+							}
+						},
+						{
+							"codeName": "Volume-Stairs",
+							"displayName": "Volume-Stairs Patters",
+							"description": "Two sets of files per period that contains volume-stairs patterns.",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validPeriods": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volume-Stairs/Multi-Period-Market/@Period",
+									"fileName": "@AssetA_@AssetB.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validPeriods": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volume-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@AssetA_@AssetB.json",
+									"dataRange": {
+										"filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volume-Stairs/Multi-Period-Daily",
+										"fileName": "Data.Range.@AssetA_@AssetB.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"devTeam": "AAMasters",
+								"codeName": "PlottersStairsPatterns",
+								"moduleName": "VolumeStairs"
+							}
+						}
+					]
+				},
+				{
+					"codeName": "AAChris",
+					"displayName": "Chris",
+					"type": "Indicator",
+					"profilePicture": "Chris.png",
+					"repo": "AAChris-Indicator-Bot",
+					"configFile": "this.bot.config.json",
+					"products": [
+						{
+							"codeName": "Bollinger-Bands",
+							"displayName": "Bollinger Bands",
+							"description": "Bollinger Bands",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validPeriods": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Bands/Multi-Period-Market/@Period",
+									"fileName": "@AssetA_@AssetB.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validPeriods": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Bands/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@AssetA_@AssetB.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Bands/Multi-Period-Daily",
+										"fileName": "Data.Range.@AssetA_@AssetB.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"devTeam": "AAMasters",
+								"codeName": "PlottersBollingerBands",
+								"moduleName": "BollingerBands"
+							}
+						},
+						{
+							"codeName": "Percentage-Bandwidth",
+							"displayName": "Percentage Bandwidth",
+							"description": "Percentage Bandwidth",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validPeriods": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Percentage-Bandwidth/Multi-Period-Market/@Period",
+									"fileName": "@AssetA_@AssetB.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validPeriods": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Percentage-Bandwidth/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@AssetA_@AssetB.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Percentage-Bandwidth/Multi-Period-Daily",
+										"fileName": "Data.Range.@AssetA_@AssetB.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"devTeam": "AAMasters",
+								"codeName": "PlottersBollingerBands",
+								"moduleName": "PercentageBandwidth"
+							}
+						}
+					]
+				},
+				{
+					"codeName": "AAPaula",
+					"displayName": "Paula",
+					"type": "Indicator",
+					"profilePicture": "Paula.png",
+					"repo": "AAPaula-Indicator-Bot",
+					"configFile": "this.bot.config.json",
+					"products": [
+						{
+							"codeName": "Bollinger-Channels",
+							"displayName": "Bollinger-Channels",
+							"description": "Two sets of files per period that contains band-channel patterns.",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validPeriods": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAPaula.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Channels/Multi-Period-Market/@Period",
+									"fileName": "@AssetA_@AssetB.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validPeriods": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAPaula.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Channels/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@AssetA_@AssetB.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAPaula.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Channels/Multi-Period-Daily",
+										"fileName": "Data.Range.@AssetA_@AssetB.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"devTeam": "AAMasters",
+								"codeName": "PlottersBollingerChannels",
+								"moduleName": "BollingerChannels"
+							}
+						},
+						{
+							"codeName": "Bollinger-Sub-Channels",
+							"displayName": "Bollinger-Sub-Channels",
+							"description": "Bollinger Sub Channels with slope.",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validPeriods": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAPaula.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Sub-Channels/Multi-Period-Market/@Period",
+									"fileName": "@AssetA_@AssetB.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validPeriods": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAPaula.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Sub-Channels/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@AssetA_@AssetB.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAPaula.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Sub-Channels/Multi-Period-Daily",
+										"fileName": "Data.Range.@AssetA_@AssetB.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"devTeam": "AAMasters",
+								"codeName": "PlottersBollingerChannels",
+								"moduleName": "BollingerSubChannels"
+							}
+						}
+					]
+				}
+			],
+			"plotters": [
+				{
+					"displayName": "Plotters Candles & Volumes",
+					"codeName": "PlottersCandlesVolumes",
+					"devTeam": "AAMasters",
+					"modules": [
+						{
+							"codeName": "Candles",
+							"moduleName": "Candles",
+							"description": "Plots traditional red and green candles.",
+							"profilePicture": "Candles.png",
+							"panels": [
+								{
+									"codeName": "CandlePanel",
+									"moduleName": "CandlePanel",
+									"event": "Current Candle Changed"
+								}
+							]
+						},
+						{
+							"codeName": "Volumes",
+							"description": "Plots volumes separated in buy and sell.",
+							"moduleName": "Volumes",
+							"profilePicture": "Volumes.png",
+							"panels": [
+								{
+									"codeName": "VolumePanel",
+									"moduleName": "VolumePanel",
+									"event": "Current Volume Changed"
+								}
+							]
+						}
+					],
+					"repo": "Plotters-Candles-Volumes",
+					"configFile": "this.plotter.config.json"
+				},
+				{
+					"displayName": "Plotters Stairs Patterns",
+					"codeName": "PlottersStairsPatterns",
+					"devTeam": "AAMasters",
+					"modules": [
+						{
+							"codeName": "CandleStairs",
+							"moduleName": "CandleStairs",
+							"description": "Plots Candle Stairs patterns.",
+							"profilePicture": "CandleStairs.png",
+							"panels": []
+						},
+						{
+							"codeName": "VolumeStairs",
+							"description": "Plots Volume Stairs patterns.",
+							"moduleName": "VolumeStairs",
+							"profilePicture": "VolumeStairs.png",
+							"panels": []
+						}
+					],
+					"repo": "Plotters-Stairs-Patterns",
+					"configFile": "this.plotter.config.json"
+				},
+				{
+					"displayName": "Plotters Trading",
+					"codeName": "PlottersTrading",
+					"devTeam": "AAMasters",
+					"modules": [
+						{
+							"codeName": "Details",
+							"moduleName": "Details",
+							"description": "Plots trading decitions in an easy to understand way.",
+							"panels": []
+						},
+						{
+							"codeName": "History",
+							"moduleName": "History",
+							"description": "Plots trading history.",
+							"profilePicture": "History.png",
+							"panels": []
+						}
+					],
+					"repo": "Plotters-Trading",
+					"configFile": "this.plotter.config.json"
+				},
+				{
+					"displayName": "Plotters Bollinger Bands",
+					"codeName": "PlottersBollingerBands",
+					"devTeam": "AAMasters",
+					"modules": [
+						{
+							"codeName": "BollingerBands",
+							"moduleName": "BollingerBands",
+							"description": "Plots Bollinger Bands.",
+							"profilePicture": "BollingerBands.png",
+							"panels": [
+								{
+									"codeName": "BollingerBandsPanel",
+									"moduleName": "BollingerBandsPanel",
+									"event": "Current Band Changed"
+								}
+							]
+						},
+						{
+							"codeName": "PercentageBandwidth",
+							"moduleName": "PercentageBandwidth",
+							"description": "Plots Bollinger Bands.",
+							"profilePicture": "PercentageBandwidth.png",
+							"panels": []
+						}
+					],
+					"repo": "Plotters-Bollinger-Bands",
+					"configFile": "this.plotter.config.json"
+				},
+				{
+					"displayName": "Plotters Trading Simulation",
+					"codeName": "PlottersTradingSimulation",
+					"devTeam": "AAMasters",
+					"modules": [
+						{
+							"codeName": "TradingSimulation",
+							"moduleName": "TradingSimulation",
+							"description": "Plots Bollinger Records.",
+							"profilePicture": "TradingSimulation.png",
+							"panels": [
+								{
+									"codeName": "TradingSimulationPanel",
+									"moduleName": "TradingSimulationPanel",
+									"event": "Current Record Changed"
+								}
+							]
+						},
+						{
+							"codeName": "Conditions",
+							"moduleName": "Conditions",
+							"description": "Plots Simulation Conditions.",
+							"profilePicture": "Conditions.png",
+							"panels": []
+						},
+						{
+							"codeName": "Strategies",
+							"moduleName": "Strategies",
+							"description": "Plots Strategies.",
+							"profilePicture": "Strategies.png",
+							"panels": []
+						},
+						{
+							"codeName": "Trades",
+							"moduleName": "Trades",
+							"description": "Plots Trades.",
+							"profilePicture": "Trades.png",
+							"panels": []
+						},
+						{
+							"codeName": "SimulationExecution",
+							"moduleName": "SimulationExecution",
+							"description": "Plots Simulation Execution.",
+							"profilePicture": "SimulationExecution.png",
+							"panels": [
+								{
+									"codeName": "SimulationExecutionPanel",
+									"moduleName": "SimulationExecutionPanel",
+									"event": "Current Record Changed"
+								}
+							]
+						}
+					],
+					"repo": "Plotters-Trading-Simulation",
+					"configFile": "this.plotter.config.json"
+				},
+				{
+					"displayName": "Plotters Bollinger Channels",
+					"codeName": "PlottersBollingerChannels",
+					"devTeam": "AAMasters",
+					"modules": [
+						{
+							"codeName": "BollingerChannels",
+							"moduleName": "BollingerChannels",
+							"description": "Plots Bollinger Channels.",
+							"profilePicture": "BollingerChannels.png",
+							"panels": [
+								{
+									"codeName": "ChannelPanel",
+									"moduleName": "ChannelPanel",
+									"event": "Current Channel Changed"
+								}
+							]
+						},
+						{
+							"codeName": "BollingerSubChannels",
+							"moduleName": "BollingerSubChannels",
+							"description": "Plots Bollinger Sub-Channels.",
+							"profilePicture": "BollingerSubChannels.png",
+							"panels": [
+								{
+									"codeName": "SubChannelPanel",
+									"moduleName": "SubChannelPanel",
+									"event": "Current Sub-Channel Changed"
+								}
+							]
+						}
+					],
+					"repo": "Plotters-Bollinger-Channels",
+					"configFile": "this.plotter.config.json"
+				}
+			]
+		},
+		{
+			"codeName": "AAVikings",
+			"displayName": "Vikings",
+			"host": {
+				"url": "https://demo-api-dev.superalgos.org/",
+				"container": "aavikings",
+				"storage": "localStorage",
+				"accessKey": "0f38fea438be5adfc5873228f503c55353fb334406128b16a958851b8e47c118a08f0105dd8985d5479758fc4cc3f56c2e2364c2d7c3d0fdffba8d7e9356056a34629e3b926b1ebb940122d973db30b04fc18fab542cbc1afdc032dccf64b0fe308ee6bbc74f82bd350aaebf723428a50d8a699fa2b4b96d58716986ed24069f"
+			},
+			"bots": [
+				{
+					"codeName": "AAGauss",
+					"displayName": "Gauss",
+					"type": "Indicator",
+					"profilePicture": "Gauss.png",
+					"repo": "AAGauss-Indicator-Bot",
+					"configFile": "this.bot.config.json",
+					"products": [
+						{
+							"codeName": "LRCPoints",
+							"displayName": "LRCPoints",
+							"description": "Two sets of files per period that contains LRC points.",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validPeriods": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAVikings/AAGauss.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/LRC-Points/Multi-Period-Market/@Period",
+									"fileName": "@AssetA_@AssetB.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validPeriods": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAVikings/AAGauss.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/LRC-Points/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@AssetA_@AssetB.json",
+									"dataRange": {
+										"filePath": "AAVikings/AAGauss.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/LRC-Points/Multi-Period-Daily",
+										"fileName": "Data.Range.@AssetA_@AssetB.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"devTeam": "AAVikings",
+								"codeName": "PlotterLinearRegressionCurve",
+								"moduleName": "LRC"
+							}
+						}
+					]
+				}
+			],
+			"plotters": [
+				{
+					"displayName": "Plotter LRC",
+					"codeName": "PlotterLinearRegressionCurve",
+					"devTeam": "AAVikings",
+					"modules": [
+						{
+							"codeName": "LRC",
+							"moduleName": "LRC",
+							"description": "Plots the linear regression curve.",
+							"profilePicture": "LRC.png",
+							"panels": [
+								{
+									"codeName": "ChannelPanel",
+									"moduleName": "ChannelPanel",
+									"event": "Current LRC Changed"
+								}
+							]
+						}
+					],
+					"repo": "Plotters-Linear-Regression-Curve",
+					"configFile": "this.plotter.config.json"
+				}
+			]
+		}
+	],
+	"hosts": [
+		{
+			"codeName": "AAMasters",
+			"displayName": "AA Arena",
+			"host": {
+				"url": "https://demo-api-dev.superalgos.org/",
+				"storage": "localStorage",
+				"container": "aamasters",
+				"accessKey": "09e890b76767ede3e10f0526b5036600a6b8d3faac540336e12b493fdb2aa9ed46f86094c34652f99fb6322e5f09806412f17725807f85e4dc4169bd22dd59f0b23aba5251f5544478a1aabf5a2dea5260e6eb0c29af3a788208af85025a02f94950437d501b91fd55b9d97b3d6ac3af4e1161321f78b73ca0fda524dc3a5d03"
+			},
+			"competitions": [
+				{
+					"codeName": "Weekend-Deathmatch",
+					"description": "First AA Internal Competition. Bots will be trading during 3 days at the USDT/BTC market of Poloniex to see who can make the gratest return over investment (ROI).",
+					"displayName": "AA Internal Challenge",
+					"startDatetime": "2018-01-01T16:00:00.000Z",
+					"finishDatetime": "2018-01-02T16:00:00.000Z",
+					"formula": "ROI",
+					"plotter": {
+						"devTeam": "AAMasters",
+						"codeName": "PlottersROI",
+						"host": {
+							"url": "https://demo-api-dev.superalgos.org/",
+							"storage": "localStorage",
+							"container": "aamasters",
+							"accessKey": ""
+						},
+						"moduleName": "CombinedProfits",
+						"repo": "Plotters-ROI"
+					},
+					"rules": [],
+					"prizes": [],
+					"participants": [],
+					"repo": "Weekend-Deathmatch",
+					"configFile": "this.competition.config.json"
+				}
+			],
+			"plotters": [
+				{
+					"displayName": "Plotters ROI",
+					"codeName": "PlottersROI",
+					"devTeam": "AAMasters",
+					"modules": [
+						{
+							"codeName": "CombinedProfits",
+							"moduleName": "CombinedProfits",
+							"description": "Plots participants of a competition by the ROI each one had over time.",
+							"panels": []
+						}
+					],
+					"repo": "Plotters-ROI",
+					"configFile": "this.plotter.config.json"
+				}
+			]
+		}
+	]
+}

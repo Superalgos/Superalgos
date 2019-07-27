@@ -34,7 +34,3 @@
 	path = CanvasApp
 	url = https://github.com/Superalgos/CanvasApp.git
 	branch = develop
-[submodule "Plotters-Trading-Simulation"]
-	path = Plotters-Trading-Simulation
-	url = https://github.com/AAMasters/Plotters-Trading-Simulation.git
-	branch = develop

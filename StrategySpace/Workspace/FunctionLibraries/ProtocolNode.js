@@ -276,6 +276,55 @@ function newProtocolNode () {
         }
         return tradingSystem
       }
+      case 'Personal Data': {
+        let personalData = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          exchangeAccounts: []
+        }
+
+        for (let m = 0; m < node.exchangeAccounts.length; m++) {
+          let exchangeAccount = getProtocolNode(node.exchangeAccounts[m])
+          personalData.exchangeAccounts.push(exchangeAccount)
+        }
+        return personalData
+      }
+      case 'Exchange Account': {
+        let exchangeAccount = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          assets: [],
+          keys: []
+        }
+
+        for (let m = 0; m < node.assets.length; m++) {
+          let asset = getProtocolNode(node.assets[m])
+          exchangeAccount.assets.push(asset)
+        }
+        for (let m = 0; m < node.keys.length; m++) {
+          let key = getProtocolNode(node.keys[m])
+          exchangeAccount.keys.push(key)
+        }
+        return exchangeAccount
+      }
+      case 'Exchange Account Asset': {
+        let asset = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        return asset
+      }
+      case 'Exchange Account Key': {
+        let key = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        return key
+      }
     }
   }
 }

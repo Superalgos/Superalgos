@@ -1,5 +1,9 @@
 function newNodeDeleter () {
   thisObject = {
+    deletePersonalData: deletePersonalData,
+    deleteExchangeAccount: deleteExchangeAccount,
+    deleteExchangeAccountAsset: deleteExchangeAccountAsset,
+    deleteExchangeAccountKey: deleteExchangeAccountKey,
     deleteWorkspace: deleteWorkspace,
     deleteTradingSystem: deleteTradingSystem,
     deleteParameters: deleteParameters,
@@ -34,6 +38,22 @@ function newNodeDeleter () {
       let rootNode = node.rootNodes[0]
       switch (rootNode.type) {
 
+        case 'Personal Data': {
+          deletePersonalData(rootNode, rootNodes, true)
+          break
+        }
+        case 'Exchange Account': {
+          deleteExchangeAccount(rootNode, rootNodes, true)
+          break
+        }
+        case 'Exchange Account Asset': {
+          deleteExchangeAccountAsset(rootNode, rootNodes, true)
+          break
+        }
+        case 'Exchange Account Key': {
+          deleteExchangeAccountKey(rootNode, rootNodes, true)
+          break
+        }
         case 'Trading System': {
           deleteTradingSystem(rootNode, rootNodes, true)
           break
@@ -122,6 +142,69 @@ function newNodeDeleter () {
     }
 
     completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deletePersonalData (node, rootNodes) {
+    while (node.exchangeAccounts.length > 0) {
+      deleteStrategy(node.exchangeAccounts[0], rootNodes)
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteExchangeAccount (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.exchangeAccounts.length; j++) {
+        let exchangeAccount = payload.parentNode.exchangeAccounts[j]
+        if (exchangeAccount.id === node.id) {
+          payload.parentNode.exchangeAccounts.splice(j, 1)
+        }
+      }
+    }
+    while (node.assets.length > 0) {
+      deleteExchangeAccountAsset(node.assets[0], rootNodes)
+    }
+    while (node.keys.length > 0) {
+      deleteExchangeAccountKey(node.keys[0], rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteExchangeAccountAsset (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.assets.length; j++) {
+        let asset = payload.parentNode.assets[j]
+        if (asset.id === node.id) {
+          payload.parentNode.assets.splice(j, 1)
+        }
+      }
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteExchangeAccountKey (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.keys.length; j++) {
+        let key = payload.parentNode.keys[j]
+        if (key.id === node.id) {
+          payload.parentNode.keys.splice(j, 1)
+        }
+      }
+    } else {
+      completeDeletion(node, rootNodes)
+    }
     destroyPart(node)
     cleanNode(node)
   }

@@ -187,9 +187,9 @@ function newWorkspace () {
 
         break
 
-      case 'New Strategy':
+      case 'Add Strategy':
         {
-          functionLibraryPartsFromNodes.newStrategy(payload.node)
+          functionLibraryPartsFromNodes.addStrategy(payload.node)
         }
         break
       case 'Add Parameters':
@@ -260,6 +260,21 @@ function newWorkspace () {
       case 'Add Code':
         {
           functionLibraryPartsFromNodes.addCode(payload.node)
+        }
+        break
+      case 'Add Exchange Account':
+        {
+          functionLibraryPartsFromNodes.addExchangeAccount(payload.node)
+        }
+        break
+      case 'Add Exchange Account Asset':
+        {
+          functionLibraryPartsFromNodes.addExchangeAccountAsset(payload.node)
+        }
+        break
+      case 'Add Exchange Account Key':
+        {
+          functionLibraryPartsFromNodes.addExchangeAccountKey(payload.node)
         }
         break
       case 'Delete Trading System': {
@@ -340,6 +355,18 @@ function newWorkspace () {
       }
       case 'Delete Code': {
         functionLibraryNodeDeleter.deleteCode(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Exchange Account': {
+        functionLibraryNodeDeleter.deleteExchangeAccount(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Exchange Account Asset': {
+        functionLibraryNodeDeleter.deleteExchangeAccountAsset(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Exchange Account Key': {
+        functionLibraryNodeDeleter.deleteExchangeAccountKey(payload.node, workspaceNode.rootNodes)
         break
       }
       default:

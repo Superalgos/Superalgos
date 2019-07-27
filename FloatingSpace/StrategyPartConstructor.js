@@ -153,6 +153,189 @@ function newStrategyPartConstructor () {
   function getMenuItemsInitialValues (strategyPart, floatingObject, payload) {
     let menuItemsInitialValues = []
     switch (payload.node.type) {
+      case 'Personal Data': {
+        floatingObject.isPinned = true
+        floatingObject.positionLocked = true
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Personal Data',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Personal Data',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Exchange Account',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Exchange Account',
+            visible: false,
+            iconPathOn: 'approve',
+            iconPathOff: 'approve',
+            relatedStrategyPart: 'Exchange Account',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: +0
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 30
+          }
+        )
+        break
+      }
+      case 'Exchange Account': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Exchange Account',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Account',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Exchange Account Asset',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Asset',
+            visible: false,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            relatedStrategyPart: 'Exchange Account Asset',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Exchange Account Key',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Key',
+            visible: false,
+            iconPathOn: 'login',
+            iconPathOff: 'login',
+            relatedStrategyPart: 'Exchange Account Key',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Exchange Account Asset': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Exchange Account Asset',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Asset',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+        )
+        break
+      }
+      case 'Exchange Account Key': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Exchange Account Key',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Key',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+        )
+        break
+      }
       case 'Workspace': {
         floatingObject.isPinned = true
         floatingObject.positionLocked = true
@@ -238,9 +421,9 @@ function newStrategyPartConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'New Strategy',
+            action: 'Add Strategy',
             actionFunction: payload.onMenuItemClick,
-            label: 'New Strategy',
+            label: 'Add Strategy',
             visible: false,
             iconPathOn: 'quality',
             iconPathOff: 'quality',
@@ -1461,6 +1644,22 @@ function newStrategyPartConstructor () {
 
     switch (payload.node.type) {
       case 'Workspace': {
+        level_0()
+        break
+      }
+      case 'Exchange Account': {
+        level_1()
+        break
+      }
+      case 'Exchange Account Asset': {
+        level_3()
+        break
+      }
+      case 'Exchange Account Key': {
+        level_3()
+        break
+      }
+      case 'Personal Data': {
         level_0()
         break
       }

@@ -196,6 +196,18 @@ function newStrategyPart () {
     let compatibleType
     let compatibleSubType
     switch (thisObject.payload.node.type) {
+      case 'Exchange Account':
+        compatibleType = '->' + 'Personal Data'
+        compatibleSubType = undefined
+        break
+      case 'Exchange Account Asset':
+        compatibleType = '->' + 'Exchange Account'
+        compatibleSubType = undefined
+        break
+      case 'Exchange Account Key':
+        compatibleType = '->' + 'Exchange Account'
+        compatibleSubType = undefined
+        break
       case 'Parameters':
         compatibleType = '->' + 'Trading System'
         compatibleSubType = undefined

@@ -1,7 +1,10 @@
 function newPartsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
-    newStrategy: newStrategy,
+    addExchangeAccount: addExchangeAccount,
+    addExchangeAccountAsset: addExchangeAccountAsset,
+    addExchangeAccountKey: addExchangeAccountKey,
+    addStrategy: addStrategy,
     addParameters: addParameters,
     addMissingParameters: addMissingParameters,
     addMissingStages: addMissingStages,
@@ -268,10 +271,67 @@ function newPartsFromNodes () {
         createPart('Workspace', workspace.name, workspace, parentNode, chainParent, 'Workspace')
         return
       }
+      case 'Personal Data': {
+        createPart('Personal Data', node.name, node, parentNode, chainParent, 'Personal Data')
+        for (let m = 0; m < node.exchangeAccounts.length; m++) {
+          let exchangeAccount = node.exchangeAccounts[m]
+          createPartFromNode(exchangeAccount, node, node)
+        }
+        return
+      }
+      case 'Exchange Account': {
+        createPart('Exchange Account', node.name, node, parentNode, chainParent, 'Exchange Account')
+        for (let m = 0; m < node.assets.length; m++) {
+          let asset = node.assets[m]
+          createPartFromNode(asset, node, node)
+        }
+        for (let m = 0; m < node.keys.length; m++) {
+          let key = node.keys[m]
+          createPartFromNode(key, node, node)
+        }
+        return
+      }
+      case 'Exchange Account Asset': {
+        createPart('Exchange Account Asset', node.name, node, parentNode, chainParent, 'Exchange Account Asset')
+        return
+      }
+      case 'Exchange Account Key': {
+        createPart('Exchange Account Key', node.name, node, parentNode, chainParent, 'Exchange Account Key')
+        return
+      }
     }
   }
 
-  function newStrategy (parentNode) {
+  function addExchangeAccount (parentNode) {
+    let personalData = parentNode
+    let exchangeAccount = {
+      name: 'New Account',
+      assets: [],
+      keys: []
+    }
+    personalData.exchangeAccounts.push(exchangeAccount)
+    createPart('Exchange Account', exchangeAccount.name, exchangeAccount, personalData, personalData, 'Exchange Account')
+  }
+
+  function addExchangeAccountAsset (parentNode) {
+    let exchangeAccount = parentNode
+    let asset = {
+      name: 'New Asset'
+    }
+    exchangeAccount.assets.push(asset)
+    createPart('Exchange Account Asset', asset.name, asset, exchangeAccount, exchangeAccount, 'Account Asset')
+  }
+
+  function addExchangeAccountKey (parentNode) {
+    let exchangeAccount = parentNode
+    let key = {
+      name: 'New Key'
+    }
+    exchangeAccount.keys.push(key)
+    createPart('Exchange Account Key', key.name, key, exchangeAccount, exchangeAccount, 'Account Key')
+  }
+
+  function addStrategy (parentNode) {
     let strategyParent = parentNode
     let strategy = {
       name: 'New Strategy',

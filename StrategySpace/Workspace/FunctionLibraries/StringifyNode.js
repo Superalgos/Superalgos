@@ -326,6 +326,64 @@ function newStringifyNode () {
         }
         return tradingSystem
       }
+      case 'Personal Data': {
+        let personalData = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          exchangeAccounts: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.exchangeAccounts.length; m++) {
+          let exchangeAccount = prepareForStringify(node.exchangeAccounts[m])
+          personalData.exchangeAccounts.push(exchangeAccount)
+        }
+        return personalData
+      }
+      case 'Exchange Account': {
+        let exchangeAccount = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          assets: [],
+          keys: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.assets.length; m++) {
+          let asset = prepareForStringify(node.assets[m])
+          exchangeAccount.assets.push(asset)
+        }
+
+        for (let m = 0; m < node.keys.length; m++) {
+          let key = prepareForStringify(node.keys[m])
+          exchangeAccount.keys.push(key)
+        }
+        return exchangeAccount
+      }
+      case 'Exchange Account Asset': {
+        let asset = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          savedPayload: getSavedPayload(node)
+        }
+        return asset
+      }
+      case 'Exchange Account Key': {
+        let key = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          savedPayload: getSavedPayload(node)
+        }
+        return key
+      }
     }
   }
 

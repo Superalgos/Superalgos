@@ -8,6 +8,18 @@ function newNodeChildren () {
   function childrenCount (parentNode, childNode) {
     switch (parentNode.type) {
 
+      case 'Personal Data': {
+        return countChildrenPersonalData(parentNode, childNode)
+      }
+      case 'Exchange Account': {
+        return countChildrenExchangeAccount(parentNode, childNode)
+      }
+      case 'Exchange Account Asset': {
+        return countChildrenExchangeAccountAsset(parentNode, childNode)
+      }
+      case 'Exchange Account Key': {
+        return countChildrenExchangeAccountKey(parentNode, childNode)
+      }
       case 'Trading System': {
         return countChildrenTradingSystem(parentNode, childNode)
       }
@@ -84,6 +96,62 @@ function newNodeChildren () {
         console.log('WARNING this parentNode type is not listed at NodeChildren: ' + parentNode.type)
       }
     }
+  }
+
+  function countChildrenPersonalData (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.exchangeAccounts.length; i++) {
+      let child = parentNode.exchangeAccounts[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenExchangeAccount (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.assets.length; i++) {
+      let child = parentNode.assets[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+
+    for (let i = 0; i < parentNode.keys.length; i++) {
+      let child = parentNode.keys[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenExchangeAccountAsset (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenExchangeAccountKey (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
   }
 
   function countChildrenTradingSystem (parentNode, childNode) {

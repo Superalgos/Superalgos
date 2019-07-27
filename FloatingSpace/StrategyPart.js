@@ -196,6 +196,14 @@ function newStrategyPart () {
     let compatibleType
     let compatibleSubType
     switch (thisObject.payload.node.type) {
+      case 'Trading System':
+        compatibleType = '->' + 'Definition'
+        compatibleSubType = undefined
+        break
+      case 'Personal Data':
+        compatibleType = '->' + 'Definition'
+        compatibleSubType = undefined
+        break
       case 'Exchange Account':
         compatibleType = '->' + 'Personal Data'
         compatibleSubType = undefined
@@ -314,6 +322,8 @@ function newStrategyPart () {
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf('->' + nearbyNode.type) >= 0) {
         /* Discard objects with busy coonection ports */
+        if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }
         if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
         if (thisObject.payload.node.type === 'Base Asset' && nearbyNode.baseAsset !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }

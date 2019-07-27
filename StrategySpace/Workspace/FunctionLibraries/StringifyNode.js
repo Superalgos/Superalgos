@@ -384,6 +384,18 @@ function newStringifyNode () {
         }
         return key
       }
+      case 'Definition': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          tradingSystem: prepareForStringify(node.tradingSystem),
+          personalData: prepareForStringify(node.personalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
     }
   }
 

@@ -8,7 +8,12 @@ function newAttachDetach () {
 
   function detachNode (node, rootNodes) {
     switch (node.type) {
+      case 'Definition': {
+        return
+      }
       case 'Personal Data': {
+        node.payload.parentNode.personalData = undefined
+        completeDetachment(node, rootNodes)
         return
       }
       case 'Exchange Account': {
@@ -45,6 +50,8 @@ function newAttachDetach () {
         return
       }
       case 'Trading System': {
+        node.payload.parentNode.tradingSystem = undefined
+        completeDetachment(node, rootNodes)
         return
       }
       case 'Base Asset': {
@@ -196,6 +203,13 @@ function newAttachDetach () {
 
   function attachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
+      case 'Personal Data': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.personalData = node
+        completeAttachment(node, rootNodes)
+      }
+        break
       case 'Exchange Account': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
@@ -228,6 +242,13 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.baseAsset = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Trading System': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.tradingSystem = node
         completeAttachment(node, rootNodes)
       }
         break

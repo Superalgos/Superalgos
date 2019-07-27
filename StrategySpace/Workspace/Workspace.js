@@ -277,6 +277,16 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addExchangeAccountKey(payload.node)
         }
         break
+      case 'Add Trading System':
+        {
+          functionLibraryPartsFromNodes.addTradingSystem(payload.node)
+        }
+        break
+      case 'Add Personal Data':
+        {
+          functionLibraryPartsFromNodes.addPersonalData(payload.node)
+        }
+        break
       case 'Delete Trading System': {
         functionLibraryNodeDeleter.deleteTradingSystem(payload.node, workspaceNode.rootNodes)
         break
@@ -367,6 +377,14 @@ function newWorkspace () {
       }
       case 'Delete Exchange Account Key': {
         functionLibraryNodeDeleter.deleteExchangeAccountKey(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Personal Data': {
+        functionLibraryNodeDeleter.deletePersonalData(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Definition': {
+        functionLibraryNodeDeleter.deleteDefinition(payload.node, workspaceNode.rootNodes)
         break
       }
       default:

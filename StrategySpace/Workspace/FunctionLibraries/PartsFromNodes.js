@@ -1,6 +1,8 @@
 function newPartsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
+    addTradingSystem: addTradingSystem,
+    addPersonalData: addPersonalData,
     addExchangeAccount: addExchangeAccount,
     addExchangeAccountAsset: addExchangeAccountAsset,
     addExchangeAccountKey: addExchangeAccountKey,
@@ -299,6 +301,34 @@ function newPartsFromNodes () {
         createPart('Exchange Account Key', node.name, node, parentNode, chainParent, 'Exchange Account Key')
         return
       }
+      case 'Definition': {
+        createPart('Definition', node.name, node, parentNode, chainParent, 'Definition')
+        if (node.tradingSystem !== undefined) {
+          createPartFromNode(node.tradingSystem, node, node)
+        }
+        if (node.personalData !== undefined) {
+          createPartFromNode(node.personalData, node, node)
+        }
+        return
+      }
+    }
+  }
+
+  function addTradingSystem (node) {
+    if (node.tradingSystem === undefined) {
+      node.tradingSystem = {
+        strategies: []
+      }
+      createPart('Trading System', '', node.tradingSystem, node, node)
+    }
+  }
+
+  function addPersonalData (node) {
+    if (node.personalData === undefined) {
+      node.personalData = {
+        exchangeAccounts: []
+      }
+      createPart('Personal Data', '', node.personalData, node, node)
     }
   }
 

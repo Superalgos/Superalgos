@@ -48,6 +48,10 @@ function newStrategyPartTitle () {
     thisObject.payload = payload
 
     switch (payload.node.type) {
+      case 'Definition': {
+        thisObject.allwaysVisible = true
+        break
+      }
       case 'Personal Data': {
         break
       }

@@ -1,5 +1,6 @@
 function newNodeDeleter () {
   thisObject = {
+    deleteDefinition: deleteDefinition,
     deletePersonalData: deletePersonalData,
     deleteExchangeAccount: deleteExchangeAccount,
     deleteExchangeAccountAsset: deleteExchangeAccountAsset,
@@ -38,24 +39,28 @@ function newNodeDeleter () {
       let rootNode = node.rootNodes[0]
       switch (rootNode.type) {
 
+        case 'Definition': {
+          deleteDefinition(rootNode, rootNodes, true)
+          break
+        }
         case 'Personal Data': {
-          deletePersonalData(rootNode, rootNodes, true)
+          deletePersonalData(rootNode, rootNodes)
           break
         }
         case 'Exchange Account': {
-          deleteExchangeAccount(rootNode, rootNodes, true)
+          deleteExchangeAccount(rootNode, rootNodes)
           break
         }
         case 'Exchange Account Asset': {
-          deleteExchangeAccountAsset(rootNode, rootNodes, true)
+          deleteExchangeAccountAsset(rootNode, rootNodes)
           break
         }
         case 'Exchange Account Key': {
-          deleteExchangeAccountKey(rootNode, rootNodes, true)
+          deleteExchangeAccountKey(rootNode, rootNodes)
           break
         }
         case 'Trading System': {
-          deleteTradingSystem(rootNode, rootNodes, true)
+          deleteTradingSystem(rootNode, rootNodes)
           break
         }
         case 'Parameters': {
@@ -146,9 +151,45 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
+  function deleteDefinition (node, rootNodes, forced) {
+    let payload = node.payload
+
+    if (forced !== true) {
+      /* Can not delete if it is the last one */
+      let counter = 0
+      for (let i = 0; i < rootNodes.length; i++) {
+        let rootNode = rootNodes[i]
+        if (rootNode.type === node.type) {
+          counter++
+        }
+      }
+      if (counter <= 1) { return }
+    }
+
+    if (node.payload.uiObject.isRunning === true) {
+      node.payload.uiObject.setNotRunningStatus()
+    }
+
+    if (node.tradingSystem !== undefined) {
+      deleteTradingSystem(node.tradingSystem, rootNodes)
+    }
+    if (node.personalData !== undefined) {
+      deletePersonalData(node.personalData, rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
   function deletePersonalData (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.personalData = undefined
+    }
+
     while (node.exchangeAccounts.length > 0) {
-      deleteStrategy(node.exchangeAccounts[0], rootNodes)
+      deleteExchangeAccount(node.exchangeAccounts[0], rootNodes)
     }
 
     completeDeletion(node, rootNodes)
@@ -209,21 +250,11 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
-  function deleteTradingSystem (node, rootNodes, forced) {
-    if (forced !== true) {
-      /* Can not delete if it is the last one */
-      let counter = 0
-      for (let i = 0; i < rootNodes.length; i++) {
-        let rootNode = rootNodes[i]
-        if (rootNode.type === node.type) {
-          counter++
-        }
-      }
-      if (counter <= 1) { return }
-    }
+  function deleteTradingSystem (node, rootNodes) {
+    let payload = node.payload
 
-    if (node.payload.uiObject.isRunning === true) {
-      node.payload.uiObject.setNotRunningStatus()
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.tradingSystem = undefined
     }
 
     while (node.strategies.length > 0) {

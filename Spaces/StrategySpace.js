@@ -39,6 +39,7 @@ function newStrategySpace () {
 
   function buildIconByPartTypeMap () {
     const relationshipArray = [
+      ['Definition', 'text'],
       ['Personal Data', 'security'],
       ['Exchange Account', 'approve'],
       ['Exchange Account Asset', 'paper-plane'],

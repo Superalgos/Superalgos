@@ -153,9 +153,105 @@ function newStrategyPartConstructor () {
   function getMenuItemsInitialValues (strategyPart, floatingObject, payload) {
     let menuItemsInitialValues = []
     switch (payload.node.type) {
-      case 'Personal Data': {
+      case 'Workspace': {
         floatingObject.isPinned = true
         floatingObject.positionLocked = true
+        menuItemsInitialValues = [
+          {
+            action: 'Pin / Unpin',
+            actionFunction: floatingObject.pinToggle,
+            actionStatus: floatingObject.getPinStatus,
+            currentStatus: true,
+            label: undefined,
+            visible: false,
+            iconPathOn: 'target',
+            iconPathOff: 'security',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -135
+          },
+          {
+            action: 'Download Workspace',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }]
+        break
+      }
+      case 'Definition': {
+        floatingObject.isPinned = true
+        floatingObject.positionLocked = true
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Definition',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Definition',
+            visible: false,
+            iconPathOn: 'trash',
+            iconPathOff: 'trash',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Trading System',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Trading System',
+            visible: false,
+            iconPathOn: 'approve',
+            iconPathOff: 'approve',
+            relatedStrategyPart: 'Trading System',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Personal Data',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Personal Data',
+            visible: false,
+            iconPathOn: 'approve',
+            iconPathOff: 'approve',
+            relatedStrategyPart: 'Personal Data',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Download',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Download',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Personal Data': {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -336,41 +432,7 @@ function newStrategyPartConstructor () {
         )
         break
       }
-      case 'Workspace': {
-        floatingObject.isPinned = true
-        floatingObject.positionLocked = true
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Download Workspace',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Download',
-            visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 0
-          }]
-        break
-      }
       case 'Trading System': {
-        floatingObject.isPinned = true
-        floatingObject.positionLocked = true
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -1647,6 +1709,10 @@ function newStrategyPartConstructor () {
         level_0()
         break
       }
+      case 'Definition': {
+        level_0()
+        break
+      }
       case 'Exchange Account': {
         level_1()
         break
@@ -1660,11 +1726,11 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Personal Data': {
-        level_0()
+        level_1()
         break
       }
       case 'Trading System': {
-        level_0()
+        level_1()
         break
       }
       case 'Parameters': {

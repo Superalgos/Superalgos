@@ -8,6 +8,9 @@ function newNodeChildren () {
   function childrenCount (parentNode, childNode) {
     switch (parentNode.type) {
 
+      case 'Definition': {
+        return countChildrenDefinition(parentNode, childNode)
+      }
       case 'Personal Data': {
         return countChildrenPersonalData(parentNode, childNode)
       }
@@ -96,6 +99,26 @@ function newNodeChildren () {
         console.log('WARNING this parentNode type is not listed at NodeChildren: ' + parentNode.type)
       }
     }
+  }
+
+  function countChildrenDefinition (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.tradingSystem !== undefined) {
+      response.childrenCount++
+      if (parentNode.tradingSystem.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.personalData !== undefined) {
+      response.childrenCount++
+      if (parentNode.personalData.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
   }
 
   function countChildrenPersonalData (parentNode, childNode) {

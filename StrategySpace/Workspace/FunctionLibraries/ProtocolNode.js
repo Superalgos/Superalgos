@@ -325,6 +325,16 @@ function newProtocolNode () {
         }
         return key
       }
+      case 'Definition': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          tradingSystem: getProtocolNode(node.tradingSystem),
+          personalData: getProtocolNode(node.personalData)
+        }
+        return object
+      }
     }
   }
 }

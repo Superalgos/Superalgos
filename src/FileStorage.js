@@ -33,45 +33,55 @@ function newFileStorage() {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] getBlobToText -> Entering function.') }
 
-      let headers
-      let accessToken = window.localStorage.getItem('access_token')
-      if (accessToken !== null) {
-        headers = {
-          authorization: 'Bearer ' + accessToken
+      if (host.url.indexOf('localhost') !== -1) {
+        callServer(undefined, 'Storage/' + container + '/' + filePath, (response, fileContent) => {
+          if (response.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, fileContent)
+          } else {
+            callBackFunction(response)
+          }
+        })
+       } else {
+        let headers
+        let accessToken = window.localStorage.getItem('access_token')
+        if (accessToken !== null) {
+          headers = {
+            authorization: 'Bearer ' + accessToken
+          }
         }
-      }
 
-      let response = await axios({
-        url: host.url + 'graphql',
-        method: 'post',
-        data: {
-          query: `
+        let response = await axios({
+          url: host.url + 'graphql',
+          method: 'post',
+          data: {
+            query: `
           query web_FileContent($file: web_FileInput){
             web_FileContent(file: $file)
           }
           `,
-          variables: {
-            file: {
-              container: container.toLowerCase(),
-              filePath,
-              storage: host.storage,
-              accessKey: host.accessKey
+            variables: {
+              file: {
+                container: container.toLowerCase(),
+                filePath,
+                storage: host.storage,
+                accessKey: host.accessKey
+              }
             }
-          }
-        },
-        headers: headers
-      })
+          },
+          headers: headers
+        })
 
-      if (response.data.errors) {
-        let error = { code: response.data.errors[0] }
-        callBackFunction(error)
-        return
-      }
+        if (response.data.errors) {
+          let error = { code: response.data.errors[0] }
+          callBackFunction(error)
+          return
+        }
 
-      if (response.data.data.web_FileContent) {
-        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, response.data.data.web_FileContent)
-      } else {
-        callBackFunction({ code: 'The specified key does not exist.' })
+        if (response.data.data.web_FileContent) {
+          callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, response.data.data.web_FileContent)
+        } else {
+          callBackFunction({ code: 'The specified key does not exist.' })
+        }
       }
 
     } catch (err) {
@@ -79,7 +89,7 @@ function newFileStorage() {
         currentRetry++
         if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry) }
         getBlobToText(container, filePath, host, callBackFunction)
-      }else if (err.message === 'Request aborted') {
+      } else if (err.message === 'Request aborted') {
         let err = { code: 'The specified key does not exist.' }
         callBackFunction(err)
       } else {

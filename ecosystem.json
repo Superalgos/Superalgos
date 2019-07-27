@@ -830,7 +830,374 @@
 					"configFile": "this.plotter.config.json"
 				}
 			]
-		}
+		},
+		{
+            "codeName": "user",
+            "displayName": "user",
+            "bots": [
+                {
+                    "displayName": "Simulator bot-user",
+                    "codeName": "simulator-bot-user",
+                    "type": "Indicator",
+                    "profilePicture": "simulator-bot-user.png",
+                    "products": [
+                        {
+                            "codeName": "Trading-Simulation",
+                            "displayName": "Trading Simulation",
+                            "description": "Trading Simulation",
+                            "dataSets": [
+                                {
+                                    "validPeriods": [
+                                        "24-hs",
+                                        "12-hs",
+                                        "08-hs",
+                                        "06-hs",
+                                        "04-hs",
+                                        "03-hs",
+                                        "02-hs",
+                                        "01-hs"
+                                    ],
+                                    "codeName": "Multi-Period-Market",
+                                    "type": "Market Files",
+                                    "filePath": "user/simulator-bot-user.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Market/@Period",
+                                    "fileName": "@AssetA_@AssetB.json"
+                                },
+                                {
+                                    "validPeriods": [
+                                        "15-min",
+                                        "10-min",
+                                        "05-min"
+                                    ],
+                                    "codeName": "Multi-Period-Daily",
+                                    "type": "Daily Files",
+                                    "filePath": "user/simulator-bot-user.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                                    "fileName": "@AssetA_@AssetB.json",
+                                    "dataRange": {
+                                        "filePath": "user/simulator-bot-user.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Daily",
+                                        "fileName": "Data.Range.@AssetA_@AssetB.json"
+                                    }
+                                }
+                            ],
+                            "exchangeList": [
+                                {
+                                    "name": "Poloniex"
+                                },
+                                {
+                                    "name": "Coss"
+                                }
+                            ],
+                            "plotter": {
+                                "devTeam": "AAMasters",
+                                "codeName": "PlottersTradingSimulation",
+                                "moduleName": "TradingSimulation"
+                            }
+                        },
+                        {
+                            "codeName": "Simulation-Conditions",
+                            "displayName": "Simulation Conditions",
+                            "description": "Simulation Conditions",
+                            "dataSets": [
+                                {
+                                    "validPeriods": [
+                                        "24-hs",
+                                        "12-hs",
+                                        "08-hs",
+                                        "06-hs",
+                                        "04-hs",
+                                        "03-hs",
+                                        "02-hs",
+                                        "01-hs"
+                                    ],
+                                    "codeName": "Multi-Period-Market",
+                                    "type": "Market Files",
+                                    "filePath": "user/simulator-bot-user.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Market/@Period",
+                                    "fileName": "@AssetA_@AssetB.json"
+                                },
+                                {
+                                    "validPeriods": [
+                                        "15-min",
+                                        "10-min",
+                                        "05-min"
+                                    ],
+                                    "codeName": "Multi-Period-Daily",
+                                    "type": "Daily Files",
+                                    "filePath": "user/simulator-bot-user.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                                    "fileName": "@AssetA_@AssetB.json",
+                                    "dataRange": {
+                                        "filePath": "user/simulator-bot-user.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Daily",
+                                        "fileName": "Data.Range.@AssetA_@AssetB.json"
+                                    }
+                                }
+                            ],
+                            "exchangeList": [
+                                {
+                                    "name": "Poloniex"
+                                },
+                                {
+                                    "name": "Coss"
+                                }
+                            ],
+                            "plotter": {
+                                "devTeam": "AAMasters",
+                                "codeName": "PlottersTradingSimulation",
+                                "moduleName": "Conditions"
+                            }
+                        },
+                        {
+                            "codeName": "Simulation-Strategies",
+                            "displayName": "Simulation Strategies",
+                            "description": "Simulation Strategies",
+                            "dataSets": [
+                                {
+                                    "validPeriods": [
+                                        "24-hs",
+                                        "12-hs",
+                                        "08-hs",
+                                        "06-hs",
+                                        "04-hs",
+                                        "03-hs",
+                                        "02-hs",
+                                        "01-hs"
+                                    ],
+                                    "codeName": "Multi-Period-Market",
+                                    "type": "Market Files",
+                                    "filePath": "user/simulator-bot-user.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Market/@Period",
+                                    "fileName": "@AssetA_@AssetB.json"
+                                },
+                                {
+                                    "validPeriods": [
+                                        "15-min",
+                                        "10-min",
+                                        "05-min"
+                                    ],
+                                    "codeName": "Multi-Period-Daily",
+                                    "type": "Daily Files",
+                                    "filePath": "user/simulator-bot-user.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                                    "fileName": "@AssetA_@AssetB.json",
+                                    "dataRange": {
+                                        "filePath": "user/simulator-bot-user.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Daily",
+                                        "fileName": "Data.Range.@AssetA_@AssetB.json"
+                                    }
+                                }
+                            ],
+                            "exchangeList": [
+                                {
+                                    "name": "Poloniex"
+                                },
+                                {
+                                    "name": "Coss"
+                                }
+                            ],
+                            "plotter": {
+                                "devTeam": "AAMasters",
+                                "codeName": "PlottersTradingSimulation",
+                                "moduleName": "Strategies"
+                            }
+                        },
+                        {
+                            "codeName": "Simulation-Trades",
+                            "displayName": "Simulation Trades",
+                            "description": "Simulation Trades",
+                            "dataSets": [
+                                {
+                                    "validPeriods": [
+                                        "24-hs",
+                                        "12-hs",
+                                        "08-hs",
+                                        "06-hs",
+                                        "04-hs",
+                                        "03-hs",
+                                        "02-hs",
+                                        "01-hs"
+                                    ],
+                                    "codeName": "Multi-Period-Market",
+                                    "type": "Market Files",
+                                    "filePath": "user/simulator-bot-user.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Market/@Period",
+                                    "fileName": "@AssetA_@AssetB.json"
+                                },
+                                {
+                                    "validPeriods": [
+                                        "15-min",
+                                        "10-min",
+                                        "05-min"
+                                    ],
+                                    "codeName": "Multi-Period-Daily",
+                                    "type": "Daily Files",
+                                    "filePath": "user/simulator-bot-user.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                                    "fileName": "@AssetA_@AssetB.json",
+                                    "dataRange": {
+                                        "filePath": "user/simulator-bot-user.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Daily",
+                                        "fileName": "Data.Range.@AssetA_@AssetB.json"
+                                    }
+                                }
+                            ],
+                            "exchangeList": [
+                                {
+                                    "name": "Poloniex"
+                                },
+                                {
+                                    "name": "Coss"
+                                }
+                            ],
+                            "plotter": {
+                                "devTeam": "AAMasters",
+                                "codeName": "PlottersTradingSimulation",
+                                "moduleName": "Trades"
+                            }
+                        }
+                    ]
+				},
+				{
+                    "displayName": "bot-user",
+                    "codeName": "bot-user",
+					"type": "Trading",
+					"cloneId":"1",
+                    "profilePicture": "bot-user.png",
+                    "products": [
+                        {
+                            "codeName": "Live Trading History",
+                            "displayName": "Live Trading History",
+                            "description": "General information about trading history.",
+                            "dataSets": [
+                                {
+                                    "validPeriods": [
+                                        "24-hs",
+                                        "12-hs",
+                                        "08-hs",
+                                        "06-hs",
+                                        "04-hs",
+                                        "03-hs",
+                                        "02-hs",
+                                        "01-hs",
+                                        "45-min",
+                                        "40-min",
+                                        "30-min",
+                                        "20-min",
+                                        "15-min",
+                                        "10-min",
+                                        "05-min",
+                                        "04-min",
+                                        "03-min",
+                                        "02-min",
+                                        "01-min"
+                                    ],
+                                    "codeName": "Oficial History",
+                                    "type": "File Sequence",
+                                    "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
+                                    "fileName": "Execution.History.Live.@Sequence.json"
+                                }
+                            ],
+                            "exchangeList": [
+                                {
+                                    "name": "Poloniex"
+                                }
+                            ],
+                            "plotter": {
+                                "devTeam": "AAMasters",
+                                "codeName": "PlottersTradingSimulation",
+                                "moduleName": "SimulationExecution"
+                            }
+                        },
+                        {
+                            "codeName": "Backtest Trading History",
+                            "displayName": "Backtest Trading History",
+                            "description": "General information about backtest trading history.",
+                            "dataSets": [
+                                {
+                                    "validPeriods": [
+                                        "24-hs",
+                                        "12-hs",
+                                        "08-hs",
+                                        "06-hs",
+                                        "04-hs",
+                                        "03-hs",
+                                        "02-hs",
+                                        "01-hs",
+                                        "45-min",
+                                        "40-min",
+                                        "30-min",
+                                        "20-min",
+                                        "15-min",
+                                        "10-min",
+                                        "05-min",
+                                        "04-min",
+                                        "03-min",
+                                        "02-min",
+                                        "01-min"
+                                    ],
+                                    "codeName": "Backtest History",
+                                    "type": "File Sequence",
+                                    "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
+                                    "fileName": "Execution.History.Backtest.@Sequence.json"
+                                }
+                            ],
+                            "exchangeList": [
+                                {
+                                    "name": "Poloniex"
+                                }
+                            ],
+                            "plotter": {
+                                "devTeam": "AAMasters",
+                                "codeName": "PlottersTradingSimulation",
+                                "moduleName": "SimulationExecution"
+                            }
+                        },
+                        {
+                            "codeName": "Competition Trading History",
+                            "displayName": "Competition Trading History",
+                            "description": "General information about competition trading history.",
+                            "dataSets": [
+                                {
+                                    "validPeriods": [
+                                        "24-hs",
+                                        "12-hs",
+                                        "08-hs",
+                                        "06-hs",
+                                        "04-hs",
+                                        "03-hs",
+                                        "02-hs",
+                                        "01-hs",
+                                        "45-min",
+                                        "40-min",
+                                        "30-min",
+                                        "20-min",
+                                        "15-min",
+                                        "10-min",
+                                        "05-min",
+                                        "04-min",
+                                        "03-min",
+                                        "02-min",
+                                        "01-min"
+                                    ],
+                                    "codeName": "Competition History",
+                                    "type": "File Sequence",
+                                    "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
+                                    "fileName": "Execution.History.Competition.@Sequence.json"
+                                }
+                            ],
+                            "exchangeList": [
+                                {
+                                    "name": "Poloniex"
+                                }
+                            ],
+                            "plotter": {
+                                "devTeam": "AAMasters",
+                                "codeName": "PlottersTradingSimulation",
+                                "moduleName": "SimulationExecution"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "host": {
+                "url": "localhost",
+                "storage": "localStorage",
+                "container": "user",
+                "accessKey": "",
+                "ownerKey": ""
+            },
+            "plotters": []
+        }
 	],
 	"hosts": [
 		{

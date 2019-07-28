@@ -191,6 +191,37 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
+            action: 'Run Trading System',
+            actionFunction: payload.uiObject.run,
+            label: 'Run',
+            visible: false,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -70
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Save Trading System',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Save Changes',
+            workingLabel: 'Saving...',
+            workDoneLabel: 'Saved',
+            workFailedLabel: 'Not Saved',
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+          )
+        menuItemsInitialValues.push(
+          {
             action: 'Delete Definition',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
@@ -202,7 +233,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -10
           }
           )
         menuItemsInitialValues.push(
@@ -217,7 +248,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 10
           }
           )
         menuItemsInitialValues.push(
@@ -232,7 +263,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }
             )
         menuItemsInitialValues.push(
@@ -246,7 +277,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 70
           }
         )
         break
@@ -436,37 +467,6 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Run Trading System',
-            actionFunction: payload.uiObject.run,
-            label: 'Run',
-            visible: false,
-            iconPathOn: 'paper-plane',
-            iconPathOff: 'upload',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -70
-          }
-          )
-        menuItemsInitialValues.push(
-          {
-            action: 'Save Trading System',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Save Changes',
-            workingLabel: 'Saving...',
-            workDoneLabel: 'Saved',
-            workFailedLabel: 'Not Saved',
-            visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -40
-          }
-          )
-        menuItemsInitialValues.push(
-          {
             action: 'Delete Trading System',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
@@ -478,7 +478,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -10
+            angle: -60
           }
           )
         menuItemsInitialValues.push(
@@ -493,7 +493,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +10
+            angle: -20
           }
           )
         menuItemsInitialValues.push(
@@ -508,7 +508,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 20
           }
           )
         menuItemsInitialValues.push(
@@ -522,7 +522,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 70
+            angle: 60
           }
         )
         break

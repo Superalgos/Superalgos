@@ -17,11 +17,20 @@ function newAppLoader() {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] loadModules -> Entering function.') }
 
-      let ecosystem = await loadEcosystem()
-      window.localStorage.setItem('ecosystem', JSON.stringify(ecosystem))
-      let plotters = getPlotters(ecosystem)
+      window.localStorage.removeItem('ecosystem')
 
-      let modulesArray = [
+      let plotters, modulesArray
+      let ecosystem = await loadEcosystem()
+      if (ecosystem) {
+        window.localStorage.setItem('ecosystem', JSON.stringify(ecosystem))
+        plotters = getPlotters(ecosystem)
+      } else {
+        plotters = defaultPlotters()
+        modulesArray = ['UserEcosystem.js']
+      }
+
+      modulesArray = modulesArray.concat([
+        'ChartsSpace/ViewPort.js',
 
         'Globals.js',
         'Ecosystem.js',
@@ -31,7 +40,6 @@ function newAppLoader() {
         'ChartsSpace/PlottersManager.js',
         'ChartsSpace/TimelineChart.js',
         'ChartsSpace/TimeMachine.js',
-        'ChartsSpace/ViewPort.js',
         'ChartsSpace/TimeLineCoordinateSystem.js',
 
         'TopSpace/CurrentEvent.js',
@@ -114,7 +122,7 @@ function newAppLoader() {
 
         'Utilities.js',
         'Dashboard.js'
-      ]
+      ])
 
       modulesArray = modulesArray.concat(plotters)
 
@@ -145,10 +153,11 @@ function newAppLoader() {
 
             if (downloadedCounter === modulesArray.length) {
               if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> Starting Advanced Algos Platform.') }
+              setTimeout(() => {
+                dashboard = newDashboard()
+                dashboard.start()
+              }, 500)
 
-              dashboard = newDashboard()
-
-              dashboard.start()
             }
           } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> onRequired -> err = ' + err.stack) }
@@ -163,19 +172,13 @@ function newAppLoader() {
   async function loadEcosystem() {
     if (INFO_LOG === true) { logger.write('[INFO] loadEcosystem -> Entering function.') }
 
-    let headers
     let accessToken = window.localStorage.getItem('access_token')
     if (accessToken !== null) {
-      headers = {
-        authorization: 'Bearer ' + accessToken
-      }
-    }
-
-    let response = await axios({
-      url: window.canvasApp.graphQL.masterAppApiUrl,
-      method: 'post',
-      data: {
-        query: `
+      let response = await axios({
+        url: window.canvasApp.graphQL.masterAppApiUrl,
+        method: 'post',
+        data: {
+          query: `
           query {
             web_GetEcosystem {
               id
@@ -295,21 +298,53 @@ function newAppLoader() {
             }
           }
           `
-      },
-      headers: headers
-    })
+        },
+        headers: {
+          authorization: 'Bearer ' + accessToken
+        }
+      })
 
-    if (response.data.errors) {
-      if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> loadEcosystem -> response.text = ' + JSON.stringify(res.data.errors)) }
-      throw error
+      if (response.data.errors) {
+        if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> loadEcosystem -> response.text = ' + JSON.stringify(response.data.errors)) }
+        throw error
+      }
+
+      return response.data.data.web_GetEcosystem
     }
+  }
 
-    return response.data.data.web_GetEcosystem
+  function defaultPlotters() {
+    return [
+      'Plotters/AAMasters/Plotters-Candles-Volumes/Candles.js',
+      'PlotterPanels/AAMasters/Plotters-Candles-Volumes/CandlePanel.js',
+      'Plotters/AAMasters/Plotters-Candles-Volumes/Volumes.js',
+      'PlotterPanels/AAMasters/Plotters-Candles-Volumes/VolumePanel.js',
+      'Plotters/AAMasters/Plotters-Stairs-Patterns/CandleStairs.js',
+      'Plotters/AAMasters/Plotters-Stairs-Patterns/VolumeStairs.js',
+      'Plotters/AAMasters/Plotters-Trading/Details.js',
+      'Plotters/AAMasters/Plotters-Trading/History.js',
+      'Plotters/AAMasters/Plotters-Bollinger-Bands/BollingerBands.js',
+      'PlotterPanels/AAMasters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
+      'Plotters/AAMasters/Plotters-Bollinger-Bands/PercentageBandwidth.js',
+      'Plotters/AAMasters/Plotters-Trading-Simulation/TradingSimulation.js',
+      'PlotterPanels/AAMasters/Plotters-Trading-Simulation/TradingSimulationPanel.js',
+      'Plotters/AAMasters/Plotters-Trading-Simulation/Conditions.js',
+      'Plotters/AAMasters/Plotters-Trading-Simulation/Strategies.js',
+      'Plotters/AAMasters/Plotters-Trading-Simulation/Trades.js',
+      'Plotters/AAMasters/Plotters-Trading-Simulation/SimulationExecution.js',
+      'PlotterPanels/AAMasters/Plotters-Trading-Simulation/SimulationExecutionPanel.js',
+      'Plotters/AAMasters/Plotters-Bollinger-Channels/BollingerChannels.js',
+      'PlotterPanels/AAMasters/Plotters-Bollinger-Channels/ChannelPanel.js',
+      'Plotters/AAMasters/Plotters-Bollinger-Channels/BollingerSubChannels.js',
+      'PlotterPanels/AAMasters/Plotters-Bollinger-Channels/SubChannelPanel.js',
+      'Plotters/AAVikings/Plotters-Linear-Regression-Curve/LRC.js',
+      'PlotterPanels/AAVikings/Plotters-Linear-Regression-Curve/ChannelPanel.js',
+      'Plotters/AAMasters/Plotters-ROI/CombinedProfits.js'
+    ]
   }
 
   function getPlotters(ecosystem) {
     if (INFO_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> Entering function.') }
-
 
     let plotters = []
     let devTeams = ecosystem.devTeams

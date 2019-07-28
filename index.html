@@ -1,42 +1,67 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
+<html lang="en">
 
-<!-- This file is only used for local development. -->
-
-<html>
 <head>
-    <meta charset="utf-8" />
-    <title>Superalgos</title>
+  <meta charset="utf-8">
+  <title>Superalgos Platform</title>
+  <meta name="description"
+    content="The system enabling a collective of humans and machines to collaborate and compete while co-building trading algorithms.">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link
+    href="https://fonts.googleapis.com/css?family=Saira+Condensed:300,600|Saira:300,600&amp;subset=latin-ext,vietnamese"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico" />
 
-    <script src="https://unpkg.com/apollo-client-browser@1.7.0"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" src="Scripts/require.js"></script>
-    <script type="text/javascript" src="Scripts/AppPreLoader.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
-  
+  <script src="https://unpkg.com/apollo-client-browser@1.7.0"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script type="text/javascript" src="Scripts/require.js"></script>
+  <script type="text/javascript" src="Scripts/AppPreLoader.js"></script>
+
+  <script type="text/javascript">
+    function loadCanvas() {
+      if (window.canvasApp.visible === undefined) {
+        window.canvasApp = {
+          version: '1.0.0',  // This is used to avoid catching problems at the browser level.
+          sessionToken: '',
+          executingAt: 'Master App',
+          visible: true,
+          topMargin: 1,
+          urlPrefix: 'http://localhost:1337/',
+          graphQL: {
+            masterAppApiUrl: 'https://demo-api-dev.superalgos.org/graphql',
+          },
+          context: {}
+        };
+
+        try {
+          loadAdvancedAlgosPlatform();
+        } catch (err) {
+          console.log("[ERROR] CanvasApp can not be started. Please check that AAWeb is running.", err);
+        }
+      }
+    }
+
+    function onResize() {
+      if (window.canvasApp === undefined) { return }
+      if (window.canvasApp.eventHandler === undefined) { return }
+      window.canvasApp.eventHandler.raiseEvent('Browser Resized')
+    }
+  </script>
 </head>
 
-<body id="body" style="margin: 0px; padding: 0px; border: 0px; background-image: url(/Images/superalgos-platform-y.jpg); background-size: cover; " onresize="window.canvasApp.eventHandler.raiseEvent('Browser Resized');" onload="
-      window.canvasApp={
-      version: '1.0.0' ,  // This is used to avoid catching problems at the browser level.
-        executingAt: 'Master App',
-        visible: true,
-        topMargin: 35,
-        urlPrefix: 'http://localhost:1337/',
-        graphQL: {
-            masterAppApiUrl: 'https://demo-api-dev.superalgos.org/graphql/',
-        },
-        context: {}
-    };
-
-
-   loadAdvancedAlgosPlatform();
-
-    ">
-
-<div id="masterApp"></div>
-<div id="canvasApp"></div>
-<div id="textAreaDiv"></div>
-<div id="inputDiv"></div>
-
+<body id="body" onload="loadCanvas()"
+  style="overflow:hidden; background: url(Images/superalgos-platform.jpg)"
+  onresize="onResize()">
+  <div id="masterApp"></div>
+  <div id="canvasApp"></div>
+  <div id="textAreaDiv"></div>
+  <div id="inputDiv"></div>
 </body>
+
 </html>

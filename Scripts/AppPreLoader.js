@@ -26,9 +26,9 @@ GLOBAL.CUSTOM_OK_RESPONSE = {
 GLOBAL.CUSTOM_FAIL_RESPONSE = {
     result: "Fail Because",
     message: "Custom Message"
-}; 
+};
 
-let browserCanvas;                 // This is the canvas object of the browser. 
+let browserCanvas;                 // This is the canvas object of the browser.
 
 function spacePad(str, max) {
     str = str.toString();
@@ -136,39 +136,28 @@ function loadAdvancedAlgosPlatform() {
 }
 
 function callServer(pContentToSend, pPath, callBackFunction) {
-
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
-
-            callBackFunction(xhttp.responseText);
-
+            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, xhttp.responseText);
+            return;
+        } else if (this.readyState === 4 && this.status === 404) {
+            callBackFunction({ result: "Fail", message: xhttp.responseText.trim(), code: xhttp.responseText.trim() });
+            return;
         }
     };
 
     if (pContentToSend === undefined) {
-
         xhttp.open("GET", pPath, true);
         xhttp.send();
-
     } else {
-
         try {
-
             let blob = new Blob([pContentToSend], { type: 'text/plain' });
-
             xhttp.open("POST", pPath, true);
             xhttp.send(blob);
-
         } catch (err) {
-
             if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[ERROR] callServer -> err.message = " & err.message); }
-
+            callBackFunction({ result: "Fail", message: err.message })
         }
     }
 }
-
-
-
-
-

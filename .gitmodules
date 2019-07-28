@@ -1,0 +1,36 @@
+[submodule "Plotters/AAMasters/plotters/Plotters-Trading-Simulation"]
+	path = Plotters/AAMasters/plotters/Plotters-Trading-Simulation
+	url = https://github.com/AAMasters/Plotters-Trading-Simulation.git
+	branch = develop
+[submodule "Plotters/AAMasters/plotters/Plotters-Candles-Volumes"]
+	path = Plotters/AAMasters/plotters/Plotters-Candles-Volumes
+	url = https://github.com/AAMasters/Plotters-Candles-Volumes.git
+	branch = develop
+[submodule "Plotters/AAMasters/plotters/Plotters-Bollinger-Channels"]
+	path = Plotters/AAMasters/plotters/Plotters-Bollinger-Channels
+	url = https://github.com/AAMasters/Plotters-Bollinger-Channels.git
+	branch = develop
+[submodule "Plotters/AAMasters/plotters/Plotters-Bollinger-Bands"]
+	path = Plotters/AAMasters/plotters/Plotters-Bollinger-Bands
+	url = https://github.com/AAMasters/Plotters-Bollinger-Bands.git
+	branch = develop
+[submodule "Plotters/AAMasters/plotters/Plotters-Stairs-Patterns"]
+	path = Plotters/AAMasters/plotters/Plotters-Stairs-Patterns
+	url = https://github.com/AAMasters/Plotters-Stairs-Patterns.git
+	branch = develop
+[submodule "Plotters/AAMasters/plotters/Plotters-Trading"]
+	path = Plotters/AAMasters/plotters/Plotters-Trading
+	url = https://github.com/AAMasters/Plotters-Trading.git
+	branch = develop
+[submodule "Plotters/AAVikings/plotters/Plotters-Linear-Regression-Curve"]
+	path = Plotters/AAVikings/plotters/Plotters-Linear-Regression-Curve
+	url = https://github.com/AAVikings/Plotters-Linear-Regression-Curve.git
+	branch = master
+[submodule "Files-Component"]
+	path = Files-Component
+	url = https://github.com/Superalgos/Files-Component.git
+	branch = develop
+[submodule "CanvasApp"]
+	path = CanvasApp
+	url = https://github.com/Superalgos/CanvasApp.git
+	branch = develop

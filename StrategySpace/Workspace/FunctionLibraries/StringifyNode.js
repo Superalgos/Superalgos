@@ -380,6 +380,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           savedPayload: getSavedPayload(node)
         }
         return key

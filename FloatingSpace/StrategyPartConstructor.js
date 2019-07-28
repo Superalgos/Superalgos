@@ -430,7 +430,27 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Exchange Account Key': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Key Value',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Key Value',
+            visible: false,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40,
+            dontShowAtFullscreen: true
+          }
+        )
         menuItemsInitialValues.push(
           {
             action: 'Delete Exchange Account Key',
@@ -444,7 +464,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 0
           }
           )
         menuItemsInitialValues.push(
@@ -458,7 +478,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }
         )
         break

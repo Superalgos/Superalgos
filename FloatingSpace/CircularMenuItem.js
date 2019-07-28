@@ -93,7 +93,7 @@ function newCircularMenuItem () {
   }
 
   function getContainer (point) {
-    if (thisObject.dontShowAtFullscreen === true && CURRENT_TOP_MARGIN === 0) { return }
+    if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
 
     let container
     if (thisObject.isDeployed === true) {
@@ -106,7 +106,7 @@ function newCircularMenuItem () {
   }
 
   function physics () {
-    if (thisObject.dontShowAtFullscreen === true && CURRENT_TOP_MARGIN === 0) { return }
+    if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
 
     const INCREASE_STEP = 2
 
@@ -206,7 +206,7 @@ function newCircularMenuItem () {
   }
 
   function drawBackground () {
-    if (thisObject.dontShowAtFullscreen === true && CURRENT_TOP_MARGIN === 0) { return }
+    if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
 
     if (thisObject.container.frame.position.x > 0 && thisObject.isDeployed === true && thisObject.currentRadius >= thisObject.targetRadius) {
       if (thisObject.type === 'Icon & Text') {
@@ -231,7 +231,7 @@ function newCircularMenuItem () {
   }
 
   function drawForeground () {
-    if (thisObject.dontShowAtFullscreen === true && CURRENT_TOP_MARGIN === 0) { return }
+    if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
 
     let menuPosition = {
       x: thisObject.currentRadius * 1.5,

@@ -321,7 +321,8 @@ function newProtocolNode () {
         let key = {
           type: node.type,
           subType: node.subType,
-          name: node.name
+          name: node.name,
+          code: node.code
         }
         return key
       }

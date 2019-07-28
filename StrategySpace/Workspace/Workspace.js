@@ -115,11 +115,11 @@ function newWorkspace () {
     window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias, textToSave)
   }
 
-  function stringifyWorkspace () {
+  function stringifyWorkspace (removePersonalData) {
     let stringifyReadyNodes = []
     for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
       let rootNode = workspaceNode.rootNodes[i]
-      let workspace = functionLibraryWorkspaceNodes.prepareForStringify(rootNode)
+      let workspace = functionLibraryWorkspaceNodes.prepareForStringify(rootNode, removePersonalData)
       stringifyReadyNodes.push(workspace)
     }
     let workspace = {
@@ -127,6 +127,7 @@ function newWorkspace () {
       name: workspaceNode.name,
       rootNodes: stringifyReadyNodes
     }
+
     return JSON.stringify(workspace)
   }
 
@@ -154,13 +155,19 @@ function newWorkspace () {
 
   async function onMenuItemClick (payload, action) {
     switch (action) {
-      case 'Download Workspace':
+      case 'Share Workspace':
         {
-          let text = stringifyWorkspace()
-          let fileName = payload.node.type + ' - ' + payload.node.name + '.json'
+          let text = stringifyWorkspace(true)
+          let fileName = 'Share - ' + payload.node.type + ' - ' + payload.node.name + '.json'
           download(fileName, text)
         }
-
+        break
+      case 'Backup Workspace':
+        {
+          let text = stringifyWorkspace(false)
+          let fileName = 'Backup - ' + payload.node.type + ' - ' + payload.node.name + '.json'
+          download(fileName, text)
+        }
         break
       case 'Save Trading System':
         {
@@ -172,21 +179,34 @@ function newWorkspace () {
       case 'Edit Code':
 
         break
-      case 'Download':
+      case 'Share':
         {
-          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node))
+          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true))
           let nodeName = payload.node.name
           if (nodeName === undefined) {
             nodeName = ''
           } else {
             nodeName = '.' + nodeName
           }
-          let fileName = payload.node.type + ' - ' + nodeName + '.json'
+          let fileName = 'Share - ' + payload.node.type + ' - ' + nodeName + '.json'
           download(fileName, text)
         }
 
         break
+      case 'Backup':
+        {
+          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false))
+          let nodeName = payload.node.name
+          if (nodeName === undefined) {
+            nodeName = ''
+          } else {
+            nodeName = '.' + nodeName
+          }
+          let fileName = 'Backup - ' + payload.node.type + ' - ' + nodeName + '.json'
+          download(fileName, text)
+        }
 
+        break
       case 'Add Strategy':
         {
           functionLibraryPartsFromNodes.addStrategy(payload.node)

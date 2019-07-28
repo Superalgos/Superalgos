@@ -97,7 +97,7 @@ function newStrategyPartConstructor () {
         rawRadius: 8,
         targetRadius: 0,
         currentRadius: 0,
-        angle: -135
+        angle: -130
       }
       )
     menuItemsInitialValues.push(
@@ -113,7 +113,7 @@ function newStrategyPartConstructor () {
         rawRadius: 8,
         targetRadius: 0,
         currentRadius: 0,
-        angle: -165
+        angle: -155
       }
       )
     menuItemsInitialValues.push(
@@ -129,7 +129,7 @@ function newStrategyPartConstructor () {
         rawRadius: 8,
         targetRadius: 0,
         currentRadius: 0,
-        angle: 165
+        angle: 180
       }
       )
     menuItemsInitialValues.push(
@@ -145,7 +145,21 @@ function newStrategyPartConstructor () {
         rawRadius: 8,
         targetRadius: 0,
         currentRadius: 0,
-        angle: 135
+        angle: 155
+      }
+      )
+    menuItemsInitialValues.push(
+      {
+        action: 'Backup',
+        actionFunction: floatingObject.payload.onMenuItemClick,
+        label: undefined,
+        visible: false,
+        iconPathOn: 'upload',
+        iconPathOff: 'upload',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        angle: 130
       }
       )
   }
@@ -172,9 +186,21 @@ function newStrategyPartConstructor () {
             angle: -135
           },
           {
-            action: 'Download Workspace',
+            action: 'Backup Workspace',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: undefined,
+            visible: false,
+            iconPathOn: 'upload',
+            iconPathOff: 'upload',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 130
+          },
+          {
+            action: 'Share Workspace',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -268,9 +294,9 @@ function newStrategyPartConstructor () {
             )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -297,7 +323,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -30
+            angle: -20
           }
           )
         menuItemsInitialValues.push(
@@ -312,23 +338,9 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +0
+            angle: +20
           }
           )
-        menuItemsInitialValues.push(
-          {
-            action: 'Download',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Download',
-            visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 30
-          }
-        )
         break
       }
       case 'Exchange Account': {
@@ -346,7 +358,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -40
           }
           )
         menuItemsInitialValues.push(
@@ -361,7 +373,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 0
           }
           )
         menuItemsInitialValues.push(
@@ -376,23 +388,9 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }
             )
-        menuItemsInitialValues.push(
-          {
-            action: 'Download',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Download',
-            visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 60
-          }
-        )
         break
       }
       case 'Exchange Account Asset': {
@@ -410,23 +408,9 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 0
           }
           )
-        menuItemsInitialValues.push(
-          {
-            action: 'Download',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Download',
-            visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 20
-          }
-        )
         break
       }
       case 'Exchange Account Key': {
@@ -447,7 +431,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40,
+            angle: -20,
             dontShowAtFullscreen: true
           }
         )
@@ -464,23 +448,9 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           }
           )
-        menuItemsInitialValues.push(
-          {
-            action: 'Download',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Download',
-            visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 40
-          }
-        )
         break
       }
       case 'Trading System': {
@@ -533,9 +503,9 @@ function newStrategyPartConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -581,9 +551,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -630,9 +600,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -678,9 +648,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -763,9 +733,9 @@ function newStrategyPartConstructor () {
             angle: 0
           },
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -824,9 +794,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -872,9 +842,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -920,9 +890,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -969,9 +939,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1018,9 +988,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1067,9 +1037,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1116,9 +1086,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1165,9 +1135,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1213,9 +1183,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1247,9 +1217,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1281,9 +1251,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1330,9 +1300,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1379,9 +1349,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1443,9 +1413,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1497,9 +1467,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1546,9 +1516,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1595,9 +1565,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1644,9 +1614,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',
@@ -1698,9 +1668,9 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
             iconPathOn: 'upload',
             iconPathOff: 'upload',

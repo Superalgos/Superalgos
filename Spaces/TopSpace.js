@@ -41,7 +41,9 @@ function newTopSpace () {
     thisObject.container.frame.height = TOP_SPACE_HEIGHT
 
     container.frame.position.x = 0
-    container.frame.position.y = viewPort.visibleArea.bottomLeft.y
+    try {
+      container.frame.position.y = viewPort.visibleArea.bottomLeft.y
+    } catch(e) { }
   }
 
   function getContainer (point) {

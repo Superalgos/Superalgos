@@ -1,5 +1,5 @@
 
-function newLogin() {
+function newLogin () {
   const MODULE_NAME = 'Login'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
@@ -27,8 +27,10 @@ function newLogin() {
 
   return thisObject
 
-  async function initialize(sharedStatus) {
+  async function initialize (sharedStatus) {
     try {
+      if (window.canvasApp.executingAt === 'Local') { return }
+
       const accessToken = window.localStorage.getItem('access_token')
 
       if (accessToken) {
@@ -37,14 +39,13 @@ function newLogin() {
       }
 
       thisObject.container.eventHandler.listenToEvent('onMouseClick', onClick)
-
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err.stack = ' + err.stack) }
     }
   }
 
-  async function getEvents(accessToken, sharedStatus) {
+  async function getEvents (accessToken, sharedStatus) {
     var d = new Date()
     var nowSeconds = Math.round(d.getTime() / 1000)
     var twoWeeksAgoSeconds = nowSeconds - 1209600
@@ -72,7 +73,7 @@ function newLogin() {
                   }
               }
           }
-        }`,
+        }`
       },
       variables: {
         variables: { maxStartDate: nowSeconds, minEndDate: twoWeeksAgoSeconds }
@@ -99,7 +100,7 @@ function newLogin() {
     }
   }
 
-  async function getClones(accessToken) {
+  async function getClones (accessToken) {
     let response = await axios({
       url: window.canvasApp.graphQL.masterAppApiUrl,
       method: 'post',
@@ -166,11 +167,11 @@ function newLogin() {
     }
   }
 
-  function onClick() {
+  function onClick () {
 
   }
 
-  function getContainer(point) {
+  function getContainer (point) {
     /* First we check if this point is inside this object UI. */
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return this.container
@@ -180,7 +181,7 @@ function newLogin() {
     }
   }
 
-  function draw() {
+  function draw () {
     return // nothing to show.
   }
 }

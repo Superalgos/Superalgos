@@ -7,9 +7,9 @@ try {
   viewPort = newViewPort()
 } catch (e) {
   setTimeout(() => {
-    console.log("Loading deferred.")
+    console.log('Loading deferred.')
     viewPort = newViewPort()
-  }, 1000);
+  }, 1000)
 }
 
 function newDashboard () {
@@ -35,6 +35,13 @@ function newDashboard () {
       /* If this method is executed for a second time, it should finalize the current execution structure */
 
       if (canvas !== undefined) { canvas.finalize() }
+
+      /* Here we check where we are executing. In case we are Local we need to create a Local Dummy User and Team. */
+
+      if (window.canvasApp.executingAt === 'Local') {
+        window.localStorage.setItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY, 'Local Access Token')       // Dummy Access Token
+        window.localStorage.setItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY, '{"authId":"x|x","alias":"user"}')  // Dummy Local User
+      }
 
       /* Here we will setup the global eventHandler that will enable the Canvas App to react to events happening outside its execution scope. */
 
@@ -161,7 +168,7 @@ function newDashboard () {
           })
                         .then(response => {
                           teams = response.data.teams_Teams
-                          //window.localStorage.setItem('Teams', JSON.stringify(response.data.teams_Teams))
+                          // window.localStorage.setItem('Teams', JSON.stringify(response.data.teams_Teams))
                           resolve({ teams: response.data.teams_Teams })
                         })
                         .catch(err => {

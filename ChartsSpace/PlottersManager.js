@@ -142,6 +142,10 @@ function newPlottersManager () {
 
   function initializeCompetitionPlotters (callBack) {
     try {
+      /* Disabling this functionality since it is not currently available */
+      callBack(GLOBAL.DEFAULT_OK_RESPONSE)
+      return
+
             /* At this current version of the platform, we will support only one competition with only one plotter. */
 
       const COMPETITION_HOST = 'AAMasters'

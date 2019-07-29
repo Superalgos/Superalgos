@@ -130,7 +130,7 @@ function newStrategizerGateway () {
             return false
           }
         }
-        return true
+        return true // TODO: Here we will always show that the saving works even if it does not. We need to fix this at some point in time.
       } else {
         user = JSON.parse(user)
 

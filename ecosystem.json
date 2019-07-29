@@ -1200,59 +1200,6 @@
         }
 	],
 	"hosts": [
-		{
-			"codeName": "AAMasters",
-			"displayName": "AA Arena",
-			"host": {
-				"url": "https://demo-api-dev.superalgos.org/",
-				"storage": "localStorage",
-				"container": "aamasters",
-				"accessKey": "09e890b76767ede3e10f0526b5036600a6b8d3faac540336e12b493fdb2aa9ed46f86094c34652f99fb6322e5f09806412f17725807f85e4dc4169bd22dd59f0b23aba5251f5544478a1aabf5a2dea5260e6eb0c29af3a788208af85025a02f94950437d501b91fd55b9d97b3d6ac3af4e1161321f78b73ca0fda524dc3a5d03"
-			},
-			"competitions": [
-				{
-					"codeName": "Weekend-Deathmatch",
-					"description": "First AA Internal Competition. Bots will be trading during 3 days at the USDT/BTC market of Poloniex to see who can make the gratest return over investment (ROI).",
-					"displayName": "AA Internal Challenge",
-					"startDatetime": "2018-01-01T16:00:00.000Z",
-					"finishDatetime": "2018-01-02T16:00:00.000Z",
-					"formula": "ROI",
-					"plotter": {
-						"devTeam": "AAMasters",
-						"codeName": "PlottersROI",
-						"host": {
-							"url": "https://demo-api-dev.superalgos.org/",
-							"storage": "localStorage",
-							"container": "aamasters",
-							"accessKey": ""
-						},
-						"moduleName": "CombinedProfits",
-						"repo": "Plotters-ROI"
-					},
-					"rules": [],
-					"prizes": [],
-					"participants": [],
-					"repo": "Weekend-Deathmatch",
-					"configFile": "this.competition.config.json"
-				}
-			],
-			"plotters": [
-				{
-					"displayName": "Plotters ROI",
-					"codeName": "PlottersROI",
-					"devTeam": "AAMasters",
-					"modules": [
-						{
-							"codeName": "CombinedProfits",
-							"moduleName": "CombinedProfits",
-							"description": "Plots participants of a competition by the ROI each one had over time.",
-							"panels": []
-						}
-					],
-					"repo": "Plotters-ROI",
-					"configFile": "this.plotter.config.json"
-				}
-			]
-		}
+
 	]
 }

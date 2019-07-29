@@ -27,11 +27,11 @@
     function loadCanvas() {
       if (window.canvasApp.visible === undefined) {
         window.canvasApp = {
-          version: '1.0.0',  // This is used to avoid catching problems at the browser level.
+          version: '',  // This is used to avoid catching problems at the browser level.
           sessionToken: '',
-          executingAt: 'Master App',
+          executingAt: 'Local',
           visible: true,
-          topMargin: 1,
+          topMargin: 0,
           urlPrefix: 'http://localhost:1337/',
           graphQL: {
             masterAppApiUrl: 'https://demo-api-dev.superalgos.org/graphql',
@@ -56,7 +56,7 @@
 </head>
 
 <body id="body" onload="loadCanvas()"
-  style="overflow:hidden; background: url(Images/superalgos-platform.jpg)"
+  style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
   onresize="onResize()">
   <div id="masterApp"></div>
   <div id="canvasApp"></div>

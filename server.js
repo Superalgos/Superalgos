@@ -182,7 +182,7 @@ function onBrowserRequest(request, response) {
         let devTeam = requestParameters[2]
         let codeName = requestParameters[3]
         let moduleName = requestParameters[4]
-        let filePath = './Plotters/' + devTeam + '/plotters/' + codeName + '/' + moduleName
+        let filePath = process.env.PLOTTERS_PATH + 'Plotters/' + devTeam + '/' + codeName + '/' + moduleName
         respondWithFile(filePath, response)
       }
       break
@@ -192,7 +192,7 @@ function onBrowserRequest(request, response) {
         let devTeam = requestParameters[2]
         let codeName = requestParameters[3]
         let moduleName = requestParameters[4]
-        let filePath = './Plotters/' + devTeam + '/plotters/' + codeName + '/' + moduleName
+        let filePath = process.env.PLOTTERS_PATH + 'Plotters/' + devTeam + '/' + codeName + '/' + moduleName
         respondWithFile(filePath, response)
       }
       break
@@ -266,13 +266,13 @@ function onBrowserRequest(request, response) {
       }
       break
 
-    case 'ReadUserConfig':
+    case 'GetDefinition':
       {
-        respondWithFile(process.env.CONFIG_PATH + '/userConfig.json', response)
+        respondWithFile(process.env.CONFIG_PATH + '/definition.json', response)
       }
       break
 
-    case 'WriteUserConfig':
+    case 'SaveDefinition':
       {
         let fs = require('fs')
         let body = '';
@@ -286,7 +286,7 @@ function onBrowserRequest(request, response) {
 
         request.on('end', function () {
           try {
-            let filePath = process.env.CONFIG_PATH + '/userConfig.json'
+            let filePath = process.env.CONFIG_PATH + '/definition.json'
             fs.writeFile(filePath, body, onFileWrite)
           } catch (e) {
             console.log('[ERROR] Error writing user config.', e)

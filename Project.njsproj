@@ -43,6 +43,7 @@
     <Compile Include="server.js" />
     <Compile Include="Server\FileCloud.js" />
     <Content Include=".env" />
+    <Content Include="ecosystem.json" />
     <Content Include="index.html" />
   </ItemGroup>
   <ItemGroup>

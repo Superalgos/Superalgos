@@ -45,12 +45,14 @@ function newStrategizerGateway () {
         return
       }
 
+      user = JSON.parse(user)
+
       if (window.canvasApp.executingAt === 'Local') {
         window.localStorage.setItem(CANVAS_APP_NAME + '.' + MODULE_NAME + '.' + user.alias, 'Local File')
         thisObject.strategizerData = JSON.parse('{"type":"Definition"}')
         thisObject.idAtStrategizer = 'Local File'
+        return true
       } else {
-        user = JSON.parse(user)
         let fbSlug = 'simulator-bot-' + user.alias.replace('.', '')
 
         graphQLServer = await axios({
@@ -119,7 +121,7 @@ function newStrategizerGateway () {
       }
 
       if (window.canvasApp.executingAt === 'Local') {
-        callServer(tradingSystem, 'SaveDefinition', onSaved)
+        callServer(JSON.stringify(tradingSystem), 'SaveDefinition', onSaved)
         function onSaved (err) {
           if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
             return true
@@ -128,6 +130,7 @@ function newStrategizerGateway () {
             return false
           }
         }
+        return true
       } else {
         user = JSON.parse(user)
 

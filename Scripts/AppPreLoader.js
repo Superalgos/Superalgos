@@ -99,18 +99,23 @@ function loadAdvancedAlgosPlatform() {
 
     function loadDebugModule() {
 
-        if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadDebugModule -> Entering function."); }
+        try {
+            if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadDebugModule -> Entering function."); }
 
-        let path = window.canvasApp.urlPrefix + "WebDebugLog.js";
+            let path = window.canvasApp.urlPrefix + "WebDebugLog.js";
 
-        REQUIREJS([path], onRequired);
+            REQUIREJS([path], onRequired);
 
-        function onRequired(pModule) {
+            function onRequired(pModule) {
 
-            if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] " + path + " downloaded."); }
+                if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] " + path + " downloaded."); }
 
-            loadModules();
+                loadModules();
 
+            }
+        }
+        catch (err) {
+            console.log(spacePad(MODULE_NAME, 50) + " : " + "[ERROR]  loadDebugModule --> " + path + " --> err = " + err.stack);
         }
     }
 
@@ -118,19 +123,25 @@ function loadAdvancedAlgosPlatform() {
 
     function loadModules() {
 
-        if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadModules -> Entering function."); }
+        try {
 
-        let path = window.canvasApp.urlPrefix + "Scripts/AppLoader.js";
+            if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadModules -> Entering function."); }
 
-        REQUIREJS([path], onRequired);
+            let path = window.canvasApp.urlPrefix + "Scripts/AppLoader.js";
 
-        function onRequired(pModule) {
+            REQUIREJS([path], onRequired);
 
-            if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] " + path + " downloaded."); }
+            function onRequired(pModule) {
 
-            let APP_LOADER_MODULE = newAppLoader();
-            APP_LOADER_MODULE.loadModules();
+                if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] " + path + " downloaded."); }
 
+                let APP_LOADER_MODULE = newAppLoader();
+                APP_LOADER_MODULE.loadModules();
+
+            }
+        }
+        catch (err) {
+            console.log(spacePad(MODULE_NAME, 50) + " : " + "[ERROR]  loadModules --> " + path + " --> err = " + err.stack);
         }
     }
 }

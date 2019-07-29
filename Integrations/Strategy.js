@@ -1,38 +1,48 @@
 const axios = require('axios')
+let fs = require('fs')
+const { promisify } = require('util')
+const readFileAsync = promisify(fs.readFile);
 
 exports.getStrategy = async function () {
     try {
         if (!global.STRATEGY) {
-            let fbSlug = process.env.BOT
-            if (process.env.TEST_FB !== undefined) {
-                fbSlug = process.env.TEST_FB
+            let executionOnCloud = false
+            if (process.env.ON_CLOUD !== undefined) {
+                executionOnCloud = JSON.parse(process.env.ON_CLOUD)
             }
 
-            const strategizerResponse = await axios({
-                url: process.env.GATEWAY_ENDPOINT_K8S,
-                method: 'post',
-                data: {
-                    query: `
+            if (executionOnCloud) {
+                const strategizerResponse = await axios({
+                    url: process.env.GATEWAY_ENDPOINT_K8S,
+                    method: 'post',
+                    data: {
+                        query: `
                     query($fbSlug: String!){
                         strategizer_TradingSystemByFb(fbSlug: $fbSlug){
                             data
                         }
                     }
                     `,
-                    variables: {
-                        fbSlug: fbSlug
+                        variables: {
+                            fbSlug: process.env.BOT
+                        },
                     },
-                },
-                headers: {
-                    authorization: process.env.AUTHORIZATION
-                }
-            })
+                    headers: {
+                        authorization: process.env.AUTHORIZATION
+                    }
+                })
 
-            if (strategizerResponse.data.errors)
-                throw new Error(strategizerResponse.data.errors[0].message)
+                if (strategizerResponse.data.errors)
+                    throw new Error(strategizerResponse.data.errors[0].message)
 
-            global.STRATEGY = strategizerResponse.data.data.strategizer_TradingSystemByFb.data;
+                global.STRATEGY = strategizerResponse.data.data.strategizer_TradingSystemByFb.data;
+            } else {
+                let fileLocation = process.env.CONFIG_PATH + 'userConfig.json'
+                let strategy = await readFileAsync(fileLocation, { encoding: 'utf8' })
+                global.STRATEGY = JSON.parse(strategy)
+            }
         }
+
         return global.STRATEGY
 
     } catch (error) {

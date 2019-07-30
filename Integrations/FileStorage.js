@@ -180,7 +180,7 @@ exports.newFileStorage = function newFileStorage() {
   }
 
   function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
-    const sep = path.sep;
+    const sep = '/';
     const initDir = path.isAbsolute(targetDir) ? sep : '';
     const baseDir = isRelativeToScript ? __dirname : '.';
 

@@ -47,7 +47,7 @@ function newWorkspace () {
   return thisObject
 
   function finalize () {
-    thisObject.tradingSystem = undefined
+    thisObject.definition = undefined
     thisObject.container.finalize()
     thisObject.container = undefined
   }
@@ -82,16 +82,16 @@ function newWorkspace () {
   async function initializeLoadingFromStrategizer () {
     let result = await canvas.strategySpace.strategizerGateway.loadFromStrategyzer()
     if (result === true) {
-      thisObject.tradingSystem = canvas.strategySpace.strategizerGateway.strategizerData
-      workspaceNode.rootNodes.push(thisObject.tradingSystem)
-      functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
-      thisObject.tradingSystem.payload.uiObject.setRunningStatus()
+      thisObject.definition = canvas.strategySpace.strategizerGateway.strategizerData
+      workspaceNode.rootNodes.push(thisObject.definition)
+      functionLibraryPartsFromNodes.createPartFromNode(thisObject.definition, undefined, undefined)
+      thisObject.definition.payload.uiObject.setRunningStatus()
       thisObject.enabled = true
     }
   }
 
   function getProtocolTradingSystem () {
-    return functionLibraryProtocolNode.getProtocolNode(thisObject.tradingSystem)
+    return functionLibraryProtocolNode.getProtocolNode(thisObject.definition)
   }
 
   function detachNode (node) {

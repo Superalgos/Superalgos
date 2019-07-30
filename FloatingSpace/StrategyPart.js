@@ -481,8 +481,8 @@ function newStrategyPart () {
   }
 
   function runningPhisycs () {
-    if (canvas.strategySpace.workspace.tradingSystem !== undefined) {
-      if (canvas.strategySpace.workspace.tradingSystem.id !== thisObject.payload.node.id) {
+    if (canvas.strategySpace.workspace.definition !== undefined) {
+      if (canvas.strategySpace.workspace.definition.id !== thisObject.payload.node.id) {
         runningCounter--
       }
     }
@@ -499,13 +499,13 @@ function newStrategyPart () {
   }
 
   function setRunningStatus () {
-    canvas.strategySpace.workspace.tradingSystem = thisObject.payload.node
+    canvas.strategySpace.workspace.definition = thisObject.payload.node
     thisObject.isRunning = true
     runningCounter = 30
   }
 
   function setNotRunningStatus () {
-    canvas.strategySpace.workspace.tradingSystem = undefined
+    canvas.strategySpace.workspace.definition = undefined
     thisObject.isRunning = false
   }
 

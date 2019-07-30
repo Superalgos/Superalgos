@@ -1,13 +1,23 @@
 const axios = require('axios')
+let fs = require('fs')
+const { promisify } = require('util')
+const readFileAsync = promisify(fs.readFile);
 
 exports.getEcosystem = async function () {
-    try {
-        if (!global.ECOSYSTEM) {
-            const ecosystemResponse = await axios({
-                url: process.env.GATEWAY_ENDPOINT_K8S,
-                method: 'post',
-                data: {
-                    query: `
+  try {
+    if (!global.ECOSYSTEM) {
+
+      let executionOnCloud = false
+      if (process.env.ON_CLOUD !== undefined) {
+        executionOnCloud = JSON.parse(process.env.ON_CLOUD)
+      }
+
+      if (executionOnCloud) {
+        const ecosystemResponse = await axios({
+          url: process.env.GATEWAY_ENDPOINT_K8S,
+          method: 'post',
+          data: {
+            query: `
                     query {
                         web_GetEcosystem {
                           id
@@ -52,21 +62,27 @@ exports.getEcosystem = async function () {
                         }
                       }
                       `
-                },
-                headers: {
-                    authorization: process.env.AUTHORIZATION
-                }
-            })
-            //TODO Competition hosts not retrieved currently
+          },
+          headers: {
+            authorization: process.env.AUTHORIZATION
+          }
+        })
+        //TODO Competition hosts not retrieved currently
 
-            if (ecosystemResponse.data.errors)
-                throw new Error(ecosystemResponse.data.errors[0].message)
+        if (ecosystemResponse.data.errors)
+          throw new Error(ecosystemResponse.data.errors[0].message)
 
-            global.ECOSYSTEM = ecosystemResponse.data.data.web_GetEcosystem;
-        }
-        return global.ECOSYSTEM
-
-    } catch (error) {
-        throw new Error('There has been an error getting the Ecosystem: ', error)
+        global.ECOSYSTEM = ecosystemResponse.data.data.web_GetEcosystem
+      } else {
+        let fileLocation = process.env.CONFIG_PATH + 'ecosystem.json'
+        let ecosystem = await readFileAsync(fileLocation, { encoding: 'utf8' })
+        global.ECOSYSTEM = JSON.parse(ecosystem)
+      }
     }
+
+    return global.ECOSYSTEM
+
+  } catch (error) {
+    throw new Error('There has been an error getting the Ecosystem: ', error)
+  }
 }

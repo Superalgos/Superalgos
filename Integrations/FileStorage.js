@@ -1,5 +1,10 @@
 const axios = require('axios')
 const Ecosystem = require('./Ecosystem')
+let fs = require('fs')
+const { promisify } = require('util')
+const readFileAsync = promisify(fs.readFile)
+const writeFileAsync = promisify(fs.writeFile)
+const path = require('path')
 
 exports.newFileStorage = function newFileStorage() {
   const MODULE_NAME = 'FileStorage'
@@ -40,47 +45,54 @@ exports.newFileStorage = function newFileStorage() {
   }
 
   async function getTextFile(container, filePath, callBackFunction) {
-    try {
-      logInfo('getTextFile: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length))
+    logInfo('getTextFile: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length))
 
+    try {
       let host = await getDevTeamHost(container)
 
-      let response = await axios({
-        url: host.url + 'graphql',
-        method: 'post',
-        data: {
-          query: `
-          query web_FileContent($file: web_FileInput){
-            web_FileContent(file: $file)
-          }
-          `,
-          variables: {
-            file: {
-              container: container.toLowerCase(),
-              filePath,
-              storage: host.storage,
-              accessKey: host.accessKey
+      if (host.url.indexOf('localhost') !== -1) {
+        let fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+        let fileContent = await readFileAsync(fileLocation)
+        callBackFunction(global.DEFAULT_OK_RESPONSE, fileContent.toString())
+      } else {
+        let response = await axios({
+          url: host.url + 'graphql',
+          method: 'post',
+          data: {
+            query: `
+            query web_FileContent($file: web_FileInput){
+              web_FileContent(file: $file)
+            }
+            `,
+            variables: {
+              file: {
+                container: container.toLowerCase(),
+                filePath,
+                storage: host.storage,
+                accessKey: host.accessKey
+              }
             }
           }
+        })
+
+        if (response.data.errors) {
+          callBackFunction({ code: response.data.errors[0] })
+          return
         }
-      })
 
-      if (response.data.errors) {
-        callBackFunction({ code: response.data.errors[0] })
-        return
+        if (response.data.data.web_FileContent) {
+          callBackFunction(global.DEFAULT_OK_RESPONSE, response.data.data.web_FileContent)
+        } else {
+          callBackFunction({ code: 'The specified key does not exist.' })
+        }
       }
-
-      if (response.data.data.web_FileContent) {
-        callBackFunction(global.DEFAULT_OK_RESPONSE, response.data.data.web_FileContent)
-      } else {
-        callBackFunction({ code: 'The specified key does not exist.' })
-      }
-
     } catch (err) {
       if (verifyRetry(err.code) && currentRetryGetTextFile < MAX_RETRY) {
         currentRetryGetTextFile++
         logInfo('getTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetryGetTextFile)
         getTextFile(container, filePath, callBackFunction)
+      } else if (err.code === 'ENOENT') {
+        callBackFunction({ code: 'The specified key does not exist.' })
       } else {
         currentRetryGetTextFile = 0
         logError('getTextFile -> error = ' + err.message)
@@ -90,40 +102,48 @@ exports.newFileStorage = function newFileStorage() {
   }
 
   async function createTextFile(container, filePath, fileContent, callBackFunction) {
-    try {
-      logInfo('createTextFile -> Entering function: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length))
+    logInfo('createTextFile -> Entering function: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length))
 
+    try {
       let host = await getDevTeamHost(container)
 
-      let response = await axios({
-        url: process.env.GATEWAY_ENDPOINT_K8S,
-        method: 'post',
-        data: {
-          query: `
+      if (host.url.indexOf('localhost') !== -1) {
+        let fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+        let directoryPath = fileLocation.substring(0, fileLocation.lastIndexOf('/') + 1);
+        mkDirByPathSync(directoryPath)
+        await writeFileAsync(fileLocation, fileContent)
+        callBackFunction(global.DEFAULT_OK_RESPONSE)
+      } else {
+        let response = await axios({
+          url: process.env.GATEWAY_ENDPOINT_K8S,
+          method: 'post',
+          data: {
+            query: `
           mutation web_CreateFile($file: web_FileInput){
             web_CreateFile(file: $file)
           }
           `,
-          variables: {
-            file: {
-              container: container.toLowerCase(),
-              filePath,
-              storage: 'localStorage',
-              accessKey: host.ownerKey,
-              fileContent
+            variables: {
+              file: {
+                container: container.toLowerCase(),
+                filePath,
+                storage: 'localStorage',
+                accessKey: host.ownerKey,
+                fileContent
+              }
             }
           }
-        }
-      })
+        })
 
-      if (!response || response.data.errors) {
-        let customErr = {
-          result: global.CUSTOM_FAIL_RESPONSE.result,
-          message: response.data.errors[0]
+        if (!response || response.data.errors) {
+          let customErr = {
+            result: global.CUSTOM_FAIL_RESPONSE.result,
+            message: response.data.errors[0]
+          }
+          callBackFunction(customErr)
+        } else {
+          callBackFunction(global.DEFAULT_OK_RESPONSE)
         }
-        callBackFunction(customErr)
-      } else {
-        callBackFunction(global.DEFAULT_OK_RESPONSE)
       }
 
     } catch (err) {
@@ -157,5 +177,34 @@ exports.newFileStorage = function newFileStorage() {
       }
     }
     return false
+  }
+
+  function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
+    const sep = path.sep;
+    const initDir = path.isAbsolute(targetDir) ? sep : '';
+    const baseDir = isRelativeToScript ? __dirname : '.';
+
+    return targetDir.split(sep).reduce((parentDir, childDir) => {
+      const curDir = path.resolve(baseDir, parentDir, childDir);
+      try {
+        fs.mkdirSync(curDir);
+      } catch (err) {
+        if (err.code === 'EEXIST') { // curDir already exists!
+          return curDir;
+        }
+
+        // To avoid `EISDIR` error on Mac and `EACCES`-->`ENOENT` and `EPERM` on Windows.
+        if (err.code === 'ENOENT') { // Throw the original parentDir error on curDir `ENOENT` failure.
+          throw new Error(`EACCES: permission denied, mkdir '${parentDir}'`);
+        }
+
+        const caughtErr = ['EACCES', 'EPERM', 'EISDIR'].indexOf(err.code) > -1;
+        if (!caughtErr || caughtErr && curDir === path.resolve(targetDir)) {
+          throw err; // Throw if it's just the last created dir.
+        }
+      }
+
+      return curDir;
+    }, initDir);
   }
 }

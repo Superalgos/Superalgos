@@ -221,7 +221,7 @@ function newProductCard () {
         legacyBotAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_TEAM + '/' + REPO + '/' + PROFILE_PIC
       } else {
            /*
-              Here we will download the images of teams uploaded at the Teams Module.
+              Here we will download the images of teams shareed at the Teams Module.
               There might be Product Cards of bots beloging to teams not present currently at the Teams Module, in those cases
               nothing should happen.
           */

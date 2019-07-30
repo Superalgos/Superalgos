@@ -61,7 +61,7 @@ function newStrategySpace () {
       ['Initial Definition', 'task'],
       ['Open Execution', 'piggy-bank'],
       ['Close Execution', 'piggy-bank'],
-      ['Stop', 'pixel'],
+      ['Stop', 'stop'],
       ['Take Profit', 'competition'],
       ['Phase', 'placeholder'],
       ['Formula', 'pipette'],
@@ -91,6 +91,7 @@ function newStrategySpace () {
       'chat',
       'chronometer',
       'compass',
+      'compass-bw',
       'competition',
       'content',
       'design-tool',
@@ -122,16 +123,24 @@ function newStrategySpace () {
       'support',
       'tap',
       'target',
+      'target-bw',
       'targeting',
       'task',
       'testing',
       'text',
       'timeline',
       'tools',
-      'trash',
+      'delete',
       'upload',
       'vector',
-      'video-player'
+      'video-player',
+      'freeze',
+      'freeze-bw',
+      'hide',
+      'hide-bw',
+      'backup',
+      'share',
+      'stop'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

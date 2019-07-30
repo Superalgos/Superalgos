@@ -51,7 +51,7 @@
     let conditions = [];
     let headers;
 
-    let noTradingSystemOnFocusErrorDisplayed = false
+    let noDefinitionOnFocusErrorDisplayed = false
 
     return thisObject;
 
@@ -519,15 +519,16 @@
         if (currentRecord === undefined) { return; }
         if (currentRecord.conditionsNames === undefined) { return; }
         if (canvas.strategySpace.workspace === undefined) { return; }
-        if (canvas.strategySpace.workspace.tradingSystem === undefined) {
-            if (noTradingSystemOnFocusErrorDisplayed === false) {
-                if (ERROR_LOG === true) { logger.write("[WARN] sendRecordInfoToStrategySpace -> No Trading System with Execution Focus."); }
-                noTradingSystemOnFocusErrorDisplayed = true
+        if (canvas.strategySpace.workspace.definition === undefined) {
+            if (noDefinitionOnFocusErrorDisplayed === false) {
+                if (ERROR_LOG === true) { logger.write("[WARN] sendRecordInfoToStrategySpace -> No Definition with Execution Focus."); }
+                noDefinitionOnFocusErrorDisplayed = true
             }
             return
         } else {
-            noTradingSystemOnFocusErrorDisplayed = false
+            noDefinitionOnFocusErrorDisplayed = false
         }
+        if (canvas.strategySpace.workspace.definition.tradingSystem === undefined) { return; }
 
         try {
 
@@ -538,14 +539,14 @@
             let formulaErrorsIndex = 0;
             let formulaValuesIndex = 0;
 
-            canvas.strategySpace.workspace.tradingSystem.payload.uiObject.setErrorMessage(tradingSystem.error)
+            canvas.strategySpace.workspace.definition.tradingSystem.payload.uiObject.setErrorMessage(tradingSystem.error)
 
             if (tradingSystem.parameters !== undefined) {
-                canvas.strategySpace.workspace.tradingSystem.parameters.payload.uiObject.setErrorMessage(tradingSystem.parameters.error)
+                canvas.strategySpace.workspace.definition.tradingSystem.parameters.payload.uiObject.setErrorMessage(tradingSystem.parameters.error)
                 if (tradingSystem.parameters.baseAsset !== undefined) {
-                    canvas.strategySpace.workspace.tradingSystem.parameters.baseAsset.payload.uiObject.setErrorMessage(tradingSystem.parameters.baseAsset.error)
+                    canvas.strategySpace.workspace.definition.tradingSystem.parameters.baseAsset.payload.uiObject.setErrorMessage(tradingSystem.parameters.baseAsset.error)
                     if (tradingSystem.parameters.baseAsset.formula !== undefined) {
-                        canvas.strategySpace.workspace.tradingSystem.parameters.baseAsset.formula.payload.uiObject.setErrorMessage(tradingSystem.parameters.baseAsset.formula.error)
+                        canvas.strategySpace.workspace.definition.tradingSystem.parameters.baseAsset.formula.payload.uiObject.setErrorMessage(tradingSystem.parameters.baseAsset.formula.error)
                     }
                 }
             }
@@ -553,27 +554,27 @@
             for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
                 let strategy = tradingSystem.strategies[j];
-                canvas.strategySpace.workspace.tradingSystem.strategies[j].payload.uiObject.setErrorMessage(strategy.error)
+                canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].payload.uiObject.setErrorMessage(strategy.error)
 
                 if (currentRecord.strategyNumber === j) {
-                    canvas.strategySpace.workspace.tradingSystem.strategies[j].payload.uiObject.isExecuting = true
+                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].payload.uiObject.isExecuting = true
                 } else {
-                    canvas.strategySpace.workspace.tradingSystem.strategies[j].payload.uiObject.isExecuting = false
+                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].payload.uiObject.isExecuting = false
                 }
 
                 let triggerStage = strategy.triggerStage
 
                 if (triggerStage !== undefined) {
-                    canvas.strategySpace.workspace.tradingSystem.strategies[j].triggerStage.payload.uiObject.setErrorMessage(triggerStage.error)
+                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].triggerStage.payload.uiObject.setErrorMessage(triggerStage.error)
 
                     if (triggerStage.triggerOn !== undefined) {
-                        canvas.strategySpace.workspace.tradingSystem.strategies[j].triggerStage.triggerOn.payload.uiObject.setErrorMessage(triggerStage.triggerOn.error)
+                        canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].triggerStage.triggerOn.payload.uiObject.setErrorMessage(triggerStage.triggerOn.error)
 
                         for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
 
                             let situation = triggerStage.triggerOn.situations[k];
-                            canvas.strategySpace.workspace.tradingSystem.strategies[j].triggerStage.triggerOn.situations[k].payload.uiObject.setErrorMessage(triggerStage.triggerOn.situations[k].error)
-                            processSituation(situation, canvas.strategySpace.workspace.tradingSystem.strategies[j].triggerStage.triggerOn.situations[k]);
+                            canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].triggerStage.triggerOn.situations[k].payload.uiObject.setErrorMessage(triggerStage.triggerOn.situations[k].error)
+                            processSituation(situation, canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].triggerStage.triggerOn.situations[k]);
                         }
                     }
 
@@ -582,8 +583,8 @@
                         for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
 
                             let situation = triggerStage.triggerOff.situations[k];
-                            canvas.strategySpace.workspace.tradingSystem.strategies[j].triggerStage.triggerOff.situations[k].payload.uiObject.setErrorMessage(triggerStage.triggerOff.situations[k].error)
-                            processSituation(situation, canvas.strategySpace.workspace.tradingSystem.strategies[j].triggerStage.triggerOff.situations[k]);
+                            canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].triggerStage.triggerOff.situations[k].payload.uiObject.setErrorMessage(triggerStage.triggerOff.situations[k].error)
+                            processSituation(situation, canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].triggerStage.triggerOff.situations[k]);
                         }
                     }
 
@@ -592,8 +593,8 @@
                         for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
 
                             let situation = triggerStage.takePosition.situations[k];
-                            canvas.strategySpace.workspace.tradingSystem.strategies[j].triggerStage.takePosition.situations[k].payload.uiObject.setErrorMessage(triggerStage.takePosition.situations[k].error)
-                            processSituation(situation, canvas.strategySpace.workspace.tradingSystem.strategies[j].triggerStage.takePosition.situations[k]);
+                            canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].triggerStage.takePosition.situations[k].payload.uiObject.setErrorMessage(triggerStage.takePosition.situations[k].error)
+                            processSituation(situation, canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].triggerStage.takePosition.situations[k]);
                         }
                     }
                 }
@@ -601,96 +602,96 @@
                 let openStage = strategy.openStage
 
                 if (openStage !== undefined) {
-                    canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.payload.uiObject.setErrorMessage(openStage.error)
+                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.payload.uiObject.setErrorMessage(openStage.error)
 
                     let initialDefinition = openStage.initialDefinition
 
                     if (initialDefinition !== undefined) {
-                        canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.payload.uiObject.setErrorMessage(openStage.initialDefinition.error)
+                        canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.payload.uiObject.setErrorMessage(openStage.initialDefinition.error)
 
                         if (initialDefinition.stopLoss !== undefined) {
-                            canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.payload.uiObject.setErrorMessage(openStage.initialDefinition.stopLoss.error)
+                            canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.payload.uiObject.setErrorMessage(openStage.initialDefinition.stopLoss.error)
 
                             for (let p = 0; p < initialDefinition.stopLoss.phases.length; p++) {
 
                                 if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase - 1 === p) {
-                                    canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].payload.uiObject.isExecuting = true
+                                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].payload.uiObject.isExecuting = true
                                 } else {
-                                    canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].payload.uiObject.isExecuting = false
+                                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].payload.uiObject.isExecuting = false
                                 }
 
                                 let phase = initialDefinition.stopLoss.phases[p];
-                                canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].payload.uiObject.setErrorMessage(openStage.initialDefinition.stopLoss.phases[p].error)
+                                canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].payload.uiObject.setErrorMessage(openStage.initialDefinition.stopLoss.phases[p].error)
 
                                 if (phase.formula !== undefined) {
-                                    canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(openStage.initialDefinition.stopLoss.phases[p].formula.error)
+                                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(openStage.initialDefinition.stopLoss.phases[p].formula.error)
 
                                     if (currentRecord.formulaErrors[formulaErrorsIndex] !== "") {
                                         if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase - 1 === p) {
-                                            canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
+                                            canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
                                         }
                                     }
                                     formulaErrorsIndex++
 
                                     if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase - 1 === p) {
-                                        canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
+                                        canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
                                     }
                                     formulaValuesIndex++
                                 }
 
                                 let nextPhaseEvent = phase.nextPhaseEvent;
                                 if (nextPhaseEvent !== undefined) {
-                                    canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].nextPhaseEvent.payload.uiObject.setErrorMessage(openStage.initialDefinition.stopLoss.phases[p].nextPhaseEvent.error)
+                                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].nextPhaseEvent.payload.uiObject.setErrorMessage(openStage.initialDefinition.stopLoss.phases[p].nextPhaseEvent.error)
 
                                     for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
                                         let situation = nextPhaseEvent.situations[k];
 
-                                        processSituation(situation, canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].nextPhaseEvent.situations[k]);
+                                        processSituation(situation, canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].nextPhaseEvent.situations[k]);
                                     }
                                 }
                             }
                         }
 
                         if (initialDefinition.takeProfit !== undefined) {
-                            canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.payload.uiObject.setErrorMessage(openStage.initialDefinition.takeProfit.error)
+                            canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.payload.uiObject.setErrorMessage(openStage.initialDefinition.takeProfit.error)
 
                             for (let p = 0; p < initialDefinition.takeProfit.phases.length; p++) {
 
                                 if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase - 1 === p) {
-                                    canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].payload.uiObject.isExecuting = true
+                                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].payload.uiObject.isExecuting = true
                                 } else {
-                                    canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].payload.uiObject.isExecuting = false
+                                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].payload.uiObject.isExecuting = false
                                 }
 
                                 let phase = initialDefinition.takeProfit.phases[p];
-                                canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].payload.uiObject.setErrorMessage(openStage.initialDefinition.takeProfit.phases[p].error)
+                                canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].payload.uiObject.setErrorMessage(openStage.initialDefinition.takeProfit.phases[p].error)
 
                                 if (phase.formula !== undefined) {
-                                    canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(openStage.initialDefinition.takeProfit.phases[p].formula.error)
+                                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(openStage.initialDefinition.takeProfit.phases[p].formula.error)
 
                                     if (currentRecord.formulaErrors[formulaErrorsIndex] !== "") {
                                         if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase - 1 === p) {
-                                            canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
+                                            canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
                                         }
                                     }
                                     formulaErrorsIndex++
 
                                     if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase - 1 === p) {
-                                        canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
+                                        canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
                                     }
                                     formulaValuesIndex++
                                 }
 
                                 let nextPhaseEvent = phase.nextPhaseEvent;
                                 if (nextPhaseEvent !== undefined) {
-                                    canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].nextPhaseEvent.payload.uiObject.setErrorMessage(openStage.initialDefinition.takeProfit.phases[p].nextPhaseEvent.error)
+                                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].nextPhaseEvent.payload.uiObject.setErrorMessage(openStage.initialDefinition.takeProfit.phases[p].nextPhaseEvent.error)
 
                                     for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
                                         let situation = nextPhaseEvent.situations[k];
 
-                                        processSituation(situation, canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].nextPhaseEvent.situations[k]);
+                                        processSituation(situation, canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].nextPhaseEvent.situations[k]);
                                     }
                                 }
                             }
@@ -700,97 +701,97 @@
                     let openExecution = openStage.openExecution
 
                     if (openExecution !== undefined) {
-                        canvas.strategySpace.workspace.tradingSystem.strategies[j].openStage.openExecution.payload.uiObject.setErrorMessage(openStage.openExecution.error)
+                        canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].openStage.openExecution.payload.uiObject.setErrorMessage(openStage.openExecution.error)
                     }
                 }
 
                 let manageStage = strategy.manageStage
 
                 if (manageStage !== undefined) {
-                    canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.payload.uiObject.setErrorMessage(manageStage.error)
+                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.payload.uiObject.setErrorMessage(manageStage.error)
 
                     if (manageStage.stopLoss !== undefined) {
-                        canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.stopLoss.payload.uiObject.setErrorMessage(manageStage.stopLoss.error)
+                        canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.stopLoss.payload.uiObject.setErrorMessage(manageStage.stopLoss.error)
 
                         for (let p = 0; p < manageStage.stopLoss.phases.length; p++) {
 
                             if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase - 2 === p) {
-                                canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].payload.uiObject.isExecuting = true
+                                canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].payload.uiObject.isExecuting = true
                             } else {
-                                canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].payload.uiObject.isExecuting = false
+                                canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].payload.uiObject.isExecuting = false
                             }
 
                             let phase = manageStage.stopLoss.phases[p];
-                            canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].payload.uiObject.setErrorMessage(manageStage.stopLoss.phases[p].error)
+                            canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].payload.uiObject.setErrorMessage(manageStage.stopLoss.phases[p].error)
 
                             if (phase.formula !== undefined) {
-                                canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(manageStage.stopLoss.phases[p].formula.error)
+                                canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(manageStage.stopLoss.phases[p].formula.error)
 
                                 if (currentRecord.formulaErrors[formulaErrorsIndex] !== "") {
                                     if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase - 2 === p) {
-                                        canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
+                                        canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
                                     }
                                 }
                                 formulaErrorsIndex++
                                 if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase - 2 === p) {
-                                    canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
+                                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
                                 }
                                 formulaValuesIndex++
                             }
 
                             let nextPhaseEvent = phase.nextPhaseEvent;
                             if (nextPhaseEvent !== undefined) {
-                                canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].nextPhaseEvent.payload.uiObject.setErrorMessage(manageStage.stopLoss.phases[p].nextPhaseEvent.error)
+                                canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].nextPhaseEvent.payload.uiObject.setErrorMessage(manageStage.stopLoss.phases[p].nextPhaseEvent.error)
 
                                 for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
                                     let situation = nextPhaseEvent.situations[k];
 
-                                    processSituation(situation, canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].nextPhaseEvent.situations[k]);
+                                    processSituation(situation, canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.stopLoss.phases[p].nextPhaseEvent.situations[k]);
                                 }
                             }
                         }
                     }
 
                     if (manageStage.takeProfit !== undefined) {
-                        canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.takeProfit.payload.uiObject.setErrorMessage(manageStage.takeProfit.error)
+                        canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.takeProfit.payload.uiObject.setErrorMessage(manageStage.takeProfit.error)
 
                         for (let p = 0; p < manageStage.takeProfit.phases.length; p++) {
 
                             if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase - 2 === p) {
-                                canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].payload.uiObject.isExecuting = true
+                                canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].payload.uiObject.isExecuting = true
                             } else {
-                                canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].payload.uiObject.isExecuting = false
+                                canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].payload.uiObject.isExecuting = false
                             }
 
                             let phase = manageStage.takeProfit.phases[p];
-                            canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].payload.uiObject.setErrorMessage(manageStage.takeProfit.phases[p].error)
+                            canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].payload.uiObject.setErrorMessage(manageStage.takeProfit.phases[p].error)
 
                             if (phase.formula !== undefined) {
-                                canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(manageStage.takeProfit.phases[p].formula.error)
+                                canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(manageStage.takeProfit.phases[p].formula.error)
 
                                 if (currentRecord.formulaErrors[formulaErrorsIndex] !== "") {
                                     if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase - 2 === p) {
-                                        canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
+                                        canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
                                     }
                                 }
                                 formulaErrorsIndex++
 
                                 if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase - 2 === p) {
-                                    canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
+                                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
                                 }
                                 formulaValuesIndex++
                             }
 
                             let nextPhaseEvent = phase.nextPhaseEvent;
                             if (nextPhaseEvent !== undefined) {
-                                canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].nextPhaseEvent.payload.uiObject.setErrorMessage(manageStage.takeProfit.phases[p].nextPhaseEvent.error)
+                                canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].nextPhaseEvent.payload.uiObject.setErrorMessage(manageStage.takeProfit.phases[p].nextPhaseEvent.error)
 
                                 for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
                                     let situation = nextPhaseEvent.situations[k];
 
-                                    processSituation(situation, canvas.strategySpace.workspace.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].nextPhaseEvent.situations[k]);
+                                    processSituation(situation, canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].manageStage.takeProfit.phases[p].nextPhaseEvent.situations[k]);
                                 }
                             }
                         }
@@ -801,12 +802,12 @@
                 let closeStage = strategy.closeStage
 
                 if (closeStage !== undefined) {
-                    canvas.strategySpace.workspace.tradingSystem.strategies[j].closeStage.payload.uiObject.setErrorMessage(closeStage.error)
+                    canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].closeStage.payload.uiObject.setErrorMessage(closeStage.error)
 
                     let closeExecution = closeStage.closeExecution
 
                     if (closeExecution !== undefined) {
-                        canvas.strategySpace.workspace.tradingSystem.strategies[j].closeStage.closeExecution.payload.uiObject.setErrorMessage(closeStage.closeExecution.error)
+                        canvas.strategySpace.workspace.definition.tradingSystem.strategies[j].closeStage.closeExecution.payload.uiObject.setErrorMessage(closeStage.closeExecution.error)
                     }
                 }
             }

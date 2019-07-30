@@ -72,7 +72,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let tradesArray = [];
             let lastObjectsArray = [];
 
-            let tradingSystem = await strategy.getStrategy();
+            let definition = await strategy.getStrategy();
+            let tradingSystem = definition.tradingSystem;
 
             /* Initial Default Values */
 
@@ -356,7 +357,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             function loop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Entering function."); }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> i = " + i); }
-
 
                 let candle = candles[i];
                 let percentageBandwidth = percentageBandwidthMap.get(candle.begin);
@@ -1278,6 +1278,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') &&
                     takePositionNow !== true
                 ) {
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
 
                     /* Checking what happened since the last execution. We need to know if the Stop Loss
                         or our Take Profit were hit. */
@@ -1287,9 +1288,15 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if ((baseAsset === 'BTC' && candle.max >= stopLoss) || (baseAsset !== 'BTC' && candle.min <= stopLoss)) {
 
                         if (baseAsset === 'BTC') {
+                            strategy.positionSize = balanceAssetB / stopLoss;
+                            strategy.positionRate = stopLoss;
+
                             balanceAssetA = balanceAssetA + balanceAssetB / stopLoss;
                             balanceAssetB = 0;
                         } else {
+                            strategy.positionSize = balanceAssetA * stopLoss;
+                            strategy.positionRate = stopLoss;
+
                             balanceAssetB = balanceAssetB + balanceAssetA * stopLoss;
                             balanceAssetA = 0;
                         }
@@ -1322,9 +1329,15 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if ((baseAsset === 'BTC' && candle.min <= takeProfit) || (baseAsset !== 'BTC' && candle.max >= takeProfit)) {
 
                         if (baseAsset === 'BTC') {
+                            strategy.positionSize = balanceAssetB / takeProfit;
+                            strategy.positionRate = takeProfit;
+
                             balanceAssetA = balanceAssetA + balanceAssetB / takeProfit;
                             balanceAssetB = 0;
                         } else {
+                            strategy.positionSize = balanceAssetA * takeProfit;
+                            strategy.positionRate = takeProfit;
+
                             balanceAssetB = balanceAssetB + balanceAssetA * takeProfit;
                             balanceAssetA = 0;
                         }
@@ -1374,24 +1387,24 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                                 if (strategy.openStage !== undefined) {
                                     if (strategy.openStage.openExecution !== undefined) {
-                                        putOrder()
+                                        putOpeningOrder()
                                         return
                                     }
                                 }
 
                                 break
                             }
-                            case "In a Position": { // This should mean that we already put the order at the exchange.
+                            case "Taking Position": { // Waiting for a confirmation that the position was taken.
                                 break
                             }
-                            case "Taking Position": { // Waiting for a confirmation that the position was taken.
+                            case "In a Position": { // This should mean that we already put the order at the exchange.
                                 break
                             }
                         }
                     } else { // The context does not exist so it means we are not in a position.
                         if (strategy.openStage !== undefined) {
                             if (strategy.openStage.openExecution !== undefined) {
-                                putOrder()
+                                putOpeningOrder()
                                 return
                             }
                         }
@@ -1399,9 +1412,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     takePositionAtSimulation()
 
-                    function putOrder() {
+                    function putOpeningOrder() {
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOrder -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Entering function."); }
 
                         let positionDirection
                         if (baseAsset === 'BTC') {
@@ -1417,11 +1430,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         assistant.putPosition(positionDirection, tradePositionRate, tradePositionSize * tradePositionRate, tradePositionSize, onOrderPut)
 
                         function onOrderPut(err) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOrder -> onOrderPut -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> Entering function."); }
 
                             switch (err.result) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
                                     interExecutionMemory.executionContext = {
                                         status: "In a Position"
                                     }
@@ -1429,14 +1442,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     return;
                                 }
                                 case global.DEFAULT_FAIL_RESPONSE.result: {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
                                     /* We will assume that the problem is temporary, and expect that it will work at the next execution.*/
                                     strategy.openStage.openExecution.error = err.message
                                     takePositionAtSimulation()
                                     return;
                                 }
                             }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
                             strategy.openStage.openExecution.error = err.message
                         }
                     }
@@ -1486,91 +1499,177 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 /* Closing a Position */
                 if (strategyStage === 'Close Stage') {
 
-                    roundtrips++;
+                    /* Position size and rate */
+                    let strategy = tradingSystem.strategies[currentStrategyIndex];
 
-                    if (currentDay !== undefined) {
-                        if (positionInstant < currentDay.valueOf()) {
-                            yesterday.Roundtrips++;
+                    tradePositionSize = strategy.positionSize;
+                    tradePositionRate = strategy.positionRate;
+
+                    /* We see if we need to put the actual order at the exchange. */
+
+                    if (interExecutionMemory.executionContext !== undefined) {
+                        switch (interExecutionMemory.executionContext.status) {
+                            case "Without a Position": { // No way to close anything at the exchange.
+                                break
+                            }
+                            case "In a Position": { // This should mean that we already put the order at the exchange.
+
+                                if (strategy.closeStage !== undefined) {
+                                    if (strategy.closeStage.closeExecution !== undefined) {
+                                        putClosingOrder()
+                                        return
+                                    }
+                                }
+                                break
+                            }
+                            case "Taking Position": { // Waiting for a confirmation that the position was taken.
+                                break
+                            }
+
+                            case "Closing Position": { // Waiting for a confirmation that the position was closed.
+                                break
+                            }
+
+                            case "Position Closed": { //  
+                                break
+                            }
+                        }
+                    } else { // The context does not exist so it means we are not in a position.
+                        controlLoop();
+                        return
+                    }
+
+                    closePositionAtSimulation()
+
+                    function putClosingOrder() {
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> Entering function."); }
+
+                        let positionDirection
+                        if (baseAsset === 'BTC') {
+                            positionDirection = "buy"
+                        } else {
+                            positionDirection = "sell"
+                        }
+
+                        interExecutionMemory.executionContext = {
+                            status: "Closing Position"
+                        }
+
+                        assistant.putPosition(positionDirection, tradePositionRate, tradePositionSize * tradePositionRate, tradePositionSize, onOrderPut)
+
+                        function onOrderPut(err) {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> Entering function."); }
+
+                            switch (err.result) {
+                                case global.DEFAULT_OK_RESPONSE.result: {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
+                                    interExecutionMemory.executionContext = {
+                                        status: "Position Closed"
+                                    }
+                                    closePositionAtSimulation()
+                                    return;
+                                }
+                                case global.DEFAULT_FAIL_RESPONSE.result: {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
+                                    /* We will assume that the problem is temporary, and expect that it will work at the next execution.*/
+                                    strategy.openStage.openExecution.error = err.message
+                                    closePositionAtSimulation()
+                                    return;
+                                }
+                            }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
+                            strategy.openStage.openExecution.error = err.message
                         }
                     }
 
-                    if (baseAsset === 'BTC') {
-                        lastTradeProfitLoss = balanceAssetA - previousBalanceAssetA;
-                        lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
-                        if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
-                        profit = balanceAssetA - initialBalanceA;
-                    } else {
-                        lastTradeProfitLoss = balanceAssetB - previousBalanceAssetB;
-                        lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
-                        if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
-                        profit = balanceAssetB - initialBalanceB;
-                    }
+                    function closePositionAtSimulation() {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> closePositionAtSimulation -> Entering function."); }
 
-                    if (currentDay !== undefined) {
-                        if (positionInstant < currentDay.valueOf()) {
-                            yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
-                            yesterday.profit = profit;
-                            yesterday.lastTradeROI = lastTradeROI;
-                        }
-                    }
-
-                    currentTrade.lastTradeROI = lastTradeROI;
-                    currentTrade.stopRate = stopLoss;
-
-                    if (lastTradeProfitLoss > 0) {
-                        hits++;
+                        roundtrips++;
 
                         if (currentDay !== undefined) {
                             if (positionInstant < currentDay.valueOf()) {
-                                yesterday.hits++;
+                                yesterday.Roundtrips++;
                             }
                         }
 
-                    } else {
-                        fails++;
+                        if (baseAsset === 'BTC') {
+                            lastTradeProfitLoss = balanceAssetA - previousBalanceAssetA;
+                            lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
+                            if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
+                            profit = balanceAssetA - initialBalanceA;
+                        } else {
+                            lastTradeProfitLoss = balanceAssetB - previousBalanceAssetB;
+                            lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
+                            if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
+                            profit = balanceAssetB - initialBalanceB;
+                        }
 
                         if (currentDay !== undefined) {
                             if (positionInstant < currentDay.valueOf()) {
-                                yesterday.fails++;
+                                yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
+                                yesterday.profit = profit;
+                                yesterday.lastTradeROI = lastTradeROI;
                             }
                         }
-                    }
 
-                    if (baseAsset === 'BTC') {
-                        ROI = (initialBalanceA + profit) / initialBalanceA - 1;
-                        hitRatio = hits / roundtrips;
-                        anualizedRateOfReturn = ROI / days * 365;
-                    } else {
-                        ROI = (initialBalanceB + profit) / initialBalanceB - 1;
-                        hitRatio = hits / roundtrips;
-                        anualizedRateOfReturn = ROI / days * 365;
-                    }
+                        currentTrade.lastTradeROI = lastTradeROI;
+                        currentTrade.stopRate = stopLoss;
 
-                    if (currentDay !== undefined) {
-                        if (positionInstant < currentDay.valueOf()) {
-                            yesterday.ROI = ROI;
-                            yesterday.hitRatio = hitRatio;
-                            yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
+                        if (lastTradeProfitLoss > 0) {
+                            hits++;
+
+                            if (currentDay !== undefined) {
+                                if (positionInstant < currentDay.valueOf()) {
+                                    yesterday.hits++;
+                                }
+                            }
+
+                        } else {
+                            fails++;
+
+                            if (currentDay !== undefined) {
+                                if (positionInstant < currentDay.valueOf()) {
+                                    yesterday.fails++;
+                                }
+                            }
                         }
+
+                        if (baseAsset === 'BTC') {
+                            ROI = (initialBalanceA + profit) / initialBalanceA - 1;
+                            hitRatio = hits / roundtrips;
+                            anualizedRateOfReturn = ROI / days * 365;
+                        } else {
+                            ROI = (initialBalanceB + profit) / initialBalanceB - 1;
+                            hitRatio = hits / roundtrips;
+                            anualizedRateOfReturn = ROI / days * 365;
+                        }
+
+                        if (currentDay !== undefined) {
+                            if (positionInstant < currentDay.valueOf()) {
+                                yesterday.ROI = ROI;
+                                yesterday.hitRatio = hitRatio;
+                                yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
+                            }
+                        }
+
+                        addRecord();
+
+                        currentStrategyIndex = -1;
+                        stopLoss = 0;
+                        tradePositionRate = 0;
+                        tradePositionSize = 0;
+                        positionInstant = undefined;
+                        takeProfit = 0;
+                        strategyStage = 'No Stage';
+                        stopLossStage = 'No Stage';
+                        takeProfitStage = 'No Stage';
+                        stopLossPhase = 0;
+                        takeProfitPhase = 0;
+                        controlLoop();
+                        return
                     }
-
-
-                    addRecord();
-
-                    currentStrategyIndex = -1;
-                    stopLoss = 0;
-                    tradePositionRate = 0;
-                    tradePositionSize = 0;
-                    positionInstant = undefined;
-                    takeProfit = 0;
-                    strategyStage = 'No Stage';
-                    stopLossStage = 'No Stage';
-                    takeProfitStage = 'No Stage';
-                    stopLossPhase = 0;
-                    takeProfitPhase = 0;
-                    controlLoop();
-                    return
-
                 }
 
                 /* Not a buy or sell condition */

@@ -50,9 +50,9 @@ function newStrategySpace () {
       ['Base Asset', 'sitemap'],
       ['Strategy', 'quality'],
       ['Trigger Stage', 'chronometer'],
-      ['Open Stage', 'photo-camera'],
+      ['Open Stage', 'stage-open'],
       ['Manage Stage', 'video-player'],
-      ['Close Stage', 'timeline'],
+      ['Close Stage', 'stage-close'],
       ['Position Size', 'responsive'],
       ['Position Rate', 'promotion'],
       ['Trigger On Event', 'startup'],
@@ -140,7 +140,9 @@ function newStrategySpace () {
       'menu-tree-plus',
       'menu-backup',
       'share',
-      'stop'
+      'stop',
+      'stage-open',
+      'stage-close'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

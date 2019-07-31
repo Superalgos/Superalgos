@@ -1067,7 +1067,7 @@
                             break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> Operation Failed. Aborting the process.");
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            callBackFunction(err);
                             return;
                         }
                             break;

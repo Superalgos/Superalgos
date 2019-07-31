@@ -1384,14 +1384,21 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if (interExecutionMemory.executionContext !== undefined) {
                         switch (interExecutionMemory.executionContext.status) {
                             case "Without a Position": { // We need to put the order because It was not put yet.
-
                                 if (strategy.openStage !== undefined) {
                                     if (strategy.openStage.openExecution !== undefined) {
                                         putOpeningOrder()
                                         return
                                     }
                                 }
-
+                                break
+                            }
+                            case "Closing Position": { // Waiting for a confirmation that the position was closed.
+                                if (strategy.openStage !== undefined) {
+                                    if (strategy.openStage.openExecution !== undefined) {
+                                        putOpeningOrder()
+                                        return
+                                    }
+                                }
                                 break
                             }
                             case "Taking Position": { // Waiting for a confirmation that the position was taken.
@@ -1411,6 +1418,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
 
                     takePositionAtSimulation()
+                    return
 
                     function putOpeningOrder() {
 
@@ -1443,9 +1451,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 }
                                 case global.DEFAULT_FAIL_RESPONSE.result: {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
-                                    /* We will assume that the problem is temporary, and expect that it will work at the next execution.*/
                                     strategy.openStage.openExecution.error = err.message
-                                    takePositionAtSimulation()
+                                    afterLoop()
+                                    return;
+                                }
+                                case global.DEFAULT_RETRY_RESPONSE.result: {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
+                                    strategy.openStage.openExecution.error = err.message
+                                    afterLoop()
                                     return;
                                 }
                             }
@@ -1513,7 +1526,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 break
                             }
                             case "In a Position": { // This should mean that we already put the order at the exchange.
-
                                 if (strategy.closeStage !== undefined) {
                                     if (strategy.closeStage.closeExecution !== undefined) {
                                         putClosingOrder()
@@ -1523,6 +1535,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 break
                             }
                             case "Taking Position": { // Waiting for a confirmation that the position was taken.
+                                if (strategy.closeStage !== undefined) {
+                                    if (strategy.closeStage.closeExecution !== undefined) {
+                                        putClosingOrder()
+                                        return
+                                    }
+                                }
                                 break
                             }
 
@@ -1534,12 +1552,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 break
                             }
                         }
-                    } else { // The context does not exist so it means we are not in a position.
-                        controlLoop();
-                        return
                     }
 
                     closePositionAtSimulation()
+                    return 
 
                     function putClosingOrder() {
 
@@ -1574,7 +1590,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
                                     /* We will assume that the problem is temporary, and expect that it will work at the next execution.*/
                                     strategy.openStage.openExecution.error = err.message
-                                    closePositionAtSimulation()
+                                    afterLoop()
+                                    return;
+                                }
+                                case global.DEFAULT_RETRY_RESPONSE.result: {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
+                                    strategy.openStage.openExecution.error = err.message
+                                    afterLoop()
                                     return;
                                 }
                             }
@@ -1739,7 +1761,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             -1,
                             ORDER_STATUS.Signaled,
                             0,
-                            exitOutcome)
+                            exitOutcome,
+                            "")
 
                     }
                     else {

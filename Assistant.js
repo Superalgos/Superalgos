@@ -942,7 +942,7 @@
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
-                        message: 'pAmountA is grater than the Available Balance.'
+                        message: 'Not Enough Available Balance to Buy.'
                     };
 
                     callBackFunction(err);
@@ -960,7 +960,7 @@
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
-                        message: 'pAmountB is grater than the Available Balance.'
+                        message: 'Not Enough Available Balance to Sell.'
                     };
 
                     callBackFunction(err);

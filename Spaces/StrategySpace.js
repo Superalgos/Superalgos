@@ -134,11 +134,11 @@ function newStrategySpace () {
       'upload',
       'vector',
       'video-player',
-      'freeze',
-      'freeze-bw',
-      'hide',
-      'hide-bw',
-      'backup',
+      'menu-mobility-freeze',
+      'menu-mobility-unfreeze',
+      'menu-tree-minus',
+      'menu-tree-plus',
+      'menu-backup',
       'share',
       'stop'
     ]

@@ -1,4 +1,5 @@
 ﻿require('dotenv').config()
+const strategy = require('./Integrations/Strategy')
 
 global.SHALL_BOT_STOP = false;
 global.AT_BREAKPOINT = false; // This is used only when running at the browser.
@@ -29,9 +30,31 @@ process.on('exit', function (code) {
 
 readExecutionConfiguration();
 
-function readExecutionConfiguration() {
+async function readExecutionConfiguration() {
     try {
         console.log("[INFO] Run -> readExecutionConfiguration -> Entering function. ");
+
+        /*Try to get the begin and end dates from the Definition*/
+        let definition = await strategy.getStrategy();
+        let initialDatetime = process.env.BEGIN_DATE_TIME
+        let finalDatetime = process.env.END_DATE_TIME
+
+        if (definition !== undefined) {
+            if (definition.tradingSystem !== undefined) {
+                if (definition.tradingSystem.parameters !== undefined) {
+                    if (definition.tradingSystem.parameters.baseAsset !== undefined) {
+                        if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
+                            if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
+                                let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
+                                initialDatetime = code.initialDatetime
+                                finalDatetime = code.finalDatetime
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         let startMode
 
         // General Financial Being Configuration
@@ -42,22 +65,22 @@ function readExecutionConfiguration() {
             let live = {
                 run: "false",
                 resumeExecution: process.env.RESUME_EXECUTION,
-                beginDatetime: process.env.BEGIN_DATE_TIME,
-                endDatetime: process.env.END_DATE_TIME
+                beginDatetime: initialDatetime,
+                endDatetime: finalDatetime
             }
 
             let backtest = {
                 run: "false",
                 resumeExecution: process.env.RESUME_EXECUTION,
-                beginDatetime: process.env.BEGIN_DATE_TIME,
-                endDatetime: process.env.END_DATE_TIME
+                beginDatetime: initialDatetime,
+                endDatetime: finalDatetime
             }
 
             let competition = {
                 run: "false",
                 resumeExecution: process.env.RESUME_EXECUTION,
-                beginDatetime: process.env.BEGIN_DATE_TIME,
-                endDatetime: process.env.END_DATE_TIME
+                beginDatetime: initialDatetime,
+                endDatetime: finalDatetime
             }
 
             startMode = {

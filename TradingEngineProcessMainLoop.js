@@ -54,7 +54,8 @@
                 }
 
                 USER_BOT_MODULE = {}
-                USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
+                USER_BOT_MODULE.newUserBot = require(ROOT_DIR + 'User.Bot').newUserBot // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
+                //USER_BOT_MODULE.newUserBot = eval(text); // Use this for production
 
                 filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
                 filePath += "/Commons.js"
@@ -69,7 +70,8 @@
                         return;
                     }
                     COMMONS_MODULE = {}
-                    COMMONS_MODULE.newCommons = eval(text); // TODO This needs to be changed function
+                    COMMONS_MODULE.newCommons = require(ROOT_DIR + 'Commons').newCommons // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
+                    //COMMONS_MODULE.newCommons = eval(text); // Use this for production
 
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                 }

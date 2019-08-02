@@ -24,6 +24,7 @@
     <Compile Include="Assistant.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commons.js" />
     <Compile Include="Integrations\Ecosystem.js" />
     <Compile Include="Integrations\FileStorage.js" />
     <Compile Include="Integrations\Strategy.js" />
@@ -36,6 +37,7 @@
     <Compile Include="TradingEngineProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="User.Bot.js" />
     <Compile Include="utils\logger.js">
       <SubType>Code</SubType>
     </Compile>

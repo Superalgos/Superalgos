@@ -21,7 +21,7 @@
     let usertBot;
 
     const FILE_STORAGE = require('./Integrations/FileStorage.js');
-	let fileStorage = FILE_STORAGE.newFileStorage();
+    let fileStorage = FILE_STORAGE.newFileStorage();
 
     let processConfig;
 
@@ -62,7 +62,7 @@
             usertBot.initialize(dataDependencies, callBackFunction);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = ", err);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -266,7 +266,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = ", err);
+                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err);
                     if (err.message === "Cannot read property 'file' of undefined") {
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
@@ -299,7 +299,7 @@
 
                             console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + " bot.processDatetime = " + bot.processDatetime.toISOString());
 
-                            if(global.FULL_LOG === 'true'){
+                            if (global.FULL_LOG === 'true') {
                                 logger.newInternalLoop(bot.codeName, bot.process);
                             }
 
@@ -321,7 +321,7 @@
                             periodsLoop();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> advanceTime -> err = ", err);
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> advanceTime -> err = " + err);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -344,7 +344,7 @@
 
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoop -> err = ", err);
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoop -> err = " + err);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -421,7 +421,7 @@
                                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> Entering function."); }
                                                     if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> text = " + text); }
 
-                                                    if ((err.message === "File does not exist." && botNeverRan === true) || err.code === 'The specified key does not exist.')  {
+                                                    if ((err.message === "File does not exist." && botNeverRan === true) || err.code === 'The specified key does not exist.') {
 
                                                         /*
                                                         Sometimes one of the dependencies of an indicator for some reasons are not calculated from the begining of the market.
@@ -438,14 +438,14 @@
 
                                                     if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = ", err);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err);
                                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                         return;
                                                     }
 
                                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> err = ", err);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> err = " + err);
                                                         callBackFunction(err);
                                                         return;
                                                     }
@@ -456,13 +456,13 @@
 
                                                 }
                                                 catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> err = ", err);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> err = " + err);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
                                         }
                                         catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> err = ", err);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> err = " + err);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
@@ -488,14 +488,14 @@
 
                                                     if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = ", err);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err.code);
                                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                         return;
                                                     }
 
                                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = ", err);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err.code);
                                                         callBackFunction(err);
                                                         return;
                                                     }
@@ -509,19 +509,19 @@
 
                                                 }
                                                 catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = ", err);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
                                         }
                                         catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> err = ", err);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> err = " + err);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
                                 }
                                 catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoop -> dependencyLoopBody -> err = ", err);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoop -> dependencyLoopBody -> err = " + err);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -545,7 +545,7 @@
                                     }
                                 }
                                 catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> dependencyControlLoop -> err = ", err);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> dependencyControlLoop -> err = " + err);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -585,19 +585,19 @@
                                             periodsControlLoop();
                                         }
                                         catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> onBotFinished -> err = ", err);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> onBotFinished -> err = " + err);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
                                 }
                                 catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> err = ", err);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> err = " + err);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> err = ", err);
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> err = " + err);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -627,7 +627,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> controlLoop -> onWritten -> Entering function."); }
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> controlLoop -> onWritten -> err = ", err);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> controlLoop -> onWritten -> err = " + err);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -635,21 +635,21 @@
                                         writeStatusReport(bot.processDatetime, advanceTime);
 
                                     } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods ->  controlLoop -> onWritten -> err = ", err);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods ->  controlLoop -> onWritten -> err = " + err);
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
                             }
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsControlLoop -> err = ", err);
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsControlLoop -> err = " + err);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> err = ", err);
+                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> err = " + err);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -682,7 +682,7 @@
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRanges -> err = ", err);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRanges -> err = " + err);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
 
@@ -711,7 +711,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> onFileCreated -> err = ", err);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> onFileCreated -> err = " + err);
                             callBack(err);
                             return;
                         }
@@ -724,7 +724,7 @@
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> err = ", err);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> err = " + err);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -747,14 +747,14 @@
                     bot.hasTheBotJustStarted = false;
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = ", err);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
 
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = ", err);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

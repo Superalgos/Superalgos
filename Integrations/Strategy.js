@@ -38,8 +38,8 @@ exports.getStrategy = async function () {
                 global.STRATEGY = strategizerResponse.data.data.strategizer_TradingSystemByFb.data;
             } else {
                 let fileLocation = process.env.CONFIG_PATH + 'userConfig.json'
-                let strategy = await readFileAsync(fileLocation, { encoding: 'utf8' })
-                global.STRATEGY = JSON.parse(strategy)
+                let userConfig = await readFileAsync(fileLocation, { encoding: 'utf8' })
+                global.STRATEGY = JSON.parse(userConfig).strategy
             }
         }
 

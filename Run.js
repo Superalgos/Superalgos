@@ -12,7 +12,7 @@ global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' };
 
 process.on('uncaughtException', function (err) {
     console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);
-    console.log('[INFO] Run -> uncaughtException -> err.stack = '+ err.stack);
+    console.log('[INFO] Run -> uncaughtException -> err.stack = ' + err.stack);
     process.exit(1)
 });
 
@@ -43,19 +43,20 @@ if (isRunSequence) {
 function sequenceExecution(currentStep) {
     let execution = sequenceList[currentStep];
     process.env.STOP_GRACEFULLY = true;
-    process.env.DEV_TEAM = execution.devTeam;
-    process.env.BOT = execution.bot;
-    process.env.START_MODE = execution.mode;
-    process.env.RESUME_EXECUTION = execution.resumeExecution;
-    process.env.TYPE = execution.type;
-    process.env.PROCESS = execution.process;
-    process.env.MIN_YEAR = execution.startYear;
-    process.env.MAX_YEAR = execution.endYear;
-    process.env.MONTH = execution.month;
-    process.env.BEGIN_DATE_TIME = execution.beginDatetime;
-    process.env.TIME_PERIOD = execution.timePeriod;
+    execution.devTeam ? process.env.DEV_TEAM = execution.devTeam : undefined;
+    execution.bot ? process.env.BOT = execution.bot : undefined;
+    execution.mode ? process.env.START_MODE = execution.mode : undefined;
+    execution.resumeExecution ? process.env.RESUME_EXECUTION = execution.resumeExecution : undefined;
+    execution.type ? process.env.TYPE = execution.type : undefined;
+    execution.process ? process.env.PROCESS = execution.process : undefined;
+    execution.startYear ? process.env.MIN_YEAR = execution.startYear : undefined;
+    execution.endYear ? process.env.MAX_YEAR = execution.endYear : undefined;
+    execution.month ? process.env.MONTH = execution.month : undefined;
+    execution.beginDatetime ? process.env.BEGIN_DATE_TIME = execution.beginDatetime : undefined;
 
-    global.EXCHANGE_NAME = execution.exchangeName;
+    execution.timePeriod ? process.env.TIME_PERIOD = execution.timePeriod : undefined;
+
+    execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
     // global.FULL_LOG = execution.fullLog;
 
     let stepKey = execution.devTeam + '.' + execution.bot + '.' + execution.process;
@@ -180,7 +181,7 @@ function readExecutionConfiguration() {
     }
 
     catch (err) {
-        console.log("[ERROR] readExecutionConfiguration -> err = "+ err);
+        console.log("[ERROR] readExecutionConfiguration -> err = " + err);
         console.log("[ERROR] readExecutionConfiguration -> Please verify that the Start Mode for the type of Bot configured applies to that type.");
         console.log("[ERROR] readExecutionConfiguration -> err = " + err.stack);
     }

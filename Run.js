@@ -1,4 +1,5 @@
-﻿require('dotenv').config()
+﻿require('dotenv').config();
+const sequenceList = require('./sequence');
 
 global.SHALL_BOT_STOP = false;
 global.AT_BREAKPOINT = false; // This is used only when running at the browser.
@@ -6,14 +7,12 @@ global.FULL_LOG = process.env.FULL_LOG;
 
 /* Default parameters can be changed by the execution configuration */
 global.EXCHANGE_NAME = process.env.EXCHANGE_NAME;
-global.MARKET = {
-    assetA: "USDT",
-    assetB: "BTC"
-};
+global.MARKET = { assetA: "USDT", assetB: "BTC" };
+global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' };
 
 process.on('uncaughtException', function (err) {
     console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);
-    console.log('[INFO] Run -> uncaughtException -> err.stack = ', err.stack);
+    console.log('[INFO] Run -> uncaughtException -> err.stack = '+ err.stack);
     process.exit(1)
 });
 
@@ -27,7 +26,66 @@ process.on('exit', function (code) {
     console.log('[INFO] Run -> process.on.exit -> About to exit -> code = ' + code);
 });
 
-readExecutionConfiguration();
+
+let isRunSequence = false;
+let sequenceStep = 0;
+let processedSteps = new Map()
+if (process.env.RUN_SEQUENCE !== undefined) {
+    isRunSequence = JSON.parse(process.env.RUN_SEQUENCE)
+}
+
+if (isRunSequence) {
+    sequenceExecution(sequenceStep);
+} else {
+    readExecutionConfiguration();
+}
+
+function sequenceExecution(currentStep) {
+    let execution = sequenceList[currentStep];
+    process.env.STOP_GRACEFULLY = true;
+    process.env.DEV_TEAM = execution.devTeam;
+    process.env.BOT = execution.bot;
+    process.env.START_MODE = execution.mode;
+    process.env.RESUME_EXECUTION = execution.resumeExecution;
+    process.env.TYPE = execution.type;
+    process.env.PROCESS = execution.process;
+    process.env.MIN_YEAR = execution.startYear;
+    process.env.MAX_YEAR = execution.endYear;
+    process.env.MONTH = execution.month;
+    process.env.BEGIN_DATE_TIME = execution.beginDatetime;
+    process.env.TIME_PERIOD = execution.timePeriod;
+
+    global.EXCHANGE_NAME = execution.exchangeName;
+    // global.FULL_LOG = execution.fullLog;
+
+    let stepKey = execution.devTeam + '.' + execution.bot + '.' + execution.process;
+    if (processedSteps.has(stepKey)) {
+        processedSteps.set(stepKey, processedSteps.get(stepKey) + 1);
+    } else {
+        processedSteps.set(stepKey, 0);
+    }
+    console.log("EXECUTION: "+JSON.stringify(execution))
+    readExecutionConfiguration();
+    sequenceStep++;
+}
+
+function onExecutionFinish(result, finishStepKey) {
+    processedSteps.set(finishStepKey, processedSteps.get(finishStepKey) + 1);
+    if (processedSteps.get(finishStepKey) > 1) {
+        console.log("[INFO] onExecutionFinish -> Step already processed.");
+    } else {
+        if (sequenceStep < sequenceList.length) {
+            sequenceExecution(sequenceStep);
+        } else {
+            setTimeout(function () {
+                console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
+                sequenceStep = 0;
+                processedSteps = new Map();
+                sequenceExecution(sequenceStep);
+            }, process.env.EXECUTION_LOOP_DELAY);
+        }
+    }
+}
 
 function readExecutionConfiguration() {
     try {
@@ -122,7 +180,7 @@ function readExecutionConfiguration() {
     }
 
     catch (err) {
-        console.log("[ERROR] readExecutionConfiguration -> err = ", err);
+        console.log("[ERROR] readExecutionConfiguration -> err = "+ err);
         console.log("[ERROR] readExecutionConfiguration -> Please verify that the Start Mode for the type of Bot configured applies to that type.");
         console.log("[ERROR] readExecutionConfiguration -> err = " + err.stack);
     }
@@ -182,7 +240,7 @@ function startRoot() {
 
         console.log("[INFO] Run -> startRoot -> onInitialized -> Entering function. ");
 
-        root.start();
+        root.start(onExecutionFinish);
     }
 }
 

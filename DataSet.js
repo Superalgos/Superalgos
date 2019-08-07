@@ -33,7 +33,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = ", err);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -59,7 +59,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> err = ", err);
+            logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> err = "+ err);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -100,7 +100,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> err = ", err);
+            logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> err = "+ err);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

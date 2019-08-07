@@ -114,6 +114,7 @@
                         }
                         default: {
                             logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> Operation Failed with custom response.");
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> err = " + JSON.stringify(err));
                             callBackFunction(err);
                         }
                     }

@@ -11,22 +11,23 @@
         "endYear": 2021,
         "month": 1
     },
-  {
-    "devTeam": "AAMasters",
-    "bot": "AACharly",
-    "mode": "noTime",
-    "resumeExecution": true,
-    "type": "Sensor",
-    "exchangeName": "Poloniex",
-    "process": "Hole-Fixing",
-    "startYear": 2019,
-    "endYear": 2021,
-    "month": 1
-  },
+    {
+        "devTeam": "AAMasters",
+        "bot": "AACharly",
+        "mode": "noTime",
+        "resumeExecution": true,
+        "type": "Sensor",
+        "exchangeName": "Poloniex",
+        "process": "Hole-Fixing",
+        "startYear": 2019,
+        "endYear": 2021,
+        "month": 1
+    },
+
     {
         "devTeam": "AAMasters",
         "bot": "AABruce",
-        "mode": "allMonths",
+        "mode": "noTime",
         "resumeExecution": true,
         "type": "Indicator",
         "exchangeName": "Poloniex",
@@ -112,9 +113,9 @@
         "bot": "AAPaula",
         "mode": "noTime",
         "resumeExecution": true,
-        "type": "Indicator",
+        "type": "Sensor",
         "exchangeName": "Poloniex",
-        "process": "Multi-Period-Daily",
+        "process": "Live-Trades",
         "startYear": 2019,
         "endYear": 2021,
         "month": 1
@@ -143,16 +144,39 @@
         "endYear": 2021,
         "month": 1
     },
+  {
+    "devTeam": "AAVikings",
+    "bot": "AAGauss",
+    "mode": "noTime",
+    "resumeExecution": true,
+    "type": "Indicator",
+    "exchangeName": "Poloniex",
+    "process": "Multi-Period-Market",
+    "startYear": 2019,
+    "endYear": 2021,
+    "month": 1
+  },
     {
-        "devTeam": "AAVikings",
-        "bot": "AAGauss",
+        "devTeam": "vikingsalerts",
+        "bot": "simulator-bot-vikingsalerts",
         "mode": "noTime",
         "resumeExecution": true,
         "type": "Indicator",
         "exchangeName": "Poloniex",
-        "process": "Multi-Period-Market",
-        "startYear": 2019,
-        "endYear": 2021,
-        "month": 1
+        "process": "Multi-Period-Daily",
+        "beginDatetime": "2019-08-01T08:00:00.000Z",
+        "timePeriod": "05-min"
+    },
+    {
+        "devTeam": "vikingsalerts",
+        "bot": "bot-vikingsalerts",
+        "mode": "live",
+        "resumeExecution": true,
+        "type": "Trading",
+        "exchangeName": "Poloniex",
+        "process": "Trading-Process",
+        "beginDatetime": "2019-08-01T08:00:00.000Z",
+        "timePeriod": "05-min",
+        "dataSet": "Multi-Period-Daily"
     }
 ]

@@ -433,7 +433,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startUserBot ->  Entering function."); }
 
-                            usertBot.start(onFinished);
+                             usertBot.start(onFinished);
 
                             function onFinished(err) {
 

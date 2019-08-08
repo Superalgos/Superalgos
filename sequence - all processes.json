@@ -23,7 +23,6 @@
         "endYear": 2021,
         "month": 1
     },
-
     {
         "devTeam": "AAMasters",
         "bot": "AABruce",
@@ -108,18 +107,18 @@
         "endYear": 2021,
         "month": 1
     },
-    {
-        "devTeam": "AAMasters",
-        "bot": "AAPaula",
-        "mode": "noTime",
-        "resumeExecution": true,
-        "type": "Sensor",
-        "exchangeName": "Poloniex",
-        "process": "Live-Trades",
-        "startYear": 2019,
-        "endYear": 2021,
-        "month": 1
-    },
+  {
+    "devTeam": "AAMasters",
+    "bot": "AAPaula",
+    "mode": "noTime",
+    "resumeExecution": true,
+    "type": "Indicator",
+    "exchangeName": "Poloniex",
+    "process": "Multi-Period-Daily",
+    "startYear": 2019,
+    "endYear": 2021,
+    "month": 1
+  },
     {
         "devTeam": "AAMasters",
         "bot": "AAPaula",

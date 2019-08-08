@@ -176,7 +176,7 @@
                 function onFileReceived(err, text) {
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = "+ err);
+                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
 
                         return;
                     }
@@ -186,7 +186,7 @@
                         botConfig.repo = cloneToExecute.repo;
                         findProcess();
                     } catch (err) {
-                        console.log(logDisplace  + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = "+ err);
+                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
                         return;
                     }
                 }

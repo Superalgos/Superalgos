@@ -1392,7 +1392,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 }
                                 break
                             }
-                            case "Closing Position": { // Waiting for a confirmation that the position was closed.
+                            case "Position Closed": { // Waiting for a confirmation that the position was closed.
                                 if (strategy.openStage !== undefined) {
                                     if (strategy.openStage.openExecution !== undefined) {
                                         putOpeningOrder()
@@ -1424,6 +1424,23 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Entering function."); }
 
+                        /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
+
+                        if (interExecutionMemory.executionContext.period !== undefined) {
+                            if (period <= interExecutionMemory.executionContext.period) {
+                                takePositionAtSimulation()
+                                return;
+                            }
+                        }
+
+                        /* We are not going to place orders based on outdated information. The next filter prevents firing orders when backtesting. */
+                        let today =  new Date(Math.trunc((new Date().valueOf()) / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
+                        let processDay = new Date(Math.trunc(currentDay.valueOf() / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
+                        if (today !== processDay) {
+                            //takePositionAtSimulation()
+                            //return;
+                        }
+
                         let positionDirection
                         if (baseAsset === 'BTC') {
                             positionDirection = "sell"
@@ -1444,7 +1461,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
                                     interExecutionMemory.executionContext = {
-                                        status: "In a Position"
+                                        status: "In a Position",
+                                        period: period
                                     }
                                     takePositionAtSimulation()
                                     return;
@@ -1534,17 +1552,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 }
                                 break
                             }
-                            case "Taking Position": { // Waiting for a confirmation that the position was taken.
+                            case "Closing Position": { // Waiting for a confirmation that the position was taken.
                                 if (strategy.closeStage !== undefined) {
                                     if (strategy.closeStage.closeExecution !== undefined) {
                                         putClosingOrder()
                                         return
                                     }
                                 }
-                                break
-                            }
-
-                            case "Closing Position": { // Waiting for a confirmation that the position was closed.
                                 break
                             }
 
@@ -1560,6 +1574,25 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     function putClosingOrder() {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> Entering function."); }
+
+                        /* Checking the status of current positions */
+                        let positions = assistant.getPositions();
+                        if (positions.length > 0) {
+                            let position = positions[0]
+                            if (position.status === 'open') {
+                                afterLoop();
+                                return
+                            }
+                        }
+
+                        /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
+
+                        if (interExecutionMemory.executionContext.period !== undefined) {
+                            if (period <= interExecutionMemory.executionContext.period) {
+                                closePositionAtSimulation()
+                                return;
+                            }
+                        }
 
                         let positionDirection
                         if (baseAsset === 'BTC') {
@@ -1581,7 +1614,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
                                     interExecutionMemory.executionContext = {
-                                        status: "Position Closed"
+                                        status: "Position Closed",
+                                        period: period
                                     }
                                     closePositionAtSimulation()
                                     return;
@@ -1589,13 +1623,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 case global.DEFAULT_FAIL_RESPONSE.result: {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
                                     /* We will assume that the problem is temporary, and expect that it will work at the next execution.*/
-                                    strategy.openStage.openExecution.error = err.message
+                                    strategy.closeStage.closeExecution.error = err.message
                                     afterLoop()
                                     return;
                                 }
                                 case global.DEFAULT_RETRY_RESPONSE.result: {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
-                                    strategy.openStage.openExecution.error = err.message
+                                    strategy.closeStage.closeExecution.error = err.message
                                     afterLoop()
                                     return;
                                 }

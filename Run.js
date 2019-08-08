@@ -55,11 +55,14 @@ function sequenceExecution(currentStep) {
     execution.month ? process.env.MONTH = execution.month : undefined;
     execution.beginDatetime ? process.env.BEGIN_DATE_TIME = execution.beginDatetime : undefined;
     execution.dataSet ? process.env.DATA_SET = execution.dataSet : undefined;
+    execution.timePeriod ? process.env.TIME_PERIOD = execution.timePeriod : undefined;
+    execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
+    execution.baseAsset ? global.BASE_ASSET = execution.baseAsset : undefined;
+    execution.balanceAssetA ? global.INITIAL_BALANCE_ASSET_A = execution.balanceAssetA : undefined;
+    execution.balanceAssetB ? global.INITIAL_BALANCE_ASSET_B = execution.balanceAssetB : undefined;
+
     process.env.CLONE_ID = 1;
 
-    execution.timePeriod ? process.env.TIME_PERIOD = execution.timePeriod : undefined;
-
-    execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
     // global.FULL_LOG = execution.fullLog;
 
     let stepKey = execution.devTeam + '.' + execution.bot + '.' + execution.process;

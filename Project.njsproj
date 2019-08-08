@@ -75,6 +75,7 @@
   <ItemGroup>
     <Content Include=".env" />
     <Content Include=".gitignore" />
+    <Content Include="sequence.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Integrations\" />

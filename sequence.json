@@ -1,13 +1,12 @@
 [
-
     {
         "devTeam": "AAMasters",
-        "bot": "AAPaula",
+        "bot": "AACharly",
         "mode": "noTime",
         "resumeExecution": true,
-        "type": "Indicator",
+        "type": "Sensor",
         "exchangeName": "Poloniex",
-        "process": "Multi-Period-Daily",
+        "process": "Live-Trades",
         "startYear": 2019,
         "endYear": 2021,
         "month": 1

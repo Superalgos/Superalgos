@@ -35,7 +35,7 @@ exports.newDebugLog = function newDebugLog() {
             disableLogging = pdisableLogging
 
         } catch (err) {
-            console.log("[ERROR] Debug Log -> initialize -> err = ", err);
+            console.log("[ERROR] Debug Log -> initialize -> err = "+ err);
         }
     }
 
@@ -94,7 +94,7 @@ exports.newDebugLog = function newDebugLog() {
                 function onFileCreated(err) {
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = ", err);
+                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = "+ err);
 
                         setTimeout(writeLog, 10000); // Lets retry until we make it.
                         return;
@@ -105,7 +105,7 @@ exports.newDebugLog = function newDebugLog() {
                 }
             }
         } catch (err) {
-            console.log("[ERROR] DebugLog -> persist -> err = ", err);
+            console.log("[ERROR] DebugLog -> persist -> err = "+ err);
             console.log("[ERROR] DebugLog -> persist -> onInizialized -> contentToPersist = " + contentToPersist);
         }
     }
@@ -134,7 +134,7 @@ exports.newDebugLog = function newDebugLog() {
             accumulatedLog = accumulatedLog + logLine;
 
         } catch (err) {
-            console.log("[ERROR] DebugLog -> write -> err = ", err);
+            console.log("[ERROR] DebugLog -> write -> err = "+ err);
         }
     }
 

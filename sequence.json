@@ -23,7 +23,6 @@
         "endYear": 2021,
         "month": 1
     },
-
     {
         "devTeam": "AAMasters",
         "bot": "AABruce",
@@ -157,8 +156,8 @@
         "month": 1
     },
     {
-        "devTeam": "vikingsalerts",
-        "bot": "simulator-bot-vikingsalerts",
+        "devTeam": "user",
+        "bot": "simulator-bot-user",
         "mode": "noTime",
         "resumeExecution": true,
         "type": "Indicator",
@@ -168,8 +167,8 @@
         "timePeriod": "05-min"
     },
     {
-        "devTeam": "vikingsalerts",
-        "bot": "bot-vikingsalerts",
+        "devTeam": "user",
+        "bot": "bot-user",
         "mode": "live",
         "resumeExecution": true,
         "type": "Trading",
@@ -177,6 +176,9 @@
         "process": "Trading-Process",
         "beginDatetime": "2019-08-01T08:00:00.000Z",
         "timePeriod": "05-min",
-        "dataSet": "Multi-Period-Daily"
+        "dataSet": "Multi-Period-Daily",
+        "baseAsset": "assetB",
+        "balanceAssetA": 0,
+        "balanceAssetB": 0.001
     }
 ]

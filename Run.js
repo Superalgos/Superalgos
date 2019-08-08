@@ -97,104 +97,121 @@ function onExecutionFinish (result, finishStepKey) {
   }
 }
 
-async function readExecutionConfiguration () {
-  try {
-    console.log('[INFO] Run -> readExecutionConfiguration -> Entering function. ')
+
+async function readExecutionConfiguration() {
+    try {
+        console.log("[INFO] Run -> readExecutionConfiguration -> Entering function. ");
 
         /* Try to get the begin and end dates from the Definition */
-    let definition = await strategy.getStrategy()
-    let initialDatetime = process.env.BEGIN_DATE_TIME
-    let finalDatetime = process.env.END_DATE_TIME
+        let definition = await strategy.getStrategy()
+        let initialDatetime = process.env.BEGIN_DATE_TIME
+        let finalDatetime = process.env.END_DATE_TIME
 
-    if (definition !== undefined) {
-      if (definition.tradingSystem !== undefined) {
-        if (definition.tradingSystem.parameters !== undefined) {
-          if (definition.tradingSystem.parameters.baseAsset !== undefined) {
-            if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
-              if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
-                let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
-                initialDatetime = code.initialDatetime
-                finalDatetime = code.finalDatetime
-              }
+        if (definition !== undefined) {
+            if (definition.tradingSystem !== undefined) {
+                if (definition.tradingSystem.parameters !== undefined) {
+                    if (definition.tradingSystem.parameters.baseAsset !== undefined) {
+                        if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
+                            if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
+                                let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
+                                initialDatetime = code.initialDatetime
+                                finalDatetime = code.finalDatetime
+                            }
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
 
-    let startMode
+        let startMode
 
         // General Financial Being Configuration
-    global.DEV_TEAM = process.env.DEV_TEAM
-    global.CURRENT_BOT_REPO = process.env.BOT + '-' + process.env.TYPE + '-Bot'
+        global.DEV_TEAM = process.env.DEV_TEAM
+        global.CURRENT_BOT_REPO = process.env.BOT + "-" + process.env.TYPE + "-Bot"
 
-    if (process.env.TYPE === 'Trading' || process.env.TYPE === 'Trading-Engine') {
-      let live = {
-        run: 'false',
-        resumeExecution: process.env.RESUME_EXECUTION,
-        beginDatetime: initialDatetime,
-        endDatetime: finalDatetime
-      }
+        if (process.env.TYPE === 'Trading') {
+            let live = {
+            run: 'false',
+            resumeExecution: process.env.RESUME_EXECUTION,
+            beginDatetime: initialDatetime,
+            endDatetime: finalDatetime
+            }
 
-      let backtest = {
-        run: 'false',
-        resumeExecution: process.env.RESUME_EXECUTION,
-        beginDatetime: initialDatetime,
-        endDatetime: finalDatetime
-      }
+            let backtest = {
+            run: 'false',
+            resumeExecution: process.env.RESUME_EXECUTION,
+            beginDatetime: initialDatetime,
+            endDatetime: finalDatetime
+            }
 
-      let competition = {
-        run: 'false',
-        resumeExecution: process.env.RESUME_EXECUTION,
-        beginDatetime: initialDatetime,
-        endDatetime: finalDatetime
-      }
+            let competition = {
+            run: 'false',
+            resumeExecution: process.env.RESUME_EXECUTION,
+            beginDatetime: initialDatetime,
+            endDatetime: finalDatetime
+            }
 
-      startMode = {
-        live: live,
-        backtest: backtest,
-        competition: competition
-      }
-    } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Sensor') {
-      let allMonths = {
-        run: 'false',
-        minYear: process.env.MIN_YEAR,
-        maxYear: process.env.MAX_YEAR
-      }
-      let oneMonth = {
-        run: 'false',
-        year: process.env.MIN_YEAR,
-        month: process.env.MONTH
-      }
-      let noTime = {
-        run: 'false',
-        beginDatetime: process.env.BEGIN_DATE_TIME,
-        resumeExecution: process.env.RESUME_EXECUTION
-      }
-      let fixedInterval = {
-        run: 'false',
-        interval: process.env.INTERVAL
-      }
+            startMode = {
+                live: live,
+                backtest: backtest,
+                competition: competition
+            }
+        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Sensor') {
+            let allMonths = {
+                run: "false",
+                minYear: process.env.MIN_YEAR,
+                maxYear: process.env.MAX_YEAR
+            }
+            let oneMonth = {
+                run: "false",
+                year: process.env.MIN_YEAR,
+                month: process.env.MONTH
+            }
+            let noTime = {
+                run: "false",
+                beginDatetime: process.env.BEGIN_DATE_TIME,
+                resumeExecution: process.env.RESUME_EXECUTION
+            }
+            let fixedInterval = {
+                run: "false",
+                interval: process.env.INTERVAL
+            }
 
-      startMode = {
-        allMonths: allMonths,
-        oneMonth: oneMonth,
-        noTime: noTime,
-        fixedInterval: fixedInterval
-      }
-    } else {
-      console.log('[ERROR] readExecutionConfiguration -> Bot Type is invalid.')
-      throw new Error('readExecutionConfiguration -> Bot Type is invalid.')
-    }
+            startMode = {
+                allMonths: allMonths,
+                oneMonth: oneMonth,
+                noTime: noTime,
+                fixedInterval: fixedInterval
+            }
+        } else {
+            console.log("[ERROR] readExecutionConfiguration -> Bot Type is invalid.");
+            throw new Error("readExecutionConfiguration -> Bot Type is invalid.")
+        }
 
-    startMode[process.env.START_MODE].run = 'true'
+        startMode[process.env.START_MODE].run = "true"
 
-    let cloneToExecute = {
-      enabled: 'true',
-      devTeam: process.env.DEV_TEAM,
-      bot: process.env.BOT,
-      process: process.env.PROCESS,
-      repo: global.CURRENT_BOT_REPO
+        let cloneToExecute = {
+            enabled: "true",
+            devTeam: process.env.DEV_TEAM,
+            bot: process.env.BOT,
+            process: process.env.PROCESS,
+            repo: global.CURRENT_BOT_REPO
+        }
+
+        global.EXECUTION_CONFIG = {
+            cloneToExecute: cloneToExecute,
+            startMode: startMode,
+            timePeriod: getTimePeriod(process.env.TIME_PERIOD),
+            timePeriodFileStorage: process.env.TIME_PERIOD,
+            dataSet: process.env.DATA_SET
+        };
+
+        global.CLONE_EXECUTOR = {
+            codeName: 'AACloud',
+            version: '1.1'
+        }
+
+        startRoot();
     }
 
     catch (err) {
@@ -202,19 +219,8 @@ async function readExecutionConfiguration () {
         console.log("[ERROR] readExecutionConfiguration -> Please verify that the Start Mode for the type of Bot configured applies to that type.");
         console.log("[ERROR] readExecutionConfiguration -> err = " + err.stack);
     }
-
-    global.CLONE_EXECUTOR = {
-      codeName: 'AACloud',
-      version: '1.1'
-    }
-
-    startRoot()
-  } catch (err) {
-    console.log('[ERROR] readExecutionConfiguration -> err = ' + err)
-    console.log('[ERROR] readExecutionConfiguration -> Please verify that the Start Mode for the type of Bot configured applies to that type.')
-    console.log('[ERROR] readExecutionConfiguration -> err = ' + err.stack)
-  }
 }
+
 
 function getTimePeriod (timePeriod) {
   if (timePeriod !== undefined) {

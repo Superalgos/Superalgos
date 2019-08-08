@@ -27,8 +27,10 @@ process.on('exit', function (code) {
   console.log('[INFO] Run -> process.on.exit -> About to exit -> code = ' + code)
 })
 
-let isRunSequence = false
-let sequenceStep = 0
+
+let isRunSequence = false;
+let sequenceStep = 0;
+let loopCount = 0;
 let processedSteps = new Map()
 if (process.env.RUN_SEQUENCE !== undefined) {
   isRunSequence = JSON.parse(process.env.RUN_SEQUENCE)
@@ -40,22 +42,25 @@ if (isRunSequence) {
   readExecutionConfiguration()
 }
 
-function sequenceExecution (currentStep) {
-  let execution = sequenceList[currentStep]
-  process.env.STOP_GRACEFULLY = true
-  process.env.DEV_TEAM = execution.devTeam
-  process.env.BOT = execution.bot
-  process.env.START_MODE = execution.mode
-  process.env.RESUME_EXECUTION = execution.resumeExecution
-  process.env.TYPE = execution.type
-  process.env.PROCESS = execution.process
-  process.env.MIN_YEAR = execution.startYear
-  process.env.MAX_YEAR = execution.endYear
-  process.env.MONTH = execution.month
-  process.env.BEGIN_DATE_TIME = execution.beginDatetime
-  process.env.TIME_PERIOD = execution.timePeriod
+function sequenceExecution(currentStep) {
+    let execution = sequenceList[currentStep];
+    process.env.STOP_GRACEFULLY = true;
+    execution.devTeam ? process.env.DEV_TEAM = execution.devTeam : undefined;
+    execution.bot ? process.env.BOT = execution.bot : undefined;
+    execution.mode ? process.env.START_MODE = execution.mode : undefined;
+    execution.resumeExecution ? process.env.RESUME_EXECUTION = execution.resumeExecution : undefined;
+    execution.type ? process.env.TYPE = execution.type : undefined;
+    execution.process ? process.env.PROCESS = execution.process : undefined;
+    execution.startYear ? process.env.MIN_YEAR = execution.startYear : undefined;
+    execution.endYear ? process.env.MAX_YEAR = execution.endYear : undefined;
+    execution.month ? process.env.MONTH = execution.month : undefined;
+    execution.beginDatetime ? process.env.BEGIN_DATE_TIME = execution.beginDatetime : undefined;
+    execution.dataSet ? process.env.DATA_SET = execution.dataSet : undefined;
+    process.env.CLONE_ID = 1;
 
-  global.EXCHANGE_NAME = execution.exchangeName
+    execution.timePeriod ? process.env.TIME_PERIOD = execution.timePeriod : undefined;
+
+    execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
     // global.FULL_LOG = execution.fullLog;
 
   let stepKey = execution.devTeam + '.' + execution.bot + '.' + execution.process
@@ -77,12 +82,17 @@ function onExecutionFinish (result, finishStepKey) {
     if (sequenceStep < sequenceList.length) {
       sequenceExecution(sequenceStep)
     } else {
-      setTimeout(function () {
-        console.log('[INFO] onExecutionFinish -> New round for sequence execution started.')
-        sequenceStep = 0
-        processedSteps = new Map()
-        sequenceExecution(sequenceStep)
-      }, process.env.EXECUTION_LOOP_DELAY)
+        if (sequenceStep < sequenceList.length) {
+            sequenceExecution(sequenceStep);
+        } else {
+            setTimeout(function () {
+                console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
+                loopCount++;
+                sequenceStep = 0;
+                processedSteps = new Map();
+                sequenceExecution(sequenceStep);
+            }, process.env.EXECUTION_LOOP_DELAY);
+        }
     }
   }
 }
@@ -187,12 +197,10 @@ async function readExecutionConfiguration () {
       repo: global.CURRENT_BOT_REPO
     }
 
-    global.EXECUTION_CONFIG = {
-      cloneToExecute: cloneToExecute,
-      startMode: startMode,
-      timePeriod: getTimePeriod(process.env.TIME_PERIOD),
-      timePeriodFileStorage: process.env.TIME_PERIOD,
-      dataSet: process.env.DATA_SET
+    catch (err) {
+        console.log("[ERROR] readExecutionConfiguration -> err = " + err);
+        console.log("[ERROR] readExecutionConfiguration -> Please verify that the Start Mode for the type of Bot configured applies to that type.");
+        console.log("[ERROR] readExecutionConfiguration -> err = " + err.stack);
     }
 
     global.CLONE_EXECUTOR = {

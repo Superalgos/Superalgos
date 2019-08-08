@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileStorage) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -17,15 +17,10 @@
     const VOLUMES_FOLDER_NAME = "Volumes";
     const VOLUMES_ONE_MIN = "One-Min";
 
-    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
-
     thisObject = {
         initialize: initialize,
         start: start
     };
-
-    let charlyStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-    let bruceStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
@@ -82,20 +77,7 @@
                 return;
             }
 
-            commons.initializeStorage(charlyStorage, bruceStorage, onInizialized);
-
-            function onInizialized(err) {
-
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Initialization Succeed."); }
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                } else {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> err = " + err.message);
-                    callBackFunction(err);
-                }
-            }
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
@@ -174,7 +156,7 @@
                         return;
                     }
 
-                    if (thisReport.completeHistory === true) {  // We get from the file to know if this markets history is complete or not. 
+                    if (thisReport.completeHistory === true) {  // We get from the file to know if this markets history is complete or not.
 
                         firstTradeFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
 
@@ -340,8 +322,9 @@
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                             let dateForPath = lastHoleFixedFile.getUTCFullYear() + '/' + utilities.pad(lastHoleFixedFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastHoleFixedFile.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                            filePath += '/' + fileName
 
-                            bruceStorage.getTextFile(filePath, fileName, onFileReceived);
+                            fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
                             console.log("[INFO] start -> findPreviousContent -> getCandles -> reading file at dateForPath = " + dateForPath);
 
@@ -390,8 +373,9 @@
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                             let dateForPath = lastHoleFixedFile.getUTCFullYear() + '/' + utilities.pad(lastHoleFixedFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastHoleFixedFile.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
+                            filePath += '/' + fileName
 
-                            bruceStorage.getTextFile(filePath, fileName, onFileReceived);
+                            fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
                             console.log("[INFO] start -> findPreviousContent -> getVolumes -> reading file at dateForPath = " + dateForPath);
 
@@ -447,7 +431,7 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> Entering function."); }
 
-                    /* 
+                    /*
                     We will search and find for the last trade before the begining of the current candle and that will give us the last close value.
                     Before going backwards, we need to be sure we are not at the begining of the market.
                     */
@@ -488,10 +472,11 @@
 
                                 let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                                 let fileName = market.assetA + '_' + market.assetB + ".json"
-                                let filePathRoot = bot.devTeam + "/" + "AACharly" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                let filePathRoot = bot.devTeam + "/" + "AACharly" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                 let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
+                                filePath += '/' + fileName
 
-                                charlyStorage.getTextFile(filePath, fileName, onFileReceived);
+                                fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
                                 console.log("[INFO] start -> findPreviousContent -> loopStart -> reading file at dateForPath = " + dateForPath);
 
@@ -730,10 +715,11 @@
 
                                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
-                                    let filePathRoot = bot.devTeam + "/" + "AACharly" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.devTeam + "/" + "AACharly" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
+                                    filePath += '/' + fileName
 
-                                    charlyStorage.getTextFile(filePath, fileName, onFileReceived);
+                                    fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
                                     console.log("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> readTrades -> reading file at dateForPath = " + dateForPath);
 
@@ -884,8 +870,9 @@
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                             let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                            filePath += '/' + fileName
 
-                            bruceStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                             console.log("[INFO] start -> writeFiles -> writeCandles -> writing file at dateForPath = " + dateForPath);
 
@@ -957,8 +944,9 @@
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                             let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
+                            filePath += '/' + fileName
 
-                            bruceStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                             console.log("[INFO] start -> writeFiles -> writeVolumes -> writing file at dateForPath = " + dateForPath);
 

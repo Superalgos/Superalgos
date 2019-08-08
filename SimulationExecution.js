@@ -447,6 +447,7 @@
                         browserCanvasContext.fill();
 
                         browserCanvasContext.setLineDash([0, 0])
+                        browserCanvasContext.lineWidth = 0.25;
                         browserCanvasContext.stroke();
 
                     }
@@ -516,6 +517,7 @@
                         browserCanvasContext.fill();
 
                         browserCanvasContext.setLineDash([0, 0])
+                        browserCanvasContext.lineWidth = 0.25;
                         browserCanvasContext.stroke();
                     }
 
@@ -581,7 +583,9 @@
                         browserCanvasContext.fill();
 
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + opacity + ')';
+
                         browserCanvasContext.setLineDash([0, 0])
+                        browserCanvasContext.lineWidth = 0.25;
                         browserCanvasContext.stroke();
                     }
 
@@ -648,7 +652,9 @@
                         browserCanvasContext.fill();
 
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')';
+
                         browserCanvasContext.setLineDash([0, 0])
+                        browserCanvasContext.lineWidth = 0.25;
                         browserCanvasContext.stroke();
                     }
 
@@ -662,8 +668,6 @@
 
                     let radius = 2;
                     currentRadius = 10
-
-                    browserCanvasContext.lineWidth = 0.25;
 
                     /* Outer Circle */
 
@@ -681,7 +685,9 @@
                         if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
                             browserCanvasContext.fill();
                         }
+
                         browserCanvasContext.setLineDash([0, 0])
+                        browserCanvasContext.lineWidth = 0.25;
                         browserCanvasContext.stroke();
                     }
 
@@ -699,7 +705,9 @@
                     if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
                         browserCanvasContext.fill();
                     }
+
                     browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.lineWidth = 0.25;
                     browserCanvasContext.stroke();
 
                 }
@@ -743,6 +751,9 @@
                     } else {
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')';
                     }
+
+                    browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.lineWidth = 0.25;
                     browserCanvasContext.stroke();
                 }
 
@@ -753,6 +764,7 @@
         }
     }
 }
+
 
 
 

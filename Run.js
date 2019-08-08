@@ -29,6 +29,7 @@ process.on('exit', function (code) {
 
 let isRunSequence = false;
 let sequenceStep = 0;
+let loopCount = 0;
 let processedSteps = new Map()
 if (process.env.RUN_SEQUENCE !== undefined) {
     isRunSequence = JSON.parse(process.env.RUN_SEQUENCE)
@@ -53,6 +54,8 @@ function sequenceExecution(currentStep) {
     execution.endYear ? process.env.MAX_YEAR = execution.endYear : undefined;
     execution.month ? process.env.MONTH = execution.month : undefined;
     execution.beginDatetime ? process.env.BEGIN_DATE_TIME = execution.beginDatetime : undefined;
+    execution.dataSet ? process.env.DATA_SET = execution.dataSet : undefined;
+    process.env.CLONE_ID = 1;
 
     execution.timePeriod ? process.env.TIME_PERIOD = execution.timePeriod : undefined;
 
@@ -80,6 +83,7 @@ function onExecutionFinish(result, finishStepKey) {
         } else {
             setTimeout(function () {
                 console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
+                loopCount++;
                 sequenceStep = 0;
                 processedSteps = new Map();
                 sequenceExecution(sequenceStep);

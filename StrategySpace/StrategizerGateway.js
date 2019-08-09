@@ -94,7 +94,7 @@ function newStrategizerGateway () {
     }
   }
 
-  async function saveToStrategyzer () {
+  async function saveToStrategyzer (simulationParams) {
     try {
       const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY)
       if (accessToken === null) {
@@ -121,6 +121,7 @@ function newStrategizerGateway () {
       }
 
       if (window.canvasApp.executingAt === 'Local') {
+        tradingSystem.simulationParams = simulationParams
         callServer(JSON.stringify(tradingSystem), 'SaveDefinition', onSaved)
         function onSaved (err) {
           if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {

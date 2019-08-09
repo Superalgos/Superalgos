@@ -134,7 +134,7 @@
   {
     "devTeam": "AAMasters",
     "bot": "AAJason",
-    "mode": "noTime",
+    "mode": "live",
     "resumeExecution": true,
     "type": "Trading-Engine",
     "exchangeName": "Poloniex",

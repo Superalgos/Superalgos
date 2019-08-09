@@ -24,32 +24,20 @@
     <Compile Include="Assistant.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AzureStorage.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="BlobStorage.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CloudRequire.js">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Commons.js" />
+    <Compile Include="Integrations\Ecosystem.js" />
     <Compile Include="Integrations\FileStorage.js" />
     <Compile Include="Integrations\Strategy.js" />
-    <Compile Include="MinioBlobStorage.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="MultiPeriodDaily.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="MultiPeriodMarket.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AzureBlobStorage.js">
+    <Compile Include="TradingEngineProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="utils\auth.js">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="User.Bot.js" />
     <Compile Include="utils\logger.js">
       <SubType>Code</SubType>
     </Compile>
@@ -57,9 +45,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataSet.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Integrations\OperationsModuleIntegration.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Root.js">
@@ -82,15 +67,16 @@
     <Compile Include="StatusReport.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="StorageAccessManager.js" />
     <Compile Include="TradingBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CloudUtilities.js" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".env" />
     <Content Include=".gitignore" />
-    <Content Include="this.config.json" />
+    <Content Include="sequence - all processes.json" />
+    <Content Include="sequence.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Integrations\" />

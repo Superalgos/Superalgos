@@ -102,7 +102,7 @@
 
                                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromExchange -> onTicker -> We could not get the Market Price now."); }
 
-                                callBackFunction(err);
+                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
                             }
 
@@ -653,11 +653,13 @@
 
                             let sumAssetA = 0;
                             let sumAssetB = 0;
+                            let sumRate = 0;
 
                             for (let k = 0; k < pTrades.length; k++) {
 								let trade = pTrades[k];
                                 sumAssetA = sumAssetA + thisObject.truncDecimals(trade.amountA);
                                 sumAssetB = sumAssetB + thisObject.truncDecimals(trade.amountB);
+                                sumRate = sumRate + thisObject.truncDecimals(trade.rate);
                             }
 
                             sumAssetA = thisObject.truncDecimals(sumAssetA);
@@ -683,9 +685,9 @@
                             position.status = "executed";
 
                             if (position.type === "sell") {
-                                context.newHistoryRecord.sellExecRate = position.rate;
+                                context.newHistoryRecord.sellExecRate = sumRate / pTrades.length;
                             } else {
-                                context.newHistoryRecord.buyExecRate = position.rate;
+                                context.newHistoryRecord.buyExecRate = sumRate / pTrades.length;
                             }
 
                             applyTradesToContext(pTrades);
@@ -942,7 +944,7 @@
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
-                        message: 'pAmountA is grater than the Available Balance.'
+                        message: 'Not Enough Available Balance to Buy.'
                     };
 
                     callBackFunction(err);
@@ -960,7 +962,7 @@
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
-                        message: 'pAmountB is grater than the Available Balance.'
+                        message: 'Not Enough Available Balance to Sell.'
                     };
 
                     callBackFunction(err);
@@ -1067,7 +1069,7 @@
                             break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> Operation Failed. Aborting the process.");
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            callBackFunction(err);
                             return;
                         }
                             break;

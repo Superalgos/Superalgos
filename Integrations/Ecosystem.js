@@ -74,7 +74,7 @@ exports.getEcosystem = async function () {
 
         global.ECOSYSTEM = ecosystemResponse.data.data.web_GetEcosystem
       } else {
-        let fileLocation = process.env.CONFIG_PATH + 'ecosystem.json'
+          let fileLocation = process.env.INTER_PROCESS_FILES_PATH + '/ecosystem.json'
         let ecosystem = await readFileAsync(fileLocation, { encoding: 'utf8' })
         global.ECOSYSTEM = JSON.parse(ecosystem)
       }

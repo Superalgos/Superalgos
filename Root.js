@@ -149,6 +149,7 @@
         const TRADING_BOT_MAIN_LOOP_MODULE = require('./TradingBotProcessMainLoop');
         const INDICATOR_BOT_MAIN_LOOP_MODULE = require('./IndicatorBotProcessMainLoop');
         const EXTRACTION_BOT_MAIN_LOOP_MODULE = require('./SensorBotProcessMainLoop');
+        const TRADING_ENGINE_MAIN_LOOP_MODULE = require('./TradingEngineProcessMainLoop');
 
         /* Loop through all the processes configured to be run by this Node.js Instance. */
 
@@ -175,7 +176,7 @@
                 function onFileReceived(err, text) {
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = "+ err);
+                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
 
                         return;
                     }
@@ -185,7 +186,7 @@
                         botConfig.repo = cloneToExecute.repo;
                         findProcess();
                     } catch (err) {
-                        console.log(logDisplace  + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = "+ err);
+                        console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
                         return;
                     }
                 }
@@ -235,13 +236,19 @@
                         // TODO Pending. Move this if inside IndicatorBotProcessMainLoop line 270
                         if (processConfig.framework !== undefined) {
                             if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market") {
-                                if (processConfig.startMode.noTime.beginDatetime !== undefined) {
-                                    processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
-                                    processConfig.framework.startDate.resumeExecution = false;
-                                }else{
-                                    processConfig.framework.startDate.resumeExecution = true;
+                                processConfig.framework.startDate.resumeExecution = false;
+                                if (processConfig.startMode.noTime !== undefined) {
+                                    if (processConfig.startMode.noTime.beginDatetime !== undefined) {
+                                        processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
+                                        processConfig.framework.startDate.resumeExecution = false;
+                                    }
                                 }
-
+                                if (processConfig.startMode.live !== undefined) {
+                                    if (processConfig.startMode.live.beginDatetime !== undefined) {
+                                        processConfig.framework.startDate.fixedDate = processConfig.startMode.live.beginDatetime;
+                                        processConfig.framework.startDate.resumeExecution = false;
+                                    }
+                                }
                             }
                         }
 
@@ -353,6 +360,10 @@
                                             runIndicatorBot(botConfig, processConfig, month, year);
                                             break;
                                         }
+                                        case 'Trading-Engine': {
+                                            runTradingEngine(botConfig, processConfig);
+                                            break;
+                                        }
                                         default: {
                                             console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                         }
@@ -401,6 +412,10 @@
                                     switch (botConfig.type) {
                                         case 'Trading': {
                                             runTradingBot(botConfig, processConfig);
+                                            break;
+                                        }
+                                        case 'Trading-Engine': {
+                                            runTradingEngine(botConfig, processConfig);
                                             break;
                                         }
                                         default: {
@@ -749,7 +764,7 @@
 
                                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                    tradingBotMainLoop.run(pGenes, pTotalInstances, whenRunFinishes);
+                                    tradingBotMainLoop.run(pGenes, whenRunFinishes);
 
                                     function whenRunFinishes(err) {
 
@@ -792,6 +807,70 @@
                     }
                     catch (err) {
                         console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> err = "+ err);
+                    }
+                }
+
+                function runTradingEngine(pBotConfig, pProcessConfig) {
+
+                    try {
+                        const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+                        let logger;
+
+                        logger = DEBUG_MODULE.newDebugLog();
+                        logger.bot = pBotConfig;
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingEngine -> Entering function."); }
+
+                        let tradingEngineMainLoop = TRADING_ENGINE_MAIN_LOOP_MODULE.newTradingEngineProcessMainLoop(pBotConfig, logger);
+                        tradingEngineMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
+
+                        function onInitializeReady(err) {
+
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                                tradingEngineMainLoop.run(whenRunFinishes);
+
+                                function whenRunFinishes(err) {
+
+                                    pBotConfig.loopCounter = 0;
+
+                                    let botId;
+
+                                    botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process;
+
+                                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                                        logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                        logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+
+                                        console.log(logDisplace + "Root : [INFO] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
+                                        console.log(logDisplace + "Root : [INFO] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+
+                                        logger.persist();
+
+                                    } else {
+
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> err = ", err);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bye.");
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
+                                        logger.persist();
+                                    }
+                                    callback(err, pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process)
+                                }
+
+                            } else {
+                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> err = ", err);
+                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> Failed to initialize the bot. ");
+                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> err = ", err);
+                                logger.persist();
+                            }
+                        }
+                    }
+                    catch (err) {
+                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> err = ", err);
+
                     }
                 }
 

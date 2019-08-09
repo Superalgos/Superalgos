@@ -45,13 +45,16 @@ exports.newFileStorage = function newFileStorage() {
   }
 
   async function getTextFile(container, filePath, callBackFunction) {
-    logInfo('getTextFile: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length))
+
 
     try {
       let host = await getDevTeamHost(container)
 
       if (host.url.indexOf('localhost') !== -1) {
-        let fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+          let fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+
+          logInfo('getTextFile: ' + fileLocation)
+
         let fileContent = await readFileAsync(fileLocation)
         callBackFunction(global.DEFAULT_OK_RESPONSE, fileContent.toString())
       } else {

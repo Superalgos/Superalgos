@@ -77,7 +77,7 @@
         }
     }
 
-    function run(pGenes, pTotalAlgobots, callBackFunction) {
+    function run(pGenes, callBackFunction) {
 
         let context;
 
@@ -436,7 +436,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeContext ->  Entering function."); }
 
                             context = CONTEXT.newContext(bot, logger, UTILITIES);
-                            context.initialize(statusDependencies, pTotalAlgobots, onInizialized);
+                            context.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {
 

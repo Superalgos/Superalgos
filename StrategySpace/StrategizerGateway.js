@@ -46,40 +46,48 @@ function newStrategizerGateway () {
       }
 
       user = JSON.parse(user)
-      let fbSlug = 'simulator-bot-' + user.alias.replace('.', '')
 
-      graphQLServer = await axios({
-        url: window.canvasApp.graphQL.masterAppApiUrl,
-        method: 'post',
-        data: {
-          query:
-          `
-          query($fbSlug: String!){
-          strategizer_TradingSystemByFb(fbSlug: $fbSlug){
-            id
-            fbSlug
-            data
-          }
-        }
-        `,
-
-          variables: {
-            fbSlug: fbSlug
-          }
-        },
-        headers: {
-          authorization: 'Bearer ' + accessToken
-        }
-      })
-
-      if (graphQLServer.data.errors) {
-        logger.write('[ERROR] loadFromStrategyzer -> GraphQL Error: ' + JSON.stringify(graphQLServer.data.errors))
-        return false
-      } else {
-        thisObject.strategizerData = JSON.parse(JSON.stringify(graphQLServer.data.data.strategizer_TradingSystemByFb.data))
-        thisObject.idAtStrategizer = graphQLServer.data.data.strategizer_TradingSystemByFb.id
-        window.localStorage.setItem(CANVAS_APP_NAME + '.' + MODULE_NAME + '.' + user.alias, thisObject.idAtStrategizer)
+      if (window.canvasApp.executingAt === 'Local') {
+        window.localStorage.setItem(CANVAS_APP_NAME + '.' + MODULE_NAME + '.' + user.alias, 'Local File')
+        thisObject.strategizerData = JSON.parse('{"type":"Definition"}')
+        thisObject.idAtStrategizer = 'Local File'
         return true
+      } else {
+        let fbSlug = 'simulator-bot-' + user.alias.replace('.', '')
+
+        graphQLServer = await axios({
+          url: window.canvasApp.graphQL.masterAppApiUrl,
+          method: 'post',
+          data: {
+            query:
+            `
+            query($fbSlug: String!){
+            strategizer_TradingSystemByFb(fbSlug: $fbSlug){
+              id
+              fbSlug
+              data
+            }
+          }
+          `,
+
+            variables: {
+              fbSlug: fbSlug
+            }
+          },
+          headers: {
+            authorization: 'Bearer ' + accessToken
+          }
+        })
+
+        if (graphQLServer.data.errors) {
+          logger.write('[ERROR] loadFromStrategyzer -> GraphQL Error: ' + JSON.stringify(graphQLServer.data.errors))
+          return false
+        } else {
+          thisObject.strategizerData = JSON.parse(JSON.stringify(graphQLServer.data.data.strategizer_TradingSystemByFb.data))
+          thisObject.idAtStrategizer = graphQLServer.data.data.strategizer_TradingSystemByFb.id
+          window.localStorage.setItem(CANVAS_APP_NAME + '.' + MODULE_NAME + '.' + user.alias, thisObject.idAtStrategizer)
+          return true
+        }
       }
     } catch (err) {
       logger.write('[ERROR] loadFromStrategyzer -> err = ' + err.stack)
@@ -100,10 +108,6 @@ function newStrategizerGateway () {
         return
       }
 
-      user = JSON.parse(user)
-
-      /* See if we need to update or create a new record at the strategizer */
-
       let tradingSystem = canvas.strategySpace.workspace.getProtocolTradingSystem()
       if (tradingSystem === undefined || tradingSystem === null) {
         logger.write('[ERROR] saveToStrategyzer -> Can not save when tradingSystem is null or undefined.')
@@ -115,37 +119,53 @@ function newStrategizerGateway () {
         logger.write('[ERROR] saveToStrategyzer -> Can not save when idAtStrategizer is null or undefined.')
         return
       }
-      graphQLServer = await axios({
-        url: window.canvasApp.graphQL.masterAppApiUrl,
-        method: 'post',
-        data: {
-          query: `
-            mutation strategizer_EditTradingSystem
-            (
-              $id: ID!, $data: strategizer_JSON!
-            )
-            {
-              strategizer_EditTradingSystem(id: $id, tradingSystem: { data: $data })
-              {
-                id
-              }
-            }
-                  `,
-          variables: {
-            id: idAtStrategizer,
-            data: tradingSystem
+
+      if (window.canvasApp.executingAt === 'Local') {
+        callServer(JSON.stringify(tradingSystem), 'SaveDefinition', onSaved)
+        function onSaved (err) {
+          if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            return true
+          } else {
+            logger.write('[ERROR] saveToStrategyzer -> Can not save definition to local server. err = ' + err.messsage)
+            return false
           }
-        },
-        headers: {
-          authorization: 'Bearer ' + accessToken
         }
-      })
+        return true // TODO: Here we will always show that the saving works even if it does not. We need to fix this at some point in time.
+      } else {
+        user = JSON.parse(user)
 
-      if (graphQLServer.data.errors) {
-        logger.write('[ERROR] saveToStrategyzer -> GraphsQL Error -> graphQLServer.data.errors = ' + JSON.stringify(graphQLServer.data.errors))
+        graphQLServer = await axios({
+          url: window.canvasApp.graphQL.masterAppApiUrl,
+          method: 'post',
+          data: {
+            query: `
+              mutation strategizer_EditTradingSystem
+              (
+                $id: ID!, $data: strategizer_JSON!
+              )
+              {
+                strategizer_EditTradingSystem(id: $id, tradingSystem: { data: $data })
+                {
+                  id
+                }
+              }
+                    `,
+            variables: {
+              id: idAtStrategizer,
+              data: tradingSystem
+            }
+          },
+          headers: {
+            authorization: 'Bearer ' + accessToken
+          }
+        })
+
+        if (graphQLServer.data.errors) {
+          logger.write('[ERROR] saveToStrategyzer -> GraphsQL Error -> graphQLServer.data.errors = ' + JSON.stringify(graphQLServer.data.errors))
+        }
+
+        return true
       }
-
-      return true
     } catch (err) {
       logger.write('[ERROR] saveToStrategyzer -> err = ' + err.stack)
     }

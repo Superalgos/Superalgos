@@ -142,6 +142,10 @@ function newPlottersManager () {
 
   function initializeCompetitionPlotters (callBack) {
     try {
+      /* Disabling this functionality since it is not currently available */
+      callBack(GLOBAL.DEFAULT_OK_RESPONSE)
+      return
+
             /* At this current version of the platform, we will support only one competition with only one plotter. */
 
       const COMPETITION_HOST = 'AAMasters'
@@ -214,7 +218,7 @@ function newPlottersManager () {
                   let imageId = participant.devTeam + '.' + participant.profilePicture
                   const TEAM = devTeam.codeName.toLowerCase()
                   const BOT = bot.codeName.toLowerCase()
-
+/*
                   let botAvatar = new Image()
                   botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + '-' + BOT)
                   competitionPlotter.plotter.payload[k].profile.title = bot.displayName
@@ -225,6 +229,8 @@ function newPlottersManager () {
                   function onProfileBallCreated (err, pProfileHandle) {
                     competitionPlotter.plotter.payload[k].profile.handle = pProfileHandle
                   }
+
+*/
                 }
               }
               callBack(GLOBAL.DEFAULT_OK_RESPONSE)

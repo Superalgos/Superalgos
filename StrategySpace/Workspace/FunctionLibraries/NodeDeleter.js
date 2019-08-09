@@ -1,5 +1,10 @@
 function newNodeDeleter () {
   thisObject = {
+    deleteDefinition: deleteDefinition,
+    deletePersonalData: deletePersonalData,
+    deleteExchangeAccount: deleteExchangeAccount,
+    deleteExchangeAccountAsset: deleteExchangeAccountAsset,
+    deleteExchangeAccountKey: deleteExchangeAccountKey,
     deleteWorkspace: deleteWorkspace,
     deleteTradingSystem: deleteTradingSystem,
     deleteParameters: deleteParameters,
@@ -12,6 +17,8 @@ function newNodeDeleter () {
     deletePositionSize: deletePositionSize,
     deletePositionRate: deletePositionRate,
     deleteInitialDefinition: deleteInitialDefinition,
+    deleteOpenExecution: deleteOpenExecution,
+    deleteCloseExecution: deleteCloseExecution,
     deleteEvent: deleteEvent,
     deleteManagedItem: deleteManagedItem,
     deletePhase: deletePhase,
@@ -32,8 +39,28 @@ function newNodeDeleter () {
       let rootNode = node.rootNodes[0]
       switch (rootNode.type) {
 
+        case 'Definition': {
+          deleteDefinition(rootNode, rootNodes, true)
+          break
+        }
+        case 'Personal Data': {
+          deletePersonalData(rootNode, rootNodes)
+          break
+        }
+        case 'Exchange Account': {
+          deleteExchangeAccount(rootNode, rootNodes)
+          break
+        }
+        case 'Exchange Account Asset': {
+          deleteExchangeAccountAsset(rootNode, rootNodes)
+          break
+        }
+        case 'Exchange Account Key': {
+          deleteExchangeAccountKey(rootNode, rootNodes)
+          break
+        }
         case 'Trading System': {
-          deleteTradingSystem(rootNode, rootNodes, true)
+          deleteTradingSystem(rootNode, rootNodes)
           break
         }
         case 'Parameters': {
@@ -76,6 +103,14 @@ function newNodeDeleter () {
           deleteInitialDefinition(rootNode, rootNodes)
           break
         }
+        case 'Open Execution': {
+          deleteOpenExecution(rootNode, rootNodes)
+          break
+        }
+        case 'Close Execution': {
+          deleteCloseExecution(rootNode, rootNodes)
+          break
+        }
         case 'Event': {
           deleteEvent(rootNode, rootNodes)
           break
@@ -116,7 +151,9 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
-  function deleteTradingSystem (node, rootNodes, forced) {
+  function deleteDefinition (node, rootNodes, forced) {
+    let payload = node.payload
+
     if (forced !== true) {
       /* Can not delete if it is the last one */
       let counter = 0
@@ -131,6 +168,93 @@ function newNodeDeleter () {
 
     if (node.payload.uiObject.isRunning === true) {
       node.payload.uiObject.setNotRunningStatus()
+    }
+
+    if (node.tradingSystem !== undefined) {
+      deleteTradingSystem(node.tradingSystem, rootNodes)
+    }
+    if (node.personalData !== undefined) {
+      deletePersonalData(node.personalData, rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deletePersonalData (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.personalData = undefined
+    }
+
+    while (node.exchangeAccounts.length > 0) {
+      deleteExchangeAccount(node.exchangeAccounts[0], rootNodes)
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteExchangeAccount (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.exchangeAccounts.length; j++) {
+        let exchangeAccount = payload.parentNode.exchangeAccounts[j]
+        if (exchangeAccount.id === node.id) {
+          payload.parentNode.exchangeAccounts.splice(j, 1)
+        }
+      }
+    }
+    while (node.assets.length > 0) {
+      deleteExchangeAccountAsset(node.assets[0], rootNodes)
+    }
+    while (node.keys.length > 0) {
+      deleteExchangeAccountKey(node.keys[0], rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteExchangeAccountAsset (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.assets.length; j++) {
+        let asset = payload.parentNode.assets[j]
+        if (asset.id === node.id) {
+          payload.parentNode.assets.splice(j, 1)
+        }
+      }
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteExchangeAccountKey (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.keys.length; j++) {
+        let key = payload.parentNode.keys[j]
+        if (key.id === node.id) {
+          payload.parentNode.keys.splice(j, 1)
+        }
+      }
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteTradingSystem (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.tradingSystem = undefined
     }
 
     while (node.strategies.length > 0) {
@@ -232,6 +356,11 @@ function newNodeDeleter () {
     if (node.initialDefinition !== undefined) {
       deleteInitialDefinition(node.initialDefinition, rootNodes)
     }
+
+    if (node.openExecution !== undefined) {
+      deleteOpenExecution(node.openExecution, rootNodes)
+    }
+
     destroyPart(node)
     cleanNode(node)
   }
@@ -259,6 +388,9 @@ function newNodeDeleter () {
       payload.parentNode.closeStage = undefined
     } else {
       completeDeletion(node, rootNodes)
+    }
+    if (node.closeExecution !== undefined) {
+      deleteCloseExecution(node.closeExecution, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)
@@ -310,6 +442,28 @@ function newNodeDeleter () {
     }
     if (node.positionRate !== undefined) {
       deletePositionSize(node.positionRate, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteOpenExecution (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.openExecution = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteCloseExecution (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.closeExecution = undefined
+    } else {
+      completeDeletion(node, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)

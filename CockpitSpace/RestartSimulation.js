@@ -196,7 +196,7 @@ function newRestartSimulation () {
   }
 
   function executionFocusPhysics () {
-    if (canvas.strategySpace.workspace.tradingSystem !== undefined) {
+    if (canvas.strategySpace.workspace.definition !== undefined) {
       executionFocusExists = true
     } else {
       executionFocusExists = false

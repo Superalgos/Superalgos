@@ -47,7 +47,7 @@ function newWorkspace () {
   return thisObject
 
   function finalize () {
-    thisObject.tradingSystem = undefined
+    thisObject.definition = undefined
     thisObject.container.finalize()
     thisObject.container = undefined
   }
@@ -59,8 +59,8 @@ function newWorkspace () {
     }
     user = JSON.parse(user)
 
-    let idAtStrategizer = null
-    let savedWorkspace = null
+    let idAtStrategizer = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Strategizer Gateway' + '.' + user.alias)
+    let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias)
 
     if (savedWorkspace === null || idAtStrategizer === null) {
       workspaceNode.type = 'Workspace'
@@ -82,16 +82,16 @@ function newWorkspace () {
   async function initializeLoadingFromStrategizer () {
     let result = await canvas.strategySpace.strategizerGateway.loadFromStrategyzer()
     if (result === true) {
-      thisObject.tradingSystem = canvas.strategySpace.strategizerGateway.strategizerData
-      workspaceNode.rootNodes.push(thisObject.tradingSystem)
-      functionLibraryPartsFromNodes.createPartFromNode(thisObject.tradingSystem, undefined, undefined)
-      thisObject.tradingSystem.payload.uiObject.setRunningStatus()
+      thisObject.definition = canvas.strategySpace.strategizerGateway.strategizerData
+      workspaceNode.rootNodes.push(thisObject.definition)
+      functionLibraryPartsFromNodes.createPartFromNode(thisObject.definition, undefined, undefined)
+      thisObject.definition.payload.uiObject.setRunningStatus()
       thisObject.enabled = true
     }
   }
 
   function getProtocolTradingSystem () {
-    return functionLibraryProtocolNode.getProtocolNode(thisObject.tradingSystem)
+    return functionLibraryProtocolNode.getProtocolNode(thisObject.definition)
   }
 
   function detachNode (node) {
@@ -115,11 +115,11 @@ function newWorkspace () {
     window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias, textToSave)
   }
 
-  function stringifyWorkspace () {
+  function stringifyWorkspace (removePersonalData) {
     let stringifyReadyNodes = []
     for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
       let rootNode = workspaceNode.rootNodes[i]
-      let workspace = functionLibraryWorkspaceNodes.prepareForStringify(rootNode)
+      let workspace = functionLibraryWorkspaceNodes.prepareForStringify(rootNode, removePersonalData)
       stringifyReadyNodes.push(workspace)
     }
     let workspace = {
@@ -127,6 +127,7 @@ function newWorkspace () {
       name: workspaceNode.name,
       rootNodes: stringifyReadyNodes
     }
+
     return JSON.stringify(workspace)
   }
 
@@ -154,13 +155,19 @@ function newWorkspace () {
 
   async function onMenuItemClick (payload, action) {
     switch (action) {
-      case 'Download Workspace':
+      case 'Share Workspace':
         {
-          let text = stringifyWorkspace()
-          let fileName = payload.node.type + ' - ' + payload.node.name + '.json'
+          let text = stringifyWorkspace(true)
+          let fileName = 'Share - ' + payload.node.type + ' - ' + payload.node.name + '.json'
           download(fileName, text)
         }
-
+        break
+      case 'Backup Workspace':
+        {
+          let text = stringifyWorkspace(false)
+          let fileName = 'Backup - ' + payload.node.type + ' - ' + payload.node.name + '.json'
+          download(fileName, text)
+        }
         break
       case 'Save Trading System':
         {
@@ -172,24 +179,37 @@ function newWorkspace () {
       case 'Edit Code':
 
         break
-      case 'Download':
+      case 'Share':
         {
-          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node))
+          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true))
           let nodeName = payload.node.name
           if (nodeName === undefined) {
             nodeName = ''
           } else {
             nodeName = '.' + nodeName
           }
-          let fileName = payload.node.type + ' - ' + nodeName + '.json'
+          let fileName = 'Share - ' + payload.node.type + ' - ' + nodeName + '.json'
           download(fileName, text)
         }
 
         break
-
-      case 'New Strategy':
+      case 'Backup':
         {
-          functionLibraryPartsFromNodes.newStrategy(payload.node)
+          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false))
+          let nodeName = payload.node.name
+          if (nodeName === undefined) {
+            nodeName = ''
+          } else {
+            nodeName = '.' + nodeName
+          }
+          let fileName = 'Backup - ' + payload.node.type + ' - ' + nodeName + '.json'
+          download(fileName, text)
+        }
+
+        break
+      case 'Add Strategy':
+        {
+          functionLibraryPartsFromNodes.addStrategy(payload.node)
         }
         break
       case 'Add Parameters':
@@ -222,6 +242,16 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addInitialDefinition(payload.node)
         }
         break
+      case 'Add Open Execution':
+        {
+          functionLibraryPartsFromNodes.addOpenExecution(payload.node)
+        }
+        break
+      case 'Add Close Execution':
+        {
+          functionLibraryPartsFromNodes.addCloseExecution(payload.node)
+        }
+        break
       case 'Add Phase':
         {
           functionLibraryPartsFromNodes.addPhase(payload.node)
@@ -250,6 +280,31 @@ function newWorkspace () {
       case 'Add Code':
         {
           functionLibraryPartsFromNodes.addCode(payload.node)
+        }
+        break
+      case 'Add Exchange Account':
+        {
+          functionLibraryPartsFromNodes.addExchangeAccount(payload.node)
+        }
+        break
+      case 'Add Exchange Account Asset':
+        {
+          functionLibraryPartsFromNodes.addExchangeAccountAsset(payload.node)
+        }
+        break
+      case 'Add Exchange Account Key':
+        {
+          functionLibraryPartsFromNodes.addExchangeAccountKey(payload.node)
+        }
+        break
+      case 'Add Trading System':
+        {
+          functionLibraryPartsFromNodes.addTradingSystem(payload.node)
+        }
+        break
+      case 'Add Personal Data':
+        {
+          functionLibraryPartsFromNodes.addPersonalData(payload.node)
         }
         break
       case 'Delete Trading System': {
@@ -296,6 +351,14 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteInitialDefinition(payload.node, workspaceNode.rootNodes)
         break
       }
+      case 'Delete Open Execution': {
+        functionLibraryNodeDeleter.deleteOpenExecution(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Close Execution': {
+        functionLibraryNodeDeleter.deleteCloseExecution(payload.node, workspaceNode.rootNodes)
+        break
+      }
       case 'Delete Event': {
         functionLibraryNodeDeleter.deleteEvent(payload.node, workspaceNode.rootNodes)
         break
@@ -322,6 +385,26 @@ function newWorkspace () {
       }
       case 'Delete Code': {
         functionLibraryNodeDeleter.deleteCode(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Exchange Account': {
+        functionLibraryNodeDeleter.deleteExchangeAccount(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Exchange Account Asset': {
+        functionLibraryNodeDeleter.deleteExchangeAccountAsset(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Exchange Account Key': {
+        functionLibraryNodeDeleter.deleteExchangeAccountKey(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Personal Data': {
+        functionLibraryNodeDeleter.deletePersonalData(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Definition': {
+        functionLibraryNodeDeleter.deleteDefinition(payload.node, workspaceNode.rootNodes)
         break
       }
       default:

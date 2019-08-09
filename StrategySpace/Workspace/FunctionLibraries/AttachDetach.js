@@ -8,11 +8,49 @@ function newAttachDetach () {
 
   function detachNode (node, rootNodes) {
     switch (node.type) {
-      case 'Trading System': {
+      case 'Definition': {
         return
       }
-      case 'Parameters': {
-        node.payload.parentNode.parameters = undefined
+      case 'Personal Data': {
+        node.payload.parentNode.personalData = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Exchange Account': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.exchangeAccounts.length; i++) {
+          let strategy = payload.parentNode.exchangeAccounts[i]
+          if (strategy.id === node.id) {
+            payload.parentNode.exchangeAccounts.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Exchange Account Asset': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.assets.length; i++) {
+          let asset = payload.parentNode.assets[i]
+          if (asset.id === node.id) {
+            payload.parentNode.assets.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Exchange Account Key': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.keys.length; i++) {
+          let key = payload.parentNode.keys[i]
+          if (key.id === node.id) {
+            payload.parentNode.keys.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Trading System': {
+        node.payload.parentNode.tradingSystem = undefined
         completeDetachment(node, rootNodes)
         return
       }
@@ -28,10 +66,10 @@ function newAttachDetach () {
           if (strategy.id === node.id) {
             payload.parentNode.strategies.splice(i, 1)
           }
-          completeDetachment(node, rootNodes)
         }
+        completeDetachment(node, rootNodes)
+        return
       }
-        break
       case 'Trigger Stage': {
         node.payload.parentNode.triggerStage = undefined
         completeDetachment(node, rootNodes)
@@ -82,6 +120,16 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Open Execution': {
+        node.payload.parentNode.openExecution = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Close Execution': {
+        node.payload.parentNode.closeExecution = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Stop': {
         node.payload.parentNode.stopLoss = undefined
         completeDetachment(node, rootNodes)
@@ -116,8 +164,8 @@ function newAttachDetach () {
           }
         }
         completeDetachment(node, rootNodes)
+        return
       }
-        break
       case 'Situation': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.situations.length; i++) {
@@ -127,8 +175,8 @@ function newAttachDetach () {
           }
         }
         completeDetachment(node, rootNodes)
+        return
       }
-        break
       case 'Phase': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.phases.length; i++) {
@@ -148,12 +196,41 @@ function newAttachDetach () {
             return
           }
         }
+        return
       }
     }
   }
 
   function attachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
+      case 'Personal Data': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.personalData = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Exchange Account': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.exchangeAccounts.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Exchange Account Asset': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.assets.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Exchange Account Key': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.keys.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
       case 'Parameters': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
@@ -165,6 +242,13 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.baseAsset = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Trading System': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.tradingSystem = node
         completeAttachment(node, rootNodes)
       }
         break
@@ -221,6 +305,20 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.initialDefinition = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Open Execution': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.openExecution = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Close Execution': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.closeExecution = node
         completeAttachment(node, rootNodes)
       }
         break

@@ -8,6 +8,21 @@ function newNodeChildren () {
   function childrenCount (parentNode, childNode) {
     switch (parentNode.type) {
 
+      case 'Definition': {
+        return countChildrenDefinition(parentNode, childNode)
+      }
+      case 'Personal Data': {
+        return countChildrenPersonalData(parentNode, childNode)
+      }
+      case 'Exchange Account': {
+        return countChildrenExchangeAccount(parentNode, childNode)
+      }
+      case 'Exchange Account Asset': {
+        return countChildrenExchangeAccountAsset(parentNode, childNode)
+      }
+      case 'Exchange Account Key': {
+        return countChildrenExchangeAccountKey(parentNode, childNode)
+      }
       case 'Trading System': {
         return countChildrenTradingSystem(parentNode, childNode)
       }
@@ -40,6 +55,12 @@ function newNodeChildren () {
       }
       case 'Initial Definition': {
         return countChildrenInitialDefinition(parentNode, childNode)
+      }
+      case 'Open Execution': {
+        return countChildrenOpenExecution(parentNode, childNode)
+      }
+      case 'Close Execution': {
+        return countChildrenCloseExecution(parentNode, childNode)
       }
       case 'Next Phase Event': {
         return countChildrenEvent(parentNode, childNode)
@@ -78,6 +99,82 @@ function newNodeChildren () {
         console.log('WARNING this parentNode type is not listed at NodeChildren: ' + parentNode.type)
       }
     }
+  }
+
+  function countChildrenDefinition (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.tradingSystem !== undefined) {
+      response.childrenCount++
+      if (parentNode.tradingSystem.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.personalData !== undefined) {
+      response.childrenCount++
+      if (parentNode.personalData.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenPersonalData (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.exchangeAccounts.length; i++) {
+      let child = parentNode.exchangeAccounts[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenExchangeAccount (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.assets.length; i++) {
+      let child = parentNode.assets[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+
+    for (let i = 0; i < parentNode.keys.length; i++) {
+      let child = parentNode.keys[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenExchangeAccountAsset (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenExchangeAccountKey (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
   }
 
   function countChildrenTradingSystem (parentNode, childNode) {
@@ -200,6 +297,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.openExecution !== undefined) {
+      response.childrenCount++
+      if (parentNode.openExecution.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 
@@ -227,6 +330,12 @@ function newNodeChildren () {
     let response = {
       childrenCount: 0,
       childIndex: undefined
+    }
+    if (parentNode.closeExecution !== undefined) {
+      response.childrenCount++
+      if (parentNode.closeExecution.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
     }
     return response
   }
@@ -287,6 +396,22 @@ function newNodeChildren () {
       if (parentNode.positionRate.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
+    }
+    return response
+  }
+
+  function countChildrenOpenExecution (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenCloseExecution (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
     }
     return response
   }

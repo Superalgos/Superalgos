@@ -1,13 +1,20 @@
 function newPartsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
-    newStrategy: newStrategy,
+    addTradingSystem: addTradingSystem,
+    addPersonalData: addPersonalData,
+    addExchangeAccount: addExchangeAccount,
+    addExchangeAccountAsset: addExchangeAccountAsset,
+    addExchangeAccountKey: addExchangeAccountKey,
+    addStrategy: addStrategy,
     addParameters: addParameters,
     addMissingParameters: addMissingParameters,
     addMissingStages: addMissingStages,
     addMissingEvents: addMissingEvents,
     addMissingItems: addMissingItems,
     addInitialDefinition: addInitialDefinition,
+    addOpenExecution: addOpenExecution,
+    addCloseExecution: addCloseExecution,
     addPhase: addPhase,
     addFormula: addFormula,
     addNextPhaseEvent: addNextPhaseEvent,
@@ -102,6 +109,16 @@ function newPartsFromNodes () {
         }
         return
       }
+      case 'Open Execution':
+        {
+          createPart('Open Execution', node.name, node, parentNode, chainParent, 'Open Execution')
+          return
+        }
+      case 'Close Execution':
+        {
+          createPart('Close Execution', node.name, node, parentNode, chainParent, 'Close Execution')
+          return
+        }
       case 'Initial Definition': {
         createPart('Initial Definition', node.name, node, parentNode, chainParent, 'Initial Definition')
 
@@ -182,6 +199,9 @@ function newPartsFromNodes () {
         if (node.initialDefinition !== undefined) {
           createPartFromNode(node.initialDefinition, stage, stage)
         }
+        if (node.openExecution !== undefined) {
+          createPartFromNode(node.openExecution, stage, stage)
+        }
         return
       }
       case 'Manage Stage': {
@@ -199,6 +219,10 @@ function newPartsFromNodes () {
       case 'Close Stage': {
         let stage = node
         createPart('Close Stage', stage.name, stage, parentNode, chainParent, 'Close Stage')
+
+        if (node.closeExecution !== undefined) {
+          createPartFromNode(node.closeExecution, stage, stage)
+        }
         return
       }
       case 'Strategy': {
@@ -249,10 +273,96 @@ function newPartsFromNodes () {
         createPart('Workspace', workspace.name, workspace, parentNode, chainParent, 'Workspace')
         return
       }
+      case 'Personal Data': {
+        createPart('Personal Data', node.name, node, parentNode, chainParent, 'Personal Data')
+        for (let m = 0; m < node.exchangeAccounts.length; m++) {
+          let exchangeAccount = node.exchangeAccounts[m]
+          createPartFromNode(exchangeAccount, node, node)
+        }
+        return
+      }
+      case 'Exchange Account': {
+        createPart('Exchange Account', node.name, node, parentNode, chainParent, 'Exchange Account')
+        for (let m = 0; m < node.assets.length; m++) {
+          let asset = node.assets[m]
+          createPartFromNode(asset, node, node)
+        }
+        for (let m = 0; m < node.keys.length; m++) {
+          let key = node.keys[m]
+          createPartFromNode(key, node, node)
+        }
+        return
+      }
+      case 'Exchange Account Asset': {
+        createPart('Exchange Account Asset', node.name, node, parentNode, chainParent, 'Exchange Account Asset')
+        return
+      }
+      case 'Exchange Account Key': {
+        createPart('Exchange Account Key', node.name, node, parentNode, chainParent, 'Exchange Account Key')
+        return
+      }
+      case 'Definition': {
+        createPart('Definition', node.name, node, parentNode, chainParent, 'Definition')
+        if (node.tradingSystem !== undefined) {
+          createPartFromNode(node.tradingSystem, node, node)
+        }
+        if (node.personalData !== undefined) {
+          createPartFromNode(node.personalData, node, node)
+        }
+        return
+      }
     }
   }
 
-  function newStrategy (parentNode) {
+  function addTradingSystem (node) {
+    if (node.tradingSystem === undefined) {
+      node.tradingSystem = {
+        strategies: []
+      }
+      createPart('Trading System', '', node.tradingSystem, node, node)
+    }
+  }
+
+  function addPersonalData (node) {
+    if (node.personalData === undefined) {
+      node.personalData = {
+        exchangeAccounts: []
+      }
+      createPart('Personal Data', '', node.personalData, node, node)
+    }
+  }
+
+  function addExchangeAccount (parentNode) {
+    let personalData = parentNode
+    let exchangeAccount = {
+      name: 'New Account',
+      assets: [],
+      keys: []
+    }
+    personalData.exchangeAccounts.push(exchangeAccount)
+    createPart('Exchange Account', exchangeAccount.name, exchangeAccount, personalData, personalData, 'Exchange Account')
+  }
+
+  function addExchangeAccountAsset (parentNode) {
+    let exchangeAccount = parentNode
+    let asset = {
+      name: 'New Asset'
+    }
+    exchangeAccount.assets.push(asset)
+    createPart('Exchange Account Asset', asset.name, asset, exchangeAccount, exchangeAccount, 'Account Asset')
+  }
+
+  function addExchangeAccountKey (parentNode) {
+    let exchangeAccount = parentNode
+    let key = {
+      name: 'New Key',
+      code: 'Paste your exchange API secret key here. Secret keys are filtered out and NOT exported when using the SHARE menu option on any object at your workspace. Secret keys ARE downloaded when using the download button.'
+    }
+    exchangeAccount.keys.push(key)
+    createPart('Exchange Account Key', key.name, key, exchangeAccount, exchangeAccount, 'Account Key')
+  }
+
+  function addStrategy (parentNode) {
     let strategyParent = parentNode
     let strategy = {
       name: 'New Strategy',
@@ -396,7 +506,9 @@ function newPartsFromNodes () {
       createPart('Stop', '', node.manageStage.stopLoss, node.manageStage, node.manageStage)
       createPart('Take Profit', '', node.manageStage.takeProfit, node.manageStage, node.manageStage)
     }
-    if (node.triggerStage === undefined) {
+    if (node.closeStage === undefined) {
+      node.closeStage = {
+      }
       createPart('Close Stage', '', node.closeStage, node, node, 'Close Stage')
     }
   }
@@ -493,6 +605,20 @@ function newPartsFromNodes () {
       createPart('Formula', '', node.initialDefinition.positionSize.formula, node.initialDefinition.positionSize, node.initialDefinition.positionSize)
       createPart('Position Rate', '', node.initialDefinition.positionRate, node.initialDefinition, node.initialDefinition)
       createPart('Formula', '', node.initialDefinition.positionRate.formula, node.initialDefinition.positionRate, node.initialDefinition.positionRate)
+    }
+  }
+
+  function addOpenExecution (node) {
+    if (node.openExecution === undefined) {
+      node.openExecution = {}
+      createPart('Open Execution', '', node.openExecution, node, node)
+    }
+  }
+
+  function addCloseExecution (node) {
+    if (node.closeExecution === undefined) {
+      node.closeExecution = {}
+      createPart('Close Execution', '', node.closeExecution, node, node)
     }
   }
 

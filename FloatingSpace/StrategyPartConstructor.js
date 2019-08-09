@@ -70,7 +70,7 @@ function newStrategyPartConstructor () {
     if (payload.node.savedPayload !== undefined) {
       if (payload.node.savedPayload.uiObject.isRunning === true) {
         strategyPart.setRunningStatus()
-        canvas.strategySpace.workspace.tradingSystem = payload.node
+        canvas.strategySpace.workspace.definition = payload.node
       }
     }
 
@@ -92,12 +92,12 @@ function newStrategyPartConstructor () {
         currentStatus: false,
         label: undefined,
         visible: false,
-        iconPathOn: 'target',
-        iconPathOff: 'security',
+        iconPathOn: 'menu-fix-pinned',
+        iconPathOff: 'menu-fix-unpinned',
         rawRadius: 8,
         targetRadius: 0,
         currentRadius: 0,
-        angle: -135
+        angle: -130
       }
       )
     menuItemsInitialValues.push(
@@ -109,11 +109,11 @@ function newStrategyPartConstructor () {
         label: undefined,
         visible: false,
         iconPathOn: 'compass',
-        iconPathOff: 'headphones',
+        iconPathOff: 'compass-bw',
         rawRadius: 8,
         targetRadius: 0,
         currentRadius: 0,
-        angle: -165
+        angle: -155
       }
       )
     menuItemsInitialValues.push(
@@ -124,12 +124,12 @@ function newStrategyPartConstructor () {
         currentStatus: true,
         label: undefined,
         visible: false,
-        iconPathOn: 'broken-link',
-        iconPathOff: 'targeting',
+        iconPathOn: 'menu-mobility-unfreeze',
+        iconPathOff: 'menu-mobility-freeze',
         rawRadius: 8,
         targetRadius: 0,
         currentRadius: 0,
-        angle: 165
+        angle: 180
       }
       )
     menuItemsInitialValues.push(
@@ -140,12 +140,26 @@ function newStrategyPartConstructor () {
         currentStatus: false,
         label: undefined,
         visible: false,
-        iconPathOn: 'tap',
-        iconPathOff: 'layout',
+        iconPathOn: 'menu-tree-plus',
+        iconPathOff: 'menu-tree-minus',
         rawRadius: 8,
         targetRadius: 0,
         currentRadius: 0,
-        angle: 135
+        angle: 155
+      }
+      )
+    menuItemsInitialValues.push(
+      {
+        action: 'Backup',
+        actionFunction: floatingObject.payload.onMenuItemClick,
+        label: undefined,
+        visible: false,
+        iconPathOn: 'menu-backup',
+        iconPathOff: 'menu-backup',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        angle: 130
       }
       )
   }
@@ -164,20 +178,32 @@ function newStrategyPartConstructor () {
             currentStatus: true,
             label: undefined,
             visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
+            iconPathOn: 'menu-fix-unpinned',
+            iconPathOff: 'menu-fix-pinned',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
             angle: -135
           },
           {
-            action: 'Download Workspace',
+            action: 'Backup Workspace',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: undefined,
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'menu-backup',
+            iconPathOff: 'menu-backup',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 130
+          },
+          {
+            action: 'Share Workspace',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -185,7 +211,7 @@ function newStrategyPartConstructor () {
           }]
         break
       }
-      case 'Trading System': {
+      case 'Definition': {
         floatingObject.isPinned = true
         floatingObject.positionLocked = true
         addLeftIcons(menuItemsInitialValues, floatingObject)
@@ -196,7 +222,7 @@ function newStrategyPartConstructor () {
             label: 'Run',
             visible: false,
             iconPathOn: 'paper-plane',
-            iconPathOff: 'upload',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -212,8 +238,8 @@ function newStrategyPartConstructor () {
             workDoneLabel: 'Saved',
             workFailedLabel: 'Not Saved',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'menu-backup',
+            iconPathOff: 'menu-backup',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -222,14 +248,14 @@ function newStrategyPartConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Trading System',
+            action: 'Delete Definition',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Trading System',
+            label: 'Delete Definition',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -238,17 +264,214 @@ function newStrategyPartConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'New Strategy',
+            action: 'Add Trading System',
             actionFunction: payload.onMenuItemClick,
-            label: 'New Strategy',
+            label: 'Add Trading System',
             visible: false,
-            iconPathOn: 'quality',
-            iconPathOff: 'quality',
+            relatedStrategyPart: 'Trading System',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 10
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Personal Data',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Personal Data',
+            visible: false,
+            relatedStrategyPart: 'Personal Data',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'share',
+            iconPathOff: 'share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 70
+          }
+        )
+        break
+      }
+      case 'Personal Data': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Personal Data',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Personal Data',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Exchange Account',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Exchange Account',
+            visible: false,
+            relatedStrategyPart: 'Exchange Account',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: +20
+          }
+          )
+        break
+      }
+      case 'Exchange Account': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Exchange Account',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Account',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Exchange Account Asset',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Asset',
+            visible: false,
+            relatedStrategyPart: 'Exchange Account Asset',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Exchange Account Key',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Key',
+            visible: false,
+            relatedStrategyPart: 'Exchange Account Key',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+            )
+        break
+      }
+      case 'Exchange Account Asset': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Exchange Account Asset',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Asset',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+          )
+        break
+      }
+      case 'Exchange Account Key': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Key Value',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Key Value',
+            visible: false,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Exchange Account Key',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This Key',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+          )
+        break
+      }
+      case 'Trading System': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Trading System',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Trading System',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Strategy',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Strategy',
+            visible: false,
             relatedStrategyPart: 'Strategy',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +10
+            angle: -20
           }
           )
         menuItemsInitialValues.push(
@@ -257,27 +480,25 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: false,
-            iconPathOn: 'quality',
-            iconPathOff: 'quality',
             relatedStrategyPart: 'Parameters',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 20
           }
           )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 70
+            angle: 60
           }
         )
         break
@@ -292,8 +513,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete Parameters',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -306,8 +527,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Missing Params',
             visible: false,
-            iconPathOn: 'settings',
-            iconPathOff: 'settings',
+            relatedStrategyPart: 'Parameters',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -316,12 +536,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -340,8 +560,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete Base Asset',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -354,8 +574,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: false,
-            iconPathOn: 'pipette',
-            iconPathOff: 'pipette',
             relatedStrategyPart: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
@@ -365,12 +583,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -387,8 +605,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Missing Stages',
             visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'trash',
+            relatedStrategyPart: 'Strategy',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -403,8 +620,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Strategy',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -413,12 +630,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -428,61 +645,21 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Trigger Stage': {
-        menuItemsInitialValues = [
-          {
-            action: 'Pin / Unpin',
-            actionFunction: floatingObject.pinToggle,
-            actionStatus: floatingObject.getPinStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'security',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -135
-          },
-          {
-            action: 'Tense / Untense',
-            actionFunction: floatingObject.tensionToggle,
-            actionStatus: floatingObject.getTensionStatus,
-            currentStatus: false,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'compass',
-            iconPathOff: 'headphones',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 180
-          },
-          {
-            action: 'Freeze / Unfreeze',
-            actionFunction: floatingObject.freezeToggle,
-            actionStatus: floatingObject.getFreezeStatus,
-            currentStatus: true,
-            label: undefined,
-            visible: false,
-            iconPathOn: 'targeting',
-            iconPathOff: 'broken-link',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 135
-          },
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
           {
             action: 'Add Missing Events',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Missing Events',
             visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'trash',
+            relatedStrategyPart: 'Trigger Stage',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
             angle: -40
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
             action: 'Delete Trigger Stage',
             askConfirmation: true,
@@ -490,25 +667,28 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Stage',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
-          },
+          }
+        )
+        menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
-          }]
+          }
+        )
         break
       }
       case 'Open Stage': {
@@ -519,12 +699,24 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Initial Definition',
             visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'trash',
+            relatedStrategyPart: 'Initial Definition',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -60
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Open Execution',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Open Execution',
+            visible: false,
+            relatedStrategyPart: 'Open Execution',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
           }
         )
         menuItemsInitialValues.push(
@@ -535,26 +727,26 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Stage',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           }
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }
         )
         break
@@ -567,8 +759,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Missing Items',
             visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'trash',
+            relatedStrategyPart: 'Manage Stage',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -583,8 +774,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Stage',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -593,12 +784,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -611,32 +802,45 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
+            action: 'Add Close Execution',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Close Execution',
+            visible: false,
+            relatedStrategyPart: 'Close Execution',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
             action: 'Delete Close Stage',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Stage',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 0
           }
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }
         )
         break
@@ -651,8 +855,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete Position Size',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -665,8 +869,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: false,
-            iconPathOn: 'pipette',
-            iconPathOff: 'pipette',
             relatedStrategyPart: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
@@ -676,12 +878,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -700,8 +902,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete Position Rate',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -714,8 +916,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: false,
-            iconPathOn: 'pipette',
-            iconPathOff: 'pipette',
             relatedStrategyPart: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
@@ -725,12 +925,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -747,8 +947,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
-            iconPathOn: 'pyramid',
-            iconPathOff: 'pyramid',
             relatedStrategyPart: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
@@ -764,8 +962,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Event',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -774,12 +972,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -796,8 +994,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
-            iconPathOn: 'pyramid',
-            iconPathOff: 'pyramid',
             relatedStrategyPart: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
@@ -813,8 +1009,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Event',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -823,12 +1019,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -845,8 +1041,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
-            iconPathOn: 'pyramid',
-            iconPathOff: 'pyramid',
             relatedStrategyPart: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
@@ -862,8 +1056,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Event',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -872,12 +1066,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -894,8 +1088,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Missing Items',
             visible: false,
-            iconPathOn: 'target',
-            iconPathOff: 'trash',
+            relatedStrategyPart: 'Initial Definition',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -910,8 +1103,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Definition',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -920,16 +1113,84 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
             angle: 40
+          }
+        )
+        break
+      }
+      case 'Open Execution': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Open Execution',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'share',
+            iconPathOff: 'share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+        )
+        break
+      }
+      case 'Close Execution': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Close Execution',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete This',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'share',
+            iconPathOff: 'share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }
         )
         break
@@ -942,8 +1203,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Phase',
             visible: false,
-            iconPathOn: 'placeholder',
-            iconPathOff: 'placeholder',
             relatedStrategyPart: 'Phase',
             rawRadius: 8,
             targetRadius: 0,
@@ -959,8 +1218,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Item',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -969,12 +1228,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -991,8 +1250,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Phase',
             visible: false,
-            iconPathOn: 'placeholder',
-            iconPathOff: 'placeholder',
             relatedStrategyPart: 'Phase',
             rawRadius: 8,
             targetRadius: 0,
@@ -1008,8 +1265,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Item',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1018,12 +1275,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1040,8 +1297,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: false,
-            iconPathOn: 'pipette',
-            iconPathOff: 'pipette',
             relatedStrategyPart: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
@@ -1055,8 +1310,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Next Phase Event',
             visible: false,
-            iconPathOn: 'pipette',
-            iconPathOff: 'pipette',
             relatedStrategyPart: 'Next Phase Event',
             rawRadius: 8,
             targetRadius: 0,
@@ -1072,8 +1325,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Phase',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1082,12 +1335,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1126,8 +1379,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Formula',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1136,12 +1389,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1158,8 +1411,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: false,
-            iconPathOn: 'pyramid',
-            iconPathOff: 'pyramid',
             relatedStrategyPart: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
@@ -1175,8 +1426,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Event',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1185,12 +1436,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1207,8 +1458,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Condition',
             visible: false,
-            iconPathOn: 'testing',
-            iconPathOff: 'testing',
             relatedStrategyPart: 'Condition',
             rawRadius: 8,
             targetRadius: 0,
@@ -1224,8 +1473,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Situation',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1234,12 +1483,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1256,8 +1505,6 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: false,
-            iconPathOn: 'html',
-            iconPathOff: 'html',
             relatedStrategyPart: 'Code',
             rawRadius: 8,
             targetRadius: 0,
@@ -1273,8 +1520,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Condition',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1283,12 +1530,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1327,8 +1574,8 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Delete This Code',
             visible: false,
-            iconPathOn: 'trash',
-            iconPathOff: 'trash',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1337,12 +1584,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Download',
+            action: 'Share',
             actionFunction: payload.onMenuItemClick,
-            label: 'Download',
+            label: 'Share',
             visible: false,
-            iconPathOn: 'upload',
-            iconPathOff: 'upload',
+            iconPathOn: 'share',
+            iconPathOff: 'share',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1368,8 +1615,28 @@ function newStrategyPartConstructor () {
         level_0()
         break
       }
-      case 'Trading System': {
+      case 'Definition': {
         level_0()
+        break
+      }
+      case 'Exchange Account': {
+        level_1()
+        break
+      }
+      case 'Exchange Account Asset': {
+        level_3()
+        break
+      }
+      case 'Exchange Account Key': {
+        level_3()
+        break
+      }
+      case 'Personal Data': {
+        level_1()
+        break
+      }
+      case 'Trading System': {
+        level_1()
         break
       }
       case 'Parameters': {
@@ -1421,6 +1688,14 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Initial Definition': {
+        level_3()
+        break
+      }
+      case 'Open Execution': {
+        level_3()
+        break
+      }
+      case 'Close Execution': {
         level_3()
         break
       }

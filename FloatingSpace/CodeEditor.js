@@ -133,7 +133,7 @@ function newCodeEditor () {
 
     let textAreaPosition = {
       x: 0 - thisObject.container.frame.width / 2,
-      y: 0 + thisObject.container.frame.height * 2 / 7
+      y: 0 - thisObject.container.frame.height * 3 / 7
     }
 
     textAreaPosition = thisObject.container.frame.frameThisPoint(textAreaPosition)

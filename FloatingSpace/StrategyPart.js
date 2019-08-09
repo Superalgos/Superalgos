@@ -196,6 +196,26 @@ function newStrategyPart () {
     let compatibleType
     let compatibleSubType
     switch (thisObject.payload.node.type) {
+      case 'Trading System':
+        compatibleType = '->' + 'Definition'
+        compatibleSubType = undefined
+        break
+      case 'Personal Data':
+        compatibleType = '->' + 'Definition'
+        compatibleSubType = undefined
+        break
+      case 'Exchange Account':
+        compatibleType = '->' + 'Personal Data'
+        compatibleSubType = undefined
+        break
+      case 'Exchange Account Asset':
+        compatibleType = '->' + 'Exchange Account'
+        compatibleSubType = undefined
+        break
+      case 'Exchange Account Key':
+        compatibleType = '->' + 'Exchange Account'
+        compatibleSubType = undefined
+        break
       case 'Parameters':
         compatibleType = '->' + 'Trading System'
         compatibleSubType = undefined
@@ -248,6 +268,14 @@ function newStrategyPart () {
         compatibleType = '->' + 'Open Stage'
         compatibleSubType = undefined
         break
+      case 'Open Execution':
+        compatibleType = '->' + 'Open Stage'
+        compatibleSubType = undefined
+        break
+      case 'Close Execution':
+        compatibleType = '->' + 'Close Stage'
+        compatibleSubType = undefined
+        break
       case 'Stop':
         compatibleType = '->' + 'Manage Stage' + '->' + 'Initial Definition'
         compatibleSubType = undefined
@@ -294,6 +322,8 @@ function newStrategyPart () {
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf('->' + nearbyNode.type) >= 0) {
         /* Discard objects with busy coonection ports */
+        if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }
         if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
         if (thisObject.payload.node.type === 'Base Asset' && nearbyNode.baseAsset !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }
@@ -306,6 +336,8 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Trigger Off Event' && nearbyNode.triggerOff !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger On Event' && nearbyNode.triggerOn !== undefined) { continue }
         if (thisObject.payload.node.type === 'Initial Definition' && nearbyNode.initialDefinition !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Open Execution' && nearbyNode.openExecution !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Close Execution' && nearbyNode.closeExecution !== undefined) { continue }
         if (thisObject.payload.node.type === 'Stop' && nearbyNode.stopLoss !== undefined) { continue }
         if (thisObject.payload.node.type === 'Take Profit' && nearbyNode.takeProfit !== undefined) { continue }
         if (thisObject.payload.node.type === 'Formula' && nearbyNode.formula !== undefined) { continue }
@@ -449,8 +481,8 @@ function newStrategyPart () {
   }
 
   function runningPhisycs () {
-    if (canvas.strategySpace.workspace.tradingSystem !== undefined) {
-      if (canvas.strategySpace.workspace.tradingSystem.id !== thisObject.payload.node.id) {
+    if (canvas.strategySpace.workspace.definition !== undefined) {
+      if (canvas.strategySpace.workspace.definition.id !== thisObject.payload.node.id) {
         runningCounter--
       }
     }
@@ -467,13 +499,13 @@ function newStrategyPart () {
   }
 
   function setRunningStatus () {
-    canvas.strategySpace.workspace.tradingSystem = thisObject.payload.node
+    canvas.strategySpace.workspace.definition = thisObject.payload.node
     thisObject.isRunning = true
     runningCounter = 30
   }
 
   function setNotRunningStatus () {
-    canvas.strategySpace.workspace.tradingSystem = undefined
+    canvas.strategySpace.workspace.definition = undefined
     thisObject.isRunning = false
   }
 
@@ -962,4 +994,3 @@ function newStrategyPart () {
     }
   }
 }
-

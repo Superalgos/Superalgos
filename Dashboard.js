@@ -7,9 +7,9 @@ try {
   viewPort = newViewPort()
 } catch (e) {
   setTimeout(() => {
-    console.log("Loading deferred.")
+    console.log('Loading deferred.')
     viewPort = newViewPort()
-  }, 1000);
+  }, 1000)
 }
 
 function newDashboard () {
@@ -36,19 +36,25 @@ function newDashboard () {
 
       if (canvas !== undefined) { canvas.finalize() }
 
+      /* Here we check where we are executing. In case we are Local we need to create a Local Dummy User and Team. */
+
+      if (window.canvasApp.executingAt === 'Local') {
+        window.localStorage.setItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY, 'Local Access Token')       // Dummy Access Token
+        window.localStorage.setItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY, '{"authId":"x|x","alias":"user"}')  // Dummy Local User
+      }
+
       /* Here we will setup the global eventHandler that will enable the Canvas App to react to events happening outside its execution scope. */
 
       window.canvasApp.eventHandler = newEventHandler()
       userProfileChangedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('User Profile Changed', userProfileChanged)
       browserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', browserResized)
 
-      loadImages(onImagesLoaded)
+      /* Here we used to have a call to the Teams Module to get the profile pictures. That was removed but to keep things working, we do this: */
 
-      function onImagesLoaded () {
-                /* Next we start the App */
+      window.canvasApp.context.teamProfileImages = new Map()
+      window.canvasApp.context.fbProfileImages = new Map()
 
-        setTimeout(delayedStart, DEBUG_START_UP_DELAY)
-      }
+      setTimeout(delayedStart, DEBUG_START_UP_DELAY)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] start -> err = ' + err.stack) }
     }
@@ -93,117 +99,6 @@ function newDashboard () {
       viewPort.initialize()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] browserResized -> err = ' + err.stack) }
-    }
-  }
-
-  function loadImages (callBack) {
-    try {
-      const accessToken = ''
-      // Soon, we will need to get images from the Financial Beings Module.
-
-      const networkInterfaceTeams = Apollo.lib.createNetworkInterface({
-        uri: window.canvasApp.graphQL.masterAppApiUrl
-      })
-
-      networkInterfaceTeams.use([{
-        applyMiddleware (req, next) {
-          req.options.headers = {
-            authorization: `Bearer ${accessToken}`
-          }
-          next()
-        }
-      }])
-
-      const apolloClientTeams = new Apollo.lib.ApolloClient({
-        networkInterface: networkInterfaceTeams,
-        connectToDevTools: true
-      })
-
-      const ALL_TEAMS_QUERY = Apollo.gql`
-            {
-              teams_Teams{
-                edges{
-                  node{
-                    id
-                    name
-                    slug
-                    profile {
-                    avatar
-                    banner
-                    description
-                    motto
-                    updatedAt
-                    }
-                    fb {
-                        id
-                        name
-                        slug
-                        avatar
-                        kind
-                        status {
-                            status
-                            reason
-                            createdAt
-                        }
-                      }
-                  }
-                }
-              }
-            }
-        `
-
-      let teams
-
-      const getTeams = () => {
-        return new Promise((resolve, reject) => {
-          apolloClientTeams.query({
-            query: ALL_TEAMS_QUERY
-          })
-                        .then(response => {
-                          teams = response.data.teams_Teams
-                          //window.localStorage.setItem('Teams', JSON.stringify(response.data.teams_Teams))
-                          resolve({ teams: response.data.teams_Teams })
-                        })
-                        .catch(err => {
-                          if (ERROR_LOG === true) { logger.write('[ERROR] loadImages -> getTeams -> Error fetching data from Teams Module.') }
-                          if (ERROR_LOG === true) { logger.write('[ERROR] loadImages -> getTeams -> err = ' + err.stack) }
-                          reject(err)
-                        })
-        })
-      }
-
-            // To avoid race conditions, add asynchronous fetches to array
-      let fetchDataPromises = []
-
-      fetchDataPromises.push(/* getUser(), */ getTeams())   //   <-- Here we must add the function calll to the Financial Beings module.
-
-            // When all asynchronous fetches resolve, authenticate user or throw error.
-      Promise.all(fetchDataPromises).then(result => {
-                /* All good, we will go through the results creating a map with all the Images URLs */
-
-        let teamProfileImages = new Map()
-        let fbProfileImages = new Map()
-
-        for (let i = 0; i < teams.edges.length; i++) {
-          let team = teams.edges[i].node
-
-          teamProfileImages.set(team.slug, team.profile.avatar)
-
-          if (team.fb.length > 0) {
-            fbProfileImages.set(team.slug + '-' + team.fb[0].slug, team.fb[0].avatar)
-          }
-        }
-
-        window.canvasApp.context.teamProfileImages = teamProfileImages
-        window.canvasApp.context.fbProfileImages = fbProfileImages
-
-        callBack()
-      }, err => {
-        if (ERROR_LOG === true) { logger.write('[ERROR] loadImages -> Error fetching data from Teams Module.') }
-        if (ERROR_LOG === true) { logger.write('[ERROR] loadImages -> err = ' + err.stack) }
-      })
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] loadImages -> err = ' + err.stack) }
     }
   }
 }

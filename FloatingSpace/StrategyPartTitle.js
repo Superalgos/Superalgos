@@ -48,6 +48,22 @@ function newStrategyPartTitle () {
     thisObject.payload = payload
 
     switch (payload.node.type) {
+      case 'Definition': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Personal Data': {
+        break
+      }
+      case 'Exchange Account': {
+        break
+      }
+      case 'Exchange Account Asset': {
+        break
+      }
+      case 'Exchange Account Key': {
+        break
+      }
       case 'Workspace': {
         thisObject.allwaysVisible = true
         break
@@ -94,6 +110,12 @@ function newStrategyPartTitle () {
         break
       }
       case 'Initial Definition': {
+        break
+      }
+      case 'Open Execution': {
+        break
+      }
+      case 'Close Execution': {
         break
       }
       case 'Stop': {

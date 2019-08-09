@@ -284,3 +284,9 @@ In the example above, conditions A and B are mathematical comparison statements 
 **periods:** The number of candles evaluated in the current execution.
 
 
+## Maintainer
+
+[![Luis-Fernando-Molina](https://avatars1.githubusercontent.com/u/9479367?s=130&amp;v=4)](https://github.com/Luis-Fernando-Molina) |
+---|
+[Luis-Fernando-Molina](https://github.com/jaredallard) |  
+

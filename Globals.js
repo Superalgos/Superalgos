@@ -170,6 +170,7 @@ let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwrit
 let VERY_LARGE_NUMBER = 100000000000
 
 let CURRENT_TOP_MARGIN = window.canvasApp.topMargin
+let AT_FULL_SCREEN_MODE = false
 
 let maxDate = new Date();
 maxDate.setMilliseconds(0);

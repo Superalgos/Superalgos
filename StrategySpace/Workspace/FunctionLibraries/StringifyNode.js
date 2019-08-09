@@ -4,7 +4,7 @@ function newStringifyNode () {
   }
   return thisObject
 
-  function prepareForStringify (node) {
+  function prepareForStringify (node, removePersonalData) {
     if (node === undefined) { return }
     switch (node.type) {
       case 'Code':
@@ -26,7 +26,7 @@ function newStringifyNode () {
             type: node.type,
             subType: node.subType,
             name: node.name,
-            code: prepareForStringify(node.code),
+            code: prepareForStringify(node.code, removePersonalData),
             savedPayload: getSavedPayload(node)
           }
           return condition
@@ -42,7 +42,7 @@ function newStringifyNode () {
         }
 
         for (let m = 0; m < node.conditions.length; m++) {
-          let condition = prepareForStringify(node.conditions[m])
+          let condition = prepareForStringify(node.conditions[m], removePersonalData)
           situation.conditions.push(condition)
         }
         return situation
@@ -70,7 +70,7 @@ function newStringifyNode () {
             savedPayload: getSavedPayload(node)
           }
           for (let m = 0; m < node.situations.length; m++) {
-            let situation = prepareForStringify(node.situations[m])
+            let situation = prepareForStringify(node.situations[m], removePersonalData)
             event.situations.push(situation)
           }
           return event
@@ -81,8 +81,8 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: prepareForStringify(node.formula),
-          nextPhaseEvent: prepareForStringify(node.nextPhaseEvent),
+          formula: prepareForStringify(node.formula, removePersonalData),
+          nextPhaseEvent: prepareForStringify(node.nextPhaseEvent, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return phase
@@ -99,7 +99,7 @@ function newStringifyNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = prepareForStringify(node.phases[m])
+          let phase = prepareForStringify(node.phases[m], removePersonalData)
           stop.phases.push(phase)
         }
         return stop
@@ -116,7 +116,7 @@ function newStringifyNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = prepareForStringify(node.phases[m])
+          let phase = prepareForStringify(node.phases[m], removePersonalData)
           takeProfit.phases.push(phase)
         }
         return takeProfit
@@ -132,7 +132,7 @@ function newStringifyNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = prepareForStringify(node.situations[m])
+          let situation = prepareForStringify(node.situations[m], removePersonalData)
           event.situations.push(situation)
         }
         return event
@@ -148,7 +148,7 @@ function newStringifyNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = prepareForStringify(node.situations[m])
+          let situation = prepareForStringify(node.situations[m], removePersonalData)
           event.situations.push(situation)
         }
         return event
@@ -164,7 +164,7 @@ function newStringifyNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = prepareForStringify(node.situations[m])
+          let situation = prepareForStringify(node.situations[m], removePersonalData)
           event.situations.push(situation)
         }
         return event
@@ -175,10 +175,30 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: prepareForStringify(node.stopLoss),
-          takeProfit: prepareForStringify(node.takeProfit),
-          positionSize: prepareForStringify(node.positionSize),
-          positionRate: prepareForStringify(node.positionRate),
+          stopLoss: prepareForStringify(node.stopLoss, removePersonalData),
+          takeProfit: prepareForStringify(node.takeProfit, removePersonalData),
+          positionSize: prepareForStringify(node.positionSize, removePersonalData),
+          positionRate: prepareForStringify(node.positionRate, removePersonalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Open Execution': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Close Execution': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -189,7 +209,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: prepareForStringify(node.formula),
+          formula: prepareForStringify(node.formula, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -200,7 +220,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: prepareForStringify(node.formula),
+          formula: prepareForStringify(node.formula, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -211,9 +231,9 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerOn: prepareForStringify(node.triggerOn),
-          triggerOff: prepareForStringify(node.triggerOff),
-          takePosition: prepareForStringify(node.takePosition),
+          triggerOn: prepareForStringify(node.triggerOn, removePersonalData),
+          triggerOff: prepareForStringify(node.triggerOff, removePersonalData),
+          takePosition: prepareForStringify(node.takePosition, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return stage
@@ -224,7 +244,8 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          initialDefinition: prepareForStringify(node.initialDefinition),
+          initialDefinition: prepareForStringify(node.initialDefinition, removePersonalData),
+          openExecution: prepareForStringify(node.openExecution, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return stage
@@ -235,8 +256,8 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: prepareForStringify(node.stopLoss),
-          takeProfit: prepareForStringify(node.takeProfit),
+          stopLoss: prepareForStringify(node.stopLoss, removePersonalData),
+          takeProfit: prepareForStringify(node.takeProfit, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return stage
@@ -247,6 +268,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          closeExecution: prepareForStringify(node.closeExecution, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return stage
@@ -257,10 +279,10 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerStage: prepareForStringify(node.triggerStage),
-          openStage: prepareForStringify(node.openStage),
-          manageStage: prepareForStringify(node.manageStage),
-          closeStage: prepareForStringify(node.closeStage),
+          triggerStage: prepareForStringify(node.triggerStage, removePersonalData),
+          openStage: prepareForStringify(node.openStage, removePersonalData),
+          manageStage: prepareForStringify(node.manageStage, removePersonalData),
+          closeStage: prepareForStringify(node.closeStage, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return strategy
@@ -271,7 +293,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: prepareForStringify(node.formula),
+          formula: prepareForStringify(node.formula, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -282,7 +304,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          baseAsset: prepareForStringify(node.baseAsset),
+          baseAsset: prepareForStringify(node.baseAsset, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -294,15 +316,90 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           strategies: [],
-          parameters: prepareForStringify(node.parameters),
+          parameters: prepareForStringify(node.parameters, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
 
         for (let m = 0; m < node.strategies.length; m++) {
-          let strategy = prepareForStringify(node.strategies[m])
+          let strategy = prepareForStringify(node.strategies[m], removePersonalData)
           tradingSystem.strategies.push(strategy)
         }
         return tradingSystem
+      }
+      case 'Personal Data': {
+        if (removePersonalData === true) { return }
+        let personalData = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          exchangeAccounts: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.exchangeAccounts.length; m++) {
+          let exchangeAccount = prepareForStringify(node.exchangeAccounts[m])
+          personalData.exchangeAccounts.push(exchangeAccount)
+        }
+        return personalData
+      }
+      case 'Exchange Account': {
+        if (removePersonalData === true) { return }
+        let exchangeAccount = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          assets: [],
+          keys: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.assets.length; m++) {
+          let asset = prepareForStringify(node.assets[m], removePersonalData)
+          exchangeAccount.assets.push(asset)
+        }
+
+        for (let m = 0; m < node.keys.length; m++) {
+          let key = prepareForStringify(node.keys[m], removePersonalData)
+          exchangeAccount.keys.push(key)
+        }
+        return exchangeAccount
+      }
+      case 'Exchange Account Asset': {
+        if (removePersonalData === true) { return }
+        let asset = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          savedPayload: getSavedPayload(node)
+        }
+        return asset
+      }
+      case 'Exchange Account Key': {
+        if (removePersonalData === true) { return }
+        let key = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return key
+      }
+      case 'Definition': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          tradingSystem: prepareForStringify(node.tradingSystem, removePersonalData),
+          personalData: prepareForStringify(node.personalData, removePersonalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
       }
     }
   }

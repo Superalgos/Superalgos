@@ -4,7 +4,7 @@ function newProtocolNode () {
   }
   return thisObject
 
-  function getProtocolNode (node) {
+  function getProtocolNode (node, removePersonalData) {
     if (node === undefined) { return }
     switch (node.type) {
       case 'Code':
@@ -23,7 +23,7 @@ function newProtocolNode () {
             type: node.type,
             subType: node.subType,
             name: node.name,
-            code: getProtocolNode(node.code)
+            code: getProtocolNode(node.code, removePersonalData)
           }
           return condition
         }
@@ -36,7 +36,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.conditions.length; m++) {
-          let condition = getProtocolNode(node.conditions[m])
+          let condition = getProtocolNode(node.conditions[m], removePersonalData)
           situation.conditions.push(condition)
         }
         return situation
@@ -60,7 +60,7 @@ function newProtocolNode () {
             situations: []
           }
           for (let m = 0; m < node.situations.length; m++) {
-            let situation = getProtocolNode(node.situations[m])
+            let situation = getProtocolNode(node.situations[m], removePersonalData)
             event.situations.push(situation)
           }
           return event
@@ -70,8 +70,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula),
-          nextPhaseEvent: getProtocolNode(node.nextPhaseEvent)
+          formula: getProtocolNode(node.formula, removePersonalData),
+          nextPhaseEvent: getProtocolNode(node.nextPhaseEvent, removePersonalData)
         }
         return phase
       }
@@ -84,7 +84,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = getProtocolNode(node.phases[m])
+          let phase = getProtocolNode(node.phases[m], removePersonalData)
           stop.phases.push(phase)
         }
         return stop
@@ -98,7 +98,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = getProtocolNode(node.phases[m])
+          let phase = getProtocolNode(node.phases[m], removePersonalData)
           takeProfit.phases.push(phase)
         }
         return takeProfit
@@ -112,7 +112,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m])
+          let situation = getProtocolNode(node.situations[m], removePersonalData)
           event.situations.push(situation)
         }
         return event
@@ -126,7 +126,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m])
+          let situation = getProtocolNode(node.situations[m], removePersonalData)
           event.situations.push(situation)
         }
         return event
@@ -140,7 +140,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m])
+          let situation = getProtocolNode(node.situations[m], removePersonalData)
           event.situations.push(situation)
         }
         return event
@@ -150,10 +150,26 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: getProtocolNode(node.stopLoss),
-          takeProfit: getProtocolNode(node.takeProfit),
-          positionSize: getProtocolNode(node.positionSize),
-          positionRate: getProtocolNode(node.positionRate)
+          stopLoss: getProtocolNode(node.stopLoss, removePersonalData),
+          takeProfit: getProtocolNode(node.takeProfit, removePersonalData),
+          positionSize: getProtocolNode(node.positionSize, removePersonalData),
+          positionRate: getProtocolNode(node.positionRate, removePersonalData)
+        }
+        return object
+      }
+      case 'Open Execution': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        return object
+      }
+      case 'Close Execution': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
         }
         return object
       }
@@ -162,7 +178,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula)
+          formula: getProtocolNode(node.formula, removePersonalData)
         }
         return object
       }
@@ -171,7 +187,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula)
+          formula: getProtocolNode(node.formula, removePersonalData)
         }
         return object
       }
@@ -180,9 +196,9 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerOn: getProtocolNode(node.triggerOn),
-          triggerOff: getProtocolNode(node.triggerOff),
-          takePosition: getProtocolNode(node.takePosition)
+          triggerOn: getProtocolNode(node.triggerOn, removePersonalData),
+          triggerOff: getProtocolNode(node.triggerOff, removePersonalData),
+          takePosition: getProtocolNode(node.takePosition, removePersonalData)
         }
         return stage
       }
@@ -191,7 +207,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          initialDefinition: getProtocolNode(node.initialDefinition)
+          initialDefinition: getProtocolNode(node.initialDefinition, removePersonalData),
+          openExecution: getProtocolNode(node.openExecution, removePersonalData)
         }
         return stage
       }
@@ -200,8 +217,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: getProtocolNode(node.stopLoss),
-          takeProfit: getProtocolNode(node.takeProfit)
+          stopLoss: getProtocolNode(node.stopLoss, removePersonalData),
+          takeProfit: getProtocolNode(node.takeProfit, removePersonalData)
         }
         return stage
       }
@@ -209,7 +226,8 @@ function newProtocolNode () {
         let stage = {
           type: node.type,
           subType: node.subType,
-          name: node.name
+          name: node.name,
+          closeExecution: getProtocolNode(node.closeExecution, removePersonalData)
         }
         return stage
       }
@@ -218,10 +236,10 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerStage: getProtocolNode(node.triggerStage),
-          openStage: getProtocolNode(node.openStage),
-          manageStage: getProtocolNode(node.manageStage),
-          closeStage: getProtocolNode(node.closeStage)
+          triggerStage: getProtocolNode(node.triggerStage, removePersonalData),
+          openStage: getProtocolNode(node.openStage, removePersonalData),
+          manageStage: getProtocolNode(node.manageStage, removePersonalData),
+          closeStage: getProtocolNode(node.closeStage, removePersonalData)
         }
         return strategy
       }
@@ -230,7 +248,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula)
+          formula: getProtocolNode(node.formula, removePersonalData)
         }
         return object
       }
@@ -239,7 +257,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          baseAsset: getProtocolNode(node.baseAsset)
+          baseAsset: getProtocolNode(node.baseAsset, removePersonalData)
         }
         return object
       }
@@ -249,14 +267,78 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           strategies: [],
-          parameters: getProtocolNode(node.parameters)
+          parameters: getProtocolNode(node.parameters, removePersonalData)
         }
 
         for (let m = 0; m < node.strategies.length; m++) {
-          let strategy = getProtocolNode(node.strategies[m])
+          let strategy = getProtocolNode(node.strategies[m], removePersonalData)
           tradingSystem.strategies.push(strategy)
         }
         return tradingSystem
+      }
+      case 'Personal Data': {
+        if (removePersonalData === true) { return }
+        let personalData = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          exchangeAccounts: []
+        }
+
+        for (let m = 0; m < node.exchangeAccounts.length; m++) {
+          let exchangeAccount = getProtocolNode(node.exchangeAccounts[m], removePersonalData)
+          personalData.exchangeAccounts.push(exchangeAccount)
+        }
+        return personalData
+      }
+      case 'Exchange Account': {
+        if (removePersonalData === true) { return }
+        let exchangeAccount = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          assets: [],
+          keys: []
+        }
+
+        for (let m = 0; m < node.assets.length; m++) {
+          let asset = getProtocolNode(node.assets[m], removePersonalData)
+          exchangeAccount.assets.push(asset)
+        }
+        for (let m = 0; m < node.keys.length; m++) {
+          let key = getProtocolNode(node.keys[m], removePersonalData)
+          exchangeAccount.keys.push(key)
+        }
+        return exchangeAccount
+      }
+      case 'Exchange Account Asset': {
+        if (removePersonalData === true) { return }
+        let asset = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        return asset
+      }
+      case 'Exchange Account Key': {
+        if (removePersonalData === true) { return }
+        let key = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code
+        }
+        return key
+      }
+      case 'Definition': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData),
+          personalData: getProtocolNode(node.personalData, removePersonalData)
+        }
+        return object
       }
     }
   }

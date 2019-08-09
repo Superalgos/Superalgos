@@ -1,5 +1,4 @@
 ﻿require('dotenv').config();
-const sequenceList = require('./sequence');
 
 global.SHALL_BOT_STOP = false;
 global.AT_BREAKPOINT = false; // This is used only when running at the browser.
@@ -26,10 +25,9 @@ process.on('exit', function (code) {
     console.log('[INFO] Run -> process.on.exit -> About to exit -> code = ' + code);
 });
 
-
+let sequenceList = require('./sequence');
 let isRunSequence = false;
 let sequenceStep = 0;
-let loopCount = 0;
 let processedSteps = new Map()
 if (process.env.RUN_SEQUENCE !== undefined) {
     isRunSequence = JSON.parse(process.env.RUN_SEQUENCE)
@@ -59,11 +57,9 @@ function sequenceExecution(currentStep) {
     execution.baseAsset ? process.env.BASE_ASSET = execution.baseAsset : undefined;
     execution.balanceAssetA ? process.env.INITIAL_BALANCE_ASSET_A = execution.balanceAssetA : undefined;
     execution.balanceAssetB ? process.env.INITIAL_BALANCE_ASSET_B = execution.balanceAssetB : undefined;
-
-    process.env.CLONE_ID = 1;
+    execution.type === 'Trading' ? process.env.CLONE_ID = 1 : undefined;
 
     execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
-    // global.FULL_LOG = execution.fullLog;
 
     let stepKey = execution.devTeam + '.' + execution.bot + '.' + execution.process;
     if (processedSteps.has(stepKey)) {
@@ -71,7 +67,7 @@ function sequenceExecution(currentStep) {
     } else {
         processedSteps.set(stepKey, 0);
     }
-    console.log("EXECUTION: "+JSON.stringify(execution))
+    console.log("Sequence Execution Parameters: " + JSON.stringify(execution))
     readExecutionConfiguration();
     sequenceStep++;
 }
@@ -86,7 +82,7 @@ function onExecutionFinish(result, finishStepKey) {
         } else {
             setTimeout(function () {
                 console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
-                loopCount++;
+                sequenceList = require('./sequence'); // We read again the sequence after every loop
                 sequenceStep = 0;
                 processedSteps = new Map();
                 sequenceExecution(sequenceStep);

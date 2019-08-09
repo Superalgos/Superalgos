@@ -128,7 +128,7 @@ async function readExecutionConfiguration() {
         global.DEV_TEAM = process.env.DEV_TEAM
         global.CURRENT_BOT_REPO = process.env.BOT + "-" + process.env.TYPE + "-Bot"
 
-        if (process.env.TYPE === 'Trading') {
+        if (process.env.TYPE === 'Trading' || process.env.TYPE === 'Trading-Engine') {
             let live = {
             run: 'false',
             resumeExecution: process.env.RESUME_EXECUTION,
@@ -155,7 +155,7 @@ async function readExecutionConfiguration() {
                 backtest: backtest,
                 competition: competition
             }
-        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Sensor' || process.env.TYPE === 'Trading-Engine') {
+        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Sensor') {
             let allMonths = {
                 run: "false",
                 minYear: process.env.MIN_YEAR,

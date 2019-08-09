@@ -132,8 +132,8 @@
     "month": 1
   },
   {
-    "devTeam": "user",
-    "bot": "simulator-user",
+    "devTeam": "AAMasters",
+    "bot": "AAJason",
     "mode": "noTime",
     "resumeExecution": true,
     "type": "Trading-Engine",

@@ -1,9 +1,9 @@
 [
 
   {
-    "devTeam": "user",
-    "bot": "simulator-user",
-    "mode": "noTime",
+    "devTeam": "AAMasters",
+    "bot": "AAJason",
+    "mode": "live",
     "resumeExecution": true,
     "type": "Trading-Engine",
     "exchangeName": "Poloniex",

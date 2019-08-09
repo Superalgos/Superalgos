@@ -70,28 +70,28 @@
                 dataFile = dataFiles[i];
 
                 switch (i) {
-
+                    /*
                     case 0: {
                         commons.buildLRC(dataFile, callBackFunction);
                         break;
-                    }
-                    case 1: {
+                    }*/
+                    case 0: {
                         commons.buildPercentageBandwidthMap(dataFile, callBackFunction);
                         break;
                     }
-                    case 2: {
+                    case 1: {
                         commons.buildBollingerBandsMap(dataFile, callBackFunction);
                         break;
                     }
-                    case 3: {
+                    case 2: {
                         commons.buildBollingerChannelsArray(dataFile, callBackFunction);
                         break;
                     }
-                    case 4: {
+                    case 3: {
                         commons.buildBollingerSubChannelsArray(dataFile, callBackFunction);
                         break;
                     }
-                    case 5: {
+                    case 4: {
                         commons.buildCandles(dataFile, callBackFunction);
                         break;
                     }

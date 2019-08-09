@@ -69,7 +69,7 @@ function sequenceExecution(currentStep) {
         processedSteps.set(stepKey, 0);
     }
     console.log("Sequence Execution Parameters: " + JSON.stringify(execution))
-    readExecutionConfiguration();
+    readExecutionConfiguration(execution.type);
     sequenceStep++;
 }
 
@@ -97,24 +97,49 @@ function onExecutionFinish (result, finishStepKey) {
 }
 
 
-async function readExecutionConfiguration() {
+async function readExecutionConfiguration(botType) {
     try {
         console.log("[INFO] Run -> readExecutionConfiguration -> Entering function. ");
 
+        let timePeriod
+        let botProcess
+
         /* Try to get the begin and end dates from the Definition */
         let definition = await strategy.getStrategy()
+
+        /* Dates are taken initially from .env, but can be overwritten if they are defined by the user */
         let initialDatetime = process.env.BEGIN_DATE_TIME
         let finalDatetime = process.env.END_DATE_TIME
 
-        if (definition !== undefined) {
-            if (definition.tradingSystem !== undefined) {
-                if (definition.tradingSystem.parameters !== undefined) {
-                    if (definition.tradingSystem.parameters.baseAsset !== undefined) {
-                        if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
-                            if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
-                                let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
-                                initialDatetime = code.initialDatetime
-                                finalDatetime = code.finalDatetime
+        if (botType === 'Trading-Engine') {
+            if (definition !== undefined) {
+                if (definition.simulationParams !== undefined) {
+                    if (definition.simulationParams.beginDatetime !== undefined) {
+                        initialDatetime = new Date(definition.simulationParams.beginDatetime)  /* The first override occurs here, with the simulation parameters */
+                    }
+                    /* Here we only look for one timePeriod, in the future we will be able to process the whole array, but not for now. */
+                    if (definition.simulationParams.timePeriodDailyArray !== undefined) {
+                        if (definition.simulationParams.timePeriodDailyArray.length > 0) {
+                            timePeriod = definition.simulationParams.timePeriodDailyArray[0]
+                            botProcess = "Multi-Period-Daily"
+                        }
+                    }
+                    if (definition.simulationParams.timePeriodMarketArray !== undefined) {
+                        if (definition.simulationParams.timePeriodMarketArray.length > 0) {
+                            timePeriod = definition.simulationParams.timePeriodMarketArray[0]
+                            botProcess = "Multi-Period-Market"
+                        }
+                    }
+                }
+                if (definition.tradingSystem !== undefined) {
+                    if (definition.tradingSystem.parameters !== undefined) {
+                        if (definition.tradingSystem.parameters.baseAsset !== undefined) {
+                            if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
+                                if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
+                                    let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
+                                    initialDatetime = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
+                                    finalDatetime = code.finalDatetime
+                                }
                             }
                         }
                     }
@@ -189,19 +214,21 @@ async function readExecutionConfiguration() {
 
         startMode[process.env.START_MODE].run = "true"
 
+        if (botProcess === undefined) { botProcess = process.env.PROCESS } // Only use the .env when nothing comes at Definition.json
         let cloneToExecute = {
             enabled: "true",
             devTeam: process.env.DEV_TEAM,
             bot: process.env.BOT,
-            process: process.env.PROCESS,
+            process: botProcess,
             repo: global.CURRENT_BOT_REPO
         }
 
+        if (timePeriod === undefined) { timePeriod = process.env.TIME_PERIOD} // Only use the .env when nothing comes at Definition.json
         global.EXECUTION_CONFIG = {
             cloneToExecute: cloneToExecute,
             startMode: startMode,
-            timePeriod: getTimePeriod(process.env.TIME_PERIOD),
-            timePeriodFileStorage: process.env.TIME_PERIOD,
+            timePeriod: getTimePeriod(timePeriod),
+            timePeriodFileStorage: timePeriod,
             dataSet: process.env.DATA_SET
         };
 

@@ -182,7 +182,7 @@ function onBrowserRequest(request, response) {
         let devTeam = requestParameters[2]
         let codeName = requestParameters[3]
         let moduleName = requestParameters[4]
-        let filePath = './Plotters/' + devTeam + '/plotters/' + codeName + '/' + moduleName
+        let filePath = process.env.PLOTTERS_PATH + 'Plotters/' + devTeam + '/' + codeName + '/' + moduleName
         respondWithFile(filePath, response)
       }
       break
@@ -192,7 +192,7 @@ function onBrowserRequest(request, response) {
         let devTeam = requestParameters[2]
         let codeName = requestParameters[3]
         let moduleName = requestParameters[4]
-        let filePath = './Plotters/' + devTeam + '/plotters/' + codeName + '/' + moduleName
+        let filePath = process.env.PLOTTERS_PATH + 'Plotters/' + devTeam + '/' + codeName + '/' + moduleName
         respondWithFile(filePath, response)
       }
       break
@@ -243,7 +243,7 @@ function onBrowserRequest(request, response) {
         let fs = require('fs')
 
         try {
-          let filePath = process.env.CONFIG_PATH + '/ecosystem.json'
+          let filePath = process.env.INTER_PROCESS_FILES_PATH + '/ecosystem.json'
           fs.readFile(filePath, onFileRead)
         } catch (e) {
           console.log('[ERROR] Error reading the user ecosystem.', e)
@@ -266,27 +266,27 @@ function onBrowserRequest(request, response) {
       }
       break
 
-    case 'ReadUserConfig':
+    case 'GetDefinition':
       {
-        respondWithFile(process.env.CONFIG_PATH + '/userConfig.json', response)
+        respondWithFile(process.env.INTER_PROCESS_FILES_PATH + '/definition.json', response)
       }
       break
 
-    case 'WriteUserConfig':
+    case 'SaveDefinition':
       {
         let fs = require('fs')
         let body = '';
 
         request.on('data', function (data) {
-            body += data;
-            // Too much POST data
-            if (body.length > 1e6)
-                request.connection.destroy();
+          body += data;
+          // Too much POST data
+          if (body.length > 1e6)
+            request.connection.destroy();
         });
 
         request.on('end', function () {
           try {
-            let filePath = process.env.CONFIG_PATH + '/userConfig.json'
+            let filePath = process.env.INTER_PROCESS_FILES_PATH + '/definition.json'
             fs.writeFile(filePath, body, onFileWrite)
           } catch (e) {
             console.log('[ERROR] Error writing user config.', e)

@@ -19,21 +19,31 @@ function newAppLoader() {
 
       window.localStorage.removeItem('ecosystem')
 
-      let plotters, modulesArray
-      let ecosystem = await loadEcosystem()
-      if (ecosystem) {
-        window.localStorage.setItem('ecosystem', JSON.stringify(ecosystem))
-        plotters = getPlotters(ecosystem)
+      let plotters
+      let modulesArray = []
+
+      if (window.canvasApp.executingAt !== 'Local') {
+        let ecosystem = await loadEcosystem()
+        if (ecosystem) {
+          window.localStorage.setItem('ecosystem', JSON.stringify(ecosystem))
+          plotters = getPlotters(ecosystem)
+        } else {
+          plotters = defaultPlotters()
+          modulesArray = ['UserEcosystem.js']
+        }
       } else {
         plotters = defaultPlotters()
         modulesArray = ['UserEcosystem.js']
       }
+
+
 
       modulesArray = modulesArray.concat([
         'ChartsSpace/ViewPort.js',
 
         'Globals.js',
         'Ecosystem.js',
+        'UserEcosystem.js',
         'MQService',
 
         'ChartsSpace/ChartUtilities.js',
@@ -316,30 +326,30 @@ function newAppLoader() {
   function defaultPlotters() {
     return [
       'Plotters/AAMasters/Plotters-Candles-Volumes/Candles.js',
-      'PlotterPanels/AAMasters/Plotters-Candles-Volumes/CandlePanel.js',
+      'Plotters/AAMasters/Plotters-Candles-Volumes/CandlePanel.js',
       'Plotters/AAMasters/Plotters-Candles-Volumes/Volumes.js',
-      'PlotterPanels/AAMasters/Plotters-Candles-Volumes/VolumePanel.js',
+      'Plotters/AAMasters/Plotters-Candles-Volumes/VolumePanel.js',
       'Plotters/AAMasters/Plotters-Stairs-Patterns/CandleStairs.js',
       'Plotters/AAMasters/Plotters-Stairs-Patterns/VolumeStairs.js',
       'Plotters/AAMasters/Plotters-Trading/Details.js',
       'Plotters/AAMasters/Plotters-Trading/History.js',
       'Plotters/AAMasters/Plotters-Bollinger-Bands/BollingerBands.js',
-      'PlotterPanels/AAMasters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
+      'Plotters/AAMasters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
       'Plotters/AAMasters/Plotters-Bollinger-Bands/PercentageBandwidth.js',
       'Plotters/AAMasters/Plotters-Trading-Simulation/TradingSimulation.js',
-      'PlotterPanels/AAMasters/Plotters-Trading-Simulation/TradingSimulationPanel.js',
+      'Plotters/AAMasters/Plotters-Trading-Simulation/TradingSimulationPanel.js',
       'Plotters/AAMasters/Plotters-Trading-Simulation/Conditions.js',
       'Plotters/AAMasters/Plotters-Trading-Simulation/Strategies.js',
       'Plotters/AAMasters/Plotters-Trading-Simulation/Trades.js',
       'Plotters/AAMasters/Plotters-Trading-Simulation/SimulationExecution.js',
-      'PlotterPanels/AAMasters/Plotters-Trading-Simulation/SimulationExecutionPanel.js',
+      'Plotters/AAMasters/Plotters-Trading-Simulation/SimulationExecutionPanel.js',
       'Plotters/AAMasters/Plotters-Bollinger-Channels/BollingerChannels.js',
-      'PlotterPanels/AAMasters/Plotters-Bollinger-Channels/ChannelPanel.js',
+      'Plotters/AAMasters/Plotters-Bollinger-Channels/ChannelPanel.js',
       'Plotters/AAMasters/Plotters-Bollinger-Channels/BollingerSubChannels.js',
-      'PlotterPanels/AAMasters/Plotters-Bollinger-Channels/SubChannelPanel.js',
-      'Plotters/AAVikings/Plotters-Linear-Regression-Curve/LRC.js',
-      'PlotterPanels/AAVikings/Plotters-Linear-Regression-Curve/ChannelPanel.js',
-      'Plotters/AAMasters/Plotters-ROI/CombinedProfits.js'
+      'Plotters/AAMasters/Plotters-Bollinger-Channels/SubChannelPanel.js',
+      // 'Plotters/AAVikings/plotters/Plotters-Linear-Regression-Curve/LRC.js',
+      // 'Plotters/AAVikings/plotters/Plotters-Linear-Regression-Curve/ChannelPanel.js',
+      'Plotters/AAArena/Plotters-ROI/CombinedProfits.js'
     ]
   }
 

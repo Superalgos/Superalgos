@@ -35,18 +35,19 @@ if (process.env.RUN_SEQUENCE !== undefined) {
 }
 
 if (isRunSequence) {
-  sequenceExecution(sequenceStep)
+  sequenceExecution(sequenceStep, false)
 } else {
   readExecutionConfiguration()
 }
 
-function sequenceExecution(currentStep) {
+function sequenceExecution(currentStep, notFirstSequence) {
     let execution = sequenceList[currentStep];
+
     process.env.STOP_GRACEFULLY = true;
     execution.devTeam ? process.env.DEV_TEAM = execution.devTeam : undefined;
     execution.bot ? process.env.BOT = execution.bot : undefined;
     execution.mode ? process.env.START_MODE = execution.mode : undefined;
-    execution.resumeExecution ? process.env.RESUME_EXECUTION = execution.resumeExecution : undefined;
+    execution.resumeExecution = notFirstSequence
     execution.type ? process.env.TYPE = execution.type : undefined;
     execution.process ? process.env.PROCESS = execution.process : undefined;
     execution.startYear ? process.env.MIN_YEAR = execution.startYear : undefined;
@@ -69,7 +70,7 @@ function sequenceExecution(currentStep) {
         processedSteps.set(stepKey, 0);
     }
     console.log("Sequence Execution Parameters: " + JSON.stringify(execution))
-    readExecutionConfiguration(execution.type);
+    readExecutionConfiguration(execution);
     sequenceStep++;
 }
 
@@ -79,17 +80,17 @@ function onExecutionFinish (result, finishStepKey) {
     console.log('[INFO] onExecutionFinish -> Step already processed.')
   } else {
     if (sequenceStep < sequenceList.length) {
-      sequenceExecution(sequenceStep)
+      sequenceExecution(sequenceStep, true)
     } else {
         if (sequenceStep < sequenceList.length) {
-            sequenceExecution(sequenceStep);
+            sequenceExecution(sequenceStep, true);
         } else {
             setTimeout(function () {
                 console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
                 sequenceList = require('./sequence'); // We read again the sequence after every loop
                 sequenceStep = 0;
                 processedSteps = new Map();
-                sequenceExecution(sequenceStep);
+                sequenceExecution(sequenceStep, true);
             }, process.env.EXECUTION_LOOP_DELAY);
         }
     }
@@ -97,7 +98,7 @@ function onExecutionFinish (result, finishStepKey) {
 }
 
 
-async function readExecutionConfiguration(botType) {
+async function readExecutionConfiguration(execution) {
     try {
         console.log("[INFO] Run -> readExecutionConfiguration -> Entering function. ");
 
@@ -111,7 +112,7 @@ async function readExecutionConfiguration(botType) {
         let initialDatetime = process.env.BEGIN_DATE_TIME
         let finalDatetime = process.env.END_DATE_TIME
 
-        if (botType === 'Trading-Engine') {
+        if (execution.type === 'Trading-Engine') {
             if (definition !== undefined) {
                 if (definition.simulationParams !== undefined) {
                     if (definition.simulationParams.beginDatetime !== undefined) {
@@ -137,8 +138,12 @@ async function readExecutionConfiguration(botType) {
                             if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
                                 if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
                                     let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
-                                    initialDatetime = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
-                                    finalDatetime = code.finalDatetime
+                                    if (code.initialDatetime !== undefined) {
+                                        initialDatetime = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
+                                    }
+                                    if (code.finalDatetime !== undefined) {
+                                        finalDatetime = code.finalDatetime
+                                    } 
                                 }
                             }
                         }
@@ -156,21 +161,21 @@ async function readExecutionConfiguration(botType) {
         if (process.env.TYPE === 'Trading' || process.env.TYPE === 'Trading-Engine') {
             let live = {
             run: 'false',
-            resumeExecution: process.env.RESUME_EXECUTION,
+            resumeExecution: execution.resumeExecution,
             beginDatetime: initialDatetime,
             endDatetime: finalDatetime
             }
 
             let backtest = {
             run: 'false',
-            resumeExecution: process.env.RESUME_EXECUTION,
+            resumeExecution: execution.resumeExecution,
             beginDatetime: initialDatetime,
             endDatetime: finalDatetime
             }
 
             let competition = {
             run: 'false',
-            resumeExecution: process.env.RESUME_EXECUTION,
+            resumeExecution: execution.resumeExecution,
             beginDatetime: initialDatetime,
             endDatetime: finalDatetime
             }
@@ -194,7 +199,7 @@ async function readExecutionConfiguration(botType) {
             let noTime = {
                 run: "false",
                 beginDatetime: process.env.BEGIN_DATE_TIME,
-                resumeExecution: process.env.RESUME_EXECUTION
+                resumeExecution: execution.resumeExecution
             }
             let fixedInterval = {
                 run: "false",

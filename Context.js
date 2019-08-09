@@ -170,7 +170,7 @@
                     function onFileReceived(err, text) {
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionHistory -> onFileReceived -> err = "+ err);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionHistory -> onFileReceived -> err = "+ JSON.stringify(err));
                             callBack(err);
                             return;
                         }

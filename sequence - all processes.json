@@ -132,6 +132,17 @@
     "month": 1
   },
   {
+    "devTeam": "user",
+    "bot": "simulator-user",
+    "mode": "noTime",
+    "resumeExecution": true,
+    "type": "Trading-Engine",
+    "exchangeName": "Poloniex",
+    "process": "Multi-Period-Daily",
+    "beginDatetime": "2019-08-01T08:00:00.000Z",
+    "timePeriod": "05-min"
+  },
+  {
     "devTeam": "AAVikings",
     "bot": "AAGauss",
     "mode": "noTime",
@@ -177,16 +188,5 @@
     "beginDatetime": "2019-08-01T08:00:00.000Z",
     "timePeriod": "05-min",
     "dataSet": "Multi-Period-Daily"
-  },
-  {
-    "devTeam": "user",
-    "bot": "simulator-bot-user",
-    "mode": "noTime",
-    "resumeExecution": true,
-    "type": "Indicator",
-    "exchangeName": "Poloniex",
-    "process": "Multi-Period-Daily",
-    "beginDatetime": "2019-08-01T08:00:00.000Z",
-    "timePeriod": "05-min"
   }
 ]

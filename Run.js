@@ -1,6 +1,5 @@
 require('dotenv').config()
 const strategy = require('./Integrations/Strategy')
-const sequenceList = require('./sequence');
 
 global.SHALL_BOT_STOP = false
 global.AT_BREAKPOINT = false // This is used only when running at the browser.
@@ -156,7 +155,7 @@ async function readExecutionConfiguration() {
                 backtest: backtest,
                 competition: competition
             }
-        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Sensor') {
+        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Sensor' || process.env.TYPE === 'Trading-Engine') {
             let allMonths = {
                 run: "false",
                 minYear: process.env.MIN_YEAR,

@@ -857,6 +857,7 @@
                                         console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
                                         logger.persist();
                                     }
+                                    callback(err, pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process)
                                 }
 
                             } else {

@@ -34,17 +34,19 @@ let sequenceList = require('./sequence');
 let isRunSequence = false;
 let sequenceStep = 0;
 let processedSteps = new Map()
+notFirstSequence = false
+
 if (process.env.RUN_SEQUENCE !== undefined) {
     isRunSequence = JSON.parse(process.env.RUN_SEQUENCE)
 }
 
 if (isRunSequence) {
-    sequenceExecution(sequenceStep, false)
+    sequenceExecution(sequenceStep)
 } else {
     readExecutionConfiguration()
 }
 
-function sequenceExecution(currentStep, notFirstSequence) {
+function sequenceExecution(currentStep) {
     let execution = sequenceList[currentStep];
 
     process.env.STOP_GRACEFULLY = true;
@@ -106,17 +108,18 @@ function onExecutionFinish(result, finishStepKey) {
         console.log('[INFO] onExecutionFinish -> Step already processed.')
     } else {
         if (sequenceStep < sequenceList.length) {
-            sequenceExecution(sequenceStep, true)
+            sequenceExecution(sequenceStep)
         } else {
             if (sequenceStep < sequenceList.length) {
-                sequenceExecution(sequenceStep, true);
+                sequenceExecution(sequenceStep);
             } else {
                 setTimeout(function () {
                     console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
                     sequenceList = require('./sequence'); // We read again the sequence after every loop
                     sequenceStep = 0;
                     processedSteps = new Map();
-                    sequenceExecution(sequenceStep, true);
+                    sequenceExecution(sequenceStep);
+                    notFirstSequence = true
                 }, process.env.EXECUTION_LOOP_DELAY);
             }
         }

@@ -1,0 +1,2 @@
+
+nexe server.js -r "./*" -r "./Scripts/*" -r "../CanvasApp/**" -r "./.env" -r "../Files-Component/src" -r "./Images/**" -r "./node_modules/@superalgos/mqservice/orderLifeCicle/*" -r "../Inter-Process-Files/*" -r "../../Plotters/**" -o Windows-Superalgos-Desktop.exe --ico "./Images/favicon.ico"

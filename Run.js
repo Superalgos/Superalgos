@@ -77,13 +77,10 @@ function sequenceExecution(currentStep, notFirstSequence) {
                     if (exchangeAccount.keys) {
                         if (exchangeAccount.keys.length > 0) {
                             let key = exchangeAccount.keys[0]
-                            try {
-                                let data = JSON.parse(key.code)
-                                process.env.KEY = data.label
-                                process.env.SECRET = data.secret
-                            } catch (err) {
-                                // No need to do anything if data is wrong for now.
-                            }
+
+                            process.env.KEY = key.name
+                            process.env.SECRET = key.code
+
                         }
                     }
                 }

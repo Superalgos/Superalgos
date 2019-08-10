@@ -68,10 +68,29 @@ function sequenceExecution(currentStep, notFirstSequence) {
 
     execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
 
-    if (definition.personalData) {
-        process.env.KEY = definition.personalData.exchangeAccounts[0].keys[0].code;
-        process.env.SECRET = definition.personalData.exchangeAccounts[0].keys[1].code;
+    if (definition) 
+    {
+        if (definition.personalData) {
+            if (definition.personalData.exchangeAccounts) {
+                if (definition.personalData.exchangeAccounts.length > 0) {
+                    let exchangeAccount = definition.personalData.exchangeAccounts[0]
+                    if (exchangeAccount.keys) {
+                        if (exchangeAccount.keys.length > 0) {
+                            let key = exchangeAccount.keys[0]
+                            try {
+                                let data = JSON.parse(key.code)
+                                process.env.KEY = data.label
+                                process.env.SECRET = data.secret
+                            } catch (err) {
+                                // No need to do anything if data is wrong for now.
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
+
 
     let stepKey = execution.devTeam + '.' + execution.bot + '.' + execution.process;
     if (processedSteps.has(stepKey)) {

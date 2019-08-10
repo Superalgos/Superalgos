@@ -1,6 +1,8 @@
 
 function newRestartSimulation () {
   const MODULE_NAME = 'Restart Simulation'
+  const logger = newWebDebugLog()
+  logger.fileName = MODULE_NAME
 
   let thisObject = {
     visible: true,
@@ -113,7 +115,16 @@ function newRestartSimulation () {
       thisObject.status = 'Saving'
       let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(simulationParams)
       if (result === true) {
-        if (window.canvasApp.executingAt !== 'Local') {
+        if (window.canvasApp.executingAt === 'Local') {
+          callServer('', 'RestartCloneExecutor', onSaved)
+          function onSaved (err) {
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+              logger.write('[INFO] Restart Simulation -> Clone Executor Restarted')
+            } else {
+              logger.write('[ERROR] Restart Simulation -> Can not restart Clone Executor. err = ' + err.messsage)
+            }
+          }
+        } else {
           thisObject.status = 'Restarting'
           await graphQlRestartSimulation(simulationParams)
         }

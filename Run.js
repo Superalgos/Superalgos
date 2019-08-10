@@ -141,7 +141,7 @@ async function readExecutionConfiguration(execution) {
                                     if (code.initialDatetime !== undefined) {
                                         initialDatetime = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
                                     }
-                                    if (code.finalDatetime !== undefined) {
+                                     if (code.finalDatetime !== undefined) {
                                         finalDatetime = code.finalDatetime
                                     } 
                                 }

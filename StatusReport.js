@@ -162,7 +162,7 @@
             let ownerId = owner.devTeam + "-" + owner.bot + "-" + owner.botVersion.major + "-" + owner.botVersion.minor + "-" + owner.process + "-" + owner.dataSetVersion;
             let botId = bot.devTeam + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
 
-            if (ownerId !== botId) {
+            if (ownerId !== botId && owner.process !== "Context") { // Context is a special case where the report is created by the Context.js module itself.
 
                 let customErr = {
                     result: global.CUSTOM_FAIL_RESPONSE.result,
@@ -176,7 +176,7 @@
             let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
             let filePath = bot.filePathRoot + "/Reports/" + owner.process + timePath;
 
-            if (bot.type === 'Trading') {
+            if (bot.type === 'Trading' ) {
                 fileName = bot.startMode + "." + fileName;
             }
 

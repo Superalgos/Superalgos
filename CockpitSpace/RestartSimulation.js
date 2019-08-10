@@ -103,7 +103,7 @@ function newRestartSimulation () {
     }
 
     let simulationParams = {
-      beginDatetime: dateAtScreenCorner.valueOf() / 1000 | 0,
+      beginDatetime: dateAtScreenCorner.valueOf(),
       resumeExecution: false,
       timePeriodDailyArray: timePeriodDailyArray,
       timePeriodMarketArray: timePeriodMarketArray,

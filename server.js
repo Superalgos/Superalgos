@@ -1,5 +1,7 @@
 
-require('dotenv').config()
+require('dotenv').config();
+const { spawn } = require('child_process');
+const psTree = require('ps-tree');
 
 CONSOLE_LOG = process.env.CONSOLE_LOG === 'true'
 CONSOLE_ERROR_LOG = process.env.CONSOLE_ERROR_LOG === 'true'
@@ -33,8 +35,10 @@ global.CUSTOM_FAIL_RESPONSE = {
 let http = require('http')
 let port = process.env.PORT || 1337
 let isHttpServerStarted = false
+let cloneExecutorChildProcess
 
 startHtttpServer()
+startCloneExecutor()
 
 function startHtttpServer() {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> startHtttpServer -> Entering function.') }
@@ -47,6 +51,49 @@ function startHtttpServer() {
   } catch (err) {
     console.log('[ERROR] server -> startHtttpServer -> Error = ' + err.stack)
   }
+}
+
+function startCloneExecutor() {
+  if (CONSOLE_LOG === true) { console.log('[INFO] server -> startCloneExecutor -> Entering function.') };
+
+  let path = process.env.CLONE_EXECUTOR_PATH + '/run.js'
+  cloneExecutorChildProcess = spawn('node', [path], { shell: true, stdio: 'inherit' });
+
+  cloneExecutorChildProcess.on('error', (err) => {
+    console.log(`[ERROR] server -> startCloneExecutor -> Clone Executor exited with error ${err}`);
+  });
+  cloneExecutorChildProcess.on('close', (code, signal) => {
+    console.log(`[INFO] CloneExecutor process terminated.`);
+  });
+}
+
+function stopCloneExecutor() {
+  if (CONSOLE_LOG === true) { console.log('[INFO] server -> stopCloneExecutor -> Entering function.') };
+
+  var kill = function (pid, signal, callback) {
+    signal = signal || 'SIGKILL';
+    callback = callback || function () { };
+    var killTree = true;
+    if (killTree) {
+      psTree(pid, function (err, children) {
+        [pid].concat(
+          children.map(function (p) {
+            return p.PID;
+          })
+        ).forEach(function (tpid) {
+          try { process.kill(tpid, signal) }
+          catch (ex) { }
+        });
+        callback();
+      });
+    } else {
+      try { process.kill(pid, signal) }
+      catch (ex) { }
+      callback();
+    }
+  };
+
+  kill(cloneExecutorChildProcess.pid);
 }
 
 function onBrowserRequest(request, response) {
@@ -75,6 +122,28 @@ function onBrowserRequest(request, response) {
 
   switch (requestParameters[1]) {
 
+    case 'RestartCloneExecutor':
+      {
+        try {
+          stopCloneExecutor();
+          startCloneExecutor();
+          respondWithContent('Restart Clone Executor ok.', response)
+        } catch (err) {
+          respondWithContent('There was an error restarting clone executor.', response)
+        }
+
+        break
+      }
+    case 'StopCloneExecutor':
+      {
+        try {
+          stopCloneExecutor();
+          respondWithContent('Stop Clone Executor ok.', response)
+        } catch (err) {
+          respondWithContent('There was an error stopping clone executor.', response)
+        }
+        break
+      }
     case 'MQService':
       {
         let filePath = './node_modules/@superalgos/mqservice/orderLifeCicle/webDependency.js'

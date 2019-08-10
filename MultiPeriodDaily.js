@@ -370,7 +370,7 @@
                                 }
                             }
 
-                            let timePeriodFilter = process.env.TIME_PERIOD
+                            let timePeriodFilter = global.EXECUTION_CONFIG.timePeriodFileStorage
                             if (timePeriodFilter !== undefined) {
                                 if (timePeriodFilter.indexOf(outputPeriodLabel) === -1) {
                                     periodsControlLoop();

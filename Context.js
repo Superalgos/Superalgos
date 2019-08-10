@@ -131,7 +131,7 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getStatusReport -> Entering function."); }
 
-                    let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
+                    let key = bot.devTeam + "-" + bot.codeName + "-" + "Context" + "-" + bot.dataSetVersion;
 
                     statusReportModule = statusDependencies.statusReports.get(key);
                     thisObject.statusReport = statusReportModule.file;

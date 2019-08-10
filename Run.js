@@ -35,18 +35,19 @@ if (process.env.RUN_SEQUENCE !== undefined) {
 }
 
 if (isRunSequence) {
-  sequenceExecution(sequenceStep)
+  sequenceExecution(sequenceStep, false)
 } else {
   readExecutionConfiguration()
 }
 
-function sequenceExecution(currentStep) {
+function sequenceExecution(currentStep, notFirstSequence) {
     let execution = sequenceList[currentStep];
+
     process.env.STOP_GRACEFULLY = true;
     execution.devTeam ? process.env.DEV_TEAM = execution.devTeam : undefined;
     execution.bot ? process.env.BOT = execution.bot : undefined;
     execution.mode ? process.env.START_MODE = execution.mode : undefined;
-    execution.resumeExecution ? process.env.RESUME_EXECUTION = execution.resumeExecution : undefined;
+    execution.resumeExecution = notFirstSequence
     execution.type ? process.env.TYPE = execution.type : undefined;
     execution.process ? process.env.PROCESS = execution.process : undefined;
     execution.startYear ? process.env.MIN_YEAR = execution.startYear : undefined;
@@ -69,7 +70,7 @@ function sequenceExecution(currentStep) {
         processedSteps.set(stepKey, 0);
     }
     console.log("Sequence Execution Parameters: " + JSON.stringify(execution))
-    readExecutionConfiguration();
+    readExecutionConfiguration(execution);
     sequenceStep++;
 }
 
@@ -79,17 +80,17 @@ function onExecutionFinish (result, finishStepKey) {
     console.log('[INFO] onExecutionFinish -> Step already processed.')
   } else {
     if (sequenceStep < sequenceList.length) {
-      sequenceExecution(sequenceStep)
+      sequenceExecution(sequenceStep, true)
     } else {
         if (sequenceStep < sequenceList.length) {
-            sequenceExecution(sequenceStep);
+            sequenceExecution(sequenceStep, true);
         } else {
             setTimeout(function () {
                 console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
                 sequenceList = require('./sequence'); // We read again the sequence after every loop
                 sequenceStep = 0;
                 processedSteps = new Map();
-                sequenceExecution(sequenceStep);
+                sequenceExecution(sequenceStep, true);
             }, process.env.EXECUTION_LOOP_DELAY);
         }
     }
@@ -97,24 +98,53 @@ function onExecutionFinish (result, finishStepKey) {
 }
 
 
-async function readExecutionConfiguration() {
+async function readExecutionConfiguration(execution) {
     try {
         console.log("[INFO] Run -> readExecutionConfiguration -> Entering function. ");
 
+        let timePeriod
+        let botProcess
+
         /* Try to get the begin and end dates from the Definition */
         let definition = await strategy.getStrategy()
+
+        /* Dates are taken initially from .env, but can be overwritten if they are defined by the user */
         let initialDatetime = process.env.BEGIN_DATE_TIME
         let finalDatetime = process.env.END_DATE_TIME
 
-        if (definition !== undefined) {
-            if (definition.tradingSystem !== undefined) {
-                if (definition.tradingSystem.parameters !== undefined) {
-                    if (definition.tradingSystem.parameters.baseAsset !== undefined) {
-                        if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
-                            if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
-                                let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
-                                initialDatetime = code.initialDatetime
-                                finalDatetime = code.finalDatetime
+        if (execution.type === 'Trading-Engine') {
+            if (definition !== undefined) {
+                if (definition.simulationParams !== undefined) {
+                    if (definition.simulationParams.beginDatetime !== undefined) {
+                        initialDatetime = new Date(definition.simulationParams.beginDatetime)  /* The first override occurs here, with the simulation parameters */
+                    }
+                    /* Here we only look for one timePeriod, in the future we will be able to process the whole array, but not for now. */
+                    if (definition.simulationParams.timePeriodDailyArray !== undefined) {
+                        if (definition.simulationParams.timePeriodDailyArray.length > 0) {
+                            timePeriod = definition.simulationParams.timePeriodDailyArray[0]
+                            botProcess = "Multi-Period-Daily"
+                        }
+                    }
+                    if (definition.simulationParams.timePeriodMarketArray !== undefined) {
+                        if (definition.simulationParams.timePeriodMarketArray.length > 0) {
+                            timePeriod = definition.simulationParams.timePeriodMarketArray[0]
+                            botProcess = "Multi-Period-Market"
+                        }
+                    }
+                }
+                if (definition.tradingSystem !== undefined) {
+                    if (definition.tradingSystem.parameters !== undefined) {
+                        if (definition.tradingSystem.parameters.baseAsset !== undefined) {
+                            if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
+                                if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
+                                    let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
+                                    if (code.initialDatetime !== undefined) {
+                                        initialDatetime = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
+                                    }
+                                     if (code.finalDatetime !== undefined) {
+                                        finalDatetime = code.finalDatetime
+                                    } 
+                                }
                             }
                         }
                     }
@@ -131,21 +161,21 @@ async function readExecutionConfiguration() {
         if (process.env.TYPE === 'Trading' || process.env.TYPE === 'Trading-Engine') {
             let live = {
             run: 'false',
-            resumeExecution: process.env.RESUME_EXECUTION,
+            resumeExecution: execution.resumeExecution,
             beginDatetime: initialDatetime,
             endDatetime: finalDatetime
             }
 
             let backtest = {
             run: 'false',
-            resumeExecution: process.env.RESUME_EXECUTION,
+            resumeExecution: execution.resumeExecution,
             beginDatetime: initialDatetime,
             endDatetime: finalDatetime
             }
 
             let competition = {
             run: 'false',
-            resumeExecution: process.env.RESUME_EXECUTION,
+            resumeExecution: execution.resumeExecution,
             beginDatetime: initialDatetime,
             endDatetime: finalDatetime
             }
@@ -169,7 +199,7 @@ async function readExecutionConfiguration() {
             let noTime = {
                 run: "false",
                 beginDatetime: process.env.BEGIN_DATE_TIME,
-                resumeExecution: process.env.RESUME_EXECUTION
+                resumeExecution: execution.resumeExecution
             }
             let fixedInterval = {
                 run: "false",
@@ -189,19 +219,21 @@ async function readExecutionConfiguration() {
 
         startMode[process.env.START_MODE].run = "true"
 
+        if (botProcess === undefined) { botProcess = process.env.PROCESS } // Only use the .env when nothing comes at Definition.json
         let cloneToExecute = {
             enabled: "true",
             devTeam: process.env.DEV_TEAM,
             bot: process.env.BOT,
-            process: process.env.PROCESS,
+            process: botProcess,
             repo: global.CURRENT_BOT_REPO
         }
 
+        if (timePeriod === undefined) { timePeriod = process.env.TIME_PERIOD} // Only use the .env when nothing comes at Definition.json
         global.EXECUTION_CONFIG = {
             cloneToExecute: cloneToExecute,
             startMode: startMode,
-            timePeriod: getTimePeriod(process.env.TIME_PERIOD),
-            timePeriodFileStorage: process.env.TIME_PERIOD,
+            timePeriod: getTimePeriod(timePeriod),
+            timePeriodFileStorage: timePeriod,
             dataSet: process.env.DATA_SET
         };
 

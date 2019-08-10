@@ -345,7 +345,7 @@
                                     let month = pad((new Date()).getUTCMonth() + 1, 2);
                                     let year = (new Date()).getUTCFullYear();
 
-                                    if (processConfig.startMode.noTime.resumeExecution === "true") {
+                                    if (processConfig.startMode.noTime.resumeExecution === true) {
                                         botConfig.hasTheBotJustStarted = false;
                                     } else {
                                         botConfig.hasTheBotJustStarted = true;
@@ -403,7 +403,7 @@
                                     let month = pad((new Date()).getUTCMonth() + 1, 2);
                                     let year = (new Date()).getUTCFullYear();
 
-                                    if (processConfig.startMode.live.resumeExecution === "true") {
+                                    if (processConfig.startMode.live.resumeExecution === true) {
                                         botConfig.hasTheBotJustStarted = false;
                                     } else {
                                         botConfig.hasTheBotJustStarted = true;
@@ -459,7 +459,7 @@
 
                                     botConfig.competition = processConfig.startMode.competition;
 
-                                    if (processConfig.startMode.competition.resumeExecution === "false") {
+                                    if (processConfig.startMode.competition.resumeExecution === false) {
                                         botConfig.hasTheBotJustStarted = true;
                                     } else {
                                         botConfig.hasTheBotJustStarted = false;

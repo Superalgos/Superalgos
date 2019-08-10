@@ -1,5 +1,6 @@
-require('dotenv').config()
-const strategy = require('./Integrations/Strategy')
+require('dotenv').config();
+const strategy = require('./Integrations/Strategy');
+const path = require('path');
 
 global.SHALL_BOT_STOP = false
 global.AT_BREAKPOINT = false // This is used only when running at the browser.
@@ -11,33 +12,36 @@ global.MARKET = { assetA: 'USDT', assetB: 'BTC' }
 global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' }
 
 process.on('uncaughtException', function (err) {
-  console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message)
-  console.log('[INFO] Run -> uncaughtException -> err.stack = ' + err.stack)
-  process.exit(1)
+    console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message)
+    console.log('[INFO] Run -> uncaughtException -> err.stack = ' + err.stack)
+    process.exit(1)
 })
 
 process.on('unhandledRejection', (reason, p) => {
-  console.log('[INFO] Run -> unhandledRejection -> reason = ' + JSON.stringify(reason))
-  console.log('[INFO] Run -> unhandledRejection -> p = ' + JSON.stringify(p))
-  process.exit(1)
+    console.log('[INFO] Run -> unhandledRejection -> reason = ' + JSON.stringify(reason))
+    console.log('[INFO] Run -> unhandledRejection -> p = ' + JSON.stringify(p))
+    process.exit(1)
 })
 
 process.on('exit', function (code) {
-  console.log('[INFO] Run -> process.on.exit -> About to exit -> code = ' + code)
+    console.log('[INFO] Run -> process.on.exit -> About to exit -> code = ' + code)
 })
+
+const definitionPath = path.resolve(process.env.INTER_PROCESS_FILES_PATH + '/definition.json');
+const definition = require(definitionPath);
 
 let sequenceList = require('./sequence');
 let isRunSequence = false;
 let sequenceStep = 0;
 let processedSteps = new Map()
 if (process.env.RUN_SEQUENCE !== undefined) {
-  isRunSequence = JSON.parse(process.env.RUN_SEQUENCE)
+    isRunSequence = JSON.parse(process.env.RUN_SEQUENCE)
 }
 
 if (isRunSequence) {
-  sequenceExecution(sequenceStep, false)
+    sequenceExecution(sequenceStep, false)
 } else {
-  readExecutionConfiguration()
+    readExecutionConfiguration()
 }
 
 function sequenceExecution(currentStep, notFirstSequence) {
@@ -54,6 +58,7 @@ function sequenceExecution(currentStep, notFirstSequence) {
     execution.endYear ? process.env.MAX_YEAR = execution.endYear : undefined;
     execution.month ? process.env.MONTH = execution.month : undefined;
     execution.beginDatetime ? process.env.BEGIN_DATE_TIME = execution.beginDatetime : undefined;
+    execution.endDatetime ? process.env.END_DATE_TIME = execution.endDatetime : undefined;
     execution.dataSet ? process.env.DATA_SET = execution.dataSet : undefined;
     execution.timePeriod ? process.env.TIME_PERIOD = execution.timePeriod : undefined;
     execution.baseAsset ? process.env.BASE_ASSET = execution.baseAsset : undefined;
@@ -62,6 +67,11 @@ function sequenceExecution(currentStep, notFirstSequence) {
     execution.type === 'Trading' ? process.env.CLONE_ID = 1 : undefined;
 
     execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
+
+    if (definition.personalData) {
+        process.env.KEY = definition.personalData.exchangeAccounts[0].keys[0].code;
+        process.env.SECRET = definition.personalData.exchangeAccounts[0].keys[1].code;
+    }
 
     let stepKey = execution.devTeam + '.' + execution.bot + '.' + execution.process;
     if (processedSteps.has(stepKey)) {
@@ -74,27 +84,27 @@ function sequenceExecution(currentStep, notFirstSequence) {
     sequenceStep++;
 }
 
-function onExecutionFinish (result, finishStepKey) {
-  processedSteps.set(finishStepKey, processedSteps.get(finishStepKey) + 1)
-  if (processedSteps.get(finishStepKey) > 1) {
-    console.log('[INFO] onExecutionFinish -> Step already processed.')
-  } else {
-    if (sequenceStep < sequenceList.length) {
-      sequenceExecution(sequenceStep, true)
+function onExecutionFinish(result, finishStepKey) {
+    processedSteps.set(finishStepKey, processedSteps.get(finishStepKey) + 1)
+    if (processedSteps.get(finishStepKey) > 1) {
+        console.log('[INFO] onExecutionFinish -> Step already processed.')
     } else {
         if (sequenceStep < sequenceList.length) {
-            sequenceExecution(sequenceStep, true);
+            sequenceExecution(sequenceStep, true)
         } else {
-            setTimeout(function () {
-                console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
-                sequenceList = require('./sequence'); // We read again the sequence after every loop
-                sequenceStep = 0;
-                processedSteps = new Map();
+            if (sequenceStep < sequenceList.length) {
                 sequenceExecution(sequenceStep, true);
-            }, process.env.EXECUTION_LOOP_DELAY);
+            } else {
+                setTimeout(function () {
+                    console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
+                    sequenceList = require('./sequence'); // We read again the sequence after every loop
+                    sequenceStep = 0;
+                    processedSteps = new Map();
+                    sequenceExecution(sequenceStep, true);
+                }, process.env.EXECUTION_LOOP_DELAY);
+            }
         }
     }
-  }
 }
 
 
@@ -141,9 +151,9 @@ async function readExecutionConfiguration(execution) {
                                     if (code.initialDatetime !== undefined) {
                                         initialDatetime = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
                                     }
-                                     if (code.finalDatetime !== undefined) {
+                                    if (code.finalDatetime !== undefined) {
                                         finalDatetime = code.finalDatetime
-                                    } 
+                                    }
                                 }
                             }
                         }
@@ -160,24 +170,24 @@ async function readExecutionConfiguration(execution) {
 
         if (process.env.TYPE === 'Trading' || process.env.TYPE === 'Trading-Engine') {
             let live = {
-            run: 'false',
-            resumeExecution: execution.resumeExecution,
-            beginDatetime: initialDatetime,
-            endDatetime: finalDatetime
+                run: 'false',
+                resumeExecution: execution.resumeExecution,
+                beginDatetime: initialDatetime,
+                endDatetime: finalDatetime
             }
 
             let backtest = {
-            run: 'false',
-            resumeExecution: execution.resumeExecution,
-            beginDatetime: initialDatetime,
-            endDatetime: finalDatetime
+                run: 'false',
+                resumeExecution: execution.resumeExecution,
+                beginDatetime: initialDatetime,
+                endDatetime: finalDatetime
             }
 
             let competition = {
-            run: 'false',
-            resumeExecution: execution.resumeExecution,
-            beginDatetime: initialDatetime,
-            endDatetime: finalDatetime
+                run: 'false',
+                resumeExecution: execution.resumeExecution,
+                beginDatetime: initialDatetime,
+                endDatetime: finalDatetime
             }
 
             startMode = {
@@ -228,7 +238,7 @@ async function readExecutionConfiguration(execution) {
             repo: global.CURRENT_BOT_REPO
         }
 
-        if (timePeriod === undefined) { timePeriod = process.env.TIME_PERIOD} // Only use the .env when nothing comes at Definition.json
+        if (timePeriod === undefined) { timePeriod = process.env.TIME_PERIOD } // Only use the .env when nothing comes at Definition.json
         global.EXECUTION_CONFIG = {
             cloneToExecute: cloneToExecute,
             startMode: startMode,
@@ -253,59 +263,59 @@ async function readExecutionConfiguration(execution) {
 }
 
 
-function getTimePeriod (timePeriod) {
-  if (timePeriod !== undefined) {
-    try {
-      let timePeriodMap = new Map()
-      timePeriodMap.set('24-hs', 86400000)
-      timePeriodMap.set('12-hs', 43200000)
-      timePeriodMap.set('08-hs', 28800000)
-      timePeriodMap.set('06-hs', 21600000)
-      timePeriodMap.set('04-hs', 14400000)
-      timePeriodMap.set('03-hs', 10800000)
-      timePeriodMap.set('02-hs', 7200000)
-      timePeriodMap.set('01-hs', 3600000)
-      timePeriodMap.set('45-min', 2700000)
-      timePeriodMap.set('40-min', 2400000)
-      timePeriodMap.set('30-min', 1800000)
-      timePeriodMap.set('20-min', 1200000)
-      timePeriodMap.set('15-min', 900000)
-      timePeriodMap.set('10-min', 600000)
-      timePeriodMap.set('05-min', 300000)
-      timePeriodMap.set('04-min', 240000)
-      timePeriodMap.set('03-min', 180000)
-      timePeriodMap.set('02-min', 120000)
-      timePeriodMap.set('01-min', 60000)
-      return timePeriodMap.get(timePeriod)
-    } catch (error) {
-      console.log('[WARN] Run -> readExecutionConfiguration -> getTimePeriod -> Error: ', error)
+function getTimePeriod(timePeriod) {
+    if (timePeriod !== undefined) {
+        try {
+            let timePeriodMap = new Map()
+            timePeriodMap.set('24-hs', 86400000)
+            timePeriodMap.set('12-hs', 43200000)
+            timePeriodMap.set('08-hs', 28800000)
+            timePeriodMap.set('06-hs', 21600000)
+            timePeriodMap.set('04-hs', 14400000)
+            timePeriodMap.set('03-hs', 10800000)
+            timePeriodMap.set('02-hs', 7200000)
+            timePeriodMap.set('01-hs', 3600000)
+            timePeriodMap.set('45-min', 2700000)
+            timePeriodMap.set('40-min', 2400000)
+            timePeriodMap.set('30-min', 1800000)
+            timePeriodMap.set('20-min', 1200000)
+            timePeriodMap.set('15-min', 900000)
+            timePeriodMap.set('10-min', 600000)
+            timePeriodMap.set('05-min', 300000)
+            timePeriodMap.set('04-min', 240000)
+            timePeriodMap.set('03-min', 180000)
+            timePeriodMap.set('02-min', 120000)
+            timePeriodMap.set('01-min', 60000)
+            return timePeriodMap.get(timePeriod)
+        } catch (error) {
+            console.log('[WARN] Run -> readExecutionConfiguration -> getTimePeriod -> Error: ', error)
+        }
+    } else {
+        return undefined
     }
-  } else {
-    return undefined
-  }
 }
 
-function startRoot () {
-  console.log('[INFO] Run -> startRoot -> Entering function. ')
+function startRoot() {
+    console.log('[INFO] Run -> startRoot -> Entering function. ')
 
-  const ROOT_DIR = './'
-  const ROOT_MODULE = require(ROOT_DIR + 'Root')
-  let root = ROOT_MODULE.newRoot()
+    const ROOT_DIR = './'
+    const ROOT_MODULE = require(ROOT_DIR + 'Root')
+    let root = ROOT_MODULE.newRoot()
 
-  let UI_COMMANDS = {
-    beginDatetime: undefined,
-    endDatetime: undefined,
-    timePeriod: undefined,
-    startMode: undefined,
-    eventHandler: undefined
-  }
+    let UI_COMMANDS = {
+        beginDatetime: undefined,
+        endDatetime: undefined,
+        timePeriod: undefined,
+        startMode: undefined,
+        eventHandler: undefined
+    }
 
-  root.initialize(UI_COMMANDS, onInitialized)
+    root.initialize(UI_COMMANDS, onInitialized)
 
-  function onInitialized () {
-    console.log('[INFO] Run -> startRoot -> onInitialized -> Entering function. ')
+    function onInitialized() {
+        console.log('[INFO] Run -> startRoot -> onInitialized -> Entering function. ')
 
-    root.start(onExecutionFinish)
-  }
+        root.start(onExecutionFinish)
+    }
 }
 

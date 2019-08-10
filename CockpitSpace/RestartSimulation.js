@@ -129,7 +129,7 @@ function newRestartSimulation () {
           await graphQlRestartSimulation(simulationParams)
         }
         thisObject.status = 'Calculating'
-        counterTillNextState = 50
+        counterTillNextState = 500
       } else {
         thisObject.status = 'Error'
         counterTillNextState = 500
@@ -181,7 +181,7 @@ function newRestartSimulation () {
             break
           case 'Calculating':
             thisObject.status = 'Refreshing'
-            counterTillNextState = 15
+            counterTillNextState = 150
             break
           case 'Refreshing':
             thisObject.status = 'Reviewing'
@@ -191,7 +191,7 @@ function newRestartSimulation () {
             break
           case 'Reviewing':
             thisObject.status = '2nd Refresh'
-            counterTillNextState = 25
+            counterTillNextState = 250
             break
           case '2nd Refresh':
             thisObject.status = 'Ready'

@@ -153,7 +153,7 @@ function newStrategyPartTitle () {
   }
 
   function getContainer (point) {
-    if (CURRENT_TOP_MARGIN === 0) { return } // Fullscreen mode does not allow INPUT elements
+    if (AT_FULL_SCREEN_MODE === true) { return } // Fullscreen mode does not allow INPUT elements
 
     let container
 

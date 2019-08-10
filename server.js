@@ -127,9 +127,13 @@ function onBrowserRequest(request, response) {
         try {
           stopCloneExecutor();
           startCloneExecutor();
-          respondWithContent('Restart Clone Executor ok.', response)
+          respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
         } catch (err) {
-          respondWithContent('There was an error restarting clone executor.', response)
+            let error = {
+                result: 'Fail Because',
+                message: err.message
+            }
+            respondWithContent(JSON.stringify(error), response)
         }
 
         break
@@ -138,9 +142,13 @@ function onBrowserRequest(request, response) {
       {
         try {
           stopCloneExecutor();
-          respondWithContent('Stop Clone Executor ok.', response)
+          respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
         } catch (err) {
-          respondWithContent('There was an error stopping clone executor.', response)
+            let error = {
+                result: 'Fail Because',
+                message: err.message
+            }
+            respondWithContent(JSON.stringify(error), response)
         }
         break
       }

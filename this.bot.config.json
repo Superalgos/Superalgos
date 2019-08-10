@@ -36,6 +36,16 @@
           },
           "process": "Multi-Period-Market",
           "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAJason",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Context",
+          "dataSetVersion": "dataSet.V1"
         }
       ],
       "dataDependencies": [
@@ -142,6 +152,16 @@
             "minor": 0
           },
           "process": "Multi-Period-Daily",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAJason",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Context",
           "dataSetVersion": "dataSet.V1"
         }
       ],

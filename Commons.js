@@ -1424,64 +1424,115 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Entering function."); }
 
-                        /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
-
-                        if (interExecutionMemory.executionContext.period !== undefined) {
-                            if (period <= interExecutionMemory.executionContext.period) {
+                        /* We wont take a position unless we are withing the startDate and the endDate range */
+                        if (startDate !== undefined) {
+                            if (candle.begin < startDate.valueOf()) {
                                 takePositionAtSimulation()
                                 return;
+                            }
+                        }
+
+                        if (endDate !== undefined) {
+                            if (candle.begin > endDate.valueOf()) {
+                                takePositionAtSimulation()
+                                return;
+                            }
+                        }
+
+                        /* Checking the status of current positions */
+                        let positions = assistant.getPositions();
+                        if (positions.length > 0) {
+                            let position = positions[positions.length - 1] // We are allways checking the the last position is not open.  
+                            if (position.status === 'open') {
+                                afterLoop();
+                                return
+                            }
+                        }
+
+                        /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
+
+                        if (interExecutionMemory.executionContext !== undefined) {
+                            if (interExecutionMemory.executionContext.periods !== undefined) {
+                                if (periods <= interExecutionMemory.executionContext.periods) {
+                                    takePositionAtSimulation()
+                                    return;
+                                }
                             }
                         }
 
                         /* We are not going to place orders based on outdated information. The next filter prevents firing orders when backtesting. */
                         let today =  new Date(Math.trunc((new Date().valueOf()) / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
                         let processDay = new Date(Math.trunc(currentDay.valueOf() / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
-                        if (today !== processDay) {
-                            //takePositionAtSimulation()
-                            //return;
+                        if (today.valueOf() !== processDay.valueOf()) {
+                            takePositionAtSimulation()
+                            return;
                         }
 
+                        let openPositionRate
+                        let amountA
+                        let amountB
                         let positionDirection
+
                         if (baseAsset === 'BTC') {
                             positionDirection = "sell"
+
+                            openPositionRate = tradePositionRate - 100 // Provisional stuff to simulate a market order. Put the price lower to get it executed quickly
+
+                            amountA = tradePositionSize * openPositionRate
+                            amountB = tradePositionSize
                         } else {
                             positionDirection = "buy"
+
+                            openPositionRate = tradePositionRate + 100 // Provisional stuff to simulate a market order. Put the price higher to get it executed quickly
+
+                            amountA = tradePositionSize 
+                            amountB = tradePositionSize / openPositionRate
                         }
 
                         interExecutionMemory.executionContext = {
                             status: "Taking Position"
                         }
 
-                        assistant.putPosition(positionDirection, tradePositionRate, tradePositionSize * tradePositionRate, tradePositionSize, onOrderPut)
+                        assistant.putPosition(positionDirection, openPositionRate, amountA, amountB, onOrderPut)
 
                         function onOrderPut(err) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> Entering function."); }
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
-                                    interExecutionMemory.executionContext = {
-                                        status: "In a Position",
-                                        period: period
+                            try {
+                                switch (err.result) {
+                                    case global.DEFAULT_OK_RESPONSE.result: {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
+                                        interExecutionMemory.executionContext = {
+                                            status: "In a Position",
+                                            periods: periods,
+                                            amountA: amountA,
+                                            amountB: amountB
+                                        }
+                                        takePositionAtSimulation()
+                                        return;
                                     }
-                                    takePositionAtSimulation()
-                                    return;
+                                    case global.DEFAULT_FAIL_RESPONSE.result: {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
+                                        strategy.openStage.openExecution.error = err.message
+                                        afterLoop()
+                                        return;
+                                    }
+                                    case global.DEFAULT_RETRY_RESPONSE.result: {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
+                                        strategy.openStage.openExecution.error = err.message
+                                        afterLoop()
+                                        return;
+                                    }
                                 }
-                                case global.DEFAULT_FAIL_RESPONSE.result: {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
-                                    strategy.openStage.openExecution.error = err.message
-                                    afterLoop()
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
-                                    strategy.openStage.openExecution.error = err.message
-                                    afterLoop()
-                                    return;
-                                }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> putOpeningOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                return
+
+                            } catch (err) {
+                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> putOpeningOrder -> onOrderPut ->  err = " + err.stack);
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                return
                             }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
-                            strategy.openStage.openExecution.error = err.message
                         }
                     }
 
@@ -1533,9 +1584,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
 
-                    tradePositionSize = strategy.positionSize;
-                    tradePositionRate = strategy.positionRate;
-
                     /* We see if we need to put the actual order at the exchange. */
 
                     if (interExecutionMemory.executionContext !== undefined) {
@@ -1578,7 +1626,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         /* Checking the status of current positions */
                         let positions = assistant.getPositions();
                         if (positions.length > 0) {
-                            let position = positions[0]
+                            let position = positions[positions.length - 1] // We are allways checking the the last position is not open. 
                             if (position.status === 'open') {
                                 afterLoop();
                                 return
@@ -1587,55 +1635,81 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
 
-                        if (interExecutionMemory.executionContext.period !== undefined) {
-                            if (period <= interExecutionMemory.executionContext.period) {
-                                closePositionAtSimulation()
-                                return;
+                        if (interExecutionMemory.executionContext !== undefined) {
+                            if (interExecutionMemory.executionContext.periods !== undefined) {
+                                if (periods <= interExecutionMemory.executionContext.periods) {
+                                    closePositionAtSimulation()
+                                    return;
+                                }
                             }
                         }
 
+                        let closePositionRate
+                        let amountA
+                        let amountB
                         let positionDirection
+
                         if (baseAsset === 'BTC') {
                             positionDirection = "buy"
+
+                            closePositionRate = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
+
+                            amountA = interExecutionMemory.executionContext.amountA
+                            amountB = interExecutionMemory.executionContext.amountA / closePositionRate
                         } else {
                             positionDirection = "sell"
+
+                            closePositionRate = ticker.last - 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
+
+                            amountA = interExecutionMemory.executionContext.amountB * closePositionRate
+                            amountB = interExecutionMemory.executionContext.amountB
                         }
 
                         interExecutionMemory.executionContext = {
                             status: "Closing Position"
                         }
 
-                        assistant.putPosition(positionDirection, tradePositionRate, tradePositionSize * tradePositionRate, tradePositionSize, onOrderPut)
+                        assistant.putPosition(positionDirection, closePositionRate, amountA, amountB, onOrderPut)
 
                         function onOrderPut(err) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> Entering function."); }
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
-                                    interExecutionMemory.executionContext = {
-                                        status: "Position Closed",
-                                        period: period
+                            try {
+                                switch (err.result) {
+                                    case global.DEFAULT_OK_RESPONSE.result: {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
+                                        interExecutionMemory.executionContext = {
+                                            status: "Position Closed",
+                                            periods: periods,
+                                            amountA: amountA,
+                                            amountB: amountB
+                                        }
+                                        closePositionAtSimulation()
+                                        return;
                                     }
-                                    closePositionAtSimulation()
-                                    return;
+                                    case global.DEFAULT_FAIL_RESPONSE.result: {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
+                                        /* We will assume that the problem is temporary, and expect that it will work at the next execution.*/
+                                        strategy.closeStage.closeExecution.error = err.message
+                                        afterLoop()
+                                        return;
+                                    }
+                                    case global.DEFAULT_RETRY_RESPONSE.result: {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
+                                        strategy.closeStage.closeExecution.error = err.message
+                                        afterLoop()
+                                        return;
+                                    }
                                 }
-                                case global.DEFAULT_FAIL_RESPONSE.result: {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
-                                    /* We will assume that the problem is temporary, and expect that it will work at the next execution.*/
-                                    strategy.closeStage.closeExecution.error = err.message
-                                    afterLoop()
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
-                                    strategy.closeStage.closeExecution.error = err.message
-                                    afterLoop()
-                                    return;
-                                }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> putClosingOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                return
+
+                            } catch (err) {
+                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> putClosingOrder -> onOrderPut ->  err = " + err.stack);
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                return
                             }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
-                            strategy.openStage.openExecution.error = err.message
                         }
                     }
 

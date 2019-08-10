@@ -40,17 +40,6 @@
       ],
       "dataDependencies": [
         {
-          "devTeam": "AAVikings",
-          "bot": "AAGauss",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "LRC-Points",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Market"
-        },
-        {
           "devTeam": "AAMasters",
           "bot": "AAChris",
           "botVersion": {
@@ -157,17 +146,6 @@
         }
       ],
       "dataDependencies": [
-        {
-          "devTeam": "AAVikings",
-          "bot": "AAGauss",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "LRC-Points",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Daily"
-        },
         {
           "devTeam": "AAMasters",
           "bot": "AAChris",

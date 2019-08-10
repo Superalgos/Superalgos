@@ -103,17 +103,20 @@ function newRestartSimulation () {
     }
 
     let simulationParams = {
-      beginDatetime: dateAtScreenCorner.valueOf() / 1000 | 0,
+      beginDatetime: dateAtScreenCorner.valueOf(),
       resumeExecution: false,
       timePeriodDailyArray: timePeriodDailyArray,
-      timePeriodMarketArray: timePeriodMarketArray
+      timePeriodMarketArray: timePeriodMarketArray,
+      timestamp: (new Date()).valueOf()
     }
     try {
       thisObject.status = 'Saving'
-      let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer()
+      let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(simulationParams)
       if (result === true) {
-        thisObject.status = 'Restarting'
-        await graphQlRestartSimulation(simulationParams)
+        if (window.canvasApp.executingAt !== 'Local') {
+          thisObject.status = 'Restarting'
+          await graphQlRestartSimulation(simulationParams)
+        }
         thisObject.status = 'Calculating'
         counterTillNextState = 50
       } else {

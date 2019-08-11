@@ -443,6 +443,10 @@
                                             runTradingBot(botConfig, processConfig);
                                             break;
                                         }
+                                        case 'Trading-Engine': {
+                                            runTradingEngine(botConfig, processConfig);
+                                            break;
+                                        }
                                         default: {
                                             console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                         }

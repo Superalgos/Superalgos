@@ -409,7 +409,12 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> Entering function."); }
 
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                                            let filePath = dependency.product + '/' + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+                                            let filePath
+                                            if (dependency.dataSet === "Multi-Period-Daily") {
+                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + outputPeriodLabel + "/" + dateForPath;
+                                            } else {
+                                                filePath = dependency.product + '/' + dependency.dataSet  + "/" + dateForPath;
+                                            }
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
                                             storage.getTextFile(filePath, fileName, onFileReceived);
@@ -474,7 +479,12 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> Entering function."); }
 
                                             let dateForPath = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
-                                            let filePath = dependency.product + '/' + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+                                            let filePath
+                                            if (dependency.dataSet === "Multi-Period-Daily") {
+                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + outputPeriodLabel + "/" + dateForPath;
+                                            } else {
+                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + dateForPath;
+                                            }
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
                                             storage.getTextFile(filePath, fileName, onFileReceived);

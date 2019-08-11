@@ -168,10 +168,15 @@
 
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getFile -> Entering function."); }
 
+                                            let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                            let filePath = dependency.product + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
-
+                                            let filePath
+                                            if (dependency.dataSet === "Multi-Period-Market") {
+                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + outputPeriodLabel;
+                                            } else {
+                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + dateForPath;
+                                            }
                                             storage.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {

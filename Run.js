@@ -82,14 +82,13 @@ function sequenceExecution(currentStep) {
 
                             process.env.KEY = key.name
                             process.env.SECRET = key.code
-
+                            
                         }
                     }
                 }
             }
         }
     }
-
 
     let stepKey = execution.devTeam + '.' + execution.bot + '.' + execution.process;
     if (processedSteps.has(stepKey)) {
@@ -142,6 +141,14 @@ async function readExecutionConfiguration(execution) {
         let finalDatetime = process.env.END_DATE_TIME
 
         if (execution.type === 'Trading-Engine') {
+
+            /* We set the START MODE of the Trading Engine */
+            if (process.env.KEY === undefined || process.env.SECRET === undefined) {
+                process.env.START_MODE = "backtest" // if we dont have keys, we swtich to backtest mode to avoid exchange errors.
+            } else {
+                process.env.START_MODE = "live"  // If we have keys, then we are in live mode.
+            }
+
             if (definition !== undefined) {
                 if (definition.simulationParams !== undefined) {
                     if (definition.simulationParams.beginDatetime !== undefined) {
@@ -173,6 +180,44 @@ async function readExecutionConfiguration(execution) {
                                     if (code.finalDatetime !== undefined) {
                                         finalDatetime = code.finalDatetime
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+                /* Get the initial balance from the definition */
+                let tradingSystem = definition.tradingSystem
+
+                if (tradingSystem) {
+                    if (tradingSystem.parameters !== undefined) {
+                        if (tradingSystem.parameters.baseAsset !== undefined) {
+                            if (tradingSystem.parameters.baseAsset.formula !== undefined) {
+                                let receivedParameters
+                                try {
+                                    receivedParameters = JSON.parse(tradingSystem.parameters.baseAsset.formula.code);
+
+                                    if (receivedParameters.name !== undefined) {
+                                        baseAsset = receivedParameters.name;
+                                        if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
+                                            /* using BTC as default */
+                                            baseAsset = 'BTC'
+                                        }
+                                    }
+
+                                    if (baseAsset === 'BTC') {
+                                        if (receivedParameters.initialBalance !== undefined) {
+                                            process.env.INITIAL_BALANCE_ASSET_A = receivedParameters.initialBalance;
+                                            process.env.INITIAL_BALANCE_ASSET_B = 0
+                                        }  
+                                    } else {
+                                        if (receivedParameters.initialBalance !== undefined) {
+                                            process.env.INITIAL_BALANCE_ASSET_B = receivedParameters.initialBalance;
+                                            process.env.INITIAL_BALANCE_ASSET_A = 0
+                                        }                                        
+                                    }
+                                } catch (err) {
+                                    process.env.INITIAL_BALANCE_ASSET_A = 0.001 // default
+                                    process.env.INITIAL_BALANCE_ASSET_B = 0 // default
                                 }
                             }
                         }

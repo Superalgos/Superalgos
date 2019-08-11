@@ -36,8 +36,6 @@
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            bot.startMode = 'Live' // The Trading Engine does not support different start modes. Only live for background compatibility.
-
             UI_COMMANDS = pUI_COMMANDS;
             processConfig = pProcessConfig;
 

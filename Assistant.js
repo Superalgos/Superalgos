@@ -157,11 +157,13 @@
 
                         let candleArray;
 
-                        if (err.result === global.CUSTOM_FAIL_RESPONSE.result) {  // Just past midnight, this file will not exist for a couple of minutes.
-                            if (err.message === "File does not exist." || err.message === "The specified key does not exist.") {
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                return;
-                            }
+                        if (err.result === global.CUSTOM_FAIL_RESPONSE.result || err.code === "The specified key does not exist." || err.message === "File does not exist.") {  // Just past midnight, this file will not exist for a couple of minutes.
+                           
+                            logger.write(MODULE_NAME, "[WARN] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + JSON.stringify(err));
+                            logger.write(MODULE_NAME, "[WARN] initialize -> getMarketRateFromIndicator -> This could happen when there are still holes on trades and the process needs to catch up. ");
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
+                          
                         }
 
                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {

@@ -105,13 +105,13 @@ exports.newFileStorage = function newFileStorage() {
   }
 
   async function createTextFile(container, filePath, fileContent, callBackFunction) {
-    logInfo('createTextFile -> Entering function: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length))
 
     try {
       let host = await getDevTeamHost(container)
 
       if (host.url.indexOf('localhost') !== -1) {
-        let fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+          let fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+          logInfo('createTextFile: ' + fileLocation)
         let directoryPath = fileLocation.substring(0, fileLocation.lastIndexOf('/') + 1);
         mkDirByPathSync(directoryPath)
         await writeFileAsync(fileLocation, fileContent)

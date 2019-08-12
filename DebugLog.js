@@ -129,7 +129,9 @@ exports.newDebugLog = function newDebugLog() {
             let message = "['" + newDate + "'," + messageId + ",'" + pModule + "','" + pMessage + "']"
             let logLine = '\r\n' + message;
 
-            console.log(message)
+            if (process.env.INTER_PROCESS_FILES_PATH === "true" || message.indexOf("ERROR") > 0) {
+                console.log(message)
+            }
 
             accumulatedLog = accumulatedLog + logLine;
 

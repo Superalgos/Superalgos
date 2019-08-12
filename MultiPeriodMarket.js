@@ -9,6 +9,8 @@
         start: start
     };
 
+    let utilities = UTILITIES.newCloudUtilities(logger);
+
     let statusDependencies;
     let dataDependencies;
     let storages = [];

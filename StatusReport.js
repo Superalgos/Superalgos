@@ -56,7 +56,7 @@
             }
             callBackFunction(global.DEFAULT_OK_RESPONSE);
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -98,7 +98,7 @@
                 if ( err.result === global.CUSTOM_FAIL_RESPONSE.result && (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
                     || err.code === "The specified key does not exist.") {
 
-                    logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = "+ err);
+                    logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = "+ err.stack);
 
                     /* In this case we can assume that this is the first execution ever of this bot.*/
 
@@ -114,7 +114,7 @@
                 }
 
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = "+ err.stack);
                     callBackFunction(err);
                     return;
                 }
@@ -148,7 +148,7 @@
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] load -> err = "+ err);
+            logger.write(MODULE_NAME, "[ERROR] load -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -190,7 +190,7 @@
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> onFileCreated -> Entering function."); }
 
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    logger.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = "+ err.stack);
                     callBackFunction(err);
                     return;
                 }
@@ -205,7 +205,7 @@
 
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] save -> err = "+ err);
+            logger.write(MODULE_NAME, "[ERROR] save -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -246,7 +246,7 @@
                         err.result === global.CUSTOM_FAIL_RESPONSE.result &&
                         (err.message === 'Status Report was never created.')
                     ) {
-                        logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> onLoad -> err = "+ err);
+                        logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> onLoad -> err = "+ err.stack);
 
                         /* The first month of the market didnt create the main report yet. Aborting verification. */
 
@@ -257,7 +257,7 @@
                     }
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> onLoad -> err = "+ err);
+                        logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> onLoad -> err = "+ err.stack);
                         callBackFunction(err);
                         return;
                     }
@@ -270,7 +270,7 @@
                     loopCycle();
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> onLoad -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> onLoad -> err = "+ err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -300,7 +300,7 @@
                                 err.result === global.CUSTOM_FAIL_RESPONSE.result &&
                                 (err.message === 'Status Report was never created.')
                             ) {
-                                logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> loopCycle -> onLoad -> err = "+ err);
+                                logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> loopCycle -> onLoad -> err = "+ err.stack);
 
                                 /* The first month of the market didnt create the main report yet. Aborting verification. */
 
@@ -311,7 +311,7 @@
                             }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loopCycle -> onLoad -> err = "+ err);
+                                logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loopCycle -> onLoad -> err = "+ err.stack);
                                 callBackFunction(err);
                                 return;
                             }
@@ -331,13 +331,13 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loopCycle -> onLoad -> err = "+ err);
+                            logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loopCycle -> onLoad -> err = "+ err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loopCycle -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loopCycle -> err = "+ err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -364,7 +364,7 @@
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> err = "+ err);
+                                logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> err = "+ err.stack);
                                 callBackFunction(err);
                                 return;
                             }
@@ -384,7 +384,7 @@
                                         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> onSave -> Entering function."); }
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> onSave -> err = "+ err);
+                                            logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> onSave -> err = "+ err.stack);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -392,7 +392,7 @@
                                         loop();  // Lets see the next month.
 
                                     } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> onSave -> err = "+ err);
+                                        logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> onSave -> err = "+ err.stack);
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         return;
                                     }
@@ -407,13 +407,13 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> err = "+ err);
+                            logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> err = "+ err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loopCycle -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loopCycle -> err = "+ err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -447,14 +447,14 @@
                     loopCycle();
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loop -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loop -> err = "+ err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> err = "+ err);
+            logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             return;
         }

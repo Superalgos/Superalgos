@@ -320,9 +320,8 @@ async function readExecutionConfiguration(execution) {
     }
 
     catch (err) {
-        console.log("[ERROR] readExecutionConfiguration -> err = " + err);
+        console.log("[ERROR] readExecutionConfiguration -> err = "+ err.stack);
         console.log("[ERROR] readExecutionConfiguration -> Please verify that the Start Mode for the type of Bot configured applies to that type.");
-        console.log("[ERROR] readExecutionConfiguration -> err = " + err.stack);
     }
 }
 

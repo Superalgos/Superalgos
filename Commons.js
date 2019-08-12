@@ -354,7 +354,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 loop()
             }
 
-            function loop() {
+            function  loop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Entering function."); }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> i = " + i); }
 
@@ -2042,7 +2042,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> Entering function."); }
                 i++
                 if (i < candles.length) {
-                    loop()
+                    process.nextTick(loop)
                 } else {
                     afterLoop()
                 }

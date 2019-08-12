@@ -23,8 +23,7 @@
         "startDate": {
           "fixedDate": "2018-07-01"
         },
-        "endDate": {
-        }
+        "endDate": {}
       },
       "statusDependencies": [
         {
@@ -103,6 +102,17 @@
           "product": "Candles",
           "dataSetVersion": "dataSet.V1",
           "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AABruce",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Candles",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "One-Min"
         }
       ]
     },
@@ -115,7 +125,11 @@
       "comaWaitTime": 86400000,
       "framework": {
         "name": "Multi-Period-Daily",
-        "validPeriods": [ "15-min", "10-min", "05-min"],
+        "validPeriods": [
+          "15-min",
+          "10-min",
+          "05-min"
+        ],
         "startDate": {
           "fixedDate": "2018-07-01"
         },
@@ -220,6 +234,17 @@
           "product": "Candles",
           "dataSetVersion": "dataSet.V1",
           "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AABruce",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Candles",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "One-Min"
         }
       ]
     }
@@ -234,14 +259,27 @@
         {
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
-          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+          "validPeriods": [
+            "24-hs",
+            "12-hs",
+            "08-hs",
+            "06-hs",
+            "04-hs",
+            "03-hs",
+            "02-hs",
+            "01-hs"
+          ],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
-          "validPeriods": [ "15-min", "10-min", "05-min" ],
+          "validPeriods": [
+            "15-min",
+            "10-min",
+            "05-min"
+          ],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
@@ -273,14 +311,27 @@
         {
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
-          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+          "validPeriods": [
+            "24-hs",
+            "12-hs",
+            "08-hs",
+            "06-hs",
+            "04-hs",
+            "03-hs",
+            "02-hs",
+            "01-hs"
+          ],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
-          "validPeriods": [ "15-min", "10-min", "05-min" ],
+          "validPeriods": [
+            "15-min",
+            "10-min",
+            "05-min"
+          ],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
@@ -312,14 +363,27 @@
         {
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
-          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+          "validPeriods": [
+            "24-hs",
+            "12-hs",
+            "08-hs",
+            "06-hs",
+            "04-hs",
+            "03-hs",
+            "02-hs",
+            "01-hs"
+          ],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
-          "validPeriods": [ "15-min", "10-min", "05-min" ],
+          "validPeriods": [
+            "15-min",
+            "10-min",
+            "05-min"
+          ],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
@@ -351,14 +415,27 @@
         {
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
-          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+          "validPeriods": [
+            "24-hs",
+            "12-hs",
+            "08-hs",
+            "06-hs",
+            "04-hs",
+            "03-hs",
+            "02-hs",
+            "01-hs"
+          ],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
-          "validPeriods": [ "15-min", "10-min", "05-min" ],
+          "validPeriods": [
+            "15-min",
+            "10-min",
+            "05-min"
+          ],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
@@ -390,7 +467,27 @@
         {
           "codeName": "Oficial History",
           "type": "File Sequence",
-          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "validPeriods": [
+            "24-hs",
+            "12-hs",
+            "08-hs",
+            "06-hs",
+            "04-hs",
+            "03-hs",
+            "02-hs",
+            "01-hs",
+            "45-min",
+            "40-min",
+            "30-min",
+            "20-min",
+            "15-min",
+            "10-min",
+            "05-min",
+            "04-min",
+            "03-min",
+            "02-min",
+            "01-min"
+          ],
           "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
           "fileName": "Execution.History.Live.@Sequence.json"
         }
@@ -406,8 +503,22 @@
         "moduleName": "SimulationExecution"
       }
     }
-  ]
+  ],
+  "marketRateProvider": {
+    "devTeam": "AAMasters",
+    "bot": "AABruce",
+    "host": {
+      "url": "https://demo-dev.superalgos.org/",
+      "storage": "localStorage",
+      "container": "aamasters",
+      "accessKey": ""
+    },
+    "botVersion": {
+      "major": 1,
+      "minor": 0
+    },
+    "product": "Candles",
+    "dataSet": "One-Min",
+    "dataSetVersion": "dataSet.V1"
+  }
 }
-
-
-

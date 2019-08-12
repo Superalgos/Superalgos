@@ -51,8 +51,15 @@ exports.newFileStorage = function newFileStorage() {
       let host = await getDevTeamHost(container)
 
       if (host.url.indexOf('localhost') !== -1) {
-          let fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
 
+          let fileLocation
+
+          if (filePath.indexOf("/bots/") > 0) {
+              fileLocation = process.env.BOTS_PATH + '/' + container + '/' + filePath
+          } else {
+              fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+          }
+          
           logInfo('getTextFile: ' + fileLocation)
 
         let fileContent = await readFileAsync(fileLocation)

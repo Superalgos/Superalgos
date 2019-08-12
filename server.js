@@ -259,7 +259,7 @@ function onBrowserRequest(request, response) {
         let devTeam = requestParameters[2]
         let codeName = requestParameters[3]
         let moduleName = requestParameters[4]
-        let filePath = process.env.PLOTTERS_PATH + 'Plotters/' + devTeam + '/' + codeName + '/' + moduleName
+        let filePath = process.env.PLOTTERS_PATH + '/' + devTeam.toLowerCase() + '/' + devTeam + '/plotters/' + codeName + '/' + moduleName
         respondWithFile(filePath, response)
       }
       break
@@ -269,7 +269,7 @@ function onBrowserRequest(request, response) {
         let devTeam = requestParameters[2]
         let codeName = requestParameters[3]
         let moduleName = requestParameters[4]
-        let filePath = process.env.PLOTTERS_PATH + 'Plotters/' + devTeam + '/' + codeName + '/' + moduleName
+        let filePath = process.env.PLOTTERS_PATH + '/' + devTeam.toLowerCase() + '/' + devTeam + '/plotters/' + codeName + '/' + moduleName
         respondWithFile(filePath, response)
       }
       break

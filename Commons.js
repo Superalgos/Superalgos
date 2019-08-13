@@ -1372,6 +1372,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     takePositionNow === true
                 ) {
                     takePositionNow = false
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> takePositionNow -> Entering code block."); }
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
@@ -1402,9 +1403,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 break
                             }
                             case "Taking Position": { // Waiting for a confirmation that the position was taken.
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> takePositionNow -> Exiting code block because status is Taking Position."); }
                                 break
                             }
                             case "In a Position": { // This should mean that we already put the order at the exchange.
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> takePositionNow -> Exiting code block because status is In a Position."); }
                                 break
                             }
                         }
@@ -1427,23 +1430,28 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         /* We wont take a position unless we are withing the startDate and the endDate range */
                         if (startDate !== undefined) {
                             if (candle.begin < startDate.valueOf()) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because current candle begins before the start date. -> startDate = " + startDate); }
                                 takePositionAtSimulation()
                                 return;
                             }
                         }
 
+                        /* This validation is disbled for now because we do not have the correct end date at this point.
                         if (endDate !== undefined) {
                             if (candle.begin > endDate.valueOf()) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because current candle begins after the end date. -> endDate = " + endDate); }
                                 takePositionAtSimulation()
                                 return;
                             }
                         }
+                        */
 
                         /* Checking the status of current positions */
                         let positions = assistant.getPositions();
                         if (positions.length > 0) {
                             let position = positions[positions.length - 1] // We are allways checking the the last position is not open.  
                             if (position.status === 'open') {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because the last position is still open. "); }
                                 afterLoop();
                                 return
                             }
@@ -1454,6 +1462,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (interExecutionMemory.executionContext !== undefined) {
                             if (interExecutionMemory.executionContext.periods !== undefined) {
                                 if (periods <= interExecutionMemory.executionContext.periods) {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because it was already placed at a previous execution." ); }
                                     takePositionAtSimulation()
                                     return;
                                 }
@@ -1464,6 +1473,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         let today =  new Date(Math.trunc((new Date().valueOf()) / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
                         let processDay = new Date(Math.trunc(currentDay.valueOf() / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
                         if (today.valueOf() !== processDay.valueOf()) {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because the current candle belongs to the previous day and that is considered simulation and not live trading."); }
                             takePositionAtSimulation()
                             return;
                         }
@@ -1493,6 +1503,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             status: "Taking Position"
                         }
 
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Ready to put order."); }
                         assistant.putPosition(positionDirection, openPositionRate, amountA, amountB, onOrderPut)
 
                         function onOrderPut(err) {
@@ -1581,6 +1592,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 /* Closing a Position */
                 if (strategyStage === 'Close Stage') {
 
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Closing a Position -> Entering code block."); }
+
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
 
@@ -1589,6 +1602,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if (interExecutionMemory.executionContext !== undefined) {
                         switch (interExecutionMemory.executionContext.status) {
                             case "Without a Position": { // No way to close anything at the exchange.
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Closing a Position -> Exiting code block because status is Without a Position."); }
                                 break
                             }
                             case "In a Position": { // This should mean that we already put the order at the exchange.
@@ -1611,6 +1625,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
 
                             case "Position Closed": { //  
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Closing a Position -> Exiting code block because status is Position Closed."); }
                                 break
                             }
                         }
@@ -1628,6 +1643,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (positions.length > 0) {
                             let position = positions[positions.length - 1] // We are allways checking the the last position is not open. 
                             if (position.status === 'open') {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> Exiting function because status of last position is Open."); }
                                 afterLoop();
                                 return
                             }
@@ -1638,6 +1654,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (interExecutionMemory.executionContext !== undefined) {
                             if (interExecutionMemory.executionContext.periods !== undefined) {
                                 if (periods <= interExecutionMemory.executionContext.periods) {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> Exiting function because this closing was already submited at a previous execution."); }
                                     closePositionAtSimulation()
                                     return;
                                 }
@@ -1669,6 +1686,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             status: "Closing Position"
                         }
 
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> About to close position at the exchange."); }
                         assistant.putPosition(positionDirection, closePositionRate, amountA, amountB, onOrderPut)
 
                         function onOrderPut(err) {

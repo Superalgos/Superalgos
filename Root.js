@@ -233,7 +233,7 @@
                             processConfig.timePeriod = global.EXECUTION_CONFIG.timePeriod
                         }
 
-                        // TODO Pending. Move this if inside IndicatorBotProcessMainLoop line 270
+                         
                         if (processConfig.framework !== undefined) {
                             if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market") {
                                 processConfig.framework.startDate.resumeExecution = false;

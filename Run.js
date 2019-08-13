@@ -204,20 +204,20 @@ async function readExecutionConfiguration(execution) {
                                         }
                                     }
 
-                                    if (baseAsset === 'BTC') {
-                                        if (receivedParameters.initialBalance !== undefined) {
-                                            process.env.INITIAL_BALANCE_ASSET_A = receivedParameters.initialBalance;
-                                            process.env.INITIAL_BALANCE_ASSET_B = 0
-                                        }  
-                                    } else {
+                                    if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
                                         if (receivedParameters.initialBalance !== undefined) {
                                             process.env.INITIAL_BALANCE_ASSET_B = receivedParameters.initialBalance;
                                             process.env.INITIAL_BALANCE_ASSET_A = 0
+                                        }  
+                                    } else {
+                                        if (receivedParameters.initialBalance !== undefined) {
+                                            process.env.INITIAL_BALANCE_ASSET_A = receivedParameters.initialBalance;
+                                            process.env.INITIAL_BALANCE_ASSET_B = 0
                                         }                                        
                                     }
                                 } catch (err) {
-                                    process.env.INITIAL_BALANCE_ASSET_A = 0.001 // default
-                                    process.env.INITIAL_BALANCE_ASSET_B = 0 // default
+                                    process.env.INITIAL_BALANCE_ASSET_A = 0 // default
+                                    process.env.INITIAL_BALANCE_ASSET_B = 0.001 // default
                                 }
                             }
                         }

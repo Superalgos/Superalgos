@@ -54,7 +54,9 @@ function startHtttpServer() {
 }
 
 function startCloneExecutor() {
-  if (CONSOLE_LOG === true) { console.log('[INFO] server -> startCloneExecutor -> Entering function.') };
+    if (CONSOLE_LOG === true) { console.log('[INFO] server -> startCloneExecutor -> Entering function.') };
+
+    if (process.env.RUN_CLON_EXECUTOR !== "true") {return}
 
   let path = process.env.CLONE_EXECUTOR_PATH + '/run.js'
   cloneExecutorChildProcess = spawn('node', [path], { shell: true, stdio: 'inherit' });

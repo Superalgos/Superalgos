@@ -369,22 +369,27 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 /* If any of the needed indicators is missing, then that period is not calculated */
 
                 if (candle.begin < initialDate.valueOf()) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Record before the initialDate."); }
                     controlLoop();
                     return
                 }
                 if (bollingerBand === undefined) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Record because Bollinger Band is undefined."); }
                     controlLoop();
                     return
                 }
                 if (percentageBandwidth === undefined) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Record because %B is undefined."); }
                     controlLoop();
                     return
                 } // percentageBandwidth might start after the first few candles.
                 if (bollingerChannel === undefined) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Record because Bollingeer Channel is undefined."); }
                     controlLoop();
                     return
                 }
                 if (bollingerSubChannel === undefined) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Record because Bollingeer Sub Channel is undefined."); }
                     controlLoop();
                     return
                 }

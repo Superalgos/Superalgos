@@ -34,7 +34,7 @@ let sequenceList = require('./sequence');
 let isRunSequence = false;
 let sequenceStep = 0;
 let processedSteps = new Map()
-notFirstSequence = false
+let notFirstSequence = false
 
 if (process.env.RUN_SEQUENCE !== undefined) {
     isRunSequence = JSON.parse(process.env.RUN_SEQUENCE)
@@ -53,7 +53,7 @@ function sequenceExecution(currentStep) {
     execution.devTeam ? process.env.DEV_TEAM = execution.devTeam : undefined;
     execution.bot ? process.env.BOT = execution.bot : undefined;
     execution.mode ? process.env.START_MODE = execution.mode : undefined;
-    execution.resumeExecution = notFirstSequence
+    execution.resumeExecution = true;
     execution.type ? process.env.TYPE = execution.type : undefined;
     execution.process ? process.env.PROCESS = execution.process : undefined;
     execution.startYear ? process.env.MIN_YEAR = execution.startYear : undefined;
@@ -141,6 +141,11 @@ async function readExecutionConfiguration(execution) {
         let finalDatetime = process.env.END_DATE_TIME
 
         if (execution.type === 'Trading-Engine') {
+
+            /* The Trading Engine only resumes its execution after the first sequence was completed. */
+            if (notFirstSequence === false) {
+                execution.resumeExecution = false
+            } 
 
             /* We set the START MODE of the Trading Engine */
             if (process.env.KEY === undefined || process.env.SECRET === undefined) {

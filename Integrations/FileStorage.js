@@ -6,7 +6,7 @@ const readFileAsync = promisify(fs.readFile)
 const writeFileAsync = promisify(fs.writeFile)
 const path = require('path')
 
-exports.newFileStorage = function newFileStorage() {
+exports.newFileStorage = function newFileStorage(logger) {
   const MODULE_NAME = 'FileStorage'
   const MAX_RETRY = 30
   let currentRetryGetTextFile = 0
@@ -37,7 +37,11 @@ exports.newFileStorage = function newFileStorage() {
     log('[INFO] ' + message)
   }
   function log(message) {
-    console.log("['" + new Date().toISOString() + "', 0,'" + MODULE_NAME + "','" + message + "']")
+      if (logger) {
+          logger.write(MODULE_NAME, message);
+      } else {
+          console.log("['" + new Date().toISOString() + "', 0,'" + MODULE_NAME + "','" + message + "']")
+      }
   }
 
   function logError(message) {
@@ -45,7 +49,6 @@ exports.newFileStorage = function newFileStorage() {
   }
 
   async function getTextFile(container, filePath, callBackFunction) {
-
 
     try {
       let host = await getDevTeamHost(container)

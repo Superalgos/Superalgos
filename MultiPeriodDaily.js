@@ -21,7 +21,7 @@
     let usertBot;
 
     const FILE_STORAGE = require('./Integrations/FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage();
+    let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
     let processConfig;
 
@@ -103,6 +103,7 @@
 
                         /* The starting date is fixed, we will start from there. */
 
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> We have got a user defined startDate. -> startDate = " + processConfig.framework.startDate.fixedDate); }
                         contextVariables.dateBeginOfMarket = new Date(processConfig.framework.startDate.fixedDate);
 
                     } else {
@@ -152,7 +153,7 @@
                     if (processConfig.framework.endDate.fixedDate !== undefined) {
 
                         /* The ending date is fixed, we will end there. */
-
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> We have got a user defined endDate. -> endDate = " + processConfig.framework.endDate.fixedDate); }
                         contextVariables.dateEndOfMarket = new Date(processConfig.framework.endDate.fixedDate);
 
                     } else {
@@ -222,6 +223,7 @@
 
                         if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate.resumeExecution === false) {
 
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true."); }
                             startFromBegining();
                             return;
                         }
@@ -237,7 +239,7 @@
                         /*
                         In the case when there is no status report, we assume like the last processed file is the one on the date of Begining of Market.
                         */
-
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining of the market because own status report not found or lastFile was undefined."); }
                         startFromBegining();
                         return;
                     }
@@ -246,7 +248,6 @@
 
                         contextVariables.lastFile = new Date(contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" + (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" + contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" + GMT_SECONDS);
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> startFromBegining -> thisReport.lastFile === undefined"); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> startFromBegining -> contextVariables.lastFile = " + contextVariables.lastFile); }
 
                         /*
@@ -365,6 +366,7 @@
                                     if (period === outputPeriodLabel) { validPeriod = true }
                                 }
                                 if (validPeriod === false) {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Discarding period for not being listed as a valid period. -> outputPeriodLabel = " + outputPeriodLabel); }
                                     periodsControlLoop();
                                     return;
                                 }
@@ -373,6 +375,7 @@
                             let timePeriodFilter = global.EXECUTION_CONFIG.timePeriodFileStorage
                             if (timePeriodFilter !== undefined) {
                                 if (timePeriodFilter.indexOf(outputPeriodLabel) === -1) {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Discarding period for being filtered out. -> outputPeriodLabel = " + outputPeriodLabel); }
                                     periodsControlLoop();
                                     return;
                                 }
@@ -499,6 +502,8 @@
                                                     if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
 
                                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err.code);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> filePath = " + filePath);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> fileName = " + fileName);
                                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                         return;
                                                     }

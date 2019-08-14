@@ -289,7 +289,7 @@ function newRestartSimulation () {
 
     switch (thisObject.status) {
       case 'Ready':
-        label = 'RUN SIMULATION'
+        label = 'RESTART BOTS'
         break
       case 'Saving':
         label = 'SAVING STRATEGIES CHANGES...'

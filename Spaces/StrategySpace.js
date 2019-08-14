@@ -53,8 +53,8 @@ function newStrategySpace () {
       ['Open Stage', 'stage-open'],
       ['Manage Stage', 'video-player'],
       ['Close Stage', 'stage-close'],
-      ['Position Size', 'responsive'],
-      ['Position Rate', 'promotion'],
+      ['Position Size', 'stage-open-position-size'],
+      ['Position Rate', 'stage-open-postion-rate'],
       ['Trigger On Event', 'stage-trigger-trigger-on'],
       ['Trigger Off Event', 'stage-trigger-trigger-off'],
       ['Take Position Event', 'stage-trigger-take-position'],
@@ -62,7 +62,7 @@ function newStrategySpace () {
       ['Open Execution', 'piggy-bank'],
       ['Close Execution', 'piggy-bank'],
       ['Stop', 'stop'],
-      ['Take Profit', 'competition'],
+      ['Take Profit', 'stage-open-take-profit'],
       ['Phase', 'placeholder'],
       ['Formula', 'pipette'],
       ['Next Phase Event', 'schedule'],
@@ -91,7 +91,6 @@ function newStrategySpace () {
       'chat',
       'chronometer',
       'compass',
-      'compass-bw',
       'competition',
       'content',
       'design-tool',
@@ -146,7 +145,12 @@ function newStrategySpace () {
       'stage-trigger',
       'stage-trigger-trigger-on',
       'stage-trigger-trigger-off',
-      'stage-trigger-take-position'
+      'stage-trigger-take-position',
+      'menu-tensor-fixed-angles',
+      'menu-tensor-free-angles',
+      'stage-open-position-size',
+      'stage-open-take-profit',
+      'stage-open-postion-rate'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

@@ -130,7 +130,7 @@ async function readExecutionConfiguration(execution) {
     try {
         console.log("[INFO] Run -> readExecutionConfiguration -> Entering function. ");
 
-        let timePeriod
+        let timePeriodFilter
         let botProcess
 
         /* Try to get the begin and end dates from the Definition */
@@ -162,13 +162,13 @@ async function readExecutionConfiguration(execution) {
                     /* Here we only look for one timePeriod, in the future we will be able to process the whole array, but not for now. */
                     if (definition.simulationParams.timePeriodDailyArray !== undefined) {
                         if (definition.simulationParams.timePeriodDailyArray.length > 0) {
-                            timePeriod = definition.simulationParams.timePeriodDailyArray[0]
+                            timePeriodFilter = definition.simulationParams.timePeriodDailyArray[0]
                             botProcess = "Multi-Period-Daily"
                         }
                     }
                     if (definition.simulationParams.timePeriodMarketArray !== undefined) {
                         if (definition.simulationParams.timePeriodMarketArray.length > 0) {
-                            timePeriod = definition.simulationParams.timePeriodMarketArray[0]
+                            timePeriodFilter = definition.simulationParams.timePeriodMarketArray[0]
                             botProcess = "Multi-Period-Market"
                         }
                     }
@@ -307,14 +307,24 @@ async function readExecutionConfiguration(execution) {
             repo: global.CURRENT_BOT_REPO
         }
 
-        if (timePeriod === undefined) { timePeriod = process.env.TIME_PERIOD } // Only use the .env when nothing comes at Definition.json
+        let timePeriod
+        if (timePeriodFilter === undefined) {
+            timePeriod = process.env.TIME_PERIOD
+        } else {
+            timePeriod = timePeriodFilter
+        }
+         
         global.EXECUTION_CONFIG = {
             cloneToExecute: cloneToExecute,
             startMode: startMode,
             timePeriod: getTimePeriod(timePeriod),
             timePeriodFileStorage: timePeriod,
+            timePeriodFilter: timePeriodFilter,
             dataSet: process.env.DATA_SET
         };
+
+        timePeriodFilter = undefined
+        timePeriod = undefined
 
         global.CLONE_EXECUTOR = {
             codeName: 'AACloud',

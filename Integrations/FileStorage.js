@@ -120,7 +120,14 @@ exports.newFileStorage = function newFileStorage(logger) {
       let host = await getDevTeamHost(container)
 
       if (host.url.indexOf('localhost') !== -1) {
-          let fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+          let fileLocation
+
+          if (filePath.indexOf("/Logs/") > 0) {
+              fileLocation = process.env.LOG_PATH + '/' + container + '/' + filePath
+          } else {
+              fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+          }
+
           logInfo('createTextFile: ' + fileLocation)
         let directoryPath = fileLocation.substring(0, fileLocation.lastIndexOf('/') + 1);
         mkDirByPathSync(directoryPath)

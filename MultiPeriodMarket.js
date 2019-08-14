@@ -143,7 +143,7 @@
                             let dependencyIndex = 0;
                             dataFiles = [];
 
-                            let timePeriodFilter = global.EXECUTION_CONFIG.timePeriodFileStorage
+                            let timePeriodFilter = global.EXECUTION_CONFIG.timePeriodFilter
                             if (timePeriodFilter !== undefined) {
                                 if (timePeriodFilter.indexOf(outputPeriodLabel) === -1) {
                                     periodsControlLoop();

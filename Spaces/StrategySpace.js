@@ -49,15 +49,15 @@ function newStrategySpace () {
       ['Parameters', 'settings'],
       ['Base Asset', 'sitemap'],
       ['Strategy', 'quality'],
-      ['Trigger Stage', 'chronometer'],
+      ['Trigger Stage', 'stage-trigger'],
       ['Open Stage', 'stage-open'],
       ['Manage Stage', 'video-player'],
       ['Close Stage', 'stage-close'],
       ['Position Size', 'responsive'],
       ['Position Rate', 'promotion'],
-      ['Trigger On Event', 'startup'],
-      ['Trigger Off Event', 'support'],
-      ['Take Position Event', 'compass'],
+      ['Trigger On Event', 'stage-trigger-trigger-on'],
+      ['Trigger Off Event', 'stage-trigger-trigger-off'],
+      ['Take Position Event', 'stage-trigger-take-position'],
       ['Initial Definition', 'task'],
       ['Open Execution', 'piggy-bank'],
       ['Close Execution', 'piggy-bank'],
@@ -139,10 +139,14 @@ function newStrategySpace () {
       'menu-tree-minus',
       'menu-tree-plus',
       'menu-backup',
-      'share',
+      'menu-share',
       'stop',
       'stage-open',
-      'stage-close'
+      'stage-close',
+      'stage-trigger',
+      'stage-trigger-trigger-on',
+      'stage-trigger-trigger-off',
+      'stage-trigger-take-position'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

@@ -38,7 +38,6 @@ let isHttpServerStarted = false
 let cloneExecutorChildProcess
 
 startHtttpServer()
-startCloneExecutor()
 
 function startHtttpServer() {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> startHtttpServer -> Entering function.') }
@@ -95,7 +94,9 @@ function stopCloneExecutor() {
     }
   };
 
-  kill(cloneExecutorChildProcess.pid);
+  if (cloneExecutorChildProcess) {
+      kill(cloneExecutorChildProcess.pid);
+  }
 }
 
 function onBrowserRequest(request, response) {

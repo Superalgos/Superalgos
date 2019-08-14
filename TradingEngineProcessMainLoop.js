@@ -11,7 +11,7 @@
     const MULTI_PERIOD_MARKET = require(ROOT_DIR + 'MultiPeriodMarket');
     const MULTI_PERIOD_DAILY = require(ROOT_DIR + 'MultiPeriodDaily');
     const FILE_STORAGE = require('./Integrations/FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage();
+    let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.

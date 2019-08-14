@@ -10,7 +10,7 @@
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     const FILE_STORAGE = require('./Integrations/FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage();
+    let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
 
     let nextLoopTimeoutHandle;

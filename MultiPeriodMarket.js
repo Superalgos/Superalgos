@@ -19,7 +19,7 @@
     let usertBot;
 
     const FILE_STORAGE = require('./Integrations/FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage();
+    let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
     let processConfig;
 

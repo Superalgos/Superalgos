@@ -1,0 +1,13 @@
+[
+['2019-08-14T17:04:17.063Z',234,'User Bot','[INFO] start -> buildBands -> advanceTime -> Entering function.']
+['2019-08-14T17:04:17.063Z',235,'User Bot','[INFO] start -> buildBands -> advanceTime -> processDate = Thu Aug 15 2019 02:00:00 GMT+0200 (Central Europe Daylight Time)']
+['2019-08-14T17:04:17.063Z',236,'User Bot','[INFO] start -> buildBands -> advanceTime -> previousDay = Wed Aug 14 2019 02:00:00 GMT+0200 (Central Europe Daylight Time)']
+['2019-08-14T17:04:17.063Z',237,'User Bot','[INFO] start -> buildBands -> advanceTime -> Head of the market found @ 2019/8/14.']
+['2019-08-14T17:04:17.063Z',238,'Indicator Bot Process Main Loop','[INFO] run -> loop -> startUserBot -> onFinished -> Entering function.']
+['2019-08-14T17:04:17.063Z',239,'Indicator Bot Process Main Loop','[INFO] run -> loop -> startUserBot -> onFinished -> Execution finished well.']
+['2019-08-14T17:04:17.063Z',240,'Indicator Bot Process Main Loop','[INFO] run -> loop -> loopControl -> Entering function.']
+['2019-08-14T17:04:17.063Z',241,'Indicator Bot Process Main Loop','[INFO] run -> loop -> loopControl -> nextWaitTime = Normal']
+['2019-08-14T17:04:17.063Z',242,'Indicator Bot Process Main Loop','[INFO] run -> loop -> shallWeStop -> Entering function. ']
+['2019-08-14T17:04:17.063Z',243,'Indicator Bot Process Main Loop','[INFO] run -> loop -> loopControl -> onStop -> Entering function.']
+['2019-08-14T17:04:17.064Z',244,'Indicator Bot Process Main Loop','[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!']
+]

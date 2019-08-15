@@ -2,6 +2,7 @@
 require('dotenv').config();
 const { spawn } = require('child_process');
 const psTree = require('ps-tree');
+const open = require('open');
 
 CONSOLE_LOG = process.env.CONSOLE_LOG === 'true'
 CONSOLE_ERROR_LOG = process.env.CONSOLE_ERROR_LOG === 'true'
@@ -46,6 +47,7 @@ function startHtttpServer() {
     if (isHttpServerStarted === false) {
       gWebServer = http.createServer(onBrowserRequest).listen(port)
       isHttpServerStarted = true
+      open('http://localhost:' + port);
     }
   } catch (err) {
     console.log('[ERROR] server -> startHtttpServer -> Error = ' + err.stack)
@@ -53,9 +55,9 @@ function startHtttpServer() {
 }
 
 function startCloneExecutor() {
-    if (CONSOLE_LOG === true) { console.log('[INFO] server -> startCloneExecutor -> Entering function.') };
+  if (CONSOLE_LOG === true) { console.log('[INFO] server -> startCloneExecutor -> Entering function.') };
 
-    if (process.env.RUN_CLON_EXECUTOR !== "true") {return}
+  if (process.env.RUN_CLON_EXECUTOR !== "true") { return }
 
   let path = process.env.CLONE_EXECUTOR_PATH + '/run.js'
   cloneExecutorChildProcess = spawn('node', [path], { shell: true, stdio: 'inherit' });
@@ -95,7 +97,7 @@ function stopCloneExecutor() {
   };
 
   if (cloneExecutorChildProcess) {
-      kill(cloneExecutorChildProcess.pid);
+    kill(cloneExecutorChildProcess.pid);
   }
 }
 
@@ -132,11 +134,11 @@ function onBrowserRequest(request, response) {
           startCloneExecutor();
           respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
         } catch (err) {
-            let error = {
-                result: 'Fail Because',
-                message: err.message
-            }
-            respondWithContent(JSON.stringify(error), response)
+          let error = {
+            result: 'Fail Because',
+            message: err.message
+          }
+          respondWithContent(JSON.stringify(error), response)
         }
 
         break
@@ -147,11 +149,11 @@ function onBrowserRequest(request, response) {
           stopCloneExecutor();
           respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
         } catch (err) {
-            let error = {
-                result: 'Fail Because',
-                message: err.message
-            }
-            respondWithContent(JSON.stringify(error), response)
+          let error = {
+            result: 'Fail Because',
+            message: err.message
+          }
+          respondWithContent(JSON.stringify(error), response)
         }
         break
       }

@@ -125,6 +125,23 @@ function onBrowserRequest(request, response) {
 
   switch (requestParameters[1]) {
 
+      case 'ResetLogsAndData':
+          {
+              try {
+                  let rimraf = require("rimraf");
+                  rimraf.sync(process.env.LOG_PATH);
+                  rimraf.sync(process.env.STORAGE_PATH + "/AAMasters/AAMasters/AAJason.1.0");
+                  respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
+              } catch (err) {
+                  if (CONSOLE_LOG === true) { console.log('[INFO] server -> ResetLogsAndData -> Could not delete Logs and Data.') }
+                  let error = {
+                      result: 'Fail Because',
+                      message: err.message
+                  }
+                  respondWithContent(JSON.stringify(error), response)
+              }
+              break
+          }
     case 'RestartCloneExecutor':
       {
         try {
@@ -132,6 +149,7 @@ function onBrowserRequest(request, response) {
           startCloneExecutor();
           respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
         } catch (err) {
+            if (CONSOLE_LOG === true) { console.log('[INFO] server -> ResetLogsAndData -> Could not restart Clone Executor.') }
             let error = {
                 result: 'Fail Because',
                 message: err.message
@@ -147,6 +165,7 @@ function onBrowserRequest(request, response) {
           stopCloneExecutor();
           respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
         } catch (err) {
+            if (CONSOLE_LOG === true) { console.log('[INFO] server -> ResetLogsAndData -> Could not Stop Clone Executor.') }
             let error = {
                 result: 'Fail Because',
                 message: err.message

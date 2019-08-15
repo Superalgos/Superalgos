@@ -241,7 +241,7 @@ async function readExecutionConfiguration(execution) {
             let live = {
                 run: 'false',
                 resumeExecution: execution.resumeExecution,
-                beginDatetime: initialDatetime,
+                beginDatetime: new Date(definition.simulationParams.timestamp).toISOString(),
                 endDatetime: finalDatetime
             }
 

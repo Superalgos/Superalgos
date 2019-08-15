@@ -114,12 +114,6 @@ function newStrategizerGateway () {
         return
       }
 
-      let idAtStrategizer = window.localStorage.getItem(CANVAS_APP_NAME + '.' + MODULE_NAME + '.' + user.alias)
-      if (idAtStrategizer === undefined || idAtStrategizer === null) {
-        logger.write('[ERROR] saveToStrategyzer -> Can not save when idAtStrategizer is null or undefined.')
-        return
-      }
-
       if (window.canvasApp.executingAt === 'Local') {
         tradingSystem.simulationParams = simulationParams
         callServer(JSON.stringify(tradingSystem), 'SaveDefinition', onSaved)

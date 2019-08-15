@@ -1,6 +1,8 @@
 
 function newRestartSimulation () {
   const MODULE_NAME = 'Restart Simulation'
+  const logger = newWebDebugLog()
+  logger.fileName = MODULE_NAME
 
   let thisObject = {
     visible: true,
@@ -113,12 +115,21 @@ function newRestartSimulation () {
       thisObject.status = 'Saving'
       let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(simulationParams)
       if (result === true) {
-        if (window.canvasApp.executingAt !== 'Local') {
+        if (window.canvasApp.executingAt === 'Local') {
+          callServer('', 'RestartCloneExecutor', onSaved)
+          function onSaved (err) {
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+              logger.write('[INFO] Restart Simulation -> Clone Executor Restarted')
+            } else {
+              logger.write('[ERROR] Restart Simulation -> Can not restart Clone Executor. err = ' + err.messsage)
+            }
+          }
+        } else {
           thisObject.status = 'Restarting'
           await graphQlRestartSimulation(simulationParams)
         }
         thisObject.status = 'Calculating'
-        counterTillNextState = 50
+        counterTillNextState = 500
       } else {
         thisObject.status = 'Error'
         counterTillNextState = 500
@@ -170,7 +181,7 @@ function newRestartSimulation () {
             break
           case 'Calculating':
             thisObject.status = 'Refreshing'
-            counterTillNextState = 15
+            counterTillNextState = 150
             break
           case 'Refreshing':
             thisObject.status = 'Reviewing'
@@ -180,7 +191,7 @@ function newRestartSimulation () {
             break
           case 'Reviewing':
             thisObject.status = '2nd Refresh'
-            counterTillNextState = 25
+            counterTillNextState = 250
             break
           case '2nd Refresh':
             thisObject.status = 'Ready'
@@ -278,7 +289,7 @@ function newRestartSimulation () {
 
     switch (thisObject.status) {
       case 'Ready':
-        label = 'RUN SIMULATION'
+        label = 'RESTART BOTS'
         break
       case 'Saving':
         label = 'SAVING STRATEGIES CHANGES...'

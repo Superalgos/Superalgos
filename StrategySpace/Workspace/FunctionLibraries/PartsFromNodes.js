@@ -356,7 +356,7 @@ function newPartsFromNodes () {
     let exchangeAccount = parentNode
     let key = {
       name: 'New Key',
-      code: 'Paste your exchange API secret key here. Secret keys are filtered out and NOT exported when using the SHARE menu option on any object at your workspace. Secret keys ARE downloaded when using the download button.'
+      code: 'Paste your exchange API secret key here and the put the key name as this key object title. Secret keys are filtered out and NOT exported when using the SHARE menu option on any object at your workspace. Secret keys ARE downloaded when using the download button.'
     }
     exchangeAccount.keys.push(key)
     createPart('Exchange Account Key', key.name, key, exchangeAccount, exchangeAccount, 'Account Key')

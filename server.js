@@ -38,7 +38,6 @@ let isHttpServerStarted = false
 let cloneExecutorChildProcess
 
 startHtttpServer()
-startCloneExecutor()
 
 function startHtttpServer() {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> startHtttpServer -> Entering function.') }
@@ -54,7 +53,9 @@ function startHtttpServer() {
 }
 
 function startCloneExecutor() {
-  if (CONSOLE_LOG === true) { console.log('[INFO] server -> startCloneExecutor -> Entering function.') };
+    if (CONSOLE_LOG === true) { console.log('[INFO] server -> startCloneExecutor -> Entering function.') };
+
+    if (process.env.RUN_CLON_EXECUTOR !== "true") {return}
 
   let path = process.env.CLONE_EXECUTOR_PATH + '/run.js'
   cloneExecutorChildProcess = spawn('node', [path], { shell: true, stdio: 'inherit' });
@@ -93,7 +94,9 @@ function stopCloneExecutor() {
     }
   };
 
-  kill(cloneExecutorChildProcess.pid);
+  if (cloneExecutorChildProcess) {
+      kill(cloneExecutorChildProcess.pid);
+  }
 }
 
 function onBrowserRequest(request, response) {
@@ -127,9 +130,13 @@ function onBrowserRequest(request, response) {
         try {
           stopCloneExecutor();
           startCloneExecutor();
-          respondWithContent('Restart Clone Executor ok.', response)
+          respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
         } catch (err) {
-          respondWithContent('There was an error restarting clone executor.', response)
+            let error = {
+                result: 'Fail Because',
+                message: err.message
+            }
+            respondWithContent(JSON.stringify(error), response)
         }
 
         break
@@ -138,9 +145,13 @@ function onBrowserRequest(request, response) {
       {
         try {
           stopCloneExecutor();
-          respondWithContent('Stop Clone Executor ok.', response)
+          respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
         } catch (err) {
-          respondWithContent('There was an error stopping clone executor.', response)
+            let error = {
+                result: 'Fail Because',
+                message: err.message
+            }
+            respondWithContent(JSON.stringify(error), response)
         }
         break
       }
@@ -251,7 +262,7 @@ function onBrowserRequest(request, response) {
         let devTeam = requestParameters[2]
         let codeName = requestParameters[3]
         let moduleName = requestParameters[4]
-        let filePath = process.env.PLOTTERS_PATH + 'Plotters/' + devTeam + '/' + codeName + '/' + moduleName
+        let filePath = process.env.PLOTTERS_PATH + '/' + devTeam.toLowerCase() + '/' + devTeam + '/plotters/' + codeName + '/' + moduleName
         respondWithFile(filePath, response)
       }
       break
@@ -261,7 +272,7 @@ function onBrowserRequest(request, response) {
         let devTeam = requestParameters[2]
         let codeName = requestParameters[3]
         let moduleName = requestParameters[4]
-        let filePath = process.env.PLOTTERS_PATH + 'Plotters/' + devTeam + '/' + codeName + '/' + moduleName
+        let filePath = process.env.PLOTTERS_PATH + '/' + devTeam.toLowerCase() + '/' + devTeam + '/plotters/' + codeName + '/' + moduleName
         respondWithFile(filePath, response)
       }
       break

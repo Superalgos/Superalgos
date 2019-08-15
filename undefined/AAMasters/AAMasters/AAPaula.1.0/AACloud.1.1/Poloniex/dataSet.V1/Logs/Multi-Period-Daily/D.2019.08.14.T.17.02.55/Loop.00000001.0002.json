@@ -1,0 +1,12 @@
+[
+['2019-08-14T17:02:55.705Z',424,'Multi Period Daily','[INFO] start -> processTimePeriods -> advanceTime -> bot.multiPeriodDailyProcessDatetime = Thu Aug 15 2019 02:00:00 GMT+0200 (Central Europe Daylight Time)']
+['2019-08-14T17:02:55.705Z',425,'Multi Period Daily','[INFO] start -> processTimePeriods -> advanceTime -> previousDay = Wed Aug 14 2019 02:00:00 GMT+0200 (Central Europe Daylight Time)']
+['2019-08-14T17:02:55.705Z',426,'Multi Period Daily','[INFO] start -> processTimePeriods -> advanceTime -> Head of the market found @ 2019/8/14.']
+['2019-08-14T17:02:55.705Z',427,'Indicator Bot Process Main Loop','[INFO] run -> loop -> startProcessFramework -> onFinished -> Entering function.']
+['2019-08-14T17:02:55.705Z',428,'Indicator Bot Process Main Loop','[INFO] run -> loop -> startProcessFramework -> onFinished -> Execution finished well.']
+['2019-08-14T17:02:55.705Z',429,'Indicator Bot Process Main Loop','[INFO] run -> loop -> loopControl -> Entering function.']
+['2019-08-14T17:02:55.705Z',430,'Indicator Bot Process Main Loop','[INFO] run -> loop -> loopControl -> nextWaitTime = Normal']
+['2019-08-14T17:02:55.705Z',431,'Indicator Bot Process Main Loop','[INFO] run -> loop -> shallWeStop -> Entering function. ']
+['2019-08-14T17:02:55.705Z',432,'Indicator Bot Process Main Loop','[INFO] run -> loop -> loopControl -> onStop -> Entering function.']
+['2019-08-14T17:02:55.705Z',433,'Indicator Bot Process Main Loop','[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!']
+]

@@ -171,7 +171,7 @@ function newWorkspace () {
         break
       case 'Save Trading System':
         {
-          let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer()
+          let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(getSimulationParams())
           return result
           break
         }

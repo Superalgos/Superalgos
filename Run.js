@@ -34,24 +34,26 @@ let sequenceList = require('./sequence');
 let isRunSequence = false;
 let sequenceStep = 0;
 let processedSteps = new Map()
+let notFirstSequence = false
+
 if (process.env.RUN_SEQUENCE !== undefined) {
     isRunSequence = JSON.parse(process.env.RUN_SEQUENCE)
 }
 
 if (isRunSequence) {
-    sequenceExecution(sequenceStep, false)
+    sequenceExecution(sequenceStep)
 } else {
     readExecutionConfiguration()
 }
 
-function sequenceExecution(currentStep, notFirstSequence) {
+function sequenceExecution(currentStep) {
     let execution = sequenceList[currentStep];
 
     process.env.STOP_GRACEFULLY = true;
     execution.devTeam ? process.env.DEV_TEAM = execution.devTeam : undefined;
     execution.bot ? process.env.BOT = execution.bot : undefined;
     execution.mode ? process.env.START_MODE = execution.mode : undefined;
-    execution.resumeExecution = notFirstSequence
+    execution.resumeExecution = true;
     execution.type ? process.env.TYPE = execution.type : undefined;
     execution.process ? process.env.PROCESS = execution.process : undefined;
     execution.startYear ? process.env.MIN_YEAR = execution.startYear : undefined;
@@ -68,9 +70,24 @@ function sequenceExecution(currentStep, notFirstSequence) {
 
     execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
 
-    if (definition.personalData) {
-        process.env.KEY = definition.personalData.exchangeAccounts[0].keys[0].code;
-        process.env.SECRET = definition.personalData.exchangeAccounts[0].keys[1].code;
+    if (definition) 
+    {
+        if (definition.personalData) {
+            if (definition.personalData.exchangeAccounts) {
+                if (definition.personalData.exchangeAccounts.length > 0) {
+                    let exchangeAccount = definition.personalData.exchangeAccounts[0]
+                    if (exchangeAccount.keys) {
+                        if (exchangeAccount.keys.length > 0) {
+                            let key = exchangeAccount.keys[0]
+
+                            process.env.KEY = key.name
+                            process.env.SECRET = key.code
+                            
+                        }
+                    }
+                }
+            }
+        }
     }
 
     let stepKey = execution.devTeam + '.' + execution.bot + '.' + execution.process;
@@ -90,17 +107,18 @@ function onExecutionFinish(result, finishStepKey) {
         console.log('[INFO] onExecutionFinish -> Step already processed.')
     } else {
         if (sequenceStep < sequenceList.length) {
-            sequenceExecution(sequenceStep, true)
+            sequenceExecution(sequenceStep)
         } else {
             if (sequenceStep < sequenceList.length) {
-                sequenceExecution(sequenceStep, true);
+                sequenceExecution(sequenceStep);
             } else {
                 setTimeout(function () {
                     console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
                     sequenceList = require('./sequence'); // We read again the sequence after every loop
                     sequenceStep = 0;
                     processedSteps = new Map();
-                    sequenceExecution(sequenceStep, true);
+                    sequenceExecution(sequenceStep);
+                    notFirstSequence = true
                 }, process.env.EXECUTION_LOOP_DELAY);
             }
         }
@@ -112,7 +130,7 @@ async function readExecutionConfiguration(execution) {
     try {
         console.log("[INFO] Run -> readExecutionConfiguration -> Entering function. ");
 
-        let timePeriod
+        let timePeriodFilter
         let botProcess
 
         /* Try to get the begin and end dates from the Definition */
@@ -123,6 +141,19 @@ async function readExecutionConfiguration(execution) {
         let finalDatetime = process.env.END_DATE_TIME
 
         if (execution.type === 'Trading-Engine') {
+
+            /* The Trading Engine only resumes its execution after the first sequence was completed. */
+            if (notFirstSequence === false) {
+                execution.resumeExecution = false
+            } 
+
+            /* We set the START MODE of the Trading Engine */
+            if (process.env.KEY === undefined || process.env.SECRET === undefined) {
+                process.env.START_MODE = "backtest" // if we dont have keys, we swtich to backtest mode to avoid exchange errors.
+            } else {
+                process.env.START_MODE = "live"  // If we have keys, then we are in live mode.
+            }
+
             if (definition !== undefined) {
                 if (definition.simulationParams !== undefined) {
                     if (definition.simulationParams.beginDatetime !== undefined) {
@@ -131,13 +162,13 @@ async function readExecutionConfiguration(execution) {
                     /* Here we only look for one timePeriod, in the future we will be able to process the whole array, but not for now. */
                     if (definition.simulationParams.timePeriodDailyArray !== undefined) {
                         if (definition.simulationParams.timePeriodDailyArray.length > 0) {
-                            timePeriod = definition.simulationParams.timePeriodDailyArray[0]
+                            timePeriodFilter = definition.simulationParams.timePeriodDailyArray[0]
                             botProcess = "Multi-Period-Daily"
                         }
                     }
                     if (definition.simulationParams.timePeriodMarketArray !== undefined) {
                         if (definition.simulationParams.timePeriodMarketArray.length > 0) {
-                            timePeriod = definition.simulationParams.timePeriodMarketArray[0]
+                            timePeriodFilter = definition.simulationParams.timePeriodMarketArray[0]
                             botProcess = "Multi-Period-Market"
                         }
                     }
@@ -154,6 +185,44 @@ async function readExecutionConfiguration(execution) {
                                     if (code.finalDatetime !== undefined) {
                                         finalDatetime = code.finalDatetime
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+                /* Get the initial balance from the definition */
+                let tradingSystem = definition.tradingSystem
+
+                if (tradingSystem) {
+                    if (tradingSystem.parameters !== undefined) {
+                        if (tradingSystem.parameters.baseAsset !== undefined) {
+                            if (tradingSystem.parameters.baseAsset.formula !== undefined) {
+                                let receivedParameters
+                                try {
+                                    receivedParameters = JSON.parse(tradingSystem.parameters.baseAsset.formula.code);
+
+                                    if (receivedParameters.name !== undefined) {
+                                        baseAsset = receivedParameters.name;
+                                        if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
+                                            /* using BTC as default */
+                                            baseAsset = 'BTC'
+                                        }
+                                    }
+
+                                    if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
+                                        if (receivedParameters.initialBalance !== undefined) {
+                                            process.env.INITIAL_BALANCE_ASSET_B = receivedParameters.initialBalance;
+                                            process.env.INITIAL_BALANCE_ASSET_A = 0
+                                        }  
+                                    } else {
+                                        if (receivedParameters.initialBalance !== undefined) {
+                                            process.env.INITIAL_BALANCE_ASSET_A = receivedParameters.initialBalance;
+                                            process.env.INITIAL_BALANCE_ASSET_B = 0
+                                        }                                        
+                                    }
+                                } catch (err) {
+                                    process.env.INITIAL_BALANCE_ASSET_A = 0 // default
+                                    process.env.INITIAL_BALANCE_ASSET_B = 0.001 // default
                                 }
                             }
                         }
@@ -238,14 +307,24 @@ async function readExecutionConfiguration(execution) {
             repo: global.CURRENT_BOT_REPO
         }
 
-        if (timePeriod === undefined) { timePeriod = process.env.TIME_PERIOD } // Only use the .env when nothing comes at Definition.json
+        let timePeriod
+        if (timePeriodFilter === undefined) {
+            timePeriod = process.env.TIME_PERIOD
+        } else {
+            timePeriod = timePeriodFilter
+        }
+         
         global.EXECUTION_CONFIG = {
             cloneToExecute: cloneToExecute,
             startMode: startMode,
             timePeriod: getTimePeriod(timePeriod),
             timePeriodFileStorage: timePeriod,
+            timePeriodFilter: timePeriodFilter,
             dataSet: process.env.DATA_SET
         };
+
+        timePeriodFilter = undefined
+        timePeriod = undefined
 
         global.CLONE_EXECUTOR = {
             codeName: 'AACloud',
@@ -256,9 +335,8 @@ async function readExecutionConfiguration(execution) {
     }
 
     catch (err) {
-        console.log("[ERROR] readExecutionConfiguration -> err = " + err);
+        console.log("[ERROR] readExecutionConfiguration -> err = "+ err.stack);
         console.log("[ERROR] readExecutionConfiguration -> Please verify that the Start Mode for the type of Bot configured applies to that type.");
-        console.log("[ERROR] readExecutionConfiguration -> err = " + err.stack);
     }
 }
 

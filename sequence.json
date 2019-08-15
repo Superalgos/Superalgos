@@ -140,9 +140,6 @@
     "exchangeName": "Poloniex",
     "process": "Multi-Period-Daily",
     "beginDatetime": "2019-08-01T08:00:00.000Z",
-    "timePeriod": "05-min",
-    "baseAsset": "assetB",
-    "balanceAssetA": "0",
-    "balanceAssetB": "0.001"
+    "timePeriod": "05-min"
   }
 ]

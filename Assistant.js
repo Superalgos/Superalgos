@@ -114,13 +114,13 @@
                             validateExchangeSyncronicity();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> onTicker -> err = "+ err);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> onTicker -> err = "+ err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> err = "+ err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -157,11 +157,13 @@
 
                         let candleArray;
 
-                        if (err.result === global.CUSTOM_FAIL_RESPONSE.result) {  // Just past midnight, this file will not exist for a couple of minutes.
-                            if (err.message === "File does not exist." || err.message === "The specified key does not exist.") {
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                return;
-                            }
+                        if (err.result === global.CUSTOM_FAIL_RESPONSE.result || err.code === "The specified key does not exist." || err.message === "File does not exist.") {  // Just past midnight, this file will not exist for a couple of minutes.
+                           
+                            logger.write(MODULE_NAME, "[WARN] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + JSON.stringify(err));
+                            logger.write(MODULE_NAME, "[WARN] initialize -> getMarketRateFromIndicator -> This could happen when there are still holes on trades and the process needs to catch up. ");
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
+                          
                         }
 
                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
@@ -211,7 +213,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> err = "+ err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -253,13 +255,13 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> err = "+ err);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> err = "+ err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> err = "+ err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -313,14 +315,14 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> calculateProfits -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> calculateProfits -> err = "+ err.stack);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -399,7 +401,7 @@
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> err = "+ err);
+            logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> err = "+ err.stack);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -626,12 +628,12 @@
                                             break;
                                     }
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = "+ err);
+                                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = "+ err.stack);
                                     callBack(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = "+ err);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = "+ err.stack);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -704,7 +706,7 @@
                             next();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = "+ err);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = "+ err.stack);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -790,7 +792,7 @@
                             next();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = "+ err);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = "+ err.stack);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -865,14 +867,14 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> applyTradesToContext -> err = "+ err);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> applyTradesToContext -> err = "+ err.stack);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> err = "+ err.stack);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -911,7 +913,7 @@
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> err = "+ err);
+            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> err = "+ err.stack);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1075,12 +1077,12 @@
                             break;
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> err = "+ err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] putPosition -> err = "+ err);
+            logger.write(MODULE_NAME, "[ERROR] putPosition -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1199,12 +1201,12 @@
                             break;
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> err = "+ err);
+                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> err = "+ err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = "+ err);
+            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

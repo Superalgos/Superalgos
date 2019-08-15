@@ -39,7 +39,7 @@
                 function onInitilized(err) {
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> err = "+ err);
+                        logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> err = "+ err.stack);
 
                         alreadyCalledBack = true;
                         callBackFunction(err);
@@ -94,7 +94,7 @@
                         }
                     }
                     catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> onLoad -> err = "+ err);
+                        logger.write(MODULE_NAME, "[ERROR] initialize -> onLoad -> err = "+ err.stack);
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }
@@ -128,7 +128,7 @@
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

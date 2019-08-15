@@ -6,7 +6,7 @@ const readFileAsync = promisify(fs.readFile)
 const writeFileAsync = promisify(fs.writeFile)
 const path = require('path')
 
-exports.newFileStorage = function newFileStorage() {
+exports.newFileStorage = function newFileStorage(logger) {
   const MODULE_NAME = 'FileStorage'
   const MAX_RETRY = 30
   let currentRetryGetTextFile = 0
@@ -37,7 +37,11 @@ exports.newFileStorage = function newFileStorage() {
     log('[INFO] ' + message)
   }
   function log(message) {
-    console.log("['" + new Date().toISOString() + "', 0,'" + MODULE_NAME + "','" + message + "']")
+      if (logger) {
+          logger.write(MODULE_NAME, message);
+      } else {
+          console.log("['" + new Date().toISOString() + "', 0,'" + MODULE_NAME + "','" + message + "']")
+      }
   }
 
   function logError(message) {
@@ -46,13 +50,19 @@ exports.newFileStorage = function newFileStorage() {
 
   async function getTextFile(container, filePath, callBackFunction) {
 
-
     try {
       let host = await getDevTeamHost(container)
 
       if (host.url.indexOf('localhost') !== -1) {
-          let fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
 
+          let fileLocation
+
+          if (filePath.indexOf("/bots/") > 0) {
+              fileLocation = process.env.BOTS_PATH + '/' + container + '/' + filePath
+          } else {
+              fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+          }
+          
           logInfo('getTextFile: ' + fileLocation)
 
         let fileContent = await readFileAsync(fileLocation)
@@ -105,13 +115,20 @@ exports.newFileStorage = function newFileStorage() {
   }
 
   async function createTextFile(container, filePath, fileContent, callBackFunction) {
-    logInfo('createTextFile -> Entering function: ' + container.toLowerCase() + '/...' + filePath.substring(filePath.length - 110, filePath.length))
 
     try {
       let host = await getDevTeamHost(container)
 
       if (host.url.indexOf('localhost') !== -1) {
-        let fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+          let fileLocation
+
+          if (filePath.indexOf("/Logs/") > 0) {
+              fileLocation = process.env.LOG_PATH + '/' + container + '/' + filePath
+          } else {
+              fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+          }
+
+          logInfo('createTextFile: ' + fileLocation)
         let directoryPath = fileLocation.substring(0, fileLocation.lastIndexOf('/') + 1);
         mkDirByPathSync(directoryPath)
         await writeFileAsync(fileLocation, fileContent)

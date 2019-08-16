@@ -1391,42 +1391,44 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     tradePositionSize = strategy.positionSize;
                     tradePositionRate = strategy.positionRate;
 
-                    /* We see if we need to put the actual order at the exchange. */
-
-                    if (interExecutionMemory.executionContext !== undefined) {
-                        switch (interExecutionMemory.executionContext.status) {
-                            case "Without a Position": { // We need to put the order because It was not put yet.
-                                if (strategy.openStage !== undefined) {
-                                    if (strategy.openStage.openExecution !== undefined) {
-                                        putOpeningOrder()
-                                        return
+                    /* Check that we are in LIVE MODE */
+                    if (process.env.START_MODE === "live") {
+                        /* We see if we need to put the actual order at the exchange. */
+                        if (interExecutionMemory.executionContext !== undefined) {
+                            switch (interExecutionMemory.executionContext.status) {
+                                case "Without a Position": { // We need to put the order because It was not put yet.
+                                    if (strategy.openStage !== undefined) {
+                                        if (strategy.openStage.openExecution !== undefined) {
+                                            putOpeningOrder()
+                                            return
+                                        }
                                     }
+                                    break
                                 }
-                                break
-                            }
-                            case "Position Closed": { // Waiting for a confirmation that the position was closed.
-                                if (strategy.openStage !== undefined) {
-                                    if (strategy.openStage.openExecution !== undefined) {
-                                        putOpeningOrder()
-                                        return
+                                case "Position Closed": { // Waiting for a confirmation that the position was closed.
+                                    if (strategy.openStage !== undefined) {
+                                        if (strategy.openStage.openExecution !== undefined) {
+                                            putOpeningOrder()
+                                            return
+                                        }
                                     }
+                                    break
                                 }
-                                break
+                                case "Taking Position": { // Waiting for a confirmation that the position was taken.
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Exiting code block because status is Taking Position."); }
+                                    break
+                                }
+                                case "In a Position": { // This should mean that we already put the order at the exchange.
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Exiting code block because status is In a Position."); }
+                                    break
+                                }
                             }
-                            case "Taking Position": { // Waiting for a confirmation that the position was taken.
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Exiting code block because status is Taking Position."); }
-                                break
-                            }
-                            case "In a Position": { // This should mean that we already put the order at the exchange.
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Exiting code block because status is In a Position."); }
-                                break
-                            }
-                        }
-                    } else { // The context does not exist so it means we are not in a position.
-                        if (strategy.openStage !== undefined) {
-                            if (strategy.openStage.openExecution !== undefined) {
-                                putOpeningOrder()
-                                return
+                        } else { // The context does not exist so it means we are not in a position.
+                            if (strategy.openStage !== undefined) {
+                                if (strategy.openStage.openExecution !== undefined) {
+                                    putOpeningOrder()
+                                    return
+                                }
                             }
                         }
                     }
@@ -1613,36 +1615,38 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
 
-                    /* We see if we need to put the actual order at the exchange. */
-
-                    if (interExecutionMemory.executionContext !== undefined) {
-                        switch (interExecutionMemory.executionContext.status) {
-                            case "Without a Position": { // No way to close anything at the exchange.
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Without a Position."); }
-                                break
-                            }
-                            case "In a Position": { // This should mean that we already put the order at the exchange.
-                                if (strategy.closeStage !== undefined) {
-                                    if (strategy.closeStage.closeExecution !== undefined) {
-                                        putClosingOrder()
-                                        return
-                                    }
+                    /* Check that we are in LIVE MODE */
+                    if (process.env.START_MODE === "live") {
+                        /* We see if we need to put the actual order at the exchange. */
+                        if (interExecutionMemory.executionContext !== undefined) {
+                            switch (interExecutionMemory.executionContext.status) {
+                                case "Without a Position": { // No way to close anything at the exchange.
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Without a Position."); }
+                                    break
                                 }
-                                break
-                            }
-                            case "Closing Position": { // Waiting for a confirmation that the position was taken.
-                                if (strategy.closeStage !== undefined) {
-                                    if (strategy.closeStage.closeExecution !== undefined) {
-                                        putClosingOrder()
-                                        return
+                                case "In a Position": { // This should mean that we already put the order at the exchange.
+                                    if (strategy.closeStage !== undefined) {
+                                        if (strategy.closeStage.closeExecution !== undefined) {
+                                            putClosingOrder()
+                                            return
+                                        }
                                     }
+                                    break
                                 }
-                                break
-                            }
+                                case "Closing Position": { // Waiting for a confirmation that the position was taken.
+                                    if (strategy.closeStage !== undefined) {
+                                        if (strategy.closeStage.closeExecution !== undefined) {
+                                            putClosingOrder()
+                                            return
+                                        }
+                                    }
+                                    break
+                                }
 
-                            case "Position Closed": { //  
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Position Closed."); }
-                                break
+                                case "Position Closed": { //  
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Position Closed."); }
+                                    break
+                                }
                             }
                         }
                     }

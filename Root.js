@@ -238,15 +238,27 @@
                             if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market") {
                                 processConfig.framework.startDate.resumeExecution = false;
                                 if (processConfig.startMode.noTime !== undefined) {
-                                    if (processConfig.startMode.noTime.beginDatetime !== undefined) {
-                                        processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
-                                        processConfig.framework.startDate.resumeExecution = false;
+                                    if (processConfig.startMode.noTime.run === "true") {
+                                        if (processConfig.startMode.noTime.beginDatetime !== undefined) {
+                                            processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
+                                            processConfig.framework.startDate.resumeExecution = false;
+                                        }
                                     }
                                 }
                                 if (processConfig.startMode.live !== undefined) {
-                                    if (processConfig.startMode.live.beginDatetime !== undefined) {
-                                        processConfig.framework.startDate.fixedDate = processConfig.startMode.live.beginDatetime;
-                                        processConfig.framework.startDate.resumeExecution = false;
+                                    if (processConfig.startMode.live.run === "true") {
+                                        if (processConfig.startMode.live.beginDatetime !== undefined) {
+                                            processConfig.framework.startDate.fixedDate = processConfig.startMode.live.beginDatetime;
+                                            processConfig.framework.startDate.resumeExecution = false;
+                                        }
+                                    }
+                                }
+                                if (processConfig.startMode.backtest !== undefined) {
+                                    if (processConfig.startMode.backtest.run === "true") {
+                                        if (processConfig.startMode.backtest.beginDatetime !== undefined) {
+                                            processConfig.framework.startDate.fixedDate = processConfig.startMode.backtest.beginDatetime;
+                                            processConfig.framework.startDate.resumeExecution = false;
+                                        }
                                     }
                                 }
                             }

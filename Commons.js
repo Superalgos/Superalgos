@@ -368,7 +368,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* If any of the needed indicators is missing, then that period is not calculated */
 
-                if (candle.begin < initialDate.valueOf()) {
+                if (candle.end < initialDate.valueOf()) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Record before the initialDate."); }
                     controlLoop();
                     return
@@ -405,16 +405,16 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
 
                     /* We skip the candle at the head of the market because i has not closed yet. */
-                    let candlesPerDay = ONE_DAY_IN_MILISECONDS / timePeriod
-                    if (i === candles.length - 1) {
-                        if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
+                    //let candlesPerDay = ONE_DAY_IN_MILISECONDS / timePeriod
+                    //if (i === candles.length - 1) {
+                    //    if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
                             /*We are at the head of the market, thus we skip the last candle because it has not close yet. */
-                            controlLoop();
-                            return
+                    //        controlLoop();
+                   //         return
                             /* Note here that in the last candle of the first day or the second day it will use an incomplete candle and partially calculated indicators.
                                 if we skip these two periods, then there will be a hole in the file since the last period will be missing. */
-                        }
-                    }
+                    //    }
+                    //}
                 } else { // We are processing Market Files
                     if (i === candles.length - 1) {
                         controlLoop();
@@ -955,6 +955,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                             currentStrategy.begin = candle.begin;
                                             currentStrategy.beginRate = candle.min;
                                             currentStrategy.endRate = candle.min; // In case the strategy does not get exited
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Switching to Trigger Stage because conditions at Trigger On Event were met."); }
                                             break;
                                         }
                                     }
@@ -1009,6 +1011,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     currentStrategy.status = 1;
                                     strategyStage = 'No Stage';
                                     currentStrategyIndex = -1;
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Switching to No Stage because conditions at the Trigger Off Event were met."); }
                                     break;
                                 }
                             }
@@ -1057,6 +1061,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     currentTrade.begin = candle.begin;
                                     currentTrade.beginRate = candle.close;
                                     takePositionNow = true
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Conditions at the Take Position Event were met."); }
                                     break;
                                 }
                             }
@@ -1377,7 +1383,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     takePositionNow === true
                 ) {
                     takePositionNow = false
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> takePositionNow -> Entering code block."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Entering code block."); }
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
@@ -1385,42 +1391,44 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     tradePositionSize = strategy.positionSize;
                     tradePositionRate = strategy.positionRate;
 
-                    /* We see if we need to put the actual order at the exchange. */
-
-                    if (interExecutionMemory.executionContext !== undefined) {
-                        switch (interExecutionMemory.executionContext.status) {
-                            case "Without a Position": { // We need to put the order because It was not put yet.
-                                if (strategy.openStage !== undefined) {
-                                    if (strategy.openStage.openExecution !== undefined) {
-                                        putOpeningOrder()
-                                        return
+                    /* Check that we are in LIVE MODE */
+                    if (process.env.START_MODE === "live") {
+                        /* We see if we need to put the actual order at the exchange. */
+                        if (interExecutionMemory.executionContext !== undefined) {
+                            switch (interExecutionMemory.executionContext.status) {
+                                case "Without a Position": { // We need to put the order because It was not put yet.
+                                    if (strategy.openStage !== undefined) {
+                                        if (strategy.openStage.openExecution !== undefined) {
+                                            putOpeningOrder()
+                                            return
+                                        }
                                     }
+                                    break
                                 }
-                                break
-                            }
-                            case "Position Closed": { // Waiting for a confirmation that the position was closed.
-                                if (strategy.openStage !== undefined) {
-                                    if (strategy.openStage.openExecution !== undefined) {
-                                        putOpeningOrder()
-                                        return
+                                case "Position Closed": { // Waiting for a confirmation that the position was closed.
+                                    if (strategy.openStage !== undefined) {
+                                        if (strategy.openStage.openExecution !== undefined) {
+                                            putOpeningOrder()
+                                            return
+                                        }
                                     }
+                                    break
                                 }
-                                break
+                                case "Taking Position": { // Waiting for a confirmation that the position was taken.
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Exiting code block because status is Taking Position."); }
+                                    break
+                                }
+                                case "In a Position": { // This should mean that we already put the order at the exchange.
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Exiting code block because status is In a Position."); }
+                                    break
+                                }
                             }
-                            case "Taking Position": { // Waiting for a confirmation that the position was taken.
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> takePositionNow -> Exiting code block because status is Taking Position."); }
-                                break
-                            }
-                            case "In a Position": { // This should mean that we already put the order at the exchange.
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> takePositionNow -> Exiting code block because status is In a Position."); }
-                                break
-                            }
-                        }
-                    } else { // The context does not exist so it means we are not in a position.
-                        if (strategy.openStage !== undefined) {
-                            if (strategy.openStage.openExecution !== undefined) {
-                                putOpeningOrder()
-                                return
+                        } else { // The context does not exist so it means we are not in a position.
+                            if (strategy.openStage !== undefined) {
+                                if (strategy.openStage.openExecution !== undefined) {
+                                    putOpeningOrder()
+                                    return
+                                }
                             }
                         }
                     }
@@ -1430,12 +1438,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     function putOpeningOrder() {
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Entering function."); }
 
                         /* We wont take a position unless we are withing the startDate and the endDate range */
                         if (startDate !== undefined) {
-                            if (candle.begin < startDate.valueOf()) {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because current candle begins before the start date. -> startDate = " + startDate); }
+                            if (candle.end < startDate.valueOf()) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because current candle ends before the start date.  -> startDate = " + startDate); }
                                 takePositionAtSimulation()
                                 return;
                             }
@@ -1456,7 +1464,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (positions.length > 0) {
                             let position = positions[positions.length - 1] // We are allways checking the the last position is not open.  
                             if (position.status === 'open') {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because the last position is still open. "); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because the last position is still open. "); }
                                 afterLoop();
                                 return
                             }
@@ -1467,7 +1475,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (interExecutionMemory.executionContext !== undefined) {
                             if (interExecutionMemory.executionContext.periods !== undefined) {
                                 if (periods <= interExecutionMemory.executionContext.periods) {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because it was already placed at a previous execution." ); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because it was already placed at a previous execution." ); }
                                     takePositionAtSimulation()
                                     return;
                                 }
@@ -1478,7 +1486,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         let today =  new Date(Math.trunc((new Date().valueOf()) / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
                         let processDay = new Date(Math.trunc(currentDay.valueOf() / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
                         if (today.valueOf() !== processDay.valueOf()) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because the current candle belongs to the previous day and that is considered simulation and not live trading."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because the current candle belongs to the previous day and that is considered simulation and not live trading."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> today = " + today); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> processDay = " + processDay); }
                             takePositionAtSimulation()
                             return;
                         }
@@ -1508,16 +1518,16 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             status: "Taking Position"
                         }
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Ready to put order."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to put order."); }
                         assistant.putPosition(positionDirection, openPositionRate, amountA, amountB, onOrderPut)
 
                         function onOrderPut(err) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Entering function."); }
 
                             try {
                                 switch (err.result) {
                                     case global.DEFAULT_OK_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
                                         interExecutionMemory.executionContext = {
                                             status: "In a Position",
                                             periods: periods,
@@ -1528,24 +1538,26 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                         return;
                                     }
                                     case global.DEFAULT_FAIL_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Message = " + err.message); }
                                         strategy.openStage.openExecution.error = err.message
                                         afterLoop()
                                         return;
                                     }
                                     case global.DEFAULT_RETRY_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Message = " + err.message); }
                                         strategy.openStage.openExecution.error = err.message
                                         afterLoop()
                                         return;
                                     }
                                 }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> putOpeningOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
 
                             } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> putOpeningOrder -> onOrderPut ->  err = " + err.stack);
+                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> loop -> putOpeningOrder -> onOrderPut ->  err = " + err.stack);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
                             }
@@ -1589,6 +1601,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
 
                         addRecord();
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionAtSimulation -> Exiting Loop Body after taking position at simulation."); }
                         controlLoop();
                         return
                     }
@@ -1597,41 +1610,43 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 /* Closing a Position */
                 if (strategyStage === 'Close Stage') {
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Closing a Position -> Entering code block."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Entering code block."); }
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
 
-                    /* We see if we need to put the actual order at the exchange. */
-
-                    if (interExecutionMemory.executionContext !== undefined) {
-                        switch (interExecutionMemory.executionContext.status) {
-                            case "Without a Position": { // No way to close anything at the exchange.
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Closing a Position -> Exiting code block because status is Without a Position."); }
-                                break
-                            }
-                            case "In a Position": { // This should mean that we already put the order at the exchange.
-                                if (strategy.closeStage !== undefined) {
-                                    if (strategy.closeStage.closeExecution !== undefined) {
-                                        putClosingOrder()
-                                        return
-                                    }
+                    /* Check that we are in LIVE MODE */
+                    if (process.env.START_MODE === "live") {
+                        /* We see if we need to put the actual order at the exchange. */
+                        if (interExecutionMemory.executionContext !== undefined) {
+                            switch (interExecutionMemory.executionContext.status) {
+                                case "Without a Position": { // No way to close anything at the exchange.
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Without a Position."); }
+                                    break
                                 }
-                                break
-                            }
-                            case "Closing Position": { // Waiting for a confirmation that the position was taken.
-                                if (strategy.closeStage !== undefined) {
-                                    if (strategy.closeStage.closeExecution !== undefined) {
-                                        putClosingOrder()
-                                        return
+                                case "In a Position": { // This should mean that we already put the order at the exchange.
+                                    if (strategy.closeStage !== undefined) {
+                                        if (strategy.closeStage.closeExecution !== undefined) {
+                                            putClosingOrder()
+                                            return
+                                        }
                                     }
+                                    break
                                 }
-                                break
-                            }
+                                case "Closing Position": { // Waiting for a confirmation that the position was taken.
+                                    if (strategy.closeStage !== undefined) {
+                                        if (strategy.closeStage.closeExecution !== undefined) {
+                                            putClosingOrder()
+                                            return
+                                        }
+                                    }
+                                    break
+                                }
 
-                            case "Position Closed": { //  
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Closing a Position -> Exiting code block because status is Position Closed."); }
-                                break
+                                case "Position Closed": { //  
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Position Closed."); }
+                                    break
+                                }
                             }
                         }
                     }
@@ -1648,7 +1663,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (positions.length > 0) {
                             let position = positions[positions.length - 1] // We are allways checking the the last position is not open. 
                             if (position.status === 'open') {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> Exiting function because status of last position is Open."); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> Exiting function because status of last position is Open."); }
                                 afterLoop();
                                 return
                             }
@@ -1659,7 +1674,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (interExecutionMemory.executionContext !== undefined) {
                             if (interExecutionMemory.executionContext.periods !== undefined) {
                                 if (periods <= interExecutionMemory.executionContext.periods) {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> Exiting function because this closing was already submited at a previous execution."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> Exiting function because this closing was already submited at a previous execution."); }
                                     closePositionAtSimulation()
                                     return;
                                 }
@@ -1691,16 +1706,16 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             status: "Closing Position"
                         }
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> About to close position at the exchange."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange."); }
                         assistant.putPosition(positionDirection, closePositionRate, amountA, amountB, onOrderPut)
 
                         function onOrderPut(err) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderPut -> Entering function."); }
 
                             try {
                                 switch (err.result) {
                                     case global.DEFAULT_OK_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
                                         interExecutionMemory.executionContext = {
                                             status: "Position Closed",
                                             periods: periods,
@@ -1711,25 +1726,25 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                         return;
                                     }
                                     case global.DEFAULT_FAIL_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
                                         /* We will assume that the problem is temporary, and expect that it will work at the next execution.*/
                                         strategy.closeStage.closeExecution.error = err.message
                                         afterLoop()
                                         return;
                                     }
                                     case global.DEFAULT_RETRY_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
                                         strategy.closeStage.closeExecution.error = err.message
                                         afterLoop()
                                         return;
                                     }
                                 }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> putClosingOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putClosingOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
 
                             } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> putClosingOrder -> onOrderPut ->  err = " + err.stack);
+                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> loop -> putClosingOrder -> onOrderPut ->  err = " + err.stack);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
                             }
@@ -1820,6 +1835,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         takeProfitStage = 'No Stage';
                         stopLossPhase = 0;
                         takeProfitPhase = 0;
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> closePositionAtSimulation -> Exiting Loop Body after closing position at simulation."); }
                         controlLoop();
                         return
                     }
@@ -1829,6 +1846,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 marketRate = candle.close;
                 addRecord();
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Exiting Loop Body after adding a record."); }
                 controlLoop();
                 return
 
@@ -1850,13 +1868,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             messageType = MESSAGE_TYPE.Order;
                             orderId++;
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> addRecord -> Taking Position Now. "); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> addRecord -> Taking Position Now. "); }
 
                         } else {
                             if (type === '"Close@TakeProfit"' || type === '"Close@StopLoss"') {
                                 messageType = MESSAGE_TYPE.OrderClose;
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> addRecord -> Closing Position Now. "); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> addRecord -> Closing Position Now. "); }
 
                             } else {
                                 messageType = MESSAGE_TYPE.OrderUpdate;

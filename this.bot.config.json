@@ -126,9 +126,16 @@
       "framework": {
         "name": "Multi-Period-Daily",
         "validPeriods": [
+          "45-min",
+          "30-min",
+          "20-min",
           "15-min",
           "10-min",
-          "05-min"
+          "05-min",
+          "04-min",
+          "03-min",
+          "02-min",
+          "01-min"
         ],
         "startDate": {
           "fixedDate": "2018-07-01"

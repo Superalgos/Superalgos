@@ -240,7 +240,9 @@
                             record.initialBalanceB + "," +
                             record.minimumBalanceB + "," +
                             record.maximumBalanceB + "," +
-                            record.baseAsset + "]";
+                            record.baseAsset + "," +
+                            record.positionPeriods + "," +
+                            record.positionDays + "]";
 
                         if (separator === "") { separator = ","; }
 

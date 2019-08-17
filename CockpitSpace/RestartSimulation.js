@@ -90,12 +90,14 @@ function newRestartSimulation () {
       let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(getSimulationParams())
       if (result === true) {
         if (window.canvasApp.executingAt === 'Local') {
-          callServer('', 'ResetLogsAndData', onSaved)
-          function onSaved (err) {
-            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-              logger.write('[INFO] Restart Simulation -> Logs and Simulation data Deleted.')
-            } else {
-              logger.write('[ERROR] Restart Simulation -> Can not delete Logs and Simulation data. err = ' + err.messsage)
+          if (idleLabel === 'RESTART LIVE TRADING') {
+            callServer('', 'ResetLogsAndData', onSaved)
+            function onSaved (err) {
+              if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                logger.write('[INFO] Restart Simulation -> Logs and Simulation data Deleted.')
+              } else {
+                logger.write('[ERROR] Restart Simulation -> Can not delete Logs and Simulation data. err = ' + err.messsage)
+              }
             }
           }
           callServer('', 'RestartCloneExecutor', onSaved)

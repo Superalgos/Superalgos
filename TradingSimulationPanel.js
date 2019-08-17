@@ -103,7 +103,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         browserCanvasContext.beginPath();
 
         let y = 0;
-        let increment = 0.027;
+        let increment = 0.024;
 
         y = y + increment;
         y = y + increment;

@@ -194,6 +194,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let hitRatio = 0;
             let ROI = 0;
             let days = 0;
+            let positionDays = 0;
             let anualizedRateOfReturn = 0;
             let type = '""';
             let marketRate = 0;
@@ -256,6 +257,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let fails = 0;
             let hits = 0;
             let periods = 0;
+            let positionPeriods = 0;
 
             /* Message to the Simulation Executor */
 
@@ -275,6 +277,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             yesterday.fails = 0;
             yesterday.hits = 0;
             yesterday.Periods = 0;
+            yesterday.positionPeriods = 0;
 
             yesterday.orderId = 0;
             yesterday.messageId = 0;
@@ -298,6 +301,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 interExecutionMemory.fails = 0;
                 interExecutionMemory.hits = 0;
                 interExecutionMemory.periods = 0;
+                interExecutionMemory.positionPeriods = 0;
 
                 interExecutionMemory.orderId = 0;
                 interExecutionMemory.messageId = 0;
@@ -328,6 +332,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 fails = interExecutionMemory.fails;
                 hits = interExecutionMemory.hits;
                 periods = interExecutionMemory.periods;
+                positionPeriods = interExecutionMemory.positionPeriods;
 
                 orderId = interExecutionMemory.orderId;
                 messageId = interExecutionMemory.messageId;
@@ -405,16 +410,17 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
 
                     /* We skip the candle at the head of the market because i has not closed yet. */
-                    //let candlesPerDay = ONE_DAY_IN_MILISECONDS / timePeriod
-                    //if (i === candles.length - 1) {
-                    //    if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
+                    let candlesPerDay = ONE_DAY_IN_MILISECONDS / timePeriod
+                    if (i === candles.length - 1) {
+                        if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
                             /*We are at the head of the market, thus we skip the last candle because it has not close yet. */
-                    //        controlLoop();
-                   //         return
+                            controlLoop();
+                            return
                             /* Note here that in the last candle of the first day or the second day it will use an incomplete candle and partially calculated indicators.
                                 if we skip these two periods, then there will be a hole in the file since the last period will be missing. */
-                    //    }
-                    //}
+                        }
+                    }
+
                 } else { // We are processing Market Files
                     if (i === candles.length - 1) {
                         controlLoop();
@@ -1284,6 +1290,26 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
+                /* Keeping Position Counters Up-to-date */
+                if (
+                    (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') 
+                ) {
+
+                    if (takePositionNow === true) {
+                        positionPeriods = 0
+                        yesterday.positionPeriods = 0
+                    }
+
+                    positionPeriods++;
+                    positionDays = positionPeriods * timePeriod / ONE_DAY_IN_MILISECONDS;
+
+                    if (currentDay !== undefined) { // This means that we are processing Daily Files 
+                        if (candle.end < currentDay.valueOf()) {
+                            yesterday.positionPeriods++;
+                        }
+                    }
+                }
+
                 /* Checking if Stop or Take Profit were hit */
                 if (
                     (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') &&
@@ -1501,14 +1527,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (baseAsset === 'BTC') {
                             positionDirection = "sell"
 
-                            openPositionRate = tradePositionRate - 100 // Provisional stuff to simulate a market order. Put the price lower to get it executed quickly
+                            openPositionRate = tradePositionRate 
 
                             amountA = tradePositionSize * openPositionRate
                             amountB = tradePositionSize
                         } else {
                             positionDirection = "buy"
 
-                            openPositionRate = tradePositionRate + 100 // Provisional stuff to simulate a market order. Put the price higher to get it executed quickly
+                            openPositionRate = tradePositionRate
 
                             amountA = tradePositionSize 
                             amountB = tradePositionSize / openPositionRate
@@ -1568,7 +1594,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionAtSimulation -> Entering function."); }
 
                         /* Continue with the simulation */
-
                         calculateTakeProfit();
                         calculateStopLoss();
 
@@ -2017,7 +2042,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         initialBalanceB: initialBalanceB,
                         minimumBalanceB: minimumBalanceB,
                         maximumBalanceB: maximumBalanceB,
-                        baseAsset: quotedBaseAsset
+                        baseAsset: quotedBaseAsset,
+                        positionPeriods: positionPeriods,
+                        positionDays: positionDays
                     }
 
                     recordsArray.push(simulationRecord);
@@ -2111,6 +2138,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         interExecutionMemory.fails = interExecutionMemory.fails + yesterday.fails;
                         interExecutionMemory.hits = interExecutionMemory.hits + yesterday.hits;
                         interExecutionMemory.periods = interExecutionMemory.periods + yesterday.Periods;
+                        interExecutionMemory.positionPeriods = interExecutionMemory.positionPeriods + yesterday.positionPeriods;
 
                         interExecutionMemory.messageId = interExecutionMemory.messageId + yesterday.messageId;
                         interExecutionMemory.orderId = interExecutionMemory.orderId + yesterday.orderId;

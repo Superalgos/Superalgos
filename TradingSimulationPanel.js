@@ -28,7 +28,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
     function initialize() {
 
         thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL * 2;
-        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2;
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2.5;
 
         thisObject.container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 1;
         thisObject.container.frame.position.y = viewPort.visibleArea.topRight.y;
@@ -107,7 +107,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         y = y + increment;
         y = y + increment;
-        printLabel('Current Trade', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 14);
+        printLabel('Current Position', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 14);
 
         y = y + increment;
         printLabel('Size', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
@@ -132,7 +132,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
         y = y + increment;
         y = y + increment;
-        printLabel('Latest Trade', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 14);
+        printLabel('Latest Position', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 14);
 
         y = y + increment;
         printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
@@ -144,6 +144,15 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         y = y + increment;
         printLabel((currentRecord.lastTradeROI).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
+        y = y + increment;
+        printLabel('Periods', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel((currentRecord.positionPeriods), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Days', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel((currentRecord.positionDays).toFixed(2), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
 
 

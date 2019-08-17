@@ -5,9 +5,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
     const { orderMessage } = require("@superalgos/mqservice")
 
     const {
-      MESSAGE_ENTITY, MESSAGE_TYPE, ORDER_CREATOR, ORDER_TYPE,
-            ORDER_OWNER, ORDER_DIRECTION, ORDER_STATUS, ORDER_EXIT_OUTCOME,
-            createMessage, getMessage, getExpandedMessage
+        MESSAGE_ENTITY, MESSAGE_TYPE, ORDER_CREATOR, ORDER_TYPE,
+        ORDER_OWNER, ORDER_DIRECTION, ORDER_STATUS, ORDER_EXIT_OUTCOME,
+        createMessage, getMessage, getExpandedMessage
     } = orderMessage.newOrderMessage()
 
     const FULL_LOG = true;
@@ -97,7 +97,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             if (tradingSystem.parameters !== undefined) {
                 if (tradingSystem.parameters.baseAsset !== undefined) {
                     if (tradingSystem.parameters.baseAsset.formula !== undefined) {
-                        let receivedParameters 
+                        let receivedParameters
                         try {
                             receivedParameters = JSON.parse(tradingSystem.parameters.baseAsset.formula.code);
 
@@ -164,7 +164,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             /* Strategy and Phases */
 
             let currentStrategyIndex = -1;
-            let strategyStage = 'No Stage';   
+            let strategyStage = 'No Stage';
 
             /* Stop Loss Management */
 
@@ -172,7 +172,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             const MAX_STOP_LOSS_VALUE = Number.MAX_SAFE_INTEGER
             let stopLoss = 0;
             let stopLossPhase = 0;
-            let stopLossStage = 'No Stage';  
+            let stopLossStage = 'No Stage';
 
             /* Take Profit Management */
 
@@ -181,7 +181,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let previousTakeProfit = 0;
             let takeProfit = 0;
             let takeProfitPhase = 0;
-            let takeProfitStage = 'No Stage';  
+            let takeProfitStage = 'No Stage';
 
             /* Simulation Records */
 
@@ -322,8 +322,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     yesterday.balanceAssetA = balanceAssetA;
                     yesterday.balanceAssetB = balanceAssetB;
 
-                } 
-                
+                }
+
                 lastTradeProfitLoss = interExecutionMemory.lastTradeProfitLoss;
                 profit = interExecutionMemory.profit;
                 lastTradeROI = interExecutionMemory.lastTradeROI;
@@ -344,9 +344,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 yesterday.hitRatio = hitRatio;
                 yesterday.ROI = ROI;
                 yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
-                
+
             }
-           
+
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Main Simulation Loop -> candles.length = " + candles.length); }
 
@@ -359,7 +359,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 loop()
             }
 
-            function  loop() {
+            function loop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Entering function."); }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> i = " + i); }
 
@@ -1292,7 +1292,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Keeping Position Counters Up-to-date */
                 if (
-                    (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') 
+                    (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage')
                 ) {
 
                     if (takePositionNow === true) {
@@ -1308,6 +1308,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             yesterday.positionPeriods++;
                         }
                     }
+                } else {
+                    positionPeriods = 0
+                    yesterday.positionPeriods = 0
+                    positionDays = 0
                 }
 
                 /* Checking if Stop or Take Profit were hit */
@@ -1501,7 +1505,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (interExecutionMemory.executionContext !== undefined) {
                             if (interExecutionMemory.executionContext.periods !== undefined) {
                                 if (periods <= interExecutionMemory.executionContext.periods) {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because it was already placed at a previous execution." ); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because it was already placed at a previous execution."); }
                                     takePositionAtSimulation()
                                     return;
                                 }
@@ -1509,7 +1513,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
 
                         /* We are not going to place orders based on outdated information. The next filter prevents firing orders when backtesting. */
-                        let today =  new Date(Math.trunc((new Date().valueOf()) / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
+                        let today = new Date(Math.trunc((new Date().valueOf()) / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
                         let processDay = new Date(Math.trunc(currentDay.valueOf() / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
                         if (today.valueOf() !== processDay.valueOf()) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because the current candle belongs to the previous day and that is considered simulation and not live trading."); }
@@ -1527,7 +1531,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (baseAsset === 'BTC') {
                             positionDirection = "sell"
 
-                            openPositionRate = tradePositionRate 
+                            openPositionRate = tradePositionRate
 
                             amountA = tradePositionSize * openPositionRate
                             amountB = tradePositionSize
@@ -1536,7 +1540,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                             openPositionRate = tradePositionRate
 
-                            amountA = tradePositionSize 
+                            amountA = tradePositionSize
                             amountB = tradePositionSize / openPositionRate
                         }
 
@@ -1677,7 +1681,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
 
                     closePositionAtSimulation()
-                    return 
+                    return
 
                     function putClosingOrder() {
 
@@ -2168,7 +2172,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                return 
+                return
             }
         }
         catch (err) {

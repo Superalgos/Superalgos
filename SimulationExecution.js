@@ -752,7 +752,7 @@
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')';
                     }
 
-                    browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.setLineDash([4, 1])
                     browserCanvasContext.lineWidth = 0.25;
                     browserCanvasContext.stroke();
                 }

@@ -129,6 +129,15 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         y = y + increment;
         printLabel(currentRecord.takeProfit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
+        y = y + increment;
+        printLabel('Periods', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel((currentRecord.positionPeriods), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+
+        y = y + increment;
+        printLabel('Days', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        y = y + increment;
+        printLabel((currentRecord.positionDays).toFixed(2), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
         y = y + increment;
@@ -143,16 +152,6 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
         printLabel((currentRecord.lastTradeROI).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Periods', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel((currentRecord.positionPeriods), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Days', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel((currentRecord.positionDays).toFixed(2), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
 
 

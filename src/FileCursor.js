@@ -1,5 +1,5 @@
 
-function newFileCursor() {
+function newFileCursor () {
   const MODULE_NAME = 'File Cursor'
   const INFO_LOG = false
   const ERROR_LOG = true
@@ -37,7 +37,7 @@ function newFileCursor() {
 
   return thisObject
 
-  function finalize() {
+  function finalize () {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
 
@@ -54,7 +54,7 @@ function newFileCursor() {
     }
   }
 
-  function initialize(pFileCloud, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
+  function initialize (pFileCloud, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDevTeam.codeName + '-' + pBot.codeName + '-' + pSet.codeName + '-' + pPeriodName) }
@@ -88,7 +88,7 @@ function newFileCursor() {
     }
   }
 
-  function updateFiles() {
+  function updateFiles () {
     try {
       if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> Entering function.') }
@@ -114,8 +114,6 @@ function newFileCursor() {
       file = thisObject.files.get(dateString)
 
       if (file !== undefined) {
-        if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> File found at the cursor, proceeding to update.') }
-
         fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
 
         return
@@ -132,31 +130,25 @@ function newFileCursor() {
       dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2)
 
       if (file !== undefined) {
-        if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> Previous day file found at the cursor, proceeding to add current date.') }
-
         fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
 
         return
       }
 
-      function onFileReceived(err, file) {
+      function onFileReceived (err, file) {
         try {
           if (finalized === true) { return }
-          if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> Entering function.') }
 
           switch (err.result) {
             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-              if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> Received OK Response.') }
               break
             }
 
             case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-              if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> Received FAIL Response.') }
               return
             }
 
             default: {
-              if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> Received Unexpected Response.') }
               return
             }
           }
@@ -178,10 +170,9 @@ function newFileCursor() {
     }
   }
 
-  function setTimePeriod(pTimePeriod, pDatetime) {
+  function setTimePeriod (pTimePeriod, pDatetime) {
     try {
       if (finalized === true) { return }
-      if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> Entering function.') }
 
       /*
 
@@ -224,7 +215,7 @@ function newFileCursor() {
         enterSavingMode()
       }
 
-      function enterSavingMode() {
+      function enterSavingMode () {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> enterSavingMode -> Entering function.') }
 
@@ -303,7 +294,7 @@ function newFileCursor() {
         }
       }
 
-      function exitSavingMode() {
+      function exitSavingMode () {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> exitSavingMode -> Entering function.') }
 
@@ -386,7 +377,7 @@ function newFileCursor() {
     }
   }
 
-  function setDatetime(pDatetime) {
+  function setDatetime (pDatetime) {
     try {
       if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] setDatetime -> Entering function.') }
@@ -402,7 +393,7 @@ function newFileCursor() {
     }
   }
 
-  function reload(callBackFunction) {
+  function reload (callBackFunction) {
     try {
       if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] reload -> Entering function.') }
@@ -416,7 +407,7 @@ function newFileCursor() {
     }
   }
 
-  function getFiles(callBackFunction) {
+  function getFiles (callBackFunction) {
     try {
       if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] getFiles -> Entering function.') }
@@ -428,7 +419,7 @@ function newFileCursor() {
 
       getNextFile()
 
-      function getNextFile() {
+      function getNextFile () {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFiles -> getNextFile -> Entering function.') }
 
@@ -487,7 +478,7 @@ function newFileCursor() {
         }
       }
 
-      function onFileReceived(err, file) {
+      function onFileReceived (err, file) {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFiles -> onFileReceived -> Entering function.') }
 
@@ -532,7 +523,7 @@ function newFileCursor() {
         }
       }
 
-      function controlLoop() {
+      function controlLoop () {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFiles -> controlLoop -> Entering function.') }
 
@@ -556,7 +547,7 @@ function newFileCursor() {
     }
   }
 
-  function collectGarbage(callBackFunction) {
+  function collectGarbage (callBackFunction) {
     try {
       if (finalized === true) { return }
       if (INFO_LOG === true) { logger.write('[INFO] collectGarbage -> Entering function.') }
@@ -579,7 +570,7 @@ function newFileCursor() {
     }
   }
 
-  function getExpectedFiles() {
+  function getExpectedFiles () {
     if (finalized === true) { return }
     if (INFO_LOG === true) { logger.write('[INFO] getExpectedFiles -> Entering function.') }
 

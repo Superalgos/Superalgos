@@ -125,7 +125,7 @@ function newRestartSimulation () {
   }
 
   function turnOffProductCards () {
-    let productCardsToTurnOff = ['Trading-Simulation', 'Simulation-Conditions', 'Simulation-Strategies', 'Simulation-Trades']
+    let productCardsToTurnOff = ['Trading-Simulation', 'Simulation-Conditions', 'Simulation-Strategies', 'Simulation-Trades', 'Live Trading History']
     for (let i = 0; i < canvas.panelsSpace.panels.length; i++) {
       let panel = canvas.panelsSpace.panels[i]
       if (panel.name === 'Products Panel') {

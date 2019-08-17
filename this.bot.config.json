@@ -276,9 +276,16 @@
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
           "validPeriods": [
+            "45-min",
+            "30-min",
+            "20-min",
             "15-min",
             "10-min",
-            "05-min"
+            "05-min",
+            "04-min",
+            "03-min",
+            "02-min",
+            "01-min"
           ],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
@@ -328,9 +335,16 @@
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
           "validPeriods": [
+            "45-min",
+            "30-min",
+            "20-min",
             "15-min",
             "10-min",
-            "05-min"
+            "05-min",
+            "04-min",
+            "03-min",
+            "02-min",
+            "01-min"
           ],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
@@ -380,9 +394,16 @@
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
           "validPeriods": [
+            "45-min",
+            "30-min",
+            "20-min",
             "15-min",
             "10-min",
-            "05-min"
+            "05-min",
+            "04-min",
+            "03-min",
+            "02-min",
+            "01-min"
           ],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
@@ -432,9 +453,16 @@
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
           "validPeriods": [
+            "45-min",
+            "30-min",
+            "20-min",
             "15-min",
             "10-min",
-            "05-min"
+            "05-min",
+            "04-min",
+            "03-min",
+            "02-min",
+            "01-min"
           ],
           "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",

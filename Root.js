@@ -249,7 +249,7 @@
                                     if (processConfig.startMode.live.run === "true") {
                                         if (processConfig.startMode.live.beginDatetime !== undefined) {
                                             processConfig.framework.startDate.fixedDate = processConfig.startMode.live.beginDatetime;
-                                            processConfig.framework.startDate.resumeExecution = false;
+                                            processConfig.framework.startDate.resumeExecution = processConfig.startMode.live.resumeExecution;
                                         }
                                     }
                                 }
@@ -257,7 +257,7 @@
                                     if (processConfig.startMode.backtest.run === "true") {
                                         if (processConfig.startMode.backtest.beginDatetime !== undefined) {
                                             processConfig.framework.startDate.fixedDate = processConfig.startMode.backtest.beginDatetime;
-                                            processConfig.framework.startDate.resumeExecution = false;
+                                            processConfig.framework.startDate.resumeExecution = processConfig.startMode.backtest.resumeExecution;
                                         }
                                     }
                                 }

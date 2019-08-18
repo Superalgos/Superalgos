@@ -65,6 +65,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
 
+            let processingDailyFiles = (currentDay !== undefined)
+
             let executionArray = [];
             let recordsArray = [];
             let conditionsArray = [];
@@ -161,18 +163,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
             }
 
-            /* Strategy and Phases */
-
-            let currentStrategyIndex = -1;
-            let strategyStage = 'No Stage';
-
             /* Stop Loss Management */
 
             const MIN_STOP_LOSS_VALUE = 1 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
             const MAX_STOP_LOSS_VALUE = Number.MAX_SAFE_INTEGER
             let stopLoss = 0;
-            let stopLossPhase = 0;
-            let stopLossStage = 'No Stage';
 
             /* Take Profit Management */
 
@@ -180,17 +175,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
             let previousTakeProfit = 0;
             let takeProfit = 0;
-            let takeProfitPhase = 0;
-            let takeProfitStage = 'No Stage';
 
             /* Simulation Records */
 
-            let tradePositionRate = 0;
-            let tradePositionSize = 0;
-            let positionInstant;
-
-            let previousBalanceAssetA = 0;
-            let previousBalanceAssetB = 0;
             let hitRatio = 0;
             let ROI = 0;
             let days = 0;
@@ -200,33 +187,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let marketRate = 0;
             let takePositionNow = false
 
-            /* Assistant Info */
-
-            let ticker = assistant.getTicker();
-
-            /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need thse variables. */
+            /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need these variables. */
 
             let lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
             let lastCandle = candles[candles.length - 1];
-
-            /* These 2 objects will allow us to create separate files for each one of them. */
-
-            let currentStrategy = {
-                begin: 0,
-                end: 0,
-                status: 0,
-                number: 0
-            }
-
-            let currentTrade = {
-                begin: 0,
-                end: 0,
-                status: 0,
-                profit: 0,
-                exitType: 0,
-                beginRate: 0,
-                endRate: 0
-            }
 
             /*
             The following counters need to survive multiple executions of the similator and keep themselves reliable.
@@ -245,6 +209,45 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             the day is complete and if we have a currentDay. That menas that for Market Files we will never use
             interExecutionMemory.
             */
+
+            /*Needed for statistics */
+            let previousBalanceAssetA = 0;
+            let previousBalanceAssetB = 0;
+
+            /* Position Management */
+            let tradePositionRate = 0;
+            let tradePositionSize = 0;
+
+            /* Strategy and Phase Management */
+            let currentStrategyIndex = -1;
+            let strategyStage = 'No Stage';
+
+            let stopLossPhase = 0;
+            let stopLossStage = 'No Stage';
+
+            let takeProfitPhase = 0;
+            let takeProfitStage = 'No Stage';
+
+            /* These 2 objects will allow us to create separate files for each one of them. */
+
+            let currentStrategy = {
+                begin: 0,
+                end: 0,
+                status: 0,
+                number: 0,
+                beginRate: 0,
+                endRate: 0
+            }
+
+            let currentTrade = {
+                begin: 0,
+                end: 0,
+                status: 0,
+                profit: 0,
+                exitType: 0,
+                beginRate: 0,
+                endRate: 0
+            }
 
             let balanceAssetA = initialBalanceA;
             let balanceAssetB = initialBalanceB;
@@ -266,6 +269,42 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             let yesterday = {};
 
+            /* Initialization */
+
+            yesterday.previousBalanceAssetA = previousBalanceAssetA
+            yesterday.previousBalanceAssetB = previousBalanceAssetB
+
+            yesterday.tradePositionRate = tradePositionRate
+            yesterday.tradePositionSize = tradePositionSize
+
+            yesterday.currentStrategyIndex = currentStrategyIndex 
+            yesterday.strategyStage = strategyStage
+
+            yesterday.stopLossPhase = stopLossPhase
+            yesterday.stopLossStage = stopLossStage
+
+            yesterday.takeProfitPhase = takeProfitPhase
+            yesterday.takeProfitStage = takeProfitStage
+
+            yesterday.currentStrategy = {
+                begin: 0,
+                end: 0,
+                status: 0,
+                number: 0,
+                beginRate: 0,
+                endRate: 0
+            }
+
+            yesterday.currentTrade = {
+                begin: 0,
+                end: 0,
+                status: 0,
+                profit: 0,
+                exitType: 0,
+                beginRate: 0,
+                endRate: 0
+            }
+
             yesterday.balanceAssetA = balanceAssetA;
             yesterday.balanceAssetB = balanceAssetB;
 
@@ -273,10 +312,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             yesterday.profit = 0;
             yesterday.lastTradeROI = 0;
 
-            yesterday.Roundtrips = 0;
+            yesterday.roundtrips = 0;
             yesterday.fails = 0;
             yesterday.hits = 0;
-            yesterday.Periods = 0;
+            yesterday.periods = 0;
             yesterday.positionPeriods = 0;
 
             yesterday.orderId = 0;
@@ -289,6 +328,40 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             if (interExecutionMemory.roundtrips === undefined) {
 
                 /* Initialize the data structure we will use inter execution. */
+
+                interExecutionMemory.previousBalanceAssetA = previousBalanceAssetA
+                interExecutionMemory.previousBalanceAssetB = previousBalanceAssetB
+
+                interExecutionMemory.tradePositionRate = tradePositionRate
+                interExecutionMemory.tradePositionSize = tradePositionSize
+
+                interExecutionMemory.currentStrategyIndex = currentStrategyIndex
+                interExecutionMemory.strategyStage = strategyStage
+
+                interExecutionMemory.stopLossPhase = stopLossPhase
+                interExecutionMemory.stopLossStage = stopLossStage
+
+                interExecutionMemory.takeProfitPhase = takeProfitPhase
+                interExecutionMemory.takeProfitStage = takeProfitStage
+
+                interExecutionMemory.currentStrategy = {
+                    begin: 0,
+                    end: 0,
+                    status: 0,
+                    number: 0,
+                    beginRate: 0,
+                    endRate: 0
+                }
+
+                interExecutionMemory.currentTrade = {
+                    begin: 0,
+                    end: 0,
+                    status: 0,
+                    profit: 0,
+                    exitType: 0,
+                    beginRate: 0,
+                    endRate: 0
+                }
 
                 interExecutionMemory.balanceAssetA = balanceAssetA;
                 interExecutionMemory.balanceAssetB = balanceAssetB;
@@ -314,6 +387,40 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* We get the initial values from the day previous to the candles we receive at the current execution */
 
+                previousBalanceAssetA = interExecutionMemory.previousBalanceAssetA
+                previousBalanceAssetB = interExecutionMemory.previousBalanceAssetB
+
+                tradePositionRate = interExecutionMemory.tradePositionRate
+                tradePositionSize = interExecutionMemory.tradePositionSize
+
+                currentStrategyIndex = interExecutionMemory.currentStrategyIndex 
+                strategyStage = interExecutionMemory.strategyStage 
+
+                stopLossPhase = interExecutionMemory.stopLossPhase 
+                stopLossStage = interExecutionMemory.stopLossStage 
+
+                takeProfitPhase = interExecutionMemory.takeProfitPhase 
+                takeProfitStage = interExecutionMemory.takeProfitStage
+
+                currentStrategy = {
+                    begin: interExecutionMemory.currentStrategy.begin,
+                    end: interExecutionMemory.currentStrategy.end,
+                    status: interExecutionMemory.currentStrategy.status,
+                    number: interExecutionMemory.currentStrategy.number,
+                    beginRate: interExecutionMemory.currentStrategy.beginRate,
+                    endRate: interExecutionMemory.currentStrategy.endRate
+                }
+
+                currentTrade = {
+                    begin: interExecutionMemory.currentTrade.begin,
+                    end: interExecutionMemory.currentTrade.end,
+                    status: interExecutionMemory.currentTrade.status,
+                    profit: interExecutionMemory.currentTrade.profit,
+                    exitType: interExecutionMemory.currentTrade.exitType,
+                    beginRate: interExecutionMemory.currentTrade.beginRate,
+                    endRate: interExecutionMemory.currentTrade.endRate
+                }
+
                 if (currentDay.valueOf() >= startDate.valueOf() + ONE_DAY_IN_MILISECONDS) { // Only after the first day we start grabbing the balance from this memory.
 
                     balanceAssetA = interExecutionMemory.balanceAssetA;
@@ -334,17 +441,62 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 periods = interExecutionMemory.periods;
                 positionPeriods = interExecutionMemory.positionPeriods;
 
-                orderId = interExecutionMemory.orderId;
-                messageId = interExecutionMemory.messageId;
+                orderId = interExecutionMemory.orderId; // to be deprecated
+                messageId = interExecutionMemory.messageId; // to be deprecated
 
                 hitRatio = interExecutionMemory.hitRatio;
                 ROI = interExecutionMemory.ROI;
                 anualizedRateOfReturn = interExecutionMemory.anualizedRateOfReturn;
 
+                /* For the case that any of these variables are not updated during the main loop, we need to store their value at the yesterday structure, otherwise it would be lost. */
+
+                yesterday.previousBalanceAssetA = previousBalanceAssetA
+                yesterday.previousBalanceAssetB = previousBalanceAssetB
+
+                yesterday.tradePositionRate = tradePositionRate
+                yesterday.tradePositionSize = tradePositionSize
+
+                yesterday.currentStrategyIndex = currentStrategyIndex;
+                yesterday.strategyStage = strategyStage;
+
+                yesterday.stopLossPhase = stopLossPhase;
+                yesterday.stopLossStage = stopLossStage;
+
+                yesterday.takeProfitPhase = takeProfitPhase;
+                yesterday.takeProfitStage = takeProfitStage;
+
+                yesterday.currentStrategy = {
+                    begin: currentStrategy.begin,
+                    end: currentStrategy.end,
+                    status: currentStrategy.status,
+                    number: currentStrategy.number,
+                    beginRate: currentStrategy.beginRate,
+                    endRate: currentStrategy.endRate
+                }
+
+                yesterday.currentTrade = {
+                    begin: currentTrade.begin,
+                    end: currentTrade.end,
+                    status: currentTrade.status,
+                    profit: currentTrade.profit,
+                    exitType: currentTrade.exitType,
+                    beginRate: currentTrade.beginRate,
+                    endRate: currentTrade.endRate
+                }
+
+                yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
+                yesterday.profit = profit;
+                yesterday.lastTradeROI = lastTradeROI;
+
+                yesterday.roundtrips = roundtrips;
+                yesterday.fails = fails;
+                yesterday.hits = hits;
+                yesterday.periods = periods;
+                yesterday.positionPeriods = positionPeriods;
+
                 yesterday.hitRatio = hitRatio;
                 yesterday.ROI = ROI;
                 yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
-
             }
 
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
@@ -360,6 +512,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             }
 
             function loop() {
+
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Entering function."); }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> i = " + i); }
 
@@ -368,6 +521,21 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 let bollingerBand = bollingerBandsMap.get(candle.begin);
                 let bollingerChannel = getElement(bollingerChannelsArray, candle.begin, candle.end);
                 let bollingerSubChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
+                let positionedAtYesterday = (candle.end < currentDay.valueOf())
+
+                /* Assistant Info */
+
+                let ticker 
+
+                if (process.env.START_MODE === "live") {
+                    ticker = assistant.getTicker()
+                } else {
+                    ticker = {
+                        bid: candle.close,
+                        ask: candle.close,
+                        last: candle.close
+                    }
+                }
 
                 //let LRC = LRCMap.get(candle.begin);
 
@@ -404,9 +572,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 periods++;
                 days = periods * timePeriod / ONE_DAY_IN_MILISECONDS;
 
-                if (currentDay !== undefined) { // This means that we are processing Daily Files 
-                    if (candle.end < currentDay.valueOf()) {
-                        yesterday.Periods++;
+                if (processingDailyFiles) { 
+                    if (positionedAtYesterday) {
+                        yesterday.periods = periods
                     }
 
                     /* We skip the candle at the head of the market because i has not closed yet. */
@@ -962,6 +1130,16 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                             currentStrategy.beginRate = candle.min;
                                             currentStrategy.endRate = candle.min; // In case the strategy does not get exited
 
+                                            if (processingDailyFiles) {
+                                                if (positionedAtYesterday) {
+                                                    yesterday.strategyStage = strategyStage;
+                                                    yesterday.currentStrategyIndex = currentStrategyIndex;
+                                                    yesterday.currentStrategy.begin = currentStrategy.begin;
+                                                    yesterday.currentStrategy.beginRate = currentStrategy.beginRate;
+                                                    yesterday.currentStrategy.endRate = currentStrategy.endRate;
+                                                }
+                                            }
+
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Switching to Trigger Stage because conditions at Trigger On Event were met."); }
                                             break;
                                         }
@@ -1018,6 +1196,17 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     strategyStage = 'No Stage';
                                     currentStrategyIndex = -1;
 
+                                    if (processingDailyFiles) {
+                                        if (positionedAtYesterday) {
+                                            yesterday.currentStrategy.number = currentStrategy.number;
+                                            yesterday.currentStrategy.end = currentStrategy.end;
+                                            yesterday.currentStrategy.endRate = currentStrategy.endRate;
+                                            yesterday.currentStrategy.status = currentStrategy.status;
+                                            yesterday.strategyStage = strategyStage;
+                                            yesterday.currentStrategyIndex = currentStrategyIndex;
+                                        }
+                                    }
+
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Switching to No Stage because conditions at the Trigger Off Event were met."); }
                                     break;
                                 }
@@ -1065,7 +1254,20 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     stopLossPhase = 1;
                                     takeProfitPhase = 1;
                                     currentTrade.begin = candle.begin;
-                                    currentTrade.beginRate = candle.close;
+                                    currentTrade.beginRate = strategy.positionRate;
+
+                                    if (processingDailyFiles) {
+                                        if (positionedAtYesterday) {
+                                            yesterday.strategyStage = strategyStage;
+                                            yesterday.stopLossStage = stopLossStage;
+                                            yesterday.takeProfitStage = takeProfitStage;
+                                            yesterday.stopLossPhase = stopLossPhase;
+                                            yesterday.takeProfitPhase = takeProfitPhase;
+                                            yesterday.currentTrade.begin = currentTrade.begin;
+                                            yesterday.currentTrade.beginRate = currentTrade.beginRate;
+                                        }
+                                    }
+
                                     takePositionNow = true
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Conditions at the Take Position Event were met."); }
@@ -1146,6 +1348,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 stopLossPhase++;
                                 stopLossStage = 'Manage Stage'
                                 if (takeProfitPhase > 1) { strategyStage = 'Manage Stage' }
+
+                                if (processingDailyFiles) {
+                                    if (positionedAtYesterday) {
+                                        yesterday.stopLossPhase = stopLossPhase;
+                                        yesterday.stopLossStage = stopLossStage;
+                                        yesterday.strategyStage = strategyStage;
+                                    }
+                                }
                                 return;
                             }
                         }
@@ -1253,6 +1463,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 takeProfitPhase++;
                                 takeProfitStage = 'Manage Stage'
                                 if (stopLossPhase > 1) { strategyStage = 'Manage Stage' }
+
+                                if (processingDailyFiles) {
+                                    if (positionedAtYesterday) {
+                                        yesterday.takeProfitPhase = takeProfitPhase;
+                                        yesterday.takeProfitStage = takeProfitStage;
+                                        yesterday.strategyStage = strategyStage;
+                                    }
+                                }
                                 return;
                             }
                         }
@@ -1297,21 +1515,31 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if (takePositionNow === true) {
                         positionPeriods = 0
-                        yesterday.positionPeriods = 0
+
+                        if (processingDailyFiles) { 
+                            if (positionedAtYesterday) {
+                                yesterday.positionPeriods = 0
+                            }
+                        }
                     }
 
                     positionPeriods++;
                     positionDays = positionPeriods * timePeriod / ONE_DAY_IN_MILISECONDS;
 
-                    if (currentDay !== undefined) { // This means that we are processing Daily Files 
-                        if (candle.end < currentDay.valueOf()) {
-                            yesterday.positionPeriods++;
+                    if (processingDailyFiles) { 
+                        if (positionedAtYesterday) {
+                            yesterday.positionPeriods = positionPeriods
                         }
                     }
                 } else {
                     positionPeriods = 0
-                    yesterday.positionPeriods = 0
                     positionDays = 0
+
+                    if (processingDailyFiles) {
+                        if (positionedAtYesterday) {
+                            yesterday.positionPeriods = 0
+                        }
+                    }
                 }
 
                 /* Checking if Stop or Take Profit were hit */
@@ -1342,8 +1570,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             balanceAssetA = 0;
                         }
 
-                        if (currentDay !== undefined) {
-                            if (positionInstant < currentDay.valueOf()) {
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
                                 yesterday.balanceAssetA = balanceAssetA;
                                 yesterday.balanceAssetB = balanceAssetB;
                             }
@@ -1363,9 +1591,25 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
                         currentStrategy.status = 1;
+
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.strategyStage = strategyStage;
+                                yesterday.stopLossStage = stopLossStage;
+                                yesterday.takeProfitStage = takeProfitStage;
+                                yesterday.currentTrade.end = currentTrade.end;
+                                yesterday.currentTrade.status = currentTrade.status;
+                                yesterday.currentTrade.exitType = currentTrade.exitType;
+                                yesterday.currentTrade.endRate = currentTrade.endRate;
+                                yesterday.currentStrategy.number = currentStrategy.number;
+                                yesterday.currentStrategy.end = currentStrategy.end;
+                                yesterday.currentStrategy.endRate = currentStrategy.endRate;
+                                yesterday.currentStrategy.status = currentStrategy.status;
+                            }
+                        }
                     }
 
-                    /* Take Profit condition: Here we verify if the Take Profit was filled or not. */
+                    /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
 
                     if ((baseAsset === 'BTC' && candle.min <= takeProfit) || (baseAsset !== 'BTC' && candle.max >= takeProfit)) {
 
@@ -1383,8 +1627,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             balanceAssetA = 0;
                         }
 
-                        if (currentDay !== undefined) {
-                            if (positionInstant < currentDay.valueOf()) {
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
                                 yesterday.balanceAssetA = balanceAssetA;
                                 yesterday.balanceAssetB = balanceAssetB;
 
@@ -1396,6 +1640,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
+
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 2;
@@ -1405,6 +1650,24 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
                         currentStrategy.status = 1;
+
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.strategyStage = strategyStage;
+                                yesterday.stopLossStage = stopLossStage;
+                                yesterday.takeProfitStage = takeProfitStage;
+
+                                yesterday.currentTrade.end = currentTrade.end;
+                                yesterday.currentTrade.status = currentTrade.status;
+                                yesterday.currentTrade.exitType = currentTrade.exitType;
+                                yesterday.currentTrade.endRate = currentTrade.endRate;
+
+                                yesterday.currentStrategy.number = currentStrategy.number;
+                                yesterday.currentStrategy.end = currentStrategy.end;
+                                yesterday.currentStrategy.endRate = currentStrategy.endRate;
+                                yesterday.currentStrategy.status = currentStrategy.status;
+                            }
+                        }
                     }
                 }
 
@@ -1420,6 +1683,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     tradePositionSize = strategy.positionSize;
                     tradePositionRate = strategy.positionRate;
+
+                    if (processingDailyFiles) {
+                        if (positionedAtYesterday) {
+                            yesterday.tradePositionSize = tradePositionSize;
+                            yesterday.tradePositionRate = tradePositionRate;
+                        }
+                    }
 
                     /* Check that we are in LIVE MODE */
                     if (process.env.START_MODE === "live") {
@@ -1606,6 +1876,13 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         previousBalanceAssetA = balanceAssetA;
                         previousBalanceAssetB = balanceAssetB;
 
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.previousBalanceAssetA = previousBalanceAssetA;
+                                yesterday.previousBalanceAssetB = previousBalanceAssetB;
+                            }
+                        }
+
                         lastTradeProfitLoss = 0;
                         lastTradeROI = 0;
 
@@ -1617,10 +1894,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             balanceAssetB = balanceAssetB - tradePositionSize;
                         }
 
-                        positionInstant = candle.end;
-
-                        if (currentDay !== undefined) {
-                            if (positionInstant < currentDay.valueOf()) {
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
                                 yesterday.balanceAssetA = balanceAssetA;
                                 yesterday.balanceAssetB = balanceAssetB;
 
@@ -1785,9 +2060,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         roundtrips++;
 
-                        if (currentDay !== undefined) {
-                            if (positionInstant < currentDay.valueOf()) {
-                                yesterday.Roundtrips++;
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.roundtrips = roundtrips
                             }
                         }
 
@@ -1803,8 +2078,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             profit = balanceAssetB - initialBalanceB;
                         }
 
-                        if (currentDay !== undefined) {
-                            if (positionInstant < currentDay.valueOf()) {
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
                                 yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
                                 yesterday.profit = profit;
                                 yesterday.lastTradeROI = lastTradeROI;
@@ -1814,21 +2089,28 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentTrade.lastTradeROI = lastTradeROI;
                         currentTrade.stopRate = stopLoss;
 
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.currentTrade.lastTradeROI = currentTrade.lastTradeROI;
+                                yesterday.currentTrade.stopRate = currentTrade.stopRate;
+                            }
+                        }
+
                         if (lastTradeProfitLoss > 0) {
                             hits++;
 
-                            if (currentDay !== undefined) {
-                                if (positionInstant < currentDay.valueOf()) {
-                                    yesterday.hits++;
+                            if (processingDailyFiles) {
+                                if (positionedAtYesterday) {
+                                    yesterday.hits =  hits
                                 }
                             }
 
                         } else {
                             fails++;
 
-                            if (currentDay !== undefined) {
-                                if (positionInstant < currentDay.valueOf()) {
-                                    yesterday.fails++;
+                            if (processingDailyFiles) {
+                                if (positionedAtYesterday) {
+                                    yesterday.fails = fails
                                 }
                             }
                         }
@@ -1843,8 +2125,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             anualizedRateOfReturn = ROI / days * 365;
                         }
 
-                        if (currentDay !== undefined) {
-                            if (positionInstant < currentDay.valueOf()) {
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
                                 yesterday.ROI = ROI;
                                 yesterday.hitRatio = hitRatio;
                                 yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
@@ -1853,17 +2135,36 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         addRecord();
 
-                        currentStrategyIndex = -1;
                         stopLoss = 0;
+                        takeProfit = 0;
+
                         tradePositionRate = 0;
                         tradePositionSize = 0;
-                        positionInstant = undefined;
-                        takeProfit = 0;
+
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.tradePositionSize = tradePositionSize;
+                                yesterday.tradePositionRate = tradePositionRate;
+                            }
+                        }
+
+                        currentStrategyIndex = -1;
                         strategyStage = 'No Stage';
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
                         stopLossPhase = 0;
                         takeProfitPhase = 0;
+
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.currentStrategyIndex = currentStrategyIndex;
+                                yesterday.strategyStage = strategyStage;
+                                yesterday.stopLossStage = stopLossStage;
+                                yesterday.takeProfitStage = takeProfitStage;
+                                yesterday.stopLossPhase = stopLossPhase;
+                                yesterday.takeProfitPhase = takeProfitPhase;
+                            }
+                        }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> closePositionAtSimulation -> Exiting Loop Body after closing position at simulation."); }
                         controlLoop();
@@ -2084,6 +2385,19 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             beginRate: 0,
                             endRate: 0
                         }
+
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.currentStrategy = {
+                                    begin: 0,
+                                    end: 0,
+                                    status: 0,
+                                    number: 0,
+                                    beginRate: 0,
+                                    endRate: 0
+                                }
+                            }
+                        }
                     }
 
                     /* Prepare the information for the Trades File */
@@ -2105,6 +2419,20 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             exitType: 0,
                             beginRate: 0,
                             endRate: 0
+                        }
+
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.currentTrade = {
+                                    begin: 0,
+                                    end: 0,
+                                    status: 0,
+                                    lastTradeROI: 0,
+                                    exitType: 0,
+                                    beginRate: 0,
+                                    endRate: 0
+                                }
+                            }
                         }
                     }
                 }
@@ -2128,9 +2456,43 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 To do that, the condition to be met is that this execution must include all candles of the currentDay.
                 */
 
-                if (currentDay !== undefined) {
+                if (processingDailyFiles) {
 
                     if (lastCandle.end === lastInstantOfTheDay) {
+
+                        interExecutionMemory.previousBalanceAssetA = yesterday.previousBalanceAssetA
+                        interExecutionMemory.previousBalanceAssetB = yesterday.previousBalanceAssetB
+
+                        interExecutionMemory.tradePositionRate = yesterday.tradePositionRate
+                        interExecutionMemory.tradePositionSize = yesterday.tradePositionSize
+
+                        interExecutionMemory.currentStrategyIndex = yesterday.currentStrategyIndex
+                        interExecutionMemory.strategyStage = yesterday.strategyStage
+
+                        interExecutionMemory.stopLossPhase = yesterday.stopLossPhase
+                        interExecutionMemory.stopLossStage = yesterday.stopLossStage
+
+                        interExecutionMemory.takeProfitPhase = yesterday.takeProfitPhase
+                        interExecutionMemory.takeProfitStage = yesterday.takeProfitStage
+
+                        interExecutionMemory.currentStrategy = {
+                            begin: yesterday.currentStrategy.begin,
+                            end: yesterday.currentStrategy.end,
+                            status: yesterday.currentStrategy.status,
+                            number: yesterday.currentStrategy.number,
+                            beginRate: yesterday.currentStrategy.beginRate,
+                            endRate: yesterday.currentStrategy.endRate
+                        }
+
+                        interExecutionMemory.currentTrade = {
+                            begin: yesterday.currentTrade.begin,
+                            end: yesterday.currentTrade.end,
+                            status: yesterday.currentTrade.status,
+                            profit: yesterday.currentTrade.profit,
+                            exitType: yesterday.currentTrade.exitType,
+                            beginRate: yesterday.currentTrade.beginRate,
+                            endRate: yesterday.currentTrade.endRate
+                        }
 
                         interExecutionMemory.balanceAssetA = yesterday.balanceAssetA;
                         interExecutionMemory.balanceAssetB = yesterday.balanceAssetB;
@@ -2138,11 +2500,11 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         interExecutionMemory.profit = yesterday.profit;
                         interExecutionMemory.lastTradeROI = yesterday.lastTradeROI;
 
-                        interExecutionMemory.roundtrips = interExecutionMemory.roundtrips + yesterday.Roundtrips;
-                        interExecutionMemory.fails = interExecutionMemory.fails + yesterday.fails;
-                        interExecutionMemory.hits = interExecutionMemory.hits + yesterday.hits;
-                        interExecutionMemory.periods = interExecutionMemory.periods + yesterday.Periods;
-                        interExecutionMemory.positionPeriods = interExecutionMemory.positionPeriods + yesterday.positionPeriods;
+                        interExecutionMemory.roundtrips =  yesterday.roundtrips;
+                        interExecutionMemory.fails =  yesterday.fails;
+                        interExecutionMemory.hits =  yesterday.hits;
+                        interExecutionMemory.periods =  yesterday.periods;
+                        interExecutionMemory.positionPeriods =  yesterday.positionPeriods;
 
                         interExecutionMemory.messageId = interExecutionMemory.messageId + yesterday.messageId;
                         interExecutionMemory.orderId = interExecutionMemory.orderId + yesterday.orderId;

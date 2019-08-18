@@ -33,14 +33,21 @@ const definition = require(definitionPath);
 let sequenceList = require('./sequence');
 let isRunSequence = false;
 let sequenceStep = 0;
-let processedSteps = new Map()
-let notFirstSequence = false
+let processedSteps = new Map();
+let notFirstSequence = false;
+let runClonExecutor = true;
 
 if (process.env.RUN_SEQUENCE !== undefined) {
     isRunSequence = JSON.parse(process.env.RUN_SEQUENCE)
 }
 
 if (isRunSequence) {
+    process.on('message', message => {
+        if (message === 'STOP') {
+            runClonExecutor = false;
+            console.log("[INFO] CloneExecutor -> Clone Executor Stopped.");
+        }
+    });
     sequenceExecution(sequenceStep)
 } else {
     readExecutionConfiguration()
@@ -70,8 +77,7 @@ function sequenceExecution(currentStep) {
 
     execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
 
-    if (definition) 
-    {
+    if (definition) {
         if (definition.personalData) {
             if (definition.personalData.exchangeAccounts) {
                 if (definition.personalData.exchangeAccounts.length > 0) {
@@ -82,7 +88,7 @@ function sequenceExecution(currentStep) {
 
                             process.env.KEY = key.name
                             process.env.SECRET = key.code
-                            
+
                         }
                     }
                 }
@@ -96,35 +102,28 @@ function sequenceExecution(currentStep) {
     } else {
         processedSteps.set(stepKey, 0);
     }
-    console.log("Sequence Execution Parameters: " + JSON.stringify(execution))
+
     readExecutionConfiguration(execution);
     sequenceStep++;
 }
 
 function onExecutionFinish(result, finishStepKey) {
-    processedSteps.set(finishStepKey, processedSteps.get(finishStepKey) + 1)
-    if (processedSteps.get(finishStepKey) > 1) {
-        console.log('[INFO] onExecutionFinish -> Step already processed.')
+    if (sequenceStep < sequenceList.length && runClonExecutor) {
+        sequenceExecution(sequenceStep);
     } else {
-        if (sequenceStep < sequenceList.length) {
-            sequenceExecution(sequenceStep)
-        } else {
-            if (sequenceStep < sequenceList.length) {
+        setTimeout(function () {
+            if (runClonExecutor) {
+                console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
+                sequenceList = require('./sequence'); // We read again the sequence after every loop
+                sequenceStep = 0;
+                processedSteps = new Map();
+                notFirstSequence = true;
                 sequenceExecution(sequenceStep);
-            } else {
-                setTimeout(function () {
-                    console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
-                    sequenceList = require('./sequence'); // We read again the sequence after every loop
-                    sequenceStep = 0;
-                    processedSteps = new Map();
-                    sequenceExecution(sequenceStep);
-                    notFirstSequence = true
-                }, process.env.EXECUTION_LOOP_DELAY);
             }
-        }
+        }, process.env.EXECUTION_LOOP_DELAY);
     }
-}
 
+}
 
 async function readExecutionConfiguration(execution) {
     try {
@@ -145,7 +144,7 @@ async function readExecutionConfiguration(execution) {
             /* The Trading Engine only resumes its execution after the first sequence was completed. */
             if (notFirstSequence === false) {
                 execution.resumeExecution = false
-            } 
+            }
 
             /* We set the START MODE of the Trading Engine */
             if (process.env.KEY === undefined || process.env.SECRET === undefined) {
@@ -161,13 +160,13 @@ async function readExecutionConfiguration(execution) {
                     }
                     /* Here we only look for one timePeriod, in the future we will be able to process the whole array, but not for now. */
                     if (definition.simulationParams.timePeriodDailyArray !== undefined) {
-                        if (definition.simulationParams.timePeriodDailyArray.length > 0) {
+                        if (definition.simulationParams.timePeriodDailyArray.length === 1) {
                             timePeriodFilter = definition.simulationParams.timePeriodDailyArray[0]
                             botProcess = "Multi-Period-Daily"
                         }
                     }
                     if (definition.simulationParams.timePeriodMarketArray !== undefined) {
-                        if (definition.simulationParams.timePeriodMarketArray.length > 0) {
+                        if (definition.simulationParams.timePeriodMarketArray.length === 1) {
                             timePeriodFilter = definition.simulationParams.timePeriodMarketArray[0]
                             botProcess = "Multi-Period-Market"
                         }
@@ -213,12 +212,12 @@ async function readExecutionConfiguration(execution) {
                                         if (receivedParameters.initialBalance !== undefined) {
                                             process.env.INITIAL_BALANCE_ASSET_B = receivedParameters.initialBalance;
                                             process.env.INITIAL_BALANCE_ASSET_A = 0
-                                        }  
+                                        }
                                     } else {
                                         if (receivedParameters.initialBalance !== undefined) {
                                             process.env.INITIAL_BALANCE_ASSET_A = receivedParameters.initialBalance;
                                             process.env.INITIAL_BALANCE_ASSET_B = 0
-                                        }                                        
+                                        }
                                     }
                                 } catch (err) {
                                     process.env.INITIAL_BALANCE_ASSET_A = 0 // default
@@ -313,7 +312,7 @@ async function readExecutionConfiguration(execution) {
         } else {
             timePeriod = timePeriodFilter
         }
-         
+
         global.EXECUTION_CONFIG = {
             cloneToExecute: cloneToExecute,
             startMode: startMode,
@@ -335,7 +334,7 @@ async function readExecutionConfiguration(execution) {
     }
 
     catch (err) {
-        console.log("[ERROR] readExecutionConfiguration -> err = "+ err.stack);
+        console.log("[ERROR] readExecutionConfiguration -> err = " + err.stack);
         console.log("[ERROR] readExecutionConfiguration -> Please verify that the Start Mode for the type of Bot configured applies to that type.");
     }
 }

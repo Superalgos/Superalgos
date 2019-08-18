@@ -1,7 +1,6 @@
 
 require('dotenv').config()
-const { spawn } = require('child_process')
-const psTree = require('ps-tree')
+const { fork } = require('child_process')
 const open = require('open')
 
 CONSOLE_LOG = process.env.CONSOLE_LOG === 'true'
@@ -60,7 +59,7 @@ function startCloneExecutor () {
   if (process.env.RUN_CLON_EXECUTOR !== 'true') { return }
 
   let path = process.env.CLONE_EXECUTOR_PATH + '/run.js'
-  cloneExecutorChildProcess = spawn('node', [path], { shell: true, stdio: 'inherit' })
+  cloneExecutorChildProcess = fork(path, [], { stdio: 'inherit' })
 
   cloneExecutorChildProcess.on('error', (err) => {
     console.log(`[ERROR] server -> startCloneExecutor -> Clone Executor exited with error ${err}`)
@@ -73,29 +72,8 @@ function startCloneExecutor () {
 function stopCloneExecutor () {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> stopCloneExecutor -> Entering function.') };
 
-  var kill = function (pid, signal, callback) {
-    signal = signal || 'SIGKILL'
-    callback = callback || function () { }
-    var killTree = true
-    if (killTree) {
-      psTree(pid, function (err, children) {
-        [pid].concat(
-          children.map(function (p) {
-            return p.PID
-          })
-        ).forEach(function (tpid) {
-          try { process.kill(tpid, signal) } catch (ex) { }
-        })
-        callback()
-      })
-    } else {
-      try { process.kill(pid, signal) } catch (ex) { }
-      callback()
-    }
-  }
-
   if (cloneExecutorChildProcess) {
-    kill(cloneExecutorChildProcess.pid)
+    cloneExecutorChildProcess.send('STOP');
   }
 }
 

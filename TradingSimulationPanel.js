@@ -146,7 +146,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         y = y + increment;
         printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel(currentRecord.lastTradeProfitLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel((currentRecord.lastTradeProfitLoss), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
         printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
@@ -269,6 +269,9 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
             let label = '' + labelToPrint;
             if (isNaN(label) === false) {
                 label = Number(label).toLocaleString();
+                if ((label === "-0" || label === "0") && (labelToPrint !== 0) && (labelToPrint !== "0.00")) {
+                    label = Number(labelToPrint).toFixed(6);
+                }
             }
             let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
 
@@ -328,6 +331,10 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         canvas.cockpitSpace.assetBalances.setParamsArray(paramsArray)
     }
 }
+
+
+
+
 
 
 

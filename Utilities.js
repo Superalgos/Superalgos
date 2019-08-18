@@ -1,4 +1,37 @@
 
+function getSimulationParams () {
+  let dateAtScreenCorner = new Date(window.localStorage.getItem('Date @ Screen Corner'))
+  let currentTimePeriod = JSON.parse(window.localStorage.getItem('Current Time Period'))
+
+  let timePeriodsMasterArray = [marketFilesPeriods, dailyFilePeriods]
+  let timePeriodArray = timePeriodsMasterArray[currentTimePeriod.filePeriodIndex]
+  let timePeriod = timePeriodArray[currentTimePeriod.timePeriodIndex][1]
+
+  let timePeriodDailyArray = []
+  let timePeriodMarketArray = []
+
+  switch (currentTimePeriod.filePeriodIndex) {
+    case 0: {
+      timePeriodMarketArray.push(timePeriod)
+      break
+    }
+    case 1: {
+      timePeriodDailyArray.push(timePeriod)
+      break
+    }
+  }
+
+  let simulationParams = {
+    beginDatetime: dateAtScreenCorner.valueOf(),
+    resumeExecution: false,
+    timePeriodDailyArray: timePeriodDailyArray,
+    timePeriodMarketArray: timePeriodMarketArray,
+    timestamp: (new Date()).valueOf()
+  }
+
+  return simulationParams
+}
+
 function transformThisPoint (point, container) {
     /* We make the point relative to the current frame */
 

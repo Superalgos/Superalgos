@@ -34,6 +34,8 @@ function newRestartSimulation () {
   let productCardsToTurnOn = []
 
   let executionFocusExists = false
+  let idleLabel = ''
+
   return thisObject
 
   function finalize () {
@@ -83,39 +85,21 @@ function newRestartSimulation () {
   }
 
   async function restart () {
-    let dateAtScreenCorner = new Date(window.localStorage.getItem('Date @ Screen Corner'))
-    let currentTimePeriod = JSON.parse(window.localStorage.getItem('Current Time Period'))
-
-    let timePeriodsMasterArray = [marketFilesPeriods, dailyFilePeriods]
-    let timePeriodArray = timePeriodsMasterArray[currentTimePeriod.filePeriodIndex]
-    let timePeriod = timePeriodArray[currentTimePeriod.timePeriodIndex][1]
-
-    let timePeriodDailyArray = []
-    let timePeriodMarketArray = []
-
-    switch (currentTimePeriod.filePeriodIndex) {
-      case 0: {
-        timePeriodMarketArray.push(timePeriod)
-        break
-      }
-      case 1: {
-        timePeriodDailyArray.push(timePeriod)
-        break
-      }
-    }
-
-    let simulationParams = {
-      beginDatetime: dateAtScreenCorner.valueOf(),
-      resumeExecution: false,
-      timePeriodDailyArray: timePeriodDailyArray,
-      timePeriodMarketArray: timePeriodMarketArray,
-      timestamp: (new Date()).valueOf()
-    }
     try {
       thisObject.status = 'Saving'
-      let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(simulationParams)
+      let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(getSimulationParams())
       if (result === true) {
         if (window.canvasApp.executingAt === 'Local') {
+          if (idleLabel === 'RESTART LIVE TRADING') {
+            callServer('', 'ResetLogsAndData', onSaved)
+            function onSaved (err) {
+              if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                logger.write('[INFO] Restart Simulation -> Logs and Simulation data Deleted.')
+              } else {
+                logger.write('[ERROR] Restart Simulation -> Can not delete Logs and Simulation data. err = ' + err.messsage)
+              }
+            }
+          }
           callServer('', 'RestartCloneExecutor', onSaved)
           function onSaved (err) {
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -141,7 +125,7 @@ function newRestartSimulation () {
   }
 
   function turnOffProductCards () {
-    let productCardsToTurnOff = ['Trading-Simulation', 'Simulation-Conditions', 'Simulation-Strategies', 'Simulation-Trades']
+    let productCardsToTurnOff = ['Trading-Simulation', 'Simulation-Conditions', 'Simulation-Strategies', 'Simulation-Trades', 'Live Trading History']
     for (let i = 0; i < canvas.panelsSpace.panels.length; i++) {
       let panel = canvas.panelsSpace.panels[i]
       if (panel.name === 'Products Panel') {
@@ -165,6 +149,8 @@ function newRestartSimulation () {
   }
 
   function physics () {
+    labelPhysics()
+
     if (counterTillNextState > 0) {
       counterTillNextState--
 
@@ -207,6 +193,26 @@ function newRestartSimulation () {
 
     positionPhysics()
     executionFocusPhysics()
+  }
+
+  function labelPhysics () {
+    idleLabel = 'RESTART SIMULATION'
+    if (canvas.strategySpace.workspace.definition) {
+      let definition = canvas.strategySpace.workspace.definition
+      if (definition.personalData) {
+        if (definition.personalData.exchangeAccounts) {
+          if (definition.personalData.exchangeAccounts.length > 0) {
+            let exchangeAccount = definition.personalData.exchangeAccounts[0]
+            if (exchangeAccount.keys) {
+              if (exchangeAccount.keys.length > 0) {
+                let key = exchangeAccount.keys[0]
+                idleLabel = 'RESTART LIVE TRADING'
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   function executionFocusPhysics () {
@@ -289,7 +295,7 @@ function newRestartSimulation () {
 
     switch (thisObject.status) {
       case 'Ready':
-        label = 'RESTART BOTS'
+        label = idleLabel
         break
       case 'Saving':
         label = 'SAVING STRATEGIES CHANGES...'

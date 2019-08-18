@@ -1,8 +1,8 @@
 
-require('dotenv').config();
-const { spawn } = require('child_process');
-const psTree = require('ps-tree');
-const open = require('open');
+require('dotenv').config()
+const { spawn } = require('child_process')
+const psTree = require('ps-tree')
+const open = require('open')
 
 CONSOLE_LOG = process.env.CONSOLE_LOG === 'true'
 CONSOLE_ERROR_LOG = process.env.CONSOLE_ERROR_LOG === 'true'
@@ -40,68 +40,66 @@ let cloneExecutorChildProcess
 
 startHtttpServer()
 
-function startHtttpServer() {
+function startHtttpServer () {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> startHtttpServer -> Entering function.') }
 
   try {
     if (isHttpServerStarted === false) {
       gWebServer = http.createServer(onBrowserRequest).listen(port)
       isHttpServerStarted = true
-      open('http://localhost:' + port);
+      open('http://localhost:' + port)
     }
   } catch (err) {
     console.log('[ERROR] server -> startHtttpServer -> Error = ' + err.stack)
   }
 }
 
-function startCloneExecutor() {
+function startCloneExecutor () {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> startCloneExecutor -> Entering function.') };
 
-  if (process.env.RUN_CLON_EXECUTOR !== "true") { return }
+  if (process.env.RUN_CLON_EXECUTOR !== 'true') { return }
 
   let path = process.env.CLONE_EXECUTOR_PATH + '/run.js'
-  cloneExecutorChildProcess = spawn('node', [path], { shell: true, stdio: 'inherit' });
+  cloneExecutorChildProcess = spawn('node', [path], { shell: true, stdio: 'inherit' })
 
   cloneExecutorChildProcess.on('error', (err) => {
-    console.log(`[ERROR] server -> startCloneExecutor -> Clone Executor exited with error ${err}`);
-  });
+    console.log(`[ERROR] server -> startCloneExecutor -> Clone Executor exited with error ${err}`)
+  })
   cloneExecutorChildProcess.on('close', (code, signal) => {
-    console.log(`[INFO] CloneExecutor process terminated.`);
-  });
+    console.log(`[INFO] CloneExecutor process terminated.`)
+  })
 }
 
-function stopCloneExecutor() {
+function stopCloneExecutor () {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> stopCloneExecutor -> Entering function.') };
 
   var kill = function (pid, signal, callback) {
-    signal = signal || 'SIGKILL';
-    callback = callback || function () { };
-    var killTree = true;
+    signal = signal || 'SIGKILL'
+    callback = callback || function () { }
+    var killTree = true
     if (killTree) {
       psTree(pid, function (err, children) {
         [pid].concat(
           children.map(function (p) {
-            return p.PID;
+            return p.PID
           })
         ).forEach(function (tpid) {
-          try { process.kill(tpid, signal) }
-          catch (ex) { }
-        });
-        callback();
-      });
+          try { process.kill(tpid, signal) } catch (ex) { }
+        })
+        callback()
+      })
     } else {
-      try { process.kill(pid, signal) }
-      catch (ex) { }
-      callback();
+      try { process.kill(pid, signal) } catch (ex) { }
+      callback()
     }
-  };
+  }
 
   if (cloneExecutorChildProcess) {
-    kill(cloneExecutorChildProcess.pid);
+    kill(cloneExecutorChildProcess.pid)
   }
 }
 
-function onBrowserRequest(request, response) {
+function onBrowserRequest (request, response) {
   if (CONSOLE_LOG === true && request.url.indexOf('NO-LOG') === -1) { console.log('[INFO] server -> onBrowserRequest -> request.url = ' + request.url) }
 
   let requestParameters = request.url.split('/')
@@ -127,13 +125,31 @@ function onBrowserRequest(request, response) {
 
   switch (requestParameters[1]) {
 
+    case 'ResetLogsAndData':
+      {
+        try {
+          let rimraf = require('rimraf')
+          rimraf.sync(process.env.LOG_PATH)
+          rimraf.sync(process.env.STORAGE_PATH + '/AAMasters/AAMasters/AAJason.1.0')
+          respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
+        } catch (err) {
+          if (CONSOLE_LOG === true) { console.log('[INFO] server -> ResetLogsAndData -> Could not delete Logs and Data.') }
+          let error = {
+            result: 'Fail Because',
+            message: err.message
+          }
+          respondWithContent(JSON.stringify(error), response)
+        }
+        break
+      }
     case 'RestartCloneExecutor':
       {
         try {
-          stopCloneExecutor();
-          startCloneExecutor();
+          stopCloneExecutor()
+          startCloneExecutor()
           respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
         } catch (err) {
+          if (CONSOLE_LOG === true) { console.log('[INFO] server -> ResetLogsAndData -> Could not restart Clone Executor.') }
           let error = {
             result: 'Fail Because',
             message: err.message
@@ -146,9 +162,10 @@ function onBrowserRequest(request, response) {
     case 'StopCloneExecutor':
       {
         try {
-          stopCloneExecutor();
+          stopCloneExecutor()
           respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
         } catch (err) {
+          if (CONSOLE_LOG === true) { console.log('[INFO] server -> ResetLogsAndData -> Could not Stop Clone Executor.') }
           let error = {
             result: 'Fail Because',
             message: err.message
@@ -331,7 +348,7 @@ function onBrowserRequest(request, response) {
           console.log('[ERROR] Error reading the user ecosystem.', e)
         }
 
-        function onFileRead(err, userEcosystem) {
+        function onFileRead (err, userEcosystem) {
           if (err) {
             respondWithContent(undefined, response)
           } else {
@@ -357,14 +374,15 @@ function onBrowserRequest(request, response) {
     case 'SaveDefinition':
       {
         let fs = require('fs')
-        let body = '';
+        let body = ''
 
         request.on('data', function (data) {
-          body += data;
+          body += data
           // Too much POST data
-          if (body.length > 1e6)
-            request.connection.destroy();
-        });
+          if (body.length > 1e6) {
+            request.connection.destroy()
+          }
+        })
 
         request.on('end', function () {
           try {
@@ -375,7 +393,7 @@ function onBrowserRequest(request, response) {
             respondWithContent(undefined, response)
           }
 
-          function onFileWrite(err) {
+          function onFileWrite (err) {
             if (err) {
               respondWithContent(undefined, response)
             } else {
@@ -383,7 +401,7 @@ function onBrowserRequest(request, response) {
               respondWithContent(responseContent, response)
             }
           }
-        });
+        })
       }
       break
 
@@ -393,14 +411,14 @@ function onBrowserRequest(request, response) {
       }
   }
 
-  function homePage() {
+  function homePage () {
     if (requestParameters[1] === '') {
       let fs = require('fs')
       try {
         let fileName = 'index.html'
         fs.readFile(fileName, onFileRead)
 
-        function onFileRead(err, file) {
+        function onFileRead (err, file) {
           if (CONSOLE_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> onFileRead -> Entering function.') }
 
           try {
@@ -426,7 +444,7 @@ function onBrowserRequest(request, response) {
   }
 }
 
-function respondWithFile(fileName, response) {
+function respondWithFile (fileName, response) {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> Entering function.') }
 
   let fs = require('fs')
@@ -437,7 +455,7 @@ function respondWithFile(fileName, response) {
     try {
       fs.readFile(fileName, onFileRead)
 
-      function onFileRead(err, file) {
+      function onFileRead (err, file) {
         if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> onFileRead -> Entering function.') }
         if (!err) {
           respondWithContent(file.toString(), response)
@@ -451,7 +469,7 @@ function respondWithFile(fileName, response) {
   }
 }
 
-function respondWithContent(content, response) {
+function respondWithContent (content, response) {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithContent -> Entering function.') }
 
   try {
@@ -464,7 +482,7 @@ function respondWithContent(content, response) {
       response.writeHead(200, { 'Content-Type': 'text/html' })
       response.write(content)
     } else {
-      response.writeHead(404, { 'Content-Type': 'text/html' });
+      response.writeHead(404, { 'Content-Type': 'text/html' })
       response.write('The specified key does not exist.')
     }
     response.end('\n')
@@ -473,14 +491,14 @@ function respondWithContent(content, response) {
   }
 }
 
-function respondWithImage(fileName, response) {
+function respondWithImage (fileName, response) {
   if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithImage -> Entering function.') }
 
   let fs = require('fs')
   try {
     fs.readFile(fileName, onFileRead)
 
-    function onFileRead(err, file) {
+    function onFileRead (err, file) {
       if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithImage -> onFileRead -> Entering function.') }
 
       try {
@@ -500,7 +518,7 @@ function respondWithImage(fileName, response) {
   }
 }
 
-function returnEmptyArray(response) {
+function returnEmptyArray (response) {
   try {
     if (CONSOLE_LOG === true) { console.log('[INFO] server -> respondWithFile -> returnEmptyArray -> Entering function.') }
 

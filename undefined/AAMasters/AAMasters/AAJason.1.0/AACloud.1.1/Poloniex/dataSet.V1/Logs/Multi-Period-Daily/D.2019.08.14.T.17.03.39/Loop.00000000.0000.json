@@ -1,9 +1,0 @@
-[
-['2019-08-14T17:03:39.999Z',1,'Root','[INFO] start -> findProcess -> runTradingEngine -> Entering function.']
-['2019-08-14T17:03:39.999Z',2,'Trading Engine Process Main Loop','[INFO] initialize -> Entering function.']
-['2019-08-14T17:03:39.999Z',3,'FileStorage','[INFO] getTextFile: ../Teams-Source-Code/AAMasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Multi-Period-Daily/User.Bot.js']
-['2019-08-14T17:03:40.003Z',4,'FileStorage','[INFO] getTextFile: ../Teams-Source-Code/AAMasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Commons.js']
-['2019-08-14T17:03:40.006Z',5,'Trading Engine Process Main Loop','[INFO] run -> Entering function.']
-['2019-08-14T17:03:40.130Z',6,'Root','[INFO] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.']
-['2019-08-14T17:03:40.130Z',7,'Root','[INFO] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot Id = AAMasters.AAJason.Multi-Period-Daily']
-]

@@ -103,7 +103,7 @@ function newMarketFiles () {
   function updateFiles () {
     try {
       if (finalized === true) { return }
-      let updateFiles = 0
+      let updatedFiles = 0
 
             /* Now we will get the market files */
 
@@ -117,9 +117,9 @@ function newMarketFiles () {
           function onFileReceived (err, file) {
             try {
               files.set(periodTime, file)
-              updateFiles++
+              updatedFiles++
 
-              if (updateFiles === marketFilesPeriods.length) {
+              if (updatedFiles === marketFilesPeriods.length) {
                 thisObject.eventHandler.raiseEvent('Files Updated', undefined)
               }
             } catch (err) {

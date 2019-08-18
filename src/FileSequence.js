@@ -35,12 +35,6 @@ function newFileSequence () {
 
   function finalize () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> devTeam = ' + devTeam.codeName) }
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> bot = ' + bot.codeName) }
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> thisSet = ' + thisSet.codeName) }
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> intervalHandle = ' + intervalHandle) }
-
       clearInterval(intervalHandle)
 
       filesLoaded = undefined
@@ -55,18 +49,13 @@ function newFileSequence () {
 
   function initialize (pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDevTeam.codeName + '-' + pBot.codeName + '-' + pProduct.codeName) }
-
       exchange = ecosystem.getExchange(pProduct, pExchange)
 
       if (exchange === undefined) {
         throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDevTeam.codeName = ' + pDevTeam.codeName + ', pBot.codeName = ' + pBot.codeName + ', pProduct.codeName = ' + pProduct.codeName + ', pExchange = ' + pExchange
       }
 
-      intervalHandle = setInterval(updateFiles(), _1_MINUTE_IN_MILISECONDS)
-
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> intervalHandle = ' + intervalHandle) }
+      intervalHandle = setInterval(updateFiles, _1_MINUTE_IN_MILISECONDS)
 
       market = pMarket
       devTeam = pDevTeam
@@ -83,49 +72,39 @@ function newFileSequence () {
 
       function onSequenceFileReceived (err, file) {
         try {
-          if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> Entering function.') }
-          if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> key = ' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName) }
-
           initialized = true
 
           switch (err.result) {
             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-              if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> Received OK Response.') }
               break
             }
 
             case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-              if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> Received FAIL Response.') }
               callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
               return
             }
 
             case GLOBAL.CUSTOM_OK_RESPONSE.result: {
-              if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> Received CUSTOM OK Response.') }
-              if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> err.message = ' + err.message) }
+              if (ERROR_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> err.message = ' + err.message) }
 
               callBackFunction(err)
               return
             }
 
             case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-              if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> Received CUSTOM FAIL Response.') }
-              if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> err.message = ' + err.message) }
+              if (ERROR_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> err.message = ' + err.message) }
 
               callBackFunction(err, thisObject)
               return
             }
 
             default: {
-              if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> Received Unexpected Response.') }
               callBackFunction(err)
               return
             }
           }
 
           maxSequence = Number(file)
-
-          if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> maxSequence = ' + maxSequence) }
 
                     /* Now we will get the sequence of files */
 
@@ -136,26 +115,21 @@ function newFileSequence () {
               try {
                 switch (err.result) {
                   case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                    if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received OK Response.') }
                     break
                   }
 
                   case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                    if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received FAIL Response.') }
                     callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
                     return
                   }
 
                   case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-                    if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received CUSTOM FAIL Response.') }
-                    if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> err.message = ' + err.message) }
-
+                    if (ERROR_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> err.message = ' + err.message) }
                     callBackFunction(err)
                     return
                   }
 
                   default: {
-                    if (INFO_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received Unexpected Response.') }
                     callBackFunction(err)
                     return
                   }
@@ -187,9 +161,7 @@ function newFileSequence () {
     try {
       if (finalized === true || initialized === false) { return }
 
-      let updateFiles = 0
-
-      if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> Entering function.') }
+      logger.write('[INFO] updateFiles -> Entering function.')
 
             /*
 
@@ -203,100 +175,71 @@ function newFileSequence () {
 
       let currentMaxSequence = maxSequence
 
-      if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> currentMaxSequence = ' + currentMaxSequence) }
-      if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> intervalHandle = ' + intervalHandle) }
-
-      if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> devTeam = ' + devTeam.codeName) }
-      if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> bot = ' + bot.codeName) }
-      if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> thisSet = ' + thisSet.codeName) }
-
       fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, file) {
         try {
-          if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> Entering function.') }
-          if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> key = ' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName) }
-
           switch (err.result) {
             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-              if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> Received OK Response.') }
               break
             }
 
             case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-              if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> Received FAIL Response.') }
               return
             }
 
             case GLOBAL.CUSTOM_OK_RESPONSE.result: {
-              if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> Received CUSTOM OK Response.') }
-              if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> err.message = ' + err.message) }
+              if (ERROR_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> err.message = ' + err.message) }
               return
             }
 
             case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-              if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> Received CUSTOM FAIL Response.') }
-              if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> err.message = ' + err.message) }
+              if (ERROR_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> err.message = ' + err.message) }
               return
             }
 
             default: {
-              if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> Received Unexpected Response.') }
+              if (ERROR_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> Received Unexpected Response.') }
               return
             }
           }
 
           maxSequence = Number(file)
 
-          if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> maxSequence = ' + maxSequence) }
-
                     /* Now we will get the sequence of files, but in this case only from the currentMaxSequence and above. */
 
           for (let i = currentMaxSequence; i <= maxSequence; i++) {
-            if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> i = ' + i) }
-
             fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {
                 switch (err.result) {
                   case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                    if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Received OK Response.') }
                     break
                   }
 
                   case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                    if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Received FAIL Response.') }
                     return
                   }
 
                   case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-                    if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Received CUSTOM FAIL Response.') }
-                    if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> err.message = ' + err.message) }
+                    if (ERROR_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> err.message = ' + err.message) }
                     return
                   }
 
                   default: {
-                    if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Received Unexpected Response.') }
                     return
                   }
                 }
 
                 files.set(i, file)
 
-                if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> File Updated.') }
-                if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> i = ' + i) }
-                if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> file.length = ' + file.length) }
-                if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> filesLoaded = ' + filesLoaded) }
-
                 if (i !== currentMaxSequence) {
                   filesLoaded++
-                  if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> filesLoaded = ' + filesLoaded) }
                 }
 
                 if (filesLoaded === maxSequence + 1) {
                   thisObject.eventHandler.raiseEvent('Files Updated', undefined)
-                  if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> Files Updated event Raised.') }
                 }
               } catch (err) {
                 if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onSequenceFileReceived -> onFileReceived -> err = ' + err.stack) }
@@ -313,21 +256,14 @@ function newFileSequence () {
   }
 
   function getFile (pSequence) {
-    if (INFO_LOG === true) { logger.write('[INFO] getFile -> Entering function.') }
-    if (INFO_LOG === true) { logger.write('[INFO] getFile -> pSequence = ' + pSequence) }
-
     return files.get(pSequence)
   }
 
   function getExpectedFiles () {
-    if (INFO_LOG === true) { logger.write('[INFO] getExpectedFiles -> Entering function.') }
-
     return maxSequence + 1
   }
 
   function getFilesLoaded () {
-    if (INFO_LOG === true) { logger.write('[INFO] getFilesLoaded -> Entering function.') }
-
     return filesLoaded
   }
 }

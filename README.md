@@ -754,7 +754,7 @@ Each bot may have several processes, and processes don't necessarily have a one-
 
 Bot processes run when called by the app and stop when they finish the task at hand, to wake up again only when the sequence is completed and a new round of executions starts. 
 
-The datasets processes create are the actual _output_ of bots which are stored in the file system as described earlier. But processes also produce and store a second valuable piece of information: _status reports_.
+The datasets processes create are the actual _output_ of bots which are stored in the file system. But processes also produce and store a second valuable piece of information: _status reports_.
 
 Status reports serve as temporal annotations that bots read every time they are called by the app to know what was done in the previous run and what the state of affairs is at present. Status reports are dynamic, and they change constantly, with updates after every single run of the associated process.
 
@@ -791,7 +791,7 @@ The dataset is stored under the _minutes_ file structure.
 
 ### Bruce
 
-Now, let's see what Bruce, an indicator, does with Charly's product. As you can learn from Bruce's README file he produces two datasets: candles at 1-minute resolution and volumes at 1-minute resolution. The datasets are stored under the _daily file_ type of dataset.
+Now, let's see what [Bruce](https://github.com/AAMasters/AABruce-Indicator-Bot), an indicator, does with Charly's product. As you can learn from [Bruce's README](https://github.com/AAMasters/AABruce-Indicator-Bot/blob/master/README.md), he produces two datasets: candles at 1-minute resolution and volumes at 1-minute resolution. The datasets are stored under the _daily file_ type of dataset.
 
 Now scroll down the README file and see what Bruce's dependencies are. That's right! Bruce depends on Charly's product. Bruce's processes take the trades data that Charly extracted from the exchange, performs calculations to build 1-minute candles and stores his dataset with more elaborate data. 
 
@@ -799,7 +799,7 @@ In other words, Bruce is adding value to Charly's product and offering a new val
 
 ### Olivia
 
-Let's take a look at another indicator, Olivia. According to her README file Olivia offers four different products: candles at sub-hour resolutions, candles in resolutions above one hour, volumes in sub-hour resolutions and volumes in resolutions above one hour. And guess what? Indeed, Olivia uses Bruce's 1-minute candles and 1-minute volumes to produce complementary candles and volumes at different resolutions.
+Let's take a look at another indicator, [Olivia](https://github.com/AAMasters/AAOlivia-Indicator-Bot). According to her [README](https://github.com/AAMasters/AAOlivia-Indicator-Bot/blob/master/README.md), Olivia offers four different products: candles at sub-hour resolutions, candles in resolutions above one hour, volumes in sub-hour resolutions and volumes in resolutions above one hour. And guess what? Indeed, Olivia uses Bruce's 1-minute candles and 1-minute volumes to produce complementary candles and volumes at different resolutions.
 
 ### Tom
 
@@ -811,7 +811,7 @@ Let's take a look at another indicator, Olivia. According to her README file 
 
 ### Paula
 
-[Paula]() uses Chris' Bollinger Bands data set to build the [Bollinger Channel](#bollinger-channels) indicator.
+[Paula](https://github.com/AAMasters/AAPaula-Indicator-Bot) uses Chris' Bollinger Bands data set to build the [Bollinger Channel](#bollinger-channels) indicator.
 
 ## Outputs
 
@@ -819,7 +819,7 @@ Each of these bots produces an output in the form of JSON files, which are store
 
 The route for writting bot's output is built as follows:
 
-```Bot Name and version | the version of AACloud (an internal platform component) | the version of the data set | Output folder```
+```Bot Name and version > the version of AACloud (an internal platform component) > the version of the data set > Output folder```
 
 _e.g.:_
 
@@ -830,7 +830,7 @@ _e.g.:_
 The format in which bots store their output is standardized. In an attempt to make data highly accessible, a tree-like folder structure is built following this pattern (which may slightly differ from bot to bot, depending on the specific data set):
 
 ```
-Data Set Name | Process Name | Time Period | Year | Month | Day | Hour
+Data Set Name > Process Name > Time Period > Year > Month > Day > Hour
 ```
 
 _e.g.:_

@@ -1,9 +1,7 @@
 ﻿exports.newAssistant = function newAssistant(BOT, logger, UTILITIES) {
 
     /*
-
-    This module allows trading bots to execute actions on the exchange, and also on its current recorded state.
-
+    This module allows trading bots to execute actions on the exchange.
     */
 
     const MODULE_NAME = "Assistant";
@@ -418,7 +416,7 @@
             actions. Reasons why the positions might not be there are:
 
             1. The user / account owner closed the positions manually.
-            2. The exchange for some eventuality closed the positions. In some exchanges positions have an expiration time.
+            2. The exchange for some reason closed the positions. In some exchanges positions have an expiration time.
             3. The orders were executed.
 
             Situations 1 and 2 are similar unexpected and we will stop the bot execution when we detect them. Number 3 is an
@@ -1334,31 +1332,20 @@
         context.newHistoryRecord.messageRelevance = pRelevance;
         context.newHistoryRecord.messageTitle = bot.startMode + "." + runIndex +": "+ pTitle;
         context.newHistoryRecord.messageBody = pBody;
-
     }
 
     function rememberThis(pKey, pValue) {
-
         if (context.executionContext.remember === undefined) {
-
             context.executionContext.remember = {};
-
         }
-
         context.executionContext.remember[pKey] = pValue;
-
     }
 
     function remindMeOf(pKey) {
-
         if (context.executionContext.remember === undefined) {
-
             context.executionContext.remember = {};
-
         }
-
         return context.executionContext.remember[pKey];
-
     }
 
     function sendEmail(pTitle, pBody, pTo) {
@@ -1367,15 +1354,11 @@
     }
 
     function addExtraData(pExtraDataArray) {
-
         context.extraData.push(pExtraDataArray);
     }
 
     function truncDecimals(pFloatValue, pDecimals) {
-
         if (!pDecimals) pDecimals = 8; // Default value
-
         return parseFloat(parseFloat(pFloatValue).toFixed(pDecimals));
-
     }
 };

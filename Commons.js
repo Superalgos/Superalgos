@@ -163,6 +163,26 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
             }
 
+            /* Slippage */
+
+            let slippage = 0
+            if (definition.tradingSystem !== undefined) {
+                if (definition.tradingSystem.parameters !== undefined) {
+                    if (definition.tradingSystem.parameters.baseAsset !== undefined) {
+                        if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
+                            if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
+                                let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
+                                if (code.initialDatetime !== undefined) {
+                                    slippage = code.slippage
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            let timerToCloseStage = 0
+
             /* Stop Loss Management */
 
             const MIN_STOP_LOSS_VALUE = 1 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
@@ -186,6 +206,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let type = '""';
             let marketRate = 0;
             let takePositionNow = false
+            let closePositionNow = false
 
             /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need these variables. */
 
@@ -531,7 +552,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 let ticker 
 
-                if (process.env.START_MODE === "live") {
+                if (process.env.START_MODE === "live" && i === candles.length - 2) {
                     ticker = assistant.getTicker()
                 } else {
                     ticker = {
@@ -546,27 +567,27 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 /* If any of the needed indicators is missing, then that period is not calculated */
 
                 if (candle.end < initialDate.valueOf()) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Record before the initialDate."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle before the initialDate."); }
                     controlLoop();
                     return
                 }
                 if (bollingerBand === undefined) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Record because Bollinger Band is undefined."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle because Bollinger Band is undefined."); }
                     controlLoop();
                     return
                 }
                 if (percentageBandwidth === undefined) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Record because %B is undefined."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle because %B is undefined."); }
                     controlLoop();
                     return
                 } // percentageBandwidth might start after the first few candles.
                 if (bollingerChannel === undefined) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Record because Bollingeer Channel is undefined."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle because Bollingeer Channel is undefined."); }
                     controlLoop();
                     return
                 }
                 if (bollingerSubChannel === undefined) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Record because Bollingeer Sub Channel is undefined."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle because Bollingeer Sub Channel is undefined."); }
                     controlLoop();
                     return
                 }
@@ -586,6 +607,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     if (i === candles.length - 1) {
                         if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
                             /*We are at the head of the market, thus we skip the last candle because it has not close yet. */
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle because it is the last one and has not been closed yet."); }
                             controlLoop();
                             return
                             /* Note here that in the last candle of the first day or the second day it will use an incomplete candle and partially calculated indicators.
@@ -595,6 +617,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 } else { // We are processing Market Files
                     if (i === candles.length - 1) {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle because it is the last one and has not been closed yet."); }
                         controlLoop();
                         return
                     }
@@ -1560,17 +1583,38 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if ((baseAsset === 'BTC' && candle.max >= stopLoss) || (baseAsset !== 'BTC' && candle.min <= stopLoss)) {
 
-                        if (baseAsset === 'BTC') {
-                            strategy.positionSize = balanceAssetB / stopLoss;
-                            strategy.positionRate = stopLoss;
+                        /* Check the Slipagge */
 
-                            balanceAssetA = balanceAssetA + balanceAssetB / stopLoss;
+                        let stopLossHitPoint = stopLoss
+
+                        if (baseAsset === 'BTC') {
+                            if (stopLossHitPoint < candle.open) { stopLossHitPoint = candle.open}
+                            if (stopLossHitPoint < candle.close) { stopLossHitPoint = candle.close }
+                        } else {
+                            if (stopLossHitPoint > candle.open) { stopLossHitPoint = candle.open }
+                            if (stopLossHitPoint > candle.close) { stopLossHitPoint = candle.close }
+                        }
+
+                        let slippedStopLoss = stopLossHitPoint
+                        let slippageAmount = stopLossHitPoint * slippage / 100
+
+                        if (baseAsset === 'BTC') {
+                            slippedStopLoss = slippedStopLoss + slippageAmount
+                        } else {
+                            slippedStopLoss = slippedStopLoss - slippageAmount
+                        }
+
+                        if (baseAsset === 'BTC') {
+                            strategy.positionSize = balanceAssetB / slippedStopLoss;
+                            strategy.positionRate = slippedStopLoss;
+
+                            balanceAssetA = balanceAssetA + balanceAssetB / slippedStopLoss;
                             balanceAssetB = 0;
                         } else {
-                            strategy.positionSize = balanceAssetA * stopLoss;
-                            strategy.positionRate = stopLoss;
+                            strategy.positionSize = balanceAssetA * slippedStopLoss;
+                            strategy.positionRate = slippedStopLoss;
 
-                            balanceAssetB = balanceAssetB + balanceAssetA * stopLoss;
+                            balanceAssetB = balanceAssetB + balanceAssetA * slippedStopLoss;
                             balanceAssetA = 0;
                         }
 
@@ -1581,7 +1625,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
                         }
 
-                        marketRate = stopLoss;
+                        marketRate = slippedStopLoss;
                         type = '"Close@StopLoss"';
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
@@ -1589,12 +1633,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 1;
-                        currentTrade.endRate = stopLoss;
+                        currentTrade.endRate = slippedStopLoss;
 
-                        currentStrategy.number = currentStrategyIndex
-                        currentStrategy.end = candle.end;
-                        currentStrategy.endRate = candle.min;
-                        currentStrategy.status = 1;
+                        closePositionNow = true;
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
@@ -1605,10 +1646,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 yesterday.currentTrade.status = currentTrade.status;
                                 yesterday.currentTrade.exitType = currentTrade.exitType;
                                 yesterday.currentTrade.endRate = currentTrade.endRate;
-                                yesterday.currentStrategy.number = currentStrategy.number;
-                                yesterday.currentStrategy.end = currentStrategy.end;
-                                yesterday.currentStrategy.endRate = currentStrategy.endRate;
-                                yesterday.currentStrategy.status = currentStrategy.status;
                             }
                         }
                     }
@@ -1617,17 +1654,38 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if ((baseAsset === 'BTC' && candle.min <= takeProfit) || (baseAsset !== 'BTC' && candle.max >= takeProfit)) {
 
-                        if (baseAsset === 'BTC') {
-                            strategy.positionSize = balanceAssetB / takeProfit;
-                            strategy.positionRate = takeProfit;
+                        /* Check the Slipagge */
 
-                            balanceAssetA = balanceAssetA + balanceAssetB / takeProfit;
+                        let takeProfitHitPoint = stopLoss
+
+                        if (baseAsset === 'BTC') {
+                            if (takeProfitHitPoint > candle.open) { takeProfitHitPoint = candle.open }
+                            if (takeProfitHitPoint > candle.close) { takeProfitHitPoint = candle.close }
+                        } else {
+                            if (takeProfitHitPoint < candle.open) { takeProfitHitPoint = candle.open }
+                            if (takeProfitHitPoint < candle.close) { takeProfitHitPoint = candle.close }
+                        }
+
+                        let slippedTakeProfit = takeProfit
+                        let slippageAmount = stopLoss * slippage / 100
+
+                        if (baseAsset === 'BTC') {
+                            slippedTakeProfit = slippedTakeProfit - slippageAmount
+                        } else {
+                            slippedTakeProfit = slippedTakeProfit + slippageAmount
+                        }
+
+                        if (baseAsset === 'BTC') {
+                            strategy.positionSize = balanceAssetB / slippedTakeProfit;
+                            strategy.positionRate = slippedTakeProfit;
+
+                            balanceAssetA = balanceAssetA + balanceAssetB / slippedTakeProfit;
                             balanceAssetB = 0;
                         } else {
-                            strategy.positionSize = balanceAssetA * takeProfit;
-                            strategy.positionRate = takeProfit;
+                            strategy.positionSize = balanceAssetA * slippedTakeProfit;
+                            strategy.positionRate = slippedTakeProfit;
 
-                            balanceAssetB = balanceAssetB + balanceAssetA * takeProfit;
+                            balanceAssetB = balanceAssetB + balanceAssetA * slippedTakeProfit;
                             balanceAssetA = 0;
                         }
 
@@ -1639,7 +1697,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
                         }
 
-                        marketRate = takeProfit;
+                        marketRate = slippedTakeProfit;
                         type = '"Close@TakeProfit"';
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
@@ -1648,12 +1706,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 2;
-                        currentTrade.endRate = takeProfit;
+                        currentTrade.endRate = slippedTakeProfit;
 
-                        currentStrategy.number = currentStrategyIndex
-                        currentStrategy.end = candle.end;
-                        currentStrategy.endRate = candle.min;
-                        currentStrategy.status = 1;
+                        closePositionNow = true;
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
@@ -1665,11 +1720,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                 yesterday.currentTrade.status = currentTrade.status;
                                 yesterday.currentTrade.exitType = currentTrade.exitType;
                                 yesterday.currentTrade.endRate = currentTrade.endRate;
-
-                                yesterday.currentStrategy.number = currentStrategy.number;
-                                yesterday.currentStrategy.end = currentStrategy.end;
-                                yesterday.currentStrategy.endRate = currentStrategy.endRate;
-                                yesterday.currentStrategy.status = currentStrategy.status;
                             }
                         }
                     }
@@ -1686,7 +1736,23 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
 
                     tradePositionSize = strategy.positionSize;
-                    tradePositionRate = strategy.positionRate;
+
+                    if (i === candles.length - 2) { /* Only at the last closed candle I can take the value from the formula, since the use of ticker could alter the value at previous candles.*/
+                        tradePositionRate = strategy.positionRate;
+                    } else {
+
+                        /* Check the Slipagge */
+
+                        tradePositionRate = candle.close;
+                        
+                        let slippageAmount = tradePositionRate * slippage / 100
+
+                        if (baseAsset === 'BTC') {
+                            tradePositionRate = tradePositionRate - slippageAmount
+                        } else {
+                            tradePositionRate = tradePositionRate + slippageAmount
+                        }
+                    }
 
                     if (processingDailyFiles) {
                         if (positionedAtYesterday) {
@@ -1695,46 +1761,52 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
-                    /* Check that we are in LIVE MODE */
-                    if (process.env.START_MODE === "live") {
-                        /* We see if we need to put the actual order at the exchange. */
-                        if (interExecutionMemory.executionContext !== undefined) {
-                            switch (interExecutionMemory.executionContext.status) {
-                                case "Without a Position": { // We need to put the order because It was not put yet.
-                                    if (strategy.openStage !== undefined) {
-                                        if (strategy.openStage.openExecution !== undefined) {
-                                            putOpeningOrder()
-                                            return
+                    if (i > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not.*/
+                        /* Check that we are in LIVE MODE */
+                        if (process.env.START_MODE === "live") {
+                            /* We see if we need to put the actual order at the exchange. */
+                            if (interExecutionMemory.executionContext !== undefined) {
+                                switch (interExecutionMemory.executionContext.status) {
+                                    case "Without a Position": { // We need to put the order because It was not put yet.
+                                        if (strategy.openStage !== undefined) {
+                                            if (strategy.openStage.openExecution !== undefined) {
+                                                putOpeningOrder()
+                                                return
+                                            }
                                         }
+                                        break
                                     }
-                                    break
-                                }
-                                case "Position Closed": { // Waiting for a confirmation that the position was closed.
-                                    if (strategy.openStage !== undefined) {
-                                        if (strategy.openStage.openExecution !== undefined) {
-                                            putOpeningOrder()
-                                            return
+                                    case "Position Closed": { // Waiting for a confirmation that the position was closed.
+                                        if (strategy.openStage !== undefined) {
+                                            if (strategy.openStage.openExecution !== undefined) {
+                                                putOpeningOrder()
+                                                return
+                                            }
                                         }
+                                        break
                                     }
-                                    break
+                                    case "Taking Position": { // Waiting for a confirmation that the position was taken.
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Exiting code block because status is Taking Position."); }
+                                        break
+                                    }
+                                    case "In a Position": { // This should mean that we already put the order at the exchange.
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Exiting code block because status is In a Position."); }
+                                        break
+                                    }
                                 }
-                                case "Taking Position": { // Waiting for a confirmation that the position was taken.
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Exiting code block because status is Taking Position."); }
-                                    break
-                                }
-                                case "In a Position": { // This should mean that we already put the order at the exchange.
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Exiting code block because status is In a Position."); }
-                                    break
+                            } else { // The context does not exist so it means we are not in a position.
+                                if (strategy.openStage !== undefined) {
+                                    if (strategy.openStage.openExecution !== undefined) {
+                                        putOpeningOrder()
+                                        return
+                                    }
                                 }
                             }
-                        } else { // The context does not exist so it means we are not in a position.
-                            if (strategy.openStage !== undefined) {
-                                if (strategy.openStage.openExecution !== undefined) {
-                                    putOpeningOrder()
-                                    return
-                                }
-                            }
+                        } else {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Not trading live."); }
                         }
+                    } else {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Not the last closed candle."); }
                     }
 
                     takePositionAtSimulation()
@@ -1801,25 +1873,35 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         let amountA
                         let amountB
                         let positionDirection
+                        let availableBalance = assistant.getAvailableBalance()
 
                         if (baseAsset === 'BTC') {
                             positionDirection = "sell"
 
-                            openPositionRate = tradePositionRate
+                            openPositionRate = tradePositionRate - 100 // 100 is Provisional since we do have management of orders yet
 
                             amountA = tradePositionSize * openPositionRate
                             amountB = tradePositionSize
+
+                            if (amountB > availableBalance.assetB) { // The assistant know what fees were paid.
+                                amountB = availableBalance.assetB
+                            }
                         } else {
                             positionDirection = "buy"
 
-                            openPositionRate = tradePositionRate
+                            openPositionRate = tradePositionRate + 100 // 100 is Provisional since we do have management of orders yet
 
                             amountA = tradePositionSize
                             amountB = tradePositionSize / openPositionRate
+
+                            if (amountA > availableBalance.assetA) { // The assistant know what fees were paid.
+                                amountA = availableBalance.assetA
+                            }
                         }
 
                         interExecutionMemory.executionContext = {
-                            status: "Taking Position"
+                            status: "Taking Position",
+                            periods: periods,
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to put order."); }
@@ -1915,48 +1997,53 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     }
                 }
 
-                /* Closing a Position */
-                if (strategyStage === 'Close Stage') {
+                if (closePositionNow === true) {
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Entering code block."); }
+
+                    closePositionNow = false
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
 
-                    /* Check that we are in LIVE MODE */
-                    if (process.env.START_MODE === "live") {
-                        /* We see if we need to put the actual order at the exchange. */
-                        if (interExecutionMemory.executionContext !== undefined) {
-                            switch (interExecutionMemory.executionContext.status) {
-                                case "Without a Position": { // No way to close anything at the exchange.
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Without a Position."); }
-                                    break
-                                }
-                                case "In a Position": { // This should mean that we already put the order at the exchange.
-                                    if (strategy.closeStage !== undefined) {
-                                        if (strategy.closeStage.closeExecution !== undefined) {
-                                            putClosingOrder()
-                                            return
-                                        }
+                    if (i > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not.*/
+                        /* Check that we are in LIVE MODE */
+                        if (process.env.START_MODE === "live") {
+                            /* We see if we need to put the actual order at the exchange. */
+                            if (interExecutionMemory.executionContext !== undefined) {
+                                switch (interExecutionMemory.executionContext.status) {
+                                    case "Without a Position": { // No way to close anything at the exchange.
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Without a Position."); }
+                                        break
                                     }
-                                    break
-                                }
-                                case "Closing Position": { // Waiting for a confirmation that the position was taken.
-                                    if (strategy.closeStage !== undefined) {
-                                        if (strategy.closeStage.closeExecution !== undefined) {
-                                            putClosingOrder()
-                                            return
+                                    case "In a Position": { // This should mean that we already put the order at the exchange.
+                                        if (strategy.closeStage !== undefined) {
+                                            if (strategy.closeStage.closeExecution !== undefined) {
+                                                putClosingOrder()
+                                                return
+                                            }
                                         }
+                                        break
                                     }
-                                    break
-                                }
+                                    case "Closing Position": { // Waiting for a confirmation that the position was taken.
+                                        if (strategy.closeStage !== undefined) {
+                                            if (strategy.closeStage.closeExecution !== undefined) {
+                                                putClosingOrder()
+                                                return
+                                            }
+                                        }
+                                        break
+                                    }
 
-                                case "Position Closed": { //  
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Position Closed."); }
-                                    break
+                                    case "Position Closed": { //  
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Position Closed."); }
+                                        break
+                                    }
                                 }
                             }
                         }
+                    } else {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Not within the last 10 candles."); }
                     }
 
                     closePositionAtSimulation()
@@ -1993,6 +2080,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         let amountA
                         let amountB
                         let positionDirection
+                        let availableBalance = assistant.getAvailableBalance()
 
                         if (baseAsset === 'BTC') {
                             positionDirection = "buy"
@@ -2001,6 +2089,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                             amountA = interExecutionMemory.executionContext.amountA
                             amountB = interExecutionMemory.executionContext.amountA / closePositionRate
+
+                            if (amountA > availableBalance.assetA) { // The assistant know what fees were paid.
+                                amountA = availableBalance.assetA
+                            }
                         } else {
                             positionDirection = "sell"
 
@@ -2008,10 +2100,15 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                             amountA = interExecutionMemory.executionContext.amountB * closePositionRate
                             amountB = interExecutionMemory.executionContext.amountB
+
+                            if (amountB > availableBalance.assetB) { // The assistant know what fees were paid.
+                                amountB = availableBalance.assetB
+                            }
                         }
 
                         interExecutionMemory.executionContext = {
-                            status: "Closing Position"
+                            status: "Closing Position",
+                            periods: periods,
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange."); }
@@ -2152,8 +2249,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
                         }
 
-                        currentStrategyIndex = -1;
-                        strategyStage = 'No Stage';
+                        timerToCloseStage = candle.begin
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
                         stopLossPhase = 0;
@@ -2173,6 +2269,35 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> closePositionAtSimulation -> Exiting Loop Body after closing position at simulation."); }
                         controlLoop();
                         return
+                    }
+                }
+
+                /* Closing the Closing Stage */
+                if (strategyStage === 'Close Stage') {
+                    if (candle.begin - 5 * 60 * 1000 > timerToCloseStage) {
+
+                        currentStrategy.number = currentStrategyIndex
+                        currentStrategy.end = candle.end;
+                        currentStrategy.endRate = candle.min;
+                        currentStrategy.status = 1;
+
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+
+                                yesterday.currentStrategy.number = currentStrategy.number;
+                                yesterday.currentStrategy.end = currentStrategy.end;
+                                yesterday.currentStrategy.endRate = currentStrategy.endRate;
+                                yesterday.currentStrategy.status = currentStrategy.status;
+                            }
+                        }
+
+                        currentStrategyIndex = -1;
+                        strategyStage = 'No Stage';
+                        timerToCloseStage = 0
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing the Closing Stage -> Exiting Close Stage."); }
+                    } else {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing the Closing Stage -> Waiting for timer."); }
                     }
                 }
 

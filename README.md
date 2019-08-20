@@ -64,6 +64,16 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
   * [New Simulation Doesn't Seem to Match My New Settings](#new-simulation-doesnt-seem-to-match-my-new-settings)
 * [Reporting Bugs](#reporting-bugs)
 * [Technical Overview](#technical-overview)
+  * [How Algorithms Work](#how-algorithms-work)
+    * [Dependencies](#dependencies)
+    * [Types of Data Sets](#types-of-data-sets)
+  * [Current Bots Sequence](#current-bots-sequence)
+    * [Charly](#charly)
+    * [Bruce](#bruce)
+    * [Olivia](#olivia)
+    * [Tom](#tom)
+    * [Chris](#chris)
+    * [Paula](#paula)
   * [Outputs](#outputs)
   * [Status Reports](#status-reports)
   * [Logs](#logs)
@@ -809,9 +819,7 @@ Each of these bots produces an output in the form of JSON files, which are store
 
 The route for writting bot's output is built as follows:
 
-```
-Bot Name and version | the version of AACloud (an internal platform component) | the version of the data set | Output folder
-```
+```Bot Name and version | the version of AACloud (an internal platform component) | the version of the data set | Output folder```
 
 _e.g.:_
 

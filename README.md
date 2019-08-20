@@ -714,5 +714,47 @@ We highly appreciate bug reports. This is what you need to do:
 2. Go to the [Issues](https://github.com/Superalgos/DesktopApp/issues) page in this repository and take a moment to search for similar existing open issues. If you find someone has the same issue as you, you may find helpful to follow the thread and comment if you have any new information about the issue.
 
 3. If there are no similar issues, then open a new one. Do your best to describe the problem as thoroughly as possible.<br/><br/>Developers will be interested in knowing how to reproduce the issue in their own systems, so please describe the process that leads to the issue as clearly as possible. Capturing a GIF video showing the steps that lead to the issue would be of great help! [LICEcap](https://www.cockos.com/licecap/) is a lightweight, simple app that can help you with that. If developers can reproduce the issue, half of the problem is solved already.<br/><br/>Please make sure you enable Github notifications when someone responds to the issue, as developers may want to ask questions.<br/><br/>If the issue happens while using the app at the browser, then please include a screen capture of Chrome's Console. Open DevTools with the F12 key (when the browser is in focus) and click the Console tab, then go back and reproduce the issue. Take a screen capture of the Console and paste it along with your report.<br/><br/>Feel free to also include screen captures of the app itself if there is anything relevant you wish to show to developers.<br/><br/>![image](https://user-images.githubusercontent.com/13994516/63112941-c18e4380-bf91-11e9-95e2-6fb064d5aead.png)
-<br/><br/>
+
+# Technical Overview
+
+The Superalgos Desktop App is the client implementation of the Superalgos Platform—a larger system that will eventually include the implementation of a peer-top-peer network hosting a Collective Trading Intelligence.
+
+The App is built out of three main components: [AAWeb](https://github.com/Superalgos/AAWeb), [CanvasApp](https://github.com/Superalgos/CanvasApp), and [CloneExecutor](https://github.com/Superalgos/CloneExecutor).
+
+These Node.js components provide the infrastructure required to run different kinds of algorithms or bots:
+
+* **Sensors**: extract raw trades data from exchanges and store it in a standardized format in the form of a JSON file.
+
+* **Indicators**: process the output of sensors to produce more elaborate data sets.
+
+* **Plotters**: create visual representations of data sets to render the information in a human-friendly manner, most likely over the charts.
+
+* **Simulation and Trading Bots**: read a Superalgos Protocol file containing the details of trading strategies and interact with the Superalgos Desktop App to run them as simulations (using a simulation plotter) or to trade live.
+
+When you click the RESTART BOTS button, several bots are executed in a specific order, taking into account dependencies, as defined in the ```CloneExecutor\sequence.json``` file. These processes run in a loop, retrieving data from the exchange, producing indicators, running simulations and trading live—online.
+
+## Outputs
+
+Each of these bots produces an output in the form of JSON files, sorted by bot, which are stored under the ```Data-Storage\aamasters\AAMasters``` folder.
+
+The route for writting bot's output is built as follows:
+
+```Bot Name and version | the version of AACloud (an internal platform component) | the version of the data set | Output folder```
+
+_e.g.:_
+
+```AAOlivia.1.0\AACloud.1.1\Poloniex\dataSet.V1\Output```
+
+The format in which bots store their output is standardized, in an attempt to make data highly accessible. A tree-like folder structure is built following this pattern (which may slightly differ from bot to bot, depending on the specific data set):
+
+```Data Set Name | Process Name | Time Period | Year | Month | Day | Hour```
+
+_e.g.:_
+
+```Candles\Multi-Period-Daily\01-min\2019\08\15```
+
+![Technical-Outputs](https://user-images.githubusercontent.com/13994516/63342762-979b9f00-c34c-11e9-8975-4735f0778d35.gif)
+
+
+
 

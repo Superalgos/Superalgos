@@ -227,7 +227,7 @@ We innovated a bit placing the buy volume at the bottom (in green), and the sell
 
 #### Candle Stairs Patterns
 
-This is an unusual pattern proving any dataset may be plotted on the charts (and by extension, that anything can be added to the system). A Stair Pattern is defined as a set of candles going in the same direction, either up or down. You can think of these patterns as "Candle Channels", as they represent channels with an up or down direction based on underlying candles direction.
+This is an unusual pattern proving any data set may be plotted on the charts (and by extension, that anything can be added to the system). A Stair Pattern is defined as a set of candles going in the same direction, either up or down. You can think of these patterns as "Candle Channels", as they represent channels with an up or down direction based on underlying candles direction.
 
 ![Candle-Stairs](https://user-images.githubusercontent.com/13994516/58435906-1ae98380-80c3-11e9-893e-1f8cd1b5c925.gif)
 
@@ -748,25 +748,25 @@ When you click the RESTART BOTS button, several bots are executed in a specific 
 
 ## How Algorithms Work
 
-Bots mission is—in essence—creating _products_ that others can consume. To do this, they run _processes_ which produce and store _datasets_.
+Bots mission is—in essence—creating _products_ that others can consume. To do this, they run _processes_ which produce and store _data sets_.
 
 Each bot may have several processes, and processes don't necessarily have a one-to-one relationship with products. That is, a product can be the result of the work of one or more processes.
 
 Bot processes run when called by the app and stop when they finish the task at hand, to wake up again only when the sequence is completed and a new round of executions starts. 
 
-The datasets processes create are the actual _output_ of bots which are stored in the file system. But processes also produce and store a second valuable piece of information: _status reports_.
+The data sets processes create are the actual _output_ of bots which are stored in the file system. But processes also produce and store a second valuable piece of information: _status reports_.
 
 Status reports serve as temporal annotations that bots read every time they are called by the app to know what was done in the previous run and what the state of affairs is at present. Status reports are dynamic, and they change constantly, with updates after every single run of the associated process.
 
 ### Dependencies
 
-We established that bots produce products for others to consume. This _others_ include other algorithms, meaning that bots usually depend on the datasets produced by other bots. We call these _data dependencies_, which are declared on each bot configuration file.
+We established that bots produce products for others to consume. This _others_ include other algorithms, meaning that bots usually depend on the data sets produced by other bots. We call these _data dependencies_, which are declared on each bot configuration file.
 
 Bots consume their own status report and they might as well consume status reports from other algorithms. We call these _status dependencies_, which are too declared in each bot configuration file.
 
 ### Types of Data Sets
 
-At this point, there are five different types of datasets: market files, daily files, minutes files, single file, and file sequence. These types of datasets define the structure of the data and how it is stored.
+At this point, there are five different types of data sets: market files, daily files, minutes files, single file, and file sequence. These types of data sets define the structure of the data and how it is stored.
 
 A _market file_ contains data spanning the whole existence of the market, that is, from the day the pair _(e.g. USDT-BTC)_ started trading up to the present time. The data is stored in one single file, which is appended every time the process runs generating new data.
 
@@ -775,7 +775,7 @@ A _daily file_ contains data segmented by day. That is, the process generates 
 A _minutes file_ contains data corresponding to one single minute and is stored in the deepest level of a folder tree structure of the following type: ```Year > Month > Day > Hour > Minute```.
 
 A _file sequence_ consists of sequential information that is not necessarily structured on any particular timeframe. The process stores two types of files: the one ending in _.Sequence.json_ contains the number of files in the sequence, and the sequence is formed by multiple files ending in a sequential number _(e.g. 15.json)_.
-A _single file_ is pretty much just that: a dataset that is stored in one file only.
+A _single file_ is pretty much just that: a data set that is stored in one file only.
 
 ## Current Bots Sequence
 
@@ -783,17 +783,17 @@ Let's put all this in perspective by analyzing the processes, products, and depe
 
 ### Charly
 
-[Charly](https://github.com/AAMasters/AACharly-Extraction-Bot) is a _sensor_. As his [README file](https://github.com/AAMasters/AACharly-Extraction-Bot/blob/master/README.md) explains, he gets trades data for all markets—both historic and live—assuring consistency using recursive processes and store it in a highly fragmented and usable dataset.
+[Charly](https://github.com/AAMasters/AACharly-Extraction-Bot) is a _sensor_. As his [README](https://github.com/AAMasters/AACharly-Extraction-Bot/blob/master/README.md) explains, he gets both historic and live trades data from exchanges and assures consistency using recursive processes before storing it in a highly fragmented and usable data set.
 
-Charly offers one product which is defined by the dataset scope and various characteristics. Charly has three different processes: Live-Trades, Historic-Trades, and Hole-Fixing. These three processes combined generate the one single dataset that constitutes Charly's single product. 
+Charly offers one product which is defined by the data set scope and various characteristics. Charly has three different processes: Live-Trades, Historic-Trades, and Hole-Fixing. These three processes combined generate the one single data set that constitutes Charly's single product. 
 
-The dataset is stored under the _minutes_ file structure.
+The data set is stored under the _minutes_ file structure.
 
 ### Bruce
 
-Now, let's see what [Bruce](https://github.com/AAMasters/AABruce-Indicator-Bot), an indicator, does with Charly's product. As you can learn from [Bruce's README](https://github.com/AAMasters/AABruce-Indicator-Bot/blob/master/README.md), he produces two datasets: candles at 1-minute resolution and volumes at 1-minute resolution. The datasets are stored under the _daily file_ type of dataset.
+Now, let's see what [Bruce](https://github.com/AAMasters/AABruce-Indicator-Bot), an indicator, does with Charly's product. As you can learn from [Bruce's README](https://github.com/AAMasters/AABruce-Indicator-Bot/blob/master/README.md), he produces two data sets: candles at 1-minute resolution and volumes at 1-minute resolution. The data sets are stored under the _daily file_ type of data set.
 
-Now scroll down the README file and see what Bruce's dependencies are. That's right! Bruce depends on Charly's product. Bruce's processes take the trades data that Charly extracted from the exchange, performs calculations to build 1-minute candles and stores his dataset with more elaborate data. 
+Now scroll down the README file and see what Bruce's dependencies are. That's right! Bruce depends on Charly's product. Bruce's processes take the trades data that Charly extracted from the exchange, performs calculations to build 1-minute candles and stores his data set with more elaborate data. 
 
 In other words, Bruce is adding value to Charly's product and offering a new value-added product of his own. But the value-adding chain does not stop there...
 

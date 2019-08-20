@@ -311,17 +311,17 @@
 
 
                     thisObject.executionContext = {
-                        investment: {                               // This is used to calculate profits.
+                        initialBalance: {                               // This is used to calculate profits.
                             assetA: INITIAL_BALANCE_A,
                             assetB: INITIAL_BALANCE_B
                         },
                         balance: {                                  // This is the total balance that includes positions at the order book + funds available to be traded.
                             assetA: INITIAL_BALANCE_A,
-                            assetB: INITIAL_BALANCE_B              // It starts with the initial investment.
+                            assetB: INITIAL_BALANCE_B              // It starts with the initial initialBalance.
                         },
                         availableBalance: {                         // This is the balance the bot has at any moment in time available to be traded (not in positions at the order book).
                             assetA: INITIAL_BALANCE_A,
-                            assetB: INITIAL_BALANCE_B              // It starts with the initial investment.
+                            assetB: INITIAL_BALANCE_B              // It starts with the initial initialBalance.
                         },
                         profits: {
                             assetA: 0,

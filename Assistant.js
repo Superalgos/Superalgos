@@ -16,7 +16,7 @@
         getPositions: getPositions,
         getBalance: getBalance,
         getAvailableBalance: getAvailableBalance,
-        getInvestment: getInvestment,
+        getInitialBalance: getInitialBalance,
         getProfits: getProfits,
         getCombinedProfits: getCombinedProfits,
         getROI: getROI,
@@ -272,15 +272,15 @@
 
                     /* Calculate Profits */
 
-                    if (context.executionContext.investment.assetA > 0) {
+                    if (context.executionContext.initialBalance.assetA > 0) {
 
-                        context.executionContext.profits.assetA = (thisObject.truncDecimals(context.executionContext.balance.assetA) - thisObject.truncDecimals(context.executionContext.investment.assetA)) / thisObject.truncDecimals(context.executionContext.investment.assetA);
+                        context.executionContext.profits.assetA = (thisObject.truncDecimals(context.executionContext.balance.assetA) - thisObject.truncDecimals(context.executionContext.initialBalance.assetA)) / thisObject.truncDecimals(context.executionContext.initialBalance.assetA);
                         context.executionContext.profits.assetA = thisObject.truncDecimals(context.executionContext.profits.assetA);
                     }
 
-                    if (context.executionContext.investment.assetB > 0) {
+                    if (context.executionContext.initialBalance.assetB > 0) {
 
-                        context.executionContext.profits.assetB = (thisObject.truncDecimals(context.executionContext.balance.assetB) - thisObject.truncDecimals(context.executionContext.investment.assetB)) / thisObject.truncDecimals(context.executionContext.investment.assetB);
+                        context.executionContext.profits.assetB = (thisObject.truncDecimals(context.executionContext.balance.assetB) - thisObject.truncDecimals(context.executionContext.initialBalance.assetB)) / thisObject.truncDecimals(context.executionContext.initialBalance.assetB);
                         context.executionContext.profits.assetB = thisObject.truncDecimals(context.executionContext.profits.assetB);
                     }
 
@@ -289,21 +289,21 @@
 
                     /* Calculate Combined Profits */
 
-                    if (context.executionContext.investment.assetA > 0) {
+                    if (context.executionContext.initialBalance.assetA > 0) {
 
-                        let convertedAssetsB = (thisObject.truncDecimals(context.executionContext.balance.assetB) - thisObject.truncDecimals(context.executionContext.investment.assetB)) * marketRate;
+                        let convertedAssetsB = (thisObject.truncDecimals(context.executionContext.balance.assetB) - thisObject.truncDecimals(context.executionContext.initialBalance.assetB)) * marketRate;
                         convertedAssetsB = thisObject.truncDecimals(convertedAssetsB);
 
-                        context.executionContext.combinedProfits.assetA = (thisObject.truncDecimals(context.executionContext.balance.assetA) + convertedAssetsB - thisObject.truncDecimals(context.executionContext.investment.assetA)) / thisObject.truncDecimals(context.executionContext.investment.assetA) * 100;
+                        context.executionContext.combinedProfits.assetA = (thisObject.truncDecimals(context.executionContext.balance.assetA) + convertedAssetsB - thisObject.truncDecimals(context.executionContext.initialBalance.assetA)) / thisObject.truncDecimals(context.executionContext.initialBalance.assetA) * 100;
                         context.executionContext.combinedProfits.assetA = thisObject.truncDecimals(context.executionContext.combinedProfits.assetA);
                     }
 
-                    if (context.executionContext.investment.assetB > 0) {
+                    if (context.executionContext.initialBalance.assetB > 0) {
 
-                        let convertedAssetsA = (thisObject.truncDecimals(context.executionContext.balance.assetA) - thisObject.truncDecimals(context.executionContext.investment.assetA)) / marketRate;
+                        let convertedAssetsA = (thisObject.truncDecimals(context.executionContext.balance.assetA) - thisObject.truncDecimals(context.executionContext.initialBalance.assetA)) / marketRate;
                         convertedAssetsA = thisObject.truncDecimals(convertedAssetsA);
 
-                        context.executionContext.combinedProfits.assetB = (thisObject.truncDecimals(context.executionContext.balance.assetB) + convertedAssetsA - thisObject.truncDecimals(context.executionContext.investment.assetB)) / thisObject.truncDecimals(context.executionContext.investment.assetB) * 100;
+                        context.executionContext.combinedProfits.assetB = (thisObject.truncDecimals(context.executionContext.balance.assetB) + convertedAssetsA - thisObject.truncDecimals(context.executionContext.initialBalance.assetB)) / thisObject.truncDecimals(context.executionContext.initialBalance.assetB) * 100;
                         context.executionContext.combinedProfits.assetB = thisObject.truncDecimals(context.executionContext.combinedProfits.assetB);
                     }
 
@@ -1274,12 +1274,12 @@
         return JSON.parse(JSON.stringify(context.executionContext.availableBalance));
     }
 
-    function getInvestment() {
+    function getInitialBalance() {
 
-        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getInvestment -> Entering function."); }
-        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getInvestment -> JSON.stringify(context.executionContext.investment) = " + JSON.stringify(context.executionContext.investment)); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getInitialBalance -> Entering function."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getInitialBalance -> JSON.stringify(context.executionContext.initialBalance) = " + JSON.stringify(context.executionContext.initialBalance)); }
 
-        return JSON.parse(JSON.stringify(context.executionContext.investment));
+        return JSON.parse(JSON.stringify(context.executionContext.initialBalance));
     }
 
     function getProfits() {
@@ -1309,8 +1309,8 @@
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getROI -> Entering function."); }
 
         let ROI = {
-            assetA: (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / context.executionContext.investment.assetA * 100,
-            assetB: (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB * 100
+            assetA: (context.executionContext.balance.assetA - context.executionContext.initialBalance.assetA) / context.executionContext.initialBalance.assetA * 100,
+            assetB: (context.executionContext.balance.assetB - context.executionContext.initialBalance.assetB) / context.executionContext.initialBalance.assetB * 100
         }
 
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getROI -> JSON.stringify(ROI) = " + JSON.stringify(ROI)); }

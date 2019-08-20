@@ -783,7 +783,7 @@ Let's put all this in perspective by analyzing the processes, products, and depe
 
 ### Charly
 
-Charly is a _sensor_. As his README file explains, he gets trades data for all markets—both historic and live—assuring consistency using recursive processes and store it in a highly fragmented and usable dataset.
+[Charly](https://github.com/AAMasters/AACharly-Extraction-Bot) is a _sensor_. As his [README file](https://github.com/AAMasters/AACharly-Extraction-Bot/blob/master/README.md) explains, he gets trades data for all markets—both historic and live—assuring consistency using recursive processes and store it in a highly fragmented and usable dataset.
 
 Charly offers one product which is defined by the dataset scope and various characteristics. Charly has three different processes: Live-Trades, Historic-Trades, and Hole-Fixing. These three processes combined generate the one single dataset that constitutes Charly's single product. 
 

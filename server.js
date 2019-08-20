@@ -106,9 +106,10 @@ function onBrowserRequest (request, response) {
     case 'ResetLogsAndData':
       {
         try {
-          let rimraf = require('rimraf')
-          rimraf.sync(process.env.LOG_PATH)
-          rimraf.sync(process.env.STORAGE_PATH + '/AAMasters/AAMasters/AAJason.1.0')
+            let rimraf = require('rimraf')
+            rimraf.sync(process.env.STORAGE_PATH + '/AAMasters/AAMasters/AAJason.1.0')
+            rimraf.sync(process.env.LOG_PATH)
+
           respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
         } catch (err) {
           if (CONSOLE_LOG === true) { console.log('[INFO] server -> ResetLogsAndData -> Could not delete Logs and Data.') }

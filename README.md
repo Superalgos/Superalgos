@@ -728,7 +728,7 @@ These Node.js components provide the infrastructure required to run different ki
 
 * **Sensors**: extract raw trades data from exchanges and store it in a standardized format in the form of a JSON file.
 
-* **Indicators**: process the output of sensors to produce more elaborate data sets.
+* **Indicators**: process the output of sensors and other indicators to produce more elaborate data sets.
 
 * **Plotters**: create visual representations of data sets to render the information in a human-friendly manner, most likely over the charts.
 
@@ -738,7 +738,7 @@ When you click the RESTART BOTS button, several bots are executed in a specific 
 
 ## Outputs
 
-Each of these bots produces an output in the form of JSON files, which are stored under the ```Data-Storage\aamasters\AAMasters``` folder, sorted by bot.
+Each of these bots produces an output in the form of JSON files, which are stored under the ```\Data-Storage\aamasters\AAMasters``` folder, sorted by bot.
 
 The route for writting bot's output is built as follows:
 
@@ -749,7 +749,7 @@ Bot Name and version | the version of AACloud (an internal platform component) |
 _e.g.:_
 
 ```
-AAOlivia.1.0\AACloud.1.1\Poloniex\dataSet.V1\Output
+\AAOlivia.1.0\AACloud.1.1\Poloniex\dataSet.V1\Output
 ```
 
 The format in which bots store their output is standardized. In an attempt to make data highly accessible, a tree-like folder structure is built following this pattern (which may slightly differ from bot to bot, depending on the specific data set):
@@ -761,7 +761,7 @@ Data Set Name | Process Name | Time Period | Year | Month | Day | Hour
 _e.g.:_
 
 ```
-Candles\Multi-Period-Daily\01-min\2019\08\15
+\Candles\Multi-Period-Daily\01-min\2019\08\15
 ```
 
 ![Technical-Outputs](https://user-images.githubusercontent.com/13994516/63342762-979b9f00-c34c-11e9-8975-4735f0778d35.gif)
@@ -775,5 +775,16 @@ Status reports are stored in the Reports folder, at the same level in the struct
 ![Technical-Status-Report](https://user-images.githubusercontent.com/13994516/63348840-63c77600-c35a-11e9-98ad-1d9f9e1b81f1.gif)
 
 ## Logs
+
+Each bot keeps its own set of log files, stored under a similar folder structure as bot's Output and Reports. The difference is that the Log-Files folder is at the root level of the release folder, instead of being inside Data-Storage:
+
+```
+\Log-Files\AAMasters\AAMasters
+```
+Log files contain detailed information about each execution of the bot. As such, a new folder is created for each execution, labeled with the exact DateTime.
+
+Each folder may contain more than one file. Lighter files tend to include data about the initialization stage, while heavier files usually feature the date corresponding to the actual work the bot does.
+
+![Technical-Logs](https://user-images.githubusercontent.com/13994516/63350228-4f38ad00-c35d-11e9-8074-bdd73ac68bd8.gif)
 
 

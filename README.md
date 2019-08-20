@@ -738,7 +738,7 @@ When you click the RESTART BOTS button, several bots are executed in a specific 
 
 ## Outputs
 
-Each of these bots produces an output in the form of JSON files, sorted by bot, which are stored under the ```Data-Storage\aamasters\AAMasters``` folder.
+Each of these bots produces an output in the form of JSON files, which are stored under the ```Data-Storage\aamasters\AAMasters``` folder, sorted by bot.
 
 The route for writting bot's output is built as follows:
 
@@ -752,7 +752,7 @@ _e.g.:_
 AAOlivia.1.0\AACloud.1.1\Poloniex\dataSet.V1\Output
 ```
 
-The format in which bots store their output is standardized, in an attempt to make data highly accessible. A tree-like folder structure is built following this pattern (which may slightly differ from bot to bot, depending on the specific data set):
+The format in which bots store their output is standardized. In an attempt to make data highly accessible, a tree-like folder structure is built following this pattern (which may slightly differ from bot to bot, depending on the specific data set):
 
 ```
 Data Set Name | Process Name | Time Period | Year | Month | Day | Hour
@@ -767,6 +767,12 @@ Candles\Multi-Period-Daily\01-min\2019\08\15
 ![Technical-Outputs](https://user-images.githubusercontent.com/13994516/63342762-979b9f00-c34c-11e9-8975-4735f0778d35.gif)
 
 ## Status Reports
+
+In addition to outputting a data set, bots also store a Status Report. These reports keep crucial information that allows the same and other bots know what happened in the previous execution.
+
+Status reports are stored in the Reports folder, at the same level in the structure as the Output folder.
+
+![Technical-Status-Report](https://user-images.githubusercontent.com/13994516/63348840-63c77600-c35a-11e9-98ad-1d9f9e1b81f1.gif)
 
 ## Logs
 

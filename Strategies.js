@@ -367,18 +367,7 @@
             let lowerEnd = leftDate.valueOf();
             let upperEnd = rightDate.valueOf();
 
-            if (strategies.length > 0) {
-
-                if (strategies[0].begin > lowerEnd || strategies[strategies.length - 1].end < upperEnd) {
-
-                    setTimeout(recalculate, 2000);
-
-                    //console.log("File missing while calculating strategies, scheduling a recalculation in 2 seconds.");
-
-                }
-            }
-
-            //console.log("Olivia > recalculateUsingDailyFiles > total strategies generated : " + strategies.length);
+            setTimeout(recalculate, 2000);
 
         } catch (err) {
 

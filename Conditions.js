@@ -363,18 +363,7 @@
             let lowerEnd = leftDate.valueOf();
             let upperEnd = rightDate.valueOf();
 
-            if (conditions.length > 0) {
-
-                if (conditions[0].begin > lowerEnd || conditions[conditions.length - 1].end < upperEnd) {
-
-                    setTimeout(recalculate, 2000);
-
-                    //console.log("File missing while calculating conditions, scheduling a recalculation in 2 seconds.");
-
-                }
-            }
-
-            //console.log("Olivia > recalculateUsingDailyFiles > total conditions generated : " + conditions.length);
+            setTimeout(recalculate, 2000);
 
         } catch (err) {
 

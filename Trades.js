@@ -354,18 +354,7 @@
             let lowerEnd = leftDate.valueOf();
             let upperEnd = rightDate.valueOf();
 
-            if (trades.length > 0) {
-
-                if (trades[0].begin > lowerEnd || trades[trades.length - 1].end < upperEnd) {
-
-                    setTimeout(recalculate, 2000);
-
-                    //console.log("File missing while calculating trades, scheduling a recalculation in 2 seconds.");
-
-                }
-            }
-
-            //console.log("Olivia > recalculateUsingDailyFiles > total trades generated : " + trades.length);
+            setTimeout(recalculate, 2000);
 
         } catch (err) {
 

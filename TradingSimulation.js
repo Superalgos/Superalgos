@@ -371,18 +371,7 @@
             let lowerEnd = leftDate.valueOf();
             let upperEnd = rightDate.valueOf();
 
-            if (records.length > 0) {
-
-                if (records[0].begin > lowerEnd || records[records.length - 1].end < upperEnd) {
-
-                    setTimeout(recalculate, 2000);
-
-                    //console.log("File missing while calculating records, scheduling a recalculation in 2 seconds.");
-
-                }
-            }
-
-            //console.log("Olivia > recalculateUsingDailyFiles > total records generated : " + records.length);
+            setTimeout(recalculate, 2000);
 
         } catch (err) {
 

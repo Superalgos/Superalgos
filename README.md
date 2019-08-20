@@ -81,7 +81,7 @@ The following recommendations may make your life easier using this pre-release i
 
 **1. Download the multi-part ZIP file**:
 
-Go to [Releases](https://github.com/Superalgos/Releases/releases), find the latest release and download all of the multi-part files with a ZIP extension.
+Go to [releases](https://github.com/Superalgos/DesktopApp/releases), find the latest release and download all of the multi-part files with a ZIP extension.
 
 **2. Extract the ZIP files**: 
 
@@ -709,9 +709,9 @@ When you are working with a strategy, changing conditions, formulas or any other
 
 We highly appreciate bug reports. This is what you need to do:
 
-1. Make sure you are running the latest release and that you have upgraded to the latest patch. You may find information about releases and patches in the [Releases](https://github.com/Superalgos/Releases/releases) page. If you are not running the latest patch, please upgrade and test your issue again before reporting anything.
+1. Make sure you are running the latest release and that you have upgraded to the latest patch. You may find information about releases and patches in the [releases](https://github.com/Superalgos/DesktopApp/releases) page. If you are not running the latest patch, please upgrade and test your issue again before reporting anything.
 
-2. Go to the [Issues](https://github.com/Superalgos/Releases/issues) page of the DesktopApp repository and take a moment to search for similar existing open issues. If you find someone has the same issue as you, you may find helpful to follow the thread and comment if you have any new information about the issue.
+2. Go to the [Issues](https://github.com/Superalgos/DesktopApp/issues) page in this repository and take a moment to search for similar existing open issues. If you find someone has the same issue as you, you may find helpful to follow the thread and comment if you have any new information about the issue.
 
 3. If there are no similar issues, then open a new one. Do your best to describe the problem as thoroughly as possible.<br/><br/>Developers will be interested in knowing how to reproduce the issue in their own systems, so please describe the process that leads to the issue as clearly as possible. Capturing a GIF video showing the steps that lead to the issue would be of great help! [LICEcap](https://www.cockos.com/licecap/) is a lightweight, simple app that can help you with that. If developers can reproduce the issue, half of the problem is solved already.<br/><br/>Please make sure you enable Github notifications when someone responds to the issue, as developers may want to ask questions.<br/><br/>If the issue happens while using the app at the browser, then please include a screen capture of Chrome's Console. Open DevTools with the F12 key (when the browser is in focus) and click the Console tab, then go back and reproduce the issue. Take a screen capture of the Console and paste it along with your report.<br/><br/>Feel free to also include screen captures of the app itself if there is anything relevant you wish to show to developers.<br/><br/>![image](https://user-images.githubusercontent.com/13994516/63112941-c18e4380-bf91-11e9-95e2-6fb064d5aead.png)
 <br/><br/>

@@ -63,7 +63,10 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
   * [Market Data / Indicators Seem to be Outdated](#market-data--indicators-seem-to-be-outdated)
   * [New Simulation Doesn't Seem to Match My New Settings](#new-simulation-doesnt-seem-to-match-my-new-settings)
 * [Reporting Bugs](#reporting-bugs)
-* [Maintainer](#maintainer)
+* [Technical Overview](#technical-overview)
+  * [Outputs](#outputs)
+  * [Status Reports](#status-reports)
+  * [Logs](#logs)
 
 # Before You Begin
 
@@ -739,22 +742,32 @@ Each of these bots produces an output in the form of JSON files, sorted by bot, 
 
 The route for writting bot's output is built as follows:
 
-```Bot Name and version | the version of AACloud (an internal platform component) | the version of the data set | Output folder```
+```
+Bot Name and version | the version of AACloud (an internal platform component) | the version of the data set | Output folder
+```
 
 _e.g.:_
 
-```AAOlivia.1.0\AACloud.1.1\Poloniex\dataSet.V1\Output```
+```
+AAOlivia.1.0\AACloud.1.1\Poloniex\dataSet.V1\Output
+```
 
 The format in which bots store their output is standardized, in an attempt to make data highly accessible. A tree-like folder structure is built following this pattern (which may slightly differ from bot to bot, depending on the specific data set):
 
-```Data Set Name | Process Name | Time Period | Year | Month | Day | Hour```
+```
+Data Set Name | Process Name | Time Period | Year | Month | Day | Hour
+```
 
 _e.g.:_
 
-```Candles\Multi-Period-Daily\01-min\2019\08\15```
+```
+Candles\Multi-Period-Daily\01-min\2019\08\15
+```
 
 ![Technical-Outputs](https://user-images.githubusercontent.com/13994516/63342762-979b9f00-c34c-11e9-8975-4735f0778d35.gif)
 
+## Status Reports
 
+## Logs
 
 

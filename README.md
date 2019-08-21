@@ -100,7 +100,7 @@ There is no advanced control over the execution of orders *(e.g. no order fragme
 
 The following recommendations may make your life easier using this pre-release in alpha stage:
 
-* Only the latest version of Chrome is being tested at the moment. We highly recommend you use Chrome to run the app, so that you have a similar environment as developers in case you need help. 
+* We highly recommend you use Chrome to run the app, so that you have a similar environment as developers in case you need help. 
 
 * You may need a decent Console / Command Line application for similar reasons: we hope you won't need it, but in case you do, it may save you lots of hassle and make a difference troubleshooting and getting help from the community. We recommend [Console Emulator Cmder](https://cmder.net/).
 

@@ -9,7 +9,7 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
 * You may create any number of Strategies by entering conditions and formulas via a web application. The set of Strategies constitute your Trading System.
 
 * Virtually no coding skills are required. You define conditions and formulas with simple statements... 
-(e.g. candle.close < bollingerBand.movingAverage)
+(e.g. ```candle.close < bollingerBand.movingAverage```)
 
 * You may start with any of the Strategies shared at the Telegram Community, or from scratch.
 

@@ -11,7 +11,7 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
 * Virtually no coding skills are required. You define conditions and formulas with simple statements... 
 (e.g. ```candle.close < bollingerBand.movingAverage```)
 
-* You may start with any of the Strategies shared at the Telegram Community, or from scratch.
+* You may start with any of the Strategies shared at the [Telegram Community](https://t.me/superalgoscommunity), or from scratch.
 
 * You may run live simulations of your Strategies, both with historic and up-to-date data. All of the actions taken by each Strategy may be viewed in a graphical interface right over the charts, along with indicators and market data.
 
@@ -39,7 +39,7 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
 
 * The interface operation/navigation is designed mostly for mouse use. Keyboard and pads do not offer a comfortable experience yet.
 
-There is no advanced control over the execution of orders *(e.g. no order fragmentation)*. All orders are market orders.
+* There is no advanced control over the execution of orders *(e.g. no order fragmentation)*. All orders are market orders.
 
 # Table of Contents
 

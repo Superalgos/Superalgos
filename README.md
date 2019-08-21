@@ -88,7 +88,7 @@ The following recommendations may make your life easier using this pre-release i
 
 > Bear in mind that the app evolves fast. We do our best to keep this README up to date, however, some of the images illustrating these explanations may defer from what you will find in the app.
 
-> WARNING: The Superalgos Desktop App is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you test with small amounts of money, the kind you can afford losing. Trade live at your own risk.
+> **WARNING: The Superalgos Desktop App is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you test with small amounts of money, the kind you can afford losing. Trade live at your own risk.**
 
 # Installing / Running the App
 
@@ -645,7 +645,7 @@ All you need to do to start live-trading is:
 
 3. Go back to the Charts and make sure they are positioned in the *time period* you wish to trade in.
 
-> WARNING: The Superalgos Desktop App is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you test with small amounts of money, the kind you can afford losing. Trade live at your own risk.
+> **WARNING: The Superalgos Desktop App is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you test with small amounts of money, the kind you can afford losing. Trade live at your own risk.**
 
 4. Click RESTART LIVE TRADING.
 

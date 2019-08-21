@@ -676,6 +676,7 @@ The way execution works at this stage is quite basic: once conditions are met fo
 When taking a position, the Take Position price shown in simulations is defined by the formula you use in your ```Open Stage > Position Rate > Formula```. 
 
 ![Live-Trading-Execution-Position-Rate](https://user-images.githubusercontent.com/13994516/63421629-3980c180-c409-11e9-837e-212e69588ebb.gif)
+<br/><br/>
 
 **However, this is overridden during live-trading, and replaced with a market order.**
 
@@ -688,6 +689,7 @@ When taking profit or hitting a stop, that is, when attempting to close a positi
 Let's quickly review one of the implications these limitations may have, with an example:
 
 ![Live-Trading-Execution-Control](https://user-images.githubusercontent.com/13994516/63420370-d2faa400-c406-11e9-9d0d-ce82cdd078c9.gif)
+<br/><br/>
 
 The image above, featuring 10-minutes candles, shows a sudden drop in price. As you may see, there where only three executions of the trading engine during the price drop. 
 

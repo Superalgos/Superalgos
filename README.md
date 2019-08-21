@@ -113,6 +113,7 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
     * [Tom](#tom)
     * [Chris](#chris)
     * [Paula](#paula)
+    * [Jason](#jason)
   * [Outputs](#outputs)
   * [Status Reports](#status-reports)
   * [Logs](#logs)
@@ -882,6 +883,16 @@ Let's take a look at another indicator, [Olivia](https://github.com/AAMasters/A
 ### Paula
 
 [Paula](https://github.com/AAMasters/AAPaula-Indicator-Bot) uses Chris' Bollinger Bands data set to build the [Bollinger Channel](#bollinger-channels) indicator.
+
+### Jason
+
+The last link in the chain usually comes in the form of user strategies handled by the simulation and trading engine—[Jason](https://github.com/AAMasters/AAJason-Trading-Engine-Bot)—consuming data from indicators to make trading decisions.
+
+Of course, the main goal of a strategy is to perform profitable trading. However, notice that Jason has outputs too:
+
+* Trading-Simulation, Simulation-Strategies, Simulation-Trades, and Simulation-Conditions, are data sets that the [Trading Simulation Plotter](https://github.com/AAMasters/Plotters-Trading-Simulation) reads to create a visual representation of strategies' actions over the charts.
+
+* Live Trading History, Trading-Execution and Trading-Process are data sets used to render live-trading activity over the charts.
 
 ## Outputs
 

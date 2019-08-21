@@ -6,6 +6,7 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
 
 # Table of Contents
 
+* [Current Limitations](#current-limitations)
 * [Before You Begin](#before-you-begin)
 * [Installing / Running the App](#installing--running-the-app)
 * [Overview](#overview)
@@ -78,6 +79,22 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
   * [Outputs](#outputs)
   * [Status Reports](#status-reports)
   * [Logs](#logs)
+
+# Current Limitations
+
+* Only the latest version of Chrome is currently being tested.
+
+* The App is exchange-agnostic, but only Poloniex is enabled at the moment. You may create Strategies and use simulations without a Poloniex account, but will need an account to trade live. Other exchanges will follow later on.
+
+* We have enabled the BTC-USDT market only. Other markets will follow later on.
+
+* Very few indicators are available. At this point we have: candles, volumes, Bollinger Bands and Percentage Bollinger Bands. Other indicators will follow later on.
+
+* The user experience is basic. We expect to improve UX with your feedback over time.
+
+* The interface operation/navigation is designed mostly for mouse use. Keyboard and pads do not offer a comfortable experience yet.
+
+There is no advanced control over the execution of orders *(e.g. no order fragmentation)*. All orders are market orders.
 
 # Before You Begin
 

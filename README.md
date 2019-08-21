@@ -684,8 +684,6 @@ When taking profit or hitting a stop, that is, when attempting to close a positi
 
 **However, during live-trading, once a take profit or stop target is hit, the order to close the trade is placed as a market order.**
 
-> **It is important that you fully understand the implications of these limitations if you are considering to trade live with the app at this stage, as you will need to adapt to the current state of affairs.**
-
 Let's quickly review one of the implications these limitations may have, with an example:
 
 ![Live-Trading-Execution-Control](https://user-images.githubusercontent.com/13994516/63420370-d2faa400-c406-11e9-9d0d-ce82cdd078c9.gif)
@@ -696,6 +694,8 @@ The image above, featuring 10-minutes candles, shows a sudden drop in price. As 
 Had there been a stop somewhere in the range of the sudden price drop, chances are that the price would trigger the stop in-between executions. This means that the engine would place the sell order some time after the price hit the stop, and the order would fill at a price lower than intended.
 
 An additional limitation is that there currently is no feature to break up orders,  therefore, the size of your orders and the likeliness of them getting filled depend on the liquidity of the market/exchange.
+
+> **It is important that you fully understand the implications of these limitations if you are considering to trade live with the app at this stage, as you will need to adapt to the current state of affairs.**
 
 ## Poloniex API Keys
 

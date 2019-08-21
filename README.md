@@ -693,7 +693,7 @@ The image above, featuring 10-minutes candles, shows a sudden drop in price. As 
 
 Had there been a stop somewhere in the range of the sudden price drop, chances are that the price would trigger the stop in-between executions. This means that the engine would place the sell order some time after the price hit the stop, and the order would fill at a price lower than intended.
 
-An additional limitation is that there currently is no feature to break up orders,  therefore, the size of your orders and the likeliness of them getting filled depends on the liquidity of the market/exchange.
+An additional limitation is that there currently is no feature to break up orders,  therefore, the size of your orders and the likeliness of them getting filled depend on the liquidity of the market/exchange.
 
 ## Poloniex API Keys
 

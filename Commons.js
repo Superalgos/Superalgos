@@ -172,7 +172,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
                             if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
                                 let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
-                                if (code.initialDatetime !== undefined) {
+                                if (code.slippage !== undefined) {
                                     slippage = code.slippage
                                 }
                             }

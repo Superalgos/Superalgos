@@ -57,6 +57,7 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
   * [Getting Started](#getting-started)
   * [Live Trading Process](#live-trading-process)
   * [Live Trading History Layer](#live-trading-history-layer)
+  * [Execution Limitations](#execution-limitations)
   * [Poloniex API Keys](#poloniex-api-keys)
 * [Troubleshooting](#troubleshooting)
   * [On-screen Errors and Warnings](#on-screen-errors-and-warnings)
@@ -645,7 +646,7 @@ All you need to do to start live-trading is:
 
 3. Go back to the Charts and make sure they are positioned in the *time period* you wish to trade in.
 
-> **WARNING: The Superalgos Desktop App is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you test with small amounts of money, the kind you can afford losing. Trade live at your own risk.**
+> **WARNING: The Superalgos Desktop App is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you test with small amounts of money, the kind you can afford losing. Also, make sure you understand the [Execution Limitations](#execution-limitations). Trade live at your own risk.**
 
 4. Click RESTART LIVE TRADING.
 
@@ -666,6 +667,33 @@ The layer plots tiny orange circles to indicate the precise point in time and pr
 When a buy order is successfully placed at the exchange, a white triangle pointing up is drawn on the screen. The lower tip of the triangle signals the point in time and rate of the order. If the order is filled, a new—green—tringle is plotted on the screen.
 
 A white triangle pointing down means a sell order has been placed at the exchange. When the sell order fills, a new—red—triangle is drawn over the charts.
+
+## Execution Limitations
+At the current stage of development, users have no control whatsoever over the execution of orders.
+
+The way execution works at this stage is quite basic: once conditions are met for taking a position, or once a take profit or stop target is hit, *one single market order is placed at the exchange*.
+
+When taking a position, the Take Position price shown at simulations is defined by the formula you use in your ```Open Stage > Position Rate > Formula```. 
+
+![Live-Trading-Execution-Position-Rate](https://user-images.githubusercontent.com/13994516/63421629-3980c180-c409-11e9-837e-212e69588ebb.gif)
+
+*However, this is overridden during live-trading, and replaced with a market order.*
+
+When taking profit or hitting a stop, that is, when attempting to close a position, the price in simulations is determined by the intersection of the corresponding candle with the values resulting from the active take profit and stop phases formulas.
+
+*However, during live-trading, once a take profit or stop target is hit, the order to close the trade is placed as a market order.*
+
+> *It is important that you fully understand the implications of these limitations if you are considering to trade live with the app at this stage, as you will need to adapt to the current state of affairs.*
+
+Let's quickly review one of the implications these limitations may have, with an example:
+
+![Live-Trading-Execution-Control](https://user-images.githubusercontent.com/13994516/63420370-d2faa400-c406-11e9-9d0d-ce82cdd078c9.gif)
+
+The image above, featuring 10-minutes candles, shows a sudden drop in price. As you may see, there where only three executions of the trading engine during the price drop. 
+
+Had there been a stop somewhere in the range of the sudden price drop, chances are that the price would trigger the stop in-between executions. This means that the engine would place the sell order some time after the price hit the stop, and the order would fill at a price lower than intended.
+
+An additional limitation is that there currently is no feature to break up orders,  therefore, the size of your orders and the likeliness of them getting filled depends on the liquidity of the market/exchange.
 
 ## Poloniex API Keys
 

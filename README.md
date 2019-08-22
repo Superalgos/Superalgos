@@ -315,15 +315,49 @@ The Designer organizes the workflow to build strategies following the framework 
 
 * [Superalgos Protocol V0.1 - the Long Version, for Beginner Traders](https://medium.com/@julian_superalgos/superalgos-protocol-v0-1-the-long-version-for-beginner-traders-f293f1cc6c13).
 
-## Workspace
+## Top-Level Elements
+
+### Workspace
+
+![workspace](https://user-images.githubusercontent.com/13994516/63503989-de1a0680-c4d0-11e9-8c1a-36eb526fd7de.png)
 
 The workspace is a concept that refers to all the information available about:
 
+* Definitions, which may include API Keys.
 * Trading Systems, their Strategies, and their configurations.
-* Personal Definitions, which may include API Keys.
 * The position and status of all elements within the Designer.
 
-Backing up your workspace is the best way to store trading systems, ready to be deployed.
+Backing up your workspace is the best way to store trading systems, ready to be deployed. |
+
+### Definitions
+
+![definitions](https://user-images.githubusercontent.com/13994516/63503991-deb29d00-c4d0-11e9-8c03-bf2e618f9ef6.png)
+
+Definitions include every single parameter describing your Trading Systems, as well as your Personal Data, including API Keys.
+
+This is the top-level element in the hierarchy.
+
+### Trading System
+
+![trading-system](https://user-images.githubusercontent.com/13994516/63503987-de1a0680-c4d0-11e9-8503-9d3c92a1aa25.png) 
+
+A trading system is a collection of strategies that conform to certain parameters. The one parameter that needs to be defined at this point in time is the Base Asset (refer to the [Superalgos Protocol articles above](#designer) for the definition of Base Asset).
+
+```
+{ 
+"name": "USDT",
+"initialBalance": 10,
+"minimumBalance": 1,
+"maximumBalance": 20000
+}
+```
+| Variable | Description / Possible Values |
+| --- | --- |
+| name | SDT or BTC |
+| initialBalance | the amount of capital you wish to allocate to the whole trading system. |
+| minimumBalance | when your overall balance combined (balanceAssetA + balanceAssetB) reaches this value, all trading stops; think of this a general safety switch. |
+| maximumBalance | a similar concept as the minimumBalance, but on the higher side of the _initialBalance_. |
+
 
 ## Interface
 
@@ -369,25 +403,6 @@ Elements in the workspace may be detached from its parent, carrying all children
 To detach an element, right-click on it and drag it away from the parent element. To attach an element, right-click on it and move it closer to the element you wish to attach it to. 
 
 Elements may be attached only to conceptually related parents. For instance, a *condition* may be attached to a *situation*, but it can not be attached to a *formula*.
-
-## Trading System
-
-A trading system is a collection of strategies that conform to certain parameters. The one parameter that needs to be defined at this point in time is the Base Asset (refer to the [Superalgos Protocol articles above](#strategy-designer) for the definition of Base Asset).
-
-```
-{ 
-"name": "USDT",
-"initialBalance": 10,
-"minimumBalance": 1,
-"maximumBalance": 20000
-}
-```
-| Variable | Description / Possible Values |
-| --- | --- |
-| name | SDT or BTC |
-| initialBalance | the amount of capital you wish to allocate to the whole trading system. |
-| minimumBalance | when your overall balance combined (balanceAssetA + balanceAssetB) reaches this value, all trading stops; think of this a general safety switch. |
-| maximumBalance | a similar concept as the minimumBalance, but on the higher side of the _initialBalance_. |
 
 ## Working with Strategies
 

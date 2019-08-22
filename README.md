@@ -351,8 +351,7 @@ The one parameter that needs to be defined early on is the Base Asset, that is, 
 
 | Parameters | Base Asset | Formula |
 | :---: | :---: | :---: |
-| ![settings](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![sitemap](https://user-images.githubusercontent.com/13994516/63508922-3f46d780-c4db-11e9-88bc-23a1fa317ba0.png) | 
-![pipette](https://user-images.githubusercontent.com/13994516/63509169-c85e0e80-c4db-11e9-895f-78083a1e5ed8.png) |
+| ![settings](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![sitemap](https://user-images.githubusercontent.com/13994516/63508922-3f46d780-c4db-11e9-88bc-23a1fa317ba0.png) | ![pipette](https://user-images.githubusercontent.com/13994516/63509169-c85e0e80-c4db-11e9-895f-78083a1e5ed8.png) |
 
 Your Base Asset formula contains the following piece of code, which you may configure to your own needs:
 

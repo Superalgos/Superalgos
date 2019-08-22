@@ -164,16 +164,31 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             }
 
             /* Slippage */
-
-            let slippage = 0
+            let slippage = { // Default Values
+                positionRate: 0,
+                stopLoss: 0,
+                takeProfit: 0
+                }
             if (definition.tradingSystem !== undefined) {
                 if (definition.tradingSystem.parameters !== undefined) {
                     if (definition.tradingSystem.parameters.baseAsset !== undefined) {
                         if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
                             if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
-                                let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
-                                if (code.slippage !== undefined) {
-                                    slippage = code.slippage
+                                try {
+                                    let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
+                                    if (code.slippage !== undefined) {
+                                        if (code.slippage.positionRate !== undefined) {
+                                            slippage.positionRate = code.slippage.positionRate
+                                        }
+                                        if (code.slippage.stopLoss !== undefined) {
+                                            slippage.stopLoss = code.slippage.stopLoss
+                                        }
+                                        if (code.slippage.takeProfit !== undefined) {
+                                            slippage.takeProfit = code.slippage.takeProfit
+                                        }
+                                    }
+                                } catch (err) {
+                                    tradingSystem.parameters.baseAsset.formula.error = "Slippage Error: " + err.message
                                 }
                             }
                         }
@@ -550,16 +565,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                 /* Assistant Info */
 
-                let ticker 
-
-                if (process.env.START_MODE === "live" && i === candles.length - 2) {
-                    ticker = assistant.getTicker()
-                } else {
-                    ticker = {
-                        bid: candle.close,
-                        ask: candle.close,
-                        last: candle.close
-                    }
+                let ticker = {
+                    bid: candle.close,
+                    ask: candle.close,
+                    last: candle.close
                 }
 
                 //let LRC = LRCMap.get(candle.begin);
@@ -1280,8 +1289,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                     takeProfitStage = 'Open Stage';
                                     stopLossPhase = 1;
                                     takeProfitPhase = 1;
-                                    currentTrade.begin = candle.begin;
-                                    currentTrade.beginRate = strategy.positionRate;
 
                                     if (processingDailyFiles) {
                                         if (positionedAtYesterday) {
@@ -1290,8 +1297,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                                             yesterday.takeProfitStage = takeProfitStage;
                                             yesterday.stopLossPhase = stopLossPhase;
                                             yesterday.takeProfitPhase = takeProfitPhase;
-                                            yesterday.currentTrade.begin = currentTrade.begin;
-                                            yesterday.currentTrade.beginRate = currentTrade.beginRate;
                                         }
                                     }
 
@@ -1583,20 +1588,23 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if ((baseAsset === 'BTC' && candle.max >= stopLoss) || (baseAsset !== 'BTC' && candle.min <= stopLoss)) {
 
-                        /* Check the Slipagge */
+                        /*
+                        Hit Point Validation
 
-                        let stopLossHitPoint = stopLoss
+                        This prevents misscalculations when a formula places the stop loss in this case way beyond the market price.
+                        If we take the stop loss value at those situation would be a huge distortion of facts.
+                        */
 
                         if (baseAsset === 'BTC') {
-                            if (stopLossHitPoint < candle.open) { stopLossHitPoint = candle.open}
-                            if (stopLossHitPoint < candle.close) { stopLossHitPoint = candle.close }
+                            if (stopLoss < candle.min) { stopLoss = candle.min }
                         } else {
-                            if (stopLossHitPoint > candle.open) { stopLossHitPoint = candle.open }
-                            if (stopLossHitPoint > candle.close) { stopLossHitPoint = candle.close }
+                            if (stopLoss > candle.max) { stopLoss = candle.max }
                         }
 
-                        let slippedStopLoss = stopLossHitPoint
-                        let slippageAmount = stopLossHitPoint * slippage / 100
+                        let slippedStopLoss = stopLoss
+
+                        /* Apply the Slippage */
+                        let slippageAmount = slippedStopLoss * slippage.stopLoss / 100
 
                         if (baseAsset === 'BTC') {
                             slippedStopLoss = slippedStopLoss + slippageAmount
@@ -1604,17 +1612,19 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             slippedStopLoss = slippedStopLoss - slippageAmount
                         }
 
-                        if (baseAsset === 'BTC') {
-                            strategy.positionSize = balanceAssetB / slippedStopLoss;
-                            strategy.positionRate = slippedStopLoss;
+                        let finalStopLoss = slippedStopLoss;
 
-                            balanceAssetA = balanceAssetA + balanceAssetB / slippedStopLoss;
+                        if (baseAsset === 'BTC') {
+                            strategy.positionSize = balanceAssetB / finalStopLoss;
+                            strategy.positionRate = finalStopLoss;
+
+                            balanceAssetA = balanceAssetA + balanceAssetB / finalStopLoss;
                             balanceAssetB = 0;
                         } else {
-                            strategy.positionSize = balanceAssetA * slippedStopLoss;
-                            strategy.positionRate = slippedStopLoss;
+                            strategy.positionSize = balanceAssetA * finalStopLoss;
+                            strategy.positionRate = finalStopLoss;
 
-                            balanceAssetB = balanceAssetB + balanceAssetA * slippedStopLoss;
+                            balanceAssetB = balanceAssetB + balanceAssetA * finalStopLoss;
                             balanceAssetA = 0;
                         }
 
@@ -1625,7 +1635,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
                         }
 
-                        marketRate = slippedStopLoss;
+                        marketRate = finalStopLoss;
                         type = '"Close@StopLoss"';
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
@@ -1633,8 +1643,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 1;
-                        currentTrade.endRate = slippedStopLoss;
-
+                        currentTrade.endRate = finalStopLoss;
+ 
                         closePositionNow = true;
 
                         if (processingDailyFiles) {
@@ -1654,20 +1664,22 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                     if ((baseAsset === 'BTC' && candle.min <= takeProfit) || (baseAsset !== 'BTC' && candle.max >= takeProfit)) {
 
-                        /* Check the Slipagge */
+                        /*
+                        Hit Point Validation:
 
-                        let takeProfitHitPoint = stopLoss
+                        This prevents misscalculations when a formula places the take profit in this case way beyond the market price.
+                        If we take the stop loss value at those situation would be a huge distortion of facts.
+                        */
 
                         if (baseAsset === 'BTC') {
-                            if (takeProfitHitPoint > candle.open) { takeProfitHitPoint = candle.open }
-                            if (takeProfitHitPoint > candle.close) { takeProfitHitPoint = candle.close }
+                            if (takeProfit > candle.max) { takeProfit = candle.max }
                         } else {
-                            if (takeProfitHitPoint < candle.open) { takeProfitHitPoint = candle.open }
-                            if (takeProfitHitPoint < candle.close) { takeProfitHitPoint = candle.close }
+                            if (takeProfit < candle.min) { takeProfit = candle.min }
                         }
 
                         let slippedTakeProfit = takeProfit
-                        let slippageAmount = stopLoss * slippage / 100
+                        /* Apply the Slippage */
+                        let slippageAmount = slippedTakeProfit * slippage.takeProfit / 100
 
                         if (baseAsset === 'BTC') {
                             slippedTakeProfit = slippedTakeProfit - slippageAmount
@@ -1675,17 +1687,19 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             slippedTakeProfit = slippedTakeProfit + slippageAmount
                         }
 
-                        if (baseAsset === 'BTC') {
-                            strategy.positionSize = balanceAssetB / slippedTakeProfit;
-                            strategy.positionRate = slippedTakeProfit;
+                        let finalTakeProfit = slippedTakeProfit;
 
-                            balanceAssetA = balanceAssetA + balanceAssetB / slippedTakeProfit;
+                        if (baseAsset === 'BTC') {
+                            strategy.positionSize = balanceAssetB / finalTakeProfit;
+                            strategy.positionRate = finalTakeProfit;
+
+                            balanceAssetA = balanceAssetA + balanceAssetB / finalTakeProfit;
                             balanceAssetB = 0;
                         } else {
-                            strategy.positionSize = balanceAssetA * slippedTakeProfit;
-                            strategy.positionRate = slippedTakeProfit;
+                            strategy.positionSize = balanceAssetA * finalTakeProfit;
+                            strategy.positionRate = finalTakeProfit;
 
-                            balanceAssetB = balanceAssetB + balanceAssetA * slippedTakeProfit;
+                            balanceAssetB = balanceAssetB + balanceAssetA * finalTakeProfit;
                             balanceAssetA = 0;
                         }
 
@@ -1697,7 +1711,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                             }
                         }
 
-                        marketRate = slippedTakeProfit;
+                        marketRate = finalTakeProfit;
                         type = '"Close@TakeProfit"';
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
@@ -1706,8 +1720,8 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 2;
-                        currentTrade.endRate = slippedTakeProfit;
-
+                        currentTrade.endRate = finalTakeProfit;
+                    
                         closePositionNow = true;
 
                         if (processingDailyFiles) {
@@ -1736,22 +1750,15 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
 
                     tradePositionSize = strategy.positionSize;
+                    tradePositionRate = strategy.positionRate;
 
-                    if (i === candles.length - 2) { /* Only at the last closed candle I can take the value from the formula, since the use of ticker could alter the value at previous candles.*/
-                        tradePositionRate = strategy.positionRate;
+                    /* We take what was calculated at the formula and apply the slippage. */
+                    let slippageAmount = tradePositionRate * slippage.positionRate / 100
+
+                    if (baseAsset === 'BTC') {
+                        tradePositionRate = tradePositionRate - slippageAmount
                     } else {
-
-                        /* Check the Slipagge */
-
-                        tradePositionRate = candle.close;
-                        
-                        let slippageAmount = tradePositionRate * slippage / 100
-
-                        if (baseAsset === 'BTC') {
-                            tradePositionRate = tradePositionRate - slippageAmount
-                        } else {
-                            tradePositionRate = tradePositionRate + slippageAmount
-                        }
+                        tradePositionRate = tradePositionRate + slippageAmount
                     }
 
                     if (processingDailyFiles) {
@@ -1761,6 +1768,18 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
                     }
 
+                    /* Update the trade record information. */
+                    currentTrade.begin = candle.begin;
+                    currentTrade.beginRate = tradePositionRate;
+
+                    if (processingDailyFiles) {
+                        if (positionedAtYesterday) {
+                            yesterday.currentTrade.begin = currentTrade.begin;
+                            yesterday.currentTrade.beginRate = currentTrade.beginRate;
+                        }
+                    }
+
+                    /* Check if we need to execute. */
                     if (i > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not.*/
                         /* Check that we are in LIVE MODE */
                         if (process.env.START_MODE === "live") {

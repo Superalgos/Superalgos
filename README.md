@@ -4,6 +4,8 @@ The Superalgos Desktop App is the client application of the Superalgos Platform 
 
 This is a pre-release in alpha stage. The app is still under heavy development. We appreciate your help testing the app and reporting any errors you may experience.
 
+![Illustration](https://user-images.githubusercontent.com/13994516/63528460-4550ae80-c503-11e9-8db6-22995e0b9c16.gif)
+
 ## Current Features
 
 * You may create any number of Strategies by entering conditions and formulas via a web application. The set of Strategies constitute your Trading System.
@@ -752,9 +754,10 @@ When a buy order is successfully placed and filled at the exchange, a green tria
 
 When a sell order fills, a red triangle is plotted over the charts.
 
-> **TEMPORARY LIMITATION**: The simulation layers do not currently reflect the actual live trades, but the simulated ones.
+> **TEMPORARY LIMITATION**: When live-trading, the simulation layers do not currently reflect the actual live trades, but the simulated ones.
 
 ## Execution Limitations
+
 At the current stage of development, users have no control whatsoever over the execution of orders.
 
 The way execution works at this stage is quite basic: once conditions are met for taking a position, or once a take profit or stop target is hit, **one single market order is placed at the exchange**.

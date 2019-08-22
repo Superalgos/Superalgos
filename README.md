@@ -1,6 +1,6 @@
 # Superalgos Desktop App Documentation
 
-The Superalgos Desktop App is the client application of the Superalgos Platform suite, and provides a visual environment for developing and automating trading strategies.
+The Superalgos Desktop App is the client application of the Superalgos Platform suite, and provides a visual environment for developing and automating crypto-trading strategies.
 
 This is a pre-release in alpha stage. The app is still under heavy development. We appreciate your help testing the app and reporting any errors you may experience.
 
@@ -146,23 +146,9 @@ Go to [releases](https://github.com/Superalgos/DesktopApp/releases), find the la
 
 Right-click on the first multi-part ZIP file and extract / unpack the files. The ZIP files include highly-compressed complete historic market data. Expect decompression to take from 4 to 8 hours, depending on your system (decompressing overnight may be a good idea, as your drive will be quite busy for some time, potentially slowing down your system).
 
-**Next Steps on Windows Systems**:
+**3. Run your web server and the app**: 
 
-**3. Run the App**: 
-
-Double click on AAWEB\Windows-Superalgos-Desktop.exe
-
-Two things will happen:
-
-  * Your default console / command line app will open and display some information. Do not close your console or stop the processes running for as long as you are using the app.
-
-  * The app will load on your default browser. You should either [set Chrome as your default browser](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en) before executing the EXE file, or simply close the non-Chrome browser, open Chrome and go to http://localhost:1337/.
-
-**Next Steps on Non-Windows Systems**:
-
-**3. Run your web server**: 
-
-Open your console / command line app and go to directory AAWEB (a folder in the root of the zip files your previously decompressed); assuming you are starting the console from the root directory of the app, the command to access AAWEB is:
+Open your console / command line app and go to directory ```AAWEB``` (a folder in the root of the zip files you previously decompressed); assuming you are starting the console from the root directory of the app, the command to access AAWEB is:
 
 ```
 cd AAWEB
@@ -176,17 +162,17 @@ node server.js
 
 The app will load on your default browser. You should either [set Chrome as your default browser](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en) before executing the EXE file, or simply close the non-Chrome browser, open Chrome and go to http://localhost:1337/.
 
-**Final Steps**:
+**4. Drag and drop a template Workspace**: 
 
-**4. Start indicators**: 
-
-Click the RESTART BOTS button on the right-hand side of the horizontal turquoise bar. This puts all indicator bots to run. Allow some time for the bots to catch up with building candles and the rest of indicators up to the present time (the ZIP files you downloaded contains data files up to a certain point in time). After a few minutes, refresh the layers in the [Layers Panel](#layers-panel) as explained below.
-
-That's it! You are up and running!
-
-You may want to drag one of the sample _workspaces_ that come with the release and drop it on the _Designer_ to start with a working template.
+Drag one of the sample _workspaces_ in the ```/Templates``` folder and drop it on the _Designer_ (in the bottom half of the screen, the area with a black background) to start with a working template.
 
 ![Designer-Drag-Drop](https://user-images.githubusercontent.com/13994516/63524115-b724fa00-c4fb-11e9-9894-48f62be71c02.gif)
+
+**5. Start indicators**: 
+
+Click the RESTART SIMULATION button on the right-hand side of the horizontal turquoise bar. This puts all indicator bots to run. Allow some time for the bots to catch up with building candles and the rest of indicators up to the present time (the ZIP files you downloaded contains data files up to a certain point in time). After a few minutes, refresh the layers in the [Layers Panel](#layers-panel) as explained below.
+
+That's it! You are up and running!
 
 # Overview
 

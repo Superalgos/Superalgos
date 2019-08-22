@@ -437,7 +437,7 @@ In other words, you define _situations_ in which you wish a certain _event_ to h
 
 The type of _statements_ you will use to define _conditions_ need to evaluate to _true_ or _false_.
 
-When **all** _conditions_ within a _situation_ evaluate _true_, then the _situation_ evaluates _true_. This means that multiple _conditions_ within a situation are evaluated with the _AND_ operator (_e.g. condition 1 AND condition 2 AND condition 3 are either true or false; that is, if one condition is false, then the situation is false_).
+When ***all conditions*** within a _situation_ evaluate _true_, then the _situation_ evaluates _true_. This means that multiple _conditions_ within a situation are evaluated with the _AND_ operator (_e.g. condition 1 AND condition 2 AND condition 3 are either true or false; that is, if one condition is false, then the situation is false_).
 
 On the other hand, when a certain event has multiple _situations_, then _situations_ are evaluated with the _OR_ operator (e.g. if either _situation 1_ OR _situation 2_ are true, then the event will be triggered.
 
@@ -506,14 +506,15 @@ Let's first review the minimum requirements to have a working strategy.
 
 | Icon | Element | Description |
 | :---: | :---: | :--- |
-| ![stage-open-position-size](https://user-images.githubusercontent.com/13994516/63513822-7e7b2580-c4e7-11e9-98d5-624bb5c3c2ab.png) | Position Size | Determines how much capital is put in each trade (formula). The formula may be a constant (a fixed numerical value), or may relate to relevant [available variables](#available-variables). The resulting value should not be higher than your available balance (*balanceAssetA* if you stand on BTC and *balanceAssetB* if you stand on USDT.<br/>*e.g.:* ```assetBalanceB``` puts all your available balance in each trade, in case your _base asset_ is USDT |
-| ![stage-open-postion-rate](https://user-images.githubusercontent.com/13994516/63513820-7e7b2580-c4e7-11e9-94e5-237cd751d273.png) | Position Rate | At this point, position rate is not being used during live trading. We recommend you use ```candle.close``` in your formula until the Execution Algorithms allow users more control over execution (learn more about [Execution Limitations](#execution-limitations). |
-| ![stage-trigger-take-position](https://user-images.githubusercontent.com/13994516/63513057-86d26100-c4e5-11e9-84ff-edf1b9b49d4e.png) | Take Position Event | Determines under which situations/conditions the position is taken (at least one situation with one condition). |
+| ![stage-open-position-size](https://user-images.githubusercontent.com/13994516/63513822-7e7b2580-c4e7-11e9-98d5-624bb5c3c2ab.png) | Position Size | A formula, determines how much capital is put in each trade. The formula may be a constant (a fixed numerical value), or may relate to relevant [available variables](#available-variables). The resulting value should not be higher than your available balance (*balanceAssetA* if you stand on BTC and *balanceAssetB* if you stand on USDT.<br/>*e.g.: ```assetBalanceB``` puts all your available balance in each trade, in case your _base asset_ is USDT* |
+| ![stage-open-postion-rate](https://user-images.githubusercontent.com/13994516/63513820-7e7b2580-c4e7-11e9-94e5-237cd751d273.png) | Position Rate | A formula, at this point, not taken into account during live trading. We recommend you use ```candle.close``` in your formula until the *Execution Engine* allow users more control over execution (learn more about current [Execution Limitations](#execution-limitations). |
 
-* **Stop**: 
-  * Phase 0:  formula (any mathematical expression or number).
-* Take Profit: 
-  * Phase 0:  formula (any mathematical expression or number).
+In addition to *Position Rate* and *Position Size*, you also need to define the initial values for your *Stop* and *Take Profit*. The initial value is set as a formula on Phase 0 (refer to the Superalgos Protocol articles for an explanation on managing Stop and Take Profit in phases).
+
+| Stop | Phase 0 | Description |
+| :---: | :---: | :--- |
+| ![stage-open-stop](https://user-images.githubusercontent.com/13994516/63513824-7f13bc00-c4e7-11e9-8410-d40504334c72.png) | ![phase](https://user-images.githubusercontent.com/13994516/63513823-7f13bc00-c4e7-11e9-9d54-bef993401eb0.png) | A formula, determines your initial *Stop* value. A likely scenario is relating your initial stop to the *positionRate* (the price at which the position was taken).<br/> *e.g.: ```positionRate - positionRate * 0.02``` sets your initial stop at 2% below the price at which you take the position.* |
+| ![stage-open-take-profit](https://user-images.githubusercontent.com/13994516/63513819-7e7b2580-c4e7-11e9-87c7-b604ef0df363.png) | ![phase](https://user-images.githubusercontent.com/13994516/63513823-7f13bc00-c4e7-11e9-9d54-bef993401eb0.png) | A formula, determines your initial *Take Profit* value. Again, you may chose to relat your initial take profit to the *positionRate* or any other available variable. |
   
 ### Using an Existing Strategy
 

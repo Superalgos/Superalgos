@@ -74,7 +74,6 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
     * [Starting a Strategy from Scratch](#starting-a-strategy-from-scratch)
     * [Using an Existing Strategy](#using-an-existing-strategy)
   * [Available Variables](#available-variables)
-    * [Ticker](#ticker)
     * [Candles](#candles)
     * [Bollinger Band](#bollinger-band)
     * [Percentage Bandwidth](#percentage-bandwidth)
@@ -482,18 +481,6 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 ![Designer-Drag-Drop](https://user-images.githubusercontent.com/13994516/63052820-a283a900-bee0-11e9-99b3-67273cba96a0.gif)
 
 ## Available Variables
-
-### Ticker
-
-**ticker.last:** The latest price discovered at the exchange at the time of execution.
-
-**ticker.bid:** The highest bid in the order book at the time of execution.
-
-**ticker.ask:** The lowest ask in the order book at the time of execution.
-
-> IMPORTANT: The *ticker* variables may only be used in formulas. They are not to be used in *conditions*. Using ticker variables in conditions may result in unexpected behaviors.
-
-> NOTE ON SIMULATIONS: When running in simulation mode, the three *ticker* variables are assigned the same value as  *candle.close* (the actual values are only available during live trading).
 
 ### Candles
 

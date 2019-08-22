@@ -371,7 +371,7 @@ Your Base Asset formula contains the following piece of code, which you may conf
 | minimumBalance | when your overall balance combined (balanceAssetA + balanceAssetB) reaches this value, all trading stops; think of this a general safety switch. |
 | maximumBalance | a similar concept as the minimumBalance, but on the higher side of the _initialBalance_. |
 
-Before discussing [Working with Strategies](#working-with-strategies), let's review a few basic aspects about the Designer's Interface.
+Before discussing [Working with Strategies](#working-with-strategies), let's review a few basic aspects of the Designer's Interface.
 
 ## Interface
 
@@ -416,7 +416,9 @@ Elements may be attached only to conceptually related parents. For instance, a *
 
 ## Working with Strategies
 
-As the Superalgos Protocol indicates, the definition of strategies is done in stages: trigger >> open >> manage >> close. We will review each stage, one by one, but let's first discuss the common elements among them.
+![strategy](https://user-images.githubusercontent.com/13994516/63512399-0d863e80-c4e4-11e9-9690-bacadc185a27.png)
+
+As the Superalgos Protocol indicates, the definition of strategies is done in stages: ```Trigger > Open > Manage > Close```. We will review each stage, one by one, but let's first discuss the common elements among them.
 
 The Designer provides a Graphic User Interface for traders to input the _rules_ and _formulas_ that determine the behavior of strategies. Traders need to define the rules to _trigger on_ and _trigger off_ each strategy, to _take a position_, to manage _take profit_ targets and _stops_.
 
@@ -479,28 +481,40 @@ In the example above, _condition C_ would be _true_ if the whole candle falls wi
 
 > In addition to the explanations available here, [a comprehensive video tutorial for building strategies](https://youtu.be/ZlkGkxSMsio) is available in our YouTube channel.
 
-Strategies within a specific Trading System respond to the parameters set for the Trading System. This means they all have the same Base Asset, and they all share the _initialCapital_.
+Strategies within a specific Trading System respond to the parameters set for the Trading System. This means they all have the same Base Asset, and they all share the _initialCapital_ (see [Trading System](#trading-system) for further references).
 
-To start a brand new strategy, go to the Trading System icon and click _Add Strategy_ on the menu. Several icons will pop up on the screen. As you work on each stage (trigger, open, manage, close), you may need to add the missing items corresponding to certain elements.
+To start a brand new strategy, go to the Trading System icon and click _Add Strategy_ on the menu. Several icons will pop up on the screen. As you work on each stage (```Trigger > Open > Manage > Close```), you may need to add the missing items corresponding to certain elements.
 
 ![Designer-New-Strategy](https://user-images.githubusercontent.com/13994516/63052412-8df2e100-bedf-11e9-9ee9-9f4f4f61eeb3.gif)
 <br/><br/>
 
-The following are the minimum requirements to have a working strategy:
+Let's first review the minimum requirements to have a working strategy.
 
-**Trigger Stage**: 
-* **Trigger On Event**: at least one situation with one condition.
-* **Trigger Off Event**: at least one situation with one condition.
-* **Take Position Event**: at least one situation with one condition.
+#### Trigger Stage
 
-**Open Stage**, Initial Definition:
-* **Position Size**: formula (any mathematical expression or number).
-* **Position Rate**: formula (any mathematical expression or number).
+![stage-trigger](https://user-images.githubusercontent.com/13994516/63512974-4f63b480-c4e5-11e9-9589-c5de6be38ef9.png)
+
+| Icon | Element | Description |
+| :---: | :---: | :--- |
+| ![stage-trigger-trigger-on](https://user-images.githubusercontent.com/13994516/63513053-8639ca80-c4e5-11e9-8ff9-4a5dae43d7ef.png) | Trigger-On Event | Determines under which situations/conditions the strategy is triggered on (at least one situation with one condition). |
+| ![stage-trigger-trigger-off](https://user-images.githubusercontent.com/13994516/63513054-8639ca80-c4e5-11e9-8bd2-07548f02086d.png) | Trigger-Off Event | Determines under which situations/conditions the strategy is triggered off (at least one situation with one condition). |
+| ![stage-trigger-take-position](https://user-images.githubusercontent.com/13994516/63513057-86d26100-c4e5-11e9-84ff-edf1b9b49d4e.png) | Take Position Event | Determines under which situations/conditions the position is taken (at least one situation with one condition). |
+
+#### Open Stage
+
+![stage-open](https://user-images.githubusercontent.com/13994516/63512972-4ecb1e00-c4e5-11e9-8327-26f54c9e0616.png)
+
+| Icon | Element | Description |
+| :---: | :---: | :--- |
+| ![stage-open-position-size](https://user-images.githubusercontent.com/13994516/63513822-7e7b2580-c4e7-11e9-98d5-624bb5c3c2ab.png) | Position Size | Determines how much capital is put in each trade (formula). The formula may be a constant (a fixed numerical value), or may relate to relevant [available variables](#available-variables). The resulting value should not be higher than your _initialCapital_ (see [Trading System](#trading-system) for further references).<br/><br/>e.g. ```assetBalanceB``` puts all your available balance in the trade, in case your _base asset_ is USDT |
+| ![stage-open-postion-rate](https://user-images.githubusercontent.com/13994516/63513820-7e7b2580-c4e7-11e9-94e5-237cd751d273.png) | Position Rate | At this point, position rate is not being used during live trading. We recommend you use ```candle.close``` in your formula until the Execution Algorithms allow users more control over execution (learn more about [Execution Limitations](#execution-limitations). |
+| ![stage-trigger-take-position](https://user-images.githubusercontent.com/13994516/63513057-86d26100-c4e5-11e9-84ff-edf1b9b49d4e.png) | Take Position Event | Determines under which situations/conditions the position is taken (at least one situation with one condition). |
+
 * **Stop**: 
   * Phase 0:  formula (any mathematical expression or number).
 * Take Profit: 
   * Phase 0:  formula (any mathematical expression or number).
-
+  
 ### Using an Existing Strategy
 
 Thanks to the implementation of the Superalgos Protocol, all strategies built within the Superalgos Desktop App are portable. This means that people may use strategies built by other people or groups of people.

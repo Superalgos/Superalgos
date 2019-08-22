@@ -122,7 +122,7 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
   * [Status Reports](#status-reports)
   * [Logs](#logs)
 
-# Gettings Started
+# Getting Started
 
 ## Before You Begin
 

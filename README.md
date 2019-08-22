@@ -488,7 +488,7 @@ To start a brand new strategy, go to the Trading System icon and click _Add Stra
 ![Designer-New-Strategy](https://user-images.githubusercontent.com/13994516/63052412-8df2e100-bedf-11e9-9ee9-9f4f4f61eeb3.gif)
 <br/><br/>
 
-Let's first review the minimum requirements to have a working strategy.
+**Let's review the minimum requirements for having a working strategy:**
 
 #### Trigger Stage
 
@@ -511,10 +511,10 @@ Let's first review the minimum requirements to have a working strategy.
 
 In addition to *Position Rate* and *Position Size*, you also need to define the initial values for your *Stop* and *Take Profit*. The initial value is set as a formula on Phase 0 (refer to the Superalgos Protocol articles for an explanation on managing Stop and Take Profit in phases).
 
-| Stop | Phase 0 | Description |
+| Icon | Element | Description |
 | :---: | :---: | :--- |
-| ![stage-open-stop](https://user-images.githubusercontent.com/13994516/63513824-7f13bc00-c4e7-11e9-8410-d40504334c72.png) | ![phase](https://user-images.githubusercontent.com/13994516/63513823-7f13bc00-c4e7-11e9-9d54-bef993401eb0.png) | A formula, determines your initial *Stop* value. A likely scenario is relating your initial stop to the *positionRate* (the price at which the position was taken).<br/> *e.g.: ```positionRate - positionRate * 0.02``` sets your initial stop at 2% below the price at which you take the position.* |
-| ![stage-open-take-profit](https://user-images.githubusercontent.com/13994516/63513819-7e7b2580-c4e7-11e9-87c7-b604ef0df363.png) | ![phase](https://user-images.githubusercontent.com/13994516/63513823-7f13bc00-c4e7-11e9-9d54-bef993401eb0.png) | A formula, determines your initial *Take Profit* value. Again, you may chose to relat your initial take profit to the *positionRate* or any other available variable. |
+| ![stage-open-stop](https://user-images.githubusercontent.com/13994516/63513824-7f13bc00-c4e7-11e9-8410-d40504334c72.png)<br/>![phase](https://user-images.githubusercontent.com/13994516/63513823-7f13bc00-c4e7-11e9-9d54-bef993401eb0.png) | Stop, Phase 0 | A formula, determines your initial *Stop* value. A likely scenario is relating your initial stop to the *positionRate* (the price at which the position was taken).<br/> *e.g.: ```positionRate - positionRate * 0.02``` sets your initial stop at 2% below the price at which you take the position.* |
+| ![stage-open-take-profit](https://user-images.githubusercontent.com/13994516/63513819-7e7b2580-c4e7-11e9-87c7-b604ef0df363.png)<br/>![phase](https://user-images.githubusercontent.com/13994516/63513823-7f13bc00-c4e7-11e9-9d54-bef993401eb0.png) | Take Profit, Phase 0 | A formula, determines your initial *Take Profit* value. Again, you may chose to relat your initial take profit to the *positionRate* or any other available variable. |
   
 ### Using an Existing Strategy
 

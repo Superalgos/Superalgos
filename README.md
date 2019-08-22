@@ -337,7 +337,7 @@ Backing up your workspace is the best way to store trading systems, ready to be 
 
 Definitions include every single parameter describing your Trading Systems, as well as your Personal Data, including API Keys.
 
-This is the top-level element in the hierarchy, with two children elements: Personal Data and Trading System. 
+This is the top-level element in the hierarchy, with two children elements: Personal Data and Trading System. We will discuss Personal Data later on, when we cover [Live Trading](#live-trading).
 
 At present, only one Trading System is allowed at a time.
 
@@ -351,7 +351,7 @@ The one parameter that needs to be defined early on is the Base Asset, that is, 
 
 | Parameters | Base Asset | Formula |
 | :---: | :---: | :---: |
-| ![settings](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![sitemap](https://user-images.githubusercontent.com/13994516/63508922-3f46d780-c4db-11e9-88bc-23a1fa317ba0.png) | ![pipette](https://user-images.githubusercontent.com/13994516/63509169-c85e0e80-c4db-11e9-895f-78083a1e5ed8.png) |
+| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![base-asset](https://user-images.githubusercontent.com/13994516/63508922-3f46d780-c4db-11e9-88bc-23a1fa317ba0.png) | ![formula](https://user-images.githubusercontent.com/13994516/63509169-c85e0e80-c4db-11e9-895f-78083a1e5ed8.png) |
 
 Your Base Asset formula contains the following piece of code, which you may configure to your own needs:
 
@@ -366,14 +366,16 @@ Your Base Asset formula contains the following piece of code, which you may conf
 
 | Variable | Description / Possible Values |
 | --- | --- |
-| name | SDT or BTC |
+| name | USDT or BTC |
 | initialBalance | the amount of capital you wish to allocate to the whole trading system. |
 | minimumBalance | when your overall balance combined (balanceAssetA + balanceAssetB) reaches this value, all trading stops; think of this a general safety switch. |
 | maximumBalance | a similar concept as the minimumBalance, but on the higher side of the _initialBalance_. |
 
+Before discussing [Working with Strategies](#working-with-strategies), let's review a few basic aspects about the Designer's Interface.
 
+## Interface
 
-## Element's Menu
+### Element's Menu
 
 Hoovering the mouse pointer over elements causes a menu to pop up.
 
@@ -401,7 +403,7 @@ The rest of the menu options available in most elements are the following:
 | ![menu-delete](https://user-images.githubusercontent.com/13994516/63045560-e66eb200-bed0-11e9-8b67-feb72b4ab253.png) | **Delete**: Deletes the element and all it's children. A confirmation is required (an additional click). |
 | ![menu-share](https://user-images.githubusercontent.com/13994516/63045561-e7074880-bed0-11e9-88a2-cf99a0ede94e.png) | **Share**: Downloads a JSON file—in a similar manner as with the Backup operation—with one big difference: no personal information is included in the description of the element, so that the file may be freely shared. |
 
-## Detachment and Attachment of Elements
+### Detachment and Attachment of Elements
 
 Elements in the workspace may be detached from its parent, carrying all children with it. When an element is detached, it is no longer taken into account in simulations or live trading. This feature enables testing different parameters, keeping alternatives handy in the same workspace.
 
@@ -414,11 +416,15 @@ Elements may be attached only to conceptually related parents. For instance, a *
 
 ## Working with Strategies
 
-As the Superalgos Protocol indicates, the definition of strategies is done in stages: trigger >> open >> manage >> close.
+As the Superalgos Protocol indicates, the definition of strategies is done in stages: trigger >> open >> manage >> close. We will review each stage, one by one, but let's first discuss the common elements among them.
 
 The Designer provides a Graphic User Interface for traders to input the _rules_ and _formulas_ that determine the behavior of strategies. Traders need to define the rules to _trigger on_ and _trigger off_ each strategy, to _take a position_, to manage _take profit_ targets and _stops_.
 
 ### Situations and Conditions
+
+| Situations | Conditions | Code |
+| :---: | :---: | :---: |
+| ![situations](https://user-images.githubusercontent.com/13994516/63511799-72409980-c4e2-11e9-8f2a-5bc4a8d9d6ed.png) | ![conditions](https://user-images.githubusercontent.com/13994516/63511800-72d93000-c4e2-11e9-98a2-259c7f0edca2.png) | ![code](https://user-images.githubusercontent.com/13994516/63511802-72d93000-c4e2-11e9-9cbf-df75cc9bbe0b.png) |
 
 The protocol calls these sets of rules _situations_, in the sense that you are trying to determine what is going on with the market and, if the 'situation' is right, certain _actions_ or _events_ should be triggered.
 

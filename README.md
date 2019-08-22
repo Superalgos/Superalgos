@@ -64,10 +64,10 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
       * [Bollinger Sub-Channels](#bollinger-sub-channels)
 * [Designer](#designer)
   * [Workspace](#workspace)
-  * [Interface](#interface)
-    * [Element's Menu](#elements-menu)
-    * [Detachment and Attachment of Elements](#detachment-and-attachment-of-elements)
-  * [Trading System](#trading-system)
+  * [Definitions](#definitions)
+    * [Trading System](#trading-system)
+  * [Element's Menu](#elements-menu)
+  * [Detachment and Attachment of Elements](#detachment-and-attachment-of-elements)
   * [Working with Strategies](#working-with-strategies)
     * [Situations and Conditions](#situations-and-conditions)
       * [Comparison and Logical Operators](#comparison-and-logical-operators)
@@ -348,6 +348,13 @@ At present, only one Trading System is allowed at a time.
 A trading system is a collection of strategies that conform to certain parameters. 
 
 The one parameter that needs to be defined early on is the Base Asset, that is, the asset you wish to stand on when you are out of the market, with no open positions.
+
+| Parameters | Base Asset | Formula |
+| :---: | :---: | :---: |
+| ![settings](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![sitemap](https://user-images.githubusercontent.com/13994516/63508922-3f46d780-c4db-11e9-88bc-23a1fa317ba0.png) | 
+![pipette](https://user-images.githubusercontent.com/13994516/63509169-c85e0e80-c4db-11e9-895f-78083a1e5ed8.png) |
+
+Your Base Asset formula contains the following piece of code, which you may configure to your own needs:
 
 ```
 { 

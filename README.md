@@ -743,11 +743,16 @@ Your trading bot is executed every 30 to 60 seconds, depending on the capacity o
 
 In addition to the simulation layers, you will now be able to use the Live Trading History layer to get information about your trades. 
 
+![Live-Trading-Charts](https://user-images.githubusercontent.com/13994516/63526577-e9385b00-c4ff-11e9-898a-81880cfa0c7d.gif)
+<br/><br/>
+
 The layer plots tiny orange circles to indicate the precise point in time and price of each execution of the bot.
 
-When a buy order is successfully placed at the exchange, a white triangle pointing up is drawn on the screen. The lower tip of the triangle signals the point in time and rate of the order. If the order is filled, a new—green—tringle is plotted on the screen.
+When a buy order is successfully placed and filled at the exchange, a green triangle pointing upwards is drawn on the screen. The lower tip of the triangle signals the point in time and rate of the order.
 
-A white triangle pointing down means a sell order has been placed at the exchange. When the sell order fills, a new—red—triangle is drawn over the charts.
+When a sell order fills, a red triangle is plotted over the charts.
+
+> **TEMPORARY LIMITATION**: The simulation layers do not currently reflect the actual live trades, but the simulated ones.
 
 ## Execution Limitations
 At the current stage of development, users have no control whatsoever over the execution of orders.

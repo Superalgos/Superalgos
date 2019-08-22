@@ -166,7 +166,7 @@ The app will load on your default browser. You should either [set Chrome as your
 
 Drag one of the sample _workspaces_ in the ```/Templates``` folder and drop it on the _Designer_ (in the bottom half of the screen, the area with a black background) to start with a working template.
 
-![Designer-Drag-Drop](https://user-images.githubusercontent.com/13994516/63524115-b724fa00-c4fb-11e9-9894-48f62be71c02.gif)
+![Installation-Drag-Workspace](https://user-images.githubusercontent.com/13994516/63532304-acbe2c80-c50a-11e9-82e2-b800c98f30c0.gif)
 
 **5. Start indicators**: 
 

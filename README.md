@@ -339,13 +339,13 @@ Definitions include every single parameter describing your Trading Systems, as w
 
 This is the top-level element in the hierarchy, with two children elements: Personal Data and Trading System. We will discuss Personal Data later on, when we cover [Live Trading](#live-trading).
 
-At present, only one Trading System is allowed at a time.
-
 ### Trading System
 
 ![trading-system](https://user-images.githubusercontent.com/13994516/63503987-de1a0680-c4d0-11e9-8503-9d3c92a1aa25.png)
 
-A trading system is a collection of strategies that conform to certain parameters. 
+A *trading system* is a collection of strategies that conform to certain parameters. 
+
+> **TEMPORAL LIMITATION:** At present, only one Trading System is allowed at a time.
 
 The one parameter that needs to be defined early on is the Base Asset, that is, the asset you wish to stand on when you are out of the market, with no open positions.
 
@@ -481,7 +481,7 @@ In the example above, _condition C_ would be _true_ if the whole candle falls wi
 
 > In addition to the explanations available here, [a comprehensive video tutorial for building strategies](https://youtu.be/ZlkGkxSMsio) is available in our YouTube channel.
 
-Strategies within a specific Trading System respond to the parameters set for the Trading System. This means they all have the same Base Asset, and they all share the _initialCapital_ (see [Trading System](#trading-system) for further references).
+Strategies within a specific Trading System respond to the parameters set for the corresponding Trading System. This means they all have the same Base Asset, and they all share the _initialCapital_ (see [Trading System](#trading-system) for further references).
 
 To start a brand new strategy, go to the Trading System icon and click _Add Strategy_ on the menu. Several icons will pop up on the screen. As you work on each stage (```Trigger > Open > Manage > Close```), you may need to add the missing items corresponding to certain elements.
 
@@ -506,7 +506,7 @@ Let's first review the minimum requirements to have a working strategy.
 
 | Icon | Element | Description |
 | :---: | :---: | :--- |
-| ![stage-open-position-size](https://user-images.githubusercontent.com/13994516/63513822-7e7b2580-c4e7-11e9-98d5-624bb5c3c2ab.png) | Position Size | Determines how much capital is put in each trade (formula). The formula may be a constant (a fixed numerical value), or may relate to relevant [available variables](#available-variables). The resulting value should not be higher than your _initialCapital_ (see [Trading System](#trading-system) for further references).<br/><br/>e.g. ```assetBalanceB``` puts all your available balance in the trade, in case your _base asset_ is USDT |
+| ![stage-open-position-size](https://user-images.githubusercontent.com/13994516/63513822-7e7b2580-c4e7-11e9-98d5-624bb5c3c2ab.png) | Position Size | Determines how much capital is put in each trade (formula). The formula may be a constant (a fixed numerical value), or may relate to relevant [available variables](#available-variables). The resulting value should not be higher than your available balance (*balanceAssetA* if you stand on BTC and *balanceAssetB* if you stand on USDT.<br/>*e.g.:* ```assetBalanceB``` puts all your available balance in each trade, in case your _base asset_ is USDT |
 | ![stage-open-postion-rate](https://user-images.githubusercontent.com/13994516/63513820-7e7b2580-c4e7-11e9-94e5-237cd751d273.png) | Position Rate | At this point, position rate is not being used during live trading. We recommend you use ```candle.close``` in your formula until the Execution Algorithms allow users more control over execution (learn more about [Execution Limitations](#execution-limitations). |
 | ![stage-trigger-take-position](https://user-images.githubusercontent.com/13994516/63513057-86d26100-c4e5-11e9-84ff-edf1b9b49d4e.png) | Take Position Event | Determines under which situations/conditions the position is taken (at least one situation with one condition). |
 
@@ -602,9 +602,9 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 **positionSize:** The size of the position.
 
-**balanceAssetA:** The balance of your _base asset_.
+**balanceAssetA:** Your BTC balance.
 
-**balanceAssetB:** The balance of the second asset.
+**balanceAssetB:** Your USDT balance.
 
 **lastTradeProfitLoss:** The P&L value for the latest completed trade (roundtrip).
 

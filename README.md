@@ -179,6 +179,10 @@ Click the RESTART BOTS button on the right-hand side of the horizontal turquoise
 
 That's it! You are up and running!
 
+You may want to drag one of the sample _workspaces_ that come with the release and drop it on the _Designer_ to start with a working template.
+
+![Designer-Drag-Drop](https://user-images.githubusercontent.com/13994516/63524115-b724fa00-c4fb-11e9-9894-48f62be71c02.gif)
+
 # Overview
 
 The first time you run the app, you will see the following screen, split in half. The top half features the space used by the _Charting System_ and the bottom half features the _Designer_.
@@ -317,7 +321,9 @@ The Designer organizes the workflow to build strategies following the framework 
 
 The Designer features a visual interface in which all elements encompassing strategies and other concepts are represented by icons organized in a hierarchical structure, as defined by the protocol. The hierarchy starts with Definitions, which in the future may have any number of Trading Systems, which in turn may have any number of Strategies.
 
-Elements are bound to each other in a tree-like structure, and tend to self-organize along the workspace. 
+Elements are bound to each other in a tree-like structure, and tend to self-organize along the workspace. Dragging and dropping a sample workspace on the Designer is also the fastest way to get started with the Superalgos Desktop App.
+
+![Designer-Drag-Drop](https://user-images.githubusercontent.com/13994516/63524115-b724fa00-c4fb-11e9-9894-48f62be71c02.gif)
 
 ## Workspace
 
@@ -506,8 +512,8 @@ To start a brand new strategy, go to the Trading System icon and click _Add Stra
 
 | Icon | Element | Description |
 | :---: | :---: | :--- |
-| ![stage-open-position-size](https://user-images.githubusercontent.com/13994516/63513822-7e7b2580-c4e7-11e9-98d5-624bb5c3c2ab.png) | Position Size | A formula, determines how much capital is put in each trade. The formula may be a constant (a fixed numerical value), or may relate to relevant [available variables](#available-variables). The resulting value should not be higher than your available balance (*balanceAssetA* if you stand on BTC and *balanceAssetB* if you stand on USDT. *e.g.: ```assetBalanceB``` puts all your available balance in each trade, in case your _base asset_ is USDT.* |
-| ![stage-open-postion-rate](https://user-images.githubusercontent.com/13994516/63513820-7e7b2580-c4e7-11e9-94e5-237cd751d273.png) | Position Rate | A formula, at this point, not taken into account during live trading. We recommend you use ```candle.close``` in your formula until the *Execution Engine* allow users more control over execution (learn more about current [Execution Limitations](#execution-limitations). |
+| ![stage-open-position-size](https://user-images.githubusercontent.com/13994516/63513822-7e7b2580-c4e7-11e9-98d5-624bb5c3c2ab.png) | Position Size | A formula, determines how much capital is put in each trade. The formula may be a constant (a fixed numerical value), or may relate to relevant [available variables](#available-variables). The resulting value should not be higher than your available balance (*balanceAssetA* if you stand on BTC and *balanceAssetB* if you stand on USDT). *e.g.: ```assetBalanceB``` puts all your available balance in each trade, in case your _base asset_ is USDT.* |
+| ![stage-open-postion-rate](https://user-images.githubusercontent.com/13994516/63513820-7e7b2580-c4e7-11e9-94e5-237cd751d273.png) | Position Rate | A formula, at this point, not taken into account during live trading. We recommend you use ```candle.close``` in your formula until the *Execution Engine* allow users more control over execution (learn more about current [Execution Limitations](#execution-limitations)). |
 
 In addition to *Position Rate* and *Position Size*, you also need to define the initial values for your *Stop* and *Take Profit*. The initial value is set as a formula on Phase 0 (refer to the Superalgos Protocol articles for an explanation on managing Stop and Take Profit in phases).
 

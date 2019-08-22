@@ -713,11 +713,18 @@ All you need to do to start live-trading is:
 2. Enter the public key and secret in the *Account Key* element attached to the *Exchange Account* element. Simply replace the *New Key* title with the *public key*, and enter the *secret* as the *Key Value*.<br/><br/>![Live-Trading-API-Key](https://user-images.githubusercontent.com/13994516/63278457-94020c80-c2a7-11e9-9436-340f2c60c999.gif)
 <br/><br/>
 
-3. Go back to the Charts and make sure they are positioned in the *time period* you wish to trade in.
+3. Make sure the following elements are present in your strategy. If they are not, simply add them: go to the _Open Stage_ element and select _Add Open Execution_ on the menu; do the same with the _Close Stage_, adding _Close Execution_). No need to configure anything, simply make sure the elements are there).
+
+| Icon | Element | Stage |
+| :---: | :---: | :--- |
+| ![execution](https://user-images.githubusercontent.com/13994516/63542647-25c87e80-c521-11e9-899a-318bd6c62288.png) | Open Execution | Open Stage |
+| ![execution](https://user-images.githubusercontent.com/13994516/63542647-25c87e80-c521-11e9-899a-318bd6c62288.png) | Close Execution | Close Stage |
+
+4. Go back to the Charts and make sure they are positioned in the *time period* you wish to trade in.
 
 > **WARNING: The Superalgos Desktop App is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you test with small amounts of money, the kind you can afford losing. Also, make sure you understand the [Execution Limitations](#execution-limitations). Trade live at your own risk.**
 
-4. Click RESTART LIVE TRADING.
+5. Click RESTART LIVE TRADING.
 
 ## Live Trading Process
 

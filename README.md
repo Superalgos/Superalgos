@@ -315,9 +315,11 @@ The Designer organizes the workflow to build strategies following the framework 
 
 * [Superalgos Protocol V0.1 - the Long Version, for Beginner Traders](https://medium.com/@julian_superalgos/superalgos-protocol-v0-1-the-long-version-for-beginner-traders-f293f1cc6c13).
 
-## Top-Level Elements
+The Designer features a visual interface in which all elements encompassing strategies and other concepts are represented by icons organized in a hierarchical structure, as defined by the protocol. The hierarchy starts with Definitions, which in the future may have any number of Trading Systems, which in turn may have any number of Strategies.
 
-### Workspace
+Elements are bound to each other in a tree-like structure, and tend to self-organize along the workspace. 
+
+## Workspace
 
 ![workspace](https://user-images.githubusercontent.com/13994516/63503989-de1a0680-c4d0-11e9-8c1a-36eb526fd7de.png)
 
@@ -327,21 +329,25 @@ The workspace is a concept that refers to all the information available about:
 * Trading Systems, their Strategies, and their configurations.
 * The position and status of all elements within the Designer.
 
-Backing up your workspace is the best way to store trading systems, ready to be deployed. |
+Backing up your workspace is the best way to store trading systems, ready to be deployed.
 
-### Definitions
+## Definitions
 
-![definitions](https://user-images.githubusercontent.com/13994516/63503991-deb29d00-c4d0-11e9-8c03-bf2e618f9ef6.png)
+![definition](https://user-images.githubusercontent.com/13994516/63503991-deb29d00-c4d0-11e9-8c03-bf2e618f9ef6.png)
 
 Definitions include every single parameter describing your Trading Systems, as well as your Personal Data, including API Keys.
 
-This is the top-level element in the hierarchy.
+This is the top-level element in the hierarchy, with two children elements: Personal Data and Trading System. 
+
+At present, only one Trading System is allowed at a time.
 
 ### Trading System
 
-![trading-system](https://user-images.githubusercontent.com/13994516/63503987-de1a0680-c4d0-11e9-8503-9d3c92a1aa25.png) 
+![trading-system](https://user-images.githubusercontent.com/13994516/63503987-de1a0680-c4d0-11e9-8503-9d3c92a1aa25.png)
 
-A trading system is a collection of strategies that conform to certain parameters. The one parameter that needs to be defined at this point in time is the Base Asset (refer to the [Superalgos Protocol articles above](#designer) for the definition of Base Asset).
+A trading system is a collection of strategies that conform to certain parameters. 
+
+The one parameter that needs to be defined early on is the Base Asset, that is, the asset you wish to stand on when you are out of the market, with no open positions.
 
 ```
 { 
@@ -351,6 +357,7 @@ A trading system is a collection of strategies that conform to certain parameter
 "maximumBalance": 20000
 }
 ```
+
 | Variable | Description / Possible Values |
 | --- | --- |
 | name | SDT or BTC |
@@ -359,13 +366,8 @@ A trading system is a collection of strategies that conform to certain parameter
 | maximumBalance | a similar concept as the minimumBalance, but on the higher side of the _initialBalance_. |
 
 
-## Interface
 
-The Designer features a visual interface in which all elements encompassing strategies and other concepts are represented by icons organized in a hierarchical structure, as defined by the protocol. The hierarchy starts with My Definition, which in the future may have any number of Trading Systems, which in turn may have any number of Strategies.
-
-Elements are bound to each other in a tree-like structure, and tend to self-organize along the workspace. 
-
-### Element's Menu
+## Element's Menu
 
 Hoovering the mouse pointer over elements causes a menu to pop up.
 
@@ -393,7 +395,7 @@ The rest of the menu options available in most elements are the following:
 | ![menu-delete](https://user-images.githubusercontent.com/13994516/63045560-e66eb200-bed0-11e9-8b67-feb72b4ab253.png) | **Delete**: Deletes the element and all it's children. A confirmation is required (an additional click). |
 | ![menu-share](https://user-images.githubusercontent.com/13994516/63045561-e7074880-bed0-11e9-88a2-cf99a0ede94e.png) | **Share**: Downloads a JSON file—in a similar manner as with the Backup operation—with one big difference: no personal information is included in the description of the element, so that the file may be freely shared. |
 
-### Detachment and Attachment of Elements
+## Detachment and Attachment of Elements
 
 Elements in the workspace may be detached from its parent, carrying all children with it. When an element is detached, it is no longer taken into account in simulations or live trading. This feature enables testing different parameters, keeping alternatives handy in the same workspace.
 

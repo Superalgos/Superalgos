@@ -33,7 +33,7 @@ global.CUSTOM_FAIL_RESPONSE = {
 }
 
 let http = require('http')
-let port = process.env.PORT || 1337
+let port = process.env.VIRTUAL_PORT || 1337
 let isHttpServerStarted = false
 let cloneExecutorChildProcess
 

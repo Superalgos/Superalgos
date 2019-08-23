@@ -1682,9 +1682,9 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         let slippageAmount = slippedTakeProfit * slippage.takeProfit / 100
 
                         if (baseAsset === 'BTC') {
-                            slippedTakeProfit = slippedTakeProfit - slippageAmount
-                        } else {
                             slippedTakeProfit = slippedTakeProfit + slippageAmount
+                        } else {
+                            slippedTakeProfit = slippedTakeProfit - slippageAmount
                         }
 
                         let finalTakeProfit = slippedTakeProfit;
@@ -2276,8 +2276,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
-                                yesterday.currentStrategyIndex = currentStrategyIndex;
-                                yesterday.strategyStage = strategyStage;
                                 yesterday.stopLossStage = stopLossStage;
                                 yesterday.takeProfitStage = takeProfitStage;
                                 yesterday.stopLossPhase = stopLossPhase;
@@ -2312,6 +2310,14 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         currentStrategyIndex = -1;
                         strategyStage = 'No Stage';
+
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.currentStrategyIndex = currentStrategyIndex;
+                                yesterday.strategyStage = strategyStage;
+                            }
+                        }
+
                         timerToCloseStage = 0
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing the Closing Stage -> Exiting Close Stage."); }
@@ -2524,6 +2530,12 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     ) {
 
                         strategiesArray.push(currentStrategy);
+
+                        if (currentStrategy.begin < currentStrategy.end) {
+                            console.log("ES MENOR:" + i)
+                        } else {
+                            console.log("ES MAYOR:" + i)
+                        }
 
                         currentStrategy = {
                             begin: 0,

@@ -196,6 +196,36 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
             }
 
+            /* Fee Structure */
+            let feeStructure = { // Default Values
+                maker: 0,
+                taker: 0
+            }
+
+            if (definition.tradingSystem !== undefined) {
+                if (definition.tradingSystem.parameters !== undefined) {
+                    if (definition.tradingSystem.parameters.baseAsset !== undefined) {
+                        if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
+                            if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
+                                try {
+                                    let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
+                                    if (code.feeStructure !== undefined) {
+                                        if (code.feeStructure.maker !== undefined) {
+                                            feeStructure.maker = code.feeStructure.maker
+                                        }
+                                        if (code.feeStructure.taker !== undefined) {
+                                            feeStructure.taker = code.feeStructure.taker
+                                        }
+                                    }
+                                } catch (err) {
+                                    tradingSystem.parameters.baseAsset.formula.error = "Fee Structure Error: " + err.message
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             let timerToCloseStage = 0
 
             /* Stop Loss Management */
@@ -1614,17 +1644,23 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         let finalStopLoss = slippedStopLoss;
 
+                        let feePaid = 0
+
                         if (baseAsset === 'BTC') {
                             strategy.positionSize = balanceAssetB / finalStopLoss;
                             strategy.positionRate = finalStopLoss;
 
-                            balanceAssetA = balanceAssetA + balanceAssetB / finalStopLoss;
+                            feePaid = balanceAssetB / finalStopLoss * feeStructure.taker / 100
+
+                            balanceAssetA = balanceAssetA + balanceAssetB / finalStopLoss - feePaid;
                             balanceAssetB = 0;
                         } else {
                             strategy.positionSize = balanceAssetA * finalStopLoss;
                             strategy.positionRate = finalStopLoss;
 
-                            balanceAssetB = balanceAssetB + balanceAssetA * finalStopLoss;
+                            feePaid = balanceAssetA * finalStopLoss * feeStructure.taker / 100
+
+                            balanceAssetB = balanceAssetB + balanceAssetA * finalStopLoss - feePaid;
                             balanceAssetA = 0;
                         }
 
@@ -1689,17 +1725,23 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                         let finalTakeProfit = slippedTakeProfit;
 
+                        let feePaid = 0
+
                         if (baseAsset === 'BTC') {
                             strategy.positionSize = balanceAssetB / finalTakeProfit;
                             strategy.positionRate = finalTakeProfit;
 
-                            balanceAssetA = balanceAssetA + balanceAssetB / finalTakeProfit;
+                            feePaid = balanceAssetB / finalTakeProfit * feeStructure.taker / 100
+
+                            balanceAssetA = balanceAssetA + balanceAssetB / finalTakeProfit - feePaid;
                             balanceAssetB = 0;
                         } else {
                             strategy.positionSize = balanceAssetA * finalTakeProfit;
                             strategy.positionRate = finalTakeProfit;
 
-                            balanceAssetB = balanceAssetB + balanceAssetA * finalTakeProfit;
+                            feePaid = balanceAssetA * finalTakeProfit * feeStructure.taker / 100
+
+                            balanceAssetB = balanceAssetB + balanceAssetA * finalTakeProfit - feePaid;
                             balanceAssetA = 0;
                         }
 
@@ -1991,11 +2033,19 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         lastTradeProfitLoss = 0;
                         lastTradeROI = 0;
 
+                        let feePaid = 0
+
                         if (baseAsset === 'BTC') {
-                            balanceAssetB = balanceAssetB + tradePositionSize * tradePositionRate;
+
+                            feePaid = tradePositionSize * tradePositionRate * feeStructure.taker / 100
+
+                            balanceAssetB = balanceAssetB + tradePositionSize * tradePositionRate - feePaid;
                             balanceAssetA = balanceAssetA - tradePositionSize;
                         } else {
-                            balanceAssetA = balanceAssetA + tradePositionSize / tradePositionRate;
+
+                            feePaid = tradePositionSize / tradePositionRate * feeStructure.taker / 100
+
+                            balanceAssetA = balanceAssetA + tradePositionSize / tradePositionRate - feePaid;
                             balanceAssetB = balanceAssetB - tradePositionSize;
                         }
 

@@ -324,17 +324,17 @@ The workspace is a concept that refers to all the information available about:
 
 * Definitions, which may include API Keys.
 * Trading Systems, their Strategies, and their configurations.
-* The position and status of all elements within the Designer.
+* The position and status of all elements within the Designer, even those which are disconnected from the hierarchy.
 
-Backing up your workspace is the best way to store trading systems, ready to be deployed.
+Backing up your workspace is the best way to store trading systems, ready to be deployed. Your workspace is saved at the browser level every time you make a change, but still, you should back up your workspace once in a while so that you can go back to past versions.
 
 ## Definitions
 
 ![definition](https://user-images.githubusercontent.com/13994516/63503991-deb29d00-c4d0-11e9-8c03-bf2e618f9ef6.png)
 
-Definitions include every single parameter describing your Trading Systems, as well as your Personal Data, including API Keys.
+Definitions include every single parameter describing your Trading Systems, as well as your Personal Data, including API Keys. Your Definitions are saved every time you click RESTART SIMULATION or RESTART LIVE TRADING. You may also save Definitions by clicking _Save Changes_ on its element menu. Unlike the workspace, only elements that are attached to the hierachy belong to the Definitions.
 
-This is the top-level element in the hierarchy, with two children elements: Personal Data and Trading System. We will discuss Personal Data later on, when we cover [Live Trading](#live-trading).
+Definitions is the top-level element in the hierarchy, with two children elements: Personal Data and Trading System. We will discuss Personal Data later on, when we cover [Live Trading](#live-trading).
 
 ### Trading System
 

@@ -119,8 +119,10 @@ function newWorkspace () {
     let stringifyReadyNodes = []
     for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
       let rootNode = workspaceNode.rootNodes[i]
-      let workspace = functionLibraryWorkspaceNodes.prepareForStringify(rootNode, removePersonalData)
-      stringifyReadyNodes.push(workspace)
+      let node = functionLibraryWorkspaceNodes.prepareForStringify(rootNode, removePersonalData)
+      if (node) {
+        stringifyReadyNodes.push(node)
+      }
     }
     let workspace = {
       type: 'Workspace',

@@ -626,6 +626,28 @@ A simulation is a combined backtesting plus paper trading operation, meaning tha
 
 In order to run a first simulation, you need to have a strategy in working order, as described in the [Starting a Strategy from Scratch](https://github.com/Superalgos/DesktopApp/blob/master/README.md#starting-a-strategy-from-scratch) section.
 
+## Exchange Fees
+
+Fees are a crucial part of the game. A strategy may work like a charm when you leave fees out of the equation but would lead you to bankruptcy in a live trading situation.
+
+Simulations take fees into account when the following piece of code is present and properly configured in your *Base Asset* parameters:
+
+```
+"feeStructure": {
+"maker": 0.15,
+"taker": 0.25
+}
+```
+
+The above configuration corresponds to standard Poloniex maker and taker fees. Remember, for the time being, all orders placed by the Execution Engine are *market orders*, thus, the *taker* fee applies in all cases.
+
+To illustrate how fees affect your bottom line, take a look at the image below.
+
+![Trading-Simulation-Fees-Fails](https://user-images.githubusercontent.com/13994516/63636432-8d8cdf80-c66f-11e9-86a3-480d157d8126.gif)
+<br/><br/>
+
+The trade hits the take profit target above the Position Rate level, however, due to fees, the trade has a negative 0.32% ROI.
+
 ## Simulation Datetime Range
 
 There are two ways to define the datetime in which a simulation starts. However, in both cases, the simulation never ends, and keeps running until the present time.

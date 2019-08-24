@@ -507,8 +507,7 @@
                 if (userPositionDate >= record.begin && userPositionDate <= record.end) {
 
                     let eventRecords = {
-                        currentRecord: record,
-                        lastRecord: records[records.length - 1]
+                        currentRecord: record
                     };
                     thisObject.container.eventHandler.raiseEvent("Current Record Changed", eventRecords);
                 }

@@ -731,7 +731,7 @@ function newStrategyPart () {
     let label
 
     if (radius > 6) {
-      const MAX_LABEL_LENGTH = 40
+      const MAX_LABEL_LENGTH = 45
 
       label = errorMessage
 
@@ -1009,3 +1009,4 @@ function newStrategyPart () {
     }
   }
 }
+

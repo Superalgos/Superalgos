@@ -222,7 +222,7 @@ function newStrategyPartConstructor () {
             label: 'Run',
             visible: false,
             iconPathOn: 'paper-plane',
-            iconPathOff: 'menu-share',
+            iconPathOff: 'paper-plane',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,

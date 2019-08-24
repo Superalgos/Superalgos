@@ -632,7 +632,7 @@ Fees are a crucial part of the game. A strategy may work like a charm when you l
 
 Simulations take fees into account when the following piece of code is present and properly configured in your *Base Asset* parameters:
 
-| Parameters | Time Range |
+| Parameters | Fee Structure |
 | :---: | :---: |
 | ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![fee-structure](https://user-images.githubusercontent.com/13994516/63638434-0dbf3f00-c688-11e9-9b3e-7cb1ff7e4814.png) |
 
@@ -660,9 +660,9 @@ To account for slippage during simulations, you may enter slippage values for th
 
 | Parameters | Slippage |
 | :---: | :---: |
-| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![fee-structure](https://user-images.githubusercontent.com/13994516/63638434-0dbf3f00-c688-11e9-9b3e-7cb1ff7e4814.png) |
+| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![slippage](https://user-images.githubusercontent.com/13994516/63638432-0d26a880-c688-11e9-9ab4-004c7b29345f.png) |
 
-Find the *Slippage* parameter under your Trading System and enter the desired values for each of the above.
+Find the *Slippage* parameter under your Trading System and enter the desired values for each of the below:
 
 ```
 {
@@ -671,6 +671,8 @@ Find the *Slippage* parameter under your Trading System and enter the desired va
 "takeProfit": 0.3
 }
 ```
+
+The number you enter is applied as a percentage of the price of the order working always against you. For instance, ```"positionRate": 0.1``` means the position will be set at a price 0.1% higher if you stand on USDT or lower if you stand in BTC. 
 
 The result of slippage in simulations is taken into account by the graphic representation of each trade created by the Simulation Trades layer. Take a look at the image below:
 

@@ -27,9 +27,6 @@ process.on('exit', function (code) {
     console.log('[INFO] Run -> process.on.exit -> About to exit -> code = ' + code)
 })
 
-const definitionPath = path.resolve(process.env.INTER_PROCESS_FILES_PATH + '/definition.json');
-const definition = require(definitionPath);
-
 let sequenceList = require('./sequence');
 let isRunSequence = false;
 let sequenceStep = 0;
@@ -53,7 +50,8 @@ if (isRunSequence) {
     readExecutionConfiguration()
 }
 
-function sequenceExecution(currentStep) {
+async function sequenceExecution(currentStep) {
+
     let execution = sequenceList[currentStep];
 
     process.env.STOP_GRACEFULLY = true;
@@ -76,6 +74,9 @@ function sequenceExecution(currentStep) {
     execution.type === 'Trading' ? process.env.CLONE_ID = 1 : undefined;
 
     execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
+
+
+    const definition = await strategy.getStrategy();
 
     if (definition) {
         if (definition.personalData) {
@@ -174,16 +175,18 @@ async function readExecutionConfiguration(execution) {
                 }
                 if (definition.tradingSystem !== undefined) {
                     if (definition.tradingSystem.parameters !== undefined) {
-                        if (definition.tradingSystem.parameters.baseAsset !== undefined) {
-                            if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
-                                if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
-                                    let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
+                        if (definition.tradingSystem.parameters.timeRange !== undefined) {
+                            if (definition.tradingSystem.parameters.timeRange.code !== undefined) {
+                                try {
+                                    let code = JSON.parse(definition.tradingSystem.parameters.timeRange.code)
                                     if (code.initialDatetime !== undefined) {
                                         initialDatetime = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
                                     }
                                     if (code.finalDatetime !== undefined) {
                                         finalDatetime = code.finalDatetime
                                     }
+                                } catch (err) {
+                                    definition.tradingSystem.parameters.timeRange.error = err.message
                                 }
                             }
                         }
@@ -195,34 +198,35 @@ async function readExecutionConfiguration(execution) {
                 if (tradingSystem) {
                     if (tradingSystem.parameters !== undefined) {
                         if (tradingSystem.parameters.baseAsset !== undefined) {
-                            if (tradingSystem.parameters.baseAsset.formula !== undefined) {
-                                let receivedParameters
-                                try {
-                                    receivedParameters = JSON.parse(tradingSystem.parameters.baseAsset.formula.code);
+                            let code
+                            try {
+                                code = JSON.parse(tradingSystem.parameters.baseAsset.code);
 
-                                    if (receivedParameters.name !== undefined) {
-                                        baseAsset = receivedParameters.name;
-                                        if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
-                                            /* using BTC as default */
-                                            baseAsset = 'BTC'
-                                        }
+                                if (code.name !== undefined) {
+                                    baseAsset = code.name;
+                                    if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
+                                        /* using BTC as default */
+                                        baseAsset = 'BTC'
                                     }
-
-                                    if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
-                                        if (receivedParameters.initialBalance !== undefined) {
-                                            process.env.INITIAL_BALANCE_ASSET_B = receivedParameters.initialBalance;
-                                            process.env.INITIAL_BALANCE_ASSET_A = 0
-                                        }
-                                    } else {
-                                        if (receivedParameters.initialBalance !== undefined) {
-                                            process.env.INITIAL_BALANCE_ASSET_A = receivedParameters.initialBalance;
-                                            process.env.INITIAL_BALANCE_ASSET_B = 0
-                                        }
-                                    }
-                                } catch (err) {
-                                    process.env.INITIAL_BALANCE_ASSET_A = 0 // default
-                                    process.env.INITIAL_BALANCE_ASSET_B = 0.001 // default
                                 }
+
+                                if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
+                                    if (code.initialBalance !== undefined) {
+                                        process.env.INITIAL_BALANCE_ASSET_B = code.initialBalance;
+                                        process.env.INITIAL_BALANCE_ASSET_A = 0
+                                    }
+                                } else {
+                                    if (code.initialBalance !== undefined) {
+                                        process.env.INITIAL_BALANCE_ASSET_A = code.initialBalance;
+                                        process.env.INITIAL_BALANCE_ASSET_B = 0
+                                    }
+                                }
+                            } catch (err) {
+                                definition.tradingSystem.parameters.baseAsset.error = err.message
+
+                                process.env.INITIAL_BALANCE_ASSET_A = 0 // default
+                                process.env.INITIAL_BALANCE_ASSET_B = 0.001 // default
+                                
                             }
                         }
                     }

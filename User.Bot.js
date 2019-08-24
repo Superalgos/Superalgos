@@ -612,8 +612,7 @@
                             record.lastTradeROI + "," +
                             record.beginRate + "," +
                             record.endRate + "," +
-                            record.exitType + "," +
-                            record.stopRate + "]";
+                            record.exitType + "]";
 
                         if (separator === "") { separator = ","; }
 

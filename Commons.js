@@ -171,25 +171,23 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                 }
             if (definition.tradingSystem !== undefined) {
                 if (definition.tradingSystem.parameters !== undefined) {
-                    if (definition.tradingSystem.parameters.baseAsset !== undefined) {
-                        if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
-                            if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
-                                try {
-                                    let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
-                                    if (code.slippage !== undefined) {
-                                        if (code.slippage.positionRate !== undefined) {
-                                            slippage.positionRate = code.slippage.positionRate
-                                        }
-                                        if (code.slippage.stopLoss !== undefined) {
-                                            slippage.stopLoss = code.slippage.stopLoss
-                                        }
-                                        if (code.slippage.takeProfit !== undefined) {
-                                            slippage.takeProfit = code.slippage.takeProfit
-                                        }
-                                    }
-                                } catch (err) {
-                                    tradingSystem.parameters.baseAsset.formula.error = "Slippage Error: " + err.message
+                    if (definition.tradingSystem.parameters.slippage !== undefined) {
+                        if (definition.tradingSystem.parameters.slippage.code !== undefined) {
+                            try {
+                                let code = JSON.parse(definition.tradingSystem.parameters.slippage.code)
+
+                                if (code.positionRate !== undefined) {
+                                    slippage.positionRate = code.positionRate
                                 }
+                                if (code.stopLoss !== undefined) {
+                                    slippage.stopLoss = code.stopLoss
+                                }
+                                if (code.takeProfit !== undefined) {
+                                    slippage.takeProfit = code.takeProfit
+                                }
+
+                            } catch (err) {
+                                tradingSystem.parameters.slippage.error =  err.message
                             }
                         }
                     }
@@ -204,22 +202,20 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
             if (definition.tradingSystem !== undefined) {
                 if (definition.tradingSystem.parameters !== undefined) {
-                    if (definition.tradingSystem.parameters.baseAsset !== undefined) {
-                        if (definition.tradingSystem.parameters.baseAsset.formula !== undefined) {
-                            if (definition.tradingSystem.parameters.baseAsset.formula.code !== undefined) {
-                                try {
-                                    let code = JSON.parse(definition.tradingSystem.parameters.baseAsset.formula.code)
-                                    if (code.feeStructure !== undefined) {
-                                        if (code.feeStructure.maker !== undefined) {
-                                            feeStructure.maker = code.feeStructure.maker
-                                        }
-                                        if (code.feeStructure.taker !== undefined) {
-                                            feeStructure.taker = code.feeStructure.taker
-                                        }
-                                    }
-                                } catch (err) {
-                                    tradingSystem.parameters.baseAsset.formula.error = "Fee Structure Error: " + err.message
+                    if (definition.tradingSystem.parameters.feeStructure !== undefined) {
+                        if (definition.tradingSystem.parameters.feeStructure.code !== undefined) {
+                            try {
+                                let code = JSON.parse(definition.tradingSystem.parameters.feeStructure.code)
+
+                                if (code.maker !== undefined) {
+                                    feeStructure.maker = code.maker
                                 }
+                                if (code.taker !== undefined) {
+                                    feeStructure.taker = code.taker
+                                }
+
+                            } catch (err) {
+                                tradingSystem.parameters.feeStructure.error = err.message
                             }
                         }
                     }
@@ -2251,12 +2247,10 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         }
 
                         currentTrade.lastTradeROI = lastTradeROI;
-                        currentTrade.stopRate = stopLoss;
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
                                 yesterday.currentTrade.lastTradeROI = currentTrade.lastTradeROI;
-                                yesterday.currentTrade.stopRate = currentTrade.stopRate;
                             }
                         }
 

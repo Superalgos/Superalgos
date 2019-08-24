@@ -1,14 +1,4 @@
-﻿const strategy = require('./Integrations/Strategy')
-
-exports.newCommons = function newCommons(bot, logger, UTILITIES) {
-
-    const { orderMessage } = require("@superalgos/mqservice")
-
-    const {
-        MESSAGE_ENTITY, MESSAGE_TYPE, ORDER_CREATOR, ORDER_TYPE,
-        ORDER_OWNER, ORDER_DIRECTION, ORDER_STATUS, ORDER_EXIT_OUTCOME,
-        createMessage, getMessage, getExpandedMessage
-    } = orderMessage.newOrderMessage()
+﻿exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -37,6 +27,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
     let bollingerSubChannelsArray = [];
 
     let candles = [];
+    const definition = global.DEFINITION
 
     return thisObject;
 
@@ -74,7 +65,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
             let tradesArray = [];
             let lastObjectsArray = [];
 
-            let definition = await strategy.getStrategy();
             let tradingSystem = definition.tradingSystem;
 
             /* Initial Default Values */
@@ -2380,96 +2370,6 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                     let message;
                     let simulationRecord;
                     let executionRecord;
-                    let executionMessage;
-
-                    messageId++;
-
-                    if (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage' || type === '"Close@TakeProfit"' || type === '"Close@StopLoss"') {
-
-                        if (type === '"Take Position"') {
-                            messageType = MESSAGE_TYPE.Order;
-                            orderId++;
-
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> addRecord -> Taking Position Now. "); }
-
-                        } else {
-                            if (type === '"Close@TakeProfit"' || type === '"Close@StopLoss"') {
-                                messageType = MESSAGE_TYPE.OrderClose;
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> addRecord -> Closing Position Now. "); }
-
-                            } else {
-                                messageType = MESSAGE_TYPE.OrderUpdate;
-                            }
-                        }
-
-                        let exitOutcome = ""
-                        if (messageType === MESSAGE_TYPE.OrderClose && type === '"Close@TakeProfit"') {
-                            exitOutcome = "TP"
-                        }
-                        if (messageType === MESSAGE_TYPE.OrderClose && type === '"Close@StopLoss"') {
-                            exitOutcome = "SL"
-                        }
-
-                        executionMessage = createMessage(
-                            messageId,
-                            MESSAGE_ENTITY.SimulationEngine,
-                            MESSAGE_ENTITY.SimulationExecutor,
-                            messageType,
-                            (new Date()).valueOf(),
-                            orderId.toString(),
-                            ORDER_CREATOR.SimulationEngine,
-                            (new Date()).valueOf(),
-                            ORDER_OWNER.User,
-                            global.EXCHANGE_NAME,
-                            "BTC_USDT",
-                            0,
-                            ORDER_TYPE.Limit,
-                            tradePositionRate,
-                            stopLoss,
-                            takeProfit,
-                            ORDER_DIRECTION.Sell,
-                            -1,
-                            ORDER_STATUS.Signaled,
-                            0,
-                            exitOutcome,
-                            "")
-
-                    }
-                    else {
-
-                        executionMessage = createMessage(
-                            messageId,
-                            MESSAGE_ENTITY.SimulationEngine,
-                            MESSAGE_ENTITY.SimulationExecutor,
-                            MESSAGE_TYPE.HeartBeat,
-                            (new Date()).valueOf(),
-                            "",
-                            "",
-                            0,
-                            "",
-                            "",
-                            "",
-                            0,
-                            "",
-                            0,
-                            0,
-                            0,
-                            "",
-                            0,
-                            "",
-                            0,
-                            "",
-                            "")
-                    }
-
-                    executionRecord = {
-                        begin: candle.begin,
-                        end: candle.end,
-                        executionRecord: executionMessage
-                    }
-
-                    executionArray.push(executionRecord)
 
                     let strategyStageNumber
                     switch (strategyStage) {
@@ -2531,7 +2431,7 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
                         takeProfit: takeProfit,
                         stopLossPhase: stopLossPhase,
                         takeProfitPhase: takeProfitPhase,
-                        executionRecord: executionMessage,
+                        executionRecord: '',
                         positionSize: tradePositionSize,
                         initialBalanceA: initialBalanceA,
                         minimumBalanceA: minimumBalanceA,

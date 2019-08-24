@@ -88,67 +88,66 @@
 
             if (tradingSystem.parameters !== undefined) {
                 if (tradingSystem.parameters.baseAsset !== undefined) {
-                    if (tradingSystem.parameters.baseAsset.formula !== undefined) {
-                        let receivedParameters
-                        try {
-                            receivedParameters = JSON.parse(tradingSystem.parameters.baseAsset.formula.code);
 
-                            if (receivedParameters.name !== undefined) {
-                                baseAsset = receivedParameters.name;
-                                if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
-                                    tradingSystem.parameters.baseAsset.formula.error = baseAsset + ' is not supported. Using default: BTC.'
-                                    baseAsset = 'BTC'
-                                }
-                            }
+                    let code
+                    try {
+                        code = JSON.parse(tradingSystem.parameters.baseAsset.code);
 
-                            if (baseAsset === 'BTC') {
-                                if (receivedParameters.initialBalance !== undefined) {
-                                    initialBalanceA = receivedParameters.initialBalance;
-                                    initialBalanceB = 0
-                                } else {
-                                    initialBalanceA = DEFAULT_BASE_ASSET_BALANCE;
-                                    initialBalanceB = 0
-                                }
-                                if (receivedParameters.minimumBalance !== undefined) {
-                                    minimumBalanceA = receivedParameters.minimumBalance;
-                                    minimumBalanceB = 0
-                                } else {
-                                    minimumBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
-                                    minimumBalanceB = 0
-                                }
-                                if (receivedParameters.maximumBalance !== undefined) {
-                                    maximumBalanceA = receivedParameters.maximumBalance;
-                                    maximumBalanceB = 0
-                                } else {
-                                    maximumBalanceA = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
-                                    maximumBalanceB = 0
-                                }
-                            } else {
-                                if (receivedParameters.initialBalance !== undefined) {
-                                    initialBalanceB = receivedParameters.initialBalance;
-                                    initialBalanceA = 0
-                                } else {
-                                    initialBalanceB = DEFAULT_BASE_ASSET_BALANCE;
-                                    initialBalanceA = 0
-                                }
-                                if (receivedParameters.minimumBalance !== undefined) {
-                                    minimumBalanceB = receivedParameters.minimumBalance;
-                                    minimumBalanceA = 0
-                                } else {
-                                    minimumBalanceB = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
-                                    minimumBalanceA = 0
-                                }
-                                if (receivedParameters.maximumBalance !== undefined) {
-                                    maximumBalanceB = receivedParameters.maximumBalance;
-                                    maximumBalanceA = 0
-                                } else {
-                                    maximumBalanceB = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
-                                    maximumBalanceA = 0
-                                }
+                        if (code.name !== undefined) {
+                            baseAsset = code.name;
+                            if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
+                                tradingSystem.parameters.baseAsset.error = baseAsset + ' is not supported. Using default: BTC.'
+                                baseAsset = 'BTC'
                             }
-                        } catch (err) {
-                            tradingSystem.parameters.baseAsset.formula.error = err.message
                         }
+
+                        if (baseAsset === 'BTC') {
+                            if (code.initialBalance !== undefined) {
+                                initialBalanceA = code.initialBalance;
+                                initialBalanceB = 0
+                            } else {
+                                initialBalanceA = DEFAULT_BASE_ASSET_BALANCE;
+                                initialBalanceB = 0
+                            }
+                            if (code.minimumBalance !== undefined) {
+                                minimumBalanceA = code.minimumBalance;
+                                minimumBalanceB = 0
+                            } else {
+                                minimumBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
+                                minimumBalanceB = 0
+                            }
+                            if (code.maximumBalance !== undefined) {
+                                maximumBalanceA = code.maximumBalance;
+                                maximumBalanceB = 0
+                            } else {
+                                maximumBalanceA = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
+                                maximumBalanceB = 0
+                            }
+                        } else {
+                            if (code.initialBalance !== undefined) {
+                                initialBalanceB = code.initialBalance;
+                                initialBalanceA = 0
+                            } else {
+                                initialBalanceB = DEFAULT_BASE_ASSET_BALANCE;
+                                initialBalanceA = 0
+                            }
+                            if (code.minimumBalance !== undefined) {
+                                minimumBalanceB = code.minimumBalance;
+                                minimumBalanceA = 0
+                            } else {
+                                minimumBalanceB = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
+                                minimumBalanceA = 0
+                            }
+                            if (code.maximumBalance !== undefined) {
+                                maximumBalanceB = code.maximumBalance;
+                                maximumBalanceA = 0
+                            } else {
+                                maximumBalanceB = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
+                                maximumBalanceA = 0
+                            }
+                        }
+                    } catch (err) {
+                        tradingSystem.parameters.baseAsset.error = err.message
                     }
                 }
             }

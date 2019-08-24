@@ -87,8 +87,10 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
     * [Internal](#internal)
 * [Simulation](#simulation)
   * [Running the First Simulation](#running-the-first-simulation)
-  * [Simulation Datetime Range](#simulation-datetime-range)
-  * [Simulation Time Period](#simulation-time-period)
+  * [Exchange Fees](#exchange-fees)
+  * [Slippage](#slippage)
+  * [Datetime Range](#datetime-range)
+  * [Time Period](#time-period)
   * [Simulation Processes](#simulation-processes)
   * [Simulation Layers](#simulation-layers)
     * [Trading Simulation](#trading-simulation)
@@ -680,7 +682,7 @@ The result of slippage in simulations is taken into account by the graphic repre
 
 > If the *Slippage* parameter is left empty or disconnected from your Trading System, slippage will not be computed during simulations.
 
-## Simulation Datetime Range
+## Datetime Range
 
 There are two ways to define the datetime in which a simulation starts. However, in both cases, the simulation never ends, and keeps running until the present time.
 
@@ -698,7 +700,7 @@ There are two ways to define the datetime in which a simulation starts. However,
 
 2. **With a dynamic starting point**: If you don't set a datetime at the Time Range parameter or disconnect the Time Range element from your parameters the simulation starts wherever the charts are positioned.
 
-## Simulation Time Period
+## Time Period
 
 Simulations run in the time period active at the moment of clicking the RESTART BOTS button. Only one time period may be active at any point in time: if you run a simulation in a different time period than a previous simulation, the previous one stops—however,  the previous simulation data is conserved and may be accessed again by going back to the corresponding time period.
 

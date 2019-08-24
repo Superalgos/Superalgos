@@ -2156,23 +2156,17 @@ exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
                             closePositionRate = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = interExecutionMemory.executionContext.amountA
-                            amountB = interExecutionMemory.executionContext.amountA / closePositionRate
+                            amountA = availableBalance.assetA
+                            amountB = availableBalance.assetA / closePositionRate
 
-                            if (amountA > availableBalance.assetA) { // The assistant know what fees were paid.
-                                amountA = availableBalance.assetA
-                            }
                         } else {
                             positionDirection = "sell"
 
                             closePositionRate = ticker.last - 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = interExecutionMemory.executionContext.amountB * closePositionRate
-                            amountB = interExecutionMemory.executionContext.amountB
+                            amountA = availableBalance.assetB * closePositionRate
+                            amountB = availableBalance.assetB
 
-                            if (amountB > availableBalance.assetB) { // The assistant know what fees were paid.
-                                amountB = availableBalance.assetB
-                            }
                         }
 
                         interExecutionMemory.executionContext = {

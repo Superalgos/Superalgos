@@ -330,7 +330,6 @@
                         record.beginRate = dailyFile[i][4];
                         record.endRate = dailyFile[i][5];
                         record.exitType = dailyFile[i][6];
-                        record.stopRate = dailyFile[i][7];
 
                         if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
 
@@ -393,7 +392,6 @@
                 record.beginRate = marketFile[i][4];
                 record.endRate = marketFile[i][5];
                 record.exitType = marketFile[i][6];
-                record.stopRate = marketFile[i][7];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -485,20 +483,13 @@
                     y: record.endRate
                 };
 
-                let recordPoint4 = {
-                    x: record.end,
-                    y: record.stopRate
-                };
-
                 recordPoint1 = timeLineCoordinateSystem.transformThisPoint(recordPoint1);
                 recordPoint2 = timeLineCoordinateSystem.transformThisPoint(recordPoint2);
                 recordPoint3 = timeLineCoordinateSystem.transformThisPoint(recordPoint3);
-                recordPoint4 = timeLineCoordinateSystem.transformThisPoint(recordPoint4);
 
                 recordPoint1 = transformThisPoint(recordPoint1, thisObject.container);
                 recordPoint2 = transformThisPoint(recordPoint2, thisObject.container);
                 recordPoint3 = transformThisPoint(recordPoint3, thisObject.container);
-                recordPoint4 = transformThisPoint(recordPoint4, thisObject.container);
 
                 if (recordPoint2.x < viewPort.visibleArea.bottomLeft.x || recordPoint1.x > viewPort.visibleArea.bottomRight.x) {
                     continue;
@@ -507,29 +498,28 @@
                 recordPoint1 = viewPort.fitIntoVisibleArea(recordPoint1);
                 recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
                 recordPoint3 = viewPort.fitIntoVisibleArea(recordPoint3);
-                recordPoint4 = viewPort.fitIntoVisibleArea(recordPoint4);
 
                 let line1 = '';
                 let line2 = '';
 
                 switch (record.exitType) {
                     case 1: {
-                        line1 = 'STOP';
+                        line1 = 'Exit: STOP';
                         break;
                     }
                     case 2: {
-                        line1 = 'TP';
+                        line1 = 'Exit: TP';
                         break;
                     }
                 }
 
                 if (record.lastTradeROI < 0) {
 
-                    line2 = (record.lastTradeROI).toFixed(2) + ' %';
+                    line2 = 'ROI:' + (record.lastTradeROI).toFixed(2) + ' %';
 
                 } else {
 
-                    line2 = (record.lastTradeROI).toFixed(2) + ' %';
+                    line2 = 'ROI:' + (record.lastTradeROI).toFixed(2) + ' %';
                 }
 
                 /* Draw the triangle  that represents the trade. */
@@ -562,21 +552,31 @@
                 browserCanvasContext.setLineDash([0, 0])
                 browserCanvasContext.stroke();
 
+                let point = {}
+
+                if (record.beginRate > record.endRate) {
+                    point.x = recordPoint3.x
+                    point.y = recordPoint3.y + 100
+                } else {
+                    point.x = recordPoint3.x
+                    point.y = recordPoint3.y - 100
+                }
+
                 if (
-                    recordPoint4.x < viewPort.visibleArea.topLeft.x + 250
+                    recordPoint3.x < viewPort.visibleArea.topLeft.x + 250
                     ||
-                    recordPoint4.x > viewPort.visibleArea.bottomRight.x - 250
+                    recordPoint3.x > viewPort.visibleArea.bottomRight.x - 250
                     ||
-                    recordPoint4.y > viewPort.visibleArea.bottomRight.y - 100
+                    recordPoint3.y > viewPort.visibleArea.bottomRight.y - 150
                     ||
-                    recordPoint4.y < viewPort.visibleArea.topLeft.y + 100
+                    recordPoint3.y < viewPort.visibleArea.topLeft.y + 150
                 ) {
                     // we do not write any text
                 } else {
 
 
-                    printLabel(line1, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line1.length * FONT_ASPECT_RATIO, recordPoint4.y - 30, '1', 12);
-                    printLabel(line2, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line2.length * FONT_ASPECT_RATIO, recordPoint4.y - 15, '1', 12);
+                    printLabel(line1, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line1.length * FONT_ASPECT_RATIO, point.y, '1', 12);
+                    printLabel(line2, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line2.length * FONT_ASPECT_RATIO, point.y + 15, '1', 12);
 
 
                 }
@@ -634,6 +634,7 @@
         }
     }
 }
+
 
 
 

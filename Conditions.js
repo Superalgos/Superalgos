@@ -534,9 +534,15 @@
                 canvas.strategySpace.workspace.definition.tradingSystem.parameters.payload.uiObject.setErrorMessage(tradingSystem.parameters.error)
                 if (tradingSystem.parameters.baseAsset !== undefined) {
                     canvas.strategySpace.workspace.definition.tradingSystem.parameters.baseAsset.payload.uiObject.setErrorMessage(tradingSystem.parameters.baseAsset.error)
-                    if (tradingSystem.parameters.baseAsset.formula !== undefined) {
-                        canvas.strategySpace.workspace.definition.tradingSystem.parameters.baseAsset.formula.payload.uiObject.setErrorMessage(tradingSystem.parameters.baseAsset.formula.error)
-                    }
+                }
+                if (tradingSystem.parameters.timeRange !== undefined) {
+                    canvas.strategySpace.workspace.definition.tradingSystem.parameters.timeRange.payload.uiObject.setErrorMessage(tradingSystem.parameters.timeRange.error)
+                }
+                if (tradingSystem.parameters.slippage !== undefined) {
+                    canvas.strategySpace.workspace.definition.tradingSystem.parameters.slippage.payload.uiObject.setErrorMessage(tradingSystem.parameters.slippage.error)
+                }
+                if (tradingSystem.parameters.feeStructure !== undefined) {
+                    canvas.strategySpace.workspace.definition.tradingSystem.parameters.feeStructure.payload.uiObject.setErrorMessage(tradingSystem.parameters.feeStructure.error)
                 }
             }
 

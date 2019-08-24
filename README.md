@@ -349,7 +349,7 @@ A *trading system* is a collection of strategies that conform to certain paramet
 The one parameter that needs to be defined early on is the Base Asset, that is, the asset you wish to stand on when you are out of the market, with no open positions. We will review the rest of the Trading System parameters later on.
 
 | Parameters | Base Asset |
-| :---: | :---: | :---: |
+| :---: | :---: |
 | ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![base-asset](https://user-images.githubusercontent.com/13994516/63638431-0d26a880-c688-11e9-84f9-fa1fe5acbdbf.png) |
 
 Your Base Asset formula contains the following piece of code, which you may configure to your own needs:

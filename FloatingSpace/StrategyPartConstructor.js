@@ -551,6 +551,11 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Base Asset': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -570,11 +575,12 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Add Formula',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Formula',
+            action: 'Edit Base Asset',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Base Asset',
             visible: false,
-            relatedStrategyPart: 'Formula',
+            iconPathOn: 'settings',
+            iconPathOff: 'settings',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,

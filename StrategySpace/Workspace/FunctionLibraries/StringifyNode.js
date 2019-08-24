@@ -293,7 +293,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: prepareForStringify(node.formula, removePersonalData),
+          code: node.code,
           savedPayload: getSavedPayload(node)
         }
         return object

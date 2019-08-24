@@ -224,6 +224,18 @@ function newStrategyPart () {
         compatibleType = '->' + 'Parameters'
         compatibleSubType = undefined
         break
+      case 'Time Range':
+        compatibleType = '->' + 'Parameters'
+        compatibleSubType = undefined
+        break
+      case 'Slippage':
+        compatibleType = '->' + 'Parameters'
+        compatibleSubType = undefined
+        break
+      case 'Fee Structure':
+        compatibleType = '->' + 'Parameters'
+        compatibleSubType = undefined
+        break
       case 'Strategy':
         compatibleType = '->' + 'Trading System'
         compatibleSubType = undefined
@@ -289,7 +301,7 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Formula':
-        compatibleType = '->' + 'Base Asset' + '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase'
+        compatibleType = '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase'
         compatibleSubType = undefined
         break
       case 'Next Phase Event':
@@ -326,6 +338,9 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }
         if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
         if (thisObject.payload.node.type === 'Base Asset' && nearbyNode.baseAsset !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Time Range' && nearbyNode.timeRange !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Slippage' && nearbyNode.slippage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Fee Structure' && nearbyNode.feeStructure !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Open Stage' && nearbyNode.openStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Manage Stage' && nearbyNode.manageStage !== undefined) { continue }

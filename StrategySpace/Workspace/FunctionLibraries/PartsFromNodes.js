@@ -244,9 +244,6 @@ function newPartsFromNodes () {
       }
       case 'Base Asset': {
         createPart('Base Asset', node.name, node, parentNode, chainParent, 'Base Asset')
-        if (node.formula !== undefined) {
-          createPartFromNode(node.formula, node, node)
-        }
         return
       }
       case 'Parameters': {
@@ -440,12 +437,9 @@ function newPartsFromNodes () {
     if (node.baseAsset === undefined) {
       node.baseAsset = {
         name: 'Base Asset',
-        formula: {
-          code: DEFAULT_FORMULA_TEXT
-        }
+        code: DEFAULT_CONFIG_TEXT
       }
       createPart('Base Asset', '', node.baseAsset, node, node)
-      createPart('Formula', '', node.baseAsset.formula, node.baseAsset, node.baseAsset)
     }
   }
 

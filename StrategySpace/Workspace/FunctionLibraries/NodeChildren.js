@@ -219,12 +219,6 @@ function newNodeChildren () {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (parentNode.formula !== undefined) {
-      response.childrenCount++
-      if (parentNode.formula.id === childNode.id) {
-        response.childIndex = response.childrenCount
-      }
-    }
     return response
   }
 
@@ -536,4 +530,3 @@ function newNodeChildren () {
     return response
   }
 }
-

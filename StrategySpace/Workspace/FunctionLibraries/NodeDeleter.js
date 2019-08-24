@@ -291,9 +291,6 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    if (node.formula !== undefined) {
-      deleteFormula(node.formula, rootNodes)
-    }
     destroyPart(node)
     cleanNode(node)
   }

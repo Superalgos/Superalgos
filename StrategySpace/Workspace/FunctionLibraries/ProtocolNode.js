@@ -248,7 +248,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula, removePersonalData)
+          code: node.code
         }
         return object
       }

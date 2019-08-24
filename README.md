@@ -144,7 +144,7 @@ Go to [releases](https://github.com/Superalgos/DesktopApp/releases), find the la
 
 **2. Extract the ZIP files**: 
 
-Right-click on the first multi-part ZIP file and extract / unpack the files. The ZIP files include highly-compressed complete historic market data. Expect decompression to take from 4 to 8 hours, depending on your system (decompressing overnight may be a good idea, as your drive will be quite busy for some time, potentially slowing down your system).
+Right-click on the first multi-part ZIP file and extract / unpack the files. The ZIP files include highly-compressed complete historic market data. Expect decompression to take from 4 to 8 hours, depending on your system. Decompressing overnight may be a good idea, as your drive will be quite busy for some time, potentially slowing down your system. The reason why the package is so heavy is because it contains market data. Once you have the data, subsequent updates are a lot lighter.
 
 **3. Run your web server and the app**: 
 
@@ -162,15 +162,15 @@ node server.js
 
 The app will load on your default browser. You should either [set Chrome as your default browser](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en) before executing the EXE file, or simply close the non-Chrome browser, open Chrome and go to http://localhost:1337/.
 
-**4. Drag and drop a template Workspace**: 
+**4. Drag and drop an example workspace**: 
 
-Drag one of the sample _workspaces_ in the ```/Templates``` folder and drop it on the _Designer_ (in the bottom half of the screen, the area with a black background) to start with a working template.
+Drag one of the sample _workspaces_ in the ```/Quick-Start-Examples``` folder and drop it on the _Designer_ (in the bottom half of the screen, the area with a black background) to start with a working template.
 
 ![Installation-Drag-Workspace](https://user-images.githubusercontent.com/13994516/63532304-acbe2c80-c50a-11e9-82e2-b800c98f30c0.gif)
 
 **5. Start indicators**: 
 
-Click the RESTART SIMULATION button on the right-hand side of the horizontal turquoise bar. This puts all indicator bots to run. Allow some time for the bots to catch up with building candles and the rest of indicators up to the present time (the ZIP files you downloaded contains data files up to a certain point in time). After a few minutes, refresh the layers in the [Layers Panel](#layers-panel) as explained below.
+Click the RESTART SIMULATION button on the right-hand side of the horizontal turquoise bar. This puts all indicator bots to run. The ZIP files you downloaded contain data files up to a certain point in time. You will need to allow some time for bots to catch up with building candles and the rest of indicators up to the present time. After a few minutes, refresh the candles layers as explained in the [Layers Panel](#layers-panel) section.
 
 That's it! You are up and running!
 
@@ -590,11 +590,11 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 **stopLoss:** The value of your Stop in the active phase.
 
-**stopLossPhase (0 | 1 | ...):** The number of the active Stop phase.
+**stopLossPhase:** The number of the active Stop phase (0, 1, 2, ...).
 
 **takeProfit:** The value of the Take Profit in the active phase.
 
-**takeProfitPhase:** The number of the active Stop phase.
+**takeProfitPhase:** The number of the active Stop phase (0, 1, 2, ...).
 
 **positionRate:** The price at which the position was taken.
 
@@ -630,7 +630,7 @@ In order to run a first simulation, you need to have a strategy in working order
 
 Fees are a crucial part of the game. A strategy may work like a charm when you leave fees out of the equation but would lead you to bankruptcy in a live trading situation.
 
-Simulations take fees into account when the following piece of code is present and properly configured in your *Base Asset* parameters:
+Simulations take fees into account when the following piece of code is present and properly configured in your *Fee Structure* parameter:
 
 | Parameters | Fee Structure |
 | :---: | :---: |
@@ -652,9 +652,11 @@ To illustrate how fees affect your bottom line, take a look at the image below.
 
 The trade hits the take profit target above the Position Rate level, however, due to fees, the trade has a negative 0.32% ROI.
 
+> If the *Fee Structure* parameter is left empty or disconnected from your Trading System, fees will not be computed during simulations.
+
 ## Slippage
 
-[Slippage](https://en.wikipedia.org/wiki/Slippage_(finance)) is another issue you need to be aware of to more realistically evaluate a Strategy. The price at which the Exchange will fill the order placed by the Execution Engine is rarely going to match the conditions of the simulation.
+[Slippage](https://en.wikipedia.org/wiki/Slippage_(finance)) is another issue you need to be aware of to more realistically evaluate a Strategy. The price at which the Exchange will fill the order placed by the Execution Engine is seldom going to match the conditions of the simulation.
 
 To account for slippage during simulations, you may enter slippage values for the three different occasions in which the Execution Engine will place orders: Take Position, Take Profit and Stop.
 
@@ -672,13 +674,11 @@ Find the *Slippage* parameter under your Trading System and enter the desired va
 }
 ```
 
-The number you enter is applied as a percentage of the price of the order working always against you. For instance, ```"positionRate": 0.1``` means the position will be set at a price 0.1% higher if you stand on USDT or lower if you stand in BTC. 
+The number you enter is applied as a percentage of the price of the order and added or substracted from the price depending on the circumstances, always working against you. For instance, ```"positionRate": 0.1``` means the position will be set at a price 0.1% higher if you stand on USDT or lower if you stand in BTC. 
 
-The result of slippage in simulations is taken into account by the graphic representation of each trade created by the Simulation Trades layer. Take a look at the image below:
+The result of slippage in simulations is taken into account by the graphic representation of each trade created by the Simulation Trades layer.
 
-
-
-> If the *Slippage* parameter is left empty or disconnected fro your Trading System, slippage will not be computed during simulations.
+> If the *Slippage* parameter is left empty or disconnected from your Trading System, slippage will not be computed during simulations.
 
 ## Simulation Datetime Range
 
@@ -696,7 +696,7 @@ There are two ways to define the datetime in which a simulation starts. However,
 }
 ```
 
-2. **With a dynamic starting point**: If you don't set a datetime at the Trading System level, the simulation starts wherever the charts are positioned.
+2. **With a dynamic starting point**: If you don't set a datetime at the Time Range parameter or disconnect the Time Range element from your parameters the simulation starts wherever the charts are positioned.
 
 ## Simulation Time Period
 
@@ -704,7 +704,13 @@ Simulations run in the time period active at the moment of clicking the RESTART 
 
 ## Simulation Processes
 
-Once you run a simulation, it keeps running for as long as the node.js process are running at the console. If you click RESTART BOTS, processes are stopped and restarted. The simulation should catch up from the point it stopped, all the way to the present time. It may take some time.
+Once you run a simulation, it keeps running for as long as the node.js processes are running at the console. When the simulation reaches the present time, it remains active, calculating dynamically as new data is retrieved from the exchange. 
+
+If you click RESTART SIMULATION, processes are stopped and restarted. This results in past simulation data for the same *time period* being deleted and new data being written as the calculations advance.
+
+The simulation process is associated to the Definitions structure present at the moment of running the simulation. Changes you make in your Definitions afterwards are only taken into account when you restart the simulation.
+
+All of these considerations apply for Live Trading as well.
 
 ## Simulation Layers
 

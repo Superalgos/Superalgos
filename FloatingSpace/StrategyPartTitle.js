@@ -78,6 +78,15 @@ function newStrategyPartTitle () {
       case 'Base Asset': {
         break
       }
+      case 'Time Range': {
+        break
+      }
+      case 'Slippage': {
+        break
+      }
+      case 'Fee Structure': {
+        break
+      }
       case 'Strategy': {
         thisObject.allwaysVisible = true
         break

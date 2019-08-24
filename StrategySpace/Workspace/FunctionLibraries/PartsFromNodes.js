@@ -246,10 +246,31 @@ function newPartsFromNodes () {
         createPart('Base Asset', node.name, node, parentNode, chainParent, 'Base Asset')
         return
       }
+      case 'Time Range': {
+        createPart('Time Range', node.name, node, parentNode, chainParent, 'Time Range')
+        return
+      }
+      case 'Slippage': {
+        createPart('Slippage', node.name, node, parentNode, chainParent, 'Slippage')
+        return
+      }
+      case 'Fee Structure': {
+        createPart('Fee Structure', node.name, node, parentNode, chainParent, 'Fee Structure')
+        return
+      }
       case 'Parameters': {
         createPart('Parameters', node.name, node, parentNode, chainParent, 'Parameters')
         if (node.baseAsset !== undefined) {
           createPartFromNode(node.baseAsset, node, node)
+        }
+        if (node.timeRange !== undefined) {
+          createPartFromNode(node.timeRange, node, node)
+        }
+        if (node.slippage !== undefined) {
+          createPartFromNode(node.slippage, node, node)
+        }
+        if (node.feeStructure !== undefined) {
+          createPartFromNode(node.feeStructure, node, node)
         }
         return
       }
@@ -440,6 +461,27 @@ function newPartsFromNodes () {
         code: DEFAULT_CONFIG_TEXT
       }
       createPart('Base Asset', '', node.baseAsset, node, node)
+    }
+    if (node.timeRange === undefined) {
+      node.timeRange = {
+        name: 'Time Range',
+        code: DEFAULT_CONFIG_TEXT
+      }
+      createPart('Time Range', '', node.timeRange, node, node)
+    }
+    if (node.slippage === undefined) {
+      node.slippage = {
+        name: 'Slippage',
+        code: DEFAULT_CONFIG_TEXT
+      }
+      createPart('Slippage', '', node.slippage, node, node)
+    }
+    if (node.feeStructure === undefined) {
+      node.feeStructure = {
+        name: 'Fee Structure',
+        code: DEFAULT_CONFIG_TEXT
+      }
+      createPart('Fee Structure', '', node.feeStructure, node, node)
     }
   }
 

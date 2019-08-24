@@ -32,6 +32,15 @@ function newNodeChildren () {
       case 'Base Asset': {
         return countChildrenBaseAsset(parentNode, childNode)
       }
+      case 'Time Range': {
+        return countChildrenTimeRange(parentNode, childNode)
+      }
+      case 'Slippage': {
+        return countChildrenSlippage(parentNode, childNode)
+      }
+      case 'Fee Structure': {
+        return countChildrenFeeStructure(parentNode, childNode)
+      }
       case 'Strategy': {
         return countChildrenStrategy(parentNode, childNode)
       }
@@ -211,10 +220,52 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.timeRange !== undefined) {
+      response.childrenCount++
+      if (parentNode.timeRange.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.slippage !== undefined) {
+      response.childrenCount++
+      if (parentNode.slippage.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.feeStructure !== undefined) {
+      response.childrenCount++
+      if (parentNode.feeStructure.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 
   function countChildrenBaseAsset (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenTimeRange (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenSlippage (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenFeeStructure (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined

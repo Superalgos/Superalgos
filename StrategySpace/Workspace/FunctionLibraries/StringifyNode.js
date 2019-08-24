@@ -298,6 +298,39 @@ function newStringifyNode () {
         }
         return object
       }
+      case 'Time Range': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Slippage': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Fee Structure': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
       case 'Parameters': {
         let object = {
           id: node.id,
@@ -305,6 +338,9 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           baseAsset: prepareForStringify(node.baseAsset, removePersonalData),
+          timeRange: prepareForStringify(node.timeRange, removePersonalData),
+          slippage: prepareForStringify(node.slippage, removePersonalData),
+          feeStructure: prepareForStringify(node.feeStructure, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object

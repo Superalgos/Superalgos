@@ -252,12 +252,42 @@ function newProtocolNode () {
         }
         return object
       }
+      case 'Time Range': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code
+        }
+        return object
+      }
+      case 'Slippage': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code
+        }
+        return object
+      }
+      case 'Fee Structure': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code
+        }
+        return object
+      }
       case 'Parameters': {
         let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          baseAsset: getProtocolNode(node.baseAsset, removePersonalData)
+          baseAsset: getProtocolNode(node.baseAsset, removePersonalData),
+          timeRange: getProtocolNode(node.timeRange, removePersonalData),
+          slippage: getProtocolNode(node.slippage, removePersonalData),
+          feeStructure: getProtocolNode(node.feeStructure, removePersonalData)
         }
         return object
       }

@@ -9,6 +9,9 @@ function newNodeDeleter () {
     deleteTradingSystem: deleteTradingSystem,
     deleteParameters: deleteParameters,
     deleteBaseAsset: deleteBaseAsset,
+    deleteTimeRange: deleteTimeRange,
+    deleteSlippage: deleteSlippage,
+    deleteFeeStructure: deleteFeeStructure,
     deleteStrategy: deleteStrategy,
     deleteTriggerStage: deleteTriggerStage,
     deleteOpenStage: deleteOpenStage,
@@ -69,6 +72,18 @@ function newNodeDeleter () {
         }
         case 'Base Asset': {
           deleteBaseAsset(rootNode, rootNodes)
+          break
+        }
+        case 'Time Range': {
+          deleteTimeRange(rootNode, rootNodes)
+          break
+        }
+        case 'Slippage': {
+          deleteSlippage(rootNode, rootNodes)
+          break
+        }
+        case 'Fee Structure': {
+          deleteFeeStructure(rootNode, rootNodes)
           break
         }
         case 'Strategy': {
@@ -280,6 +295,15 @@ function newNodeDeleter () {
     if (node.baseAsset !== undefined) {
       deleteBaseAsset(node.baseAsset, rootNodes)
     }
+    if (node.timeRange !== undefined) {
+      deleteTimeRange(node.timeRange, rootNodes)
+    }
+    if (node.slippage !== undefined) {
+      deleteSlippage(node.slippage, rootNodes)
+    }
+    if (node.feeStructure !== undefined) {
+      deleteFeeStructure(node.feeStructure, rootNodes)
+    }
     destroyPart(node)
     cleanNode(node)
   }
@@ -288,6 +312,39 @@ function newNodeDeleter () {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       payload.parentNode.baseAsset = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteTimeRange (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.timeRange = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteSlippage (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.slippage = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteFeeStructure (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.feeStructure = undefined
     } else {
       completeDeletion(node, rootNodes)
     }

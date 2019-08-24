@@ -321,6 +321,18 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteBaseAsset(payload.node, workspaceNode.rootNodes)
         break
       }
+      case 'Delete Time Range': {
+        functionLibraryNodeDeleter.deleteTimeRange(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Slippage': {
+        functionLibraryNodeDeleter.deleteSlippage(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Fee Structure': {
+        functionLibraryNodeDeleter.deleteFeeStructure(payload.node, workspaceNode.rootNodes)
+        break
+      }
       case 'Delete Strategy': {
         functionLibraryNodeDeleter.deleteStrategy(payload.node, workspaceNode.rootNodes)
         break

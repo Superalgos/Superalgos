@@ -59,6 +59,21 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Time Period': {
+        node.payload.parentNode.baseAsset = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Slippage': {
+        node.payload.parentNode.baseAsset = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Fee Structure': {
+        node.payload.parentNode.baseAsset = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Strategy': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.strategies.length; i++) {
@@ -242,6 +257,27 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.baseAsset = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Time Range': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.timeRange = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Slippage': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.slippage = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Fee Structure': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.feeStructure = node
         completeAttachment(node, rootNodes)
       }
         break

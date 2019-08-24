@@ -344,11 +344,11 @@ A *trading system* is a collection of strategies that conform to certain paramet
 
 > **TEMPORAL LIMITATION:** At present, only one Trading System is allowed at a time.
 
-The one parameter that needs to be defined early on is the Base Asset, that is, the asset you wish to stand on when you are out of the market, with no open positions.
+The one parameter that needs to be defined early on is the Base Asset, that is, the asset you wish to stand on when you are out of the market, with no open positions. We will review the rest of the Trading System parameters later on.
 
-| Parameters | Base Asset | Formula |
+| Parameters | Base Asset |
 | :---: | :---: | :---: |
-| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![base-asset](https://user-images.githubusercontent.com/13994516/63508922-3f46d780-c4db-11e9-88bc-23a1fa317ba0.png) | ![formula](https://user-images.githubusercontent.com/13994516/63509169-c85e0e80-c4db-11e9-895f-78083a1e5ed8.png) |
+| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![base-asset](https://user-images.githubusercontent.com/13994516/63638431-0d26a880-c688-11e9-84f9-fa1fe5acbdbf.png) |
 
 Your Base Asset formula contains the following piece of code, which you may configure to your own needs:
 
@@ -632,14 +632,18 @@ Fees are a crucial part of the game. A strategy may work like a charm when you l
 
 Simulations take fees into account when the following piece of code is present and properly configured in your *Base Asset* parameters:
 
+| Parameters | Time Range |
+| :---: | :---: |
+| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![fee-structure](https://user-images.githubusercontent.com/13994516/63638434-0dbf3f00-c688-11e9-9b3e-7cb1ff7e4814.png) |
+
 ```
-"feeStructure": {
+{
 "maker": 0.15,
 "taker": 0.25
 }
 ```
 
-The above configuration corresponds to standard Poloniex maker and taker fees. Remember, for the time being, all orders placed by the Execution Engine are *market orders*, thus, the *taker* fee applies in all cases.
+The above configuration corresponds to standard Poloniex maker and taker fees. Remember, for the time being, [all orders placed by the Execution Engine are *market orders*](#execution-limitations), thus, the *taker* fee applies in all cases.
 
 To illustrate how fees affect your bottom line, take a look at the image below.
 
@@ -648,18 +652,44 @@ To illustrate how fees affect your bottom line, take a look at the image below.
 
 The trade hits the take profit target above the Position Rate level, however, due to fees, the trade has a negative 0.32% ROI.
 
+## Slippage
+
+[Slippage](https://en.wikipedia.org/wiki/Slippage_(finance)) is another issue you need to be aware of to more realistically evaluate a Strategy. The price at which the Exchange will fill the order placed by the Execution Engine is rarely going to match the conditions of the simulation.
+
+To account for slippage during simulations, you may enter slippage values for the three different occasions in which the Execution Engine will place orders: Take Position, Take Profit and Stop.
+
+| Parameters | Slippage |
+| :---: | :---: |
+| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![fee-structure](https://user-images.githubusercontent.com/13994516/63638434-0dbf3f00-c688-11e9-9b3e-7cb1ff7e4814.png) |
+
+Find the *Slippage* parameter under your Trading System and enter the desired values for each of the above.
+
+```
+{
+"positionRate": 0.1,
+"stopLoss": 0.2,
+"takeProfit": 0.3
+}
+```
+
+The result of slippage in simulations is taken into account by the graphic representation of each trade created by the Simulation Trades layer. Take a look at the image below:
+
+
+
+> If the *Slippage* parameter is left empty or disconnected fro your Trading System, slippage will not be computed during simulations.
+
 ## Simulation Datetime Range
 
 There are two ways to define the datetime in which a simulation starts. However, in both cases, the simulation never ends, and keeps running until the present time.
 
-1. **With a parametric datetime starting point**: This method is used to always run the simulation starting from the same datetime. In this case, you need to add a definition to the Base Asset parameter described in the [Trading System](#trading-system) chapter:
+1. **With a parametric datetime starting point**: This method is used to always run the simulation starting from the same datetime. In this case, you need to enter an *initialDatetime* in the *Time Range* parameter of your Trading System:
+
+| Parameters | Time Range |
+| :---: | :---: |
+| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![time-range](https://user-images.githubusercontent.com/13994516/63638435-0dbf3f00-c688-11e9-8bbd-5e00906cdfa1.png) |
 
 ```
 { 
-"name": "USDT",
-"initialBalance": 10,
-"minimumBalance": 1,
-"maximumBalance": 20000,
 "initialDatetime": "2019-08-15T20:00:00.000Z"
 }
 ```

@@ -3,9 +3,9 @@ let fs = require('fs')
 const { promisify } = require('util')
 const readFileAsync = promisify(fs.readFile)
 
-exports.getStrategy = async function () {
+exports.getDefinition = async function () {
   try {
-    if (!global.STRATEGY) {
+    if (!global.DEFINITION) {
       let executionOnCloud = false
       if (process.env.ON_CLOUD !== undefined) {
         executionOnCloud = JSON.parse(process.env.ON_CLOUD)
@@ -36,16 +36,16 @@ exports.getStrategy = async function () {
           throw new Error(strategizerResponse.data.errors[0].message)
         }
 
-        global.STRATEGY = strategizerResponse.data.data.strategizer_TradingSystemByFb.data
+        global.DEFINITION = strategizerResponse.data.data.strategizer_TradingSystemByFb.data
       } else {
         let fileLocation = process.env.INTER_PROCESS_FILES_PATH + '/definition.json'
-        let strategy = await readFileAsync(fileLocation, { encoding: 'utf8' })
-        global.STRATEGY = JSON.parse(strategy)
+        let definition = readFile(fileLocation, { encoding: 'utf8' })
+        global.DEFINITION = JSON.parse(definition)
       }
     }
 
-    return global.STRATEGY
+    return global.DEFINITION
   } catch (error) {
-    throw new Error('There has been an error getting the strategy: ', JSON.stringify(error))
+      throw new Error('There has been an error getting the definition: ', JSON.stringify(error))
   }
 }

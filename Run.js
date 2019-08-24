@@ -1,5 +1,7 @@
 require('dotenv').config();
-const strategy = require('./Integrations/Strategy');
+
+global.DEFINITION = require(process.env.INTER_PROCESS_FILES_PATH + '/Definition');
+const definition = global.DEFINITION
 const path = require('path');
 
 global.SHALL_BOT_STOP = false
@@ -75,9 +77,6 @@ async function sequenceExecution(currentStep) {
 
     execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
 
-
-    const definition = await strategy.getStrategy();
-
     if (definition) {
         if (definition.personalData) {
             if (definition.personalData.exchangeAccounts) {
@@ -132,9 +131,6 @@ async function readExecutionConfiguration(execution) {
 
         let timePeriodFilter
         let botProcess
-
-        /* Try to get the begin and end dates from the Definition */
-        let definition = await strategy.getStrategy()
 
         /* Dates are taken initially from .env, but can be overwritten if they are defined by the user */
         let initialDatetime = process.env.BEGIN_DATE_TIME

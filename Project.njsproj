@@ -27,6 +27,9 @@
     <Compile Include="Integrations\Ecosystem.js" />
     <Compile Include="Integrations\FileStorage.js" />
     <Compile Include="Integrations\Definition.js" />
+    <Compile Include="MultiPeriod.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MultiPeriodDaily.js">
       <SubType>Code</SubType>
     </Compile>

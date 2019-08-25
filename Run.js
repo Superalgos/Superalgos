@@ -159,13 +159,13 @@ async function readExecutionConfiguration(execution) {
                     if (definition.simulationParams.timePeriodDailyArray !== undefined) {
                         if (definition.simulationParams.timePeriodDailyArray.length === 1) {
                             timePeriodFilter = definition.simulationParams.timePeriodDailyArray[0]
-                            botProcess = "Multi-Period-Daily"
+                            botProcess = "Multi-Period"
                         }
                     }
                     if (definition.simulationParams.timePeriodMarketArray !== undefined) {
                         if (definition.simulationParams.timePeriodMarketArray.length === 1) {
                             timePeriodFilter = definition.simulationParams.timePeriodMarketArray[0]
-                            botProcess = "Multi-Period-Market"
+                            botProcess = "Multi-Period"
                         }
                     }
                 }

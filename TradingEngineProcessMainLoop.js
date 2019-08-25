@@ -10,6 +10,7 @@
 
     const MULTI_PERIOD_MARKET = require(ROOT_DIR + 'MultiPeriodMarket');
     const MULTI_PERIOD_DAILY = require(ROOT_DIR + 'MultiPeriodDaily');
+    const MULTI_PERIOD = require(ROOT_DIR + 'MultiPeriod');
     const FILE_STORAGE = require('./Integrations/FileStorage.js');
   
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
@@ -55,7 +56,7 @@
                 }
 
                 USER_BOT_MODULE = {}
-                USER_BOT_MODULE.newUserBot = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Multi-Period-Daily/User.Bot').newUserBot // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
+                USER_BOT_MODULE.newUserBot = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Multi-Period/User.Bot').newUserBot // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
                 //USER_BOT_MODULE.newUserBot = eval(text); // Use this for production
 
                 filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
@@ -484,6 +485,11 @@
                                                 }
                                                 case 'Multi-Period-Daily': {
                                                     processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(bot, logger, COMMONS_MODULE, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE);
+                                                    intitializeProcessFramework();
+                                                    break;
+                                                }
+                                                case 'Multi-Period': {
+                                                    processFramework = MULTI_PERIOD.newMultiPeriod(bot, logger, COMMONS_MODULE, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

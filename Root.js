@@ -235,7 +235,7 @@
 
                          
                         if (processConfig.framework !== undefined) {
-                            if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market") {
+                            if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market" || processConfig.framework.name === "Multi-Period") {
                                 processConfig.framework.startDate.resumeExecution = false;
                                 if (processConfig.startMode.noTime !== undefined) {
                                     if (processConfig.startMode.noTime.run === "true") {

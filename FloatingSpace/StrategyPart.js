@@ -724,14 +724,14 @@ function newStrategyPart () {
 
     position = thisObject.container.frame.frameThisPoint(position)
 
-    let radius = thisObject.container.frame.radius
+    let radius = thisObject.container.frame.radius * 3.5
             /* Label Text */
     let labelPoint
     let fontSize = thisObject.payload.floatingObject.currentFontSize * 3 / 4
     let label
 
     if (radius > 6) {
-      const MAX_LABEL_LENGTH = 45
+      const MAX_LABEL_LENGTH = 65
 
       label = errorMessage
 

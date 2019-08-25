@@ -17,6 +17,7 @@
     let dataDependencies;
     let storages = [];
     let dataFiles = [];
+    let multiPeriodDataFiles = new Map();
 
     let usertBot;
 
@@ -72,6 +73,9 @@
         try {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
+
+            let currentTimePeriod
+            let currentOutputPeriodLabel  
 
             let market = global.MARKET;
 
@@ -200,7 +204,7 @@
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = bot.devTeam + "-" + bot.codeName + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    reportKey = bot.devTeam + "-" + bot.codeName + "-" + "Multi-Period" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -374,11 +378,9 @@
 
                             let timePeriodFilter = global.EXECUTION_CONFIG.timePeriodFilter
                             if (timePeriodFilter !== undefined) {
-                                if (timePeriodFilter.indexOf(outputPeriodLabel) === -1) {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Discarding period for being filtered out. -> outputPeriodLabel = " + outputPeriodLabel); }
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Discarding period for being filtered out. -> timePeriodFilter = " + timePeriodFilter); }
-                                    periodsControlLoop();
-                                    return;
+                                if (timePeriodFilter.indexOf(outputPeriodLabel) > 0 -1) {
+                                    currentTimePeriod = global.dailyFilePeriods[n][0];
+                                    currentOutputPeriodLabel = global.dailyFilePeriods[n][1];
                                 }
                             }
 
@@ -521,6 +523,7 @@
                                                     let dataFile = previousFile.concat(currentFile);
 
                                                     dataFiles.push(dataFile);
+
                                                     dependencyControlLoop();
 
                                                 }
@@ -556,7 +559,10 @@
 
                                     } else {
 
-                                        callTheBot();
+                                        let mapKey = global.dailyFilePeriods[n][1];
+                                        multiPeriodDataFiles.set(mapKey, dataFiles)
+
+                                        periodsControlLoop();
 
                                     }
                                 }
@@ -566,51 +572,6 @@
                                 }
                             }
 
-                            function callTheBot() {
-
-                                try {
-
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> Entering function."); }
-
-                                    const timePeriod = global.dailyFilePeriods[n][0];
-                                    const outputPeriodLabel = global.dailyFilePeriods[n][1];
-
-                                    usertBot.start(
-                                        dataFiles,
-                                        timePeriod,
-                                        outputPeriodLabel,
-                                        bot.multiPeriodDailyProcessDatetime,
-                                        contextVariables.dateBeginOfMarket,
-                                        contextVariables.dateEndOfMarket,
-                                        interExecutionMemoryArray[n],
-                                        onBotFinished);
-
-                                    function onBotFinished(err) {
-
-                                        try {
-
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> onBotFinished -> Entering function."); }
-
-                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                                callBackFunction(err);
-                                                return;
-                                            }
-
-                                            botNeverRan = false;
-                                            periodsControlLoop();
-                                        }
-                                        catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> onBotFinished -> err = " + err.stack);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        }
-                                    }
-                                }
-                                catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> err = " + err.stack);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                }
-                            }
                         }
                         catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> err = " + err.stack);
@@ -634,27 +595,8 @@
 
                                 n = 0;
 
-                                writeDataRanges(onWritten);
+                                callTheBot();
 
-                                function onWritten(err) {
-
-                                    try {
-
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> controlLoop -> onWritten -> Entering function."); }
-
-                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> controlLoop -> onWritten -> err = " + err.stack);
-                                            callBackFunction(err);
-                                            return;
-                                        }
-
-                                        writeStatusReport(bot.multiPeriodDailyProcessDatetime, advanceTime);
-
-                                    } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods ->  controlLoop -> onWritten -> err = " + err.stack);
-                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    }
-                                }
                             }
                         }
                         catch (err) {
@@ -663,6 +605,69 @@
                         }
                     }
 
+                    function callTheBot() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> callTheBot -> Entering function."); }
+
+                            usertBot.start(
+                                multiPeriodDataFiles,
+                                currentTimePeriod,
+                                currentOutputPeriodLabel,
+                                bot.multiPeriodDailyProcessDatetime,
+                                contextVariables.dateBeginOfMarket,
+                                contextVariables.dateEndOfMarket,
+                                interExecutionMemoryArray[n],
+                                onBotFinished);
+
+                            function onBotFinished(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> callTheBot -> onBotFinished -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                        callBackFunction(err);
+                                        return;
+                                    }
+
+                                    botNeverRan = false;
+
+                                    writeDataRanges(onWritten);
+
+                                    function onWritten(err) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> callTheBot -> onBotFinished -> onWritten -> Entering function."); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> callTheBot -> onBotFinished -> onWritten -> err = " + err.stack);
+                                                callBackFunction(err);
+                                                return;
+                                            }
+
+                                            writeStatusReport(bot.multiPeriodDailyProcessDatetime, advanceTime);
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> callTheBot -> onBotFinished -> onWritten -> err = " + err.stack);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> callTheBot -> onBotFinished -> err = " + err.stack);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+                        }
+                        catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> callTheBot -> err = " + err.stack);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> err = " + err.stack);
@@ -718,7 +723,7 @@
                     let fileContent = JSON.stringify(dataRange);
 
                     let fileName = '/Data.Range.' + market.assetA + '_' + market.assetB + '.json';
-                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process + fileName;
+                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + 'Multi-Period-Daily' + fileName;
 
                     fileStorage.createTextFile(global.DEV_TEAM, filePath, fileContent + '\n', onFileCreated);
 
@@ -752,7 +757,7 @@
 
                 try {
 
-                    let reportKey = bot.devTeam + "-" + bot.codeName + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    let reportKey = bot.devTeam + "-" + bot.codeName + "-" + "Multi-Period" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.currentDaytime;

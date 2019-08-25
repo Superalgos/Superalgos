@@ -127,6 +127,7 @@
         "name": "Multi-Period-Daily",
         "validPeriods": [
           "45-min",
+          "40-min",
           "30-min",
           "20-min",
           "15-min",
@@ -284,6 +285,7 @@
           "type": "Daily Files",
           "validPeriods": [
             "45-min",
+            "40-min",
             "30-min",
             "20-min",
             "15-min",
@@ -343,6 +345,7 @@
           "type": "Daily Files",
           "validPeriods": [
             "45-min",
+            "40-min",
             "30-min",
             "20-min",
             "15-min",
@@ -402,6 +405,7 @@
           "type": "Daily Files",
           "validPeriods": [
             "45-min",
+            "40-min",
             "30-min",
             "20-min",
             "15-min",
@@ -461,6 +465,7 @@
           "type": "Daily Files",
           "validPeriods": [
             "45-min",
+            "40-min",
             "30-min",
             "20-min",
             "15-min",

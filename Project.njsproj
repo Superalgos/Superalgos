@@ -38,6 +38,7 @@
     <Folder Include="logs\AA Masters\Indicator\Bruce\1.0.0" />
     <Folder Include="logs\AA Masters\Indicator\Bruce\1.0.0\Multi-Period-Daily-Candles-Volumes" />
     <Folder Include="logs\AA Masters\Indicator\Bruce\1.0.0\One-Min-Daily-Candles-Volumes" />
+    <Folder Include="Multi-Period\" />
     <Folder Include="obj" />
     <Folder Include="obj\Debug" />
   </ItemGroup>
@@ -45,6 +46,9 @@
     <Compile Include="Commons.js" />
     <Compile Include="Multi-Period-Daily\User.Bot.js" />
     <Compile Include="Multi-Period-Market\User.Bot.js" />
+    <Compile Include="Multi-Period\User.Bot.js">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->

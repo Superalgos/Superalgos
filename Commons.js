@@ -8,11 +8,9 @@
     const GMT_SECONDS = ':00.000 GMT+0000';
 
     let thisObject = {
-        initializeData: initializeData,
         runSimulation: runSimulation,
-        buildLRC: buildLRC,
-        buildPercentageBandwidthMap: buildPercentageBandwidthMap,
-        buildBollingerBandsMap: buildBollingerBandsMap,
+        buildPercentageBandwidthArray: buildPercentageBandwidthArray,
+        buildBollingerBandsArray: buildBollingerBandsArray,
         buildBollingerChannelsArray: buildBollingerChannelsArray,
         buildBollingerSubChannelsArray: buildBollingerSubChannelsArray,
         buildCandles: buildCandles
@@ -20,30 +18,19 @@
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
-    let LRCMap = new Map();
-    let percentageBandwidthMap = new Map();
-    let bollingerBandsMap = new Map();
-    let bollingerChannelsArray = [];
-    let bollingerSubChannelsArray = [];
+    let percentageBandwidthAt = {}
+    let bollingerBandsAt = {}
+    let bollingerChannelsAt = {}
+    let bollingerSubChannelsAt = {}
+    let candlesAt = {}
 
-    let candles = [];
     const definition = global.DEFINITION
 
     return thisObject;
 
-    function initializeData() {
-
-        LRCMap = new Map();
-        percentageBandwidthMap = new Map();
-        bollingerBandsMap = new Map();
-        bollingerChannelsArray = [];
-        bollingerSubChannelsArray = [];
-
-        candles = [];
-    }
-
     async function runSimulation(
         timePeriod,
+        timePeriodLabel,
         currentDay,
         startDate,
         endDate,
@@ -241,7 +228,6 @@
             /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need these variables. */
 
             let lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
-            let lastCandle = candles[candles.length - 1];
 
             /*
             The following counters need to survive multiple executions of the similator and keep themselves reliable.
@@ -550,9 +536,18 @@
                 yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
             }
 
-            /* Main Simulation Loop: We go thourgh all the candles at this time period. */
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Main Simulation Loop -> candles.length = " + candles.length); }
+            /* Main Array and Maps */
 
+            let candles = candlesAt[timePeriodLabel]
+            let percentageBandwidthArray = percentageBandwidthAt[timePeriodLabel]
+            let bollingerBandsArray = bollingerBandsAt[timePeriodLabel]
+            let bollingerChannelsArray = bollingerChannelsAt[timePeriodLabel]
+            let bollingerSubChannelsArray = bollingerSubChannelsAt[timePeriodLabel]
+
+            /* Last Candle */
+            let lastCandle = candles[candles.length - 1];
+
+            /* Main Simulation Loop: We go thourgh all the candles at this time period. */
             let i
             initializeLoop()
 
@@ -568,15 +563,28 @@
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Processing candle # " + i); }
 
                 let candle = candles[i];
+                let percentageBandwidth = getElement(percentageBandwidthArray, candle);   
+                let bollingerBand = getElement(bollingerBandsArray, candle);   
+                let bollingerChannel = getElement(bollingerChannelsArray, candle);
+                let bollingerSubChannel = getElement(bollingerSubChannelsArray, candle);
+
+                let chart = {}
+
+                for (let j = 0; j < global.dailyFilePeriods.length; j++) {
+
+                    let mapKey = dailyFilePeriods[j][1]
+                    chart[mapKey] = {}
+                    chart[mapKey].candle = getElement(candlesAt[mapKey], candle); 
+                    chart[mapKey].percentageBandwidth = getElement(percentageBandwidthAt[mapKey], candle);
+                    chart[mapKey].bollingerBand = getElement(bollingerBandsAt[mapKey], candle); 
+                    chart[mapKey].bollingerChannel = getElement(bollingerChannelsAt[mapKey], candle); 
+                    chart[mapKey].bollingerSubChannel = getElement(bollingerSubChannelsAt[mapKey], candle); 
+                }
+
+                let positionedAtYesterday = (candle.end < currentDay.valueOf())
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Candle Begin @ " + (new Date(candle.begin)).toLocaleString()) }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Candle End @ " + (new Date(candle.end)).toLocaleString()) }
-
-                let percentageBandwidth = percentageBandwidthMap.get(candle.begin);
-                let bollingerBand = bollingerBandsMap.get(candle.begin);
-                let bollingerChannel = getElement(bollingerChannelsArray, candle.begin, candle.end);
-                let bollingerSubChannel = getElement(bollingerSubChannelsArray, candle.begin, candle.end);
-                let positionedAtYesterday = (candle.end < currentDay.valueOf())
 
                 /* Assistant Info */
 
@@ -585,8 +593,6 @@
                     ask: candle.close,
                     last: candle.close
                 }
-
-                //let LRC = LRCMap.get(candle.begin);
 
                 /* If any of the needed indicators is missing, then that period is not calculated */
 
@@ -1088,12 +1094,14 @@
                                 */
                                 value = false
 
-                                if (node.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
+                                if (node.code.indexOf('previous') > -1 && err.message.indexOf('of undefined') > -1 || 
+                                    node.code.indexOf('chart') > -1 && err.message.indexOf('of undefined') > -1
+                                    ) {
                                     /*
                                         We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
                                     */
                                 } else {
-                                    node.error = err.message
+                                    node.error = err.message +  " @ " + (new Date(candle.begin)).toLocaleString() 
                                 }
                             }
 
@@ -1201,10 +1209,10 @@
                     } else {
                         let stopRunningDate = new Date(candle.begin)
                         if (balance < minimumBalance) {
-                            tradingSystem.error = "Min Balance @ " + stopRunningDate.toUTCString()
+                            tradingSystem.error = "Min Balance @ " + stopRunningDate.toLocaleString()
                         }
                         if (balance > maximumBalance) {
-                            tradingSystem.error = "Max Balance @ " + stopRunningDate.toUTCString()
+                            tradingSystem.error = "Max Balance @ " + stopRunningDate.toLocaleString()
                         }
                     }
                 }
@@ -2612,19 +2620,36 @@
             }
 
 
-            function getElement(pArray, begin, end) {
+            function getElement(pArray, currentCandle) { 
 
                 let element;
-
                 for (let i = 0; i < pArray.length; i++) {
-
                     element = pArray[i];
 
-                    if (begin >= element.begin && end <= element.end) {
+                    if (currentCandle.end === element.end) { // when there is an exact match at the end we take that element
                         return element
-                    }
+                    } else {
+                        if  ( 
+                            i > 0 &&
+                            element.end > currentCandle.end
+                            )
+                        {
+                            let previousElement = pArray[i - 1] 
+                            if (previousElement.end < currentCandle.end) {
+                                return previousElement // If one elements goes into the future of currentCandle, then we stop and take the previous element.
+                            } else {
+                                return
+                            }
+                        }
+                        if (
+                            i === pArray.length - 1 // If we reach the end of the array, then we return the last element.
+                            &&
+                            element.end < currentCandle.end
+                        ) {
+                            return element
+                        }
+                    }      
                 }
-
                 return
             }
         }
@@ -2634,58 +2659,13 @@
         }
     }
 
-    function buildLRC(dataFile, callBackFunction) {
+    function buildPercentageBandwidthArray(dataFile, timePeriodLabel, callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildLRC -> Entering function."); }
-
-        try {
-
-            let previous;
-
-            for (let i = 0; i < dataFile.length; i++) {
-
-                let LRC = {
-                    begin: dataFile[i][0],
-                    end: dataFile[i][1],
-                    _15: dataFile[i][2],
-                    _30: dataFile[i][3],
-                    _60: dataFile[i][4]
-                };
-
-                if (previous !== undefined) {
-
-                    if (previous._15 > LRC._15) { LRC.direction15 = 'Down'; }
-                    if (previous._15 < LRC._15) { LRC.direction15 = 'Up'; }
-                    if (previous._15 === LRC._15) { LRC.direction15 = 'Side'; }
-
-                    if (previous._30 > LRC._30) { LRC.direction30 = 'Down'; }
-                    if (previous._30 < LRC._30) { LRC.direction30 = 'Up'; }
-                    if (previous._30 === LRC._30) { LRC.direction30 = 'Side'; }
-
-                    if (previous._60 > LRC._60) { LRC.direction60 = 'Down'; }
-                    if (previous._60 < LRC._60) { LRC.direction60 = 'Up'; }
-                    if (previous._60 === LRC._60) { LRC.direction60 = 'Side'; }
-
-                }
-
-                LRC.previous = previous;
-
-                LRCMap.set(LRC.begin, LRC);
-
-                previous = LRC;
-            }
-        }
-        catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildLRC -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    function buildPercentageBandwidthMap(dataFile, callBackFunction) {
-
-        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildPercentageBandwidthMap -> Entering function."); }
+        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildPercentageBandwidthArray -> Entering function."); }
 
         try {
+
+            let percentageBandwidthArray = [];
 
             let previous;
 
@@ -2709,22 +2689,28 @@
 
                 percentageBandwidth.previous = previous;
 
-                percentageBandwidthMap.set(percentageBandwidth.begin, percentageBandwidth);
+                percentageBandwidthArray.push(percentageBandwidth);
 
                 previous = percentageBandwidth;
+
             }
+
+            percentageBandwidthAt[timePeriodLabel] = percentageBandwidthArray
+
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildPercentageBandwidthMap -> err = " + err.stack);
+            logger.write(MODULE_NAME, "[ERROR] buildPercentageBandwidthArray -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function buildBollingerBandsMap(dataFile, callBackFunction) {
+    function buildBollingerBandsArray(dataFile, timePeriodLabel, callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildBollingerBandsMap -> Entering function."); }
+        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildBollingerBandsArray -> Entering function."); }
 
         try {
+
+            let bollingerBandsArray = [];
 
             let previous;
 
@@ -2748,22 +2734,27 @@
 
                 bollingerBand.previous = previous;
 
-                bollingerBandsMap.set(bollingerBand.begin, bollingerBand);
+                bollingerBandsArray.push(bollingerBand);
 
                 previous = bollingerBand;
             }
+
+            bollingerBandsAt[timePeriodLabel] = bollingerBandsArray
+
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildBollingerBandsMap -> err = " + err.stack);
+            logger.write(MODULE_NAME, "[ERROR] buildBollingerBandsArray -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function buildBollingerChannelsArray(dataFile, callBackFunction) {
+    function buildBollingerChannelsArray(dataFile, timePeriodLabel, callBackFunction) {
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildBollingerChannelsArray -> Entering function."); }
 
         try {
+
+            let bollingerChannelsArray = [];
 
             let previous;
 
@@ -2782,6 +2773,9 @@
 
                 previous = bollingerChannel;
             }
+
+            bollingerChannelsAt[timePeriodLabel] = bollingerChannelsArray
+
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] buildBollingerChannelsArray -> err = " + err.stack);
@@ -2789,11 +2783,12 @@
         }
     }
 
-    function buildBollingerSubChannelsArray(dataFile, callBackFunction) {
+    function buildBollingerSubChannelsArray(dataFile, timePeriodLabel, callBackFunction) {
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildBollingerSubChannelsArray -> Entering function."); }
 
         try {
+            let bollingerSubChannelsArray = [];
 
             let previous;
 
@@ -2817,6 +2812,9 @@
 
                 previous = bollingerSubChannel;
             }
+
+            bollingerSubChannelsAt[timePeriodLabel] = bollingerSubChannelsArray
+
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] buildBollingerSubChannelsArray -> err = " + err.stack);
@@ -2824,11 +2822,12 @@
         }
     }
 
-    function buildCandles(dataFile, callBackFunction) {
+    function buildCandles(dataFile, timePeriodLabel, callBackFunction) {
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildCandles -> Entering function."); }
 
         try {
+            let candles = [];
 
             let previous;
 
@@ -2863,6 +2862,8 @@
 
                 previous = candle;
             }
+
+            candlesAt[timePeriodLabel] = candles
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] buildCandles -> err = " + err.stack);

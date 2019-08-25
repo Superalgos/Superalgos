@@ -47,7 +47,7 @@
         }
     }
 
-    function start(dataFiles, timePeriod, outputPeriodLabel, currentDay, startDate, endDate, interExecutionMemory, callBackFunction) {
+    function start(multiPeriodDataFiles, timePeriod, timePeriodLabel, currentDay, startDate, endDate, interExecutionMemory, callBackFunction) {
 
         try {
 
@@ -64,44 +64,48 @@
 
             let tradingSystem = {};
 
-            commons.initializeData();
+            for (let j = 0; j < global.dailyFilePeriods.length; j++) {
 
-            for (let i = 0; i < dataDependencies.config.length; i++) {
+                let mapKey = dailyFilePeriods[j][1]
+                let dataFiles = multiPeriodDataFiles.get(mapKey)
 
-                let dependency = dataDependencies.config[i];
-                dataFile = dataFiles[i];
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Building Dataset for timePeriod = " + mapKey); }
 
-                switch (i) {
-                    /*
-                    case 0: {
-                        commons.buildLRC(dataFile, callBackFunction);
-                        break;
-                    }*/
-                    case 0: {
-                        commons.buildPercentageBandwidthMap(dataFile, callBackFunction);
-                        break;
-                    }
-                    case 1: {
-                        commons.buildBollingerBandsMap(dataFile, callBackFunction);
-                        break;
-                    }
-                    case 2: {
-                        commons.buildBollingerChannelsArray(dataFile, callBackFunction);
-                        break;
-                    }
-                    case 3: {
-                        commons.buildBollingerSubChannelsArray(dataFile, callBackFunction);
-                        break;
-                    }
-                    case 4: {
-                        commons.buildCandles(dataFile, callBackFunction);
-                        break;
+                if (dataFiles) {
+                    for (let i = 0; i < dataDependencies.config.length; i++) {
+
+                        let dependency = dataDependencies.config[i];
+                        dataFile = dataFiles[i];
+
+                        switch (i) {
+                            case 0: {
+                                commons.buildPercentageBandwidthArray(dataFile, mapKey, callBackFunction);
+                                break;
+                            }
+                            case 1: {
+                                commons.buildBollingerBandsArray(dataFile, mapKey, callBackFunction);
+                                break;
+                            }
+                            case 2: {
+                                commons.buildBollingerChannelsArray(dataFile, mapKey, callBackFunction);
+                                break;
+                            }
+                            case 3: {
+                                commons.buildBollingerSubChannelsArray(dataFile, mapKey, callBackFunction);
+                                break;
+                            }
+                            case 4: {
+                                commons.buildCandles(dataFile, mapKey, callBackFunction);
+                                break;
+                            }
+                        }
                     }
                 }
             }
 
             commons.runSimulation(
                 timePeriod,
+                timePeriodLabel,
                 currentDay,
                 startDate,
                 endDate,
@@ -159,7 +163,7 @@
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                    let filePath = filePathRoot + "/Output/" + EXECUTION_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+                    let filePath = filePathRoot + "/Output/" + EXECUTION_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timePeriodLabel + "/" + dateForPath;
                     filePath += '/' + fileName
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
@@ -274,7 +278,7 @@
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                    let filePath = filePathRoot + "/Output/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + outputPeriodLabel;
+                    let filePath = filePathRoot + "/Output/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timePeriodLabel;
                     filePath += '/' + fileName
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
@@ -381,7 +385,7 @@
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                    let filePath = filePathRoot + "/Output/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+                    let filePath = filePathRoot + "/Output/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timePeriodLabel + "/" + dateForPath;
                     filePath += '/' + fileName
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
@@ -469,7 +473,7 @@
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                    let filePath = filePathRoot + "/Output/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+                    let filePath = filePathRoot + "/Output/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timePeriodLabel + "/" + dateForPath;
                     filePath += '/' + fileName
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
@@ -546,7 +550,7 @@
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                    let filePath = filePathRoot + "/Output/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+                    let filePath = filePathRoot + "/Output/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timePeriodLabel + "/" + dateForPath;
                     filePath += '/' + fileName
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
@@ -626,7 +630,7 @@
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                    let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + outputPeriodLabel + "/" + dateForPath;
+                    let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timePeriodLabel + "/" + dateForPath;
                     filePath += '/' + fileName
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);

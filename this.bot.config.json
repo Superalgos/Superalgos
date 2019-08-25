@@ -313,7 +313,7 @@
             "major": 1,
             "minor": 0
           },
-          "process": "Multi-Period-Daily",
+          "process": "Multi-Period",
           "dataSetVersion": "dataSet.V1"
         },
         {

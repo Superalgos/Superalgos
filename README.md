@@ -180,7 +180,7 @@ That's it! You are up and running!
 > * The date of the release tells you how many days you are behind with the data set you just downloaded.
 > * The speed and processing power of your machine will make a difference too.
 > * The number of trades per day at the exchange determine the volume of data the app needs to retrieve and process.
-> * The number of trades the exchange returns per each request determines the size of the pipeline the exchanges allows API users to use.<br/><br/>
+> * The number of trades the exchange returns per each request determines the size of the pipeline the exchanges allows API users to use.
 > In our experience, it may take between 10 to 20 minutes per day worth of Poloniex data to be processed.
 
 # Overview

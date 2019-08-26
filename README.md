@@ -142,7 +142,7 @@ The following recommendations may make your life easier using this pre-release i
 
 **1. Download the multi-part ZIP file**:
 
-Go to [releases](https://github.com/Superalgos/DesktopApp/releases), find the latest release and download all of the multi-part files with a ZIP extension.
+Go to the [latest release](https://github.com/Superalgos/DesktopApp/releases/tag/v.0.2.0-alpha) and download all of the multi-part files with a ZIP extension.
 
 **2. Extract the ZIP files**: 
 
@@ -175,6 +175,13 @@ Drag one of the sample _workspaces_ in the ```/Quick-Start-Examples``` folder an
 Click the RESTART SIMULATION button on the right-hand side of the horizontal turquoise bar. This puts all indicator bots to run. The ZIP files you downloaded contain data files up to a certain point in time. You will need to allow some time for bots to catch up with building candles and the rest of indicators up to the present time. After a few minutes, refresh the candles layers as explained in the [Layers Panel](#layers-panel) section.
 
 That's it! You are up and running!
+
+> **NOTES ON MARKET DATA AND WAITING TIME FOR THE FIRST RUN**: The first simulation will not show on screen until the bots processing exchange data and building indicators datasets are up to date. The time it will take for these processes to complete the job depends on a number of things:
+> * The date of the release tells you how many days you are behind with the data set you just downloaded.
+> * The speed and processing power of your machine will make a difference too.
+> * The number of trades per day at the exchange determine the volume of data the app needs to retrieve and process.
+> * The number of trades the exchange returns per each request determines the size of the pipeline the exchanges allows API users to use.
+> In our experience, it may take between 10 to 20 minutes per day of data to be processed.
 
 # Overview
 

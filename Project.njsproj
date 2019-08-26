@@ -28,8 +28,6 @@
     <Content Include="this.bot.config.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Multi-Period-Daily\" />
-    <Folder Include="Multi-Period-Market\" />
     <Folder Include="bin" />
     <Folder Include="logs" />
     <Folder Include="logs\AA Masters" />
@@ -44,8 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commons.js" />
-    <Compile Include="Multi-Period-Daily\User.Bot.js" />
-    <Compile Include="Multi-Period-Market\User.Bot.js" />
     <Compile Include="Multi-Period\User.Bot.js">
       <SubType>Code</SubType>
     </Compile>

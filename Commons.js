@@ -43,9 +43,12 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
 
-            let processingDailyFiles = (currentDay !== undefined)
+            if (timePeriod > global.dailyFilePeriods[0][0]) {
+                processingDailyFiles = false
+            } else {
+                processingDailyFiles = true
+            }
 
-            let executionArray = [];
             let recordsArray = [];
             let conditionsArray = [];
             let strategiesArray = [];
@@ -227,7 +230,10 @@
 
             /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need these variables. */
 
-            let lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
+            let lastInstantOfTheDay = 0
+            if (currentDay) {
+                lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
+            }
 
             /*
             The following counters need to survive multiple executions of the similator and keep themselves reliable.
@@ -243,7 +249,7 @@
                not adding to the counters duplicate info when processing the day before candles.
 
             To overcome these challenges we record the values of the counters and variables on the interExecutionMemory only when
-            the day is complete and if we have a currentDay. That menas that for Market Files we will never use
+            the day is complete and if we have a current Day. That menas that for Market Files we will never use
             interExecutionMemory.
             */
 
@@ -458,14 +464,16 @@
                     endRate: interExecutionMemory.currentTrade.endRate
                 }
 
-                if (currentDay.valueOf() >= startDate.valueOf() + ONE_DAY_IN_MILISECONDS) { // Only after the first day we start grabbing the balance from this memory.
+                if (currentDay) {
+                    if (currentDay.valueOf() >= startDate.valueOf() + ONE_DAY_IN_MILISECONDS) { // Only after the first day we start grabbing the balance from this memory.
 
-                    balanceAssetA = interExecutionMemory.balanceAssetA;
-                    balanceAssetB = interExecutionMemory.balanceAssetB;
+                        balanceAssetA = interExecutionMemory.balanceAssetA;
+                        balanceAssetB = interExecutionMemory.balanceAssetB;
 
-                    yesterday.balanceAssetA = balanceAssetA;
-                    yesterday.balanceAssetB = balanceAssetB;
+                        yesterday.balanceAssetA = balanceAssetA;
+                        yesterday.balanceAssetB = balanceAssetB;
 
+                    }
                 }
 
                 lastTradeProfitLoss = interExecutionMemory.lastTradeProfitLoss;
@@ -553,7 +561,17 @@
 
             function initializeLoop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> initializeLoop -> Entering function."); }
-                i = 0
+
+                /* Estimate Initial Candle */
+
+                let firstEnd = candles[0].end
+                let targetEnd = initialDate.valueOf()
+                let diff = targetEnd - firstEnd
+                let amount = diff / timePeriod
+
+                i = Math.trunc(amount)
+                if (i < 0) { i = 0 }
+
                 loop()
             }
 
@@ -570,18 +588,39 @@
 
                 let chart = {}
 
-                for (let j = 0; j < global.dailyFilePeriods.length; j++) {
+                if (processingDailyFiles) {
+                    for (let j = 0; j < global.dailyFilePeriods.length; j++) {
 
-                    let mapKey = dailyFilePeriods[j][1]
-                    chart[mapKey] = {}
-                    chart[mapKey].candle = getElement(candlesAt[mapKey], candle); 
-                    chart[mapKey].percentageBandwidth = getElement(percentageBandwidthAt[mapKey], candle);
-                    chart[mapKey].bollingerBand = getElement(bollingerBandsAt[mapKey], candle); 
-                    chart[mapKey].bollingerChannel = getElement(bollingerChannelsAt[mapKey], candle); 
-                    chart[mapKey].bollingerSubChannel = getElement(bollingerSubChannelsAt[mapKey], candle); 
+                        let mapKey = dailyFilePeriods[j][1]
+                        let propertyName = 'at' + mapKey.replace('-', '');
+
+                        chart[propertyName] = {}
+                        chart[propertyName].candle = getElement(candlesAt[mapKey], candle);
+                        chart[propertyName].percentageBandwidth = getElement(percentageBandwidthAt[mapKey], candle);
+                        chart[propertyName].bollingerBand = getElement(bollingerBandsAt[mapKey], candle);
+                        chart[propertyName].bollingerChannel = getElement(bollingerChannelsAt[mapKey], candle);
+                        chart[propertyName].bollingerSubChannel = getElement(bollingerSubChannelsAt[mapKey], candle);
+                    }
                 }
 
-                let positionedAtYesterday = (candle.end < currentDay.valueOf())
+                for (let j = 0; j < global.marketFilesPeriods.length; j++) {
+
+                    let mapKey = marketFilesPeriods[j][1]
+                    let propertyName = 'at' + mapKey.replace('-', '');
+
+                    chart[propertyName] = {}
+                    chart[propertyName].candle = getElement(candlesAt[mapKey], candle);
+                    chart[propertyName].percentageBandwidth = getElement(percentageBandwidthAt[mapKey], candle);
+                    chart[propertyName].bollingerBand = getElement(bollingerBandsAt[mapKey], candle);
+                    chart[propertyName].bollingerChannel = getElement(bollingerChannelsAt[mapKey], candle);
+                    chart[propertyName].bollingerSubChannel = getElement(bollingerSubChannelsAt[mapKey], candle);
+                }
+
+                /* While we are processing the previous day. */
+                let positionedAtYesterday = false
+                if (currentDay) {
+                    positionedAtYesterday = (candle.end < currentDay.valueOf())
+                }
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Candle Begin @ " + (new Date(candle.begin)).toLocaleString()) }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Candle End @ " + (new Date(candle.end)).toLocaleString()) }
@@ -1913,14 +1952,16 @@
                         }
 
                         /* We are not going to place orders based on outdated information. The next filter prevents firing orders when backtesting. */
-                        let today = new Date(Math.trunc((new Date().valueOf()) / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
-                        let processDay = new Date(Math.trunc(currentDay.valueOf() / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
-                        if (today.valueOf() !== processDay.valueOf()) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because the current candle belongs to the previous day and that is considered simulation and not live trading."); }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> today = " + today); }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> processDay = " + processDay); }
-                            takePositionAtSimulation()
-                            return;
+                        if (currentDay) {
+                            let today = new Date(Math.trunc((new Date().valueOf()) / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
+                            let processDay = new Date(Math.trunc(currentDay.valueOf() / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
+                            if (today.valueOf() !== processDay.valueOf()) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because the current candle belongs to the previous day and that is considered simulation and not live trading."); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> today = " + today); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> processDay = " + processDay); }
+                                takePositionAtSimulation()
+                                return;
+                            }
                         }
 
                         let openPositionRate
@@ -2552,7 +2593,7 @@
 
                 /*
                 Before returning we need to see if we have to record some of our counters at the interExecutionMemory.
-                To do that, the condition to be met is that this execution must include all candles of the currentDay.
+                To do that, the condition to be met is that this execution must include all candles of the current day.
                 */
 
                 if (processingDailyFiles) {
@@ -2616,7 +2657,7 @@
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> callback -> recordsArray.length = " + recordsArray.length); }
 
-                callback(tradingSystem, executionArray, recordsArray, conditionsArray, strategiesArray, tradesArray, lastObjectsArray);
+                callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, tradesArray, lastObjectsArray);
             }
 
 

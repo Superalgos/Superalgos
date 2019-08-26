@@ -12,251 +12,6 @@
   "dataSetVersion": "dataSet.V1",
   "processes": [
     {
-      "name": "Multi-Period-Market",
-      "description": "Produces a single file for each time period covering all the market.",
-      "normalWaitTime": 60000,
-      "retryWaitTime": 10000,
-      "sleepWaitTime": 3600000,
-      "comaWaitTime": 86400000,
-      "framework": {
-        "name": "Multi-Period-Market",
-        "startDate": {
-          "fixedDate": "2018-07-01"
-        },
-        "endDate": {}
-      },
-      "statusDependencies": [
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAJason",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Multi-Period-Market",
-          "dataSetVersion": "dataSet.V1"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAJason",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Context",
-          "dataSetVersion": "dataSet.V1"
-        }
-      ],
-      "dataDependencies": [
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAChris",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Percentage-Bandwidth",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Market"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAChris",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Bollinger-Bands",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Market"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAPaula",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Bollinger-Standard-Channels",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Market"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAPaula",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Bollinger-Standard-Sub-Channels",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Market"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAOlivia",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Candles",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Market"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AABruce",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Candles",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "One-Min"
-        }
-      ]
-    },
-    {
-      "name": "Multi-Period-Daily",
-      "description": "Produces a Daily File at each time period.",
-      "normalWaitTime": 60000,
-      "retryWaitTime": 10000,
-      "sleepWaitTime": 3600000,
-      "comaWaitTime": 86400000,
-      "framework": {
-        "name": "Multi-Period-Daily",
-        "validPeriods": [
-          "45-min",
-          "40-min",
-          "30-min",
-          "20-min",
-          "15-min",
-          "10-min",
-          "05-min",
-          "04-min",
-          "03-min",
-          "02-min",
-          "01-min"
-        ],
-        "startDate": {
-          "fixedDate": "2018-07-01"
-        },
-        "endDate": {
-          "takeItFromStatusDependency": 1
-        }
-      },
-      "statusDependencies": [
-        {
-          "devTeam": "AAMasters",
-          "bot": "AACharly",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Historic-Trades",
-          "dataSetVersion": "dataSet.V1"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAOlivia",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Multi-Period-Daily",
-          "dataSetVersion": "dataSet.V1"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAJason",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Multi-Period-Daily",
-          "dataSetVersion": "dataSet.V1"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAJason",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Context",
-          "dataSetVersion": "dataSet.V1"
-        }
-      ],
-      "dataDependencies": [
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAChris",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Percentage-Bandwidth",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Daily"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAChris",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Bollinger-Bands",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Daily"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAPaula",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Bollinger-Standard-Channels",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Daily"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAPaula",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Bollinger-Standard-Sub-Channels",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Daily"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAOlivia",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Candles",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Daily"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AABruce",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Candles",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "One-Min"
-        }
-      ]
-    },
-    {
       "name": "Multi-Period",
       "description": "Produces a Daily or Market files depending on the current timePeriod.",
       "normalWaitTime": 60000,
@@ -328,6 +83,61 @@
         }
       ],
       "dataDependencies": [
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAChris",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Percentage-Bandwidth",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAChris",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Bands",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAPaula",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Standard-Channels",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAPaula",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Standard-Sub-Channels",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAOlivia",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Candles",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
         {
           "devTeam": "AAMasters",
           "bot": "AAChris",

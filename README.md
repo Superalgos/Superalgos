@@ -176,11 +176,11 @@ Click the RESTART SIMULATION button on the right-hand side of the horizontal tur
 
 That's it! You are up and running!
 
-> **NOTES ON MARKET DATA AND WAITING TIME FOR THE FIRST RUN**: The first simulation will not show on screen until the bots processing exchange data and building indicators datasets are up to date. In our experience, it may take between 10 to 20 minutes per day worth of Poloniex data to be processed. The time it will take for these processes to complete the job depends on a number of things:
+> **NOTES ON MARKET DATA AND WAITING-TIME FOR THE FIRST RUN**: The first simulation will not show on screen until the bots processing exchange data and building indicators datasets are up to date. In our experience, it may take between 10 to 20 minutes per day worth of Poloniex data to be processed. The time it will take for these processes to complete the job depends on several things:
 > * The date of the release tells you how many days you are behind with the data set you just downloaded.
 > * The speed and processing power of your machine will make a difference too.
-> * The number of trades per day at the exchange determine the volume of data the app needs to retrieve and process.
-> * The number of trades the exchange returns per each request determines the size of the pipeline the exchanges allows API users to use.
+> * The average number of trades per day at the exchange determines the volume of data the app needs to retrieve and process.
+> * The number of trades the exchange returns per each request determines the size of the pipeline the exchanges allow API users to use.
 
 # Overview
 

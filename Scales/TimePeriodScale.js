@@ -175,12 +175,12 @@ to be visible at the top of the viewPort. */
 
     point1 = {
       x: 0,
-      y: frame.height - frame.height / 10
+      y: frame.height - frame.height * 2 / 100
     }
 
     point2 = {
       x: frame.width,
-      y: frame.height - frame.height / 10
+      y: frame.height - frame.height * 2 / 100
     }
 
     point3 = {

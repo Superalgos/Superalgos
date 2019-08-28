@@ -204,6 +204,10 @@ function newViewPort () {
   function applyZoom (amount) {
        // console.log("applyZoom amount: " + amount);
 
+       /* We adjust the sensitivity for Mac Users */
+    let isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
+    if (isMac) { amount = amount / 5 }
+
     if (amount > 0) {
       if (thisObject.zoomTargetLevel > -5) {
         amount = amount * 2

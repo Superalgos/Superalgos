@@ -694,7 +694,7 @@ For example:
 
 The above statement compares the current 5 minutes candle to the previous 5 minutes candle, no matter what time period you are simulating in.
 
-| Time Period | Sintax |
+| Time Period | Syntax |
 | :---: | :---: |
 | 1 min | ```chart.at01min.``` |
 | 2 min | ```chart.at02min.``` |
@@ -707,7 +707,7 @@ The above statement compares the current 5 minutes candle to the previous 5 minu
 | 30 min | ```chart.at30min.``` |
 | 40 min | ```chart.at40min.``` |
 | 45 min | ```chart.at45min.``` |
-| 1 hs | ```chart.at01hs.``` |
+| 1 h | ```chart.at01hs.``` |
 | 2 hs | ```chart.at02hs.``` |
 | 3 hs | ```chart.at03hs.``` |
 | 4 hs | ```chart.at04hs.``` |
@@ -716,6 +716,7 @@ The above statement compares the current 5 minutes candle to the previous 5 minu
 | 12 hs | ```chart.at12hs.``` |
 | 24 hs | ```chart.at24hs.``` |
 
+> **TEMPORARY LIMITATION**: When you are simulating and live-trading on time periods in the order of minutes (below 1 hour), you may access any other time period variables, as explained above. However, when you are simulating or live-trading in time periods of 1 hour and above, you may only access data of time periods of 1 hour and above.
 
 ## Simulation Processes
 

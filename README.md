@@ -58,6 +58,7 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
   * [Slippage](#slippage)
   * [Datetime Range](#datetime-range)
   * [Time Period](#time-period)
+    * [Contitions and Formulas with Data from Different Time Periods](#contitions-and-formulas-with-data-from-different-time-periods)
   * [Simulation Processes](#simulation-processes)
   * [Simulation Layers](#simulation-layers)
     * [Trading Simulation](#trading-simulation)

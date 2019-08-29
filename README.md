@@ -73,6 +73,7 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
   * [Poloniex API Keys](#poloniex-api-keys)
 * [Advanced Use](#advanced-use)
   * [Working with Multiple Definitions](#working-with-multiple-definitions)
+  * [Working with Multiple Instances of the App](#working-with-multiple-instances-of-the-app)
 * [Troubleshooting](#troubleshooting)
   * [On-screen Errors and Warnings](#on-screen-errors-and-warnings)
   * [Market Data / Indicators Seem to be Outdated](#market-data--indicators-seem-to-be-outdated)

@@ -14,7 +14,10 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
 
 * [Getting Started](#getting-started)
   * [Before You Begin](#before-you-begin)
-  * [Installing / Running the App](#installing--running-the-app)
+  * [The Quick Version for Experienced PC Operators](#the-quick-version-for-experienced-pc-operators)
+  * [The Long Version for Regular Folks on Windows and Mac](#the-long-version-for-regular-folks-on-windows-and-mac)
+    * [Downloads](#downloads/)
+    * [Running the App](#running-the-app)
 * [Overview](#overview)
 * [Charts Interface](#charts-interface)
   * [Layers Panel](#layers-panel)

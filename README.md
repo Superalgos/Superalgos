@@ -725,7 +725,30 @@ For example:
 
 ```chart.at05min.candle.close > chart.at05min.candle.previous.close```
 
-The above statement compares the current 5 minutes candle to the previous 5 minutes candle, no matter what time period you are running the simulation in.
+The above statement compares the current 5 minutes candle to the previous 5 minutes candle, no matter what time period you are simulating in.
+
+| Time Period | Sintax |
+| :---: | :---: |
+| 1 min | ```chart.at01min.``` |
+| 2 min | ```chart.at02min.``` |
+| 3 min | ```chart.at03min.``` |
+| 4 min | ```chart.at04min.``` |
+| 5 min | ```chart.at05min.``` |
+| 10 min | ```chart.at10min.``` |
+| 15 min | ```chart.at15min.``` |
+| 20 min | ```chart.at20min.``` |
+| 30 min | ```chart.at30min.``` |
+| 40 min | ```chart.at40min.``` |
+| 45 min | ```chart.at45min.``` |
+| 1 hs | ```chart.at01hs.``` |
+| 2 hs | ```chart.at02hs.``` |
+| 3 hs | ```chart.at03hs.``` |
+| 4 hs | ```chart.at04hs.``` |
+| 6 hs | ```chart.at06hs.``` |
+| 8 hs | ```chart.at08hs.``` |
+| 12 hs | ```chart.at12hs.``` |
+| 24 hs | ```chart.at24hs.``` |
+
 
 ## Simulation Processes
 

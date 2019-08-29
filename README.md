@@ -686,7 +686,7 @@ There are two ways to define the datetime in which a simulation starts. However,
 
 ## Time Period
 
-Simulations run in the time period active at the moment of clicking the RESTART BOTS button. Only one time period may be active at any point in time: if you run a simulation in a different time period than a previous simulation, the previous one stops—however,  the previous simulation data is conserved and may be accessed again by going back to the corresponding time period.
+Simulations run in the time period active at the moment of clicking the RESTART SIMULATION button. Only one time period may be active at any point in time: if you run a simulation in a different time period than a previous simulation, the previous one stops—however,  the previous simulation data is conserved and may be accessed again by going back to the corresponding time period.
 
 
 ### Contitions and Formulas with Data from Different Time Periods
@@ -933,13 +933,13 @@ Bear in mind that when the split tab is fully closed, errors will no longer show
 
 ## Market Data / Indicators Seem to be Outdated
 
-If you are running the app for the first time or you stopped running the app for some time, data will not be up to date. Every time you start the app, it will take some time for data to catch up with the present time. If you wish to make sure your bots are running, simply click RESTART BOTS, check if the processes are running in your console and eventually, refresh the concerned layers.
+If you are running the app for the first time or you stopped running the app for some time, data will not be up to date. Every time you start the app, it will take some time for data to catch up with the present time. If you wish to make sure your bots are running, simply click RESTART SIMULATION, check if the processes are running in your console and eventually, refresh the concerned layers.
 
 ![Troubleshooting-Refresh-Layers](https://user-images.githubusercontent.com/13994516/63114415-18494c80-bf95-11e9-8755-0fb2cb293ea0.gif)
 
 ## New Simulation Doesn't Seem to Match My New Settings
 
-When you are working with a strategy, changing conditions, formulas or any other parameters, you will likely be re-running simulations (RESTARTING BOTS) so that the bots take on the new settings. Every time you RESTART BOTS, the system waits for a little while and automatically refreshes the Simulation Layers. However, it may happen that the auto-refresh happens before the new data is made available by the bots, so you may wish to refresh the Simulation Layers manually if that seems to be the case.
+When you are working with a strategy, changing conditions, formulas or any other parameters, you will likely be re-running simulations (RESTARTING BOTS) so that the bots take on the new settings. Every time you RESTART SIMULATION, the system waits for a little while and automatically refreshes the Simulation Layers. However, it may happen that the auto-refresh happens before the new data is made available by the bots, so you may wish to refresh the Simulation Layers manually if that seems to be the case.
 
 # Reporting Bugs
 
@@ -967,7 +967,7 @@ These Node.js components provide the infrastructure required to run different ki
 
 * **Simulation and Trading Bots**: read a Superalgos Protocol file containing the details of trading strategies and interact with the Superalgos Desktop App to run them as simulations (using a simulation plotter) or to trade live.
 
-When you click the RESTART BOTS button, several bots are executed in a specific order, taking into account dependencies, as defined in the ```CloneExecutor\sequence.json``` file. These processes run in a loop, retrieving data from the exchange, producing indicators, running simulations and trading live—online.
+When you click the RESTART SIMULATION button, several bots are executed in a specific order, taking into account dependencies, as defined in the ```CloneExecutor\sequence.json``` file. These processes run in a loop, retrieving data from the exchange, producing indicators, running simulations and trading live—online.
 
 ## How Algorithms Work
 
@@ -1094,5 +1094,3 @@ Log files contain detailed information about each execution of the bot. As such,
 Each folder may contain more than one file. Lighter files tend to include data about the initialization stage, while heavier files usually feature the data corresponding to the actual work the bot does.
 
 ![Technical-Logs](https://user-images.githubusercontent.com/13994516/63350228-4f38ad00-c35d-11e9-8074-bdd73ac68bd8.gif)
-
-

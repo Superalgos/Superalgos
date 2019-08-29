@@ -51,6 +51,7 @@
                     return;
                 }
                 USER_BOT_MODULE = {}
+
                 USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
 
                 filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
@@ -66,6 +67,7 @@
                         return;
                     }
                     COMMONS_MODULE = {}
+
                     COMMONS_MODULE.newCommons = eval(text); // TODO This needs to be changed function
 
                     callBackFunction(global.DEFAULT_OK_RESPONSE);

@@ -687,13 +687,13 @@ When building your conditions and formulas, you may want to include analysis con
 
 The [Available Variables](#available-variables) explained above, written as described, always refer to the time period on which the simulation or live-trading is running. To refer to other time periods, you need to use a mechanism built-in the app, implementing the following syntax:
 
-```chart.at``` + time period + . + your variable
+```chart.at + time period + . + your variable```
 
 For example:
 
-```chart.at05min.candle.close > chart.at05min.candle.previous.close```
+```chart.at04hs.candle.close > chart.at04hs.candle.previous.close```
 
-The above statement compares the current 5 minutes candle to the previous 5 minutes candle, no matter what time period you are simulating in.
+The above statement compares the current 4 hours candle to the previous 4 hours candle, no matter what time period you are simulating in.
 
 | Time Period | Syntax |
 | :---: | :---: |

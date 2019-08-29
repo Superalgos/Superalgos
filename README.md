@@ -910,7 +910,11 @@ You may also decide that you wish to have a second installation of the app, so t
 
 2. In the copy, go to the ```WebServer``` folder and open ```.env``` file with Notepad or similar text editor. Find the VIRTUAL_PORT parameter and replace the existing number with a number between 10000 and 50000. Save and close the file.
 
-3. Now, also in the ```Webserver``` folder, open ```index.html``` and find line the following line: ```urlPrefix: 'http://localhost:1337/'```. Replace 1337 with the number you set in the `.env``` file.
+3. Now, also in the ```Webserver``` folder, open ```index.html``` and find the following line:
+
+```urlPrefix: 'http://localhost:1337/'```
+
+Replace 1337 with the number you set in the `.env``` file.
 
 That's it. You now have a second environment that you can run in parallel to the first one, each with its data set, programs, and logs.
 

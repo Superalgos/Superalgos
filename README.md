@@ -724,7 +724,7 @@ The above statement compares the current 4 hours candle to the previous 4 hours 
 | 12 hs | ```chart.at12hs.``` |
 | 24 hs | ```chart.at24hs.``` |
 
-> **TEMPORARY LIMITATION**: When you are simulating and live-trading on time periods in the order of minutes (below 1 hour), you may access any other time period variables, as explained above. However, when you are simulating or live-trading in time periods of 1 hour and above, you may only access data of time periods of 1 hour and above.
+> **TECHNICAL LIMITATION**: When you are simulating and live-trading on time periods in the order of minutes (below 1 hour), you may access any other time period variables, as explained above. However, when you are simulating or live-trading in time periods of 1 hour and above, you may only access data of time periods of 1 hour and above.
 
 ## Simulation Processes
 
@@ -895,9 +895,9 @@ Copy the *secret* to use it in the Superalgos Desktop App. Once you leave this s
 
 ## Working with Multiple Definitions
 
-For the time being, the app does not allow having multiple trading systems under your Definition, however, you may have more than one Definition in your Workspace. This may also be usefull is you wish to use different API keys for different strategies.
+For the time being, the app does not allow having multiple trading systems under your Definition, however, you may have more than one Definition in your Workspace. This may also be useful is you wish to use different API keys for different strategies.
 
-To add a Definition, drag and drop a Definition file, and select _Run_ in the menu, setting the execution focus on the new Definition.
+To add a Definition, drag and drop a Definition file, and select _Run_ in the menu, setting the execution focus on the new Definition, as indicated by the white ring surrounding the Definition element.
 
 ![Advanced-Multiple-Definitions](https://user-images.githubusercontent.com/13994516/63945104-14c4c380-ca73-11e9-940e-f3b3412e4bc6.gif)
 

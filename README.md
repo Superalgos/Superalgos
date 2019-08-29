@@ -8,7 +8,7 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
 
 ## Setting the Right Expectations
 
-Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-superalgos-desktop-app.shtml#expectations) page to understand who this app is directed at, as well as what what you can expect from the app in terms of user experience, current features and limitations.
+Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-superalgos-desktop-app.shtml#expectations) page to understand who this app is directed at, as well as what you can expect from the app in terms of user experience, current features and limitations.
 
 # Table of Contents
 
@@ -564,7 +564,7 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 ### Internal
 
-**strategyStage:** No Stage | Trigger Stage | Open Stage | Manage Stage | Close Stage.
+**strategyStage:** Possible values are ```"No Stage"```, ```"Trigger Stage"```, ```"Open Stage"```, ```"Manage Stage"```, and ```"Close Stage"```.
 
 **stopLoss:** The value of your Stop in the active phase.
 
@@ -595,6 +595,11 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 **hits:** The number of trades resulting in profits in the current execution.
 
 **periods:** The number of candles evaluated in the current execution.
+
+**positionPeriods:** The number of candles in the current open position.
+
+**positionDays:** The number of days in the current open position.
+
 
 # Simulation
 
@@ -883,6 +888,16 @@ Once you create your key, the system will present it as follows...
 **Make sure you DO NOT enable withdrawals nor IP access restrictions.**
 
 Copy the *secret* to use it in the Superalgos Desktop App. Once you leave this screen, recovering your secret requires an email validation process.
+
+# Advanced Use
+
+## Working with Multiple Definitions
+
+For the time being, the app does not allow having multiple trading systems under your Definition, however, you may have more than one Definition in your Workspace. This may also be usefull is you wish to use different API keys for different strategies.
+
+To add a Definition, drag and drop a Definition file, and select _Run_ in the menu, setting the execution focus on the new Definition.
+
+![Advanced-Multiple-Definitions](https://user-images.githubusercontent.com/13994516/63945104-14c4c380-ca73-11e9-940e-f3b3412e4bc6.gif)
 
 # Troubleshooting
 

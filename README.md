@@ -71,6 +71,8 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
   * [Live Trading History Layer](#live-trading-history-layer)
   * [Execution Limitations](#execution-limitations)
   * [Poloniex API Keys](#poloniex-api-keys)
+* [Advanced Use](#advanced-use)
+  * [Working with Multiple Definitions](#working-with-multiple-definitions)
 * [Troubleshooting](#troubleshooting)
   * [On-screen Errors and Warnings](#on-screen-errors-and-warnings)
   * [Market Data / Indicators Seem to be Outdated](#market-data--indicators-seem-to-be-outdated)

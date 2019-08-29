@@ -527,9 +527,9 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 **bollingerBand.deviation:** bollingerBand.standardDeviation * 2
 
 **bollingerBand.direction:**  
-* ```'Down'```: bollingerBand.previous.movingAverage > bollingerBand.movingAverage 
-* ```'Up'```: bollingerBand.previous.movingAverage < bollingerBand.movingAverage
-* ```'Side'```: bollingerBand.previous.movingAverage = bollingerBand.movingAverage)
+* ```"Down"```: bollingerBand.previous.movingAverage > bollingerBand.movingAverage 
+* ```"Up"```: bollingerBand.previous.movingAverage < bollingerBand.movingAverage
+* ```"Side"```: bollingerBand.previous.movingAverage = bollingerBand.movingAverage)
 
 **bollingerBand.previous:** Use _.previous_ like with candles (see _candle.previous_ above).
 
@@ -544,21 +544,21 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 **percentageBandwidth.bandwidth:** The current bandwidth.
 
 **percentageBandwidth.direction:** 
-* ```'Down'```: percentageBandwidth.previous.movingAverage > percentageBandwidth.movingAverage
-* ```'Up'```: percentageBandwidth.previous.movingAverage < percentageBandwidth.movingAverage
-* ```'Side'```: percentageBandwidth.previous.movingAverage = percentageBandwidth.movingAverage)
+* ```"Down"```: percentageBandwidth.previous.movingAverage > percentageBandwidth.movingAverage
+* ```"Up'```: percentageBandwidth.previous.movingAverage < percentageBandwidth.movingAverage
+* ```"Side"```: percentageBandwidth.previous.movingAverage = percentageBandwidth.movingAverage)
 
 **percentageBandwidth.previous:** Use the _.previous_ property like with candles (see _candle.previous_ above).
 
 ### Bollinger Channels
 
-**bollingerChannel.direction:** Possible values are ```'Down'```, ```'Up'```, and ```'Side'```.
+**bollingerChannel.direction:** Possible values are ```"Down"```, ```"Up"```, and ```"Side"```.
 
 **bollingerChannel.period:** The number of periods the channel spans at the moment the variable is being read. For instance, if a channel spans 10 candles and the variable is checked on the fourth candle, then _bollingerChannel.period_ = 4. Put in other words, it is the current span of the channel.
 
 ### Bollinger SubChannels
 
-**bollingerSubChannel.direction:** Possible values are ```'Down'```, ```'Up'```, and ```'Side'```.
+**bollingerSubChannel.direction:** Possible values are ```"Down"```, ```"Up"```, and ```"Side"```.
 
 **bollingerSubChannel.period:** The number of periods the sub channel spans at the moment the variable is being read. For instance, if a sub channel spans 10 candles and the variable is checked on the fourth candle, then _bollingerChannel.period_ = 4. Put in other words, it is the current span of the subchannel.
 

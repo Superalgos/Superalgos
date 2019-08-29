@@ -548,6 +548,8 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 **candle.previous:** Refers to the previous candle. You may use _candle.previous_ to fetch any of the variables of the previous candle (i.e.: _candle.previous.close_). You may also use as many _.previous_ modifiers as required to fetch values of more than one period behind the current one (i.e.: _candle.previous.previous.max_ returns the maximum value of two candles before the current one).
 
+> Previous Property: The _.previous_ property is a property common to all indicators. You may use the property on each of the indicators in a similar way.
+
 ### Bollinger Band
 
 **bollingerBand.movingAverage:** The value of the current moving average (20 periods).
@@ -557,9 +559,9 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 **bollingerBand.deviation:** bollingerBand.standardDeviation * 2
 
 **bollingerBand.direction:**  
-* Down: bollingerBand.previous.movingAverage > bollingerBand.movingAverage 
-* Up: bollingerBand.previous.movingAverage < bollingerBand.movingAverage
-* Side: bollingerBand.previous.movingAverage = bollingerBand.movingAverage)
+* ```'Down'```: bollingerBand.previous.movingAverage > bollingerBand.movingAverage 
+* ```'Up'```: bollingerBand.previous.movingAverage < bollingerBand.movingAverage
+* ```'Side'```: bollingerBand.previous.movingAverage = bollingerBand.movingAverage)
 
 **bollingerBand.previous:** Use _.previous_ like with candles (see _candle.previous_ above).
 
@@ -574,21 +576,21 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 **percentageBandwidth.bandwidth:** The current bandwidth.
 
 **percentageBandwidth.direction:** 
-* Down: percentageBandwidth.previous.movingAverage > percentageBandwidth.movingAverage
-* Up: percentageBandwidth.previous.movingAverage < percentageBandwidth.movingAverage
-* Side: percentageBandwidth.previous.movingAverage = percentageBandwidth.movingAverage)
+* ```'Down'```: percentageBandwidth.previous.movingAverage > percentageBandwidth.movingAverage
+* ```'Up'```: percentageBandwidth.previous.movingAverage < percentageBandwidth.movingAverage
+* ```'Side'```: percentageBandwidth.previous.movingAverage = percentageBandwidth.movingAverage)
 
-**percentageBandwidth.previous:** Use _.previous_ like with candles (see _candle.previous_ above).
+**percentageBandwidth.previous:** Use the _.previous_ property like with candles (see _candle.previous_ above).
 
 ### Bollinger Channels
 
-**bollingerChannel.direction (Down | Up | Side):** 
+**bollingerChannel.direction:** Possible values are ```'Down'```, ```'Up'```, and ```'Side'```.
 
 **bollingerChannel.period:** The number of periods the channel spans at the moment the variable is being read. For instance, if a channel spans 10 candles and the variable is checked on the fourth candle, then _bollingerChannel.period_ = 4. Put in other words, it is the current span of the channel.
 
 ### Bollinger SubChannels
 
-**bollingerSubChannel.direction (Down | Up | Side):** 
+**bollingerSubChannel.direction:** Possible values are ```'Down'```, ```'Up'```, and ```'Side'```.
 
 **bollingerSubChannel.period:** The number of periods the sub channel spans at the moment the variable is being read. For instance, if a sub channel spans 10 candles and the variable is checked on the fourth candle, then _bollingerChannel.period_ = 4. Put in other words, it is the current span of the subchannel.
 
@@ -709,6 +711,21 @@ There are two ways to define the datetime in which a simulation starts. However,
 ## Time Period
 
 Simulations run in the time period active at the moment of clicking the RESTART BOTS button. Only one time period may be active at any point in time: if you run a simulation in a different time period than a previous simulation, the previous one stops—however,  the previous simulation data is conserved and may be accessed again by going back to the corresponding time period.
+
+
+### Contitions and Formulas with Data from Different Time Periods
+
+When building your conditions and formulas, you may want to include analysis concerning a different time period than the one in which you intend to run your simulation and live-trading.
+
+The [Available Variables](#available-variables) explained above, written as described, always refer to the time period on which the simulation or live-trading is running. To refer to other time periods, you need to use a mechanism built-in the app, implementing the following syntax:
+
+```chart.at``` + time period + . + your variable
+
+For example:
+
+```chart.at05min.candle.close > chart.at05min.candle.previous.close```
+
+The above statement compares the current 5 minutes candle to the previous 5 minutes candle, no matter what time period you are running the simulation in.
 
 ## Simulation Processes
 

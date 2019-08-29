@@ -1,0 +1,1 @@
+nexe server.js -o MacOs-Superalgos-Desktop.app --target "mac-x64-10.16.0" --ico "./Images/favicon.ico"

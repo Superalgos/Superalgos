@@ -186,6 +186,8 @@ That's it! You are up and running!
 
 # Overview
 
+> Watch the [Superalgos Platform Quick Getting Started Guide video](https://www.youtube.com/watch?v=_apiM49udL0) for a quick intro. The current version of the app does not require a log in, so you may ignore that bit.
+
 The first time you run the app, you will see the following screen, split in half. The top half features the space used by the _Charting System_ and the bottom half features the _Designer_.
 
 Use the control in the center of the turquoise bar to pull the bar up and down in order to make more room to either application. 

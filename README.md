@@ -120,13 +120,13 @@ Right-click on the first multi-part ZIP file and extract / unpack the files. The
 
 **3. Run your web server and the app**: 
 
-Open your console / command line app and go to directory ```AAWEB``` (a folder in the root of the zip files you previously decompressed); assuming you are starting the console from the root directory of the app, the command to access AAWEB is:
+Open your console / command line app and go to directory ```WebServer``` (a folder in the root of the zip files you previously decompressed); assuming you are starting the console from the root directory of the app, the command to access WebServer is:
 
 ```
-cd AAWEB
+cd WebServer
 ```
 
-Once inside AAWeb, continue with this command:
+Once inside WebServer, continue with this command:
 
 ```
 node server.js
@@ -900,6 +900,18 @@ For the time being, the app does not allow having multiple trading systems under
 To add a Definition, drag and drop a Definition file, and select _Run_ in the menu, setting the execution focus on the new Definition, as indicated by the white ring surrounding the Definition element.
 
 ![Advanced-Multiple-Definitions](https://user-images.githubusercontent.com/13994516/63945104-14c4c380-ca73-11e9-940e-f3b3412e4bc6.gif)
+
+## Working with Multiple Instances of the App
+
+You may also decide that you wish to have a second installation of the app, so that you can keep tweaking Strategies and even running simulations while live-trading. You can do this following these steps:
+
+1. Make a copy of the complete Superalgos Desktop App folder, that is, the folder containing programs as well as data. You may name the second folder as you wish.
+
+2. In the copy, go to the ```WebServer``` folder and open ```.env``` file with Notepad or similar text editor. Find the VIRTUAL_PORT parameter and replace the existing number with a number between 10000 and 50000. Save and close the file.
+
+3. Now, also in the ```Webserver``` folder, open ```index.html``` and find line the following line: ```urlPrefix: 'http://localhost:1337/'```. Replace 1337 with the number you set in the `.env``` file.
+
+That's it. You now have a second environment that you can run in parallel to the first one, each with its data set, programs, and logs.
 
 # Troubleshooting
 

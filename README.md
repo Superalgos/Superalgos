@@ -6,42 +6,9 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
 
 ![Illustration](https://user-images.githubusercontent.com/13994516/63528460-4550ae80-c503-11e9-8db6-22995e0b9c16.gif)
 
-## Current Features
+## Setting the Right Expectations
 
-* You may create any number of Strategies by entering conditions and formulas via a web application. The set of Strategies constitute your Trading System.
-
-* Virtually no coding skills are required. You define conditions and formulas with simple statements... 
-(e.g. ```candle.close < bollingerBand.movingAverage```)
-
-* You may start with any of the Strategies shared at the [Telegram Community](https://t.me/superalgoscommunity), or from scratch.
-
-* You may run live simulations of your Strategies, both with historic and up-to-date data. All of the actions taken by each Strategy may be viewed in a graphical interface right over the charts, along with indicators and market data.
-
-* The Strategy simulation may be calculated and visualized in any of the available time periods (1, 2, 3, 4, 5, 10, 15, 20, 30, 40 and 45 minutes, as well as 1, 2, 3, 4, 6, 8, 12 and 24 hours)
-
-* You may visually debug and optimize your Strategies, navigating through every decision made by each Strategy in a visual setting, closely scrutinizing what conditions or formulas may be optimized. You may later go back and edit each Strategy accordingly. Once edited, you may save and recalculate the simulation (takes seconds to simulate).
-
-* You may share Strategies or even bits of Strategies with your friends, and participate in group efforts to improve the collective results.
-
-* Once you are happy with your Trading System, you may deploy it as a trading bot and trade live, right within the app, with a single click of a button.
-
-* You may run the app on your machine or a VPS (a server in the cloud). Installation is as simple as it may be: download a .zip file, decompress and run an executable file (.exe). The app will open in your browser.
-
-## Current Limitations
-
-* Only the latest version of Chrome is currently being tested.
-
-* The App is exchange-agnostic, but only Poloniex is enabled at the moment. You may create Strategies and use simulations without a Poloniex account, but will need an account to trade live. Other exchanges will follow later on.
-
-* We have enabled the BTC-USDT market only. Other markets will follow later on.
-
-* Very few indicators are available. At this point we have: candles, volumes, Bollinger Bands and Percentage Bollinger Bands. Other indicators will follow later on.
-
-* The user experience is basic. We expect to improve UX with your feedback over time.
-
-* The interface operation/navigation is designed mostly for mouse use. Keyboard and pads do not offer a comfortable experience yet.
-
-* There is no advanced control over the execution of orders *(e.g. no order fragmentation)*. All orders are market orders.
+Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-superalgos-desktop-app.shtml#expectations) page to understand who this app is directed at, as well as what what you can expect from the app in terms of user experience, current features and limitations.
 
 # Table of Contents
 

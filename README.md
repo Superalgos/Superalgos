@@ -205,8 +205,6 @@ If you have a version of the Superalgos Desktop App and wish to upgrade to a new
 
 **3.** Delete all folders within the Superalgos Desktop App folder **but the ```Data-Storage``` folder**. You do not need to get rid of the historic market data every time you upgrade your app. Do **not** delete your ```Data-Storage``` folder.
 
-> Be aware that you will lose the data corresponding to the latest simulations and live trading operations.
-
 **4.** Download the latest patch or latest release from the location advertised in the Official Announcement Channel.
 
 > **WARNING**: Always beware of what random people may post in open Telegram groups or forums. Patches and releases will always be made available at the [Releases page](https://github.com/Superalgos/DesktopApp/releases) of this repository only.

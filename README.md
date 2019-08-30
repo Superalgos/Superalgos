@@ -18,6 +18,7 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
   * [The Long Version for Regular Folks on Windows and Mac](#the-long-version-for-regular-folks-on-windows-and-mac)
     * [Downloads](#downloads/)
     * [Running the App](#running-the-app)
+* [Upgrading Your Existing Installation](#upgrading-your-existing-installation)
 * [Overview](#overview)
 * [Charts Interface](#charts-interface)
   * [Layers Panel](#layers-panel)
@@ -192,9 +193,9 @@ That's it! You are up and running!
 > * The average number of trades per day at the exchange determines the volume of data the app needs to retrieve and process.
 > * The number of trades the exchange returns per each request determines the size of the pipeline the exchanges allow API users to use.
 
-# Upgrading your Existing Installation
+# Upgrading Your Existing Installation
 
-You should expect patches and even new releases to become available on a regular basis. Appropriate notices will be placed on the [Official Superalgos Telegram Announcements Channel](https://t.me/superalgos), which will be forwarded to the several Community groups when this happens.
+You should expect patches and even new releases to become available regularly. Appropriate notices will be placed on the [Official Superalgos Telegram Announcements Channel](https://t.me/superalgos), which will be forwarded to the several Community groups when this happens.
 
 If you have a version of the Superalgos Desktop App and wish to upgrade to a new version you should do the following:
 
@@ -204,7 +205,7 @@ If you have a version of the Superalgos Desktop App and wish to upgrade to a new
 
 **3.** Delete all folders within the Superalgos Desktop App folder **but the ```Data-Storage``` folder**. You do not need to get rid of the historic market data every time you upgrade your app. Do **not** delete your ```Data-Storage``` folder.
 
-> Be aware that you will loose the data corresponding to the latest simulations and live trading operations.
+> Be aware that you will lose the data corresponding to the latest simulations and live trading operations.
 
 **4.** Download the latest patch or latest release from the location advertised in the Official Announcement Channel (always beware of what random people may post on open groups). Patches and releases will always be made available at the [Releases page](https://github.com/Superalgos/DesktopApp/releases) of this repository.
 

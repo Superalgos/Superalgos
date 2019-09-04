@@ -192,17 +192,6 @@
           "product": "Candles",
           "dataSetVersion": "dataSet.V1",
           "dataSet": "Multi-Period-Daily"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AABruce",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Candles",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "One-Min"
         }
       ]
     }
@@ -493,22 +482,5 @@
         "moduleName": "SimulationExecution"
       }
     }
-  ],
-  "marketRateProvider": {
-    "devTeam": "AAMasters",
-    "bot": "AABruce",
-    "host": {
-      "url": "https://demo-dev.superalgos.org/",
-      "storage": "localStorage",
-      "container": "aamasters",
-      "accessKey": ""
-    },
-    "botVersion": {
-      "major": 1,
-      "minor": 0
-    },
-    "product": "Candles",
-    "dataSet": "One-Min",
-    "dataSetVersion": "dataSet.V1"
-  }
+  ]
 }

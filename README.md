@@ -600,15 +600,15 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 ### Percentage Bandwidth
 
-**percentageBandwidth.value:** The current value of the percentage bandwidth.
+**percentageBandwidth.value:** A numeric value between 0 and 100; the current value of the percentage bandwidth.
 
-**percentageBandwidth.movingAverage:** The current value of the percentage bandwidth moving average.
+**percentageBandwidth.movingAverage:** A numeric value between 0 and 100; the current value of the percentage bandwidth moving average.
 
-**percentageBandwidth.bandwidth:** The current bandwidth.
+**percentageBandwidth.bandwidth:** A numeric value between 0 and 100; the current bandwidth.
 
 **percentageBandwidth.direction:** 
 * ```"Down"```: percentageBandwidth.previous.movingAverage > percentageBandwidth.movingAverage
-* ```"Up'```: percentageBandwidth.previous.movingAverage < percentageBandwidth.movingAverage
+* ```"Up"```: percentageBandwidth.previous.movingAverage < percentageBandwidth.movingAverage
 * ```"Side"```: percentageBandwidth.previous.movingAverage = percentageBandwidth.movingAverage)
 
 **percentageBandwidth.previous:** Use the _.previous_ property like with candles (see _candle.previous_ above).

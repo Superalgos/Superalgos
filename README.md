@@ -744,6 +744,8 @@ There are two ways to define the datetime in which a simulation starts. However,
 
 2. **With a dynamic starting point**: If you don't set a datetime at the Time Range parameter or disconnect the Time Range element from your parameters the simulation starts wherever the charts are positioned.
 
+> KNOWN ISSUE: If you can't disconnect the Time Range element and wish to run simulations withour a set starting date, simply enter ```{}``` in the Edit Time Range field.
+
 ## Time Period
 
 Simulations run in the time period active at the moment of clicking the RESTART SIMULATION button. Only one time period may be active at any point in time: if you run a simulation in a different time period than a previous simulation, the previous one stops—however,  the previous simulation data is conserved and may be accessed again by going back to the corresponding time period.

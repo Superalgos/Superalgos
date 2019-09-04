@@ -145,7 +145,7 @@ How you extract/unpack the files depends on the software you use to handle ZIP f
 
 When you extract the ZIP file, a folder structure will be created with the root folder being ```Superalgos Desktop App```.
 
-You may extract/unpack the files in any location of your drive, however, we rocommend unpacking in an accesible route *(i.e.: ```C:\```)*, as you will later need to fit an additional folder in the ```Superalgos Desktop App``` folder, and you will also need to access these folders every time you launch the app.
+You may extract/unpack the files in any location of your drive, however, we recommend unpacking in an accesible route *(i.e.: ```C:\```)*, as you will later need to fit an additional folder in the ```Superalgos Desktop App``` folder, and you will also need to access these folders every time you launch the app.
 
 **3. Download the Data Package**:
 

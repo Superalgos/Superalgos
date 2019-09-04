@@ -213,7 +213,7 @@ If you have a version of the Superalgos Desktop App and wish to upgrade to a new
 
 # Overview
 
-> **Watch the [Superalgos Platform Quick Getting Started Guide](https://www.youtube.com/watch?v=_apiM49udL0) video for a quick intro. The current version of the app does not require a log in, so you may ignore that bit.**
+> **Watch the [Superalgos Platform Quick Getting Started Guide](https://www.youtube.com/watch?v=_apiM49udL0) video for a quick intro. The video is slightly outdated in that the Superalgos Desktop App (the client version of the Platform) does not require a login and does not feature a menu on top. Otherwise, the content is still valid.**
 
 The first time you run the app, you will see the following screen, split in half. The top half features the space used by the _Charting System_ and the bottom half features the _Designer_.
 

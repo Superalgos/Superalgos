@@ -515,7 +515,7 @@ In the example above, _condition C_ would be _true_ if the whole candle falls wi
 
 ### Starting a Strategy from Scratch
 
-> In addition to the explanations available here, [a comprehensive video tutorial for building strategies](https://youtu.be/ZlkGkxSMsio) is available in our YouTube channel.
+> In addition to the explanations available here, [a comprehensive video tutorial for building strategies](https://youtu.be/ZlkGkxSMsio) is available in our YouTube channel. The video is slightly outdated in that it doesn't take transaction fees into account when running simulations. Also, the Superalgos Desktop App (the client version of the Platform) does not feature a menu on top. Otherwise, the content is still valid.
 
 Strategies within a specific Trading System respond to the parameters set for the corresponding Trading System. This means they all have the same Base Asset, and they all share the _initialCapital_ (see [Trading System](#trading-system) for further references).
 

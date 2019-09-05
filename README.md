@@ -167,7 +167,7 @@ You should end up with the following folder structure:
 
 ### Running the App
 
-**1. Use the EXE File to Run the App**
+**1. Use the executable to Run the App**
 
 Go to ```Superalgos Desktop App\WebServer```, that is, the ```WebServer``` folder inside the ```Superalgos Desktop App``` folder and double click on ```Windows-Superalgos-Desktop.exe``` (for Windows systems) or ```MacOs-Superalgos-Desktop.app``` (for Mac systems).
 

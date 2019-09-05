@@ -1,3 +1,55 @@
+/* Callbacks default responses. */
+
+global.DEFAULT_OK_RESPONSE = {
+    result: "Ok",
+    message: "Operation Succeeded"
+};
+
+global.DEFAULT_FAIL_RESPONSE = {
+    result: "Fail",
+    message: "Operation Failed"
+};
+
+global.DEFAULT_RETRY_RESPONSE = {
+    result: "Retry",
+    message: "Retry Later"
+};
+
+global.CUSTOM_OK_RESPONSE = {
+    result: "Ok, but check Message",
+    message: "Custom Message"
+};
+
+global.CUSTOM_FAIL_RESPONSE = {
+    result: "Fail Because",
+    message: "Custom Message"
+};
+
+const EVENT_HANDLER_MODULE =  require('./EventHandler.js');
+global.eventHandler = EVENT_HANDLER_MODULE.newEventHandler()
+
+global.eventHandler.initialize(bootLoader)
+
+function bootLoader() {
+
+    global.eventHandler.createEventHandler('Jason-Multi-Period')
+
+    tryToListenToCockpit()
+
+    function tryToListenToCockpit() {
+
+        global.eventHandler.listenToEvent('Cockpit-Restart-Simulation', 'Simulation Started', undefined, 'Clone Executor Boot Loader', onResponse, startSequence)
+
+        function onResponse(message) {
+            if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
+                setTimeout(tryToListenToCockpit, 3000)
+            }
+        }
+    }
+}
+
+/* Old Run.js code follows... */
+
 require('dotenv').config();
 
 global.DEFINITION = require(process.env.INTER_PROCESS_FILES_PATH + '/Definition');
@@ -5,7 +57,7 @@ const definition = global.DEFINITION
 const path = require('path');
 
 global.SHALL_BOT_STOP = false
-global.AT_BREAKPOINT = false // This is used only when running at the browser.
+
 global.FULL_LOG = process.env.FULL_LOG
 
 /* Default parameters can be changed by the execution configuration */
@@ -40,17 +92,20 @@ if (process.env.RUN_SEQUENCE !== undefined) {
     isRunSequence = JSON.parse(process.env.RUN_SEQUENCE)
 }
 
-if (isRunSequence) {
-    process.on('message', message => {
-        if (message === 'STOP') {
-            runClonExecutor = false;
-            console.log("[INFO] CloneExecutor -> Clone Executor Stopped.");
-        }
-    });
-    sequenceExecution(sequenceStep)
-} else {
-    readExecutionConfiguration()
+function startSequence () {
+    if (isRunSequence) {
+        process.on('message', message => {
+            if (message === 'STOP') {
+                runClonExecutor = false;
+                console.log("[INFO] CloneExecutor -> Clone Executor Stopped.");
+            }
+        });
+        sequenceExecution(sequenceStep)
+    } else {
+        readExecutionConfiguration()
+    }
 }
+
 
 async function sequenceExecution(currentStep) {
 

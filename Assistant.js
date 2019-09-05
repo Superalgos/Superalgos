@@ -63,7 +63,8 @@
                 }
 
                 case 'Backtest': {
-                    getMarketRateFromIndicator();
+                    // getMarketRateFromIndicator(); NOTE: This path is disabled since for now we do not allow ticker in simulation. Also it allow us to ship a dataset without bruce
+                    validateExchangeSyncronicity();
                     break;
                 }
 
@@ -112,13 +113,13 @@
                             validateExchangeSyncronicity();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> onTicker -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> onTicker -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -156,12 +157,12 @@
                         let candleArray;
 
                         if (err.result === global.CUSTOM_FAIL_RESPONSE.result || err.code === "The specified key does not exist." || err.message === "File does not exist.") {  // Just past midnight, this file will not exist for a couple of minutes.
-                           
+
                             logger.write(MODULE_NAME, "[WARN] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + JSON.stringify(err));
                             logger.write(MODULE_NAME, "[WARN] initialize -> getMarketRateFromIndicator -> This could happen when there are still holes on trades and the process needs to catch up. ");
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
-                          
+
                         }
 
                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
@@ -211,7 +212,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -253,13 +254,13 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -313,14 +314,14 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> calculateProfits -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> calculateProfits -> err = " + err.stack);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -399,7 +400,7 @@
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> err = " + err.stack);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -561,17 +562,17 @@
 
                                         if (thisPosition.id === pPositionId) {
 
-											let feeRate = 0.002; 		// Default backtesting fee simulation
+                                            let feeRate = 0.002; 		// Default backtesting fee simulation
 
-											let trade = {
-												id: Math.trunc(Math.random(1) * 1000000),
-												type: thisPosition.type,
-												rate: thisPosition.rate.toString(),
+                                            let trade = {
+                                                id: Math.trunc(Math.random(1) * 1000000),
+                                                type: thisPosition.type,
+                                                rate: thisPosition.rate.toString(),
                                                 amountA: thisObject.truncDecimals(thisPosition.amountA).toString(),
                                                 amountB: thisObject.truncDecimals(thisPosition.amountB).toString(),
                                                 fee: thisObject.truncDecimals(feeRate).toString(),
-												date: (new Date()).valueOf()
-											}
+                                                date: (new Date()).valueOf()
+                                            }
 
                                             trades.push(trade);
 
@@ -626,12 +627,12 @@
                                             break;
                                     }
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = "+ err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = " + err.stack);
                                     callBack(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err.stack);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -656,7 +657,7 @@
                             let sumRate = 0;
 
                             for (let k = 0; k < pTrades.length; k++) {
-								let trade = pTrades[k];
+                                let trade = pTrades[k];
                                 sumAssetA = sumAssetA + thisObject.truncDecimals(trade.amountA);
                                 sumAssetB = sumAssetB + thisObject.truncDecimals(trade.amountB);
                                 sumRate = sumRate + thisObject.truncDecimals(trade.rate);
@@ -704,7 +705,7 @@
                             next();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.stack);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -726,8 +727,8 @@
                             let sumAssetA = 0;
                             let sumAssetB = 0;
 
-							for (let k = 0; k < pTrades.length; k++) {
-								let trade = pTrades[k];
+                            for (let k = 0; k < pTrades.length; k++) {
+                                let trade = pTrades[k];
                                 sumAssetA = sumAssetA + thisObject.truncDecimals(trade.amountA);
                                 sumAssetB = sumAssetB + thisObject.truncDecimals(trade.amountB);
                             }
@@ -749,7 +750,7 @@
                              */
 
                             let exchangeParam = exchangeAPI.getMaxDecimalPositions();
-                            let minValue = '0.' + (1).toPrecision(exchangeParam-1).split('.').reverse().join('');
+                            let minValue = '0.' + (1).toPrecision(exchangeParam - 1).split('.').reverse().join('');
                             let exchangePrecision = parseFloat(parseFloat(minValue).toFixed(exchangeParam));
 
                             if (Math.abs(position.amountA - sumAssetA) > exchangePrecision || Math.abs(position.amountB - sumAssetB) > exchangePrecision) {
@@ -790,7 +791,7 @@
                             next();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = " + err.stack);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -857,7 +858,7 @@
                                     context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA + assetA);
                                     context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB - assetB);
 
-				                    context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA + assetA);
+                                    context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA + assetA);
 
                                     /* Not the available balance for asset B is not affected since it was already reduced when the order was placed. */
 
@@ -865,14 +866,14 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> applyTradesToContext -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> applyTradesToContext -> err = " + err.stack);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> err = " + err.stack);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -911,7 +912,7 @@
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> err = " + err.stack);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1075,12 +1076,12 @@
                             break;
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] putPosition -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] putPosition -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1199,12 +1200,12 @@
                             break;
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1330,7 +1331,7 @@
         let runIndex = context.statusReport.runs.length - 1;
 
         context.newHistoryRecord.messageRelevance = pRelevance;
-        context.newHistoryRecord.messageTitle = bot.startMode + "." + runIndex +": "+ pTitle;
+        context.newHistoryRecord.messageTitle = bot.startMode + "." + runIndex + ": " + pTitle;
         context.newHistoryRecord.messageBody = pBody;
     }
 

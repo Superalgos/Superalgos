@@ -14,26 +14,26 @@
   {
     "devTeam": "AAMasters",
     "bot": "AACharly",
-    "mode": "noTime",
+    "mode": "oneMonth",
     "resumeExecution": true,
     "type": "Sensor",
     "exchangeName": "Poloniex",
     "process": "Hole-Fixing",
     "startYear": 2019,
-    "endYear": 2021,
-    "month": 1
+    "endYear": 2019,
+    "month": 9
   },
   {
     "devTeam": "AAMasters",
     "bot": "AABruce",
-    "mode": "noTime",
+    "mode": "oneMonth",
     "resumeExecution": true,
     "type": "Indicator",
     "exchangeName": "Poloniex",
     "process": "Single-Period-Daily",
     "startYear": 2019,
     "endYear": 2021,
-    "month": 1
+    "month": 9
   },
   {
     "devTeam": "AAMasters",
@@ -141,52 +141,5 @@
     "process": "Multi-Period-Daily",
     "beginDatetime": "2019-08-01T08:00:00.000Z",
     "timePeriod": "05-min"
-  },
-  {
-    "devTeam": "AAVikings",
-    "bot": "AAGauss",
-    "mode": "noTime",
-    "resumeExecution": true,
-    "type": "Indicator",
-    "exchangeName": "Poloniex",
-    "process": "Multi-Period-Daily",
-    "startYear": 2019,
-    "endYear": 2021,
-    "month": 1
-  },
-  {
-    "devTeam": "AAVikings",
-    "bot": "AAGauss",
-    "mode": "noTime",
-    "resumeExecution": true,
-    "type": "Indicator",
-    "exchangeName": "Poloniex",
-    "process": "Multi-Period-Market",
-    "startYear": 2019,
-    "endYear": 2021,
-    "month": 1
-  },
-  {
-    "devTeam": "vikingsalerts",
-    "bot": "simulator-bot-vikingsalerts",
-    "mode": "noTime",
-    "resumeExecution": true,
-    "type": "Indicator",
-    "exchangeName": "Poloniex",
-    "process": "Multi-Period-Daily",
-    "beginDatetime": "2019-08-01T08:00:00.000Z",
-    "timePeriod": "05-min"
-  },
-  {
-    "devTeam": "vikingsalerts",
-    "bot": "bot-vikingsalerts",
-    "mode": "live",
-    "resumeExecution": true,
-    "type": "Trading",
-    "exchangeName": "Poloniex",
-    "process": "Trading-Process",
-    "beginDatetime": "2019-08-01T08:00:00.000Z",
-    "timePeriod": "05-min",
-    "dataSet": "Multi-Period-Daily"
   }
 ]

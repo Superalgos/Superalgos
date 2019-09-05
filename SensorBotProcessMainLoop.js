@@ -51,7 +51,9 @@
                     return;
                 }
                 USER_BOT_MODULE = {}
-
+                if (bot.process === "Hole-Fixing") {
+                    //USER_BOT_MODULE.newUserBot = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AACharly-Sensor-Bot/Hole-Fixing/User.Bot').newUserBot
+                }
                 USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
 
                 filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;

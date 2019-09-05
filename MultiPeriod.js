@@ -984,6 +984,10 @@
                     thisReport.save(callBack);
 
                     bot.hasTheBotJustStarted = false;
+
+                    /* Emit event that signals that this process finished */
+                    global.eventHandler.raiseEvent('Jason-Multi-Period', 'Status Report Updated', { lastProcessedDay: lastFileDate })
+
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeDailyStatusReport -> err = " + err.stack);

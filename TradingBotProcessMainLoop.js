@@ -260,11 +260,6 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> bot.processDatetime = " + bot.processDatetime.toISOString()); }
 
-                    if (global.AT_BREAKPOINT === true) {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Plot Breakpoint Hit."); }
-
-                    }
 
                     /* High level log entry  */
 

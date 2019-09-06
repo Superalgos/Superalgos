@@ -92,7 +92,6 @@
             eventHandlerName: eventHandlerName,
             callerId: callerId
         }
-
         sendCommand(eventCommand, responseCallBack)
     }
 
@@ -102,30 +101,27 @@
             eventHandlerName: eventHandlerName,
             callerId: callerId
         }
-
         sendCommand(eventCommand, responseCallBack)
     }
 
     function listenToEvent(eventHandlerName, eventType, extraData, callerId, responseCallBack, eventsCallBack) {
-        eventCommand = {
+        let eventCommand = {
             action: 'listenToEvent',
             eventHandlerName: eventHandlerName,
             eventType: eventType,
             extraData: extraData,
             callerId: callerId
         }
-
         sendCommand(eventCommand, responseCallBack, eventsCallBack)
     }
 
     function stopListening(eventHandlerName, eventSubscriptionId, callerId, responseCallBack) {
-        eventCommand = {
+        let eventCommand = {
             action: 'stopListening',
             eventHandlerName: eventHandlerName,
             eventSubscriptionId: eventSubscriptionId,
             callerId: callerId
         }
-
         sendCommand(eventCommand, responseCallBack)
     }
 
@@ -137,7 +133,6 @@
             event: event,
             callerId: callerId
         }
-
         sendCommand(eventCommand, responseCallBack)
     }
 }

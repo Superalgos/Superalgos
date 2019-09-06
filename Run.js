@@ -25,7 +25,7 @@ global.CUSTOM_FAIL_RESPONSE = {
     message: "Custom Message"
 };
 
-const EVENT_HANDLER_MODULE =  require('./EventHandler.js');
+const EVENT_HANDLER_MODULE =  require('./SystemEventHandler.js');
 global.systemEventHandler = EVENT_HANDLER_MODULE.newSystemEventHandler()
 
 global.systemEventHandler.initialize(bootLoader)

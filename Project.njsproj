@@ -24,7 +24,7 @@
     <Compile Include="Assistant.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EventHandler.js">
+    <Compile Include="SystemEventHandler.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Integrations\Ecosystem.js" />

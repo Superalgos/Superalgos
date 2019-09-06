@@ -1,6 +1,12 @@
 function newNodeDeleter () {
   thisObject = {
     deleteDefinition: deleteDefinition,
+    deleteBackend: deleteBackend,
+    deleteBackendProcess: deleteBackendProcess,
+    deleteSensor: deleteSensor,
+    deleteIndicator: deleteIndicator,
+    deleteTradingEngine: deleteTradingEngine,
+    deleteBotProcess: deleteBotProcess,
     deletePersonalData: deletePersonalData,
     deleteExchangeAccount: deleteExchangeAccount,
     deleteExchangeAccountAsset: deleteExchangeAccountAsset,
@@ -44,6 +50,30 @@ function newNodeDeleter () {
 
         case 'Definition': {
           deleteDefinition(rootNode, rootNodes, true)
+          break
+        }
+        case 'Backend': {
+          deleteBackend(rootNode, rootNodes)
+          break
+        }
+        case 'Backend Process': {
+          deleteBackendProcess(rootNode, rootNodes)
+          break
+        }
+        case 'Sensor': {
+          deleteBot(rootNode, rootNodes)
+          break
+        }
+        case 'Indicator': {
+          deleteBot(rootNode, rootNodes)
+          break
+        }
+        case 'Trading Engine': {
+          deleteBot(rootNode, rootNodes)
+          break
+        }
+        case 'Bot Process': {
+          deleteBotProcess(rootNode, rootNodes)
           break
         }
         case 'Personal Data': {
@@ -190,6 +220,68 @@ function newNodeDeleter () {
     }
     if (node.personalData !== undefined) {
       deletePersonalData(node.personalData, rootNodes)
+    }
+    if (node.backend !== undefined) {
+      deleteBackend(node.personalData, rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteBackend (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.backend = undefined
+    }
+    while (node.backendProcesses.length > 0) {
+      deleteBackendProcess(node.backendProcesses[0], rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteBackendProcess (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.backendProcesses.length; j++) {
+        let backendProcess = payload.parentNode.backendProcesses[j]
+        if (backendProcess.id === node.id) {
+          payload.parentNode.backendProcesses.splice(j, 1)
+        }
+      }
+    }
+    if (node.bot !== undefined) {
+      deleteBot(node.bot, rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteBot (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.bot = undefined
+    }
+    while (node.botProcesses.length > 0) {
+      deleteBotProcess(node.botProcesses[0], rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteBotProcess (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.botProcesses.length; j++) {
+        let backendProcess = payload.parentNode.botProcesses[j]
+        if (backendProcess.id === node.id) {
+          payload.parentNode.botProcesses.splice(j, 1)
+        }
+      }
     }
     completeDeletion(node, rootNodes)
     destroyPart(node)

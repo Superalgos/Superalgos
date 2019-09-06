@@ -52,6 +52,24 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
+      case 'Backend': {
+        break
+      }
+      case 'Backend Process': {
+        break
+      }
+      case 'Sensor': {
+        break
+      }
+      case 'Indicator': {
+        break
+      }
+      case 'Trading Engine': {
+        break
+      }
+      case 'Bot Process': {
+        break
+      }
       case 'Personal Data': {
         break
       }

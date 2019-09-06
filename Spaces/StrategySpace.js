@@ -40,6 +40,12 @@ function newStrategySpace () {
   function buildIconByPartTypeMap () {
     const relationshipArray = [
       ['Definition', 'text'],
+      ['Backend', 'task'],
+      ['Backend Process', 'timeline'],
+      ['Sensor', 'pipette'],
+      ['Indicator', 'vector'],
+      ['Trading Engine', 'brainstorming'],
+      ['Bot Process', 'grid'],
       ['Personal Data', 'security'],
       ['Exchange Account', 'approve'],
       ['Exchange Account Asset', 'paper-plane'],

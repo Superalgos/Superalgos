@@ -236,6 +236,30 @@ function newStrategyPart () {
         compatibleType = '->' + 'Parameters'
         compatibleSubType = undefined
         break
+      case 'Backend':
+        compatibleType = '->' + 'Definition'
+        compatibleSubType = undefined
+        break
+      case 'Backend Process':
+        compatibleType = '->' + 'Backend'
+        compatibleSubType = undefined
+        break
+      case 'Sensor':
+        compatibleType = '->' + 'Backend Process'
+        compatibleSubType = undefined
+        break
+      case 'Indicator':
+        compatibleType = '->' + 'Backend Process'
+        compatibleSubType = undefined
+        break
+      case 'Trading Engine':
+        compatibleType = '->' + 'Backend Process'
+        compatibleSubType = undefined
+        break
+      case 'Bot Process':
+        compatibleType = '->' + 'Sensor' + '->' + 'Indicator' + '->' + 'Trading Engine'
+        compatibleSubType = undefined
+        break
       case 'Strategy':
         compatibleType = '->' + 'Trading System'
         compatibleSubType = undefined
@@ -334,6 +358,12 @@ function newStrategyPart () {
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf('->' + nearbyNode.type) >= 0) {
         /* Discard objects with busy coonection ports */
+        if (thisObject.payload.node.type === 'Backend' && nearbyNode.backend !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Backend Process' && nearbyNode.backendProcess !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Sensor' && nearbyNode.bot !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Indicator' && nearbyNode.bot !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trading Engine' && nearbyNode.bot !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Bot Process' && nearbyNode.botProcess !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }
         if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }
         if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }

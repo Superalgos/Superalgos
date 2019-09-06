@@ -304,6 +304,237 @@ function newStrategyPartConstructor () {
         )
         break
       }
+      case 'Backend': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Backend Process',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Backend Process',
+            visible: false,
+            relatedStrategyPart: 'Backend',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Backend',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Backend',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: +20
+          }
+            )
+        break
+      }
+      case 'Backend Process': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Sensor',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Sensor',
+            visible: false,
+            relatedStrategyPart: 'Sensor',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Indicator',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Indicator',
+            visible: false,
+            relatedStrategyPart: 'Indicator',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Trading Engine',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Trading Engine',
+            visible: false,
+            relatedStrategyPart: 'Trading Engine',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Backend Process',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Backend Process',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: +6s0
+          }
+            )
+        break
+      }
+      case 'Sensor': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Bot Process',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Bot Process',
+            visible: false,
+            relatedStrategyPart: 'Bot Process',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Sensor',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Sensor',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: +20
+          }
+            )
+        break
+      }
+      case 'Indicator': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Bot Process',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Bot Process',
+            visible: false,
+            relatedStrategyPart: 'Bot Process',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Indicator',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Indicator',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: +20
+          }
+            )
+        break
+      }
+      case 'Trading Engine': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Bot Process',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Bot Process',
+            visible: false,
+            relatedStrategyPart: 'Bot Process',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Trading Engine',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Trading Engine',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: +20
+          }
+            )
+        break
+      }
+      case 'Bot Process': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Bot Process',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Bot Process',
+            visible: false,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Bot Process',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Bot Process',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: +20
+          }
+            )
+        break
+      }
       case 'Personal Data': {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(

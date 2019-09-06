@@ -391,7 +391,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +6s0
+            angle: +60
           }
             )
         break

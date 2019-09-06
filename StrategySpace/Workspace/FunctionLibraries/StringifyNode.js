@@ -431,7 +431,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          backendProcesses: []
+          backendProcesses: [],
           savedPayload: getSavedPayload(node)
         }
 
@@ -448,7 +448,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          bot: prepareForStringify(node.bot, removePersonalData)
+          bot: prepareForStringify(node.bot, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -459,7 +459,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          botProcesses: []
+          botProcesses: [],
           savedPayload: getSavedPayload(node)
         }
 
@@ -476,7 +476,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          botProcesses: []
+          botProcesses: [],
           savedPayload: getSavedPayload(node)
         }
 
@@ -493,7 +493,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          botProcesses: []
+          botProcesses: [],
           savedPayload: getSavedPayload(node)
         }
 
@@ -504,6 +504,17 @@ function newStringifyNode () {
 
         return bot
       }
+      case 'Bot Process': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
       case 'Definition': {
         let object = {
           id: node.id,
@@ -512,17 +523,6 @@ function newStringifyNode () {
           name: node.name,
           tradingSystem: prepareForStringify(node.tradingSystem, removePersonalData),
           personalData: prepareForStringify(node.personalData, removePersonalData),
-          savedPayload: getSavedPayload(node)
-        }
-        return object
-      }
-      case 'Bot Process': {
-        let object = {
-          id: node.id,
-          type: node.type,
-          subType: node.subType,
-          name: node.name,
-          code: node.code
           savedPayload: getSavedPayload(node)
         }
         return object

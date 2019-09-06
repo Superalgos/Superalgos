@@ -145,6 +145,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.backend !== undefined) {
+      response.childrenCount++
+      if (parentNode.backend.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 

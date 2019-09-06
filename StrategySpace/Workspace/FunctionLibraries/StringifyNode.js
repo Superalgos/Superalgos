@@ -523,6 +523,7 @@ function newStringifyNode () {
           name: node.name,
           tradingSystem: prepareForStringify(node.tradingSystem, removePersonalData),
           personalData: prepareForStringify(node.personalData, removePersonalData),
+          backend: prepareForStringify(node.backend, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object

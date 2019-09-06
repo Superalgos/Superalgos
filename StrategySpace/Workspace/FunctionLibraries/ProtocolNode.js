@@ -440,7 +440,8 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData),
-          personalData: getProtocolNode(node.personalData, removePersonalData)
+          personalData: getProtocolNode(node.personalData, removePersonalData),
+          backend: getProtocolNode(node.backend, removePersonalData)
         }
         return object
       }

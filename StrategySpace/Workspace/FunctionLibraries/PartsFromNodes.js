@@ -333,6 +333,9 @@ function newPartsFromNodes () {
         if (node.personalData !== undefined) {
           createPartFromNode(node.personalData, node, node)
         }
+        if (node.backend !== undefined) {
+          createPartFromNode(node.backend, node, node)
+        }
         return
       }
       case 'Backend': {

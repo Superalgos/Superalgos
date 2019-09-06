@@ -226,7 +226,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -70
+            angle: -75
           }
           )
         menuItemsInitialValues.push(
@@ -243,7 +243,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -50
           }
           )
         menuItemsInitialValues.push(
@@ -256,7 +256,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -10
+            angle: -25
           }
           )
         menuItemsInitialValues.push(
@@ -269,9 +269,22 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 10
+            angle: 0
           }
             )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Backend',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Backend',
+            visible: false,
+            relatedStrategyPart: 'Backend',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 25
+          }
+                )
         menuItemsInitialValues.push(
           {
             action: 'Delete Definition',
@@ -285,7 +298,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 50
           }
               )
         menuItemsInitialValues.push(
@@ -299,7 +312,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 70
+            angle: 75
           }
         )
         break

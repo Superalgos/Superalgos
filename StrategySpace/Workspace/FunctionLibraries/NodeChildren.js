@@ -11,6 +11,24 @@ function newNodeChildren () {
       case 'Definition': {
         return countChildrenDefinition(parentNode, childNode)
       }
+      case 'Backend': {
+        return countChildrenBackend(parentNode, childNode)
+      }
+      case 'Backend Process': {
+        return countChildrenBackendProcess(parentNode, childNode)
+      }
+      case 'Sensor': {
+        return countChildrenSensor(parentNode, childNode)
+      }
+      case 'Indicator': {
+        return countChildrenIndicator(parentNode, childNode)
+      }
+      case 'Trading Engine': {
+        return countChildrenTradingEngine(parentNode, childNode)
+      }
+      case 'Bot Process': {
+        return countChildrenBotProcess(parentNode, childNode)
+      }
       case 'Personal Data': {
         return countChildrenPersonalData(parentNode, childNode)
       }
@@ -126,6 +144,92 @@ function newNodeChildren () {
       if (parentNode.personalData.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
+    }
+    return response
+  }
+
+  function countChildrenBackend (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.exchangeAccounts.length; i++) {
+      let child = parentNode.backendProcesses[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenBackendProcess (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.bot !== undefined) {
+      response.childrenCount++
+      if (parentNode.bot.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenSensor (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.botProcesses.length; i++) {
+      let child = parentNode.botProcesses[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenIndicator (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.botProcesses.length; i++) {
+      let child = parentNode.botProcesses[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenTradingEngine (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.botProcesses.length; i++) {
+      let child = parentNode.botProcesses[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenBotProcess (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
     }
     return response
   }

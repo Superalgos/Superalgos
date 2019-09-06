@@ -218,6 +218,48 @@ function newAttachDetach () {
 
   function attachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
+      case 'Backend': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.backend = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Backend Process': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.backendProcesses.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Sensor': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.bot = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Indicator': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.bot = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Trading Engine': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.bot = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Bot Process': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.botProcesses.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
       case 'Personal Data': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode

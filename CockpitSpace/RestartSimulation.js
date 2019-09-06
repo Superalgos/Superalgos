@@ -35,6 +35,7 @@ function newRestartSimulation () {
 
   let executionFocusExists = false
   let idleLabel = ''
+  let date = ''
 
   return thisObject
 
@@ -56,6 +57,8 @@ function newRestartSimulation () {
     selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     thisObject.status = 'Ready'
+
+    systemEventHandler.createEventHandler('Cockpit-Restart-Simulation')
   }
 
   function getContainer (point, purpose) {
@@ -86,6 +89,7 @@ function newRestartSimulation () {
 
   async function restart () {
     try {
+      /* Processing the restart */
       thisObject.status = 'Saving'
       let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(getSimulationParams())
       if (result === true) {
@@ -100,18 +104,20 @@ function newRestartSimulation () {
               }
             }
           }
-          callServer('', 'RestartCloneExecutor', onSaved)
-          function onSaved (err) {
-            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-              logger.write('[INFO] Restart Simulation -> Clone Executor Restarted')
-            } else {
-              logger.write('[ERROR] Restart Simulation -> Can not restart Clone Executor. err = ' + err.messsage)
-            }
+
+          systemEventHandler.raiseEvent('Cockpit-Restart-Simulation', 'Simulation Started')
+
+          /* We will start listening to the event that is triggered when the simulation process finishes processing one day.  */
+          systemEventHandler.listenToEvent('Jason-Multi-Period', 'Status Report Updated', undefined, undefined, undefined, onEvent)
+
+          function onEvent (message) {
+            date = message.event.lastProcessedDay
           }
         } else {
           thisObject.status = 'Restarting'
           await graphQlRestartSimulation(simulationParams)
         }
+
         thisObject.status = 'Calculating'
         counterTillNextState = 500
       } else {
@@ -325,6 +331,10 @@ function newRestartSimulation () {
       y: thisObject.container.frame.height - 9
     }
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
+
+    if (date !== '') {
+      label = date
+    }
 
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)

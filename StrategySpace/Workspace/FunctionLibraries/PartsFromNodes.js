@@ -1,6 +1,12 @@
 function newPartsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
+    addBackend: addBackend,
+    addBackendProcess: addBackendProcess,
+    addSensor: addSensor,
+    addIndicator: addIndicator,
+    addTradingEngine: addTradingEngine,
+    addBotProcess: addBotProcess,
     addTradingSystem: addTradingSystem,
     addPersonalData: addPersonalData,
     addExchangeAccount: addExchangeAccount,
@@ -329,7 +335,102 @@ function newPartsFromNodes () {
         }
         return
       }
+      case 'Backend': {
+        createPart('Backend', node.name, node, parentNode, chainParent, 'Backend')
+        for (let m = 0; m < node.backendProcesses.length; m++) {
+          let backendProcess = node.backendProcesses[m]
+          createPartFromNode(backendProcess, node, node)
+        }
+        return
+      }
+      case 'Backend Process': {
+        createPart('Backend Process', node.name, node, parentNode, chainParent, 'Backend Process')
+        if (node.bot !== undefined) {
+          createPartFromNode(node.bot, node, node)
+        }
+        return
+      }
+      case 'Sensor': {
+        createPart('Sensor', node.name, node, parentNode, chainParent, 'Sensor')
+        for (let m = 0; m < node.botProcesses.length; m++) {
+          let botProcess = node.botProcesses[m]
+          createPartFromNode(botProcess, node, node)
+        }
+        return
+      }
+      case 'Indicator': {
+        createPart('Indicator', node.name, node, parentNode, chainParent, 'Indicator')
+        for (let m = 0; m < node.botProcesses.length; m++) {
+          let botProcess = node.botProcesses[m]
+          createPartFromNode(botProcess, node, node)
+        }
+        return
+      }
+      case 'Trading Engine': {
+        createPart('Trading Engine', node.name, node, parentNode, chainParent, 'Trading Engine')
+        for (let m = 0; m < node.botProcesses.length; m++) {
+          let botProcess = node.botProcesses[m]
+          createPartFromNode(botProcess, node, node)
+        }
+        return
+      }
+      case 'Bot Process': {
+        createPart('Bot Process', node.name, node, parentNode, chainParent, 'Bot Process')
+        return
+      }
     }
+  }
+
+  function addBackend (node) {
+    if (node.backend === undefined) {
+      node.backend = {
+        backendProcesses: []
+      }
+      createPart('Backend', '', node.backend, node, node)
+    }
+  }
+
+  function addBackendProcess (node) {
+    let backendProcess = {
+      name: 'New Backend Process'
+    }
+    node.backendProcesses.push(backendProcess)
+    createPart('Backend Process', backendProcess.name, backendProcess, node, node, 'Backend Process')
+  }
+
+  function addSensor (node) {
+    if (node.bot === undefined) {
+      node.bot = {
+        botProcesses: []
+      }
+      createPart('Sensor', '', node.bot, node, node)
+    }
+  }
+
+  function addIndicator (node) {
+    if (node.bot === undefined) {
+      node.bot = {
+        botProcesses: []
+      }
+      createPart('Indicator', '', node.bot, node, node)
+    }
+  }
+
+  function addTradingEngine (node) {
+    if (node.bot === undefined) {
+      node.bot = {
+        botProcesses: []
+      }
+      createPart('Trading Engine', '', node.bot, node, node)
+    }
+  }
+
+  function addBotProcess (node) {
+    let botProcess = {
+      name: 'New Bot Process'
+    }
+    node.botProcesses.push(botProcess)
+    createPart('Bot Process', botProcess.name, botProcess, node, node, 'Bot Process')
   }
 
   function addTradingSystem (node) {

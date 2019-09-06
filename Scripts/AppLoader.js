@@ -114,6 +114,8 @@ function newAppLoader() {
                 'CockpitSpace/GraphQLRestartSimulation.js',
                 'CockpitSpace/FullScreen.js',
 
+                'SystemEventHandler.js',
+
                 'Plotter.js',
                 'PlotterPanel.js',
 

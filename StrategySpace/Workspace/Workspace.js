@@ -209,6 +209,36 @@ function newWorkspace () {
         }
 
         break
+      case 'Add Backend':
+        {
+          functionLibraryPartsFromNodes.addBackend(payload.node)
+        }
+        break
+      case 'Add Backend Process':
+        {
+          functionLibraryPartsFromNodes.addBackendProcess(payload.node)
+        }
+        break
+      case 'Add Sensor':
+        {
+          functionLibraryPartsFromNodes.addSensor(payload.node)
+        }
+        break
+      case 'Add Indicator':
+        {
+          functionLibraryPartsFromNodes.addIndicator(payload.node)
+        }
+        break
+      case 'Add Trading Engine':
+        {
+          functionLibraryPartsFromNodes.addTradingEngine(payload.node)
+        }
+        break
+      case 'Add Bot Process':
+        {
+          functionLibraryPartsFromNodes.addBotProcess(payload.node)
+        }
+        break
       case 'Add Strategy':
         {
           functionLibraryPartsFromNodes.addStrategy(payload.node)
@@ -309,6 +339,30 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addPersonalData(payload.node)
         }
         break
+      case 'Delete Backend': {
+        functionLibraryNodeDeleter.deleteBackend(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Backend Process': {
+        functionLibraryNodeDeleter.deleteBackendProcess(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Sensor': {
+        functionLibraryNodeDeleter.deleteSensor(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Indicator': {
+        functionLibraryNodeDeleter.deleteIndicator(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Trading Engine': {
+        functionLibraryNodeDeleter.deleteTradingEngine(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Bot Process': {
+        functionLibraryNodeDeleter.deleteBotProcess(payload.node, workspaceNode.rootNodes)
+        break
+      }
       case 'Delete Trading System': {
         functionLibraryNodeDeleter.deleteTradingSystem(payload.node, workspaceNode.rootNodes)
         break

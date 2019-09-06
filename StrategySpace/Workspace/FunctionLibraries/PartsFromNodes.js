@@ -430,7 +430,8 @@ function newPartsFromNodes () {
 
   function addBotProcess (node) {
     let botProcess = {
-      name: 'New Bot Process'
+      name: 'New Bot Process',
+      code: '// Write the configuration here.'
     }
     node.botProcesses.push(botProcess)
     createPart('Bot Process', botProcess.name, botProcess, node, node, 'Bot Process')

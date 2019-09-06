@@ -160,7 +160,7 @@ function newNodeChildren () {
       childIndex: undefined
     }
 
-    for (let i = 0; i < parentNode.exchangeAccounts.length; i++) {
+    for (let i = 0; i < parentNode.backendProcesses.length; i++) {
       let child = parentNode.backendProcesses[i]
       response.childrenCount++
       if (child.id === childNode.id) {

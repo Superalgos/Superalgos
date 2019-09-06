@@ -243,7 +243,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -50
+            angle: -40
           }
           )
         menuItemsInitialValues.push(
@@ -256,7 +256,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -25
+            angle: -20
           }
           )
         menuItemsInitialValues.push(
@@ -282,7 +282,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 25
+            angle: 20
           }
                 )
         menuItemsInitialValues.push(
@@ -298,7 +298,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 50
+            angle: 40
           }
               )
         menuItemsInitialValues.push(
@@ -2026,6 +2026,30 @@ function newStrategyPartConstructor () {
       }
       case 'Definition': {
         level_0()
+        break
+      }
+      case 'Backend': {
+        level_1()
+        break
+      }
+      case 'Backend Process': {
+        level_2()
+        break
+      }
+      case 'Sensor': {
+        level_3()
+        break
+      }
+      case 'Indicator': {
+        level_3()
+        break
+      }
+      case 'Trading Engine': {
+        level_3()
+        break
+      }
+      case 'Bot Process': {
+        level_4()
         break
       }
       case 'Exchange Account': {

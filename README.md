@@ -573,9 +573,9 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 **candle.close:** The price at which the last closed candle closed.
 
 **candle.direction:** 
-* Down: candle.close < candle.open (bearish candle)
-* Up: candle.close > candle.open (bullish candle)
-* Side: candle.close = candle.open (neutral candle)
+* ```"Down"```: candle.close < candle.open (bearish candle)
+* ```"Up"```: candle.close > candle.open (bullish candle)
+* ```"Side"```: candle.close = candle.open (neutral candle)
 
 **candle.previous:** Refers to the previous candle. You may use _candle.previous_ to fetch any of the variables of the previous candle (i.e.: _candle.previous.close_). You may also use as many _.previous_ modifiers as required to fetch values of more than one period behind the current one (i.e.: _candle.previous.previous.max_ returns the maximum value of two candles before the current one).
 

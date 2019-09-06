@@ -360,6 +360,80 @@ function newProtocolNode () {
         }
         return key
       }
+      case 'Backend': {
+        let backend = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          backendProcesses: []
+        }
+
+        for (let m = 0; m < node.backendProcesses.length; m++) {
+          let backendProcess = getProtocolNode(node.backendProcesses[m], removePersonalData)
+          backend.backendProcesses.push(backendProcess)
+        }
+        return backend
+      }
+      case 'Backend Process': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          bot: getProtocolNode(node.bot, removePersonalData)
+        }
+        return object
+      }
+      case 'Sensor': {
+        let bot = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          botProcesses: []
+        }
+
+        for (let m = 0; m < node.botProcesses.length; m++) {
+          let botProcess = getProtocolNode(node.botProcesses[m], removePersonalData)
+          bot.botProcesses.push(botProcess)
+        }
+        return bot
+      }
+      case 'Indicator': {
+        let bot = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          botProcesses: []
+        }
+
+        for (let m = 0; m < node.botProcesses.length; m++) {
+          let botProcess = getProtocolNode(node.botProcesses[m], removePersonalData)
+          bot.botProcesses.push(botProcess)
+        }
+        return bot
+      }
+      case 'Trading Engine': {
+        let bot = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          botProcesses: []
+        }
+
+        for (let m = 0; m < node.botProcesses.length; m++) {
+          let botProcess = getProtocolNode(node.botProcesses[m], removePersonalData)
+          bot.botProcesses.push(botProcess)
+        }
+        return bot
+      }
+      case 'Bot Process': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code
+        }
+        return object
+      }
       case 'Definition': {
         let object = {
           type: node.type,

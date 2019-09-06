@@ -425,6 +425,85 @@ function newStringifyNode () {
         }
         return key
       }
+      case 'Backend': {
+        let backend = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          backendProcesses: []
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.backendProcesses.length; m++) {
+          let backendProcess = prepareForStringify(node.backendProcesses[m], removePersonalData)
+          backend.backendProcesses.push(backendProcess)
+        }
+
+        return backend
+      }
+      case 'Backend Process': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          bot: prepareForStringify(node.bot, removePersonalData)
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Sensor': {
+        let bot = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          botProcesses: []
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.botProcesses.length; m++) {
+          let botProcess = prepareForStringify(node.botProcesses[m], removePersonalData)
+          bot.botProcesses.push(botProcess)
+        }
+
+        return bot
+      }
+      case 'Indicator': {
+        let bot = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          botProcesses: []
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.botProcesses.length; m++) {
+          let botProcess = prepareForStringify(node.botProcesses[m], removePersonalData)
+          bot.botProcesses.push(botProcess)
+        }
+
+        return bot
+      }
+      case 'Trading Engine': {
+        let bot = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          botProcesses: []
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.botProcesses.length; m++) {
+          let botProcess = prepareForStringify(node.botProcesses[m], removePersonalData)
+          bot.botProcesses.push(botProcess)
+        }
+
+        return bot
+      }
       case 'Definition': {
         let object = {
           id: node.id,
@@ -433,6 +512,17 @@ function newStringifyNode () {
           name: node.name,
           tradingSystem: prepareForStringify(node.tradingSystem, removePersonalData),
           personalData: prepareForStringify(node.personalData, removePersonalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Bot Process': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code
           savedPayload: getSavedPayload(node)
         }
         return object

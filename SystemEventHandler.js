@@ -1,4 +1,4 @@
-﻿exports.newEventHandler = function newEventHandler() {
+﻿exports.newSystemEventHandler = function newSystemEventHandler() {
     let thisObject = {
         initialize: initialize,
         createEventHandler: createEventHandler,

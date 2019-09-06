@@ -26,19 +26,19 @@ global.CUSTOM_FAIL_RESPONSE = {
 };
 
 const EVENT_HANDLER_MODULE =  require('./EventHandler.js');
-global.eventHandler = EVENT_HANDLER_MODULE.newEventHandler()
+global.systemEventHandler = EVENT_HANDLER_MODULE.newSystemEventHandler()
 
-global.eventHandler.initialize(bootLoader)
+global.systemEventHandler.initialize(bootLoader)
 
 function bootLoader() {
 
-    global.eventHandler.createEventHandler('Jason-Multi-Period')
+    global.systemEventHandler.createEventHandler('Jason-Multi-Period')
 
     tryToListenToCockpit()
 
     function tryToListenToCockpit() {
 
-        global.eventHandler.listenToEvent('Cockpit-Restart-Simulation', 'Simulation Started', undefined, 'Clone Executor Boot Loader', onResponse, startSequence)
+        global.systemEventHandler.listenToEvent('Cockpit-Restart-Simulation', 'Simulation Started', undefined, 'Clone Executor Boot Loader', onResponse, startSequence)
 
         function onResponse(message) {
             if (message.result !== global.DEFAULT_OK_RESPONSE.result) {

@@ -49,6 +49,36 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Backend': {
+        node.payload.parentNode.backend = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Backend Process': {
+        node.payload.parentNode.backendProcess = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Sensor': {
+        node.payload.parentNode.sensor = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Indicator': {
+        node.payload.parentNode.indicator = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Trading Engine': {
+        node.payload.parentNode.tradingEngine = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Bot Process': {
+        node.payload.parentNode.botProcess = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Trading System': {
         node.payload.parentNode.tradingSystem = undefined
         completeDetachment(node, rootNodes)
@@ -59,18 +89,18 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
-      case 'Time Period': {
-        node.payload.parentNode.baseAsset = undefined
+      case 'Time Range': {
+        node.payload.parentNode.timeRange = undefined
         completeDetachment(node, rootNodes)
         return
       }
       case 'Slippage': {
-        node.payload.parentNode.baseAsset = undefined
+        node.payload.parentNode.slippage = undefined
         completeDetachment(node, rootNodes)
         return
       }
       case 'Fee Structure': {
-        node.payload.parentNode.baseAsset = undefined
+        node.payload.parentNode.feeStructure = undefined
         completeDetachment(node, rootNodes)
         return
       }

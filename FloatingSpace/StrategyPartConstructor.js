@@ -329,7 +329,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           }
           )
         menuItemsInitialValues.push(
@@ -345,7 +345,21 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +20
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }
             )
         break
@@ -362,7 +376,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -70
           }
         )
         menuItemsInitialValues.push(
@@ -375,7 +389,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -30
           }
           )
         menuItemsInitialValues.push(
@@ -388,7 +402,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 0
           }
           )
         menuItemsInitialValues.push(
@@ -397,16 +411,30 @@ function newStrategyPartConstructor () {
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Backend Process',
+            label: 'Delete Process',
             visible: false,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +60
+            angle: +30
           }
             )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 70
+          }
+                )
         break
       }
       case 'Sensor': {
@@ -421,7 +449,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           }
           )
         menuItemsInitialValues.push(
@@ -437,9 +465,23 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +20
+            angle: 0
           }
             )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+                    )
         break
       }
       case 'Indicator': {
@@ -454,7 +496,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           }
           )
         menuItemsInitialValues.push(
@@ -470,7 +512,21 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +20
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }
             )
         break
@@ -487,7 +543,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           }
           )
         menuItemsInitialValues.push(
@@ -503,9 +559,23 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +20
+            angle: 0
           }
             )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+          )
         break
       }
       case 'Bot Process': {
@@ -526,7 +596,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20,
+            angle: -40,
             dontShowAtFullscreen: true
           }
         )
@@ -543,9 +613,23 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +20
+            angle: 0
           }
             )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+              )
         break
       }
       case 'Personal Data': {
@@ -2206,7 +2290,7 @@ function newStrategyPartConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        floatingObject.tensionToggle()
+        // floatingObject.tensionToggle()
       }
     }
 
@@ -2222,7 +2306,7 @@ function newStrategyPartConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        floatingObject.tensionToggle()
+        // floatingObject.tensionToggle()
       }
     }
 
@@ -2238,7 +2322,7 @@ function newStrategyPartConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        floatingObject.tensionToggle()
+        // floatingObject.tensionToggle()
       }
     }
 
@@ -2254,7 +2338,7 @@ function newStrategyPartConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        floatingObject.tensionToggle()
+        // floatingObject.tensionToggle()
       }
     }
 

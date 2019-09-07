@@ -543,8 +543,11 @@ function newStrategyPart () {
   }
 
   function stop () {
-    thisObject.runningStatus.finalize()
-    thisObject.runningStatus = undefined
+    setTimeout(removeRunningStatus, 30000)
+    function removeRunningStatus () {
+      thisObject.runningStatus.finalize()
+      thisObject.runningStatus = undefined
+    }
   }
 
   function run () {

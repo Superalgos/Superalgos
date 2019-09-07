@@ -26,7 +26,6 @@ function newCircularRunningStatus () {
   return thisObject
 
   function finalize () {
-    thisObject.container.finalize()
     thisObject.container = undefined
 
     thisObject.payload = undefined

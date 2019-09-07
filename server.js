@@ -25,10 +25,12 @@ global.CUSTOM_FAIL_RESPONSE = {
     message: "Custom Message"
 };
 
-const EVENT_HANDLER_MODULE =  require('./SystemEventHandler.js');
+console.log('NEW INSTANCE OF BACKEND SEVER RUNNING')
+
+const EVENT_HANDLER_MODULE =  require('../Libraries/SystemEventsClient/SystemEventHandler.js');
 global.systemEventHandler = EVENT_HANDLER_MODULE.newSystemEventHandler()
 
-global.systemEventHandler.initialize(bootLoader)
+global.systemEventHandler.initialize('Clone Executor', bootLoader)
 
 function bootLoader() {
 
@@ -45,6 +47,24 @@ function bootLoader() {
                 setTimeout(tryToListenToCockpit, 3000)
             }
         }
+    }
+}
+
+/*
+
+We read the first string sent as an argument when the process was created by the Backend Server. Ther we will find the information of the identity
+of this backend process and know exactly what to run within this server instance. 
+
+*/
+
+let backendProcessDefinition = process.argv[2]
+if (backendProcessDefinition !== undefined) {
+    console.log('RECIBI ESTA DEFINICION: ' + backendProcessDefinition)
+    backendProcessDefinition = JSON.parse(backendProcessDefinition)
+} else {
+    /* Debugging Definition goes here */
+    backendProcessDefinition = {
+
     }
 }
 
@@ -97,6 +117,8 @@ function startSequence () {
         process.on('message', message => {
             if (message === 'STOP') {
                 runClonExecutor = false;
+                global.systemEventHandler.finalize()
+                global.systemEventHandler = undefined
                 console.log("[INFO] CloneExecutor -> Clone Executor Stopped.");
             }
         });

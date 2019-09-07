@@ -6,14 +6,15 @@
     <ProjectGuid>{ae0a3fe2-7021-4cc2-9922-a887ca5cdd7c}</ProjectGuid>
     <ProjectHome />
     <ProjectView>ShowAllFiles</ProjectView>
-    <StartupFile>Run.js</StartupFile>
+    <StartupFile>server.js</StartupFile>
     <WorkingDirectory>.\</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>Project</Name>
-    <ScriptArguments>Trading-Process</ScriptArguments>
+    <ScriptArguments>
+    </ScriptArguments>
     <NodeExePath>C:\Program Files\nodejs\node.exe</NodeExePath>
     <StartWebBrowser>False</StartWebBrowser>
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
@@ -22,9 +23,6 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <Compile Include="Assistant.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SystemEventHandler.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Integrations\Ecosystem.js" />
@@ -67,7 +65,7 @@
     <Compile Include="IndicatorBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Run.js" />
+    <Compile Include="server.js" />
     <Compile Include="StatusReport.js">
       <SubType>Code</SubType>
     </Compile>

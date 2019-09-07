@@ -241,6 +241,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> Entering function."); }
 
                         let timePeriod = global.marketFilesPeriods[n][1];
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> timePeriod = " + timePeriod); }
 
                         let previousCandles;
                         let previousVolumes;

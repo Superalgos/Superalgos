@@ -209,6 +209,27 @@ function newWorkspace () {
         }
 
         break
+      case 'Run Backend Process':
+        {
+          /* Check if it is possible to Run or not */
+          if (payload.node.bot === undefined) { return }
+          if (payload.node.bot.botProcesses.length === 0) { return }
+
+          let event = {
+            backendProcessId: payload.node.id,
+            definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, true)) // <-  We need to do this workaround in order no to send unescaped charactars to the backend.
+          }
+          systemEventHandler.raiseEvent('Backend Server', 'Run Backend Process', event)
+        }
+        break
+      case 'Stop Backend Process':
+        {
+          let event = {
+            backendProcessId: payload.node.id
+          }
+          systemEventHandler.raiseEvent('Backend Server', 'Stop Backend Process', event)
+        }
+        break
       case 'Add Backend':
         {
           functionLibraryPartsFromNodes.addBackend(payload.node)
@@ -216,13 +237,7 @@ function newWorkspace () {
         break
       case 'Add Backend Process':
         {
-          let node = functionLibraryPartsFromNodes.addBackendProcess(payload.node)
-
-          let event = {
-            backendProcessId: node.id,
-            definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false))
-          }
-          systemEventHandler.raiseEvent('Backend Server', 'Backend Process Created', event)
+          functionLibraryPartsFromNodes.addBackendProcess(payload.node)
         }
         break
       case 'Add Sensor':
@@ -350,11 +365,6 @@ function newWorkspace () {
         break
       }
       case 'Delete Backend Process': {
-        let event = {
-          backendProcessId: payload.node.id
-        }
-        systemEventHandler.raiseEvent('Backend Server', 'Backend Process Deleted', event)
-
         functionLibraryNodeDeleter.deleteBackendProcess(payload.node, workspaceNode.rootNodes)
         break
       }

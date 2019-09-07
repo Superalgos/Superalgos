@@ -368,6 +368,34 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
+            action: 'Run Backend Process',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Run',
+            visible: false,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -75
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Stop Backend Process',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Stop',
+            visible: false,
+            iconPathOn: 'stop',
+            iconPathOff: 'stop',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
             action: 'Add Sensor',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Sensor',
@@ -376,7 +404,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -70
+            angle: -20
           }
         )
         menuItemsInitialValues.push(
@@ -389,7 +417,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -30
+            angle: 0
           }
           )
         menuItemsInitialValues.push(
@@ -402,7 +430,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           }
           )
         menuItemsInitialValues.push(
@@ -418,7 +446,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +30
+            angle: +40
           }
             )
         menuItemsInitialValues.push(
@@ -432,7 +460,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 70
+            angle: 75
           }
                 )
         break

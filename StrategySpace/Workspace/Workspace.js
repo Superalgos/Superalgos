@@ -216,7 +216,13 @@ function newWorkspace () {
         break
       case 'Add Backend Process':
         {
-          functionLibraryPartsFromNodes.addBackendProcess(payload.node)
+          let node = functionLibraryPartsFromNodes.addBackendProcess(payload.node)
+
+          let event = {
+            backendProcessId: node.id,
+            definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false))
+          }
+          systemEventHandler.raiseEvent('Backend Server', 'Backend Process Created', event)
         }
         break
       case 'Add Sensor':
@@ -344,6 +350,11 @@ function newWorkspace () {
         break
       }
       case 'Delete Backend Process': {
+        let event = {
+          backendProcessId: payload.node.id
+        }
+        systemEventHandler.raiseEvent('Backend Server', 'Backend Process Deleted', event)
+
         functionLibraryNodeDeleter.deleteBackendProcess(payload.node, workspaceNode.rootNodes)
         break
       }

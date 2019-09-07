@@ -391,6 +391,8 @@ function newPartsFromNodes () {
       }
       createPart('Backend', '', node.backend, node, node)
     }
+
+    return node.backend
   }
 
   function addBackendProcess (node) {
@@ -399,6 +401,8 @@ function newPartsFromNodes () {
     }
     node.backendProcesses.push(backendProcess)
     createPart('Backend Process', backendProcess.name, backendProcess, node, node, 'Backend Process')
+
+    return backendProcess
   }
 
   function addSensor (node) {
@@ -408,6 +412,7 @@ function newPartsFromNodes () {
       }
       createPart('Sensor', '', node.bot, node, node)
     }
+    return node.bot
   }
 
   function addIndicator (node) {
@@ -417,6 +422,7 @@ function newPartsFromNodes () {
       }
       createPart('Indicator', '', node.bot, node, node)
     }
+    return node.bot
   }
 
   function addTradingEngine (node) {
@@ -426,6 +432,7 @@ function newPartsFromNodes () {
       }
       createPart('Trading Engine', '', node.bot, node, node)
     }
+    return node.bot
   }
 
   function addBotProcess (node) {
@@ -435,6 +442,8 @@ function newPartsFromNodes () {
     }
     node.botProcesses.push(botProcess)
     createPart('Bot Process', botProcess.name, botProcess, node, node, 'Bot Process')
+
+    return botProcess
   }
 
   function addTradingSystem (node) {
@@ -444,6 +453,7 @@ function newPartsFromNodes () {
       }
       createPart('Trading System', '', node.tradingSystem, node, node)
     }
+    return node.tradingSystem
   }
 
   function addPersonalData (node) {
@@ -453,6 +463,8 @@ function newPartsFromNodes () {
       }
       createPart('Personal Data', '', node.personalData, node, node)
     }
+
+    return node.personalData
   }
 
   function addExchangeAccount (parentNode) {
@@ -464,6 +476,8 @@ function newPartsFromNodes () {
     }
     personalData.exchangeAccounts.push(exchangeAccount)
     createPart('Exchange Account', exchangeAccount.name, exchangeAccount, personalData, personalData, 'Exchange Account')
+
+    return exchangeAccount
   }
 
   function addExchangeAccountAsset (parentNode) {
@@ -473,6 +487,8 @@ function newPartsFromNodes () {
     }
     exchangeAccount.assets.push(asset)
     createPart('Exchange Account Asset', asset.name, asset, exchangeAccount, exchangeAccount, 'Account Asset')
+
+    return asset
   }
 
   function addExchangeAccountKey (parentNode) {
@@ -483,6 +499,8 @@ function newPartsFromNodes () {
     }
     exchangeAccount.keys.push(key)
     createPart('Exchange Account Key', key.name, key, exchangeAccount, exchangeAccount, 'Account Key')
+
+    return key
   }
 
   function addStrategy (parentNode) {
@@ -547,6 +565,8 @@ function newPartsFromNodes () {
     createPart('Stop', 'Initial Stop', strategy.openStage.initialDefinition.stopLoss, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
     createPart('Take Profit', 'Initial Take Profit', strategy.openStage.initialDefinition.takeProfit, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
     createPart('Formula', '', strategy.triggerStage.positionSize.formula, strategy.triggerStage.positionSize, strategy.triggerStage.positionSize)
+
+    return strategy
   }
 
   function addParameters (node) {
@@ -557,6 +577,8 @@ function newPartsFromNodes () {
       createPart('Parameters', '', node.parameters, node, node)
       addMissingParameters(node.parameters)
     }
+
+    return node.parameters
   }
 
   function addMissingParameters (node) {
@@ -747,6 +769,8 @@ function newPartsFromNodes () {
       createPart('Position Rate', '', node.initialDefinition.positionRate, node.initialDefinition, node.initialDefinition)
       createPart('Formula', '', node.initialDefinition.positionRate.formula, node.initialDefinition.positionRate, node.initialDefinition.positionRate)
     }
+
+    return node.initialDefinition
   }
 
   function addOpenExecution (node) {
@@ -754,6 +778,8 @@ function newPartsFromNodes () {
       node.openExecution = {}
       createPart('Open Execution', '', node.openExecution, node, node)
     }
+
+    return node.openExecution
   }
 
   function addCloseExecution (node) {
@@ -761,6 +787,8 @@ function newPartsFromNodes () {
       node.closeExecution = {}
       createPart('Close Execution', '', node.closeExecution, node, node)
     }
+
+    return node.closeExecution
   }
 
   function addFormula (node) {
@@ -770,6 +798,8 @@ function newPartsFromNodes () {
       }
       createPart('Formula', '', node.formula, node, node)
     }
+
+    return node.formula
   }
 
   function addNextPhaseEvent (node) {
@@ -779,6 +809,8 @@ function newPartsFromNodes () {
       }
       createPart('Next Phase Event', '', node.nextPhaseEvent, node, node)
     }
+
+    return node.nextPhaseEvent
   }
 
   function addCode (node) {
@@ -788,6 +820,8 @@ function newPartsFromNodes () {
       }
       createPart('Code', '', node.code, node, node)
     }
+
+    return node.code
   }
 
   function addPhase (parentNode) {
@@ -822,6 +856,8 @@ function newPartsFromNodes () {
     createPart('Phase', phase.name, phase, phaseParent, phaseChainParent, 'Phase')
     createPart('Formula', '', phase.formula, phase, phase, 'Formula')
     createPart('Next Phase Event', '', phase.nextPhaseEvent, phase, phase)
+
+    return phase
   }
 
   function addSituation (parentNode) {
@@ -832,6 +868,8 @@ function newPartsFromNodes () {
     }
     parentNode.situations.push(situation)
     createPart('Situation', situation.name, situation, parentNode, parentNode, 'Situation')
+
+    return situation
   }
 
   function addCondition (parentNode) {
@@ -846,6 +884,8 @@ function newPartsFromNodes () {
     situation.conditions.push(condition)
     createPart('Condition', condition.name, condition, situation, situation, 'Condition')
     createPart('Code', '', condition.code, condition, condition, 'Code')
+
+    return condition
   }
 
   function createPart (partType, name, node, parentNode, chainParent, title) {

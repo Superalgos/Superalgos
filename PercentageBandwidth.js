@@ -803,11 +803,11 @@
                     browserCanvasContext.closePath();
 
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', 1)';
- 
+
                     if (userPositionDate >= percentageBandwidth.begin && userPositionDate <= percentageBandwidth.end) {
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
-                    }  
- 
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)';
+                    }
+
                     browserCanvasContext.lineWidth = 0.2;
                     browserCanvasContext.stroke();
 
@@ -827,7 +827,7 @@
                     }
 
                     if (userPositionDate >= percentageBandwidth.begin && userPositionDate <= percentageBandwidth.end) {
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)';
                     }
 
                     browserCanvasContext.lineWidth = 0.2;
@@ -845,9 +845,9 @@
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)';
 
                     if (userPositionDate >= percentageBandwidth.begin && userPositionDate <= percentageBandwidth.end) {
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)';
                     }
-   
+
                     browserCanvasContext.setLineDash([1, 4])
                     browserCanvasContext.lineWidth = 1
                     browserCanvasContext.stroke()
@@ -901,5 +901,6 @@
         }
     }
 }
+
 
 

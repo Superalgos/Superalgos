@@ -2145,7 +2145,7 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Backend Process': {
-        level_2()
+        level_1()
         break
       }
       case 'Sensor': {

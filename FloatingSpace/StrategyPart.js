@@ -16,9 +16,12 @@ function newStrategyPart () {
     payload: undefined,
     codeEditor: undefined,
     partTitle: undefined,
+    runningStatus: undefined,
     isExecuting: undefined,
     isRunning: undefined,
     run: run,
+    runX: runX,
+    stop: stop,
     setRunningStatus: setRunningStatus,
     setNotRunningStatus: setNotRunningStatus,
     getReadyToAttach: getReadyToAttach,
@@ -175,8 +178,11 @@ function newStrategyPart () {
       thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
     }
 
+    if (thisObject.runningStatus !== undefined) {
+      thisObject.runningStatus.physics()
+    }
+
     iconPhysics()
-    runningPhisycs()
     highlightPhisycs()
     errorMessagePhisycs()
     valuePhisycs()
@@ -525,17 +531,20 @@ function newStrategyPart () {
     }
   }
 
-  function runningPhisycs () {
-    if (canvas.strategySpace.workspace.definition !== undefined) {
-      if (canvas.strategySpace.workspace.definition.id !== thisObject.payload.node.id) {
-        runningCounter--
-      }
+  function runX () {
+    if (thisObject.runningStatus !== undefined) {
+      thisObject.runningStatus.finalize()
     }
 
-    if (runningCounter < 0) {
-      runningCounter = 0
-      thisObject.isRunning = false
-    }
+    thisObject.runningStatus = newCircularRunningStatus()
+    thisObject.runningStatus.initialize(thisObject.payload)
+    thisObject.runningStatus.fitFunction = thisObject.fitFunction
+    thisObject.runningStatus.container = thisObject.container
+  }
+
+  function stop () {
+    thisObject.runningStatus.finalize()
+    thisObject.runningStatus = undefined
   }
 
   function run () {
@@ -604,6 +613,10 @@ function newStrategyPart () {
         thisObject.menu.drawBackground()
       }
     }
+
+    if (thisObject.runningStatus !== undefined) {
+      thisObject.runningStatus.drawBackground()
+    }
   }
 
   function drawMiddleground () {
@@ -620,6 +633,10 @@ function newStrategyPart () {
       if (isDragging === false) {
         thisObject.menu.drawForeground()
       }
+    }
+
+    if (thisObject.runningStatus !== undefined) {
+      thisObject.runningStatus.drawForeground()
     }
   }
 
@@ -929,21 +946,6 @@ function newStrategyPart () {
         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.25)'
 
         browserCanvasContext.fill()
-      }
-
-      if (thisObject.isRunning === true) {
-        VISIBLE_RADIUS = thisObject.container.frame.radius * 2
-        let OPACITY = runningCounter / 30
-
-        browserCanvasContext.beginPath()
-        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
-        browserCanvasContext.closePath()
-
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
-
-        browserCanvasContext.lineWidth = 10
-        browserCanvasContext.setLineDash([4, 20])
-        browserCanvasContext.stroke()
       }
 
       if (hasError === true) {

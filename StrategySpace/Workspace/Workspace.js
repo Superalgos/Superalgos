@@ -215,6 +215,8 @@ function newWorkspace () {
           if (payload.node.bot === undefined) { return }
           if (payload.node.bot.botProcesses.length === 0) { return }
 
+          payload.uiObject.runX()
+
           let event = {
             backendProcessId: payload.node.id,
             definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, true)) // <-  We need to do this workaround in order no to send unescaped charactars to the backend.
@@ -228,6 +230,8 @@ function newWorkspace () {
             backendProcessId: payload.node.id
           }
           systemEventHandler.raiseEvent('Backend Server', 'Stop Backend Process', event)
+
+          payload.uiObject.stop()
         }
         break
       case 'Add Backend':

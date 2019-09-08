@@ -1,12 +1,12 @@
-# Clone Executor
+# Task Server
 
 Whithin the Superalgos project, we have the concept of Financial Beings, which are autonomous agents that have a financial life. These FBs entities have a master (imagine a class in programming) and clones (imagine an instance of a class running). The master is the one who aquires reputation after competitions. Every time we need to do a backtest, live trading or participating in a competition, a clone is extracted from the master and is put to run, either in backtest mode, live trading mode or competition mode. The clone lifespan is constrained by the purpose it was created. For instance, a clone created for a competition will live only during the period of such competition.
 
-The software needed to execute these clones is the Clone Executor.
+The software needed to execute these clones is the Task Server.
 
 ## Installation
 
-To install the Clone Executor plase clone this repo and:
+To install the Task Server plase clone this repo and:
 
 ```
 npm install
@@ -17,12 +17,12 @@ Then, ask for the .ENV and config files to the Core Team (This is a temporary me
 You can use then the included visual studio solution to start debugging right away, or:
 
 ```
-node.exe Run.js
+node server.js
 ```
 
 ## Copyright and License Notice
 
-© Copyright 2018 Advanced Algos. Please see the [Clone Executor License](/LICENSE) for information on how you can use this software.
+© Copyright 2018 Advanced Algos. Please see the [Task Server License](/LICENSE) for information on how you can use this software.
 
 ## Disclaimer
 

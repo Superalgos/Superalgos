@@ -6,10 +6,7 @@
     "resumeExecution": true,
     "type": "Sensor",
     "exchangeName": "Poloniex",
-    "process": "Live-Trades",
-    "startYear": 2019,
-    "endYear": 2021,
-    "month": 1
+    "process": "Live-Trades"
   },
   {
     "devTeam": "AAMasters",

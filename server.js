@@ -25,30 +25,28 @@ global.CUSTOM_FAIL_RESPONSE = {
     message: "Custom Message"
 };
 
-console.log('NEW INSTANCE OF BACKEND SEVER RUNNING')
+/* Process Events */
 
-const EVENT_HANDLER_MODULE =  require('../Libraries/SystemEventsClient/SystemEventHandler.js');
-global.systemEventHandler = EVENT_HANDLER_MODULE.newSystemEventHandler()
+process.on('uncaughtException', function (err) {
+    console.log('[INFO] server -> uncaughtException -> err.message = ' + err.message)
+    console.log('[INFO] server -> uncaughtException -> err.stack = ' + err.stack)
+    process.exit(1)
+})
 
-global.systemEventHandler.initialize('Clone Executor', bootLoader)
+process.on('unhandledRejection', (reason, p) => {
+    console.log('[INFO] server -> unhandledRejection -> reason = ' + JSON.stringify(reason))
+    console.log('[INFO] server -> unhandledRejection -> p = ' + JSON.stringify(p))
+    process.exit(1)
+})
 
-function bootLoader() {
+process.on('exit', function (code) {
+    console.log('[INFO] server -> process.on.exit -> About to exit -> code = ' + code)
+})
 
-    global.systemEventHandler.createEventHandler('Jason-Multi-Period')
+/* Local Variables */
 
-    tryToListenToCockpit()
-
-    function tryToListenToCockpit() {
-
-        global.systemEventHandler.listenToEvent('Cockpit-Restart-Simulation', 'Simulation Started', undefined, 'Clone Executor Boot Loader', onResponse, startSequence)
-
-        function onResponse(message) {
-            if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
-                setTimeout(tryToListenToCockpit, 3000)
-            }
-        }
-    }
-}
+let sequenceList = []
+let heartBeatInterval
 
 /*
 
@@ -56,17 +54,71 @@ We read the first string sent as an argument when the process was created by the
 of this backend process and know exactly what to run within this server instance. 
 
 */
+global.USER_DEFINITION = process.argv[2]
 
-let backendProcessDefinition = process.argv[2]
-if (backendProcessDefinition !== undefined) {
-    console.log('RECIBI ESTA DEFINICION: ' + backendProcessDefinition)
-    backendProcessDefinition = JSON.parse(backendProcessDefinition)
-} else {
-    /* Debugging Definition goes here */
-    backendProcessDefinition = {
+if (global.USER_DEFINITION !== undefined) {
+    console.log('[INFO] server -> global.USER_DEFINITION = ' + global.USER_DEFINITION)
+    try {
+        global.USER_DEFINITION = JSON.parse(global.USER_DEFINITION)
+    } catch (err) {
+        console.log('[ERROR] server -> global.USER_DEFINITION -> ' + err.stack)
+    }
 
+}
+/*
+else {
+    let argument = '{"type":"Backend Process","name":"New Backend Process","bot":{"type":"Sensor","botProcesses":[{"type":"Bot Process","name":"New Bot Process","code":{"devTeam":"AAMasters","bot":"AACharly","mode":"noTime","resumeExecution":true,"type":"Sensor","exchangeName":"Poloniex","process":"Live-Trades"}}]}}'
+    try {
+        global.USER_DEFINITION = JSON.parse(argument)
+    } catch (err) {
+        console.log(err.stack)
     }
 }
+*/
+
+const EVENT_HANDLER_MODULE =  require('../Libraries/SystemEventsClient/SystemEventHandler.js');
+global.SYSTEM_EVENT_HANDLER = EVENT_HANDLER_MODULE.newSystemEventHandler()
+
+global.SYSTEM_EVENT_HANDLER.initialize('Clone Executor', bootLoader)
+
+function bootLoader() {
+   
+    global.SYSTEM_EVENT_HANDLER.createEventHandler(global.USER_DEFINITION.name)
+
+     /*
+    tryToListenToCockpit()
+
+    function tryToListenToCockpit() {
+
+        global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Simulation', 'Simulation Started', undefined, 'Clone Executor Boot Loader', onResponse, startSequence)
+
+        function onResponse(message) {
+            if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
+                setTimeout(tryToListenToCockpit, 3000)
+            }
+        }
+    }
+    */
+
+    for (let i = 0; i < global.USER_DEFINITION.bot.botProcesses.length; i++) {
+        let code = global.USER_DEFINITION.bot.botProcesses[i].code
+        sequenceList.push(code)
+    }
+
+    /* Heartbeat sent to the UI */
+    heartBeatInterval = setInterval(hearBeat, 1000)
+
+    function hearBeat() {
+        let key = global.USER_DEFINITION.name + '-' + global.USER_DEFINITION.type
+        let event = {
+            seconds: (new Date()).getSeconds()
+        }
+        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
+    }
+
+    startSequence()
+}
+
 
 /* Old Run.js code follows... */
 
@@ -85,23 +137,10 @@ global.EXCHANGE_NAME = process.env.EXCHANGE_NAME
 global.MARKET = { assetA: 'USDT', assetB: 'BTC' }
 global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' }
 
-process.on('uncaughtException', function (err) {
-    console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message)
-    console.log('[INFO] Run -> uncaughtException -> err.stack = ' + err.stack)
-    process.exit(1)
-})
 
-process.on('unhandledRejection', (reason, p) => {
-    console.log('[INFO] Run -> unhandledRejection -> reason = ' + JSON.stringify(reason))
-    console.log('[INFO] Run -> unhandledRejection -> p = ' + JSON.stringify(p))
-    process.exit(1)
-})
 
-process.on('exit', function (code) {
-    console.log('[INFO] Run -> process.on.exit -> About to exit -> code = ' + code)
-})
 
-let sequenceList = require('./sequence');
+
 let isRunSequence = false;
 let sequenceStep = 0;
 let processedSteps = new Map();
@@ -117,8 +156,12 @@ function startSequence () {
         process.on('message', message => {
             if (message === 'STOP') {
                 runClonExecutor = false;
-                global.systemEventHandler.finalize()
-                global.systemEventHandler = undefined
+
+                /* Cleaning Before Exiting. */
+                clearInterval(heartBeatInterval)
+
+                global.SYSTEM_EVENT_HANDLER.finalize()
+                global.SYSTEM_EVENT_HANDLER = undefined
                 console.log("[INFO] CloneExecutor -> Clone Executor Stopped.");
             }
         });
@@ -191,7 +234,7 @@ function onExecutionFinish(result, finishStepKey) {
         setTimeout(function () {
             if (runClonExecutor) {
                 console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
-                sequenceList = require('./sequence'); // We read again the sequence after every loop
+                 
                 sequenceStep = 0;
                 processedSteps = new Map();
                 notFirstSequence = true;
@@ -204,7 +247,7 @@ function onExecutionFinish(result, finishStepKey) {
 
 async function readExecutionConfiguration(execution) {
     try {
-        console.log("[INFO] Run -> readExecutionConfiguration -> Entering function. ");
+        console.log("[INFO] server -> readExecutionConfiguration -> Entering function. ");
 
         let timePeriodFilter
         let botProcess
@@ -442,7 +485,7 @@ function getTimePeriod(timePeriod) {
             timePeriodMap.set('01-min', 60000)
             return timePeriodMap.get(timePeriod)
         } catch (error) {
-            console.log('[WARN] Run -> readExecutionConfiguration -> getTimePeriod -> Error: ', error)
+            console.log('[WARN] server -> readExecutionConfiguration -> getTimePeriod -> Error: ', error)
         }
     } else {
         return undefined
@@ -450,7 +493,7 @@ function getTimePeriod(timePeriod) {
 }
 
 function startRoot() {
-    console.log('[INFO] Run -> startRoot -> Entering function. ')
+    console.log('[INFO] server -> startRoot -> Entering function. ')
 
     const ROOT_DIR = './'
     const ROOT_MODULE = require(ROOT_DIR + 'Root')
@@ -467,7 +510,7 @@ function startRoot() {
     root.initialize(UI_COMMANDS, onInitialized)
 
     function onInitialized() {
-        console.log('[INFO] Run -> startRoot -> onInitialized -> Entering function. ')
+        console.log('[INFO] server -> startRoot -> onInitialized -> Entering function. ')
 
         root.start(onExecutionFinish)
     }

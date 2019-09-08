@@ -986,7 +986,7 @@
                     bot.hasTheBotJustStarted = false;
 
                     /* Emit event that signals that this process finished */
-                    global.systemEventHandler.raiseEvent('Jason-Multi-Period', 'Status Report Updated', { lastProcessedDay: lastFileDate })
+                    global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Status Report Updated', { lastProcessedDay: lastFileDate })
 
                 }
                 catch (err) {

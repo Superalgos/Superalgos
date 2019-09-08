@@ -122,6 +122,16 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Entering function."); }
 
+                    /* Loop Heartbeat sent to the UI */
+                    //hearBeat() 
+                    function hearBeat() {
+                        let key = global.USER_DEFINITION.name + '-' + global.USER_DEFINITION.type
+                        let event = {
+                            seconds: (new Date()).getSeconds()
+                        }
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
+                    }
+
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');

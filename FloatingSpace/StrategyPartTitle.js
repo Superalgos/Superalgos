@@ -67,7 +67,7 @@ function newStrategyPartTitle () {
       case 'Trading Engine': {
         break
       }
-      case 'Bot Process': {
+      case 'Process': {
         break
       }
       case 'Personal Data': {

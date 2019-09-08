@@ -388,12 +388,12 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          botProcesses: []
+          processes: []
         }
 
-        for (let m = 0; m < node.botProcesses.length; m++) {
-          let botProcess = getProtocolNode(node.botProcesses[m], removePersonalData, parseJSONStrings)
-          bot.botProcesses.push(botProcess)
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings)
+          bot.processes.push(process)
         }
         return bot
       }
@@ -402,12 +402,12 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          botProcesses: []
+          processes: []
         }
 
-        for (let m = 0; m < node.botProcesses.length; m++) {
-          let botProcess = getProtocolNode(node.botProcesses[m], removePersonalData, parseJSONStrings)
-          bot.botProcesses.push(botProcess)
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings)
+          bot.processes.push(process)
         }
         return bot
       }
@@ -416,16 +416,16 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          botProcesses: []
+          processes: []
         }
 
-        for (let m = 0; m < node.botProcesses.length; m++) {
-          let botProcess = getProtocolNode(node.botProcesses[m], removePersonalData, parseJSONStrings)
-          bot.botProcesses.push(botProcess)
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings)
+          bot.processes.push(process)
         }
         return bot
       }
-      case 'Bot Process': {
+      case 'Process': {
         let object = {
           type: node.type,
           subType: node.subType,

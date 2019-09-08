@@ -6,7 +6,7 @@ function newPartsFromNodes () {
     addSensor: addSensor,
     addIndicator: addIndicator,
     addTradingEngine: addTradingEngine,
-    addBotProcess: addBotProcess,
+    addProcess: addProcess,
     addTradingSystem: addTradingSystem,
     addPersonalData: addPersonalData,
     addExchangeAccount: addExchangeAccount,
@@ -355,30 +355,30 @@ function newPartsFromNodes () {
       }
       case 'Sensor': {
         createPart('Sensor', node.name, node, parentNode, chainParent, 'Sensor')
-        for (let m = 0; m < node.botProcesses.length; m++) {
-          let botProcess = node.botProcesses[m]
-          createPartFromNode(botProcess, node, node)
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = node.processes[m]
+          createPartFromNode(process, node, node)
         }
         return
       }
       case 'Indicator': {
         createPart('Indicator', node.name, node, parentNode, chainParent, 'Indicator')
-        for (let m = 0; m < node.botProcesses.length; m++) {
-          let botProcess = node.botProcesses[m]
-          createPartFromNode(botProcess, node, node)
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = node.processes[m]
+          createPartFromNode(process, node, node)
         }
         return
       }
       case 'Trading Engine': {
         createPart('Trading Engine', node.name, node, parentNode, chainParent, 'Trading Engine')
-        for (let m = 0; m < node.botProcesses.length; m++) {
-          let botProcess = node.botProcesses[m]
-          createPartFromNode(botProcess, node, node)
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = node.processes[m]
+          createPartFromNode(process, node, node)
         }
         return
       }
-      case 'Bot Process': {
-        createPart('Bot Process', node.name, node, parentNode, chainParent, 'Bot Process')
+      case 'Process': {
+        createPart('Process', node.name, node, parentNode, chainParent, 'Process')
         return
       }
     }
@@ -408,7 +408,7 @@ function newPartsFromNodes () {
   function addSensor (node) {
     if (node.bot === undefined) {
       node.bot = {
-        botProcesses: []
+        processes: []
       }
       createPart('Sensor', '', node.bot, node, node)
     }
@@ -418,7 +418,7 @@ function newPartsFromNodes () {
   function addIndicator (node) {
     if (node.bot === undefined) {
       node.bot = {
-        botProcesses: []
+        processes: []
       }
       createPart('Indicator', '', node.bot, node, node)
     }
@@ -428,22 +428,22 @@ function newPartsFromNodes () {
   function addTradingEngine (node) {
     if (node.bot === undefined) {
       node.bot = {
-        botProcesses: []
+        processes: []
       }
       createPart('Trading Engine', '', node.bot, node, node)
     }
     return node.bot
   }
 
-  function addBotProcess (node) {
-    let botProcess = {
-      name: 'New Bot Process',
+  function addProcess (node) {
+    let process = {
+      name: 'New Process',
       code: '// Write the configuration here.'
     }
-    node.botProcesses.push(botProcess)
-    createPart('Bot Process', botProcess.name, botProcess, node, node, 'Bot Process')
+    node.processes.push(process)
+    createPart('Process', process.name, process, node, node, 'Process')
 
-    return botProcess
+    return process
   }
 
   function addTradingSystem (node) {

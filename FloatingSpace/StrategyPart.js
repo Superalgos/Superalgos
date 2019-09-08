@@ -262,7 +262,7 @@ function newStrategyPart () {
         compatibleType = '->' + 'Task'
         compatibleSubType = undefined
         break
-      case 'Bot Process':
+      case 'Process':
         compatibleType = '->' + 'Sensor' + '->' + 'Indicator' + '->' + 'Trading Engine'
         compatibleSubType = undefined
         break
@@ -369,7 +369,7 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Sensor' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Indicator' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trading Engine' && nearbyNode.bot !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Bot Process' && nearbyNode.botProcess !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Process' && nearbyNode.process !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }
         if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }
         if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }

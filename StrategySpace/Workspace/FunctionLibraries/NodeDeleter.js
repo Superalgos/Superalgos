@@ -6,7 +6,7 @@ function newNodeDeleter () {
     deleteSensor: deleteBot,
     deleteIndicator: deleteBot,
     deleteTradingEngine: deleteBot,
-    deleteBotProcess: deleteBotProcess,
+    deleteProcess: deleteProcess,
     deletePersonalData: deletePersonalData,
     deleteExchangeAccount: deleteExchangeAccount,
     deleteExchangeAccountAsset: deleteExchangeAccountAsset,
@@ -72,8 +72,8 @@ function newNodeDeleter () {
           deleteBot(rootNode, rootNodes)
           break
         }
-        case 'Bot Process': {
-          deleteBotProcess(rootNode, rootNodes)
+        case 'Process': {
+          deleteProcess(rootNode, rootNodes)
           break
         }
         case 'Personal Data': {
@@ -265,21 +265,21 @@ function newNodeDeleter () {
     if (payload.parentNode !== undefined) {
       payload.parentNode.bot = undefined
     }
-    while (node.botProcesses.length > 0) {
-      deleteBotProcess(node.botProcesses[0], rootNodes)
+    while (node.processes.length > 0) {
+      deleteProcess(node.processes[0], rootNodes)
     }
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
   }
 
-  function deleteBotProcess (node, rootNodes) {
+  function deleteProcess (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
-      for (let j = 0; j < payload.parentNode.botProcesses.length; j++) {
-        let task = payload.parentNode.botProcesses[j]
+      for (let j = 0; j < payload.parentNode.processes.length; j++) {
+        let task = payload.parentNode.processes[j]
         if (task.id === node.id) {
-          payload.parentNode.botProcesses.splice(j, 1)
+          payload.parentNode.processes.splice(j, 1)
         }
       }
     }

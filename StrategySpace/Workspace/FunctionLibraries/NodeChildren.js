@@ -26,8 +26,8 @@ function newNodeChildren () {
       case 'Trading Engine': {
         return countChildrenTradingEngine(parentNode, childNode)
       }
-      case 'Bot Process': {
-        return countChildrenBotProcess(parentNode, childNode)
+      case 'Process': {
+        return countChildrenProcess(parentNode, childNode)
       }
       case 'Personal Data': {
         return countChildrenPersonalData(parentNode, childNode)
@@ -190,8 +190,8 @@ function newNodeChildren () {
       childIndex: undefined
     }
 
-    for (let i = 0; i < parentNode.botProcesses.length; i++) {
-      let child = parentNode.botProcesses[i]
+    for (let i = 0; i < parentNode.processes.length; i++) {
+      let child = parentNode.processes[i]
       response.childrenCount++
       if (child.id === childNode.id) {
         response.childIndex = response.childrenCount
@@ -206,8 +206,8 @@ function newNodeChildren () {
       childIndex: undefined
     }
 
-    for (let i = 0; i < parentNode.botProcesses.length; i++) {
-      let child = parentNode.botProcesses[i]
+    for (let i = 0; i < parentNode.processes.length; i++) {
+      let child = parentNode.processes[i]
       response.childrenCount++
       if (child.id === childNode.id) {
         response.childIndex = response.childrenCount
@@ -222,8 +222,8 @@ function newNodeChildren () {
       childIndex: undefined
     }
 
-    for (let i = 0; i < parentNode.botProcesses.length; i++) {
-      let child = parentNode.botProcesses[i]
+    for (let i = 0; i < parentNode.processes.length; i++) {
+      let child = parentNode.processes[i]
       response.childrenCount++
       if (child.id === childNode.id) {
         response.childIndex = response.childrenCount
@@ -232,7 +232,7 @@ function newNodeChildren () {
     return response
   }
 
-  function countChildrenBotProcess (parentNode, childNode) {
+  function countChildrenProcess (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined

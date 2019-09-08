@@ -45,7 +45,7 @@ function newStrategySpace () {
       ['Sensor', 'pipette'],
       ['Indicator', 'vector'],
       ['Trading Engine', 'brainstorming'],
-      ['Bot Process', 'grid'],
+      ['Process', 'grid'],
       ['Personal Data', 'security'],
       ['Exchange Account', 'approve'],
       ['Exchange Account Asset', 'paper-plane'],

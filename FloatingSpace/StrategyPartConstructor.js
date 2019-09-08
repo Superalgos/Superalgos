@@ -469,11 +469,11 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Bot Process',
+            action: 'Add Process',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Bot Process',
+            label: 'Add Process',
             visible: false,
-            relatedStrategyPart: 'Bot Process',
+            relatedStrategyPart: 'Process',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -516,11 +516,11 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Bot Process',
+            action: 'Add Process',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Bot Process',
+            label: 'Add Process',
             visible: false,
-            relatedStrategyPart: 'Bot Process',
+            relatedStrategyPart: 'Process',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -563,11 +563,11 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Bot Process',
+            action: 'Add Process',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Bot Process',
+            label: 'Add Process',
             visible: false,
-            relatedStrategyPart: 'Bot Process',
+            relatedStrategyPart: 'Process',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -606,7 +606,7 @@ function newStrategyPartConstructor () {
           )
         break
       }
-      case 'Bot Process': {
+      case 'Process': {
         strategyPart.codeEditor = newCodeEditor()
         strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
         strategyPart.codeEditor.initialize()
@@ -615,9 +615,9 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Bot Process',
+            action: 'Edit Process',
             actionFunction: strategyPart.codeEditor.activate,
-            label: 'Edit Bot Process',
+            label: 'Edit Process',
             visible: false,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -630,11 +630,11 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Bot Process',
+            action: 'Delete Process',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Bot Process',
+            label: 'Delete Process',
             visible: false,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -2160,7 +2160,7 @@ function newStrategyPartConstructor () {
         level_3()
         break
       }
-      case 'Bot Process': {
+      case 'Process': {
         level_4()
         break
       }

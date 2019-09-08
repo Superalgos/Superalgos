@@ -74,8 +74,8 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
-      case 'Bot Process': {
-        node.payload.parentNode.botProcess = undefined
+      case 'Process': {
+        node.payload.parentNode.process = undefined
         completeDetachment(node, rootNodes)
         return
       }
@@ -283,10 +283,10 @@ function newAttachDetach () {
         completeAttachment(node, rootNodes)
       }
         break
-      case 'Bot Process': {
+      case 'Process': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.botProcesses.push(node)
+        node.payload.parentNode.processes.push(node)
         completeAttachment(node, rootNodes)
       }
         break

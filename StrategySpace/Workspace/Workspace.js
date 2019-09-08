@@ -213,11 +213,11 @@ function newWorkspace () {
         {
           /* Check if it is possible to Run or not */
           if (payload.node.bot === undefined) { return }
-          if (payload.node.bot.botProcesses.length === 0) { return }
+          if (payload.node.bot.processes.length === 0) { return }
 
-          for (let i = 0; i < payload.node.bot.botProcesses.length; i++) {
-            let botProcess = payload.node.bot.botProcesses[i]
-            botProcess.payload.uiObject.play()
+          for (let i = 0; i < payload.node.bot.processes.length; i++) {
+            let process = payload.node.bot.processes[i]
+            process.payload.uiObject.play()
           }
 
           payload.uiObject.play()
@@ -239,11 +239,11 @@ function newWorkspace () {
           payload.uiObject.stop()
 
           if (payload.node.bot === undefined) { return }
-          if (payload.node.bot.botProcesses.length === 0) { return }
+          if (payload.node.bot.processes.length === 0) { return }
 
-          for (let i = 0; i < payload.node.bot.botProcesses.length; i++) {
-            let botProcess = payload.node.bot.botProcesses[i]
-            botProcess.payload.uiObject.stop()
+          for (let i = 0; i < payload.node.bot.processes.length; i++) {
+            let process = payload.node.bot.processes[i]
+            process.payload.uiObject.stop()
           }
         }
         break
@@ -272,9 +272,9 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addTradingEngine(payload.node)
         }
         break
-      case 'Add Bot Process':
+      case 'Add Process':
         {
-          functionLibraryPartsFromNodes.addBotProcess(payload.node)
+          functionLibraryPartsFromNodes.addProcess(payload.node)
         }
         break
       case 'Add Strategy':
@@ -397,8 +397,8 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteTradingEngine(payload.node, workspaceNode.rootNodes)
         break
       }
-      case 'Delete Bot Process': {
-        functionLibraryNodeDeleter.deleteBotProcess(payload.node, workspaceNode.rootNodes)
+      case 'Delete Process': {
+        functionLibraryNodeDeleter.deleteProcess(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Trading System': {

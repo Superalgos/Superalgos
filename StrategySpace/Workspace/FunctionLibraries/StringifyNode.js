@@ -459,13 +459,13 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          botProcesses: [],
+          processes: [],
           savedPayload: getSavedPayload(node)
         }
 
-        for (let m = 0; m < node.botProcesses.length; m++) {
-          let botProcess = prepareForStringify(node.botProcesses[m], removePersonalData)
-          bot.botProcesses.push(botProcess)
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = prepareForStringify(node.processes[m], removePersonalData)
+          bot.processes.push(process)
         }
 
         return bot
@@ -476,13 +476,13 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          botProcesses: [],
+          processes: [],
           savedPayload: getSavedPayload(node)
         }
 
-        for (let m = 0; m < node.botProcesses.length; m++) {
-          let botProcess = prepareForStringify(node.botProcesses[m], removePersonalData)
-          bot.botProcesses.push(botProcess)
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = prepareForStringify(node.processes[m], removePersonalData)
+          bot.processes.push(process)
         }
 
         return bot
@@ -493,18 +493,18 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          botProcesses: [],
+          processes: [],
           savedPayload: getSavedPayload(node)
         }
 
-        for (let m = 0; m < node.botProcesses.length; m++) {
-          let botProcess = prepareForStringify(node.botProcesses[m], removePersonalData)
-          bot.botProcesses.push(botProcess)
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = prepareForStringify(node.processes[m], removePersonalData)
+          bot.processes.push(process)
         }
 
         return bot
       }
-      case 'Bot Process': {
+      case 'Process': {
         let object = {
           id: node.id,
           type: node.type,

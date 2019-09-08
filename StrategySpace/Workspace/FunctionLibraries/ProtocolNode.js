@@ -4,7 +4,7 @@ function newProtocolNode () {
   }
   return thisObject
 
-  function getProtocolNode (node, removePersonalData, parseJSONStrings) {
+  function getProtocolNode (node, removePersonalData, parseJSONStrings, includeIds) {
     if (node === undefined) { return }
     switch (node.type) {
       case 'Code':
@@ -23,7 +23,7 @@ function newProtocolNode () {
             type: node.type,
             subType: node.subType,
             name: node.name,
-            code: getProtocolNode(node.code, removePersonalData, parseJSONStrings)
+            code: getProtocolNode(node.code, removePersonalData, parseJSONStrings, includeIds)
           }
           return condition
         }
@@ -36,7 +36,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.conditions.length; m++) {
-          let condition = getProtocolNode(node.conditions[m], removePersonalData, parseJSONStrings)
+          let condition = getProtocolNode(node.conditions[m], removePersonalData, parseJSONStrings, includeIds)
           situation.conditions.push(condition)
         }
         return situation
@@ -60,7 +60,7 @@ function newProtocolNode () {
             situations: []
           }
           for (let m = 0; m < node.situations.length; m++) {
-            let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings)
+            let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings, includeIds)
             event.situations.push(situation)
           }
           return event
@@ -70,8 +70,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula, removePersonalData, parseJSONStrings),
-          nextPhaseEvent: getProtocolNode(node.nextPhaseEvent, removePersonalData, parseJSONStrings)
+          formula: getProtocolNode(node.formula, removePersonalData, parseJSONStrings, includeIds),
+          nextPhaseEvent: getProtocolNode(node.nextPhaseEvent, removePersonalData, parseJSONStrings, includeIds)
         }
         return phase
       }
@@ -84,7 +84,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = getProtocolNode(node.phases[m], removePersonalData, parseJSONStrings)
+          let phase = getProtocolNode(node.phases[m], removePersonalData, parseJSONStrings, includeIds)
           stop.phases.push(phase)
         }
         return stop
@@ -98,7 +98,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = getProtocolNode(node.phases[m], removePersonalData, parseJSONStrings)
+          let phase = getProtocolNode(node.phases[m], removePersonalData, parseJSONStrings, includeIds)
           takeProfit.phases.push(phase)
         }
         return takeProfit
@@ -112,7 +112,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings)
+          let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings, includeIds)
           event.situations.push(situation)
         }
         return event
@@ -126,7 +126,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings)
+          let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings, includeIds)
           event.situations.push(situation)
         }
         return event
@@ -140,7 +140,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings)
+          let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings, includeIds)
           event.situations.push(situation)
         }
         return event
@@ -150,10 +150,10 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseJSONStrings),
-          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseJSONStrings),
-          positionSize: getProtocolNode(node.positionSize, removePersonalData, parseJSONStrings),
-          positionRate: getProtocolNode(node.positionRate, removePersonalData, parseJSONStrings)
+          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseJSONStrings, includeIds),
+          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseJSONStrings, includeIds),
+          positionSize: getProtocolNode(node.positionSize, removePersonalData, parseJSONStrings, includeIds),
+          positionRate: getProtocolNode(node.positionRate, removePersonalData, parseJSONStrings, includeIds)
         }
         return object
       }
@@ -178,7 +178,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula, removePersonalData, parseJSONStrings)
+          formula: getProtocolNode(node.formula, removePersonalData, parseJSONStrings, includeIds)
         }
         return object
       }
@@ -187,7 +187,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula, removePersonalData, parseJSONStrings)
+          formula: getProtocolNode(node.formula, removePersonalData, parseJSONStrings, includeIds)
         }
         return object
       }
@@ -196,9 +196,9 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerOn: getProtocolNode(node.triggerOn, removePersonalData, parseJSONStrings),
-          triggerOff: getProtocolNode(node.triggerOff, removePersonalData, parseJSONStrings),
-          takePosition: getProtocolNode(node.takePosition, removePersonalData, parseJSONStrings)
+          triggerOn: getProtocolNode(node.triggerOn, removePersonalData, parseJSONStrings, includeIds),
+          triggerOff: getProtocolNode(node.triggerOff, removePersonalData, parseJSONStrings, includeIds),
+          takePosition: getProtocolNode(node.takePosition, removePersonalData, parseJSONStrings, includeIds)
         }
         return stage
       }
@@ -207,8 +207,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          initialDefinition: getProtocolNode(node.initialDefinition, removePersonalData, parseJSONStrings),
-          openExecution: getProtocolNode(node.openExecution, removePersonalData, parseJSONStrings)
+          initialDefinition: getProtocolNode(node.initialDefinition, removePersonalData, parseJSONStrings, includeIds),
+          openExecution: getProtocolNode(node.openExecution, removePersonalData, parseJSONStrings, includeIds)
         }
         return stage
       }
@@ -217,8 +217,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseJSONStrings),
-          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseJSONStrings)
+          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseJSONStrings, includeIds),
+          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseJSONStrings, includeIds)
         }
         return stage
       }
@@ -227,7 +227,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          closeExecution: getProtocolNode(node.closeExecution, removePersonalData, parseJSONStrings)
+          closeExecution: getProtocolNode(node.closeExecution, removePersonalData, parseJSONStrings, includeIds)
         }
         return stage
       }
@@ -236,10 +236,10 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerStage: getProtocolNode(node.triggerStage, removePersonalData, parseJSONStrings),
-          openStage: getProtocolNode(node.openStage, removePersonalData, parseJSONStrings),
-          manageStage: getProtocolNode(node.manageStage, removePersonalData, parseJSONStrings),
-          closeStage: getProtocolNode(node.closeStage, removePersonalData, parseJSONStrings)
+          triggerStage: getProtocolNode(node.triggerStage, removePersonalData, parseJSONStrings, includeIds),
+          openStage: getProtocolNode(node.openStage, removePersonalData, parseJSONStrings, includeIds),
+          manageStage: getProtocolNode(node.manageStage, removePersonalData, parseJSONStrings, includeIds),
+          closeStage: getProtocolNode(node.closeStage, removePersonalData, parseJSONStrings, includeIds)
         }
         return strategy
       }
@@ -284,10 +284,10 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          baseAsset: getProtocolNode(node.baseAsset, removePersonalData, parseJSONStrings),
-          timeRange: getProtocolNode(node.timeRange, removePersonalData, parseJSONStrings),
-          slippage: getProtocolNode(node.slippage, removePersonalData, parseJSONStrings),
-          feeStructure: getProtocolNode(node.feeStructure, removePersonalData, parseJSONStrings)
+          baseAsset: getProtocolNode(node.baseAsset, removePersonalData, parseJSONStrings, includeIds),
+          timeRange: getProtocolNode(node.timeRange, removePersonalData, parseJSONStrings, includeIds),
+          slippage: getProtocolNode(node.slippage, removePersonalData, parseJSONStrings, includeIds),
+          feeStructure: getProtocolNode(node.feeStructure, removePersonalData, parseJSONStrings, includeIds)
         }
         return object
       }
@@ -297,11 +297,11 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           strategies: [],
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings)
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
         }
 
         for (let m = 0; m < node.strategies.length; m++) {
-          let strategy = getProtocolNode(node.strategies[m], removePersonalData, parseJSONStrings)
+          let strategy = getProtocolNode(node.strategies[m], removePersonalData, parseJSONStrings, includeIds)
           tradingSystem.strategies.push(strategy)
         }
         return tradingSystem
@@ -316,7 +316,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.exchangeAccounts.length; m++) {
-          let exchangeAccount = getProtocolNode(node.exchangeAccounts[m], removePersonalData, parseJSONStrings)
+          let exchangeAccount = getProtocolNode(node.exchangeAccounts[m], removePersonalData, parseJSONStrings, includeIds)
           personalData.exchangeAccounts.push(exchangeAccount)
         }
         return personalData
@@ -332,11 +332,11 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.assets.length; m++) {
-          let asset = getProtocolNode(node.assets[m], removePersonalData, parseJSONStrings)
+          let asset = getProtocolNode(node.assets[m], removePersonalData, parseJSONStrings, includeIds)
           exchangeAccount.assets.push(asset)
         }
         for (let m = 0; m < node.keys.length; m++) {
-          let key = getProtocolNode(node.keys[m], removePersonalData, parseJSONStrings)
+          let key = getProtocolNode(node.keys[m], removePersonalData, parseJSONStrings, includeIds)
           exchangeAccount.keys.push(key)
         }
         return exchangeAccount
@@ -369,7 +369,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.tasks.length; m++) {
-          let task = getProtocolNode(node.tasks[m], removePersonalData, parseJSONStrings)
+          let task = getProtocolNode(node.tasks[m], removePersonalData, parseJSONStrings, includeIds)
           taskManager.tasks.push(task)
         }
         return taskManager
@@ -379,7 +379,10 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          bot: getProtocolNode(node.bot, removePersonalData, parseJSONStrings)
+          bot: getProtocolNode(node.bot, removePersonalData, parseJSONStrings, includeIds)
+        }
+        if (includeIds) {
+          object.id = node.id
         }
         return object
       }
@@ -392,7 +395,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.processes.length; m++) {
-          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings)
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings, includeIds)
           bot.processes.push(process)
         }
         return bot
@@ -406,7 +409,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.processes.length; m++) {
-          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings)
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings, includeIds)
           bot.processes.push(process)
         }
         return bot
@@ -420,7 +423,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.processes.length; m++) {
-          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings)
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings, includeIds)
           bot.processes.push(process)
         }
         return bot
@@ -435,6 +438,9 @@ function newProtocolNode () {
         if (parseJSONStrings) {
           object.code = JSON.parse(object.code)
         }
+        if (includeIds) {
+          object.id = node.id
+        }
         return object
       }
       case 'Definition': {
@@ -442,9 +448,9 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData, parseJSONStrings),
-          personalData: getProtocolNode(node.personalData, removePersonalData, parseJSONStrings),
-          taskManager: getProtocolNode(node.taskManager, removePersonalData, parseJSONStrings)
+          tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData, parseJSONStrings, includeIds),
+          personalData: getProtocolNode(node.personalData, removePersonalData, parseJSONStrings, includeIds),
+          taskManager: getProtocolNode(node.taskManager, removePersonalData, parseJSONStrings, includeIds)
         }
         return object
       }

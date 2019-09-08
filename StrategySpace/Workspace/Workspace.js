@@ -224,7 +224,7 @@ function newWorkspace () {
 
           let event = {
             taskId: payload.node.id,
-            definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, true)) // <-  We need to do this workaround in order no to send unescaped charactars to the taskManager.
+            definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, true, true)) // <-  We need to do this workaround in order no to send unescaped charactars to the taskManager.
           }
           systemEventHandler.raiseEvent('Task Manager', 'Run Task', event)
         }

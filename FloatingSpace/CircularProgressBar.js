@@ -39,7 +39,7 @@ function newCircularProgressBar () {
       opacityCounters.push(0)
     }
 
-    let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type
+    let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
     systemEventHandler.createEventHandler(key)
     systemEventHandler.listenToEvent(key, 'Heartbeat', undefined, key, undefined, onHeartBeat)
   }

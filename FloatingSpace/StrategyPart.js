@@ -246,20 +246,20 @@ function newStrategyPart () {
         compatibleType = '->' + 'Definition'
         compatibleSubType = undefined
         break
-      case 'Backend Process':
+      case 'Task':
         compatibleType = '->' + 'Backend'
         compatibleSubType = undefined
         break
       case 'Sensor':
-        compatibleType = '->' + 'Backend Process'
+        compatibleType = '->' + 'Task'
         compatibleSubType = undefined
         break
       case 'Indicator':
-        compatibleType = '->' + 'Backend Process'
+        compatibleType = '->' + 'Task'
         compatibleSubType = undefined
         break
       case 'Trading Engine':
-        compatibleType = '->' + 'Backend Process'
+        compatibleType = '->' + 'Task'
         compatibleSubType = undefined
         break
       case 'Bot Process':
@@ -365,7 +365,7 @@ function newStrategyPart () {
       if (compatibleType.indexOf('->' + nearbyNode.type) >= 0) {
         /* Discard objects with busy coonection ports */
         if (thisObject.payload.node.type === 'Backend' && nearbyNode.backend !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Backend Process' && nearbyNode.backendProcess !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Task' && nearbyNode.task !== undefined) { continue }
         if (thisObject.payload.node.type === 'Sensor' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Indicator' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trading Engine' && nearbyNode.bot !== undefined) { continue }

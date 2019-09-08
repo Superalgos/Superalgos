@@ -2,7 +2,7 @@ function newNodeDeleter () {
   thisObject = {
     deleteDefinition: deleteDefinition,
     deleteBackend: deleteBackend,
-    deleteBackendProcess: deleteBackendProcess,
+    deleteTask: deleteTask,
     deleteSensor: deleteBot,
     deleteIndicator: deleteBot,
     deleteTradingEngine: deleteBot,
@@ -56,8 +56,8 @@ function newNodeDeleter () {
           deleteBackend(rootNode, rootNodes)
           break
         }
-        case 'Backend Process': {
-          deleteBackendProcess(rootNode, rootNodes)
+        case 'Task': {
+          deleteTask(rootNode, rootNodes)
           break
         }
         case 'Sensor': {
@@ -234,21 +234,21 @@ function newNodeDeleter () {
     if (payload.parentNode !== undefined) {
       payload.parentNode.backend = undefined
     }
-    while (node.backendProcesses.length > 0) {
-      deleteBackendProcess(node.backendProcesses[0], rootNodes)
+    while (node.tasks.length > 0) {
+      deleteTask(node.tasks[0], rootNodes)
     }
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
   }
 
-  function deleteBackendProcess (node, rootNodes) {
+  function deleteTask (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
-      for (let j = 0; j < payload.parentNode.backendProcesses.length; j++) {
-        let backendProcess = payload.parentNode.backendProcesses[j]
-        if (backendProcess.id === node.id) {
-          payload.parentNode.backendProcesses.splice(j, 1)
+      for (let j = 0; j < payload.parentNode.tasks.length; j++) {
+        let task = payload.parentNode.tasks[j]
+        if (task.id === node.id) {
+          payload.parentNode.tasks.splice(j, 1)
         }
       }
     }
@@ -277,8 +277,8 @@ function newNodeDeleter () {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       for (let j = 0; j < payload.parentNode.botProcesses.length; j++) {
-        let backendProcess = payload.parentNode.botProcesses[j]
-        if (backendProcess.id === node.id) {
+        let task = payload.parentNode.botProcesses[j]
+        if (task.id === node.id) {
           payload.parentNode.botProcesses.splice(j, 1)
         }
       }

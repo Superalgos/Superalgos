@@ -431,18 +431,18 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          backendProcesses: [],
+          tasks: [],
           savedPayload: getSavedPayload(node)
         }
 
-        for (let m = 0; m < node.backendProcesses.length; m++) {
-          let backendProcess = prepareForStringify(node.backendProcesses[m], removePersonalData)
-          backend.backendProcesses.push(backendProcess)
+        for (let m = 0; m < node.tasks.length; m++) {
+          let task = prepareForStringify(node.tasks[m], removePersonalData)
+          backend.tasks.push(task)
         }
 
         return backend
       }
-      case 'Backend Process': {
+      case 'Task': {
         let object = {
           id: node.id,
           type: node.type,

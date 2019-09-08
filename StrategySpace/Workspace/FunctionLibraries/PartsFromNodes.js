@@ -2,7 +2,7 @@ function newPartsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
     addBackend: addBackend,
-    addBackendProcess: addBackendProcess,
+    addTask: addTask,
     addSensor: addSensor,
     addIndicator: addIndicator,
     addTradingEngine: addTradingEngine,
@@ -340,14 +340,14 @@ function newPartsFromNodes () {
       }
       case 'Backend': {
         createPart('Backend', node.name, node, parentNode, chainParent, 'Backend')
-        for (let m = 0; m < node.backendProcesses.length; m++) {
-          let backendProcess = node.backendProcesses[m]
-          createPartFromNode(backendProcess, node, node)
+        for (let m = 0; m < node.tasks.length; m++) {
+          let task = node.tasks[m]
+          createPartFromNode(task, node, node)
         }
         return
       }
-      case 'Backend Process': {
-        createPart('Backend Process', node.name, node, parentNode, chainParent, 'Backend Process')
+      case 'Task': {
+        createPart('Task', node.name, node, parentNode, chainParent, 'Task')
         if (node.bot !== undefined) {
           createPartFromNode(node.bot, node, node)
         }
@@ -387,7 +387,7 @@ function newPartsFromNodes () {
   function addBackend (node) {
     if (node.backend === undefined) {
       node.backend = {
-        backendProcesses: []
+        tasks: []
       }
       createPart('Backend', '', node.backend, node, node)
     }
@@ -395,14 +395,14 @@ function newPartsFromNodes () {
     return node.backend
   }
 
-  function addBackendProcess (node) {
-    let backendProcess = {
-      name: 'New Backend Process'
+  function addTask (node) {
+    let task = {
+      name: 'New Task'
     }
-    node.backendProcesses.push(backendProcess)
-    createPart('Backend Process', backendProcess.name, backendProcess, node, node, 'Backend Process')
+    node.tasks.push(task)
+    createPart('Task', task.name, task, node, node, 'Task')
 
-    return backendProcess
+    return task
   }
 
   function addSensor (node) {

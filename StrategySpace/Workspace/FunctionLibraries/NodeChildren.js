@@ -14,8 +14,8 @@ function newNodeChildren () {
       case 'Backend': {
         return countChildrenBackend(parentNode, childNode)
       }
-      case 'Backend Process': {
-        return countChildrenBackendProcess(parentNode, childNode)
+      case 'Task': {
+        return countChildrenTask(parentNode, childNode)
       }
       case 'Sensor': {
         return countChildrenSensor(parentNode, childNode)
@@ -160,8 +160,8 @@ function newNodeChildren () {
       childIndex: undefined
     }
 
-    for (let i = 0; i < parentNode.backendProcesses.length; i++) {
-      let child = parentNode.backendProcesses[i]
+    for (let i = 0; i < parentNode.tasks.length; i++) {
+      let child = parentNode.tasks[i]
       response.childrenCount++
       if (child.id === childNode.id) {
         response.childIndex = response.childrenCount
@@ -170,7 +170,7 @@ function newNodeChildren () {
     return response
   }
 
-  function countChildrenBackendProcess (parentNode, childNode) {
+  function countChildrenTask (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined

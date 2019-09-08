@@ -209,7 +209,7 @@ function newWorkspace () {
         }
 
         break
-      case 'Run Backend Process':
+      case 'Run Task':
         {
           /* Check if it is possible to Run or not */
           if (payload.node.bot === undefined) { return }
@@ -223,18 +223,18 @@ function newWorkspace () {
           payload.uiObject.play()
 
           let event = {
-            backendProcessId: payload.node.id,
+            taskId: payload.node.id,
             definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, true)) // <-  We need to do this workaround in order no to send unescaped charactars to the backend.
           }
-          systemEventHandler.raiseEvent('Backend Server', 'Run Backend Process', event)
+          systemEventHandler.raiseEvent('Backend Server', 'Run Task', event)
         }
         break
-      case 'Stop Backend Process':
+      case 'Stop Task':
         {
           let event = {
-            backendProcessId: payload.node.id
+            taskId: payload.node.id
           }
-          systemEventHandler.raiseEvent('Backend Server', 'Stop Backend Process', event)
+          systemEventHandler.raiseEvent('Backend Server', 'Stop Task', event)
 
           payload.uiObject.stop()
 
@@ -252,9 +252,9 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addBackend(payload.node)
         }
         break
-      case 'Add Backend Process':
+      case 'Add Task':
         {
-          functionLibraryPartsFromNodes.addBackendProcess(payload.node)
+          functionLibraryPartsFromNodes.addTask(payload.node)
         }
         break
       case 'Add Sensor':
@@ -381,8 +381,8 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteBackend(payload.node, workspaceNode.rootNodes)
         break
       }
-      case 'Delete Backend Process': {
-        functionLibraryNodeDeleter.deleteBackendProcess(payload.node, workspaceNode.rootNodes)
+      case 'Delete Task': {
+        functionLibraryNodeDeleter.deleteTask(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Sensor': {

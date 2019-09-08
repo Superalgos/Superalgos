@@ -321,9 +321,9 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Backend Process',
+            action: 'Add Task',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Backend Process',
+            label: 'Add Task',
             visible: false,
             relatedStrategyPart: 'Backend',
             rawRadius: 8,
@@ -364,11 +364,11 @@ function newStrategyPartConstructor () {
             )
         break
       }
-      case 'Backend Process': {
+      case 'Task': {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Run Backend Process',
+            action: 'Run Task',
             actionFunction: payload.onMenuItemClick,
             label: 'Run',
             visible: false,
@@ -382,7 +382,7 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Stop Backend Process',
+            action: 'Stop Task',
             actionFunction: payload.onMenuItemClick,
             label: 'Stop',
             visible: false,
@@ -435,7 +435,7 @@ function newStrategyPartConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Backend Process',
+            action: 'Delete Task',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
@@ -2144,7 +2144,7 @@ function newStrategyPartConstructor () {
         level_1()
         break
       }
-      case 'Backend Process': {
+      case 'Task': {
         level_1()
         break
       }

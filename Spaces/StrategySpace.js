@@ -41,7 +41,7 @@ function newStrategySpace () {
     const relationshipArray = [
       ['Definition', 'text'],
       ['Backend', 'task'],
-      ['Backend Process', 'timeline'],
+      ['Task', 'timeline'],
       ['Sensor', 'pipette'],
       ['Indicator', 'vector'],
       ['Trading Engine', 'brainstorming'],

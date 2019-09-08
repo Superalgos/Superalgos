@@ -365,16 +365,16 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          backendProcesses: []
+          tasks: []
         }
 
-        for (let m = 0; m < node.backendProcesses.length; m++) {
-          let backendProcess = getProtocolNode(node.backendProcesses[m], removePersonalData, parseJSONStrings)
-          backend.backendProcesses.push(backendProcess)
+        for (let m = 0; m < node.tasks.length; m++) {
+          let task = getProtocolNode(node.tasks[m], removePersonalData, parseJSONStrings)
+          backend.tasks.push(task)
         }
         return backend
       }
-      case 'Backend Process': {
+      case 'Task': {
         let object = {
           type: node.type,
           subType: node.subType,

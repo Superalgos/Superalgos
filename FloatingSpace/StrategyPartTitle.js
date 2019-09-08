@@ -55,7 +55,7 @@ function newStrategyPartTitle () {
       case 'Backend': {
         break
       }
-      case 'Backend Process': {
+      case 'Task': {
         break
       }
       case 'Sensor': {

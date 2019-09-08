@@ -215,6 +215,11 @@ function newWorkspace () {
           if (payload.node.bot === undefined) { return }
           if (payload.node.bot.botProcesses.length === 0) { return }
 
+          for (let i = 0; i < payload.node.bot.botProcesses.length; i++) {
+            let botProcess = payload.node.bot.botProcesses[i]
+            botProcess.payload.uiObject.play()
+          }
+
           payload.uiObject.play()
 
           let event = {
@@ -232,6 +237,14 @@ function newWorkspace () {
           systemEventHandler.raiseEvent('Backend Server', 'Stop Backend Process', event)
 
           payload.uiObject.stop()
+
+          if (payload.node.bot === undefined) { return }
+          if (payload.node.bot.botProcesses.length === 0) { return }
+
+          for (let i = 0; i < payload.node.bot.botProcesses.length; i++) {
+            let botProcess = payload.node.bot.botProcesses[i]
+            botProcess.payload.uiObject.stop()
+          }
         }
         break
       case 'Add Backend':

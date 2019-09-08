@@ -2,7 +2,7 @@
 
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Sensor Bot Process Main Loop";
+    const MODULE_NAME = "Sensor Process Main Loop";
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;

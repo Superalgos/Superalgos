@@ -50,8 +50,8 @@ let heartBeatInterval
 
 /*
 
-We read the first string sent as an argument when the process was created by the Backend Server. Ther we will find the information of the identity
-of this backend process and know exactly what to run within this server instance. 
+We read the first string sent as an argument when the process was created by the Task Manager. Ther we will find the information of the identity
+of this Task and know exactly what to run within this server instance. 
 
 */
 global.USER_DEFINITION = process.argv[2]
@@ -65,16 +65,15 @@ if (global.USER_DEFINITION !== undefined) {
     }
 
 }
-/*
-else {
-    let argument = '{"type":"Backend Process","name":"New Backend Process","bot":{"type":"Sensor","botProcesses":[{"type":"Bot Process","name":"New Bot Process","code":{"devTeam":"AAMasters","bot":"AACharly","mode":"noTime","resumeExecution":true,"type":"Sensor","exchangeName":"Poloniex","process":"Live-Trades"}}]}}'
+else {  // I use this section to debug in standalone mode.
+    let argument = '{"type":"Task","name":"Extract Trades from Poloniex","bot":{"type":"Sensor","name":"Charly","processes":[{"type":"Process","name":"Live-Trades","code":{"devTeam":"AAMasters","bot":"AACharly","mode":"noTime","resumeExecution":true,"type":"Sensor","exchangeName":"Poloniex","process":"Live-Trades"}},{"type":"Process","name":"Hole-Fixing","code":{"devTeam":"AAMasters","bot":"AACharly","mode":"oneMonth","resumeExecution":true,"type":"Sensor","exchangeName":"Poloniex","process":"Hole-Fixing","startYear":2019,"endYear":2019,"month":9}}]}}'
     try {
         global.USER_DEFINITION = JSON.parse(argument)
     } catch (err) {
         console.log(err.stack)
     }
 }
-*/
+
 
 const EVENT_HANDLER_MODULE =  require('../Libraries/SystemEventsClient/SystemEventHandler.js');
 global.SYSTEM_EVENT_HANDLER = EVENT_HANDLER_MODULE.newSystemEventHandler()
@@ -100,8 +99,8 @@ function bootLoader() {
     }
     */
 
-    for (let i = 0; i < global.USER_DEFINITION.bot.botProcesses.length; i++) {
-        let code = global.USER_DEFINITION.bot.botProcesses[i].code
+    for (let i = 0; i < global.USER_DEFINITION.bot.processes.length; i++) {
+        let code = global.USER_DEFINITION.bot.processes[i].code
         sequenceList.push(code)
     }
 

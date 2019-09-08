@@ -625,6 +625,8 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 **bollingerSubChannel.period:** The number of periods the sub channel spans at the moment the variable is being read. For instance, if a sub channel spans 10 candles and the variable is checked on the fourth candle, then _bollingerChannel.period_ = 4. Put in other words, it is the current span of the subchannel.
 
+**bollingerSubChannel.slope:** Indicates how steep the slope of the sub channel is. Possible values are ```"Side"```, ```"Gentle"```, ```"Medium"```, ```"Steep"```, ```"Extreme"``` (in order from lowest to highest).
+
 ### Internal
 
 **strategyStage:** Possible values are ```"No Stage"```, ```"Trigger Stage"```, ```"Open Stage"```, ```"Manage Stage"```, and ```"Close Stage"```.

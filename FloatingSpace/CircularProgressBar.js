@@ -1,6 +1,6 @@
 
-function newCircularRunningStatus () {
-  const MODULE_NAME = 'Circular Running Status'
+function newCircularProgressBar () {
+  const MODULE_NAME = 'Circular Progress Bar'
 
   let thisObject = {
     container: undefined,
@@ -105,4 +105,3 @@ function newCircularRunningStatus () {
 
   }
 }
-

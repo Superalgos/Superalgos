@@ -20,7 +20,7 @@ function newStrategyPart () {
     isExecuting: undefined,
     isRunning: undefined,
     run: run,
-    runX: runX,
+    play: play,
     stop: stop,
     setRunningStatus: setRunningStatus,
     setNotRunningStatus: setNotRunningStatus,
@@ -531,12 +531,12 @@ function newStrategyPart () {
     }
   }
 
-  function runX () {
+  function play () {
     if (thisObject.runningStatus !== undefined) {
       thisObject.runningStatus.finalize()
     }
 
-    thisObject.runningStatus = newCircularRunningStatus()
+    thisObject.runningStatus = newCircularProgressBar()
     thisObject.runningStatus.initialize(thisObject.payload)
     thisObject.runningStatus.fitFunction = thisObject.fitFunction
     thisObject.runningStatus.container = thisObject.container

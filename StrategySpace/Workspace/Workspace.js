@@ -215,7 +215,7 @@ function newWorkspace () {
           if (payload.node.bot === undefined) { return }
           if (payload.node.bot.botProcesses.length === 0) { return }
 
-          payload.uiObject.runX()
+          payload.uiObject.play()
 
           let event = {
             backendProcessId: payload.node.id,

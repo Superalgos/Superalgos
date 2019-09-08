@@ -28,19 +28,19 @@ global.CUSTOM_FAIL_RESPONSE = {
 /* Process Events */
 
 process.on('uncaughtException', function (err) {
-    console.log('[INFO] server -> uncaughtException -> err.message = ' + err.message)
-    console.log('[INFO] server -> uncaughtException -> err.stack = ' + err.stack)
+    console.log('[INFO] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
+    console.log('[INFO] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)
     process.exit(1)
 })
 
 process.on('unhandledRejection', (reason, p) => {
-    console.log('[INFO] server -> unhandledRejection -> reason = ' + JSON.stringify(reason))
-    console.log('[INFO] server -> unhandledRejection -> p = ' + JSON.stringify(p))
+    console.log('[INFO] Task Server -> server -> unhandledRejection -> reason = ' + JSON.stringify(reason))
+    console.log('[INFO] Task Server -> server -> unhandledRejection -> p = ' + JSON.stringify(p))
     process.exit(1)
 })
 
 process.on('exit', function (code) {
-    console.log('[INFO] server -> process.on.exit -> About to exit -> code = ' + code)
+    console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> code = ' + code)
 })
 
 /* Local Variables */
@@ -57,11 +57,11 @@ of this Task and know exactly what to run within this server instance.
 global.USER_DEFINITION = process.argv[2]
 
 if (global.USER_DEFINITION !== undefined) {
-    console.log('[INFO] server -> global.USER_DEFINITION = ' + global.USER_DEFINITION)
+    console.log('[INFO] Task Server -> server -> global.USER_DEFINITION = ' + global.USER_DEFINITION)
     try {
         global.USER_DEFINITION = JSON.parse(global.USER_DEFINITION)
     } catch (err) {
-        console.log('[ERROR] server -> global.USER_DEFINITION -> ' + err.stack)
+        console.log('[ERROR] Task Server -> server -> global.USER_DEFINITION -> ' + err.stack)
     }
 
 }
@@ -108,7 +108,7 @@ function bootLoader() {
     heartBeatInterval = setInterval(hearBeat, 1000)
 
     function hearBeat() {
-        let key = global.USER_DEFINITION.name + '-' + global.USER_DEFINITION.type
+        let key = global.USER_DEFINITION.name + '-' + global.USER_DEFINITION.type + '-' + global.USER_DEFINITION.id
         let event = {
             seconds: (new Date()).getSeconds()
         }
@@ -141,7 +141,7 @@ global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' }
 
 
 let isRunSequence = false;
-let sequenceStep = 0;
+global.sequenceStep = 0;
 let processedSteps = new Map();
 let notFirstSequence = false;
 let runClonExecutor = true;
@@ -227,14 +227,14 @@ async function sequenceExecution(currentStep) {
 }
 
 function onExecutionFinish(result, finishStepKey) {
-    if (sequenceStep < sequenceList.length && runClonExecutor) {
+    if (global.sequenceStep < sequenceList.length && runClonExecutor) {
         sequenceExecution(sequenceStep);
     } else {
         setTimeout(function () {
             if (runClonExecutor) {
                 console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
                  
-                sequenceStep = 0;
+                global.sequenceStep = 0;
                 processedSteps = new Map();
                 notFirstSequence = true;
                 sequenceExecution(sequenceStep);
@@ -246,7 +246,7 @@ function onExecutionFinish(result, finishStepKey) {
 
 async function readExecutionConfiguration(execution) {
     try {
-        console.log("[INFO] server -> readExecutionConfiguration -> Entering function. ");
+        console.log("[INFO] Task Server -> server -> readExecutionConfiguration -> Entering function. ");
 
         let timePeriodFilter
         let botProcess
@@ -484,7 +484,7 @@ function getTimePeriod(timePeriod) {
             timePeriodMap.set('01-min', 60000)
             return timePeriodMap.get(timePeriod)
         } catch (error) {
-            console.log('[WARN] server -> readExecutionConfiguration -> getTimePeriod -> Error: ', error)
+            console.log('[WARN] Task Server -> server -> readExecutionConfiguration -> getTimePeriod -> Error: ', error)
         }
     } else {
         return undefined
@@ -492,7 +492,7 @@ function getTimePeriod(timePeriod) {
 }
 
 function startRoot() {
-    console.log('[INFO] server -> startRoot -> Entering function. ')
+    console.log('[INFO] Task Server -> server -> startRoot -> Entering function. ')
 
     const ROOT_DIR = './'
     const ROOT_MODULE = require(ROOT_DIR + 'Root')
@@ -509,7 +509,7 @@ function startRoot() {
     root.initialize(UI_COMMANDS, onInitialized)
 
     function onInitialized() {
-        console.log('[INFO] server -> startRoot -> onInitialized -> Entering function. ')
+        console.log('[INFO] Task Server -> server -> startRoot -> onInitialized -> Entering function. ')
 
         root.start(onExecutionFinish)
     }

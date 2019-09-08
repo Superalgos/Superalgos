@@ -123,14 +123,7 @@
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Entering function."); }
 
                     /* Loop Heartbeat sent to the UI */
-                    //hearBeat() 
-                    function hearBeat() {
-                        let key = global.USER_DEFINITION.name + '-' + global.USER_DEFINITION.type
-                        let event = {
-                            seconds: (new Date()).getSeconds()
-                        }
-                        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
-                    }
+                    hearBeat() 
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
@@ -550,6 +543,10 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Entering function."); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime); }
 
+                        /* We show we reached the end of the loop. */
+
+                        hearBeat()
+
                         /* Here we check if we must stop the loop gracefully. */
 
                         shallWeStop(onStop, onContinue);
@@ -700,6 +697,15 @@
                     bot.enableCheckLoopHealth = false;
                     callBackFunction(err);
                 }
+            }
+
+            function hearBeat() {
+                let key = global.USER_DEFINITION.bot.processes[global.sequenceStep - 1].name + '-' + global.USER_DEFINITION.bot.processes[global.sequenceStep - 1].type + '-' + global.USER_DEFINITION.bot.processes[global.sequenceStep - 1].id
+
+                let event = {
+                    seconds: (new Date()).getSeconds()
+                }
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
             }
         }
 

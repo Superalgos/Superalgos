@@ -11,8 +11,8 @@ function newNodeChildren () {
       case 'Definition': {
         return countChildrenDefinition(parentNode, childNode)
       }
-      case 'Backend': {
-        return countChildrenBackend(parentNode, childNode)
+      case 'Task Manager': {
+        return countChildrenTaskManager(parentNode, childNode)
       }
       case 'Task': {
         return countChildrenTask(parentNode, childNode)
@@ -145,16 +145,16 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
-    if (parentNode.backend !== undefined) {
+    if (parentNode.taskManager !== undefined) {
       response.childrenCount++
-      if (parentNode.backend.id === childNode.id) {
+      if (parentNode.taskManager.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
     return response
   }
 
-  function countChildrenBackend (parentNode, childNode) {
+  function countChildrenTaskManager (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined

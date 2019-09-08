@@ -49,8 +49,8 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
-      case 'Backend': {
-        node.payload.parentNode.backend = undefined
+      case 'Task Manager': {
+        node.payload.parentNode.taskManager = undefined
         completeDetachment(node, rootNodes)
         return
       }
@@ -248,10 +248,10 @@ function newAttachDetach () {
 
   function attachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
-      case 'Backend': {
+      case 'Task Manager': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.backend = node
+        node.payload.parentNode.taskManager = node
         completeAttachment(node, rootNodes)
       }
         break

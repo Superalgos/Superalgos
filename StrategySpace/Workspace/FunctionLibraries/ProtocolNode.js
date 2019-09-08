@@ -360,8 +360,8 @@ function newProtocolNode () {
         }
         return key
       }
-      case 'Backend': {
-        let backend = {
+      case 'Task Manager': {
+        let taskManager = {
           type: node.type,
           subType: node.subType,
           name: node.name,
@@ -370,9 +370,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.tasks.length; m++) {
           let task = getProtocolNode(node.tasks[m], removePersonalData, parseJSONStrings)
-          backend.tasks.push(task)
+          taskManager.tasks.push(task)
         }
-        return backend
+        return taskManager
       }
       case 'Task': {
         let object = {
@@ -444,7 +444,7 @@ function newProtocolNode () {
           name: node.name,
           tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData, parseJSONStrings),
           personalData: getProtocolNode(node.personalData, removePersonalData, parseJSONStrings),
-          backend: getProtocolNode(node.backend, removePersonalData, parseJSONStrings)
+          taskManager: getProtocolNode(node.taskManager, removePersonalData, parseJSONStrings)
         }
         return object
       }

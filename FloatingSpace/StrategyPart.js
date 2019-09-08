@@ -242,12 +242,12 @@ function newStrategyPart () {
         compatibleType = '->' + 'Parameters'
         compatibleSubType = undefined
         break
-      case 'Backend':
+      case 'Task Manager':
         compatibleType = '->' + 'Definition'
         compatibleSubType = undefined
         break
       case 'Task':
-        compatibleType = '->' + 'Backend'
+        compatibleType = '->' + 'Task Manager'
         compatibleSubType = undefined
         break
       case 'Sensor':
@@ -364,7 +364,7 @@ function newStrategyPart () {
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf('->' + nearbyNode.type) >= 0) {
         /* Discard objects with busy coonection ports */
-        if (thisObject.payload.node.type === 'Backend' && nearbyNode.backend !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Task Manager' && nearbyNode.taskManager !== undefined) { continue }
         if (thisObject.payload.node.type === 'Task' && nearbyNode.task !== undefined) { continue }
         if (thisObject.payload.node.type === 'Sensor' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Indicator' && nearbyNode.bot !== undefined) { continue }

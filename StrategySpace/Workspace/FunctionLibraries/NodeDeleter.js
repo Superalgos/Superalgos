@@ -1,7 +1,7 @@
 function newNodeDeleter () {
   thisObject = {
     deleteDefinition: deleteDefinition,
-    deleteBackend: deleteBackend,
+    deleteTaskManager: deleteTaskManager,
     deleteTask: deleteTask,
     deleteSensor: deleteBot,
     deleteIndicator: deleteBot,
@@ -52,8 +52,8 @@ function newNodeDeleter () {
           deleteDefinition(rootNode, rootNodes, true)
           break
         }
-        case 'Backend': {
-          deleteBackend(rootNode, rootNodes)
+        case 'Task Manager': {
+          deleteTaskManager(rootNode, rootNodes)
           break
         }
         case 'Task': {
@@ -221,18 +221,18 @@ function newNodeDeleter () {
     if (node.personalData !== undefined) {
       deletePersonalData(node.personalData, rootNodes)
     }
-    if (node.backend !== undefined) {
-      deleteBackend(node.personalData, rootNodes)
+    if (node.taskManager !== undefined) {
+      deleteTaskManager(node.personalData, rootNodes)
     }
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
   }
 
-  function deleteBackend (node, rootNodes) {
+  function deleteTaskManager (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
-      payload.parentNode.backend = undefined
+      payload.parentNode.taskManager = undefined
     }
     while (node.tasks.length > 0) {
       deleteTask(node.tasks[0], rootNodes)

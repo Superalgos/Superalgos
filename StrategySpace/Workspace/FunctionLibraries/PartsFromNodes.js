@@ -1,7 +1,7 @@
 function newPartsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
-    addBackend: addBackend,
+    addTaskManager: addTaskManager,
     addTask: addTask,
     addSensor: addSensor,
     addIndicator: addIndicator,
@@ -333,13 +333,13 @@ function newPartsFromNodes () {
         if (node.personalData !== undefined) {
           createPartFromNode(node.personalData, node, node)
         }
-        if (node.backend !== undefined) {
-          createPartFromNode(node.backend, node, node)
+        if (node.taskManager !== undefined) {
+          createPartFromNode(node.taskManager, node, node)
         }
         return
       }
-      case 'Backend': {
-        createPart('Backend', node.name, node, parentNode, chainParent, 'Backend')
+      case 'Task Manager': {
+        createPart('Task Manager', node.name, node, parentNode, chainParent, 'Task Manager')
         for (let m = 0; m < node.tasks.length; m++) {
           let task = node.tasks[m]
           createPartFromNode(task, node, node)
@@ -384,15 +384,15 @@ function newPartsFromNodes () {
     }
   }
 
-  function addBackend (node) {
-    if (node.backend === undefined) {
-      node.backend = {
+  function addTaskManager (node) {
+    if (node.taskManager === undefined) {
+      node.taskManager = {
         tasks: []
       }
-      createPart('Backend', '', node.backend, node, node)
+      createPart('Task Manager', '', node.taskManager, node, node)
     }
 
-    return node.backend
+    return node.taskManager
   }
 
   function addTask (node) {

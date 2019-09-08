@@ -52,7 +52,7 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Backend': {
+      case 'Task Manager': {
         break
       }
       case 'Task': {

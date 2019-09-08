@@ -274,11 +274,11 @@ function newStrategyPartConstructor () {
             )
         menuItemsInitialValues.push(
           {
-            action: 'Add Backend',
+            action: 'Add Task Manager',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Backend',
+            label: 'Add Task Manager',
             visible: false,
-            relatedStrategyPart: 'Backend',
+            relatedStrategyPart: 'Task Manager',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -317,7 +317,7 @@ function newStrategyPartConstructor () {
         )
         break
       }
-      case 'Backend': {
+      case 'Task Manager': {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -325,7 +325,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Task',
             visible: false,
-            relatedStrategyPart: 'Backend',
+            relatedStrategyPart: 'Task Manager',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -334,11 +334,11 @@ function newStrategyPartConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Backend',
+            action: 'Delete Task Manager',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Backend',
+            label: 'Delete Task Manager',
             visible: false,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -2140,7 +2140,7 @@ function newStrategyPartConstructor () {
         level_0()
         break
       }
-      case 'Backend': {
+      case 'Task Manager': {
         level_1()
         break
       }

@@ -425,8 +425,8 @@ function newStringifyNode () {
         }
         return key
       }
-      case 'Backend': {
-        let backend = {
+      case 'Task Manager': {
+        let taskManager = {
           id: node.id,
           type: node.type,
           subType: node.subType,
@@ -437,10 +437,10 @@ function newStringifyNode () {
 
         for (let m = 0; m < node.tasks.length; m++) {
           let task = prepareForStringify(node.tasks[m], removePersonalData)
-          backend.tasks.push(task)
+          taskManager.tasks.push(task)
         }
 
-        return backend
+        return taskManager
       }
       case 'Task': {
         let object = {
@@ -523,7 +523,7 @@ function newStringifyNode () {
           name: node.name,
           tradingSystem: prepareForStringify(node.tradingSystem, removePersonalData),
           personalData: prepareForStringify(node.personalData, removePersonalData),
-          backend: prepareForStringify(node.backend, removePersonalData),
+          taskManager: prepareForStringify(node.taskManager, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object

@@ -40,7 +40,7 @@ function newStrategySpace () {
   function buildIconByPartTypeMap () {
     const relationshipArray = [
       ['Definition', 'text'],
-      ['Backend', 'task'],
+      ['Task Manager', 'task'],
       ['Task', 'timeline'],
       ['Sensor', 'pipette'],
       ['Indicator', 'vector'],

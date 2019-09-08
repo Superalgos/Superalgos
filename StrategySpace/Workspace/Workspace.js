@@ -224,9 +224,9 @@ function newWorkspace () {
 
           let event = {
             taskId: payload.node.id,
-            definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, true)) // <-  We need to do this workaround in order no to send unescaped charactars to the backend.
+            definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, true)) // <-  We need to do this workaround in order no to send unescaped charactars to the taskManager.
           }
-          systemEventHandler.raiseEvent('Backend Server', 'Run Task', event)
+          systemEventHandler.raiseEvent('Task Manager', 'Run Task', event)
         }
         break
       case 'Stop Task':
@@ -234,7 +234,7 @@ function newWorkspace () {
           let event = {
             taskId: payload.node.id
           }
-          systemEventHandler.raiseEvent('Backend Server', 'Stop Task', event)
+          systemEventHandler.raiseEvent('Task Manager', 'Stop Task', event)
 
           payload.uiObject.stop()
 
@@ -247,9 +247,9 @@ function newWorkspace () {
           }
         }
         break
-      case 'Add Backend':
+      case 'Add Task Manager':
         {
-          functionLibraryPartsFromNodes.addBackend(payload.node)
+          functionLibraryPartsFromNodes.addTaskManager(payload.node)
         }
         break
       case 'Add Task':
@@ -377,8 +377,8 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addPersonalData(payload.node)
         }
         break
-      case 'Delete Backend': {
-        functionLibraryNodeDeleter.deleteBackend(payload.node, workspaceNode.rootNodes)
+      case 'Delete Task Manager': {
+        functionLibraryNodeDeleter.deleteTaskManager(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Task': {

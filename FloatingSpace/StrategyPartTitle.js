@@ -59,9 +59,11 @@ function newStrategyPartTitle () {
         break
       }
       case 'Sensor': {
+        thisObject.allwaysVisible = true
         break
       }
       case 'Indicator': {
+        thisObject.allwaysVisible = true
         break
       }
       case 'Trading Engine': {
@@ -344,7 +346,7 @@ function newStrategyPartTitle () {
 
   function trimTitle (title) {
     if (title === undefined) { return }
-    const MAX_LABEL_LENGTH = 30
+    const MAX_LABEL_LENGTH = 50
     if (title.length > MAX_LABEL_LENGTH) {
       title = title.substring(0, MAX_LABEL_LENGTH) + '...'
     }

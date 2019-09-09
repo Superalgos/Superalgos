@@ -1,6 +1,9 @@
 
 function newWorkspace () {
   const MODULE_NAME = 'Workspace'
+  const ERROR_LOG = true
+  const logger = newWebDebugLog()
+  logger.fileName = MODULE_NAME
 
   let thisObject = {
     tradingSystem: undefined,
@@ -53,29 +56,33 @@ function newWorkspace () {
   }
 
   async function initialize () {
-    let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
-    if (user === null) {
-      return
-    }
-    user = JSON.parse(user)
-
-    let idAtStrategizer = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Strategizer Gateway' + '.' + user.alias)
-    let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias)
-
-    if (savedWorkspace === null || idAtStrategizer === null) {
-      workspaceNode.type = 'Workspace'
-      workspaceNode.name = 'My Workspace'
-      functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
-      spawnPosition.y = spawnPosition.y + 250
-      initializeLoadingFromStrategizer()
-    } else {
-      workspaceNode = JSON.parse(savedWorkspace)
-      functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
-      for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
-        let rootNode = workspaceNode.rootNodes[i]
-        functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+    try {
+      let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
+      if (user === null) {
+        return
       }
-      thisObject.enabled = true
+      user = JSON.parse(user)
+
+      let idAtStrategizer = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Strategizer Gateway' + '.' + user.alias)
+      let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias)
+
+      if (savedWorkspace === null || idAtStrategizer === null) {
+        workspaceNode.type = 'Workspace'
+        workspaceNode.name = 'My Workspace'
+        functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
+        spawnPosition.y = spawnPosition.y + 250
+        initializeLoadingFromStrategizer()
+      } else {
+        workspaceNode = JSON.parse(savedWorkspace)
+        functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
+        for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
+          let rootNode = workspaceNode.rootNodes[i]
+          functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+        }
+        thisObject.enabled = true
+      }
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }
   }
 
@@ -134,24 +141,28 @@ function newWorkspace () {
   }
 
   function spawn (nodeText, point) {
-    point = canvas.floatingSpace.container.frame.unframeThisPoint(point)
-    spawnPosition.x = point.x
-    spawnPosition.y = point.y
+    try {
+      point = canvas.floatingSpace.container.frame.unframeThisPoint(point)
+      spawnPosition.x = point.x
+      spawnPosition.y = point.y
 
-    let droppedNode = JSON.parse(nodeText)
+      let droppedNode = JSON.parse(nodeText)
 
-    if (droppedNode.type === 'Workspace') {
-      functionLibraryNodeDeleter.deleteWorkspace(workspaceNode, workspaceNode.rootNodes)
-      workspaceNode = droppedNode
-      functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
-      for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
-        let rootNode = workspaceNode.rootNodes[i]
+      if (droppedNode.type === 'Workspace') {
+        functionLibraryNodeDeleter.deleteWorkspace(workspaceNode, workspaceNode.rootNodes)
+        workspaceNode = droppedNode
+        functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)
+        for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
+          let rootNode = workspaceNode.rootNodes[i]
+          functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+        }
+      } else {
+        let rootNode = functionLibraryProtocolNode.getProtocolNode(droppedNode)
+        workspaceNode.rootNodes.push(rootNode)
         functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
       }
-    } else {
-      let rootNode = functionLibraryProtocolNode.getProtocolNode(droppedNode)
-      workspaceNode.rootNodes.push(rootNode)
-      functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] spawn -> err = ' + err.stack) }
     }
   }
 

@@ -222,7 +222,7 @@ function newNodeDeleter () {
       deletePersonalData(node.personalData, rootNodes)
     }
     if (node.taskManager !== undefined) {
-      deleteTaskManager(node.personalData, rootNodes)
+      deleteTaskManager(node.taskManager, rootNodes)
     }
     completeDeletion(node, rootNodes)
     destroyPart(node)

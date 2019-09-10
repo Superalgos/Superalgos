@@ -102,7 +102,7 @@ function newSystemEventHandler () {
         callBackFunction()
       }
       WEB_SOCKETS_CONNECTION.onmessage = e => {
-        console.log('Websoked Message Received: ' + e.data)
+        // console.log('Websoked Message Received: ' + e.data)
 
         let message = JSON.parse(e.data)
 

@@ -45,6 +45,7 @@ function newWorkspace () {
   let functionLibraryPartsFromNodes = newPartsFromNodes()
   let functionLibraryProtocolNode = newProtocolNode()
   let functionLibraryWorkspaceNodes = newStringifyNode()
+  let functionLibraryTaskFunctions = newTaskFunctions()
   thisObject.nodeChildren = newNodeChildren()
 
   return thisObject
@@ -222,40 +223,22 @@ function newWorkspace () {
         break
       case 'Run Task':
         {
-          /* Check if it is possible to Run or not */
-          if (payload.node.bot === undefined) { return }
-          if (payload.node.bot.processes.length === 0) { return }
-
-          for (let i = 0; i < payload.node.bot.processes.length; i++) {
-            let process = payload.node.bot.processes[i]
-            process.payload.uiObject.play()
-          }
-
-          payload.uiObject.play()
-
-          let event = {
-            taskId: payload.node.id,
-            definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, true, true)) // <-  We need to do this workaround in order no to send unescaped charactars to the taskManager.
-          }
-          systemEventHandler.raiseEvent('Task Manager', 'Run Task', event)
+          functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode)
         }
         break
       case 'Stop Task':
         {
-          let event = {
-            taskId: payload.node.id
-          }
-          systemEventHandler.raiseEvent('Task Manager', 'Stop Task', event)
-
-          payload.uiObject.stop()
-
-          if (payload.node.bot === undefined) { return }
-          if (payload.node.bot.processes.length === 0) { return }
-
-          for (let i = 0; i < payload.node.bot.processes.length; i++) {
-            let process = payload.node.bot.processes[i]
-            process.payload.uiObject.stop()
-          }
+          functionLibraryTaskFunctions.stopTask(payload.node, functionLibraryProtocolNode)
+        }
+        break
+      case 'Run All Tasks':
+        {
+          functionLibraryTaskFunctions.runAllTasks(payload.node, functionLibraryProtocolNode)
+        }
+        break
+      case 'Stop All Tasks':
+        {
+          functionLibraryTaskFunctions.stopAllTasks(payload.node, functionLibraryProtocolNode)
         }
         break
       case 'Add Task Manager':

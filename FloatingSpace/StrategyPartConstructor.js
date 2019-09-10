@@ -321,6 +321,34 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
+            action: 'Run All Tasks',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Run All Tasks',
+            visible: false,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Stop All Tasks',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Stop All Tasks',
+            visible: false,
+            iconPathOn: 'stop',
+            iconPathOff: 'stop',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+        )
+        menuItemsInitialValues.push(
+          {
             action: 'Add Task',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Task',
@@ -329,7 +357,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: 0
           }
           )
         menuItemsInitialValues.push(
@@ -345,7 +373,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           }
             )
         menuItemsInitialValues.push(
@@ -359,7 +387,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }
             )
         break

@@ -47,6 +47,17 @@
           },
           "process": "Multi-Period-Market",
           "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAOlivia",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Multi-Period-Market",
+          "dataSetVersion": "dataSet.V1",
+          "waitUntilNextUpdate": true
         }
       ]
     },
@@ -95,7 +106,8 @@
             "minor": 0
           },
           "process": "Multi-Period-Daily",
-          "dataSetVersion": "dataSet.V1"
+          "dataSetVersion": "dataSet.V1",
+          "waitUntilNextUpdate": true
         },
         {
           "devTeam": "AAMasters",

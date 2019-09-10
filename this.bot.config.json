@@ -134,7 +134,8 @@
             "minor": 0
           },
           "process": "Live-Trades",
-          "dataSetVersion": "dataSet.V1"
+          "dataSetVersion": "dataSet.V1",
+          "waitUntilNextUpdate": true
         },
         {
           "devTeam": "AAMasters",

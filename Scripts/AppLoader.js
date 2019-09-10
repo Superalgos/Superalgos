@@ -101,6 +101,7 @@ function newAppLoader() {
                 'FloatingSpace/StrategyPartTitle.js',
                 'FloatingSpace/CircularMenu.js',
                 'FloatingSpace/CircularMenuItem.js',
+                'FloatingSpace/CircularProgressBar.js',
                 'FloatingSpace/CodeEditor.js',
 
                 'Scales/RateScale.js',

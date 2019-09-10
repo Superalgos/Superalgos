@@ -300,7 +300,7 @@
 
                             console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + " bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime.toISOString());
 
-                            if (global.FULL_LOG === 'true') {
+                            if (global.WRITE_LOGS_TO_FILES === 'true') {
                                 logger.newInternalLoop(bot.codeName, bot.process);
                             }
 

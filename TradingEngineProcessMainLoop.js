@@ -887,7 +887,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!"); }
 
-                            if (global.FULL_LOG === 'true') {
+                            if (global.WRITE_LOGS_TO_FILES === 'true') {
                                 logger.persist();
                             }
 
@@ -907,7 +907,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
                                     checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
-                                    if (global.FULL_LOG === 'true') {
+                                    if (global.WRITE_LOGS_TO_FILES === 'true') {
                                         logger.persist();
                                     }
                                 }
@@ -948,7 +948,7 @@
 
                             let now = new Date().valueOf();
 
-                            if (now - bot.loopStartTime > processConfig.normalWaitTime) {
+                            if (now - bot.loopStartTime > processConfig.deadWaitTime) {
 
                                 logger.write(MODULE_NAME, "[ERROR] run -> loop -> checkLoopHealth -> Dead loop found -> pLastLoop = " + pLastLoop);
                                 console.log((new Date().toISOString() + " [ERROR] run -> loop -> checkLoopHealth -> " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " Loop # " + pad(Number(bot.loopCounter), 5) + " found dead. Resurrecting it now."));
@@ -977,7 +977,7 @@
                             if (process.env.STOP_GRACEFULLY !== undefined)
                                 stop = JSON.parse(process.env.STOP_GRACEFULLY)
 
-                            if (!stop && global.SHALL_BOT_STOP === false) {
+                            if (!stop) {
                                 continueCallBack();
                             } else {
                                 stopCallBack();
@@ -1005,7 +1005,7 @@
             }
 
             function hearBeat() {
-                let key = global.USER_DEFINITION.bot.processes[global.sequenceStep - 1].name + '-' + global.USER_DEFINITION.bot.processes[global.sequenceStep - 1].type + '-' + global.USER_DEFINITION.bot.processes[global.sequenceStep - 1].id
+                let key = global.USER_DEFINITION.bot.processes[bot.processIndex].name + '-' + global.USER_DEFINITION.bot.processes[bot.processIndex].type + '-' + global.USER_DEFINITION.bot.processes[bot.processIndex].id
 
                 let event = {
                     seconds: (new Date()).getSeconds()

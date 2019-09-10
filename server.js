@@ -66,7 +66,7 @@ if (global.USER_DEFINITION !== undefined) {
 
 }
 else {  // I use this section to debug in standalone mode.
-    let argument = '{"type":"Task","name":"Extract Trades from Poloniex","bot":{"type":"Sensor","name":"Charly","processes":[{"type":"Process","name":"Live-Trades","code":{"devTeam":"AAMasters","bot":"AACharly","mode":"noTime","resumeExecution":true,"type":"Sensor","exchangeName":"Poloniex","process":"Live-Trades"}},{"type":"Process","name":"Hole-Fixing","code":{"devTeam":"AAMasters","bot":"AACharly","mode":"oneMonth","resumeExecution":true,"type":"Sensor","exchangeName":"Poloniex","process":"Hole-Fixing","startYear":2019,"endYear":2019,"month":9}}]}}'
+    let argument = '{"type":"Task","name":"Brings Trades Records from the Exchange","bot":{"type":"Sensor","name":"Charly","processes":[{"type":"Process","name":"Live Trades","code":{"devTeam":"AAMasters","bot":"AACharly","mode":"noTime","resumeExecution":true,"type":"Sensor","exchangeName":"Poloniex","process":"Live-Trades"},"id":"3aae75f5-67ae-4ae5-9586-ec5640f79b18"}]},"id":"54444b07-eee2-4fa8-9183-8fea3b5ff9de"}'
     try {
         global.USER_DEFINITION = JSON.parse(argument)
     } catch (err) {
@@ -75,10 +75,34 @@ else {  // I use this section to debug in standalone mode.
 }
 
 
+require('dotenv').config();
+
+global.DEFINITION = require(process.env.INTER_PROCESS_FILES_PATH + '/Definition');
+global.WRITE_LOGS_TO_FILES = process.env.WRITE_LOGS_TO_FILES
+
+/* Default parameters can be changed by the execution configuration */
+global.EXCHANGE_NAME = process.env.EXCHANGE_NAME
+global.MARKET = { assetA: 'USDT', assetB: 'BTC' }
+global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' }
+global.ENDED_PROCESSES_COUNTER = 0
+
+/* Here we listen for the message to stop this Task / Process comming from the Task Manager, which is the paret of this node js process. */
+process.on('message', message => {
+    if (message === 'Stop this Task') {
+
+        process.env.STOP_GRACEFULLY = true;
+
+    }
+});
+
+let notFirstSequence = false;
+
+/* Setting up the global Event Handler */
+
 const EVENT_HANDLER_MODULE =  require('../Libraries/SystemEventsClient/SystemEventHandler.js');
 global.SYSTEM_EVENT_HANDLER = EVENT_HANDLER_MODULE.newSystemEventHandler()
-
 global.SYSTEM_EVENT_HANDLER.initialize('Task Server', bootLoader)
+
 
 function bootLoader() {
    
@@ -89,7 +113,7 @@ function bootLoader() {
 
     function tryToListenToCockpit() {
 
-        global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Simulation', 'Simulation Started', undefined, 'Clone Executor Boot Loader', onResponse, startSequence)
+        global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Simulation', 'Simulation Started', undefined, 'Task Server Boot Loader', onResponse, startSequence)
 
         function onResponse(message) {
             if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
@@ -112,7 +136,7 @@ function bootLoader() {
     }
 
     /* Heartbeat sent to the UI */
-    heartBeatInterval = setInterval(hearBeat, 1000)
+    global.HEARTBEAT_INTERVAL_HANDLER = setInterval(hearBeat, 1000)
 
     function hearBeat() {
 
@@ -127,146 +151,58 @@ function bootLoader() {
     startSequence()
 }
 
-
 /* Old Run.js code follows... */
 
-require('dotenv').config();
+function startSequence() {
 
-global.DEFINITION = require(process.env.INTER_PROCESS_FILES_PATH + '/Definition');
-const definition = global.DEFINITION
-const path = require('path');
+    for (let processIndex = 0; processIndex < global.USER_DEFINITION.bot.processes.length; processIndex++) {
+        let execution = sequenceList[processIndex];
 
-global.SHALL_BOT_STOP = false
+        process.env.STOP_GRACEFULLY = false;
+        execution.devTeam ? process.env.DEV_TEAM = execution.devTeam : undefined;
+        execution.bot ? process.env.BOT = execution.bot : undefined;
+        execution.mode ? process.env.START_MODE = execution.mode : undefined;
+        execution.resumeExecution = true;
+        execution.type ? process.env.TYPE = execution.type : undefined;
+        execution.process ? process.env.PROCESS = execution.process : undefined;
+        execution.startYear ? process.env.MIN_YEAR = execution.startYear : undefined;
+        execution.endYear ? process.env.MAX_YEAR = execution.endYear : undefined;
+        execution.month ? process.env.MONTH = execution.month : undefined;
+        execution.beginDatetime ? process.env.BEGIN_DATE_TIME = execution.beginDatetime : undefined;
+        execution.endDatetime ? process.env.END_DATE_TIME = execution.endDatetime : undefined;
+        execution.dataSet ? process.env.DATA_SET = execution.dataSet : undefined;
+        execution.timePeriod ? process.env.TIME_PERIOD = execution.timePeriod : undefined;
+        execution.baseAsset ? process.env.BASE_ASSET = execution.baseAsset : undefined;
+        execution.balanceAssetA ? process.env.INITIAL_BALANCE_ASSET_A = execution.balanceAssetA : undefined;
+        execution.balanceAssetB ? process.env.INITIAL_BALANCE_ASSET_B = execution.balanceAssetB : undefined;
+        execution.type === 'Trading' ? process.env.CLONE_ID = 1 : undefined;
 
-global.FULL_LOG = process.env.FULL_LOG
+        execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
 
-/* Default parameters can be changed by the execution configuration */
-global.EXCHANGE_NAME = process.env.EXCHANGE_NAME
-global.MARKET = { assetA: 'USDT', assetB: 'BTC' }
-global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' }
+        if (global.DEFINITION) {
+            if (global.DEFINITION.personalData) {
+                if (global.DEFINITION.personalData.exchangeAccounts) {
+                    if (global.DEFINITION.personalData.exchangeAccounts.length > 0) {
+                        let exchangeAccount = global.DEFINITION.personalData.exchangeAccounts[0]
+                        if (exchangeAccount.keys) {
+                            if (exchangeAccount.keys.length > 0) {
+                                let key = exchangeAccount.keys[0]
 
+                                process.env.KEY = key.name
+                                process.env.SECRET = key.code
 
-
-
-
-let isRunSequence = false;
-global.sequenceStep = 0;
-let processedSteps = new Map();
-let notFirstSequence = false;
-let runClonExecutor = true;
-
-if (process.env.RUN_SEQUENCE !== undefined) {
-    isRunSequence = JSON.parse(process.env.RUN_SEQUENCE)
-}
-
-function startSequence () {
-    if (isRunSequence) {
-        process.on('message', message => {
-            if (message === 'Stop this Task') {
-                runClonExecutor = false;
-
-                /* Cleaning Before Exiting. */
-                clearInterval(heartBeatInterval)
-
-                for (let i = 0; i < global.USER_DEFINITION.bot.processes.length; i++) {
-                    let code = global.USER_DEFINITION.bot.processes[i].code
-
-                    /* Delete the event handler for each process. */
-
-                    let key = code.devTeam + "-" + code.codeName + "-" + code.process
-                    let event = {
-                        reason: 'Signal Received to Terminate this Process.'
-                    }
-                    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Process Terminated', event)
-                    global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
-                }
-
-                global.SYSTEM_EVENT_HANDLER.finalize()
-                global.SYSTEM_EVENT_HANDLER = undefined
-                console.log("[INFO] CloneExecutor -> Clone Executor Stopped.");
-            }
-        });
-        sequenceExecution(sequenceStep)
-    } else {
-        readExecutionConfiguration()
-    }
-}
-
-
-async function sequenceExecution(currentStep) {
-
-    let execution = sequenceList[currentStep];
-
-    process.env.STOP_GRACEFULLY = true;
-    execution.devTeam ? process.env.DEV_TEAM = execution.devTeam : undefined;
-    execution.bot ? process.env.BOT = execution.bot : undefined;
-    execution.mode ? process.env.START_MODE = execution.mode : undefined;
-    execution.resumeExecution = true;
-    execution.type ? process.env.TYPE = execution.type : undefined;
-    execution.process ? process.env.PROCESS = execution.process : undefined;
-    execution.startYear ? process.env.MIN_YEAR = execution.startYear : undefined;
-    execution.endYear ? process.env.MAX_YEAR = execution.endYear : undefined;
-    execution.month ? process.env.MONTH = execution.month : undefined;
-    execution.beginDatetime ? process.env.BEGIN_DATE_TIME = execution.beginDatetime : undefined;
-    execution.endDatetime ? process.env.END_DATE_TIME = execution.endDatetime : undefined;
-    execution.dataSet ? process.env.DATA_SET = execution.dataSet : undefined;
-    execution.timePeriod ? process.env.TIME_PERIOD = execution.timePeriod : undefined;
-    execution.baseAsset ? process.env.BASE_ASSET = execution.baseAsset : undefined;
-    execution.balanceAssetA ? process.env.INITIAL_BALANCE_ASSET_A = execution.balanceAssetA : undefined;
-    execution.balanceAssetB ? process.env.INITIAL_BALANCE_ASSET_B = execution.balanceAssetB : undefined;
-    execution.type === 'Trading' ? process.env.CLONE_ID = 1 : undefined;
-
-    execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
-
-    if (definition) {
-        if (definition.personalData) {
-            if (definition.personalData.exchangeAccounts) {
-                if (definition.personalData.exchangeAccounts.length > 0) {
-                    let exchangeAccount = definition.personalData.exchangeAccounts[0]
-                    if (exchangeAccount.keys) {
-                        if (exchangeAccount.keys.length > 0) {
-                            let key = exchangeAccount.keys[0]
-
-                            process.env.KEY = key.name
-                            process.env.SECRET = key.code
-
+                            }
                         }
                     }
                 }
             }
         }
-    }
 
-    let stepKey = execution.devTeam + '.' + execution.bot + '.' + execution.process;
-    if (processedSteps.has(stepKey)) {
-        processedSteps.set(stepKey, processedSteps.get(stepKey) + 1);
-    } else {
-        processedSteps.set(stepKey, 0);
+        readExecutionConfiguration(execution, processIndex);
     }
-
-    readExecutionConfiguration(execution);
-    sequenceStep++;
 }
 
-function onExecutionFinish(result, finishStepKey) {
-    if (global.sequenceStep < sequenceList.length && runClonExecutor) {
-        sequenceExecution(sequenceStep);
-    } else {
-        setTimeout(function () {
-            if (runClonExecutor) {
-                console.log("[INFO] onExecutionFinish -> New round for sequence execution started.");
-                 
-                global.sequenceStep = 0;
-                processedSteps = new Map();
-                notFirstSequence = true;
-                sequenceExecution(sequenceStep);
-            }
-        }, process.env.EXECUTION_LOOP_DELAY);
-    }
-
-}
-
-async function readExecutionConfiguration(execution) {
+async function readExecutionConfiguration(execution, processIndex) {
     try {
         console.log("[INFO] Task Server -> server -> readExecutionConfiguration -> Entering function. ");
 
@@ -291,31 +227,31 @@ async function readExecutionConfiguration(execution) {
                 process.env.START_MODE = "live"  // If we have keys, then we are in live mode.
             }
 
-            if (definition !== undefined) {
-                if (definition.simulationParams !== undefined) {
-                    if (definition.simulationParams.beginDatetime !== undefined) {
-                        initialDatetime = new Date(definition.simulationParams.beginDatetime)  /* The first override occurs here, with the simulation parameters */
+            if (global.DEFINITION !== undefined) {
+                if (global.DEFINITION.simulationParams !== undefined) {
+                    if (global.DEFINITION.simulationParams.beginDatetime !== undefined) {
+                        initialDatetime = new Date(global.DEFINITION.simulationParams.beginDatetime)  /* The first override occurs here, with the simulation parameters */
                     }
                     /* Here we only look for one timePeriod, in the future we will be able to process the whole array, but not for now. */
-                    if (definition.simulationParams.timePeriodDailyArray !== undefined) {
-                        if (definition.simulationParams.timePeriodDailyArray.length === 1) {
-                            timePeriodFilter = definition.simulationParams.timePeriodDailyArray[0]
+                    if (global.DEFINITION.simulationParams.timePeriodDailyArray !== undefined) {
+                        if (global.DEFINITION.simulationParams.timePeriodDailyArray.length === 1) {
+                            timePeriodFilter = global.DEFINITION.simulationParams.timePeriodDailyArray[0]
                             botProcess = "Multi-Period"
                         }
                     }
-                    if (definition.simulationParams.timePeriodMarketArray !== undefined) {
-                        if (definition.simulationParams.timePeriodMarketArray.length === 1) {
-                            timePeriodFilter = definition.simulationParams.timePeriodMarketArray[0]
+                    if (global.DEFINITION.simulationParams.timePeriodMarketArray !== undefined) {
+                        if (global.DEFINITION.simulationParams.timePeriodMarketArray.length === 1) {
+                            timePeriodFilter = global.DEFINITION.simulationParams.timePeriodMarketArray[0]
                             botProcess = "Multi-Period"
                         }
                     }
                 }
-                if (definition.tradingSystem !== undefined) {
-                    if (definition.tradingSystem.parameters !== undefined) {
-                        if (definition.tradingSystem.parameters.timeRange !== undefined) {
-                            if (definition.tradingSystem.parameters.timeRange.code !== undefined) {
+                if (global.DEFINITION.tradingSystem !== undefined) {
+                    if (global.DEFINITION.tradingSystem.parameters !== undefined) {
+                        if (global.DEFINITION.tradingSystem.parameters.timeRange !== undefined) {
+                            if (global.DEFINITION.tradingSystem.parameters.timeRange.code !== undefined) {
                                 try {
-                                    let code = JSON.parse(definition.tradingSystem.parameters.timeRange.code)
+                                    let code = JSON.parse(global.DEFINITION.tradingSystem.parameters.timeRange.code)
                                     if (code.initialDatetime !== undefined) {
                                         initialDatetime = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
                                     }
@@ -323,14 +259,14 @@ async function readExecutionConfiguration(execution) {
                                         finalDatetime = code.finalDatetime
                                     }
                                 } catch (err) {
-                                    definition.tradingSystem.parameters.timeRange.error = err.message
+                                    global.DEFINITION.tradingSystem.parameters.timeRange.error = err.message
                                 }
                             }
                         }
                     }
                 }
-                /* Get the initial balance from the definition */
-                let tradingSystem = definition.tradingSystem
+                /* Get the initial balance from the global.DEFINITION */
+                let tradingSystem = global.DEFINITION.tradingSystem
 
                 if (tradingSystem) {
                     if (tradingSystem.parameters !== undefined) {
@@ -359,7 +295,7 @@ async function readExecutionConfiguration(execution) {
                                     }
                                 }
                             } catch (err) {
-                                definition.tradingSystem.parameters.baseAsset.error = err.message
+                                global.DEFINITION.tradingSystem.parameters.baseAsset.error = err.message
 
                                 process.env.INITIAL_BALANCE_ASSET_A = 0 // default
                                 process.env.INITIAL_BALANCE_ASSET_B = 0.001 // default
@@ -381,7 +317,7 @@ async function readExecutionConfiguration(execution) {
             let live = {
                 run: 'false',
                 resumeExecution: execution.resumeExecution,
-                beginDatetime: new Date(definition.simulationParams.timestamp).toISOString(),
+                beginDatetime: new Date(global.DEFINITION.simulationParams.timestamp).toISOString(),
                 endDatetime: finalDatetime
             }
 
@@ -471,7 +407,7 @@ async function readExecutionConfiguration(execution) {
             version: '1.1'
         }
 
-        startRoot();
+        startRoot(processIndex);
     }
 
     catch (err) {
@@ -513,7 +449,7 @@ function getTimePeriod(timePeriod) {
     }
 }
 
-function startRoot() {
+function startRoot(processIndex) {
     console.log('[INFO] Task Server -> server -> startRoot -> Entering function. ')
 
     const ROOT_DIR = './'
@@ -533,7 +469,7 @@ function startRoot() {
     function onInitialized() {
         console.log('[INFO] Task Server -> server -> startRoot -> onInitialized -> Entering function. ')
 
-        root.start(onExecutionFinish)
+        root.start(processIndex)
     }
 }
 

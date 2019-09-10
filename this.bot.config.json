@@ -57,7 +57,8 @@
           },
           "process": "Hole-Fixing",
           "dataSetVersion": "dataSet.V1",
-          "dataSetSection": "Month"
+          "dataSetSection": "Month",
+          "waitUntilNextUpdate": true
         },
         {
           "devTeam": "AAMasters",

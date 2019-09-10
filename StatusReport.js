@@ -61,15 +61,13 @@
                 let key = owner.devTeam + "-" + owner.bot + "-" + owner.process
                 let callerId = bot.devTeam + "-" + bot.codeName + "-" + bot.process
 
-                let eventSubscriptionIdStatusReport
-                let eventSubscriptionIdProcessTerminated
+                let subscriptionIdStatusReport
 
-                eventSubscriptionIdStatusReport = global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Status Report Updated', undefined, callerId, responseCallBackStatusReport, eventsCallBackStatusReport)
+                subscriptionIdStatusReport = global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Status Report Updated', undefined, callerId, responseCallBack, eventsCallBack)
 
-                function responseCallBackStatusReport(message) {
+                function responseCallBack(message) {
                     if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
                         logger.write(MODULE_NAME, "[ERROR] initialize -> Could not register event listener for event 'Status Report Updated' -> Message = " + message);
-                        stopListeningAll()
                         let event = {
                             reason: 'This process depends on ' + key + ' which is currently not running.'
                         }
@@ -78,44 +76,15 @@
                     }
                 }
 
-                function eventsCallBackStatusReport() {
+                function eventsCallBack() {
                     /* We continue the normal flow after we learn the dependent process has updated its status report. */
-                    stopListeningAll()
+                    stopListening()
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                 }
 
-                eventSubscriptionIdProcessTerminated = global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Process Terminated', undefined, callerId, responseCallBackProcessTerminated, eventsCallBackProcessTerminated)
-
-                function responseCallBackProcessTerminated(message) {
-                    if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> Could not register event listener for event 'Process Terminated' -> Message = " + message);
-                        stopListeningAll()
-                        let event = {
-                            reason: 'This process depends on ' + key + ' which is currently not running.'
-                        }
-                        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Process Terminated', event)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
-                }
-
-                function eventsCallBackProcessTerminated() {
-                    /* If the process we depend on to start was terminated, there is no point to continue waiting. We need to cloese everything al terminate this process too. */
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> Received event 'Process Terminated' from a dependency we are waiting for. -> Message = " + message);
-
-                    stopListeningAll()
-                    let event = {
-                        reason: 'This process depends on ' + key + ' which has been terminated.'
-                    }
-                    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Process Terminated', event)
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-
-                function stopListeningAll() {
-                    if (eventSubscriptionIdStatusReport) {
-                        stopListening(key, 'Status Report Updated', eventSubscriptionIdStatusReport)
-                    }
-                    if (eventSubscriptionIdProcessTerminated) {
-                        stopListening(key, 'Process Terminated', eventSubscriptionIdStatusReport)
+                function stopListening() {
+                    if (subscriptionIdStatusReport) {
+                        stopListening(key, 'Status Report Updated', subscriptionIdStatusReport)
                     }
                 }
 

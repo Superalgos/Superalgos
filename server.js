@@ -115,6 +115,8 @@ function bootLoader() {
     heartBeatInterval = setInterval(hearBeat, 1000)
 
     function hearBeat() {
+
+        /* The heartbeat event is raised at the event handler of the instance of this task, created at the UI. */        
         let key = global.USER_DEFINITION.name + '-' + global.USER_DEFINITION.type + '-' + global.USER_DEFINITION.id
         let event = {
             seconds: (new Date()).getSeconds()
@@ -172,7 +174,10 @@ function startSequence () {
                     /* Delete the event handler for each process. */
 
                     let key = code.devTeam + "-" + code.codeName + "-" + code.process
-                    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Process Terminated')
+                    let event = {
+                        reason: 'Signal Received to Terminate this Process.'
+                    }
+                    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Process Terminated', event)
                     global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
                 }
 

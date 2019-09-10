@@ -78,11 +78,11 @@ else {  // I use this section to debug in standalone mode.
 const EVENT_HANDLER_MODULE =  require('../Libraries/SystemEventsClient/SystemEventHandler.js');
 global.SYSTEM_EVENT_HANDLER = EVENT_HANDLER_MODULE.newSystemEventHandler()
 
-global.SYSTEM_EVENT_HANDLER.initialize('Clone Executor', bootLoader)
+global.SYSTEM_EVENT_HANDLER.initialize('Task Server', bootLoader)
 
 function bootLoader() {
    
-    global.SYSTEM_EVENT_HANDLER.createEventHandler(global.USER_DEFINITION.name)
+    //global.SYSTEM_EVENT_HANDLER.createEventHandler(global.USER_DEFINITION.name)
 
      /*
     tryToListenToCockpit()
@@ -101,7 +101,14 @@ function bootLoader() {
 
     for (let i = 0; i < global.USER_DEFINITION.bot.processes.length; i++) {
         let code = global.USER_DEFINITION.bot.processes[i].code
+
+        /* Add to the execution sequence list. */
         sequenceList.push(code)
+
+        /* Create the event handler for each process. This event handlers are where the status reports updated events are raised. */
+
+        let key = code.devTeam + "-" + code.bot + "-" + code.process
+        global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
     }
 
     /* Heartbeat sent to the UI */
@@ -153,11 +160,21 @@ if (process.env.RUN_SEQUENCE !== undefined) {
 function startSequence () {
     if (isRunSequence) {
         process.on('message', message => {
-            if (message === 'STOP') {
+            if (message === 'Stop this Task') {
                 runClonExecutor = false;
 
                 /* Cleaning Before Exiting. */
                 clearInterval(heartBeatInterval)
+
+                for (let i = 0; i < global.USER_DEFINITION.bot.processes.length; i++) {
+                    let code = global.USER_DEFINITION.bot.processes[i].code
+
+                    /* Delete the event handler for each process. */
+
+                    let key = code.devTeam + "-" + code.codeName + "-" + code.process
+                    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Process Terminated')
+                    global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
+                }
 
                 global.SYSTEM_EVENT_HANDLER.finalize()
                 global.SYSTEM_EVENT_HANDLER = undefined

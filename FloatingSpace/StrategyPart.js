@@ -16,14 +16,14 @@ function newStrategyPart () {
     payload: undefined,
     codeEditor: undefined,
     partTitle: undefined,
-    runningStatus: undefined,
+    circularProgressBar: undefined,
     isExecuting: undefined,
     isRunning: undefined,
     run: run,
     play: play,
     stop: stop,
     setRunningStatus: setRunningStatus,
-    setNotRunningStatus: setNotRunningStatus,
+    setNotcircularProgressBar: setNotcircularProgressBar,
     getReadyToAttach: getReadyToAttach,
     showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
@@ -178,8 +178,8 @@ function newStrategyPart () {
       thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
     }
 
-    if (thisObject.runningStatus !== undefined) {
-      thisObject.runningStatus.physics()
+    if (thisObject.circularProgressBar !== undefined) {
+      thisObject.circularProgressBar.physics()
     }
 
     iconPhysics()
@@ -532,21 +532,21 @@ function newStrategyPart () {
   }
 
   function play () {
-    if (thisObject.runningStatus !== undefined) {
-      thisObject.runningStatus.finalize()
+    if (thisObject.circularProgressBar !== undefined) {
+      thisObject.circularProgressBar.finalize()
     }
 
-    thisObject.runningStatus = newCircularProgressBar()
-    thisObject.runningStatus.initialize(thisObject.payload)
-    thisObject.runningStatus.fitFunction = thisObject.fitFunction
-    thisObject.runningStatus.container = thisObject.container
+    thisObject.circularProgressBar = newCircularProgressBar()
+    thisObject.circularProgressBar.initialize(thisObject.payload)
+    thisObject.circularProgressBar.fitFunction = thisObject.fitFunction
+    thisObject.circularProgressBar.container = thisObject.container
   }
 
   function stop () {
-    setTimeout(removeRunningStatus, 30000)
-    function removeRunningStatus () {
-      thisObject.runningStatus.finalize()
-      thisObject.runningStatus = undefined
+    setTimeout(removecircularProgressBar, 30000)
+    function removecircularProgressBar () {
+      thisObject.circularProgressBar.finalize()
+      thisObject.circularProgressBar = undefined
     }
   }
 
@@ -561,7 +561,7 @@ function newStrategyPart () {
     runningCounter = 30
   }
 
-  function setNotRunningStatus () {
+  function setNotcircularProgressBar () {
     canvas.strategySpace.workspace.definition = undefined
     thisObject.isRunning = false
   }
@@ -617,8 +617,8 @@ function newStrategyPart () {
       }
     }
 
-    if (thisObject.runningStatus !== undefined) {
-      thisObject.runningStatus.drawBackground()
+    if (thisObject.circularProgressBar !== undefined) {
+      thisObject.circularProgressBar.drawBackground()
     }
   }
 
@@ -638,8 +638,8 @@ function newStrategyPart () {
       }
     }
 
-    if (thisObject.runningStatus !== undefined) {
-      thisObject.runningStatus.drawForeground()
+    if (thisObject.circularProgressBar !== undefined) {
+      thisObject.circularProgressBar.drawForeground()
     }
   }
 
@@ -939,6 +939,21 @@ function newStrategyPart () {
       browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)'
 
       browserCanvasContext.fill()
+
+      if (thisObject.isRunning === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 2
+        let OPACITY = runningCounter / 30
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+
+        browserCanvasContext.lineWidth = 10
+        browserCanvasContext.setLineDash([4, 20])
+        browserCanvasContext.stroke()
+      }
 
       if (thisObject.isOnFocus === true) {
         VISIBLE_RADIUS = thisObject.container.frame.radius

@@ -57,7 +57,8 @@
           },
           "process": "Single-Period-Daily",
           "dataSetVersion": "dataSet.V1",
-          "dataSetSection": "Month"
+          "dataSetSection": "Month",
+          "waitUntilNextUpdate": true
         },
         {
           "devTeam": "AAMasters",
@@ -117,7 +118,8 @@
           },
           "process": "Single-Period-Daily",
           "dataSetVersion": "dataSet.V1",
-          "dataSetSection": "Month"
+          "dataSetSection": "Month",
+          "waitUntilNextUpdate": true
         },
         {
           "devTeam": "AAMasters",

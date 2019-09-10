@@ -47,6 +47,7 @@ function startHtttpServer () {
       gWebServer = http.createServer(onBrowserRequest).listen(port)
       isHttpServerStarted = true
       open('http://localhost:' + port)
+      console.log('Web Server Started.')
     }
   } catch (err) {
     console.log('[ERROR] server -> startHtttpServer -> Error = ' + err.stack)

@@ -208,12 +208,12 @@
                          
                         if (processConfig.framework !== undefined) {
                             if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market" || processConfig.framework.name === "Multi-Period") {
-                                processConfig.framework.startDate.resumeExecution = false;
+                                processConfig.framework.startDate.resumeExecution = true;
                                 if (processConfig.startMode.noTime !== undefined) {
                                     if (processConfig.startMode.noTime.run === "true") {
                                         if (processConfig.startMode.noTime.beginDatetime !== undefined) {
                                             processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
-                                            processConfig.framework.startDate.resumeExecution = false;
+                                            processConfig.framework.startDate.resumeExecution = true;
                                         }
                                     }
                                 }

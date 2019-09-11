@@ -107,10 +107,13 @@
                 stopRequestedEventListenerSubscriptionId = global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Stop Requested', undefined, undefined, undefined, stopRequested)
 
                 function startBackTesting() {
+                    processConfig.framework.startDate.resumeExecution = false;
                     skipProcessing = false
                 }
 
                 function startLiveTrading() {
+                    processConfig.framework.startDate.fixedDate = new Date()
+                    processConfig.framework.startDate.resumeExecution = false;
                     skipProcessing = false
                 }
 

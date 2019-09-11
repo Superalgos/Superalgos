@@ -40,7 +40,7 @@ exports.newFileStorage = function newFileStorage(logger) {
       if (logger) {
           logger.write(MODULE_NAME, message);
       } else {
-          console.log("['" + new Date().toISOString() + "', 0,'" + MODULE_NAME + "','" + message + "']")
+          //console.log("['" + new Date().toISOString() + "', 0,'" + MODULE_NAME + "','" + message + "']")
       }
   }
 

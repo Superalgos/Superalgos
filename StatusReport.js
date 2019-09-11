@@ -58,8 +58,12 @@
             if (owner.waitUntilNextUpdate === true) {
                 /* This forces this process to wait until the process that this one depends on, updates its status report. */
 
+                let extraCallerId = ''
+                if (pMonth) { extraCallerId = extraCallerId + '-' + pMonth }
+                if (pYear) { extraCallerId = extraCallerId + '-' + pYear }
+
                 let key = owner.devTeam + "-" + owner.bot + "-" + owner.process
-                let callerId = bot.devTeam + "-" + bot.codeName + "-" + bot.process
+                let callerId = bot.devTeam + "-" + bot.codeName + "-" + bot.process + extraCallerId
 
                 let subscriptionIdStatusReport
 

@@ -84,7 +84,15 @@ global.WRITE_LOGS_TO_FILES = process.env.WRITE_LOGS_TO_FILES
 global.EXCHANGE_NAME = process.env.EXCHANGE_NAME
 global.MARKET = { assetA: 'USDT', assetB: 'BTC' }
 global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' }
+
+/*
+We need to count how many process instances we deployd and how many of them have already finished their job, either
+because they just finished or because there was a request to stop the proceses. In this way, once we reach the
+amount of instances started, we can safelly destroy the rest of the objects running and let this nodejs process die.
+*/
+
 global.ENDED_PROCESSES_COUNTER = 0
+global.TOTAL_PROCESS_INSTANCES_CREATED = 0
 
 /* Here we listen for the message to stop this Task / Process comming from the Task Manager, which is the paret of this node js process. */
 process.on('message', message => {
@@ -92,8 +100,39 @@ process.on('message', message => {
 
         process.env.STOP_GRACEFULLY = true;
 
+        /*
+        There are some process that might no be able to end grafully, for example the ones schedulle to process information in a future day or month.
+        In order to be sure that the process will be terminated, we schedulle one forced exit in 2 minutes from now.
+        */
+        console.log('[INFO] Task Server -> server -> process.on -> Executing order received from Task Manager to Stop this Task. Nodejs process will be exited in less than 2 minutes.')
+        setTimeout(global.EXIT_NODE_PROCESS, 120000);
     }
 });
+
+global.EXIT_NODE_PROCESS = function exitProcess() {
+
+    /* Cleaning Before Exiting. */
+    clearInterval(global.HEARTBEAT_INTERVAL_HANDLER)
+
+    for (let i = 0; i < global.USER_DEFINITION.bot.processes.length; i++) {
+        let code = global.USER_DEFINITION.bot.processes[i].code
+
+        /* Delete the event handler for each process. */
+
+        let key = code.devTeam + "-" + code.codeName + "-" + code.process
+        let event = {
+            reason: 'Signal Received to Terminate this Process.'
+        }
+        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Process Terminated', event)
+        global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
+    }
+
+    global.SYSTEM_EVENT_HANDLER.finalize()
+    global.SYSTEM_EVENT_HANDLER = undefined
+    console.log("[INFO] Task Server -> exitProcessInstance -> Task Server Stopped.");
+
+    process.exit()
+}
 
 let notFirstSequence = false;
 
@@ -293,72 +332,9 @@ async function readExecutionConfiguration(execution, processIndex) {
             }
         }
 
-        let startMode
-
         // General Financial Being Configuration
         global.DEV_TEAM = process.env.DEV_TEAM
         global.CURRENT_BOT_REPO = process.env.BOT + "-" + process.env.TYPE + "-Bot"
-
-        if (process.env.TYPE === 'Trading' || process.env.TYPE === 'Trading-Engine') {
-            let live = {
-                run: 'false',
-                resumeExecution: execution.resumeExecution,
-                beginDatetime: new Date(global.DEFINITION.simulationParams.timestamp).toISOString(),
-                endDatetime: finalDatetime
-            }
-
-            let backtest = {
-                run: 'false',
-                resumeExecution: execution.resumeExecution,
-                beginDatetime: initialDatetime,
-                endDatetime: finalDatetime
-            }
-
-            let competition = {
-                run: 'false',
-                resumeExecution: execution.resumeExecution,
-                beginDatetime: initialDatetime,
-                endDatetime: finalDatetime
-            }
-
-            startMode = {
-                live: live,
-                backtest: backtest,
-                competition: competition
-            }
-        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Sensor') {
-            let allMonths = {
-                run: "false",
-                minYear: process.env.MIN_YEAR,
-                maxYear: process.env.MAX_YEAR
-            }
-            let oneMonth = {
-                run: "false",
-                year: process.env.MIN_YEAR,
-                month: process.env.MONTH
-            }
-            let noTime = {
-                run: "false",
-                beginDatetime: process.env.BEGIN_DATE_TIME,
-                resumeExecution: execution.resumeExecution
-            }
-            let fixedInterval = {
-                run: "false",
-                interval: process.env.INTERVAL
-            }
-
-            startMode = {
-                allMonths: allMonths,
-                oneMonth: oneMonth,
-                noTime: noTime,
-                fixedInterval: fixedInterval
-            }
-        } else {
-            console.log("[ERROR] readExecutionConfiguration -> Bot Type is invalid.");
-            throw new Error("readExecutionConfiguration -> Bot Type is invalid.")
-        }
-
-        startMode[process.env.START_MODE].run = "true"
 
         if (botProcess === undefined) { botProcess = process.env.PROCESS } // Only use the .env when nothing comes at Definition.json
         let cloneToExecute = {
@@ -378,7 +354,6 @@ async function readExecutionConfiguration(execution, processIndex) {
 
         global.EXECUTION_CONFIG = {
             cloneToExecute: cloneToExecute,
-            startMode: startMode,
             timePeriod: getTimePeriod(timePeriod),
             timePeriodFileStorage: timePeriod,
             timePeriodFilter: timePeriodFilter,

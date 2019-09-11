@@ -201,7 +201,6 @@
 
                         let processConfig = botConfig.processes[i];
 
-                        processConfig.startMode = global.EXECUTION_CONFIG.startMode // Override file storage configuration
                         if(global.EXECUTION_CONFIG.timePeriod){
                             processConfig.timePeriod = global.EXECUTION_CONFIG.timePeriod
                         }
@@ -447,6 +446,7 @@
                 function runSensorBot(pBotConfig, pProcessConfig, pMonth, pYear) {
 
                     try {
+                        global.TOTAL_PROCESS_INSTANCES_CREATED++
 
                         const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
                         let logger;
@@ -498,7 +498,7 @@
                                         console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution was aborted.");
                                         logger.persist();
                                     }
-                                    exitProcess()
+                                    exitProcessInstance()
                                 }
 
                             } else {
@@ -507,19 +507,21 @@
                                 console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> err = "+ err.stack);
 
                                 logger.persist();
-                                exitProcess()
+                                exitProcessInstance()
                             }
                         }
                     }
                     catch (err) {
                         console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> err = " + err.stack);
-                        exitProcess()
+                        exitProcessInstance()
                     }
                 }
 
                 function runIndicatorBot(pBotConfig, pProcessConfig, pMonth, pYear) {
 
                     try {
+                        global.TOTAL_PROCESS_INSTANCES_CREATED++
+
                         const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
                         let logger;
 
@@ -568,7 +570,7 @@
                                         console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
                                         logger.persist();
                                     }
-                                    exitProcess()
+                                    exitProcessInstance()
                                 }
 
                             } else {
@@ -576,17 +578,19 @@
                                 logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> Failed to initialize the bot. ");
                                 console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = "+ err.stack);
                                 logger.persist();
-                                exitProcess()
+                                exitProcessInstance()
                             }
                         }
                     }
                     catch (err) {
                         console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> err = "+ err.stack);
-                        exitProcess()
+                        exitProcessInstance()
                     }
                 }
 
                 function runTradingEngine(pBotConfig, pProcessConfig) {
+
+                    global.TOTAL_PROCESS_INSTANCES_CREATED++
 
                     try {
                         const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
@@ -632,7 +636,7 @@
                                         console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
                                         logger.persist();
                                     }
-                                    exitProcess()
+                                    exitProcessInstance()
                                 }
 
                             } else {
@@ -640,47 +644,29 @@
                                 logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> Failed to initialize the bot. ");
                                 console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> err = "+ err.stack);
                                 logger.persist();
-                                exitProcess()
+                                exitProcessInstance()
                             }
                         }
                     }
                     catch (err) {
                         console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> err = "+ err.stack);
-                        exitProcess()
+                        exitProcessInstance()
                     }
                 }
             }
             catch (err) {
                 console.log(logDisplace + "Root : [ERROR] start -> findProcess -> err.message = " + err.message);
-                exitProcess()
+                exitProcessInstance()
             }
         }
 
-        function exitProcess() {
+        function exitProcessInstance() {
 
             global.ENDED_PROCESSES_COUNTER++
-            console.log("[INFO] Task Server -> exitProcess -> Process #" + global.ENDED_PROCESSES_COUNTER + " exiting.");
+            console.log("[INFO] Task Server -> exitProcessInstance -> Process #" + global.ENDED_PROCESSES_COUNTER + " from " + global.TOTAL_PROCESS_INSTANCES_CREATED + ' exiting.');
 
-            if (global.ENDED_PROCESSES_COUNTER === global.USER_DEFINITION.bot.processes.length) {
-                /* Cleaning Before Exiting. */
-                clearInterval(global.HEARTBEAT_INTERVAL_HANDLER)
-
-                for (let i = 0; i < global.USER_DEFINITION.bot.processes.length; i++) {
-                    let code = global.USER_DEFINITION.bot.processes[i].code
-
-                    /* Delete the event handler for each process. */
-
-                    let key = code.devTeam + "-" + code.codeName + "-" + code.process
-                    let event = {
-                        reason: 'Signal Received to Terminate this Process.'
-                    }
-                    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Process Terminated', event)
-                    global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
-                }
-
-                global.SYSTEM_EVENT_HANDLER.finalize()
-                global.SYSTEM_EVENT_HANDLER = undefined
-                console.log("[INFO] Task Server -> exitProcess -> Task Server Stopped.");
+            if (global.ENDED_PROCESSES_COUNTER === global.TOTAL_PROCESS_INSTANCES_CREATED) {
+                global.EXIT_NODE_PROCESS()
             }
         }
     }

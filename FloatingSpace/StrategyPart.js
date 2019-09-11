@@ -543,7 +543,7 @@ function newStrategyPart () {
   }
 
   function stop () {
-    setTimeout(removecircularProgressBar, 30000)
+    setTimeout(removecircularProgressBar, 90000)
     function removecircularProgressBar () {
       thisObject.circularProgressBar.finalize()
       thisObject.circularProgressBar = undefined

@@ -60,7 +60,7 @@ function newCircularProgressBar () {
 
   function physics () {
     for (let i = 0; i < 60; i++) {
-      opacityCounters[i]--
+      opacityCounters[i] = opacityCounters[i] - 2
 
       if (opacityCounters[i] < 0) {
         opacityCounters[i] = 0

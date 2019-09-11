@@ -17,8 +17,8 @@
       "startMode": {
         "allMonths": {
           "run": "true",
-          "minYear": "2018",
-          "maxYear": "2018"
+          "minYear": "2019",
+          "maxYear": "2019"
         },
         "oneMonth": {
           "run": "false",

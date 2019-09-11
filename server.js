@@ -66,7 +66,7 @@ if (global.USER_DEFINITION !== undefined) {
 
 }
 else {  // I use this section to debug in standalone mode.
-    let argument = '{"type":"Task","name":"Brings Trades Records from the Exchange","bot":{"type":"Sensor","name":"Charly","processes":[{"type":"Process","name":"Live Trades","code":{"devTeam":"AAMasters","bot":"AACharly","mode":"noTime","resumeExecution":true,"type":"Sensor","exchangeName":"Poloniex","process":"Live-Trades"},"id":"3aae75f5-67ae-4ae5-9586-ec5640f79b18"}]},"id":"54444b07-eee2-4fa8-9183-8fea3b5ff9de"}'
+    let argument = ' {"type":"Task","name":"Runs Backtests, Fordwardtests & Live Trades ","bot":{"type":"Trading Engine","processes":[{"type":"Process","name":"Multi Period","code":{"devTeam":"AAMasters","bot":"AAJason","mode":"live","resumeExecution":true,"type":"Trading-Engine","exchangeName":"Poloniex","process":"Multi-Period-Daily","beginDatetime":"2019-08-01T08:00:00.000Z","timePeriod":"05-min"},"id":"1bfce24d-8c05-4be9-bd25-328f07c85265"}]},"id":"cbb13086-608d-4bb4-960a-17a81038877b"}'
     try {
         global.USER_DEFINITION = JSON.parse(argument)
     } catch (err) {
@@ -186,7 +186,6 @@ function startSequence() {
         process.env.STOP_GRACEFULLY = false;
         execution.devTeam ? process.env.DEV_TEAM = execution.devTeam : undefined;
         execution.bot ? process.env.BOT = execution.bot : undefined;
-        execution.mode ? process.env.START_MODE = execution.mode : undefined;
         execution.resumeExecution = true;
         execution.type ? process.env.TYPE = execution.type : undefined;
         execution.process ? process.env.PROCESS = execution.process : undefined;
@@ -234,10 +233,6 @@ async function readExecutionConfiguration(execution, processIndex) {
         let timePeriodFilter
         let botProcess
 
-        /* Dates are taken initially from .env, but can be overwritten if they are defined by the user */
-        let initialDatetime = process.env.BEGIN_DATE_TIME
-        let finalDatetime = process.env.END_DATE_TIME
-
         if (execution.type === 'Trading-Engine') {
 
             /* The Trading Engine only resumes its execution after the first sequence was completed. */
@@ -245,18 +240,9 @@ async function readExecutionConfiguration(execution, processIndex) {
                 execution.resumeExecution = false
             }
 
-            /* We set the START MODE of the Trading Engine */
-            if (process.env.KEY === undefined || process.env.SECRET === undefined) {
-                process.env.START_MODE = "backtest" // if we dont have keys, we swtich to backtest mode to avoid exchange errors.
-            } else {
-                process.env.START_MODE = "live"  // If we have keys, then we are in live mode.
-            }
-
             if (global.DEFINITION !== undefined) {
                 if (global.DEFINITION.simulationParams !== undefined) {
-                    if (global.DEFINITION.simulationParams.beginDatetime !== undefined) {
-                        initialDatetime = new Date(global.DEFINITION.simulationParams.beginDatetime)  /* The first override occurs here, with the simulation parameters */
-                    }
+
                     /* Here we only look for one timePeriod, in the future we will be able to process the whole array, but not for now. */
                     if (global.DEFINITION.simulationParams.timePeriodDailyArray !== undefined) {
                         if (global.DEFINITION.simulationParams.timePeriodDailyArray.length === 1) {
@@ -271,25 +257,7 @@ async function readExecutionConfiguration(execution, processIndex) {
                         }
                     }
                 }
-                if (global.DEFINITION.tradingSystem !== undefined) {
-                    if (global.DEFINITION.tradingSystem.parameters !== undefined) {
-                        if (global.DEFINITION.tradingSystem.parameters.timeRange !== undefined) {
-                            if (global.DEFINITION.tradingSystem.parameters.timeRange.code !== undefined) {
-                                try {
-                                    let code = JSON.parse(global.DEFINITION.tradingSystem.parameters.timeRange.code)
-                                    if (code.initialDatetime !== undefined) {
-                                        initialDatetime = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
-                                    }
-                                    if (code.finalDatetime !== undefined) {
-                                        finalDatetime = code.finalDatetime
-                                    }
-                                } catch (err) {
-                                    global.DEFINITION.tradingSystem.parameters.timeRange.error = err.message
-                                }
-                            }
-                        }
-                    }
-                }
+
                 /* Get the initial balance from the global.DEFINITION */
                 let tradingSystem = global.DEFINITION.tradingSystem
 

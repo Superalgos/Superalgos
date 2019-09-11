@@ -217,19 +217,11 @@
                                         }
                                     }
                                 }
-                                if (processConfig.startMode.live !== undefined) {
-                                    if (processConfig.startMode.live.run === "true") {
-                                        if (processConfig.startMode.live.beginDatetime !== undefined) {
-                                            processConfig.framework.startDate.fixedDate = processConfig.startMode.live.beginDatetime;
-                                            processConfig.framework.startDate.resumeExecution = processConfig.startMode.live.resumeExecution;
-                                        }
-                                    }
-                                }
-                                if (processConfig.startMode.backtest !== undefined) {
-                                    if (processConfig.startMode.backtest.run === "true") {
-                                        if (processConfig.startMode.backtest.beginDatetime !== undefined) {
-                                            processConfig.framework.startDate.fixedDate = processConfig.startMode.backtest.beginDatetime;
-                                            processConfig.framework.startDate.resumeExecution = processConfig.startMode.backtest.resumeExecution;
+                                if (processConfig.startMode.userDefined !== undefined) {
+                                    if (processConfig.startMode.userDefined.run === "true") {
+                                        if (processConfig.startMode.userDefined.beginDatetime !== undefined) {
+                                            processConfig.framework.startDate.fixedDate = processConfig.startMode.userDefined.beginDatetime;
+                                            processConfig.framework.startDate.resumeExecution = processConfig.startMode.userDefined.resumeExecution;
                                         }
                                     }
                                 }
@@ -377,46 +369,21 @@
                                 }
                             }
 
-                            if (processConfig.startMode.live !== undefined) {
+                            if (processConfig.startMode.userDefined !== undefined) {
 
-                                if (processConfig.startMode.live.run === "true") {
+                                if (processConfig.startMode.userDefined.run === "true") {
 
-                                    botConfig.startMode = "Live";
+                                    botConfig.startMode = "User Defined";
                                     console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
 
                                     let month = pad((new Date()).getUTCMonth() + 1, 2);
                                     let year = (new Date()).getUTCFullYear();
 
-                                    if (processConfig.startMode.live.resumeExecution === true) {
+                                    if (processConfig.startMode.userDefined.resumeExecution === true) {
                                         botConfig.hasTheBotJustStarted = false;
                                     } else {
                                         botConfig.hasTheBotJustStarted = true;
                                     }
-
-                                    switch (botConfig.type) {
-                                        case 'Trading-Engine': {
-                                            runTradingEngine(botConfig, processConfig);
-                                            break;
-                                        }
-                                        default: {
-                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
-                                        }
-                                    }
-                                }
-                            }
-
-                            if (processConfig.startMode.backtest !== undefined) {
-
-                                if (processConfig.startMode.backtest.run === "true") {
-
-                                    botConfig.startMode = "Backtest";
-                                    console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
-
-                                    botConfig.backtest = processConfig.startMode.backtest
-
-                                    /* Backtest Mode does not support Resume Execution, so this is the only way. */
-
-                                    botConfig.hasTheBotJustStarted = true;
 
                                     switch (botConfig.type) {
                                         case 'Trading-Engine': {

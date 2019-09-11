@@ -372,16 +372,6 @@
                                 }
                             }
 
-                            let timePeriodFilter = global.EXECUTION_CONFIG.timePeriodFilter
-                            if (timePeriodFilter !== undefined) {
-                                if (timePeriodFilter.indexOf(outputPeriodLabel) === -1) {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Discarding period for being filtered out. -> outputPeriodLabel = " + outputPeriodLabel); }
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Discarding period for being filtered out. -> timePeriodFilter = " + timePeriodFilter); }
-                                    periodsControlLoop();
-                                    return;
-                                }
-                            }
-
                             let dependencyIndex = 0;
                             dataFiles = [];
 

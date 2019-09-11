@@ -107,14 +107,47 @@
                 stopRequestedEventListenerSubscriptionId = global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Stop Requested', undefined, undefined, undefined, stopRequested)
 
                 function startBackTesting() {
+                    /* Reload the definition in case something changed. */
+                    global.DEFINITION = require(process.env.INTER_PROCESS_FILES_PATH + '/Definition');
+
+                    bot.startMode = "Backtest"
                     processConfig.framework.startDate.resumeExecution = false;
                     skipProcessing = false
+                    bot.hasTheBotJustStarted = true
+
+                    /* We exctact the initial and final date for the backtest from the Definition */
+                    processConfig.framework.startDate.fixedDate = new Date() // If we can not get for any reason the initial date of the backtest, we will start at present time.
+
+                    if (global.DEFINITION.tradingSystem !== undefined) {
+                        if (global.DEFINITION.tradingSystem.parameters !== undefined) {
+                            if (global.DEFINITION.tradingSystem.parameters.timeRange !== undefined) {
+                                if (global.DEFINITION.tradingSystem.parameters.timeRange.code !== undefined) {
+                                    try {
+                                        let code = JSON.parse(global.DEFINITION.tradingSystem.parameters.timeRange.code)
+                                        if (code.initialDatetime !== undefined) {
+                                            processConfig.framework.startDate.fixedDate = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
+                                        }
+                                        if (code.finalDatetime !== undefined) {
+                                            processConfig.framework.endDate.fixedDate = code.finalDatetime
+                                        }
+                                    } catch (err) {
+                                        global.DEFINITION.tradingSystem.parameters.timeRange.error = err.message
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
 
                 function startLiveTrading() {
+                    /* Reload the definition in case something changed. */
+                    global.DEFINITION = require(process.env.INTER_PROCESS_FILES_PATH + '/Definition');
+
+                    bot.startMode = "Live"
                     processConfig.framework.startDate.fixedDate = new Date()
                     processConfig.framework.startDate.resumeExecution = false;
                     skipProcessing = false
+                    bot.hasTheBotJustStarted = true
                 }
 
                 function stopRequested() {
@@ -146,15 +179,6 @@
 
                     let nextWaitTime;
 
-                    /* Checking if we should process this loop or not.*/
-                    if (skipProcessing === true) {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start."); }
-                        console.log("[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start.")
-                        nextWaitTime = 'Normal';
-                        loopControl(nextWaitTime);
-                        return
-                    }
-
                     /* Loop Heartbeat sent to the UI */
                     hearBeat() 
 
@@ -177,6 +201,15 @@
 
                     console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
                         + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8));
+
+                    /* Checking if we should process this loop or not.*/
+                    if (skipProcessing === true) {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start."); }
+                        console.log("[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start.")
+                        nextWaitTime = 'Normal';
+                        loopControl(nextWaitTime);
+                        return
+                    }
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 

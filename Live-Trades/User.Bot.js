@@ -35,7 +35,7 @@
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -108,7 +108,7 @@
                     getTheTrades();
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> firstSteps -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> firstSteps -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -134,7 +134,7 @@
                     EXCHANGE_API.getPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getTheTrades -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> getTheTrades -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -147,7 +147,7 @@
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                         logger.write(MODULE_NAME, "[WARN] start -> tradesReadyToBeSaved -> Somethinig is wrong with the Exchange Response. ");
-                        logger.write(MODULE_NAME, "[WARN] start -> tradesReadyToBeSaved -> err.message = " + err.message);
+                        logger.write(MODULE_NAME, "[WARN] start -> tradesReadyToBeSaved -> err.message = " + err.stack);
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -168,7 +168,7 @@
                     tradesReadyToBeSaved(exchangeResponse);
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> onExchangeCallReturned -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> onExchangeCallReturned -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -238,7 +238,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> onFirstFileACreated -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> onFirstFileACreated -> err = " + err.stack);
                             callBackFunction(err);
                             return;
                         }
@@ -305,7 +305,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> onFileBCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> onFileBCreated -> err = " + err.stack);
                                 callBackFunction(err);
                                 return;
                             }
@@ -322,7 +322,7 @@
                         }
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -361,7 +361,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.stack);
                             callBackFunction(err);
                             return;
                         }
@@ -370,13 +370,13 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

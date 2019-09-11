@@ -33,6 +33,7 @@
           "interval": 60000
         }
       },
+      "deadWaitTime": 90000,
       "normalWaitTime": 60000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
@@ -72,6 +73,7 @@
           "interval": 0
         }
       },
+      "deadWaitTime": 90000,
       "normalWaitTime": 60000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
@@ -121,7 +123,8 @@
           "interval": 0
         }
       },
-      "normalWaitTime": 60000,
+      "deadWaitTime": 90000,
+      "normalWaitTime": 0,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,

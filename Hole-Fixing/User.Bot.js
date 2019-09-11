@@ -73,7 +73,7 @@
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -342,7 +342,7 @@
                         }
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
                     if (err.message === "Cannot read property 'file' of undefined") {
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
@@ -398,7 +398,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> readNextFile -> onStatusReportWritten -> Entering function."); }
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onStatusReportWritten -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onStatusReportWritten -> err = " + err.stack);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -406,7 +406,7 @@
                                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                                         return;
                                     } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onStatusReportWritten -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onStatusReportWritten -> err = " + err.stack);
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         return;
                                     }
@@ -428,7 +428,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> readNextFile -> onStatusReportWritten -> Entering function."); }
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onStatusReportWritten -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onStatusReportWritten -> err = " + err.stack);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -442,7 +442,7 @@
 
                                         return;
                                     } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onStatusReportWritten -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onStatusReportWritten -> err = " + err.stack);
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         return;
                                     }
@@ -466,7 +466,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> readNextFile -> onNextFileReceived -> Entering function."); }
 
                                     if (err.result === global.DEFAULT_FAIL_RESPONSE.result) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onNextFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onNextFileReceived -> err = " + err.stack);
                                         callBackFunction(err);
                                         return;
                                     }
@@ -476,7 +476,7 @@
                                         (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')) ||
                                         err.code === 'The specified key does not exist.'
                                     ) {
-                                        logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> readNextFile -> onNextFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> readNextFile -> onNextFileReceived -> err = " + err.stack);
 
                                         /*
                                         FILE IS MISSING SITUATION:
@@ -531,19 +531,19 @@
                                         return;
                                     }
 
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onNextFileReceived -> onNextFileReceived -> Unhandled response received. err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onNextFileReceived -> onNextFileReceived -> Unhandled response received. err = " + err.stack);
                                     callBackFunction(err);
                                     return;
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onNextFileReceived -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onNextFileReceived -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -679,7 +679,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> checkHolesInFile -> onStatusReportWritten -> Entering function."); }
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> checkHolesInFile -> onStatusReportWritten -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> checkHolesInFile -> onStatusReportWritten -> err = " + err.stack);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -688,7 +688,7 @@
 
                                         return;
                                     } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> checkHolesInFile -> onStatusReportWritten -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> checkHolesInFile -> onStatusReportWritten -> err = " + err.stack);
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         return;
                                     }
@@ -709,7 +709,7 @@
 
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> checkHolesInFile -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> checkHolesInFile -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -747,7 +747,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> findEndOfHole -> onStatusReportWritten -> Entering function."); }
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> findEndOfHole -> onStatusReportWritten -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> findEndOfHole -> onStatusReportWritten -> err = " + err.stack);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -755,7 +755,7 @@
                                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                                         return;
                                     } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> findEndOfHole -> onStatusReportWritten -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> findEndOfHole -> onStatusReportWritten -> err = " + err.stack);
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         return;
                                     }
@@ -779,7 +779,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> Entering function."); }
 
                                     if (err.result === global.DEFAULT_FAIL_RESPONSE.result) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> err = " + err.stack);
                                         callBackFunction(err);
                                         return;
                                     }
@@ -789,7 +789,7 @@
                                         (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')) ||
                                         err.code === 'The specified key does not exist.'
                                     ) {
-                                        logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> err = " + err.stack);
 
                                         /* The file does not exist, so this means we need to move forward  */
 
@@ -835,26 +835,26 @@
                                         return;
                                     }
 
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> Unhandled response received. err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> Unhandled response received. err = " + err.stack);
                                     callBackFunction(err);
                                     return;
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> findEndOfHole -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> findEndOfHole -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -908,7 +908,7 @@
                     EXCHANGE_API.getPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getTheTrades -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> getTheTrades -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -922,7 +922,7 @@
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                         logger.write(MODULE_NAME, "[WARN] start -> tradesReadyToBeSaved -> Somethinig is wrong with the Exchange Response. ");
-                        logger.write(MODULE_NAME, "[WARN] start -> tradesReadyToBeSaved -> err.message = " + err.message);
+                        logger.write(MODULE_NAME, "[WARN] start -> tradesReadyToBeSaved -> err.message = " + err.stack);
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -944,7 +944,7 @@
                     getTheTrades() 
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> onExchangeCallReturned -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> onExchangeCallReturned -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -1144,7 +1144,7 @@
                             fileContent = "";
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> packageFileContent -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> packageFileContent -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -1192,7 +1192,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> err = " + err.stack);
                                         callBackFunction(err);
                                         return;
                                     }
@@ -1208,14 +1208,14 @@
                                     controlLoop();
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -1249,14 +1249,14 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> controlLoop -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> controlLoop -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -1335,7 +1335,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.stack);
                             callBackFunction(err);
                             return;
                         }
@@ -1382,7 +1382,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -1425,7 +1425,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> createMainStatusReport -> onSaved -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> createMainStatusReport -> onSaved -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> createMainStatusReport -> onSaved -> err = " + err.stack);
                             callBackFunction(err);
                             return;
                         }
@@ -1435,14 +1435,14 @@
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> createMainStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> createMainStatusReport -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             return;
         }

@@ -40,7 +40,7 @@
             statusDependencies = pStatusDependencies;
             callBackFunction(global.DEFAULT_OK_RESPONSE);
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -208,7 +208,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
                     if (err.message === "Cannot read property 'file' of undefined") {
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
@@ -258,7 +258,7 @@
 
                             fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
-                            console.log("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> getting file.");
+                            logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> getting file.");
 
                             function onFileReceived(err, text) {
 
@@ -276,12 +276,12 @@
                                         getVolumes();
 
                                     } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.stack);
                                         logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                     }
                                 } else {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.stack);
                                     callBackFunction(err);
                                 }
                             }
@@ -297,7 +297,7 @@
 
                             fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
-                            console.log("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> getting file.");
+                            logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> getting file.");
 
                             function onFileReceived(err, text) {
 
@@ -318,12 +318,12 @@
                                         controlLoop();
 
                                     } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.stack);
                                         logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                     }
                                 } else {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.stack);
                                     callBackFunction(err);
                                 }
                             }
@@ -349,7 +349,7 @@
                     }
                 }
                 catch (err) {
-                logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> err = " + err.message);
+                logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> err = " + err.stack);
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -507,7 +507,7 @@
 
                                 fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
 
-                                console.log("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> getting file at dateForPath = " + dateForPath);
+                                logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> getting file at dateForPath = " + dateForPath);
 
                                 function onFileReceived(err, text) {
 
@@ -523,7 +523,7 @@
                                                 candlesFile = JSON.parse(text);
 
                                             } catch (err) {
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Parsing JSON -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                 return;
@@ -532,13 +532,13 @@
 
                                             if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
 
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Dependency Not Ready -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Dependency Not Ready -> err = " + err.stack);
                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                 return;
 
                                             } else {
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.stack);
                                                 callBackFunction(err);
                                                 return;
                                             }
@@ -618,7 +618,7 @@
                                         nextVolumeFile();
 
                                     } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.stack);
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
@@ -638,7 +638,7 @@
 
                                     fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
 
-                                    console.log("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
+                                    logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
 
                                     function onFileReceived(err, text) {
 
@@ -652,13 +652,13 @@
                                                 volumesFile = JSON.parse(text);
 
                                             } catch (err) {
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Parsing JSON -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                 return;
                                             }
                                         } else {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Received -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Received -> err = " + err.stack);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -713,7 +713,7 @@
                                         writeFiles(outputCandles[n], outputVolumes[n], timePeriod, controlLoop);
                                     }
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -737,7 +737,7 @@
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -784,14 +784,14 @@
 
                         fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
-                        console.log("[INFO] start -> writeFiles -> writeCandles -> creating file at filePath = " + filePath);
+                        logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> creating file at filePath = " + filePath);
 
                         function onFileCreated(err) {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.stack);
                                 callBackFunction(err);
                                 return;
                             }
@@ -834,14 +834,14 @@
 
                         fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
-                        console.log("[INFO] start -> writeFiles -> writeVolumes -> creating file at filePath = " + filePath);
+                        logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> creating file at filePath = " + filePath);
 
                         function onFileCreated(err) {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.stack);
                                 callBackFunction(err);
                                 return;
                             }
@@ -857,7 +857,7 @@
                     }
                 }
                 catch (err) {
-                logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> err = " + err.message);
+                logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> err = " + err.stack);
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -878,13 +878,13 @@
 
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

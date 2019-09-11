@@ -80,7 +80,7 @@
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -293,7 +293,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
                     if (err.message === "Cannot read property 'file' of undefined") {
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
@@ -337,7 +337,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getCandles -> onFileReceived -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> err = " + err.stack);
                                         callBackFunction(err);
                                         return;
                                     }
@@ -352,7 +352,7 @@
 
                                 } catch (err) {
 
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> err = " + err.stack);
                                     logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> filePath = " + filePath);
                                     logger.write(MODULE_NAME, "[HINT] start -> findPreviousContent -> getCandles -> onFileReceived -> Empty or corrupt volume file found.");
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -360,7 +360,7 @@
                                 }
                             }
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getCandles -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getCandles -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -388,7 +388,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getVolumes -> onFileReceived -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> err = " + err.stack);
                                         logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived ->  text = " + text);
                                         callBackFunction(err);
                                         return;
@@ -405,7 +405,7 @@
 
                                 } catch (err) {
 
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> err = " + err.stack);
                                     logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> filePath = " + filePath);
                                     logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived ->  text = " + text);
                                     logger.write(MODULE_NAME, "[HINT] start -> findPreviousContent -> getVolumes -> onFileReceived -> Empty or corrupt volume file found.");
@@ -414,13 +414,13 @@
                                 }
                             }
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -489,7 +489,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Entering function."); }
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.stack);
                                             logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
                                             callBackFunction(err);
                                             return;
@@ -519,7 +519,7 @@
 
                                     } catch (err) {
 
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.stack);
                                         logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> filePath = " + filePath);
                                         logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
                                         logger.write(MODULE_NAME, "[HINT] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Empty or corrupt volume file found.");
@@ -528,13 +528,13 @@
                                     }
                                 }
                             } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> err = " + err.stack);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             }
                         }
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -658,7 +658,7 @@
                                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> Entering function."); }
 
                                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> err = " + err.stack);
                                                     callBackFunction(err);
                                                     return;
                                                 }
@@ -672,7 +672,7 @@
 
                                                 return;
                                             } catch (err) {
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> err = " + err.stack);
                                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 return;
                                             }
@@ -700,7 +700,7 @@
                                     readTrades();
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -732,7 +732,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> Entering function."); }
 
                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> err = " + err.stack);
                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived ->  text = " + text);
                                                 callBackFunction(err);
                                                 return;
@@ -809,7 +809,7 @@
 
                                         } catch (err) {
 
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> err = " + err.stack);
                                             logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> filePath = " + filePath);
                                             logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived ->  text = " + text);
                                             logger.write(MODULE_NAME, "[HINT] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> Empty or corrupt volume file found.");
@@ -819,19 +819,19 @@
                                         }
                                     }
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -883,7 +883,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.stack);
                                         callBackFunction(err);
                                         return;
                                     }
@@ -897,13 +897,13 @@
                                     writeVolumes();
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -956,7 +956,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.stack);
                                         callBackFunction(err);
                                         return;
                                     }
@@ -970,13 +970,13 @@
                                     writeReport();
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -994,7 +994,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeReport -> onStatusReportWritten -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> onStatusReportWritten -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> onStatusReportWritten -> err = " + err.stack);
                                         callBackFunction(err);
                                         return;
                                     }
@@ -1002,19 +1002,19 @@
                                     callBack();
                                     return;
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeReport -> onStatusReportWritten -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeReport -> onStatusReportWritten -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeReport -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeReport -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -1077,7 +1077,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.stack);
                             callBackFunction(err);
                             return;
                         }
@@ -1086,13 +1086,13 @@
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

@@ -35,7 +35,7 @@
                         initializeCharlyStorage();
 
                     } else {
-                        logger.write(MODULE_NAME, "[ERROR] initializeStorage -> initializeBruceStorage -> onBruceInizialized -> err = " + err.message);
+                        logger.write(MODULE_NAME, "[ERROR] initializeStorage -> initializeBruceStorage -> onBruceInizialized -> err = " + err.stack);
                         callBackFunction(err);
                     }
                 }
@@ -52,14 +52,14 @@
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                     } else {
-                        logger.write(MODULE_NAME, "[ERROR] initializeStorage -> initializeCharlyStorage -> onCharlyInizialized -> err = " + err.message);
+                        logger.write(MODULE_NAME, "[ERROR] initializeStorage -> initializeCharlyStorage -> onCharlyInizialized -> err = " + err.stack);
                         callBackFunction(err);
                     }
                 }
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initializeStorage -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initializeStorage -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

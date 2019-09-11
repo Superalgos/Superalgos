@@ -15,7 +15,7 @@
       "name": "Multi-Period",
       "description": "Produces a Daily or Market files depending on the current timePeriod.",
       "deadWaitTime": 90000,
-      "normalWaitTime": 60000,
+      "normalWaitTime": 5000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,

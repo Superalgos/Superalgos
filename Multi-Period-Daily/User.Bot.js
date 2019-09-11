@@ -42,7 +42,7 @@
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -220,7 +220,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
                     if (err.message === "Cannot read property 'file' of undefined") {
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
@@ -270,7 +270,7 @@
                             periodsLoop();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> advanceTime -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> advanceTime -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -292,7 +292,7 @@
                             loopBody();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -376,7 +376,7 @@
                                                     }
 
                                                 } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> err = " + err.stack);
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> filePath = " + filePath);
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> market = " + market.assetA + '_' + market.assetB);
 
@@ -385,13 +385,13 @@
                                             }
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -474,7 +474,7 @@
                                                     }
 
                                                 } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> err = " + err.stack);
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> filePath = " + filePath);
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> market = " + market.assetA + '_' + market.assetB);
 
@@ -482,13 +482,13 @@
                                                 }
                                             }
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -535,7 +535,7 @@
                                                     getProcessDayFile()
 
                                                 } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> err = " + err.stack);
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> filePath = " + filePath);
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
 
@@ -544,7 +544,7 @@
                                             }
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
@@ -583,7 +583,7 @@
 
                                                     } else {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.message);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
                                                         logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
                                                         logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
 
@@ -594,7 +594,7 @@
                                             }
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
@@ -644,14 +644,14 @@
                                                     }
 
                                                 } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> buildCandles -> pushCandles -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> buildCandles -> pushCandles -> err = " + err.stack);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                     return;
                                                 }
                                             }
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> buildCandles -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> buildCandles -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -774,7 +774,7 @@
                                             writeCandleStairsFile();
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> findCandleStairs -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> findCandleStairs -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -805,13 +805,13 @@
                                                             processVolumes();
 
                                                         } catch (err) {
-                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> onPreviousFileWritten -> onProcessFileWritten -> err = " + err.message);
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> onPreviousFileWritten -> onProcessFileWritten -> err = " + err.stack);
                                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                         }
                                                     }
 
                                                 } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> onPreviousFileWritten -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> onPreviousFileWritten -> err = " + err.stack);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
@@ -873,7 +873,7 @@
                                                             }
 
                                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> err = " + err.message);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> err = " + err.stack);
                                                                 callBack(err);
                                                                 return;
                                                             }
@@ -884,25 +884,25 @@
                                                             callback();
 
                                                         } catch (err) {
-                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> err = " + err.message);
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> err = " + err.stack);
                                                             callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                         }
                                                     }
 
                                                 } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> err = " + err.stack);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -949,7 +949,7 @@
                                                     getProcessDayFile()
 
                                                 } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> err = " + err.stack);
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> filePath = " + filePath);
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
 
@@ -958,7 +958,7 @@
                                             }
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
@@ -997,7 +997,7 @@
 
                                                     } else {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.message);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
                                                         logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
                                                         logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
 
@@ -1008,7 +1008,7 @@
                                             }
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
@@ -1049,13 +1049,13 @@
                                                     }
 
                                                 } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> buildVolumes -> pushVolumes -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> buildVolumes -> pushVolumes -> err = " + err.stack);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> buildVolumes -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> buildVolumes -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
@@ -1316,7 +1316,7 @@
                                                         }
 
                                                     } catch (err) {
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> findVolumesStairs -> pushToArray -> err = " + err.message);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> findVolumesStairs -> pushToArray -> err = " + err.stack);
                                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                     }
                                                 }
@@ -1325,7 +1325,7 @@
                                             writeVolumeStairsFile();
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> findVolumesStairs -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> findVolumesStairs -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
@@ -1355,13 +1355,13 @@
                                                             controlLoop();
 
                                                         } catch (err) {
-                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> onProcessFileWritten -> err = " + err.message);
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> onProcessFileWritten -> err = " + err.stack);
                                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                         }
                                                     }
 
                                                 } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> err = " + err.stack);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
@@ -1418,7 +1418,7 @@
                                                             }
 
                                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> onFileCreated -> err = " + err.message);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> onFileCreated -> err = " + err.stack);
                                                                 callBack(err);
                                                                 return;
                                                             }
@@ -1429,31 +1429,31 @@
                                                             callback();
 
                                                         } catch (err) {
-                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> writeFile -> onFileCreated -> err = " + err.message);
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> writeFile -> onFileCreated -> err = " + err.stack);
                                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                         }
                                                     }
 
                                                 } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> writeFile -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> writeFile -> err = " + err.stack);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -1483,7 +1483,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> controlLoop -> onWritten -> Entering function."); }
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> controlLoop -> onWritten -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> controlLoop -> onWritten -> err = " + err.stack);
                                             callBack(err);
                                             return;
                                         }
@@ -1491,21 +1491,21 @@
                                         writeStatusReport(processDate, advanceTime);
 
                                     } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> controlLoop -> onWritten -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> controlLoop -> onWritten -> err = " + err.stack);
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> controlLoop -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> controlLoop -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
 
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> err.message = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> err.message = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -1523,7 +1523,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onCandlesStairsDataRangeWritten -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onCandlesStairsDataRangeWritten -> err = " + err.stack);
                             callBack(err);
                             return;
                         }
@@ -1535,7 +1535,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] writeDataRanges -> writeDataRanges -> onVolumeStairsDataRangeWritten -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onVolumeStairsDataRangeWritten -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onVolumeStairsDataRangeWritten -> err = " + err.stack);
                                 callBack(err);
                                 return;
                             }
@@ -1545,7 +1545,7 @@
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRanges -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRanges -> err = " + err.stack);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
 
@@ -1575,7 +1575,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> onFileCreated -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> onFileCreated -> err = " + err.stack);
                             callBack(err);
                             return;
                         }
@@ -1588,7 +1588,7 @@
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> err = " + err.stack);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -1609,13 +1609,13 @@
 
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err.message = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] start -> err.message = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

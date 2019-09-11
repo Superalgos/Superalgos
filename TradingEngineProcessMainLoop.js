@@ -94,6 +94,7 @@
             bot.enableCheckLoopHealth = true;
 
             let fixedTimeLoopIntervalHandle;
+            let skipProcessing = true;
 
             if (bot.runAtFixedInterval === true) {
 
@@ -101,9 +102,24 @@
 
             } else {
 
-                loop();
+                backtestingEventListenerSubscriptionId = global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Backstesting Started', undefined, undefined, undefined, startBackTesting)
+                liveTradingEventListenerSubscriptionId = global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Live-Trading Started', undefined, undefined, undefined, startLiveTrading)
+                stopRequestedEventListenerSubscriptionId = global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Stop Requested', undefined, undefined, undefined, stopRequested)
 
+                function startBackTesting() {
+                    skipProcessing = false
+                }
+
+                function startLiveTrading() {
+                    skipProcessing = false
+                }
+
+                function stopRequested() {
+                    skipProcessing = true
+                }
             }
+
+            loop();
 
             function loop() {
 
@@ -124,6 +140,17 @@
                     bot.loopStartTime = new Date().valueOf();
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Entering function."); }
+
+                    let nextWaitTime;
+
+                    /* Checking if we should process this loop or not.*/
+                    if (skipProcessing === true) {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start."); }
+                        console.log("[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start.")
+                        nextWaitTime = 'Normal';
+                        loopControl(nextWaitTime);
+                        return
+                    }
 
                     /* Loop Heartbeat sent to the UI */
                     hearBeat() 
@@ -154,8 +181,6 @@
                     let processFramework;
                     let statusDependencies;
                     let dataDependencies;
-
-                    let nextWaitTime;
 
                     initializeStatusDependencies();
 

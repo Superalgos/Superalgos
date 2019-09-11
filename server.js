@@ -105,23 +105,6 @@ global.SYSTEM_EVENT_HANDLER.initialize('Task Server', bootLoader)
 
 
 function bootLoader() {
-   
-    //global.SYSTEM_EVENT_HANDLER.createEventHandler(global.USER_DEFINITION.name)
-
-     /*
-    tryToListenToCockpit()
-
-    function tryToListenToCockpit() {
-
-        global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Simulation', 'Simulation Started', undefined, 'Task Server Boot Loader', onResponse, startSequence)
-
-        function onResponse(message) {
-            if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
-                setTimeout(tryToListenToCockpit, 3000)
-            }
-        }
-    }
-    */
 
     for (let i = 0; i < global.USER_DEFINITION.bot.processes.length; i++) {
         let code = global.USER_DEFINITION.bot.processes[i].code
@@ -136,12 +119,15 @@ function bootLoader() {
     }
 
     /* Heartbeat sent to the UI */
+
+    let key = global.USER_DEFINITION.name + '-' + global.USER_DEFINITION.type + '-' + global.USER_DEFINITION.id
+
+    global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
     global.HEARTBEAT_INTERVAL_HANDLER = setInterval(hearBeat, 1000)
 
     function hearBeat() {
 
         /* The heartbeat event is raised at the event handler of the instance of this task, created at the UI. */        
-        let key = global.USER_DEFINITION.name + '-' + global.USER_DEFINITION.type + '-' + global.USER_DEFINITION.id
         let event = {
             seconds: (new Date()).getSeconds()
         }

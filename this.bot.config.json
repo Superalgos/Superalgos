@@ -30,7 +30,7 @@
         },
         "fixedInterval": {
           "run": "true",
-          "interval": 60000
+          "interval": 15000
         }
       },
       "deadWaitTime": 90000,
@@ -108,12 +108,12 @@
         "allMonths": {
           "run": "true",
           "minYear": "2019",
-          "maxYear": "2021"
+          "maxYear": "2019"
         },
         "oneMonth": {
           "run": "false",
-          "year": "2018",
-          "month": "04"
+          "year": "2019",
+          "month": "09"
         },
         "noTime": {
           "run": "false"

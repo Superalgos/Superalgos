@@ -632,7 +632,11 @@
 
                     function checkLoopHealth(pLastLoop) {
 
-                        if (bot.enableCheckLoopHealth === false) {
+                        let stop = false
+                        if (process.env.STOP_GRACEFULLY !== undefined)
+                            stop = JSON.parse(process.env.STOP_GRACEFULLY)
+
+                        if (bot.enableCheckLoopHealth === false || stop === true) {
 
                             logger.write(MODULE_NAME, "[WARN] run -> loop -> checkLoopHealth -> bot.enableCheckLoopHealth = " + bot.enableCheckLoopHealth);
 

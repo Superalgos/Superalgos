@@ -905,7 +905,7 @@
                             switch (nextWaitTime) {
                                 case 'Normal': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                                    checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
+                                    checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime * 5, bot.loopCounter);
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
                                     if (global.WRITE_LOGS_TO_FILES === 'true') {
                                         logger.persist();
@@ -937,7 +937,11 @@
 
                     function checkLoopHealth(pLastLoop) {
 
-                        if (bot.enableCheckLoopHealth === false) {
+                        let stop = false
+                        if (process.env.STOP_GRACEFULLY !== undefined)
+                            stop = JSON.parse(process.env.STOP_GRACEFULLY)
+
+                        if (bot.enableCheckLoopHealth === false || stop === true) {
 
                             logger.write(MODULE_NAME, "[WARN] run -> loop -> checkLoopHealth -> bot.enableCheckLoopHealth = " + bot.enableCheckLoopHealth);
 

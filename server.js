@@ -129,7 +129,7 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
 
     global.SYSTEM_EVENT_HANDLER.finalize()
     global.SYSTEM_EVENT_HANDLER = undefined
-    console.log("[INFO] Task Server -> exitProcessInstance -> Task Server Stopped.");
+    console.log("[INFO] Task Server -> " + global.USER_DEFINITION.name + " -> EXIT_NODE_PROCESS -> Task Server Stopped.");
 
     process.exit()
 }

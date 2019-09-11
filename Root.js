@@ -663,7 +663,7 @@
         function exitProcessInstance() {
 
             global.ENDED_PROCESSES_COUNTER++
-            console.log("[INFO] Task Server -> exitProcessInstance -> Process #" + global.ENDED_PROCESSES_COUNTER + " from " + global.TOTAL_PROCESS_INSTANCES_CREATED + ' exiting.');
+            console.log("[INFO] Task Server -> " + global.USER_DEFINITION.name + " -> exitProcessInstance -> Process #" + global.ENDED_PROCESSES_COUNTER + " from " + global.TOTAL_PROCESS_INSTANCES_CREATED + " exiting.");
 
             if (global.ENDED_PROCESSES_COUNTER === global.TOTAL_PROCESS_INSTANCES_CREATED) {
                 global.EXIT_NODE_PROCESS()

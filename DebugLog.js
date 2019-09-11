@@ -130,7 +130,11 @@ exports.newDebugLog = function newDebugLog() {
             let logLine = '\r\n' + message;
 
             if (process.env.CONSOLE_LOG === "true" || message.indexOf("ERROR") > 0) {
-                console.log(message)
+                let key = ''
+                if (thisObject.bot) {
+                    key = thisObject.bot.devTeam + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
+                }
+                console.log(message + ' @ ' + key)
             }
 
             accumulatedLog = accumulatedLog + logLine;

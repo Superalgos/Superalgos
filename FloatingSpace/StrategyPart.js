@@ -23,7 +23,7 @@ function newStrategyPart () {
     play: play,
     stop: stop,
     setRunningStatus: setRunningStatus,
-    setNotcircularProgressBar: setNotcircularProgressBar,
+    setNotRunningStatus: setNotRunningStatus,
     getReadyToAttach: getReadyToAttach,
     showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
@@ -561,7 +561,7 @@ function newStrategyPart () {
     runningCounter = 30
   }
 
-  function setNotcircularProgressBar () {
+  function setNotRunningStatus () {
     canvas.strategySpace.workspace.definition = undefined
     thisObject.isRunning = false
   }

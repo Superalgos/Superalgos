@@ -217,7 +217,7 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Run Trading System',
+            action: 'Run Definition',
             actionFunction: payload.uiObject.run,
             label: 'Run',
             visible: false,

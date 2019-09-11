@@ -8,7 +8,7 @@ function newRestartSimulation () {
     visible: true,
     container: undefined,
     status: undefined,
-    restart: restart,
+    startOrStop: startOrStop,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -35,7 +35,9 @@ function newRestartSimulation () {
 
   let executionFocusExists = false
   let idleLabel = ''
-  let date = ''
+  let refreshCounter = 0
+  let isRunning = false
+  let eventSubscriptionId
 
   return thisObject
 
@@ -43,6 +45,8 @@ function newRestartSimulation () {
     thisObject.container.eventHandler.stopListening(selfMouseOverEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfMouseClickEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfMouseNotOverEventSubscriptionId)
+
+    systemEventHandler.stopListening('Jason-Multi-Period', eventSubscriptionId)
 
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -58,11 +62,27 @@ function newRestartSimulation () {
 
     thisObject.status = 'Ready'
 
-    systemEventHandler.createEventHandler('Cockpit-Restart-Simulation')
+    systemEventHandler.createEventHandler('Cockpit-Restart-Button')
+
+    /*
+      We will start listening to the event that is triggered when the simulation process finishes processing one day in the case
+      of daily files or the whole market in the case of market files.
+    */
+    eventSubscriptionId = systemEventHandler.listenToEvent('Jason-Multi-Period', 'Status Report Updated', undefined, undefined, undefined, onEvent)
+
+    function onEvent (message) {
+      refreshCounter++
+
+      if (refreshCounter === 3) {
+        refreshCounter = 0
+        turnOffProductCards()
+        turnOnProductCards()
+      }
+    }
   }
 
   function getContainer (point, purpose) {
-    if (thisObject.visible !== true || thisObject.status !== 'Ready' || executionFocusExists === false) { return }
+    if (thisObject.visible !== true || (thisObject.status !== 'Ready' && thisObject.status !== 'Calculating') || executionFocusExists === false) { return }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
@@ -84,17 +104,19 @@ function newRestartSimulation () {
   }
 
   function onMouseClick (event) {
-    restart()
+    startOrStop()
   }
 
-  async function restart () {
+  async function startOrStop () {
     try {
-      /* Processing the restart */
-      thisObject.status = 'Saving'
-      let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(getSimulationParams())
-      if (result === true) {
-        if (window.canvasApp.executingAt === 'Local') {
-          if (idleLabel === 'RESTART LIVE TRADING') {
+      if (isRunning === false) {
+        thisObject.status = 'Saving'
+        let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(getSimulationParams())
+        if (result === false) {
+          thisObject.status = 'Error'
+          counterTillNextState = 500
+        } else {
+          if (idleLabel === 'START LIVE TRADING') {
             callServer('', 'ResetLogsAndData', onSaved)
             function onSaved (err) {
               if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -103,26 +125,20 @@ function newRestartSimulation () {
                 logger.write('[ERROR] Restart Simulation -> Can not delete Logs and Simulation data. err = ' + err.messsage)
               }
             }
+            systemEventHandler.raiseEvent('Cockpit-Restart-Button', 'Live-Trading Started')
+          } else {
+            systemEventHandler.raiseEvent('Cockpit-Restart-Button', 'Backstesting Started')
           }
 
-          systemEventHandler.raiseEvent('Cockpit-Restart-Simulation', 'Simulation Started')
-
-          /* We will start listening to the event that is triggered when the simulation process finishes processing one day.  */
-          systemEventHandler.listenToEvent('Jason-Multi-Period', 'Status Report Updated', undefined, undefined, undefined, onEvent)
-
-          function onEvent (message) {
-            date = message.event.lastProcessedDay
-          }
-        } else {
-          thisObject.status = 'Restarting'
-          await graphQlRestartSimulation(simulationParams)
+          thisObject.status = 'Calculating'
+          isRunning = true
         }
-
-        thisObject.status = 'Calculating'
-        counterTillNextState = 500
       } else {
-        thisObject.status = 'Error'
-        counterTillNextState = 500
+        /* isRunning === true */
+        systemEventHandler.raiseEvent('Cockpit-Restart-Button', 'Stop Requested')
+        isRunning = false
+        thisObject.status = 'Stopping'
+        counterTillNextState = 200
       }
     } catch (err) {
       thisObject.status = 'Error'
@@ -168,27 +184,11 @@ function newRestartSimulation () {
           case 'Saving':
 
             break
-          case 'Restarting':
+          case 'Calculating':
 
             break
-          case 'Calculating':
-            thisObject.status = 'Refreshing'
-            counterTillNextState = 150
-            break
-          case 'Refreshing':
-            thisObject.status = 'Reviewing'
-            turnOffProductCards()
-            turnOnProductCards()
-            counterTillNextState = 150
-            break
-          case 'Reviewing':
-            thisObject.status = '2nd Refresh'
-            counterTillNextState = 250
-            break
-          case '2nd Refresh':
+          case 'Stopping':
             thisObject.status = 'Ready'
-            turnOffProductCards()
-            turnOnProductCards()
             break
           case 'Error':
             thisObject.status = 'Ready'
@@ -202,7 +202,7 @@ function newRestartSimulation () {
   }
 
   function labelPhysics () {
-    idleLabel = 'RESTART SIMULATION'
+    idleLabel = 'START BACKTESTING'
     if (canvas.strategySpace.workspace.definition) {
       let definition = canvas.strategySpace.workspace.definition
       if (definition.personalData) {
@@ -212,7 +212,7 @@ function newRestartSimulation () {
             if (exchangeAccount.keys) {
               if (exchangeAccount.keys.length > 0) {
                 let key = exchangeAccount.keys[0]
-                idleLabel = 'RESTART LIVE TRADING'
+                idleLabel = 'START LIVE TRADING'
               }
             }
           }
@@ -262,19 +262,10 @@ function newRestartSimulation () {
       case 'Saving':
         params.backgroundColor = UI_COLOR.GREY
         break
-      case 'Restarting':
-        params.backgroundColor = UI_COLOR.GREY
-        break
-      case 'Refreshing':
-        params.backgroundColor = UI_COLOR.GOLDEN_ORANGE
-        break
       case 'Calculating':
         params.backgroundColor = UI_COLOR.TITANIUM_YELLOW
         break
-      case 'Reviewing':
-        params.backgroundColor = UI_COLOR.GREY
-        break
-      case '2nd Refresh':
+      case 'Stopping':
         params.backgroundColor = UI_COLOR.GOLDEN_ORANGE
         break
       case 'Error':
@@ -306,20 +297,11 @@ function newRestartSimulation () {
       case 'Saving':
         label = 'SAVING STRATEGIES CHANGES...'
         break
-      case 'Restarting':
-        label = 'RESTARTING TRADING ENGINE...'
-        break
-      case 'Refreshing':
-        label = 'RE-LOADING...'
-        break
       case 'Calculating':
-        label = 'CALCULATING...'
+        label = 'STOP CALCULATING'
         break
-      case 'Reviewing':
-        label = 'WAITING TO UPDATE...'
-        break
-      case '2nd Refresh':
-        label = 'UPDATING...'
+      case 'Stopping':
+        label = 'STOPPING...'
         break
       case 'Error':
         label = 'ERROR, RETRY LATER'
@@ -331,10 +313,6 @@ function newRestartSimulation () {
       y: thisObject.container.frame.height - 9
     }
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
-
-    if (date !== '') {
-      label = date
-    }
 
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)

@@ -49,6 +49,36 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Task Manager': {
+        node.payload.parentNode.taskManager = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Task': {
+        node.payload.parentNode.task = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Sensor': {
+        node.payload.parentNode.sensor = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Indicator': {
+        node.payload.parentNode.indicator = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Trading Engine': {
+        node.payload.parentNode.tradingEngine = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Process': {
+        node.payload.parentNode.process = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Trading System': {
         node.payload.parentNode.tradingSystem = undefined
         completeDetachment(node, rootNodes)
@@ -56,6 +86,21 @@ function newAttachDetach () {
       }
       case 'Base Asset': {
         node.payload.parentNode.baseAsset = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Time Range': {
+        node.payload.parentNode.timeRange = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Slippage': {
+        node.payload.parentNode.slippage = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Fee Structure': {
+        node.payload.parentNode.feeStructure = undefined
         completeDetachment(node, rootNodes)
         return
       }
@@ -203,6 +248,48 @@ function newAttachDetach () {
 
   function attachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
+      case 'Task Manager': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.taskManager = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Task': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.tasks.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Sensor': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.bot = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Indicator': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.bot = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Trading Engine': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.bot = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Process': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.processes.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
       case 'Personal Data': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
@@ -242,6 +329,27 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.baseAsset = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Time Range': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.timeRange = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Slippage': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.slippage = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Fee Structure': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.feeStructure = node
         completeAttachment(node, rootNodes)
       }
         break

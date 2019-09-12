@@ -11,6 +11,24 @@ function newNodeChildren () {
       case 'Definition': {
         return countChildrenDefinition(parentNode, childNode)
       }
+      case 'Task Manager': {
+        return countChildrenTaskManager(parentNode, childNode)
+      }
+      case 'Task': {
+        return countChildrenTask(parentNode, childNode)
+      }
+      case 'Sensor': {
+        return countChildrenSensor(parentNode, childNode)
+      }
+      case 'Indicator': {
+        return countChildrenIndicator(parentNode, childNode)
+      }
+      case 'Trading Engine': {
+        return countChildrenTradingEngine(parentNode, childNode)
+      }
+      case 'Process': {
+        return countChildrenProcess(parentNode, childNode)
+      }
       case 'Personal Data': {
         return countChildrenPersonalData(parentNode, childNode)
       }
@@ -31,6 +49,15 @@ function newNodeChildren () {
       }
       case 'Base Asset': {
         return countChildrenBaseAsset(parentNode, childNode)
+      }
+      case 'Time Range': {
+        return countChildrenTimeRange(parentNode, childNode)
+      }
+      case 'Slippage': {
+        return countChildrenSlippage(parentNode, childNode)
+      }
+      case 'Fee Structure': {
+        return countChildrenFeeStructure(parentNode, childNode)
       }
       case 'Strategy': {
         return countChildrenStrategy(parentNode, childNode)
@@ -117,6 +144,98 @@ function newNodeChildren () {
       if (parentNode.personalData.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
+    }
+    if (parentNode.taskManager !== undefined) {
+      response.childrenCount++
+      if (parentNode.taskManager.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenTaskManager (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.tasks.length; i++) {
+      let child = parentNode.tasks[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenTask (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.bot !== undefined) {
+      response.childrenCount++
+      if (parentNode.bot.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenSensor (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.processes.length; i++) {
+      let child = parentNode.processes[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenIndicator (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.processes.length; i++) {
+      let child = parentNode.processes[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenTradingEngine (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.processes.length; i++) {
+      let child = parentNode.processes[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenProcess (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
     }
     return response
   }
@@ -211,6 +330,24 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.timeRange !== undefined) {
+      response.childrenCount++
+      if (parentNode.timeRange.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.slippage !== undefined) {
+      response.childrenCount++
+      if (parentNode.slippage.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.feeStructure !== undefined) {
+      response.childrenCount++
+      if (parentNode.feeStructure.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 
@@ -219,11 +356,29 @@ function newNodeChildren () {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (parentNode.formula !== undefined) {
-      response.childrenCount++
-      if (parentNode.formula.id === childNode.id) {
-        response.childIndex = response.childrenCount
-      }
+    return response
+  }
+
+  function countChildrenTimeRange (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenSlippage (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenFeeStructure (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
     }
     return response
   }
@@ -536,4 +691,3 @@ function newNodeChildren () {
     return response
   }
 }
-

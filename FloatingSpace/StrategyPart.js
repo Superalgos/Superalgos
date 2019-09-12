@@ -16,9 +16,12 @@ function newStrategyPart () {
     payload: undefined,
     codeEditor: undefined,
     partTitle: undefined,
+    circularProgressBar: undefined,
     isExecuting: undefined,
     isRunning: undefined,
     run: run,
+    play: play,
+    stop: stop,
     setRunningStatus: setRunningStatus,
     setNotRunningStatus: setNotRunningStatus,
     getReadyToAttach: getReadyToAttach,
@@ -175,8 +178,11 @@ function newStrategyPart () {
       thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
     }
 
+    if (thisObject.circularProgressBar !== undefined) {
+      thisObject.circularProgressBar.physics()
+    }
+
     iconPhysics()
-    runningPhisycs()
     highlightPhisycs()
     errorMessagePhisycs()
     valuePhisycs()
@@ -222,6 +228,42 @@ function newStrategyPart () {
         break
       case 'Base Asset':
         compatibleType = '->' + 'Parameters'
+        compatibleSubType = undefined
+        break
+      case 'Time Range':
+        compatibleType = '->' + 'Parameters'
+        compatibleSubType = undefined
+        break
+      case 'Slippage':
+        compatibleType = '->' + 'Parameters'
+        compatibleSubType = undefined
+        break
+      case 'Fee Structure':
+        compatibleType = '->' + 'Parameters'
+        compatibleSubType = undefined
+        break
+      case 'Task Manager':
+        compatibleType = '->' + 'Definition'
+        compatibleSubType = undefined
+        break
+      case 'Task':
+        compatibleType = '->' + 'Task Manager'
+        compatibleSubType = undefined
+        break
+      case 'Sensor':
+        compatibleType = '->' + 'Task'
+        compatibleSubType = undefined
+        break
+      case 'Indicator':
+        compatibleType = '->' + 'Task'
+        compatibleSubType = undefined
+        break
+      case 'Trading Engine':
+        compatibleType = '->' + 'Task'
+        compatibleSubType = undefined
+        break
+      case 'Process':
+        compatibleType = '->' + 'Sensor' + '->' + 'Indicator' + '->' + 'Trading Engine'
         compatibleSubType = undefined
         break
       case 'Strategy':
@@ -289,7 +331,7 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Formula':
-        compatibleType = '->' + 'Base Asset' + '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase'
+        compatibleType = '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase'
         compatibleSubType = undefined
         break
       case 'Next Phase Event':
@@ -322,10 +364,19 @@ function newStrategyPart () {
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf('->' + nearbyNode.type) >= 0) {
         /* Discard objects with busy coonection ports */
+        if (thisObject.payload.node.type === 'Task Manager' && nearbyNode.taskManager !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Task' && nearbyNode.task !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Sensor' && nearbyNode.bot !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Indicator' && nearbyNode.bot !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trading Engine' && nearbyNode.bot !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Process' && nearbyNode.process !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }
         if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }
         if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
         if (thisObject.payload.node.type === 'Base Asset' && nearbyNode.baseAsset !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Time Range' && nearbyNode.timeRange !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Slippage' && nearbyNode.slippage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Fee Structure' && nearbyNode.feeStructure !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Open Stage' && nearbyNode.openStage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Manage Stage' && nearbyNode.manageStage !== undefined) { continue }
@@ -480,16 +531,22 @@ function newStrategyPart () {
     }
   }
 
-  function runningPhisycs () {
-    if (canvas.strategySpace.workspace.definition !== undefined) {
-      if (canvas.strategySpace.workspace.definition.id !== thisObject.payload.node.id) {
-        runningCounter--
-      }
+  function play () {
+    if (thisObject.circularProgressBar !== undefined) {
+      thisObject.circularProgressBar.finalize()
     }
 
-    if (runningCounter < 0) {
-      runningCounter = 0
-      thisObject.isRunning = false
+    thisObject.circularProgressBar = newCircularProgressBar()
+    thisObject.circularProgressBar.initialize(thisObject.payload)
+    thisObject.circularProgressBar.fitFunction = thisObject.fitFunction
+    thisObject.circularProgressBar.container = thisObject.container
+  }
+
+  function stop () {
+    setTimeout(removecircularProgressBar, 90000)
+    function removecircularProgressBar () {
+      thisObject.circularProgressBar.finalize()
+      thisObject.circularProgressBar = undefined
     }
   }
 
@@ -559,6 +616,10 @@ function newStrategyPart () {
         thisObject.menu.drawBackground()
       }
     }
+
+    if (thisObject.circularProgressBar !== undefined) {
+      thisObject.circularProgressBar.drawBackground()
+    }
   }
 
   function drawMiddleground () {
@@ -575,6 +636,10 @@ function newStrategyPart () {
       if (isDragging === false) {
         thisObject.menu.drawForeground()
       }
+    }
+
+    if (thisObject.circularProgressBar !== undefined) {
+      thisObject.circularProgressBar.drawForeground()
     }
   }
 
@@ -709,14 +774,14 @@ function newStrategyPart () {
 
     position = thisObject.container.frame.frameThisPoint(position)
 
-    let radius = thisObject.container.frame.radius
+    let radius = thisObject.container.frame.radius * 3.5
             /* Label Text */
     let labelPoint
     let fontSize = thisObject.payload.floatingObject.currentFontSize * 3 / 4
     let label
 
     if (radius > 6) {
-      const MAX_LABEL_LENGTH = 40
+      const MAX_LABEL_LENGTH = 80
 
       label = errorMessage
 
@@ -875,17 +940,6 @@ function newStrategyPart () {
 
       browserCanvasContext.fill()
 
-      if (thisObject.isOnFocus === true) {
-        VISIBLE_RADIUS = thisObject.container.frame.radius
-        browserCanvasContext.beginPath()
-        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS - 2, 0, Math.PI * 2, true)
-        browserCanvasContext.closePath()
-
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.25)'
-
-        browserCanvasContext.fill()
-      }
-
       if (thisObject.isRunning === true) {
         VISIBLE_RADIUS = thisObject.container.frame.radius * 2
         let OPACITY = runningCounter / 30
@@ -899,6 +953,17 @@ function newStrategyPart () {
         browserCanvasContext.lineWidth = 10
         browserCanvasContext.setLineDash([4, 20])
         browserCanvasContext.stroke()
+      }
+
+      if (thisObject.isOnFocus === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS - 2, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.25)'
+
+        browserCanvasContext.fill()
       }
 
       if (hasError === true) {

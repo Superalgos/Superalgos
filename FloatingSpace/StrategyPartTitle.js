@@ -52,6 +52,26 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
+      case 'Task Manager': {
+        break
+      }
+      case 'Task': {
+        break
+      }
+      case 'Sensor': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Indicator': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Trading Engine': {
+        break
+      }
+      case 'Process': {
+        break
+      }
       case 'Personal Data': {
         break
       }
@@ -76,6 +96,15 @@ function newStrategyPartTitle () {
         break
       }
       case 'Base Asset': {
+        break
+      }
+      case 'Time Range': {
+        break
+      }
+      case 'Slippage': {
+        break
+      }
+      case 'Fee Structure': {
         break
       }
       case 'Strategy': {
@@ -317,7 +346,7 @@ function newStrategyPartTitle () {
 
   function trimTitle (title) {
     if (title === undefined) { return }
-    const MAX_LABEL_LENGTH = 30
+    const MAX_LABEL_LENGTH = 50
     if (title.length > MAX_LABEL_LENGTH) {
       title = title.substring(0, MAX_LABEL_LENGTH) + '...'
     }

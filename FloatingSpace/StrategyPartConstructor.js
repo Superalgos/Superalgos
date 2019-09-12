@@ -217,16 +217,16 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Run Trading System',
+            action: 'Run Definition',
             actionFunction: payload.uiObject.run,
             label: 'Run',
             visible: false,
             iconPathOn: 'paper-plane',
-            iconPathOff: 'menu-share',
+            iconPathOff: 'paper-plane',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -70
+            angle: -75
           }
           )
         menuItemsInitialValues.push(
@@ -248,22 +248,6 @@ function newStrategyPartConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Definition',
-            askConfirmation: true,
-            confirmationLabel: 'Confirm to Delete',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Delete Definition',
-            visible: false,
-            iconPathOn: 'delete',
-            iconPathOff: 'delete',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -10
-          }
-          )
-        menuItemsInitialValues.push(
-          {
             action: 'Add Trading System',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Trading System',
@@ -272,7 +256,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 10
+            angle: -20
           }
           )
         menuItemsInitialValues.push(
@@ -285,7 +269,111 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Task Manager',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Task Manager',
+            visible: false,
+            relatedStrategyPart: 'Task Manager',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+                )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Definition',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Definition',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
             angle: 40
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 75
+          }
+        )
+        break
+      }
+      case 'Task Manager': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Run All Tasks',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Run All Tasks',
+            visible: false,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Stop All Tasks',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Stop All Tasks',
+            visible: false,
+            iconPathOn: 'stop',
+            iconPathOff: 'stop',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Task',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Task',
+            visible: false,
+            relatedStrategyPart: 'Task Manager',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Task Manager',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Task Manager',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
           }
             )
         menuItemsInitialValues.push(
@@ -299,13 +387,322 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 70
+            angle: 60
+          }
+            )
+        break
+      }
+      case 'Task': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Run Task',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Run',
+            visible: false,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -75
           }
         )
+        menuItemsInitialValues.push(
+          {
+            action: 'Stop Task',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Stop',
+            visible: false,
+            iconPathOn: 'stop',
+            iconPathOff: 'stop',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Sensor',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Sensor',
+            visible: false,
+            relatedStrategyPart: 'Sensor',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Indicator',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Indicator',
+            visible: false,
+            relatedStrategyPart: 'Indicator',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Trading Engine',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Trading Engine',
+            visible: false,
+            relatedStrategyPart: 'Trading Engine',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Task',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Process',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: +40
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 75
+          }
+                )
+        break
+      }
+      case 'Sensor': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Process',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process',
+            visible: false,
+            relatedStrategyPart: 'Process',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Sensor',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Sensor',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+                    )
+        break
+      }
+      case 'Indicator': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Process',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process',
+            visible: false,
+            relatedStrategyPart: 'Process',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Indicator',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Indicator',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+            )
+        break
+      }
+      case 'Trading Engine': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Process',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process',
+            visible: false,
+            relatedStrategyPart: 'Process',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Trading Engine',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Trading Engine',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+          )
+        break
+      }
+      case 'Process': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Process',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Process',
+            visible: false,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Process',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Process',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+              )
         break
       }
       case 'Personal Data': {
         addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Exchange Account',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Exchange Account',
+            visible: false,
+            relatedStrategyPart: 'Exchange Account',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
         menuItemsInitialValues.push(
           {
             action: 'Delete Personal Data',
@@ -319,26 +716,39 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
-          }
-          )
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Exchange Account',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Exchange Account',
-            visible: false,
-            relatedStrategyPart: 'Exchange Account',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
             angle: +20
           }
-          )
+            )
         break
       }
       case 'Exchange Account': {
         addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Exchange Account Asset',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Asset',
+            visible: false,
+            relatedStrategyPart: 'Exchange Account Asset',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Exchange Account Key',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Key',
+            visible: false,
+            relatedStrategyPart: 'Exchange Account Key',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
         menuItemsInitialValues.push(
           {
             action: 'Delete Exchange Account',
@@ -352,35 +762,9 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
-          }
-          )
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Exchange Account Asset',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Asset',
-            visible: false,
-            relatedStrategyPart: 'Exchange Account Asset',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 0
-          }
-          )
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Exchange Account Key',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Key',
-            visible: false,
-            relatedStrategyPart: 'Exchange Account Key',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
             angle: 40
           }
-            )
+              )
         break
       }
       case 'Exchange Account Asset': {
@@ -447,22 +831,6 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Delete Trading System',
-            askConfirmation: true,
-            confirmationLabel: 'Confirm to Delete',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Delete Trading System',
-            visible: false,
-            iconPathOn: 'delete',
-            iconPathOff: 'delete',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -60
-          }
-          )
-        menuItemsInitialValues.push(
-          {
             action: 'Add Strategy',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Strategy',
@@ -471,7 +839,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -60
           }
           )
         menuItemsInitialValues.push(
@@ -484,9 +852,25 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: -20
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Trading System',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Trading System',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+            )
         menuItemsInitialValues.push(
           {
             action: 'Share',
@@ -507,14 +891,11 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Delete Parameters',
-            askConfirmation: true,
-            confirmationLabel: 'Confirm to Delete',
+            action: 'Add Missing Parameters',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Parameters',
+            label: 'Add Missing Params',
             visible: false,
-            iconPathOn: 'delete',
-            iconPathOff: 'delete',
+            relatedStrategyPart: 'Parameters',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -523,11 +904,14 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Add Missing Parameters',
+            action: 'Delete Parameters',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Missing Params',
+            label: 'Delete Parameters',
             visible: false,
-            relatedStrategyPart: 'Parameters',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -551,7 +935,26 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Base Asset': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Base Asset',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Base Asset',
+            visible: false,
+            iconPathOn: 'settings',
+            iconPathOff: 'settings',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
         menuItemsInitialValues.push(
           {
             action: 'Delete Base Asset',
@@ -565,16 +968,162 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
+            angle: 0
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Time Range': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Time Range',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Time Range',
+            visible: false,
+            iconPathOn: 'settings',
+            iconPathOff: 'settings',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
             angle: -40
           }
         )
         menuItemsInitialValues.push(
           {
-            action: 'Add Formula',
+            action: 'Delete Time Range',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Formula',
+            label: 'Delete Time Range',
             visible: false,
-            relatedStrategyPart: 'Formula',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Slippage': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Slippage',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Slippage',
+            visible: false,
+            iconPathOn: 'settings',
+            iconPathOff: 'settings',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Slippage',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Slippage',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: false,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Fee Structure': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Fee Structure',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Fee Structure',
+            visible: false,
+            iconPathOn: 'settings',
+            iconPathOff: 'settings',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Fee Structure',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Fee Structure',
+            visible: false,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -849,14 +1398,11 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Delete Position Size',
-            askConfirmation: true,
-            confirmationLabel: 'Confirm to Delete',
+            action: 'Add Formula',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Position Size',
+            label: 'Add Formula',
             visible: false,
-            iconPathOn: 'delete',
-            iconPathOff: 'delete',
+            relatedStrategyPart: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -865,11 +1411,14 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Add Formula',
+            action: 'Delete Position Size',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Formula',
+            label: 'Delete Position Size',
             visible: false,
-            relatedStrategyPart: 'Formula',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -896,14 +1445,11 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Delete Position Rate',
-            askConfirmation: true,
-            confirmationLabel: 'Confirm to Delete',
+            action: 'Add Formula',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Position Rate',
+            label: 'Add Formula',
             visible: false,
-            iconPathOn: 'delete',
-            iconPathOff: 'delete',
+            relatedStrategyPart: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -912,11 +1458,14 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Add Formula',
+            action: 'Delete Position Rate',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Formula',
+            label: 'Delete Position Rate',
             visible: false,
-            relatedStrategyPart: 'Formula',
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1619,6 +2168,30 @@ function newStrategyPartConstructor () {
         level_0()
         break
       }
+      case 'Task Manager': {
+        level_1()
+        break
+      }
+      case 'Task': {
+        level_1()
+        break
+      }
+      case 'Sensor': {
+        level_3()
+        break
+      }
+      case 'Indicator': {
+        level_3()
+        break
+      }
+      case 'Trading Engine': {
+        level_3()
+        break
+      }
+      case 'Process': {
+        level_4()
+        break
+      }
       case 'Exchange Account': {
         level_1()
         break
@@ -1644,6 +2217,18 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Base Asset': {
+        level_3()
+        break
+      }
+      case 'Time Range': {
+        level_3()
+        break
+      }
+      case 'Slippage': {
+        level_3()
+        break
+      }
+      case 'Fee Structure': {
         level_3()
         break
       }
@@ -1761,7 +2346,7 @@ function newStrategyPartConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        floatingObject.tensionToggle()
+        // floatingObject.tensionToggle()
       }
     }
 
@@ -1777,7 +2362,7 @@ function newStrategyPartConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        floatingObject.tensionToggle()
+        // floatingObject.tensionToggle()
       }
     }
 
@@ -1793,7 +2378,7 @@ function newStrategyPartConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        floatingObject.tensionToggle()
+        // floatingObject.tensionToggle()
       }
     }
 
@@ -1809,7 +2394,7 @@ function newStrategyPartConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        floatingObject.tensionToggle()
+        // floatingObject.tensionToggle()
       }
     }
 

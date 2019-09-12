@@ -1,3 +1,4 @@
+
  ﻿/* User Interface Colors */
 
 const STORAGE_PROVIDER = 'AAWeb';
@@ -135,6 +136,7 @@ if (testUser !== null) {
   LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY = "access_token"
 }
 
+const DEFAULT_CONFIG_TEXT = '// Write your config here'
 const DEFAULT_FORMULA_TEXT = '// Write your formula here'
 const DEFAULT_CODE_TEXT = '// Write your code here'
 

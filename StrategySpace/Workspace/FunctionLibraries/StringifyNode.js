@@ -293,7 +293,40 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: prepareForStringify(node.formula, removePersonalData),
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Time Range': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Slippage': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Fee Structure': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -305,6 +338,9 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           baseAsset: prepareForStringify(node.baseAsset, removePersonalData),
+          timeRange: prepareForStringify(node.timeRange, removePersonalData),
+          slippage: prepareForStringify(node.slippage, removePersonalData),
+          feeStructure: prepareForStringify(node.feeStructure, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -389,6 +425,96 @@ function newStringifyNode () {
         }
         return key
       }
+      case 'Task Manager': {
+        let taskManager = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          tasks: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.tasks.length; m++) {
+          let task = prepareForStringify(node.tasks[m], removePersonalData)
+          taskManager.tasks.push(task)
+        }
+
+        return taskManager
+      }
+      case 'Task': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          bot: prepareForStringify(node.bot, removePersonalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Sensor': {
+        let bot = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          processes: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = prepareForStringify(node.processes[m], removePersonalData)
+          bot.processes.push(process)
+        }
+
+        return bot
+      }
+      case 'Indicator': {
+        let bot = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          processes: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = prepareForStringify(node.processes[m], removePersonalData)
+          bot.processes.push(process)
+        }
+
+        return bot
+      }
+      case 'Trading Engine': {
+        let bot = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          processes: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = prepareForStringify(node.processes[m], removePersonalData)
+          bot.processes.push(process)
+        }
+
+        return bot
+      }
+      case 'Process': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
       case 'Definition': {
         let object = {
           id: node.id,
@@ -397,6 +523,7 @@ function newStringifyNode () {
           name: node.name,
           tradingSystem: prepareForStringify(node.tradingSystem, removePersonalData),
           personalData: prepareForStringify(node.personalData, removePersonalData),
+          taskManager: prepareForStringify(node.taskManager, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object

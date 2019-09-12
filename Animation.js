@@ -79,7 +79,16 @@ function newAnimation () {
 
             /* We request the next frame to be drawn, and stablishing a loop */
 
+      /* Use this code for full animation speed. */
       animationLoopHandle = window.requestAnimationFrame(animationLoop)
+
+      /* Use this code for max 10 frames per second animation speed, if the app is consumming too much of your CPU.  */
+      /*
+      setTimeout(nextLoop, 100)
+      function nextLoop () {
+        animationLoopHandle = window.requestAnimationFrame(animationLoop)
+      }
+      */
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] animationLoop -> err = ' + err.stack) }
     }

@@ -1,6 +1,7 @@
 let canvas
 let markets
 let ecosystem = newEcosystem()
+let systemEventHandler
 
 let viewPort
 try {
@@ -32,29 +33,34 @@ function newDashboard () {
 
   function start () {
     try {
-      /* If this method is executed for a second time, it should finalize the current execution structure */
+      systemEventHandler = newSystemEventHandler()
+      systemEventHandler.initialize(startCanvas)
 
-      if (canvas !== undefined) { canvas.finalize() }
+      function startCanvas () {
+        /* If this method is executed for a second time, it should finalize the current execution structure */
 
-      /* Here we check where we are executing. In case we are Local we need to create a Local Dummy User and Team. */
+        if (canvas !== undefined) { canvas.finalize() }
 
-      if (window.canvasApp.executingAt === 'Local') {
-        window.localStorage.setItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY, 'Local Access Token')       // Dummy Access Token
-        window.localStorage.setItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY, '{"authId":"x|x","alias":"user"}')  // Dummy Local User
+        /* Here we check where we are executing. In case we are Local we need to create a Local Dummy User and Team. */
+
+        if (window.canvasApp.executingAt === 'Local') {
+          window.localStorage.setItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY, 'Local Access Token')       // Dummy Access Token
+          window.localStorage.setItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY, '{"authId":"x|x","alias":"user"}')  // Dummy Local User
+        }
+
+        /* Here we will setup the global eventHandler that will enable the Canvas App to react to events happening outside its execution scope. */
+
+        window.canvasApp.eventHandler = newEventHandler()
+        userProfileChangedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('User Profile Changed', userProfileChanged)
+        browserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', browserResized)
+
+        /* Here we used to have a call to the Teams Module to get the profile pictures. That was removed but to keep things working, we do this: */
+
+        window.canvasApp.context.teamProfileImages = new Map()
+        window.canvasApp.context.fbProfileImages = new Map()
+
+        setTimeout(delayedStart, DEBUG_START_UP_DELAY)
       }
-
-      /* Here we will setup the global eventHandler that will enable the Canvas App to react to events happening outside its execution scope. */
-
-      window.canvasApp.eventHandler = newEventHandler()
-      userProfileChangedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('User Profile Changed', userProfileChanged)
-      browserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', browserResized)
-
-      /* Here we used to have a call to the Teams Module to get the profile pictures. That was removed but to keep things working, we do this: */
-
-      window.canvasApp.context.teamProfileImages = new Map()
-      window.canvasApp.context.fbProfileImages = new Map()
-
-      setTimeout(delayedStart, DEBUG_START_UP_DELAY)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] start -> err = ' + err.stack) }
     }

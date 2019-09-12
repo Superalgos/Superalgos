@@ -1,6 +1,12 @@
 function newNodeDeleter () {
   thisObject = {
     deleteDefinition: deleteDefinition,
+    deleteTaskManager: deleteTaskManager,
+    deleteTask: deleteTask,
+    deleteSensor: deleteBot,
+    deleteIndicator: deleteBot,
+    deleteTradingEngine: deleteBot,
+    deleteProcess: deleteProcess,
     deletePersonalData: deletePersonalData,
     deleteExchangeAccount: deleteExchangeAccount,
     deleteExchangeAccountAsset: deleteExchangeAccountAsset,
@@ -9,6 +15,9 @@ function newNodeDeleter () {
     deleteTradingSystem: deleteTradingSystem,
     deleteParameters: deleteParameters,
     deleteBaseAsset: deleteBaseAsset,
+    deleteTimeRange: deleteTimeRange,
+    deleteSlippage: deleteSlippage,
+    deleteFeeStructure: deleteFeeStructure,
     deleteStrategy: deleteStrategy,
     deleteTriggerStage: deleteTriggerStage,
     deleteOpenStage: deleteOpenStage,
@@ -43,6 +52,30 @@ function newNodeDeleter () {
           deleteDefinition(rootNode, rootNodes, true)
           break
         }
+        case 'Task Manager': {
+          deleteTaskManager(rootNode, rootNodes)
+          break
+        }
+        case 'Task': {
+          deleteTask(rootNode, rootNodes)
+          break
+        }
+        case 'Sensor': {
+          deleteBot(rootNode, rootNodes)
+          break
+        }
+        case 'Indicator': {
+          deleteBot(rootNode, rootNodes)
+          break
+        }
+        case 'Trading Engine': {
+          deleteBot(rootNode, rootNodes)
+          break
+        }
+        case 'Process': {
+          deleteProcess(rootNode, rootNodes)
+          break
+        }
         case 'Personal Data': {
           deletePersonalData(rootNode, rootNodes)
           break
@@ -69,6 +102,18 @@ function newNodeDeleter () {
         }
         case 'Base Asset': {
           deleteBaseAsset(rootNode, rootNodes)
+          break
+        }
+        case 'Time Range': {
+          deleteTimeRange(rootNode, rootNodes)
+          break
+        }
+        case 'Slippage': {
+          deleteSlippage(rootNode, rootNodes)
+          break
+        }
+        case 'Fee Structure': {
+          deleteFeeStructure(rootNode, rootNodes)
           break
         }
         case 'Strategy': {
@@ -176,6 +221,68 @@ function newNodeDeleter () {
     if (node.personalData !== undefined) {
       deletePersonalData(node.personalData, rootNodes)
     }
+    if (node.taskManager !== undefined) {
+      deleteTaskManager(node.taskManager, rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteTaskManager (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.taskManager = undefined
+    }
+    while (node.tasks.length > 0) {
+      deleteTask(node.tasks[0], rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteTask (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.tasks.length; j++) {
+        let task = payload.parentNode.tasks[j]
+        if (task.id === node.id) {
+          payload.parentNode.tasks.splice(j, 1)
+        }
+      }
+    }
+    if (node.bot !== undefined) {
+      deleteBot(node.bot, rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteBot (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.bot = undefined
+    }
+    while (node.processes.length > 0) {
+      deleteProcess(node.processes[0], rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteProcess (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.processes.length; j++) {
+        let task = payload.parentNode.processes[j]
+        if (task.id === node.id) {
+          payload.parentNode.processes.splice(j, 1)
+        }
+      }
+    }
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
@@ -280,6 +387,15 @@ function newNodeDeleter () {
     if (node.baseAsset !== undefined) {
       deleteBaseAsset(node.baseAsset, rootNodes)
     }
+    if (node.timeRange !== undefined) {
+      deleteTimeRange(node.timeRange, rootNodes)
+    }
+    if (node.slippage !== undefined) {
+      deleteSlippage(node.slippage, rootNodes)
+    }
+    if (node.feeStructure !== undefined) {
+      deleteFeeStructure(node.feeStructure, rootNodes)
+    }
     destroyPart(node)
     cleanNode(node)
   }
@@ -291,8 +407,38 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    if (node.formula !== undefined) {
-      deleteFormula(node.formula, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteTimeRange (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.timeRange = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteSlippage (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.slippage = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteFeeStructure (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.feeStructure = undefined
+    } else {
+      completeDeletion(node, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)

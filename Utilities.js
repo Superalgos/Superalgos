@@ -7,25 +7,9 @@ function getSimulationParams () {
   let timePeriodArray = timePeriodsMasterArray[currentTimePeriod.filePeriodIndex]
   let timePeriod = timePeriodArray[currentTimePeriod.timePeriodIndex][1]
 
-  let timePeriodDailyArray = []
-  let timePeriodMarketArray = []
-
-  switch (currentTimePeriod.filePeriodIndex) {
-    case 0: {
-      timePeriodMarketArray.push(timePeriod)
-      break
-    }
-    case 1: {
-      timePeriodDailyArray.push(timePeriod)
-      break
-    }
-  }
-
   let simulationParams = {
     beginDatetime: dateAtScreenCorner.valueOf(),
-    resumeExecution: false,
-    timePeriodDailyArray: timePeriodDailyArray,
-    timePeriodMarketArray: timePeriodMarketArray,
+    timePeriod: timePeriod,
     timestamp: (new Date()).valueOf()
   }
 

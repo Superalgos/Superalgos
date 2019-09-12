@@ -220,7 +220,11 @@
                                 record.maximumBalanceB + "," +
                                 record.baseAsset + "," +
                                 record.positionPeriods + "," +
-                                record.positionDays + "]";
+                                record.positionDays + "," +
+                                record.distanceToLastTriggerOn + "," +
+                                record.distanceToLastTriggerOff + "," +
+                                record.distanceToLastTakePosition + "," +
+                                record.distanceToLastClosePosition + "]";
 
                             if (separator === "") { separator = ","; }
 

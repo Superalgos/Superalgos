@@ -305,6 +305,15 @@
             let periods = 0;
             let positionPeriods = 0;
 
+            /* Usefull counters for conditions and formulas */
+
+            let distanceToLast = {
+                triggerOn: 0,
+                triggerOff: 0,
+                takePosition: 0,
+                closePosition: 0
+            }
+
             /* Message to the Simulation Executor */
 
             let orderId = 0;
@@ -360,6 +369,13 @@
             yesterday.hits = 0;
             yesterday.periods = 0;
             yesterday.positionPeriods = 0;
+
+            yesterday.distanceToLast = {
+                triggerOn: 0,
+                triggerOff: 0,
+                takePosition: 0,
+                closePosition: 0
+            }
 
             yesterday.orderId = 0;
             yesterday.messageId = 0;
@@ -418,6 +434,13 @@
                 interExecutionMemory.hits = 0;
                 interExecutionMemory.periods = 0;
                 interExecutionMemory.positionPeriods = 0;
+
+                interExecutionMemory.distanceToLast = {
+                    triggerOn: 0,
+                    triggerOff: 0,
+                    takePosition: 0,
+                    closePosition: 0
+                }
 
                 interExecutionMemory.orderId = 0;
                 interExecutionMemory.messageId = 0;
@@ -486,6 +509,11 @@
                 periods = interExecutionMemory.periods;
                 positionPeriods = interExecutionMemory.positionPeriods;
 
+                distanceToLast.triggerOn = interExecutionMemory.distanceToLast.triggerOn
+                distanceToLast.triggerOff = interExecutionMemory.distanceToLast.triggerOff
+                distanceToLast.takePosition = interExecutionMemory.distanceToLast.takePosition
+                distanceToLast.closePosition = interExecutionMemory.distanceToLast.closePosition
+
                 orderId = interExecutionMemory.orderId; // to be deprecated
                 messageId = interExecutionMemory.messageId; // to be deprecated
 
@@ -538,6 +566,11 @@
                 yesterday.hits = hits;
                 yesterday.periods = periods;
                 yesterday.positionPeriods = positionPeriods;
+
+                yesterday.distanceToLast.triggerOn = distanceToLast.triggerOn
+                yesterday.distanceToLast.triggerOff = distanceToLast.triggerOff
+                yesterday.distanceToLast.takePosition = distanceToLast.takePosition
+                yesterday.distanceToLast.closePosition = distanceToLast.closePosition
 
                 yesterday.hitRatio = hitRatio;
                 yesterday.ROI = ROI;
@@ -1238,6 +1271,14 @@
                                                 }
                                             }
 
+                                            distanceToLast.triggerOn = 1;
+
+                                            if (processingDailyFiles) {
+                                                if (positionedAtYesterday) {
+                                                    yesterday.distanceToLast.triggerOn = distanceToLast.triggerOn
+                                                }
+                                            }
+
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Switching to Trigger Stage because conditions at Trigger On Event were met."); }
                                             break;
                                         }
@@ -1302,6 +1343,14 @@
                                             yesterday.currentStrategy.status = currentStrategy.status;
                                             yesterday.strategyStage = strategyStage;
                                             yesterday.currentStrategyIndex = currentStrategyIndex;
+                                        }
+                                    }
+
+                                    distanceToLast.triggerOff = 1;
+
+                                    if (processingDailyFiles) {
+                                        if (positionedAtYesterday) {
+                                            yesterday.distanceToLast.triggerOff = distanceToLast.triggerOff
                                         }
                                     }
 
@@ -1636,6 +1685,55 @@
                     }
                 }
 
+                /* Keeping Distance Counters Up-to-date */
+                if (
+                    distanceToLast.triggerOn > 0 // with this we avoind counting before the first event happens.
+                ) {
+                    distanceToLast.triggerOn++;
+           
+                    if (processingDailyFiles) {
+                        if (positionedAtYesterday) {
+                            yesterday.distanceToLast.triggerOn = distanceToLast.triggerOn
+                        }
+                    }
+                }
+
+                if (
+                    distanceToLast.triggerOff > 0 // with this we avoind counting before the first event happens.
+                ) {
+                    distanceToLast.triggerOff++;
+
+                    if (processingDailyFiles) {
+                        if (positionedAtYesterday) {
+                            yesterday.distanceToLast.triggerOff = distanceToLast.triggerOff
+                        }
+                    }
+                }
+
+                if (
+                    distanceToLast.takePosition > 0 // with this we avoind counting before the first event happens.
+                ) {
+                    distanceToLast.takePosition++;
+
+                    if (processingDailyFiles) {
+                        if (positionedAtYesterday) {
+                            yesterday.distanceToLast.takePosition = distanceToLast.takePosition
+                        }
+                    }
+                }
+
+                if (
+                    distanceToLast.closePosition > 0 // with this we avoind counting before the first event happens.
+                ) {
+                    distanceToLast.closePosition++;
+
+                    if (processingDailyFiles) {
+                        if (positionedAtYesterday) {
+                            yesterday.distanceToLast.takePosition = distanceToLast.closePosition
+                        }
+                    }
+                }
+
                 /* Checking if Stop or Take Profit were hit */
                 if (
                     (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') &&
@@ -1819,6 +1917,15 @@
                 ) {
                     takePositionNow = false
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Entering code block."); }
+
+                    /* Inicializing this counter */
+                    distanceToLast.takePosition = 1;
+
+                    if (processingDailyFiles) {
+                        if (positionedAtYesterday) {
+                            yesterday.distanceToLast.takePosition = distanceToLast.takePosition
+                        }
+                    }
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
@@ -2105,6 +2212,15 @@
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Entering code block."); }
 
                     closePositionNow = false
+
+                    /* Inicializing this counter */
+                    distanceToLast.closePosition = 1;
+
+                    if (processingDailyFiles) {
+                        if (positionedAtYesterday) {
+                            yesterday.distanceToLast.closePosition = distanceToLast.closePosition
+                        }
+                    }
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
@@ -2396,6 +2512,14 @@
 
                         timerToCloseStage = 0
 
+                        distanceToLast.triggerOff = 1;
+
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.distanceToLast.triggerOff = distanceToLast.triggerOff
+                            }
+                        }
+
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing the Closing Stage -> Exiting Close Stage."); }
                     } else {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing the Closing Stage -> Waiting for timer."); }
@@ -2489,7 +2613,11 @@
                         maximumBalanceB: maximumBalanceB,
                         baseAsset: quotedBaseAsset,
                         positionPeriods: positionPeriods,
-                        positionDays: positionDays
+                        positionDays: positionDays,
+                        distanceToLastTriggerOn: distanceToLast.triggerOn,
+                        distanceToLastTriggerOff: distanceToLast.triggerOff,
+                        distanceToLastTakePosition: distanceToLast.takePosition,
+                        distanceToLastClosePosition: distanceToLast.closePosition
                     }
 
                     recordsArray.push(simulationRecord);
@@ -2644,7 +2772,12 @@
                         interExecutionMemory.fails =  yesterday.fails;
                         interExecutionMemory.hits =  yesterday.hits;
                         interExecutionMemory.periods =  yesterday.periods;
-                        interExecutionMemory.positionPeriods =  yesterday.positionPeriods;
+                        interExecutionMemory.positionPeriods = yesterday.positionPeriods;
+
+                        interExecutionMemory.distanceToLast.triggerOn = yesterday.distanceToLast.triggerOn
+                        interExecutionMemory.distanceToLast.triggerOff = yesterday.distanceToLast.triggerOff
+                        interExecutionMemory.distanceToLast.takePosition = yesterday.distanceToLast.takePosition
+                        interExecutionMemory.distanceToLast.closePosition = yesterday.distanceToLast.closePosition
 
                         interExecutionMemory.messageId = interExecutionMemory.messageId + yesterday.messageId;
                         interExecutionMemory.orderId = interExecutionMemory.orderId + yesterday.orderId;

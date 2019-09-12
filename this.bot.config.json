@@ -14,6 +14,11 @@
     {
       "name": "Multi-Period",
       "description": "Produces a Daily or Market files depending on the current timePeriod.",
+      "startMode": {
+        "userDefined": {
+          "run": "true"
+        }
+      },
       "deadWaitTime": 90000,
       "normalWaitTime": 5000,
       "retryWaitTime": 10000,

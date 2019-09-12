@@ -96,72 +96,66 @@
             let fixedTimeLoopIntervalHandle;
             global.STOP_PROCESSING = true;
 
-            if (bot.runAtFixedInterval === true) {
+            global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Backstesting Started', undefined, undefined, undefined, startBackTesting)
+            global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Live-Trading Started', undefined, undefined, undefined, startLiveTrading)
+            global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Stop Requested', undefined, undefined, undefined, stopRequested)
 
-                fixedTimeLoopIntervalHandle = setInterval(loop, bot.fixedInterval);
+            function startBackTesting(message) {
 
-            } else {
+                /* We are going to run the Definition comming at the event. */
+                global.DEFINITION = JSON.parse(message.event.definition)
 
-                backtestingEventListenerSubscriptionId = global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Backstesting Started', undefined, undefined, undefined, startBackTesting)
-                liveTradingEventListenerSubscriptionId = global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Live-Trading Started', undefined, undefined, undefined, startLiveTrading)
-                stopRequestedEventListenerSubscriptionId = global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Stop Requested', undefined, undefined, undefined, stopRequested)
+                bot.startMode = "Backtest"
+                processConfig.framework.startDate.resumeExecution = false;
+                global.STOP_PROCESSING = false
+                bot.hasTheBotJustStarted = true
 
-                function startBackTesting() {
-                    /* Reload the definition in case something changed. */
-                    global.DEFINITION = require(process.env.INTER_PROCESS_FILES_PATH + '/Definition');
+                /* If we can not get for any reason the initial date of the backtest, we will start at present time. */
+                processConfig.framework.startDate.fixedDate = new Date() 
 
-                    bot.startMode = "Backtest"
-                    processConfig.framework.startDate.resumeExecution = false;
-                    global.STOP_PROCESSING = false
-                    bot.hasTheBotJustStarted = true
-
-                    /* If we can not get for any reason the initial date of the backtest, we will start at present time. */
-                    processConfig.framework.startDate.fixedDate = new Date() 
-
-                    /* If we received simulation params we use them instead. */
-                    if (global.DEFINITION.simulationParams) {
-                        if (global.DEFINITION.simulationParams.beginDatetime) {
-                            processConfig.framework.startDate.fixedDate = global.DEFINITION.simulationParams.beginDatetime
-                        }
+                /* If we received simulation params we use them instead. */
+                if (global.DEFINITION.simulationParams) {
+                    if (global.DEFINITION.simulationParams.beginDatetime) {
+                        processConfig.framework.startDate.fixedDate = global.DEFINITION.simulationParams.beginDatetime
                     }
+                }
 
-                    /* We finally will try to exctact the initial and final date for the backtest from the Definition */
-                    if (global.DEFINITION.tradingSystem !== undefined) {
-                        if (global.DEFINITION.tradingSystem.parameters !== undefined) {
-                            if (global.DEFINITION.tradingSystem.parameters.timeRange !== undefined) {
-                                if (global.DEFINITION.tradingSystem.parameters.timeRange.code !== undefined) {
-                                    try {
-                                        let code = JSON.parse(global.DEFINITION.tradingSystem.parameters.timeRange.code)
-                                        if (code.initialDatetime !== undefined) {
-                                            processConfig.framework.startDate.fixedDate = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
-                                        }
-                                        if (code.finalDatetime !== undefined) {
-                                            processConfig.framework.endDate.fixedDate = code.finalDatetime
-                                        }
-                                    } catch (err) {
-                                        global.DEFINITION.tradingSystem.parameters.timeRange.error = err.message
+                /* We finally will try to exctact the initial and final date for the backtest from the Definition */
+                if (global.DEFINITION.tradingSystem !== undefined) {
+                    if (global.DEFINITION.tradingSystem.parameters !== undefined) {
+                        if (global.DEFINITION.tradingSystem.parameters.timeRange !== undefined) {
+                            if (global.DEFINITION.tradingSystem.parameters.timeRange.code !== undefined) {
+                                try {
+                                    let code = JSON.parse(global.DEFINITION.tradingSystem.parameters.timeRange.code)
+                                    if (code.initialDatetime !== undefined) {
+                                        processConfig.framework.startDate.fixedDate = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
                                     }
+                                    if (code.finalDatetime !== undefined) {
+                                        processConfig.framework.endDate.fixedDate = code.finalDatetime
+                                    }
+                                } catch (err) {
+                                    global.DEFINITION.tradingSystem.parameters.timeRange.error = err.message
                                 }
                             }
                         }
                     }
                 }
+            }
 
-                function startLiveTrading() {
-                    /* Reload the definition in case something changed. */
-                    global.DEFINITION = require(process.env.INTER_PROCESS_FILES_PATH + '/Definition');
+            function startLiveTrading(message) {
 
-                    bot.startMode = "Live"
-                    processConfig.framework.startDate.fixedDate = new Date()
-                    processConfig.framework.startDate.resumeExecution = false;
-                    global.STOP_PROCESSING = false
-                    bot.hasTheBotJustStarted = true
-                }
+                /* We are going to run the Definition comming at the event. */
+                global.DEFINITION = JSON.parse(message.event.definition)
 
-                function stopRequested() {
-                    global.STOP_PROCESSING = true
-                }
+                bot.startMode = "Live"
+                processConfig.framework.startDate.fixedDate = new Date()
+                processConfig.framework.startDate.resumeExecution = false;
+                global.STOP_PROCESSING = false
+                bot.hasTheBotJustStarted = true
+            }
 
+            function stopRequested() {
+                global.STOP_PROCESSING = true
             }
 
             loop();

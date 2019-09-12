@@ -139,8 +139,9 @@ let notFirstSequence = false;
 
 /* Setting up the global Event Handler */
 
-const EVENT_HANDLER_MODULE =  require('../Libraries/SystemEventsClient/SystemEventHandler.js');
-global.SYSTEM_EVENT_HANDLER = EVENT_HANDLER_MODULE.newSystemEventHandler()
+const EVENT_HANDLER_MODULE = require('./SystemEventHandler.js');
+const IPC = require('node-ipc');
+global.SYSTEM_EVENT_HANDLER = EVENT_HANDLER_MODULE.newSystemEventHandler(IPC)
 global.SYSTEM_EVENT_HANDLER.initialize('Task Server', bootLoader)
 
 

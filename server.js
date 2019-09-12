@@ -98,7 +98,8 @@ global.TOTAL_PROCESS_INSTANCES_CREATED = 0
 process.on('message', message => {
     if (message === 'Stop this Task') {
 
-        process.env.STOP_GRACEFULLY = true;
+        global.STOP_TASK_GRACEFULLY = true;
+        global.STOP_PROCESSING = true
 
         /*
         There are some process that might no be able to end grafully, for example the ones schedulle to process information in a future day or month.
@@ -183,19 +184,13 @@ function startSequence() {
     for (let processIndex = 0; processIndex < global.USER_DEFINITION.bot.processes.length; processIndex++) {
         let execution = sequenceList[processIndex];
 
-        process.env.STOP_GRACEFULLY = false;
+        global.STOP_TASK_GRACEFULLY = false;
         execution.devTeam ? process.env.DEV_TEAM = execution.devTeam : undefined;
         execution.bot ? process.env.BOT = execution.bot : undefined;
         execution.resumeExecution = true;
         execution.type ? process.env.TYPE = execution.type : undefined;
         execution.process ? process.env.PROCESS = execution.process : undefined;
-        execution.startYear ? process.env.MIN_YEAR = execution.startYear : undefined;
-        execution.endYear ? process.env.MAX_YEAR = execution.endYear : undefined;
-        execution.month ? process.env.MONTH = execution.month : undefined;
-        execution.beginDatetime ? process.env.BEGIN_DATE_TIME = execution.beginDatetime : undefined;
-        execution.endDatetime ? process.env.END_DATE_TIME = execution.endDatetime : undefined;
-        execution.dataSet ? process.env.DATA_SET = execution.dataSet : undefined;
-        execution.timePeriod ? process.env.TIME_PERIOD = execution.timePeriod : undefined;
+
         execution.baseAsset ? process.env.BASE_ASSET = execution.baseAsset : undefined;
         execution.balanceAssetA ? process.env.INITIAL_BALANCE_ASSET_A = execution.balanceAssetA : undefined;
         execution.balanceAssetB ? process.env.INITIAL_BALANCE_ASSET_B = execution.balanceAssetB : undefined;
@@ -230,7 +225,6 @@ async function readExecutionConfiguration(execution, processIndex) {
     try {
         console.log("[INFO] Task Server -> server -> readExecutionConfiguration -> Entering function. ");
 
-        let timePeriodFilter
         let botProcess
 
         if (execution.type === 'Trading-Engine') {
@@ -241,23 +235,9 @@ async function readExecutionConfiguration(execution, processIndex) {
             }
 
             if (global.DEFINITION !== undefined) {
-                if (global.DEFINITION.simulationParams !== undefined) {
-
-                    /* Here we only look for one timePeriod, in the future we will be able to process the whole array, but not for now. */
-                    if (global.DEFINITION.simulationParams.timePeriodDailyArray !== undefined) {
-                        if (global.DEFINITION.simulationParams.timePeriodDailyArray.length === 1) {
-                            timePeriodFilter = global.DEFINITION.simulationParams.timePeriodDailyArray[0]
-                            botProcess = "Multi-Period"
-                        }
-                    }
-                    if (global.DEFINITION.simulationParams.timePeriodMarketArray !== undefined) {
-                        if (global.DEFINITION.simulationParams.timePeriodMarketArray.length === 1) {
-                            timePeriodFilter = global.DEFINITION.simulationParams.timePeriodMarketArray[0]
-                            botProcess = "Multi-Period"
-                        }
-                    }
-                }
-
+ 
+                 botProcess = "Multi-Period"
+ 
                 /* Get the initial balance from the global.DEFINITION */
                 let tradingSystem = global.DEFINITION.tradingSystem
 
@@ -312,24 +292,11 @@ async function readExecutionConfiguration(execution, processIndex) {
             process: botProcess,
             repo: global.CURRENT_BOT_REPO
         }
-
-        let timePeriod
-        if (timePeriodFilter === undefined) {
-            timePeriod = process.env.TIME_PERIOD
-        } else {
-            timePeriod = timePeriodFilter
-        }
-
+  
         global.EXECUTION_CONFIG = {
-            cloneToExecute: cloneToExecute,
-            timePeriod: getTimePeriod(timePeriod),
-            timePeriodFileStorage: timePeriod,
-            timePeriodFilter: timePeriodFilter,
-            dataSet: process.env.DATA_SET
+            cloneToExecute: cloneToExecute
         };
 
-        timePeriodFilter = undefined
-        timePeriod = undefined
 
         global.CLONE_EXECUTOR = {
             codeName: 'AACloud',

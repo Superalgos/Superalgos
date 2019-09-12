@@ -326,14 +326,10 @@
                             let dependencyIndex = 0;
                             dataFiles = [];
 
-                            let timePeriodFilter = global.EXECUTION_CONFIG.timePeriodFilter
-                            if (timePeriodFilter !== undefined) {
-                                if (timePeriodFilter.indexOf(outputPeriodLabel) > -1) {
-                                    currentTimePeriod = global.marketFilesPeriods[n][0];
-                                    currentOutputPeriodLabel = global.marketFilesPeriods[n][1];
-                                }
+                            if (global.DEFINITION.simulationParams.timePeriod === outputPeriodLabel) {
+                                currentTimePeriod = global.marketFilesPeriods[n][0];
+                                currentOutputPeriodLabel = global.marketFilesPeriods[n][1];
                             }
-
                             dependencyLoopBody();
 
                             function dependencyLoopBody() {
@@ -515,10 +511,56 @@
 
                             }
 
-                            periodsLoop();
+                            checkStopTaskGracefully();
 
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsDailyFiles -> advanceTime -> err = " + err.stack);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+
+                    function checkStopTaskGracefully() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> checkStopTaskGracefully -> Entering function."); }
+
+                            /* Validation that we dont need to stop. */
+
+                            if (global.STOP_TASK_GRACEFULLY === true) {
+
+                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                return;
+
+                            }
+
+                            checkStopProcessing();
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsDailyFiles -> checkStopTaskGracefully -> err = " + err.stack);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+
+                    function checkStopProcessing() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> checkStopProcessing -> Entering function."); }
+
+                            /* Validation that we dont need to stop. */
+
+                            if (global.STOP_PROCESSING === true) {
+
+                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                return;
+
+                            }
+
+                            periodsLoop();
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsDailyFiles -> checkStopProcessing -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -568,17 +610,13 @@
                                 }
                             }
 
-                            let timePeriodFilter = global.EXECUTION_CONFIG.timePeriodFilter
-                            if (timePeriodFilter !== undefined) {
-                                if (timePeriodFilter.indexOf(outputPeriodLabel) > -1) {
-                                    currentTimePeriod = global.dailyFilePeriods[n][0];
-                                    currentOutputPeriodLabel = global.dailyFilePeriods[n][1];
-                                }
+                            if (global.DEFINITION.simulationParams.timePeriod === outputPeriodLabel) {
+                                currentTimePeriod = global.dailyFilePeriods[n][0];
+                                currentOutputPeriodLabel = global.dailyFilePeriods[n][1];
                             }
 
                             let dependencyIndex = 0;
                             dataFiles = [];
-
                             dependencyLoopBody();
 
                             function dependencyLoopBody() {

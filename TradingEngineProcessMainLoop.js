@@ -94,7 +94,7 @@
             bot.enableCheckLoopHealth = true;
 
             let fixedTimeLoopIntervalHandle;
-            let skipProcessing = true;
+            global.STOP_PROCESSING = true;
 
             if (bot.runAtFixedInterval === true) {
 
@@ -112,12 +112,20 @@
 
                     bot.startMode = "Backtest"
                     processConfig.framework.startDate.resumeExecution = false;
-                    skipProcessing = false
+                    global.STOP_PROCESSING = false
                     bot.hasTheBotJustStarted = true
 
-                    /* We exctact the initial and final date for the backtest from the Definition */
-                    processConfig.framework.startDate.fixedDate = new Date() // If we can not get for any reason the initial date of the backtest, we will start at present time.
+                    /* If we can not get for any reason the initial date of the backtest, we will start at present time. */
+                    processConfig.framework.startDate.fixedDate = new Date() 
 
+                    /* If we received simulation params we use them instead. */
+                    if (global.DEFINITION.simulationParams) {
+                        if (global.DEFINITION.simulationParams.beginDatetime) {
+                            processConfig.framework.startDate.fixedDate = global.DEFINITION.simulationParams.beginDatetime
+                        }
+                    }
+
+                    /* We finally will try to exctact the initial and final date for the backtest from the Definition */
                     if (global.DEFINITION.tradingSystem !== undefined) {
                         if (global.DEFINITION.tradingSystem.parameters !== undefined) {
                             if (global.DEFINITION.tradingSystem.parameters.timeRange !== undefined) {
@@ -146,13 +154,14 @@
                     bot.startMode = "Live"
                     processConfig.framework.startDate.fixedDate = new Date()
                     processConfig.framework.startDate.resumeExecution = false;
-                    skipProcessing = false
+                    global.STOP_PROCESSING = false
                     bot.hasTheBotJustStarted = true
                 }
 
                 function stopRequested() {
-                    skipProcessing = true
+                    global.STOP_PROCESSING = true
                 }
+
             }
 
             loop();
@@ -203,7 +212,7 @@
                         + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8));
 
                     /* Checking if we should process this loop or not.*/
-                    if (skipProcessing === true) {
+                    if (global.STOP_PROCESSING === true) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start."); }
                         console.log("[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start.")
                         nextWaitTime = 'Normal';
@@ -998,11 +1007,7 @@
 
                     function checkLoopHealth(pLastLoop) {
 
-                        let stop = false
-                        if (process.env.STOP_GRACEFULLY !== undefined)
-                            stop = JSON.parse(process.env.STOP_GRACEFULLY)
-
-                        if (bot.enableCheckLoopHealth === false || stop === true) {
+                        if (bot.enableCheckLoopHealth === false || global.STOP_TASK_GRACEFULLY === true) {
 
                             logger.write(MODULE_NAME, "[WARN] run -> loop -> checkLoopHealth -> bot.enableCheckLoopHealth = " + bot.enableCheckLoopHealth);
 
@@ -1038,11 +1043,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> shallWeStop -> Entering function. "); }
 
-                            let stop = false
-                            if (process.env.STOP_GRACEFULLY !== undefined)
-                                stop = JSON.parse(process.env.STOP_GRACEFULLY)
-
-                            if (!stop) {
+                            if (!global.STOP_TASK_GRACEFULLY) {
                                 continueCallBack();
                             } else {
                                 stopCallBack();

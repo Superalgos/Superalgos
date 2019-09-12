@@ -858,11 +858,7 @@
 
                     function checkLoopHealth(pLastLoop) {
 
-                        let stop = false
-                        if (process.env.STOP_GRACEFULLY !== undefined)
-                            stop = JSON.parse(process.env.STOP_GRACEFULLY)
-
-                        if (bot.enableCheckLoopHealth === false || stop === true) {
+                        if (bot.enableCheckLoopHealth === false || global.STOP_TASK_GRACEFULLY === true) {
 
                             logger.write(MODULE_NAME, "[WARN] run -> loop -> checkLoopHealth -> bot.enableCheckLoopHealth = " + bot.enableCheckLoopHealth);
 
@@ -898,11 +894,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> shallWeStop -> Entering function. "); }
 
-                            let stop = false
-                            if (process.env.STOP_GRACEFULLY !== undefined)
-                                stop = JSON.parse(process.env.STOP_GRACEFULLY)
-
-                            if (!stop) {
+                            if (!global.STOP_TASK_GRACEFULLY) {
                                 continueCallBack();
                             } else {
                                 stopCallBack();

@@ -2,7 +2,7 @@
 
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Indicator Bot Process Main Loop";
+    const MODULE_NAME = "Indicator Process Main Loop";
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;
@@ -119,6 +119,9 @@
                     bot.loopStartTime = new Date().valueOf();
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Entering function."); }
+
+                    /* Loop Heartbeat sent to the UI */
+                    hearBeat() 
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
@@ -791,6 +794,10 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Entering function."); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime); }
 
+                        /* We show we reached the end of the loop. */
+
+                        hearBeat()
+
                         /* Here we check if we must stop the loop gracefully. */
 
                         shallWeStop(onStop, onContinue);
@@ -801,7 +808,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!"); }
 
-                            if(global.FULL_LOG === 'true'){
+                            if(global.WRITE_LOGS_TO_FILES === 'true'){
                                 logger.persist();
                             }
 
@@ -819,9 +826,9 @@
                             switch (nextWaitTime) {
                                 case 'Normal': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                                    checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
+                                    checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime * 5, bot.loopCounter);
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
-                                    if(global.FULL_LOG === 'true'){
+                                    if(global.WRITE_LOGS_TO_FILES === 'true'){
                                         logger.persist();
                                     }
                                 }
@@ -851,7 +858,7 @@
 
                     function checkLoopHealth(pLastLoop) {
 
-                        if (bot.enableCheckLoopHealth === false) {
+                        if (bot.enableCheckLoopHealth === false || global.STOP_TASK_GRACEFULLY === true) {
 
                             logger.write(MODULE_NAME, "[WARN] run -> loop -> checkLoopHealth -> bot.enableCheckLoopHealth = " + bot.enableCheckLoopHealth);
 
@@ -862,7 +869,7 @@
 
                             let now = new Date().valueOf();
 
-                            if (now - bot.loopStartTime > processConfig.normalWaitTime) {
+                            if (now - bot.loopStartTime > processConfig.deadWaitTime) {
 
                                 logger.write(MODULE_NAME, "[ERROR] run -> loop -> checkLoopHealth -> Dead loop found -> pLastLoop = " + pLastLoop);
                                 console.log((new Date().toISOString() + " [ERROR] run -> loop -> checkLoopHealth -> " + pad(bot.codeName,20) + " " + pad(bot.process,30) + " Loop # " + pad(Number(bot.loopCounter),5) + " found dead. Resurrecting it now."));
@@ -887,11 +894,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> shallWeStop -> Entering function. "); }
 
-                            let stop = false
-                            if (process.env.STOP_GRACEFULLY !== undefined)
-                                stop = JSON.parse(process.env.STOP_GRACEFULLY)
-
-                            if (!stop && global.SHALL_BOT_STOP === false) {
+                            if (!global.STOP_TASK_GRACEFULLY) {
                                 continueCallBack();
                             } else {
                                 stopCallBack();
@@ -915,6 +918,15 @@
                     bot.enableCheckLoopHealth = false;
                     callBackFunction(err);
                 }
+            }
+
+            function hearBeat() {
+                let key = global.USER_DEFINITION.bot.processes[bot.processIndex].name + '-' + global.USER_DEFINITION.bot.processes[bot.processIndex].type + '-' + global.USER_DEFINITION.bot.processes[bot.processIndex].id
+
+                let event = {
+                    seconds: (new Date()).getSeconds()
+                }
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
             }
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] run -> err = "+ err.stack);

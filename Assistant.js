@@ -1,9 +1,7 @@
 ﻿exports.newAssistant = function newAssistant(BOT, logger, UTILITIES) {
 
     /*
-
-    This module allows trading bots to execute actions on the exchange, and also on its current recorded state.
-
+    This module allows trading bots to execute actions on the exchange.
     */
 
     const MODULE_NAME = "Assistant";
@@ -18,7 +16,7 @@
         getPositions: getPositions,
         getBalance: getBalance,
         getAvailableBalance: getAvailableBalance,
-        getInvestment: getInvestment,
+        getInitialBalance: getInitialBalance,
         getProfits: getProfits,
         getCombinedProfits: getCombinedProfits,
         getROI: getROI,
@@ -65,7 +63,8 @@
                 }
 
                 case 'Backtest': {
-                    getMarketRateFromIndicator();
+                    // getMarketRateFromIndicator(); NOTE: This path is disabled since for now we do not allow ticker in simulation. Also it allow us to ship a dataset without bruce
+                    validateExchangeSyncronicity();
                     break;
                 }
 
@@ -114,13 +113,13 @@
                             validateExchangeSyncronicity();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> onTicker -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> onTicker -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -158,12 +157,12 @@
                         let candleArray;
 
                         if (err.result === global.CUSTOM_FAIL_RESPONSE.result || err.code === "The specified key does not exist." || err.message === "File does not exist.") {  // Just past midnight, this file will not exist for a couple of minutes.
-                           
+
                             logger.write(MODULE_NAME, "[WARN] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + JSON.stringify(err));
                             logger.write(MODULE_NAME, "[WARN] initialize -> getMarketRateFromIndicator -> This could happen when there are still holes on trades and the process needs to catch up. ");
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
-                          
+
                         }
 
                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
@@ -213,7 +212,7 @@
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -255,13 +254,13 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -274,15 +273,15 @@
 
                     /* Calculate Profits */
 
-                    if (context.executionContext.investment.assetA > 0) {
+                    if (context.executionContext.initialBalance.assetA > 0) {
 
-                        context.executionContext.profits.assetA = (thisObject.truncDecimals(context.executionContext.balance.assetA) - thisObject.truncDecimals(context.executionContext.investment.assetA)) / thisObject.truncDecimals(context.executionContext.investment.assetA);
+                        context.executionContext.profits.assetA = (thisObject.truncDecimals(context.executionContext.balance.assetA) - thisObject.truncDecimals(context.executionContext.initialBalance.assetA)) / thisObject.truncDecimals(context.executionContext.initialBalance.assetA);
                         context.executionContext.profits.assetA = thisObject.truncDecimals(context.executionContext.profits.assetA);
                     }
 
-                    if (context.executionContext.investment.assetB > 0) {
+                    if (context.executionContext.initialBalance.assetB > 0) {
 
-                        context.executionContext.profits.assetB = (thisObject.truncDecimals(context.executionContext.balance.assetB) - thisObject.truncDecimals(context.executionContext.investment.assetB)) / thisObject.truncDecimals(context.executionContext.investment.assetB);
+                        context.executionContext.profits.assetB = (thisObject.truncDecimals(context.executionContext.balance.assetB) - thisObject.truncDecimals(context.executionContext.initialBalance.assetB)) / thisObject.truncDecimals(context.executionContext.initialBalance.assetB);
                         context.executionContext.profits.assetB = thisObject.truncDecimals(context.executionContext.profits.assetB);
                     }
 
@@ -291,21 +290,21 @@
 
                     /* Calculate Combined Profits */
 
-                    if (context.executionContext.investment.assetA > 0) {
+                    if (context.executionContext.initialBalance.assetA > 0) {
 
-                        let convertedAssetsB = (thisObject.truncDecimals(context.executionContext.balance.assetB) - thisObject.truncDecimals(context.executionContext.investment.assetB)) * marketRate;
+                        let convertedAssetsB = (thisObject.truncDecimals(context.executionContext.balance.assetB) - thisObject.truncDecimals(context.executionContext.initialBalance.assetB)) * marketRate;
                         convertedAssetsB = thisObject.truncDecimals(convertedAssetsB);
 
-                        context.executionContext.combinedProfits.assetA = (thisObject.truncDecimals(context.executionContext.balance.assetA) + convertedAssetsB - thisObject.truncDecimals(context.executionContext.investment.assetA)) / thisObject.truncDecimals(context.executionContext.investment.assetA) * 100;
+                        context.executionContext.combinedProfits.assetA = (thisObject.truncDecimals(context.executionContext.balance.assetA) + convertedAssetsB - thisObject.truncDecimals(context.executionContext.initialBalance.assetA)) / thisObject.truncDecimals(context.executionContext.initialBalance.assetA) * 100;
                         context.executionContext.combinedProfits.assetA = thisObject.truncDecimals(context.executionContext.combinedProfits.assetA);
                     }
 
-                    if (context.executionContext.investment.assetB > 0) {
+                    if (context.executionContext.initialBalance.assetB > 0) {
 
-                        let convertedAssetsA = (thisObject.truncDecimals(context.executionContext.balance.assetA) - thisObject.truncDecimals(context.executionContext.investment.assetA)) / marketRate;
+                        let convertedAssetsA = (thisObject.truncDecimals(context.executionContext.balance.assetA) - thisObject.truncDecimals(context.executionContext.initialBalance.assetA)) / marketRate;
                         convertedAssetsA = thisObject.truncDecimals(convertedAssetsA);
 
-                        context.executionContext.combinedProfits.assetB = (thisObject.truncDecimals(context.executionContext.balance.assetB) + convertedAssetsA - thisObject.truncDecimals(context.executionContext.investment.assetB)) / thisObject.truncDecimals(context.executionContext.investment.assetB) * 100;
+                        context.executionContext.combinedProfits.assetB = (thisObject.truncDecimals(context.executionContext.balance.assetB) + convertedAssetsA - thisObject.truncDecimals(context.executionContext.initialBalance.assetB)) / thisObject.truncDecimals(context.executionContext.initialBalance.assetB) * 100;
                         context.executionContext.combinedProfits.assetB = thisObject.truncDecimals(context.executionContext.combinedProfits.assetB);
                     }
 
@@ -315,14 +314,14 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> calculateProfits -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> calculateProfits -> err = " + err.stack);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -401,7 +400,7 @@
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> err = " + err.stack);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -418,7 +417,7 @@
             actions. Reasons why the positions might not be there are:
 
             1. The user / account owner closed the positions manually.
-            2. The exchange for some eventuality closed the positions. In some exchanges positions have an expiration time.
+            2. The exchange for some reason closed the positions. In some exchanges positions have an expiration time.
             3. The orders were executed.
 
             Situations 1 and 2 are similar unexpected and we will stop the bot execution when we detect them. Number 3 is an
@@ -563,17 +562,17 @@
 
                                         if (thisPosition.id === pPositionId) {
 
-											let feeRate = 0.002; 		// Default backtesting fee simulation
+                                            let feeRate = 0.002; 		// Default backtesting fee simulation
 
-											let trade = {
-												id: Math.trunc(Math.random(1) * 1000000),
-												type: thisPosition.type,
-												rate: thisPosition.rate.toString(),
+                                            let trade = {
+                                                id: Math.trunc(Math.random(1) * 1000000),
+                                                type: thisPosition.type,
+                                                rate: thisPosition.rate.toString(),
                                                 amountA: thisObject.truncDecimals(thisPosition.amountA).toString(),
                                                 amountB: thisObject.truncDecimals(thisPosition.amountB).toString(),
                                                 fee: thisObject.truncDecimals(feeRate).toString(),
-												date: (new Date()).valueOf()
-											}
+                                                date: (new Date()).valueOf()
+                                            }
 
                                             trades.push(trade);
 
@@ -628,12 +627,12 @@
                                             break;
                                     }
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = "+ err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = " + err.stack);
                                     callBack(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err.stack);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -658,7 +657,7 @@
                             let sumRate = 0;
 
                             for (let k = 0; k < pTrades.length; k++) {
-								let trade = pTrades[k];
+                                let trade = pTrades[k];
                                 sumAssetA = sumAssetA + thisObject.truncDecimals(trade.amountA);
                                 sumAssetB = sumAssetB + thisObject.truncDecimals(trade.amountB);
                                 sumRate = sumRate + thisObject.truncDecimals(trade.rate);
@@ -706,7 +705,7 @@
                             next();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.stack);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -728,8 +727,8 @@
                             let sumAssetA = 0;
                             let sumAssetB = 0;
 
-							for (let k = 0; k < pTrades.length; k++) {
-								let trade = pTrades[k];
+                            for (let k = 0; k < pTrades.length; k++) {
+                                let trade = pTrades[k];
                                 sumAssetA = sumAssetA + thisObject.truncDecimals(trade.amountA);
                                 sumAssetB = sumAssetB + thisObject.truncDecimals(trade.amountB);
                             }
@@ -751,7 +750,7 @@
                              */
 
                             let exchangeParam = exchangeAPI.getMaxDecimalPositions();
-                            let minValue = '0.' + (1).toPrecision(exchangeParam-1).split('.').reverse().join('');
+                            let minValue = '0.' + (1).toPrecision(exchangeParam - 1).split('.').reverse().join('');
                             let exchangePrecision = parseFloat(parseFloat(minValue).toFixed(exchangeParam));
 
                             if (Math.abs(position.amountA - sumAssetA) > exchangePrecision || Math.abs(position.amountB - sumAssetB) > exchangePrecision) {
@@ -792,7 +791,7 @@
                             next();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = " + err.stack);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -859,7 +858,7 @@
                                     context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA + assetA);
                                     context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB - assetB);
 
-				                    context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA + assetA);
+                                    context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA + assetA);
 
                                     /* Not the available balance for asset B is not affected since it was already reduced when the order was placed. */
 
@@ -867,14 +866,14 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> applyTradesToContext -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> applyTradesToContext -> err = " + err.stack);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> err = " + err.stack);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -913,7 +912,7 @@
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> err = " + err.stack);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1077,12 +1076,12 @@
                             break;
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] putPosition -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] putPosition -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1201,12 +1200,12 @@
                             break;
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1276,12 +1275,12 @@
         return JSON.parse(JSON.stringify(context.executionContext.availableBalance));
     }
 
-    function getInvestment() {
+    function getInitialBalance() {
 
-        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getInvestment -> Entering function."); }
-        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getInvestment -> JSON.stringify(context.executionContext.investment) = " + JSON.stringify(context.executionContext.investment)); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getInitialBalance -> Entering function."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getInitialBalance -> JSON.stringify(context.executionContext.initialBalance) = " + JSON.stringify(context.executionContext.initialBalance)); }
 
-        return JSON.parse(JSON.stringify(context.executionContext.investment));
+        return JSON.parse(JSON.stringify(context.executionContext.initialBalance));
     }
 
     function getProfits() {
@@ -1311,8 +1310,8 @@
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getROI -> Entering function."); }
 
         let ROI = {
-            assetA: (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / context.executionContext.investment.assetA * 100,
-            assetB: (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB * 100
+            assetA: (context.executionContext.balance.assetA - context.executionContext.initialBalance.assetA) / context.executionContext.initialBalance.assetA * 100,
+            assetB: (context.executionContext.balance.assetB - context.executionContext.initialBalance.assetB) / context.executionContext.initialBalance.assetB * 100
         }
 
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getROI -> JSON.stringify(ROI) = " + JSON.stringify(ROI)); }
@@ -1332,33 +1331,22 @@
         let runIndex = context.statusReport.runs.length - 1;
 
         context.newHistoryRecord.messageRelevance = pRelevance;
-        context.newHistoryRecord.messageTitle = bot.startMode + "." + runIndex +": "+ pTitle;
+        context.newHistoryRecord.messageTitle = bot.startMode + "." + runIndex + ": " + pTitle;
         context.newHistoryRecord.messageBody = pBody;
-
     }
 
     function rememberThis(pKey, pValue) {
-
         if (context.executionContext.remember === undefined) {
-
             context.executionContext.remember = {};
-
         }
-
         context.executionContext.remember[pKey] = pValue;
-
     }
 
     function remindMeOf(pKey) {
-
         if (context.executionContext.remember === undefined) {
-
             context.executionContext.remember = {};
-
         }
-
         return context.executionContext.remember[pKey];
-
     }
 
     function sendEmail(pTitle, pBody, pTo) {
@@ -1367,15 +1355,11 @@
     }
 
     function addExtraData(pExtraDataArray) {
-
         context.extraData.push(pExtraDataArray);
     }
 
     function truncDecimals(pFloatValue, pDecimals) {
-
         if (!pDecimals) pDecimals = 8; // Default value
-
         return parseFloat(parseFloat(pFloatValue).toFixed(pDecimals));
-
     }
 };

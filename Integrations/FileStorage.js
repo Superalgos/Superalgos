@@ -40,7 +40,7 @@ exports.newFileStorage = function newFileStorage(logger) {
       if (logger) {
           logger.write(MODULE_NAME, message);
       } else {
-          console.log("['" + new Date().toISOString() + "', 0,'" + MODULE_NAME + "','" + message + "']")
+          //console.log("['" + new Date().toISOString() + "', 0,'" + MODULE_NAME + "','" + message + "']")
       }
   }
 
@@ -64,7 +64,7 @@ exports.newFileStorage = function newFileStorage(logger) {
           }
           
           logInfo('getTextFile: ' + fileLocation)
-          console.log('getTextFile: ' + fileLocation)
+          //console.log('getTextFile: ' + fileLocation)
 
         let fileContent = await readFileAsync(fileLocation)
         callBackFunction(global.DEFAULT_OK_RESPONSE, fileContent.toString())
@@ -130,7 +130,7 @@ exports.newFileStorage = function newFileStorage(logger) {
           }
 
           logInfo('createTextFile: ' + fileLocation)
-          console.log('createTextFile: ' + fileLocation)
+          //console.log('createTextFile: ' + fileLocation)
 
         let directoryPath = fileLocation.substring(0, fileLocation.lastIndexOf('/') + 1);
         mkDirByPathSync(directoryPath)

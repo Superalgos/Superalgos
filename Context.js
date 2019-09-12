@@ -304,24 +304,24 @@
 
                     thisObject.executionHistory = [];
 
-                    if (process.env.INITIAL_BALANCE_ASSET_A === undefined || process.env.INITIAL_BALANCE_ASSET_B === undefined) { throw new Error("Environment Variables INITIAL_INVESTMENT_A and INITIAL_INVESTMENT_B cannot be undefined.") }
+                    if (process.env.INITIAL_BALANCE_ASSET_A === undefined || process.env.INITIAL_BALANCE_ASSET_B === undefined) { throw new Error("Environment Variables INITIAL_BALANCE_A and INITIAL_BALANCE_B cannot be undefined.") }
 
-					const INITIAL_INVESTMENT_A = Number(process.env.INITIAL_BALANCE_ASSET_A);
-                    const INITIAL_INVESTMENT_B = Number(process.env.INITIAL_BALANCE_ASSET_B);
+					const INITIAL_BALANCE_A = Number(process.env.INITIAL_BALANCE_ASSET_A);
+                    const INITIAL_BALANCE_B = Number(process.env.INITIAL_BALANCE_ASSET_B);
 
 
                     thisObject.executionContext = {
-                        investment: {                               // This is used to calculate profits.
-                            assetA: INITIAL_INVESTMENT_A,
-                            assetB: INITIAL_INVESTMENT_B
+                        initialBalance: {                               // This is used to calculate profits.
+                            assetA: INITIAL_BALANCE_A,
+                            assetB: INITIAL_BALANCE_B
                         },
                         balance: {                                  // This is the total balance that includes positions at the order book + funds available to be traded.
-                            assetA: INITIAL_INVESTMENT_A,
-                            assetB: INITIAL_INVESTMENT_B              // It starts with the initial investment.
+                            assetA: INITIAL_BALANCE_A,
+                            assetB: INITIAL_BALANCE_B              // It starts with the initial initialBalance.
                         },
                         availableBalance: {                         // This is the balance the bot has at any moment in time available to be traded (not in positions at the order book).
-                            assetA: INITIAL_INVESTMENT_A,
-                            assetB: INITIAL_INVESTMENT_B              // It starts with the initial investment.
+                            assetA: INITIAL_BALANCE_A,
+                            assetB: INITIAL_BALANCE_B              // It starts with the initial initialBalance.
                         },
                         profits: {
                             assetA: 0,

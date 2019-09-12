@@ -54,7 +54,49 @@
 
                 timePath = "/" + year + "/" + month;
             }
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+            if (owner.waitUntilNextUpdate === true) {
+                /* This forces this process to wait until the process that this one depends on, updates its status report. */
+
+                let extraCallerId = ''
+                if (pMonth) { extraCallerId = extraCallerId + '-' + pMonth }
+                if (pYear) { extraCallerId = extraCallerId + '-' + pYear }
+
+                let key = owner.devTeam + "-" + owner.bot + "-" + owner.process
+                let callerId = bot.devTeam + "-" + bot.codeName + "-" + bot.process + extraCallerId
+
+                let subscriptionIdStatusReport
+
+                subscriptionIdStatusReport = global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Status Report Updated', undefined, callerId, responseCallBack, eventsCallBack)
+
+                function responseCallBack(message) {
+                    if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        logger.write(MODULE_NAME, "[ERROR] initialize -> Could not register event listener for event 'Status Report Updated' -> Message = " + message);
+                        let event = {
+                            reason: 'This process depends on ' + key + ' which is currently not running.'
+                        }
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Process Terminated', event)
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    }
+                }
+
+                function eventsCallBack() {
+                    /* We continue the normal flow after we learn the dependent process has updated its status report. */
+                    stopListening()
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                }
+
+                function stopListening() {
+                    if (subscriptionIdStatusReport) {
+                        stopListening(key, 'Status Report Updated', subscriptionIdStatusReport)
+                    }
+                }
+
+            } else {
+                /* In this case, the Status Report does not depends on a process which needs to wait for. */
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+            }
+
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -198,6 +240,10 @@
                 if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
                     logger.write(MODULE_NAME, "[INFO] save -> onFileCreated ->  Content written = " + fileContent);
                 }
+
+                /* Here we raise the event stating that this status report was updated. */
+                let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Status Report Updated')
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                 return;

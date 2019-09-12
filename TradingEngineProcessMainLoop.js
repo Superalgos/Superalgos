@@ -10,7 +10,9 @@
 
     const MULTI_PERIOD_MARKET = require(ROOT_DIR + 'MultiPeriodMarket');
     const MULTI_PERIOD_DAILY = require(ROOT_DIR + 'MultiPeriodDaily');
+    const MULTI_PERIOD = require(ROOT_DIR + 'MultiPeriod');
     const FILE_STORAGE = require('./Integrations/FileStorage.js');
+  
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
@@ -54,7 +56,7 @@
                 }
 
                 USER_BOT_MODULE = {}
-                //USER_BOT_MODULE.newUserBot = require(ROOT_DIR + 'User.Bot').newUserBot // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
+                //USER_BOT_MODULE.newUserBot = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Multi-Period/User.Bot').newUserBot // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
                 USER_BOT_MODULE.newUserBot = eval(text); // Use this for production
 
                 filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
@@ -69,8 +71,9 @@
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                         return;
                     }
+
                     COMMONS_MODULE = {}
-                    //COMMONS_MODULE.newCommons = require(ROOT_DIR + 'Commons').newCommons // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
+                    //COMMONS_MODULE.newCommons = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Commons').newCommons // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
                     COMMONS_MODULE.newCommons = eval(text); // Use this for production
 
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -91,16 +94,71 @@
             bot.enableCheckLoopHealth = true;
 
             let fixedTimeLoopIntervalHandle;
+            global.STOP_PROCESSING = true;
 
-            if (bot.runAtFixedInterval === true) {
+            global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Backstesting Started', undefined, undefined, undefined, startBackTesting)
+            global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Live-Trading Started', undefined, undefined, undefined, startLiveTrading)
+            global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Stop Requested', undefined, undefined, undefined, stopRequested)
 
-                fixedTimeLoopIntervalHandle = setInterval(loop, bot.fixedInterval);
+            function startBackTesting(message) {
 
-            } else {
+                /* We are going to run the Definition comming at the event. */
+                global.DEFINITION = JSON.parse(message.event.definition)
 
-                loop();
+                bot.startMode = "Backtest"
+                processConfig.framework.startDate.resumeExecution = false;
+                global.STOP_PROCESSING = false
+                bot.hasTheBotJustStarted = true
 
+                /* If we can not get for any reason the initial date of the backtest, we will start at present time. */
+                processConfig.framework.startDate.fixedDate = new Date() 
+
+                /* If we received simulation params we use them instead. */
+                if (global.DEFINITION.simulationParams) {
+                    if (global.DEFINITION.simulationParams.beginDatetime) {
+                        processConfig.framework.startDate.fixedDate = global.DEFINITION.simulationParams.beginDatetime
+                    }
+                }
+
+                /* We finally will try to exctact the initial and final date for the backtest from the Definition */
+                if (global.DEFINITION.tradingSystem !== undefined) {
+                    if (global.DEFINITION.tradingSystem.parameters !== undefined) {
+                        if (global.DEFINITION.tradingSystem.parameters.timeRange !== undefined) {
+                            if (global.DEFINITION.tradingSystem.parameters.timeRange.code !== undefined) {
+                                try {
+                                    let code = JSON.parse(global.DEFINITION.tradingSystem.parameters.timeRange.code)
+                                    if (code.initialDatetime !== undefined) {
+                                        processConfig.framework.startDate.fixedDate = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
+                                    }
+                                    if (code.finalDatetime !== undefined) {
+                                        processConfig.framework.endDate.fixedDate = code.finalDatetime
+                                    }
+                                } catch (err) {
+                                    global.DEFINITION.tradingSystem.parameters.timeRange.error = err.message
+                                }
+                            }
+                        }
+                    }
+                }
             }
+
+            function startLiveTrading(message) {
+
+                /* We are going to run the Definition comming at the event. */
+                global.DEFINITION = JSON.parse(message.event.definition)
+
+                bot.startMode = "Live"
+                processConfig.framework.startDate.fixedDate = new Date()
+                processConfig.framework.startDate.resumeExecution = false;
+                global.STOP_PROCESSING = false
+                bot.hasTheBotJustStarted = true
+            }
+
+            function stopRequested() {
+                global.STOP_PROCESSING = true
+            }
+
+            loop();
 
             function loop() {
 
@@ -122,6 +180,11 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Entering function."); }
 
+                    let nextWaitTime;
+
+                    /* Loop Heartbeat sent to the UI */
+                    hearBeat() 
+
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
@@ -142,14 +205,21 @@
                     console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
                         + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8));
 
+                    /* Checking if we should process this loop or not.*/
+                    if (global.STOP_PROCESSING === true) {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start."); }
+                        console.log("[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start.")
+                        nextWaitTime = 'Normal';
+                        loopControl(nextWaitTime);
+                        return
+                    }
+
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
                     let userBot;
                     let processFramework;
                     let statusDependencies;
                     let dataDependencies;
-
-                    let nextWaitTime;
 
                     initializeStatusDependencies();
 
@@ -482,6 +552,11 @@
                                                 }
                                                 case 'Multi-Period-Daily': {
                                                     processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(bot, logger, COMMONS_MODULE, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE);
+                                                    intitializeProcessFramework();
+                                                    break;
+                                                }
+                                                case 'Multi-Period': {
+                                                    processFramework = MULTI_PERIOD.newMultiPeriod(bot, logger, COMMONS_MODULE, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
@@ -862,6 +937,10 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Entering function."); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime); }
 
+                        /* We show we reached the end of the loop. */
+
+                        hearBeat()
+
                         /* Here we check if we must stop the loop gracefully. */
 
                         shallWeStop(onStop, onContinue);
@@ -872,7 +951,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!"); }
 
-                            if (global.FULL_LOG === 'true') {
+                            if (global.WRITE_LOGS_TO_FILES === 'true') {
                                 logger.persist();
                             }
 
@@ -890,9 +969,9 @@
                             switch (nextWaitTime) {
                                 case 'Normal': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                                    checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
+                                    checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime * 5, bot.loopCounter);
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
-                                    if (global.FULL_LOG === 'true') {
+                                    if (global.WRITE_LOGS_TO_FILES === 'true') {
                                         logger.persist();
                                     }
                                 }
@@ -922,7 +1001,7 @@
 
                     function checkLoopHealth(pLastLoop) {
 
-                        if (bot.enableCheckLoopHealth === false) {
+                        if (bot.enableCheckLoopHealth === false || global.STOP_TASK_GRACEFULLY === true) {
 
                             logger.write(MODULE_NAME, "[WARN] run -> loop -> checkLoopHealth -> bot.enableCheckLoopHealth = " + bot.enableCheckLoopHealth);
 
@@ -933,7 +1012,7 @@
 
                             let now = new Date().valueOf();
 
-                            if (now - bot.loopStartTime > processConfig.normalWaitTime) {
+                            if (now - bot.loopStartTime > processConfig.deadWaitTime) {
 
                                 logger.write(MODULE_NAME, "[ERROR] run -> loop -> checkLoopHealth -> Dead loop found -> pLastLoop = " + pLastLoop);
                                 console.log((new Date().toISOString() + " [ERROR] run -> loop -> checkLoopHealth -> " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " Loop # " + pad(Number(bot.loopCounter), 5) + " found dead. Resurrecting it now."));
@@ -958,11 +1037,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> shallWeStop -> Entering function. "); }
 
-                            let stop = false
-                            if (process.env.STOP_GRACEFULLY !== undefined)
-                                stop = JSON.parse(process.env.STOP_GRACEFULLY)
-
-                            if (!stop && global.SHALL_BOT_STOP === false) {
+                            if (!global.STOP_TASK_GRACEFULLY) {
                                 continueCallBack();
                             } else {
                                 stopCallBack();
@@ -987,6 +1062,15 @@
                     bot.enableCheckLoopHealth = false;
                     callBackFunction(err);
                 }
+            }
+
+            function hearBeat() {
+                let key = global.USER_DEFINITION.bot.processes[bot.processIndex].name + '-' + global.USER_DEFINITION.bot.processes[bot.processIndex].type + '-' + global.USER_DEFINITION.bot.processes[bot.processIndex].id
+
+                let event = {
+                    seconds: (new Date()).getSeconds()
+                }
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
             }
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] run -> err = "+ err.stack);

@@ -108,7 +108,7 @@ function newStrategizerGateway () {
         return
       }
 
-      let tradingSystem = canvas.strategySpace.workspace.getProtocolTradingSystem()
+      let tradingSystem = canvas.strategySpace.workspace.getProtocolDefinitionNode()
       if (tradingSystem === undefined || tradingSystem === null) {
         logger.write('[ERROR] saveToStrategyzer -> Can not save when tradingSystem is null or undefined.')
         return

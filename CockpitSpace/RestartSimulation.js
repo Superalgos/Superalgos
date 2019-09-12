@@ -73,7 +73,7 @@ function newRestartSimulation () {
     function onEvent (message) {
       refreshCounter++
 
-      if (refreshCounter === 3) {
+      if (refreshCounter === 1) {
         refreshCounter = 0
         turnOffProductCards()
         turnOnProductCards()
@@ -125,9 +125,15 @@ function newRestartSimulation () {
                 logger.write('[ERROR] Restart Simulation -> Can not delete Logs and Simulation data. err = ' + err.messsage)
               }
             }
-            systemEventHandler.raiseEvent('Cockpit-Restart-Button', 'Live-Trading Started')
+            let event = {
+              definition: getDefinition()
+            }
+            systemEventHandler.raiseEvent('Cockpit-Restart-Button', 'Live-Trading Started', event)
           } else {
-            systemEventHandler.raiseEvent('Cockpit-Restart-Button', 'Backstesting Started')
+            let event = {
+              definition: getDefinition()
+            }
+            systemEventHandler.raiseEvent('Cockpit-Restart-Button', 'Backstesting Started', event)
           }
 
           thisObject.status = 'Calculating'
@@ -144,6 +150,12 @@ function newRestartSimulation () {
       thisObject.status = 'Error'
       counterTillNextState = 500
     }
+  }
+
+  function getDefinition () {
+    let definitionNode = canvas.strategySpace.workspace.getProtocolDefinitionNode()
+    definitionNode.simulationParams = getSimulationParams()
+    return JSON.stringify(definitionNode)
   }
 
   function turnOffProductCards () {

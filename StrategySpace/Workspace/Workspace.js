@@ -11,7 +11,7 @@ function newWorkspace () {
     enabled: false,
     nodeChildren: undefined,
     onMenuItemClick: onMenuItemClick,
-    getProtocolTradingSystem: getProtocolTradingSystem,
+    getProtocolDefinitionNode: getProtocolDefinitionNode,
     physics: physics,
     spawn: spawn,
     detachNode: detachNode,
@@ -98,8 +98,8 @@ function newWorkspace () {
     }
   }
 
-  function getProtocolTradingSystem () {
-    return functionLibraryProtocolNode.getProtocolNode(thisObject.definition)
+  function getProtocolDefinitionNode () {
+    return functionLibraryProtocolNode.getProtocolNode(thisObject.definition, false, true, true) // <-  We need to do this workaround in order no to send unescaped charactars through a system event.
   }
 
   function detachNode (node) {

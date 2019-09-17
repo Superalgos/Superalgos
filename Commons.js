@@ -590,6 +590,11 @@
 
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
             let i
+
+            /* For Loop Level heartbeat */
+            let loopingDay
+            let previousLoopingDay
+
             initializeLoop()
 
             function initializeLoop() {
@@ -665,6 +670,17 @@
                     ask: candle.close,
                     last: candle.close
                 }
+
+                /* We will produce a simulation level heartbeat in order to inform the user this is running. */
+
+                loopingDay = new Date(Math.trunc(candle.begin / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
+                if (loopingDay.valueOf() !== previousLoopingDay) {
+                    if (FULL_LOG === true) {logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Simulation Loop # " + i + " @ " + (loopingDay.toLocaleString()))}
+                    console.log("Jason -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation Loop # " + i + " @ " + (loopingDay.toLocaleString())) 
+
+                    bot.hearBeat() // tell the world we are alive and doing well
+                }
+                previousLoopingDay = loopingDay.valueOf()
 
                 /* If any of the needed indicators is missing, then that period is not calculated */
 
@@ -2708,9 +2724,19 @@
 
             function controlLoop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> Entering function."); }
+
+                /* Checking if we should continue processing this loop or not.*/
+                if (global.STOP_PROCESSING === true) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing."); }
+                    console.log("[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing.")
+                    afterLoop()
+                    return
+                }
+
                 i++
                 if (i < candles.length) {
-                    process.nextTick(loop)
+                    // process.nextTick(loop)
+                    setTimeout(loop, 100)
                 } else {
                     afterLoop()
                 }

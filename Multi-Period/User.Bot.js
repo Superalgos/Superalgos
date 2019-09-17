@@ -481,6 +481,9 @@
 
                                 }
 
+                                /* Emit event that signals that simulation files were updated */
+                                global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Simulation Files Updated')
+
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                             }
@@ -955,6 +958,9 @@
                                     return;
 
                                 }
+
+                                /* Emit event that signals that simulation files were updated */
+                                global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Simulation Files Updated')
 
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
 

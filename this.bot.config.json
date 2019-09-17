@@ -40,7 +40,7 @@
           "01-min"
         ],
         "startDate": {
-          "fixedDate": "2018-07-01"
+          "takeItFromStatusDependency": 2
         },
         "endDate": {
           "takeItFromStatusDependency": 1

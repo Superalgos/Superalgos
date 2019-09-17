@@ -12,10 +12,11 @@
 
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
-    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
+    let commons = COMMONS.newCommons(bot, logger, UTILITIES);
 
     thisObject = {
         initialize: initialize,
+        finalize: finalize,
         start: start
     };
 
@@ -42,6 +43,14 @@
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function finalize() {
+        commons.finalize()
+        commons = undefined
+        utilities = undefined
+        assistant = undefined
+        thisObject = undefined
     }
 
     function start(multiPeriodDataFiles, timePeriod, timePeriodLabel, currentDay, startDate, endDate, interExecutionMemory, callBackFunction) {

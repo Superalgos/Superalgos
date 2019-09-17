@@ -8,6 +8,7 @@
     const GMT_SECONDS = ':00.000 GMT+0000';
 
     let thisObject = {
+        finalize: finalize,
         runSimulation: runSimulation,
         buildPercentageBandwidthArray: buildPercentageBandwidthArray,
         buildBollingerBandsArray: buildBollingerBandsArray,
@@ -27,6 +28,15 @@
     const definition = global.DEFINITION
 
     return thisObject;
+
+    function finalize() {
+        percentageBandwidthAt = undefined
+        bollingerBandsAt = undefined
+        bollingerChannelsAt = undefined
+        bollingerSubChannelsAt = undefined
+        candlesAt = undefined
+        thisObject = undefined
+    }
 
     async function runSimulation(
         timePeriod,
@@ -2735,8 +2745,8 @@
 
                 i++
                 if (i < candles.length) {
-                    // process.nextTick(loop)
-                    setTimeout(loop, 100)
+                    process.nextTick(loop)
+                    //setTimeout(loop, 100)
                 } else {
                     afterLoop()
                 }

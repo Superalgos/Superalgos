@@ -140,6 +140,7 @@
                         }
                     }
                 }
+                bot.multiPeriodDailyProcessDatetime = processConfig.framework.startDate.fixedDate
             }
 
             function startLiveTrading(message) {
@@ -150,6 +151,7 @@
                 bot.startMode = "Live"
                 processConfig.framework.startDate.fixedDate = new Date()
                 processConfig.framework.startDate.resumeExecution = false;
+                bot.multiPeriodDailyProcessDatetime = processConfig.framework.startDate.fixedDate
                 global.STOP_PROCESSING = false
                 bot.hasTheBotJustStarted = true
             }
@@ -742,6 +744,8 @@
                                 try {
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessFramework -> onFinished -> Entering function."); }
+                                    processFramework.finalize()
+                                    processFramework = undefined
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {

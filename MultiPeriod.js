@@ -8,6 +8,7 @@
 
     thisObject = {
         initialize: initialize,
+        finalize: finalize,
         start: start
     };
 
@@ -66,6 +67,19 @@
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function finalize() {
+        storages = undefined
+        dataFiles = undefined
+        multiPeriodDataFiles = undefined
+        statusDependencies = undefined
+        dataDependencies = undefined
+        usertBot.finalize() 
+        usertBot = undefined
+        fileStorage = undefined
+        processConfig = undefined
+        thisObject = undefined
     }
 
     function start(callBackFunction) {
@@ -855,7 +869,7 @@
                         try {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> callTheBot -> Entering function."); }
-
+                            
                             usertBot.start(
                                 multiPeriodDataFiles,
                                 currentTimePeriod,

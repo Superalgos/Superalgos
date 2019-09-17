@@ -672,6 +672,8 @@
                                 try {
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessFramework -> onFinished -> Entering function."); }
+                                    processFramework.finalize()
+                                    processFramework = undefined
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {

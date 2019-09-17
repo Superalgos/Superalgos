@@ -8,6 +8,7 @@
 
     thisObject = {
         initialize: initialize,
+        finalize: finalize,
         start: start
     };
 
@@ -65,6 +66,17 @@
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function finalize() {
+        storages = undefined
+        dataFiles = undefined
+        statusDependencies = undefined
+        dataDependencies = undefined
+        usertBot = undefined
+        fileStorage = undefined
+        processConfig = undefined
+        thisObject = undefined
     }
 
     function start(callBackFunction) {

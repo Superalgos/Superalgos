@@ -48,10 +48,11 @@
                     'message',  // here is where all incomming messages are processed.
                     function (data) {
                         ipc.log('Got a message from Superalgos Event Server: '.debug, data);
-
+                        
                         let message = JSON.parse(data)
 
                         if (message.action === 'Event Raised') {
+
                             let key
                             if (message.callerId) {
                                 key = message.eventHandlerName + '-' + message.eventType + '-' + message.callerId

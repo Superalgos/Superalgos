@@ -963,6 +963,8 @@
                                 logger.persist();
                             }
 
+                            global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Process Stopped')
+
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
 

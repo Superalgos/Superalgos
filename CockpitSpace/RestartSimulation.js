@@ -80,6 +80,7 @@ function newRestartSimulation () {
 
     function onProcessStopped (message) {
       thisObject.status = 'Ready'
+      isRunning = false
     }
   }
 

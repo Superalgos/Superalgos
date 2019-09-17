@@ -69,6 +69,10 @@ function newCircularProgressBar () {
   }
 
   function drawBackground (pFloatingObject) {
+
+  }
+
+  function drawForeground (pFloatingObject) {
     const VISIBLE_RADIUS = thisObject.container.frame.radius * 2
 
     let visiblePosition = {
@@ -99,9 +103,5 @@ function newCircularProgressBar () {
       browserCanvasContext.setLineDash([3, 4])
       browserCanvasContext.stroke()
     }
-  }
-
-  function drawForeground (pFloatingObject) {
-
   }
 }

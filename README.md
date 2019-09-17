@@ -665,6 +665,14 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 **positionDays:** The number of days in the current open position.
 
+**distanceToLast.triggerOn:** The number of periods between the last Trigger On and the current position.
+
+**distanceToLast.triggerOff:** The number of periods between the last Trigger Off and the current position.
+
+**distanceToLast.takePosition:** The number of periods between the last Take Position and the current position.
+
+**distanceToLast.closePosition:** The number of periods between the last Close Position and the current position.
+
 
 # Simulation
 

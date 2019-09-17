@@ -115,6 +115,8 @@
 
                         /*
                             We look first for the bot who knows the begining of the marke in order to get when the market starts.
+                            IMPORTANT NOTE: When this module is used by Trading Engine Bots it nevers comes through this path since there is allways a ficed start date.
+                                            This code would be used by some indicator that is.
                         */
 
                         let botWhoKnowsTheBeginingOfTheMarket = statusDependencies.config[processConfig.framework.startDate.takeItFromStatusDependency];
@@ -151,7 +153,7 @@
                             return;
                         }
 
-                        contextVariables.dateBeginOfMarket = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
+                        contextVariables.dateBeginOfMarket = new Date(thisReport.lastFile);
 
                     }
 
@@ -878,7 +880,8 @@
                                     botNeverRan = false;
 
                                     if (currentTimePeriod > global.dailyFilePeriods[0][0]) {
-                                        writeMarketStatusReport(onMarketStatusReport);
+                                        writeMarketStatusReport(onMarketStatusReport)
+
                                     } else {
                                         writeDataRanges(onWritten);
                                     }
@@ -895,7 +898,7 @@
                                                 return;
                                             }
 
-                                            writeDailyStatusReport(bot.multiPeriodDailyProcessDatetime, advanceTime);
+                                            writeDailyStatusReport(bot.multiPeriodDailyProcessDatetime, onDailyStatusReport);
 
                                         } catch (err) {
                                             logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onWritten -> err = " + err.stack);
@@ -903,9 +906,29 @@
                                         }
                                     }
 
+
+                                    function onDailyStatusReport() {
+                                        try {
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onDailyStatusReport -> Entering function."); }
+
+                                            /* The next run we need the process to continue at the date it finished. */
+                                            processConfig.framework.startDate.resumeExecution = true; 
+
+                                            advanceTime();
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onDailyStatusReport -> err = " + err.stack);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
                                     function onMarketStatusReport() {
                                         try {
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onMarketStatusReport -> Entering function."); }
+
+                                            if (bot.startMode === "Backtest") {
+                                                global.STOP_PROCESSING = true
+                                            }
+
                                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                                         } catch (err) {
                                             logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onMarketStatusReport -> err = " + err.stack);
@@ -1022,9 +1045,6 @@
                     thisReport.save(callBack);
 
                     bot.hasTheBotJustStarted = false;
-
-                    /* Emit event that signals that this process finished */
-                    global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Status Report Updated', { lastProcessedDay: lastFileDate })
 
                 }
                 catch (err) {

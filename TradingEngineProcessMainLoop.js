@@ -183,6 +183,7 @@
                     let nextWaitTime;
 
                     /* Loop Heartbeat sent to the UI */
+                    bot.hearBeat = hearBeat // allow the bot itself to produce a heartbeat
                     hearBeat() 
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
@@ -209,6 +210,9 @@
                     if (global.STOP_PROCESSING === true) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start."); }
                         console.log("[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start.")
+
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Process Stopped')
+
                         nextWaitTime = 'Normal';
                         loopControl(nextWaitTime);
                         return
@@ -1072,6 +1076,7 @@
                 }
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
             }
+
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] run -> err = "+ err.stack);
             clearInterval(fixedTimeLoopIntervalHandle);

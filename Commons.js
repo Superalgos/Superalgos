@@ -2746,7 +2746,6 @@
                 i++
                 if (i < candles.length) {
                     process.nextTick(loop)
-                    //setTimeout(loop, 100)
                 } else {
                     afterLoop()
                 }

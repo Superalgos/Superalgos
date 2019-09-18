@@ -278,7 +278,9 @@
                     /* Checking if we should process this loop or not.*/
                     if (global.STOP_PROCESSING === true) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start."); }
-                        console.log("[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start.")
+
+                        console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
+                            + " We are going to skip this Loop bacause we were requested to stop or never asked to start. ");
 
                         global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Process Stopped')
 

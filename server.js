@@ -43,11 +43,6 @@ process.on('exit', function (code) {
     console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> code = ' + code)
 })
 
-/* Local Variables */
-
-let sequenceList = []
-let heartBeatInterval
-
 /*
 
 We read the first string sent as an argument when the process was created by the Task Manager. Ther we will find the information of the identity
@@ -82,7 +77,7 @@ global.WRITE_LOGS_TO_FILES = process.env.WRITE_LOGS_TO_FILES
 /* Default parameters can be changed by the execution configuration */
 global.EXCHANGE_NAME = 'Poloniex'
 global.MARKET = { assetA: 'USDT', assetB: 'BTC' }
-global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' }
+global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' } // NOTE: To refactor the name of this variable you would need to go through the bots code that are using it.
 
 /*
 We need to count how many process instances we deployd and how many of them have already finished their job, either
@@ -142,38 +137,9 @@ const EVENT_HANDLER_MODULE = require('./SystemEventHandler.js');
 const IPC = require('node-ipc');
 global.SYSTEM_EVENT_HANDLER = EVENT_HANDLER_MODULE.newSystemEventHandler(IPC)
 global.SYSTEM_EVENT_HANDLER.initialize('Task Server', bootLoader)
-
+global.STOP_TASK_GRACEFULLY = false;
 
 function bootLoader() {
-
-    for (let i = 0; i < global.TASK_NODE.bot.processes.length; i++) {
-        let code = global.TASK_NODE.bot.processes[i].code
-
-        /* Validate that the minimun amount of parameters required are defined. */
-
-        if (global.TASK_NODE.bot.processes[i].code.bot === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'bot' is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[i].name);
-            continue
-        }
-
-        if (global.TASK_NODE.bot.processes[i].code.team === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'team' is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[i].name);
-            continue
-        }
-
-        if (global.TASK_NODE.bot.processes[i].code.process === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'process' is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[i].name);
-            continue
-        }
-
-        /* Add to the execution sequence list. */
-        sequenceList.push(code)
-
-        /* Create the event handler for each process. This event handlers are where the status reports updated events are raised. */
-
-        let key = code.team + "-" + code.bot + "-" + code.process
-        global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
-    }
 
     /* Heartbeat sent to the UI */
 
@@ -191,56 +157,36 @@ function bootLoader() {
         global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
     }
 
-    startSequence()
-}
-
-/* Old Run.js code follows... */
-
-function startSequence() {
-
     for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {
-        let execution = sequenceList[processIndex];
+        let code = global.TASK_NODE.bot.processes[processIndex].code
 
-        global.STOP_TASK_GRACEFULLY = false;
+        /* Validate that the minimun amount of parameters required are defined. */
 
-        execution.bot ? process.env.BOT = execution.bot : undefined;
-        execution.resumeExecution = true;
-
-        readExecutionConfiguration(execution, processIndex);
-    }
-}
-
-async function readExecutionConfiguration(execution, processIndex) {
-    try {
-        console.log("[INFO] Task Server -> server -> readExecutionConfiguration -> Entering function. ");
-
-        let botProcess
-
-        if (global.TASK_NODE.bot.type === 'Trading Engine') {
-
-            /* The Trading Engine only resumes its execution after the first sequence was completed. */
-            if (notFirstSequence === false) {
-                execution.resumeExecution = false
-            }
+        if (global.TASK_NODE.bot.processes[processIndex].code.bot === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'bot' is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
+            continue
         }
+
+        if (global.TASK_NODE.bot.processes[processIndex].code.team === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'team' is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].code.process === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'process' is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
+            continue
+        }
+
+        /* Create the event handler for each process. This event handlers are where the status reports updated events are raised. */
+
+        let key = code.team + "-" + code.bot + "-" + code.process
+        global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
 
         if (global.TASK_NODE.bot.processes[processIndex].code.repo === undefined) {
             global.TASK_NODE.bot.processes[processIndex].code.repo = global.TASK_NODE.bot.processes[processIndex].code.bot + "-" + global.TASK_NODE.bot.type + "-Bot"
         }
 
-        if (botProcess === undefined) { botProcess = process.env.PROCESS } // Only use the .env when nothing comes at Definition.json
-
-        global.CLONE_EXECUTOR = {
-            codeName: 'AACloud',
-            version: '1.1'
-        }
-
         startRoot(processIndex);
-    }
-
-    catch (err) {
-        console.log("[ERROR] readExecutionConfiguration -> err = " + err.stack);
-        console.log("[ERROR] readExecutionConfiguration -> Please verify that the Start Mode for the type of Bot configured applies to that type.");
     }
 }
 

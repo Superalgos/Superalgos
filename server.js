@@ -54,21 +54,21 @@ We read the first string sent as an argument when the process was created by the
 of this Task and know exactly what to run within this server instance. 
 
 */
-global.USER_DEFINITION = process.argv[2]
+global.TASK_NODE = process.argv[2]
 
-if (global.USER_DEFINITION !== undefined) {
-    console.log('[INFO] Task Server -> server -> global.USER_DEFINITION = ' + global.USER_DEFINITION)
+if (global.TASK_NODE !== undefined) {
+    console.log('[INFO] Task Server -> server -> global.TASK_NODE = ' + global.TASK_NODE)
     try {
-        global.USER_DEFINITION = JSON.parse(global.USER_DEFINITION)
+        global.TASK_NODE = JSON.parse(global.TASK_NODE)
     } catch (err) {
-        console.log('[ERROR] Task Server -> server -> global.USER_DEFINITION -> ' + err.stack)
+        console.log('[ERROR] Task Server -> server -> global.TASK_NODE -> ' + err.stack)
     }
 
 }
 else {  // I use this section to debug in standalone mode.
-    let argument = ' {"type":"Task","name":"Runs Backtests, Fordwardtests & Live Trades ","bot":{"type":"Trading Engine","processes":[{"type":"Process","name":"Multi Period","code":{"devTeam":"AAMasters","bot":"AAJason","mode":"live","resumeExecution":true,"type":"Trading-Engine","exchangeName":"Poloniex","process":"Multi-Period-Daily","beginDatetime":"2019-08-01T08:00:00.000Z","timePeriod":"05-min"},"id":"1bfce24d-8c05-4be9-bd25-328f07c85265"}]},"id":"cbb13086-608d-4bb4-960a-17a81038877b"}'
+    let argument = '{"type":"Task","name":"Runs Backtests, Fordwardtests & Live Trades ","bot":{"type":"Trading Engine","processes":[{"type":"Process","name":"Multi Period","code":{"team":"AAMasters","bot":"AAJason","process":"Multi-Period","repo":"AAJason-Trading-Engine-Bot"},"id":"1bfce24d-8c05-4be9-bd25-328f07c85265"}]},"id":"cbb13086-608d-4bb4-960a-17a81038877b"}'
     try {
-        global.USER_DEFINITION = JSON.parse(argument)
+        global.TASK_NODE = JSON.parse(argument)
     } catch (err) {
         console.log(err.stack)
     }
@@ -81,7 +81,7 @@ global.DEFINITION = require(process.env.INTER_PROCESS_FILES_PATH + '/Definition'
 global.WRITE_LOGS_TO_FILES = process.env.WRITE_LOGS_TO_FILES
 
 /* Default parameters can be changed by the execution configuration */
-global.EXCHANGE_NAME = process.env.EXCHANGE_NAME
+global.EXCHANGE_NAME = 'Poloniex'
 global.MARKET = { assetA: 'USDT', assetB: 'BTC' }
 global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' }
 
@@ -115,12 +115,12 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
     /* Cleaning Before Exiting. */
     clearInterval(global.HEARTBEAT_INTERVAL_HANDLER)
 
-    for (let i = 0; i < global.USER_DEFINITION.bot.processes.length; i++) {
-        let code = global.USER_DEFINITION.bot.processes[i].code
+    for (let i = 0; i < global.TASK_NODE.bot.processes.length; i++) {
+        let code = global.TASK_NODE.bot.processes[i].code
 
         /* Delete the event handler for each process. */
 
-        let key = code.devTeam + "-" + code.codeName + "-" + code.process
+        let key = code.team + "-" + code.bot + "-" + code.process
         let event = {
             reason: 'Signal Received to Terminate this Process.'
         }
@@ -130,7 +130,7 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
 
     global.SYSTEM_EVENT_HANDLER.finalize()
     global.SYSTEM_EVENT_HANDLER = undefined
-    console.log("[INFO] Task Server -> " + global.USER_DEFINITION.name + " -> EXIT_NODE_PROCESS -> Task Server Stopped.");
+    console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> EXIT_NODE_PROCESS -> Task Server Stopped.");
 
     process.exit()
 }
@@ -147,21 +147,38 @@ global.SYSTEM_EVENT_HANDLER.initialize('Task Server', bootLoader)
 
 function bootLoader() {
 
-    for (let i = 0; i < global.USER_DEFINITION.bot.processes.length; i++) {
-        let code = global.USER_DEFINITION.bot.processes[i].code
+    for (let i = 0; i < global.TASK_NODE.bot.processes.length; i++) {
+        let code = global.TASK_NODE.bot.processes[i].code
+
+        /* Validate that the minimun amount of parameters required are defined. */
+
+        if (global.TASK_NODE.bot.processes[i].code.bot === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'bot' is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[i].name);
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[i].code.team === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'team' is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[i].name);
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[i].code.process === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'process' is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[i].name);
+            continue
+        }
 
         /* Add to the execution sequence list. */
         sequenceList.push(code)
 
         /* Create the event handler for each process. This event handlers are where the status reports updated events are raised. */
 
-        let key = code.devTeam + "-" + code.bot + "-" + code.process
+        let key = code.team + "-" + code.bot + "-" + code.process
         global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
     }
 
     /* Heartbeat sent to the UI */
 
-    let key = global.USER_DEFINITION.name + '-' + global.USER_DEFINITION.type + '-' + global.USER_DEFINITION.id
+    let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
 
     global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
     global.HEARTBEAT_INTERVAL_HANDLER = setInterval(hearBeat, 1000)
@@ -182,20 +199,20 @@ function bootLoader() {
 
 function startSequence() {
 
-    for (let processIndex = 0; processIndex < global.USER_DEFINITION.bot.processes.length; processIndex++) {
+    for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {
         let execution = sequenceList[processIndex];
 
         global.STOP_TASK_GRACEFULLY = false;
-        execution.devTeam ? process.env.DEV_TEAM = execution.devTeam : undefined;
+
         execution.bot ? process.env.BOT = execution.bot : undefined;
         execution.resumeExecution = true;
-        execution.type ? process.env.TYPE = execution.type : undefined;
+
         execution.process ? process.env.PROCESS = execution.process : undefined;
 
         execution.baseAsset ? process.env.BASE_ASSET = execution.baseAsset : undefined;
         execution.balanceAssetA ? process.env.INITIAL_BALANCE_ASSET_A = execution.balanceAssetA : undefined;
         execution.balanceAssetB ? process.env.INITIAL_BALANCE_ASSET_B = execution.balanceAssetB : undefined;
-        execution.type === 'Trading' ? process.env.CLONE_ID = 1 : undefined;
+
 
         execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
 
@@ -228,7 +245,7 @@ async function readExecutionConfiguration(execution, processIndex) {
 
         let botProcess
 
-        if (execution.type === 'Trading-Engine') {
+        if (global.TASK_NODE.bot.type === 'Trading Engine') {
 
             /* The Trading Engine only resumes its execution after the first sequence was completed. */
             if (notFirstSequence === false) {
@@ -281,17 +298,17 @@ async function readExecutionConfiguration(execution, processIndex) {
             }
         }
 
-        // General Financial Being Configuration
-        global.DEV_TEAM = process.env.DEV_TEAM
-        global.CURRENT_BOT_REPO = process.env.BOT + "-" + process.env.TYPE + "-Bot"
+        if (global.TASK_NODE.bot.processes[processIndex].code.repo === undefined) {
+            global.TASK_NODE.bot.processes[processIndex].code.repo = global.TASK_NODE.bot.processes[processIndex].code.bot + "-" + global.TASK_NODE.bot.type + "-Bot"
+        }
 
         if (botProcess === undefined) { botProcess = process.env.PROCESS } // Only use the .env when nothing comes at Definition.json
         let cloneToExecute = {
             enabled: "true",
-            devTeam: process.env.DEV_TEAM,
-            bot: process.env.BOT,
-            process: botProcess,
-            repo: global.CURRENT_BOT_REPO
+            devTeam: global.TASK_NODE.bot.processes[processIndex].code.team,
+            bot: global.TASK_NODE.bot.processes[processIndex].code.bot,
+            process: global.TASK_NODE.bot.processes[processIndex].code.process,
+            repo: global.TASK_NODE.bot.processes[processIndex].code.repo
         }
   
         global.EXECUTION_CONFIG = {

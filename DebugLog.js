@@ -89,7 +89,7 @@ exports.newDebugLog = function newDebugLog() {
 
             function writeLog() {
 
-                fileStorage.createTextFile(global.DEV_TEAM, filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated);
+                fileStorage.createTextFile(thisObject.bot.devTeam, filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated);
 
                 function onFileCreated(err) {
 

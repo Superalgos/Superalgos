@@ -143,9 +143,9 @@
                     const FILE_STORAGE = require('./Integrations/FileStorage.js');
                     let fileStorage = FILE_STORAGE.newFileStorage();
 
-                    let filePath = global.DEV_TEAM + '/bots/' + global.CURRENT_BOT_REPO + '/this.bot.config.json';
+                    let filePath = global.TASK_NODE.bot.processes[processIndex].code.team + '/bots/' + global.TASK_NODE.bot.processes[processIndex].code.repo + '/this.bot.config.json';
 
-                    fileStorage.getTextFile(global.DEV_TEAM, filePath, onFileReceived);
+                    fileStorage.getTextFile(global.TASK_NODE.bot.processes[processIndex].code.team, filePath, onFileReceived);
 
                     function onFileReceived(err, text) {
 
@@ -338,7 +338,7 @@
                                                 runIndicatorBot(botConfig, processConfig, month, year);
                                                 break;
                                             }
-                                            case 'Trading-Engine': {
+                                            case 'Trading Engine': {
                                                 runTradingEngine(botConfig, processConfig);
                                                 break;
                                             }
@@ -388,7 +388,7 @@
                                         }
 
                                         switch (botConfig.type) {
-                                            case 'Trading-Engine': {
+                                            case 'Trading Engine': {
                                                 runTradingEngine(botConfig, processConfig);
                                                 break;
                                             }
@@ -632,14 +632,14 @@
             function exitProcessInstance() {
 
                 global.ENDED_PROCESSES_COUNTER++
-                console.log("[INFO] Task Server -> " + global.USER_DEFINITION.name + " -> exitProcessInstance -> Process #" + global.ENDED_PROCESSES_COUNTER + " from " + global.TOTAL_PROCESS_INSTANCES_CREATED + " exiting.");
+                console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> exitProcessInstance -> Process #" + global.ENDED_PROCESSES_COUNTER + " from " + global.TOTAL_PROCESS_INSTANCES_CREATED + " exiting.");
 
                 if (global.ENDED_PROCESSES_COUNTER === global.TOTAL_PROCESS_INSTANCES_CREATED) {
                     global.EXIT_NODE_PROCESS()
                 }
             }
         } catch (err) {
-            console.log("[ERROR] Task Server -> " + global.USER_DEFINITION.name + " -> Root -> Start -> Err = " + err.stack);
+            console.log("[ERROR] Task Server -> " + global.TASK_NODE.name + " -> Root -> Start -> Err = " + err.stack);
         }
     }
 }

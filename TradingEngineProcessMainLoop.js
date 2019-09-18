@@ -41,10 +41,10 @@
             UI_COMMANDS = pUI_COMMANDS;
             processConfig = pProcessConfig;
 
-            let filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name
+            let filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name
             filePath += "/User.Bot.js"
 
-            fileStorage.getTextFile(global.DEV_TEAM, filePath, onBotDownloaded);
+            fileStorage.getTextFile(bot.devTeam, filePath, onBotDownloaded);
 
             function onBotDownloaded(err, text) {
 
@@ -59,10 +59,10 @@
                 //USER_BOT_MODULE.newUserBot = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Multi-Period/User.Bot').newUserBot // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
                 USER_BOT_MODULE.newUserBot = eval(text); // Use this for production
 
-                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
+                filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo;
                 filePath += "/Commons.js"
 
-                fileStorage.getTextFile(global.DEV_TEAM, filePath, onCommonsDownloaded);
+                fileStorage.getTextFile(bot.devTeam, filePath, onCommonsDownloaded);
 
                 function onCommonsDownloaded(err, text) {
 
@@ -1075,7 +1075,7 @@
             }
 
             function hearBeat() {
-                let key = global.USER_DEFINITION.bot.processes[bot.processIndex].name + '-' + global.USER_DEFINITION.bot.processes[bot.processIndex].type + '-' + global.USER_DEFINITION.bot.processes[bot.processIndex].id
+                let key = global.TASK_NODE.bot.processes[bot.processIndex].name + '-' + global.TASK_NODE.bot.processes[bot.processIndex].type + '-' + global.TASK_NODE.bot.processes[bot.processIndex].id
 
                 let event = {
                     seconds: (new Date()).getSeconds()

@@ -46,11 +46,10 @@
     const FULL_LOG = true;
 
     let logDisplace = "Task Server" + "                                              ";
-    let UI_COMMANDS;
 
     return thisObject;
 
-    function initialize(pUI_COMMANDS, callBackFunction) {
+    function initialize(callBackFunction) {
 
         try {
             console.log(logDisplace  + "Root : [INFO] initialize -> Entering function. ");
@@ -94,8 +93,6 @@
                     intensiveLogging: false
                 }
             };
-
-            UI_COMMANDS = pUI_COMMANDS;
 
             callBackFunction();
 
@@ -428,7 +425,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runSensorBot -> pYear = " + pYear); }
 
                             let extractionBotMainLoop = SENSOR_BOT_MAIN_LOOP_MODULE.newSensorBotProcessMainLoop(pBotConfig, logger);
-                            extractionBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
+                            extractionBotMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
@@ -502,7 +499,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runIndicatorBot -> pYear = " + pYear); }
 
                             let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotProcessMainLoop(pBotConfig, logger);
-                            indicatorBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
+                            indicatorBotMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
@@ -571,7 +568,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingEngine -> Entering function."); }
 
                             let tradingEngineMainLoop = TRADING_ENGINE_MAIN_LOOP_MODULE.newTradingEngineProcessMainLoop(pBotConfig, logger);
-                            tradingEngineMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
+                            tradingEngineMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 

@@ -370,15 +370,7 @@ function startRoot(processIndex) {
     const ROOT_MODULE = require(ROOT_DIR + 'Root')
     let root = ROOT_MODULE.newRoot()
 
-    let UI_COMMANDS = {
-        beginDatetime: undefined,
-        endDatetime: undefined,
-        timePeriod: undefined,
-        startMode: undefined,
-        eventHandler: undefined
-    }
-
-    root.initialize(UI_COMMANDS, onInitialized)
+    root.initialize(onInitialized)
 
     function onInitialized() {
         console.log('[INFO] Task Server -> server -> startRoot -> onInitialized -> Entering function. ')

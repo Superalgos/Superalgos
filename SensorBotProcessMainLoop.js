@@ -23,18 +23,16 @@
     };
 
     let processConfig;
-    let UI_COMMANDS;
 
     return thisObject;
 
-    function initialize(pUI_COMMANDS, pProcessConfig, callBackFunction) {
+    function initialize(pProcessConfig, callBackFunction) {
 
         /*  This function is exactly the same in the 3 modules representing the 2 different bot types loops. */
 
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            UI_COMMANDS = pUI_COMMANDS;
             processConfig = pProcessConfig;
 
             let filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name;

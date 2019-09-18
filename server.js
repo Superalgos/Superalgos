@@ -216,24 +216,6 @@ function startSequence() {
 
         execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
 
-        if (global.DEFINITION) {
-            if (global.DEFINITION.personalData) {
-                if (global.DEFINITION.personalData.exchangeAccounts) {
-                    if (global.DEFINITION.personalData.exchangeAccounts.length > 0) {
-                        let exchangeAccount = global.DEFINITION.personalData.exchangeAccounts[0]
-                        if (exchangeAccount.keys) {
-                            if (exchangeAccount.keys.length > 0) {
-                                let key = exchangeAccount.keys[0]
-
-                                process.env.KEY = key.name
-                                process.env.SECRET = key.code
-
-                            }
-                        }
-                    }
-                }
-            }
-        }
 
         readExecutionConfiguration(execution, processIndex);
     }
@@ -303,18 +285,6 @@ async function readExecutionConfiguration(execution, processIndex) {
         }
 
         if (botProcess === undefined) { botProcess = process.env.PROCESS } // Only use the .env when nothing comes at Definition.json
-        let cloneToExecute = {
-            enabled: "true",
-            devTeam: global.TASK_NODE.bot.processes[processIndex].code.team,
-            bot: global.TASK_NODE.bot.processes[processIndex].code.bot,
-            process: global.TASK_NODE.bot.processes[processIndex].code.process,
-            repo: global.TASK_NODE.bot.processes[processIndex].code.repo
-        }
-  
-        global.EXECUTION_CONFIG = {
-            cloneToExecute: cloneToExecute
-        };
-
 
         global.CLONE_EXECUTOR = {
             codeName: 'AACloud',
@@ -327,39 +297,6 @@ async function readExecutionConfiguration(execution, processIndex) {
     catch (err) {
         console.log("[ERROR] readExecutionConfiguration -> err = " + err.stack);
         console.log("[ERROR] readExecutionConfiguration -> Please verify that the Start Mode for the type of Bot configured applies to that type.");
-    }
-}
-
-
-function getTimePeriod(timePeriod) {
-    if (timePeriod !== undefined) {
-        try {
-            let timePeriodMap = new Map()
-            timePeriodMap.set('24-hs', 86400000)
-            timePeriodMap.set('12-hs', 43200000)
-            timePeriodMap.set('08-hs', 28800000)
-            timePeriodMap.set('06-hs', 21600000)
-            timePeriodMap.set('04-hs', 14400000)
-            timePeriodMap.set('03-hs', 10800000)
-            timePeriodMap.set('02-hs', 7200000)
-            timePeriodMap.set('01-hs', 3600000)
-            timePeriodMap.set('45-min', 2700000)
-            timePeriodMap.set('40-min', 2400000)
-            timePeriodMap.set('30-min', 1800000)
-            timePeriodMap.set('20-min', 1200000)
-            timePeriodMap.set('15-min', 900000)
-            timePeriodMap.set('10-min', 600000)
-            timePeriodMap.set('05-min', 300000)
-            timePeriodMap.set('04-min', 240000)
-            timePeriodMap.set('03-min', 180000)
-            timePeriodMap.set('02-min', 120000)
-            timePeriodMap.set('01-min', 60000)
-            return timePeriodMap.get(timePeriod)
-        } catch (error) {
-            console.log('[WARN] Task Server -> server -> readExecutionConfiguration -> getTimePeriod -> Error: ', error)
-        }
-    } else {
-        return undefined
     }
 }
 

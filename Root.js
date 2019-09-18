@@ -98,7 +98,7 @@
 
         }
         catch (err) {
-            console.log(logDisplace  + "Root : [ERROR] initialize -> err.message = " + err.message);
+            console.log(logDisplace  + "Root : [ERROR] initialize -> err = " + err.stack);
             return;
         }
     }
@@ -123,9 +123,6 @@
             const TRADING_ENGINE_MAIN_LOOP_MODULE = require('./TradingEngineProcessMainLoop');
 
             /* Loop through all the processes configured to be run by this Node.js Instance. */
-
-            let cloneToExecute = global.EXECUTION_CONFIG.cloneToExecute;
-
             /* Now we will read the config of the bot from the path we obtained at the Task Server config. */
 
             let botConfig;
@@ -154,7 +151,7 @@
 
                         try {
                             botConfig = JSON.parse(text);
-                            botConfig.repo = cloneToExecute.repo;
+                            botConfig.repo = global.TASK_NODE.bot.processes[processIndex].code.repo;
                             findProcess(processIndex);
                         } catch (err) {
                             console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
@@ -163,7 +160,7 @@
                     }
                 }
                 catch (err) {
-                    console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> err.message = " + err.message);
+                    console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> err = " + err.stack);
                     return;
                 }
             }
@@ -173,7 +170,7 @@
                 try {
                     if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Entering function. "); }
 
-                    botConfig.process = cloneToExecute.process;
+                    botConfig.process = global.TASK_NODE.bot.processes[processIndex].code.process;
                     botConfig.debug = {};
                     botConfig.processIndex = processIndex
 
@@ -193,17 +190,12 @@
 
                     for (let i = 0; i < botConfig.processes.length; i++) {
 
-                        if (botConfig.processes[i].name === cloneToExecute.process) {
+                        if (botConfig.processes[i].name === global.TASK_NODE.bot.processes[processIndex].code.process) {
 
                             processFound = true;
-                            if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> cloneToExecute.process = " + cloneToExecute.process); }
+                            if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> process = " + global.TASK_NODE.bot.processes[processIndex].code.process); }
 
                             let processConfig = botConfig.processes[i];
-
-                            if (global.EXECUTION_CONFIG.timePeriod) {
-                                processConfig.timePeriod = global.EXECUTION_CONFIG.timePeriod
-                            }
-
 
                             if (processConfig.framework !== undefined) {
                                 if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market" || processConfig.framework.name === "Multi-Period") {
@@ -397,7 +389,7 @@
                                 }
 
                             } catch (err) {
-                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected exception. -> err.message = " + err.message);
+                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected exception. -> err = " + err.stack);
                             }
                         }
                     }
@@ -405,7 +397,7 @@
                     if (processFound === false) {
 
                         console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Process listed at the configuration file of Task Server not found at the configuration file of the bot.");
-                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> cloneToExecute.process = " + cloneToExecute.process);
+                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> process = " + global.TASK_NODE.bot.processes[processIndex].code.process);
 
                     }
 
@@ -621,7 +613,7 @@
                     }
                 }
                 catch (err) {
-                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> err.message = " + err.message);
+                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> err = " + err.stack);
                     exitProcessInstance()
                 }
             }

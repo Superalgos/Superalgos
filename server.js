@@ -77,7 +77,6 @@ else {  // I use this section to debug in standalone mode.
 
 require('dotenv').config();
 
-global.DEFINITION = require(process.env.INTER_PROCESS_FILES_PATH + '/Definition');
 global.WRITE_LOGS_TO_FILES = process.env.WRITE_LOGS_TO_FILES
 
 /* Default parameters can be changed by the execution configuration */
@@ -207,16 +206,6 @@ function startSequence() {
         execution.bot ? process.env.BOT = execution.bot : undefined;
         execution.resumeExecution = true;
 
-        execution.process ? process.env.PROCESS = execution.process : undefined;
-
-        execution.baseAsset ? process.env.BASE_ASSET = execution.baseAsset : undefined;
-        execution.balanceAssetA ? process.env.INITIAL_BALANCE_ASSET_A = execution.balanceAssetA : undefined;
-        execution.balanceAssetB ? process.env.INITIAL_BALANCE_ASSET_B = execution.balanceAssetB : undefined;
-
-
-        execution.exchangeName ? global.EXCHANGE_NAME = execution.exchangeName : undefined;
-
-
         readExecutionConfiguration(execution, processIndex);
     }
 }
@@ -232,51 +221,6 @@ async function readExecutionConfiguration(execution, processIndex) {
             /* The Trading Engine only resumes its execution after the first sequence was completed. */
             if (notFirstSequence === false) {
                 execution.resumeExecution = false
-            }
-
-            if (global.DEFINITION !== undefined) {
- 
-                 botProcess = "Multi-Period"
- 
-                /* Get the initial balance from the global.DEFINITION */
-                let tradingSystem = global.DEFINITION.tradingSystem
-
-                if (tradingSystem) {
-                    if (tradingSystem.parameters !== undefined) {
-                        if (tradingSystem.parameters.baseAsset !== undefined) {
-                            let code
-                            try {
-                                code = JSON.parse(tradingSystem.parameters.baseAsset.code);
-
-                                if (code.name !== undefined) {
-                                    baseAsset = code.name;
-                                    if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
-                                        /* using BTC as default */
-                                        baseAsset = 'BTC'
-                                    }
-                                }
-
-                                if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
-                                    if (code.initialBalance !== undefined) {
-                                        process.env.INITIAL_BALANCE_ASSET_B = code.initialBalance;
-                                        process.env.INITIAL_BALANCE_ASSET_A = 0
-                                    }
-                                } else {
-                                    if (code.initialBalance !== undefined) {
-                                        process.env.INITIAL_BALANCE_ASSET_A = code.initialBalance;
-                                        process.env.INITIAL_BALANCE_ASSET_B = 0
-                                    }
-                                }
-                            } catch (err) {
-                                global.DEFINITION.tradingSystem.parameters.baseAsset.error = err.message
-
-                                process.env.INITIAL_BALANCE_ASSET_A = 0 // default
-                                process.env.INITIAL_BALANCE_ASSET_B = 0.001 // default
-                                
-                            }
-                        }
-                    }
-                }
             }
         }
 
@@ -301,17 +245,16 @@ async function readExecutionConfiguration(execution, processIndex) {
 }
 
 function startRoot(processIndex) {
+
     console.log('[INFO] Task Server -> server -> startRoot -> Entering function. ')
 
-    const ROOT_DIR = './'
-    const ROOT_MODULE = require(ROOT_DIR + 'Root')
+    const ROOT_MODULE = require('./Root')
     let root = ROOT_MODULE.newRoot()
 
     root.initialize(onInitialized)
 
     function onInitialized() {
         console.log('[INFO] Task Server -> server -> startRoot -> onInitialized -> Entering function. ')
-
         root.start(processIndex)
     }
 }

@@ -107,6 +107,7 @@
                 processConfig.framework.startDate.resumeExecution = false;
                 global.STOP_PROCESSING = false
                 bot.hasTheBotJustStarted = true
+                setInitialBalance()
 
                 /* If we can not get for any reason the initial date of the backtest, we will start at present time. */
                 processConfig.framework.startDate.fixedDate = new Date() 
@@ -174,11 +175,56 @@
                 bot.multiPeriodDailyProcessDatetime = processConfig.framework.startDate.fixedDate
                 global.STOP_PROCESSING = false
                 bot.hasTheBotJustStarted = true
-
+                setInitialBalance()
             }
 
             function stopRequested() {
                 global.STOP_PROCESSING = true
+            }
+
+            function setInitialBalance() {
+                if (global.DEFINITION !== undefined) {
+
+                    /* Get the initial balance from the global.DEFINITION */
+                    let tradingSystem = global.DEFINITION.tradingSystem
+
+                    if (tradingSystem) {
+                        if (tradingSystem.parameters !== undefined) {
+                            if (tradingSystem.parameters.baseAsset !== undefined) {
+                                let code
+                                try {
+                                    code = JSON.parse(tradingSystem.parameters.baseAsset.code);
+
+                                    if (code.name !== undefined) {
+                                        baseAsset = code.name;
+                                        if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
+                                            /* using BTC as default */
+                                            baseAsset = 'BTC'
+                                        }
+                                    }
+
+                                    if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
+                                        if (code.initialBalance !== undefined) {
+                                            process.env.INITIAL_BALANCE_ASSET_B = code.initialBalance;
+                                            process.env.INITIAL_BALANCE_ASSET_A = 0
+                                        }
+                                    } else {
+                                        if (code.initialBalance !== undefined) {
+                                            process.env.INITIAL_BALANCE_ASSET_A = code.initialBalance;
+                                            process.env.INITIAL_BALANCE_ASSET_B = 0
+                                        }
+                                    }
+                                } catch (err) {
+                                    global.DEFINITION.tradingSystem.parameters.baseAsset.error = err.message
+
+                                    process.env.INITIAL_BALANCE_ASSET_A = 0 // default
+                                    process.env.INITIAL_BALANCE_ASSET_B = 0.001 // default
+
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             loop();

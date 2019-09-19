@@ -1048,7 +1048,9 @@
                             switch (nextWaitTime) {
                                 case 'Normal': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                                    checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime * 5, bot.loopCounter);
+                                    if (processConfig.deadWaitTime > 0) {
+                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
+                                    }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
                                     if (global.WRITE_LOGS_TO_FILES === 'true') {
                                         logger.persist();
@@ -1057,7 +1059,9 @@
                                     break;
                                 case 'Retry': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
-                                    checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.retryWaitTime * 5, bot.loopCounter);
+                                    if (processConfig.deadWaitTime > 0) {
+                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
+                                    }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
                                     logger.persist();
                                 }

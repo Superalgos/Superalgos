@@ -578,14 +578,18 @@
                                 case 'Normal': {
                                     if (bot.runAtFixedInterval === true) {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Fixed Interval Normal exit point reached."); }
-                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, bot.fixedInterval * 5, bot.loopCounter);
+                                        if (processConfig.deadWaitTime > 0) {
+                                            checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
+                                        }
                                         if(global.WRITE_LOGS_TO_FILES === 'true'){
                                             logger.persist();
                                         }
                                         return;
                                     } else {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime * 5, bot.loopCounter);
+                                        if (processConfig.deadWaitTime > 0) {
+                                            checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
+                                        }
                                         nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
                                         if(global.WRITE_LOGS_TO_FILES === 'true'){
                                             logger.persist();

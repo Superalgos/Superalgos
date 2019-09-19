@@ -28,6 +28,14 @@ exports.newFileStorage = function newFileStorage(logger) {
     'EAI_AGAIN'
   ]
 
+  if (logger === undefined) {
+      logger = {}
+      function write() {
+
+      }
+      logger.write = write
+  }
+
   return {
     getTextFile,
     createTextFile
@@ -115,72 +123,55 @@ exports.newFileStorage = function newFileStorage(logger) {
     }
   }
 
-  async function createTextFile(container, filePath, fileContent, callBackFunction) {
+    function createTextFile(container, filePath, fileContent, callBackFunction) {
 
-    try {
-      let host = await getDevTeamHost(container)
-
-      if (host.url.indexOf('localhost') !== -1) {
-          let fileLocation
-
-          if (filePath.indexOf("/Logs/") > 0) {
-              fileLocation = process.env.LOG_PATH + '/' + container + '/' + filePath
-          } else {
-              fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
-          }
-
-          logInfo('createTextFile: ' + fileLocation)
-          //console.log('createTextFile: ' + fileLocation)
-
-        let directoryPath = fileLocation.substring(0, fileLocation.lastIndexOf('/') + 1);
-        mkDirByPathSync(directoryPath)
-        await writeFileAsync(fileLocation, fileContent)
-        callBackFunction(global.DEFAULT_OK_RESPONSE)
-      } else {
-        let response = await axios({
-          url: process.env.GATEWAY_ENDPOINT_K8S,
-          method: 'post',
-          data: {
-            query: `
-          mutation web_CreateFile($file: web_FileInput){
-            web_CreateFile(file: $file)
-          }
-          `,
-            variables: {
-              file: {
-                container: container.toLowerCase(),
-                filePath,
-                storage: 'localStorage',
-                accessKey: host.ownerKey,
-                fileContent
-              }
-            }
-          }
-        })
-
-        if (!response || response.data.errors) {
-          let customErr = {
-            result: global.CUSTOM_FAIL_RESPONSE.result,
-            message: response.data.errors[0]
-          }
-          callBackFunction(customErr)
+        /* Choose path for either logs or data */
+        let fileLocation
+        if (filePath.indexOf("/Logs/") > 0) {
+            fileLocation = process.env.LOG_PATH + '/' + container + '/' + filePath
         } else {
-          callBackFunction(global.DEFAULT_OK_RESPONSE)
+            fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
         }
-      }
 
-    } catch (err) {
-      if (verifyRetry(err.code) && currentRetryWriteTextFile < MAX_RETRY) {
-        currentRetryWriteTextFile++
-        logInfo('createTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetryWriteTextFile)
-        createTextFile(container, filePath, fileContent, callBackFunction)
-      } else {
-        currentRetryWriteTextFile = 0
-        logError('createTextFile -> error = ' + err.message)
-        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-      }
+        try {
+
+            logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> fileLocation: ' + fileLocation)
+
+            /* If necesary a folder or folders are created before writing the file to disk. */
+            let directoryPath = fileLocation.substring(0, fileLocation.lastIndexOf('/') + 1);
+            mkDirByPathSync(directoryPath)
+
+            /* Here we actually write the file. */
+            fs.writeFile(fileLocation, fileContent, onFileWriten)
+
+            function onFileWriten(err) {
+                if (err) {
+                    logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> onFileWrite -> Error writing file -> file = ' + fileLocation)
+                    logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> onFileWrite -> Error writing file -> err = ' + err.stack)
+                    retry()
+                } else {
+                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+                }
+            }
+
+        } catch (err) {
+            logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> Error writing file -> file = ' + fileLocation)
+            logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> Error writing file -> err = ' + err.stack)
+            retry()
+        }
+
+        function retry() {
+            if (currentRetryWriteTextFile < MAX_RETRY) {
+                currentRetryWriteTextFile++
+                logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> retry -> Will try to write the file again -> Retry #: ' + currentRetryWriteTextFile)
+                createTextFile(container, filePath, fileContent, callBackFunction)
+            } else {
+                currentRetryWriteTextFile = 0
+                logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> Max retries reached. Giving up.')
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+            }
+        }
     }
-  }
 
   async function getDevTeamHost(devTeamName) {
     let ecosystem = await Ecosystem.getEcosystem()

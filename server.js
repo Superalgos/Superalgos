@@ -61,7 +61,7 @@ if (global.TASK_NODE !== undefined) {
 
 }
 else {  // I use this section to debug in standalone mode.
-    let argument = '{"type":"Task","name":"Runs Backtests, Fordwardtests & Live Trades ","bot":{"type":"Trading Engine","processes":[{"type":"Process","name":"Multi Period","code":{"team":"AAMasters","bot":"AAJason","process":"Multi-Period","repo":"AAJason-Trading-Engine-Bot"},"id":"1bfce24d-8c05-4be9-bd25-328f07c85265"}]},"id":"cbb13086-608d-4bb4-960a-17a81038877b"}'
+    let argument = '{"type":"Task","name":"Runs Backtests, Fordwardtests & Live Trades ","bot":{"type":"Trading Engine","processes":[{"type":"Process","name":"Multi Period","code":{"team":"AAMasters","bot":"AAJason","process":"Multi-Period","repo":"AAJason-Trading-Engine-Bot"},"id":"4748c8c4-4d19-4076-96b2-e9c06524fbb3"}]},"id":"561bac18-fc78-464a-90c5-79fd821fc633"}'
     try {
         global.TASK_NODE = JSON.parse(argument)
     } catch (err) {

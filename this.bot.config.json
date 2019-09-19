@@ -19,7 +19,7 @@
           "run": "true"
         }
       },
-      "deadWaitTime": 90000,
+      "deadWaitTime": 0,
       "normalWaitTime": 5000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,

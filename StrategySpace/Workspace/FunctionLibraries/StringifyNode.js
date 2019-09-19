@@ -435,11 +435,12 @@ function newStringifyNode () {
           savedPayload: getSavedPayload(node)
         }
 
-        for (let m = 0; m < node.tasks.length; m++) {
-          let task = prepareForStringify(node.tasks[m], removePersonalData)
-          taskManager.tasks.push(task)
+        if (node.tasks !== undefined) {
+          for (let m = 0; m < node.tasks.length; m++) {
+            let task = prepareForStringify(node.tasks[m], removePersonalData)
+            taskManager.tasks.push(task)
+          }
         }
-
         return taskManager
       }
       case 'Task': {
@@ -523,8 +524,14 @@ function newStringifyNode () {
           name: node.name,
           tradingSystem: prepareForStringify(node.tradingSystem, removePersonalData),
           personalData: prepareForStringify(node.personalData, removePersonalData),
-          taskManager: prepareForStringify(node.taskManager, removePersonalData),
+          taskManagers: [],
           savedPayload: getSavedPayload(node)
+        }
+        if (node.taskManagers !== undefined) {
+          for (let m = 0; m < node.taskManagers.length; m++) {
+            let taskManager = prepareForStringify(node.taskManagers[m], removePersonalData)
+            object.taskManagers.push(taskManager)
+          }
         }
         return object
       }

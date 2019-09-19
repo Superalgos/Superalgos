@@ -44,149 +44,151 @@ function newNodeDeleter () {
   }
 
   function deleteWorkspace (node, rootNodes) {
-    while (node.rootNodes.length > 0) {
-      let rootNode = node.rootNodes[0]
-      switch (rootNode.type) {
+    if (node.rootNodes !== undefined) {
+      while (node.rootNodes.length > 0) {
+        let rootNode = node.rootNodes[0]
+        switch (rootNode.type) {
 
-        case 'Definition': {
-          deleteDefinition(rootNode, rootNodes, true)
-          break
-        }
-        case 'Task Manager': {
-          deleteTaskManager(rootNode, rootNodes)
-          break
-        }
-        case 'Task': {
-          deleteTask(rootNode, rootNodes)
-          break
-        }
-        case 'Sensor': {
-          deleteBot(rootNode, rootNodes)
-          break
-        }
-        case 'Indicator': {
-          deleteBot(rootNode, rootNodes)
-          break
-        }
-        case 'Trading Engine': {
-          deleteBot(rootNode, rootNodes)
-          break
-        }
-        case 'Process': {
-          deleteProcess(rootNode, rootNodes)
-          break
-        }
-        case 'Personal Data': {
-          deletePersonalData(rootNode, rootNodes)
-          break
-        }
-        case 'Exchange Account': {
-          deleteExchangeAccount(rootNode, rootNodes)
-          break
-        }
-        case 'Exchange Account Asset': {
-          deleteExchangeAccountAsset(rootNode, rootNodes)
-          break
-        }
-        case 'Exchange Account Key': {
-          deleteExchangeAccountKey(rootNode, rootNodes)
-          break
-        }
-        case 'Trading System': {
-          deleteTradingSystem(rootNode, rootNodes)
-          break
-        }
-        case 'Parameters': {
-          deleteParameters(rootNode, rootNodes)
-          break
-        }
-        case 'Base Asset': {
-          deleteBaseAsset(rootNode, rootNodes)
-          break
-        }
-        case 'Time Range': {
-          deleteTimeRange(rootNode, rootNodes)
-          break
-        }
-        case 'Slippage': {
-          deleteSlippage(rootNode, rootNodes)
-          break
-        }
-        case 'Fee Structure': {
-          deleteFeeStructure(rootNode, rootNodes)
-          break
-        }
-        case 'Strategy': {
-          deleteStrategy(rootNode, rootNodes)
-          break
-        }
-        case 'Trigger Stage': {
-          deleteTriggerStage(rootNode, rootNodes)
-          break
-        }
-        case 'Open Stage': {
-          deleteOpenStage(rootNode, rootNodes)
-          break
-        }
-        case 'Manage Stage': {
-          deleteManageStage(rootNode, rootNodes)
-          break
-        }
-        case 'Close Stage': {
-          deleteCloseStage(rootNode, rootNodes)
-          break
-        }
-        case 'Position Size': {
-          deletePositionSize(rootNode, rootNodes)
-          break
-        }
-        case 'Position Rate': {
-          deletePositionRate(rootNode, rootNodes)
-          break
-        }
-        case 'Initial Definition': {
-          deleteInitialDefinition(rootNode, rootNodes)
-          break
-        }
-        case 'Open Execution': {
-          deleteOpenExecution(rootNode, rootNodes)
-          break
-        }
-        case 'Close Execution': {
-          deleteCloseExecution(rootNode, rootNodes)
-          break
-        }
-        case 'Event': {
-          deleteEvent(rootNode, rootNodes)
-          break
-        }
-        case 'Managed Item': {
-          deleteManagedItem(rootNode, rootNodes)
-          break
-        }
-        case 'Phase': {
-          deletePhase(rootNode, rootNodes)
-          break
-        }
-        case 'Formula': {
-          deleteFormula(rootNode, rootNodes)
-          break
-        }
-        case 'Situation': {
-          deleteSituation(rootNode, rootNodes)
-          break
-        }
-        case 'Condition': {
-          deleteCondition(rootNode, rootNodes)
-          break
-        }
-        case 'Code': {
-          deleteCode(rootNode, rootNodes)
-          break
-        }
+          case 'Definition': {
+            deleteDefinition(rootNode, rootNodes, true)
+            break
+          }
+          case 'Task Manager': {
+            deleteTaskManager(rootNode, rootNodes)
+            break
+          }
+          case 'Task': {
+            deleteTask(rootNode, rootNodes)
+            break
+          }
+          case 'Sensor': {
+            deleteBot(rootNode, rootNodes)
+            break
+          }
+          case 'Indicator': {
+            deleteBot(rootNode, rootNodes)
+            break
+          }
+          case 'Trading Engine': {
+            deleteBot(rootNode, rootNodes)
+            break
+          }
+          case 'Process': {
+            deleteProcess(rootNode, rootNodes)
+            break
+          }
+          case 'Personal Data': {
+            deletePersonalData(rootNode, rootNodes)
+            break
+          }
+          case 'Exchange Account': {
+            deleteExchangeAccount(rootNode, rootNodes)
+            break
+          }
+          case 'Exchange Account Asset': {
+            deleteExchangeAccountAsset(rootNode, rootNodes)
+            break
+          }
+          case 'Exchange Account Key': {
+            deleteExchangeAccountKey(rootNode, rootNodes)
+            break
+          }
+          case 'Trading System': {
+            deleteTradingSystem(rootNode, rootNodes)
+            break
+          }
+          case 'Parameters': {
+            deleteParameters(rootNode, rootNodes)
+            break
+          }
+          case 'Base Asset': {
+            deleteBaseAsset(rootNode, rootNodes)
+            break
+          }
+          case 'Time Range': {
+            deleteTimeRange(rootNode, rootNodes)
+            break
+          }
+          case 'Slippage': {
+            deleteSlippage(rootNode, rootNodes)
+            break
+          }
+          case 'Fee Structure': {
+            deleteFeeStructure(rootNode, rootNodes)
+            break
+          }
+          case 'Strategy': {
+            deleteStrategy(rootNode, rootNodes)
+            break
+          }
+          case 'Trigger Stage': {
+            deleteTriggerStage(rootNode, rootNodes)
+            break
+          }
+          case 'Open Stage': {
+            deleteOpenStage(rootNode, rootNodes)
+            break
+          }
+          case 'Manage Stage': {
+            deleteManageStage(rootNode, rootNodes)
+            break
+          }
+          case 'Close Stage': {
+            deleteCloseStage(rootNode, rootNodes)
+            break
+          }
+          case 'Position Size': {
+            deletePositionSize(rootNode, rootNodes)
+            break
+          }
+          case 'Position Rate': {
+            deletePositionRate(rootNode, rootNodes)
+            break
+          }
+          case 'Initial Definition': {
+            deleteInitialDefinition(rootNode, rootNodes)
+            break
+          }
+          case 'Open Execution': {
+            deleteOpenExecution(rootNode, rootNodes)
+            break
+          }
+          case 'Close Execution': {
+            deleteCloseExecution(rootNode, rootNodes)
+            break
+          }
+          case 'Event': {
+            deleteEvent(rootNode, rootNodes)
+            break
+          }
+          case 'Managed Item': {
+            deleteManagedItem(rootNode, rootNodes)
+            break
+          }
+          case 'Phase': {
+            deletePhase(rootNode, rootNodes)
+            break
+          }
+          case 'Formula': {
+            deleteFormula(rootNode, rootNodes)
+            break
+          }
+          case 'Situation': {
+            deleteSituation(rootNode, rootNodes)
+            break
+          }
+          case 'Condition': {
+            deleteCondition(rootNode, rootNodes)
+            break
+          }
+          case 'Code': {
+            deleteCode(rootNode, rootNodes)
+            break
+          }
 
-        default: {
-          console.log('WARNING this node type is not listed at NodeDeleter: ' + node.type)
+          default: {
+            console.log('WARNING this node type is not listed at NodeDeleter: ' + node.type)
+          }
         }
       }
     }
@@ -221,9 +223,12 @@ function newNodeDeleter () {
     if (node.personalData !== undefined) {
       deletePersonalData(node.personalData, rootNodes)
     }
-    if (node.taskManager !== undefined) {
-      deleteTaskManager(node.taskManager, rootNodes)
+    if (node.taskManagers !== undefined) {
+      while (node.taskManagers.length > 0) {
+        deleteTaskManager(node.taskManagers[0], rootNodes)
+      }
     }
+
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
@@ -232,10 +237,17 @@ function newNodeDeleter () {
   function deleteTaskManager (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
-      payload.parentNode.taskManager = undefined
+      for (let j = 0; j < payload.parentNode.taskManagers.length; j++) {
+        let taskManager = payload.parentNode.taskManagers[j]
+        if (taskManager.id === node.id) {
+          payload.parentNode.taskManagers.splice(j, 1)
+        }
+      }
     }
-    while (node.tasks.length > 0) {
-      deleteTask(node.tasks[0], rootNodes)
+    if (node.tasks !== undefined) {
+      while (node.tasks.length > 0) {
+        deleteTask(node.tasks[0], rootNodes)
+      }
     }
     completeDeletion(node, rootNodes)
     destroyPart(node)
@@ -265,9 +277,12 @@ function newNodeDeleter () {
     if (payload.parentNode !== undefined) {
       payload.parentNode.bot = undefined
     }
-    while (node.processes.length > 0) {
-      deleteProcess(node.processes[0], rootNodes)
+    if (node.processes !== undefined) {
+      while (node.processes.length > 0) {
+        deleteProcess(node.processes[0], rootNodes)
+      }
     }
+
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
@@ -295,8 +310,10 @@ function newNodeDeleter () {
       payload.parentNode.personalData = undefined
     }
 
-    while (node.exchangeAccounts.length > 0) {
-      deleteExchangeAccount(node.exchangeAccounts[0], rootNodes)
+    if (node.exchangeAccounts !== undefined) {
+      while (node.exchangeAccounts.length > 0) {
+        deleteExchangeAccount(node.exchangeAccounts[0], rootNodes)
+      }
     }
 
     completeDeletion(node, rootNodes)
@@ -314,12 +331,17 @@ function newNodeDeleter () {
         }
       }
     }
-    while (node.assets.length > 0) {
-      deleteExchangeAccountAsset(node.assets[0], rootNodes)
+    if (node.assets !== undefined) {
+      while (node.assets.length > 0) {
+        deleteExchangeAccountAsset(node.assets[0], rootNodes)
+      }
     }
-    while (node.keys.length > 0) {
-      deleteExchangeAccountKey(node.keys[0], rootNodes)
+    if (node.keys !== undefined) {
+      while (node.keys.length > 0) {
+        deleteExchangeAccountKey(node.keys[0], rootNodes)
+      }
     }
+
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
@@ -364,8 +386,10 @@ function newNodeDeleter () {
       payload.parentNode.tradingSystem = undefined
     }
 
-    while (node.strategies.length > 0) {
-      deleteStrategy(node.strategies[0], rootNodes)
+    if (node.strategies !== undefined) {
+      while (node.strategies.length > 0) {
+        deleteStrategy(node.strategies[0], rootNodes)
+      }
     }
 
     if (node.parameters !== undefined) {
@@ -640,9 +664,12 @@ function newNodeDeleter () {
       completeDeletion(node, rootNodes)
     }
 
-    while (node.situations.length > 0) {
-      deleteSituation(node.situations[0], rootNodes)
+    if (node.situations !== undefined) {
+      while (node.situations.length > 0) {
+        deleteSituation(node.situations[0], rootNodes)
+      }
     }
+
     destroyPart(node)
     cleanNode(node)
   }
@@ -664,9 +691,12 @@ function newNodeDeleter () {
       completeDeletion(node, rootNodes)
     }
 
-    while (node.phases.length > 0) {
-      deletePhase(node.phases[0])
+    if (node.phases !== undefined) {
+      while (node.phases.length > 0) {
+        deletePhase(node.phases[0])
+      }
     }
+
     destroyPart(node)
     cleanNode(node)
   }
@@ -718,10 +748,13 @@ function newNodeDeleter () {
       for (let j = 0; j < payload.parentNode.situations.length; j++) {
         let situation = payload.parentNode.situations[j]
         if (situation.id === node.id) {
-          while (situation.conditions.length > 0) {
-            let condition = situation.conditions[0]
-            deleteCondition(condition, rootNodes)
+          if (situation.conditions !== undefined) {
+            while (situation.conditions.length > 0) {
+              let condition = situation.conditions[0]
+              deleteCondition(condition, rootNodes)
+            }
           }
+
           situation.conditions = []
           payload.parentNode.situations.splice(j, 1)
           destroyPart(situation)
@@ -730,10 +763,13 @@ function newNodeDeleter () {
         }
       }
     } else {
-      while (node.conditions.length > 0) {
-        let condition = node.conditions[0]
-        deleteCondition(condition)
+      if (node.conditions !== undefined) {
+        while (node.conditions.length > 0) {
+          let condition = node.conditions[0]
+          deleteCondition(condition)
+        }
       }
+
       node.conditions = []
       completeDeletion(node, rootNodes)
       destroyPart(node)

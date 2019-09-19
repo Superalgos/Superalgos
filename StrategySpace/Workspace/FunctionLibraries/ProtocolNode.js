@@ -450,7 +450,11 @@ function newProtocolNode () {
           name: node.name,
           tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData, parseJSONStrings, includeIds),
           personalData: getProtocolNode(node.personalData, removePersonalData, parseJSONStrings, includeIds),
-          taskManager: getProtocolNode(node.taskManager, removePersonalData, parseJSONStrings, includeIds)
+          taskManagers: []
+        }
+        for (let m = 0; m < node.taskManagers.length; m++) {
+          let taskManager = getProtocolNode(node.taskManagers[m], removePersonalData, parseJSONStrings, includeIds)
+          object.taskManagers.push(taskManager)
         }
         return object
       }

@@ -50,12 +50,24 @@ function newAttachDetach () {
         return
       }
       case 'Task Manager': {
-        node.payload.parentNode.taskManager = undefined
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.taskManagers.length; i++) {
+          let taskManager = payload.parentNode.taskManagers[i]
+          if (taskManager.id === node.id) {
+            payload.parentNode.taskManagers.splice(i, 1)
+          }
+        }
         completeDetachment(node, rootNodes)
         return
       }
       case 'Task': {
-        node.payload.parentNode.task = undefined
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.tasks.length; i++) {
+          let task = payload.parentNode.tasks[i]
+          if (task.id === node.id) {
+            payload.parentNode.tasks.splice(i, 1)
+          }
+        }
         completeDetachment(node, rootNodes)
         return
       }
@@ -251,7 +263,7 @@ function newAttachDetach () {
       case 'Task Manager': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.taskManager = node
+        node.payload.parentNode.taskManagers.push(node)
         completeAttachment(node, rootNodes)
       }
         break

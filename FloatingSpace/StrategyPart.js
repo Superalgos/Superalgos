@@ -170,7 +170,7 @@ function newStrategyPart () {
       thisObject.codeEditor.physics()
     }
 
-    if (thisObject.payload.chainParent === undefined) {
+    if (thisObject.payload.chainParent === undefined || thisObject.payload.chainParent.payload === undefined) {
       thisObject.payload.targetPosition.x = thisObject.payload.position.x,
       thisObject.payload.targetPosition.y = thisObject.payload.position.y
     } else {
@@ -203,151 +203,151 @@ function newStrategyPart () {
     let compatibleSubType
     switch (thisObject.payload.node.type) {
       case 'Trading System':
-        compatibleType = '->' + 'Definition'
+        compatibleType = '->' + 'Definition' + '->'
         compatibleSubType = undefined
         break
       case 'Personal Data':
-        compatibleType = '->' + 'Definition'
+        compatibleType = '->' + 'Definition' + '->'
         compatibleSubType = undefined
         break
       case 'Exchange Account':
-        compatibleType = '->' + 'Personal Data'
+        compatibleType = '->' + 'Personal Data' + '->'
         compatibleSubType = undefined
         break
       case 'Exchange Account Asset':
-        compatibleType = '->' + 'Exchange Account'
+        compatibleType = '->' + 'Exchange Account' + '->'
         compatibleSubType = undefined
         break
       case 'Exchange Account Key':
-        compatibleType = '->' + 'Exchange Account'
+        compatibleType = '->' + 'Exchange Account' + '->'
         compatibleSubType = undefined
         break
       case 'Parameters':
-        compatibleType = '->' + 'Trading System'
+        compatibleType = '->' + 'Trading System' + '->'
         compatibleSubType = undefined
         break
       case 'Base Asset':
-        compatibleType = '->' + 'Parameters'
+        compatibleType = '->' + 'Parameters' + '->'
         compatibleSubType = undefined
         break
       case 'Time Range':
-        compatibleType = '->' + 'Parameters'
+        compatibleType = '->' + 'Parameters' + '->'
         compatibleSubType = undefined
         break
       case 'Slippage':
-        compatibleType = '->' + 'Parameters'
+        compatibleType = '->' + 'Parameters' + '->'
         compatibleSubType = undefined
         break
       case 'Fee Structure':
-        compatibleType = '->' + 'Parameters'
+        compatibleType = '->' + 'Parameters' + '->'
         compatibleSubType = undefined
         break
       case 'Task Manager':
-        compatibleType = '->' + 'Definition'
+        compatibleType = '->' + 'Definition' + '->'
         compatibleSubType = undefined
         break
       case 'Task':
-        compatibleType = '->' + 'Task Manager'
+        compatibleType = '->' + 'Task Manager' + '->'
         compatibleSubType = undefined
         break
       case 'Sensor':
-        compatibleType = '->' + 'Task'
+        compatibleType = '->' + 'Task' + '->'
         compatibleSubType = undefined
         break
       case 'Indicator':
-        compatibleType = '->' + 'Task'
+        compatibleType = '->' + 'Task' + '->'
         compatibleSubType = undefined
         break
       case 'Trading Engine':
-        compatibleType = '->' + 'Task'
+        compatibleType = '->' + 'Task' + '->'
         compatibleSubType = undefined
         break
       case 'Process':
-        compatibleType = '->' + 'Sensor' + '->' + 'Indicator' + '->' + 'Trading Engine'
+        compatibleType = '->' + 'Sensor' + '->' + 'Indicator' + '->' + 'Trading Engine' + '->'
         compatibleSubType = undefined
         break
       case 'Strategy':
-        compatibleType = '->' + 'Trading System'
+        compatibleType = '->' + 'Trading System' + '->'
         compatibleSubType = undefined
         break
       case 'Trigger Stage':
-        compatibleType = '->' + 'Strategy'
+        compatibleType = '->' + 'Strategy' + '->'
         compatibleSubType = undefined
         break
       case 'Open Stage':
-        compatibleType = '->' + 'Strategy'
+        compatibleType = '->' + 'Strategy' + '->'
         compatibleSubType = undefined
         break
       case 'Manage Stage':
-        compatibleType = '->' + 'Strategy'
+        compatibleType = '->' + 'Strategy' + '->'
         compatibleSubType = undefined
         break
       case 'Close Stage':
-        compatibleType = '->' + 'Strategy'
+        compatibleType = '->' + 'Strategy' + '->'
         compatibleSubType = undefined
         break
       case 'Position Size':
-        compatibleType = '->' + 'Initial Definition'
+        compatibleType = '->' + 'Initial Definition' + '->'
         compatibleSubType = undefined
         break
       case 'Position Rate':
-        compatibleType = '->' + 'Initial Definition'
+        compatibleType = '->' + 'Initial Definition' + '->'
         compatibleSubType = undefined
         break
       case 'Take Position Event':
-        compatibleType = '->' + 'Trigger Stage'
+        compatibleType = '->' + 'Trigger Stage' + '->'
         compatibleSubType = undefined
         break
       case 'Trigger Off Event':
-        compatibleType = '->' + 'Trigger Stage'
+        compatibleType = '->' + 'Trigger Stage' + '->'
         compatibleSubType = undefined
         break
       case 'Trigger On Event':
-        compatibleType = '->' + 'Trigger Stage'
+        compatibleType = '->' + 'Trigger Stage' + '->'
         compatibleSubType = undefined
         break
       case 'Initial Definition':
-        compatibleType = '->' + 'Open Stage'
+        compatibleType = '->' + 'Open Stage' + '->'
         compatibleSubType = undefined
         break
       case 'Open Execution':
-        compatibleType = '->' + 'Open Stage'
+        compatibleType = '->' + 'Open Stage' + '->'
         compatibleSubType = undefined
         break
       case 'Close Execution':
-        compatibleType = '->' + 'Close Stage'
+        compatibleType = '->' + 'Close Stage' + '->'
         compatibleSubType = undefined
         break
       case 'Stop':
-        compatibleType = '->' + 'Manage Stage' + '->' + 'Initial Definition'
+        compatibleType = '->' + 'Manage Stage' + '->' + 'Initial Definition' + '->'
         compatibleSubType = undefined
         break
       case 'Take Profit':
-        compatibleType = '->' + 'Manage Stage' + '->' + 'Initial Definition'
+        compatibleType = '->' + 'Manage Stage' + '->' + 'Initial Definition' + '->'
         compatibleSubType = undefined
         break
       case 'Phase':
-        compatibleType = '->' + 'Stop' + '->' + 'Take Profit' + '->' + 'Phase'
+        compatibleType = '->' + 'Stop' + '->' + 'Take Profit' + '->' + 'Phase' + '->'
         compatibleSubType = undefined
         break
       case 'Formula':
-        compatibleType = '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase'
+        compatibleType = '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase' + '->'
         compatibleSubType = undefined
         break
       case 'Next Phase Event':
-        compatibleType = '->' + 'Phase'
+        compatibleType = '->' + 'Phase' + '->'
         compatibleSubType = undefined
         break
       case 'Situation':
-        compatibleType = '->' + 'Take Position Event' + '->' + 'Trigger On Event' + '->' + 'Trigger Off Event' + '->' + 'Next Phase Event'
+        compatibleType = '->' + 'Take Position Event' + '->' + 'Trigger On Event' + '->' + 'Trigger Off Event' + '->' + 'Next Phase Event' + '->'
         compatibleSubType = undefined
         break
       case 'Condition':
-        compatibleType = '->' + 'Situation'
+        compatibleType = '->' + 'Situation' + '->'
         compatibleSubType = undefined
         break
       case 'Code':
-        compatibleType = '->' + 'Condition'
+        compatibleType = '->' + 'Condition' + '->'
         compatibleSubType = undefined
         break
       default:
@@ -362,9 +362,8 @@ function newStrategyPart () {
       let distance = nearby[0]
       let floatingObject = nearby[1]
       let nearbyNode = floatingObject.payload.node
-      if (compatibleType.indexOf('->' + nearbyNode.type) >= 0) {
+      if (compatibleType.indexOf('->' + nearbyNode.type + '->') >= 0) {
         /* Discard objects with busy coonection ports */
-        if (thisObject.payload.node.type === 'Task Manager' && nearbyNode.taskManager !== undefined) { continue }
         if (thisObject.payload.node.type === 'Task' && nearbyNode.task !== undefined) { continue }
         if (thisObject.payload.node.type === 'Sensor' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Indicator' && nearbyNode.bot !== undefined) { continue }

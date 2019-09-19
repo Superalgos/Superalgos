@@ -326,7 +326,7 @@
 
                             fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
-                            console.log("[INFO] start -> findPreviousContent -> getCandles -> reading file at dateForPath = " + dateForPath);
+                            logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getCandles -> reading file at dateForPath = " + dateForPath);
 
                             function onFileReceived(err, text) {
 
@@ -377,7 +377,7 @@
 
                             fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
-                            console.log("[INFO] start -> findPreviousContent -> getVolumes -> reading file at dateForPath = " + dateForPath);
+                            logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getVolumes -> reading file at dateForPath = " + dateForPath);
 
                             function onFileReceived(err, text) {
 
@@ -478,7 +478,7 @@
 
                                 fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
-                                console.log("[INFO] start -> findPreviousContent -> loopStart -> reading file at dateForPath = " + dateForPath);
+                                logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopStart -> reading file at dateForPath = " + dateForPath);
 
                                 function onFileReceived(err, text) {
 
@@ -721,7 +721,7 @@
 
                                     fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
-                                    console.log("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> readTrades -> reading file at dateForPath = " + dateForPath);
+                                    logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> readTrades -> reading file at dateForPath = " + dateForPath);
 
                                     function onFileReceived(err, text) {
 
@@ -874,7 +874,7 @@
 
                             fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
-                            console.log("[INFO] start -> writeFiles -> writeCandles -> writing file at dateForPath = " + dateForPath);
+                            logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> writing file at dateForPath = " + dateForPath);
 
                             function onFileCreated(err) {
 
@@ -948,7 +948,7 @@
 
                             fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
-                            console.log("[INFO] start -> writeFiles -> writeVolumes -> writing file at dateForPath = " + dateForPath);
+                            logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> writing file at dateForPath = " + dateForPath);
 
                             function onFileCreated(err) {
 

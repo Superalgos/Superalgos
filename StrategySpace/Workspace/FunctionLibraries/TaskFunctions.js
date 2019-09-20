@@ -15,10 +15,10 @@ function newTaskFunctions () {
 
     for (let i = 0; i < node.bot.processes.length; i++) {
       let process = node.bot.processes[i]
-      process.payload.uiObject.play()
+      process.payload.uiObject.run()
     }
 
-    node.payload.uiObject.play()
+    node.payload.uiObject.run()
 
     let event = {
       taskId: node.id,

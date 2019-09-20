@@ -20,7 +20,7 @@ function newStrategyPart () {
     isExecuting: undefined,
     isDefault: undefined,
     setAsDefault: setAsDefault,
-    play: play,
+    run: run,
     stop: stop,
     setDefaultStatus: setDefaultStatus,
     setNotRunningStatus: setNotRunningStatus,
@@ -530,7 +530,7 @@ function newStrategyPart () {
     }
   }
 
-  function play () {
+  function run () {
     if (thisObject.circularProgressBar !== undefined) {
       thisObject.circularProgressBar.finalize()
     }

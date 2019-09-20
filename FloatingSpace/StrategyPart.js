@@ -18,11 +18,11 @@ function newStrategyPart () {
     partTitle: undefined,
     circularProgressBar: undefined,
     isExecuting: undefined,
-    isRunning: undefined,
-    run: run,
+    isDefault: undefined,
+    setAsDefault: setAsDefault,
     play: play,
     stop: stop,
-    setRunningStatus: setRunningStatus,
+    setDefaultStatus: setDefaultStatus,
     setNotRunningStatus: setNotRunningStatus,
     getReadyToAttach: getReadyToAttach,
     showAvailabilityToAttach: showAvailabilityToAttach,
@@ -549,20 +549,20 @@ function newStrategyPart () {
     }
   }
 
-  function run () {
-    setRunningStatus()
+  function setAsDefault () {
+    setDefaultStatus()
     canvas.cockpitSpace.restartSimulation.restart()
   }
 
-  function setRunningStatus () {
+  function setDefaultStatus () {
     canvas.strategySpace.workspace.definition = thisObject.payload.node
-    thisObject.isRunning = true
+    thisObject.isDefault = true
     runningCounter = 30
   }
 
   function setNotRunningStatus () {
     canvas.strategySpace.workspace.definition = undefined
-    thisObject.isRunning = false
+    thisObject.isDefault = false
   }
 
   function iconPhysics () {
@@ -939,7 +939,7 @@ function newStrategyPart () {
 
       browserCanvasContext.fill()
 
-      if (thisObject.isRunning === true) {
+      if (thisObject.isDefault === true) {
         VISIBLE_RADIUS = thisObject.container.frame.radius * 2
         let OPACITY = runningCounter / 30
 

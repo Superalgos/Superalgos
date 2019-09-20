@@ -68,8 +68,8 @@ function newStrategyPartConstructor () {
     strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true, true, true)
 
     if (payload.node.savedPayload !== undefined) {
-      if (payload.node.savedPayload.uiObject.isRunning === true) {
-        strategyPart.setRunningStatus()
+      if (payload.node.savedPayload.uiObject.isDefault === true) {
+        strategyPart.setDefaultStatus()
         canvas.strategySpace.workspace.definition = payload.node
       }
     }
@@ -217,9 +217,9 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Run Definition',
-            actionFunction: payload.uiObject.run,
-            label: 'Run',
+            action: 'Set as Default',
+            actionFunction: payload.uiObject.setAsDefault,
+            label: 'Set as Default',
             visible: false,
             iconPathOn: 'paper-plane',
             iconPathOff: 'paper-plane',

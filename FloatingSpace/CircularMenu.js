@@ -57,6 +57,12 @@ function newCircularMenu () {
       menuItem.workingLabel = menuItemInitialValue.workingLabel
       menuItem.workDoneLabel = menuItemInitialValue.workDoneLabel
       menuItem.workFailedLabel = menuItemInitialValue.workFailedLabel
+      menuItem.secondaryAction = menuItemInitialValue.secondaryAction
+      menuItem.secondaryLabel = menuItemInitialValue.secondaryLabel
+      menuItem.secondaryWorkingLabel = menuItemInitialValue.secondaryWorkingLabel
+      menuItem.secondaryWorkDoneLabel = menuItemInitialValue.secondaryWorkDoneLabel
+      menuItem.secondaryWorkFailedLabel = menuItemInitialValue.secondaryWorkFailedLabel
+      menuItem.secondaryIcon = menuItemInitialValue.secondaryIcon
       menuItem.visible = menuItemInitialValue.visible
       menuItem.iconPathOn = menuItemInitialValue.iconPathOn
       menuItem.iconPathOff = menuItemInitialValue.iconPathOff
@@ -91,7 +97,9 @@ function newCircularMenu () {
     if (thisObject.isDeployed === true) {
       for (let i = 0; i < menuItems.length; i++) {
         let menutItem = menuItems[i]
-        container = menutItem.getContainer(point)
+        if (menutItem.visible === true) {
+          container = menutItem.getContainer(point)
+        }
         if (container !== undefined) { return container }
       }
     }
@@ -125,14 +133,18 @@ function newCircularMenu () {
   function drawBackground (pFloatingObject) {
     for (let i = 0; i < menuItems.length; i++) {
       let menutItem = menuItems[i]
-      menutItem.drawBackground()
+      if (menutItem.visible === true) {
+        menutItem.drawBackground()
+      }
     }
   }
 
   function drawForeground (pFloatingObject) {
     for (let i = 0; i < menuItems.length; i++) {
       let menutItem = menuItems[i]
-      menutItem.drawForeground()
+      if (menutItem.visible === true) {
+        menutItem.drawForeground()
+      }
     }
   }
 }

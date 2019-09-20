@@ -17,6 +17,12 @@ function newCircularMenuItem () {
     workingLabel: undefined,
     workDoneLabel: undefined,
     workFailedLabel: undefined,
+    secondaryAction: undefined,
+    secondaryLabel: undefined,
+    secondaryWorkingLabel: undefined,
+    secondaryWorkDoneLabel: undefined,
+    secondaryWorkFailedLabel: undefined,
+    secondaryIcon: undefined,
     visible: false,
     iconPathOn: undefined,
     iconPathOff: undefined,
@@ -59,6 +65,12 @@ function newCircularMenuItem () {
   let temporaryStatus = 0
 
   const EXTRA_MOUSE_OVER_ICON_SIZE = 2
+
+  const STATUS_DEFAULT = 0
+  const STATUS_WORKING = -1
+  const STAtUS_SECONDARY_WORKING = -2
+  const STATUS_PRIMARY_WORK_DONE = -3
+
   return thisObject
 
   function finalize () {
@@ -127,7 +139,7 @@ function newCircularMenuItem () {
       temporaryStatus--
     }
 
-    if (temporaryStatus === 0) {
+    if (temporaryStatus === STATUS_DEFAULT) {
       labelToPrint = thisObject.label
       backgroundColorToUse = defaultBackgroudColor
     }
@@ -136,12 +148,17 @@ function newCircularMenuItem () {
   }
 
   function iconPhysics () {
-    if (thisObject.relatedStrategyPart !== undefined) {
-      thisObject.iconOn = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
-      thisObject.iconOff = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
+    if (temporaryStatus === STATUS_PRIMARY_WORK_DONE || temporaryStatus === STAtUS_SECONDARY_WORKING) {
+      thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.secondaryIcon)
+      thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.secondaryIcon)
     } else {
-      thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.iconPathOn)
-      thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.iconPathOff)
+      if (thisObject.relatedStrategyPart !== undefined) {
+        thisObject.iconOn = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
+        thisObject.iconOff = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
+      } else {
+        thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.iconPathOn)
+        thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.iconPathOff)
+      }
     }
 
     /* Current Status might be linked to some other object status */
@@ -173,7 +190,7 @@ function newCircularMenuItem () {
 
   async function onMouseClick (event) {
     if (thisObject.askConfirmation !== true) { /* No confirmation is needed */
-      if (temporaryStatus === 0) {
+      if (temporaryStatus === STATUS_DEFAULT || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
         executeAction()
       }
     } else {
@@ -191,22 +208,57 @@ function newCircularMenuItem () {
     }
 
     function executeAction () {
-      /* If there is a working label defined, we use it here. */
-      if (thisObject.workingLabel !== undefined) {
-        setTemporaryStatus(thisObject.workingLabel, UI_COLOR.GREY, -1) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
+      if (labelToPrint !== thisObject.workingLabel) {
+        /* We need to execute the main Action */
+        /* If there is a working label defined, we use it here. */
+        if (thisObject.workingLabel !== undefined) {
+          setTemporaryStatus(thisObject.workingLabel, UI_COLOR.GREY, STATUS_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
+        }
+
+        /* Execute the action and wait for callbacks to update our statuus. */
+        thisObject.actionFunction(thisObject.payload, thisObject.action, onPrimaryCallBack)
+      } else {
+        /* We need to execute the secondary action. */
+        if (thisObject.secondaryWorkingLabel !== undefined) {
+          setTemporaryStatus(thisObject.secondaryWorkingLabel, UI_COLOR.GREY, STAtUS_SECONDARY_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
+        }
+
+        /* Execute the action and wait for callbacks to update our statuus. */
+        thisObject.actionFunction(thisObject.payload, thisObject.secondaryAction, onSecondaryCallBack)
       }
 
-      /* Execute the action and wait for callbacks to update our statuus. */
-      thisObject.actionFunction(thisObject.payload, thisObject.action, onCallBack)
-
-      function onCallBack (err) {
-        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-          if (thisObject.workDoneLabel !== undefined) {
-            setTemporaryStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 250)
+      function onPrimaryCallBack (err) {
+        /* If there is a secondary action we will act different that if there is not */
+        if (thisObject.secondaryAction === undefined) {
+          if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            if (thisObject.workDoneLabel !== undefined) {
+              setTemporaryStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 250)
+            }
+          } else {
+            if (thisObject.workFailedLabel != undefined) {
+              setTemporaryStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500)
+            }
           }
         } else {
-          if (thisObject.workFailedLabel != undefined) {
-            setTemporaryStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500)
+          if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            if (thisObject.workDoneLabel !== undefined) {
+              setTemporaryStatus(thisObject.secondaryLabel, defaultBackgroudColor, STATUS_PRIMARY_WORK_DONE)
+            }
+          } else {
+            if (thisObject.workFailedLabel != undefined) {
+              setTemporaryStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500)
+            }
+          }
+        }
+      }
+      function onSecondaryCallBack (err) {
+        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+          if (thisObject.secondaryWorkDoneLabel !== undefined) {
+            setTemporaryStatus(thisObject.secondaryWorkDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 250)
+          }
+        } else {
+          if (thisObject.secondaryWorkFailedLabel != undefined) {
+            setTemporaryStatus(thisObject.secondaryWorkFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500)
           }
         }
       }

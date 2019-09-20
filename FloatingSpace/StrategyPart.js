@@ -530,7 +530,8 @@ function newStrategyPart () {
     }
   }
 
-  function run () {
+  function run (callBackFunction) {
+    /* We setup the circular progress bar. */
     if (thisObject.circularProgressBar !== undefined) {
       thisObject.circularProgressBar.finalize()
     }
@@ -539,11 +540,23 @@ function newStrategyPart () {
     thisObject.circularProgressBar.initialize(thisObject.payload)
     thisObject.circularProgressBar.fitFunction = thisObject.fitFunction
     thisObject.circularProgressBar.container = thisObject.container
+
+    /* We will wait to the event that the task was terminated in order to call back the menu item */
+    let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+    systemEventHandler.listenToEvent(key, 'Task Running', undefined, key, undefined, onTaskTerminated)
+
+    function onTaskTerminated () {
+      callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+    }
   }
 
-  function stop () {
-    setTimeout(removecircularProgressBar, 90000)
-    function removecircularProgressBar () {
+  function stop (callBackFunction) {
+    /* We will wait to the event that the task was terminated in order to call back the menu item */
+    let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+    let eventSubscriptionId = systemEventHandler.listenToEvent(key, 'Task Stopped', undefined, key, undefined, onTaskTerminated)
+
+    function onTaskTerminated () {
+      callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
       thisObject.circularProgressBar.finalize()
       thisObject.circularProgressBar = undefined
     }

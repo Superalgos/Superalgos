@@ -8,7 +8,7 @@ function newTaskFunctions () {
 
   return thisObject
 
-  function runTask (node, functionLibraryProtocolNode) {
+  function runTask (node, functionLibraryProtocolNode, callBackFunction) {
     /* Check if it is possible to Run or not */
     if (node.bot === undefined) { return }
     if (node.bot.processes.length === 0) { return }
@@ -18,7 +18,7 @@ function newTaskFunctions () {
       process.payload.uiObject.run()
     }
 
-    node.payload.uiObject.run()
+    node.payload.uiObject.run(callBackFunction)
 
     let event = {
       taskId: node.id,
@@ -28,14 +28,14 @@ function newTaskFunctions () {
     systemEventHandler.raiseEvent('Task Manager', 'Run Task', event)
   }
 
-  function stopTask (node, functionLibraryProtocolNode) {
+  function stopTask (node, functionLibraryProtocolNode, callBackFunction) {
     let event = {
       taskId: node.id,
       taskName: node.name
     }
     systemEventHandler.raiseEvent('Task Manager', 'Stop Task', event)
 
-    node.payload.uiObject.stop()
+    node.payload.uiObject.stop(callBackFunction)
 
     if (node.bot === undefined) { return }
     if (node.bot.processes.length === 0) { return }

@@ -40,7 +40,7 @@ function newCircularProgressBar () {
     }
 
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.createEventHandler(key)
+    // systemEventHandler.createEventHandler(key)
     systemEventHandler.listenToEvent(key, 'Heartbeat', undefined, key, undefined, onHeartBeat)
   }
 

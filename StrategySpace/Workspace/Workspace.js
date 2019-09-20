@@ -227,12 +227,12 @@ function newWorkspace () {
         break
       case 'Run Task':
         {
-          functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode)
+          functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode, callBackFunction)
         }
         break
       case 'Stop Task':
         {
-          functionLibraryTaskFunctions.stopTask(payload.node, functionLibraryProtocolNode)
+          functionLibraryTaskFunctions.stopTask(payload.node, functionLibraryProtocolNode, callBackFunction)
         }
         break
       case 'Run All Tasks':

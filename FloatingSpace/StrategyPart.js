@@ -543,20 +543,25 @@ function newStrategyPart () {
 
     /* We will wait to the event that the task was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Task Running', undefined, key, undefined, onTaskTerminated)
+    systemEventHandler.listenToEvent(key, 'Running', undefined, key, undefined, onTaskTerminated)
 
     function onTaskTerminated () {
-      callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+      if (callBackFunction !== undefined) {
+        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+      }
     }
   }
 
   function stop (callBackFunction) {
     /* We will wait to the event that the task was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    let eventSubscriptionId = systemEventHandler.listenToEvent(key, 'Task Stopped', undefined, key, undefined, onTaskTerminated)
+    let eventSubscriptionId = systemEventHandler.listenToEvent(key, 'Stopped', undefined, key, undefined, onTaskTerminated)
 
     function onTaskTerminated () {
-      callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+      if (callBackFunction !== undefined) {
+        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+      }
+
       if (thisObject.circularProgressBar !== undefined) {
         thisObject.circularProgressBar.finalize()
         thisObject.circularProgressBar = undefined

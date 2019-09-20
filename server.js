@@ -108,8 +108,8 @@ process.on('message', message => {
         There are some process that might no be able to end grafully, for example the ones schedulle to process information in a future day or month.
         In order to be sure that the process will be terminated, we schedulle one forced exit in 2 minutes from now.
         */
-        console.log('[INFO] Task Server -> server -> process.on -> Executing order received from Task Manager to Stop this Task. Nodejs process will be exited in less than 2 minutes.')
-        setTimeout(global.EXIT_NODE_PROCESS, 120000);
+        console.log('[INFO] Task Server -> server -> process.on -> Executing order received from Task Manager to Stop this Task. Nodejs process will be exited in less than 1 minutes.')
+        setTimeout(global.EXIT_NODE_PROCESS, 60000);
     }
 });
 

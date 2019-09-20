@@ -71,11 +71,6 @@
 
                 function responseCallBack(message) {
                     if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> Could not register event listener for event 'Status Report Updated' -> Message = " + message);
-                        let event = {
-                            reason: 'This process depends on ' + key + ' which is currently not running.'
-                        }
-                        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Process Terminated', event)
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }

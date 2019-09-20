@@ -45,7 +45,7 @@ process.on('exit', function (code) {
 
     let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
 
-    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Task Stopped')
+    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped') // Meaning Task Stopped
     global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
     global.SYSTEM_EVENT_HANDLER.finalize()
     global.SYSTEM_EVENT_HANDLER = undefined
@@ -124,11 +124,13 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
         /* Delete the event handler for each process. */
 
         let key = code.team + "-" + code.bot + "-" + code.process
-        let event = {
-            reason: 'Signal Received to Terminate this Process.'
-        }
-        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Process Terminated', event)
+
         global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
+
+        let process = global.TASK_NODE.bot.processes[i]
+
+        key = process.name + '-' + process.type + '-' + process.id
+        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped') // Meaning Process Stopped
     }
 
     console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> EXIT_NODE_PROCESS -> Task Server Stopped.");
@@ -153,7 +155,7 @@ function bootLoader() {
     let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
 
     global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
-    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Task Running')
+    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Running') // Meaning Task Running
     global.HEARTBEAT_INTERVAL_HANDLER = setInterval(hearBeat, 1000)
 
     function hearBeat() {

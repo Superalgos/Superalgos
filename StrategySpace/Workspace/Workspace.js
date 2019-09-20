@@ -167,7 +167,7 @@ function newWorkspace () {
     }
   }
 
-  async function onMenuItemClick (payload, action) {
+  async function onMenuItemClick (payload, action, callBackFunction) {
     switch (action) {
       case 'Share Workspace':
         {
@@ -186,7 +186,11 @@ function newWorkspace () {
       case 'Save Trading System':
         {
           let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(getSimulationParams())
-          return result
+          if (result === true) {
+            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+          } else {
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+          }
           break
         }
 

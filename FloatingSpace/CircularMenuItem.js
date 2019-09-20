@@ -123,10 +123,10 @@ function newCircularMenuItem () {
 
     /* Temporary Status impacts on the label to use and the background of that label */
 
-    temporaryStatus--
-    if (temporaryStatus < 0) {
-      temporaryStatus = 0
+    if (temporaryStatus > 0) {
+      temporaryStatus--
     }
+
     if (temporaryStatus === 0) {
       labelToPrint = thisObject.label
       backgroundColorToUse = defaultBackgroudColor
@@ -172,30 +172,44 @@ function newCircularMenuItem () {
   }
 
   async function onMouseClick (event) {
-    if (temporaryStatus === 0 && thisObject.askConfirmation !== true) {
+    if (thisObject.askConfirmation !== true) { /* No confirmation is needed */
+      if (temporaryStatus === 0) {
+        executeAction()
+      }
+    } else {
+ /* Confirmation is needed */
+
+      /* A Click during confirmation executes the pre-defined action. */
+      if (temporaryStatus > 0) {
+        executeAction()
+      }
+
+      /* The first click ask for confirmation. */
+      if (temporaryStatus === 0) {
+        setTemporaryStatus(thisObject.confirmationLabel, UI_COLOR.GREY, 250)
+      }
+    }
+
+    function executeAction () {
+      /* If there is a working label defined, we use it here. */
       if (thisObject.workingLabel !== undefined) {
-        setTemporaryStatus(thisObject.workingLabel, UI_COLOR.GREY, 500)
+        setTemporaryStatus(thisObject.workingLabel, UI_COLOR.GREY, -1) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
       }
 
-      thisObject.currentStatus = await thisObject.actionFunction(thisObject.payload, thisObject.action)
+      /* Execute the action and wait for callbacks to update our statuus. */
+      thisObject.actionFunction(thisObject.payload, thisObject.action, onCallBack)
 
-      if (thisObject.currentStatus === true) {
-        if (thisObject.workDoneLabel !== undefined) {
-          setTemporaryStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 250)
-        }
-      } else {
-        if (thisObject.workFailedLabel != undefined) {
-          setTemporaryStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500)
+      function onCallBack (err) {
+        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+          if (thisObject.workDoneLabel !== undefined) {
+            setTemporaryStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 250)
+          }
+        } else {
+          if (thisObject.workFailedLabel != undefined) {
+            setTemporaryStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500)
+          }
         }
       }
-    }
-
-    if (temporaryStatus > 0 && thisObject.askConfirmation === true) {
-      thisObject.currentStatus = await thisObject.actionFunction(thisObject.payload, thisObject.action)
-    }
-
-    if (temporaryStatus === 0 && thisObject.askConfirmation === true) {
-      setTemporaryStatus(thisObject.confirmationLabel, UI_COLOR.GREY, 50)
     }
   }
 
@@ -274,4 +288,3 @@ function newCircularMenuItem () {
     }
   }
 }
-

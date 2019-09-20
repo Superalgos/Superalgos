@@ -557,8 +557,10 @@ function newStrategyPart () {
 
     function onTaskTerminated () {
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-      thisObject.circularProgressBar.finalize()
-      thisObject.circularProgressBar = undefined
+      if (thisObject.circularProgressBar !== undefined) {
+        thisObject.circularProgressBar.finalize()
+        thisObject.circularProgressBar = undefined
+      }
     }
   }
 

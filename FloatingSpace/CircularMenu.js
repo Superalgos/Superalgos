@@ -5,6 +5,7 @@ function newCircularMenu () {
   let thisObject = {
     container: undefined,
     isDeployed: undefined,
+    internalClick: internalClick,
     physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
@@ -96,54 +97,65 @@ function newCircularMenu () {
 
     if (thisObject.isDeployed === true) {
       for (let i = 0; i < menuItems.length; i++) {
-        let menutItem = menuItems[i]
-        if (menutItem.visible === true) {
-          container = menutItem.getContainer(point)
+        let menuItem = menuItems[i]
+        if (menuItem.visible === true) {
+          container = menuItem.getContainer(point)
         }
         if (container !== undefined) { return container }
       }
     }
   }
 
+  function internalClick (action) {
+    for (let i = 0; i < menuItems.length; i++) {
+      let menuItem = menuItems[i]
+      if (menuItem.visible === true) {
+        if (menuItem.nextAction === action) {
+          menuItem.internalClick()
+        }
+      }
+    }
+  }
+
   function physics () {
     for (let i = 0; i < menuItems.length; i++) {
-      let menutItem = menuItems[i]
-      menutItem.physics()
+      let menuItem = menuItems[i]
+      menuItem.physics()
     }
   }
 
   function onFocus () {
     for (let i = 0; i < menuItems.length; i++) {
-      let menutItem = menuItems[i]
-      menutItem.targetRadius = menutItem.rawRadius * 1.5
-      menutItem.isDeployed = true
+      let menuItem = menuItems[i]
+      menuItem.targetRadius = menuItem.rawRadius * 1.5
+      menuItem.isDeployed = true
     }
     thisObject.isDeployed = true
   }
 
   function onNotFocus () {
     for (let i = 0; i < menuItems.length; i++) {
-      let menutItem = menuItems[i]
-      menutItem.targetRadius = menutItem.rawRadius * 0 - i * 4
-      menutItem.isDeployed = false
+      let menuItem = menuItems[i]
+      menuItem.targetRadius = menuItem.rawRadius * 0 - i * 4
+      menuItem.isDeployed = false
     }
     thisObject.isDeployed = false
   }
 
   function drawBackground (pFloatingObject) {
     for (let i = 0; i < menuItems.length; i++) {
-      let menutItem = menuItems[i]
-      if (menutItem.visible === true) {
-        menutItem.drawBackground()
+      let menuItem = menuItems[i]
+      if (menuItem.visible === true) {
+        menuItem.drawBackground()
       }
     }
   }
 
   function drawForeground (pFloatingObject) {
     for (let i = 0; i < menuItems.length; i++) {
-      let menutItem = menuItems[i]
-      if (menutItem.visible === true) {
-        menutItem.drawForeground()
+      let menuItem = menuItems[i]
+      if (menuItem.visible === true) {
+        menuItem.drawForeground()
       }
     }
   }

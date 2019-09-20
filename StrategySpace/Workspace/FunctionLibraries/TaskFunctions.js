@@ -49,14 +49,18 @@ function newTaskFunctions () {
   function runAllTasks (taskManager, functionLibraryProtocolNode) {
     for (let i = 0; i < taskManager.tasks.length; i++) {
       let node = taskManager.tasks[i]
-      runTask(node, functionLibraryProtocolNode)
+      let menu = node.payload.uiObject.menu
+
+      menu.internalClick('Run Task')
     }
   }
 
   function stopAllTasks (taskManager, functionLibraryProtocolNode) {
     for (let i = 0; i < taskManager.tasks.length; i++) {
       let node = taskManager.tasks[i]
-      stopTask(node, functionLibraryProtocolNode)
+      let menu = node.payload.uiObject.menu
+
+      menu.internalClick('Stop Task')
     }
   }
 }

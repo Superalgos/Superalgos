@@ -23,6 +23,7 @@ function newCircularMenuItem () {
     secondaryWorkDoneLabel: undefined,
     secondaryWorkFailedLabel: undefined,
     secondaryIcon: undefined,
+    nextAction: undefined,
     visible: false,
     iconPathOn: undefined,
     iconPathOff: undefined,
@@ -34,6 +35,7 @@ function newCircularMenuItem () {
     payload: undefined,
     relatedStrategyPart: undefined,
     dontShowAtFullscreen: undefined,
+    internalClick: internalClick,
     physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
@@ -102,6 +104,8 @@ function newCircularMenuItem () {
     } else {
       thisObject.container.frame.width = 50
     }
+
+    thisObject.nextAction = thisObject.action
   }
 
   function getContainer (point) {
@@ -142,6 +146,7 @@ function newCircularMenuItem () {
     if (temporaryStatus === STATUS_DEFAULT) {
       labelToPrint = thisObject.label
       backgroundColorToUse = defaultBackgroudColor
+      thisObject.nextAction = thisObject.action
     }
 
     iconPhysics()
@@ -188,7 +193,11 @@ function newCircularMenuItem () {
     isMouseOver = false
   }
 
-  async function onMouseClick (event) {
+  function internalClick () {
+    onMouseClick()
+  }
+
+  function onMouseClick () {
     if (thisObject.askConfirmation !== true) { /* No confirmation is needed */
       if (temporaryStatus === STATUS_DEFAULT || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
         executeAction()
@@ -242,6 +251,7 @@ function newCircularMenuItem () {
         } else {
           if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
             if (thisObject.workDoneLabel !== undefined) {
+              thisObject.nextAction = thisObject.secondaryAction
               setTemporaryStatus(thisObject.secondaryLabel, defaultBackgroudColor, STATUS_PRIMARY_WORK_DONE)
             }
           } else {

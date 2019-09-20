@@ -40,6 +40,16 @@ process.on('unhandledRejection', (reason, p) => {
 })
 
 process.on('exit', function (code) {
+
+    /* We send an event signaling that the Task is being terminated. */
+
+    let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
+
+    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Task Stopped')
+    global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
+    global.SYSTEM_EVENT_HANDLER.finalize()
+    global.SYSTEM_EVENT_HANDLER = undefined
+
     console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> code = ' + code)
 })
 
@@ -68,7 +78,6 @@ else {  // I use this section to debug in standalone mode.
         console.log(err.stack)
     }
 }
-
 
 require('dotenv').config();
 
@@ -122,8 +131,6 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
         global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
     }
 
-    global.SYSTEM_EVENT_HANDLER.finalize()
-    global.SYSTEM_EVENT_HANDLER = undefined
     console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> EXIT_NODE_PROCESS -> Task Server Stopped.");
 
     process.exit()
@@ -146,6 +153,7 @@ function bootLoader() {
     let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
 
     global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
+    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Task Running')
     global.HEARTBEAT_INTERVAL_HANDLER = setInterval(hearBeat, 1000)
 
     function hearBeat() {

@@ -11,7 +11,7 @@
     const MULTI_PERIOD_MARKET = require(ROOT_DIR + 'MultiPeriodMarket');
     const MULTI_PERIOD_DAILY = require(ROOT_DIR + 'MultiPeriodDaily');
     const MULTI_PERIOD = require(ROOT_DIR + 'MultiPeriod');
-    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    const FILE_STORAGE = require('./FileStorage.js');
   
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
 
@@ -277,10 +277,10 @@
 
                     /* Checking if we should process this loop or not.*/
                     if (global.STOP_PROCESSING === true) {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for Backtesting or Live Trade to be started."); }
 
                         console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
-                            + " We are going to skip this Loop bacause we were requested to stop or never asked to start. ");
+                            + " Waiting for Backtesting or Live Trade to be started. ");
 
                         global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Process Stopped')
 

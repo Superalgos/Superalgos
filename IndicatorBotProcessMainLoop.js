@@ -10,7 +10,7 @@
 
     const MULTI_PERIOD_MARKET = require(ROOT_DIR + 'MultiPeriodMarket');
     const MULTI_PERIOD_DAILY = require(ROOT_DIR + 'MultiPeriodDaily');
-    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    const FILE_STORAGE = require('./FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');

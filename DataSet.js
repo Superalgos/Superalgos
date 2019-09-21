@@ -14,7 +14,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
     /* Storage account to be used here. */
 
-    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    const FILE_STORAGE = require('./FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
     return thisObject;

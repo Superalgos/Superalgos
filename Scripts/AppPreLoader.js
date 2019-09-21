@@ -35,13 +35,13 @@ function spacePad(str, max) {
     return str.length < max ? spacePad(" " + str, max) : str;
 }
 
-function loadAdvancedAlgosPlatform() {
+function loadSuperalgos() {
 
     const MODULE_NAME = "App Pre-Loader";
     const INFO_LOG = false;
     const ERROR_LOG = true;
 
-    if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadAdvancedAlgosPlatform -> Entering function."); }
+    if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadSuperalgos -> Entering function."); }
 
     /* The first thing to do here is to add the canvas where all the action is going to happen. */
 

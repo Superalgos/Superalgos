@@ -156,7 +156,7 @@ function onBrowserRequest (request, response) {
       }
     case 'MQService':
       {
-        let filePath = './node_modules/@superalgos/mqservice/orderLifeCicle/webDependency.js'
+        let filePath = process.env.PATH_TO_WEB_SERVER +  'node_modules/@superalgos/mqservice/orderLifeCicle/webDependency.js'
 
         respondWithFile(filePath, response)
         break
@@ -164,25 +164,25 @@ function onBrowserRequest (request, response) {
 
     case 'Plotter.js':
       {
-        respondWithFile('./Plotter.js', response)
+        respondWithFile(process.env.PATH_TO_WEB_SERVER +  'Plotter.js', response)
       }
       break
 
     case 'PlotterPanel.js':
       {
-        respondWithFile('./PlotterPanel.js', response)
+        respondWithFile(process.env.PATH_TO_WEB_SERVER +  'PlotterPanel.js', response)
       }
       break
 
     case 'Ecosystem.js':
       {
-        respondWithFile('./Ecosystem.js', response)
+              respondWithFile(process.env.PATH_TO_WEB_SERVER +  'Ecosystem.js', response)
       }
       break
 
     case 'Images': // This means the Scripts folder.
       {
-        let path = './Images/' + requestParameters[2]
+        let path = process.env.PATH_TO_WEB_SERVER  +  'Images/' + requestParameters[2]
 
         if (requestParameters[3] !== undefined) {
           path = path + '/' + requestParameters[3]
@@ -204,7 +204,7 @@ function onBrowserRequest (request, response) {
 
     case 'favicon.ico': // This means the Scripts folder.
       {
-        respondWithImage('./Images/' + 'favicon.ico', response)
+              respondWithImage(process.env.PATH_TO_WEB_SERVER +  'Images/' + 'favicon.ico', response)
       }
       break
 
@@ -252,7 +252,7 @@ function onBrowserRequest (request, response) {
 
     case 'Scripts': // This means the Scripts folder.
       {
-        respondWithFile('./Scripts/' + requestParameters[2], response)
+        respondWithFile(process.env.PATH_TO_WEB_SERVER +  'Scripts/' + requestParameters[2], response)
       }
       break
 
@@ -395,7 +395,7 @@ function onBrowserRequest (request, response) {
     if (requestParameters[1] === '') {
       let fs = require('fs')
       try {
-        let fileName = 'index.html'
+          let fileName = process.env.PATH_TO_WEB_SERVER  + 'index.html'
         fs.readFile(fileName, onFileRead)
 
         function onFileRead (err, file) {

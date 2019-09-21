@@ -619,6 +619,10 @@
 
                 i = Math.trunc(amount)
                 if (i < 0) { i = 0 }
+                if (i > candles.length - 1) {
+                    /* This will happen when the initialDate is beyond the last candle available, meaning that the dataSet needs to be updated with more up-to-date data. */
+                    i = candles.length - 1
+                }
 
                 loop()
             }
@@ -629,10 +633,10 @@
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Processing candle # " + i); }
 
                 let candle = candles[i];
-                let percentageBandwidth = getElement(percentageBandwidthArray, candle);   
-                let bollingerBand = getElement(bollingerBandsArray, candle);   
-                let bollingerChannel = getElement(bollingerChannelsArray, candle);
-                let bollingerSubChannel = getElement(bollingerSubChannelsArray, candle);
+                let percentageBandwidth = getElement(percentageBandwidthArray, candle, 'Current' + '-' + 'Percentage Bandwidth');   
+                let bollingerBand = getElement(bollingerBandsArray, candle, 'Current' + '-' + 'Bollinger Band');   
+                let bollingerChannel = getElement(bollingerChannelsArray, candle, 'Current' + '-' + 'Bollnger Channel');
+                let bollingerSubChannel = getElement(bollingerSubChannelsArray, candle, 'Current' + '-' + 'Bollnger Sub Channel');
 
                 let chart = {}
 
@@ -643,11 +647,11 @@
                         let propertyName = 'at' + mapKey.replace('-', '');
 
                         chart[propertyName] = {}
-                        chart[propertyName].candle = getElement(candlesAt[mapKey], candle);
-                        chart[propertyName].percentageBandwidth = getElement(percentageBandwidthAt[mapKey], candle);
-                        chart[propertyName].bollingerBand = getElement(bollingerBandsAt[mapKey], candle);
-                        chart[propertyName].bollingerChannel = getElement(bollingerChannelsAt[mapKey], candle);
-                        chart[propertyName].bollingerSubChannel = getElement(bollingerSubChannelsAt[mapKey], candle);
+                        chart[propertyName].candle = getElement(candlesAt[mapKey], candle, 'Daily' + '-' + mapKey + '-' + 'Candles');
+                        chart[propertyName].percentageBandwidth = getElement(percentageBandwidthAt[mapKey], candle, 'Daily' + '-' + mapKey + '-' + 'Percentage Bandwidth');
+                        chart[propertyName].bollingerBand = getElement(bollingerBandsAt[mapKey], candle, 'Daily' + '-' + mapKey + '-' + 'Bollinger Band');
+                        chart[propertyName].bollingerChannel = getElement(bollingerChannelsAt[mapKey], candle, 'Daily' + '-' + mapKey + '-' + 'Bollnger Channel');
+                        chart[propertyName].bollingerSubChannel = getElement(bollingerSubChannelsAt[mapKey], candle, 'Daily' + '-' + mapKey + '-' + 'Bollnger Sub Channel');
                     }
                 }
 
@@ -657,11 +661,11 @@
                     let propertyName = 'at' + mapKey.replace('-', '');
 
                     chart[propertyName] = {}
-                    chart[propertyName].candle = getElement(candlesAt[mapKey], candle);
-                    chart[propertyName].percentageBandwidth = getElement(percentageBandwidthAt[mapKey], candle);
-                    chart[propertyName].bollingerBand = getElement(bollingerBandsAt[mapKey], candle);
-                    chart[propertyName].bollingerChannel = getElement(bollingerChannelsAt[mapKey], candle);
-                    chart[propertyName].bollingerSubChannel = getElement(bollingerSubChannelsAt[mapKey], candle);
+                    chart[propertyName].candle = getElement(candlesAt[mapKey], candle, 'Market' + '-' + mapKey + '-' + 'Candles');
+                    chart[propertyName].percentageBandwidth = getElement(percentageBandwidthAt[mapKey], candle, 'Market' + '-' + mapKey + '-' + 'Percentage Bandwidth');
+                    chart[propertyName].bollingerBand = getElement(bollingerBandsAt[mapKey], candle, 'Market' + '-' + mapKey + '-' + 'Bollinger Band');
+                    chart[propertyName].bollingerChannel = getElement(bollingerChannelsAt[mapKey], candle, 'Market' + '-' + mapKey + '-' + 'Bollnger Channel');
+                    chart[propertyName].bollingerSubChannel = getElement(bollingerSubChannelsAt[mapKey], candle, 'Market' + '-' + mapKey + '-' + 'Bollnger Sub Channel');
                 }
 
                 /* While we are processing the previous day. */
@@ -2829,37 +2833,42 @@
             }
 
 
-            function getElement(pArray, currentCandle) { 
+            function getElement(pArray, currentCandle, datasetName) { 
 
-                let element;
-                for (let i = 0; i < pArray.length; i++) {
-                    element = pArray[i];
+                try {
+                    let element;
+                    for (let i = 0; i < pArray.length; i++) {
+                        element = pArray[i];
 
-                    if (currentCandle.end === element.end) { // when there is an exact match at the end we take that element
-                        return element
-                    } else {
-                        if  ( 
-                            i > 0 &&
-                            element.end > currentCandle.end
-                            )
-                        {
-                            let previousElement = pArray[i - 1] 
-                            if (previousElement.end < currentCandle.end) {
-                                return previousElement // If one elements goes into the future of currentCandle, then we stop and take the previous element.
-                            } else {
-                                return
+                        if (currentCandle.end === element.end) { // when there is an exact match at the end we take that element
+                            return element
+                        } else {
+                            if (
+                                i > 0 &&
+                                element.end > currentCandle.end
+                            ) {
+                                let previousElement = pArray[i - 1]
+                                if (previousElement.end < currentCandle.end) {
+                                    return previousElement // If one elements goes into the future of currentCandle, then we stop and take the previous element.
+                                } else {
+                                    return
+                                }
+                            }
+                            if (
+                                i === pArray.length - 1 // If we reach the end of the array, then we return the last element.
+                                &&
+                                element.end < currentCandle.end
+                            ) {
+                                return element
                             }
                         }
-                        if (
-                            i === pArray.length - 1 // If we reach the end of the array, then we return the last element.
-                            &&
-                            element.end < currentCandle.end
-                        ) {
-                            return element
-                        }
-                    }      
+                    }
+                    return
                 }
-                return
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] runSimulation -> getElement -> datasetName = " + datasetName);
+                    throw(err)
+                }
             }
         }
         catch (err) {

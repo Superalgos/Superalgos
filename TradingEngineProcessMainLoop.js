@@ -27,30 +27,28 @@
     };
 
     let processConfig;
-    let UI_COMMANDS;
 
     return thisObject;
 
-    function initialize(pUI_COMMANDS, pProcessConfig, callBackFunction) {
+    function initialize(pProcessConfig, callBackFunction) {
 
         /*  This function is exactly the same in the 3 modules representing the 2 different bot types loops. */
 
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            UI_COMMANDS = pUI_COMMANDS;
             processConfig = pProcessConfig;
 
-            let filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name
+            let filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name
             filePath += "/User.Bot.js"
 
-            fileStorage.getTextFile(global.DEV_TEAM, filePath, onBotDownloaded);
+            fileStorage.getTextFile(bot.devTeam, filePath, onBotDownloaded);
 
             function onBotDownloaded(err, text) {
 
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err.message = " + err.message);
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -59,10 +57,10 @@
                 //USER_BOT_MODULE.newUserBot = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Multi-Period/User.Bot').newUserBot // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
                 USER_BOT_MODULE.newUserBot = eval(text); // Use this for production
 
-                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
+                filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo;
                 filePath += "/Commons.js"
 
-                fileStorage.getTextFile(global.DEV_TEAM, filePath, onCommonsDownloaded);
+                fileStorage.getTextFile(bot.devTeam, filePath, onCommonsDownloaded);
 
                 function onCommonsDownloaded(err, text) {
 
@@ -109,6 +107,7 @@
                 processConfig.framework.startDate.resumeExecution = false;
                 global.STOP_PROCESSING = false
                 bot.hasTheBotJustStarted = true
+                setInitialBalance()
 
                 /* If we can not get for any reason the initial date of the backtest, we will start at present time. */
                 processConfig.framework.startDate.fixedDate = new Date() 
@@ -140,6 +139,7 @@
                         }
                     }
                 }
+                bot.multiPeriodDailyProcessDatetime = processConfig.framework.startDate.fixedDate
             }
 
             function startLiveTrading(message) {
@@ -147,15 +147,84 @@
                 /* We are going to run the Definition comming at the event. */
                 global.DEFINITION = JSON.parse(message.event.definition)
 
+                if (global.DEFINITION.personalData) {
+                    if (global.DEFINITION.personalData.exchangeAccounts) {
+                        if (global.DEFINITION.personalData.exchangeAccounts.length > 0) {
+                            let exchangeAccount = global.DEFINITION.personalData.exchangeAccounts[0]
+                            if (exchangeAccount.keys) {
+                                if (exchangeAccount.keys.length > 0) {
+                                    let key = exchangeAccount.keys[0]
+
+                                    process.env.KEY = key.name
+                                    process.env.SECRET = key.code
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (process.env.KEY === undefined || process.env.SECRET === undefined) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] run -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Live mode."); }
+                    return
+                }
+
                 bot.startMode = "Live"
                 processConfig.framework.startDate.fixedDate = new Date()
                 processConfig.framework.startDate.resumeExecution = false;
+                bot.multiPeriodDailyProcessDatetime = processConfig.framework.startDate.fixedDate
                 global.STOP_PROCESSING = false
                 bot.hasTheBotJustStarted = true
+                setInitialBalance()
             }
 
             function stopRequested() {
                 global.STOP_PROCESSING = true
+            }
+
+            function setInitialBalance() {
+                if (global.DEFINITION !== undefined) {
+
+                    /* Get the initial balance from the global.DEFINITION */
+                    let tradingSystem = global.DEFINITION.tradingSystem
+
+                    if (tradingSystem) {
+                        if (tradingSystem.parameters !== undefined) {
+                            if (tradingSystem.parameters.baseAsset !== undefined) {
+                                let code
+                                try {
+                                    code = JSON.parse(tradingSystem.parameters.baseAsset.code);
+
+                                    if (code.name !== undefined) {
+                                        baseAsset = code.name;
+                                        if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
+                                            /* using BTC as default */
+                                            baseAsset = 'BTC'
+                                        }
+                                    }
+
+                                    if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
+                                        if (code.initialBalance !== undefined) {
+                                            process.env.INITIAL_BALANCE_ASSET_B = code.initialBalance;
+                                            process.env.INITIAL_BALANCE_ASSET_A = 0
+                                        }
+                                    } else {
+                                        if (code.initialBalance !== undefined) {
+                                            process.env.INITIAL_BALANCE_ASSET_A = code.initialBalance;
+                                            process.env.INITIAL_BALANCE_ASSET_B = 0
+                                        }
+                                    }
+                                } catch (err) {
+                                    global.DEFINITION.tradingSystem.parameters.baseAsset.error = err.message
+
+                                    process.env.INITIAL_BALANCE_ASSET_A = 0 // default
+                                    process.env.INITIAL_BALANCE_ASSET_B = 0.001 // default
+
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             loop();
@@ -183,6 +252,7 @@
                     let nextWaitTime;
 
                     /* Loop Heartbeat sent to the UI */
+                    bot.hearBeat = hearBeat // allow the bot itself to produce a heartbeat
                     hearBeat() 
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
@@ -208,7 +278,12 @@
                     /* Checking if we should process this loop or not.*/
                     if (global.STOP_PROCESSING === true) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start."); }
-                        console.log("[INFO] run -> loop -> We are going to skip this Loop bacause we were requested to stop or never asked to start.")
+
+                        console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
+                            + " We are going to skip this Loop bacause we were requested to stop or never asked to start. ");
+
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Process Stopped')
+
                         nextWaitTime = 'Normal';
                         loopControl(nextWaitTime);
                         return
@@ -264,7 +339,7 @@
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -338,7 +413,7 @@
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -411,7 +486,7 @@
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeContext -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeContext -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeContext -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -485,7 +560,7 @@
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -592,7 +667,7 @@
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeAssistant -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeAssistant -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeAssistant -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -678,7 +753,7 @@
                                                     return;
                                                 }
                                                 default: {
-                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized > Unhandled custom response received. -> err.message = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized > Unhandled custom response received. -> err = " + err.message);
                                                     logger.persist();
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
@@ -691,7 +766,7 @@
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -738,6 +813,8 @@
                                 try {
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessFramework -> onFinished -> Entering function."); }
+                                    processFramework.finalize()
+                                    processFramework = undefined
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
@@ -808,7 +885,7 @@
                                                     return;
                                                 }
                                                 default: {
-                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled custom response received. -> err.message = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled custom response received. -> err = " + err.message);
                                                     logger.persist();
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
@@ -821,7 +898,7 @@
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -898,7 +975,7 @@
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> saveContext -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> saveContext -> onFinished -> Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> saveContext -> onFinished -> Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -955,6 +1032,8 @@
                                 logger.persist();
                             }
 
+                            global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Process Stopped')
+
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
 
@@ -969,7 +1048,9 @@
                             switch (nextWaitTime) {
                                 case 'Normal': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                                    checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime * 5, bot.loopCounter);
+                                    if (processConfig.deadWaitTime > 0) {
+                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
+                                    }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
                                     if (global.WRITE_LOGS_TO_FILES === 'true') {
                                         logger.persist();
@@ -978,7 +1059,9 @@
                                     break;
                                 case 'Retry': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
-                                    checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.retryWaitTime * 5, bot.loopCounter);
+                                    if (processConfig.deadWaitTime > 0) {
+                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
+                                    }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
                                     logger.persist();
                                 }
@@ -1043,7 +1126,7 @@
                                 stopCallBack();
                             }
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> err.message = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> err = " + err.stack);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
@@ -1065,13 +1148,14 @@
             }
 
             function hearBeat() {
-                let key = global.USER_DEFINITION.bot.processes[bot.processIndex].name + '-' + global.USER_DEFINITION.bot.processes[bot.processIndex].type + '-' + global.USER_DEFINITION.bot.processes[bot.processIndex].id
+                let key = global.TASK_NODE.bot.processes[bot.processIndex].name + '-' + global.TASK_NODE.bot.processes[bot.processIndex].type + '-' + global.TASK_NODE.bot.processes[bot.processIndex].id
 
                 let event = {
                     seconds: (new Date()).getSeconds()
                 }
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
             }
+
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] run -> err = "+ err.stack);
             clearInterval(fixedTimeLoopIntervalHandle);

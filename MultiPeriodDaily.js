@@ -8,6 +8,7 @@
 
     thisObject = {
         initialize: initialize,
+        finalize: finalize,
         start: start
     };
 
@@ -65,6 +66,17 @@
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function finalize() {
+        storages = undefined
+        dataFiles = undefined
+        statusDependencies = undefined
+        dataDependencies = undefined
+        usertBot = undefined
+        fileStorage = undefined
+        processConfig = undefined
+        thisObject = undefined
     }
 
     function start(callBackFunction) {
@@ -298,7 +310,7 @@
                             bot.multiPeriodDailyProcessDatetime = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                            console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + " bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime.toISOString());
+                            console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + "bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime.toISOString());
 
                             if (global.WRITE_LOGS_TO_FILES === 'true') {
                                 logger.newInternalLoop(bot.codeName, bot.process);
@@ -710,7 +722,7 @@
                     let fileName = '/Data.Range.' + market.assetA + '_' + market.assetB + '.json';
                     let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process + fileName;
 
-                    fileStorage.createTextFile(global.DEV_TEAM, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

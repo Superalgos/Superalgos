@@ -66,7 +66,7 @@
                             }
                             case "Status Report was never created.": {
 
-                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> err.message = " + err.message);
+                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> err = " + err.stack);
                                 logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> bot = " + pStatusDependenciesConfig[i].bot);
                                 logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> process = " + pStatusDependenciesConfig[i].process);
                                 addReport();
@@ -75,7 +75,7 @@
 
                             case "Status Report is corrupt.": {
 
-                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> err.message = " + err.message);
+                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> err = " + err.stack);
                                 logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> bot = " + pStatusDependenciesConfig[i].bot);
                                 logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> process = " + pStatusDependenciesConfig[i].process);
                                 addReport();

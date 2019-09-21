@@ -46,11 +46,10 @@
     const FULL_LOG = true;
 
     let logDisplace = "Task Server" + "                                              ";
-    let UI_COMMANDS;
 
     return thisObject;
 
-    function initialize(pUI_COMMANDS, callBackFunction) {
+    function initialize(callBackFunction) {
 
         try {
             console.log(logDisplace  + "Root : [INFO] initialize -> Entering function. ");
@@ -95,13 +94,11 @@
                 }
             };
 
-            UI_COMMANDS = pUI_COMMANDS;
-
             callBackFunction();
 
         }
         catch (err) {
-            console.log(logDisplace  + "Root : [ERROR] initialize -> err.message = " + err.message);
+            console.log(logDisplace  + "Root : [ERROR] initialize -> err = " + err.stack);
             return;
         }
     }
@@ -126,9 +123,6 @@
             const TRADING_ENGINE_MAIN_LOOP_MODULE = require('./TradingEngineProcessMainLoop');
 
             /* Loop through all the processes configured to be run by this Node.js Instance. */
-
-            let cloneToExecute = global.EXECUTION_CONFIG.cloneToExecute;
-
             /* Now we will read the config of the bot from the path we obtained at the Task Server config. */
 
             let botConfig;
@@ -143,9 +137,9 @@
                     const FILE_STORAGE = require('./Integrations/FileStorage.js');
                     let fileStorage = FILE_STORAGE.newFileStorage();
 
-                    let filePath = global.DEV_TEAM + '/bots/' + global.CURRENT_BOT_REPO + '/this.bot.config.json';
+                    let filePath = global.TASK_NODE.bot.processes[processIndex].code.team + '/bots/' + global.TASK_NODE.bot.processes[processIndex].code.repo + '/this.bot.config.json';
 
-                    fileStorage.getTextFile(global.DEV_TEAM, filePath, onFileReceived);
+                    fileStorage.getTextFile(global.TASK_NODE.bot.processes[processIndex].code.team, filePath, onFileReceived);
 
                     function onFileReceived(err, text) {
 
@@ -157,7 +151,7 @@
 
                         try {
                             botConfig = JSON.parse(text);
-                            botConfig.repo = cloneToExecute.repo;
+                            botConfig.repo = global.TASK_NODE.bot.processes[processIndex].code.repo;
                             findProcess(processIndex);
                         } catch (err) {
                             console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
@@ -166,7 +160,7 @@
                     }
                 }
                 catch (err) {
-                    console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> err.message = " + err.message);
+                    console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> err = " + err.stack);
                     return;
                 }
             }
@@ -176,7 +170,7 @@
                 try {
                     if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Entering function. "); }
 
-                    botConfig.process = cloneToExecute.process;
+                    botConfig.process = global.TASK_NODE.bot.processes[processIndex].code.process;
                     botConfig.debug = {};
                     botConfig.processIndex = processIndex
 
@@ -196,17 +190,12 @@
 
                     for (let i = 0; i < botConfig.processes.length; i++) {
 
-                        if (botConfig.processes[i].name === cloneToExecute.process) {
+                        if (botConfig.processes[i].name === global.TASK_NODE.bot.processes[processIndex].code.process) {
 
                             processFound = true;
-                            if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> cloneToExecute.process = " + cloneToExecute.process); }
+                            if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> process = " + global.TASK_NODE.bot.processes[processIndex].code.process); }
 
                             let processConfig = botConfig.processes[i];
-
-                            if (global.EXECUTION_CONFIG.timePeriod) {
-                                processConfig.timePeriod = global.EXECUTION_CONFIG.timePeriod
-                            }
-
 
                             if (processConfig.framework !== undefined) {
                                 if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market" || processConfig.framework.name === "Multi-Period") {
@@ -338,7 +327,7 @@
                                                 runIndicatorBot(botConfig, processConfig, month, year);
                                                 break;
                                             }
-                                            case 'Trading-Engine': {
+                                            case 'Trading Engine': {
                                                 runTradingEngine(botConfig, processConfig);
                                                 break;
                                             }
@@ -388,7 +377,7 @@
                                         }
 
                                         switch (botConfig.type) {
-                                            case 'Trading-Engine': {
+                                            case 'Trading Engine': {
                                                 runTradingEngine(botConfig, processConfig);
                                                 break;
                                             }
@@ -400,7 +389,7 @@
                                 }
 
                             } catch (err) {
-                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected exception. -> err.message = " + err.message);
+                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected exception. -> err = " + err.stack);
                             }
                         }
                     }
@@ -408,7 +397,7 @@
                     if (processFound === false) {
 
                         console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Process listed at the configuration file of Task Server not found at the configuration file of the bot.");
-                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> cloneToExecute.process = " + cloneToExecute.process);
+                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> process = " + global.TASK_NODE.bot.processes[processIndex].code.process);
 
                     }
 
@@ -428,7 +417,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runSensorBot -> pYear = " + pYear); }
 
                             let extractionBotMainLoop = SENSOR_BOT_MAIN_LOOP_MODULE.newSensorBotProcessMainLoop(pBotConfig, logger);
-                            extractionBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
+                            extractionBotMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
@@ -458,7 +447,7 @@
 
                                         } else {
 
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.stack);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
                                             logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
                                             logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bye.");
                                             logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
@@ -471,9 +460,9 @@
                                     }
 
                                 } else {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> err = " + err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> err = " + err.message);
                                     logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> Bot will not be started. ");
-                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> err = " + err.stack);
+                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> err = " + err.message);
 
                                     logger.persist();
                                     exitProcessInstance()
@@ -502,7 +491,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runIndicatorBot -> pYear = " + pYear); }
 
                             let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotProcessMainLoop(pBotConfig, logger);
-                            indicatorBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
+                            indicatorBotMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
@@ -532,7 +521,7 @@
 
                                         } else {
 
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.stack);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
                                             logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
                                             logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bye.");
                                             logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
@@ -543,9 +532,9 @@
                                     }
 
                                 } else {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = " + err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = " + err.message);
                                     logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> Failed to initialize the bot. ");
-                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = " + err.stack);
+                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = " + err.message);
                                     logger.persist();
                                     exitProcessInstance()
                                 }
@@ -571,7 +560,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingEngine -> Entering function."); }
 
                             let tradingEngineMainLoop = TRADING_ENGINE_MAIN_LOOP_MODULE.newTradingEngineProcessMainLoop(pBotConfig, logger);
-                            tradingEngineMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
+                            tradingEngineMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
@@ -598,7 +587,7 @@
 
                                         } else {
 
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> err = " + err.stack);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
                                             logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
                                             logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bye.");
                                             logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
@@ -609,9 +598,9 @@
                                     }
 
                                 } else {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> err = " + err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> err = " + err.message);
                                     logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> Failed to initialize the bot. ");
-                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> err = " + err.stack);
+                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> err = " + err.message);
                                     logger.persist();
                                     exitProcessInstance()
                                 }
@@ -624,7 +613,7 @@
                     }
                 }
                 catch (err) {
-                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> err.message = " + err.message);
+                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> err = " + err.stack);
                     exitProcessInstance()
                 }
             }
@@ -632,14 +621,14 @@
             function exitProcessInstance() {
 
                 global.ENDED_PROCESSES_COUNTER++
-                console.log("[INFO] Task Server -> " + global.USER_DEFINITION.name + " -> exitProcessInstance -> Process #" + global.ENDED_PROCESSES_COUNTER + " from " + global.TOTAL_PROCESS_INSTANCES_CREATED + " exiting.");
+                console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> exitProcessInstance -> Process #" + global.ENDED_PROCESSES_COUNTER + " from " + global.TOTAL_PROCESS_INSTANCES_CREATED + " exiting.");
 
                 if (global.ENDED_PROCESSES_COUNTER === global.TOTAL_PROCESS_INSTANCES_CREATED) {
                     global.EXIT_NODE_PROCESS()
                 }
             }
         } catch (err) {
-            console.log("[ERROR] Task Server -> " + global.USER_DEFINITION.name + " -> Root -> Start -> Err = " + err.stack);
+            console.log("[ERROR] Task Server -> " + global.TASK_NODE.name + " -> Root -> Start -> Err = " + err.stack);
         }
     }
 }

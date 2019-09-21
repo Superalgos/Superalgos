@@ -8,6 +8,7 @@
 
     thisObject = {
         initialize: initialize,
+        finalize: finalize,
         start: start
     };
 
@@ -68,6 +69,19 @@
         }
     }
 
+    function finalize() {
+        storages = undefined
+        dataFiles = undefined
+        multiPeriodDataFiles = undefined
+        statusDependencies = undefined
+        dataDependencies = undefined
+        usertBot.finalize() 
+        usertBot = undefined
+        fileStorage = undefined
+        processConfig = undefined
+        thisObject = undefined
+    }
+
     function start(callBackFunction) {
 
         try {
@@ -115,6 +129,8 @@
 
                         /*
                             We look first for the bot who knows the begining of the marke in order to get when the market starts.
+                            IMPORTANT NOTE: When this module is used by Trading Engine Bots it nevers comes through this path since there is allways a ficed start date.
+                                            This code would be used by some indicator that is.
                         */
 
                         let botWhoKnowsTheBeginingOfTheMarket = statusDependencies.config[processConfig.framework.startDate.takeItFromStatusDependency];
@@ -151,7 +167,7 @@
                             return;
                         }
 
-                        contextVariables.dateBeginOfMarket = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
+                        contextVariables.dateBeginOfMarket = new Date(thisReport.lastFile);
 
                     }
 
@@ -490,7 +506,7 @@
                             bot.multiPeriodDailyProcessDatetime = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                            console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + " bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime.toISOString());
+                            console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + "bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime.toISOString());
 
                             if (global.WRITE_LOGS_TO_FILES === 'true') {
                                 logger.newInternalLoop(bot.codeName, bot.process);
@@ -853,7 +869,7 @@
                         try {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> callTheBot -> Entering function."); }
-
+                            
                             usertBot.start(
                                 multiPeriodDataFiles,
                                 currentTimePeriod,
@@ -878,7 +894,8 @@
                                     botNeverRan = false;
 
                                     if (currentTimePeriod > global.dailyFilePeriods[0][0]) {
-                                        writeMarketStatusReport(onMarketStatusReport);
+                                        writeMarketStatusReport(onMarketStatusReport)
+
                                     } else {
                                         writeDataRanges(onWritten);
                                     }
@@ -895,7 +912,7 @@
                                                 return;
                                             }
 
-                                            writeDailyStatusReport(bot.multiPeriodDailyProcessDatetime, advanceTime);
+                                            writeDailyStatusReport(bot.multiPeriodDailyProcessDatetime, onDailyStatusReport);
 
                                         } catch (err) {
                                             logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onWritten -> err = " + err.stack);
@@ -903,9 +920,29 @@
                                         }
                                     }
 
+
+                                    function onDailyStatusReport() {
+                                        try {
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onDailyStatusReport -> Entering function."); }
+
+                                            /* The next run we need the process to continue at the date it finished. */
+                                            processConfig.framework.startDate.resumeExecution = true; 
+
+                                            advanceTime();
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onDailyStatusReport -> err = " + err.stack);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
                                     function onMarketStatusReport() {
                                         try {
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onMarketStatusReport -> Entering function."); }
+
+                                            if (bot.startMode === "Backtest") {
+                                                global.STOP_PROCESSING = true
+                                            }
+
                                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                                         } catch (err) {
                                             logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onMarketStatusReport -> err = " + err.stack);
@@ -981,7 +1018,7 @@
                     let fileName = '/Data.Range.' + market.assetA + '_' + market.assetB + '.json';
                     let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + 'Multi-Period-Daily' + fileName;
 
-                    fileStorage.createTextFile(global.DEV_TEAM, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -1022,9 +1059,6 @@
                     thisReport.save(callBack);
 
                     bot.hasTheBotJustStarted = false;
-
-                    /* Emit event that signals that this process finished */
-                    global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Status Report Updated', { lastProcessedDay: lastFileDate })
 
                 }
                 catch (err) {

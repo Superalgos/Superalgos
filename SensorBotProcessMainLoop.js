@@ -23,30 +23,28 @@
     };
 
     let processConfig;
-    let UI_COMMANDS;
 
     return thisObject;
 
-    function initialize(pUI_COMMANDS, pProcessConfig, callBackFunction) {
+    function initialize(pProcessConfig, callBackFunction) {
 
         /*  This function is exactly the same in the 3 modules representing the 2 different bot types loops. */
 
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            UI_COMMANDS = pUI_COMMANDS;
             processConfig = pProcessConfig;
 
-            let filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name;
+            let filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name;
             filePath += "/User.Bot.js"
 
-            fileStorage.getTextFile(global.DEV_TEAM, filePath, onBotDownloaded);
+            fileStorage.getTextFile(bot.devTeam, filePath, onBotDownloaded);
 
             function onBotDownloaded(err, text) {
 
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err.message = " + err.message);
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -56,10 +54,10 @@
                 }
                 USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
 
-                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
+                filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo;
                 filePath += "/Commons.js"
 
-                fileStorage.getTextFile(global.DEV_TEAM, filePath, onCommonsDownloaded);
+                fileStorage.getTextFile(bot.devTeam, filePath, onCommonsDownloaded);
 
                 function onCommonsDownloaded(err, text) {
 
@@ -191,7 +189,7 @@
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -265,7 +263,7 @@
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -361,7 +359,7 @@
                                                     return;
                                                 }
                                                 default: {
-                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled custom response received. -> err.message = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled custom response received. -> err = " + err.message);
                                                     logger.persist();
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
@@ -374,7 +372,7 @@
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -491,7 +489,7 @@
                                                     return;
                                                 }
                                                 default: {
-                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled custom response received. -> err.message = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled custom response received. -> err = " + err.message);
                                                     logger.persist();
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
@@ -504,7 +502,7 @@
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.message = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -580,14 +578,18 @@
                                 case 'Normal': {
                                     if (bot.runAtFixedInterval === true) {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Fixed Interval Normal exit point reached."); }
-                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, bot.fixedInterval * 5, bot.loopCounter);
+                                        if (processConfig.deadWaitTime > 0) {
+                                            checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
+                                        }
                                         if(global.WRITE_LOGS_TO_FILES === 'true'){
                                             logger.persist();
                                         }
                                         return;
                                     } else {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime * 5, bot.loopCounter);
+                                        if (processConfig.deadWaitTime > 0) {
+                                            checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
+                                        }
                                         nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
                                         if(global.WRITE_LOGS_TO_FILES === 'true'){
                                             logger.persist();
@@ -674,7 +676,7 @@
                                 stopCallBack();
                             }
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> err.message = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> err = " + err.stack);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
@@ -696,7 +698,7 @@
             }
 
             function hearBeat() {
-                let key = global.USER_DEFINITION.bot.processes[bot.processIndex].name + '-' + global.USER_DEFINITION.bot.processes[bot.processIndex].type + '-' + global.USER_DEFINITION.bot.processes[bot.processIndex].id
+                let key = global.TASK_NODE.bot.processes[bot.processIndex].name + '-' + global.TASK_NODE.bot.processes[bot.processIndex].type + '-' + global.TASK_NODE.bot.processes[bot.processIndex].id
 
                 let event = {
                     seconds: (new Date()).getSeconds()

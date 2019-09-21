@@ -63,7 +63,8 @@ function newAppLoader() {
                 'StrategySpace/Workspace/FunctionLibraries/NodeDeleter.js',
                 'StrategySpace/Workspace/FunctionLibraries/ProtocolNode.js',
                 'StrategySpace/Workspace/FunctionLibraries/StringifyNode.js',
-                'StrategySpace/Workspace/FunctionLibraries/NodeChildren.js',
+                'StrategySpace/Workspace/FunctionLibraries/NodeChildren.js', 
+                'StrategySpace/Workspace/FunctionLibraries/TaskFunctions.js',
 
                 'Utilities/RoundedCornersBackground.js',
 
@@ -101,6 +102,7 @@ function newAppLoader() {
                 'FloatingSpace/StrategyPartTitle.js',
                 'FloatingSpace/CircularMenu.js',
                 'FloatingSpace/CircularMenuItem.js',
+                'FloatingSpace/CircularProgressBar.js',
                 'FloatingSpace/CodeEditor.js',
 
                 'Scales/RateScale.js',
@@ -111,8 +113,9 @@ function newAppLoader() {
                 'CockpitSpace/AssetBalances.js',
                 'CockpitSpace/Speedometer.js',
                 'CockpitSpace/RestartSimulation.js',
-                'CockpitSpace/GraphQLRestartSimulation.js',
                 'CockpitSpace/FullScreen.js',
+
+                'SystemEventHandler.js',
 
                 'Plotter.js',
                 'PlotterPanel.js',

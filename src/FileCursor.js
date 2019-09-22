@@ -40,8 +40,6 @@ function newFileCursor () {
 
   function finalize () {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
-
       thisObject.eventHandler = undefined
 
       clearInterval(intervalHandle)
@@ -59,9 +57,6 @@ function newFileCursor () {
 
   function initialize (pFileCloud, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDevTeam.codeName + '-' + pBot.codeName + '-' + pSet.codeName + '-' + pPeriodName) }
-
       market = pMarket
       exchange = pExchange
       fileCloud = pFileCloud
@@ -73,12 +68,6 @@ function newFileCursor () {
       timePeriod = pTimePeriod
       beginDateRange = pBeginDateRange
       endDateRange = pEndDateRange
-
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> market = ' + market) }
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> periodName = ' + periodName) }
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> cursorDate = ' + cursorDate) }
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> beginDateRange = ' + beginDateRange) }
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> endDateRange = ' + endDateRange) }
 
       setTimePeriod(pCurrentTimePeriod, pCursorDate)
 
@@ -94,7 +83,6 @@ function newFileCursor () {
   function updateFiles () {
     try {
       if (finalized === true) { return }
-      if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> Entering function.') }
 
       /*
 
@@ -200,23 +188,13 @@ function newFileCursor () {
       }
 
       if (Math.abs(positionB - positionA) <= 1) {
-        if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> Will EXIT Saving Mode.') }
-        if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> pTimePeriod = ' + convertTimePeriodToName(pTimePeriod)) }
-        if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> timePeriod = ' + convertTimePeriodToName(timePeriod)) }
-
         exitSavingMode()
       } else {
-        if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> Will ENTER Saving Mode.') }
-        if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> pTimePeriod = ' + convertTimePeriodToName(pTimePeriod)) }
-        if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> timePeriod = ' + convertTimePeriodToName(timePeriod)) }
-
         enterSavingMode()
       }
 
       function enterSavingMode () {
         try {
-          if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> enterSavingMode -> Entering function.') }
-
           switch (timePeriod) {
 
             case _45_MINUTES_IN_MILISECONDS:
@@ -294,8 +272,6 @@ function newFileCursor () {
 
       function exitSavingMode () {
         try {
-          if (INFO_LOG === true) { logger.write('[INFO] setTimePeriod -> exitSavingMode -> Entering function.') }
-
           switch (timePeriod) {
 
             case _45_MINUTES_IN_MILISECONDS:
@@ -378,7 +354,6 @@ function newFileCursor () {
   function setDatetime (pDatetime) {
     try {
       if (finalized === true) { return }
-      if (INFO_LOG === true) { logger.write('[INFO] setDatetime -> Entering function.') }
 
       if (pDatetime === undefined) {
         if (ERROR_LOG === true) { logger.write('[ERROR] setDatetime -> Received undefined datetime.') }
@@ -394,7 +369,6 @@ function newFileCursor () {
   function reload (callBackFunction) {
     try {
       if (finalized === true) { return }
-      if (INFO_LOG === true) { logger.write('[INFO] reload -> Entering function.') }
 
       getFiles(callBackFunction)
 
@@ -408,7 +382,6 @@ function newFileCursor () {
   function getFiles (callBackFunction) {
     try {
       if (finalized === true) { return }
-      if (INFO_LOG === true) { logger.write('[INFO] getFiles -> Entering function.') }
 
       let i = 0
       let j = 0
@@ -419,8 +392,6 @@ function newFileCursor () {
 
       function getNextFile () {
         try {
-          if (INFO_LOG === true) { logger.write('[INFO] getFiles -> getNextFile -> Entering function.') }
-
           let targetDate = new Date(cursorDate)
           targetDate.setUTCDate(targetDate.getUTCDate() + j)
 
@@ -548,7 +519,6 @@ function newFileCursor () {
   function collectGarbage (callBackFunction) {
     try {
       if (finalized === true) { return }
-      if (INFO_LOG === true) { logger.write('[INFO] collectGarbage -> Entering function.') }
 
       date = removeTime(cursorDate)
 
@@ -575,4 +545,3 @@ function newFileCursor () {
     return minCursorSize
   }
 }
-

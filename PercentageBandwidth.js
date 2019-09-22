@@ -52,9 +52,10 @@
 
     let zoomChangedEventSubscriptionId
     let offsetChangedEventSubscriptionId
-    let filesUpdatedEventSubscriptionId
     let dragFinishedEventSubscriptionId
     let dimmensionsChangedEventSubscriptionId
+    let marketFilesUpdatedEventSubscriptionId
+    let dailyFilesUpdatedEventSubscriptionId
 
     return thisObject;
 
@@ -65,9 +66,10 @@
 
             viewPort.eventHandler.stopListening(zoomChangedEventSubscriptionId);
             viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId);
-            marketFiles.eventHandler.stopListening(filesUpdatedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
+            marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
+            dailyFiles.eventHandler.stopListening(dailyFilesUpdatedEventSubscriptionId);
 
             /* Destroyd References */
 
@@ -114,8 +116,9 @@
 
             zoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
             offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
-            filesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onFilesUpdated);
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+            marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
+            dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
 
             /* Get ready for plotting. */
 
@@ -167,21 +170,27 @@
         }
     }
 
-    function onFilesUpdated() {
-
+    function onMarketFilesUpdated() {
         try {
-
             let newMarketFile = marketFiles.getFile(timePeriod);
-
             if (newMarketFile !== undefined) {
-
                 marketFile = newMarketFile;
                 recalculate();
             }
-
         } catch (err) {
+            if (ERROR_LOG === true) { logger.write("[ERROR] onMarketFilesUpdated -> err = " + err.stack); }
+        }
+    }
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onFilesUpdated -> err = " + err.stack); }
+    function onDailyFilesUpdated() {
+        try {
+            let newFileCursor = dailyFiles.getFileCursor(timePeriod);
+            if (newFileCursor !== undefined) {
+                fileCursor = newFileCursor;
+                recalculate();
+            }
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write("[ERROR] onDailyFilesUpdated -> err = " + err.stack); }
         }
     }
 

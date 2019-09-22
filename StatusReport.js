@@ -240,6 +240,23 @@
                 let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Status Report Updated')
 
+                /* We will also reaise the events for the datasets impacted by the process that just finished. */
+                for (let j = 0; j < bot.processes.length; j++) {
+                    let process = bot.processes[j]
+                    if (process.name === bot.process) {
+                        let updatesDatasets = process.updatesDatasets
+                        if (updatesDatasets !== undefined) {
+                            for (let i = 0; i < updatesDatasets.length; i++) {
+                                let updatedDataSet = updatesDatasets[i]
+
+                                key = bot.devTeam + "-" + bot.codeName + "-" + updatedDataSet.product + "-" + updatedDataSet.dataSet
+                                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Dataset Updated')
+                                console.log(key, 'Dataset Updated')
+                            }
+                        }
+                    }
+                }
+
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                 return;
             }

@@ -43,6 +43,9 @@ function newMarketFiles () {
       filesLoaded = undefined
       files = undefined
       finalized = true
+
+      thisObject.eventHandler.finalize()
+      thisObject.eventHandler = undefined
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
@@ -120,7 +123,7 @@ function newMarketFiles () {
               updatedFiles++
 
               if (updatedFiles === marketFilesPeriods.length) {
-                thisObject.eventHandler.raiseEvent('Files Updated', undefined)
+                thisObject.eventHandler.raiseEvent('Files Updated')
               }
             } catch (err) {
               if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onFileReceived -> err = ' + err.stack) }

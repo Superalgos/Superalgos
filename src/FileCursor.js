@@ -9,6 +9,7 @@ function newFileCursor () {
   let cursorDate
 
   let thisObject = {
+    eventHandler: undefined, // received from parent
     reload: reload,
     setDatetime: setDatetime,
     setTimePeriod: setTimePeriod,
@@ -40,6 +41,8 @@ function newFileCursor () {
   function finalize () {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
+
+      thisObject.eventHandler = undefined
 
       clearInterval(intervalHandle)
 
@@ -154,12 +157,7 @@ function newFileCursor () {
           }
 
           thisObject.files.set(dateString, file)
-
-          if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> File updated.') }
-          if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> devTeam = ' + devTeam.codeName) }
-          if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> bot = ' + bot.codeName) }
-          if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> thisSet = ' + thisSet.codeName) }
-          if (INFO_LOG === true) { logger.write('[INFO] updateFiles -> onFileReceived -> dateString = ' + dateString) }
+          thisObject.eventHandler.raiseEvent('Files Updated')
         } catch (err) {
           if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onFileReceived -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)

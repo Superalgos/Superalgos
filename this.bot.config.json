@@ -38,6 +38,16 @@
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,
+      "updatesDatasets": [
+        {
+          "product": "Bollinger-Bands",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "product": "Percentage-Bandwidth",
+          "dataSet": "Multi-Period-Market"
+        }
+      ],
       "statusDependencies": [
         {
           "devTeam": "AAMasters",
@@ -89,6 +99,16 @@
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,
+      "updatesDatasets": [
+        {
+          "product": "Bollinger-Bands",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "product": "Percentage-Bandwidth",
+          "dataSet": "Multi-Period-Daily"
+        }
+      ],
       "statusDependencies": [
         {
           "devTeam": "AAMasters",

@@ -49,8 +49,14 @@
     /* these are module specific variables: */
 
     let strategies = [];
-
     let strategyImages = [];
+
+    let zoomChangedEventSubscriptionId
+    let offsetChangedEventSubscriptionId
+    let dragFinishedEventSubscriptionId
+    let dimmensionsChangedEventSubscriptionId
+    let marketFilesUpdatedEventSubscriptionId
+    let dailyFilesUpdatedEventSubscriptionId
 
     return thisObject;
 
@@ -61,11 +67,12 @@
 
             /* Stop listening to the necesary events. */
 
-            viewPort.eventHandler.stopListening("Zoom Changed", onZoomChanged);
-            viewPort.eventHandler.stopListening("Offset Changed", onOffsetChanged);
-            marketFiles.eventHandler.stopListening("Files Updated", onFilesUpdated);
-            canvas.eventHandler.stopListening("Drag Finished", onDragFinished);
-            thisObject.container.eventHandler.stopListening('Dimmensions Changed')
+            viewPort.eventHandler.stopListening(zoomChangedEventSubscriptionId);
+            viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
+            thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
+            marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
+            dailyFiles.eventHandler.stopListening(dailyFilesUpdatedEventSubscriptionId);
 
             /* Destroyd References */
 
@@ -113,10 +120,11 @@
 
             /* Listen to the necesary events. */
 
-            viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-            viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
-            marketFiles.eventHandler.listenToEvent("Files Updated", onFilesUpdated);
-            canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+            zoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
+            offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
+            dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+            marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
+            dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
 
             /* Get ready for plotting. */
 
@@ -124,7 +132,7 @@
 
             /* Ready for when dimmension changes. */
 
-            thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
+            dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
                 recalculateScale()
                 recalculate();
             })
@@ -169,23 +177,27 @@
         }
     }
 
-    function onFilesUpdated() {
-
+    function onMarketFilesUpdated() {
         try {
-
-            if (INFO_LOG === true) { logger.write("[INFO] onFilesUpdated -> Entering function."); }
-
             let newMarketFile = marketFiles.getFile(timePeriod);
-
             if (newMarketFile !== undefined) {
-
                 marketFile = newMarketFile;
                 recalculate();
             }
-
         } catch (err) {
+            if (ERROR_LOG === true) { logger.write("[ERROR] onMarketFilesUpdated -> err = " + err.stack); }
+        }
+    }
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] onFilesUpdated -> err = " + err.stack); }
+    function onDailyFilesUpdated() {
+        try {
+            let newFileCursor = dailyFiles.getFileCursor(timePeriod);
+            if (newFileCursor !== undefined) {
+                fileCursor = newFileCursor;
+                recalculate();
+            }
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write("[ERROR] onDailyFilesUpdated -> err = " + err.stack); }
         }
     }
 

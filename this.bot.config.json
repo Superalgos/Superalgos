@@ -38,6 +38,16 @@
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,
+      "updatesDatasets": [
+        {
+          "product": "Candles",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "product": "Volumes",
+          "dataSet": "Multi-Period-Market"
+        }
+      ],
       "statusDependencies": [
         {
           "devTeam": "AAMasters",
@@ -100,6 +110,16 @@
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,
+      "updatesDatasets": [
+        {
+          "product": "Candles",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "product": "Volumes",
+          "dataSet": "Multi-Period-Daily"
+        }
+      ],
       "statusDependencies": [
         {
           "devTeam": "AAMasters",

@@ -27,22 +27,35 @@ function newFileCursor () {
   let fileCloud
   let devTeam
   let bot
+  let product
   let thisSet
   let periodName
   let timePeriod
   let beginDateRange
   let endDateRange
 
-  let intervalHandle
   let finalized = false
+
+  let eventSubscriptionIdDatasetUpdated
 
   return thisObject
 
   function finalize () {
     try {
+      systemEventHandler.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated)
       thisObject.eventHandler = undefined
 
-      clearInterval(intervalHandle)
+      market = undefined
+      exchange = undefined
+      fileCloud = undefined
+      devTeam = undefined
+      bot = undefined
+      product = undefined
+      thisSet = undefined
+      periodName = undefined
+      timePeriod = undefined
+      beginDateRange = undefined
+      endDateRange = undefined
 
       thisObject.files = undefined
       cursorDate = undefined
@@ -55,13 +68,14 @@ function newFileCursor () {
     }
   }
 
-  function initialize (pFileCloud, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
+  function initialize (pFileCloud, pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
     try {
       market = pMarket
       exchange = pExchange
       fileCloud = pFileCloud
       devTeam = pDevTeam
       bot = pBot
+      product = pProduct
       thisSet = pSet
       periodName = pPeriodName
       cursorDate = removeTime(pCursorDate)
@@ -69,11 +83,14 @@ function newFileCursor () {
       beginDateRange = pBeginDateRange
       endDateRange = pEndDateRange
 
-      setTimePeriod(pCurrentTimePeriod, pCursorDate)
-
-      intervalHandle = setInterval(updateFiles, timePeriod)
+      let key = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + thisSet.codeName
+      systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponse, updateFiles)
 
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+
+      function onResponse (message) {
+        eventSubscriptionIdDatasetUpdated = message.eventSubscriptionId
+      }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)

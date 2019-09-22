@@ -38,6 +38,16 @@
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,
+      "updatesDatasets": [
+        {
+          "product": "Candle-Stairs",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "product": "Volume-Stairs",
+          "dataSet": "Multi-Period-Market"
+        }
+      ],
       "statusDependencies": [
         {
           "devTeam": "AAMasters",
@@ -89,6 +99,16 @@
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,
+      "updatesDatasets": [
+        {
+          "product": "Candle-Stairs",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "product": "Volume-Stairs",
+          "dataSet": "Multi-Period-Daily"
+        }
+      ],
       "statusDependencies": [
         {
           "devTeam": "AAMasters",

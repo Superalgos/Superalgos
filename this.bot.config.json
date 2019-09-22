@@ -24,6 +24,48 @@
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,
+      "updatesDatasets": [
+        {
+          "product": "Trading-Simulation",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "product": "Simulation-Conditions",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "product": "Simulation-Strategies",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "product": "Simulation-Trades",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "product": "Live Trading History",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "product": "Trading-Simulation",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "product": "Simulation-Conditions",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "product": "Simulation-Strategies",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "product": "Simulation-Trades",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "product": "Live Trading History",
+          "dataSet": "Multi-Period-Daily"
+        }
+      ],
       "framework": {
         "name": "Multi-Period",
         "validPeriods": [

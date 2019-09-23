@@ -63,7 +63,7 @@ exports.newDebugLog = function newDebugLog() {
             let contentToPersist = accumulatedLog;
             accumulatedLog = "[";
 
-            const FILE_STORAGE = require('./Integrations/FileStorage.js');
+            const FILE_STORAGE = require('./FileStorage.js');
             let fileStorage = FILE_STORAGE.newFileStorage();
 
             let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/" + executionDatetime;

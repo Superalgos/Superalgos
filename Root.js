@@ -134,7 +134,7 @@
                 try {
                     console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> Entering function. ");
 
-                    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+                    const FILE_STORAGE = require('./FileStorage.js');
                     let fileStorage = FILE_STORAGE.newFileStorage();
 
                     let filePath = global.TASK_NODE.bot.processes[processIndex].code.team + '/bots/' + global.TASK_NODE.bot.processes[processIndex].code.repo + '/this.bot.config.json';

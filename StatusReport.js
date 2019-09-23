@@ -29,7 +29,7 @@
 
     /* Storage account to be used here. */
 
-    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    const FILE_STORAGE = require('./FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
     let month;
@@ -239,6 +239,26 @@
                 /* Here we raise the event stating that this status report was updated. */
                 let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Status Report Updated')
+
+                /* We will also reaise the events for the datasets impacted by the process that just finished. */
+                for (let j = 0; j < bot.processes.length; j++) {
+                    let process = bot.processes[j]
+                    if (process.name === bot.process) {
+                        let updatesDatasets = process.updatesDatasets
+                        if (updatesDatasets !== undefined) {
+                            for (let i = 0; i < updatesDatasets.length; i++) {
+                                let updatedDataSet = updatesDatasets[i]
+
+                                key = bot.devTeam + "-" + bot.codeName + "-" + updatedDataSet.product + "-" + updatedDataSet.dataSet
+                                let event = {
+                                    lastFile: thisObject.file.lastFile
+                                }
+                                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Dataset Updated', event)
+
+                            }
+                        }
+                    }
+                }
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                 return;

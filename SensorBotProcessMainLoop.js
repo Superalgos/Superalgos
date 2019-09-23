@@ -8,7 +8,7 @@
     let USER_BOT_MODULE;
     let COMMONS_MODULE;
 
-    const FILE_STORAGE = require('./Integrations/FileStorage.js');
+    const FILE_STORAGE = require('./FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');

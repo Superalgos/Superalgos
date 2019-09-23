@@ -113,7 +113,11 @@ function newDashboard () {
   function setBrowserEvents () {
     window.onbeforeunload = onBrowserClosed
     function onBrowserClosed () {
-      window.alert('My Window is closing')
+      let definition = canvas.strategySpace.workspace.definition
+      for (let i = 0; i < definition.taskManagers.length; i++) {
+        taskManager = definition.taskManagers[i]
+        taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+      }
     }
   }
 }

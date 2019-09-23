@@ -30,6 +30,7 @@ function newFileSequence () {
   thisObject.eventHandler = newEventHandler()
 
   let eventSubscriptionIdDatasetUpdated
+  let callerId
 
   return thisObject
 
@@ -73,7 +74,7 @@ function newFileSequence () {
       fileCloud = newFileCloud()
       fileCloud.initialize(bot)
 
-      let callerId = newUniqueId()
+      callerId = newUniqueId()
 
       let key = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + thisSet.codeName
       systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
@@ -198,7 +199,7 @@ function newFileSequence () {
 
       fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
-      function onSequenceFileReceived (err, file) {
+      function onSequenceFileReceived (err, sequenceFile) {
         try {
           if (finalized === true) { return }
           switch (err.result) {
@@ -226,7 +227,8 @@ function newFileSequence () {
             }
           }
 
-          maxSequence = Number(file)
+          maxSequence = Number(sequenceFile)
+          filesLoaded = 0
 
                     /* Now we will get the sequence of files, but in this case only from the currentMaxSequence and above. */
 
@@ -240,26 +242,18 @@ function newFileSequence () {
                   case GLOBAL.DEFAULT_OK_RESPONSE.result: {
                     break
                   }
-
                   case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
                     return
                   }
-
                   case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
                     if (ERROR_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> err.message = ' + err.message) }
-                    return
-                  }
-
-                  default: {
                     return
                   }
                 }
 
                 files.set(i, file)
 
-                if (i !== currentMaxSequence) {
-                  filesLoaded++
-                }
+                filesLoaded++
 
                 if (filesLoaded === maxSequence + 1) {
                   thisObject.eventHandler.raiseEvent('Files Updated', undefined)

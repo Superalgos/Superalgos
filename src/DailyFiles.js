@@ -6,6 +6,7 @@ function newDailyFiles () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    eventHandler: undefined,
     getFileCursor: getFileCursor,
     setDatetime: setDatetime,
     setTimePeriod: setTimePeriod,
@@ -17,17 +18,19 @@ function newDailyFiles () {
 
   let filesLoaded = 0
   let expectedFiles = 0
-
   let fileCloud
-
   let fileCursors = new Map()
-
   let callBackWhenFileReceived
+
+  thisObject.eventHandler = newEventHandler()
 
   return thisObject
 
   function finalize () {
     try {
+      thisObject.eventHandler.finalize()
+      thisObject.eventHandler = undefined
+
       filesLoaded = undefined
       expectedFiles = undefined
       fileCloud = undefined
@@ -79,9 +82,9 @@ function newDailyFiles () {
 
             case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
               if (err.message === 'File does not exist.') {
-                err.message = 'Dataset Unavailable.'
-                callBackFunction(err)
-                return
+                beginDateRange = new Date()
+                endDateRange = new Date()
+                break
               }
               if (err.message === 'Missing Configuration.') {
                 if (ERROR_LOG === true) { logger.write('[WARN] initialize -> onFileReceived -> The needed configuration for the dateRange at the dataSet of the product was not found.') }
@@ -106,7 +109,8 @@ function newDailyFiles () {
 
             if (pSet.validPeriods.includes(periodName) === true) {
               let fileCursor = newFileCursor()
-              fileCursor.initialize(fileCloud, pDevTeam, pBot, pSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, beginDateRange, endDateRange, onInitialized)
+              fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
+              fileCursor.initialize(fileCloud, pDevTeam, pBot, pProduct, pSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, beginDateRange, endDateRange, onInitialized)
               function onInitialized (err) {
                 try {
                   switch (err.result) {

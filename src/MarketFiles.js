@@ -27,6 +27,7 @@ function newMarketFiles () {
   let devTeam
   let bot
   let thisSet
+  let product
   let periodName
 
   thisObject.eventHandler = newEventHandler()
@@ -34,14 +35,28 @@ function newMarketFiles () {
   let intervalHandle
   let finalized = false
 
+  let eventSubscriptionIdDatasetUpdated
+
   return thisObject
 
   function finalize () {
     try {
-      clearInterval(intervalHandle)
+      systemEventHandler.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated)
+
+      thisObject.eventHandler.finalize()
+      thisObject.eventHandler = undefined
 
       filesLoaded = undefined
       files = undefined
+
+      market = undefined
+      exchange = undefined
+      devTeam = undefined
+      bot = undefined
+      thisSet = undefined
+      product = undefined
+      periodName = undefined
+
       finalized = true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
@@ -56,12 +71,11 @@ function newMarketFiles () {
         throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDevTeam.codeName = ' + pDevTeam.codeName + ', pBot.codeName = ' + pBot.codeName + ', pProduct.codeName = ' + pProduct.codeName + ', pExchange = ' + pExchange
       }
 
-      intervalHandle = setInterval(updateFiles, _10_MINUTES_IN_MILISECONDS)
-
       market = pMarket
       devTeam = pDevTeam
       bot = pBot
       thisSet = pSet
+      product = pProduct
 
       fileCloud = newFileCloud()
       fileCloud.initialize(pBot)
@@ -77,6 +91,7 @@ function newMarketFiles () {
 
           function onFileReceived (err, file) {
             try {
+              if (finalized === true) { return }
               if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 files.set(periodTime, file)
                 filesLoaded++
@@ -85,7 +100,14 @@ function newMarketFiles () {
               }
 
               if (filesLoaded + filesNotLoaded === marketFilesPeriods.length) {
+                let key = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + thisSet.codeName
+                systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponse, updateFiles)
+
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)
+
+                function onResponse (message) {
+                  eventSubscriptionIdDatasetUpdated = message.eventSubscriptionId
+                }
               }
             } catch (err) {
               if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> err = ' + err.stack) }
@@ -116,11 +138,12 @@ function newMarketFiles () {
 
           function onFileReceived (err, file) {
             try {
+              if (finalized === true) { return }
               files.set(periodTime, file)
               updatedFiles++
 
               if (updatedFiles === marketFilesPeriods.length) {
-                thisObject.eventHandler.raiseEvent('Files Updated', undefined)
+                thisObject.eventHandler.raiseEvent('Files Updated')
               }
             } catch (err) {
               if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onFileReceived -> err = ' + err.stack) }

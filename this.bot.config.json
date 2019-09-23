@@ -20,6 +20,7 @@
         }
       },
       "deadWaitTime": 0,
+      "liveWaitTime": 60000,
       "normalWaitTime": 5000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
@@ -63,7 +64,7 @@
         },
         {
           "product": "Live Trading History",
-          "dataSet": "Multi-Period-Daily"
+          "dataSet": "Oficial History"
         }
       ],
       "framework": {

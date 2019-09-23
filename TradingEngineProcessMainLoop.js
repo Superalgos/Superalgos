@@ -1047,11 +1047,18 @@
 
                             switch (nextWaitTime) {
                                 case 'Normal': {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
+                                    let waitTime
+                                    if (bot.startMode === "Live") {
+                                        waitTime = processConfig.liveWaitTime
+                                    } else {
+                                        waitTime = processConfig.normalWaitTime
+                                    }
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (waitTime / 1000) + " seconds."); }
                                     if (processConfig.deadWaitTime > 0) {
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
                                     }
-                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
+                                    nextLoopTimeoutHandle = setTimeout(loop, waitTime);
                                     if (global.WRITE_LOGS_TO_FILES === 'true') {
                                         logger.persist();
                                     }

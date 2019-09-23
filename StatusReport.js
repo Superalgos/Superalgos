@@ -250,8 +250,11 @@
                                 let updatedDataSet = updatesDatasets[i]
 
                                 key = bot.devTeam + "-" + bot.codeName + "-" + updatedDataSet.product + "-" + updatedDataSet.dataSet
-                                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Dataset Updated')
-                                console.log(key, 'Dataset Updated')
+                                let event = {
+                                    lastFile: thisObject.file.lastFile
+                                }
+                                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Dataset Updated', event)
+
                             }
                         }
                     }

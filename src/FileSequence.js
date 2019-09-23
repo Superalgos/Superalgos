@@ -87,7 +87,6 @@ function newFileSequence () {
       function onSequenceFileReceived (err, file) {
         try {
           if (finalized === true) { return }
-          initialized = true
 
           switch (err.result) {
             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
@@ -101,14 +100,18 @@ function newFileSequence () {
 
             case GLOBAL.CUSTOM_OK_RESPONSE.result: {
               if (ERROR_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> err.message = ' + err.message) }
-
+              initialized = true
               callBackFunction(err)
               return
             }
 
             case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+              if (err.message === 'File does not exist.') { // We will assume that the process which generates the files has never been started, that does not imply that we can wait for data to come later.
+                initialized = true
+                callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+                return
+              }
               if (ERROR_LOG === true) { logger.write('[INFO] initialize -> onSequenceFileReceived -> err.message = ' + err.message) }
-
               callBackFunction(err, thisObject)
               return
             }
@@ -118,7 +121,7 @@ function newFileSequence () {
               return
             }
           }
-
+          initialized = true
           maxSequence = Number(file)
 
                     /* Now we will get the sequence of files */

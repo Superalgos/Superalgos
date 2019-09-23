@@ -30,7 +30,13 @@ function newSystemEventHandler () {
 
   function sendCommand (command, responseCallBack, eventsCallBack) {
     if (command.action === 'listenToEvent') {
-      eventListeners.set(command.eventHandlerName + '-' + command.eventType, eventsCallBack)
+      let key
+      if (command.callerId !== undefined) {
+        key = command.eventHandlerName + '-' + command.eventType + '-' + command.callerId
+      } else {
+        key = command.eventHandlerName + '-' + command.eventType
+      }
+      eventListeners.set(key, eventsCallBack)
     }
     if (command.callerId && responseCallBack) {
       responseWaiters.set(command.callerId, responseCallBack)
@@ -107,7 +113,13 @@ function newSystemEventHandler () {
         let message = JSON.parse(e.data)
 
         if (message.action === 'Event Raised') {
-          let handler = eventListeners.get(message.eventHandlerName + '-' + message.eventType)
+          let key
+          if (message.callerId !== undefined) {
+            key = message.eventHandlerName + '-' + message.eventType + '-' + message.callerId
+          } else {
+            key = message.eventHandlerName + '-' + message.eventType
+          }
+          let handler = eventListeners.get(key)
           if (handler) {
             handler(message)
           }

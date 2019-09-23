@@ -33,7 +33,7 @@
           "interval": 0
         }
       },
-      "deadWaitTime": 90000,
+      "deadWaitTime": 0,
       "normalWaitTime": 0,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,

@@ -53,7 +53,6 @@ function newAppLoader() {
                 'ChartsSpace/TimeLineCoordinateSystem.js',
 
                 'TopSpace/CurrentEvent.js',
-                'TopSpace/Login.js',
 
                 'StrategySpace/StrategizerGateway.js',
 

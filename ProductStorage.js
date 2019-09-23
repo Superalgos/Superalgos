@@ -257,10 +257,19 @@ function newProductStorage (pName) {
                 return
               }
             }
-            let event = {
-              totalValue: pCaller.getExpectedFiles(),
-              currentValue: pCaller.getFilesLoaded()
+            let event
+            if (pCaller !== undefined) {
+              event = {
+                totalValue: pCaller.getExpectedFiles(),
+                currentValue: pCaller.getFilesLoaded()
+              }
+            } else { // When there are no data the reference to the caller wont arrive here.
+              event = {
+                totalValue: 1,
+                currentValue: 1
+              }
             }
+
             thisObject.eventHandler.raiseEvent('File Sequence Loaded', event)
 
             if (event.currentValue === event.totalValue) {

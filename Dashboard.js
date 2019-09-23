@@ -33,6 +33,8 @@ function newDashboard () {
 
   function start () {
     try {
+      setBrowserEvents()
+
       systemEventHandler = newSystemEventHandler()
       systemEventHandler.initialize(startCanvas)
 
@@ -105,6 +107,13 @@ function newDashboard () {
       viewPort.initialize()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] browserResized -> err = ' + err.stack) }
+    }
+  }
+
+  function setBrowserEvents () {
+    window.onbeforeunload = onBrowserClosed
+    function onBrowserClosed () {
+      window.alert('My Window is closing')
     }
   }
 }

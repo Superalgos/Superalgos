@@ -82,9 +82,9 @@ function newDailyFiles () {
 
             case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
               if (err.message === 'File does not exist.') {
-                err.message = 'Dataset Unavailable.'
-                callBackFunction(err)
-                return
+                beginDateRange = new Date()
+                endDateRange = new Date()
+                break
               }
               if (err.message === 'Missing Configuration.') {
                 if (ERROR_LOG === true) { logger.write('[WARN] initialize -> onFileReceived -> The needed configuration for the dateRange at the dataSet of the product was not found.') }

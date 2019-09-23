@@ -29,18 +29,27 @@ function newFileSequence () {
 
   thisObject.eventHandler = newEventHandler()
 
-  let intervalHandle
+  let eventSubscriptionIdDatasetUpdated
 
   return thisObject
 
   function finalize () {
     try {
-      clearInterval(intervalHandle)
+      systemEventHandler.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated)
+
+      thisObject.eventHandler.finalize()
+      thisObject.eventHandler = undefined
 
       filesLoaded = undefined
       fileCloud = undefined
       files = undefined
       maxSequence = undefined
+      market = undefined
+      devTeam = undefined
+      bot = undefined
+      thisSet = undefined
+      product = undefined
+
       finalized = true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
@@ -55,8 +64,6 @@ function newFileSequence () {
         throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDevTeam.codeName = ' + pDevTeam.codeName + ', pBot.codeName = ' + pBot.codeName + ', pProduct.codeName = ' + pProduct.codeName + ', pExchange = ' + pExchange
       }
 
-      intervalHandle = setInterval(updateFiles, _1_MINUTE_IN_MILISECONDS)
-
       market = pMarket
       devTeam = pDevTeam
       bot = pBot
@@ -66,12 +73,20 @@ function newFileSequence () {
       fileCloud = newFileCloud()
       fileCloud.initialize(bot)
 
+      let key = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + thisSet.codeName
+      systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key, onResponse, updateFiles)
+
+      function onResponse (message) {
+        eventSubscriptionIdDatasetUpdated = message.eventSubscriptionId
+      }
+
             /* First we will get the sequence max number */
 
       fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, file) {
         try {
+          if (finalized === true) { return }
           initialized = true
 
           switch (err.result) {
@@ -113,6 +128,7 @@ function newFileSequence () {
 
             function onFileReceived (err, file) {
               try {
+                if (finalized === true) { return }
                 switch (err.result) {
                   case GLOBAL.DEFAULT_OK_RESPONSE.result: {
                     break
@@ -179,6 +195,7 @@ function newFileSequence () {
 
       function onSequenceFileReceived (err, file) {
         try {
+          if (finalized === true) { return }
           switch (err.result) {
             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
               break
@@ -213,6 +230,7 @@ function newFileSequence () {
 
             function onFileReceived (err, file) {
               try {
+                if (finalized === true) { return }
                 switch (err.result) {
                   case GLOBAL.DEFAULT_OK_RESPONSE.result: {
                     break

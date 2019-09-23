@@ -97,72 +97,28 @@ function newFileCursor () {
     }
   }
 
-  function updateFiles () {
+  function updateFiles (message) {
     try {
       if (finalized === true) { return }
 
-      /*
+      if (message.event === undefined || message.event.lastFile === undefined) { return }
 
-      In order to know if we need to update any file we follow this logic:
-
-      1. If the current date is already a file in the cursor, we need to update it.
-      2. If the current date is one day ahead of a file in the cursor, we need to add this one to the cursor.
-
-      */
-
-      let targetDate
+      let targetDate = new Date(message.event.lastFile)
       let dateString
       let file
 
-      /* Situation 1 */
-
-      targetDate = new Date()
       dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2)
 
-      file = thisObject.files.get(dateString)
-
-      if (file !== undefined) {
-        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
-
-        return
-      }
-
-      /* Situation 2 */
-
-      targetDate = new Date((new Date()).valueOf() - ONE_DAY_IN_MILISECONDS)
-      dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2)
-
-      file = thisObject.files.get(dateString) // This is from yesterday
-
-      targetDate = new Date()
-      dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2)
-
-      if (file !== undefined) {
-        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
-
-        return
-      }
+      fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
 
       function onFileReceived (err, file) {
         try {
           if (finalized === true) { return }
 
-          switch (err.result) {
-            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-              break
-            }
-
-            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-              return
-            }
-
-            default: {
-              return
-            }
+          if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            thisObject.files.set(dateString, file)
+            thisObject.eventHandler.raiseEvent('Files Updated')
           }
-
-          thisObject.files.set(dateString, file)
-          thisObject.eventHandler.raiseEvent('Files Updated')
         } catch (err) {
           if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onFileReceived -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)

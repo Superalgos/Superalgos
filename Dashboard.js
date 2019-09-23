@@ -2,16 +2,7 @@ let canvas
 let markets
 let ecosystem = newEcosystem()
 let systemEventHandler
-
 let viewPort
-try {
-  viewPort = newViewPort()
-} catch (e) {
-  setTimeout(() => {
-    console.log('Loading deferred.')
-    viewPort = newViewPort()
-  }, 1000)
-}
 
 function newDashboard () {
   const MODULE_NAME = 'Dashboard'
@@ -34,6 +25,7 @@ function newDashboard () {
   function start () {
     try {
       setBrowserEvents()
+      viewPort = newViewPort()
 
       systemEventHandler = newSystemEventHandler()
       systemEventHandler.initialize(startCanvas)

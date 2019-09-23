@@ -3,14 +3,11 @@ function newTopSpace () {
   let thisObject = {
     container: undefined,
     draw: draw,
-    getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-    endUser: undefined,
-    currentEvent: undefined,
-    login: undefined,
+    getContainer: getContainer,
     initialize: initialize
   }
 
-  var container = newContainer()
+  let container = newContainer()
   container.initialize()
   thisObject.container = container
 
@@ -20,19 +17,7 @@ function newTopSpace () {
 
   return thisObject
 
-  async function initialize () {
-    let sharedStatus = {
-      currentDevTeamIndex: 0,
-      currentEventIndex: 0,
-      currentUserBotIndex: 0,
-      currentProcessIndex: 0,
-      currentBotType: '',
-      eventHandler: newEventHandler()
-    }
-
-    thisObject.login = newLogin()
-    await thisObject.login.initialize(sharedStatus)
-
+  function initialize () {
     window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
   }
 
@@ -43,7 +28,7 @@ function newTopSpace () {
     container.frame.position.x = 0
     try {
       container.frame.position.y = viewPort.visibleArea.bottomLeft.y
-    } catch(e) { }
+    } catch (e) { }
   }
 
   function getContainer (point) {
@@ -66,10 +51,6 @@ function newTopSpace () {
 
     drawBackground()
     return
-
-    thisObject.endUser.draw()
-    thisObject.currentEvent.draw()
-    thisObject.login.draw()
   }
 
   function drawBackground () {

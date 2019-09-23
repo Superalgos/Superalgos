@@ -333,8 +333,11 @@ function newPartsFromNodes () {
         if (node.personalData !== undefined) {
           createPartFromNode(node.personalData, node, node)
         }
-        if (node.taskManager !== undefined) {
-          createPartFromNode(node.taskManager, node, node)
+        if (node.taskManagers !== undefined) {
+          for (let m = 0; m < node.taskManagers.length; m++) {
+            let taskManager = node.taskManagers[m]
+            createPartFromNode(taskManager, node, node)
+          }
         }
         return
       }
@@ -385,14 +388,16 @@ function newPartsFromNodes () {
   }
 
   function addTaskManager (node) {
-    if (node.taskManager === undefined) {
-      node.taskManager = {
-        tasks: []
-      }
-      createPart('Task Manager', '', node.taskManager, node, node)
+    let taskManager = {
+      name: 'New Task Manager'
     }
+    if (node.taskManagers === undefined) {
+      node.taskManagers = []
+    }
+    node.taskManagers.push(taskManager)
+    createPart('Task Manager', taskManager.name, taskManager, node, node, 'Task Manager')
 
-    return node.taskManager
+    return taskManager
   }
 
   function addTask (node) {

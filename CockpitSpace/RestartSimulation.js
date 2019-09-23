@@ -35,9 +35,9 @@ function newRestartSimulation () {
 
   let executionFocusExists = false
   let idleLabel = ''
-  let refreshCounter = 0
   let isRunning = false
-  let eventSubscriptionId
+
+  let eventSubscriptionIdProcessStopped
 
   return thisObject
 
@@ -46,7 +46,8 @@ function newRestartSimulation () {
     thisObject.container.eventHandler.stopListening(selfMouseClickEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfMouseNotOverEventSubscriptionId)
 
-    systemEventHandler.stopListening('Jason-Multi-Period', eventSubscriptionId)
+    systemEventHandler.stopListening('Jason-Multi-Period', eventSubscriptionIdProcessStopped)
+    systemEventHandler.deleteEventHandler('Cockpit-Restart-Button')
 
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -64,20 +65,15 @@ function newRestartSimulation () {
 
     systemEventHandler.createEventHandler('Cockpit-Restart-Button')
 
-    /*
-      We will start listening to the event that is triggered when the simulation process finishes processing one day in the case
-      of daily files or the whole market in the case of market files.
-    */
-    eventSubscriptionId = systemEventHandler.listenToEvent('Jason-Multi-Period', 'Status Report Updated', undefined, undefined, undefined, onEvent)
+    systemEventHandler.listenToEvent('Jason-Multi-Period', 'Process Stopped', undefined, 'Cockpit-Restart-Button', onResponse, onProcessStopped)
 
-    function onEvent (message) {
-      refreshCounter++
+    function onResponse (message) {
+      eventSubscriptionIdProcessStopped = message.eventSubscriptionId
+    }
 
-      if (refreshCounter === 1) {
-        refreshCounter = 0
-        turnOffProductCards()
-        turnOnProductCards()
-      }
+    function onProcessStopped (message) {
+      thisObject.status = 'Ready'
+      isRunning = false
     }
   }
 
@@ -144,7 +140,6 @@ function newRestartSimulation () {
         systemEventHandler.raiseEvent('Cockpit-Restart-Button', 'Stop Requested')
         isRunning = false
         thisObject.status = 'Stopping'
-        counterTillNextState = 200
       }
     } catch (err) {
       thisObject.status = 'Error'
@@ -200,7 +195,7 @@ function newRestartSimulation () {
 
             break
           case 'Stopping':
-            thisObject.status = 'Ready'
+
             break
           case 'Error':
             thisObject.status = 'Ready'

@@ -17,6 +17,13 @@ function newCircularMenuItem () {
     workingLabel: undefined,
     workDoneLabel: undefined,
     workFailedLabel: undefined,
+    secondaryAction: undefined,
+    secondaryLabel: undefined,
+    secondaryWorkingLabel: undefined,
+    secondaryWorkDoneLabel: undefined,
+    secondaryWorkFailedLabel: undefined,
+    secondaryIcon: undefined,
+    nextAction: undefined,
     visible: false,
     iconPathOn: undefined,
     iconPathOff: undefined,
@@ -28,6 +35,7 @@ function newCircularMenuItem () {
     payload: undefined,
     relatedStrategyPart: undefined,
     dontShowAtFullscreen: undefined,
+    internalClick: internalClick,
     physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
@@ -57,8 +65,19 @@ function newCircularMenuItem () {
   let defaultBackgroudColor = UI_COLOR.RED
   let backgroundColorToUse = UI_COLOR.RED
   let temporaryStatus = 0
+  let temporaryStatusCounter = 0
 
   const EXTRA_MOUSE_OVER_ICON_SIZE = 2
+
+  const STATUS_NO_ACTION_TAKEN_YET = 0
+  const STATUS_PRIMARY_ACTION_WORKING = -1
+  const STATUS_SECONDARY_ACTION_WORKING = -2
+  const STATUS_PRIMARY_WORK_DONE = -3
+  const STATUS_PRIMARY_WORK_FAILED = -4
+  const STATUS_WAITING_CONFIRMATION = -5
+  const STATUS_SECONDARY_WORK_DONE = -6
+  const STATUS_SECONDARY_WORK_FAILED = -7
+
   return thisObject
 
   function finalize () {
@@ -90,6 +109,8 @@ function newCircularMenuItem () {
     } else {
       thisObject.container.frame.width = 50
     }
+
+    thisObject.nextAction = thisObject.action
   }
 
   function getContainer (point) {
@@ -123,25 +144,39 @@ function newCircularMenuItem () {
 
     /* Temporary Status impacts on the label to use and the background of that label */
 
-    temporaryStatus--
-    if (temporaryStatus < 0) {
-      temporaryStatus = 0
+    if (temporaryStatusCounter > 0) {
+      temporaryStatusCounter--
     }
-    if (temporaryStatus === 0) {
+
+    if (temporaryStatusCounter === 0) {
+      temporaryStatus = STATUS_NO_ACTION_TAKEN_YET
       labelToPrint = thisObject.label
       backgroundColorToUse = defaultBackgroudColor
+      thisObject.nextAction = thisObject.action
     }
 
     iconPhysics()
   }
 
   function iconPhysics () {
-    if (thisObject.relatedStrategyPart !== undefined) {
-      thisObject.iconOn = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
-      thisObject.iconOff = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
+    if (
+    (
+      temporaryStatus === STATUS_PRIMARY_WORK_DONE ||
+      temporaryStatus === STATUS_SECONDARY_ACTION_WORKING ||
+      temporaryStatus === STATUS_SECONDARY_WORK_DONE ||
+      temporaryStatus === STATUS_SECONDARY_WORK_FAILED
+    ) && thisObject.secondaryAction !== undefined
+      ) {
+      thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.secondaryIcon)
+      thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.secondaryIcon)
     } else {
-      thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.iconPathOn)
-      thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.iconPathOff)
+      if (thisObject.relatedStrategyPart !== undefined) {
+        thisObject.iconOn = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
+        thisObject.iconOff = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
+      } else {
+        thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.iconPathOn)
+        thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.iconPathOff)
+      }
     }
 
     /* Current Status might be linked to some other object status */
@@ -171,38 +206,106 @@ function newCircularMenuItem () {
     isMouseOver = false
   }
 
-  async function onMouseClick (event) {
-    if (temporaryStatus === 0 && thisObject.askConfirmation !== true) {
-      if (thisObject.workingLabel !== undefined) {
-        setTemporaryStatus(thisObject.workingLabel, UI_COLOR.GREY, 500)
+  function internalClick () {
+    onMouseClick()
+  }
+
+  function onMouseClick () {
+    if (thisObject.label === undefined) {
+  /* This is what we have in the case of menu items that are only Icons. In this situation there is no complex logic, just execute the specified action. */
+      thisObject.actionFunction(thisObject.payload, thisObject.action)
+      return
+    }
+
+    if (thisObject.askConfirmation !== true) { /* No confirmation is needed */
+      if (temporaryStatus === STATUS_NO_ACTION_TAKEN_YET || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
+        executeAction()
+      } // Any click out of those states is ignored
+    } else {
+ /* Confirmation is needed */
+
+      /* The first click ask for confirmation. */
+      if (temporaryStatus === STATUS_NO_ACTION_TAKEN_YET) {
+        setStatus(thisObject.confirmationLabel, UI_COLOR.GREY, 250, STATUS_WAITING_CONFIRMATION)
+        return
       }
-
-      thisObject.currentStatus = await thisObject.actionFunction(thisObject.payload, thisObject.action)
-
-      if (thisObject.currentStatus === true) {
-        if (thisObject.workDoneLabel !== undefined) {
-          setTemporaryStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 250)
-        }
-      } else {
-        if (thisObject.workFailedLabel != undefined) {
-          setTemporaryStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500)
-        }
+      /* A Click during confirmation executes the pre-defined action. */
+      if (temporaryStatus === STATUS_WAITING_CONFIRMATION || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
+        executeAction()
+        return
       }
     }
 
-    if (temporaryStatus > 0 && thisObject.askConfirmation === true) {
-      thisObject.currentStatus = await thisObject.actionFunction(thisObject.payload, thisObject.action)
-    }
+    function executeAction () {
+      if (temporaryStatus === STATUS_NO_ACTION_TAKEN_YET || temporaryStatus === STATUS_WAITING_CONFIRMATION) {
+        /* We need to execute the main Action */
+        /* If there is a working label defined, we use it here. */
+        if (thisObject.workingLabel !== undefined) {
+          setStatus(thisObject.workingLabel, UI_COLOR.GREY, undefined, STATUS_PRIMARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
+        }
 
-    if (temporaryStatus === 0 && thisObject.askConfirmation === true) {
-      setTemporaryStatus(thisObject.confirmationLabel, UI_COLOR.GREY, 50)
+        /* Execute the action and wait for callbacks to update our statuus. */
+        thisObject.actionFunction(thisObject.payload, thisObject.action, onPrimaryCallBack)
+        return
+      }
+      if (temporaryStatus === STATUS_PRIMARY_WORK_DONE && thisObject.secondaryAction !== undefined) {
+        /* We need to execute the secondary action. */
+        if (thisObject.secondaryWorkingLabel !== undefined) {
+          setStatus(thisObject.secondaryWorkingLabel, UI_COLOR.GREY, undefined, STATUS_SECONDARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
+        }
+
+        /* Execute the action and wait for callbacks to update our statuus. */
+        thisObject.actionFunction(thisObject.payload, thisObject.secondaryAction, onSecondaryCallBack)
+        return
+      }
+
+      function onPrimaryCallBack (err) {
+        /* If there is a secondary action we will act different that if there is not */
+        if (thisObject.secondaryAction === undefined) { // This means there are no more possible actions.
+          if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            if (thisObject.workDoneLabel !== undefined) {
+              setStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 250, STATUS_PRIMARY_WORK_DONE)
+            }
+          } else {
+            if (thisObject.workFailedLabel != undefined) {
+              setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500, STATUS_PRIMARY_WORK_FAILED)
+            }
+          }
+        } else {
+          if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            if (thisObject.workDoneLabel !== undefined) {
+              thisObject.nextAction = thisObject.secondaryAction
+              setStatus(thisObject.secondaryLabel, defaultBackgroudColor, undefined, STATUS_PRIMARY_WORK_DONE)
+            }
+          } else {
+            if (thisObject.workFailedLabel != undefined) {
+              setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500, STATUS_PRIMARY_WORK_FAILED)
+            }
+          }
+        }
+      }
+      function onSecondaryCallBack (err) {
+        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+          if (thisObject.secondaryWorkDoneLabel !== undefined) {
+            setStatus(thisObject.secondaryWorkDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 250, STATUS_SECONDARY_WORK_DONE)
+          }
+        } else {
+          if (thisObject.secondaryWorkFailedLabel != undefined) {
+            setStatus(thisObject.secondaryWorkFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500, STATUS_SECONDARY_WORK_FAILED)
+          }
+        }
+      }
     }
   }
 
-  function setTemporaryStatus (text, backgroundColor, waitingCycles) {
+  function setStatus (text, backgroundColor, waitingCycles, newStatus) {
     labelToPrint = text
     backgroundColorToUse = backgroundColor
-    temporaryStatus = waitingCycles
+    temporaryStatus = newStatus
+    temporaryStatusCounter = newStatus // This will often put this into negatives numbers, which will disable the counting back and automatic reseting.
+    if (waitingCycles !== undefined) { // This will override the often negative value with a positive one that will tend to zero onto the default state.
+      temporaryStatusCounter = waitingCycles
+    }
   }
 
   function drawBackground () {
@@ -274,4 +377,3 @@ function newCircularMenuItem () {
     }
   }
 }
-

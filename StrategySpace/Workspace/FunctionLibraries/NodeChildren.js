@@ -145,10 +145,13 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
-    if (parentNode.taskManager !== undefined) {
-      response.childrenCount++
-      if (parentNode.taskManager.id === childNode.id) {
-        response.childIndex = response.childrenCount
+    if (parentNode.taskManagers !== undefined) {
+      for (let i = 0; i < parentNode.taskManagers.length; i++) {
+        let child = parentNode.taskManagers[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
       }
     }
     return response

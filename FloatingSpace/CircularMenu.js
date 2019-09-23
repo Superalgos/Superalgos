@@ -5,6 +5,7 @@ function newCircularMenu () {
   let thisObject = {
     container: undefined,
     isDeployed: undefined,
+    internalClick: internalClick,
     physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
@@ -57,6 +58,12 @@ function newCircularMenu () {
       menuItem.workingLabel = menuItemInitialValue.workingLabel
       menuItem.workDoneLabel = menuItemInitialValue.workDoneLabel
       menuItem.workFailedLabel = menuItemInitialValue.workFailedLabel
+      menuItem.secondaryAction = menuItemInitialValue.secondaryAction
+      menuItem.secondaryLabel = menuItemInitialValue.secondaryLabel
+      menuItem.secondaryWorkingLabel = menuItemInitialValue.secondaryWorkingLabel
+      menuItem.secondaryWorkDoneLabel = menuItemInitialValue.secondaryWorkDoneLabel
+      menuItem.secondaryWorkFailedLabel = menuItemInitialValue.secondaryWorkFailedLabel
+      menuItem.secondaryIcon = menuItemInitialValue.secondaryIcon
       menuItem.visible = menuItemInitialValue.visible
       menuItem.iconPathOn = menuItemInitialValue.iconPathOn
       menuItem.iconPathOff = menuItemInitialValue.iconPathOff
@@ -90,49 +97,66 @@ function newCircularMenu () {
 
     if (thisObject.isDeployed === true) {
       for (let i = 0; i < menuItems.length; i++) {
-        let menutItem = menuItems[i]
-        container = menutItem.getContainer(point)
+        let menuItem = menuItems[i]
+        if (menuItem.visible === true) {
+          container = menuItem.getContainer(point)
+        }
         if (container !== undefined) { return container }
+      }
+    }
+  }
+
+  function internalClick (action) {
+    for (let i = 0; i < menuItems.length; i++) {
+      let menuItem = menuItems[i]
+      if (menuItem.visible === true) {
+        if (menuItem.nextAction === action) {
+          menuItem.internalClick()
+        }
       }
     }
   }
 
   function physics () {
     for (let i = 0; i < menuItems.length; i++) {
-      let menutItem = menuItems[i]
-      menutItem.physics()
+      let menuItem = menuItems[i]
+      menuItem.physics()
     }
   }
 
   function onFocus () {
     for (let i = 0; i < menuItems.length; i++) {
-      let menutItem = menuItems[i]
-      menutItem.targetRadius = menutItem.rawRadius * 1.5
-      menutItem.isDeployed = true
+      let menuItem = menuItems[i]
+      menuItem.targetRadius = menuItem.rawRadius * 1.5
+      menuItem.isDeployed = true
     }
     thisObject.isDeployed = true
   }
 
   function onNotFocus () {
     for (let i = 0; i < menuItems.length; i++) {
-      let menutItem = menuItems[i]
-      menutItem.targetRadius = menutItem.rawRadius * 0 - i * 4
-      menutItem.isDeployed = false
+      let menuItem = menuItems[i]
+      menuItem.targetRadius = menuItem.rawRadius * 0 - i * 4
+      menuItem.isDeployed = false
     }
     thisObject.isDeployed = false
   }
 
   function drawBackground (pFloatingObject) {
     for (let i = 0; i < menuItems.length; i++) {
-      let menutItem = menuItems[i]
-      menutItem.drawBackground()
+      let menuItem = menuItems[i]
+      if (menuItem.visible === true) {
+        menuItem.drawBackground()
+      }
     }
   }
 
   function drawForeground (pFloatingObject) {
     for (let i = 0; i < menuItems.length; i++) {
-      let menutItem = menuItems[i]
-      menutItem.drawForeground()
+      let menuItem = menuItems[i]
+      if (menuItem.visible === true) {
+        menuItem.drawForeground()
+      }
     }
   }
 }

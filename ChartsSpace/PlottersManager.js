@@ -462,11 +462,12 @@ function newPlottersManager () {
             canvas.panelsSpace.destroyPanel(productPlotters[i].panels[j])
           }
                     /* Finally the Storage Objects */
-          productPlotters[i].storage.finalize()
+
           if (productPlotters[i].plotter.finalize !== undefined) {
             productPlotters[i].plotter.container.finalize()
             productPlotters[i].plotter.finalize()
           }
+          productPlotters[i].storage.finalize()
           productPlotters.splice(i, 1) // Delete item from array.
           return // We already found the product woth changes and processed it.
         }
@@ -530,4 +531,3 @@ function newPlottersManager () {
     }
   }
 }
-

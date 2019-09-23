@@ -93,7 +93,7 @@ function newWorkspace () {
       thisObject.definition = canvas.strategySpace.strategizerGateway.strategizerData
       workspaceNode.rootNodes.push(thisObject.definition)
       functionLibraryPartsFromNodes.createPartFromNode(thisObject.definition, undefined, undefined)
-      thisObject.definition.payload.uiObject.setRunningStatus()
+      thisObject.definition.payload.uiObject.setDefaultStatus()
       thisObject.enabled = true
     }
   }
@@ -167,7 +167,7 @@ function newWorkspace () {
     }
   }
 
-  async function onMenuItemClick (payload, action) {
+  async function onMenuItemClick (payload, action, callBackFunction) {
     switch (action) {
       case 'Share Workspace':
         {
@@ -186,7 +186,11 @@ function newWorkspace () {
       case 'Save Trading System':
         {
           let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(getSimulationParams())
-          return result
+          if (result === true) {
+            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+          } else {
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+          }
           break
         }
 
@@ -223,12 +227,12 @@ function newWorkspace () {
         break
       case 'Run Task':
         {
-          functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode)
+          functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode, callBackFunction)
         }
         break
       case 'Stop Task':
         {
-          functionLibraryTaskFunctions.stopTask(payload.node, functionLibraryProtocolNode)
+          functionLibraryTaskFunctions.stopTask(payload.node, functionLibraryProtocolNode, callBackFunction)
         }
         break
       case 'Run All Tasks':

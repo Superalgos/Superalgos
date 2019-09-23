@@ -73,8 +73,10 @@ function newFileSequence () {
       fileCloud = newFileCloud()
       fileCloud.initialize(bot)
 
+      let callerId = newUniqueId()
+
       let key = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + thisSet.codeName
-      systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key, onResponse, updateFiles)
+      systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
 
       function onResponse (message) {
         eventSubscriptionIdDatasetUpdated = message.eventSubscriptionId

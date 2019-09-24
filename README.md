@@ -171,7 +171,7 @@ You should end up with the following folder structure:
 
 ### Running the App
 
-**1. Use the executable file to run the app**
+**1. Use the executable file to run the app**:
 
 Go to the ```Superalgos Desktop App``` folder and double click on ```Superalgos.exe``` (for Windows systems) or ```Superalgos.app``` (for Mac systems).
 
@@ -193,7 +193,7 @@ Available Quick Start Examples:
 
 **```Share - Workspace - Weak-hands buster - BTC - 1hr.json```**: A functional BTC-based strategy designed for accumulating bitcoin during bear markets or market consolidation situations. You will be able to run a backtest and see the strategy in action if you use this template. All details about the strategy may be found in the [Superalgos/Strategy-BTC-WeakHandsBuster](https://github.com/Superalgos/Strategy-BTC-WeakHandsBuster) repository.
 
-**```Share - Workspace - Empty Strategy Structure Template.json```**: A template containing the minimum set of elements required to build your own strategy. Elements are empty (undefined); this is just the structure that will guide you through the process of building your strategy. **You will not be able to run backtest or trade live with this template, until you set up your strategy.**
+**```Share - Workspace - Empty Strategy Structure Template.json```**: A template containing the minimum set of elements required to build your own strategy. Elements are empty (undefined); this is just the structure that will guide you through the process of building your strategy. **You will not be able to run a backtest or trade live with this template, until you set up your strategy.**
 
 That's it! You are up and running!
 
@@ -207,29 +207,49 @@ To run your first backtest you will need a functional strategy.
 
 If you haven't yet, start by importing either ```Share - Workspace - Bull run rider - USDT- 1hr.json``` or ```Share - Workspace - Weak-hands buster - BTC - 1hr.json```. To do that, follow the instructions above to drag one of the files from the ```Superalgos Desktop App/Quick-Start-Examples``` folder and drop it in the *Designer* section of the app.
 
-**2. Start processes**: 
+**2. Start processes**:
 
 | Task Manager | Definition |
 | :---: | :---: |
 | ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![definition](https://user-images.githubusercontent.com/13994516/63503991-deb29d00-c4d0-11e9-8c03-bf2e618f9ef6.png) |
 
-Open up the Designer section of the app by dragging the horizontal bar upwards and locate the Task Manager element connected to the Definition element. Then, hover your mouse pointer over the Task Manager element and click ```Run All Tasks``` in the menu.
+Open up the Designer section of the app by dragging the horizontal bar upwards and locate the two Task Manager elements connected to the Definition element on the left hand side of the screen.
 
-> To move around the Designer, click on the black background and drag to pan in any direction.
+> To move around the Designer, click on the black background and drag to pan in the desired direction.
 
-You will find the Task Manager element in the following position:
+Then, hover your mouse pointer over either of the Task Manager elements and click ```Run All Tasks``` in the menu. You will not see any immediate effect in your broswer, but if you take a look at the Console, you will notice activity indicating that several processes are running.
 
-[PNG ILLUSTRATION PLACEHOLDER]
+Do the same with the second Task Manager element.
 
-Click the RESTART SIMULATION button on the right-hand side of the horizontal turquoise bar. This puts all indicator bots to run. The data files you downloaded contain data files up to a certain point in time. You will need to allow some time for bots to catch up with building candles and the rest of indicators up to the present time. After a few minutes, refresh the candles layers as explained in the [Layers Panel](#layers-panel) section.
+[ILLUSTRATION PLACEHOLDER]
 
-That's it! You are up and running!
-
-> **NOTES ON MARKET DATA AND WAITING-TIME FOR THE FIRST RUN**: The first simulation will not show on screen until the bots processing exchange data and building indicators datasets are up to date. In our experience, it may take between 10 to 20 minutes per day worth of Poloniex data to be processed. The time it will take for these processes to complete the job depends on several things:
+> **NOTES ON MARKET DATA**: You just started the *Trading Engine* along with the *sensors* that extract live data from the exchange and the *inidicators* that process raw trades data. These processes will remain running for as long as you keep the browser open running the app. The bots processing exchange data and building indicators datasets will work to bring your data up to date. In our experience, it may take between 10 to 20 minutes per day worth of Poloniex data to be processed. The time it will take for these processes to complete the job depends on several things:
 > * The date of the release tells you how many days you are behind with the data set you just downloaded.
 > * The speed and processing power of your machine will make a difference too.
 > * The average number of trades per day at the exchange determines the volume of data the app needs to retrieve and process.
 > * The number of trades the exchange returns per each request determines the size of the pipeline the exchanges allow API users to use.
+
+**3. Run your first backtest**:
+
+Pull down the horizontal bar to go to the charts and make sure you are standing in the 1 hr (one hour) time period. Notice the time period banner in the bottom of the charts:
+
+[ILLUSTRATION PLACEHOLDER]
+
+If you are not, use the wheel of your mouse while pointing at the charts to scroll into the 1 hr time period. You do this so that the backtest runs in the time period for which the strategy was designed.
+
+No you are ready to click the START BACKTESTING button on the right hand side of the horizontal bar.
+
+[ILLUSTRATION PLACEHOLDER]
+
+Once you click the button, it will turn yellow. It may take several minutes for the Trading Engine to do the calculations and get ready to present the simulation over the charts. Once the Trading Engine finishes, the button will turn back to its normal state. That means that you may now turn on the simulation layers in the Layers Panel.
+
+[ILLUSTRATION PLACEHOLDER]
+
+You may now navigate the charts by clicking and dragging, or by zooming in and out with the wheel of your mouse. If you change the time period, you will not see the simulated data, as each time period may hold its own simulation.
+
+Congratulations! You've run your first simulation!
+
+The rest of this README file contains all the information you need to build your own strategies, modify, test and use existing ones, and eventually start trading live.
 
 # Upgrading Your Existing Installation
 

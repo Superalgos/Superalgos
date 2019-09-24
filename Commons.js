@@ -1993,7 +1993,7 @@
                     /* Check if we need to execute. */
                     if (i > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not.*/
                         /* Check that we are in LIVE MODE */
-                        if (process.env.START_MODE === "live") {
+                        if (bot.startMode === "Live") {
                             /* We see if we need to put the actual order at the exchange. */
                             if (interExecutionMemory.executionContext !== undefined) {
                                 switch (interExecutionMemory.executionContext.status) {
@@ -2257,7 +2257,7 @@
 
                     if (i > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not.*/
                         /* Check that we are in LIVE MODE */
-                        if (process.env.START_MODE === "live") {
+                        if (bot.startMode === "Live") {
                             /* We see if we need to put the actual order at the exchange. */
                             if (interExecutionMemory.executionContext !== undefined) {
                                 switch (interExecutionMemory.executionContext.status) {

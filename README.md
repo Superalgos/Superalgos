@@ -232,7 +232,7 @@ Do the same with the second Task Manager element.
 
 **3. Run your first backtest**:
 
-Pull down the horizontal bar to go to the charts and make sure you are standing in the 1 hr (one hour) time period. Notice the time period banner at the bottom of the charts:
+Pull down the horizontal bar to go to the charts and make sure you are standing in the 1 hr (one hour) time period. Notice the time box at the bottom of the charts:
 
 [ILLUSTRATION PLACEHOLDER]
 

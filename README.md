@@ -187,9 +187,19 @@ Go to the ```Superalgos Desktop App/Quick-Start-Examples``` folder, drag your pr
 
 ![Installation-Drag-Workspace](https://user-images.githubusercontent.com/13994516/64358772-5ae7cd00-d007-11e9-9250-77540cc351c8.gif)
 
+Available Quick Start Examples:
+
+```Share - Workspace - Empty Strategy Structure Template.json```: A template containing the minimum set of elements required to build your own strategy. Elements are empty (undefined); this is just the structure that will guide you through the process of building your strategy. You will not be able to run backtest or trade live with this template, until you set up your strategy.
+
+```Share - Workspace - Bull run rider - USDT- 1hr.json```: A functional USDT-based strategy designed for bull markets. You will be able to run a backtest and see the strategy in action if you use this template. All details about the strategy may be found in the [Superalgos/Strategy-USDT-BullRunRider](https://github.com/Superalgos/Strategy-USDT-BullRunRider) repository.
+
+```Share - Workspace - Weak-hands buster - BTC - 1hr.json```: A functional BTC-based strategy designed for accumulating bitcoin during bear markets or market consolidation situations. You will be able to run a backtest and see the strategy in action if you use this template. All details about the strategy may be found in the [Superalgos/Strategy-BTC-WeakHandsBuster](https://github.com/Superalgos/Strategy-BTC-WeakHandsBuster) repository.
+
 That's it! You are up and running!
 
 Now you are ready to learn the basic operation of the app so that you may run your first backtests or trade live with existing strategies.
+
+
 
 **3. Start processes**: 
 

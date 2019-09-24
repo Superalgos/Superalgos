@@ -18,6 +18,7 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
   * [The Extended Version for Regular Folks on Windows and Mac](#the-extended-version-for-regular-folks-on-windows-and-mac)
     * [Downloads](#downloads/)
     * [Running the App](#running-the-app)
+  * [Running Your First Backtest](#running-your-first-backtest)
 * [Upgrading Your Existing Installation](#upgrading-your-existing-installation)
 * [Overview](#overview)
 * [Charts Interface](#charts-interface)
@@ -187,7 +188,7 @@ Go to the ```Superalgos Desktop App/Quick-Start-Examples``` folder, drag your pr
 
 ![Installation-Drag-Workspace](https://user-images.githubusercontent.com/13994516/64358772-5ae7cd00-d007-11e9-9250-77540cc351c8.gif)
 
-Available Quick Start Examples:
+**Available Quick Start Examples**:
 
 **```Share - Workspace - Bull run rider - USDT- 1hr.json```**: A functional USDT-based strategy designed for bull markets. You will be able to run a backtest and see the strategy in action if you use this template. All details about the strategy may be found in the [Superalgos/Strategy-USDT-BullRunRider](https://github.com/Superalgos/Strategy-USDT-BullRunRider) repository.
 
@@ -257,17 +258,17 @@ You should expect patches and even new releases to become available regularly. A
 
 If you have a version of the Superalgos Desktop App and wish to upgrade to a new version you should do the following:
 
-**1.** Stop the app by closing your browser and the Console/Command Line running the programs.
+**1.** Stop the app by closing your browser. Allow a minute or two until no activity stops before closing the Console/Command Line running the programs.
 
 **2.** Make sure you are not storing any personal files, such as your Workspace backups and so on in your ```Superalgos Desktop App``` folders. Move them to a different location if you are.
 
-**3.** Delete all folders within the Superalgos Desktop App folder **but the ```Data-Storage``` folder**. You do not need to get rid of the historic market data every time you upgrade your app. Do **not** delete your ```Data-Storage``` folder.
+**3.** You will keep the ```Data-Storage``` folder intact and delete all the remaining folders within the ```Superalgos Desktop App``` folder. You do not need to get rid of the historic market data every time you upgrade your app. **Do not delete your ```Data-Storage``` folder**.
 
 **4.** Download the latest patch or latest release from the location advertised in the Official Announcement Channel.
 
 > **WARNING**: Always beware of what random people may post in open Telegram groups or forums. Patches and releases will always be made available at the [Releases page](https://github.com/Superalgos/DesktopApp/releases) of this repository only.
 
-**5.** Extract/unpack the contents of the ZIP file directly into the ```Superalgos Desktop App``` folder. That's it. You are up and running with the new version. Simply start the app the same way you always do.
+**5.** Extract/unpack the contents of the ZIP file directly into the ```Superalgos Desktop App``` folder. That's it. You are up and running with the new version. Simply start the app the same way you always do unless new instructions become available in this README file.
 
 # Overview
 

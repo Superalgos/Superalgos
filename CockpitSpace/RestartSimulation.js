@@ -115,15 +115,15 @@ function newRestartSimulation () {
           thisObject.status = 'Error'
           counterTillNextState = 500
         } else {
-          if (idleLabel === 'START LIVE TRADING') {
-            callServer('', 'ResetLogsAndData', onSaved)
-            function onSaved (err) {
-              if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                logger.write('[INFO] Restart Simulation -> Logs and Simulation data Deleted.')
-              } else {
-                logger.write('[ERROR] Restart Simulation -> Can not delete Logs and Simulation data. err = ' + err.messsage)
-              }
+          callServer('', 'ResetLogsAndData', onSaved)
+          function onSaved (err) {
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+              logger.write('[INFO] Restart Simulation -> Logs and Simulation data Deleted.')
+            } else {
+              logger.write('[ERROR] Restart Simulation -> Can not delete Logs and Simulation data. err = ' + err.messsage)
             }
+          }
+          if (idleLabel === 'START LIVE TRADING') {
             let event = {
               definition: getDefinition()
             }

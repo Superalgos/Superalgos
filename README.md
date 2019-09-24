@@ -212,7 +212,7 @@ If you haven't yet, start by importing either ```Share - Workspace - Bull run ri
 
 | Task Manager | Definition |
 | :---: | :---: |
-| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![definition](https://user-images.githubusercontent.com/13994516/63503991-deb29d00-c4d0-11e9-8c03-bf2e618f9ef6.png) |
+| ![task](https://user-images.githubusercontent.com/13994516/65537996-a99dce00-df06-11e9-8f02-0bd0fd6d29dd.png) | ![definition](https://user-images.githubusercontent.com/13994516/63503991-deb29d00-c4d0-11e9-8c03-bf2e618f9ef6.png) |
 
 Open up the Designer section of the app by dragging the horizontal bar upwards and locate the two Task Manager elements connected to the Definition element on the left-hand side of the screen.
 

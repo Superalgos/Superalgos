@@ -141,15 +141,15 @@ Go to the [latest Superalgos Desktop App release](https://github.com/Superalgos/
 
 **2. Extract the ZIP file**: 
 
-How you extract/unpack the files depends on the software you use to handle ZIP files. Double clicking the ZIP file should work in most scenarios, however, some systems may "open" the file instead of "extracting" it. Make sure you are "extracting" and not just "opening" the file. You may also right-click the file and check the options available on the pop-up menu.
+How you extract/unpack the files depends on the software you use to handle ZIP files. Double-clicking the ZIP file should work in most scenarios, however, some systems may "open" the file instead of "extracting" it. Make sure you are "extracting" and not just "opening" the file. You may also right-click the file and check the options available on the pop-up menu.
 
 When you extract the ZIP file, a folder structure will be created with the root folder being ```Superalgos Desktop App```.
 
-You may extract/unpack the files in any location of your drive, however, we recommend unpacking in an accesible route *(i.e.: ```C:\```)*, as you will later need to fit an additional folder inside the ```Superalgos Desktop App``` folder, and you will also need to access these folders every time you launch the app.
+You may extract/unpack the files in any location of your drive, however, we recommend unpacking in an accessible route *(i.e.: ```C:\```)*, as you will later need to fit an additional folder inside the ```Superalgos Desktop App``` folder, and you will also need to access these folders every time you launch the app.
 
 **3. Download the Data Package**:
 
-For your convenience and [for the reasons explained](https://superalgos.org/tools-superalgos-desktop-app.shtml#expectations) in the Superalgos Desktop App page on the website, we maintain a downloadable market-data file that you can download, so that you may be up and running as quickly as possible.
+For your convenience and [the reasons explained](https://superalgos.org/tools-superalgos-desktop-app.shtml#expectations) in the Superalgos Desktop App page on the website, we maintain a downloadable market-data file that you can download, so that you may be up and running as quickly as possible.
 
 Go to the [latest Data release](https://github.com/Superalgos/DesktopApp/releases/tag/data.poloniex.btc.usdt.2019.09.24) and download ```Poloniex.BTC.USDT.Historic.Data.zip```.
 
@@ -175,7 +175,7 @@ You should end up with the following folder structure:
 
 Go to the ```Superalgos Desktop App``` folder and double click on ```Superalgos.exe``` (for Windows systems) or ```Superalgos.app``` (for Mac systems).
 
-The app will load on your default browser. You should either [set Chrome as your default browser](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en) before executing the file, or simply close the non-Chrome browser, open Chrome and go to http://localhost:1337/.
+The app will load on your default browser. You should either [set Chrome as your default browser](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en) before executing the file or simply close the non-Chrome browser, open Chrome and go to http://localhost:1337/.
 
 Also, a Console/Command Line window will open. The Console must be open for as long as the app is running. Do not close the window or stop the processes running on it. You may minimize the Console if your Operating System allows you to do so.
 
@@ -193,7 +193,7 @@ Available Quick Start Examples:
 
 **```Share - Workspace - Weak-hands buster - BTC - 1hr.json```**: A functional BTC-based strategy designed for accumulating bitcoin during bear markets or market consolidation situations. You will be able to run a backtest and see the strategy in action if you use this template. All details about the strategy may be found in the [Superalgos/Strategy-BTC-WeakHandsBuster](https://github.com/Superalgos/Strategy-BTC-WeakHandsBuster) repository.
 
-**```Share - Workspace - Empty Strategy Structure Template.json```**: A template containing the minimum set of elements required to build your own strategy. Elements are empty (undefined); this is just the structure that will guide you through the process of building your strategy. **You will not be able to run a backtest or trade live with this template, until you set up your strategy.**
+**```Share - Workspace - Empty Strategy Structure Template.json```**: A template containing the minimum set of elements required to build your own strategy. Elements are empty (undefined); this is just the structure that will guide you through the process of building your strategy. **You will not be able to run a backtest or trade live with this template until you set up your strategy.**
 
 That's it! You are up and running!
 
@@ -213,17 +213,17 @@ If you haven't yet, start by importing either ```Share - Workspace - Bull run ri
 | :---: | :---: |
 | ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![definition](https://user-images.githubusercontent.com/13994516/63503991-deb29d00-c4d0-11e9-8c03-bf2e618f9ef6.png) |
 
-Open up the Designer section of the app by dragging the horizontal bar upwards and locate the two Task Manager elements connected to the Definition element on the left hand side of the screen.
+Open up the Designer section of the app by dragging the horizontal bar upwards and locate the two Task Manager elements connected to the Definition element on the left-hand side of the screen.
 
 > To move around the Designer, click on the black background and drag to pan in the desired direction.
 
-Then, hover your mouse pointer over either of the Task Manager elements and click ```Run All Tasks``` in the menu. You will not see any immediate effect in your broswer, but if you take a look at the Console, you will notice activity indicating that several processes are running.
+Then, hover your mouse pointer over either of the Task Manager elements and click ```Run All Tasks``` in the menu. You will not see any immediate effect in your browser, but if you take a look at the Console, you will notice activity indicating that several processes are running.
 
 Do the same with the second Task Manager element.
 
 [ILLUSTRATION PLACEHOLDER]
 
-> **NOTES ON MARKET DATA**: You just started the *Trading Engine* along with the *sensors* that extract live data from the exchange and the *inidicators* that process raw trades data. These processes will remain running for as long as you keep the browser open running the app. The bots processing exchange data and building indicators datasets will work to bring your data up to date. In our experience, it may take between 10 to 20 minutes per day worth of Poloniex data to be processed. The time it will take for these processes to complete the job depends on several things:
+> **NOTES ON MARKET DATA**: You just started the *Trading Engine* along with the *sensors* that extract live data from the exchange and the *indicators* that process raw trades data. These processes will remain running for as long as you keep the browser open running the app. The bots processing exchange data and building indicators datasets will work to bring your data up to date. In our experience, it may take between 10 to 20 minutes per day worth of Poloniex data to be processed. The time it will take for these processes to complete the job depends on several things:
 > * The date of the release tells you how many days you are behind with the data set you just downloaded.
 > * The speed and processing power of your machine will make a difference too.
 > * The average number of trades per day at the exchange determines the volume of data the app needs to retrieve and process.
@@ -231,13 +231,13 @@ Do the same with the second Task Manager element.
 
 **3. Run your first backtest**:
 
-Pull down the horizontal bar to go to the charts and make sure you are standing in the 1 hr (one hour) time period. Notice the time period banner in the bottom of the charts:
+Pull down the horizontal bar to go to the charts and make sure you are standing in the 1 hr (one hour) time period. Notice the time period banner at the bottom of the charts:
 
 [ILLUSTRATION PLACEHOLDER]
 
 If you are not, use the wheel of your mouse while pointing at the charts to scroll into the 1 hr time period. You do this so that the backtest runs in the time period for which the strategy was designed.
 
-No you are ready to click the START BACKTESTING button on the right hand side of the horizontal bar.
+You are now ready to click the START BACKTESTING button on the right-hand side of the horizontal bar.
 
 [ILLUSTRATION PLACEHOLDER]
 

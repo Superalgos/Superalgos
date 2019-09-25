@@ -136,7 +136,7 @@ function newStrategyPartConstructor () {
       {
         action: 'Collapse / Uncollapse',
         actionFunction: floatingObject.collapseToggle,
-        actionStatus: floatingObject.getCollapeseStatus,
+        actionStatus: floatingObject.getCollapseStatus,
         currentStatus: false,
         label: undefined,
         visible: true,

@@ -186,7 +186,7 @@ Also, a Console/Command Line window will open. The Console must be open for as l
 
 Go to the ```Superalgos Desktop App/Quick-Start-Examples``` folder, drag your preferred example file and drop it on the _Designer_ (the area with a black background in the bottom half of the screen) to start with a working template.
 
-![Designer-Import-Workspace](https://user-images.githubusercontent.com/13994516/65596166-9e927e80-df96-11e9-9cc0-ee9885d3b45f.gif)
+![Designer-Import-Workspace](https://user-images.githubusercontent.com/13994516/65597108-a5ba8c00-df98-11e9-812d-b1e3c17ba4c8.gif)
 
 **Available Quick Start Examples**:
 

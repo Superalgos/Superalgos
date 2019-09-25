@@ -275,10 +275,10 @@
             let currentStrategyIndex = -1;
             let strategyStage = 'No Stage';
 
-            let stopLossPhase = 0;
+            let stopLossPhase = -1;
             let stopLossStage = 'No Stage';
 
-            let takeProfitPhase = 0;
+            let takeProfitPhase = -1;
             let takeProfitStage = 'No Stage';
 
             /* These 2 objects will allow us to create separate files for each one of them. */
@@ -1428,8 +1428,8 @@
                                     strategyStage = 'Open Stage';
                                     stopLossStage = 'Open Stage';
                                     takeProfitStage = 'Open Stage';
-                                    stopLossPhase = 1;
-                                    takeProfitPhase = 1;
+                                    stopLossPhase = 0;
+                                    takeProfitPhase = 0;
 
                                     if (processingDailyFiles) {
                                         if (positionedAtYesterday) {
@@ -1480,7 +1480,7 @@
                                 parentNode = openStage.initialDefinition
                                 initialDefinitionKey = '-' + 'initialDefinition'
                                 stageKey = 'openStage'
-                                p = stopLossPhase - 1
+                                p = stopLossPhase
                             }
                         }
                     }
@@ -1489,7 +1489,7 @@
                         if (manageStage.stopLoss !== undefined) {
                             parentNode = manageStage
                             stageKey = 'manageStage'
-                            p = stopLossPhase - 2
+                            p = stopLossPhase - 1
                         }
                     }
 
@@ -1520,7 +1520,7 @@
 
                                 stopLossPhase++;
                                 stopLossStage = 'Manage Stage'
-                                if (takeProfitPhase > 1) { strategyStage = 'Manage Stage' }
+                                if (takeProfitPhase > 0) { strategyStage = 'Manage Stage' }
 
                                 if (processingDailyFiles) {
                                     if (positionedAtYesterday) {
@@ -1546,16 +1546,16 @@
                     if (stopLossStage === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.stopLoss !== undefined) {
-                                phase = openStage.initialDefinition.stopLoss.phases[stopLossPhase - 1];
-                                key = currentStrategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (stopLossPhase - 1);
+                                phase = openStage.initialDefinition.stopLoss.phases[stopLossPhase];
+                                key = currentStrategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (stopLossPhase);
                             }
                         }
                     }
 
                     if (stopLossStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.stopLoss !== undefined) {
-                            phase = manageStage.stopLoss.phases[stopLossPhase - 2];
-                            key = currentStrategyIndex + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (stopLossPhase - 2);
+                            phase = manageStage.stopLoss.phases[stopLossPhase - 1];
+                            key = currentStrategyIndex + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (stopLossPhase - 1);
                         }
                     }
 
@@ -1595,7 +1595,7 @@
                                 parentNode = openStage.initialDefinition
                                 initialDefinitionKey = '-' + 'initialDefinition'
                                 stageKey = 'openStage'
-                                p = takeProfitPhase - 1
+                                p = takeProfitPhase
                             }
                         }
                     }
@@ -1604,7 +1604,7 @@
                         if (manageStage.takeProfit !== undefined) {
                             parentNode = manageStage
                             stageKey = 'manageStage'
-                            p = takeProfitPhase - 2
+                            p = takeProfitPhase - 1
                         }
                     }
 
@@ -1635,7 +1635,7 @@
 
                                 takeProfitPhase++;
                                 takeProfitStage = 'Manage Stage'
-                                if (stopLossPhase > 1) { strategyStage = 'Manage Stage' }
+                                if (stopLossPhase > 0) { strategyStage = 'Manage Stage' }
 
                                 if (processingDailyFiles) {
                                     if (positionedAtYesterday) {
@@ -1661,16 +1661,16 @@
                     if (takeProfitStage === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.takeProfit !== undefined) {
-                                phase = openStage.initialDefinition.takeProfit.phases[takeProfitPhase - 1];
-                                key = currentStrategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (takeProfitPhase - 1);
+                                phase = openStage.initialDefinition.takeProfit.phases[takeProfitPhase];
+                                key = currentStrategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (takeProfitPhase);
                             }
                         }
                     }
 
                     if (takeProfitStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.takeProfit !== undefined) {
-                            phase = manageStage.takeProfit.phases[takeProfitPhase - 2];
-                            key = currentStrategyIndex + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (takeProfitPhase - 2);
+                            phase = manageStage.takeProfit.phases[takeProfitPhase - 1];
+                            key = currentStrategyIndex + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (takeProfitPhase - 1);
                         }
                     }
 
@@ -2493,8 +2493,8 @@
                         timerToCloseStage = candle.begin
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
-                        stopLossPhase = 0;
-                        takeProfitPhase = 0;
+                        stopLossPhase = -1;
+                        takeProfitPhase = -1;
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {

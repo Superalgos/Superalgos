@@ -8,7 +8,7 @@ function getSimulationParams () {
   let timePeriod = timePeriodArray[currentTimePeriod.timePeriodIndex][1]
 
   let simulationParams = {
-    beginDatetime: dateAtScreenCorner.valueOf(),
+    beginDatetime: dateAtScreenCorner,
     timePeriod: timePeriod,
     timestamp: (new Date()).valueOf()
   }

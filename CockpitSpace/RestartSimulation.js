@@ -78,7 +78,10 @@ function newRestartSimulation () {
   }
 
   function getContainer (point, purpose) {
-    if (thisObject.visible !== true || (thisObject.status !== 'Ready' && thisObject.status !== 'Calculating') || executionFocusExists === false) { return }
+    if (
+      thisObject.visible !== true ||
+      (thisObject.status !== 'Ready' && thisObject.status !== 'Backtesting' && thisObject.status !== 'Live Trading') ||
+      executionFocusExists === false) { return }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
@@ -112,27 +115,26 @@ function newRestartSimulation () {
           thisObject.status = 'Error'
           counterTillNextState = 500
         } else {
-          if (idleLabel === 'START LIVE TRADING') {
-            callServer('', 'ResetLogsAndData', onSaved)
-            function onSaved (err) {
-              if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                logger.write('[INFO] Restart Simulation -> Logs and Simulation data Deleted.')
-              } else {
-                logger.write('[ERROR] Restart Simulation -> Can not delete Logs and Simulation data. err = ' + err.messsage)
-              }
+          callServer('', 'ResetLogsAndData', onSaved)
+          function onSaved (err) {
+            if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+              logger.write('[ERROR] Restart Simulation -> Can not delete Logs and Simulation data. err = ' + err.messsage)
             }
+          }
+          if (idleLabel === 'START LIVE TRADING') {
             let event = {
               definition: getDefinition()
             }
             systemEventHandler.raiseEvent('Cockpit-Restart-Button', 'Live-Trading Started', event)
+            thisObject.status = 'Live Trading'
           } else {
             let event = {
               definition: getDefinition()
             }
             systemEventHandler.raiseEvent('Cockpit-Restart-Button', 'Backstesting Started', event)
+            thisObject.status = 'Backtesting'
           }
 
-          thisObject.status = 'Calculating'
           isRunning = true
         }
       } else {
@@ -189,9 +191,6 @@ function newRestartSimulation () {
 
             break
           case 'Saving':
-
-            break
-          case 'Calculating':
 
             break
           case 'Stopping':
@@ -269,7 +268,10 @@ function newRestartSimulation () {
       case 'Saving':
         params.backgroundColor = UI_COLOR.GREY
         break
-      case 'Calculating':
+      case 'Backtesting':
+        params.backgroundColor = UI_COLOR.GREEN
+        break
+      case 'Live Trading':
         params.backgroundColor = UI_COLOR.TITANIUM_YELLOW
         break
       case 'Stopping':
@@ -304,8 +306,11 @@ function newRestartSimulation () {
       case 'Saving':
         label = 'SAVING STRATEGIES CHANGES...'
         break
-      case 'Calculating':
-        label = 'STOP CALCULATING'
+      case 'Backtesting':
+        label = 'STOP BACKTESTING'
+        break
+      case 'Live Trading':
+        label = 'STOP LIVE TRADING'
         break
       case 'Stopping':
         label = 'STOPPING...'

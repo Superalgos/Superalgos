@@ -157,7 +157,19 @@ function newNodeDeleter () {
             deleteCloseExecution(rootNode, rootNodes)
             break
           }
-          case 'Event': {
+          case 'Trigger On Event': {
+            deleteEvent(rootNode, rootNodes)
+            break
+          }
+          case 'Trigger Off Event': {
+            deleteEvent(rootNode, rootNodes)
+            break
+          }
+          case 'Take Position Event': {
+            deleteEvent(rootNode, rootNodes)
+            break
+          }
+          case 'Next Phase Event': {
             deleteEvent(rootNode, rootNodes)
             break
           }
@@ -187,7 +199,7 @@ function newNodeDeleter () {
           }
 
           default: {
-            console.log('WARNING this node type is not listed at NodeDeleter: ' + node.type)
+            console.log('WARNING this node type is not listed at NodeDeleter: ' + rootNode.type)
           }
         }
       }

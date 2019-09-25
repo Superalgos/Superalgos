@@ -150,6 +150,7 @@ function newWorkspace () {
       let droppedNode = JSON.parse(nodeText)
 
       if (droppedNode.type === 'Workspace') {
+        stopAllRunningTasks()
         functionLibraryNodeDeleter.deleteWorkspace(workspaceNode, workspaceNode.rootNodes)
         workspaceNode = droppedNode
         functionLibraryPartsFromNodes.createPartFromNode(workspaceNode, undefined, undefined)

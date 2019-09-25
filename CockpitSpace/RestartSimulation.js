@@ -117,9 +117,7 @@ function newRestartSimulation () {
         } else {
           callServer('', 'ResetLogsAndData', onSaved)
           function onSaved (err) {
-            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-              logger.write('[INFO] Restart Simulation -> Logs and Simulation data Deleted.')
-            } else {
+            if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
               logger.write('[ERROR] Restart Simulation -> Can not delete Logs and Simulation data. err = ' + err.messsage)
             }
           }

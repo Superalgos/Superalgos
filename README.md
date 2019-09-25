@@ -244,7 +244,7 @@ You are now ready to click the START BACKTESTING button on the right-hand side o
 
 Once you click the button, it will turn yellow. It may take several minutes for the Trading Engine to do the calculations and get ready to present the simulation over the charts. Once the Trading Engine finishes, the button will turn back to its normal state. That means that you may now turn on the simulation layers in the Layers Panel.
 
-[ILLUSTRATION PLACEHOLDER]
+![Getting-Started-Backtesting02](https://user-images.githubusercontent.com/13994516/65598904-c97fd100-df9c-11e9-93f4-324979e67a2d.gif)
 
 You may now navigate the charts by clicking and dragging, or by zooming in and out with the wheel of your mouse. If you change the time period, you will not see the simulated data, as each time period may hold its own simulation.
 

@@ -234,13 +234,13 @@ Do the same with the second Task Manager element.
 
 Pull down the horizontal bar to go to the charts and make sure you are standing in the 1 hr (one hour) time period. Notice the time box at the bottom of the charts:
 
-[ILLUSTRATION PLACEHOLDER]
+![Getting-Started-Charts-Time-Period](https://user-images.githubusercontent.com/13994516/65598453-c0423480-df9b-11e9-9346-04631dd9719e.gif)
 
 If you are not, use the wheel of your mouse while pointing at the charts to scroll into the 1 hr time period. You do this so that the backtest runs in the time period for which the strategy was designed.
 
 You are now ready to click the START BACKTESTING button on the right-hand side of the horizontal bar.
 
-[ILLUSTRATION PLACEHOLDER]
+![Getting-Started-Backtesting](https://user-images.githubusercontent.com/13994516/65598454-c0dacb00-df9b-11e9-8e58-a149b0bffef7.gif)
 
 Once you click the button, it will turn yellow. It may take several minutes for the Trading Engine to do the calculations and get ready to present the simulation over the charts. Once the Trading Engine finishes, the button will turn back to its normal state. That means that you may now turn on the simulation layers in the Layers Panel.
 

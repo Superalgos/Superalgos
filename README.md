@@ -186,7 +186,7 @@ Also, a Console/Command Line window will open. The Console must be open for as l
 
 Go to the ```Superalgos Desktop App/Quick-Start-Examples``` folder, drag your preferred example file and drop it on the _Designer_ (the area with a black background in the bottom half of the screen) to start with a working template.
 
-![Installation-Drag-Workspace](https://user-images.githubusercontent.com/13994516/64358772-5ae7cd00-d007-11e9-9250-77540cc351c8.gif)
+![Designer-Import-Workspace](https://user-images.githubusercontent.com/13994516/65596166-9e927e80-df96-11e9-9cc0-ee9885d3b45f.gif)
 
 **Available Quick Start Examples**:
 
@@ -204,7 +204,7 @@ Now you are ready to learn the basic operation of the app so that you may run yo
 
 To run your first backtest you will need a functional strategy. 
 
-**1. Import the right template**
+**1. Import the right template**:
 
 If you haven't yet, start by importing either ```Share - Workspace - Bull run rider - USDT- 1hr.json``` or ```Share - Workspace - Weak-hands buster - BTC - 1hr.json```. To do that, follow the instructions above to drag one of the files from the ```Superalgos Desktop App/Quick-Start-Examples``` folder and drop it in the *Designer* section of the app.
 
@@ -222,7 +222,7 @@ Then, hover your mouse pointer over either of the Task Manager elements and clic
 
 Do the same with the second Task Manager element.
 
-[ILLUSTRATION PLACEHOLDER]
+![Designer-Start-Processes](https://user-images.githubusercontent.com/13994516/65596168-9f2b1500-df96-11e9-9559-7395124c00a0.gif)
 
 > **NOTES ON MARKET DATA**: You just started the *Trading Engine* along with the *sensors* that extract live data from the exchange and the *indicators* that process raw trades data. These processes will remain running for as long as you keep the browser open running the app. The bots processing exchange data and building indicators datasets will work to bring your data up to date. In our experience, it may take between 10 to 20 minutes per day worth of Poloniex data to be processed. The time it will take for these processes to complete the job depends on several things:
 > * The date of the release tells you how many days you are behind with the data set you just downloaded.

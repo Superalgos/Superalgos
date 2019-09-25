@@ -109,8 +109,15 @@
                 bot.hasTheBotJustStarted = true
                 setInitialBalance()
 
+                const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
                 /* If we can not get for any reason the initial date of the backtest, we will start at present time. */
                 processConfig.framework.startDate.fixedDate = new Date() 
+                /* If we can not get for any reason the final date of the backtest, we will stop one year after the start date. */
+                processConfig.framework.endDate.fixedDate = new Date(processConfig.framework.startDate.fixedDate.valueOf() + ONE_YEAR_IN_MILISECONDS) 
+
+                /* Convert this dates to string */
+                processConfig.framework.startDate.fixedDate = processConfig.framework.startDate.fixedDate.toISOString()
+                processConfig.framework.endDate.fixedDate = processConfig.framework.endDate.fixedDate.toISOString()
 
                 /* If we received simulation params we use them instead. */
                 if (global.DEFINITION.simulationParams) {

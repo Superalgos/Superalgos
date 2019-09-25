@@ -116,6 +116,11 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Parameters': {
+        node.payload.parentNode.parameters = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Strategy': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.strategies.length; i++) {

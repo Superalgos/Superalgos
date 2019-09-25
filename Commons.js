@@ -2760,7 +2760,7 @@
 
                 i++
                 if (i < candles.length) {
-                    process.nextTick(loop)
+                    setImmediate(loop) // This will execute the next loop in the next iteration of the NodeJs event loop allowing for other callbacks to be executed.
                 } else {
                     afterLoop()
                 }

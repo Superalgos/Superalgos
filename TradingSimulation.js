@@ -521,8 +521,8 @@
                     thisObject.container.eventHandler.raiseEvent("Current Record Changed", eventRecords);
                 }
 
-                let stopLossPhase = 0;
-                let takeProfitPhase = 0;
+                let stopLossPhase = -1;
+                let takeProfitPhase = -1;
 
                 if (i > 0) {
                     if (record.stopLossPhase !== records[i - 1].stopLossPhase) {
@@ -740,9 +740,9 @@
                 browserCanvasContext.stroke()
 
 
-                if (imageStopLossPhase.canDrawIcon === true && stopLossPhase > 0) {
+                if (imageStopLossPhase.canDrawIcon === true && stopLossPhase > -1) {
                     browserCanvasContext.drawImage(imageStopLossPhase, recordPoint6.x - imageSize, recordPoint6.y - imageSize * 1.25 + yOffset, imageSize, imageSize);
-                    printLabel(stopLossPhase - 1, recordPoint6.x - imageSize / 2 - 3, recordPoint6.y - imageSize * 1.5 + yOffset * 2, '1', 9);
+                    printLabel(stopLossPhase, recordPoint6.x - imageSize / 2 - 3, recordPoint6.y - imageSize * 1.5 + yOffset * 2, '1', 9);
                 }
 
                 /* Next we are drawing the Take Profit */
@@ -767,9 +767,9 @@
                 browserCanvasContext.lineWidth = 1
                 browserCanvasContext.stroke()
 
-                if (imageTakeProfitPhase.canDrawIcon === true && takeProfitPhase > 0) {
+                if (imageTakeProfitPhase.canDrawIcon === true && takeProfitPhase > -1) {
                     browserCanvasContext.drawImage(imageTakeProfitPhase, recordPoint10.x - imageSize * 2 / 3, recordPoint10.y + imageSize / 4 - yOffset, imageSize, imageSize);
-                    printLabel(takeProfitPhase - 1, recordPoint10.x - imageSize * 1 / 3, recordPoint10.y + imageSize * 1.9 - yOffset * 2, '1', 9);
+                    printLabel(takeProfitPhase, recordPoint10.x - imageSize * 1 / 3, recordPoint10.y + imageSize * 1.9 - yOffset * 2, '1', 9);
                 }
             }
 
@@ -819,6 +819,7 @@
         }
     }
 }
+
 
 
 

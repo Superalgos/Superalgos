@@ -183,8 +183,6 @@ function newFileSequence () {
     try {
       if (finalized === true || initialized === false) { return }
 
-      logger.write('[INFO] updateFiles -> Entering function.')
-
             /*
 
             To keep this data structure up-to-date we need to:
@@ -212,17 +210,17 @@ function newFileSequence () {
             }
 
             case GLOBAL.CUSTOM_OK_RESPONSE.result: {
-              if (ERROR_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> err.message = ' + err.message) }
+              if (ERROR_LOG === true) { logger.write('[WARN] updateFiles -> onSequenceFileReceived -> err.message = ' + err.message) }
               return
             }
 
             case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-              if (ERROR_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> err.message = ' + err.message) }
+              if (ERROR_LOG === true) { logger.write('[WARN] updateFiles -> onSequenceFileReceived -> err.message = ' + err.message) }
               return
             }
 
             default: {
-              if (ERROR_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> Received Unexpected Response.') }
+              if (ERROR_LOG === true) { logger.write('[WARN] updateFiles -> onSequenceFileReceived -> Received Unexpected Response.') }
               return
             }
           }
@@ -246,7 +244,7 @@ function newFileSequence () {
                     return
                   }
                   case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-                    if (ERROR_LOG === true) { logger.write('[INFO] updateFiles -> onSequenceFileReceived -> onFileReceived -> err.message = ' + err.message) }
+                    if (ERROR_LOG === true) { logger.write('[WARN] updateFiles -> onSequenceFileReceived -> onFileReceived -> err.message = ' + err.message) }
                     return
                   }
                 }

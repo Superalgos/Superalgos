@@ -808,9 +808,9 @@ The result of slippage in simulations is taken into account by the graphic repre
 | ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![time-range](https://user-images.githubusercontent.com/13994516/63638435-0dbf3f00-c688-11e9-8bbd-5e00906cdfa1.png) |
 
 
-The Datetime Range parameter of your Trading System is used to control the period of time in which the simulation will be calculated. Depending on how you set up this parameter you will be either backtesing, paper-trading, or both at the same time.
+The Datetime Range parameter of your Trading System is used to control the period of time in which the simulation will be calculated. Depending on how you set up this parameter you will be either backtesting, paper-trading, or both at the same time.
 
-1. **Backtesting**: 
+**1. Backtesting**: 
 
 **A.** To backtest a specific period of time in the past, introduce an *initialDatetime* and a *finalDatetime*:
 
@@ -821,9 +821,9 @@ The Datetime Range parameter of your Trading System is used to control the perio
 }
 ```
 
-**B.** If you set a *finalDatetime* in the past but not an *initialDatetime*, then the simulation will start at the point in time the charts are when you click the START BACKTESTING button. That is, the *initialDatetime* is taken from the position of the charts.
+**B.** If you set a *finalDatetime* in the past but not an *initialDatetime*, then the simulation will start at the point in time the charts are at when you click the START BACKTESTING button. That is, the *initialDatetime* is taken from the position of the charts.
 
-2. **Paper-trading**: 
+**2. Paper-trading**: 
 
 **A.** To do a forward-test, enter the current date as the *initialDatetime* and the date up to which you wish to run the forward-test as the *finalDatetime*.
 

@@ -78,7 +78,6 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
   * [Poloniex API Keys](#poloniex-api-keys)
 * [Advanced Use](#advanced-use)
   * [Working with Multiple Definitions](#working-with-multiple-definitions)
-  * [Working with Multiple Instances of the App](#working-with-multiple-instances-of-the-app)
 * [Troubleshooting](#troubleshooting)
   * [On-screen Errors and Warnings](#on-screen-errors-and-warnings)
   * [Market Data / Indicators Seem to be Outdated](#market-data--indicators-seem-to-be-outdated)
@@ -1046,22 +1045,6 @@ For the time being, the app does not allow having multiple trading systems under
 To add a Definition, drag and drop a Definition file, and select _Run_ in the menu, setting the execution focus on the new Definition, as indicated by the white ring surrounding the Definition element.
 
 ![Advanced-Multiple-Definitions](https://user-images.githubusercontent.com/13994516/63945104-14c4c380-ca73-11e9-940e-f3b3412e4bc6.gif)
-
-## Working with Multiple Instances of the App
-
-You may also decide that you wish to have a second installation of the app, so that you can keep tweaking Strategies and even running simulations while live-trading. You can do this following these steps:
-
-1. Stop the app (close the browser, wait a minute for all activity to stop before closing the Console).
-
-2. Make a copy of the complete Superalgos Desktop App folder, that is, the folder containing programs as well as data. You may name the second folder as you wish. If you do this without properly closing the app, you may end up with significant data inconsistencies.
-
-3. In the copy, go to the root ```Superalgos Desktop App``` folder and open ```.env``` file with Notepad or a similar text editor. Find the VIRTUAL_PORT parameter and replace the existing number with a number between 10000 and 50000. Save and close the file.
-
-4. Now, in the ```Webserver``` folder, open ```index.html``` with a text editor and find the following line:
-```urlPrefix: 'http://localhost:1337/'```
-Replace 1337 with the number you set in the ```.env``` file.
-
-That's it. You now have a second environment that you can run in parallel to the first one, each with its data set, programs, and logs.
 
 # Troubleshooting
 

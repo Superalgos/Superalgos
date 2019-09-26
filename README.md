@@ -1037,13 +1037,13 @@ To add a Definition, drag and drop a Definition file, and select _Run_ in the me
 
 You may also decide that you wish to have a second installation of the app, so that you can keep tweaking Strategies and even running simulations while live-trading. You can do this following these steps:
 
-1. Stop the app (close the browser, use CTRL + C to stop the process at the Console and close the Console).
+1. Stop the app (close the browser, wait a minute for all activity to stop before closing the Console).
 
 2. Make a copy of the complete Superalgos Desktop App folder, that is, the folder containing programs as well as data. You may name the second folder as you wish. If you do this without properly closing the app, you may end up with significant data inconsistencies.
 
-3. In the copy, go to the ```WebServer``` folder and open ```.env``` file with Notepad or similar text editor. Find the VIRTUAL_PORT parameter and replace the existing number with a number between 10000 and 50000. Save and close the file.
+3. In the copy, go to the root ```Superalgos Desktop App``` folder and open ```.env``` file with Notepad or a similar text editor. Find the VIRTUAL_PORT parameter and replace the existing number with a number between 10000 and 50000. Save and close the file.
 
-4. Now, also in the ```Webserver``` folder, open ```index.html``` and find the following line:
+4. Now, in the ```Webserver``` folder, open ```index.html``` with a text editor and find the following line:
 ```urlPrefix: 'http://localhost:1337/'```
 Replace 1337 with the number you set in the ```.env``` file.
 

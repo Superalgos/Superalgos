@@ -564,157 +564,216 @@
 
             if (candles.length > 0) {
 
-                /* Now we calculate and plot the candles */
-
+                /* Now we calculate all the points. */
                 for (let i = 0; i < candles.length; i++) {
 
                     candle = candles[i];
 
-                    let candlePoint1 = {
+                    candle.candlePoint1 = {
                         x: candle.begin + timePeriod / 7 * 1.5,
                         y: candle.open
                     };
 
-                    let candlePoint2 = {
+                    candle.candlePoint2 = {
                         x: candle.begin + timePeriod / 7 * 5.5,
                         y: candle.open
                     };
 
-                    let candlePoint3 = {
+                    candle.candlePoint3 = {
                         x: candle.begin + timePeriod / 7 * 5.5,
                         y: candle.close
                     };
 
-                    let candlePoint4 = {
+                    candle.candlePoint4 = {
                         x: candle.begin + timePeriod / 7 * 1.5,
                         y: candle.close
                     };
 
-                    candlePoint1 = timeLineCoordinateSystem.transformThisPoint(candlePoint1);
-                    candlePoint2 = timeLineCoordinateSystem.transformThisPoint(candlePoint2);
-                    candlePoint3 = timeLineCoordinateSystem.transformThisPoint(candlePoint3);
-                    candlePoint4 = timeLineCoordinateSystem.transformThisPoint(candlePoint4);
+                    candle.candlePoint1 = timeLineCoordinateSystem.transformThisPoint(candle.candlePoint1);
+                    candle.candlePoint2 = timeLineCoordinateSystem.transformThisPoint(candle.candlePoint2);
+                    candle.candlePoint3 = timeLineCoordinateSystem.transformThisPoint(candle.candlePoint3);
+                    candle.candlePoint4 = timeLineCoordinateSystem.transformThisPoint(candle.candlePoint4);
 
-                    candlePoint1 = transformThisPoint(candlePoint1, thisObject.container);
-                    candlePoint2 = transformThisPoint(candlePoint2, thisObject.container);
-                    candlePoint3 = transformThisPoint(candlePoint3, thisObject.container);
-                    candlePoint4 = transformThisPoint(candlePoint4, thisObject.container);
+                    candle.candlePoint1 = transformThisPoint(candle.candlePoint1, thisObject.container);
+                    candle.candlePoint2 = transformThisPoint(candle.candlePoint2, thisObject.container);
+                    candle.candlePoint3 = transformThisPoint(candle.candlePoint3, thisObject.container);
+                    candle.candlePoint4 = transformThisPoint(candle.candlePoint4, thisObject.container);
 
-                    if (candlePoint2.x < viewPort.visibleArea.bottomLeft.x || candlePoint1.x > viewPort.visibleArea.bottomRight.x) {
-                        continue;
+                    candle.candlePoint1 = viewPort.fitIntoVisibleArea(candle.candlePoint1);
+                    candle.candlePoint2 = viewPort.fitIntoVisibleArea(candle.candlePoint2);
+                    candle.candlePoint3 = viewPort.fitIntoVisibleArea(candle.candlePoint3);
+                    candle.candlePoint4 = viewPort.fitIntoVisibleArea(candle.candlePoint4);
+
+                    candle.stickPoint1 = {
+                        x: candle.begin + timePeriod / 7 * 3.2,
+                        y: candle.max
+                    };
+
+                    candle.stickPoint2 = {
+                        x: candle.begin + timePeriod / 7 * 3.8,
+                        y: candle.max
+                    };
+
+                    candle.stickPoint3 = {
+                        x: candle.begin + timePeriod / 7 * 3.8,
+                        y: candle.min
+                    };
+
+                    candle.stickPoint4 = {
+                        x: candle.begin + timePeriod / 7 * 3.2,
+                        y: candle.min
+                    };
+
+                    candle.stickPoint1 = timeLineCoordinateSystem.transformThisPoint(candle.stickPoint1);
+                    candle.stickPoint2 = timeLineCoordinateSystem.transformThisPoint(candle.stickPoint2);
+                    candle.stickPoint3 = timeLineCoordinateSystem.transformThisPoint(candle.stickPoint3);
+                    candle.stickPoint4 = timeLineCoordinateSystem.transformThisPoint(candle.stickPoint4);
+
+                    candle.stickPoint1 = transformThisPoint(candle.stickPoint1, thisObject.container);
+                    candle.stickPoint2 = transformThisPoint(candle.stickPoint2, thisObject.container);
+                    candle.stickPoint3 = transformThisPoint(candle.stickPoint3, thisObject.container);
+                    candle.stickPoint4 = transformThisPoint(candle.stickPoint4, thisObject.container);
+
+                    candle.stickPoint1 = viewPort.fitIntoVisibleArea(candle.stickPoint1);
+                    candle.stickPoint2 = viewPort.fitIntoVisibleArea(candle.stickPoint2);
+                    candle.stickPoint3 = viewPort.fitIntoVisibleArea(candle.stickPoint3);
+                    candle.stickPoint4 = viewPort.fitIntoVisibleArea(candle.stickPoint4);
+
+                }
+
+                /* On screen candles */
+                let onScreenCandles = []
+                let mouseCandle
+
+                for (let i = 0; i < candles.length; i++) {
+                    
+                    candle = candles[i];
+
+                    if (candle.candlePoint2.x < viewPort.visibleArea.bottomLeft.x || candle.candlePoint1.x > viewPort.visibleArea.bottomRight.x) {
+                        continue
                     }
 
-                    candlePoint1 = viewPort.fitIntoVisibleArea(candlePoint1);
-                    candlePoint2 = viewPort.fitIntoVisibleArea(candlePoint2);
-                    candlePoint3 = viewPort.fitIntoVisibleArea(candlePoint3);
-                    candlePoint4 = viewPort.fitIntoVisibleArea(candlePoint4);
+                    if (onScreenCandles.length < 5000) {
+                        onScreenCandles.push(candle)
+                    }
 
-                    let stickPoint1 = {
-                        x: candle.begin + timePeriod / 7 * 3.2,
-                        y: candle.max
-                    };
+                    if (userPositionDate >= candle.begin && userPositionDate <= candle.end) {
+                        mouseCandle = candle
+                    }
+                }
 
-                    let stickPoint2 = {
-                        x: candle.begin + timePeriod / 7 * 3.8,
-                        y: candle.max
-                    };
+                /* We draw the sticks */
+                browserCanvasContext.beginPath();
 
-                    let stickPoint3 = {
-                        x: candle.begin + timePeriod / 7 * 3.8,
-                        y: candle.min
-                    };
+                for (let i = 0; i < onScreenCandles.length; i++) {
 
-                    let stickPoint4 = {
-                        x: candle.begin + timePeriod / 7 * 3.2,
-                        y: candle.min
-                    };
+                    candle = onScreenCandles[i];
 
-                    stickPoint1 = timeLineCoordinateSystem.transformThisPoint(stickPoint1);
-                    stickPoint2 = timeLineCoordinateSystem.transformThisPoint(stickPoint2);
-                    stickPoint3 = timeLineCoordinateSystem.transformThisPoint(stickPoint3);
-                    stickPoint4 = timeLineCoordinateSystem.transformThisPoint(stickPoint4);
+                    browserCanvasContext.moveTo(candle.stickPoint1.x, candle.stickPoint1.y);
+                    browserCanvasContext.lineTo(candle.stickPoint2.x, candle.stickPoint2.y);
+                    browserCanvasContext.lineTo(candle.stickPoint3.x, candle.stickPoint3.y);
+                    browserCanvasContext.lineTo(candle.stickPoint4.x, candle.stickPoint4.y);
+                }
 
-                    stickPoint1 = transformThisPoint(stickPoint1, thisObject.container);
-                    stickPoint2 = transformThisPoint(stickPoint2, thisObject.container);
-                    stickPoint3 = transformThisPoint(stickPoint3, thisObject.container);
-                    stickPoint4 = transformThisPoint(stickPoint4, thisObject.container);
+                browserCanvasContext.closePath();
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
+                browserCanvasContext.fill();
 
-                    stickPoint1 = viewPort.fitIntoVisibleArea(stickPoint1);
-                    stickPoint2 = viewPort.fitIntoVisibleArea(stickPoint2);
-                    stickPoint3 = viewPort.fitIntoVisibleArea(stickPoint3);
-                    stickPoint4 = viewPort.fitIntoVisibleArea(stickPoint4);
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
+                browserCanvasContext.lineWidth = 1;
+                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.stroke();
 
+                /* The stick at the mouse candle */
+                if (mouseCandle) {
                     browserCanvasContext.beginPath();
 
-                    browserCanvasContext.moveTo(stickPoint1.x, stickPoint1.y);
-                    browserCanvasContext.lineTo(stickPoint2.x, stickPoint2.y);
-                    browserCanvasContext.lineTo(stickPoint3.x, stickPoint3.y);
-                    browserCanvasContext.lineTo(stickPoint4.x, stickPoint4.y);
+                    candle = mouseCandle
+
+                    browserCanvasContext.moveTo(candle.stickPoint1.x, candle.stickPoint1.y);
+                    browserCanvasContext.lineTo(candle.stickPoint2.x, candle.stickPoint2.y);
+                    browserCanvasContext.lineTo(candle.stickPoint3.x, candle.stickPoint3.y);
+                    browserCanvasContext.lineTo(candle.stickPoint4.x, candle.stickPoint4.y);
 
                     browserCanvasContext.closePath();
                     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
                     browserCanvasContext.fill();
 
-                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
-
-                    if (userPositionDate >= candle.begin && userPositionDate <= candle.end) {
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current candle accroding to time
-                    }
-
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
                     browserCanvasContext.lineWidth = 1;
                     browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke();
+                }
+
+
+                /* We draw the candles. */
+                drawCandlesByDirection('up')
+                drawCandlesByDirection('down')
+                drawCandlesByDirection('side')
+
+                function drawCandlesByDirection(direction) {
 
                     browserCanvasContext.beginPath();
 
-                    browserCanvasContext.moveTo(candlePoint1.x, candlePoint1.y);
-                    browserCanvasContext.lineTo(candlePoint2.x, candlePoint2.y);
-                    browserCanvasContext.lineTo(candlePoint3.x, candlePoint3.y);
-                    browserCanvasContext.lineTo(candlePoint4.x, candlePoint4.y);
+                    for (let i = 0; i < onScreenCandles.length; i++) {
+
+                        candle = onScreenCandles[i];
+
+                        if (candle.direction !== direction) { continue }
+
+                        browserCanvasContext.moveTo(candle.candlePoint1.x, candle.candlePoint1.y);
+                        browserCanvasContext.lineTo(candle.candlePoint2.x, candle.candlePoint2.y);
+                        browserCanvasContext.lineTo(candle.candlePoint3.x, candle.candlePoint3.y);
+                        browserCanvasContext.lineTo(candle.candlePoint4.x, candle.candlePoint4.y);
+                    }
 
                     browserCanvasContext.closePath();
 
-                    if (candle.direction === 'up') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)'; }
-                    if (candle.direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', 1)'; }
-                    if (candle.direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
+                    if (direction === 'up') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)'; }
+                    if (direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', 1)'; }
+                    if (direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
 
-                    if (candle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'; }
-                    if (candle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'; }
-                    if (candle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
+                    if (direction === 'up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'; }
+                    if (direction === 'down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'; }
+                    if (direction === 'side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
 
-                    if (userPositionDate >= candle.begin && userPositionDate <= candle.end) {
-
-                        /* highlight the current candle */
-
-                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current candle accroding to time
-
-                        let currentCandle = {
-                            bodyWidth: candlePoint2.x - candlePoint1.x,
-                            bodyHeight: candlePoint3.y - candlePoint2.y,
-                            stickHeight: stickPoint4.y - stickPoint2.y,
-                            stickWidth: stickPoint2.x - stickPoint1.x,
-                            stickStart: candlePoint2.y - stickPoint2.y,
-                            period: timePeriod,
-                            innerCandle: candle
-                        };
-                        thisObject.container.eventHandler.raiseEvent("Current Candle Changed", currentCandle);
-                    }
-
-                    if (
-                        candlePoint1.x < viewPort.visibleArea.topLeft.x + 50
-                        ||
-                        candlePoint1.x > viewPort.visibleArea.bottomRight.x - 50
-                    ) {
-                        // we leave this candles without fill.
-                    } else {
-                        browserCanvasContext.fill();
-                    }
+                    browserCanvasContext.fill();
 
                     browserCanvasContext.lineWidth = 1;
                     browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke();
+                }
 
+                /* Draw mouse candel and Raise Event. */
+                if (mouseCandle) {
 
+                    /* highlight the current candle */
+
+                    browserCanvasContext.beginPath();
+
+                    candle = mouseCandle
+
+                    browserCanvasContext.moveTo(candle.candlePoint1.x, candle.candlePoint1.y);
+                    browserCanvasContext.lineTo(candle.candlePoint2.x, candle.candlePoint2.y);
+                    browserCanvasContext.lineTo(candle.candlePoint3.x, candle.candlePoint3.y);
+                    browserCanvasContext.lineTo(candle.candlePoint4.x, candle.candlePoint4.y);
+
+                    browserCanvasContext.closePath();
+
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current candle accroding to time
+
+                    browserCanvasContext.fill();
+
+                    let currentCandle = {
+                        bodyWidth: candle.candlePoint2.x - candle.candlePoint1.x,
+                        bodyHeight: candle.candlePoint3.y - candle.candlePoint2.y,
+                        stickHeight: candle.stickPoint4.y - candle.stickPoint2.y,
+                        stickWidth: candle.stickPoint2.x - candle.stickPoint1.x,
+                        stickStart: candle.candlePoint2.y - candle.stickPoint2.y,
+                        period: timePeriod,
+                        innerCandle: candle
+                    };
+                    thisObject.container.eventHandler.raiseEvent("Current Candle Changed", currentCandle);
                 }
             }
 
@@ -723,6 +782,7 @@
             if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err = " + err.stack); }
         }
     }
+
 
     function onZoomChanged(event) {
 
@@ -763,5 +823,8 @@
         }
     }
 }
+
+
+
 
 

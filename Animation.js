@@ -25,6 +25,9 @@ function newAnimation () {
     finalize: finalize
   }
 
+  let totalConsumption = 0
+  let totalCounter = 0
+
   return thisObject
 
   function finalize () {
@@ -76,10 +79,12 @@ function newAnimation () {
         let randomNumber
         let mustExecute
 
+        // console.clear()
+
         for (const [key, callBackFunction] of callBackFunctions.entries()) {
           switch (key) {
             case 'Floating Space Physics':
-              chanceToExecute = 100
+              chanceToExecute = 50
               randomNumber = Math.random() * 100 * chanceToExecute
               if (randomNumber > 100 - chanceToExecute) { mustExecute = true } else { mustExecute = false }
               break
@@ -93,6 +98,17 @@ function newAnimation () {
             callBackFunction()
             let t1 = performance.now()
             let timeConsumed = t1 - t0
+            if (key === 'Chart Space Draw') {
+              // console.log(key, (totalConsumption / totalCounter).toFixed(1))
+
+              if (Math.random() * 100 > 99) {
+                totalConsumption = 0
+                totalCounter = 0
+              }
+
+              totalConsumption = totalConsumption + timeConsumed
+              totalCounter = totalCounter + 1
+            }
             performanceMap.set(key, timeConsumed)
             totalTimeConsumed = totalTimeConsumed + timeConsumed
             totalElements++
@@ -100,10 +116,12 @@ function newAnimation () {
         }
 
         /* Performance Check */
-        console.clear()
+
         for (const [key, timeConsumed] of performanceMap.entries()) {
           let percentage = timeConsumed * 100 / totalTimeConsumed
-          console.log(key, percentage.toFixed(2))
+          if (key === 'Chart Space Draw') {
+                      // console.log(key, percentage.toFixed(0))
+          }
         }
       } else {
         browserCanvas.width = 1

@@ -18,8 +18,6 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
   * [The Extended Version for Regular Folks](#the-extended-version-for-regular-folks)
     * [Downloads](#downloads/)
     * [Running the App](#running-the-app)
-      * [On Windows](#on-windows)
-      * [On Mac](#on-mac)
   * [Running Your First Backtest](#running-your-first-backtest)
 * [Upgrading Your Existing Installation](#upgrading-your-existing-installation)
 * [Overview](#overview)
@@ -174,11 +172,11 @@ You should end up with the following folder structure:
 
 ### Running the App
 
-**1A. In Windows systems, use the executable file to run the app**:
+**1-A. In Windows systems, use the executable file to run the app**:
 
 Go to the ```Superalgos Desktop App``` folder and double click on ```Superalgos.exe```. Now, skip the Mac instructions and go directly to point 2 below.
 
-**1B. In Mac systems, download and install Node JS**:
+**1-B. In Mac systems, download and install Node JS**:
 
 Node.js is an open source server environment required for the app to run. Go to the [Node Js downloads page](https://nodejs.org/en/download/) and download the Mac installer. Run the installer and go through the process until Node Js is installed.
 

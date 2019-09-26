@@ -69,15 +69,48 @@ function newAnimation () {
 
                 /* We loop through the callback functions collections and execute them all. */
 
-        callBackFunctions.forEach(function (callBackFunction) {
-          callBackFunction()
-        })
+        let performanceMap = new Map()
+        let totalTimeConsumed = 0
+        let totalElements = 0
+        let chanceToExecute
+        let randomNumber
+        let mustExecute
+
+        for (const [key, callBackFunction] of callBackFunctions.entries()) {
+          switch (key) {
+            case 'Floating Space Physics':
+              chanceToExecute = 100
+              randomNumber = Math.random() * 100 * chanceToExecute
+              if (randomNumber > 100 - chanceToExecute) { mustExecute = true } else { mustExecute = false }
+              break
+            default: {
+              mustExecute = true
+            }
+
+          }
+          if (mustExecute === true) {
+            let t0 = performance.now()
+            callBackFunction()
+            let t1 = performance.now()
+            let timeConsumed = t1 - t0
+            performanceMap.set(key, timeConsumed)
+            totalTimeConsumed = totalTimeConsumed + timeConsumed
+            totalElements++
+          }
+        }
+
+        /* Performance Check */
+        console.clear()
+        for (const [key, timeConsumed] of performanceMap.entries()) {
+          let percentage = timeConsumed * 100 / totalTimeConsumed
+          console.log(key, percentage.toFixed(2))
+        }
       } else {
         browserCanvas.width = 1
         browserCanvas.height = 1
       }
 
-            /* We request the next frame to be drawn, and stablishing a loop */
+      /* We request the next frame to be drawn, and stablishing a loop */
 
       /* Use this code for full animation speed. */
       animationLoopHandle = window.requestAnimationFrame(animationLoop)
@@ -104,3 +137,4 @@ function newAnimation () {
     browserCanvasContext.fill()
   }
 }
+

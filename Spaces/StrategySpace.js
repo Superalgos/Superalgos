@@ -187,7 +187,6 @@ function newStrategySpace () {
   }
 
   function makeVisible () {
-    canvas.floatingSpace.makeVisible()
     visible = true
   }
 

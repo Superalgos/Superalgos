@@ -119,8 +119,10 @@
        thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
        thisObject.status = 'BOTTOM'
        canvas.strategySpace.makeInvisible()
+       canvas.floatingSpace.makeInvisible()
      } else {
        canvas.strategySpace.makeVisible()
+       canvas.floatingSpace.makeVisible()
      }
 
      if (thisObject.container.frame.position.y < browserCanvas.height * 0.5 / 100) {

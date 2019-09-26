@@ -15,9 +15,11 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
 * [Getting Started](#getting-started)
   * [Before You Begin](#before-you-begin)
   * [The Quick Version for Experienced PC Operators](#the-quick-version-for-experienced-pc-operators)
-  * [The Extended Version for Regular Folks on Windows and Mac](#the-extended-version-for-regular-folks-on-windows-and-mac)
+  * [The Extended Version for Regular Folks](#the-extended-version-for-regular-folks)
     * [Downloads](#downloads/)
     * [Running the App](#running-the-app)
+      * [On Windows](#on-windows)
+      * [On Mac](#on-mac)
   * [Running Your First Backtest](#running-your-first-backtest)
 * [Upgrading Your Existing Installation](#upgrading-your-existing-installation)
 * [Overview](#overview)
@@ -132,7 +134,7 @@ You should end up with the following folder structure:
 
 > NOTE FOR DEVELOPERS: Instead of using the executable file to run the app, you may want to use ```node run``` from within the root ```Superalgos Desktop App``` folder, to run on your full Node Js installation.
 
-## The Extended Version for Regular Folks on Windows and Mac
+## The Extended Version for Regular Folks
 
 ### Downloads
 
@@ -142,7 +144,7 @@ Go to the [latest Superalgos Desktop App release](https://github.com/Superalgos/
 
 **2. Extract the ZIP file**: 
 
-How you extract/unpack the files depends on the software you use to handle ZIP files. Double-clicking the ZIP file should work in most scenarios, however, some systems may "open" the file instead of "extracting" it. Make sure you are "extracting" and not just "opening" the file. You may also right-click the file and check the options available on the pop-up menu.
+How you extract/unpack the files depends on the software you use to handle ZIP files. Double-clicking the ZIP file should work in most scenarios, however, some systems may "open" the file instead of "extracting" or "unpacking" it. Make sure you are "extracting" and not just "opening" the file. You may also right-click the file and check the options available on the pop-up menu.
 
 When you extract the ZIP file, a folder structure will be created with the root folder being ```Superalgos Desktop App```.
 
@@ -172,17 +174,23 @@ You should end up with the following folder structure:
 
 ### Running the App
 
-**1. Use the executable file to run the app**:
+**1A. In Windows systems, use the executable file to run the app**:
 
-Go to the ```Superalgos Desktop App``` folder and double click on ```Superalgos.exe``` (for Windows systems) or ```Superalgos.app``` (for Mac systems).
+Go to the ```Superalgos Desktop App``` folder and double click on ```Superalgos.exe```. Now, skip the Mac instructions and go directly to point 2 below.
+
+**1B. In Mac systems, download and install Node JS**:
+
+Node.js is an open source server environment required for the app to run. Go to the [Node Js downloads page](https://nodejs.org/en/download/) and download the Mac installer. Run the installer and go through the process until Node Js is installed.
+
+Now, use the Finder app to go to the ```Superalgos Desktop App``` folder and do a *secondary click* (tap the touchpad with two fingers) to open up the menu. Select *New Terminal Tab at Folder*. Once in the Terminal, type ```node run``` and hit *Enter*.
+
+**2. Drag and drop an example workspace**: 
 
 The app will load on your default browser. You should either [set Chrome as your default browser](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en) before executing the file or simply close the non-Chrome browser, open Chrome and go to http://localhost:1337/.
 
-Also, a Console/Command Line window will open. The Console must be open for as long as the app is running. Do not close the window or stop the processes running on it. You may minimize the Console if your Operating System allows you to do so.
+Also, a Console/Command Line/Terminal window will open. The Console must be open for as long as the app is running. Do not close the window or stop the processes running on it. You may minimize the Console if your Operating System allows you to do so.
 
 > Closing the Console/Command Line may cause your market data to become corrupt. The proper way of closing the application is closing your browser first, and allow a minute for processes to stop before closing the Console.
-
-**2. Drag and drop an example workspace**: 
 
 Go to the ```Superalgos Desktop App/Quick-Start-Examples``` folder, drag your preferred example file and drop it on the _Designer_ (the area with a black background in the bottom half of the screen) to start with a working template.
 

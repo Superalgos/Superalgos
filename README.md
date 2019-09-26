@@ -803,23 +803,31 @@ The result of slippage in simulations is taken into account by the graphic repre
 
 ## Datetime Range
 
-There are two ways to define the datetime in which a simulation starts. However, in both cases, the simulation never ends, and keeps running until the present time.
-
-1. **With a parametric datetime starting point**: This method is used to always run the simulation starting from the same datetime. In this case, you need to enter an *initialDatetime* in the *Time Range* parameter of your Trading System:
-
 | Parameters | Time Range |
 | :---: | :---: |
 | ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![time-range](https://user-images.githubusercontent.com/13994516/63638435-0dbf3f00-c688-11e9-8bbd-5e00906cdfa1.png) |
 
+
+The Datetime Range parameter of your Trading System is used to control the period of time in which the simulation will be calculated. Depending on how you set up this parameter you will be either backtesing, paper-trading, or both at the same time.
+
+1. **Backtesting**: 
+
+**A.** To backtest a specific period of time in the past, introduce an *initialDatetime* and a *finalDatetime*:
+
 ```
-{ 
-"initialDatetime": "2019-08-15T20:00:00.000Z"
+{
+"initialDatetime": "2019-09-01T00:00:00.000Z",
+"finalDatetime": "2019-09-25T00:00:00.000Z"
 }
 ```
 
-2. **With a dynamic starting point**: If you don't set a datetime at the Time Range parameter or disconnect the Time Range element from your parameters the simulation starts wherever the charts are positioned.
+**B.** If you set a *finalDatetime* in the past but not an *initialDatetime*, then the simulation will start at the point in time the charts are when you click the START BACKTESTING button. That is, the *initialDatetime* is taken from the position of the charts.
 
-> KNOWN ISSUE: If you can't disconnect the Time Range element and wish to run simulations withour a set starting date, simply enter ```{}``` in the Edit Time Range field.
+2. **Paper-trading**: 
+
+**A.** To do a forward-test, enter the current date as the *initialDatetime* and the date up to which you wish to run the forward-test as the *finalDatetime*.
+
+**B.** If you do not enter a *finalDatetime*, then the forward-test will run for one year.
 
 ## Time Period
 

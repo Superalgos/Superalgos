@@ -78,7 +78,6 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
   * [Poloniex API Keys](#poloniex-api-keys)
 * [Advanced Use](#advanced-use)
   * [Working with Multiple Definitions](#working-with-multiple-definitions)
-  * [Working with Multiple Instances of the App](#working-with-multiple-instances-of-the-app)
 * [Troubleshooting](#troubleshooting)
   * [On-screen Errors and Warnings](#on-screen-errors-and-warnings)
   * [Market Data / Indicators Seem to be Outdated](#market-data--indicators-seem-to-be-outdated)
@@ -803,23 +802,31 @@ The result of slippage in simulations is taken into account by the graphic repre
 
 ## Datetime Range
 
-There are two ways to define the datetime in which a simulation starts. However, in both cases, the simulation never ends, and keeps running until the present time.
-
-1. **With a parametric datetime starting point**: This method is used to always run the simulation starting from the same datetime. In this case, you need to enter an *initialDatetime* in the *Time Range* parameter of your Trading System:
-
 | Parameters | Time Range |
 | :---: | :---: |
 | ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![time-range](https://user-images.githubusercontent.com/13994516/63638435-0dbf3f00-c688-11e9-8bbd-5e00906cdfa1.png) |
 
+
+The Datetime Range parameter of your Trading System is used to control the period of time in which the simulation will be calculated. Depending on how you set up this parameter you will be either backtesting, paper-trading, or both at the same time.
+
+**1. Backtesting**: 
+
+**A.** To backtest a specific period of time in the past, introduce an *initialDatetime* and a *finalDatetime*:
+
 ```
-{ 
-"initialDatetime": "2019-08-15T20:00:00.000Z"
+{
+"initialDatetime": "2019-09-01T00:00:00.000Z",
+"finalDatetime": "2019-09-25T00:00:00.000Z"
 }
 ```
 
-2. **With a dynamic starting point**: If you don't set a datetime at the Time Range parameter or disconnect the Time Range element from your parameters the simulation starts wherever the charts are positioned.
+**B.** If you set a *finalDatetime* in the past but not an *initialDatetime*, then the simulation will start at the point in time the charts are at when you click the START BACKTESTING button. That is, the *initialDatetime* is taken from the position of the charts.
 
-> KNOWN ISSUE: If you can't disconnect the Time Range element and wish to run simulations withour a set starting date, simply enter ```{}``` in the Edit Time Range field.
+**2. Paper-trading**: 
+
+**A.** To do a forward-test, enter the current date as the *initialDatetime* and the date up to which you wish to run the forward-test as the *finalDatetime*.
+
+**B.** If you do not enter a *finalDatetime*, then the forward-test will run for one year.
 
 ## Time Period
 
@@ -1038,22 +1045,6 @@ For the time being, the app does not allow having multiple trading systems under
 To add a Definition, drag and drop a Definition file, and select _Run_ in the menu, setting the execution focus on the new Definition, as indicated by the white ring surrounding the Definition element.
 
 ![Advanced-Multiple-Definitions](https://user-images.githubusercontent.com/13994516/63945104-14c4c380-ca73-11e9-940e-f3b3412e4bc6.gif)
-
-## Working with Multiple Instances of the App
-
-You may also decide that you wish to have a second installation of the app, so that you can keep tweaking Strategies and even running simulations while live-trading. You can do this following these steps:
-
-1. Stop the app (close the browser, wait a minute for all activity to stop before closing the Console).
-
-2. Make a copy of the complete Superalgos Desktop App folder, that is, the folder containing programs as well as data. You may name the second folder as you wish. If you do this without properly closing the app, you may end up with significant data inconsistencies.
-
-3. In the copy, go to the root ```Superalgos Desktop App``` folder and open ```.env``` file with Notepad or a similar text editor. Find the VIRTUAL_PORT parameter and replace the existing number with a number between 10000 and 50000. Save and close the file.
-
-4. Now, in the ```Webserver``` folder, open ```index.html``` with a text editor and find the following line:
-```urlPrefix: 'http://localhost:1337/'```
-Replace 1337 with the number you set in the ```.env``` file.
-
-That's it. You now have a second environment that you can run in parallel to the first one, each with its data set, programs, and logs.
 
 # Troubleshooting
 

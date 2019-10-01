@@ -94,8 +94,9 @@ exports.newDebugLog = function newDebugLog() {
                 function onFileCreated(err) {
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+              
                         console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = "+ err.stack);
-
+                
                         setTimeout(writeLog, 10000); // Lets retry until we make it.
                         return;
                     }
@@ -134,7 +135,9 @@ exports.newDebugLog = function newDebugLog() {
                 if (thisObject.bot) {
                     key = thisObject.bot.devTeam + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
                 }
+                console.log("  ");
                 console.log(message + ' @ ' + key)
+                console.log("  ");
             }
 
             accumulatedLog = accumulatedLog + logLine;

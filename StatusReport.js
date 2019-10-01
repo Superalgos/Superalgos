@@ -67,26 +67,21 @@
 
                 let subscriptionIdStatusReport
 
-                subscriptionIdStatusReport = global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Status Report Updated', undefined, callerId, responseCallBack, eventsCallBack)
+                global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Status Report Updated', undefined, callerId, responseCallBack, eventsCallBack)
 
                 function responseCallBack(message) {
                     if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    } else {
+                        subscriptionIdStatusReport = message.eventSubscriptionId
                     }
                 }
 
                 function eventsCallBack() {
                     /* We continue the normal flow after we learn the dependent process has updated its status report. */
-                    stopListening()
+                    global.SYSTEM_EVENT_HANDLER.stopListening(key, 'Status Report Updated', subscriptionIdStatusReport)
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                 }
-
-                function stopListening() {
-                    if (subscriptionIdStatusReport) {
-                        stopListening(key, 'Status Report Updated', subscriptionIdStatusReport)
-                    }
-                }
-
             } else {
                 /* In this case, the Status Report does not depends on a process which needs to wait for. */
                 callBackFunction(global.DEFAULT_OK_RESPONSE);

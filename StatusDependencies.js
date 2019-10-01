@@ -120,6 +120,7 @@
 
                     if (loadCount === pStatusDependenciesConfig.length) {
                         if (alreadyCalledBack === false) {
+                            alreadyCalledBack = true
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }

@@ -274,11 +274,11 @@ function newStrategyPartConstructor () {
             )
         menuItemsInitialValues.push(
           {
-            action: 'Add Task Manager',
+            action: 'Add Node',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Task Manager',
+            label: 'Add Node',
             visible: true,
-            relatedStrategyPart: 'Task Manager',
+            relatedStrategyPart: 'Node',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -313,6 +313,53 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 75
+          }
+        )
+        break
+      }
+      case 'Node': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Task Manager',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Task Manager',
+            visible: true,
+            relatedStrategyPart: 'Task Manager',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+                )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Node',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Node',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }
         )
         break

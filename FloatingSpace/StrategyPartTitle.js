@@ -52,6 +52,10 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
+      case 'Network': {
+        thisObject.allwaysVisible = true
+        break
+      }
       case 'Network Node': {
         break
       }

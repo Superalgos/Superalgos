@@ -1,6 +1,7 @@
 function newNodeDeleter () {
   thisObject = {
     deleteDefinition: deleteDefinition,
+    deleteNetwork: deleteNetwork,
     deleteNetworkNode: deleteNetworkNode,
     deleteTaskManager: deleteTaskManager,
     deleteTask: deleteTask,
@@ -52,6 +53,10 @@ function newNodeDeleter () {
 
           case 'Definition': {
             deleteDefinition(rootNode, rootNodes, true)
+            break
+          }
+          case 'Network': {
+            deleteNetwork(rootNode, rootNodes)
             break
           }
           case 'Network Node': {
@@ -240,6 +245,22 @@ function newNodeDeleter () {
     if (node.personalData !== undefined) {
       deletePersonalData(node.personalData, rootNodes)
     }
+    if (node.network !== undefined) {
+      deleteNetwork(node.network, rootNodes)
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteNetwork (node, rootNodes, forced) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.network = undefined
+    }
+
     if (node.networkNodes !== undefined) {
       while (node.networkNodes.length > 0) {
         deleteNetworkNode(node.networkNodes[0], rootNodes)
@@ -253,6 +274,15 @@ function newNodeDeleter () {
 
   function deleteNetworkNode (node, rootNodes, forced) {
     let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.networkNodes.length; j++) {
+        let networkNode = payload.parentNode.networkNodes[j]
+        if (networkNode.id === node.id) {
+          payload.parentNode.networkNodes.splice(j, 1)
+        }
+      }
+    }
 
     if (node.taskManagers !== undefined) {
       while (node.taskManagers.length > 0) {

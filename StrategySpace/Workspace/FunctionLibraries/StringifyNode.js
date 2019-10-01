@@ -533,14 +533,12 @@ function newStringifyNode () {
         }
         return object
       }
-      case 'Definition': {
+      case 'Network': {
         let object = {
           id: node.id,
           type: node.type,
           subType: node.subType,
           name: node.name,
-          tradingSystem: prepareForStringify(node.tradingSystem, removePersonalData),
-          personalData: prepareForStringify(node.personalData, removePersonalData),
           networkNodes: [],
           savedPayload: getSavedPayload(node)
         }
@@ -549,6 +547,19 @@ function newStringifyNode () {
             let networkNode = prepareForStringify(node.networkNodes[m], removePersonalData)
             object.networkNodes.push(networkNode)
           }
+        }
+        return object
+      }
+      case 'Definition': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          tradingSystem: prepareForStringify(node.tradingSystem, removePersonalData),
+          personalData: prepareForStringify(node.personalData, removePersonalData),
+          network: prepareForStringify(node.network, removePersonalData),
+          savedPayload: getSavedPayload(node)
         }
         return object
       }

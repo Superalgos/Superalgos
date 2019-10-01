@@ -11,11 +11,16 @@ function newAttachDetach () {
       case 'Definition': {
         return
       }
+      case 'Network': {
+        node.payload.parentNode.network = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Network Node': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.networkNodes.length; i++) {
-          let netwrokNode = payload.parentNode.networkNodes[i]
-          if (netwrokNode.id === node.id) {
+          let networkNode = payload.parentNode.networkNodes[i]
+          if (networkNode.id === node.id) {
             payload.parentNode.networkNodes.splice(i, 1)
           }
         }
@@ -276,6 +281,13 @@ function newAttachDetach () {
 
   function attachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
+      case 'Network': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.network = node
+        completeAttachment(node, rootNodes)
+      }
+        break
       case 'Network Node': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode

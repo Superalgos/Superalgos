@@ -210,8 +210,12 @@ function newStrategyPart () {
         compatibleType = '->' + 'Definition' + '->'
         compatibleSubType = undefined
         break
-      case 'Network Node':
+      case 'Network':
         compatibleType = '->' + 'Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Network Node':
+        compatibleType = '->' + 'Network' + '->'
         compatibleSubType = undefined
         break
       case 'Exchange Account':

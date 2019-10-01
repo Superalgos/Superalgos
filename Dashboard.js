@@ -25,6 +25,7 @@ function newDashboard () {
   function start () {
     try {
       setBrowserEvents()
+
       viewPort = newViewPort()
 
       systemEventHandler = newSystemEventHandler()
@@ -113,11 +114,15 @@ function newDashboard () {
 function stopAllRunningTasks () {
   let definition = canvas.strategySpace.workspace.definition
   if (definition !== undefined) {
-    for (let j = 0; k < definition.networkNodes.length; j++) {
-      let networkNode = definition.networkNodes[j]
-      for (let i = 0; i < networkNode.taskManagers.length; i++) {
-        taskManager = networkNode.taskManagers[i]
-        taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+    if (definition.network !== undefined) {
+      if (definition.network.networkNodes !== undefined) {
+        for (let j = 0; j < definition.network.networkNodes.length; j++) {
+          let networkNode = definition.network.networkNodes[j]
+          for (let i = 0; i < networkNode.taskManagers.length; i++) {
+            taskManager = networkNode.taskManagers[i]
+            taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+          }
+        }
       }
     }
   }

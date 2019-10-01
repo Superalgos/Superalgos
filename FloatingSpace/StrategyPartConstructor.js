@@ -274,11 +274,11 @@ function newStrategyPartConstructor () {
             )
         menuItemsInitialValues.push(
           {
-            action: 'Add Network Node',
+            action: 'Add Network',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Network Node',
+            label: 'Add Network',
             visible: true,
-            relatedStrategyPart: 'Network Node',
+            relatedStrategyPart: 'Network',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -313,6 +313,53 @@ function newStrategyPartConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 75
+          }
+        )
+        break
+      }
+      case 'Network': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Network Node',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Network Node',
+            visible: true,
+            relatedStrategyPart: 'Network Node',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+                )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Network',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Network',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }
         )
         break
@@ -2210,6 +2257,10 @@ function newStrategyPartConstructor () {
         level_0()
         break
       }
+      case 'Network': {
+        level_1()
+        break
+      }
       case 'Network Node': {
         level_1()
         break
@@ -2219,7 +2270,7 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Task': {
-        level_1()
+        level_3()
         break
       }
       case 'Sensor': {

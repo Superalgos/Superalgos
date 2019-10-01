@@ -40,6 +40,7 @@ function newStrategySpace () {
   function buildIconByPartTypeMap () {
     const relationshipArray = [
       ['Definition', 'text'],
+      ['Network', 'headphones'],
       ['Network Node', 'photo-camera'],
       ['Task Manager', 'task'],
       ['Task', 'timeline'],

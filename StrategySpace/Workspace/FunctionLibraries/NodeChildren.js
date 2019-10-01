@@ -11,6 +11,9 @@ function newNodeChildren () {
       case 'Definition': {
         return countChildrenDefinition(parentNode, childNode)
       }
+      case 'Network': {
+        return countChildrenNetwork(parentNode, childNode)
+      }
       case 'Network Node': {
         return countChildrenNetworkNode(parentNode, childNode)
       }
@@ -147,6 +150,20 @@ function newNodeChildren () {
       if (parentNode.personalData.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
+    }
+    if (parentNode.network !== undefined) {
+      response.childrenCount++
+      if (parentNode.network.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenNetwork (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
     }
     if (parentNode.networkNodes !== undefined) {
       for (let i = 0; i < parentNode.networkNodes.length; i++) {

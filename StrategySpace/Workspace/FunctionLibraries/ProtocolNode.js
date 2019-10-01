@@ -450,9 +450,26 @@ function newProtocolNode () {
           name: node.name,
           taskManagers: []
         }
-        for (let m = 0; m < node.taskManagers.length; m++) {
-          let taskManager = getProtocolNode(node.taskManagers[m], removePersonalData, parseJSONStrings, includeIds)
-          object.taskManagers.push(taskManager)
+        if (node.taskManagers !== undefined) {
+          for (let m = 0; m < node.taskManagers.length; m++) {
+            let taskManager = getProtocolNode(node.taskManagers[m], removePersonalData, parseJSONStrings, includeIds)
+            object.taskManagers.push(taskManager)
+          }
+        }
+        return object
+      }
+      case 'Network': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          networkNodes: []
+        }
+        if (node.networkNodes !== undefined) {
+          for (let m = 0; m < node.networkNodes.length; m++) {
+            let networkNode = getProtocolNode(node.networkNodes[m], removePersonalData, parseJSONStrings, includeIds)
+            object.networkNodes.push(networkNode)
+          }
         }
         return object
       }
@@ -463,11 +480,7 @@ function newProtocolNode () {
           name: node.name,
           tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData, parseJSONStrings, includeIds),
           personalData: getProtocolNode(node.personalData, removePersonalData, parseJSONStrings, includeIds),
-          networkNodes: []
-        }
-        for (let m = 0; m < node.networkNodes.length; m++) {
-          let networkNode = getProtocolNode(node.networkNodes[m], removePersonalData, parseJSONStrings, includeIds)
-          object.networkNodes.push(networkNode)
+          network: getProtocolNode(node.network, removePersonalData, parseJSONStrings, includeIds)
         }
         return object
       }

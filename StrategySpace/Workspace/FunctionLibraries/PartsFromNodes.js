@@ -1,6 +1,7 @@
 function newPartsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
+    addNetwork: addNetwork,
     addNetworkNode: addNetworkNode,
     addTaskManager: addTaskManager,
     addTask: addTask,
@@ -334,10 +335,17 @@ function newPartsFromNodes () {
         if (node.personalData !== undefined) {
           createPartFromNode(node.personalData, node, node)
         }
+        if (node.network !== undefined) {
+          createPartFromNode(node.network, node, node)
+        }
+        return
+      }
+      case 'Network': {
+        createPart('Network', node.name, node, parentNode, chainParent, 'Network')
         if (node.networkNodes !== undefined) {
           for (let m = 0; m < node.networkNodes.length; m++) {
-            let netwrokNode = node.networkNodes[m]
-            createPartFromNode(netwrokNode, node, node)
+            let networkNode = node.networkNodes[m]
+            createPartFromNode(networkNode, node, node)
           }
         }
         return
@@ -398,17 +406,28 @@ function newPartsFromNodes () {
     }
   }
 
+  function addNetwork (node) {
+    if (node.network === undefined) {
+      node.network = {
+        name: 'Superalgos'
+      }
+      createPart('Network', node.network.name, node.network, node, node, 'Network')
+    }
+
+    return node.network
+  }
+
   function addNetworkNode (node) {
-    let netwrokNode = {
+    let networkNode = {
       name: 'New Network Node'
     }
     if (node.networkNodes === undefined) {
       node.networkNodes = []
     }
-    node.networkNodes.push(netwrokNode)
-    createPart('Network Node', netwrokNode.name, netwrokNode, node, node, 'Network Node')
+    node.networkNodes.push(networkNode)
+    createPart('Network Node', networkNode.name, networkNode, node, node, 'Network Node')
 
-    return netwrokNode
+    return networkNode
   }
 
   function addTaskManager (node) {

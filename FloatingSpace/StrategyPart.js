@@ -210,7 +210,7 @@ function newStrategyPart () {
         compatibleType = '->' + 'Definition' + '->'
         compatibleSubType = undefined
         break
-      case 'Node':
+      case 'Network Node':
         compatibleType = '->' + 'Definition' + '->'
         compatibleSubType = undefined
         break
@@ -247,7 +247,7 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Task Manager':
-        compatibleType = '->' + 'Node' + '->'
+        compatibleType = '->' + 'Network Node' + '->'
         compatibleSubType = undefined
         break
       case 'Task':

@@ -11,6 +11,17 @@ function newAttachDetach () {
       case 'Definition': {
         return
       }
+      case 'Network Node': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.networkNodes.length; i++) {
+          let netwrokNode = payload.parentNode.networkNodes[i]
+          if (netwrokNode.id === node.id) {
+            payload.parentNode.nodes.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Personal Data': {
         node.payload.parentNode.personalData = undefined
         completeDetachment(node, rootNodes)
@@ -265,6 +276,13 @@ function newAttachDetach () {
 
   function attachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
+      case 'Network Node': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.networkNodes.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
       case 'Task Manager': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode

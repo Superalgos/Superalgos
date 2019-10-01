@@ -1,6 +1,7 @@
 function newPartsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
+    addNetworkNode: addNetworkNode,
     addTaskManager: addTaskManager,
     addTask: addTask,
     addSensor: addSensor,
@@ -333,6 +334,16 @@ function newPartsFromNodes () {
         if (node.personalData !== undefined) {
           createPartFromNode(node.personalData, node, node)
         }
+        if (node.networkNodes !== undefined) {
+          for (let m = 0; m < node.networkNodes.length; m++) {
+            let netwrokNode = node.networkNodes[m]
+            createPartFromNode(netwrokNode, node, node)
+          }
+        }
+        return
+      }
+      case 'Network Node': {
+        createPart('Network Node', node.name, node, parentNode, chainParent, 'Network Node')
         if (node.taskManagers !== undefined) {
           for (let m = 0; m < node.taskManagers.length; m++) {
             let taskManager = node.taskManagers[m]
@@ -385,6 +396,19 @@ function newPartsFromNodes () {
         return
       }
     }
+  }
+
+  function addNetworkNode (node) {
+    let netwrokNode = {
+      name: 'New Network Node'
+    }
+    if (node.networkNodes === undefined) {
+      node.networkNodes = []
+    }
+    node.networkNodes.push(netwrokNode)
+    createPart('Network Node', netwrokNode.name, netwrokNode, node, node, 'Network Node')
+
+    return netwrokNode
   }
 
   function addTaskManager (node) {

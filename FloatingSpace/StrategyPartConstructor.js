@@ -274,11 +274,11 @@ function newStrategyPartConstructor () {
             )
         menuItemsInitialValues.push(
           {
-            action: 'Add Node',
+            action: 'Add Network Node',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Node',
+            label: 'Add Network Node',
             visible: true,
-            relatedStrategyPart: 'Node',
+            relatedStrategyPart: 'Network Node',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -317,7 +317,7 @@ function newStrategyPartConstructor () {
         )
         break
       }
-      case 'Node': {
+      case 'Network Node': {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -334,11 +334,11 @@ function newStrategyPartConstructor () {
                 )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Node',
+            action: 'Delete Network Node',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Node',
+            label: 'Delete Network Node',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -2208,6 +2208,10 @@ function newStrategyPartConstructor () {
       }
       case 'Definition': {
         level_0()
+        break
+      }
+      case 'Network Node': {
+        level_1()
         break
       }
       case 'Task Manager': {

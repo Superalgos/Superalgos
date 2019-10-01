@@ -11,6 +11,9 @@ function newNodeChildren () {
       case 'Definition': {
         return countChildrenDefinition(parentNode, childNode)
       }
+      case 'Network Node': {
+        return countChildrenNetworkNode(parentNode, childNode)
+      }
       case 'Task Manager': {
         return countChildrenTaskManager(parentNode, childNode)
       }
@@ -144,6 +147,23 @@ function newNodeChildren () {
       if (parentNode.personalData.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
+    }
+    if (parentNode.networkNodes !== undefined) {
+      for (let i = 0; i < parentNode.networkNodes.length; i++) {
+        let child = parentNode.networkNodes[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    return response
+  }
+
+  function countChildrenNetworkNode (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
     }
     if (parentNode.taskManagers !== undefined) {
       for (let i = 0; i < parentNode.taskManagers.length; i++) {

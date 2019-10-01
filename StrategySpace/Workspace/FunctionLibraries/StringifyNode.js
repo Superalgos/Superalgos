@@ -516,6 +516,23 @@ function newStringifyNode () {
         }
         return object
       }
+      case 'Network Node': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          taskManagers: [],
+          savedPayload: getSavedPayload(node)
+        }
+        if (node.taskManagers !== undefined) {
+          for (let m = 0; m < node.taskManagers.length; m++) {
+            let taskManager = prepareForStringify(node.taskManagers[m], removePersonalData)
+            object.taskManagers.push(taskManager)
+          }
+        }
+        return object
+      }
       case 'Definition': {
         let object = {
           id: node.id,
@@ -524,13 +541,13 @@ function newStringifyNode () {
           name: node.name,
           tradingSystem: prepareForStringify(node.tradingSystem, removePersonalData),
           personalData: prepareForStringify(node.personalData, removePersonalData),
-          taskManagers: [],
+          networkNodes: [],
           savedPayload: getSavedPayload(node)
         }
-        if (node.taskManagers !== undefined) {
-          for (let m = 0; m < node.taskManagers.length; m++) {
-            let taskManager = prepareForStringify(node.taskManagers[m], removePersonalData)
-            object.taskManagers.push(taskManager)
+        if (node.networkNodes !== undefined) {
+          for (let m = 0; m < node.networkNodes.length; m++) {
+            let networkNode = prepareForStringify(node.networkNodes[m], removePersonalData)
+            object.networkNodes.push(networkNode)
           }
         }
         return object

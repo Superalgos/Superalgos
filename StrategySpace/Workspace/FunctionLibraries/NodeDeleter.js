@@ -1,6 +1,7 @@
 function newNodeDeleter () {
   thisObject = {
     deleteDefinition: deleteDefinition,
+    deleteNetworkNode: deleteNetworkNode,
     deleteTaskManager: deleteTaskManager,
     deleteTask: deleteTask,
     deleteSensor: deleteBot,
@@ -51,6 +52,10 @@ function newNodeDeleter () {
 
           case 'Definition': {
             deleteDefinition(rootNode, rootNodes, true)
+            break
+          }
+          case 'Network Node': {
+            deleteNetworkNode(rootNode, rootNodes)
             break
           }
           case 'Task Manager': {
@@ -235,6 +240,20 @@ function newNodeDeleter () {
     if (node.personalData !== undefined) {
       deletePersonalData(node.personalData, rootNodes)
     }
+    if (node.networkNodes !== undefined) {
+      while (node.networkNodes.length > 0) {
+        deleteNetworkNode(node.networkNodes[0], rootNodes)
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteNetworkNode (node, rootNodes, forced) {
+    let payload = node.payload
+
     if (node.taskManagers !== undefined) {
       while (node.taskManagers.length > 0) {
         deleteTaskManager(node.taskManagers[0], rootNodes)

@@ -246,6 +246,11 @@ function newWorkspace () {
           functionLibraryTaskFunctions.stopAllTasks(payload.node, functionLibraryProtocolNode)
         }
         break
+      case 'Add Network Node':
+        {
+          functionLibraryPartsFromNodes.addNetworkNode(payload.node)
+        }
+        break
       case 'Add Task Manager':
         {
           functionLibraryPartsFromNodes.addTaskManager(payload.node)
@@ -376,6 +381,10 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addPersonalData(payload.node)
         }
         break
+      case 'Delete Network Node': {
+        functionLibraryNodeDeleter.deleteNetworkNode(payload.node, workspaceNode.rootNodes)
+        break
+      }
       case 'Delete Task Manager': {
         functionLibraryNodeDeleter.deleteTaskManager(payload.node, workspaceNode.rootNodes)
         break

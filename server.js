@@ -404,12 +404,7 @@ function onBrowserRequest (request, response) {
           try {
             let fileContent = file.toString()
 
-            /* The second request parameters is the sessionToken, if it exists. */
-
-            if (requestParameters[2] !== '' && requestParameters[2] !== undefined) {
-              fileContent = fileContent.replace("window.canvasApp.sessionToken = ''", "window.canvasApp.sessionToken = '" + requestParameters[2] + "'")
-            }
-
+            fileContent = fileContent.replace('VIRTUAL_PORT', process.env.VIRTUAL_PORT)
             respondWithContent(fileContent, response)
           } catch (err) {
             console.log('[ERROR] server -> onBrowserRequest -> File Not Found: ' + fileName + ' or Error = ' + err.stack)

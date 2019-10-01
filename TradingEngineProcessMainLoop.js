@@ -200,6 +200,10 @@
                             if (tradingSystem.parameters.baseAsset !== undefined) {
                                 let code
                                 try {
+                                    /* Default Value */
+                                    global.INITIAL_BALANCE_ASSET_B = 0.001;
+                                    global.INITIAL_BALANCE_ASSET_A = 0
+
                                     code = JSON.parse(tradingSystem.parameters.baseAsset.code);
 
                                     if (code.name !== undefined) {
@@ -212,20 +216,20 @@
 
                                     if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
                                         if (code.initialBalance !== undefined) {
-                                            process.env.INITIAL_BALANCE_ASSET_B = code.initialBalance;
-                                            process.env.INITIAL_BALANCE_ASSET_A = 0
+                                            global.INITIAL_BALANCE_ASSET_B = code.initialBalance;
+                                            global.INITIAL_BALANCE_ASSET_A = 0
                                         }
                                     } else {
                                         if (code.initialBalance !== undefined) {
-                                            process.env.INITIAL_BALANCE_ASSET_A = code.initialBalance;
-                                            process.env.INITIAL_BALANCE_ASSET_B = 0
+                                            global.INITIAL_BALANCE_ASSET_A = code.initialBalance;
+                                            global.INITIAL_BALANCE_ASSET_B = 0
                                         }
                                     }
                                 } catch (err) {
                                     global.DEFINITION.tradingSystem.parameters.baseAsset.error = err.message
 
-                                    process.env.INITIAL_BALANCE_ASSET_A = 0 // default
-                                    process.env.INITIAL_BALANCE_ASSET_B = 0.001 // default
+                                    global.INITIAL_BALANCE_ASSET_A = 0 // default
+                                    global.INITIAL_BALANCE_ASSET_B = 0.001 // default
 
                                 }
                             }

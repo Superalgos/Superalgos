@@ -135,9 +135,7 @@ exports.newDebugLog = function newDebugLog() {
                 if (thisObject.bot) {
                     key = thisObject.bot.devTeam + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
                 }
-                console.log("  ");
-                console.log(message + ' @ ' + key)
-                console.log("  ");
+                console.log('*********** ' + message + ' @ ' + key)
             }
 
             accumulatedLog = accumulatedLog + logLine;

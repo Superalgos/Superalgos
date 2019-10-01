@@ -24,9 +24,11 @@ exports.newFileStorage = function newFileStorage(logger) {
 
   return thisObject
 
-    function getTextFile(container, filePath, callBackFunction) {
+    function getTextFile(container, filePath, callBackFunction, noRetry) {
 
         logger.write(MODULE_NAME, '[INFO] FileStorage -> getTextFile -> Entering Function.')
+
+        let fileDoesNotExist = false
 
         container = container.toLowerCase()
 
@@ -50,13 +52,21 @@ exports.newFileStorage = function newFileStorage(logger) {
 
                 if (err) {
 
-                    if (err.code === 'ENOENT') {
-                        let customResponse = {
-                            result: global.CUSTOM_FAIL_RESPONSE.result,
-                            message: 'File does not exist.'
+                    if (err.code === 'ENOENT') { // since files are deleted before being replaced, it can happen that it does not exist and after a retry it does.
+                        if (noRetry === true) {
+                            logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> File does not exist. Not Retrying. ')
+                            let customResponse = {
+                                result: global.CUSTOM_FAIL_RESPONSE.result,
+                                message: 'File does not exist.'
+                            }
+                            callBackFunction(customResponse)
+                            return
+                        } else {
+                            fileDoesNotExist = true
+                            logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> File does not exist. Retrying. ')
+                            setTimeout(retry, RETRY_TIME_IN_MILISECONDS)
+                            return
                         }
-                        callBackFunction(customResponse)
-                        return
                     }
 
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Error reading file -> err = ' + err.stack)
@@ -89,9 +99,21 @@ exports.newFileStorage = function newFileStorage(logger) {
                 getTextFile(container, filePath, callBackFunction)
             } else {
                 currentRetryGetTextFile = 0
-                logger.write(MODULE_NAME, '[ERROR] FileStorage -> getTextFile -> retry -> Max retries reached reading a file. Giving up.')
-                logger.write(MODULE_NAME, '[ERROR] FileStorage -> getTextFile -> retry -> file = ' + fileLocation)
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+
+                if (fileDoesNotExist === true) {
+                    logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> retry -> Max retries reached reading a file. File Not Found.')
+                    let customResponse = {
+                        result: global.CUSTOM_FAIL_RESPONSE.result,
+                        message: 'File does not exist.'
+                    }
+                    callBackFunction(customResponse)
+                    return
+                } else {
+                    logger.write(MODULE_NAME, '[ERROR] FileStorage -> getTextFile -> retry -> Max retries reached reading a file. Giving up.')
+                    logger.write(MODULE_NAME, '[ERROR] FileStorage -> getTextFile -> retry -> file = ' + fileLocation)
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                    return
+                }
             }
         }
     }

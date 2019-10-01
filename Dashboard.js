@@ -112,8 +112,13 @@ function newDashboard () {
 
 function stopAllRunningTasks () {
   let definition = canvas.strategySpace.workspace.definition
-  for (let i = 0; i < definition.taskManagers.length; i++) {
-    taskManager = definition.taskManagers[i]
-    taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+  if (definition !== undefined) {
+    for (let j = 0; k < definition.networkNodes.length; j++) {
+      let networkNode = definition.networkNodes[j]
+      for (let i = 0; i < networkNode.taskManagers.length; i++) {
+        taskManager = networkNode.taskManagers[i]
+        taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+      }
+    }
   }
 }

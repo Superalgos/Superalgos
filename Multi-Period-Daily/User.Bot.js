@@ -318,7 +318,7 @@
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
                                     filePath += '/' + fileName
 
-                                    fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived, true);
+                                    fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived);
 
                                     function onCurrentDayFileReceived(err, text) {
 
@@ -358,7 +358,7 @@
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
                                     filePath += '/' + fileName
 
-                                    fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived, true);
+                                    fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived);
 
                                     function onCurrentDayFileReceived(err, text) {
 

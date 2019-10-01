@@ -113,7 +113,7 @@
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
                                     filePath += '/' + fileName
 
-                                    fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
+                                    fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
                                     function onFileReceived(err, text) {
 

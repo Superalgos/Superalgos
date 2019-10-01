@@ -271,7 +271,7 @@ This process complements the Live Trades process and write historical trades fil
                     let reportFilePath = global.EXCHANGE_NAME + "/Processes/" + bot.process;
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
-                    charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                    charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
 
                     function onFileReceived(text) {
 
@@ -327,7 +327,7 @@ This process complements the Live Trades process and write historical trades fil
                     let reportFilePath = global.EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
-                    charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                    charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
 
                     function onFileReceived(text) {
 
@@ -959,7 +959,7 @@ This process complements the Live Trades process and write historical trades fil
 
                     /* Lets read the main status report */
 
-                    charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                    charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
 
                     function onFileReceived(text) {
 
@@ -995,7 +995,7 @@ This process complements the Live Trades process and write historical trades fil
                         let reportFilePath = global.EXCHANGE_NAME + "/Processes/" + bot.process + "/" + initialYear + "/" + paddedInitialMonth;
                         let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
-                        charlyStorage.getTextFile(reportFilePath, fileName, onStatusReportFileReceived, true);
+                        charlyStorage.getTextFile(reportFilePath, fileName, onStatusReportFileReceived);
 
                         function onStatusReportFileReceived(text) {
 
@@ -1061,7 +1061,7 @@ This process complements the Live Trades process and write historical trades fil
                         let reportFilePath = global.EXCHANGE_NAME + "/Processes/" + bot.process;
                         let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
-                        charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                        charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
 
                         function onFileReceived(text) {
 

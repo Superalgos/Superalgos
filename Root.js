@@ -37,6 +37,7 @@
 
     const ROOT_DIR = './';
     const MODULE_NAME = "Root";
+    const WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START = 10000 // This avoid a race condition that could happen if one process finished before all the other even started.
 
     let thisObject = {
         initialize: initialize,
@@ -456,7 +457,7 @@
                                             console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution was aborted.");
                                             logger.persist();
                                         }
-                                        exitProcessInstance()
+                                        setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                                     }
 
                                 } else {
@@ -465,13 +466,13 @@
                                     console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> onInitializeReady -> err = " + err.message);
 
                                     logger.persist();
-                                    exitProcessInstance()
+                                    setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                                 }
                             }
                         }
                         catch (err) {
                             console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runSensorBot -> err = " + err.stack);
-                            exitProcessInstance()
+                            setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                         }
                     }
 
@@ -528,7 +529,7 @@
                                             console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
                                             logger.persist();
                                         }
-                                        exitProcessInstance()
+                                        setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                                     }
 
                                 } else {
@@ -536,13 +537,13 @@
                                     logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> Failed to initialize the bot. ");
                                     console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = " + err.message);
                                     logger.persist();
-                                    exitProcessInstance()
+                                    setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                                 }
                             }
                         }
                         catch (err) {
                             console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> err = " + err.stack);
-                            exitProcessInstance()
+                            setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                         }
                     }
 
@@ -594,7 +595,7 @@
                                             console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
                                             logger.persist();
                                         }
-                                        exitProcessInstance()
+                                        setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                                     }
 
                                 } else {
@@ -602,19 +603,19 @@
                                     logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> Failed to initialize the bot. ");
                                     console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> err = " + err.message);
                                     logger.persist();
-                                    exitProcessInstance()
+                                    setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                                 }
                             }
                         }
                         catch (err) {
                             console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> err = " + err.stack);
-                            exitProcessInstance()
+                            setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                         }
                     }
                 }
                 catch (err) {
                     console.log(logDisplace + "Root : [ERROR] start -> findProcess -> err = " + err.stack);
-                    exitProcessInstance()
+                    setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                 }
             }
 

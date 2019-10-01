@@ -16,7 +16,7 @@ function newAttachDetach () {
         for (let i = 0; i < payload.parentNode.networkNodes.length; i++) {
           let netwrokNode = payload.parentNode.networkNodes[i]
           if (netwrokNode.id === node.id) {
-            payload.parentNode.nodes.splice(i, 1)
+            payload.parentNode.networkNodes.splice(i, 1)
           }
         }
         completeDetachment(node, rootNodes)

@@ -342,7 +342,7 @@
                                             let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
                                             filePath += '/' + fileName
 
-                                            fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
+                                            fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -419,7 +419,7 @@
                                             let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
                                             filePath += '/' + fileName
 
-                                            fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived, true);
+                                            fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -522,7 +522,7 @@
                                             let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
                                             filePath += '/' + fileName
 
-                                            fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived, true);
+                                            fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived);
 
                                             function onCurrentDayFileReceived(err, text) {
 
@@ -562,7 +562,7 @@
                                             let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
                                             filePath += '/' + fileName
 
-                                            fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived, true);
+                                            fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived);
 
                                             function onCurrentDayFileReceived(err, text) {
 
@@ -936,7 +936,7 @@
                                             let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
                                             filePath += '/' + fileName
 
-                                            fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived, true);
+                                            fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived);
 
                                             function onCurrentDayFileReceived(err, text) {
 
@@ -976,7 +976,7 @@
                                             let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
                                             filePath += '/' + fileName
 
-                                            fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived, true);
+                                            fileStorage.getTextFile(bot.devTeam, filePath, onCurrentDayFileReceived);
 
                                             function onCurrentDayFileReceived(err, text) {
 

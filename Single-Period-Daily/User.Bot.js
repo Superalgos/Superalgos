@@ -488,9 +488,20 @@
 
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Entering function."); }
 
+                                        /*
+                                        There is a situation at the end of each month where the process might have been started at the new month before dependent processes have
+                                        created the expected file. For those cases we will retry instead of just aborting the process.
+                                        */
+                                        if (err.result === global.CUSTOM_FAIL_RESPONSE.result && err.message === 'File does not exist.') {
+                                            logger.write(MODULE_NAME, "[WARN] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err received = " + err.stack);
+                                            logger.write(MODULE_NAME, "[WARN] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text received = " + text);
+                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                            return;
+                                        }
+
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.stack);
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err received = " + err.stack);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text received = " + text);
                                             callBackFunction(err);
                                             return;
                                         }

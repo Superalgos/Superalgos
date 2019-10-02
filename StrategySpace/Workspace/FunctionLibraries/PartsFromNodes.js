@@ -508,21 +508,23 @@ function newPartsFromNodes () {
 
   function addProcess (node) {
     let process = {
-      name: 'New Process',
       code: '// Write the configuration here.'
     }
 
     switch (node.type) {
       case 'Sensor': {
         process.subType = 'Sensor Process'
+        process.name = 'Sensor Process'
         break
       }
       case 'Indicator': {
         process.subType = 'Indicator Process'
+        process.name = 'Indicator Process'
         break
       }
       case 'Trading Engine': {
         process.subType = 'Trading Engine Process'
+        process.name = 'Trading Engine Process'
         break
       }
     }

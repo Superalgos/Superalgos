@@ -103,7 +103,13 @@ function newAttachDetach () {
         return
       }
       case 'Process': {
-        node.payload.parentNode.process = undefined
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.processes.length; i++) {
+          let process = payload.parentNode.processes[i]
+          if (process.id === node.id) {
+            payload.parentNode.processes.splice(i, 1)
+          }
+        }
         completeDetachment(node, rootNodes)
         return
       }

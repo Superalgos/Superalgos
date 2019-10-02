@@ -812,7 +812,7 @@ function newStrategyPart () {
     let label
 
     if (radius > 6) {
-      const MAX_LABEL_LENGTH = 20
+      const MAX_LABEL_LENGTH = 30
 
       label = thisObject.payload.subTitle
       label = addIndexNumber(label)
@@ -1130,3 +1130,4 @@ function newStrategyPart () {
     }
   }
 }
+

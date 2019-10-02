@@ -9,6 +9,10 @@ function newPartsFromNodes () {
     addIndicator: addIndicator,
     addTradingEngine: addTradingEngine,
     addProcess: addProcess,
+    addBacktestingSession: addBacktestingSession,
+    addLiveTradingSession: addLiveTradingSession,
+    addFordwardTestingSession: addFordwardTestingSession,
+    addPaperTradingSession: addPaperTradingSession,
     addTradingSystem: addTradingSystem,
     addPersonalData: addPersonalData,
     addExchangeAccount: addExchangeAccount,
@@ -424,6 +428,34 @@ function newPartsFromNodes () {
           }
         }
         createPart('Process', node.name, node, parentNode, chainParent, 'Process')
+        if (node.session !== undefined) {
+          createPartFromNode(node.session, node, node)
+        }
+        return
+      }
+      case 'Backtesting Session': {
+        createPart('Backtesting Session', node.name, node, parentNode, chainParent, 'Backtesting Session')
+        if (node.parameters !== undefined) {
+          createPartFromNode(node.parameters, node, node)
+        }
+        return
+      }
+      case 'Live Trading Session': {
+        createPart('Live Trading Session', node.name, node, parentNode, chainParent, 'Live Trading Session')
+        if (node.parameters !== undefined) {
+          createPartFromNode(node.parameters, node, node)
+        }
+        return
+      }
+      case 'Fordward Testing Session': {
+        createPart('Fordward Testing Session', node.name, node, parentNode, chainParent, 'Fordward Testing Session')
+        if (node.parameters !== undefined) {
+          createPartFromNode(node.parameters, node, node)
+        }
+        return
+      }
+      case 'Paper Trading Session': {
+        createPart('Paper Trading Session', node.name, node, parentNode, chainParent, 'Paper Trading Session')
         if (node.parameters !== undefined) {
           createPartFromNode(node.parameters, node, node)
         }
@@ -535,6 +567,50 @@ function newPartsFromNodes () {
     createPart('Process', process.name, process, node, node, 'Process')
 
     return process
+  }
+
+  function addBacktestingSession (node) {
+    if (node.session === undefined) {
+      node.session = {
+        name: 'New Backtesting Session'
+      }
+      createPart('Backtesting Session', '', node.session, node, node)
+    }
+
+    return node.session
+  }
+
+  function addLiveTradingSession (node) {
+    if (node.session === undefined) {
+      node.session = {
+        name: 'New Live Trading Session'
+      }
+      createPart('Live Trading Session', '', node.session, node, node)
+    }
+
+    return node.session
+  }
+
+  function addFordwardTestingSession (node) {
+    if (node.session === undefined) {
+      node.session = {
+        name: 'New Fordward Testing Session'
+      }
+      createPart('Fordward Testing Session', '', node.session, node, node)
+    }
+
+    return node.session
+  }
+
+  function addPaperTradingSession (node) {
+    if (node.session === undefined) {
+      node.session = {
+        name: 'New Paper Trading Session'
+      }
+      createPart('Paper Trading Session', '', node.session, node, node)
+    }
+
+    return node.session
   }
 
   function addTradingSystem (node) {

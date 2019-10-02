@@ -35,6 +35,18 @@ function newNodeChildren () {
       case 'Process': {
         return countChildrenProcess(parentNode, childNode)
       }
+      case 'Backtesting Session': {
+        return countBacktestingSession(parentNode, childNode)
+      }
+      case 'Live Trading Session': {
+        return countLiveTradingSession(parentNode, childNode)
+      }
+      case 'Fordward Testing Session': {
+        return countFordwardTestingSession(parentNode, childNode)
+      }
+      case 'Paper Trading Session': {
+        return countPaperTradingSession(parentNode, childNode)
+      }
       case 'Personal Data': {
         return countChildrenPersonalData(parentNode, childNode)
       }
@@ -276,6 +288,62 @@ function newNodeChildren () {
   }
 
   function countChildrenProcess (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.session !== undefined) {
+      response.childrenCount++
+      if (parentNode.session.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countBacktestingSession (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.parameters !== undefined) {
+      response.childrenCount++
+      if (parentNode.parameters.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countLiveTradingSession (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.parameters !== undefined) {
+      response.childrenCount++
+      if (parentNode.parameters.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countFordwardTestingSession (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.parameters !== undefined) {
+      response.childrenCount++
+      if (parentNode.parameters.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countPaperTradingSession (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined

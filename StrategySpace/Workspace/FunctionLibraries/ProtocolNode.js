@@ -444,7 +444,7 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
+          session: getProtocolNode(node.session, removePersonalData, parseJSONStrings, includeIds)
         }
         if (parseJSONStrings) {
           object.code = JSON.parse(object.code)
@@ -454,6 +454,59 @@ function newProtocolNode () {
         }
         return object
       }
+
+      case 'Backtesting Session': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        return object
+      }
+
+      case 'Live Trading Session': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        return object
+      }
+
+      case 'Fordward Testing Session': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        return object
+      }
+
+      case 'Paper Trading Session': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        return object
+      }
+
       case 'Network Node': {
         let object = {
           type: node.type,

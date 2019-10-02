@@ -15,6 +15,10 @@ function newNodeDeleter () {
     deleteExchangeAccountKey: deleteExchangeAccountKey,
     deleteWorkspace: deleteWorkspace,
     deleteTradingSystem: deleteTradingSystem,
+    deleteBacktestingSession: deleteBacktestingSession,
+    deleteLiveTradingSession: deleteLiveTradingSession,
+    deleteFordwardTestingSession: deleteFordwardTestingSession,
+    deletePaperTradingSession: deletePaperTradingSession,
     deleteParameters: deleteParameters,
     deleteBaseAsset: deleteBaseAsset,
     deleteTimeRange: deleteTimeRange,
@@ -106,6 +110,22 @@ function newNodeDeleter () {
           }
           case 'Trading System': {
             deleteTradingSystem(rootNode, rootNodes)
+            break
+          }
+          case 'Backtesting Session': {
+            deleteBacktestingSession(rootNode, rootNodes)
+            break
+          }
+          case 'Live Trading Session': {
+            deleteLiveTradingSession(rootNode, rootNodes)
+            break
+          }
+          case 'Fordward Testing Session': {
+            deleteFordwardTestingSession(rootNode, rootNodes)
+            break
+          }
+          case 'Paper Trading Session': {
+            deletePaperTradingSession(rootNode, rootNodes)
             break
           }
           case 'Parameters': {
@@ -365,10 +385,87 @@ function newNodeDeleter () {
       }
     }
 
+    if (node.session !== undefined) {
+      switch (node.session.type) {
+        case 'Backtesting Session': {
+          deleteBacktestingSession(node.session, rootNodes)
+          break
+        }
+        case 'Live Trading Session': {
+          deleteLiveTradingSession(node.session, rootNodes)
+          break
+        }
+        case 'Fordward Testing Session': {
+          deleteFordwardTestingSession(node.session, rootNodes)
+          break
+        }
+        case 'Paper Trading Session': {
+          deletePaperTradingSession(node.session, rootNodes)
+          break
+        }
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteBacktestingSession (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.session = undefined
+    }
+
     if (node.parameters !== undefined) {
       deleteParameters(node.parameters, rootNodes)
     }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
 
+  function deleteLiveTradingSession (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.session = undefined
+    }
+
+    if (node.parameters !== undefined) {
+      deleteParameters(node.parameters, rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteFordwardTestingSession (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.session = undefined
+    }
+
+    if (node.parameters !== undefined) {
+      deleteParameters(node.parameters, rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deletePaperTradingSession (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.session = undefined
+    }
+
+    if (node.parameters !== undefined) {
+      deleteParameters(node.parameters, rootNodes)
+    }
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)

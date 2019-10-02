@@ -524,6 +524,50 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
+          session: prepareForStringify(node.session, removePersonalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Backtesting Session': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          parameters: prepareForStringify(node.parameters, removePersonalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Live Trading Session': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          parameters: prepareForStringify(node.parameters, removePersonalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Fordward Testing Session': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          parameters: prepareForStringify(node.parameters, removePersonalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Paper Trading Session': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
           parameters: prepareForStringify(node.parameters, removePersonalData),
           savedPayload: getSavedPayload(node)
         }

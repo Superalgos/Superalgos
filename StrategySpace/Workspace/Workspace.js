@@ -286,6 +286,26 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addProcess(payload.node)
         }
         break
+      case 'Add Backtesting Session':
+        {
+          functionLibraryPartsFromNodes.addBacktestingSession(payload.node)
+        }
+        break
+      case 'Add Live Trading Session':
+        {
+          functionLibraryPartsFromNodes.addLiveTradingSession(payload.node)
+        }
+        break
+      case 'Add Fordward Testing Session':
+        {
+          functionLibraryPartsFromNodes.addFordwardTestingSession(payload.node)
+        }
+        break
+      case 'Add Paper Trading Session':
+        {
+          functionLibraryPartsFromNodes.addPaperTradingSession(payload.node)
+        }
+        break
       case 'Add Strategy':
         {
           functionLibraryPartsFromNodes.addStrategy(payload.node)
@@ -416,6 +436,22 @@ function newWorkspace () {
       }
       case 'Delete Process': {
         functionLibraryNodeDeleter.deleteProcess(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Backtesting Session': {
+        functionLibraryNodeDeleter.deleteBacktestingSession(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Live Trading Session': {
+        functionLibraryNodeDeleter.deleteLiveTradingSession(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Fordward Testing Session': {
+        functionLibraryNodeDeleter.deleteFordwardTestingSession(payload.node, workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Paper Trading Session': {
+        functionLibraryNodeDeleter.deletePaperTradingSession(payload.node, workspaceNode.rootNodes)
         break
       }
       case 'Delete Trading System': {

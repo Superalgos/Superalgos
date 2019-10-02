@@ -102,6 +102,26 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Backtesting Session': {
+        node.payload.parentNode.session = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Live Trading Session': {
+        node.payload.parentNode.session = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Fordward Testing Session': {
+        node.payload.parentNode.session = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Paper Trading Session': {
+        node.payload.parentNode.session = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Process': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.processes.length; i++) {
@@ -345,6 +365,34 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.processes.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Backtesting Session': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.session = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Live Trading Session': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.session = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Fordward Testing Session': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.session = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Paper Trading Session': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.session = node
         completeAttachment(node, rootNodes)
       }
         break

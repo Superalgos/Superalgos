@@ -556,7 +556,7 @@ function newStrategyPartConstructor () {
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Process',
+            label: 'Delete Task',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -730,28 +730,191 @@ function newStrategyPartConstructor () {
         strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
+
+        switch (payload.node.subType) {
+          case 'Trading Engine Process': {
+            menuItemsInitialValues.push(
+              {
+                action: 'Add Backtesting Session',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Add Backtesting',
+                visible: true,
+                relatedStrategyPart: 'Backtesting Session',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: -75
+              }
+              )
+            menuItemsInitialValues.push(
+              {
+                action: 'Add Live Trading Session',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Add Live Trading',
+                visible: true,
+                relatedStrategyPart: 'Live Trading Session',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: -40
+              }
+                )
+            menuItemsInitialValues.push(
+              {
+                action: 'Add Fordward Testing Session',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Add Fordward Testing',
+                visible: true,
+                relatedStrategyPart: 'Fordward Testing Session',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: -20
+              }
+                  )
+            menuItemsInitialValues.push(
+              {
+                action: 'Add Paper Trading Session',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Add Paper Trading',
+                visible: true,
+                relatedStrategyPart: 'Paper Trading Session',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: 0
+              }
+                    )
+            menuItemsInitialValues.push(
+              {
+                action: 'Edit Process',
+                actionFunction: strategyPart.codeEditor.activate,
+                label: 'Edit Process',
+                visible: true,
+                iconPathOn: 'html',
+                iconPathOff: 'html',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: 20,
+                dontShowAtFullscreen: true
+              }
+            )
+            menuItemsInitialValues.push(
+              {
+                action: 'Delete Process',
+                askConfirmation: true,
+                confirmationLabel: 'Confirm to Delete',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Delete Process',
+                visible: true,
+                iconPathOn: 'delete',
+                iconPathOff: 'delete',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: 40
+              }
+                )
+            menuItemsInitialValues.push(
+              {
+                action: 'Share',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Share',
+                visible: true,
+                iconPathOn: 'menu-share',
+                iconPathOff: 'menu-share',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: 75
+              }
+                  )
+            break
+          }
+          default: {
+            menuItemsInitialValues.push(
+              {
+                action: 'Edit Process',
+                actionFunction: strategyPart.codeEditor.activate,
+                label: 'Edit Process',
+                visible: true,
+                iconPathOn: 'html',
+                iconPathOff: 'html',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: -40,
+                dontShowAtFullscreen: true
+              }
+            )
+            menuItemsInitialValues.push(
+              {
+                action: 'Delete Process',
+                askConfirmation: true,
+                confirmationLabel: 'Confirm to Delete',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Delete Process',
+                visible: true,
+                iconPathOn: 'delete',
+                iconPathOff: 'delete',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: 0
+              }
+                )
+            menuItemsInitialValues.push(
+              {
+                action: 'Share',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Share',
+                visible: true,
+                iconPathOn: 'menu-share',
+                iconPathOff: 'menu-share',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: 40
+              }
+                  )
+            break
+          }
+        }
+        break
+      }
+      case 'Backtesting Session': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Process',
-            actionFunction: strategyPart.codeEditor.activate,
-            label: 'Edit Process',
+            action: 'Run Backtesting Session',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Run',
+            workingLabel: 'Stop',
+            workDoneLabel: 'Session Running',
+            workFailedLabel: 'Session Cannot be Run',
+            secondaryAction: 'Stop Session',
+            secondaryLabel: 'Stop',
+            secondaryWorkingLabel: 'Stopping...',
+            secondaryWorkDoneLabel: 'Session Stopped',
+            secondaryWorkFailedLabel: 'Session Cannot be Stopped',
+            secondaryIcon: 'stop',
             visible: true,
-            iconPathOn: 'html',
-            iconPathOff: 'html',
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40,
-            dontShowAtFullscreen: true
+            angle: -40
           }
         )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Process',
+            action: 'Delete Backtesting Session',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Process',
+            label: 'Delete Session',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -774,7 +937,178 @@ function newStrategyPartConstructor () {
             currentRadius: 0,
             angle: 40
           }
-              )
+                )
+        break
+      }
+      case 'Live Trading Session': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Run Live Trading Session',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Run',
+            workingLabel: 'Stop',
+            workDoneLabel: 'Session Running',
+            workFailedLabel: 'Session Cannot be Run',
+            secondaryAction: 'Stop Session',
+            secondaryLabel: 'Stop',
+            secondaryWorkingLabel: 'Stopping...',
+            secondaryWorkDoneLabel: 'Session Stopped',
+            secondaryWorkFailedLabel: 'Session Cannot be Stopped',
+            secondaryIcon: 'stop',
+            visible: true,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Live Trading Session',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Session',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+                )
+        break
+      }
+      case 'Fordward Testing Session': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Run Fordward Testing Session',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Run',
+            workingLabel: 'Stop',
+            workDoneLabel: 'Session Running',
+            workFailedLabel: 'Session Cannot be Run',
+            secondaryAction: 'Stop Session',
+            secondaryLabel: 'Stop',
+            secondaryWorkingLabel: 'Stopping...',
+            secondaryWorkDoneLabel: 'Session Stopped',
+            secondaryWorkFailedLabel: 'Session Cannot be Stopped',
+            secondaryIcon: 'stop',
+            visible: true,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Fordward Testing Session',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Session',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+                )
+        break
+      }
+      case 'Paper Trading Session': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Run Paper Trading Session',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Run',
+            workingLabel: 'Stop',
+            workDoneLabel: 'Session Running',
+            workFailedLabel: 'Session Cannot be Run',
+            secondaryAction: 'Stop Session',
+            secondaryLabel: 'Stop',
+            secondaryWorkingLabel: 'Stopping...',
+            secondaryWorkDoneLabel: 'Session Stopped',
+            secondaryWorkFailedLabel: 'Session Cannot be Stopped',
+            secondaryIcon: 'stop',
+            visible: true,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Paper Trading Session',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Session',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+                )
         break
       }
       case 'Personal Data': {
@@ -2339,6 +2673,22 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Process': {
+        level_2()
+        break
+      }
+      case 'Backtesting Session': {
+        level_4()
+        break
+      }
+      case 'Live Trading Session': {
+        level_4()
+        break
+      }
+      case 'Fordward Testing Session': {
+        level_4()
+        break
+      }
+      case 'Paper Trading Session': {
         level_4()
         break
       }

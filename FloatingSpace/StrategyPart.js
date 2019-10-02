@@ -231,7 +231,23 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Parameters':
-        compatibleType = '->' + 'Trading System' + '->' + 'Process' + '->'
+        compatibleType = '->' + 'Trading System' + '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
+        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        break
+      case 'Backtesting Session':
+        compatibleType = '->' + 'Process' + '->'
+        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        break
+      case 'Live Trading Session':
+        compatibleType = '->' + 'Process' + '->'
+        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        break
+      case 'Paper Trading Session':
+        compatibleType = '->' + 'Process' + '->'
+        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        break
+      case 'Fordward Testing Session':
+        compatibleType = '->' + 'Process' + '->'
         compatibleSubType = '->' + 'Trading Engine Process' + '->'
         break
       case 'Base Asset':
@@ -397,6 +413,10 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }
         if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }
         if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Backtesting Session' && nearbyNode.session !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Live Trading Session' && nearbyNode.session !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Fordward Testing Session' && nearbyNode.session !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Paper Trading Session' && nearbyNode.session !== undefined) { continue }
         if (thisObject.payload.node.type === 'Base Asset' && nearbyNode.baseAsset !== undefined) { continue }
         if (thisObject.payload.node.type === 'Time Range' && nearbyNode.timeRange !== undefined) { continue }
         if (thisObject.payload.node.type === 'Time Period' && nearbyNode.timePeriod !== undefined) { continue }
@@ -420,10 +440,8 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Next Phase Event' && nearbyNode.nextPhaseEvent !== undefined) { continue }
         if (thisObject.payload.node.type === 'Code' && nearbyNode.code !== undefined) { continue }
         /* Here we check if the subtypes are compatible. */
-        if (nearbyNode.subType !== undefined) {
-          if (compatibleSubType.indexOf('->' + nearbyNode.subType + '->') >= 0) {
-            if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
-          } else {
+        if (nearbyNode.subType !== undefined && compatibleSubType !== undefined) {
+          if (compatibleSubType.indexOf('->' + nearbyNode.subType + '->') < 0) {
             continue
           }
         }

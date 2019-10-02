@@ -79,6 +79,18 @@ function newStrategyPartTitle () {
       case 'Process': {
         break
       }
+      case 'Backtesting Session': {
+        break
+      }
+      case 'Live Trading Session': {
+        break
+      }
+      case 'Fordward Testing Session': {
+        break
+      }
+      case 'Paper Trading Session': {
+        break
+      }
       case 'Personal Data': {
         break
       }

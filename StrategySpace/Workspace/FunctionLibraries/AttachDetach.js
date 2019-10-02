@@ -122,6 +122,11 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Time Period': {
+        node.payload.parentNode.timePeriod = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Slippage': {
         node.payload.parentNode.slippage = undefined
         completeDetachment(node, rootNodes)
@@ -383,6 +388,13 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.timeRange = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Time Period': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.timePeriod = node
         completeAttachment(node, rootNodes)
       }
         break

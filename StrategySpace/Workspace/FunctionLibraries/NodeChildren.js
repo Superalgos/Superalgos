@@ -59,6 +59,9 @@ function newNodeChildren () {
       case 'Time Range': {
         return countChildrenTimeRange(parentNode, childNode)
       }
+      case 'Time Period': {
+        return countChildrenTimePeriod(parentNode, childNode)
+      }
       case 'Slippage': {
         return countChildrenSlippage(parentNode, childNode)
       }
@@ -376,6 +379,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.timePeriod !== undefined) {
+      response.childrenCount++
+      if (parentNode.timePeriod.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     if (parentNode.slippage !== undefined) {
       response.childrenCount++
       if (parentNode.slippage.id === childNode.id) {
@@ -400,6 +409,14 @@ function newNodeChildren () {
   }
 
   function countChildrenTimeRange (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenTimePeriod (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined

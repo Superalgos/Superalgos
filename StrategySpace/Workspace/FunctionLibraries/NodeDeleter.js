@@ -18,6 +18,7 @@ function newNodeDeleter () {
     deleteParameters: deleteParameters,
     deleteBaseAsset: deleteBaseAsset,
     deleteTimeRange: deleteTimeRange,
+    deleteTimePeriod: deleteTimePeriod,
     deleteSlippage: deleteSlippage,
     deleteFeeStructure: deleteFeeStructure,
     deleteStrategy: deleteStrategy,
@@ -117,6 +118,10 @@ function newNodeDeleter () {
           }
           case 'Time Range': {
             deleteTimeRange(rootNode, rootNodes)
+            break
+          }
+          case 'Time Period': {
+            deleteTimePeriod(rootNode, rootNodes)
             break
           }
           case 'Slippage': {
@@ -475,6 +480,9 @@ function newNodeDeleter () {
     if (node.timeRange !== undefined) {
       deleteTimeRange(node.timeRange, rootNodes)
     }
+    if (node.timePeriod !== undefined) {
+      deleteTimePeriod(node.timePeriod, rootNodes)
+    }
     if (node.slippage !== undefined) {
       deleteSlippage(node.slippage, rootNodes)
     }
@@ -500,6 +508,17 @@ function newNodeDeleter () {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       payload.parentNode.timeRange = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteTimePeriod (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.timePeriod = undefined
     } else {
       completeDeletion(node, rootNodes)
     }

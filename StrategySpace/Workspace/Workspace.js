@@ -434,6 +434,10 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteTimeRange(payload.node, workspaceNode.rootNodes)
         break
       }
+      case 'Delete Time Period': {
+        functionLibraryNodeDeleter.deleteTimePeriod(payload.node, workspaceNode.rootNodes)
+        break
+      }
       case 'Delete Slippage': {
         functionLibraryNodeDeleter.deleteSlippage(payload.node, workspaceNode.rootNodes)
         break

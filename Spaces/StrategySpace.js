@@ -57,6 +57,7 @@ function newStrategySpace () {
       ['Parameters', 'settings'],
       ['Base Asset', 'loading'],
       ['Time Range', 'chronometer'],
+      ['Time Period', 'schedule'],
       ['Slippage', 'support'],
       ['Fee Structure', 'sitemap'],
       ['Strategy', 'quality'],
@@ -76,7 +77,7 @@ function newStrategySpace () {
       ['Take Profit', 'stage-open-take-profit'],
       ['Phase', 'placeholder'],
       ['Formula', 'pipette'],
-      ['Next Phase Event', 'schedule'],
+      ['Next Phase Event', 'pantone'],
       ['Situation', 'pyramid'],
       ['Condition', 'testing'],
       ['Code', 'html']

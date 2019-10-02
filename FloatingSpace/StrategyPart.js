@@ -242,6 +242,10 @@ function newStrategyPart () {
         compatibleType = '->' + 'Parameters' + '->'
         compatibleSubType = undefined
         break
+      case 'Time Period':
+        compatibleType = '->' + 'Parameters' + '->'
+        compatibleSubType = undefined
+        break
       case 'Slippage':
         compatibleType = '->' + 'Parameters' + '->'
         compatibleSubType = undefined
@@ -382,6 +386,7 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
         if (thisObject.payload.node.type === 'Base Asset' && nearbyNode.baseAsset !== undefined) { continue }
         if (thisObject.payload.node.type === 'Time Range' && nearbyNode.timeRange !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Time Period' && nearbyNode.timePeriod !== undefined) { continue }
         if (thisObject.payload.node.type === 'Slippage' && nearbyNode.slippage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Fee Structure' && nearbyNode.feeStructure !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }

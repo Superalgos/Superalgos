@@ -258,6 +258,10 @@ function newPartsFromNodes () {
         createPart('Time Range', node.name, node, parentNode, chainParent, 'Time Range')
         return
       }
+      case 'Time Period': {
+        createPart('Time Period', node.name, node, parentNode, chainParent, 'Time Period')
+        return
+      }
       case 'Slippage': {
         createPart('Slippage', node.name, node, parentNode, chainParent, 'Slippage')
         return
@@ -273,6 +277,9 @@ function newPartsFromNodes () {
         }
         if (node.timeRange !== undefined) {
           createPartFromNode(node.timeRange, node, node)
+        }
+        if (node.timePeriod !== undefined) {
+          createPartFromNode(node.timePeriod, node, node)
         }
         if (node.slippage !== undefined) {
           createPartFromNode(node.slippage, node, node)
@@ -643,6 +650,13 @@ function newPartsFromNodes () {
         code: DEFAULT_CONFIG_TEXT
       }
       createPart('Time Range', '', node.timeRange, node, node)
+    }
+    if (node.timePeriod === undefined) {
+      node.timePeriod = {
+        name: 'Time Period',
+        code: DEFAULT_CONFIG_TEXT
+      }
+      createPart('Time Period', '', node.timePeriod, node, node)
     }
     if (node.slippage === undefined) {
       node.slippage = {

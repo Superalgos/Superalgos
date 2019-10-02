@@ -261,6 +261,15 @@ function newProtocolNode () {
         }
         return object
       }
+      case 'Time Period': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code
+        }
+        return object
+      }
       case 'Slippage': {
         let object = {
           type: node.type,
@@ -286,6 +295,7 @@ function newProtocolNode () {
           name: node.name,
           baseAsset: getProtocolNode(node.baseAsset, removePersonalData, parseJSONStrings, includeIds),
           timeRange: getProtocolNode(node.timeRange, removePersonalData, parseJSONStrings, includeIds),
+          timePeriod: getProtocolNode(node.timePeriod, removePersonalData, parseJSONStrings, includeIds),
           slippage: getProtocolNode(node.slippage, removePersonalData, parseJSONStrings, includeIds),
           feeStructure: getProtocolNode(node.feeStructure, removePersonalData, parseJSONStrings, includeIds)
         }

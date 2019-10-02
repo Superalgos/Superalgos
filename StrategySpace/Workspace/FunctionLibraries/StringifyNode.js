@@ -309,6 +309,17 @@ function newStringifyNode () {
         }
         return object
       }
+      case 'Time Period': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
       case 'Slippage': {
         let object = {
           id: node.id,
@@ -339,6 +350,7 @@ function newStringifyNode () {
           name: node.name,
           baseAsset: prepareForStringify(node.baseAsset, removePersonalData),
           timeRange: prepareForStringify(node.timeRange, removePersonalData),
+          timePeriod: prepareForStringify(node.timePeriod, removePersonalData),
           slippage: prepareForStringify(node.slippage, removePersonalData),
           feeStructure: prepareForStringify(node.feeStructure, removePersonalData),
           savedPayload: getSavedPayload(node)

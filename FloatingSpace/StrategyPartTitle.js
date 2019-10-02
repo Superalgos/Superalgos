@@ -108,6 +108,9 @@ function newStrategyPartTitle () {
       case 'Time Range': {
         break
       }
+      case 'Time Period': {
+        break
+      }
       case 'Slippage': {
         break
       }

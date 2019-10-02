@@ -1129,6 +1129,59 @@ function newStrategyPartConstructor () {
         )
         break
       }
+      case 'Time Period': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Time Period',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Time Period',
+            visible: true,
+            iconPathOn: 'settings',
+            iconPathOff: 'settings',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Time Period',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Time Period',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
       case 'Slippage': {
         strategyPart.codeEditor = newCodeEditor()
         strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
@@ -2318,6 +2371,10 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Time Range': {
+        level_3()
+        break
+      }
+      case 'Time Period': {
         level_3()
         break
       }

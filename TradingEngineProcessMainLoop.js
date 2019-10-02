@@ -107,7 +107,7 @@
                 processConfig.framework.startDate.resumeExecution = false;
                 global.STOP_PROCESSING = false
                 bot.hasTheBotJustStarted = true
-                setInitialBalance()
+                setValuesToUse()
 
                 const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
                 /* If we can not get for any reason the initial date of the backtest, we will start at present time. */
@@ -182,21 +182,21 @@
                 bot.multiPeriodDailyProcessDatetime = processConfig.framework.startDate.fixedDate
                 global.STOP_PROCESSING = false
                 bot.hasTheBotJustStarted = true
-                setInitialBalance()
+                setValuesToUse()
             }
 
             function stopRequested() {
                 global.STOP_PROCESSING = true
             }
 
-            function setInitialBalance() {
+            function setValuesToUse() {
                 if (global.DEFINITION !== undefined) {
-
-                    /* Get the initial balance from the global.DEFINITION */
                     let tradingSystem = global.DEFINITION.tradingSystem
 
                     if (tradingSystem) {
                         if (tradingSystem.parameters !== undefined) {
+
+                            /* Decide which Initial Balance we are going to use. */
                             if (tradingSystem.parameters.baseAsset !== undefined) {
                                 let code
                                 try {
@@ -232,6 +232,12 @@
                                     global.INITIAL_BALANCE_ASSET_B = 0.001 // default
 
                                 }
+                            }
+
+                            /* Decide which Time Period we are going to use. If a TimePeriod is explicity defined we replace the one which was sent on simulation params.*/
+
+                            if (tradingSystem.parameters.timePeriod !== undefined) {
+                                global.DEFINITION.simulationParams.timePeriod = tradingSystem.parameters.timePeriod.code
                             }
                         }
                     }

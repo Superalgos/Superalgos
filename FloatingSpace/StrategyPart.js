@@ -275,7 +275,20 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Process':
-        compatibleType = '->' + 'Sensor' + '->' + 'Indicator' + '->' + 'Trading Engine' + '->'
+        switch (thisObject.payload.node.subType) {
+          case 'Sensor Process': {
+            compatibleType = '->' + 'Sensor' + '->'
+            break
+          }
+          case 'Indicator Process': {
+            compatibleType = '->' + 'Indicator' + '->'
+            break
+          }
+          case 'Trading Engine Process': {
+            compatibleType = '->' + 'Trading Engine' + '->'
+            break
+          }
+        }
         compatibleSubType = undefined
         break
       case 'Strategy':

@@ -424,6 +424,9 @@ function newPartsFromNodes () {
           }
         }
         createPart('Process', node.name, node, parentNode, chainParent, 'Process')
+        if (node.parameters !== undefined) {
+          createPartFromNode(node.parameters, node, node)
+        }
         return
       }
     }

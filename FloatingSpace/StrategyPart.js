@@ -231,8 +231,8 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Parameters':
-        compatibleType = '->' + 'Trading System' + '->'
-        compatibleSubType = undefined
+        compatibleType = '->' + 'Trading System' + '->' + 'Process' + '->'
+        compatibleSubType = '->' + 'Trading Engine Process' + '->'
         break
       case 'Base Asset':
         compatibleType = '->' + 'Parameters' + '->'
@@ -419,6 +419,14 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Formula' && nearbyNode.formula !== undefined) { continue }
         if (thisObject.payload.node.type === 'Next Phase Event' && nearbyNode.nextPhaseEvent !== undefined) { continue }
         if (thisObject.payload.node.type === 'Code' && nearbyNode.code !== undefined) { continue }
+        /* Here we check if the subtypes are compatible. */
+        if (nearbyNode.subType !== undefined) {
+          if (compatibleSubType.indexOf('->' + nearbyNode.subType + '->') >= 0) {
+            if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
+          } else {
+            continue
+          }
+        }
         /* Discard Phases without partent */
         if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
         /* Control maxPhases */

@@ -524,6 +524,7 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
+          parameters: prepareForStringify(node.parameters, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object

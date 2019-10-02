@@ -443,7 +443,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          code: node.code
+          code: node.code,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
         }
         if (parseJSONStrings) {
           object.code = JSON.parse(object.code)

@@ -364,6 +364,11 @@ function newNodeDeleter () {
         }
       }
     }
+
+    if (node.parameters !== undefined) {
+      deleteParameters(node.parameters, rootNodes)
+    }
+
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)

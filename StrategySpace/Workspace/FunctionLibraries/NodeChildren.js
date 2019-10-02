@@ -280,6 +280,12 @@ function newNodeChildren () {
       childrenCount: 0,
       childIndex: undefined
     }
+    if (parentNode.parameters !== undefined) {
+      response.childrenCount++
+      if (parentNode.parameters.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 

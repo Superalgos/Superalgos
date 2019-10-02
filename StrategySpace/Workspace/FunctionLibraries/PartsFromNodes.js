@@ -407,6 +407,22 @@ function newPartsFromNodes () {
         return
       }
       case 'Process': {
+        if (parentNode !== undefined) {
+          switch (parentNode.type) {
+            case 'Sensor': {
+              node.subType = 'Sensor Process'
+              break
+            }
+            case 'Indicator': {
+              node.subType = 'Indicator Process'
+              break
+            }
+            case 'Trading Engine': {
+              node.subType = 'Trading Engine Process'
+              break
+            }
+          }
+        }
         createPart('Process', node.name, node, parentNode, chainParent, 'Process')
         return
       }
@@ -494,6 +510,21 @@ function newPartsFromNodes () {
     let process = {
       name: 'New Process',
       code: '// Write the configuration here.'
+    }
+
+    switch (node.type) {
+      case 'Sensor': {
+        process.subType = 'Sensor Process'
+        break
+      }
+      case 'Indicator': {
+        process.subType = 'Indicator Process'
+        break
+      }
+      case 'Trading Engine': {
+        process.subType = 'Trading Engine Process'
+        break
+      }
     }
     node.processes.push(process)
     createPart('Process', process.name, process, node, node, 'Process')

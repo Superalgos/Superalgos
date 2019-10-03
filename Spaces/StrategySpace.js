@@ -40,18 +40,18 @@ function newStrategySpace () {
   function buildIconByPartTypeMap () {
     const relationshipArray = [
       ['Definition', 'text'],
-      ['Network', 'headphones'],
-      ['Network Node', 'photo-camera'],
+      ['Network', 'network'],
+      ['Network Node', 'network-node'],
       ['Task Manager', 'task'],
       ['Task', 'timeline'],
       ['Sensor', 'pipette'],
       ['Indicator', 'vector'],
       ['Trading Engine', 'brainstorming'],
       ['Process', 'grid'],
-      ['Backtesting Session', 'tap'],
-      ['Live Trading Session', 'startup'],
-      ['Fordward Testing Session', 'upload'],
-      ['Paper Trading Session', 'search'],
+      ['Backtesting Session', 'session-backtesting'],
+      ['Live Trading Session', 'session-live-trading'],
+      ['Fordward Testing Session', 'session-forward-testing'],
+      ['Paper Trading Session', 'session-paper-trading'],
       ['Personal Data', 'security'],
       ['Exchange Account', 'approve'],
       ['Exchange Account Asset', 'paper-plane'],
@@ -166,7 +166,13 @@ function newStrategySpace () {
       'menu-tensor-free-angles',
       'stage-open-position-size',
       'stage-open-take-profit',
-      'stage-open-postion-rate'
+      'stage-open-postion-rate',
+      'session-live-trading',
+      'session-paper-trading',
+      'session-backtesting',
+      'session-forward-testing',
+      'network',
+      'network-node'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

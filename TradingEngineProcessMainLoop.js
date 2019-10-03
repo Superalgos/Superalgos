@@ -89,14 +89,41 @@
 
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] run -> Entering function."); }
 
-            bot.enableCheckLoopHealth = true;
+            /* Check if there is a session */
+            if (bot.processNode.session === undefined) {
+                parentLogger.write(MODULE_NAME, "[ERROR] run -> Cannot run without a Session.");
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return;
+            }
 
+            /* Some initial values*/
+            bot.enableCheckLoopHealth = true;
             let fixedTimeLoopIntervalHandle;
             global.STOP_PROCESSING = true;
 
-            global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Backstesting Started', undefined, undefined, undefined, startBackTesting)
-            global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Live-Trading Started', undefined, undefined, undefined, startLiveTrading)
-            global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Stop Requested', undefined, undefined, undefined, stopRequested)
+            /* Listen to event to start or stop the session. */
+
+            let key = 'Session' + '-' + bot.processNode.session.id + '-' + 'Events'
+
+            global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Run Session', undefined, undefined, undefined, runSession)
+            global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Stop Session', undefined, undefined, undefined, stopSession)
+
+            function runSession(message) {
+                switch (bot.processNode.session.type) {
+                    case 'Backtesting Session': {
+                        startBackTesting(message)
+                        break
+                    }
+                    case 'Live Trading Session': {
+                        startLiveTrading(message)
+                        break
+                    }
+                }
+            }
+
+            function stopSession(message) {
+                global.STOP_PROCESSING = true
+            }
 
             function startBackTesting(message) {
 
@@ -107,7 +134,7 @@
                 processConfig.framework.startDate.resumeExecution = false;
                 global.STOP_PROCESSING = false
                 bot.hasTheBotJustStarted = true
-                setValuesToUse()
+                setValuesToUse(message)
 
                 const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
                 /* If we can not get for any reason the initial date of the backtest, we will start at present time. */
@@ -182,14 +209,18 @@
                 bot.multiPeriodDailyProcessDatetime = processConfig.framework.startDate.fixedDate
                 global.STOP_PROCESSING = false
                 bot.hasTheBotJustStarted = true
-                setValuesToUse()
+                setValuesToUse(message)
             }
 
-            function stopRequested() {
-                global.STOP_PROCESSING = true
-            }
+            function setValuesToUse(message) {
+                /*
+                    Base on the information received we will determined which values ultimatelly are going to be used,
+                    and once we do, they will become constants across the multiple loops executions.
+                */
 
-            function setValuesToUse() {
+                bot.SESSION = JSON.parse(message.event.session)
+                bot.VALUES_TO_USE = {}
+
                 if (global.DEFINITION !== undefined) {
                     let tradingSystem = global.DEFINITION.tradingSystem
 
@@ -201,8 +232,8 @@
                                 let code
                                 try {
                                     /* Default Value */
-                                    global.INITIAL_BALANCE_ASSET_B = 0.001;
-                                    global.INITIAL_BALANCE_ASSET_A = 0
+                                    bot.VALUES_TO_USE.initialBalanceAssetB = 0.001;
+                                    bot.VALUES_TO_USE.initialBalanceAssetA = 0
 
                                     code = JSON.parse(tradingSystem.parameters.baseAsset.code);
 
@@ -216,28 +247,41 @@
 
                                     if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
                                         if (code.initialBalance !== undefined) {
-                                            global.INITIAL_BALANCE_ASSET_B = code.initialBalance;
-                                            global.INITIAL_BALANCE_ASSET_A = 0
+                                            bot.VALUES_TO_USE.initialBalanceAssetB = code.initialBalance;
+                                            bot.VALUES_TO_USE.initialBalanceAssetA = 0
                                         }
                                     } else {
                                         if (code.initialBalance !== undefined) {
-                                            global.INITIAL_BALANCE_ASSET_A = code.initialBalance;
-                                            global.INITIAL_BALANCE_ASSET_B = 0
+                                            bot.VALUES_TO_USE.initialBalanceAssetA = code.initialBalance;
+                                            bot.VALUES_TO_USE.initialBalanceAssetB = 0
                                         }
                                     }
                                 } catch (err) {
                                     global.DEFINITION.tradingSystem.parameters.baseAsset.error = err.message
 
-                                    global.INITIAL_BALANCE_ASSET_A = 0 // default
-                                    global.INITIAL_BALANCE_ASSET_B = 0.001 // default
+                                    bot.VALUES_TO_USE.initialBalanceAssetA = 0 // default
+                                    bot.VALUES_TO_USE.initialBalanceAssetB = 0.001 // default
 
                                 }
                             }
 
-                            /* Decide which Time Period we are going to use. If a TimePeriod is explicity defined we replace the one which was sent on simulation params.*/
+                            /* Decide which Time Period we are going to use.*/
 
+                            /* This is the last fallback */
+                            bot.VALUES_TO_USE.timePeriod = global.DEFINITION.simulationParams.timePeriod 
+
+                            /* Secondary option, if exists. */
                             if (tradingSystem.parameters.timePeriod !== undefined) {
-                                global.DEFINITION.simulationParams.timePeriod = tradingSystem.parameters.timePeriod.code
+                                bot.VALUES_TO_USE.timePeriod = tradingSystem.parameters.timePeriod.code  
+                            }
+
+                            /* Primary source of information, if it exists */
+                            if (bot.SESSION !== undefined) {
+                                if (bot.SESSION.parameters !== undefined) {
+                                    if (bot.SESSION.parameters.timePeriod !== undefined) {
+                                        bot.VALUES_TO_USE.timePeriod = bot.SESSION.parameters.timePeriod.code 
+                                    }
+                                }
                             }
                         }
                     }
@@ -294,10 +338,10 @@
 
                     /* Checking if we should process this loop or not.*/
                     if (global.STOP_PROCESSING === true) {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for Backtesting or Live Trade to be started."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be started."); }
 
                         console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
-                            + " Waiting for Backtesting or Live Trade to be started. ");
+                            + " Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be started. ");
 
                         global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Process Stopped')
 

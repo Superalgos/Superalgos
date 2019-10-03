@@ -71,10 +71,11 @@ if (global.TASK_NODE !== undefined) {
 
 }
 else {  // I use this section to debug in standalone mode.
-    let argument = ' {"type":"Task","name":"Runs Backtests, Fordwardtests & Live Trades ","bot":{"type":"Trading Engine","processes":[{"type":"Process","name":"Multi Period","code":{"team":"AAMasters","bot":"AAJason","process":"Multi-Period","repo":"AAJason-Trading-Engine-Bot"},"id":"4748c8c4-4d19-4076-96b2-e9c06524fbb3"}]},"id":"561bac18-fc78-464a-90c5-79fd821fc633"}'
-    /* charly */ argument = '{"type":"Task","name":"Brings Trades Records from the Exchange","bot":{"type":"Sensor","name":"Charly","processes":[{"type":"Process","name":"Live Trades","code":{"team":"AAMasters","bot":"AACharly","process":"Live-Trades"},"id":"5846ebc7-1979-4a80-9cc7-94bb4b8659dc"},{"type":"Process","name":"Hole Fixing","code":{"team":"AAMasters","bot":"AACharly","process":"Hole-Fixing"},"id":"31fc4f05-75d4-419a-9fb0-73e25e856f15"}]},"id":"5bfef4dc-54c1-44db-ace6-1ab27a86746e"}'
+    let argument = '{"type":"Task","name":"Runs Backtests, Fordwardtests & Live Trades ","bot":{"type":"Trading Engine","processes":[{"type":"Process","subType":"Trading Engine Process","name":"Multi Period","code":{"team":"AAMasters","bot":"AAJason","process":"Multi-Period","repo":"AAJason-Trading-Engine-Bot"},"session":{"type":"Backtesting Session","name":"New Backtesting Session","parameters":{"type":"Parameters","name":"Parameters","baseAsset":{"type":"Base Asset","name":"Base Asset","code":"{ \n\"name\": \"BTC\",\n\"initialBalance\": 0.001,\n\"minimumBalance\": 0.0001,\n\"maximumBalance\": 1\n}"},"timeRange":{"type":"Time Range","name":"Time Range","code":"{\n\"initialDatetime\": \"2019-09-15T00:00:00.000Z\",\n\"finalDatetime\": \"2019-09-30T00:00:00.000Z\"\n}"},"timePeriod":{"type":"Time Period","name":"Time Period","code":"01-hs"},"slippage":{"type":"Slippage","name":"Slippage","code":"{\n\"positionRate\": 0.1,\n\"stopLoss\": 0.1,\n\"takeProfit\": 0.1\n}"},"feeStructure":{"type":"Fee Structure","name":"Fee Structure","code":"{\n\"maker\": 0.15,\n\"taker\": 0.25\n}"}},"id":"1381b048-7795-4e60-84a4-cf02e7385ba1"},"id":"072065fc-a57c-439c-94cf-f3f9c901ed37"}]},"id":"cddc97dd-ca2d-4b14-95ce-f15b6149996f"}'
+    /* charly   argument = '{"type":"Task","name":"Brings Trades Records from the Exchange","bot":{"type":"Sensor","name":"Charly","processes":[{"type":"Process","name":"Live Trades","code":{"team":"AAMasters","bot":"AACharly","process":"Live-Trades"},"id":"5846ebc7-1979-4a80-9cc7-94bb4b8659dc"},{"type":"Process","name":"Hole Fixing","code":{"team":"AAMasters","bot":"AACharly","process":"Hole-Fixing"},"id":"31fc4f05-75d4-419a-9fb0-73e25e856f15"}]},"id":"5bfef4dc-54c1-44db-ace6-1ab27a86746e"}'
     // olivia argument = '{"type":"Task","name":"Generates 1 min to 24 hs Candles & Volumes","bot":{"type":"Indicator","name":"Olivia","processes":[{"type":"Process","name":"Daily","code":{"team":"AAMasters","bot":"AAOlivia","process":"Multi-Period-Daily"},"id":"68cc8e1b-e94a-477e-82d0-15ecc9f1b9e2"},{"type":"Process","name":"Market","code":{"team":"AAMasters","bot":"AAOlivia","process":"Multi-Period-Market"},"id":"e1ac5e3d-d491-4e90-baf4-d4e5b71a8b1a"}]},"id":"efe36e05-75ea-41b5-8d92-c6b27635c834"}'
     // bruce argument = ' {"type":"Task","name":"Converts Trades into 1 min Candles & Volumes","bot":{"type":"Indicator","name":"Bruce","processes":[{"type":"Process","name":"New Process","code":{"team":"AAMasters","bot":"AABruce","process":"Single-Period-Daily"},"id":"e184744f-5de0-41c1-ad4c-36960f4ced90"}]},"id":"42758590-a7bd-4712-a5c9-80a3a820c5b3"}'
+    */
     try {
         global.TASK_NODE = JSON.parse(argument)
     } catch (err) {
@@ -140,8 +141,6 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
 
     setTimeout(process.exit, 10000) // We will give 10 seconds to logs be written on file
 }
-
-let notFirstSequence = false;
 
 /* Setting up the global Event Handler */
 

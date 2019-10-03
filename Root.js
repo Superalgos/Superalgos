@@ -174,6 +174,7 @@
                     botConfig.process = global.TASK_NODE.bot.processes[processIndex].code.process;
                     botConfig.debug = {};
                     botConfig.processIndex = processIndex
+                    botConfig.processNode = global.TASK_NODE.bot.processes[processIndex]
 
                     /* Loop Counter */
 

@@ -284,7 +284,7 @@
                             let dependencyIndex = 0;
                             dataFiles = [];
 
-                            if (global.DEFINITION.simulationParams.timePeriod === outputPeriodLabel) {
+                            if (bot.VALUES_TO_USE.timePeriod === outputPeriodLabel) {
                                 currentTimePeriod = global.marketFilesPeriods[n][0];
                                 currentOutputPeriodLabel = global.marketFilesPeriods[n][1];
                             }
@@ -582,7 +582,7 @@
                                 }
                             }
 
-                            if (global.DEFINITION.simulationParams.timePeriod === outputPeriodLabel) {
+                            if (bot.VALUES_TO_USE.timePeriod === outputPeriodLabel) {
                                 currentTimePeriod = global.dailyFilePeriods[n][0];
                                 currentOutputPeriodLabel = global.dailyFilePeriods[n][1];
                             }

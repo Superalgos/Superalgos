@@ -147,9 +147,9 @@
                 processConfig.framework.endDate.fixedDate = processConfig.framework.endDate.fixedDate.toISOString()
 
                 /* If we received simulation params we use them instead. */
-                if (global.DEFINITION.simulationParams) {
-                    if (global.DEFINITION.simulationParams.beginDatetime) {
-                        processConfig.framework.startDate.fixedDate = global.DEFINITION.simulationParams.beginDatetime
+                if (global.DEFINITION.uiCurrentValues) {
+                    if (global.DEFINITION.uiCurrentValues.beginDatetime) {
+                        processConfig.framework.startDate.fixedDate = global.DEFINITION.uiCurrentValues.beginDatetime
                     }
                 }
 
@@ -268,7 +268,7 @@
                             /* Decide which Time Period we are going to use.*/
 
                             /* This is the last fallback */
-                            bot.VALUES_TO_USE.timePeriod = global.DEFINITION.simulationParams.timePeriod 
+                            bot.VALUES_TO_USE.timePeriod = global.DEFINITION.uiCurrentValues.timePeriod 
 
                             /* Secondary option, if exists. */
                             if (tradingSystem.parameters.timePeriod !== undefined) {

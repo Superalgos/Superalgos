@@ -99,14 +99,13 @@
             /* Some initial values*/
             bot.enableCheckLoopHealth = true;
             let fixedTimeLoopIntervalHandle;
-            global.STOP_PROCESSING = true;
+            global.STOP_SESSION = true;
 
             /* Listen to event to start or stop the session. */
+            bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
 
-            let key = 'Session' + '-' + bot.processNode.session.id + '-' + 'Events'
-
-            global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Run Session', undefined, undefined, undefined, runSession)
-            global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Stop Session', undefined, undefined, undefined, stopSession)
+            global.SYSTEM_EVENT_HANDLER.listenToEvent(bot.sessionKey, 'Run Session', undefined, undefined, undefined, runSession)
+            global.SYSTEM_EVENT_HANDLER.listenToEvent(bot.sessionKey, 'Stop Session', undefined, undefined, undefined, stopSession)
 
             function runSession(message) {
                 switch (bot.processNode.session.type) {
@@ -119,10 +118,12 @@
                         break
                     }
                 }
+                bot.sessionStatus = 'Idle'
+                global.STOP_SESSION = false
             }
 
             function stopSession(message) {
-                global.STOP_PROCESSING = true
+                global.STOP_SESSION = true                
             }
 
             function startBackTesting(message) {
@@ -132,7 +133,6 @@
 
                 bot.startMode = "Backtest"
                 processConfig.framework.startDate.resumeExecution = false;
-                global.STOP_PROCESSING = false
                 bot.hasTheBotJustStarted = true
                 setValuesToUse(message)
 
@@ -207,7 +207,6 @@
                 processConfig.framework.startDate.fixedDate = new Date()
                 processConfig.framework.startDate.resumeExecution = false;
                 bot.multiPeriodDailyProcessDatetime = processConfig.framework.startDate.fixedDate
-                global.STOP_PROCESSING = false
                 bot.hasTheBotJustStarted = true
                 setValuesToUse(message)
             }
@@ -312,9 +311,9 @@
 
                     let nextWaitTime;
 
-                    /* Loop Heartbeat sent to the UI */
-                    bot.hearBeat = hearBeat // allow the bot itself to produce a heartbeat
-                    hearBeat() 
+                    /* Heartbeats sent to the UI */
+                    bot.sessionHeartBeat = sessionHeartBeat
+                    processHeartBeat() 
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
@@ -336,14 +335,25 @@
                     console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
                         + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8));
 
+                    /* Checking if we need to need to emit any event */
+
+                    if (bot.sessionStatus === 'Idle' && global.STOP_SESSION === false) {
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Running')
+                        bot.sessionStatus = 'Running'
+                    }
+
+                    if (bot.sessionStatus === 'Running' && global.STOP_SESSION === true) {
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Stopped')
+                        bot.sessionStatus = 'Stopped'
+                    }
+
                     /* Checking if we should process this loop or not.*/
-                    if (global.STOP_PROCESSING === true) {
+                    if (global.STOP_SESSION === true) {
+                       
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be started."); }
 
                         console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
                             + " Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be started. ");
-
-                        global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Process Stopped')
 
                         nextWaitTime = 'Normal';
                         loopControl(nextWaitTime);
@@ -1077,7 +1087,7 @@
 
                         /* We show we reached the end of the loop. */
 
-                        hearBeat()
+                        processHeartBeat()
 
                         /* Here we check if we must stop the loop gracefully. */
 
@@ -1093,8 +1103,7 @@
                                 logger.persist();
                             }
 
-                            global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Process Stopped')
-
+                            global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Stopped')
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
 
@@ -1215,13 +1224,20 @@
                 }
             }
 
-            function hearBeat() {
+            function processHeartBeat() {
                 let key = global.TASK_NODE.bot.processes[bot.processIndex].name + '-' + global.TASK_NODE.bot.processes[bot.processIndex].type + '-' + global.TASK_NODE.bot.processes[bot.processIndex].id
 
                 let event = {
                     seconds: (new Date()).getSeconds()
                 }
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
+            }
+
+            function sessionHeartBeat() {
+                let event = {
+                    seconds: (new Date()).getSeconds()
+                }
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Heartbeat', event)
             }
 
         } catch (err) {

@@ -465,7 +465,7 @@
                                 const logText = "User Defined End Datetime reached @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> advanceTime -> " + logText); }
 
-                                global.STOP_PROCESSING = true
+                                global.STOP_SESSION = true
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
 
@@ -522,7 +522,7 @@
 
                             /* Validation that we dont need to stop. */
 
-                            if (global.STOP_PROCESSING === true) {
+                            if (global.STOP_SESSION === true) {
 
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
@@ -907,7 +907,7 @@
                                                 const logText = "User Defined End Datetime reached @ " + now.getUTCFullYear() + "/" + (now.getUTCMonth() + 1) + "/" + now.getUTCDate() + ".";
                                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onMarketStatusReport -> " + logText); }
 
-                                                global.STOP_PROCESSING = true
+                                                global.STOP_SESSION = true
                                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                 return;
 

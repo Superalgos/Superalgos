@@ -593,11 +593,11 @@ function newStrategyPart () {
     thisObject.circularProgressBar.fitFunction = thisObject.fitFunction
     thisObject.circularProgressBar.container = thisObject.container
 
-    /* We will wait to the event that the task was terminated in order to call back the menu item */
+    /* We will wait to the event that the execution was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Running', undefined, key, undefined, onTaskTerminated)
+    systemEventHandler.listenToEvent(key, 'Running', undefined, key, undefined, onExecutionTerminated)
 
-    function onTaskTerminated () {
+    function onExecutionTerminated () {
       if (callBackFunction !== undefined) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
       }
@@ -605,11 +605,11 @@ function newStrategyPart () {
   }
 
   function stop (callBackFunction) {
-    /* We will wait to the event that the task was terminated in order to call back the menu item */
+    /* We will wait to the event that the execution was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    let eventSubscriptionId = systemEventHandler.listenToEvent(key, 'Stopped', undefined, key, undefined, onTaskTerminated)
+    let eventSubscriptionId = systemEventHandler.listenToEvent(key, 'Stopped', undefined, key, undefined, onExecutionTerminated)
 
-    function onTaskTerminated () {
+    function onExecutionTerminated () {
       if (callBackFunction !== undefined) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
       }
@@ -1130,4 +1130,3 @@ function newStrategyPart () {
     }
   }
 }
-

@@ -887,7 +887,7 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Run Backtesting Session',
+            action: 'Run Session',
             actionFunction: payload.onMenuItemClick,
             label: 'Run',
             workingLabel: 'Stop',
@@ -944,7 +944,7 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Run Live Trading Session',
+            action: 'Run Session',
             actionFunction: payload.onMenuItemClick,
             label: 'Run',
             workingLabel: 'Stop',
@@ -1001,7 +1001,7 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Run Fordward Testing Session',
+            action: 'Run Session',
             actionFunction: payload.onMenuItemClick,
             label: 'Run',
             workingLabel: 'Stop',
@@ -1058,7 +1058,7 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Run Paper Trading Session',
+            action: 'Run Session',
             actionFunction: payload.onMenuItemClick,
             label: 'Run',
             workingLabel: 'Stop',

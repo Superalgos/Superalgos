@@ -46,6 +46,7 @@ function newWorkspace () {
   let functionLibraryProtocolNode = newProtocolNode()
   let functionLibraryWorkspaceNodes = newStringifyNode()
   let functionLibraryTaskFunctions = newTaskFunctions()
+  let functionLibrarySessionFunctions = newSessionFunctions()
   thisObject.nodeChildren = newNodeChildren()
 
   return thisObject
@@ -244,6 +245,16 @@ function newWorkspace () {
       case 'Stop All Tasks':
         {
           functionLibraryTaskFunctions.stopAllTasks(payload.node, functionLibraryProtocolNode)
+        }
+        break
+      case 'Run Session':
+        {
+          functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, callBackFunction)
+        }
+        break
+      case 'Stop Session':
+        {
+          functionLibrarySessionFunctions.stopSession(payload.node, functionLibraryProtocolNode, callBackFunction)
         }
         break
       case 'Add Network':

@@ -1,5 +1,5 @@
 
-function getSimulationParams () {
+function getUICurrentValues () {
   let dateAtScreenCorner = new Date(window.localStorage.getItem('Date @ Screen Corner'))
   let currentTimePeriod = JSON.parse(window.localStorage.getItem('Current Time Period'))
 
@@ -7,13 +7,13 @@ function getSimulationParams () {
   let timePeriodArray = timePeriodsMasterArray[currentTimePeriod.filePeriodIndex]
   let timePeriod = timePeriodArray[currentTimePeriod.timePeriodIndex][1]
 
-  let simulationParams = {
+  let uiCurrentValues = {
     beginDatetime: dateAtScreenCorner,
     timePeriod: timePeriod,
     timestamp: (new Date()).valueOf()
   }
 
-  return simulationParams
+  return uiCurrentValues
 }
 
 function transformThisPoint (point, container) {

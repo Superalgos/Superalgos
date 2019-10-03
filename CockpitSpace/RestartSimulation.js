@@ -110,7 +110,7 @@ function newRestartSimulation () {
     try {
       if (isRunning === false) {
         thisObject.status = 'Saving'
-        let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(getSimulationParams())
+        let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(getUICurrentValues())
         if (result === false) {
           thisObject.status = 'Error'
           counterTillNextState = 500
@@ -151,7 +151,7 @@ function newRestartSimulation () {
 
   function getDefinition () {
     let definitionNode = canvas.strategySpace.workspace.getProtocolDefinitionNode()
-    definitionNode.simulationParams = getSimulationParams()
+    definitionNode.uiCurrentValues = getUICurrentValues()
     return JSON.stringify(definitionNode)
   }
 

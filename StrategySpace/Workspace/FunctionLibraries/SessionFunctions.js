@@ -19,7 +19,7 @@ function newSessionFunctions () {
 
     function getDefinition () {
       let definitionNode = canvas.strategySpace.workspace.getProtocolDefinitionNode()
-      definitionNode.simulationParams = getSimulationParams()
+      definitionNode.uiCurrentValues = getUICurrentValues()
       return JSON.stringify(definitionNode)
     }
   }

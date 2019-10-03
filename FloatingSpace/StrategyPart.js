@@ -595,23 +595,39 @@ function newStrategyPart () {
 
     /* We will wait to the event that the execution was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Running', undefined, key, undefined, onExecutionTerminated)
+    systemEventHandler.listenToEvent(key, 'Running', undefined, key, undefined, onRunning)
 
-    function onExecutionTerminated () {
+    function onRunning () {
       if (callBackFunction !== undefined) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
       }
     }
+
+    /*
+    While it is running, it can happen that it naturally stops or is stopped not from the UI but from other means.
+    In those cases, the stop function would never be called (from the UI). So what we will do is to call it from
+    here with and event, and passing our own callBackFunction. In case there is an external source stopping this,
+    this will produce an execution of the callback with our event, which will produce that the menu item is restored
+    to its default stage.
+
+    If on the other side, it is executed from the UI, then we will be processing the Stopped event twice, which in
+    both cases will reset the menu item to its default state.
+    */
+
+    let event = {
+      type: 'Secondary Action Already Executed'
+    }
+    stop(callBackFunction, event)
   }
 
-  function stop (callBackFunction) {
+  function stop (callBackFunction, event) {
     /* We will wait to the event that the execution was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    let eventSubscriptionId = systemEventHandler.listenToEvent(key, 'Stopped', undefined, key, undefined, onExecutionTerminated)
+    systemEventHandler.listenToEvent(key, 'Stopped', undefined, key, undefined, onStopped)
 
-    function onExecutionTerminated () {
+    function onStopped () {
       if (callBackFunction !== undefined) {
-        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, event)
       }
 
       if (thisObject.circularProgressBar !== undefined) {

@@ -9,12 +9,14 @@ function newSessionFunctions () {
   function runSession (node, functionLibraryProtocolNode, callBackFunction) {
     node.payload.uiObject.run(callBackFunction)
 
+    let key = node.name + '-' + node.type + '-' + node.id
+
+    /* Raise event to run the session */
     let event = {
       session: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false, false, true)),
       definition: getDefinition()
     }
 
-    let key = 'Session' + '-' + node.id + '-' + 'Events'
     systemEventHandler.raiseEvent(key, 'Run Session', event)
 
     function getDefinition () {
@@ -25,7 +27,7 @@ function newSessionFunctions () {
   }
 
   function stopSession (node, functionLibraryProtocolNode, callBackFunction) {
-    let key = 'Session' + '-' + node.id + '-' + 'Events'
+    let key = node.name + '-' + node.type + '-' + node.id
     systemEventHandler.raiseEvent(key, 'Stop Session')
 
     node.payload.uiObject.stop(callBackFunction)

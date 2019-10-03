@@ -890,7 +890,7 @@ function newStrategyPartConstructor () {
             action: 'Run Session',
             actionFunction: payload.onMenuItemClick,
             label: 'Run',
-            workingLabel: 'Stop',
+            workingLabel: 'Runing...',
             workDoneLabel: 'Session Running',
             workFailedLabel: 'Session Cannot be Run',
             secondaryAction: 'Stop Session',

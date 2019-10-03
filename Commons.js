@@ -709,7 +709,7 @@
                     if (FULL_LOG === true) {logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Simulation Loop # " + i + " @ " + (loopingDay.toLocaleString()))}
                     console.log("Jason -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation Loop # " + i + " @ " + (loopingDay.toLocaleString())) 
 
-                    bot.hearBeat() // tell the world we are alive and doing well
+                    bot.sessionHeartBeat() // tell the world we are alive and doing well
                 }
                 previousLoopingDay = loopingDay.valueOf()
 

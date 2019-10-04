@@ -1183,10 +1183,10 @@
                         }
                     } else {
                         let stopRunningDate = new Date(candle.begin)
-                        if (balance < minimumBalance) {
+                        if (balance <= minimumBalance) {
                             tradingSystem.error = "Min Balance @ " + stopRunningDate.toLocaleString()
                         }
-                        if (balance > maximumBalance) {
+                        if (balance >= maximumBalance) {
                             tradingSystem.error = "Max Balance @ " + stopRunningDate.toLocaleString()
                         }
                     }

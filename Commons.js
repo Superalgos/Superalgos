@@ -75,145 +75,6 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> userDefinedStartDatetime = " + userDefinedStartDatetime); }
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> userDefinedEndDatetime = " + userDefinedEndDatetime); }
 
-            const DEFAULT_BASE_ASSET_BALANCE = 1
-            const DEFAULT_BASE_ASSET_MINIMUN_BALANCE = 0.5
-            const DEFAULT_BASE_ASSET_MAXIMUN_BALANCE = 2
-
-            let initialBalanceA = DEFAULT_BASE_ASSET_BALANCE
-            let minimumBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE
-            let maximumBalanceA = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE
-            let initialBalanceB = 0
-            let minimumBalanceB = 0
-            let maximumBalanceB = 0
-            let baseAsset = 'BTC'
-
-            /* Parameters Processing */
-
-            if (tradingSystem.parameters !== undefined) {
-                if (tradingSystem.parameters.baseAsset !== undefined) {
-
-                    let code
-                    try {
-                        code = JSON.parse(tradingSystem.parameters.baseAsset.code);
-
-                        if (code.name !== undefined) {
-                            baseAsset = code.name;
-                            if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
-                                tradingSystem.parameters.baseAsset.error = baseAsset + ' is not supported. Using default: BTC.'
-                                baseAsset = 'BTC'
-                            }
-                        }
-
-                        if (baseAsset === 'BTC') {
-                            if (code.initialBalance !== undefined) {
-                                initialBalanceA = code.initialBalance;
-                                initialBalanceB = 0
-                            } else {
-                                initialBalanceA = DEFAULT_BASE_ASSET_BALANCE;
-                                initialBalanceB = 0
-                            }
-                            if (code.minimumBalance !== undefined) {
-                                minimumBalanceA = code.minimumBalance;
-                                minimumBalanceB = 0
-                            } else {
-                                minimumBalanceA = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
-                                minimumBalanceB = 0
-                            }
-                            if (code.maximumBalance !== undefined) {
-                                maximumBalanceA = code.maximumBalance;
-                                maximumBalanceB = 0
-                            } else {
-                                maximumBalanceA = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
-                                maximumBalanceB = 0
-                            }
-                        } else {
-                            if (code.initialBalance !== undefined) {
-                                initialBalanceB = code.initialBalance;
-                                initialBalanceA = 0
-                            } else {
-                                initialBalanceB = DEFAULT_BASE_ASSET_BALANCE;
-                                initialBalanceA = 0
-                            }
-                            if (code.minimumBalance !== undefined) {
-                                minimumBalanceB = code.minimumBalance;
-                                minimumBalanceA = 0
-                            } else {
-                                minimumBalanceB = DEFAULT_BASE_ASSET_MINIMUN_BALANCE;
-                                minimumBalanceA = 0
-                            }
-                            if (code.maximumBalance !== undefined) {
-                                maximumBalanceB = code.maximumBalance;
-                                maximumBalanceA = 0
-                            } else {
-                                maximumBalanceB = DEFAULT_BASE_ASSET_MAXIMUN_BALANCE;
-                                maximumBalanceA = 0
-                            }
-                        }
-                    } catch (err) {
-                        tradingSystem.parameters.baseAsset.error = err.message
-                    }
-                }
-            }
-
-            /* Slippage */
-            let slippage = { // Default Values
-                positionRate: 0,
-                stopLoss: 0,
-                takeProfit: 0
-                }
-            if (definition.tradingSystem !== undefined) {
-                if (definition.tradingSystem.parameters !== undefined) {
-                    if (definition.tradingSystem.parameters.slippage !== undefined) {
-                        if (definition.tradingSystem.parameters.slippage.code !== undefined) {
-                            try {
-                                let code = JSON.parse(definition.tradingSystem.parameters.slippage.code)
-
-                                if (code.positionRate !== undefined) {
-                                    slippage.positionRate = code.positionRate
-                                }
-                                if (code.stopLoss !== undefined) {
-                                    slippage.stopLoss = code.stopLoss
-                                }
-                                if (code.takeProfit !== undefined) {
-                                    slippage.takeProfit = code.takeProfit
-                                }
-
-                            } catch (err) {
-                                tradingSystem.parameters.slippage.error =  err.message
-                            }
-                        }
-                    }
-                }
-            }
-
-            /* Fee Structure */
-            let feeStructure = { // Default Values
-                maker: 0,
-                taker: 0
-            }
-
-            if (definition.tradingSystem !== undefined) {
-                if (definition.tradingSystem.parameters !== undefined) {
-                    if (definition.tradingSystem.parameters.feeStructure !== undefined) {
-                        if (definition.tradingSystem.parameters.feeStructure.code !== undefined) {
-                            try {
-                                let code = JSON.parse(definition.tradingSystem.parameters.feeStructure.code)
-
-                                if (code.maker !== undefined) {
-                                    feeStructure.maker = code.maker
-                                }
-                                if (code.taker !== undefined) {
-                                    feeStructure.taker = code.taker
-                                }
-
-                            } catch (err) {
-                                tradingSystem.parameters.feeStructure.error = err.message
-                            }
-                        }
-                    }
-                }
-            }
-
             let timerToCloseStage = 0
 
             /* Stop Loss Management */
@@ -305,8 +166,8 @@
                 endRate: 0
             }
 
-            let balanceAssetA = initialBalanceA;
-            let balanceAssetB = initialBalanceB;
+            let balanceAssetA = bot.VALUES_TO_USE.initialBalanceA;
+            let balanceAssetB = bot.VALUES_TO_USE.initialBalanceB;
 
             let lastTradeProfitLoss = 0;
             let profit = 0;
@@ -886,7 +747,7 @@
                         if (openStage !== undefined) {
 
                             /* Default Values*/
-                            if (baseAsset === 'BTC') {
+                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                                 positionSize = balanceAssetA;
                                 positionRate = candle.close;
                             } else {
@@ -909,13 +770,13 @@
                                                 initialDefinition.positionSize.formula.error = err.message
                                             }
                                             if (isNaN(positionSize)) {
-                                                if (baseAsset === 'BTC') {
+                                                if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                                                     positionSize = balanceAssetA;
                                                 } else {
                                                     positionSize = balanceAssetB;
                                                 }
                                             } else {
-                                                if (baseAsset === 'BTC') {
+                                                if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                                                     if (positionSize > balanceAssetA) { positionSize = balanceAssetA }
                                                 } else {
                                                     if (positionSize > balanceAssetB) { positionSize = balanceAssetB }
@@ -936,7 +797,7 @@
                                                 initialDefinition.positionRate.formula.error = err.message
                                             }
                                             if (isNaN(positionRate)) {
-                                                if (baseAsset === 'BTC') {
+                                                if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                                                     positionRate = candle.close;
                                                 } else {
                                                     positionRate = candle.close;
@@ -1243,14 +1104,14 @@
                     let maximumBalance
                     let balance
 
-                    if (baseAsset === 'BTC') {
+                    if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                         balance = balanceAssetA
-                        minimumBalance = minimumBalanceA
-                        maximumBalance = maximumBalanceA
+                        minimumBalance = bot.VALUES_TO_USE.minimumBalanceA
+                        maximumBalance = bot.VALUES_TO_USE.maximumBalanceA
                     } else {
                         balance = balanceAssetB
-                        minimumBalance = minimumBalanceB
-                        maximumBalance = maximumBalanceB
+                        minimumBalance = bot.VALUES_TO_USE.minimumBalanceB
+                        maximumBalance = bot.VALUES_TO_USE.maximumBalanceB
                     }
 
                     if (balance > minimumBalance && balance < maximumBalance) {
@@ -1787,7 +1648,7 @@
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                    if ((baseAsset === 'BTC' && candle.max >= stopLoss) || (baseAsset !== 'BTC' && candle.min <= stopLoss)) {
+                    if ((bot.VALUES_TO_USE.baseAsset === 'BTC' && candle.max >= stopLoss) || (bot.VALUES_TO_USE.baseAsset !== 'BTC' && candle.min <= stopLoss)) {
 
                         /*
                         Hit Point Validation
@@ -1796,7 +1657,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                             if (stopLoss < candle.min) { stopLoss = candle.min }
                         } else {
                             if (stopLoss > candle.max) { stopLoss = candle.max }
@@ -1805,9 +1666,9 @@
                         let slippedStopLoss = stopLoss
 
                         /* Apply the Slippage */
-                        let slippageAmount = slippedStopLoss * slippage.stopLoss / 100
+                        let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
 
-                        if (baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                             slippedStopLoss = slippedStopLoss + slippageAmount
                         } else {
                             slippedStopLoss = slippedStopLoss - slippageAmount
@@ -1817,11 +1678,11 @@
 
                         let feePaid = 0
 
-                        if (baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                             strategy.positionSize = balanceAssetB / finalStopLoss;
                             strategy.positionRate = finalStopLoss;
 
-                            feePaid = balanceAssetB / finalStopLoss * feeStructure.taker / 100
+                            feePaid = balanceAssetB / finalStopLoss * bot.VALUES_TO_USE.feeStructure.taker / 100
 
                             balanceAssetA = balanceAssetA + balanceAssetB / finalStopLoss - feePaid;
                             balanceAssetB = 0;
@@ -1829,7 +1690,7 @@
                             strategy.positionSize = balanceAssetA * finalStopLoss;
                             strategy.positionRate = finalStopLoss;
 
-                            feePaid = balanceAssetA * finalStopLoss * feeStructure.taker / 100
+                            feePaid = balanceAssetA * finalStopLoss * bot.VALUES_TO_USE.feeStructure.taker / 100
 
                             balanceAssetB = balanceAssetB + balanceAssetA * finalStopLoss - feePaid;
                             balanceAssetA = 0;
@@ -1869,7 +1730,7 @@
 
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
 
-                    if ((baseAsset === 'BTC' && candle.min <= takeProfit) || (baseAsset !== 'BTC' && candle.max >= takeProfit)) {
+                    if ((bot.VALUES_TO_USE.baseAsset === 'BTC' && candle.min <= takeProfit) || (bot.VALUES_TO_USE.baseAsset !== 'BTC' && candle.max >= takeProfit)) {
 
                         /*
                         Hit Point Validation:
@@ -1878,7 +1739,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                             if (takeProfit > candle.max) { takeProfit = candle.max }
                         } else {
                             if (takeProfit < candle.min) { takeProfit = candle.min }
@@ -1886,9 +1747,9 @@
 
                         let slippedTakeProfit = takeProfit
                         /* Apply the Slippage */
-                        let slippageAmount = slippedTakeProfit * slippage.takeProfit / 100
+                        let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
 
-                        if (baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                             slippedTakeProfit = slippedTakeProfit + slippageAmount
                         } else {
                             slippedTakeProfit = slippedTakeProfit - slippageAmount
@@ -1898,11 +1759,11 @@
 
                         let feePaid = 0
 
-                        if (baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                             strategy.positionSize = balanceAssetB / finalTakeProfit;
                             strategy.positionRate = finalTakeProfit;
 
-                            feePaid = balanceAssetB / finalTakeProfit * feeStructure.taker / 100
+                            feePaid = balanceAssetB / finalTakeProfit * bot.VALUES_TO_USE.feeStructure.taker / 100
 
                             balanceAssetA = balanceAssetA + balanceAssetB / finalTakeProfit - feePaid;
                             balanceAssetB = 0;
@@ -1910,7 +1771,7 @@
                             strategy.positionSize = balanceAssetA * finalTakeProfit;
                             strategy.positionRate = finalTakeProfit;
 
-                            feePaid = balanceAssetA * finalTakeProfit * feeStructure.taker / 100
+                            feePaid = balanceAssetA * finalTakeProfit * bot.VALUES_TO_USE.feeStructure.taker / 100
 
                             balanceAssetB = balanceAssetB + balanceAssetA * finalTakeProfit - feePaid;
                             balanceAssetA = 0;
@@ -1975,9 +1836,9 @@
                     tradePositionRate = strategy.positionRate;
 
                     /* We take what was calculated at the formula and apply the slippage. */
-                    let slippageAmount = tradePositionRate * slippage.positionRate / 100
+                    let slippageAmount = tradePositionRate * bot.VALUES_TO_USE.slippage.positionRate / 100
 
-                    if (baseAsset === 'BTC') {
+                    if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                         tradePositionRate = tradePositionRate - slippageAmount
                     } else {
                         tradePositionRate = tradePositionRate + slippageAmount
@@ -2118,7 +1979,7 @@
                         let positionDirection
                         let availableBalance = assistant.getAvailableBalance()
 
-                        if (baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                             positionDirection = "sell"
 
                             openPositionRate = tradePositionRate - 100 // 100 is Provisional since we do have management of orders yet
@@ -2217,15 +2078,15 @@
 
                         let feePaid = 0
 
-                        if (baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
 
-                            feePaid = tradePositionSize * tradePositionRate * feeStructure.taker / 100
+                            feePaid = tradePositionSize * tradePositionRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
                             balanceAssetB = balanceAssetB + tradePositionSize * tradePositionRate - feePaid;
                             balanceAssetA = balanceAssetA - tradePositionSize;
                         } else {
 
-                            feePaid = tradePositionSize / tradePositionRate * feeStructure.taker / 100
+                            feePaid = tradePositionSize / tradePositionRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
                             balanceAssetA = balanceAssetA + tradePositionSize / tradePositionRate - feePaid;
                             balanceAssetB = balanceAssetB - tradePositionSize;
@@ -2342,7 +2203,7 @@
                         let positionDirection
                         let availableBalance = assistant.getAvailableBalance()
 
-                        if (baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                             positionDirection = "buy"
 
                             closePositionRate = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
@@ -2421,16 +2282,16 @@
                             }
                         }
 
-                        if (baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                             lastTradeProfitLoss = balanceAssetA - previousBalanceAssetA;
                             lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
                             if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
-                            profit = balanceAssetA - initialBalanceA;
+                            profit = balanceAssetA - bot.VALUES_TO_USE.initialBalanceA;
                         } else {
                             lastTradeProfitLoss = balanceAssetB - previousBalanceAssetB;
                             lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
                             if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
-                            profit = balanceAssetB - initialBalanceB;
+                            profit = balanceAssetB - bot.VALUES_TO_USE.initialBalanceB;
                         }
 
                         if (processingDailyFiles) {
@@ -2468,12 +2329,12 @@
                             }
                         }
 
-                        if (baseAsset === 'BTC') {
-                            ROI = (initialBalanceA + profit) / initialBalanceA - 1;
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                            ROI = (bot.VALUES_TO_USE.initialBalanceA + profit) / bot.VALUES_TO_USE.initialBalanceA - 1;
                             hitRatio = hits / roundtrips;
                             anualizedRateOfReturn = ROI / days * 365;
                         } else {
-                            ROI = (initialBalanceB + profit) / initialBalanceB - 1;
+                            ROI = (bot.VALUES_TO_USE.initialBalanceB + profit) / bot.VALUES_TO_USE.initialBalanceB - 1;
                             hitRatio = hits / roundtrips;
                             anualizedRateOfReturn = ROI / days * 365;
                         }
@@ -2616,7 +2477,7 @@
                         balanceAssetB = Number.MAX_SAFE_INTEGER
                     }
 
-                    let quotedBaseAsset = '"' + baseAsset + '"'
+                    let quotedBaseAsset = '"' + bot.VALUES_TO_USE.baseAsset + '"'
 
                     simulationRecord = {
                         begin: candle.begin,
@@ -2646,12 +2507,12 @@
                         takeProfitPhase: takeProfitPhase,
                         executionRecord: '',
                         positionSize: tradePositionSize,
-                        initialBalanceA: initialBalanceA,
-                        minimumBalanceA: minimumBalanceA,
-                        maximumBalanceA: maximumBalanceA,
-                        initialBalanceB: initialBalanceB,
-                        minimumBalanceB: minimumBalanceB,
-                        maximumBalanceB: maximumBalanceB,
+                        initialBalanceA: bot.VALUES_TO_USE.initialBalanceA,
+                        minimumBalanceA: bot.VALUES_TO_USE.minimumBalanceA,
+                        maximumBalanceA: bot.VALUES_TO_USE.maximumBalanceA,
+                        initialBalanceB: bot.VALUES_TO_USE.initialBalanceB,
+                        minimumBalanceB: bot.VALUES_TO_USE.minimumBalanceB,
+                        maximumBalanceB: bot.VALUES_TO_USE.maximumBalanceB,
                         baseAsset: quotedBaseAsset,
                         positionPeriods: positionPeriods,
                         positionDays: positionDays,

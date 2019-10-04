@@ -146,8 +146,8 @@
 
                     /* High level log entry  */
 
-                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
-                        + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8));
+                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + bot.sessionKey
+                        + " Loop # " + pad(Number(bot.loopCounter), 8));
 
                     /* Checking if we need to need to emit any event */
 
@@ -1052,6 +1052,10 @@
                     seconds: (new Date()).getSeconds()
                 }
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Heartbeat', event)
+
+                if (global.STOP_TASK_GRACEFULLY === true) {
+                    bot.STOP_SESSION = true
+                }
             }
 
         } catch (err) {

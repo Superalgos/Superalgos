@@ -42,8 +42,6 @@
         timePeriod,
         timePeriodLabel,
         currentDay,
-        userDefinedStartDatetime,
-        userDefinedEndDatetime,
         interExecutionMemory,
         assistant,
         callback,
@@ -59,9 +57,6 @@
                 processingDailyFiles = true
             }
 
-            userDefinedStartDatetime = new Date(userDefinedStartDatetime)
-            userDefinedEndDatetime = new Date(userDefinedEndDatetime)
-
             let recordsArray = [];
             let conditionsArray = [];
             let strategiesArray = [];
@@ -72,8 +67,8 @@
 
             /* Initial Default Values */
 
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> userDefinedStartDatetime = " + userDefinedStartDatetime); }
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> userDefinedEndDatetime = " + userDefinedEndDatetime); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> bot.VALUES_TO_USE.timeRange.initialDatetime = " + bot.VALUES_TO_USE.timeRange.initialDatetime); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> bot.VALUES_TO_USE.timeRange.finalDatetime = " + bot.VALUES_TO_USE.timeRange.finalDatetime); }
 
             let timerToCloseStage = 0
 
@@ -362,7 +357,7 @@
                 }
 
                 if (currentDay) {
-                    if (currentDay.valueOf() >= userDefinedStartDatetime.valueOf() + ONE_DAY_IN_MILISECONDS) { // Only after the first day we start grabbing the balance from this memory.
+                    if (currentDay.valueOf() >= bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() + ONE_DAY_IN_MILISECONDS) { // Only after the first day we start grabbing the balance from this memory.
 
                         balanceAssetA = interExecutionMemory.balanceAssetA;
                         balanceAssetB = interExecutionMemory.balanceAssetB;
@@ -477,14 +472,14 @@
                 /* Estimate Initial Candle */
 
                 let firstEnd = candles[0].end
-                let targetEnd = userDefinedStartDatetime.valueOf()
+                let targetEnd = bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()
                 let diff = targetEnd - firstEnd
                 let amount = diff / timePeriod
 
                 i = Math.trunc(amount)
                 if (i < 0) { i = 0 }
                 if (i > candles.length - 1) {
-                    /* This will happen when the userDefinedStartDatetime is beyond the last candle available, meaning that the dataSet needs to be updated with more up-to-date data. */
+                    /* This will happen when the bot.VALUES_TO_USE.timeRange.initialDatetime is beyond the last candle available, meaning that the dataSet needs to be updated with more up-to-date data. */
                     i = candles.length - 1
                 }
 
@@ -500,13 +495,13 @@
 
                 /* Not processing while out of user-defined time range */
 
-                if (candle.end < userDefinedStartDatetime.valueOf()) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle before the userDefinedStartDatetime."); }
+                if (candle.end < bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle before the bot.VALUES_TO_USE.timeRange.initialDatetime."); }
                     controlLoop();
                     return
                 }
-                if (candle.begin > userDefinedEndDatetime.valueOf()) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle after the userDefinedEndDatetime."); }
+                if (candle.begin > bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle after the bot.VALUES_TO_USE.timeRange.finalDatetime."); }
                     afterLoop();
                     return
                 }
@@ -1918,19 +1913,19 @@
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Entering function."); }
 
-                        /* We wont take a position unless we are withing the userDefinedStartDatetime and the userDefinedEndDatetime range */
-                        if (userDefinedStartDatetime !== undefined) {
-                            if (candle.end < userDefinedStartDatetime.valueOf()) {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because current candle ends before the start date.  -> userDefinedStartDatetime = " + userDefinedStartDatetime); }
+                        /* We wont take a position unless we are withing the bot.VALUES_TO_USE.timeRange.initialDatetime and the bot.VALUES_TO_USE.timeRange.finalDatetime range */
+                        if (bot.VALUES_TO_USE.timeRange.initialDatetime !== undefined) {
+                            if (candle.end < bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because current candle ends before the start date.  -> bot.VALUES_TO_USE.timeRange.initialDatetime = " + bot.VALUES_TO_USE.timeRange.initialDatetime); }
                                 takePositionAtSimulation()
                                 return;
                             }
                         }
 
                         /* This validation is disbled for now because we do not have the correct end date at this point.
-                        if (userDefinedEndDatetime !== undefined) {
-                            if (candle.begin > userDefinedEndDatetime.valueOf()) {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because current candle begins after the end date. -> userDefinedEndDatetime = " + userDefinedEndDatetime); }
+                        if (bot.VALUES_TO_USE.timeRange.finalDatetime !== undefined) {
+                            if (candle.begin > bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because current candle begins after the end date. -> bot.VALUES_TO_USE.timeRange.finalDatetime = " + bot.VALUES_TO_USE.timeRange.finalDatetime); }
                                 takePositionAtSimulation()
                                 return;
                             }

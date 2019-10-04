@@ -53,7 +53,7 @@
         thisObject = undefined
     }
 
-    function start(multiPeriodDataFiles, timePeriod, timePeriodLabel, currentDay, startDate, endDate, interExecutionMemory, callBackFunction) {
+    function start(multiPeriodDataFiles, timePeriod, timePeriodLabel, currentDay, interExecutionMemory, callBackFunction) {
 
         try {
 
@@ -150,8 +150,6 @@
                 timePeriod,
                 timePeriodLabel,
                 currentDay,
-                startDate,
-                endDate,
                 interExecutionMemory,
                 assistant,
                 writeFiles,

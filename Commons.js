@@ -25,8 +25,6 @@
     let bollingerSubChannelsAt = {}
     let candlesAt = {}
 
-    const definition = global.DEFINITION
-
     return thisObject;
 
     function finalize() {
@@ -63,7 +61,7 @@
             let tradesArray = [];
             let lastObjectsArray = [];
 
-            let tradingSystem = definition.tradingSystem;
+            let tradingSystem = bot.DEFINITION.tradingSystem;
 
             /* Initial Default Values */
 

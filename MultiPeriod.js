@@ -119,7 +119,7 @@
                     let statusReport;
 
                     /* We are going to use the start date as beging of market date. */
-                    contextVariables.dateBeginOfMarket = new Date(processConfig.framework.startDate.fixedDate)                
+                    contextVariables.dateBeginOfMarket = bot.VALUES_TO_USE.timeRange.initialDatetime                
 
                     /*
                         Here we get the status report from the bot who knows which is the end of the market.
@@ -459,8 +459,7 @@
 
                             /* Validation that we are not going past the user defined end date. */
 
-                            const userDefinedEndDatetime = new Date(processConfig.framework.endDate.fixedDate);
-                            if (bot.multiPeriodDailyProcessDatetime.valueOf() >= userDefinedEndDatetime.valueOf()) {
+                            if (bot.multiPeriodDailyProcessDatetime.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
 
                                 const logText = "User Defined End Datetime reached @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> advanceTime -> " + logText); }
@@ -834,8 +833,6 @@
                                 currentTimePeriod,
                                 currentOutputPeriodLabel,
                                 bot.multiPeriodDailyProcessDatetime,
-                                processConfig.framework.startDate.fixedDate,
-                                processConfig.framework.endDate.fixedDate,
                                 interExecutionMemoryArray[n],
                                 onBotFinished);
 
@@ -900,9 +897,8 @@
 
                                             /* This is where we check if we need reached the user defined end datetime.  */
 
-                                            const userDefinedEndDatetime = new Date(processConfig.framework.endDate.fixedDate);
                                             const now = new Date()
-                                            if (now.valueOf()  >= userDefinedEndDatetime.valueOf()) {
+                                            if (now.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
 
                                                 const logText = "User Defined End Datetime reached @ " + now.getUTCFullYear() + "/" + (now.getUTCMonth() + 1) + "/" + now.getUTCDate() + ".";
                                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onMarketStatusReport -> " + logText); }

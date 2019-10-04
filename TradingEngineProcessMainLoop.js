@@ -108,7 +108,14 @@
             global.SYSTEM_EVENT_HANDLER.listenToEvent(bot.sessionKey, 'Stop Session', undefined, undefined, undefined, stopSession)
 
             function runSession(message) {
-                switch (bot.processNode.session.type) {
+
+                /* We are going to run the Definition comming at the event. */
+                global.DEFINITION = JSON.parse(message.event.definition)
+                bot.SESSION = JSON.parse(message.event.session)
+
+                setValuesToUse(message)
+
+                switch (bot.SESSION.type) {
                     case 'Backtesting Session': {
                         startBackTesting(message)
                         break
@@ -127,59 +134,13 @@
             }
 
             function startBackTesting(message) {
-
-                /* We are going to run the Definition comming at the event. */
-                global.DEFINITION = JSON.parse(message.event.definition)
-
                 bot.startMode = "Backtest"
                 processConfig.framework.startDate.resumeExecution = false;
-                bot.hasTheBotJustStarted = true
-                setValuesToUse(message)
-
-                const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
-                /* If we can not get for any reason the initial date of the backtest, we will start at present time. */
-                processConfig.framework.startDate.fixedDate = new Date() 
-                /* If we can not get for any reason the final date of the backtest, we will stop one year after the start date. */
-                processConfig.framework.endDate.fixedDate = new Date(processConfig.framework.startDate.fixedDate.valueOf() + ONE_YEAR_IN_MILISECONDS) 
-
-                /* Convert this dates to string */
-                processConfig.framework.startDate.fixedDate = processConfig.framework.startDate.fixedDate.toISOString()
-                processConfig.framework.endDate.fixedDate = processConfig.framework.endDate.fixedDate.toISOString()
-
-                /* If we received simulation params we use them instead. */
-                if (global.DEFINITION.uiCurrentValues) {
-                    if (global.DEFINITION.uiCurrentValues.beginDatetime) {
-                        processConfig.framework.startDate.fixedDate = global.DEFINITION.uiCurrentValues.beginDatetime
-                    }
-                }
-
-                /* We finally will try to exctact the initial and final date for the backtest from the Definition */
-                if (global.DEFINITION.tradingSystem !== undefined) {
-                    if (global.DEFINITION.tradingSystem.parameters !== undefined) {
-                        if (global.DEFINITION.tradingSystem.parameters.timeRange !== undefined) {
-                            if (global.DEFINITION.tradingSystem.parameters.timeRange.code !== undefined) {
-                                try {
-                                    let code = JSON.parse(global.DEFINITION.tradingSystem.parameters.timeRange.code)
-                                    if (code.initialDatetime !== undefined) {
-                                        processConfig.framework.startDate.fixedDate = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
-                                    }
-                                    if (code.finalDatetime !== undefined) {
-                                        processConfig.framework.endDate.fixedDate = code.finalDatetime
-                                    }
-                                } catch (err) {
-                                    global.DEFINITION.tradingSystem.parameters.timeRange.error = err.message
-                                }
-                            }
-                        }
-                    }
-                }
-                bot.multiPeriodDailyProcessDatetime = processConfig.framework.startDate.fixedDate
+                bot.hasTheBotJustStarted = true 
+                bot.multiPeriodDailyProcessDatetime = bot.VALUES_TO_USE.timeRange.initialDatetime
             }
 
             function startLiveTrading(message) {
-
-                /* We are going to run the Definition comming at the event. */
-                global.DEFINITION = JSON.parse(message.event.definition)
 
                 if (global.DEFINITION.personalData) {
                     if (global.DEFINITION.personalData.exchangeAccounts) {
@@ -204,11 +165,13 @@
                 }
 
                 bot.startMode = "Live"
-                processConfig.framework.startDate.fixedDate = new Date()
+                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf) {
+                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
+                }
                 processConfig.framework.startDate.resumeExecution = false;
-                bot.multiPeriodDailyProcessDatetime = processConfig.framework.startDate.fixedDate
+                bot.multiPeriodDailyProcessDatetime = bot.VALUES_TO_USE.timeRange.initialDatetime
                 bot.hasTheBotJustStarted = true
-                setValuesToUse(message)
+                
             }
 
             function setValuesToUse(message) {
@@ -216,9 +179,7 @@
                     Base on the information received we will determined which values ultimatelly are going to be used,
                     and once we do, they will become constants across the multiple loops executions.
                 */
-
-                bot.SESSION = JSON.parse(message.event.session)
-
+                
                 /* Set all default values */
                 bot.VALUES_TO_USE = {
                     baseAsset: "BTC",
@@ -237,6 +198,25 @@
                     feeStructure: {
                         maker: 0,
                         taker: 0
+                    },
+                    timeRange: {
+                        initialDatetime: new Date(),
+                        finalDatetime: new Date() 
+                    }
+                }
+
+                /* Session Type Dependant Default Values */
+                const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
+                switch (bot.SESSION.type) {
+                    case 'Backtesting Session': {
+                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(global.DEFINITION.uiCurrentValues.initialDatetime)
+                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date()
+                        break
+                    }
+                    case 'Live Trading Session': {
+                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
+                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS) 
+                        break
                     }
                 }
 
@@ -335,7 +315,24 @@
                                     tradingSystem.parameters.feeStructure.error = err.message
                                 }
                             }
-                        }     
+                        }
+
+                        /* Time Range */
+                        if (tradingSystem.parameters.timeRange !== undefined) {
+                            if (tradingSystem.parameters.timeRange.code !== undefined) {
+                                try {
+                                    let code = JSON.parse(tradingSystem.parameters.timeRange.code)
+                                    if (code.initialDatetime !== undefined) {
+                                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                    }
+                                    if (code.finalDatetime !== undefined) {
+                                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
+                                    }
+                                } catch (err) {
+                                    tradingSystem.parameters.timeRange.error = err.message
+                                }
+                            }
+                        }
                     }
 
                     /* Applying Session Level Parameters */
@@ -384,6 +381,23 @@
 
                                     } catch (err) {
                                         parentLogger.write(MODULE_NAME, "[WARN] run -> startLiveTrading -> Invalid Fee Structure Value -> err = " + err.stack);
+                                    }
+                                }
+                            }
+
+                            /* Time Range */
+                            if (bot.SESSION.parameters.timeRange !== undefined) {
+                                if (bot.SESSION.parameters.timeRange.code !== undefined) {
+                                    try {
+                                        let code = JSON.parse(bot.SESSION.parameters.timeRange.code)
+                                        if (code.initialDatetime !== undefined) {
+                                            bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                        }
+                                        if (code.finalDatetime !== undefined) {
+                                            bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
+                                        }
+                                    } catch (err) {
+                                        parentLogger.write(MODULE_NAME, "[WARN] run -> startLiveTrading -> Invalid Time Range Value -> err = " + err.stack);
                                     }
                                 }
                             }

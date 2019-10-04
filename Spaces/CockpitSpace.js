@@ -6,7 +6,6 @@
      container: undefined,
      status: 'BOTTOM',
      assetBalances: undefined,
-     restartSimulation: undefined,
      fullscreen: undefined,
      toTop: toTop,
      toBottom: toBottom,
@@ -39,7 +38,6 @@
      thisObject.container.finalize()
      thisObject.container = undefined
      thisObject.assetBalances = undefined
-     thisObject.restartSimulation = undefined
      thisObject.fullscreen = undefined
    }
 
@@ -66,10 +64,6 @@
 
      thisObject.assetBalances = newAssetBalances()
      thisObject.assetBalances.initialize()
-
-     thisObject.restartSimulation = newRestartSimulation()
-     thisObject.restartSimulation.container.connectToParent(thisObject.container)
-     thisObject.restartSimulation.initialize()
 
      thisObject.fullscreen = newFullScreen()
      thisObject.fullscreen.container.connectToParent(thisObject.container)
@@ -99,9 +93,6 @@
    }
 
    function childrenPhysics () {
-     if (canvas.strategySpace.workspace.enabled === true) {
-       thisObject.restartSimulation.physics()
-     }
      thisObject.fullscreen.physics()
    }
    function thisObjectPhysics () {
@@ -144,11 +135,6 @@
    function getContainer (point) {
      let container
 
-     if (canvas.strategySpace.workspace.enabled === true) {
-       container = thisObject.restartSimulation.getContainer(point)
-       if (container !== undefined) { return container }
-     }
-
      container = thisObject.fullscreen.getContainer(point)
      if (container !== undefined) { return container }
 
@@ -165,9 +151,6 @@
      drawBackground()
 
      thisObject.assetBalances.draw()
-     if (canvas.strategySpace.workspace.enabled === true) {
-       thisObject.restartSimulation.draw()
-     }
      thisObject.fullscreen.draw()
    }
 

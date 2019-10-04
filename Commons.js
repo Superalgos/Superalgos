@@ -560,10 +560,13 @@
 
                 loopingDay = new Date(Math.trunc(candle.begin / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
                 if (loopingDay.valueOf() !== previousLoopingDay) {
-                    if (FULL_LOG === true) {logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + i + " @ " + (loopingDay.toLocaleString()))}
-                    console.log("Jason -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + i + " @ " + (loopingDay.toLocaleString())) 
 
-                    bot.sessionHeartBeat() // tell the world we are alive and doing well
+                    let processingDate = loopingDay.getUTCFullYear() + '-' + utilities.pad(loopingDay.getUTCMonth() + 1, 2) + '-' + utilities.pad(loopingDay.getUTCDate(), 2);
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + i + " @ " + processingDate)}
+                    console.log("Jason -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + i + " @ " + processingDate) 
+                    
+                    bot.sessionHeartBeat(processingDate) // tell the world we are alive and doing well
                 }
                 previousLoopingDay = loopingDay.valueOf()
 

@@ -1047,9 +1047,10 @@
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
             }
 
-            function sessionHeartBeat() {
+            function sessionHeartBeat(processingDate) {
                 let event = {
-                    seconds: (new Date()).getSeconds()
+                    seconds: (new Date()).getSeconds(),
+                    processingDate: processingDate
                 }
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Heartbeat', event)
 

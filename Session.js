@@ -102,12 +102,12 @@
                 /* Set all default values */
                 bot.VALUES_TO_USE = {
                     baseAsset: "BTC",
-                    initialBalanceA: 0,
-                    initialBalanceB: 0.001,
-                    minimumBalanceA: 0,
-                    minimumBalanceB: 0.0005,
-                    maximumBalanceA: 0,
-                    maximumBalanceB: 0.002,
+                    initialBalanceA: 0.001,
+                    initialBalanceB: 0,
+                    minimumBalanceA: 0.0005,
+                    minimumBalanceB: 0,
+                    maximumBalanceA: 0.002,
+                    maximumBalanceB: 0,
                     timePeriod: bot.DEFINITION.uiCurrentValues.timePeriod,
                     slippage: {
                         positionRate: 0,
@@ -157,10 +157,10 @@
                                         bot.VALUES_TO_USE.baseAsset = code.name;
                                     }
 
-                                    if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
+                                    if (baseAsset === 'BTC') { 
                                         if (code.initialBalance !== undefined) {
-                                            bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
-                                            bot.VALUES_TO_USE.initialBalanceA = 0
+                                            bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
+                                            bot.VALUES_TO_USE.initialBalanceB = 0
                                         }
                                         if (code.minimumBalance !== undefined) {
                                             bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
@@ -172,8 +172,8 @@
                                         }
                                     } else {
                                         if (code.initialBalance !== undefined) {
-                                            bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
-                                            bot.VALUES_TO_USE.initialBalanceB = 0
+                                            bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
+                                            bot.VALUES_TO_USE.initialBalanceA = 0
                                         }
                                         if (code.minimumBalance !== undefined) {
                                             bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;

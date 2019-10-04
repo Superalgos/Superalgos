@@ -306,8 +306,8 @@
 
                     if (bot.VALUES_TO_USE.initialBalanceA === undefined || bot.VALUES_TO_USE.initialBalanceB === undefined) { throw new Error("Global Variables INITIAL_BALANCE_A and INITIAL_BALANCE_B cannot be undefined.") }
 
-					const INITIAL_BALANCE_A = Number(bot.VALUES_TO_USE.initialBalanceA);
-                    const INITIAL_BALANCE_B = Number(bot.VALUES_TO_USE.initialBalanceB);
+					const INITIAL_BALANCE_A = Number(bot.VALUES_TO_USE.initialBalanceB); // NOTE THAT THIS IS INVERTED BECAUSE OF POLONIEX THAT IS THE ONLY EXCHANGE SUPPORTED RIGHT NOW
+                    const INITIAL_BALANCE_B = Number(bot.VALUES_TO_USE.initialBalanceA);
 
 
                     thisObject.executionContext = {

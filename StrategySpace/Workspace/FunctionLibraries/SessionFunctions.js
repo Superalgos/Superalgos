@@ -7,6 +7,17 @@ function newSessionFunctions () {
   return thisObject
 
   function runSession (node, functionLibraryProtocolNode, callBackFunction) {
+    /* We can not run a sessionif its parent process is not running. Less if it does not have a parent. */
+    if (node.payload.parentNode === undefined) {
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      return
+    }
+
+    if (node.payload.parentNode.payload.uiObject.isRunning !== true) {
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      return
+    }
+
     node.payload.uiObject.run(callBackFunction)
 
     let key = node.name + '-' + node.type + '-' + node.id

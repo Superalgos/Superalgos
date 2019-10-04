@@ -19,6 +19,7 @@ function newStrategyPart () {
     circularProgressBar: undefined,
     isExecuting: undefined,
     isDefault: undefined,
+    isRunning: undefined,
     setAsDefault: setAsDefault,
     run: run,
     stop: stop,
@@ -618,6 +619,8 @@ function newStrategyPart () {
       type: 'Secondary Action Already Executed'
     }
     stop(callBackFunction, event)
+
+    thisObject.isRunning = true
   }
 
   function stop (callBackFunction, event) {
@@ -634,6 +637,7 @@ function newStrategyPart () {
         thisObject.circularProgressBar.finalize()
         thisObject.circularProgressBar = undefined
       }
+      thisObject.isRunning = false
     }
   }
 

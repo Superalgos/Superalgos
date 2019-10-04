@@ -82,7 +82,7 @@ function newStrategyPart () {
   let attachToNode
 
   let errorMessage = ''
-  let formulaValue = 0
+  let currentValue = 0
   let rightDragging = false
 
   return thisObject
@@ -577,9 +577,9 @@ function newStrategyPart () {
 
   function setValue (value) {
     if (value !== undefined) {
-      formulaValue = value
+      currentValue = value
       hasValue = true
-      valueCounter = 5
+      valueCounter = 100
     }
   }
 
@@ -904,7 +904,7 @@ function newStrategyPart () {
 
     position = thisObject.container.frame.frameThisPoint(position)
 
-    let radius = thisObject.container.frame.radius
+    let radius = thisObject.container.frame.radius * 1.5
             /* Label Text */
     let labelPoint
     let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
@@ -913,7 +913,10 @@ function newStrategyPart () {
     if (radius > 6) {
       const MAX_LABEL_LENGTH = 30
 
-      label = formulaValue.toFixed(2)
+      label = currentValue
+      if (!isNaN(label)) {
+        label = currentValue.toFixed(2)
+      }
 
       if (label !== undefined) {
         if (label.length > MAX_LABEL_LENGTH) {

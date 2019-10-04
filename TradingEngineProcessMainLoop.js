@@ -218,67 +218,172 @@
                 */
 
                 bot.SESSION = JSON.parse(message.event.session)
-                bot.VALUES_TO_USE = {}
 
-                if (global.DEFINITION !== undefined) {
-                    let tradingSystem = global.DEFINITION.tradingSystem
+                /* Set all default values */
+                bot.VALUES_TO_USE = {
+                    baseAsset: "BTC",
+                    initialBalanceA: 0,
+                    initialBalanceB: 0.001,
+                    minimumBalanceA: 0,
+                    minimumBalanceB: 0.0005,
+                    maximumBalanceA: 0,
+                    maximumBalanceB: 0.002,
+                    timePeriod: global.DEFINITION.uiCurrentValues.timePeriod,
+                    slippage: {
+                        positionRate: 0,
+                        stopLoss: 0,
+                        takeProfit: 0
+                    },
+                    feeStructure: {
+                        maker: 0,
+                        taker: 0
+                    }
+                }
 
-                    if (tradingSystem) {
-                        if (tradingSystem.parameters !== undefined) {
+                let tradingSystem = global.DEFINITION.tradingSystem
 
-                            /* Decide which Initial Balance we are going to use. */
+                if (tradingSystem !== undefined) {
+
+                    /* Applying Trading System Level Parameters */
+                    if (tradingSystem.parameters !== undefined) {
+
+                        /* Base Asset and Initial Balances. */
+                        {
                             if (tradingSystem.parameters.baseAsset !== undefined) {
                                 let code
                                 try {
-                                    /* Default Value */
-                                    bot.VALUES_TO_USE.initialBalanceAssetB = 0.001;
-                                    bot.VALUES_TO_USE.initialBalanceAssetA = 0
-
                                     code = JSON.parse(tradingSystem.parameters.baseAsset.code);
 
                                     if (code.name !== undefined) {
-                                        baseAsset = code.name;
-                                        if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
-                                            /* using BTC as default */
-                                            baseAsset = 'BTC'
-                                        }
+                                        bot.VALUES_TO_USE.baseAsset = code.name;
                                     }
 
                                     if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
                                         if (code.initialBalance !== undefined) {
-                                            bot.VALUES_TO_USE.initialBalanceAssetB = code.initialBalance;
-                                            bot.VALUES_TO_USE.initialBalanceAssetA = 0
+                                            bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
+                                            bot.VALUES_TO_USE.initialBalanceA = 0
+                                        }
+                                        if (code.minimumBalance !== undefined) {
+                                            bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
+                                            bot.VALUES_TO_USE.minimumBalanceB = 0
+                                        }
+                                        if (code.maximumBalance !== undefined) {
+                                            bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
+                                            bot.VALUES_TO_USE.maximumBalanceB = 0
                                         }
                                     } else {
                                         if (code.initialBalance !== undefined) {
-                                            bot.VALUES_TO_USE.initialBalanceAssetA = code.initialBalance;
-                                            bot.VALUES_TO_USE.initialBalanceAssetB = 0
+                                            bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
+                                            bot.VALUES_TO_USE.initialBalanceB = 0
+                                        }
+                                        if (code.minimumBalance !== undefined) {
+                                            bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
+                                            bot.VALUES_TO_USE.minimumBalanceA = 0
+                                        }
+                                        if (code.maximumBalance !== undefined) {
+                                            bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
+                                            bot.VALUES_TO_USE.maximumBalanceA = 0
                                         }
                                     }
                                 } catch (err) {
-                                    global.DEFINITION.tradingSystem.parameters.baseAsset.error = err.message
+                                    tradingSystem.parameters.baseAsset.error = err.message
+                                }
+                            }
+                        }
+                            
+                        /* Time Period */
+                        if (tradingSystem.parameters.timePeriod !== undefined) {
+                            bot.VALUES_TO_USE.timePeriod = tradingSystem.parameters.timePeriod.code
+                        }
 
-                                    bot.VALUES_TO_USE.initialBalanceAssetA = 0 // default
-                                    bot.VALUES_TO_USE.initialBalanceAssetB = 0.001 // default
+                        /* Slippage */
+                        if (tradingSystem.parameters.slippage !== undefined) {
+                            if (tradingSystem.parameters.slippage.code !== undefined) {
+                                try {
+                                    let code = JSON.parse(tradingSystem.parameters.slippage.code)
 
+                                    if (code.positionRate !== undefined) {
+                                        bot.VALUES_TO_USE.slippage.positionRate = code.positionRate
+                                    }
+                                    if (code.stopLoss !== undefined) {
+                                        bot.VALUES_TO_USE.slippage.stopLoss = code.stopLoss
+                                    }
+                                    if (code.takeProfit !== undefined) {
+                                        bot.VALUES_TO_USE.slippage.takeProfit = code.takeProfit
+                                    }
+
+                                } catch (err) {
+                                    tradingSystem.parameters.slippage.error = err.message
+                                }
+                            }
+                        }
+
+                        /* Fee Structure */
+                        if (tradingSystem.parameters.feeStructure !== undefined) {
+                            if (tradingSystem.parameters.feeStructure.code !== undefined) {
+                                try {
+                                    let code = JSON.parse(tradingSystem.parameters.feeStructure.code)
+
+                                    if (code.maker !== undefined) {
+                                        bot.VALUES_TO_USE.feeStructure.maker = code.maker
+                                    }
+                                    if (code.taker !== undefined) {
+                                        bot.VALUES_TO_USE.feeStructure.taker = code.taker
+                                    }
+
+                                } catch (err) {
+                                    tradingSystem.parameters.feeStructure.error = err.message
+                                }
+                            }
+                        }     
+                    }
+
+                    /* Applying Session Level Parameters */
+                    if (bot.SESSION !== undefined) {
+                        if (bot.SESSION.parameters !== undefined) {
+
+                            /* Time Period */
+                            if (bot.SESSION.parameters.timePeriod !== undefined) {
+                                bot.VALUES_TO_USE.timePeriod = bot.SESSION.parameters.timePeriod.code
+                            }
+
+                            /* Slippage */
+                            if (bot.SESSION.parameters.slippage !== undefined) {
+                                if (bot.SESSION.parameters.slippage.code !== undefined) {
+                                    try {
+                                        let code = JSON.parse(bot.SESSION.parameters.slippage.code)
+
+                                        if (code.positionRate !== undefined) {
+                                            bot.VALUES_TO_USE.slippage.positionRate = code.positionRate
+                                        }
+                                        if (code.stopLoss !== undefined) {
+                                            bot.VALUES_TO_USE.slippage.stopLoss = code.stopLoss
+                                        }
+                                        if (code.takeProfit !== undefined) {
+                                            bot.VALUES_TO_USE.slippage.takeProfit = code.takeProfit
+                                        }
+
+                                    } catch (err) {
+                                        parentLogger.write(MODULE_NAME, "[WARN] run -> startLiveTrading -> Invalid Slippage Value -> err = " + err.stack);
+                                    }
                                 }
                             }
 
-                            /* Decide which Time Period we are going to use.*/
+                            /* Fee Structure */
+                            if (bot.SESSION.parameters.feeStructure !== undefined) {
+                                if (bot.SESSION.parameters.feeStructure.code !== undefined) {
+                                    try {
+                                        let code = JSON.parse(bot.SESSION.parameters.feeStructure.code)
 
-                            /* This is the last fallback */
-                            bot.VALUES_TO_USE.timePeriod = global.DEFINITION.uiCurrentValues.timePeriod 
+                                        if (code.maker !== undefined) {
+                                            bot.VALUES_TO_USE.feeStructure.maker = code.maker
+                                        }
+                                        if (code.taker !== undefined) {
+                                            bot.VALUES_TO_USE.feeStructure.taker = code.taker
+                                        }
 
-                            /* Secondary option, if exists. */
-                            if (tradingSystem.parameters.timePeriod !== undefined) {
-                                bot.VALUES_TO_USE.timePeriod = tradingSystem.parameters.timePeriod.code  
-                            }
-
-                            /* Primary source of information, if it exists */
-                            if (bot.SESSION !== undefined) {
-                                if (bot.SESSION.parameters !== undefined) {
-                                    if (bot.SESSION.parameters.timePeriod !== undefined) {
-                                        bot.VALUES_TO_USE.timePeriod = bot.SESSION.parameters.timePeriod.code 
+                                    } catch (err) {
+                                        parentLogger.write(MODULE_NAME, "[WARN] run -> startLiveTrading -> Invalid Fee Structure Value -> err = " + err.stack);
                                     }
                                 }
                             }

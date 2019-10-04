@@ -304,10 +304,10 @@
 
                     thisObject.executionHistory = [];
 
-                    if (bot.VALUES_TO_USE.initialBalanceAssetA === undefined || bot.VALUES_TO_USE.initialBalanceAssetB === undefined) { throw new Error("Global Variables INITIAL_BALANCE_A and INITIAL_BALANCE_B cannot be undefined.") }
+                    if (bot.VALUES_TO_USE.initialBalanceA === undefined || bot.VALUES_TO_USE.initialBalanceB === undefined) { throw new Error("Global Variables INITIAL_BALANCE_A and INITIAL_BALANCE_B cannot be undefined.") }
 
-					const INITIAL_BALANCE_A = Number(bot.VALUES_TO_USE.initialBalanceAssetA);
-                    const INITIAL_BALANCE_B = Number(bot.VALUES_TO_USE.initialBalanceAssetB);
+					const INITIAL_BALANCE_A = Number(bot.VALUES_TO_USE.initialBalanceA);
+                    const INITIAL_BALANCE_B = Number(bot.VALUES_TO_USE.initialBalanceB);
 
 
                     thisObject.executionContext = {

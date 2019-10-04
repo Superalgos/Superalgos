@@ -8,7 +8,7 @@ function getUICurrentValues () {
   let timePeriod = timePeriodArray[currentTimePeriod.timePeriodIndex][1]
 
   let uiCurrentValues = {
-    beginDatetime: dateAtScreenCorner,
+    initialDatetime: dateAtScreenCorner,
     timePeriod: timePeriod,
     timestamp: (new Date()).valueOf()
   }

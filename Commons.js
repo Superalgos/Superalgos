@@ -560,8 +560,8 @@
 
                 loopingDay = new Date(Math.trunc(candle.begin / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
                 if (loopingDay.valueOf() !== previousLoopingDay) {
-                    if (FULL_LOG === true) {logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Simulation Loop # " + i + " @ " + (loopingDay.toLocaleString()))}
-                    console.log("Jason -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation Loop # " + i + " @ " + (loopingDay.toLocaleString())) 
+                    if (FULL_LOG === true) {logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + i + " @ " + (loopingDay.toLocaleString()))}
+                    console.log("Jason -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + i + " @ " + (loopingDay.toLocaleString())) 
 
                     bot.sessionHeartBeat() // tell the world we are alive and doing well
                 }
@@ -2605,7 +2605,7 @@
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> Entering function."); }
 
                 /* Checking if we should continue processing this loop or not.*/
-                if (global.STOP_PROCESSING === true) {
+                if (bot.STOP_SESSION === true) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing."); }
                     console.log("[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing.")
                     afterLoop()

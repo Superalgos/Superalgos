@@ -350,10 +350,10 @@
                     /* Checking if we should process this loop or not.*/
                     if (global.STOP_SESSION === true) {
                        
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be started."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran."); }
 
                         console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
-                            + " Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be started. ");
+                            + " Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran. ");
 
                         nextWaitTime = 'Normal';
                         loopControl(nextWaitTime);

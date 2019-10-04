@@ -184,7 +184,7 @@
 
                     if (thisReport.lastFile !== undefined) {
 
-                        if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate.resumeExecution === false) {
+                        if (bot.hasTheBotJustStarted === true && bot.resumeExecution === false) {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true."); }
                             startFromBegining();
@@ -464,7 +464,7 @@
                                 const logText = "User Defined End Datetime reached @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> advanceTime -> " + logText); }
 
-                                global.STOP_SESSION = true
+                                bot.STOP_SESSION = true
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
 
@@ -521,7 +521,7 @@
 
                             /* Validation that we dont need to stop. */
 
-                            if (global.STOP_SESSION === true) {
+                            if (bot.STOP_SESSION === true) {
 
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
@@ -903,7 +903,7 @@
                                                 const logText = "User Defined End Datetime reached @ " + now.getUTCFullYear() + "/" + (now.getUTCMonth() + 1) + "/" + now.getUTCDate() + ".";
                                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onMarketStatusReport -> " + logText); }
 
-                                                global.STOP_SESSION = true
+                                                bot.STOP_SESSION = true
                                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                 return;
 

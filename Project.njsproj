@@ -36,6 +36,9 @@
     <Compile Include="MultiPeriodMarket.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Session.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TradingEngineProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>

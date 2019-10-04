@@ -106,7 +106,6 @@ process.on('message', message => {
     if (message === 'Stop this Task') {
 
         global.STOP_TASK_GRACEFULLY = true;
-        global.STOP_SESSION = true
 
         /*
         There are some process that might no be able to end grafully, for example the ones schedulle to process information in a future day or month.

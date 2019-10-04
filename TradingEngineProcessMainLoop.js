@@ -12,8 +12,10 @@
     const MULTI_PERIOD_DAILY = require(ROOT_DIR + 'MultiPeriodDaily');
     const MULTI_PERIOD = require(ROOT_DIR + 'MultiPeriod');
     const FILE_STORAGE = require('./FileStorage.js');
+    const SESSION = require(ROOT_DIR + 'Session');
   
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
+    let session = SESSION.newSession(bot, parentLogger)
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -38,6 +40,7 @@
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             processConfig = pProcessConfig;
+            bot.resumeExecution = processConfig.framework.startDate.resumeExecution // We are inherating this from root, but from here we need it at bot
 
             let filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name
             filePath += "/User.Bot.js"
@@ -74,7 +77,11 @@
                     //COMMONS_MODULE.newCommons = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Commons').newCommons // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
                     COMMONS_MODULE.newCommons = eval(text); // Use this for production
 
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                    session.initialize(onSessionInitialized) 
+
+                    function onSessionInitialized(err) {
+                        callBackFunction(err);
+                    }
                 }
             }
         } catch (err) {
@@ -89,322 +96,10 @@
 
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] run -> Entering function."); }
 
-            /* Check if there is a session */
-            if (bot.processNode.session === undefined) {
-                parentLogger.write(MODULE_NAME, "[ERROR] run -> Cannot run without a Session.");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                return;
-            }
-
             /* Some initial values*/
             bot.enableCheckLoopHealth = true;
             let fixedTimeLoopIntervalHandle;
-            global.STOP_SESSION = true;
-
-            /* Listen to event to start or stop the session. */
-            bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
-
-            global.SYSTEM_EVENT_HANDLER.listenToEvent(bot.sessionKey, 'Run Session', undefined, undefined, undefined, runSession)
-            global.SYSTEM_EVENT_HANDLER.listenToEvent(bot.sessionKey, 'Stop Session', undefined, undefined, undefined, stopSession)
-
-            function runSession(message) {
-
-                /* We are going to run the Definition comming at the event. */
-                global.DEFINITION = JSON.parse(message.event.definition)
-                bot.SESSION = JSON.parse(message.event.session)
-
-                setValuesToUse(message)
-
-                switch (bot.SESSION.type) {
-                    case 'Backtesting Session': {
-                        startBackTesting(message)
-                        break
-                    }
-                    case 'Live Trading Session': {
-                        startLiveTrading(message)
-                        break
-                    }
-                }
-                bot.sessionStatus = 'Idle'
-                global.STOP_SESSION = false
-            }
-
-            function stopSession(message) {
-                global.STOP_SESSION = true                
-            }
-
-            function startBackTesting(message) {
-                bot.startMode = "Backtest"
-                processConfig.framework.startDate.resumeExecution = false;
-                bot.hasTheBotJustStarted = true 
-                bot.multiPeriodDailyProcessDatetime = bot.VALUES_TO_USE.timeRange.initialDatetime
-            }
-
-            function startLiveTrading(message) {
-
-                if (global.DEFINITION.personalData) {
-                    if (global.DEFINITION.personalData.exchangeAccounts) {
-                        if (global.DEFINITION.personalData.exchangeAccounts.length > 0) {
-                            let exchangeAccount = global.DEFINITION.personalData.exchangeAccounts[0]
-                            if (exchangeAccount.keys) {
-                                if (exchangeAccount.keys.length > 0) {
-                                    let key = exchangeAccount.keys[0]
-
-                                    process.env.KEY = key.name
-                                    process.env.SECRET = key.code
-
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (process.env.KEY === undefined || process.env.SECRET === undefined) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] run -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Live mode."); }
-                    return
-                }
-
-                bot.startMode = "Live"
-                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf) {
-                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
-                }
-                processConfig.framework.startDate.resumeExecution = false;
-                bot.multiPeriodDailyProcessDatetime = bot.VALUES_TO_USE.timeRange.initialDatetime
-                bot.hasTheBotJustStarted = true
-                
-            }
-
-            function setValuesToUse(message) {
-                /*
-                    Base on the information received we will determined which values ultimatelly are going to be used,
-                    and once we do, they will become constants across the multiple loops executions.
-                */
-                
-                /* Set all default values */
-                bot.VALUES_TO_USE = {
-                    baseAsset: "BTC",
-                    initialBalanceA: 0,
-                    initialBalanceB: 0.001,
-                    minimumBalanceA: 0,
-                    minimumBalanceB: 0.0005,
-                    maximumBalanceA: 0,
-                    maximumBalanceB: 0.002,
-                    timePeriod: global.DEFINITION.uiCurrentValues.timePeriod,
-                    slippage: {
-                        positionRate: 0,
-                        stopLoss: 0,
-                        takeProfit: 0
-                    },
-                    feeStructure: {
-                        maker: 0,
-                        taker: 0
-                    },
-                    timeRange: {
-                        initialDatetime: new Date(),
-                        finalDatetime: new Date() 
-                    }
-                }
-
-                /* Session Type Dependant Default Values */
-                const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
-                switch (bot.SESSION.type) {
-                    case 'Backtesting Session': {
-                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(global.DEFINITION.uiCurrentValues.initialDatetime)
-                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date()
-                        break
-                    }
-                    case 'Live Trading Session': {
-                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
-                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS) 
-                        break
-                    }
-                }
-
-                let tradingSystem = global.DEFINITION.tradingSystem
-
-                if (tradingSystem !== undefined) {
-
-                    /* Applying Trading System Level Parameters */
-                    if (tradingSystem.parameters !== undefined) {
-
-                        /* Base Asset and Initial Balances. */
-                        {
-                            if (tradingSystem.parameters.baseAsset !== undefined) {
-                                let code
-                                try {
-                                    code = JSON.parse(tradingSystem.parameters.baseAsset.code);
-
-                                    if (code.name !== undefined) {
-                                        bot.VALUES_TO_USE.baseAsset = code.name;
-                                    }
-
-                                    if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
-                                        if (code.initialBalance !== undefined) {
-                                            bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
-                                            bot.VALUES_TO_USE.initialBalanceA = 0
-                                        }
-                                        if (code.minimumBalance !== undefined) {
-                                            bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
-                                            bot.VALUES_TO_USE.minimumBalanceB = 0
-                                        }
-                                        if (code.maximumBalance !== undefined) {
-                                            bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
-                                            bot.VALUES_TO_USE.maximumBalanceB = 0
-                                        }
-                                    } else {
-                                        if (code.initialBalance !== undefined) {
-                                            bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
-                                            bot.VALUES_TO_USE.initialBalanceB = 0
-                                        }
-                                        if (code.minimumBalance !== undefined) {
-                                            bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
-                                            bot.VALUES_TO_USE.minimumBalanceA = 0
-                                        }
-                                        if (code.maximumBalance !== undefined) {
-                                            bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
-                                            bot.VALUES_TO_USE.maximumBalanceA = 0
-                                        }
-                                    }
-                                } catch (err) {
-                                    tradingSystem.parameters.baseAsset.error = err.message
-                                }
-                            }
-                        }
-                            
-                        /* Time Period */
-                        if (tradingSystem.parameters.timePeriod !== undefined) {
-                            bot.VALUES_TO_USE.timePeriod = tradingSystem.parameters.timePeriod.code
-                        }
-
-                        /* Slippage */
-                        if (tradingSystem.parameters.slippage !== undefined) {
-                            if (tradingSystem.parameters.slippage.code !== undefined) {
-                                try {
-                                    let code = JSON.parse(tradingSystem.parameters.slippage.code)
-
-                                    if (code.positionRate !== undefined) {
-                                        bot.VALUES_TO_USE.slippage.positionRate = code.positionRate
-                                    }
-                                    if (code.stopLoss !== undefined) {
-                                        bot.VALUES_TO_USE.slippage.stopLoss = code.stopLoss
-                                    }
-                                    if (code.takeProfit !== undefined) {
-                                        bot.VALUES_TO_USE.slippage.takeProfit = code.takeProfit
-                                    }
-
-                                } catch (err) {
-                                    tradingSystem.parameters.slippage.error = err.message
-                                }
-                            }
-                        }
-
-                        /* Fee Structure */
-                        if (tradingSystem.parameters.feeStructure !== undefined) {
-                            if (tradingSystem.parameters.feeStructure.code !== undefined) {
-                                try {
-                                    let code = JSON.parse(tradingSystem.parameters.feeStructure.code)
-
-                                    if (code.maker !== undefined) {
-                                        bot.VALUES_TO_USE.feeStructure.maker = code.maker
-                                    }
-                                    if (code.taker !== undefined) {
-                                        bot.VALUES_TO_USE.feeStructure.taker = code.taker
-                                    }
-
-                                } catch (err) {
-                                    tradingSystem.parameters.feeStructure.error = err.message
-                                }
-                            }
-                        }
-
-                        /* Time Range */
-                        if (tradingSystem.parameters.timeRange !== undefined) {
-                            if (tradingSystem.parameters.timeRange.code !== undefined) {
-                                try {
-                                    let code = JSON.parse(tradingSystem.parameters.timeRange.code)
-                                    if (code.initialDatetime !== undefined) {
-                                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
-                                    }
-                                    if (code.finalDatetime !== undefined) {
-                                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
-                                    }
-                                } catch (err) {
-                                    tradingSystem.parameters.timeRange.error = err.message
-                                }
-                            }
-                        }
-                    }
-
-                    /* Applying Session Level Parameters */
-                    if (bot.SESSION !== undefined) {
-                        if (bot.SESSION.parameters !== undefined) {
-
-                            /* Time Period */
-                            if (bot.SESSION.parameters.timePeriod !== undefined) {
-                                bot.VALUES_TO_USE.timePeriod = bot.SESSION.parameters.timePeriod.code
-                            }
-
-                            /* Slippage */
-                            if (bot.SESSION.parameters.slippage !== undefined) {
-                                if (bot.SESSION.parameters.slippage.code !== undefined) {
-                                    try {
-                                        let code = JSON.parse(bot.SESSION.parameters.slippage.code)
-
-                                        if (code.positionRate !== undefined) {
-                                            bot.VALUES_TO_USE.slippage.positionRate = code.positionRate
-                                        }
-                                        if (code.stopLoss !== undefined) {
-                                            bot.VALUES_TO_USE.slippage.stopLoss = code.stopLoss
-                                        }
-                                        if (code.takeProfit !== undefined) {
-                                            bot.VALUES_TO_USE.slippage.takeProfit = code.takeProfit
-                                        }
-
-                                    } catch (err) {
-                                        parentLogger.write(MODULE_NAME, "[WARN] run -> startLiveTrading -> Invalid Slippage Value -> err = " + err.stack);
-                                    }
-                                }
-                            }
-
-                            /* Fee Structure */
-                            if (bot.SESSION.parameters.feeStructure !== undefined) {
-                                if (bot.SESSION.parameters.feeStructure.code !== undefined) {
-                                    try {
-                                        let code = JSON.parse(bot.SESSION.parameters.feeStructure.code)
-
-                                        if (code.maker !== undefined) {
-                                            bot.VALUES_TO_USE.feeStructure.maker = code.maker
-                                        }
-                                        if (code.taker !== undefined) {
-                                            bot.VALUES_TO_USE.feeStructure.taker = code.taker
-                                        }
-
-                                    } catch (err) {
-                                        parentLogger.write(MODULE_NAME, "[WARN] run -> startLiveTrading -> Invalid Fee Structure Value -> err = " + err.stack);
-                                    }
-                                }
-                            }
-
-                            /* Time Range */
-                            if (bot.SESSION.parameters.timeRange !== undefined) {
-                                if (bot.SESSION.parameters.timeRange.code !== undefined) {
-                                    try {
-                                        let code = JSON.parse(bot.SESSION.parameters.timeRange.code)
-                                        if (code.initialDatetime !== undefined) {
-                                            bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
-                                        }
-                                        if (code.finalDatetime !== undefined) {
-                                            bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
-                                        }
-                                    } catch (err) {
-                                        parentLogger.write(MODULE_NAME, "[WARN] run -> startLiveTrading -> Invalid Time Range Value -> err = " + err.stack);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            bot.STOP_SESSION = true;
 
             loop();
 
@@ -456,18 +151,18 @@
 
                     /* Checking if we need to need to emit any event */
 
-                    if (bot.sessionStatus === 'Idle' && global.STOP_SESSION === false) {
+                    if (bot.SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
                         global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Running')
-                        bot.sessionStatus = 'Running'
+                        bot.SESSION_STATUS = 'Running'
                     }
 
-                    if (bot.sessionStatus === 'Running' && global.STOP_SESSION === true) {
+                    if (bot.SESSION_STATUS === 'Running' && bot.STOP_SESSION === true) {
                         global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Stopped')
-                        bot.sessionStatus = 'Stopped'
+                        bot.SESSION_STATUS = 'Stopped'
                     }
 
                     /* Checking if we should process this loop or not.*/
-                    if (global.STOP_SESSION === true) {
+                    if (bot.STOP_SESSION === true) {
                        
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran."); }
 

@@ -11,6 +11,7 @@ function newWorkspace () {
     container: undefined,
     enabled: false,
     nodeChildren: undefined,
+    stopAllRunningTasks: stopAllRunningTasks,
     onMenuItemClick: onMenuItemClick,
     getProtocolDefinitionNode: getProtocolDefinitionNode,
     physics: physics,
@@ -142,6 +143,26 @@ function newWorkspace () {
     }
 
     return JSON.stringify(workspace)
+  }
+
+  function stopAllRunningTasks () {
+    for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
+      let rootNode = thisObject.workspaceNode.rootNodes[i]
+      if (rootNode.type === 'Definition') {
+        let definition = rootNode
+        if (definition.network !== undefined) {
+          if (definition.network.networkNodes !== undefined) {
+            for (let j = 0; j < definition.network.networkNodes.length; j++) {
+              let networkNode = definition.network.networkNodes[j]
+              for (let i = 0; i < networkNode.taskManagers.length; i++) {
+                taskManager = networkNode.taskManagers[i]
+                taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   function spawn (nodeText, point) {

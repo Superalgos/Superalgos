@@ -106,24 +106,8 @@ function newDashboard () {
   function setBrowserEvents () {
     window.onbeforeunload = onBrowserClosed
     function onBrowserClosed () {
-      stopAllRunningTasks()
+      canvas.strategySpace.workspace.stopAllRunningTasks()
     }
   }
 }
 
-function stopAllRunningTasks () {
-  let definition = canvas.strategySpace.workspace.definition
-  if (definition !== undefined) {
-    if (definition.network !== undefined) {
-      if (definition.network.networkNodes !== undefined) {
-        for (let j = 0; j < definition.network.networkNodes.length; j++) {
-          let networkNode = definition.network.networkNodes[j]
-          for (let i = 0; i < networkNode.taskManagers.length; i++) {
-            taskManager = networkNode.taskManagers[i]
-            taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
-          }
-        }
-      }
-    }
-  }
-}

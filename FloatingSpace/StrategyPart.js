@@ -20,7 +20,6 @@ function newStrategyPart () {
     isExecuting: undefined,
     isDefault: undefined,
     isRunning: undefined,
-    setAsDefault: setAsDefault,
     run: run,
     stop: stop,
     setDefaultStatus: setDefaultStatus,

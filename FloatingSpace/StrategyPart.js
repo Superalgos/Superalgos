@@ -579,7 +579,7 @@ function newStrategyPart () {
     if (value !== undefined) {
       currentValue = value
       hasValue = true
-      valueCounter = 100
+      valueCounter = 500
     }
   }
 

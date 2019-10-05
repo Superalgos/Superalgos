@@ -543,7 +543,7 @@ function newPartsFromNodes () {
 
   function addProcess (node) {
     let process = {
-      code: '// Write the configuration here.'
+      code: '{}'
     }
 
     switch (node.type) {

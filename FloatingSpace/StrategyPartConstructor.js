@@ -191,6 +191,17 @@ function newStrategyPartConstructor () {
             angle: 130
           },
           {
+            action: 'Add Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Definition',
+            visible: true,
+            relatedStrategyPart: 'Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -10
+          },
+          {
             action: 'Share Workspace',
             actionFunction: payload.onMenuItemClick,
             label: 'Share',
@@ -200,7 +211,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 10
           }]
         break
       }

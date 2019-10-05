@@ -269,6 +269,11 @@ function newWorkspace () {
           functionLibrarySessionFunctions.stopSession(payload.node, functionLibraryProtocolNode, callBackFunction)
         }
         break
+      case 'Add Definition':
+        {
+          functionLibraryPartsFromNodes.addDefinition(payload.node)
+        }
+        break
       case 'Add Network':
         {
           functionLibraryPartsFromNodes.addNetwork(payload.node)

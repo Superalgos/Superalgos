@@ -1,6 +1,7 @@
 function newPartsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
+    addDefinition: addDefinition,
     addNetwork: addNetwork,
     addNetworkNode: addNetworkNode,
     addTaskManager: addTaskManager,
@@ -490,7 +491,8 @@ function newPartsFromNodes () {
 
   function addTaskManager (node) {
     let taskManager = {
-      name: 'New Task Manager'
+      name: 'New Task Manager',
+      tasks: []
     }
     if (node.taskManagers === undefined) {
       node.taskManagers = []
@@ -611,6 +613,16 @@ function newPartsFromNodes () {
     }
 
     return node.session
+  }
+
+  function addDefinition (node) {
+    let definition = {
+      name: 'New Definition'
+    }
+    node.rootNodes.push(definition)
+    createPart('Definition', definition.name, definition, node, undefined, 'Definition')
+
+    return definition
   }
 
   function addTradingSystem (node) {

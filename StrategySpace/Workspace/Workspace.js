@@ -185,17 +185,6 @@ function newWorkspace () {
           download(fileName, text)
         }
         break
-      case 'Save Trading System':
-        {
-          let result = await canvas.strategySpace.strategizerGateway.saveToStrategyzer(getUICurrentValues())
-          if (result === true) {
-            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-          } else {
-            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-          }
-          break
-        }
-
       case 'Edit Code':
 
         break

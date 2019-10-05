@@ -260,10 +260,6 @@ function newNodeDeleter () {
       if (counter <= 1) { return }
     }
 
-    if (node.payload.uiObject.isDefault === true) {
-      node.payload.uiObject.setNotRunningStatus()
-    }
-
     if (node.tradingSystem !== undefined) {
       deleteTradingSystem(node.tradingSystem, rootNodes)
     }

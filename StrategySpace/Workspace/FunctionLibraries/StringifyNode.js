@@ -643,7 +643,7 @@ function newStringifyNode () {
         isTensed: (node.payload.floatingObject.isTensed && node.payload.floatingObject.tensedManually)
       },
       uiObject: {
-        isDefault: node.payload.uiObject.isDefault
+        isRunning: node.payload.uiObject.isRunning
       }
     }
     return savedPayload

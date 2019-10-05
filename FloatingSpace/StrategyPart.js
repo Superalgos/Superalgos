@@ -18,12 +18,9 @@ function newStrategyPart () {
     partTitle: undefined,
     circularProgressBar: undefined,
     isExecuting: undefined,
-    isDefault: undefined,
     isRunning: undefined,
     run: run,
     stop: stop,
-    setDefaultStatus: setDefaultStatus,
-    setNotRunningStatus: setNotRunningStatus,
     getReadyToAttach: getReadyToAttach,
     showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
@@ -64,7 +61,6 @@ function newStrategyPart () {
 
   let hasValue
   let valueCounter = 0
-  let runningCounter = 0
 
   let previousDistance
 
@@ -640,22 +636,6 @@ function newStrategyPart () {
     }
   }
 
-  function setAsDefault () {
-    setDefaultStatus()
-    canvas.cockpitSpace.restartSimulation.restart()
-  }
-
-  function setDefaultStatus () {
-    canvas.strategySpace.workspace.definition = thisObject.payload.node
-    thisObject.isDefault = true
-    runningCounter = 30
-  }
-
-  function setNotRunningStatus () {
-    canvas.strategySpace.workspace.definition = undefined
-    thisObject.isDefault = false
-  }
-
   function iconPhysics () {
     icon = canvas.strategySpace.iconByPartType.get(thisObject.payload.node.type)
     executingIcon = canvas.strategySpace.iconCollection.get('attractive')
@@ -1033,9 +1013,9 @@ function newStrategyPart () {
 
       browserCanvasContext.fill()
 
-      if (thisObject.isDefault === true) {
+      if (thisObject.payload.node.type === 'Definition') {
         VISIBLE_RADIUS = thisObject.container.frame.radius * 2
-        let OPACITY = runningCounter / 30
+        let OPACITY = 1
 
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)

@@ -67,13 +67,6 @@ function newStrategyPartConstructor () {
     strategyPart.initialize(payload, menuItemsInitialValues)
     strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true, true, true)
 
-    if (payload.node.savedPayload !== undefined) {
-      if (payload.node.savedPayload.uiObject.isDefault === true) {
-        strategyPart.setDefaultStatus()
-        canvas.strategySpace.workspace.definition = payload.node
-      }
-    }
-
     setFloatingObjectBasicProperties(floatingObject, payload)
 
     payload.node.savedPayload = undefined

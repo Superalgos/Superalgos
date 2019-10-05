@@ -97,7 +97,7 @@ function newWorkspace () {
       thisObject.definition = canvas.strategySpace.strategizerGateway.strategizerData
       thisObject.workspaceNode.rootNodes.push(thisObject.definition)
       functionLibraryPartsFromNodes.createPartFromNode(thisObject.definition, undefined, undefined)
-      thisObject.definition.payload.uiObject.setDefaultStatus()
+
       thisObject.enabled = true
     }
   }

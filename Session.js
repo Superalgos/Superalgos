@@ -61,7 +61,7 @@
                 bot.startMode = "Backtest"
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
-                bot.multiPeriodDailyProcessDatetime = bot.VALUES_TO_USE.timeRange.initialDatetime
+                bot.multiPeriodProcessDatetime = bot.VALUES_TO_USE.timeRange.initialDatetime
             }
 
             function startLiveTrading(message) {
@@ -93,7 +93,7 @@
                     bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
                 }
                 bot.resumeExecution = false;
-                bot.multiPeriodDailyProcessDatetime = bot.VALUES_TO_USE.timeRange.initialDatetime
+                bot.multiPeriodProcessDatetime = bot.VALUES_TO_USE.timeRange.initialDatetime
                 bot.hasTheBotJustStarted = true
 
             }

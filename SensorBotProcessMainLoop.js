@@ -121,7 +121,8 @@
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Entering function."); }
 
                     /* Loop Heartbeat sent to the UI */
-                    processHearBeat() 
+                    bot.processHeartBeat = processHeartBeat
+                    processHeartBeat() 
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
@@ -547,7 +548,7 @@
 
                         /* We show we reached the end of the loop. */
 
-                        processHearBeat()
+                        processHeartBeat()
 
                         /* Here we check if we must stop the loop gracefully. */
 
@@ -701,9 +702,10 @@
                 }
             }
 
-            function processHearBeat() {
+            function processHeartBeat(processingDate) {
                 let event = {
-                    seconds: (new Date()).getSeconds()
+                    seconds: (new Date()).getSeconds(),
+                    processingDate: processingDate
                 }
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Heartbeat', event)
             }

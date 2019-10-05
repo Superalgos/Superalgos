@@ -127,6 +127,7 @@
 
                     /* Heartbeats sent to the UI */
                     bot.sessionHeartBeat = sessionHeartBeat
+                    bot.processHeartBeat = processHeartBeat
                     processHeartBeat() 
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
@@ -1053,9 +1054,10 @@
                 }
             }
 
-            function processHeartBeat() {
+            function processHeartBeat(processingDate) {
                 let event = {
-                    seconds: (new Date()).getSeconds()
+                    seconds: (new Date()).getSeconds(),
+                    processingDate: processingDate
                 }
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Heartbeat', event)
             }

@@ -3,7 +3,7 @@
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
-    const MODULE_NAME = "Commons";
+    const MODULE_NAME = "Commons -> " + bot.sessionKey ;
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
     const GMT_SECONDS = ':00.000 GMT+0000';
 
@@ -24,6 +24,7 @@
     let bollingerChannelsAt = {}
     let bollingerSubChannelsAt = {}
     let candlesAt = {}
+    let processingDailyFiles
 
     return thisObject;
 
@@ -36,7 +37,7 @@
         thisObject = undefined
     }
 
-    async function runSimulation(
+    function runSimulation(
         timePeriod,
         timePeriodLabel,
         currentDay,
@@ -2735,7 +2736,7 @@
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] runSimulation -> getElement -> datasetName = " + datasetName);
-                    throw(err)
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
@@ -2950,6 +2951,7 @@
             }
 
             candlesAt[timePeriodLabel] = candles
+
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] buildCandles -> err = " + err.stack);

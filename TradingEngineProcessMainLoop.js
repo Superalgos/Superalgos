@@ -1054,12 +1054,10 @@
             }
 
             function processHeartBeat() {
-                let key = global.TASK_NODE.bot.processes[bot.processIndex].name + '-' + global.TASK_NODE.bot.processes[bot.processIndex].type + '-' + global.TASK_NODE.bot.processes[bot.processIndex].id
-
                 let event = {
                     seconds: (new Date()).getSeconds()
                 }
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Heartbeat', event)
             }
 
             function sessionHeartBeat(processingDate) {
@@ -1075,8 +1073,7 @@
             }
 
             function processStopped() {
-                let key = global.TASK_NODE.bot.processes[bot.processIndex].name + '-' + global.TASK_NODE.bot.processes[bot.processIndex].type + '-' + global.TASK_NODE.bot.processes[bot.processIndex].id
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped')
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Stopped')
             }
 
             function sessionStopped() {

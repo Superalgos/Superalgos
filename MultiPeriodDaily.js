@@ -24,6 +24,8 @@
     const FILE_STORAGE = require('./FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
+    let bootstrappingTheProcess = false 
+
     let processConfig;
 
     return thisObject;
@@ -268,6 +270,13 @@
                         */
 
                         interExecutionMemoryArray = [];
+                        /*
+                        Also, we will remember that we are bootstrapping the process, this will allow us, to advanceTime if necesary.
+                        It can happen that a process depends on data from another process that does not produce a file during the first day, or even more days,
+                        in that situation we want the process not to just wait for that data that will never arrive, but to advance time until it finds valid data.
+                        */
+
+                        bootstrappingTheProcess = true
 
                         for (let i = 0; i < global.dailyFilePeriods.length; i++) {
                             let emptyObject = {};
@@ -449,7 +458,7 @@
 
                                                     if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = "+ err.stack);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> err = "+ err.stack);
                                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                         return;
                                                     }
@@ -504,6 +513,16 @@
 
                                                     if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
 
+                                                        if (bootstrappingTheProcess === true) {
+                                                            /*
+                                                            In the special situation where we are running this process for the first time (no status report found),
+                                                            we will consider the possibility that a depanant process does not produce a file during the first day of the market,
+                                                            or even more than one day. That is why we are going to advance time here.
+                                                            */
+                                                            advanceTime()
+                                                            return
+                                                        }
+
                                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err.code);
                                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> filePath = " + filePath);
                                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> fileName = " + fileName);
@@ -513,7 +532,7 @@
 
                                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err.code);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> Not OK -> onFileReceived -> err = " + err.code);
                                                         callBackFunction(err);
                                                         return;
                                                     }
@@ -527,7 +546,7 @@
 
                                                 }
                                                 catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = "+ err.stack);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> Catch Error -> onFileReceived -> err = "+ err.stack);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }

@@ -121,7 +121,7 @@
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Entering function."); }
 
                     /* Loop Heartbeat sent to the UI */
-                    hearBeat() 
+                    processHearBeat() 
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
@@ -547,7 +547,7 @@
 
                         /* We show we reached the end of the loop. */
 
-                        hearBeat()
+                        processHearBeat()
 
                         /* Here we check if we must stop the loop gracefully. */
 
@@ -701,18 +701,15 @@
                 }
             }
 
-            function hearBeat() {
-                let key = global.TASK_NODE.bot.processes[bot.processIndex].name + '-' + global.TASK_NODE.bot.processes[bot.processIndex].type + '-' + global.TASK_NODE.bot.processes[bot.processIndex].id
-
+            function processHearBeat() {
                 let event = {
                     seconds: (new Date()).getSeconds()
                 }
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Heartbeat', event)
             }
 
             function processStopped() {
-                let key = global.TASK_NODE.bot.processes[bot.processIndex].name + '-' + global.TASK_NODE.bot.processes[bot.processIndex].type + '-' + global.TASK_NODE.bot.processes[bot.processIndex].id
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped')
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Stopped')
             }
         }
 

@@ -28,14 +28,14 @@ global.CUSTOM_FAIL_RESPONSE = {
 /* Process Events */
 
 process.on('uncaughtException', function (err) {
-    console.log('[INFO] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
-    console.log('[INFO] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)
+    console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
+    console.log('[ERROR] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)
     process.exit(1)
 })
 
 process.on('unhandledRejection', (reason, p) => {
-    console.log('[INFO] Task Server -> server -> unhandledRejection -> reason = ' + JSON.stringify(reason))
-    console.log('[INFO] Task Server -> server -> unhandledRejection -> p = ' + JSON.stringify(p))
+    console.log('[ERROR] Task Server -> server -> unhandledRejection -> reason = ' + JSON.stringify(reason))
+    console.log('[ERROR] Task Server -> server -> unhandledRejection -> p = ' + JSON.stringify(p))
     process.exit(1)
 })
 
@@ -158,9 +158,9 @@ function bootLoader() {
 
     global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
     global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Running') // Meaning Task Running
-    global.HEARTBEAT_INTERVAL_HANDLER = setInterval(hearBeat, 1000)
+    global.HEARTBEAT_INTERVAL_HANDLER = setInterval(taskHearBeat, 1000)
 
-    function hearBeat() {
+    function taskHearBeat() {
 
         /* The heartbeat event is raised at the event handler of the instance of this task, created at the UI. */        
         let event = {

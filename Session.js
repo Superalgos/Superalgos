@@ -13,6 +13,11 @@
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
+            /* Initialize this info so that everything is logged propeerly */
+            bot.SESSION = {
+                name: bot.processNode.session.name
+            }
+
             /* Check if there is a session */
             if (bot.processNode.session === undefined) {
                 parentLogger.write(MODULE_NAME, "[ERROR] initialize -> Cannot run without a Session.");

@@ -66,7 +66,13 @@ exports.newDebugLog = function newDebugLog() {
             const FILE_STORAGE = require('./FileStorage.js');
             let fileStorage = FILE_STORAGE.newFileStorage();
 
-            let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/" + executionDatetime;
+            let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/"
+
+            if (thisObject.bot.SESSION !== undefined) {
+                filePath = filePath + thisObject.bot.SESSION.name + "/" + executionDatetime;
+            } else {
+                filePath = filePath + executionDatetime;
+            }
 
             if (thisObject.bot.debug.year !== undefined) {
 

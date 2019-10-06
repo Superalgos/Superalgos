@@ -137,8 +137,10 @@ function newFloatingSpace () {
   }
 
   function physics () {
-    browserZoomPhysics()
-    thisObject.floatingLayer.physics()
+    if (visible === true) {
+      browserZoomPhysics()
+      thisObject.floatingLayer.physics()
+    }
   }
 
   function browserZoomPhysics () {
@@ -153,9 +155,8 @@ function newFloatingSpace () {
   function draw () {
     if (visible === true) {
       drawBackground()
+      thisObject.floatingLayer.draw()
     }
-
-    thisObject.floatingLayer.draw()
   }
 
   function drawBackground () {
@@ -168,3 +169,4 @@ function newFloatingSpace () {
     browserCanvasContext.fill()
   }
 }
+

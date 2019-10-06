@@ -25,6 +25,7 @@ function newDashboard () {
   function start () {
     try {
       setBrowserEvents()
+
       viewPort = newViewPort()
 
       systemEventHandler = newSystemEventHandler()
@@ -105,15 +106,8 @@ function newDashboard () {
   function setBrowserEvents () {
     window.onbeforeunload = onBrowserClosed
     function onBrowserClosed () {
-      stopAllRunningTasks()
+      canvas.strategySpace.workspace.stopAllRunningTasks()
     }
   }
 }
 
-function stopAllRunningTasks () {
-  let definition = canvas.strategySpace.workspace.definition
-  for (let i = 0; i < definition.taskManagers.length; i++) {
-    taskManager = definition.taskManagers[i]
-    taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
-  }
-}

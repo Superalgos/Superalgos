@@ -67,13 +67,6 @@ function newStrategyPartConstructor () {
     strategyPart.initialize(payload, menuItemsInitialValues)
     strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true, true, true)
 
-    if (payload.node.savedPayload !== undefined) {
-      if (payload.node.savedPayload.uiObject.isDefault === true) {
-        strategyPart.setDefaultStatus()
-        canvas.strategySpace.workspace.definition = payload.node
-      }
-    }
-
     setFloatingObjectBasicProperties(floatingObject, payload)
 
     payload.node.savedPayload = undefined
@@ -198,6 +191,17 @@ function newStrategyPartConstructor () {
             angle: 130
           },
           {
+            action: 'Add Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Definition',
+            visible: true,
+            relatedStrategyPart: 'Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -10
+          },
+          {
             action: 'Share Workspace',
             actionFunction: payload.onMenuItemClick,
             label: 'Share',
@@ -207,7 +211,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 10
           }]
         break
       }
@@ -215,37 +219,6 @@ function newStrategyPartConstructor () {
         floatingObject.isPinned = true
         floatingObject.positionLocked = true
         addLeftIcons(menuItemsInitialValues, floatingObject)
-        menuItemsInitialValues.push(
-          {
-            action: 'Set as Default',
-            actionFunction: payload.uiObject.setAsDefault,
-            label: 'Set as Default',
-            visible: true,
-            iconPathOn: 'paper-plane',
-            iconPathOff: 'paper-plane',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -75
-          }
-          )
-        menuItemsInitialValues.push(
-          {
-            action: 'Save Trading System',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Save Changes',
-            workingLabel: 'Saving...',
-            workDoneLabel: 'Saved',
-            workFailedLabel: 'Not Saved',
-            visible: true,
-            iconPathOn: 'menu-backup',
-            iconPathOff: 'menu-backup',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -40
-          }
-          )
         menuItemsInitialValues.push(
           {
             action: 'Add Trading System',
@@ -256,7 +229,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           }
           )
         menuItemsInitialValues.push(
@@ -269,20 +242,20 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -20
           }
             )
         menuItemsInitialValues.push(
           {
-            action: 'Add Task Manager',
+            action: 'Add Network',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Task Manager',
+            label: 'Add Network',
             visible: true,
-            relatedStrategyPart: 'Task Manager',
+            relatedStrategyPart: 'Network',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 0
           }
                 )
         menuItemsInitialValues.push(
@@ -298,7 +271,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 20
           }
               )
         menuItemsInitialValues.push(
@@ -312,7 +285,101 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 75
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Network': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Network Node',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Network Node',
+            visible: true,
+            relatedStrategyPart: 'Network Node',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+                )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Network',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Network',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Network Node': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Task Manager',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Task Manager',
+            visible: true,
+            relatedStrategyPart: 'Task Manager',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+                )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Network Node',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Network Node',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }
         )
         break
@@ -462,7 +529,7 @@ function newStrategyPartConstructor () {
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Process',
+            label: 'Delete Task',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -636,28 +703,191 @@ function newStrategyPartConstructor () {
         strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
+
+        switch (payload.node.subType) {
+          case 'Trading Engine Process': {
+            menuItemsInitialValues.push(
+              {
+                action: 'Add Backtesting Session',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Add Backtesting',
+                visible: true,
+                relatedStrategyPart: 'Backtesting Session',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: -75
+              }
+              )
+            menuItemsInitialValues.push(
+              {
+                action: 'Add Live Trading Session',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Add Live Trading',
+                visible: true,
+                relatedStrategyPart: 'Live Trading Session',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: -40
+              }
+                )
+            menuItemsInitialValues.push(
+              {
+                action: 'Add Fordward Testing Session',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Add Fordward Testing',
+                visible: true,
+                relatedStrategyPart: 'Fordward Testing Session',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: -20
+              }
+                  )
+            menuItemsInitialValues.push(
+              {
+                action: 'Add Paper Trading Session',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Add Paper Trading',
+                visible: true,
+                relatedStrategyPart: 'Paper Trading Session',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: 0
+              }
+                    )
+            menuItemsInitialValues.push(
+              {
+                action: 'Edit Process',
+                actionFunction: strategyPart.codeEditor.activate,
+                label: 'Edit Process',
+                visible: true,
+                iconPathOn: 'html',
+                iconPathOff: 'html',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: 20,
+                dontShowAtFullscreen: true
+              }
+            )
+            menuItemsInitialValues.push(
+              {
+                action: 'Delete Process',
+                askConfirmation: true,
+                confirmationLabel: 'Confirm to Delete',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Delete Process',
+                visible: true,
+                iconPathOn: 'delete',
+                iconPathOff: 'delete',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: 40
+              }
+                )
+            menuItemsInitialValues.push(
+              {
+                action: 'Share',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Share',
+                visible: true,
+                iconPathOn: 'menu-share',
+                iconPathOff: 'menu-share',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: 75
+              }
+                  )
+            break
+          }
+          default: {
+            menuItemsInitialValues.push(
+              {
+                action: 'Edit Process',
+                actionFunction: strategyPart.codeEditor.activate,
+                label: 'Edit Process',
+                visible: true,
+                iconPathOn: 'html',
+                iconPathOff: 'html',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: -40,
+                dontShowAtFullscreen: true
+              }
+            )
+            menuItemsInitialValues.push(
+              {
+                action: 'Delete Process',
+                askConfirmation: true,
+                confirmationLabel: 'Confirm to Delete',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Delete Process',
+                visible: true,
+                iconPathOn: 'delete',
+                iconPathOff: 'delete',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: 0
+              }
+                )
+            menuItemsInitialValues.push(
+              {
+                action: 'Share',
+                actionFunction: payload.onMenuItemClick,
+                label: 'Share',
+                visible: true,
+                iconPathOn: 'menu-share',
+                iconPathOff: 'menu-share',
+                rawRadius: 8,
+                targetRadius: 0,
+                currentRadius: 0,
+                angle: 40
+              }
+                  )
+            break
+          }
+        }
+        break
+      }
+      case 'Backtesting Session': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Process',
-            actionFunction: strategyPart.codeEditor.activate,
-            label: 'Edit Process',
+            action: 'Run Session',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Run',
+            workingLabel: 'Runing...',
+            workDoneLabel: 'Session Running',
+            workFailedLabel: 'Session Cannot be Run',
+            secondaryAction: 'Stop Session',
+            secondaryLabel: 'Stop',
+            secondaryWorkingLabel: 'Stopping...',
+            secondaryWorkDoneLabel: 'Session Stopped',
+            secondaryWorkFailedLabel: 'Session Cannot be Stopped',
+            secondaryIcon: 'stop',
             visible: true,
-            iconPathOn: 'html',
-            iconPathOff: 'html',
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40,
-            dontShowAtFullscreen: true
+            angle: -40
           }
         )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Process',
+            action: 'Delete Backtesting Session',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Process',
+            label: 'Delete Session',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -680,7 +910,178 @@ function newStrategyPartConstructor () {
             currentRadius: 0,
             angle: 40
           }
-              )
+                )
+        break
+      }
+      case 'Live Trading Session': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Run Session',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Run',
+            workingLabel: 'Stop',
+            workDoneLabel: 'Session Running',
+            workFailedLabel: 'Session Cannot be Run',
+            secondaryAction: 'Stop Session',
+            secondaryLabel: 'Stop',
+            secondaryWorkingLabel: 'Stopping...',
+            secondaryWorkDoneLabel: 'Session Stopped',
+            secondaryWorkFailedLabel: 'Session Cannot be Stopped',
+            secondaryIcon: 'stop',
+            visible: true,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Live Trading Session',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Session',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+                )
+        break
+      }
+      case 'Fordward Testing Session': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Run Session',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Run',
+            workingLabel: 'Stop',
+            workDoneLabel: 'Session Running',
+            workFailedLabel: 'Session Cannot be Run',
+            secondaryAction: 'Stop Session',
+            secondaryLabel: 'Stop',
+            secondaryWorkingLabel: 'Stopping...',
+            secondaryWorkDoneLabel: 'Session Stopped',
+            secondaryWorkFailedLabel: 'Session Cannot be Stopped',
+            secondaryIcon: 'stop',
+            visible: true,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Fordward Testing Session',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Session',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+                )
+        break
+      }
+      case 'Paper Trading Session': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Run Session',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Run',
+            workingLabel: 'Stop',
+            workDoneLabel: 'Session Running',
+            workFailedLabel: 'Session Cannot be Run',
+            secondaryAction: 'Stop Session',
+            secondaryLabel: 'Stop',
+            secondaryWorkingLabel: 'Stopping...',
+            secondaryWorkDoneLabel: 'Session Stopped',
+            secondaryWorkFailedLabel: 'Session Cannot be Stopped',
+            secondaryIcon: 'stop',
+            visible: true,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Paper Trading Session',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Session',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+                )
         break
       }
       case 'Personal Data': {
@@ -1010,6 +1411,59 @@ function newStrategyPartConstructor () {
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
             label: 'Delete Time Range',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Time Period': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Time Period',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Time Period',
+            visible: true,
+            iconPathOn: 'settings',
+            iconPathOff: 'settings',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Time Period',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Time Period',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -2163,12 +2617,20 @@ function newStrategyPartConstructor () {
         level_0()
         break
       }
+      case 'Network': {
+        level_1()
+        break
+      }
+      case 'Network Node': {
+        level_1()
+        break
+      }
       case 'Task Manager': {
         level_1()
         break
       }
       case 'Task': {
-        level_1()
+        level_3()
         break
       }
       case 'Sensor': {
@@ -2184,6 +2646,22 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Process': {
+        level_2()
+        break
+      }
+      case 'Backtesting Session': {
+        level_4()
+        break
+      }
+      case 'Live Trading Session': {
+        level_4()
+        break
+      }
+      case 'Fordward Testing Session': {
+        level_4()
+        break
+      }
+      case 'Paper Trading Session': {
         level_4()
         break
       }
@@ -2216,6 +2694,10 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Time Range': {
+        level_3()
+        break
+      }
+      case 'Time Period': {
         level_3()
         break
       }

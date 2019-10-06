@@ -52,6 +52,13 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
+      case 'Network': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Network Node': {
+        break
+      }
       case 'Task Manager': {
         break
       }
@@ -70,6 +77,18 @@ function newStrategyPartTitle () {
         break
       }
       case 'Process': {
+        break
+      }
+      case 'Backtesting Session': {
+        break
+      }
+      case 'Live Trading Session': {
+        break
+      }
+      case 'Fordward Testing Session': {
+        break
+      }
+      case 'Paper Trading Session': {
         break
       }
       case 'Personal Data': {
@@ -99,6 +118,9 @@ function newStrategyPartTitle () {
         break
       }
       case 'Time Range': {
+        break
+      }
+      case 'Time Period': {
         break
       }
       case 'Slippage': {

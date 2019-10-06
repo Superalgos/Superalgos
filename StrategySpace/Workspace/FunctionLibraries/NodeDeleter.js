@@ -1,6 +1,8 @@
 function newNodeDeleter () {
   thisObject = {
     deleteDefinition: deleteDefinition,
+    deleteNetwork: deleteNetwork,
+    deleteNetworkNode: deleteNetworkNode,
     deleteTaskManager: deleteTaskManager,
     deleteTask: deleteTask,
     deleteSensor: deleteBot,
@@ -13,9 +15,14 @@ function newNodeDeleter () {
     deleteExchangeAccountKey: deleteExchangeAccountKey,
     deleteWorkspace: deleteWorkspace,
     deleteTradingSystem: deleteTradingSystem,
+    deleteBacktestingSession: deleteBacktestingSession,
+    deleteLiveTradingSession: deleteLiveTradingSession,
+    deleteFordwardTestingSession: deleteFordwardTestingSession,
+    deletePaperTradingSession: deletePaperTradingSession,
     deleteParameters: deleteParameters,
     deleteBaseAsset: deleteBaseAsset,
     deleteTimeRange: deleteTimeRange,
+    deleteTimePeriod: deleteTimePeriod,
     deleteSlippage: deleteSlippage,
     deleteFeeStructure: deleteFeeStructure,
     deleteStrategy: deleteStrategy,
@@ -51,6 +58,14 @@ function newNodeDeleter () {
 
           case 'Definition': {
             deleteDefinition(rootNode, rootNodes, true)
+            break
+          }
+          case 'Network': {
+            deleteNetwork(rootNode, rootNodes)
+            break
+          }
+          case 'Network Node': {
+            deleteNetworkNode(rootNode, rootNodes)
             break
           }
           case 'Task Manager': {
@@ -97,6 +112,22 @@ function newNodeDeleter () {
             deleteTradingSystem(rootNode, rootNodes)
             break
           }
+          case 'Backtesting Session': {
+            deleteBacktestingSession(rootNode, rootNodes)
+            break
+          }
+          case 'Live Trading Session': {
+            deleteLiveTradingSession(rootNode, rootNodes)
+            break
+          }
+          case 'Fordward Testing Session': {
+            deleteFordwardTestingSession(rootNode, rootNodes)
+            break
+          }
+          case 'Paper Trading Session': {
+            deletePaperTradingSession(rootNode, rootNodes)
+            break
+          }
           case 'Parameters': {
             deleteParameters(rootNode, rootNodes)
             break
@@ -107,6 +138,10 @@ function newNodeDeleter () {
           }
           case 'Time Range': {
             deleteTimeRange(rootNode, rootNodes)
+            break
+          }
+          case 'Time Period': {
+            deleteTimePeriod(rootNode, rootNodes)
             break
           }
           case 'Slippage': {
@@ -225,16 +260,51 @@ function newNodeDeleter () {
       if (counter <= 1) { return }
     }
 
-    if (node.payload.uiObject.isDefault === true) {
-      node.payload.uiObject.setNotRunningStatus()
-    }
-
     if (node.tradingSystem !== undefined) {
       deleteTradingSystem(node.tradingSystem, rootNodes)
     }
     if (node.personalData !== undefined) {
       deletePersonalData(node.personalData, rootNodes)
     }
+    if (node.network !== undefined) {
+      deleteNetwork(node.network, rootNodes)
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteNetwork (node, rootNodes, forced) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.network = undefined
+    }
+
+    if (node.networkNodes !== undefined) {
+      while (node.networkNodes.length > 0) {
+        deleteNetworkNode(node.networkNodes[0], rootNodes)
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteNetworkNode (node, rootNodes, forced) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.networkNodes.length; j++) {
+        let networkNode = payload.parentNode.networkNodes[j]
+        if (networkNode.id === node.id) {
+          payload.parentNode.networkNodes.splice(j, 1)
+        }
+      }
+    }
+
     if (node.taskManagers !== undefined) {
       while (node.taskManagers.length > 0) {
         deleteTaskManager(node.taskManagers[0], rootNodes)
@@ -309,6 +379,88 @@ function newNodeDeleter () {
           payload.parentNode.processes.splice(j, 1)
         }
       }
+    }
+
+    if (node.session !== undefined) {
+      switch (node.session.type) {
+        case 'Backtesting Session': {
+          deleteBacktestingSession(node.session, rootNodes)
+          break
+        }
+        case 'Live Trading Session': {
+          deleteLiveTradingSession(node.session, rootNodes)
+          break
+        }
+        case 'Fordward Testing Session': {
+          deleteFordwardTestingSession(node.session, rootNodes)
+          break
+        }
+        case 'Paper Trading Session': {
+          deletePaperTradingSession(node.session, rootNodes)
+          break
+        }
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteBacktestingSession (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.session = undefined
+    }
+
+    if (node.parameters !== undefined) {
+      deleteParameters(node.parameters, rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteLiveTradingSession (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.session = undefined
+    }
+
+    if (node.parameters !== undefined) {
+      deleteParameters(node.parameters, rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteFordwardTestingSession (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.session = undefined
+    }
+
+    if (node.parameters !== undefined) {
+      deleteParameters(node.parameters, rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deletePaperTradingSession (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.session = undefined
+    }
+
+    if (node.parameters !== undefined) {
+      deleteParameters(node.parameters, rootNodes)
     }
     completeDeletion(node, rootNodes)
     destroyPart(node)
@@ -426,6 +578,9 @@ function newNodeDeleter () {
     if (node.timeRange !== undefined) {
       deleteTimeRange(node.timeRange, rootNodes)
     }
+    if (node.timePeriod !== undefined) {
+      deleteTimePeriod(node.timePeriod, rootNodes)
+    }
     if (node.slippage !== undefined) {
       deleteSlippage(node.slippage, rootNodes)
     }
@@ -451,6 +606,17 @@ function newNodeDeleter () {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       payload.parentNode.timeRange = undefined
+    } else {
+      completeDeletion(node, rootNodes)
+    }
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteTimePeriod (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.timePeriod = undefined
     } else {
       completeDeletion(node, rootNodes)
     }

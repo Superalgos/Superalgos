@@ -11,6 +11,12 @@ function newNodeChildren () {
       case 'Definition': {
         return countChildrenDefinition(parentNode, childNode)
       }
+      case 'Network': {
+        return countChildrenNetwork(parentNode, childNode)
+      }
+      case 'Network Node': {
+        return countChildrenNetworkNode(parentNode, childNode)
+      }
       case 'Task Manager': {
         return countChildrenTaskManager(parentNode, childNode)
       }
@@ -28,6 +34,18 @@ function newNodeChildren () {
       }
       case 'Process': {
         return countChildrenProcess(parentNode, childNode)
+      }
+      case 'Backtesting Session': {
+        return countBacktestingSession(parentNode, childNode)
+      }
+      case 'Live Trading Session': {
+        return countLiveTradingSession(parentNode, childNode)
+      }
+      case 'Fordward Testing Session': {
+        return countFordwardTestingSession(parentNode, childNode)
+      }
+      case 'Paper Trading Session': {
+        return countPaperTradingSession(parentNode, childNode)
       }
       case 'Personal Data': {
         return countChildrenPersonalData(parentNode, childNode)
@@ -52,6 +70,9 @@ function newNodeChildren () {
       }
       case 'Time Range': {
         return countChildrenTimeRange(parentNode, childNode)
+      }
+      case 'Time Period': {
+        return countChildrenTimePeriod(parentNode, childNode)
       }
       case 'Slippage': {
         return countChildrenSlippage(parentNode, childNode)
@@ -144,6 +165,37 @@ function newNodeChildren () {
       if (parentNode.personalData.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
+    }
+    if (parentNode.network !== undefined) {
+      response.childrenCount++
+      if (parentNode.network.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenNetwork (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.networkNodes !== undefined) {
+      for (let i = 0; i < parentNode.networkNodes.length; i++) {
+        let child = parentNode.networkNodes[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    return response
+  }
+
+  function countChildrenNetworkNode (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
     }
     if (parentNode.taskManagers !== undefined) {
       for (let i = 0; i < parentNode.taskManagers.length; i++) {
@@ -239,6 +291,68 @@ function newNodeChildren () {
     let response = {
       childrenCount: 0,
       childIndex: undefined
+    }
+    if (parentNode.session !== undefined) {
+      response.childrenCount++
+      if (parentNode.session.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countBacktestingSession (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.parameters !== undefined) {
+      response.childrenCount++
+      if (parentNode.parameters.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countLiveTradingSession (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.parameters !== undefined) {
+      response.childrenCount++
+      if (parentNode.parameters.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countFordwardTestingSession (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.parameters !== undefined) {
+      response.childrenCount++
+      if (parentNode.parameters.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countPaperTradingSession (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.parameters !== undefined) {
+      response.childrenCount++
+      if (parentNode.parameters.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
     }
     return response
   }
@@ -339,6 +453,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.timePeriod !== undefined) {
+      response.childrenCount++
+      if (parentNode.timePeriod.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     if (parentNode.slippage !== undefined) {
       response.childrenCount++
       if (parentNode.slippage.id === childNode.id) {
@@ -363,6 +483,14 @@ function newNodeChildren () {
   }
 
   function countChildrenTimeRange (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenTimePeriod (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined

@@ -1,12 +1,19 @@
 function newPartsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
+    addDefinition: addDefinition,
+    addNetwork: addNetwork,
+    addNetworkNode: addNetworkNode,
     addTaskManager: addTaskManager,
     addTask: addTask,
     addSensor: addSensor,
     addIndicator: addIndicator,
     addTradingEngine: addTradingEngine,
     addProcess: addProcess,
+    addBacktestingSession: addBacktestingSession,
+    addLiveTradingSession: addLiveTradingSession,
+    addFordwardTestingSession: addFordwardTestingSession,
+    addPaperTradingSession: addPaperTradingSession,
     addTradingSystem: addTradingSystem,
     addPersonalData: addPersonalData,
     addExchangeAccount: addExchangeAccount,
@@ -256,6 +263,10 @@ function newPartsFromNodes () {
         createPart('Time Range', node.name, node, parentNode, chainParent, 'Time Range')
         return
       }
+      case 'Time Period': {
+        createPart('Time Period', node.name, node, parentNode, chainParent, 'Time Period')
+        return
+      }
       case 'Slippage': {
         createPart('Slippage', node.name, node, parentNode, chainParent, 'Slippage')
         return
@@ -271,6 +282,9 @@ function newPartsFromNodes () {
         }
         if (node.timeRange !== undefined) {
           createPartFromNode(node.timeRange, node, node)
+        }
+        if (node.timePeriod !== undefined) {
+          createPartFromNode(node.timePeriod, node, node)
         }
         if (node.slippage !== undefined) {
           createPartFromNode(node.slippage, node, node)
@@ -333,6 +347,23 @@ function newPartsFromNodes () {
         if (node.personalData !== undefined) {
           createPartFromNode(node.personalData, node, node)
         }
+        if (node.network !== undefined) {
+          createPartFromNode(node.network, node, node)
+        }
+        return
+      }
+      case 'Network': {
+        createPart('Network', node.name, node, parentNode, chainParent, 'Network')
+        if (node.networkNodes !== undefined) {
+          for (let m = 0; m < node.networkNodes.length; m++) {
+            let networkNode = node.networkNodes[m]
+            createPartFromNode(networkNode, node, node)
+          }
+        }
+        return
+      }
+      case 'Network Node': {
+        createPart('Network Node', node.name, node, parentNode, chainParent, 'Network Node')
         if (node.taskManagers !== undefined) {
           for (let m = 0; m < node.taskManagers.length; m++) {
             let taskManager = node.taskManagers[m]
@@ -381,15 +412,87 @@ function newPartsFromNodes () {
         return
       }
       case 'Process': {
+        if (parentNode !== undefined) {
+          switch (parentNode.type) {
+            case 'Sensor': {
+              node.subType = 'Sensor Process'
+              break
+            }
+            case 'Indicator': {
+              node.subType = 'Indicator Process'
+              break
+            }
+            case 'Trading Engine': {
+              node.subType = 'Trading Engine Process'
+              break
+            }
+          }
+        }
         createPart('Process', node.name, node, parentNode, chainParent, 'Process')
+        if (node.session !== undefined) {
+          createPartFromNode(node.session, node, node)
+        }
+        return
+      }
+      case 'Backtesting Session': {
+        createPart('Backtesting Session', node.name, node, parentNode, chainParent, 'Backtesting Session')
+        if (node.parameters !== undefined) {
+          createPartFromNode(node.parameters, node, node)
+        }
+        return
+      }
+      case 'Live Trading Session': {
+        createPart('Live Trading Session', node.name, node, parentNode, chainParent, 'Live Trading Session')
+        if (node.parameters !== undefined) {
+          createPartFromNode(node.parameters, node, node)
+        }
+        return
+      }
+      case 'Fordward Testing Session': {
+        createPart('Fordward Testing Session', node.name, node, parentNode, chainParent, 'Fordward Testing Session')
+        if (node.parameters !== undefined) {
+          createPartFromNode(node.parameters, node, node)
+        }
+        return
+      }
+      case 'Paper Trading Session': {
+        createPart('Paper Trading Session', node.name, node, parentNode, chainParent, 'Paper Trading Session')
+        if (node.parameters !== undefined) {
+          createPartFromNode(node.parameters, node, node)
+        }
         return
       }
     }
   }
 
+  function addNetwork (node) {
+    if (node.network === undefined) {
+      node.network = {
+        name: 'Superalgos'
+      }
+      createPart('Network', node.network.name, node.network, node, node, 'Network')
+    }
+
+    return node.network
+  }
+
+  function addNetworkNode (node) {
+    let networkNode = {
+      name: 'New Network Node'
+    }
+    if (node.networkNodes === undefined) {
+      node.networkNodes = []
+    }
+    node.networkNodes.push(networkNode)
+    createPart('Network Node', networkNode.name, networkNode, node, node, 'Network Node')
+
+    return networkNode
+  }
+
   function addTaskManager (node) {
     let taskManager = {
-      name: 'New Task Manager'
+      name: 'New Task Manager',
+      tasks: []
     }
     if (node.taskManagers === undefined) {
       node.taskManagers = []
@@ -442,13 +545,84 @@ function newPartsFromNodes () {
 
   function addProcess (node) {
     let process = {
-      name: 'New Process',
-      code: '// Write the configuration here.'
+      code: '{}'
+    }
+
+    switch (node.type) {
+      case 'Sensor': {
+        process.subType = 'Sensor Process'
+        process.name = 'Sensor Process'
+        break
+      }
+      case 'Indicator': {
+        process.subType = 'Indicator Process'
+        process.name = 'Indicator Process'
+        break
+      }
+      case 'Trading Engine': {
+        process.subType = 'Trading Engine Process'
+        process.name = 'Trading Engine Process'
+        break
+      }
     }
     node.processes.push(process)
     createPart('Process', process.name, process, node, node, 'Process')
 
     return process
+  }
+
+  function addBacktestingSession (node) {
+    if (node.session === undefined) {
+      node.session = {
+        name: 'New Backtesting Session'
+      }
+      createPart('Backtesting Session', '', node.session, node, node)
+    }
+
+    return node.session
+  }
+
+  function addLiveTradingSession (node) {
+    if (node.session === undefined) {
+      node.session = {
+        name: 'New Live Trading Session'
+      }
+      createPart('Live Trading Session', '', node.session, node, node)
+    }
+
+    return node.session
+  }
+
+  function addFordwardTestingSession (node) {
+    if (node.session === undefined) {
+      node.session = {
+        name: 'New Fordward Testing Session'
+      }
+      createPart('Fordward Testing Session', '', node.session, node, node)
+    }
+
+    return node.session
+  }
+
+  function addPaperTradingSession (node) {
+    if (node.session === undefined) {
+      node.session = {
+        name: 'New Paper Trading Session'
+      }
+      createPart('Paper Trading Session', '', node.session, node, node)
+    }
+
+    return node.session
+  }
+
+  function addDefinition (node) {
+    let definition = {
+      name: 'New Definition'
+    }
+    node.rootNodes.push(definition)
+    createPart('Definition', definition.name, definition, node, undefined, 'Definition')
+
+    return definition
   }
 
   function addTradingSystem (node) {
@@ -600,6 +774,13 @@ function newPartsFromNodes () {
         code: DEFAULT_CONFIG_TEXT
       }
       createPart('Time Range', '', node.timeRange, node, node)
+    }
+    if (node.timePeriod === undefined) {
+      node.timePeriod = {
+        name: 'Time Period',
+        code: DEFAULT_CONFIG_TEXT
+      }
+      createPart('Time Period', '', node.timePeriod, node, node)
     }
     if (node.slippage === undefined) {
       node.slippage = {

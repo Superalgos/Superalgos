@@ -259,7 +259,16 @@ function newCircularMenuItem () {
         return
       }
 
-      function onPrimaryCallBack (err) {
+      function onPrimaryCallBack (err, event) {
+        /* While the primary action is being executed some event might have happen. Following we process the ones we can */
+
+        if (event !== undefined) {
+          if (event.type === 'Secondary Action Already Executed') {
+            setStatus(thisObject.secondaryWorkDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 250, STATUS_SECONDARY_WORK_DONE)
+            return
+          }
+        }
+
         /* If there is a secondary action we will act different that if there is not */
         if (thisObject.secondaryAction === undefined) { // This means there are no more possible actions.
           if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {

@@ -309,6 +309,17 @@ function newStringifyNode () {
         }
         return object
       }
+      case 'Time Period': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
       case 'Slippage': {
         let object = {
           id: node.id,
@@ -339,6 +350,7 @@ function newStringifyNode () {
           name: node.name,
           baseAsset: prepareForStringify(node.baseAsset, removePersonalData),
           timeRange: prepareForStringify(node.timeRange, removePersonalData),
+          timePeriod: prepareForStringify(node.timePeriod, removePersonalData),
           slippage: prepareForStringify(node.slippage, removePersonalData),
           feeStructure: prepareForStringify(node.feeStructure, removePersonalData),
           savedPayload: getSavedPayload(node)
@@ -512,7 +524,86 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
+          session: prepareForStringify(node.session, removePersonalData),
           savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Backtesting Session': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          parameters: prepareForStringify(node.parameters, removePersonalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Live Trading Session': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          parameters: prepareForStringify(node.parameters, removePersonalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Fordward Testing Session': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          parameters: prepareForStringify(node.parameters, removePersonalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Paper Trading Session': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          parameters: prepareForStringify(node.parameters, removePersonalData),
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Network Node': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          taskManagers: [],
+          savedPayload: getSavedPayload(node)
+        }
+        if (node.taskManagers !== undefined) {
+          for (let m = 0; m < node.taskManagers.length; m++) {
+            let taskManager = prepareForStringify(node.taskManagers[m], removePersonalData)
+            object.taskManagers.push(taskManager)
+          }
+        }
+        return object
+      }
+      case 'Network': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          networkNodes: [],
+          savedPayload: getSavedPayload(node)
+        }
+        if (node.networkNodes !== undefined) {
+          for (let m = 0; m < node.networkNodes.length; m++) {
+            let networkNode = prepareForStringify(node.networkNodes[m], removePersonalData)
+            object.networkNodes.push(networkNode)
+          }
         }
         return object
       }
@@ -524,14 +615,8 @@ function newStringifyNode () {
           name: node.name,
           tradingSystem: prepareForStringify(node.tradingSystem, removePersonalData),
           personalData: prepareForStringify(node.personalData, removePersonalData),
-          taskManagers: [],
+          network: prepareForStringify(node.network, removePersonalData),
           savedPayload: getSavedPayload(node)
-        }
-        if (node.taskManagers !== undefined) {
-          for (let m = 0; m < node.taskManagers.length; m++) {
-            let taskManager = prepareForStringify(node.taskManagers[m], removePersonalData)
-            object.taskManagers.push(taskManager)
-          }
         }
         return object
       }
@@ -558,7 +643,7 @@ function newStringifyNode () {
         isTensed: (node.payload.floatingObject.isTensed && node.payload.floatingObject.tensedManually)
       },
       uiObject: {
-        isDefault: node.payload.uiObject.isDefault
+        isRunning: node.payload.uiObject.isRunning
       }
     }
     return savedPayload

@@ -52,6 +52,7 @@ function newCircularProgressBar () {
 
   function onHeartBeat (message) {
     opacityCounters[message.event.seconds] = 2000
+    thisObject.payload.uiObject.setValue(message.event.processingDate)
   }
 
   function getContainer (point) {

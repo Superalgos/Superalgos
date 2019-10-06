@@ -11,6 +11,22 @@ function newAttachDetach () {
       case 'Definition': {
         return
       }
+      case 'Network': {
+        node.payload.parentNode.network = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Network Node': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.networkNodes.length; i++) {
+          let networkNode = payload.parentNode.networkNodes[i]
+          if (networkNode.id === node.id) {
+            payload.parentNode.networkNodes.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Personal Data': {
         node.payload.parentNode.personalData = undefined
         completeDetachment(node, rootNodes)
@@ -86,8 +102,34 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Backtesting Session': {
+        node.payload.parentNode.session = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Live Trading Session': {
+        node.payload.parentNode.session = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Fordward Testing Session': {
+        node.payload.parentNode.session = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Paper Trading Session': {
+        node.payload.parentNode.session = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Process': {
-        node.payload.parentNode.process = undefined
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.processes.length; i++) {
+          let process = payload.parentNode.processes[i]
+          if (process.id === node.id) {
+            payload.parentNode.processes.splice(i, 1)
+          }
+        }
         completeDetachment(node, rootNodes)
         return
       }
@@ -103,6 +145,11 @@ function newAttachDetach () {
       }
       case 'Time Range': {
         node.payload.parentNode.timeRange = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Time Period': {
+        node.payload.parentNode.timePeriod = undefined
         completeDetachment(node, rootNodes)
         return
       }
@@ -265,6 +312,20 @@ function newAttachDetach () {
 
   function attachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
+      case 'Network': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.network = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Network Node': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.networkNodes.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
       case 'Task Manager': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
@@ -304,6 +365,34 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.processes.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Backtesting Session': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.session = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Live Trading Session': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.session = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Fordward Testing Session': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.session = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Paper Trading Session': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.session = node
         completeAttachment(node, rootNodes)
       }
         break
@@ -353,6 +442,13 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.timeRange = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Time Period': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.timePeriod = node
         completeAttachment(node, rootNodes)
       }
         break

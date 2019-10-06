@@ -18,12 +18,9 @@ function newStrategyPart () {
     partTitle: undefined,
     circularProgressBar: undefined,
     isExecuting: undefined,
-    isDefault: undefined,
-    setAsDefault: setAsDefault,
+    isRunning: undefined,
     run: run,
     stop: stop,
-    setDefaultStatus: setDefaultStatus,
-    setNotRunningStatus: setNotRunningStatus,
     getReadyToAttach: getReadyToAttach,
     showAvailabilityToAttach: showAvailabilityToAttach,
     highlight: highlight,
@@ -64,7 +61,6 @@ function newStrategyPart () {
 
   let hasValue
   let valueCounter = 0
-  let runningCounter = 0
 
   let previousDistance
 
@@ -81,7 +77,7 @@ function newStrategyPart () {
   let attachToNode
 
   let errorMessage = ''
-  let formulaValue = 0
+  let currentValue = 0
   let rightDragging = false
 
   return thisObject
@@ -210,6 +206,14 @@ function newStrategyPart () {
         compatibleType = '->' + 'Definition' + '->'
         compatibleSubType = undefined
         break
+      case 'Network':
+        compatibleType = '->' + 'Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Network Node':
+        compatibleType = '->' + 'Network' + '->'
+        compatibleSubType = undefined
+        break
       case 'Exchange Account':
         compatibleType = '->' + 'Personal Data' + '->'
         compatibleSubType = undefined
@@ -223,14 +227,34 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Parameters':
-        compatibleType = '->' + 'Trading System' + '->'
-        compatibleSubType = undefined
+        compatibleType = '->' + 'Trading System' + '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
+        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        break
+      case 'Backtesting Session':
+        compatibleType = '->' + 'Process' + '->'
+        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        break
+      case 'Live Trading Session':
+        compatibleType = '->' + 'Process' + '->'
+        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        break
+      case 'Paper Trading Session':
+        compatibleType = '->' + 'Process' + '->'
+        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        break
+      case 'Fordward Testing Session':
+        compatibleType = '->' + 'Process' + '->'
+        compatibleSubType = '->' + 'Trading Engine Process' + '->'
         break
       case 'Base Asset':
         compatibleType = '->' + 'Parameters' + '->'
         compatibleSubType = undefined
         break
       case 'Time Range':
+        compatibleType = '->' + 'Parameters' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Time Period':
         compatibleType = '->' + 'Parameters' + '->'
         compatibleSubType = undefined
         break
@@ -243,7 +267,7 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Task Manager':
-        compatibleType = '->' + 'Definition' + '->'
+        compatibleType = '->' + 'Network Node' + '->'
         compatibleSubType = undefined
         break
       case 'Task':
@@ -263,7 +287,20 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Process':
-        compatibleType = '->' + 'Sensor' + '->' + 'Indicator' + '->' + 'Trading Engine' + '->'
+        switch (thisObject.payload.node.subType) {
+          case 'Sensor Process': {
+            compatibleType = '->' + 'Sensor' + '->'
+            break
+          }
+          case 'Indicator Process': {
+            compatibleType = '->' + 'Indicator' + '->'
+            break
+          }
+          case 'Trading Engine Process': {
+            compatibleType = '->' + 'Trading Engine' + '->'
+            break
+          }
+        }
         compatibleSubType = undefined
         break
       case 'Strategy':
@@ -372,8 +409,13 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }
         if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }
         if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Backtesting Session' && nearbyNode.session !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Live Trading Session' && nearbyNode.session !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Fordward Testing Session' && nearbyNode.session !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Paper Trading Session' && nearbyNode.session !== undefined) { continue }
         if (thisObject.payload.node.type === 'Base Asset' && nearbyNode.baseAsset !== undefined) { continue }
         if (thisObject.payload.node.type === 'Time Range' && nearbyNode.timeRange !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Time Period' && nearbyNode.timePeriod !== undefined) { continue }
         if (thisObject.payload.node.type === 'Slippage' && nearbyNode.slippage !== undefined) { continue }
         if (thisObject.payload.node.type === 'Fee Structure' && nearbyNode.feeStructure !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }
@@ -393,6 +435,12 @@ function newStrategyPart () {
         if (thisObject.payload.node.type === 'Formula' && nearbyNode.formula !== undefined) { continue }
         if (thisObject.payload.node.type === 'Next Phase Event' && nearbyNode.nextPhaseEvent !== undefined) { continue }
         if (thisObject.payload.node.type === 'Code' && nearbyNode.code !== undefined) { continue }
+        /* Here we check if the subtypes are compatible. */
+        if (nearbyNode.subType !== undefined && compatibleSubType !== undefined) {
+          if (compatibleSubType.indexOf('->' + nearbyNode.subType + '->') < 0) {
+            continue
+          }
+        }
         /* Discard Phases without partent */
         if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
         /* Control maxPhases */
@@ -524,9 +572,9 @@ function newStrategyPart () {
 
   function setValue (value) {
     if (value !== undefined) {
-      formulaValue = value
+      currentValue = value
       hasValue = true
-      valueCounter = 5
+      valueCounter = 500
     }
   }
 
@@ -541,48 +589,51 @@ function newStrategyPart () {
     thisObject.circularProgressBar.fitFunction = thisObject.fitFunction
     thisObject.circularProgressBar.container = thisObject.container
 
-    /* We will wait to the event that the task was terminated in order to call back the menu item */
+    /* We will wait to the event that the execution was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Running', undefined, key, undefined, onTaskTerminated)
+    systemEventHandler.listenToEvent(key, 'Running', undefined, key, undefined, onRunning)
 
-    function onTaskTerminated () {
+    function onRunning () {
       if (callBackFunction !== undefined) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
       }
     }
+
+    /*
+    While it is running, it can happen that it naturally stops or is stopped not from the UI but from other means.
+    In those cases, the stop function would never be called (from the UI). So what we will do is to call it from
+    here with and event, and passing our own callBackFunction. In case there is an external source stopping this,
+    this will produce an execution of the callback with our event, which will produce that the menu item is restored
+    to its default stage.
+
+    If on the other side, it is executed from the UI, then we will be processing the Stopped event twice, which in
+    both cases will reset the menu item to its default state.
+    */
+
+    let event = {
+      type: 'Secondary Action Already Executed'
+    }
+    stop(callBackFunction, event)
+
+    thisObject.isRunning = true
   }
 
-  function stop (callBackFunction) {
-    /* We will wait to the event that the task was terminated in order to call back the menu item */
+  function stop (callBackFunction, event) {
+    /* We will wait to the event that the execution was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    let eventSubscriptionId = systemEventHandler.listenToEvent(key, 'Stopped', undefined, key, undefined, onTaskTerminated)
+    systemEventHandler.listenToEvent(key, 'Stopped', undefined, key, undefined, onStopped)
 
-    function onTaskTerminated () {
+    function onStopped () {
       if (callBackFunction !== undefined) {
-        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, event)
       }
 
       if (thisObject.circularProgressBar !== undefined) {
         thisObject.circularProgressBar.finalize()
         thisObject.circularProgressBar = undefined
       }
+      thisObject.isRunning = false
     }
-  }
-
-  function setAsDefault () {
-    setDefaultStatus()
-    canvas.cockpitSpace.restartSimulation.restart()
-  }
-
-  function setDefaultStatus () {
-    canvas.strategySpace.workspace.definition = thisObject.payload.node
-    thisObject.isDefault = true
-    runningCounter = 30
-  }
-
-  function setNotRunningStatus () {
-    canvas.strategySpace.workspace.definition = undefined
-    thisObject.isDefault = false
   }
 
   function iconPhysics () {
@@ -760,7 +811,7 @@ function newStrategyPart () {
     let label
 
     if (radius > 6) {
-      const MAX_LABEL_LENGTH = 20
+      const MAX_LABEL_LENGTH = 30
 
       label = thisObject.payload.subTitle
       label = addIndexNumber(label)
@@ -832,7 +883,7 @@ function newStrategyPart () {
 
     position = thisObject.container.frame.frameThisPoint(position)
 
-    let radius = thisObject.container.frame.radius
+    let radius = thisObject.container.frame.radius * 1.5
             /* Label Text */
     let labelPoint
     let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
@@ -841,7 +892,10 @@ function newStrategyPart () {
     if (radius > 6) {
       const MAX_LABEL_LENGTH = 30
 
-      label = formulaValue.toFixed(2)
+      label = currentValue
+      if (!isNaN(label)) {
+        label = currentValue.toFixed(2)
+      }
 
       if (label !== undefined) {
         if (label.length > MAX_LABEL_LENGTH) {
@@ -959,9 +1013,9 @@ function newStrategyPart () {
 
       browserCanvasContext.fill()
 
-      if (thisObject.isDefault === true) {
+      if (thisObject.payload.node.type === 'Definition') {
         VISIBLE_RADIUS = thisObject.container.frame.radius * 2
-        let OPACITY = runningCounter / 30
+        let OPACITY = 1
 
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)

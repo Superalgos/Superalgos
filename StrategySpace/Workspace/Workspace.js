@@ -13,7 +13,6 @@ function newWorkspace () {
     nodeChildren: undefined,
     stopAllRunningTasks: stopAllRunningTasks,
     onMenuItemClick: onMenuItemClick,
-    getProtocolDefinitionNode: getProtocolDefinitionNode,
     physics: physics,
     spawn: spawn,
     detachNode: detachNode,
@@ -100,10 +99,6 @@ function newWorkspace () {
 
       thisObject.enabled = true
     }
-  }
-
-  function getProtocolDefinitionNode () {
-    return functionLibraryProtocolNode.getProtocolNode(thisObject.definition, false, true, true) // <-  We need to do this workaround in order no to send unescaped charactars through a system event.
   }
 
   function detachNode (node) {

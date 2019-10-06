@@ -8,8 +8,7 @@ function newStrategizerGateway () {
     idAtStrategizer: undefined,
     strategizerData: undefined,
     container: undefined,
-    loadFromStrategyzer: loadFromStrategyzer,
-    saveToStrategyzer: saveToStrategyzer
+    loadFromStrategyzer: loadFromStrategyzer
   }
 
   let colletionItems = []
@@ -91,78 +90,6 @@ function newStrategizerGateway () {
       }
     } catch (err) {
       logger.write('[ERROR] loadFromStrategyzer -> err = ' + err.stack)
-    }
-  }
-
-  async function saveToStrategyzer (uiCurrentValues) {
-    try {
-      const accessToken = window.localStorage.getItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY)
-      if (accessToken === null) {
-        logger.write('[ERROR] saveToStrategyzer -> Can not save because the accessToken is missing.')
-        return
-      }
-
-      let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
-      if (user === null) {
-        logger.write('[ERROR] saveToStrategyzer -> Can not save because user is not logged in. ')
-        return
-      }
-
-      let tradingSystem = canvas.strategySpace.workspace.getProtocolDefinitionNode()
-      if (tradingSystem === undefined || tradingSystem === null) {
-        logger.write('[ERROR] saveToStrategyzer -> Can not save when tradingSystem is null or undefined.')
-        return
-      }
-
-      if (window.canvasApp.executingAt === 'Local') {
-        tradingSystem.uiCurrentValues = uiCurrentValues
-        callServer(JSON.stringify(tradingSystem), 'SaveDefinition', onSaved)
-        function onSaved (err) {
-          if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-            return true
-          } else {
-            logger.write('[ERROR] saveToStrategyzer -> Can not save definition to local server. err = ' + err.messsage)
-            return false
-          }
-        }
-        return true // TODO: Here we will always show that the saving works even if it does not. We need to fix this at some point in time.
-      } else {
-        user = JSON.parse(user)
-
-        graphQLServer = await axios({
-          url: window.canvasApp.graphQL.masterAppApiUrl,
-          method: 'post',
-          data: {
-            query: `
-              mutation strategizer_EditTradingSystem
-              (
-                $id: ID!, $data: strategizer_JSON!
-              )
-              {
-                strategizer_EditTradingSystem(id: $id, tradingSystem: { data: $data })
-                {
-                  id
-                }
-              }
-                    `,
-            variables: {
-              id: idAtStrategizer,
-              data: tradingSystem
-            }
-          },
-          headers: {
-            authorization: 'Bearer ' + accessToken
-          }
-        })
-
-        if (graphQLServer.data.errors) {
-          logger.write('[ERROR] saveToStrategyzer -> GraphsQL Error -> graphQLServer.data.errors = ' + JSON.stringify(graphQLServer.data.errors))
-        }
-
-        return true
-      }
-    } catch (err) {
-      logger.write('[ERROR] saveToStrategyzer -> err = ' + err.stack)
     }
   }
 }

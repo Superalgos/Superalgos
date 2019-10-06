@@ -22,18 +22,45 @@ function newSessionFunctions () {
 
     let key = node.name + '-' + node.type + '-' + node.id
 
+    let thisNodeDefinition = getDefinition(node)
+    if (thisNodeDefinition === undefined) { return }
+
     /* Raise event to run the session */
     let event = {
       session: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false, false, true)),
-      definition: getDefinition()
+      definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(thisNodeDefinition, false, true, true)),
+      uiCurrentValues: getUICurrentValues()
     }
 
     systemEventHandler.raiseEvent(key, 'Run Session', event)
 
-    function getDefinition () {
-      let definitionNode = canvas.strategySpace.workspace.getProtocolDefinitionNode()
-      definitionNode.uiCurrentValues = getUICurrentValues()
-      return JSON.stringify(definitionNode)
+    function getDefinition (node) {
+      if (node.type === 'Definition') {
+        return node
+      }
+
+      if (node.payload.parentNode !== undefined) {
+        return getDefinition(node.payload.parentNode)
+      } else {
+        return
+      }
+    }
+
+    function getUICurrentValues () {
+      let dateAtScreenCorner = new Date(window.localStorage.getItem('Date @ Screen Corner'))
+      let currentTimePeriod = JSON.parse(window.localStorage.getItem('Current Time Period'))
+
+      let timePeriodsMasterArray = [marketFilesPeriods, dailyFilePeriods]
+      let timePeriodArray = timePeriodsMasterArray[currentTimePeriod.filePeriodIndex]
+      let timePeriod = timePeriodArray[currentTimePeriod.timePeriodIndex][1]
+
+      let uiCurrentValues = {
+        initialDatetime: dateAtScreenCorner,
+        timePeriod: timePeriod,
+        timestamp: (new Date()).valueOf()
+      }
+
+      return uiCurrentValues
     }
   }
 

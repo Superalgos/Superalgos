@@ -81,7 +81,6 @@
 
             const MIN_TAKE_PROFIT_VALUE = 1 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
             const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
-            let previousTakeProfit = 0;
             let takeProfit = 0;
 
             /* Simulation Records */
@@ -667,278 +666,144 @@
                 conditionsArrayRecord.push(candle.begin);
                 conditionsArrayRecord.push(candle.end);
 
-                evaluateConditionsAndFormulas(tradingSystem, conditions);
+                for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
-                function evaluateConditionsAndFormulas(tradingSystem, conditions) {
+                    let strategy = tradingSystem.strategies[j];
 
-                    for (let j = 0; j < tradingSystem.strategies.length; j++) {
+                    let positionSize = 0
+                    let positionRate = 0
 
-                        let strategy = tradingSystem.strategies[j];
+                    /* Continue with the rest of the formulas and conditions */
 
-                        let positionSize = 0
-                        let positionRate = 0
+                    let triggerStage = strategy.triggerStage
 
-                        /* Continue with the rest of the formulas and conditions */
+                    if (triggerStage !== undefined) {
 
-                        let triggerStage = strategy.triggerStage
+                        if (triggerStage.triggerOn !== undefined) {
 
-                        if (triggerStage !== undefined) {
+                            for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
 
-                            if (triggerStage.triggerOn !== undefined) {
+                                let situation = triggerStage.triggerOn.situations[k];
 
-                                for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
+                                for (let m = 0; m < situation.conditions.length; m++) {
 
-                                    let situation = triggerStage.triggerOn.situations[k];
+                                    let condition = situation.conditions[m];
+                                    let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
 
-                                    for (let m = 0; m < situation.conditions.length; m++) {
-
-                                        let condition = situation.conditions[m];
-                                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
-
-                                        if (condition.code !== undefined) {
-                                            newCondition(key, condition.code);
-                                        }
-                                    }
-                                }
-                            }
-
-                            if (triggerStage.triggerOff !== undefined) {
-
-                                for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
-
-                                    let situation = triggerStage.triggerOff.situations[k];
-
-                                    for (let m = 0; m < situation.conditions.length; m++) {
-
-                                        let condition = situation.conditions[m];
-                                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
-
-                                        if (condition.code !== undefined) {
-                                            newCondition(key, condition.code);
-                                        }
-                                    }
-                                }
-                            }
-
-                            if (triggerStage.takePosition !== undefined) {
-
-                                for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
-
-                                    let situation = triggerStage.takePosition.situations[k];
-
-                                    for (let m = 0; m < situation.conditions.length; m++) {
-
-                                        let condition = situation.conditions[m];
-                                        let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
-
-                                        if (condition.code !== undefined) {
-                                            newCondition(key, condition.code);
-                                        }
+                                    if (condition.code !== undefined) {
+                                        newCondition(key, condition.code);
                                     }
                                 }
                             }
                         }
 
-                        let openStage = strategy.openStage
+                        if (triggerStage.triggerOff !== undefined) {
 
-                        if (openStage !== undefined) {
+                            for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
 
-                            /* Default Values*/
-                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                                positionSize = balanceAssetA;
-                                positionRate = candle.close;
+                                let situation = triggerStage.triggerOff.situations[k];
+
+                                for (let m = 0; m < situation.conditions.length; m++) {
+
+                                    let condition = situation.conditions[m];
+                                    let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
+
+                                    if (condition.code !== undefined) {
+                                        newCondition(key, condition.code);
+                                    }
+                                }
+                            }
+                        }
+
+                        if (triggerStage.takePosition !== undefined) {
+
+                            for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
+
+                                let situation = triggerStage.takePosition.situations[k];
+
+                                for (let m = 0; m < situation.conditions.length; m++) {
+
+                                    let condition = situation.conditions[m];
+                                    let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
+
+                                    if (condition.code !== undefined) {
+                                        newCondition(key, condition.code);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    let openStage = strategy.openStage
+
+                    if (openStage !== undefined) {
+
+                        /* Default Values*/
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                            positionSize = balanceAssetA;
+                            positionRate = candle.close;
+                        } else {
+                            positionSize = balanceAssetB;
+                            positionRate = candle.close;
+                        }
+
+                        let initialDefinition = openStage.initialDefinition
+
+                        if (initialDefinition !== undefined) {
+
+                            if (tradePositionSize !== 0) {
+                                positionSize = tradePositionSize
                             } else {
-                                positionSize = balanceAssetB;
-                                positionRate = candle.close;
-                            }
-
-                            let initialDefinition = openStage.initialDefinition
-
-                            if (initialDefinition !== undefined) {
-
-                                if (tradePositionSize !== 0) {
-                                    positionSize = tradePositionSize
-                                } else {
-                                    if (initialDefinition.positionSize !== undefined) {
-                                        if (initialDefinition.positionSize.formula !== undefined) {
-                                            try {
-                                                positionSize = eval(initialDefinition.positionSize.formula.code);
-                                            } catch (err) {
-                                                initialDefinition.positionSize.formula.error = err.message
-                                            }
-                                            if (isNaN(positionSize)) {
-                                                if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                                                    positionSize = balanceAssetA;
-                                                } else {
-                                                    positionSize = balanceAssetB;
-                                                }
+                                if (initialDefinition.positionSize !== undefined) {
+                                    if (initialDefinition.positionSize.formula !== undefined) {
+                                        try {
+                                            positionSize = eval(initialDefinition.positionSize.formula.code);
+                                        } catch (err) {
+                                            initialDefinition.positionSize.formula.error = err.message
+                                        }
+                                        if (isNaN(positionSize)) {
+                                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                                                positionSize = balanceAssetA;
                                             } else {
-                                                if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                                                    if (positionSize > balanceAssetA) { positionSize = balanceAssetA }
-                                                } else {
-                                                    if (positionSize > balanceAssetB) { positionSize = balanceAssetB }
-                                                }
+                                                positionSize = balanceAssetB;
                                             }
-                                        }
-                                    }
-                                }
-
-                                if (tradePositionRate !== 0) {
-                                    positionRate = tradePositionRate
-                                } else {
-                                    if (initialDefinition.positionRate !== undefined) {
-                                        if (initialDefinition.positionRate.formula !== undefined) {
-                                            try {
-                                                positionRate = eval(initialDefinition.positionRate.formula.code);
-                                            } catch (err) {
-                                                initialDefinition.positionRate.formula.error = err.message
-                                            }
-                                            if (isNaN(positionRate)) {
-                                                if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                                                    positionRate = candle.close;
-                                                } else {
-                                                    positionRate = candle.close;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                if (initialDefinition.stopLoss !== undefined) {
-
-                                    for (let p = 0; p < initialDefinition.stopLoss.phases.length; p++) {
-
-                                        let phase = initialDefinition.stopLoss.phases[p];
-
-                                        /* Evaluate Formula */
-                                        let formulaValue
-                                        let formulaError = ''
-
-                                        if (phase.formula !== undefined) {
-                                            try {
-                                                formulaValue = eval(phase.formula.code);
-                                                if (formulaValue === Infinity) {
-                                                    formulaError = "Formula evaluates to Infinity."
-                                                    formulaValue = MAX_STOP_LOSS_VALUE
-                                                }
-                                            } catch (err) {
-                                                if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
-                                                    /*
-                                                        We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
-                                                    */
-                                                } else {
-                                                    formulaError = err.message
-                                                }
-                                            }
-                                            if (isNaN(formulaValue)) { formulaValue = 0; }
-                                            if (formulaValue < MIN_STOP_LOSS_VALUE) {
-                                                formulaValue = MIN_STOP_LOSS_VALUE
-                                            }
-
-                                            formulasErrors.push('"' + formulaError + '"')
-                                            formulasValues.push(formulaValue)
-                                            let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p;
-                                            formulas.set(key, formulaValue)
-                                        }
-
-                                        /* next phase event */
-                                        let nextPhaseEvent = phase.nextPhaseEvent;
-                                        if (nextPhaseEvent !== undefined) {
-
-                                            for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
-
-                                                let situation = nextPhaseEvent.situations[k];
-
-                                                for (let m = 0; m < situation.conditions.length; m++) {
-
-                                                    let condition = situation.conditions[m];
-                                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
-
-                                                    if (condition.code !== undefined) {
-                                                        newCondition(key, condition.code);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                if (initialDefinition.takeProfit !== undefined) {
-
-                                    for (let p = 0; p < initialDefinition.takeProfit.phases.length; p++) {
-
-                                        let phase = initialDefinition.takeProfit.phases[p];
-
-                                        /* Evaluate Formula */
-                                        let formulaValue
-                                        let formulaError = ''
-
-                                        if (phase.formula !== undefined) {
-                                            try {
-                                                formulaValue = eval(phase.formula.code);
-                                                if (formulaValue === Infinity) {
-                                                    formulaValue = MAX_TAKE_PROFIT_VALUE
-                                                    formulaError = "WARNING: Formula evaluates to Infinity."
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> evaluateConditionsAndFormulas -> MAX_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
-                                                }
-                                            } catch (err) {
-                                                if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
-                                                    /*
-                                                        We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
-                                                    */
-                                                } else {
-                                                    formulaError = err.message
-                                                }
-                                            }
-                                            if (isNaN(formulaValue)) { formulaValue = 0; }
-                                            if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
-                                                formulaValue = MIN_TAKE_PROFIT_VALUE
-                                                formulaError = "WARNING: Formula is evaluating below the MIN_TAKE_PROFIT_VALUE."
-                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> evaluateConditionsAndFormulas -> MIN_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
-                                            }
-
-                                            formulasErrors.push('"' + formulaError + '"')
-                                            formulasValues.push(formulaValue)
-                                            let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p;
-                                            formulas.set(key, formulaValue)
-                                        }
-
-                                        /* next phase event */
-                                        let nextPhaseEvent = phase.nextPhaseEvent;
-                                        if (nextPhaseEvent !== undefined) {
-
-                                            for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
-
-                                                let situation = nextPhaseEvent.situations[k];
-
-                                                for (let m = 0; m < situation.conditions.length; m++) {
-
-                                                    let condition = situation.conditions[m];
-                                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
-
-                                                    if (condition.code !== undefined) {
-                                                        newCondition(key, condition.code);
-                                                    }
-                                                }
+                                        } else {
+                                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                                                if (positionSize > balanceAssetA) { positionSize = balanceAssetA }
+                                            } else {
+                                                if (positionSize > balanceAssetB) { positionSize = balanceAssetB }
                                             }
                                         }
                                     }
                                 }
                             }
 
-                            strategy.positionSize = positionSize
-                            strategy.positionRate = positionRate
-                        }
+                            if (tradePositionRate !== 0) {
+                                positionRate = tradePositionRate
+                            } else {
+                                if (initialDefinition.positionRate !== undefined) {
+                                    if (initialDefinition.positionRate.formula !== undefined) {
+                                        try {
+                                            positionRate = eval(initialDefinition.positionRate.formula.code);
+                                        } catch (err) {
+                                            initialDefinition.positionRate.formula.error = err.message
+                                        }
+                                        if (isNaN(positionRate)) {
+                                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                                                positionRate = candle.close;
+                                            } else {
+                                                positionRate = candle.close;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
 
-                        let manageStage = strategy.manageStage
+                            if (initialDefinition.stopLoss !== undefined) {
 
-                        if (manageStage !== undefined) {
+                                for (let p = 0; p < initialDefinition.stopLoss.phases.length; p++) {
 
-                            if (manageStage.stopLoss !== undefined) {
-
-                                for (let p = 0; p < manageStage.stopLoss.phases.length; p++) {
-
-                                    let phase = manageStage.stopLoss.phases[p];
+                                    let phase = initialDefinition.stopLoss.phases[p];
 
                                     /* Evaluate Formula */
                                     let formulaValue
@@ -948,10 +813,10 @@
                                         try {
                                             formulaValue = eval(phase.formula.code);
                                             if (formulaValue === Infinity) {
-                                                formulaError = ""
+                                                formulaError = "Formula evaluates to Infinity."
                                                 formulaValue = MAX_STOP_LOSS_VALUE
                                                 formulaError = "WARNING: Formula evaluates to Infinity."
-                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> evaluateConditionsAndFormulas -> MAX_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> initialDefinition.stopLoss -> MAX_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
                                             }
                                         } catch (err) {
                                             if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
@@ -966,12 +831,12 @@
                                         if (formulaValue < MIN_STOP_LOSS_VALUE) {
                                             formulaValue = MIN_STOP_LOSS_VALUE
                                             formulaError = "WARNING: Formula is evaluating below the MIN_STOP_LOSS_VALUE."
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> evaluateConditionsAndFormulas -> MIN_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> initialDefinition.stopLoss -> MIN_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
                                         }
 
                                         formulasErrors.push('"' + formulaError + '"')
                                         formulasValues.push(formulaValue)
-                                        let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p;
+                                        let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p;
                                         formulas.set(key, formulaValue)
                                     }
 
@@ -986,7 +851,7 @@
                                             for (let m = 0; m < situation.conditions.length; m++) {
 
                                                 let condition = situation.conditions[m];
-                                                let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+                                                let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
                                                 if (condition.code !== undefined) {
                                                     newCondition(key, condition.code);
@@ -997,11 +862,11 @@
                                 }
                             }
 
-                            if (manageStage.takeProfit !== undefined) {
+                            if (initialDefinition.takeProfit !== undefined) {
 
-                                for (let p = 0; p < manageStage.takeProfit.phases.length; p++) {
+                                for (let p = 0; p < initialDefinition.takeProfit.phases.length; p++) {
 
-                                    let phase = manageStage.takeProfit.phases[p];
+                                    let phase = initialDefinition.takeProfit.phases[p];
 
                                     /* Evaluate Formula */
                                     let formulaValue
@@ -1011,8 +876,9 @@
                                         try {
                                             formulaValue = eval(phase.formula.code);
                                             if (formulaValue === Infinity) {
-                                                formulaError = "Formula evaluates to Infinity."
                                                 formulaValue = MAX_TAKE_PROFIT_VALUE
+                                                formulaError = "WARNING: Formula evaluates to Infinity."
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> initialDefinition.takeProfit -> MAX_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
                                             }
                                         } catch (err) {
                                             if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
@@ -1026,11 +892,13 @@
                                         if (isNaN(formulaValue)) { formulaValue = 0; }
                                         if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
                                             formulaValue = MIN_TAKE_PROFIT_VALUE
+                                            formulaError = "WARNING: Formula is evaluating below the MIN_TAKE_PROFIT_VALUE."
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> initialDefinition.takeProfit -> MIN_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
                                         }
 
                                         formulasErrors.push('"' + formulaError + '"')
                                         formulasValues.push(formulaValue)
-                                        let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p;
+                                        let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p;
                                         formulas.set(key, formulaValue)
                                     }
 
@@ -1045,7 +913,7 @@
                                             for (let m = 0; m < situation.conditions.length; m++) {
 
                                                 let condition = situation.conditions[m];
-                                                let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+                                                let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
                                                 if (condition.code !== undefined) {
                                                     newCondition(key, condition.code);
@@ -1057,44 +925,178 @@
                             }
                         }
 
-                        function newCondition(key, node) {
+                        strategy.positionSize = positionSize
+                        strategy.positionRate = positionRate
+                    }
 
-                            let condition;
-                            let error = ''
-                            let value
+                    let manageStage = strategy.manageStage
 
-                            try {
-                                value = eval(node.code);
-                            } catch (err) {
-                                /*
-                                    One possible error is that the conditions references a .previous that is undefined. For this
-                                    reason and others, we will simply set the value to false.
-                                */
-                                value = false
+                    if (manageStage !== undefined) {
 
-                                if (node.code.indexOf('previous') > -1 && err.message.indexOf('of undefined') > -1 || 
-                                    node.code.indexOf('chart') > -1 && err.message.indexOf('of undefined') > -1
-                                    ) {
-                                    /*
-                                        We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
-                                    */
-                                } else {
-                                    node.error = err.message +  " @ " + (new Date(candle.begin)).toLocaleString() 
+                        if (manageStage.stopLoss !== undefined) {
+
+                            for (let p = 0; p < manageStage.stopLoss.phases.length; p++) {
+
+                                let phase = manageStage.stopLoss.phases[p];
+
+                                /* Evaluate Formula */
+                                let formulaValue
+                                let formulaError = ''
+
+                                if (phase.formula !== undefined) {
+                                    try {
+                                        formulaValue = eval(phase.formula.code);
+                                        if (formulaValue === Infinity) {
+                                            formulaError = ""
+                                            formulaValue = MAX_STOP_LOSS_VALUE
+                                            formulaError = "WARNING: Formula evaluates to Infinity."
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> manageStage.stopLoss -> MAX_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
+                                        }
+                                    } catch (err) {
+                                        if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
+                                            /*
+                                                We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                            */
+                                        } else {
+                                            formulaError = err.message
+                                        }
+                                    }
+                                    if (isNaN(formulaValue)) { formulaValue = 0; }
+                                    if (formulaValue < MIN_STOP_LOSS_VALUE) {
+                                        formulaValue = MIN_STOP_LOSS_VALUE
+                                        formulaError = "WARNING: Formula is evaluating below the MIN_STOP_LOSS_VALUE."
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> manageStage.stopLoss -> MIN_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
+                                    }
+
+                                    formulasErrors.push('"' + formulaError + '"')
+                                    formulasValues.push(formulaValue)
+                                    let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p;
+                                    formulas.set(key, formulaValue)
+                                }
+
+                                /* next phase event */
+                                let nextPhaseEvent = phase.nextPhaseEvent;
+                                if (nextPhaseEvent !== undefined) {
+
+                                    for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+
+                                        let situation = nextPhaseEvent.situations[k];
+
+                                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                                            let condition = situation.conditions[m];
+                                            let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+
+                                            if (condition.code !== undefined) {
+                                                newCondition(key, condition.code);
+                                            }
+                                        }
+                                    }
                                 }
                             }
+                        }
 
-                            condition = {
-                                key: key,
-                                value: value
-                            };
+                        if (manageStage.takeProfit !== undefined) {
 
-                            conditions.set(condition.key, condition);
+                            for (let p = 0; p < manageStage.takeProfit.phases.length; p++) {
 
-                            if (condition.value) {
-                                conditionsArrayValues.push(1);
-                            } else {
-                                conditionsArrayValues.push(0);
+                                let phase = manageStage.takeProfit.phases[p];
+
+                                /* Evaluate Formula */
+                                let formulaValue
+                                let formulaError = ''
+
+                                if (phase.formula !== undefined) {
+                                    try {
+                                        formulaValue = eval(phase.formula.code);
+                                        if (formulaValue === Infinity) {
+                                            formulaError = "Formula evaluates to Infinity."
+                                            formulaValue = MAX_TAKE_PROFIT_VALUE
+                                            formulaError = "WARNING: Formula evaluates to Infinity."
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> manageStage.takeProfit -> MAX_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
+                                        }
+                                    } catch (err) {
+                                        if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
+                                            /*
+                                                We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                            */
+                                        } else {
+                                            formulaError = err.message
+                                        }
+                                    }
+                                    if (isNaN(formulaValue)) { formulaValue = 0; }
+                                    if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
+                                        formulaValue = MIN_TAKE_PROFIT_VALUE
+                                        formulaError = "WARNING: Formula is evaluating below the MIN_TAKE_PROFIT_VALUE."
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> manageStage.takeProfit -> MIN_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
+                                    }
+
+                                    formulasErrors.push('"' + formulaError + '"')
+                                    formulasValues.push(formulaValue)
+                                    let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p;
+                                    formulas.set(key, formulaValue)
+                                }
+
+                                /* next phase event */
+                                let nextPhaseEvent = phase.nextPhaseEvent;
+                                if (nextPhaseEvent !== undefined) {
+
+                                    for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+
+                                        let situation = nextPhaseEvent.situations[k];
+
+                                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                                            let condition = situation.conditions[m];
+                                            let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+
+                                            if (condition.code !== undefined) {
+                                                newCondition(key, condition.code);
+                                            }
+                                        }
+                                    }
+                                }
                             }
+                        }
+                    }
+
+                    function newCondition(key, node) {
+
+                        let condition;
+                        let error = ''
+                        let value
+
+                        try {
+                            value = eval(node.code);
+                        } catch (err) {
+                            /*
+                                One possible error is that the conditions references a .previous that is undefined. For this
+                                reason and others, we will simply set the value to false.
+                            */
+                            value = false
+
+                            if (node.code.indexOf('previous') > -1 && err.message.indexOf('of undefined') > -1 || 
+                                node.code.indexOf('chart') > -1 && err.message.indexOf('of undefined') > -1
+                                ) {
+                                /*
+                                    We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
+                                */
+                            } else {
+                                node.error = err.message +  " @ " + (new Date(candle.begin)).toLocaleString() 
+                            }
+                        }
+
+                        condition = {
+                            key: key,
+                            value: value
+                        };
+
+                        conditions.set(condition.key, condition);
+
+                        if (condition.value) {
+                            conditionsArrayValues.push(1);
+                        } else {
+                            conditionsArrayValues.push(0);
                         }
                     }
                 }

@@ -3,7 +3,7 @@
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
-    const MODULE_NAME = "Commons -> " + bot.sessionKey ;
+    const MODULE_NAME = "Commons -> " + bot.SESSION.name ;
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
     const GMT_SECONDS = ':00.000 GMT+0000';
 
@@ -877,8 +877,9 @@
                                             try {
                                                 formulaValue = eval(phase.formula.code);
                                                 if (formulaValue === Infinity) {
-                                                    formulaError = "Formula evaluates to Infinity."
                                                     formulaValue = MAX_TAKE_PROFIT_VALUE
+                                                    formulaError = "WARNING: Formula evaluates to Infinity."
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> evaluateConditionsAndFormulas -> MAX_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
                                                 }
                                             } catch (err) {
                                                 if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
@@ -892,6 +893,8 @@
                                             if (isNaN(formulaValue)) { formulaValue = 0; }
                                             if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
                                                 formulaValue = MIN_TAKE_PROFIT_VALUE
+                                                formulaError = "WARNING: Formula is evaluating below the MIN_TAKE_PROFIT_VALUE."
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> evaluateConditionsAndFormulas -> MIN_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
                                             }
 
                                             formulasErrors.push('"' + formulaError + '"')
@@ -945,8 +948,10 @@
                                         try {
                                             formulaValue = eval(phase.formula.code);
                                             if (formulaValue === Infinity) {
-                                                formulaError = "Formula evaluates to Infinity."
+                                                formulaError = ""
                                                 formulaValue = MAX_STOP_LOSS_VALUE
+                                                formulaError = "WARNING: Formula evaluates to Infinity."
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> evaluateConditionsAndFormulas -> MAX_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
                                             }
                                         } catch (err) {
                                             if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
@@ -960,6 +965,8 @@
                                         if (isNaN(formulaValue)) { formulaValue = 0; }
                                         if (formulaValue < MIN_STOP_LOSS_VALUE) {
                                             formulaValue = MIN_STOP_LOSS_VALUE
+                                            formulaError = "WARNING: Formula is evaluating below the MIN_STOP_LOSS_VALUE."
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> evaluateConditionsAndFormulas -> MIN_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
                                         }
 
                                         formulasErrors.push('"' + formulaError + '"')

@@ -190,6 +190,9 @@
 
             /* Initialization */
 
+            yesterday.stopLoss = 0
+            yesterday.takeProfit = 0
+
             yesterday.previousBalanceAssetA = previousBalanceAssetA
             yesterday.previousBalanceAssetB = previousBalanceAssetB
 
@@ -255,6 +258,9 @@
 
                 /* Initialize the data structure we will use inter execution. */
 
+                interExecutionMemory.stopLoss = 0
+                interExecutionMemory.takeProfit = 0
+
                 interExecutionMemory.previousBalanceAssetA = previousBalanceAssetA
                 interExecutionMemory.previousBalanceAssetB = previousBalanceAssetB
 
@@ -319,6 +325,9 @@
             } else {
 
                 /* We get the initial values from the day previous to the candles we receive at the current execution */
+
+                stopLoss = interExecutionMemory.stopLoss
+                takeProfit = interExecutionMemory.takeProfit
 
                 previousBalanceAssetA = interExecutionMemory.previousBalanceAssetA
                 previousBalanceAssetB = interExecutionMemory.previousBalanceAssetB
@@ -389,6 +398,9 @@
                 anualizedRateOfReturn = interExecutionMemory.anualizedRateOfReturn;
 
                 /* For the case that any of these variables are not updated during the main loop, we need to store their value at the yesterday structure, otherwise it would be lost. */
+
+                yesterday.stopLoss = stopLoss
+                yesterday.takeProfit = takeProfit
 
                 yesterday.previousBalanceAssetA = previousBalanceAssetA
                 yesterday.previousBalanceAssetB = previousBalanceAssetB
@@ -1440,6 +1452,10 @@
                     if (phase !== undefined) {
                         if (phase.formula !== undefined) {
                             stopLoss = formulas.get(key)
+
+                            if (processingDailyFiles) {
+                                yesterday.stopLoss = stopLoss
+                            }
                         }
                     }
                 }
@@ -1555,6 +1571,9 @@
                     if (phase !== undefined) {
                         if (phase.formula !== undefined) {
                             takeProfit = formulas.get(key)
+                            if (processingDailyFiles) {
+                                yesterday.takeProfit = takeProfit
+                            }
                         }
                     }
                 }
@@ -1664,9 +1683,19 @@
                         */
 
                         if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            if (stopLoss < candle.min) { stopLoss = candle.min }
+                            if (stopLoss < candle.min) {
+                                stopLoss = candle.min
+                                if (processingDailyFiles) {
+                                    yesterday.stopLoss = stopLoss
+                                }
+                            }
                         } else {
-                            if (stopLoss > candle.max) { stopLoss = candle.max }
+                            if (stopLoss > candle.max) {
+                                stopLoss = candle.max
+                                if (processingDailyFiles) {
+                                    yesterday.stopLoss = stopLoss
+                                }
+                            }
                         }
 
                         let slippedStopLoss = stopLoss
@@ -1746,9 +1775,19 @@
                         */
 
                         if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            if (takeProfit > candle.max) { takeProfit = candle.max }
+                            if (takeProfit > candle.max) {
+                                takeProfit = candle.max
+                                if (processingDailyFiles) {
+                                    yesterday.takeProfit = takeProfit
+                                }
+                            }
                         } else {
-                            if (takeProfit < candle.min) { takeProfit = candle.min }
+                            if (takeProfit < candle.min) {
+                                takeProfit = candle.min
+                                if (processingDailyFiles) {
+                                    yesterday.takeProfit = takeProfit
+                                }
+                            }
                         }
 
                         let slippedTakeProfit = takeProfit
@@ -2356,7 +2395,13 @@
                         addRecord();
 
                         stopLoss = 0;
+                        if (processingDailyFiles) {
+                            yesterday.stopLoss = stopLoss
+                        }
                         takeProfit = 0;
+                        if (processingDailyFiles) {
+                            yesterday.takeProfit = takeProfit
+                        }
 
                         tradePositionRate = 0;
                         tradePositionSize = 0;
@@ -2644,6 +2689,9 @@
                 if (processingDailyFiles) {
 
                     if (lastCandle.end === lastInstantOfTheDay) {
+
+                        interExecutionMemory.stopLoss = yesterday.stopLoss
+                        interExecutionMemory.takeProfit = yesterday.takeProfit
 
                         interExecutionMemory.previousBalanceAssetA = yesterday.previousBalanceAssetA
                         interExecutionMemory.previousBalanceAssetB = yesterday.previousBalanceAssetB

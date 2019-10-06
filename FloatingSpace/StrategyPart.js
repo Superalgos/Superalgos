@@ -566,7 +566,7 @@ function newStrategyPart () {
     if (message !== undefined) {
       errorMessage = message
       hasError = true
-      errorMessageCounter = 30
+      errorMessageCounter = 100
     }
   }
 
@@ -1132,3 +1132,4 @@ function newStrategyPart () {
     }
   }
 }
+

@@ -66,7 +66,13 @@ exports.newDebugLog = function newDebugLog() {
             const FILE_STORAGE = require('./FileStorage.js');
             let fileStorage = FILE_STORAGE.newFileStorage();
 
-            let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/" + executionDatetime;
+            let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/"
+
+            if (thisObject.bot.SESSION !== undefined) {
+                filePath = filePath + thisObject.bot.SESSION.name + "/" + executionDatetime;
+            } else {
+                filePath = filePath + executionDatetime;
+            }
 
             if (thisObject.bot.debug.year !== undefined) {
 
@@ -94,8 +100,9 @@ exports.newDebugLog = function newDebugLog() {
                 function onFileCreated(err) {
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+              
                         console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = "+ err.stack);
-
+                
                         setTimeout(writeLog, 10000); // Lets retry until we make it.
                         return;
                     }
@@ -134,7 +141,7 @@ exports.newDebugLog = function newDebugLog() {
                 if (thisObject.bot) {
                     key = thisObject.bot.devTeam + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
                 }
-                console.log(message + ' @ ' + key)
+                console.log('*********** ' + message + ' @ ' + key)
             }
 
             accumulatedLog = accumulatedLog + logLine;

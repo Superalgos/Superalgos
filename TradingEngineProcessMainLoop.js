@@ -12,8 +12,10 @@
     const MULTI_PERIOD_DAILY = require(ROOT_DIR + 'MultiPeriodDaily');
     const MULTI_PERIOD = require(ROOT_DIR + 'MultiPeriod');
     const FILE_STORAGE = require('./FileStorage.js');
+    const SESSION = require(ROOT_DIR + 'Session');
   
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
+    let session = SESSION.newSession(bot, parentLogger)
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -38,6 +40,7 @@
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             processConfig = pProcessConfig;
+            bot.resumeExecution = processConfig.framework.startDate.resumeExecution // We are inherating this from root, but from here we need it at bot
 
             let filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name
             filePath += "/User.Bot.js"
@@ -74,7 +77,11 @@
                     //COMMONS_MODULE.newCommons = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Commons').newCommons // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
                     COMMONS_MODULE.newCommons = eval(text); // Use this for production
 
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                    session.initialize(onSessionInitialized) 
+
+                    function onSessionInitialized(err) {
+                        callBackFunction(err);
+                    }
                 }
             }
         } catch (err) {
@@ -89,150 +96,10 @@
 
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] run -> Entering function."); }
 
+            /* Some initial values*/
             bot.enableCheckLoopHealth = true;
-
             let fixedTimeLoopIntervalHandle;
-            global.STOP_PROCESSING = true;
-
-            global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Backstesting Started', undefined, undefined, undefined, startBackTesting)
-            global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Live-Trading Started', undefined, undefined, undefined, startLiveTrading)
-            global.SYSTEM_EVENT_HANDLER.listenToEvent('Cockpit-Restart-Button', 'Stop Requested', undefined, undefined, undefined, stopRequested)
-
-            function startBackTesting(message) {
-
-                /* We are going to run the Definition comming at the event. */
-                global.DEFINITION = JSON.parse(message.event.definition)
-
-                bot.startMode = "Backtest"
-                processConfig.framework.startDate.resumeExecution = false;
-                global.STOP_PROCESSING = false
-                bot.hasTheBotJustStarted = true
-                setInitialBalance()
-
-                const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
-                /* If we can not get for any reason the initial date of the backtest, we will start at present time. */
-                processConfig.framework.startDate.fixedDate = new Date() 
-                /* If we can not get for any reason the final date of the backtest, we will stop one year after the start date. */
-                processConfig.framework.endDate.fixedDate = new Date(processConfig.framework.startDate.fixedDate.valueOf() + ONE_YEAR_IN_MILISECONDS) 
-
-                /* Convert this dates to string */
-                processConfig.framework.startDate.fixedDate = processConfig.framework.startDate.fixedDate.toISOString()
-                processConfig.framework.endDate.fixedDate = processConfig.framework.endDate.fixedDate.toISOString()
-
-                /* If we received simulation params we use them instead. */
-                if (global.DEFINITION.simulationParams) {
-                    if (global.DEFINITION.simulationParams.beginDatetime) {
-                        processConfig.framework.startDate.fixedDate = global.DEFINITION.simulationParams.beginDatetime
-                    }
-                }
-
-                /* We finally will try to exctact the initial and final date for the backtest from the Definition */
-                if (global.DEFINITION.tradingSystem !== undefined) {
-                    if (global.DEFINITION.tradingSystem.parameters !== undefined) {
-                        if (global.DEFINITION.tradingSystem.parameters.timeRange !== undefined) {
-                            if (global.DEFINITION.tradingSystem.parameters.timeRange.code !== undefined) {
-                                try {
-                                    let code = JSON.parse(global.DEFINITION.tradingSystem.parameters.timeRange.code)
-                                    if (code.initialDatetime !== undefined) {
-                                        processConfig.framework.startDate.fixedDate = code.initialDatetime /* The second override occurs here, with the date explicitelly defined by the user */
-                                    }
-                                    if (code.finalDatetime !== undefined) {
-                                        processConfig.framework.endDate.fixedDate = code.finalDatetime
-                                    }
-                                } catch (err) {
-                                    global.DEFINITION.tradingSystem.parameters.timeRange.error = err.message
-                                }
-                            }
-                        }
-                    }
-                }
-                bot.multiPeriodDailyProcessDatetime = processConfig.framework.startDate.fixedDate
-            }
-
-            function startLiveTrading(message) {
-
-                /* We are going to run the Definition comming at the event. */
-                global.DEFINITION = JSON.parse(message.event.definition)
-
-                if (global.DEFINITION.personalData) {
-                    if (global.DEFINITION.personalData.exchangeAccounts) {
-                        if (global.DEFINITION.personalData.exchangeAccounts.length > 0) {
-                            let exchangeAccount = global.DEFINITION.personalData.exchangeAccounts[0]
-                            if (exchangeAccount.keys) {
-                                if (exchangeAccount.keys.length > 0) {
-                                    let key = exchangeAccount.keys[0]
-
-                                    process.env.KEY = key.name
-                                    process.env.SECRET = key.code
-
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (process.env.KEY === undefined || process.env.SECRET === undefined) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] run -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Live mode."); }
-                    return
-                }
-
-                bot.startMode = "Live"
-                processConfig.framework.startDate.fixedDate = new Date()
-                processConfig.framework.startDate.resumeExecution = false;
-                bot.multiPeriodDailyProcessDatetime = processConfig.framework.startDate.fixedDate
-                global.STOP_PROCESSING = false
-                bot.hasTheBotJustStarted = true
-                setInitialBalance()
-            }
-
-            function stopRequested() {
-                global.STOP_PROCESSING = true
-            }
-
-            function setInitialBalance() {
-                if (global.DEFINITION !== undefined) {
-
-                    /* Get the initial balance from the global.DEFINITION */
-                    let tradingSystem = global.DEFINITION.tradingSystem
-
-                    if (tradingSystem) {
-                        if (tradingSystem.parameters !== undefined) {
-                            if (tradingSystem.parameters.baseAsset !== undefined) {
-                                let code
-                                try {
-                                    code = JSON.parse(tradingSystem.parameters.baseAsset.code);
-
-                                    if (code.name !== undefined) {
-                                        baseAsset = code.name;
-                                        if (baseAsset !== 'BTC' && baseAsset !== 'USDT') {
-                                            /* using BTC as default */
-                                            baseAsset = 'BTC'
-                                        }
-                                    }
-
-                                    if (baseAsset === 'BTC') { // NOTE: POLONIEX, the only exchange working so far, has Asset A and B inverted. We need to fix this.
-                                        if (code.initialBalance !== undefined) {
-                                            process.env.INITIAL_BALANCE_ASSET_B = code.initialBalance;
-                                            process.env.INITIAL_BALANCE_ASSET_A = 0
-                                        }
-                                    } else {
-                                        if (code.initialBalance !== undefined) {
-                                            process.env.INITIAL_BALANCE_ASSET_A = code.initialBalance;
-                                            process.env.INITIAL_BALANCE_ASSET_B = 0
-                                        }
-                                    }
-                                } catch (err) {
-                                    global.DEFINITION.tradingSystem.parameters.baseAsset.error = err.message
-
-                                    process.env.INITIAL_BALANCE_ASSET_A = 0 // default
-                                    process.env.INITIAL_BALANCE_ASSET_B = 0.001 // default
-
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            bot.STOP_SESSION = true;
 
             loop();
 
@@ -258,9 +125,10 @@
 
                     let nextWaitTime;
 
-                    /* Loop Heartbeat sent to the UI */
-                    bot.hearBeat = hearBeat // allow the bot itself to produce a heartbeat
-                    hearBeat() 
+                    /* Heartbeats sent to the UI */
+                    bot.sessionHeartBeat = sessionHeartBeat
+                    bot.processHeartBeat = processHeartBeat
+                    processHeartBeat() 
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
@@ -279,17 +147,28 @@
 
                     /* High level log entry  */
 
-                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
-                        + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8));
+                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + bot.sessionKey
+                        + " Loop # " + pad(Number(bot.loopCounter), 8));
+
+                    /* Checking if we need to need to emit any event */
+
+                    if (bot.SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Running')
+                        bot.SESSION_STATUS = 'Running'
+                    }
+
+                    if (bot.SESSION_STATUS === 'Running' && bot.STOP_SESSION === true) {
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Stopped')
+                        bot.SESSION_STATUS = 'Stopped'
+                    }
 
                     /* Checking if we should process this loop or not.*/
-                    if (global.STOP_PROCESSING === true) {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for Backtesting or Live Trade to be started."); }
+                    if (bot.STOP_SESSION === true) {
+                       
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran."); }
 
                         console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
-                            + " Waiting for Backtesting or Live Trade to be started. ");
-
-                        global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Process Stopped')
+                            + " Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran. ");
 
                         nextWaitTime = 'Normal';
                         loopControl(nextWaitTime);
@@ -328,14 +207,15 @@
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeStatusDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            sessionStopped()
+                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Operation Failed. Aborting the process.");
-
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
@@ -403,12 +283,14 @@
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeDataDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            sessionStopped()
+                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -476,12 +358,14 @@
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeContext -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeContext -> onInizialized -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            sessionStopped()
+                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeContext -> onInizialized -> Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -550,12 +434,14 @@
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeExchangeAPI -> onInizialized -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            sessionStopped()
+                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -657,12 +543,14 @@
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeAssistant -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeAssistant -> onInizialized -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            sessionStopped()
+                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeAssistant -> onInizialized -> Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -729,12 +617,14 @@
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> intitializeProcessFramework -> onInizialized -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            sessionStopped()
+                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -831,12 +721,14 @@
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            sessionStopped()
+                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -971,6 +863,8 @@
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            sessionStopped()
+                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> saveContext -> onFinished -> Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -1023,7 +917,7 @@
 
                         /* We show we reached the end of the loop. */
 
-                        hearBeat()
+                        processHeartBeat()
 
                         /* Here we check if we must stop the loop gracefully. */
 
@@ -1039,8 +933,7 @@
                                 logger.persist();
                             }
 
-                            global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Process Stopped')
-
+                            global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Stopped')
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
 
@@ -1161,13 +1054,35 @@
                 }
             }
 
-            function hearBeat() {
-                let key = global.TASK_NODE.bot.processes[bot.processIndex].name + '-' + global.TASK_NODE.bot.processes[bot.processIndex].type + '-' + global.TASK_NODE.bot.processes[bot.processIndex].id
-
+            function processHeartBeat(processingDate) {
                 let event = {
-                    seconds: (new Date()).getSeconds()
+                    seconds: (new Date()).getSeconds(),
+                    processingDate: processingDate
                 }
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Heartbeat', event)
+            }
+
+            function sessionHeartBeat(processingDate) {
+                let event = {
+                    seconds: (new Date()).getSeconds(),
+                    processingDate: processingDate
+                }
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Heartbeat', event)
+
+                if (global.STOP_TASK_GRACEFULLY === true) {
+                    bot.STOP_SESSION = true
+                }
+            }
+
+            function processStopped() {
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Stopped')
+            }
+
+            function sessionStopped() {
+                if (bot.SESSION_STATUS === 'Running') {
+                    global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Stopped')
+                    bot.SESSION_STATUS = 'Stopped'
+                }
             }
 
         } catch (err) {

@@ -24,6 +24,8 @@
     const FILE_STORAGE = require('./FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
+    let bootstrappingTheProcess = false 
+
     let processConfig;
 
     return thisObject;
@@ -268,6 +270,13 @@
                         */
 
                         interExecutionMemoryArray = [];
+                        /*
+                        Also, we will remember that we are bootstrapping the process, this will allow us, to advanceTime if necesary.
+                        It can happen that a process depends on data from another process that does not produce a file during the first day, or even more days,
+                        in that situation we want the process not to just wait for that data that will never arrive, but to advance time until it finds valid data.
+                        */
+
+                        bootstrappingTheProcess = true
 
                         for (let i = 0; i < global.dailyFilePeriods.length; i++) {
                             let emptyObject = {};
@@ -297,7 +306,7 @@
                     let n;
                     let botNeverRan = true;
 
-                    bot.multiPeriodDailyProcessDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    bot.multiPeriodProcessDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
 
                     advanceTime();
 
@@ -307,21 +316,21 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> Entering function."); }
 
-                            bot.multiPeriodDailyProcessDatetime = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
-                            previousDay = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
+                            bot.multiPeriodProcessDatetime = new Date(bot.multiPeriodProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
+                            previousDay = new Date(bot.multiPeriodProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                            console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + "bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime.toISOString());
+                            console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + "bot.multiPeriodProcessDatetime = " + bot.multiPeriodProcessDatetime.toISOString());
 
                             if (global.WRITE_LOGS_TO_FILES === 'true') {
                                 logger.newInternalLoop(bot.codeName, bot.process);
                             }
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> bot.multiPeriodProcessDatetime = " + bot.multiPeriodProcessDatetime); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> previousDay = " + previousDay); }
 
                             /* Validation that we are not going past the head of the market. */
 
-                            if (bot.multiPeriodDailyProcessDatetime.valueOf() > contextVariables.dateEndOfMarket.valueOf()) {
+                            if (bot.multiPeriodProcessDatetime.valueOf() > contextVariables.dateEndOfMarket.valueOf()) {
 
                                 const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> advanceTime -> " + logText); }
@@ -344,6 +353,10 @@
                         try {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoop -> Entering function."); }
+
+                            /*  Telling the world we are alive and doing well */
+                            let processingDate = bot.multiPeriodProcessDatetime.getUTCFullYear() + '-' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCDate(), 2);
+                            bot.processHeartBeat(processingDate) 
 
                             /*
 
@@ -401,7 +414,7 @@
                                     let previousFile;
                                     let currentFile;
 
-                                    if (bot.multiPeriodDailyProcessDatetime.valueOf() > contextVariables.dateBeginOfMarket.valueOf()) {
+                                    if (bot.multiPeriodProcessDatetime.valueOf() > contextVariables.dateBeginOfMarket.valueOf()) {
                                         getPreviousFile();
                                     } else {
                                         previousFile = [];
@@ -449,7 +462,7 @@
 
                                                     if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = "+ err.stack);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> err = "+ err.stack);
                                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                         return;
                                                     }
@@ -484,7 +497,7 @@
 
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> Entering function."); }
 
-                                            let dateForPath = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
+                                            let dateForPath = bot.multiPeriodProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCDate(), 2);
                                             let filePath
                                             if (dependency.dataSet === "Multi-Period-Daily") {
                                                 filePath = dependency.product + '/' + dependency.dataSet + "/" + outputPeriodLabel + "/" + dateForPath;
@@ -504,6 +517,16 @@
 
                                                     if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
 
+                                                        if (bootstrappingTheProcess === true) {
+                                                            /*
+                                                            In the special situation where we are running this process for the first time (no status report found),
+                                                            we will consider the possibility that a depanant process does not produce a file during the first day of the market,
+                                                            or even more than one day. That is why we are going to advance time here.
+                                                            */
+                                                            advanceTime()
+                                                            return
+                                                        }
+
                                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err.code);
                                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> filePath = " + filePath);
                                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> fileName = " + fileName);
@@ -513,7 +536,7 @@
 
                                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err.code);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> Not OK -> onFileReceived -> err = " + err.code);
                                                         callBackFunction(err);
                                                         return;
                                                     }
@@ -527,7 +550,7 @@
 
                                                 }
                                                 catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = "+ err.stack);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> Catch Error -> onFileReceived -> err = "+ err.stack);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
@@ -581,7 +604,7 @@
                                         dataFiles,
                                         timePeriod,
                                         outputPeriodLabel,
-                                        bot.multiPeriodDailyProcessDatetime,
+                                        bot.multiPeriodProcessDatetime,
                                         contextVariables.dateBeginOfMarket,
                                         contextVariables.dateEndOfMarket,
                                         interExecutionMemoryArray[n],
@@ -650,7 +673,7 @@
                                             return;
                                         }
 
-                                        writeStatusReport(bot.multiPeriodDailyProcessDatetime, advanceTime);
+                                        writeStatusReport(bot.multiPeriodProcessDatetime, advanceTime);
 
                                     } catch (err) {
                                         logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriods ->  controlLoop -> onWritten -> err = "+ err.stack);
@@ -685,7 +708,7 @@
 
                         let folderName = bot.products[productIndex].codeName;
 
-                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodDailyProcessDatetime, folderName, controlLoop);
+                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodProcessDatetime, folderName, controlLoop);
                     }
 
                     function controlLoop() {

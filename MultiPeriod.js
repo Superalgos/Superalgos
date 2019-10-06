@@ -119,7 +119,7 @@
                     let statusReport;
 
                     /* We are going to use the start date as beging of market date. */
-                    contextVariables.dateBeginOfMarket = new Date(processConfig.framework.startDate.fixedDate)                
+                    contextVariables.dateBeginOfMarket = bot.VALUES_TO_USE.timeRange.initialDatetime                
 
                     /*
                         Here we get the status report from the bot who knows which is the end of the market.
@@ -184,7 +184,7 @@
 
                     if (thisReport.lastFile !== undefined) {
 
-                        if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate.resumeExecution === false) {
+                        if (bot.hasTheBotJustStarted === true && bot.resumeExecution === false) {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true."); }
                             startFromBegining();
@@ -284,7 +284,7 @@
                             let dependencyIndex = 0;
                             dataFiles = [];
 
-                            if (global.DEFINITION.simulationParams.timePeriod === outputPeriodLabel) {
+                            if (bot.VALUES_TO_USE.timePeriod === outputPeriodLabel) {
                                 currentTimePeriod = global.marketFilesPeriods[n][0];
                                 currentOutputPeriodLabel = global.marketFilesPeriods[n][1];
                             }
@@ -459,13 +459,12 @@
 
                             /* Validation that we are not going past the user defined end date. */
 
-                            const userDefinedEndDatetime = new Date(processConfig.framework.endDate.fixedDate);
-                            if (bot.multiPeriodDailyProcessDatetime.valueOf() >= userDefinedEndDatetime.valueOf()) {
+                            if (bot.multiPeriodDailyProcessDatetime.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
 
                                 const logText = "User Defined End Datetime reached @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> advanceTime -> " + logText); }
 
-                                global.STOP_PROCESSING = true
+                                bot.STOP_SESSION = true
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
 
@@ -522,7 +521,7 @@
 
                             /* Validation that we dont need to stop. */
 
-                            if (global.STOP_PROCESSING === true) {
+                            if (bot.STOP_SESSION === true) {
 
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
@@ -542,6 +541,10 @@
                         try {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> periodsLoop -> Entering function."); }
+
+                            /*  Telling the world we are alive and doing well */
+                            let processingDate = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
+                            bot.processHeartBeat(processingDate)  
 
                             /*
 
@@ -582,7 +585,7 @@
                                 }
                             }
 
-                            if (global.DEFINITION.simulationParams.timePeriod === outputPeriodLabel) {
+                            if (bot.VALUES_TO_USE.timePeriod === outputPeriodLabel) {
                                 currentTimePeriod = global.dailyFilePeriods[n][0];
                                 currentOutputPeriodLabel = global.dailyFilePeriods[n][1];
                             }
@@ -834,8 +837,6 @@
                                 currentTimePeriod,
                                 currentOutputPeriodLabel,
                                 bot.multiPeriodDailyProcessDatetime,
-                                processConfig.framework.startDate.fixedDate,
-                                processConfig.framework.endDate.fixedDate,
                                 interExecutionMemoryArray[n],
                                 onBotFinished);
 
@@ -900,14 +901,13 @@
 
                                             /* This is where we check if we need reached the user defined end datetime.  */
 
-                                            const userDefinedEndDatetime = new Date(processConfig.framework.endDate.fixedDate);
                                             const now = new Date()
-                                            if (now.valueOf()  >= userDefinedEndDatetime.valueOf()) {
+                                            if (now.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
 
                                                 const logText = "User Defined End Datetime reached @ " + now.getUTCFullYear() + "/" + (now.getUTCMonth() + 1) + "/" + now.getUTCDate() + ".";
                                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onMarketStatusReport -> " + logText); }
 
-                                                global.STOP_PROCESSING = true
+                                                bot.STOP_SESSION = true
                                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                 return;
 

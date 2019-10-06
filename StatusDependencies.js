@@ -34,25 +34,33 @@
 
                 let statusReportModule = STATUS_REPORT.newStatusReport(BOT, logger, UTILITIES);
 
+                logger.write(MODULE_NAME, "[INFO] initialize -> onInitilized -> Initializing Status Report # " + (i + 1));
                 statusReportModule.initialize(pStatusDependenciesConfig[i], pMonth, pYear, onInitilized);
 
                 function onInitilized(err) {
 
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[INFO] initialize -> onInitilized -> Initialized Status Report # " + (i + 1));
 
-                        alreadyCalledBack = true;
-                        callBackFunction(err);
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        if (alreadyCalledBack === false) {
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> err = " + err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> err.message = " + err.message);
+                            alreadyCalledBack = true;
+                            callBackFunction(err);
+                        } else {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] initialize -> Can not call back because I already did."); }
+                        }
                         return;
                     }
 
+                    logger.write(MODULE_NAME, "[INFO] initialize -> onInitilized -> Loading Status Report # " + (i + 1));
                     statusReportModule.load(onLoad);
                 }
 
                 function onLoad(err) {
 
                     try {
-
+                        logger.write(MODULE_NAME, "[INFO] initialize -> onLoad -> Loaded Status Report # " + (i + 1));
                         statusReportModule.status = err.message;
 
                         switch (err.message) {
@@ -102,8 +110,10 @@
                 function addReport() {
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Entering function."); }
+                    logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Adding Status Report # " + (i + 1));
 
                     loadCount++;
+                    logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Total Added = " + loadCount);
 
                     let key;
 
@@ -120,8 +130,11 @@
 
                     if (loadCount === pStatusDependenciesConfig.length) {
                         if (alreadyCalledBack === false) {
+                            alreadyCalledBack = true
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
+                        } else {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] initialize -> addReport -> Can not call back because I already did."); }
                         }
                     }
                 }

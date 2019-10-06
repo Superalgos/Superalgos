@@ -121,7 +121,8 @@
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Entering function."); }
 
                     /* Loop Heartbeat sent to the UI */
-                    hearBeat() 
+                    bot.processHeartBeat = processHeartBeat
+                    processHeartBeat() 
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
@@ -172,12 +173,13 @@
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeStatusDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -246,12 +248,13 @@
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeExchangeAPI -> onInizialized -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -320,12 +323,13 @@
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeUserBot -> onInizialized > Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -428,12 +432,13 @@
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished > Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished > Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished > Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -543,7 +548,7 @@
 
                         /* We show we reached the end of the loop. */
 
-                        hearBeat()
+                        processHeartBeat()
 
                         /* Here we check if we must stop the loop gracefully. */
 
@@ -697,13 +702,16 @@
                 }
             }
 
-            function hearBeat() {
-                let key = global.TASK_NODE.bot.processes[bot.processIndex].name + '-' + global.TASK_NODE.bot.processes[bot.processIndex].type + '-' + global.TASK_NODE.bot.processes[bot.processIndex].id
-
+            function processHeartBeat(processingDate) {
                 let event = {
-                    seconds: (new Date()).getSeconds()
+                    seconds: (new Date()).getSeconds(),
+                    processingDate: processingDate
                 }
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Heartbeat', event)
+            }
+
+            function processStopped() {
+                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Stopped')
             }
         }
 

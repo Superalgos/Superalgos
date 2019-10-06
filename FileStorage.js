@@ -1,11 +1,11 @@
 
 const path = require('path')
-const fs = require('fs')
 
 exports.newFileStorage = function newFileStorage(logger) {
 
     const MODULE_NAME = 'FileStorage'
     const MAX_RETRY = 30
+    const RETRY_TIME_IN_MILISECONDS = 250
     let currentRetryGetTextFile = 0
     let currentRetryWriteTextFile = 0
 
@@ -24,9 +24,11 @@ exports.newFileStorage = function newFileStorage(logger) {
 
   return thisObject
 
-    function getTextFile(container, filePath, callBackFunction) {
+    function getTextFile(container, filePath, callBackFunction, noRetry) {
 
         logger.write(MODULE_NAME, '[INFO] FileStorage -> getTextFile -> Entering Function.')
+
+        let fileDoesNotExist = false
 
         container = container.toLowerCase()
 
@@ -43,32 +45,41 @@ exports.newFileStorage = function newFileStorage(logger) {
             logger.write(MODULE_NAME, '[INFO] FileStorage -> getTextFile -> fileLocation: ' + fileLocation)
 
             /* Here we actually write the file. */
+            const fs = require('fs')
             fs.readFile(fileLocation, onFileRead)
 
             function onFileRead(err, text) {
 
                 if (err) {
 
-                    if (err.code === 'ENOENT') {
-                        let customResponse = {
-                            result: global.CUSTOM_FAIL_RESPONSE.result,
-                            message: 'File does not exist.'
+                    if (err.code === 'ENOENT') { // since files are deleted before being replaced, it can happen that it does not exist and after a retry it does.
+                        if (noRetry === true) {
+                            logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> File does not exist. Not Retrying. ')
+                            let customResponse = {
+                                result: global.CUSTOM_FAIL_RESPONSE.result,
+                                message: 'File does not exist.'
+                            }
+                            callBackFunction(customResponse)
+                            return
+                        } else {
+                            fileDoesNotExist = true
+                            logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> File does not exist. Retrying. ')
+                            setTimeout(retry, RETRY_TIME_IN_MILISECONDS)
+                            return
                         }
-                        callBackFunction(customResponse)
-                        return
                     }
 
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Error reading file -> err = ' + err.stack)
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Error reading file -> container = ' + container)
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Error reading file -> filePath = ' + filePath)
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Error reading file -> err = ' + err.stack)
-                    setTimeout(retry, 100)
+                    setTimeout(retry, RETRY_TIME_IN_MILISECONDS)
                     return
                 } 
 
                 if (text.toString() === "") {
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Read and Empty File -> filePath = ' + filePath)
-                    setTimeout(retry, 100)
+                    setTimeout(retry, RETRY_TIME_IN_MILISECONDS)
                     return
                 }
 
@@ -88,9 +99,21 @@ exports.newFileStorage = function newFileStorage(logger) {
                 getTextFile(container, filePath, callBackFunction)
             } else {
                 currentRetryGetTextFile = 0
-                logger.write(MODULE_NAME, '[ERROR] FileStorage -> getTextFile -> retry -> Max retries reached reading a file. Giving up.')
-                logger.write(MODULE_NAME, '[ERROR] FileStorage -> getTextFile -> retry -> file = ' + fileLocation)
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+
+                if (fileDoesNotExist === true) {
+                    logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> retry -> Max retries reached reading a file. File Not Found.')
+                    let customResponse = {
+                        result: global.CUSTOM_FAIL_RESPONSE.result,
+                        message: 'File does not exist.'
+                    }
+                    callBackFunction(customResponse)
+                    return
+                } else {
+                    logger.write(MODULE_NAME, '[ERROR] FileStorage -> getTextFile -> retry -> Max retries reached reading a file. Giving up.')
+                    logger.write(MODULE_NAME, '[ERROR] FileStorage -> getTextFile -> retry -> file = ' + fileLocation)
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                    return
+                }
             }
         }
     }
@@ -117,16 +140,50 @@ exports.newFileStorage = function newFileStorage(logger) {
             let directoryPath = fileLocation.substring(0, fileLocation.lastIndexOf('/') + 1);
             mkDirByPathSync(directoryPath)
 
-            /* Here we actually write the file. */
-            fs.writeFile(fileLocation, fileContent, onFileWriten)
+            /*
+            Here we write the file with a temporary name so as to avoid dirty read from other processes.
+            Then we delete the original file, if exists, and finally we rename the temporary into the original name.
+            */
+            const fs = require('fs')
+            fs.writeFile(fileLocation + '.tmp', fileContent, onFileWritenn)
 
-            function onFileWriten(err) {
+            function onFileWritenn(err) {
                 if (err) {
-                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWrite -> Error writing file -> file = ' + fileLocation)
-                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWrite -> Error writing file -> err = ' + err.stack)
-                    setTimeout(retry, 100)
+                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> Error writing file -> file = ' + fileLocation)
+                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> Error writing file -> err = ' + err.stack)
+                    setTimeout(retry, RETRY_TIME_IN_MILISECONDS)
                 } else {
-                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+
+                    const fs = require('fs')
+                    fs.unlink(fileLocation, onUnlinked)
+
+                    function onUnlinked(err) {
+                        let code = ''
+                        if (err) {
+                            code = err.code
+                        }
+                        if (code !== '' && code !== 'ENOENT') {
+                            logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error renaming file -> file = ' + fileLocation)
+                            logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error renaming file -> err = ' + err.stack)
+                            setTimeout(retry, RETRY_TIME_IN_MILISECONDS)
+                        } else {
+
+                            const fs = require('fs')
+                            fs.rename(fileLocation + '.tmp', fileLocation, onRenamed)
+
+                            function onRenamed(err) {
+                                if (err) {
+                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onRenamed -> Error renaming file -> file = ' + fileLocation + '.tmp')
+                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onRenamed -> Error renaming file -> err = ' + err.stack)
+                                    setTimeout(retry, RETRY_TIME_IN_MILISECONDS)
+                                } else {
+
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
@@ -160,6 +217,7 @@ exports.newFileStorage = function newFileStorage(logger) {
     return targetDir.split(sep).reduce((parentDir, childDir) => {
       const curDir = path.resolve(baseDir, parentDir, childDir);
       try {
+        const fs = require('fs')
         fs.mkdirSync(curDir);
       } catch (err) {
         if (err.code === 'EEXIST') { // curDir already exists!

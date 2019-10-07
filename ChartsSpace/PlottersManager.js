@@ -5,7 +5,6 @@ function newPlottersManager () {
   logger.fileName = MODULE_NAME
 
   let productPlotters = []
-  let competitionPlotters = []
 
   let timePeriod = INITIAL_TIME_PERIOD
   let datetime = NEW_SESSION_INITIAL_DATE
@@ -51,25 +50,6 @@ function newPlottersManager () {
           productPlotters[i].plotter.finalize()
         }
         productPlotters.splice(i, 1) // Delete item from array.
-      }
-      for (let i = 0; i < competitionPlotters.length; i++) {
-        if (competitionPlotters[i].profile !== undefined) {
-          canvas.floatingSpace.profileBalls.destroyProfileBall(competitionPlotters[i].profile)
-        }
-                    /* Destroyd the Note Set */
-        canvas.floatingSpace.noteSets.destroyNoteSet(competitionPlotters[i].noteSet)
-                    /* Then the panels. */
-        if (competitionPlotters[i].panels !== undefined) {
-          for (let j = 0; j < competitionPlotters[i].panels.length; j++) {
-            canvas.panelsSpace.destroyPanel(competitionPlotters[i].panels[j])
-          }
-        }
-                    /* Finally the Storage Objects */
-        competitionPlotters[i].storage.finalize()
-        if (competitionPlotters[i].plotter.finalize !== undefined) {
-          competitionPlotters[i].plotter.finalize()
-        }
-        competitionPlotters.splice(i, 1) // Delete item from array.
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
@@ -293,10 +273,6 @@ function newPlottersManager () {
         productPlotter.storage.setTimePeriod(timePeriod)
         productPlotter.plotter.setTimePeriod(timePeriod)
       }
-      for (let i = 0; i < competitionPlotters.length; i++) {
-        let competitionPlotter = competitionPlotters[i]
-        competitionPlotter.plotter.setTimePeriod(timePeriod)
-      }
     }
   }
 
@@ -307,10 +283,6 @@ function newPlottersManager () {
       productPlotter.productCard.setDatetime(pDatetime)
       productPlotter.storage.setDatetime(pDatetime)
       productPlotter.plotter.setDatetime(pDatetime)
-      for (let i = 0; i < competitionPlotters.length; i++) {
-        let competitionPlotter = competitionPlotters[i]
-        competitionPlotter.plotter.setDatetime(datetime)
-      }
     }
   }
 
@@ -332,11 +304,6 @@ function newPlottersManager () {
     for (let i = 0; i < productPlotters.length; i++) {
       let productPlotter = productPlotters[i]
       productPlotter.plotter.draw()
-    }
-        /* Then the competition plotters. */
-    for (let i = 0; i < competitionPlotters.length; i++) {
-      let competitionPlotter = competitionPlotters[i]
-      competitionPlotter.plotter.draw()
     }
   }
 }

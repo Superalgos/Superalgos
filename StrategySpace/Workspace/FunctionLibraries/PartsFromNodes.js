@@ -529,7 +529,8 @@ function newPartsFromNodes () {
 
   function addLayer (node) {
     let layer = {
-      name: 'New Layer'
+      name: 'New Layer',
+      code: '{}'
     }
     node.layers.push(layer)
     createPart('Layer', layer.name, layer, node, node, 'Layer')

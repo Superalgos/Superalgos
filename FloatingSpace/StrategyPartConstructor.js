@@ -460,6 +460,10 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Layer': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -481,7 +485,22 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -60
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Layer',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Layer',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20,
+            dontShowAtFullscreen: true
           }
         )
         menuItemsInitialValues.push(
@@ -497,7 +516,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           }
             )
         menuItemsInitialValues.push(
@@ -511,7 +530,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }
                 )
         break

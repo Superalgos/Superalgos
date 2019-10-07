@@ -65,6 +65,7 @@ function newAppLoader() {
                 'StrategySpace/Workspace/FunctionLibraries/NodeChildren.js', 
                 'StrategySpace/Workspace/FunctionLibraries/TaskFunctions.js',
                 'StrategySpace/Workspace/FunctionLibraries/SessionFunctions.js',
+                'StrategySpace/Workspace/FunctionLibraries/LayerFunctions.js',
 
                 'Utilities/RoundedCornersBackground.js',
 
@@ -120,7 +121,6 @@ function newAppLoader() {
                 'PlotterPanel.js',
 
                 'ProductStorage.js',
-                'CompetitionStorage.js',
 
                 'SplashScreen.js',
                 'Canvas.js',

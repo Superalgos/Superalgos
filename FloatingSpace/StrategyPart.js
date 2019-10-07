@@ -266,6 +266,14 @@ function newStrategyPart () {
         compatibleType = '->' + 'Parameters' + '->'
         compatibleSubType = undefined
         break
+      case 'Layer Manager':
+        compatibleType = '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Layer':
+        compatibleType = '->' + 'Layer Manager' + '->'
+        compatibleSubType = undefined
+        break
       case 'Task Manager':
         compatibleType = '->' + 'Network Node' + '->'
         compatibleSubType = undefined
@@ -1132,4 +1140,3 @@ function newStrategyPart () {
     }
   }
 }
-

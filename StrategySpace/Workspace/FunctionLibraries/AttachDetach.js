@@ -65,6 +65,22 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Layer Manager': {
+        node.payload.parentNode.layerManager = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Layer': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.layers.length; i++) {
+          let layer = payload.parentNode.layers[i]
+          if (layer.id === node.id) {
+            payload.parentNode.layers.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Task Manager': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.taskManagers.length; i++) {
@@ -323,6 +339,20 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.networkNodes.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Layer Manager': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.layerManager = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Layer': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.layers.push(node)
         completeAttachment(node, rootNodes)
       }
         break

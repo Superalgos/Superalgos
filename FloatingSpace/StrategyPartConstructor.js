@@ -351,7 +351,7 @@ function newStrategyPartConstructor () {
             currentRadius: 0,
             angle: -40
           }
-                )
+          )
         menuItemsInitialValues.push(
           {
             action: 'Delete Network Node',
@@ -367,7 +367,7 @@ function newStrategyPartConstructor () {
             currentRadius: 0,
             angle: 0
           }
-              )
+          )
         menuItemsInitialValues.push(
           {
             action: 'Share',
@@ -382,6 +382,138 @@ function newStrategyPartConstructor () {
             angle: 40
           }
         )
+        break
+      }
+      case 'Layer Manager': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Turn All Layers On',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Turn All Layers On',
+            visible: true,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -70
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Turn All Layers Off',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Turn All Layers Off',
+            visible: true,
+            iconPathOn: 'stop',
+            iconPathOff: 'stop',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Layer',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Layer',
+            visible: true,
+            relatedStrategyPart: 'Layer',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Layer Manager',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Layer Manager',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 30
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 70
+          }
+            )
+        break
+      }
+      case 'Layer': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Turn Layer On',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Turn On',
+            workingLabel: 'Turning On',
+            workDoneLabel: 'Turned On',
+            workFailedLabel: 'Layer Cannot be On',
+            secondaryAction: 'Turn Layer Off',
+            secondaryLabel: 'Turn Off',
+            secondaryWorkingLabel: 'Turning Off',
+            secondaryWorkDoneLabel: 'Turned Off',
+            secondaryWorkFailedLabel: 'Layer Cannot be Off',
+            secondaryIcon: 'stop',
+            visible: true,
+            iconPathOn: 'paper-plane',
+            iconPathOff: 'paper-plane',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Layer',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Layer',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+                )
         break
       }
       case 'Task Manager': {
@@ -426,7 +558,7 @@ function newStrategyPartConstructor () {
             currentRadius: 0,
             angle: 0
           }
-          )
+        )
         menuItemsInitialValues.push(
           {
             action: 'Delete Task Manager',
@@ -442,7 +574,7 @@ function newStrategyPartConstructor () {
             currentRadius: 0,
             angle: 20
           }
-            )
+          )
         menuItemsInitialValues.push(
           {
             action: 'Share',
@@ -878,9 +1010,22 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -60
           }
         )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Layer Manager',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Layer Manager',
+            visible: true,
+            relatedStrategyPart: 'Layer Manager',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
         menuItemsInitialValues.push(
           {
             action: 'Delete Backtesting Session',
@@ -894,7 +1039,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           }
             )
         menuItemsInitialValues.push(
@@ -908,9 +1053,9 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }
-                )
+          )
         break
       }
       case 'Live Trading Session': {
@@ -935,9 +1080,22 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -60
           }
         )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Layer Manager',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Layer Manager',
+            visible: true,
+            relatedStrategyPart: 'Layer Manager',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
         menuItemsInitialValues.push(
           {
             action: 'Delete Live Trading Session',
@@ -951,7 +1109,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           }
             )
         menuItemsInitialValues.push(
@@ -965,7 +1123,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }
                 )
         break
@@ -992,9 +1150,22 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -60
           }
         )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Layer Manager',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Layer Manager',
+            visible: true,
+            relatedStrategyPart: 'Layer Manager',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
         menuItemsInitialValues.push(
           {
             action: 'Delete Fordward Testing Session',
@@ -1008,7 +1179,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           }
             )
         menuItemsInitialValues.push(
@@ -1022,7 +1193,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }
                 )
         break
@@ -1049,9 +1220,22 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -60
           }
         )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Layer Manager',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Layer Manager',
+            visible: true,
+            relatedStrategyPart: 'Layer Manager',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
         menuItemsInitialValues.push(
           {
             action: 'Delete Paper Trading Session',
@@ -1065,7 +1249,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           }
             )
         menuItemsInitialValues.push(
@@ -1079,7 +1263,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }
                 )
         break
@@ -2623,6 +2807,14 @@ function newStrategyPartConstructor () {
       }
       case 'Network Node': {
         level_1()
+        break
+      }
+      case 'Layer Manager': {
+        level_3()
+        break
+      }
+      case 'Layer': {
+        level_4()
         break
       }
       case 'Task Manager': {

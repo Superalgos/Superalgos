@@ -59,6 +59,13 @@ function newStrategyPartTitle () {
       case 'Network Node': {
         break
       }
+      case 'Layer Manager': {
+        break
+      }
+      case 'Layer': {
+        thisObject.allwaysVisible = true
+        break
+      }
       case 'Task Manager': {
         break
       }

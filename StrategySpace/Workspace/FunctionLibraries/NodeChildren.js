@@ -17,6 +17,12 @@ function newNodeChildren () {
       case 'Network Node': {
         return countChildrenNetworkNode(parentNode, childNode)
       }
+      case 'Layer Manager': {
+        return countChildrenLayerManager(parentNode, childNode)
+      }
+      case 'Layer': {
+        return countChildrenLayer(parentNode, childNode)
+      }
       case 'Task Manager': {
         return countChildrenTaskManager(parentNode, childNode)
       }
@@ -209,6 +215,30 @@ function newNodeChildren () {
     return response
   }
 
+  function countChildrenLayerManager (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.layers.length; i++) {
+      let child = parentNode.layers[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenLayer (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
   function countChildrenTaskManager (parentNode, childNode) {
     let response = {
       childrenCount: 0,
@@ -312,6 +342,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.layerManager !== undefined) {
+      response.childrenCount++
+      if (parentNode.layerManager.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 
@@ -323,6 +359,12 @@ function newNodeChildren () {
     if (parentNode.parameters !== undefined) {
       response.childrenCount++
       if (parentNode.parameters.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.layerManager !== undefined) {
+      response.childrenCount++
+      if (parentNode.layerManager.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
@@ -340,6 +382,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.layerManager !== undefined) {
+      response.childrenCount++
+      if (parentNode.layerManager.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 
@@ -351,6 +399,12 @@ function newNodeChildren () {
     if (parentNode.parameters !== undefined) {
       response.childrenCount++
       if (parentNode.parameters.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.layerManager !== undefined) {
+      response.childrenCount++
+      if (parentNode.layerManager.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }

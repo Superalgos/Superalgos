@@ -466,6 +466,34 @@ function newProtocolNode () {
         }
         return key
       }
+      case 'Layer Manager': {
+        let layerManager = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          layers: []
+        }
+
+        for (let m = 0; m < node.layers.length; m++) {
+          let layer = getProtocolNode(node.layers[m], removePersonalData, parseJSONStrings, includeIds)
+          layerManager.layers.push(layer)
+        }
+        if (includeIds) {
+          layerManager.id = node.id
+        }
+        return layerManager
+      }
+      case 'Layer': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        return object
+      }
       case 'Task Manager': {
         let taskManager = {
           type: node.type,
@@ -489,9 +517,6 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           bot: getProtocolNode(node.bot, removePersonalData, parseJSONStrings, includeIds)
-        }
-        if (includeIds) {
-          object.id = node.id
         }
         if (includeIds) {
           object.id = node.id
@@ -571,7 +596,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseJSONStrings, includeIds)
         }
         if (includeIds) {
           object.id = node.id
@@ -584,7 +610,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseJSONStrings, includeIds)
         }
         if (includeIds) {
           object.id = node.id
@@ -597,7 +624,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseJSONStrings, includeIds)
         }
         if (includeIds) {
           object.id = node.id
@@ -610,7 +638,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseJSONStrings, includeIds)
         }
         if (includeIds) {
           object.id = node.id

@@ -42,6 +42,8 @@ function newStrategySpace () {
       ['Definition', 'text'],
       ['Network', 'network'],
       ['Network Node', 'network-node'],
+      ['Layer Manager', 'video-player'],
+      ['Layer', 'attractive'],
       ['Task Manager', 'task'],
       ['Task', 'timeline'],
       ['Sensor', 'pipette'],

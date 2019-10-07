@@ -279,6 +279,16 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addNetworkNode(payload.node)
         }
         break
+      case 'Add Layer Manager':
+        {
+          functionLibraryPartsFromNodes.addLayerManager(payload.node)
+        }
+        break
+      case 'Add Layer':
+        {
+          functionLibraryPartsFromNodes.addLayer(payload.node)
+        }
+        break
       case 'Add Task Manager':
         {
           functionLibraryPartsFromNodes.addTaskManager(payload.node)
@@ -435,6 +445,14 @@ function newWorkspace () {
       }
       case 'Delete Network Node': {
         functionLibraryNodeDeleter.deleteNetworkNode(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Layer Manager': {
+        functionLibraryNodeDeleter.deleteLayerManager(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Layer': {
+        functionLibraryNodeDeleter.deleteLayer(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Task Manager': {

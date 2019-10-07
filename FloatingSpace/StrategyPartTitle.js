@@ -87,15 +87,19 @@ function newStrategyPartTitle () {
         break
       }
       case 'Backtesting Session': {
+        thisObject.allwaysVisible = true
         break
       }
       case 'Live Trading Session': {
+        thisObject.allwaysVisible = true
         break
       }
       case 'Fordward Testing Session': {
+        thisObject.allwaysVisible = true
         break
       }
       case 'Paper Trading Session': {
+        thisObject.allwaysVisible = true
         break
       }
       case 'Personal Data': {

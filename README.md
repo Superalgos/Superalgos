@@ -193,7 +193,7 @@ Also, a Console/Command Line/Terminal window will open. The Console must be open
 
 Go to the ```Superalgos Desktop App/Quick-Start-Examples``` folder, drag your preferred example file and drop it on the _Designer_ (the area with a black background in the bottom half of the screen) to start with a working template.
 
-![Designer-Import-Workspace](https://user-images.githubusercontent.com/13994516/65597108-a5ba8c00-df98-11e9-812d-b1e3c17ba4c8.gif)
+[ILLUSTRATION]
 
 **Available Quick Start Examples**:
 
@@ -231,7 +231,7 @@ Do the same with the second Task Manager element.
 
 > Notice how each of the two Task Manager elements display a name when you hover your mouse pointer. 
 
-![Designer-Start-Processes](https://user-images.githubusercontent.com/13994516/65596168-9f2b1500-df96-11e9-9559-7395124c00a0.gif)
+[ILLUSTRATION]
 
 > **NOTES ON MARKET DATA**: You just started the *Trading Engine* along with the *sensors* that extract live data from the exchange and the *indicators* that process raw trades data. These processes will remain running for as long as you keep the browser open running the app. The bots processing exchange data and building indicators datasets will work to bring your data up to date. In our experience, it may take between 10 to 20 minutes per day worth of Poloniex data to be processed. The time it will take for these processes to complete the job depends on several things:
 > * The date of the release tells you how many days you are behind with the data set you just downloaded.
@@ -241,21 +241,17 @@ Do the same with the second Task Manager element.
 
 **3. Run your first backtest**:
 
-| Task Manager | Expand |
-| :---: | :---: |
-| ![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) | ![menu-tree-plus](https://user-images.githubusercontent.com/13994516/63041077-45c7c480-bec7-11e9-965c-38e4fd706c38.png) |
+| Task Manager | Expand | Backtesting Session |
+| :---: | :---: | :---: |
+| ![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) | ![menu-tree-plus](https://user-images.githubusercontent.com/13994516/63041077-45c7c480-bec7-11e9-965c-38e4fd706c38.png) | ![session-backtesting](https://user-images.githubusercontent.com/13994516/66318052-e7452280-e91a-11e9-94a7-90ebe6ee6e62.png) |
 
 Go to the *Tests & Live Trades Tasks* Task Manager (hover over either of the Task Manager elements to see it's name) and expand the view of child elements by clicking on the *plus sign* icon.
 
-[ILLUSTRATION]
-
 Follow the tree of child elements until you find the *Backtesting Session* element.
 
-| Backtesting Session |
-| :---: |
-| ![session-backtesting](https://user-images.githubusercontent.com/13994516/66318052-e7452280-e91a-11e9-94a7-90ebe6ee6e62.png) |
-
 Hover over the Backtesting Session element and click *Run*. 
+
+[ILLUSTRATION]
 
 You just started a backtesting session with a series of pre-configured parameters, including, for instance, the date range on which the backtesting session runs. Later on, you will learn how to adjust these parameters. 
 
@@ -267,7 +263,7 @@ Then, you may pull down the horizontal bar to go to the charts to see the result
 
 If you are not, use the wheel of your mouse while pointing at the charts to scroll into the 1 hr time period. You do this so that the backtest runs in the time period for which the strategy was designed.
 
-![Getting-Started-Backtesting02](https://user-images.githubusercontent.com/13994516/65598904-c97fd100-df9c-11e9-93f4-324979e67a2d.gif)
+[ILLUSTRATION]
 
 You may now navigate the charts by clicking and dragging, or by zooming in and out with the wheel of your mouse. If you change the time period, you will not see the simulated data, as each time period may hold its own simulation.
 

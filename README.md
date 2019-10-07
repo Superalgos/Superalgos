@@ -259,7 +259,7 @@ You will notice the element will display a date, signalling the progress of the 
 
 Then, you may pull down the horizontal bar to go to the charts to see the results. Make sure you are standing in the 1 hr (one hour) time period. Notice the time box at the bottom of the charts:
 
-![Getting-Started-Charts-Time-Period](https://user-images.githubusercontent.com/13994516/65598453-c0423480-df9b-11e9-9346-04631dd9719e.gif)
+[ILLUSTRATION]
 
 If you are not, use the wheel of your mouse while pointing at the charts to scroll into the 1 hr time period. You do this so that the backtest runs in the time period for which the strategy was designed.
 

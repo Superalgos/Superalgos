@@ -47,6 +47,7 @@ function newWorkspace () {
   let functionLibraryProtocolNode = newProtocolNode()
   let functionLibraryWorkspaceNodes = newStringifyNode()
   let functionLibraryTaskFunctions = newTaskFunctions()
+  let functionLibraryLayerFunctions = newLayerFunctions()
   let functionLibrarySessionFunctions = newSessionFunctions()
   thisObject.nodeChildren = newNodeChildren()
 
@@ -233,6 +234,26 @@ function newWorkspace () {
           download(fileName, text)
         }
 
+        break
+      case 'Turn Layer On':
+        {
+          functionLibraryLayerFunctions.turnLayerOn(payload.node, functionLibraryProtocolNode, callBackFunction)
+        }
+        break
+      case 'Turn Layer Off':
+        {
+          functionLibraryLayerFunctions.turnLayerOff(payload.node, functionLibraryProtocolNode, callBackFunction)
+        }
+        break
+      case 'Turn All Layers On':
+        {
+          functionLibraryLayerFunctions.turnAllLayersOn(payload.node, functionLibraryProtocolNode)
+        }
+        break
+      case 'Turn All Layers Off':
+        {
+          functionLibraryLayerFunctions.turnAllLayersOff(payload.node, functionLibraryProtocolNode)
+        }
         break
       case 'Run Task':
         {

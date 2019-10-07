@@ -335,7 +335,7 @@ function newPlottersManager () {
         }
       }
 
-      storage.initialize(pProductCard.devTeam, pProductCard.bot, pProductCard.product, exchange, market, datetime, timePeriod, onProductStorageInitialized)
+      storage.initialize(pProductCard.devTeam, pProductCard.bot, undefined, pProductCard.product, exchange, market, datetime, timePeriod, onProductStorageInitialized)
 
       function onProductStorageInitialized (err) {
         try {

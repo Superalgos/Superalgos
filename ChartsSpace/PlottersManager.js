@@ -85,168 +85,36 @@ function newPlottersManager () {
       market = pMarket
             /* Listen to the event of change of status */
       productsPanel.container.eventHandler.listenToEvent('Product Card Status Changed', onProductCardStatusChanged)
-      initializeCompetitionPlotters(onCompetitionPlottersInitialized)
 
-      function onCompetitionPlottersInitialized (err) {
+      initializeProductPlotters(onProductPlottersInitialized)
+
+      function onProductPlottersInitialized (err) {
         try {
           switch (err.result) {
             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+              initializationReady = true
+              callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
               break
             }
+
             case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
               callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
               return
             }
+
             default: {
               callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
               return
             }
           }
-
-          initializeProductPlotters(onProductPlottersInitialized)
-
-          function onProductPlottersInitialized (err) {
-            try {
-              switch (err.result) {
-                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                  initializationReady = true
-                  callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-                  break
-                }
-
-                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                  callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                  return
-                }
-
-                default: {
-                  callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                  return
-                }
-              }
-            } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCompetitionPlottersInitialized -> onProductPlottersInitialized -> err = ' + err.stack) }
-              callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-            }
-          }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCompetitionPlottersInitialized -> err = ' + err.stack) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onProductPlottersInitialized -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-    }
-  }
-
-  function initializeCompetitionPlotters (callBack) {
-    try {
-      /* Disabling this functionality since it is not currently available */
-      callBack(GLOBAL.DEFAULT_OK_RESPONSE)
-      return
-
-            /* At this current version of the platform, we will support only one competition with only one plotter. */
-
-      const COMPETITION_HOST = 'AAMasters'
-      const COMPETITION = 'Weekend-Deathmatch'
-
-      let objName = COMPETITION_HOST + '-' + COMPETITION
-      let storage = newCompetitionStorage(objName)
-      let host = ecosystem.getHost(COMPETITION_HOST)
-      let competition = ecosystem.getCompetition(host, COMPETITION)
-
-      storage.initialize(host, competition, exchange, market, onCompetitionStorageInitialized)
-
-      function onCompetitionStorageInitialized (err) {
-        try {
-          switch (err.result) {
-            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-              break
-            }
-            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-              callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
-              return
-            }
-            default: {
-              callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
-              return
-            }
-          }
-                    /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
-          let plotter = getNewPlotter(competition.plotter.devTeam, competition.plotter.codeName, competition.plotter.moduleName)
-          plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true)
-          plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
-          plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
-                    /* We add the profile picture of each participant, because the plotter will need it. */
-          for (let k = 0; k < competition.participants.length; k++) {
-            let participant = competition.participants[k]
-            let devTeam = ecosystem.getTeam(participant.devTeam)
-            let bot = ecosystem.getBot(devTeam, participant.bot)
-            participant.profilePicture = bot.profilePicture
-          }
-          plotter.fitFunction = thisObject.fitFunction
-          plotter.initialize(competition, storage, datetime, timePeriod, onPlotterInizialized)
-
-          function onPlotterInizialized (err) {
-            try {
-              switch (err.result) {
-                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                  break
-                }
-                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                  callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                  return
-                }
-                default: {
-                  callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                  return
-                }
-              }
-              let competitionPlotter = {
-                plotter: plotter,
-                storage: storage
-              }
-                            /* Add the new Active Protter to the Array */
-              competitionPlotters.push(competitionPlotter)
-                            /* Create The Profie Picture FloatingObject */
-              if (competitionPlotter.plotter.payload !== undefined) {
-                for (let k = 0; k < competition.participants.length; k++) {
-                  let participant = competition.participants[k]
-                  let devTeam = ecosystem.getTeam(participant.devTeam)
-                  let bot = ecosystem.getBot(devTeam, participant.bot)
-                  let imageId = participant.devTeam + '.' + participant.profilePicture
-                  const TEAM = devTeam.codeName.toLowerCase()
-                  const BOT = bot.codeName.toLowerCase()
-/*
-                  let botAvatar = new Image()
-                  botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + '-' + BOT)
-                  competitionPlotter.plotter.payload[k].profile.title = bot.displayName
-                  competitionPlotter.plotter.payload[k].profile.imageId = imageId
-                  competitionPlotter.plotter.payload[k].profile.botAvatar = botAvatar
-                  canvas.floatingSpace.profileBalls.createNewProfileBall(competitionPlotter.plotter.payload[k], onProfileBallCreated)
-
-                  function onProfileBallCreated (err, pProfileHandle) {
-                    competitionPlotter.plotter.payload[k].profile.handle = pProfileHandle
-                  }
-
-*/
-                }
-              }
-              callBack(GLOBAL.DEFAULT_OK_RESPONSE)
-            } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> onPlotterInizialized -> err = ' + err.stack) }
-              callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
-            }
-          }
-        } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> err = ' + err.stack) }
-          callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
-        }
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initializeCompetitionPlotters -> err = ' + err.stack) }
-      callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
 

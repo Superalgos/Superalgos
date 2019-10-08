@@ -43,7 +43,7 @@ function newProductsPanel () {
     thisObject.container.name = 'Layers @ ' + exchange + ' ' + market.assetB + '/' + market.assetA
     thisObject.container.frame.containerName = thisObject.container.name
     thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
-    thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE * 2 // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
+    thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE * 1.5 // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
 
     let position = {
       x: viewPort.visibleArea.topLeft.x,
@@ -70,7 +70,7 @@ function newProductsPanel () {
 
       for (let j = 0; j < devTeam.bots.length; j++) {
         let bot = devTeam.bots[j]
-        if (bot.type !== 'Indicator' && (bot.cloneId === undefined || bot.cloneId === null)) { continue }
+        if (bot.type !== 'Indicator') { continue }
 
         if (bot.products !== undefined) {
           for (let k = 0; k < bot.products.length; k++) {

@@ -707,6 +707,11 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Sensor': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -718,9 +723,24 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -45
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Sensor',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Sensor',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15,
+            dontShowAtFullscreen: true
+          }
+            )
         menuItemsInitialValues.push(
           {
             action: 'Delete Sensor',
@@ -734,7 +754,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 15
           }
             )
         menuItemsInitialValues.push(
@@ -748,12 +768,17 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 45
           }
                     )
         break
       }
       case 'Indicator': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -765,9 +790,24 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -45
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Indicator',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Indicator',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15,
+            dontShowAtFullscreen: true
+          }
+            )
         menuItemsInitialValues.push(
           {
             action: 'Delete Indicator',
@@ -781,7 +821,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 15
           }
             )
         menuItemsInitialValues.push(
@@ -795,12 +835,17 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 45
           }
             )
         break
       }
       case 'Trading Engine': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -812,7 +857,22 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -45
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Trading Engine',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Trading Engine',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15,
+            dontShowAtFullscreen: true
           }
           )
         menuItemsInitialValues.push(
@@ -828,7 +888,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 15
           }
             )
         menuItemsInitialValues.push(
@@ -842,7 +902,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 45
           }
           )
         break

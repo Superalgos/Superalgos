@@ -104,17 +104,17 @@ function newAttachDetach () {
         return
       }
       case 'Sensor': {
-        node.payload.parentNode.sensor = undefined
+        node.payload.parentNode.bot = undefined
         completeDetachment(node, rootNodes)
         return
       }
       case 'Indicator': {
-        node.payload.parentNode.indicator = undefined
+        node.payload.parentNode.bot = undefined
         completeDetachment(node, rootNodes)
         return
       }
       case 'Trading Engine': {
-        node.payload.parentNode.tradingEngine = undefined
+        node.payload.parentNode.bot = undefined
         completeDetachment(node, rootNodes)
         return
       }

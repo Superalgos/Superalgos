@@ -565,7 +565,8 @@ function newPartsFromNodes () {
   function addSensor (node) {
     if (node.bot === undefined) {
       node.bot = {
-        processes: []
+        processes: [],
+        code: '{}'
       }
       createPart('Sensor', '', node.bot, node, node)
     }
@@ -575,7 +576,8 @@ function newPartsFromNodes () {
   function addIndicator (node) {
     if (node.bot === undefined) {
       node.bot = {
-        processes: []
+        processes: [],
+        code: '{}'
       }
       createPart('Indicator', '', node.bot, node, node)
     }
@@ -585,7 +587,8 @@ function newPartsFromNodes () {
   function addTradingEngine (node) {
     if (node.bot === undefined) {
       node.bot = {
-        processes: []
+        processes: [],
+        code: '{}'
       }
       createPart('Trading Engine', '', node.bot, node, node)
     }

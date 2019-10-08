@@ -98,7 +98,7 @@ function newProductsPanel () {
     productCard.code = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName
 
     if (instance !== undefined) {
-      productCard.code = '-' + productCard.code + '-' + instance
+      productCard.code = productCard.code + '-' + instance
     }
 
     /* Initialize it */
@@ -233,7 +233,11 @@ function newProductsPanel () {
 
   function physics () {
     if (isInitialized === false) { return }
-    return
+
+    /* The overall idea here is that we need to keep syncronized the panel with the layers that are
+    defined at the Designer. Users can connect or disconnect any objext resulting in changes in which
+    are valid layers and which not at any point in time. So what we do here is trying to keep the panel
+    only with the layers that are connected to each Definition structure.*
 
     /* We will look into the ecosystem to know which Trading Engine bots are defined there. */
     let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
@@ -259,7 +263,7 @@ function newProductsPanel () {
             if we can find a matching layer. */
 
             for (let n = 0; n < tradingEngineInstances.length; n++) {
-              let tradingEngine = tradingEngineInstances.length[n]
+              let tradingEngine = tradingEngineInstances[n]
               let code
               try {
                 code = JSON.parse(tradingEngine.code)
@@ -280,7 +284,7 @@ function newProductsPanel () {
                           let layer = layerManager.layers[p]
                           let layerCode
                           try {
-                            layerCode = JSON.parse(layerCode.code)
+                            layerCode = JSON.parse(layer.code)
                           } catch (err) {
                             // if we can not parse this, then we ignore this trading engine.
                           }
@@ -288,7 +292,7 @@ function newProductsPanel () {
                             /* We have a layer that is matching the current product */
 
                             let instance = process.session.name + '-' + process.session.id
-                            let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + productCard.code + '-' + instance
+                            let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + instance
 
                             if (cardsMap.get(cardCode) === undefined) {
                               addProductCard(devTeam, bot, product, instance)

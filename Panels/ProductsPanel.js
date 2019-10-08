@@ -249,46 +249,47 @@ function newProductsPanel () {
     /* Then we get an Array of all instances of this bot placed at Definitions on the Workspace. */
     let tradingEngineInstances = canvas.strategySpace.workspace.getAllTradingEngines()
 
-    for (let i = 0; i < ecosystem.devTeams.length; i++) {
-      let devTeam = ecosystem.devTeams[i]
+    /* Here we will go through all the instances of trading engines and see their layers, to see
+    if we can find a matching layer. */
 
-      for (let j = 0; j < devTeam.bots.length; j++) {
-        let bot = devTeam.bots[j]
-        if (bot.type !== 'Trading Engine') { continue }
+    for (let n = 0; n < tradingEngineInstances.length; n++) {
+      let tradingEngine = tradingEngineInstances[n]
+      let code
+      try {
+        code = JSON.parse(tradingEngine.code)
+      } catch (err) {
+        // if we can not parse this, then we ignore this trading engine.
+      }
+      if (code !== undefined) {
+        for (let i = 0; i < ecosystem.devTeams.length; i++) {
+          let devTeam = ecosystem.devTeams[i]
 
-        if (bot.products !== undefined) {
-          for (let k = 0; k < bot.products.length; k++) {
-            let product = bot.products[k]
+          for (let j = 0; j < devTeam.bots.length; j++) {
+            let bot = devTeam.bots[j]
+            if (bot.type !== 'Trading Engine') { continue }
 
-            /* Here we will go through all the instances of trading engines and see their layers, to see
-            if we can find a matching layer. */
+            if (devTeam.codeName === code.team && bot.codeName === code.bot) {
+              /* We found an instance of the same Trading Engine we are currently looking at.
+              Next thing to do is to see its layers to see if we can match it with the current product. */
 
-            for (let n = 0; n < tradingEngineInstances.length; n++) {
-              let tradingEngine = tradingEngineInstances[n]
-              let code
-              try {
-                code = JSON.parse(tradingEngine.code)
-              } catch (err) {
-                // if we can not parse this, then we ignore this trading engine.
-              }
-              if (code !== undefined) {
-                if (devTeam.codeName === code.team && bot.codeName === code.bot) {
-                  /* We found an instance of the same Trading Engine we are currently looking at.
-                  Next thing to do is to see its layers to see if we can match it with the current product. */
+              for (let m = 0; m < tradingEngine.processes.length; m++) {
+                let process = tradingEngine.processes[m]
+                if (process.session !== undefined) {
+                  if (process.session.layerManager !== undefined) {
+                    let layerManager = process.session.layerManager
+                    for (let p = 0; p < layerManager.layers.length; p++) {
+                      let layer = layerManager.layers[p]
+                      let layerCode
+                      try {
+                        layerCode = JSON.parse(layer.code)
+                      } catch (err) {
+                        // if we can not parse this, then we ignore this trading engine.
+                      }
 
-                  for (let m = 0; m < tradingEngine.processes.length; m++) {
-                    let process = tradingEngine.processes[m]
-                    if (process.session !== undefined) {
-                      if (process.session.layerManager !== undefined) {
-                        let layerManager = process.session.layerManager
-                        for (let p = 0; p < layerManager.layers.length; p++) {
-                          let layer = layerManager.layers[p]
-                          let layerCode
-                          try {
-                            layerCode = JSON.parse(layer.code)
-                          } catch (err) {
-                            // if we can not parse this, then we ignore this trading engine.
-                          }
+                      if (bot.products !== undefined) {
+                        for (let k = 0; k < bot.products.length; k++) {
+                          let product = bot.products[k]
+
                           if (product.codeName === layerCode.product) {
                             /* We have a layer that is matching the current product */
 

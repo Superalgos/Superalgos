@@ -43,7 +43,7 @@ function newProductsPanel () {
     thisObject.container.name = 'Layers @ ' + exchange + ' ' + market.assetB + '/' + market.assetA
     thisObject.container.frame.containerName = thisObject.container.name
     thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
-    thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
+    thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE * 2 // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
 
     let position = {
       x: viewPort.visibleArea.topLeft.x,
@@ -61,7 +61,7 @@ function newProductsPanel () {
        /* First thing is to build the thisObject.productCards array */
 
     let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
-	if (ecosystem === null || ecosystem === undefined) {
+    if (ecosystem === null || ecosystem === undefined) {
       ecosystem = getUserEcosystem()
     }
 

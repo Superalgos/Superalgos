@@ -623,7 +623,7 @@ function newProductCard () {
     labelPoint = thisObject.fitFunction(labelPoint)
 
     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
+    browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 1)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
        /* ------------------- Progress Bars -------------------------- */

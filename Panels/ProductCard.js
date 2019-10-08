@@ -611,6 +611,15 @@ function newProductCard () {
        /* product */
     fontSize = 10
     label = thisObject.product.displayName
+
+    if (thisObject.session !== undefined) {
+      const MAX_LABEL_LENGTH = 30
+      if (thisObject.session.name > MAX_LABEL_LENGTH) {
+        label = thisObject.session.name.substring(0, MAX_LABEL_LENGTH) + '...' + ' - ' + label
+      } else {
+        label = thisObject.session.name + ' - ' + label
+      }
+    }
     labelPoint = {
       x: 65,
       y: thisObject.container.frame.height / 2 + 15

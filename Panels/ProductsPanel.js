@@ -87,7 +87,7 @@ function newProductsPanel () {
     isInitialized = true
   }
 
-  function addProductCard (devTeam, bot, product, instance) {
+  function addProductCard (devTeam, bot, product, session) {
     /* Now we create Product objects */
     let productCard = newProductCard()
 
@@ -97,9 +97,10 @@ function newProductsPanel () {
     productCard.fitFunction = thisObject.fitFunction
     productCard.code = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName
 
-    if (instance !== undefined) {
-      productCard.code = productCard.code + '-' + instance
+    if (session !== undefined) {
+      productCard.code = productCard.code + '-' + session.id
     }
+    productCard.session = session
 
     /* Initialize it */
     productCard.initialize()
@@ -291,11 +292,10 @@ function newProductsPanel () {
                           if (product.codeName === layerCode.product) {
                             /* We have a layer that is matching the current product */
 
-                            let instance = process.session.name + '-' + process.session.id
-                            let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + instance
+                            let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
 
                             if (cardsMap.get(cardCode) === undefined) {
-                              addProductCard(devTeam, bot, product, instance)
+                              addProductCard(devTeam, bot, product, process.session)
                             }
                           }
                         }

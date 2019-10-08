@@ -529,12 +529,16 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           processes: []
         }
 
         for (let m = 0; m < node.processes.length; m++) {
           let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings, includeIds)
           bot.processes.push(process)
+        }
+        if (parseJSONStrings) {
+          bot.code = JSON.parse(bot.code)
         }
         if (includeIds) {
           bot.id = node.id
@@ -546,12 +550,16 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           processes: []
         }
 
         for (let m = 0; m < node.processes.length; m++) {
           let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings, includeIds)
           bot.processes.push(process)
+        }
+        if (parseJSONStrings) {
+          bot.code = JSON.parse(bot.code)
         }
         if (includeIds) {
           bot.id = node.id
@@ -563,12 +571,16 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           processes: []
         }
 
         for (let m = 0; m < node.processes.length; m++) {
           let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings, includeIds)
           bot.processes.push(process)
+        }
+        if (parseJSONStrings) {
+          bot.code = JSON.parse(bot.code)
         }
         if (includeIds) {
           bot.id = node.id

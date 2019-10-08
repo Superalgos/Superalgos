@@ -501,6 +501,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           processes: [],
           savedPayload: getSavedPayload(node)
         }
@@ -518,6 +519,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           processes: [],
           savedPayload: getSavedPayload(node)
         }
@@ -535,6 +537,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           processes: [],
           savedPayload: getSavedPayload(node)
         }

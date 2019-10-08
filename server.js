@@ -127,7 +127,7 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
 
         /* Delete the event handler for each process. */
 
-        let key = code.team + "-" + code.bot + "-" + code.process
+        let key = global.TASK_NODE.bot.code.team + "-" + global.TASK_NODE.bot.code.bot + "-" + code.process
 
         global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
 
@@ -174,13 +174,13 @@ function bootLoader() {
 
         /* Validate that the minimun amount of parameters required are defined. */
 
-        if (global.TASK_NODE.bot.processes[processIndex].code.bot === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'bot' is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
+        if (global.TASK_NODE.bot.code.bot === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'bot' at the Indicator | Sensor | Trading Engine is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].code.team === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'team' is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
+        if (global.TASK_NODE.bot.code.team === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'team' at the bot is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
             continue
         }
 
@@ -191,11 +191,11 @@ function bootLoader() {
 
         /* Create the event handler for each process. This event handlers are where the status reports updated events are raised. */
 
-        let key = code.team + "-" + code.bot + "-" + code.process
+        let key = global.TASK_NODE.bot.code.team + "-" + global.TASK_NODE.bot.code.bot + "-" + code.process
         global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
 
-        if (global.TASK_NODE.bot.processes[processIndex].code.repo === undefined) {
-            global.TASK_NODE.bot.processes[processIndex].code.repo = global.TASK_NODE.bot.processes[processIndex].code.bot + "-" + global.TASK_NODE.bot.type + "-Bot"
+        if (global.TASK_NODE.bot.code.repo === undefined) {
+            global.TASK_NODE.bot.code.repo = global.TASK_NODE.bot.code.bot + "-" + global.TASK_NODE.bot.type + "-Bot"
         }
 
         startRoot(processIndex);

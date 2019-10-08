@@ -5,6 +5,7 @@ function newProductsPanel () {
     container: undefined,
     productCards: [],
     getLoadingProductCards: getLoadingProductCards,
+    physics: physics,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
     initialize: initialize
@@ -230,6 +231,11 @@ function newProductsPanel () {
         return thisObject.container
       }
     }
+  }
+
+  function physics () {
+    if (isInitialized === false) { return }
+    console.log('PHYSICS!!!')
   }
 
   function draw () {

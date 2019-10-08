@@ -11,6 +11,7 @@ function newPanelsSpace () {
     createNewPanel: createNewPanel,
     destroyPanel: destroyPanel,
     getPanel: getPanel,
+    physics: physics,
     draw: draw,
     panels: [],
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -99,6 +100,19 @@ function newPanelsSpace () {
 
         if (panel.handle === pPanelHandle) {
           return panel
+        }
+      }
+    }
+  }
+
+  function physics () {
+    if (thisObject.visible !== true) { return }
+
+    if (thisObject.panels !== undefined) {
+      for (let i = 0; i < thisObject.panels.length; i++) {
+        let panel = thisObject.panels[i]
+        if (panel.physics !== undefined) {
+          panel.physics()
         }
       }
     }

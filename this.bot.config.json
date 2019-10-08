@@ -248,7 +248,7 @@
   "products": [
     {
       "codeName": "Trading-Simulation",
-      "displayName": "Trading Simulation",
+      "displayName": "Simulation",
       "description": "Trading Simulation",
       "storageAccount": "aajason",
       "dataSets": [
@@ -265,7 +265,7 @@
             "02-hs",
             "01-hs"
           ],
-          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Market/@Period",
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Trading-Simulation/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
@@ -284,10 +284,10 @@
             "02-min",
             "01-min"
           ],
-          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Trading-Simulation/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
-            "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Daily",
+            "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Trading-Simulation/Multi-Period-Daily",
             "fileName": "Data.Range.@AssetA_@AssetB.json"
           }
         }
@@ -308,7 +308,7 @@
     },
     {
       "codeName": "Simulation-Conditions",
-      "displayName": "Simulation Conditions",
+      "displayName": "Conditions",
       "description": "Simulation Conditions",
       "storageAccount": "aajason",
       "dataSets": [
@@ -325,7 +325,7 @@
             "02-hs",
             "01-hs"
           ],
-          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Market/@Period",
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Conditions/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
@@ -344,10 +344,10 @@
             "02-min",
             "01-min"
           ],
-          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Conditions/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
-            "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Daily",
+            "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Conditions/Multi-Period-Daily",
             "fileName": "Data.Range.@AssetA_@AssetB.json"
           }
         }
@@ -368,7 +368,7 @@
     },
     {
       "codeName": "Simulation-Strategies",
-      "displayName": "Simulation Strategies",
+      "displayName": "Strategies",
       "description": "Simulation Strategies",
       "storageAccount": "aajason",
       "dataSets": [
@@ -385,7 +385,7 @@
             "02-hs",
             "01-hs"
           ],
-          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Market/@Period",
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Strategies/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
@@ -404,10 +404,10 @@
             "02-min",
             "01-min"
           ],
-          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Strategies/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
-            "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Daily",
+            "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Strategies/Multi-Period-Daily",
             "fileName": "Data.Range.@AssetA_@AssetB.json"
           }
         }
@@ -428,7 +428,7 @@
     },
     {
       "codeName": "Simulation-Trades",
-      "displayName": "Simulation Trades",
+      "displayName": "Trades",
       "description": "Simulation Trades",
       "storageAccount": "aajason",
       "dataSets": [
@@ -445,7 +445,7 @@
             "02-hs",
             "01-hs"
           ],
-          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Market/@Period",
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Trades/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
@@ -464,10 +464,10 @@
             "02-min",
             "01-min"
           ],
-          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Trades/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
-            "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Daily",
+            "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Trades/Multi-Period-Daily",
             "fileName": "Data.Range.@AssetA_@AssetB.json"
           }
         }
@@ -487,8 +487,8 @@
       }
     },
     {
-      "codeName": "Live Trading History",
-      "displayName": "Live Trading History",
+      "codeName": "Live-Trading-History",
+      "displayName": "Live",
       "shortDisplayName": "Live",
       "description": "Live Trading Execution.",
       "dataSets": [
@@ -516,7 +516,7 @@
             "02-min",
             "01-min"
           ],
-          "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
+          "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/@Session/Trading-Process",
           "fileName": "Execution.History.Live.@Sequence.json"
         }
       ],

@@ -24,6 +24,7 @@ function newProductsPanel () {
 
   let isInitialized = false
 
+  let cardsMap = new Map()
   let visibleProductCards = []
   let firstVisibleCard = 1
 
@@ -86,7 +87,7 @@ function newProductsPanel () {
     isInitialized = true
   }
 
-  function addProductCard (devTeam, bot, product) {
+  function addProductCard (devTeam, bot, product, instance) {
     /* Now we create Product objects */
     let productCard = newProductCard()
 
@@ -96,8 +97,13 @@ function newProductsPanel () {
     productCard.fitFunction = thisObject.fitFunction
     productCard.code = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName
 
+    if (instance !== undefined) {
+      productCard.code = '-' + productCard.code + '-' + instance
+    }
+
     /* Initialize it */
     productCard.initialize()
+    cardsMap.set(productCard.code, productCard)
 
     /* Container Stuff */
     productCard.container.displacement.parentDisplacement = thisObject.container.displacement
@@ -227,6 +233,78 @@ function newProductsPanel () {
 
   function physics () {
     if (isInitialized === false) { return }
+    return
+
+    /* We will look into the ecosystem to know which Trading Engine bots are defined there. */
+    let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
+    if (ecosystem === null || ecosystem === undefined) {
+      ecosystem = getUserEcosystem()
+    }
+
+    /* Then we get an Array of all instances of this bot placed at Definitions on the Workspace. */
+    let tradingEngineInstances = canvas.strategySpace.workspace.getAllTradingEngines()
+
+    for (let i = 0; i < ecosystem.devTeams.length; i++) {
+      let devTeam = ecosystem.devTeams[i]
+
+      for (let j = 0; j < devTeam.bots.length; j++) {
+        let bot = devTeam.bots[j]
+        if (bot.type !== 'Trading Engine') { continue }
+
+        if (bot.products !== undefined) {
+          for (let k = 0; k < bot.products.length; k++) {
+            let product = bot.products[k]
+
+            /* Here we will go through all the instances of trading engines and see their layers, to see
+            if we can find a matching layer. */
+
+            for (let n = 0; n < tradingEngineInstances.length; n++) {
+              let tradingEngine = tradingEngineInstances.length[n]
+              let code
+              try {
+                code = JSON.parse(tradingEngine.code)
+              } catch (err) {
+                // if we can not parse this, then we ignore this trading engine.
+              }
+              if (code !== undefined) {
+                if (devTeam.codeName === code.team && bot.codeName === code.bot) {
+                  /* We found an instance of the same Trading Engine we are currently looking at.
+                  Next thing to do is to see its layers to see if we can match it with the current product. */
+
+                  for (let m = 0; m < tradingEngine.processes.length; m++) {
+                    let process = tradingEngine.processes[m]
+                    if (process.session !== undefined) {
+                      if (process.session.layerManager !== undefined) {
+                        let layerManager = process.session.layerManager
+                        for (let p = 0; p < layerManager.layers.length; p++) {
+                          let layer = layerManager.layers[p]
+                          let layerCode
+                          try {
+                            layerCode = JSON.parse(layerCode.code)
+                          } catch (err) {
+                            // if we can not parse this, then we ignore this trading engine.
+                          }
+                          if (product.codeName === layerCode.product) {
+                            /* We have a layer that is matching the current product */
+
+                            let instance = process.session.name + '-' + process.session.id
+                            let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + productCard.code + '-' + instance
+
+                            if (cardsMap.get(cardCode) === undefined) {
+                              addProductCard(devTeam, bot, product, instance)
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   function draw () {

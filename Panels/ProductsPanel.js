@@ -59,8 +59,7 @@ function newProductsPanel () {
     panelTabButton.fitFunction = thisObject.fitFunction
     panelTabButton.initialize()
 
-       /* First thing is to build the thisObject.productCards array */
-
+     /* First thing is to build the thisObject.productCards array */
     let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
     if (ecosystem === null || ecosystem === undefined) {
       ecosystem = getUserEcosystem()
@@ -76,51 +75,8 @@ function newProductsPanel () {
         if (bot.products !== undefined) {
           for (let k = 0; k < bot.products.length; k++) {
             let product = bot.products[k]
-                       /* Now we create Product objects */
 
-            let productCard = newProductCard()
-
-            productCard.devTeam = devTeam
-            productCard.bot = bot
-            productCard.product = product
-            productCard.fitFunction = thisObject.fitFunction
-            productCard.code = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName
-
-                       /* Initialize it */
-
-            productCard.initialize()
-
-                       /* Container Stuff */
-
-            productCard.container.displacement.parentDisplacement = thisObject.container.displacement
-            productCard.container.frame.parentFrame = thisObject.container.frame
-            productCard.container.parentContainer = thisObject.container
-            productCard.container.isWheelable = true
-
-                       /* Positioning within thisObject Panel */
-
-            let position = {
-              x: 10,
-              y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
-            }
-
-            productCard.container.frame.position.x = position.x
-            productCard.container.frame.position.y = position.y + productCard.container.frame.height * thisObject.productCards.length + CANRD_SEPARATION
-
-                       /* Add to the Product Array */
-
-            thisObject.productCards.push(productCard)
-
-                       /* Add to Visible Product Array */
-
-            if (productCard.container.frame.position.y + productCard.container.frame.height < thisObject.container.frame.height) {
-              visibleProductCards.push(productCard)
-            }
-
-                       /* Listen to Status Changes Events */
-
-            productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged)
-            productCard.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+            addProductCard(devTeam, bot, product)
           }
         }
       }
@@ -128,6 +84,47 @@ function newProductsPanel () {
 
     thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     isInitialized = true
+  }
+
+  function addProductCard (devTeam, bot, product) {
+    /* Now we create Product objects */
+    let productCard = newProductCard()
+
+    productCard.devTeam = devTeam
+    productCard.bot = bot
+    productCard.product = product
+    productCard.fitFunction = thisObject.fitFunction
+    productCard.code = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName
+
+    /* Initialize it */
+    productCard.initialize()
+
+    /* Container Stuff */
+    productCard.container.displacement.parentDisplacement = thisObject.container.displacement
+    productCard.container.frame.parentFrame = thisObject.container.frame
+    productCard.container.parentContainer = thisObject.container
+    productCard.container.isWheelable = true
+
+    /* Positioning within thisObject Panel */
+    let position = {
+      x: 10,
+      y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
+    }
+
+    productCard.container.frame.position.x = position.x
+    productCard.container.frame.position.y = position.y + productCard.container.frame.height * thisObject.productCards.length + CANRD_SEPARATION
+
+    /* Add to the Product Array */
+    thisObject.productCards.push(productCard)
+
+    /* Add to Visible Product Array */
+    if (productCard.container.frame.position.y + productCard.container.frame.height < thisObject.container.frame.height) {
+      visibleProductCards.push(productCard)
+    }
+
+    /* Listen to Status Changes Events */
+    productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged)
+    productCard.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
   }
 
   function onMouseWheel (event) {

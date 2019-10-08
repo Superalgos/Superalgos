@@ -29,7 +29,7 @@ function newProductsPanel () {
 
    /* Needed Variables */
 
-  let lastY = 5
+  const CANRD_SEPARATION = 5
   let panelTabButton
 
   let exchange
@@ -105,9 +105,7 @@ function newProductsPanel () {
             }
 
             productCard.container.frame.position.x = position.x
-            productCard.container.frame.position.y = position.y + lastY
-
-            lastY = lastY + productCard.container.frame.height
+            productCard.container.frame.position.y = position.y + productCard.container.frame.height * thisObject.productCards.length + CANRD_SEPARATION
 
                        /* Add to the Product Array */
 
@@ -148,7 +146,6 @@ function newProductsPanel () {
     if (firstVisibleCard > (thisObject.productCards.length - availableSlots + 1)) { firstVisibleCard = thisObject.productCards.length - availableSlots + 1 }
 
     visibleProductCards = []
-    let lastY = 5
 
     for (let i = 0; i < thisObject.productCards.length; i++) {
       if (i + 1 >= firstVisibleCard && i + 1 < firstVisibleCard + availableSlots) {
@@ -161,9 +158,7 @@ function newProductsPanel () {
           y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
         }
         productCard.container.frame.position.x = position.x
-        productCard.container.frame.position.y = position.y + lastY
-
-        lastY = lastY + productCard.container.frame.height
+        productCard.container.frame.position.y = position.y + productCard.container.frame.height * visibleProductCards.length + CANRD_SEPARATION
 
                /* Add to Visible Product Array */
 
@@ -235,7 +230,6 @@ function newProductsPanel () {
 
   function physics () {
     if (isInitialized === false) { return }
-    console.log('PHYSICS!!!')
   }
 
   function draw () {

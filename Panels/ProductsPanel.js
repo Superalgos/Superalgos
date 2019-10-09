@@ -317,16 +317,13 @@ function newProductsPanel () {
                             try {
                               layerCode = JSON.parse(layer.code)
                             } catch (err) {
-                                  // if we can not parse this, then we ignore this trading engine.
+                              // if we can not parse this, then we ignore this trading engine.
                             }
 
                             if (product.codeName === layerCode.product) {
-                                                      /* We have a layer that is matching the current product */
-
+                              /* We have a layer that is matching the current product */
                               let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
-
                               let cardFound = removeFromLocalProductCards(cardCode)
-
                               if (cardFound !== true) {
                                 addProductCard(devTeam, bot, product, process.session)
                               }

@@ -306,21 +306,22 @@ function newProductsPanel () {
                   if (process.session !== undefined) {
                     if (process.session.layerManager !== undefined) {
                       let layerManager = process.session.layerManager
-                      for (let p = 0; p < layerManager.layers.length; p++) {
-                        let layer = layerManager.layers[p]
-                        let layerCode
-                        try {
-                          layerCode = JSON.parse(layer.code)
-                        } catch (err) {
-                              // if we can not parse this, then we ignore this trading engine.
-                        }
 
-                        if (bot.products !== undefined) {
-                          for (let k = 0; k < bot.products.length; k++) {
-                            let product = bot.products[k]
+                      if (bot.products !== undefined) {
+                        for (let k = 0; k < bot.products.length; k++) {
+                          let product = bot.products[k]
+
+                          for (let p = 0; p < layerManager.layers.length; p++) {
+                            let layer = layerManager.layers[p]
+                            let layerCode
+                            try {
+                              layerCode = JSON.parse(layer.code)
+                            } catch (err) {
+                                  // if we can not parse this, then we ignore this trading engine.
+                            }
 
                             if (product.codeName === layerCode.product) {
-                                  /* We have a layer that is matching the current product */
+                                                      /* We have a layer that is matching the current product */
 
                               let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
 

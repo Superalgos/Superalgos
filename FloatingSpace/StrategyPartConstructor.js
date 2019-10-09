@@ -388,34 +388,6 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Turn All Layers On',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Turn All Layers On',
-            visible: true,
-            iconPathOn: 'paper-plane',
-            iconPathOff: 'paper-plane',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -70
-          }
-        )
-        menuItemsInitialValues.push(
-          {
-            action: 'Turn All Layers Off',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Turn All Layers Off',
-            visible: true,
-            iconPathOn: 'stop',
-            iconPathOff: 'stop',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -30
-          }
-        )
-        menuItemsInitialValues.push(
-          {
             action: 'Add Layer',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer',
@@ -424,7 +396,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -40
           }
         )
         menuItemsInitialValues.push(
@@ -440,7 +412,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 30
+            angle: 0
           }
           )
         menuItemsInitialValues.push(
@@ -454,7 +426,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 70
+            angle: 40
           }
             )
         break
@@ -467,29 +439,6 @@ function newStrategyPartConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Turn Layer On',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Turn On',
-            workingLabel: 'Turning On',
-            workDoneLabel: 'Turned On',
-            workFailedLabel: 'Layer Cannot be On',
-            secondaryAction: 'Turn Layer Off',
-            secondaryLabel: 'Turn Off',
-            secondaryWorkingLabel: 'Turning Off',
-            secondaryWorkDoneLabel: 'Turned Off',
-            secondaryWorkFailedLabel: 'Layer Cannot be Off',
-            secondaryIcon: 'stop',
-            visible: true,
-            iconPathOn: 'paper-plane',
-            iconPathOff: 'paper-plane',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -60
-          }
-        )
-        menuItemsInitialValues.push(
-          {
             action: 'Edit Layer',
             actionFunction: strategyPart.codeEditor.activate,
             label: 'Edit Layer',
@@ -499,7 +448,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20,
+            angle: -40,
             dontShowAtFullscreen: true
           }
         )
@@ -516,7 +465,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 0
           }
             )
         menuItemsInitialValues.push(
@@ -530,7 +479,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 40
           }
                 )
         break

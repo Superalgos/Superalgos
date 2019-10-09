@@ -139,6 +139,8 @@ function newProductsPanel () {
     /* Listen to Status Changes Events */
     productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged)
     productCard.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+
+    return productCard
   }
 
   function onMouseWheel (event) {
@@ -325,7 +327,8 @@ function newProductsPanel () {
                               let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
                               let cardFound = removeFromLocalProductCards(cardCode)
                               if (cardFound !== true) {
-                                addProductCard(devTeam, bot, product, process.session)
+                                productCard = addProductCard(devTeam, bot, product, process.session)
+                                onProductCardStatusChanged(productCard)
                               }
                             }
                           }

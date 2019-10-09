@@ -87,6 +87,13 @@ function newProductsPanel () {
     isInitialized = true
   }
 
+  function removeProductCard (code) {
+    let productCard = cardsMap.get(code)
+    cardsMap.delete(code)
+    productCard.turnOff()
+    productCard.finalize()
+  }
+
   function addProductCard (devTeam, bot, product, session) {
     /* Now we create Product objects */
     let productCard = newProductCard()
@@ -144,6 +151,10 @@ function newProductsPanel () {
 
     firstVisibleCard = firstVisibleCard + delta
 
+    calculateVisbleProductCards()
+  }
+
+  function calculateVisbleProductCards () {
     let availableSlots = visibleProductCards.length
 
     if (firstVisibleCard < 1) { firstVisibleCard = 1 }
@@ -235,68 +246,89 @@ function newProductsPanel () {
   function physics () {
     if (isInitialized === false) { return }
 
-    /* The overall idea here is that we need to keep syncronized the panel with the layers that are
+    /*
+    The overall idea here is that we need to keep syncronized the panel with the layers that are
     defined at the Designer. Users can connect or disconnect any objext resulting in changes in which
     are valid layers and which not at any point in time. So what we do here is trying to keep the panel
-    only with the layers that are connected to each Definition structure.*
+    only with the layers that are connected to each Definition structure.
 
-    /* We will look into the ecosystem to know which Trading Engine bots are defined there. */
-    let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
-    if (ecosystem === null || ecosystem === undefined) {
-      ecosystem = getUserEcosystem()
-    }
+    To achieve this, first we are going to move all session related cards to a local array. Then we are
+    going to check for layers at the designer, and will move back the cards which still have layers well
+    defined to where they were.
 
-    /* Then we get an Array of all instances of this bot placed at Definitions on the Workspace. */
-    let tradingEngineInstances = canvas.strategySpace.workspace.getAllTradingEngines()
+    If we find new layers we will add them at that point. Finally, the cards that still remain at the
+    local array after all the layers at the designer have been processed, are turned off and discarded.
+    */
 
-    /* Here we will go through all the instances of trading engines and see their layers, to see
-    if we can find a matching layer. */
+    let localProductCards = []
+    moveToLocalProductCards()
+    synchronizeLayersAndProductCards()
 
-    for (let n = 0; n < tradingEngineInstances.length; n++) {
-      let tradingEngine = tradingEngineInstances[n]
-      let code
-      try {
-        code = JSON.parse(tradingEngine.code)
-      } catch (err) {
-        // if we can not parse this, then we ignore this trading engine.
+    /* At this poins all the cards still at the local array need to be removed from the panel. */
+    turnOffUnusedProducCards()
+    calculateVisbleProductCards()
+
+    function synchronizeLayersAndProductCards () {
+        /* We will look into the ecosystem to know which Trading Engine bots are defined there. */
+      let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
+      if (ecosystem === null || ecosystem === undefined) {
+        ecosystem = getUserEcosystem()
       }
-      if (code !== undefined) {
-        for (let i = 0; i < ecosystem.devTeams.length; i++) {
-          let devTeam = ecosystem.devTeams[i]
 
-          for (let j = 0; j < devTeam.bots.length; j++) {
-            let bot = devTeam.bots[j]
-            if (bot.type !== 'Trading Engine') { continue }
+        /* Then we get an Array of all instances of this bot placed at Definitions on the Workspace. */
+      let tradingEngineInstances = canvas.strategySpace.workspace.getAllTradingEngines()
 
-            if (devTeam.codeName === code.team && bot.codeName === code.bot) {
-              /* We found an instance of the same Trading Engine we are currently looking at.
-              Next thing to do is to see its layers to see if we can match it with the current product. */
+        /* Here we will go through all the instances of trading engines and see their layers, to see
+        if we can find a matching layer. */
 
-              for (let m = 0; m < tradingEngine.processes.length; m++) {
-                let process = tradingEngine.processes[m]
-                if (process.session !== undefined) {
-                  if (process.session.layerManager !== undefined) {
-                    let layerManager = process.session.layerManager
-                    for (let p = 0; p < layerManager.layers.length; p++) {
-                      let layer = layerManager.layers[p]
-                      let layerCode
-                      try {
-                        layerCode = JSON.parse(layer.code)
-                      } catch (err) {
-                        // if we can not parse this, then we ignore this trading engine.
-                      }
+      for (let n = 0; n < tradingEngineInstances.length; n++) {
+        let tradingEngine = tradingEngineInstances[n]
+        let code
+        try {
+          code = JSON.parse(tradingEngine.code)
+        } catch (err) {
+            // if we can not parse this, then we ignore this trading engine.
+        }
+        if (code !== undefined) {
+          for (let i = 0; i < ecosystem.devTeams.length; i++) {
+            let devTeam = ecosystem.devTeams[i]
 
-                      if (bot.products !== undefined) {
-                        for (let k = 0; k < bot.products.length; k++) {
-                          let product = bot.products[k]
+            for (let j = 0; j < devTeam.bots.length; j++) {
+              let bot = devTeam.bots[j]
+              if (bot.type !== 'Trading Engine') { continue }
 
-                          if (product.codeName === layerCode.product) {
-                            /* We have a layer that is matching the current product */
+              if (devTeam.codeName === code.team && bot.codeName === code.bot) {
+                  /* We found an instance of the same Trading Engine we are currently looking at.
+                  Next thing to do is to see its layers to see if we can match it with the current product. */
 
-                            let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
+                for (let m = 0; m < tradingEngine.processes.length; m++) {
+                  let process = tradingEngine.processes[m]
+                  if (process.session !== undefined) {
+                    if (process.session.layerManager !== undefined) {
+                      let layerManager = process.session.layerManager
+                      for (let p = 0; p < layerManager.layers.length; p++) {
+                        let layer = layerManager.layers[p]
+                        let layerCode
+                        try {
+                          layerCode = JSON.parse(layer.code)
+                        } catch (err) {
+                              // if we can not parse this, then we ignore this trading engine.
+                        }
 
-                            if (cardsMap.get(cardCode) === undefined) {
-                              addProductCard(devTeam, bot, product, process.session)
+                        if (bot.products !== undefined) {
+                          for (let k = 0; k < bot.products.length; k++) {
+                            let product = bot.products[k]
+
+                            if (product.codeName === layerCode.product) {
+                                  /* We have a layer that is matching the current product */
+
+                              let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
+
+                              let cardFound = removeFromLocalProductCards(cardCode)
+
+                              if (cardFound !== true) {
+                                addProductCard(devTeam, bot, product, process.session)
+                              }
                             }
                           }
                         }
@@ -310,8 +342,40 @@ function newProductsPanel () {
         }
       }
     }
-  }
 
+    function moveToLocalProductCards () {
+      removeNext()
+
+      function removeNext () {
+        for (let i = 0; i < thisObject.productCards.length; i++) {
+          let productCard = thisObject.productCards[i]
+          if (productCard.session !== undefined) {
+            thisObject.productCards.splice(i, 1)
+            localProductCards.push(productCard)
+            removeNext()
+          }
+        }
+      }
+    }
+
+    function removeFromLocalProductCards (code) {
+      for (let i = 0; i < localProductCards.length; i++) {
+        let productCard = localProductCards[i]
+        if (productCard.code === code) {
+          thisObject.productCards.push(productCard)
+          localProductCards.splice(i, 1)
+          return true
+        }
+      }
+    }
+
+    function turnOffUnusedProducCards () {
+      for (let i = 0; i < localProductCards.length; i++) {
+        let productCard = localProductCards[i]
+        removeProductCard(productCard.code)
+      }
+    }
+  }
   function draw () {
     if (isInitialized === false) { return }
 

@@ -6,13 +6,13 @@ function newProductCard () {
 
   let thisObject = {
     container: undefined,
-    draw: draw,
     status: PRODUCT_CARD_STATUS.OFF,
     devTeam: undefined,
     bot: undefined,
     product: undefined,
     code: undefined,
     fitFunction: undefined,
+    draw: draw,
     turnOff: turnOff,
     turnOn: turnOn,
     setDatetime: setDatetime,
@@ -22,7 +22,8 @@ function newProductCard () {
     onSingleFileLoaded: onSingleFileLoaded,
     onFileSequenceLoaded: onFileSequenceLoaded,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   let LOADING_FILL_STYLE = 'rgba(234, 143, 23, @Opacity)'
@@ -103,6 +104,40 @@ function newProductCard () {
   let lastMouseOver = 0 // This variable is used to animate what happens while we are having a mounse over.
 
   return thisObject
+
+  function finalize () {
+    thisObject.container.finalize()
+    thisObject.eventHandler.finalize()
+    thisObject.container = undefined
+    thisObject.eventHandler = undefined
+    thisObject.status = undefined
+    thisObject.devTeam = undefined
+    thisObject.bot = undefined
+    thisObject.product = undefined
+    thisObject.code = undefined
+    thisObject.fitFunction = undefined
+
+    legacyTeamAvatar = undefined
+    legacyTeamAvatarLoaded = undefined
+    legacyBotAvatar = undefined
+    legacyBotAvatarLoaded = undefined
+    legacyPlotterBanner = undefined
+    timePeriod = undefined
+    datetime = undefined
+
+    LOADING_FILL_STYLE = undefined
+    LOADED_FILL_STYLE = undefined
+    UNLOADED_FILL_STYLE = undefined
+
+    LOADING_STROKE_STYLE = undefined
+    LOADED_STROKE_STYLE = undefined
+    UNLOADED_STROKE_STYLE = undefined
+
+    marketFileProgressBar = undefined
+    dailyFileProgressBar = undefined
+    singleFileProgressBar = undefined
+    fileSequenceProgressBar = undefined
+  }
 
   function initialize () {
        /* Create this objects continer */

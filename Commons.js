@@ -1470,7 +1470,9 @@
                             stopLoss = formulas.get(key)
 
                             if (processingDailyFiles) {
-                                yesterday.stopLoss = stopLoss
+                                if (positionedAtYesterday) {
+                                    yesterday.stopLoss = stopLoss
+                                }
                             }
                         }
                     }
@@ -1588,7 +1590,9 @@
                         if (phase.formula !== undefined) {
                             takeProfit = formulas.get(key)
                             if (processingDailyFiles) {
-                                yesterday.takeProfit = takeProfit
+                                if (positionedAtYesterday) {
+                                    yesterday.takeProfit = takeProfit
+                                }
                             }
                         }
                     }
@@ -1691,6 +1695,7 @@
 
                     if ((bot.VALUES_TO_USE.baseAsset === 'BTC' && candle.max >= stopLoss) || (bot.VALUES_TO_USE.baseAsset !== 'BTC' && candle.min <= stopLoss)) {
 
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Stop Loss was hit."); }
                         /*
                         Hit Point Validation
 
@@ -1702,14 +1707,18 @@
                             if (stopLoss < candle.min) {
                                 stopLoss = candle.min
                                 if (processingDailyFiles) {
-                                    yesterday.stopLoss = stopLoss
+                                    if (positionedAtYesterday) {
+                                        yesterday.stopLoss = stopLoss
+                                    }
                                 }
                             }
                         } else {
                             if (stopLoss > candle.max) {
                                 stopLoss = candle.max
                                 if (processingDailyFiles) {
-                                    yesterday.stopLoss = stopLoss
+                                    if (positionedAtYesterday) {
+                                        yesterday.stopLoss = stopLoss
+                                    }
                                 }
                             }
                         }
@@ -1783,6 +1792,7 @@
 
                     if ((bot.VALUES_TO_USE.baseAsset === 'BTC' && candle.min <= takeProfit) || (bot.VALUES_TO_USE.baseAsset !== 'BTC' && candle.max >= takeProfit)) {
 
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Take Profit was hit."); }
                         /*
                         Hit Point Validation:
 
@@ -1794,14 +1804,18 @@
                             if (takeProfit > candle.max) {
                                 takeProfit = candle.max
                                 if (processingDailyFiles) {
-                                    yesterday.takeProfit = takeProfit
+                                    if (positionedAtYesterday) {
+                                        yesterday.takeProfit = takeProfit
+                                    }
                                 }
                             }
                         } else {
                             if (takeProfit < candle.min) {
                                 takeProfit = candle.min
                                 if (processingDailyFiles) {
-                                    yesterday.takeProfit = takeProfit
+                                    if (positionedAtYesterday) {
+                                        yesterday.takeProfit = takeProfit
+                                    }
                                 }
                             }
                         }
@@ -2412,11 +2426,15 @@
 
                         stopLoss = 0;
                         if (processingDailyFiles) {
-                            yesterday.stopLoss = stopLoss
+                            if (positionedAtYesterday) {
+                                yesterday.stopLoss = stopLoss
+                            }
                         }
                         takeProfit = 0;
                         if (processingDailyFiles) {
-                            yesterday.takeProfit = takeProfit
+                            if (positionedAtYesterday) {
+                                yesterday.takeProfit = takeProfit
+                            }
                         }
 
                         tradePositionRate = 0;

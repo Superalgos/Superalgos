@@ -66,7 +66,6 @@
             let conditionsArray
             let strategiesArray
             let tradesArray
-            let lastObjectsArray
 
             let tradingSystem = {};
 
@@ -155,14 +154,13 @@
                 writeFiles,
                 callBackFunction)
 
-            function writeFiles(pTradingSystem, pRecordsArray, pConditionsArray, pStrategiesArray, pTradesArray, pLastObjectsArray) {
+            function writeFiles(pTradingSystem, pRecordsArray, pConditionsArray, pStrategiesArray, pTradesArray) {
 
                 tradingSystem = pTradingSystem
                 recordsArray = pRecordsArray
                 conditionsArray = pConditionsArray
                 strategiesArray = pStrategiesArray
                 tradesArray = pTradesArray
-                lastObjectsArray = pLastObjectsArray
 
                 if (timePeriod > global.dailyFilePeriods[0][0]) {
                     writeMarketFiles()
@@ -318,7 +316,7 @@
                         }
 
                         fileContent = "[" + fileContent + "]";
-                        fileContent = "[" + JSON.stringify(tradingSystem) + "," + JSON.stringify(lastObjectsArray) + "," + fileContent + "]";
+                        fileContent = "[" + JSON.stringify(tradingSystem) + "," + fileContent + "]";
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                         let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
@@ -780,7 +778,7 @@
                         }
 
                         fileContent = "[" + fileContent + "]";
-                        fileContent = "[" + JSON.stringify(tradingSystem) + "," + JSON.stringify(lastObjectsArray) + "," + fileContent + "]";
+                        fileContent = "[" + JSON.stringify(tradingSystem) + "," + fileContent + "]";
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';

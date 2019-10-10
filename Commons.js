@@ -60,7 +60,6 @@
             let conditionsArray = [];
             let strategiesArray = [];
             let tradesArray = [];
-            let lastObjectsArray = [];
 
             let tradingSystem = bot.DEFINITION.tradingSystem;
 
@@ -633,38 +632,7 @@
                         controlLoop();
                         return
                     }
-                }
-
-                let lastObjects = {
-                    candle: clone(candle),
-                    //LRC: clone(LRC),
-                    bollingerBand: clone(bollingerBand),
-                    percentageBandwidth: clone(percentageBandwidth),
-                    bollingerChannel: clone(bollingerChannel),
-                    bollingerSubChannel: clone(bollingerSubChannel)
-                }
-
-                function clone(obj) {
-                    if (null == obj || "object" != typeof obj) return obj;
-                    var copy = obj.constructor();
-                    for (var attr in obj) {
-                        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
-                    }
-                    return copy;
-                }
-
-                lastObjects.candle.previous = undefined;
-                //lastObjects.LRC.previous = undefined;
-                lastObjects.bollingerBand.previous = undefined;
-                lastObjects.percentageBandwidth.previous = undefined;
-                lastObjects.bollingerChannel.previous = undefined;
-                lastObjects.bollingerSubChannel.previous = undefined;
-
-                lastObjectsArray.push(lastObjects);
-
-                if (lastObjectsArray.length > 5) {
-                    lastObjectsArray.splice(0, 1);
-                }
+                }               
 
                 let conditions = new Map;       // Here we store the conditions values that will be use in the simulator for decision making.
                 let formulas = new Map;
@@ -2789,9 +2757,8 @@
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> callback -> recordsArray.length = " + recordsArray.length); }
 
-                callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, tradesArray, lastObjectsArray);
+                callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, tradesArray);
             }
-
 
             function getElement(pArray, currentCandle, datasetName) { 
 

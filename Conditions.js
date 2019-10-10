@@ -336,7 +336,7 @@
 
                     headers = dailyFile[0];
 
-                    for (let i = 0; i < dailyFile[2].length; i++) {
+                    for (let i = 0; i < dailyFile[1].length; i++) {
 
                         let record = {
                             begin: undefined,
@@ -344,15 +344,15 @@
                             conditions: undefined
                         };
 
-                        record.begin = dailyFile[2][i][0];
-                        record.end = dailyFile[2][i][1];
-                        record.strategyNumber = dailyFile[2][i][2];
-                        record.strategyPhase = dailyFile[2][i][3];
-                        record.stopLossPhase = dailyFile[2][i][4];
-                        record.takeProfitPhase = dailyFile[2][i][5];
-                        record.conditions = dailyFile[2][i][6];
-                        record.formulaErrors = dailyFile[2][i][7];
-                        record.formulaValues = dailyFile[2][i][8];
+                        record.begin = dailyFile[1][i][0];
+                        record.end = dailyFile[1][i][1];
+                        record.strategyNumber = dailyFile[1][i][2];
+                        record.strategyPhase = dailyFile[1][i][3];
+                        record.stopLossPhase = dailyFile[1][i][4];
+                        record.takeProfitPhase = dailyFile[1][i][5];
+                        record.conditions = dailyFile[1][i][6];
+                        record.formulaErrors = dailyFile[1][i][7];
+                        record.formulaValues = dailyFile[1][i][8];
 
                         if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
 
@@ -404,9 +404,8 @@
 
             conditions = [];
             headers = marketFile[0];
-            let lastObjects = marketFile[1]; // Here we get the values of the last 5 objects
 
-            for (let i = 0; i < marketFile[2].length; i++) {
+            for (let i = 0; i < marketFile[1].length; i++) {
 
                 let record = {
                     begin: undefined,
@@ -414,15 +413,15 @@
                     conditions: undefined
                 };
 
-                record.begin = marketFile[2][i][0];
-                record.end = marketFile[2][i][1];
-                record.strategyNumber = marketFile[2][i][2];
-                record.strategyPhase = marketFile[2][i][3];
-                record.stopLossPhase = marketFile[2][i][4];
-                record.takeProfitPhase = marketFile[2][i][5];
-                record.conditions = marketFile[2][i][6];
-                record.formulaErrors = marketFile[2][i][7];
-                record.formulaValues = marketFile[2][i][8];
+                record.begin = marketFile[1][i][0];
+                record.end = marketFile[1][i][1];
+                record.strategyNumber = marketFile[1][i][2];
+                record.strategyPhase = marketFile[1][i][3];
+                record.stopLossPhase = marketFile[1][i][4];
+                record.takeProfitPhase = marketFile[1][i][5];
+                record.conditions = marketFile[1][i][6];
+                record.formulaErrors = marketFile[1][i][7];
+                record.formulaValues = marketFile[1][i][8];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 

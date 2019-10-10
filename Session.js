@@ -163,7 +163,7 @@
                                         bot.VALUES_TO_USE.baseAsset = code.name;
                                     }
 
-                                    if (baseAsset === 'BTC') { 
+                                    if (bot.VALUES_TO_USE.baseAsset === 'BTC') { 
                                         if (code.initialBalance !== undefined) {
                                             bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
                                             bot.VALUES_TO_USE.initialBalanceB = 0
@@ -263,6 +263,50 @@
                     /* Applying Session Level Parameters */
                     if (bot.SESSION !== undefined) {
                         if (bot.SESSION.parameters !== undefined) {
+
+                            /* Base Asset and Initial Balances. */
+                            {
+                                if (bot.SESSION.parameters.baseAsset !== undefined) {
+                                    let code
+                                    try {
+                                        code = JSON.parse(bot.SESSION.parameters.baseAsset.code);
+
+                                        if (code.name !== undefined) {
+                                            bot.VALUES_TO_USE.baseAsset = code.name;
+                                        }
+
+                                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                                            if (code.initialBalance !== undefined) {
+                                                bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
+                                                bot.VALUES_TO_USE.initialBalanceB = 0
+                                            }
+                                            if (code.minimumBalance !== undefined) {
+                                                bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
+                                                bot.VALUES_TO_USE.minimumBalanceB = 0
+                                            }
+                                            if (code.maximumBalance !== undefined) {
+                                                bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
+                                                bot.VALUES_TO_USE.maximumBalanceB = 0
+                                            }
+                                        } else {
+                                            if (code.initialBalance !== undefined) {
+                                                bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
+                                                bot.VALUES_TO_USE.initialBalanceA = 0
+                                            }
+                                            if (code.minimumBalance !== undefined) {
+                                                bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
+                                                bot.VALUES_TO_USE.minimumBalanceA = 0
+                                            }
+                                            if (code.maximumBalance !== undefined) {
+                                                bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
+                                                bot.VALUES_TO_USE.maximumBalanceA = 0
+                                            }
+                                        }
+                                    } catch (err) {
+                                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Invalid Base Asset Value -> err = " + err.stack);
+                                    }
+                                }
+                            }
 
                             /* Time Period */
                             if (bot.SESSION.parameters.timePeriod !== undefined) {

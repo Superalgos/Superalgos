@@ -102,6 +102,7 @@ function newPlottersManager () {
       // This was the last one.
       /* If less than 50% of plotters are initialized then we return FAIL. */
             if (okCounter >= 1) {
+              initializationReady = true
               callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
             } else {
               callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)

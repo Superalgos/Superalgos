@@ -138,9 +138,9 @@
                     const FILE_STORAGE = require('./FileStorage.js');
                     let fileStorage = FILE_STORAGE.newFileStorage();
 
-                    let filePath = global.TASK_NODE.bot.processes[processIndex].code.team + '/bots/' + global.TASK_NODE.bot.processes[processIndex].code.repo + '/this.bot.config.json';
+                    let filePath = global.TASK_NODE.bot.code.team + '/bots/' + global.TASK_NODE.bot.code.repo + '/this.bot.config.json';
 
-                    fileStorage.getTextFile(global.TASK_NODE.bot.processes[processIndex].code.team, filePath, onFileReceived);
+                    fileStorage.getTextFile(global.TASK_NODE.bot.code.team, filePath, onFileReceived);
 
                     function onFileReceived(err, text) {
 
@@ -152,7 +152,7 @@
 
                         try {
                             botConfig = JSON.parse(text);
-                            botConfig.repo = global.TASK_NODE.bot.processes[processIndex].code.repo;
+                            botConfig.repo = global.TASK_NODE.bot.code.repo;
                             findProcess(processIndex);
                         } catch (err) {
                             console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));

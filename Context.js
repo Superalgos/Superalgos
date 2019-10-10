@@ -71,6 +71,7 @@
     let statusDependencies;
 
     let runIndex;  // This is the index for this run and depends on the startMode.
+    let sessionPath = ''
 
     return thisObject;
 
@@ -82,11 +83,13 @@
 
             statusDependencies = pStatusDependencies;
 
-            /*
+            if (bot.SESSION !== undefined) {
+                sessionPath = bot.SESSION.id + "/"
+            } 
 
+            /*
             Here we get the positions the bot did and that are recorded at the bot storage account. We will use them through out the rest
             of the process.
-
             */
             thisObject.newHistoryRecord.date = bot.processDatetime;
 
@@ -163,7 +166,7 @@
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History." + bot.startMode + "." + runIndex + ".json";
-                    let filePath = bot.filePathRoot + "/Output/Trading-Process/"  + fileName;
+                    let filePath = bot.filePathRoot + "/Output/" + sessionPath + "Trading-Process/"  + fileName;
 
                     fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
@@ -224,7 +227,7 @@
 
                     let fileName = "/Execution.Context." + bot.startMode + "." + runIndex + ".json";
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                    let filePath = bot.filePathRoot + "/Output/Trading-Process/" +  dateForPath + fileName;
+                    let filePath = bot.filePathRoot + "/Output/" + sessionPath + "Trading-Process/" +  dateForPath + fileName;
 
                     fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
 
@@ -398,7 +401,7 @@
 
                     let fileName = "/Execution.Context." + bot.startMode + "." + runIndex +".json";
                     let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCMinutes(), 2);
-                    let filePath = bot.filePathRoot + "/Output/Trading-Process/"  + dateForPath + fileName;
+                    let filePath = bot.filePathRoot + "/Output/" + sessionPath + "Trading-Process/"  + dateForPath + fileName;
                     let fileContent = JSON.stringify(thisObject.executionContext);
 
                     if(fileContent === undefined){
@@ -438,7 +441,7 @@
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History." + bot.startMode + "." + runIndex + ".json";
-                    let filePath = bot.filePathRoot + "/Output/Trading-Process/"  + fileName;
+                    let filePath = bot.filePathRoot + "/Output/" + sessionPath + "Trading-Process/"  + fileName;
 
                     let newRecord = [
                         thisObject.newHistoryRecord.date.valueOf(),
@@ -489,7 +492,7 @@
 
                         fileContent = runIndex;
                         fileName = "Execution.History." + bot.startMode + "." + "Sequence" + ".json";
-                        filePath = bot.filePathRoot + "/Output/Trading-Process/" + fileName;
+                        filePath = bot.filePathRoot + "/Output/" + sessionPath + "Trading-Process/" + fileName;
 
                         fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onSequenceFileCreated);
 

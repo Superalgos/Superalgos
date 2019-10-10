@@ -35,6 +35,7 @@
     let month;
     let year;
     let timePath = '';
+    let sessionPath = ''
 
     return thisObject;
 
@@ -49,10 +50,12 @@
             month = pMonth;
             year = pYear;
 
+            if (bot.SESSION !== undefined && pOwner.type === "Trading Engine") {
+                sessionPath = bot.SESSION.id + "/"
+            }
+
             if (owner.dataSetSection === "Month") {
-
                 logger.fileName = MODULE_NAME + "." + pOwner.bot + "." + pOwner.process + "." + year + "." + month;
-
                 timePath = "/" + year + "/" + month;
             }
 
@@ -113,15 +116,10 @@
             let botId = bot.devTeam + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
 
             if (ownerId !== botId) {
-
                 let rootPath = owner.devTeam + "/" + owner.bot + "." + owner.botVersion.major + "." + owner.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + owner.dataSetVersion;
-
-                filePath = rootPath + "/Reports/" + owner.process + timePath;
-
+                filePath = rootPath + "/Reports/" + sessionPath + owner.process + timePath;
             } else {
-
-                filePath = bot.filePathRoot + "/Reports/" + owner.process + timePath;
-
+                filePath = bot.filePathRoot + "/Reports/" + sessionPath + owner.process + timePath;
             }
 
             if (owner.type === 'Trading') {
@@ -213,7 +211,7 @@
             }
 
             let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
-            let filePath = bot.filePathRoot + "/Reports/" + owner.process + timePath;
+            let filePath = bot.filePathRoot + "/Reports/" + sessionPath + owner.process + timePath;
 
             if (bot.type === 'Trading' ) {
                 fileName = bot.startMode + "." + fileName;

@@ -435,7 +435,7 @@
                         return
                     } 
 
-                    bot.multiPeriodDailyProcessDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    bot.multiPeriodProcessDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
 
                     advanceTime();
 
@@ -445,21 +445,21 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> advanceTime -> Entering function."); }
 
-                            bot.multiPeriodDailyProcessDatetime = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
-                            previousDay = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
-
-                            console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + "bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime.toISOString());
+                            bot.multiPeriodProcessDatetime = new Date(bot.multiPeriodProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
+                            previousDay = new Date(bot.multiPeriodProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
+                            
+                            console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + "bot.multiPeriodProcessDatetime = " + bot.multiPeriodProcessDatetime.toISOString());
 
                             if (global.WRITE_LOGS_TO_FILES === 'true') {
                                 logger.newInternalLoop(bot.codeName, bot.process);
                             }
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> advanceTime -> bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> advanceTime -> bot.multiPeriodProcessDatetime = " + bot.multiPeriodProcessDatetime); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> advanceTime -> previousDay = " + previousDay); }
 
                             /* Validation that we are not going past the user defined end date. */
 
-                            if (bot.multiPeriodDailyProcessDatetime.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
+                            if (bot.multiPeriodProcessDatetime.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
 
                                 const logText = "User Defined End Datetime reached @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> advanceTime -> " + logText); }
@@ -472,7 +472,7 @@
 
                             /* Validation that we are not going past the head of the market. */
 
-                            if (bot.multiPeriodDailyProcessDatetime.valueOf() > contextVariables.dateEndOfMarket.valueOf()) {
+                            if (bot.multiPeriodProcessDatetime.valueOf() > contextVariables.dateEndOfMarket.valueOf()) {
 
                                 const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> advanceTime -> " + logText); }
@@ -543,7 +543,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> periodsLoop -> Entering function."); }
 
                             /*  Telling the world we are alive and doing well */
-                            let processingDate = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
+                            let processingDate = bot.multiPeriodProcessDatetime.getUTCFullYear() + '-' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCDate(), 2);
                             bot.processHeartBeat(processingDate)  
 
                             /*
@@ -606,7 +606,7 @@
                                     let previousFile;
                                     let currentFile;
 
-                                    if (bot.multiPeriodDailyProcessDatetime.valueOf() > contextVariables.dateBeginOfMarket.valueOf()) {
+                                    if (bot.multiPeriodProcessDatetime.valueOf() > contextVariables.dateBeginOfMarket.valueOf()) {
                                         getPreviousFile();
                                     } else {
                                         previousFile = [];
@@ -702,7 +702,7 @@
                                                 return
                                             }
 
-                                            let dateForPath = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
+                                            let dateForPath = bot.multiPeriodProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCDate(), 2);
                                             let filePath
                                             if (dependency.dataSet === "Multi-Period-Daily") {
                                                 filePath = dependency.product + '/' + dependency.dataSet + "/" + outputPeriodLabel + "/" + dateForPath;
@@ -836,7 +836,7 @@
                                 multiPeriodDataFiles,
                                 currentTimePeriod,
                                 currentOutputPeriodLabel,
-                                bot.multiPeriodDailyProcessDatetime,
+                                bot.multiPeriodProcessDatetime,
                                 interExecutionMemoryArray[n],
                                 onBotFinished);
 
@@ -872,7 +872,7 @@
                                                 return;
                                             }
 
-                                            writeDailyStatusReport(bot.multiPeriodDailyProcessDatetime, onDailyStatusReport);
+                                            writeDailyStatusReport(bot.multiPeriodProcessDatetime, onDailyStatusReport);
 
                                         } catch (err) {
                                             logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsDailyFiles -> callTheBot -> onBotFinished -> onWritten -> err = " + err.stack);
@@ -951,7 +951,7 @@
 
                         let folderName = bot.products[productIndex].codeName;
 
-                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodDailyProcessDatetime, folderName, controlLoop);
+                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodProcessDatetime, folderName, controlLoop);
                     }
 
                     function controlLoop() {
@@ -986,7 +986,7 @@
                     let fileContent = JSON.stringify(dataRange);
 
                     let fileName = '/Data.Range.' + market.assetA + '_' + market.assetB + '.json';
-                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + 'Multi-Period-Daily' + fileName;
+                    let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.id + "/" + pProductFolder + "/" + 'Multi-Period-Daily' + fileName;
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 

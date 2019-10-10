@@ -3,6 +3,8 @@ function newNodeDeleter () {
     deleteDefinition: deleteDefinition,
     deleteNetwork: deleteNetwork,
     deleteNetworkNode: deleteNetworkNode,
+    deleteLayerManager: deleteLayerManager,
+    deleteLayer: deleteLayer,
     deleteTaskManager: deleteTaskManager,
     deleteTask: deleteTask,
     deleteSensor: deleteBot,
@@ -66,6 +68,14 @@ function newNodeDeleter () {
           }
           case 'Network Node': {
             deleteNetworkNode(rootNode, rootNodes)
+            break
+          }
+          case 'Layer Manager': {
+            deleteLayerManager(rootNode, rootNodes)
+            break
+          }
+          case 'Layer': {
+            deleteLayer(rootNode, rootNodes)
             break
           }
           case 'Task Manager': {
@@ -316,6 +326,36 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
+  function deleteLayerManager (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.layerManager = undefined
+    }
+    if (node.layers !== undefined) {
+      while (node.layers.length > 0) {
+        deleteLayer(node.layers[0], rootNodes)
+      }
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteLayer (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.layers.length; j++) {
+        let layer = payload.parentNode.layers[j]
+        if (layer.id === node.id) {
+          payload.parentNode.layers.splice(j, 1)
+        }
+      }
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
   function deleteTaskManager (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
@@ -417,6 +457,10 @@ function newNodeDeleter () {
     if (node.parameters !== undefined) {
       deleteParameters(node.parameters, rootNodes)
     }
+
+    if (node.layerManager !== undefined) {
+      deleteLayerManager(node.layerManager, rootNodes)
+    }
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
@@ -431,6 +475,10 @@ function newNodeDeleter () {
 
     if (node.parameters !== undefined) {
       deleteParameters(node.parameters, rootNodes)
+    }
+
+    if (node.layerManager !== undefined) {
+      deleteLayerManager(node.layerManager, rootNodes)
     }
     completeDeletion(node, rootNodes)
     destroyPart(node)
@@ -447,6 +495,10 @@ function newNodeDeleter () {
     if (node.parameters !== undefined) {
       deleteParameters(node.parameters, rootNodes)
     }
+
+    if (node.layerManager !== undefined) {
+      deleteLayerManager(node.layerManager, rootNodes)
+    }
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
@@ -461,6 +513,10 @@ function newNodeDeleter () {
 
     if (node.parameters !== undefined) {
       deleteParameters(node.parameters, rootNodes)
+    }
+
+    if (node.layerManager !== undefined) {
+      deleteLayerManager(node.layerManager, rootNodes)
     }
     completeDeletion(node, rootNodes)
     destroyPart(node)

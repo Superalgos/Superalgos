@@ -6,13 +6,13 @@ function newProductCard () {
 
   let thisObject = {
     container: undefined,
-    draw: draw,
     status: PRODUCT_CARD_STATUS.OFF,
     devTeam: undefined,
     bot: undefined,
     product: undefined,
     code: undefined,
     fitFunction: undefined,
+    draw: draw,
     turnOff: turnOff,
     turnOn: turnOn,
     setDatetime: setDatetime,
@@ -22,7 +22,8 @@ function newProductCard () {
     onSingleFileLoaded: onSingleFileLoaded,
     onFileSequenceLoaded: onFileSequenceLoaded,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   let LOADING_FILL_STYLE = 'rgba(234, 143, 23, @Opacity)'
@@ -103,6 +104,40 @@ function newProductCard () {
   let lastMouseOver = 0 // This variable is used to animate what happens while we are having a mounse over.
 
   return thisObject
+
+  function finalize () {
+    thisObject.container.finalize()
+    thisObject.eventHandler.finalize()
+    thisObject.container = undefined
+    thisObject.eventHandler = undefined
+    thisObject.status = undefined
+    thisObject.devTeam = undefined
+    thisObject.bot = undefined
+    thisObject.product = undefined
+    thisObject.code = undefined
+    thisObject.fitFunction = undefined
+
+    legacyTeamAvatar = undefined
+    legacyTeamAvatarLoaded = undefined
+    legacyBotAvatar = undefined
+    legacyBotAvatarLoaded = undefined
+    legacyPlotterBanner = undefined
+    timePeriod = undefined
+    datetime = undefined
+
+    LOADING_FILL_STYLE = undefined
+    LOADED_FILL_STYLE = undefined
+    UNLOADED_FILL_STYLE = undefined
+
+    LOADING_STROKE_STYLE = undefined
+    LOADED_STROKE_STYLE = undefined
+    UNLOADED_STROKE_STYLE = undefined
+
+    marketFileProgressBar = undefined
+    dailyFileProgressBar = undefined
+    singleFileProgressBar = undefined
+    fileSequenceProgressBar = undefined
+  }
 
   function initialize () {
        /* Create this objects continer */
@@ -611,6 +646,15 @@ function newProductCard () {
        /* product */
     fontSize = 10
     label = thisObject.product.displayName
+
+    if (thisObject.session !== undefined) {
+      const MAX_LABEL_LENGTH = 30
+      if (thisObject.session.name > MAX_LABEL_LENGTH) {
+        label = thisObject.session.name.substring(0, MAX_LABEL_LENGTH) + '...' + ' - ' + label
+      } else {
+        label = thisObject.session.name + ' - ' + label
+      }
+    }
     labelPoint = {
       x: 65,
       y: thisObject.container.frame.height / 2 + 15
@@ -623,7 +667,7 @@ function newProductCard () {
     labelPoint = thisObject.fitFunction(labelPoint)
 
     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
+    browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 1)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
        /* ------------------- Progress Bars -------------------------- */

@@ -10,8 +10,14 @@ function newTaskFunctions () {
 
   function runTask (node, functionLibraryProtocolNode, callBackFunction) {
     /* Check if it is possible to Run or not */
-    if (node.bot === undefined) { return }
-    if (node.bot.processes.length === 0) { return }
+    if (node.bot === undefined) {
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      return
+    }
+    if (node.bot.processes.length === 0) {
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      return
+    }
 
     for (let i = 0; i < node.bot.processes.length; i++) {
       let process = node.bot.processes[i]

@@ -4,6 +4,8 @@ function newPartsFromNodes () {
     addDefinition: addDefinition,
     addNetwork: addNetwork,
     addNetworkNode: addNetworkNode,
+    addLayerManager: addLayerManager,
+    addLayer: addLayer,
     addTaskManager: addTaskManager,
     addTask: addTask,
     addSensor: addSensor,
@@ -372,6 +374,18 @@ function newPartsFromNodes () {
         }
         return
       }
+      case 'Layer Manager': {
+        createPart('Layer Manager', node.name, node, parentNode, chainParent, 'Layer Manager')
+        for (let m = 0; m < node.layers.length; m++) {
+          let layer = node.layers[m]
+          createPartFromNode(layer, node, node)
+        }
+        return
+      }
+      case 'Layer': {
+        createPart('Layer', node.name, node, parentNode, chainParent, 'Layer')
+        return
+      }
       case 'Task Manager': {
         createPart('Task Manager', node.name, node, parentNode, chainParent, 'Task Manager')
         for (let m = 0; m < node.tasks.length; m++) {
@@ -439,12 +453,18 @@ function newPartsFromNodes () {
         if (node.parameters !== undefined) {
           createPartFromNode(node.parameters, node, node)
         }
+        if (node.layerManager !== undefined) {
+          createPartFromNode(node.layerManager, node, node)
+        }
         return
       }
       case 'Live Trading Session': {
         createPart('Live Trading Session', node.name, node, parentNode, chainParent, 'Live Trading Session')
         if (node.parameters !== undefined) {
           createPartFromNode(node.parameters, node, node)
+        }
+        if (node.layerManager !== undefined) {
+          createPartFromNode(node.layerManager, node, node)
         }
         return
       }
@@ -453,12 +473,18 @@ function newPartsFromNodes () {
         if (node.parameters !== undefined) {
           createPartFromNode(node.parameters, node, node)
         }
+        if (node.layerManager !== undefined) {
+          createPartFromNode(node.layerManager, node, node)
+        }
         return
       }
       case 'Paper Trading Session': {
         createPart('Paper Trading Session', node.name, node, parentNode, chainParent, 'Paper Trading Session')
         if (node.parameters !== undefined) {
           createPartFromNode(node.parameters, node, node)
+        }
+        if (node.layerManager !== undefined) {
+          createPartFromNode(node.layerManager, node, node)
         }
         return
       }
@@ -489,6 +515,29 @@ function newPartsFromNodes () {
     return networkNode
   }
 
+  function addLayerManager (node) {
+    if (node.layerManager === undefined) {
+      node.layerManager = {
+        name: 'New Layer Manager',
+        layers: []
+      }
+      createPart('Layer Manager', node.layerManager.name, node.layerManager, node, node, 'Layer Manager')
+    }
+
+    return node.layerManager
+  }
+
+  function addLayer (node) {
+    let layer = {
+      name: 'New Layer',
+      code: '{}'
+    }
+    node.layers.push(layer)
+    createPart('Layer', layer.name, layer, node, node, 'Layer')
+
+    return layer
+  }
+
   function addTaskManager (node) {
     let taskManager = {
       name: 'New Task Manager',
@@ -516,7 +565,8 @@ function newPartsFromNodes () {
   function addSensor (node) {
     if (node.bot === undefined) {
       node.bot = {
-        processes: []
+        processes: [],
+        code: '{}'
       }
       createPart('Sensor', '', node.bot, node, node)
     }
@@ -526,7 +576,8 @@ function newPartsFromNodes () {
   function addIndicator (node) {
     if (node.bot === undefined) {
       node.bot = {
-        processes: []
+        processes: [],
+        code: '{}'
       }
       createPart('Indicator', '', node.bot, node, node)
     }
@@ -536,7 +587,8 @@ function newPartsFromNodes () {
   function addTradingEngine (node) {
     if (node.bot === undefined) {
       node.bot = {
-        processes: []
+        processes: [],
+        code: '{}'
       }
       createPart('Trading Engine', '', node.bot, node, node)
     }

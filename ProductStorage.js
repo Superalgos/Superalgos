@@ -74,7 +74,7 @@ function newProductStorage (pName) {
     }
   }
 
-  function initialize (pDevTeam, pBot, pProduct, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+  function initialize (pDevTeam, pBot, pSession, pProduct, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
     try {
       datetime = pDatetime
       timePeriod = pTimePeriod
@@ -90,7 +90,7 @@ function newProductStorage (pName) {
             dataSetsToLoad++
 
             let marketFiles = newMarketFiles()
-            marketFiles.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onMarketFileReady)
+            marketFiles.initialize(pDevTeam, pBot, pSession, pProduct, thisSet, pExchange, pMarket, onMarketFileReady)
             thisObject.marketFiles.push(marketFiles)
           }
             break
@@ -99,7 +99,7 @@ function newProductStorage (pName) {
             dataSetsToLoad++
 
             let dailyFiles = newDailyFiles()
-            dailyFiles.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onDailyFileReady)
+            dailyFiles.initialize(pDevTeam, pBot, pSession, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onDailyFileReady)
             thisObject.dailyFiles.push(dailyFiles)
           }
             break
@@ -108,7 +108,7 @@ function newProductStorage (pName) {
             dataSetsToLoad++
 
             let singleFile = newSingleFile()
-            singleFile.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onSingleFileReady)
+            singleFile.initialize(pDevTeam, pBot, pSession, pProduct, thisSet, pExchange, pMarket, onSingleFileReady)
             thisObject.singleFile.push(singleFile)
           }
             break
@@ -117,7 +117,7 @@ function newProductStorage (pName) {
             dataSetsToLoad++
 
             let fileSequences = newFileSequence()
-            fileSequences.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady)
+            fileSequences.initialize(pDevTeam, pBot, pSession, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady)
             thisObject.fileSequences.push(fileSequences)
           }
             break

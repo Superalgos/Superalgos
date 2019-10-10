@@ -11,6 +11,7 @@ function newWorkspace () {
     container: undefined,
     enabled: false,
     nodeChildren: undefined,
+    getAllTradingEngines: getAllTradingEngines,
     stopAllRunningTasks: stopAllRunningTasks,
     onMenuItemClick: onMenuItemClick,
     physics: physics,
@@ -150,7 +151,7 @@ function newWorkspace () {
             for (let j = 0; j < definition.network.networkNodes.length; j++) {
               let networkNode = definition.network.networkNodes[j]
               for (let i = 0; i < networkNode.taskManagers.length; i++) {
-                taskManager = networkNode.taskManagers[i]
+                let taskManager = networkNode.taskManagers[i]
                 taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
               }
             }
@@ -158,6 +159,33 @@ function newWorkspace () {
         }
       }
     }
+  }
+
+  function getAllTradingEngines () {
+    let tradingEngines = []
+    for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
+      let rootNode = thisObject.workspaceNode.rootNodes[i]
+      if (rootNode.type === 'Definition') {
+        let definition = rootNode
+        if (definition.network !== undefined) {
+          if (definition.network.networkNodes !== undefined) {
+            for (let j = 0; j < definition.network.networkNodes.length; j++) {
+              let networkNode = definition.network.networkNodes[j]
+              for (let i = 0; i < networkNode.taskManagers.length; i++) {
+                let taskManager = networkNode.taskManagers[i]
+                for (k = 0; k < taskManager.tasks.length; k++) {
+                  let task = taskManager.tasks[k]
+                  if (task.bot.type === 'Trading Engine') {
+                    tradingEngines.push(task.bot)
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return tradingEngines
   }
 
   function spawn (nodeText, point) {
@@ -277,6 +305,16 @@ function newWorkspace () {
       case 'Add Network Node':
         {
           functionLibraryPartsFromNodes.addNetworkNode(payload.node)
+        }
+        break
+      case 'Add Layer Manager':
+        {
+          functionLibraryPartsFromNodes.addLayerManager(payload.node)
+        }
+        break
+      case 'Add Layer':
+        {
+          functionLibraryPartsFromNodes.addLayer(payload.node)
         }
         break
       case 'Add Task Manager':
@@ -435,6 +473,14 @@ function newWorkspace () {
       }
       case 'Delete Network Node': {
         functionLibraryNodeDeleter.deleteNetworkNode(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Layer Manager': {
+        functionLibraryNodeDeleter.deleteLayerManager(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Layer': {
+        functionLibraryNodeDeleter.deleteLayer(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Task Manager': {

@@ -437,6 +437,35 @@ function newStringifyNode () {
         }
         return key
       }
+      case 'Layer Manager': {
+        let layerManager = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          layers: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        if (node.layers !== undefined) {
+          for (let m = 0; m < node.layers.length; m++) {
+            let layer = prepareForStringify(node.layers[m], removePersonalData)
+            layerManager.layers.push(layer)
+          }
+        }
+        return layerManager
+      }
+      case 'Layer': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
       case 'Task Manager': {
         let taskManager = {
           id: node.id,
@@ -472,6 +501,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           processes: [],
           savedPayload: getSavedPayload(node)
         }
@@ -489,6 +519,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           processes: [],
           savedPayload: getSavedPayload(node)
         }
@@ -506,6 +537,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           processes: [],
           savedPayload: getSavedPayload(node)
         }
@@ -536,6 +568,7 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           parameters: prepareForStringify(node.parameters, removePersonalData),
+          layerManager: prepareForStringify(node.layerManager, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -547,6 +580,7 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           parameters: prepareForStringify(node.parameters, removePersonalData),
+          layerManager: prepareForStringify(node.layerManager, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -558,6 +592,7 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           parameters: prepareForStringify(node.parameters, removePersonalData),
+          layerManager: prepareForStringify(node.layerManager, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -569,6 +604,7 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           parameters: prepareForStringify(node.parameters, removePersonalData),
+          layerManager: prepareForStringify(node.layerManager, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object

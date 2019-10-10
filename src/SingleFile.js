@@ -16,7 +16,7 @@ function newSingleFile () {
 
   return thisObject
 
-  function initialize (pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
+  function initialize (pDevTeam, pBot, pSession, pProduct, pSet, pExchange, pMarket, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDevTeam.codeName + '-' + pBot.codeName + '-' + pProduct.codeName) }
@@ -34,7 +34,7 @@ function newSingleFile () {
 
             /* Now we will get the file */
 
-      fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, undefined, undefined, onFileReceived)
+      fileCloud.getFile(pDevTeam, pBot, pSession, pSet, exchange, pMarket, undefined, undefined, undefined, undefined, onFileReceived)
 
       function onFileReceived (err, pFile) {
         try {

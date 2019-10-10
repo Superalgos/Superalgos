@@ -27,6 +27,7 @@ function newFileCursor () {
   let fileCloud
   let devTeam
   let bot
+  let session
   let product
   let thisSet
   let periodName
@@ -50,6 +51,7 @@ function newFileCursor () {
       fileCloud = undefined
       devTeam = undefined
       bot = undefined
+      session = undefined
       product = undefined
       thisSet = undefined
       periodName = undefined
@@ -68,13 +70,14 @@ function newFileCursor () {
     }
   }
 
-  function initialize (pFileCloud, pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
+  function initialize (pFileCloud, pDevTeam, pBot, pSession, pProduct, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
     try {
       market = pMarket
       exchange = pExchange
       fileCloud = pFileCloud
       devTeam = pDevTeam
       bot = pBot
+      session = pSession
       product = pProduct
       thisSet = pSet
       periodName = pPeriodName
@@ -109,7 +112,7 @@ function newFileCursor () {
 
       dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2)
 
-      fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
+      fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
 
       function onFileReceived (err, file) {
         try {
@@ -409,7 +412,7 @@ function newFileCursor () {
             if (thisObject.files.get(dateString) === undefined) {
               // We dont reload files we already have.
 
-              fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
+              fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
             } else {
               controlLoop()
             }

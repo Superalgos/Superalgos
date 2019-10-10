@@ -22,6 +22,7 @@ function newFileSequence () {
   let market
   let devTeam
   let bot
+  let session
   let thisSet
   let product
   let finalized = false
@@ -48,6 +49,7 @@ function newFileSequence () {
       market = undefined
       devTeam = undefined
       bot = undefined
+      session = undefined
       thisSet = undefined
       product = undefined
 
@@ -57,7 +59,7 @@ function newFileSequence () {
     }
   }
 
-  function initialize (pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
+  function initialize (pDevTeam, pBot, pSession, pProduct, pSet, pExchange, pMarket, callBackFunction) {
     try {
       exchange = ecosystem.getExchange(pProduct, pExchange)
 
@@ -68,6 +70,7 @@ function newFileSequence () {
       market = pMarket
       devTeam = pDevTeam
       bot = pBot
+      session = pSession
       thisSet = pSet
       product = pProduct
 
@@ -85,7 +88,7 @@ function newFileSequence () {
 
             /* First we will get the sequence max number */
 
-      fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
+      fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, file) {
         try {
@@ -130,7 +133,7 @@ function newFileSequence () {
                     /* Now we will get the sequence of files */
 
           for (let i = 0; i <= maxSequence; i++) {
-            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
+            fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {
@@ -195,7 +198,7 @@ function newFileSequence () {
 
       let currentMaxSequence = maxSequence
 
-      fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
+      fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, sequenceFile) {
         try {
@@ -231,7 +234,7 @@ function newFileSequence () {
                     /* Now we will get the sequence of files, but in this case only from the currentMaxSequence and above. */
 
           for (let i = currentMaxSequence; i <= maxSequence; i++) {
-            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
+            fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {

@@ -827,9 +827,11 @@
                                             if (formulaValue === Infinity) {
                                                 formulaError = "Formula evaluates to Infinity."
                                                 formulaValue = MAX_STOP_LOSS_VALUE
-                                                formulaError = "WARNING: Formula evaluates to Infinity."
-                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> initialDefinition.stopLoss -> MAX_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
-                                            }
+                                                if (stopLossStage === 'Open Stage') {
+                                                    formulaError = "WARNING: Formula evaluates to Infinity."
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> initialDefinition.stopLoss -> MAX_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
+                                                }
+                                             }
                                         } catch (err) {
                                             if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
                                                 /*
@@ -842,9 +844,11 @@
                                         if (isNaN(formulaValue)) { formulaValue = 0; }
                                         if (formulaValue < MIN_STOP_LOSS_VALUE) {
                                             formulaValue = MIN_STOP_LOSS_VALUE
-                                            formulaError = "WARNING: Formula is evaluating below the MIN_STOP_LOSS_VALUE."
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> initialDefinition.stopLoss -> MIN_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
-                                        }
+                                            if (stopLossStage === 'Open Stage') {
+                                                formulaError = "WARNING: Formula is evaluating below the MIN_STOP_LOSS_VALUE."
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> initialDefinition.stopLoss -> MIN_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
+                                            }
+                                         }
 
                                         formulasErrors.push('"' + formulaError + '"')
                                         formulasValues.push(formulaValue)
@@ -889,9 +893,11 @@
                                             formulaValue = eval(phase.formula.code);
                                             if (formulaValue === Infinity) {
                                                 formulaValue = MAX_TAKE_PROFIT_VALUE
-                                                formulaError = "WARNING: Formula evaluates to Infinity."
-                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> initialDefinition.takeProfit -> MAX_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
-                                            }
+                                                if (takeProfitStage === 'Open Stage') {
+                                                    formulaError = "WARNING: Formula evaluates to Infinity."
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> initialDefinition.takeProfit -> MAX_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
+                                                }
+                                             }
                                         } catch (err) {
                                             if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
                                                 /*
@@ -904,9 +910,11 @@
                                         if (isNaN(formulaValue)) { formulaValue = 0; }
                                         if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
                                             formulaValue = MIN_TAKE_PROFIT_VALUE
-                                            formulaError = "WARNING: Formula is evaluating below the MIN_TAKE_PROFIT_VALUE."
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> initialDefinition.takeProfit -> MIN_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
-                                        }
+                                            if (takeProfitStage === 'Open Stage') {
+                                                formulaError = "WARNING: Formula is evaluating below the MIN_TAKE_PROFIT_VALUE."
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> initialDefinition.takeProfit -> MIN_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
+                                            }
+                                         }
 
                                         formulasErrors.push('"' + formulaError + '"')
                                         formulasValues.push(formulaValue)
@@ -961,9 +969,11 @@
                                         if (formulaValue === Infinity) {
                                             formulaError = ""
                                             formulaValue = MAX_STOP_LOSS_VALUE
-                                            formulaError = "WARNING: Formula evaluates to Infinity."
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> manageStage.stopLoss -> MAX_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
-                                        }
+                                            if (stopLossStage === 'Manage Stage') {
+                                                formulaError = "WARNING: Formula evaluates to Infinity."
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> manageStage.stopLoss -> MAX_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
+                                            }
+                                         }
                                     } catch (err) {
                                         if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
                                             /*
@@ -976,8 +986,10 @@
                                     if (isNaN(formulaValue)) { formulaValue = 0; }
                                     if (formulaValue < MIN_STOP_LOSS_VALUE) {
                                         formulaValue = MIN_STOP_LOSS_VALUE
-                                        formulaError = "WARNING: Formula is evaluating below the MIN_STOP_LOSS_VALUE."
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> manageStage.stopLoss -> MIN_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
+                                        if (stopLossStage === 'Manage Stage') {
+                                            formulaError = "WARNING: Formula is evaluating below the MIN_STOP_LOSS_VALUE."
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> manageStage.stopLoss -> MIN_STOP_LOSS_VALUE -> formulaError = " + formulaError); }
+                                        }
                                     }
 
                                     formulasErrors.push('"' + formulaError + '"')
@@ -1024,8 +1036,10 @@
                                         if (formulaValue === Infinity) {
                                             formulaError = "Formula evaluates to Infinity."
                                             formulaValue = MAX_TAKE_PROFIT_VALUE
-                                            formulaError = "WARNING: Formula evaluates to Infinity."
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> manageStage.takeProfit -> MAX_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
+                                            if (takeProfitStage === 'Manage Stage') {
+                                                formulaError = "WARNING: Formula evaluates to Infinity."
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> manageStage.takeProfit -> MAX_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
+                                            }
                                         }
                                     } catch (err) {
                                         if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
@@ -1039,8 +1053,10 @@
                                     if (isNaN(formulaValue)) { formulaValue = 0; }
                                     if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
                                         formulaValue = MIN_TAKE_PROFIT_VALUE
-                                        formulaError = "WARNING: Formula is evaluating below the MIN_TAKE_PROFIT_VALUE."
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> manageStage.takeProfit -> MIN_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
+                                        if (takeProfitStage === 'Manage Stage') {
+                                            formulaError = "WARNING: Formula is evaluating below the MIN_TAKE_PROFIT_VALUE."
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] runSimulation -> loop -> manageStage.takeProfit -> MIN_TAKE_PROFIT_VALUE -> formulaError = " + formulaError); }
+                                        }
                                     }
 
                                     formulasErrors.push('"' + formulaError + '"')

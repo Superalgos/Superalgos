@@ -375,7 +375,8 @@ function newProtocolNode () {
           timeRange: getProtocolNode(node.timeRange, removePersonalData, parseJSONStrings, includeIds),
           timePeriod: getProtocolNode(node.timePeriod, removePersonalData, parseJSONStrings, includeIds),
           slippage: getProtocolNode(node.slippage, removePersonalData, parseJSONStrings, includeIds),
-          feeStructure: getProtocolNode(node.feeStructure, removePersonalData, parseJSONStrings, includeIds)
+          feeStructure: getProtocolNode(node.feeStructure, removePersonalData, parseJSONStrings, includeIds),
+          key: getProtocolNode(node.key, removePersonalData, parseJSONStrings, includeIds)
         }
         if (includeIds) {
           object.id = node.id

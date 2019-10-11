@@ -586,11 +586,16 @@ function newNodeDeleter () {
   function deleteExchangeAccountKey (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
-      for (let j = 0; j < payload.parentNode.keys.length; j++) {
-        let key = payload.parentNode.keys[j]
-        if (key.id === node.id) {
-          payload.parentNode.keys.splice(j, 1)
+      if (payload.parentNode.keys !== undefined) {
+        for (let j = 0; j < payload.parentNode.keys.length; j++) {
+          let key = payload.parentNode.keys[j]
+          if (key.id === node.id) {
+            payload.parentNode.keys.splice(j, 1)
+          }
         }
+      }
+      if (payload.parentNode.key !== undefined) {
+        payload.parentNode.key = undefined
       }
     } else {
       completeDeletion(node, rootNodes)
@@ -642,6 +647,9 @@ function newNodeDeleter () {
     }
     if (node.feeStructure !== undefined) {
       deleteFeeStructure(node.feeStructure, rootNodes)
+    }
+    if (node.key !== undefined) {
+      deleteExchangeAccountKey(node.key, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)

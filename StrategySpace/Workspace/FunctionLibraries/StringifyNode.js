@@ -353,6 +353,7 @@ function newStringifyNode () {
           timePeriod: prepareForStringify(node.timePeriod, removePersonalData),
           slippage: prepareForStringify(node.slippage, removePersonalData),
           feeStructure: prepareForStringify(node.feeStructure, removePersonalData),
+          key: prepareForStringify(node.key, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object

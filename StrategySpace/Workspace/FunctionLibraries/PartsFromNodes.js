@@ -294,6 +294,9 @@ function newPartsFromNodes () {
         if (node.feeStructure !== undefined) {
           createPartFromNode(node.feeStructure, node, node)
         }
+        if (node.key !== undefined) {
+          createPartFromNode(node.key, node, node)
+        }
         return
       }
       case 'Trading System': {

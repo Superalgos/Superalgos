@@ -525,6 +525,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.key !== undefined) {
+      response.childrenCount++
+      if (parentNode.key.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 

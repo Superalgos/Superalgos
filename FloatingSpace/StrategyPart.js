@@ -223,7 +223,7 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Exchange Account Key':
-        compatibleType = '->' + 'Exchange Account' + '->'
+        compatibleType = '->' + 'Exchange Account' + '->' + 'Parameters' + '->'
         compatibleSubType = undefined
         break
       case 'Parameters':

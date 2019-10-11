@@ -67,6 +67,7 @@
 
             function startLiveTrading(message) {
 
+                /* The last place where we can find a key to use is the key pool at the exchange account. */
                 if (bot.DEFINITION.personalData) {
                     if (bot.DEFINITION.personalData.exchangeAccounts) {
                         if (bot.DEFINITION.personalData.exchangeAccounts.length > 0) {
@@ -84,8 +85,30 @@
                     }
                 }
 
+                /* This is the primary fallback, when there is no key defined at the parameters at the session level. */
+                if (bot.DEFINITION.tradingSystem) {
+                    if (bot.DEFINITION.tradingSystem.parameters) {
+                        if (bot.DEFINITION.tradingSystem.parameters.key !== undefined) {
+                            let key = bot.DEFINITION.tradingSystem.parameters.key
+
+                            process.env.KEY = key.name
+                            process.env.SECRET = key.code
+                        }
+                    }
+                }
+
+                /* Key defined at the parameters at the session level. */
+                if (bot.SESSION.parameters) {
+                    if (bot.SESSION.parameters.key !== undefined) {
+                        let key = bot.SESSION.parameters.key
+
+                        process.env.KEY = key.name
+                        process.env.SECRET = key.code
+                    }
+                }
+
                 if (process.env.KEY === undefined || process.env.SECRET === undefined) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Live mode."); }
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Live mode."); }
                     return
                 }
 

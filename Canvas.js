@@ -186,20 +186,36 @@ function newCanvas () {
   }
 
   function onKeyDown (event) {
-    if (event.shiftKey === true && event.code === 'ArrowUp') {
+    if (event.altKey === true && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
     }
 
-    if (event.shiftKey === true && event.code === 'ArrowDown') {
+    if (event.altKey === true && event.code === 'ArrowDown') {
       thisObject.cockpitSpace.toBottom()
     }
 
-    if (event.keyCode === 37) {
-      alert('Left key pressed')
+    if (event.shiftKey === true && event.code === 'ArrowLeft') {
+      alert('charts to the Left')
     }
 
-    if (event.keyCode === 39) {
-      alert('Rigth key pressed')
+    if (event.shiftKey === true && event.code === 'ArrowRight') {
+      alert('charts to the Rigth')
+    }
+
+    if (event.ctrlKey === true && event.code === 'ArrowLeft') {
+      canvas.floatingSpace.oneScreenLeft()
+    }
+
+    if (event.ctrlKey === true && event.code === 'ArrowRight') {
+      canvas.floatingSpace.oneScreenRight()
+    }
+
+    if (event.ctrlKey === true && event.code === 'ArrowUp') {
+      canvas.floatingSpace.oneScreenUp()
+    }
+
+    if (event.ctrlKey === true && event.code === 'ArrowDown') {
+      canvas.floatingSpace.oneScreenDown()
     }
   }
 

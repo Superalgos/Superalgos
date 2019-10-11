@@ -69,6 +69,8 @@ function newCanvas () {
       browserCanvas.removeEventListener('dragleave', onDragLeave, false)
       browserCanvas.removeEventListener('dragover', onDragOver, false)
       browserCanvas.removeEventListener('drop', onDragDrop, false)
+
+      browserCanvas.removeEventListener('keydown', onKeyDown, false)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
@@ -151,6 +153,11 @@ function newCanvas () {
 
   function addCanvasEvents () {
     try {
+      /* Keyboard events */
+      window.addEventListener('keydown', onKeyDown, true)
+
+      /* Mouse Events */
+
       browserCanvas.addEventListener('mousedown', onMouseDown, false)
       browserCanvas.addEventListener('mouseup', onMouseUp, false)
       browserCanvas.addEventListener('mousemove', onMouseMove, false)
@@ -175,6 +182,24 @@ function newCanvas () {
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] addCanvasEvents -> err = ' + err.stack) }
+    }
+  }
+
+  function onKeyDown (event) {
+    if (event.shiftKey === true && event.code === 'ArrowUp') {
+      thisObject.cockpitSpace.toTop()
+    }
+
+    if (event.shiftKey === true && event.code === 'ArrowDown') {
+      thisObject.cockpitSpace.toBottom()
+    }
+
+    if (event.keyCode === 37) {
+      alert('Left key pressed')
+    }
+
+    if (event.keyCode === 39) {
+      alert('Rigth key pressed')
     }
   }
 
@@ -709,4 +734,3 @@ function newCanvas () {
     }
   }
 }
-

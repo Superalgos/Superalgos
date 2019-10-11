@@ -581,7 +581,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -65
+            angle: -75
           }
         )
         menuItemsInitialValues.push(
@@ -594,7 +594,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -30
+            angle: -35
           }
         )
         menuItemsInitialValues.push(
@@ -607,7 +607,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -10
+            angle: -12
           }
           )
         menuItemsInitialValues.push(
@@ -620,7 +620,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 10
+            angle: 12
           }
           )
         menuItemsInitialValues.push(
@@ -636,7 +636,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +30
+            angle: +35
           }
             )
         menuItemsInitialValues.push(
@@ -650,7 +650,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 65
+            angle: 75
           }
                 )
         break

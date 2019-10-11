@@ -195,11 +195,19 @@ function newCanvas () {
     }
 
     if (event.shiftKey === true && event.code === 'ArrowLeft') {
-      alert('charts to the Left')
+      canvas.chartSpace.oneScreenLeft()
     }
 
     if (event.shiftKey === true && event.code === 'ArrowRight') {
-      alert('charts to the Rigth')
+      canvas.chartSpace.oneScreenRight()
+    }
+
+    if (event.shiftKey === true && event.code === 'ArrowUp') {
+      canvas.chartSpace.oneScreenUp()
+    }
+
+    if (event.shiftKey === true && event.code === 'ArrowDown') {
+      canvas.chartSpace.oneScreenDown()
     }
 
     if (event.ctrlKey === true && event.code === 'ArrowLeft') {

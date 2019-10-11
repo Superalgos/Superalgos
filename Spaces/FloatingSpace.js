@@ -46,7 +46,7 @@ function newFloatingSpace () {
 
   let visible = false
 
-  const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 50
+  const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
   return thisObject
 
   function finalize () {

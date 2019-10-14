@@ -25,6 +25,7 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
   * [Layers Panel](#layers-panel)
   * [Main Elements](#main-elements)
   * [Mouse Wheel Operations](#mouse-wheel-operations)
+  * [Keyboard Shortcuts](#keyboard-shortcuts)
   * [Floating Panels](#floating-panels)
   * [Layers](#layers)
     * [Indicator Layers](#indicator-layers)
@@ -301,7 +302,7 @@ Use the control in the center of the turquoise bar to pull the bar up and down i
 <br/><br/>
 Pulling the bar to the very top of the screen causes the _Charting System_ to stop consuming resources in your local machine, and gives you an ample view of the _Designer_.
 
-The **_Designer_** allows you to manage your _Trading System_. The structure represented by the various icons nested in a hierarchy of elements is the representation of the logic behind your _Strategies_.
+The **_Designer_** allows you to manage your [Workspace](#workspace). The structure represented by the various icons nested in a hierarchy of elements is the representation of the logic behind your _Strategies_.
 
 ![image](https://user-images.githubusercontent.com/13994516/58325421-f32bbe80-7e29-11e9-9478-9e6e4a02ae47.png)
 <br/><br/>
@@ -313,17 +314,11 @@ The **_Charting System_** plots indicators data along with the actions taken by 
 <br/><br/>
 The **_Superalgos Protocol_** (also referred to as the _protocol_) determines the structure in which all the information regarding a trading system is stored and—at the same time—provides a clear guidance on how traders using the various tools developed and distributed by the Superalgos Project shall create and automate their strategies.
 
-> You don't really _need_ to know this, but for the sake of context...
->
-> The **_Strategy Engine_** backtests and forward tests the instructions defined on its _protocol_ file input. In coordination with the _Strategy Executor_, the engine can also live trade.
->
->The **_Strategy Executor_** interprets the execution instructions embedded at a _protocol_ file. The instructions determine the type of order to use, and what to do in every possible situation that could emerge during the placement and management of exchange orders.
-
 # Charts Interface
 
 ## Layers Panel
 
-This panel includes different layers you may visualize by toggling them on and off with a single mouse clicks.
+This panel includes different layers you may visualize by toggling them on and off with a single mouse click.
 The layer title bar can have 3 possible background colors:
 
 1. **Red**: layer is off.
@@ -351,6 +346,15 @@ There are many things you can do with your mouse wheel.
 1. Scroll elsewhere over the chart to zoom in and out. The App will not only zoom in and out of the chart, but also automatically adjust the time period to the most convenient one (for the current zoom level).
 
 ![Mouse-Wheel](https://user-images.githubusercontent.com/13994516/58434568-a01d6a00-80bc-11e9-9a58-3edd4852f07c.gif)
+
+## Keyboard Shortcuts
+
+When on the charts, you may use the following key combinations:
+
+1. <kbd>Shift</kbd> + <kbd>&#8592;</kbd> to pan to the left.
+1. <kbd>Shift</kbd> + <kbd>&#8594;</kbd> to pan to the right.
+1. <kbd>Shift</kbd> + <kbd>&#8593;</kbd> to pan upwards.
+1. <kbd>Shift</kbd> + <kbd>&#8595;</kbd> to pan downwards.
 
 ## Floating Panels
 

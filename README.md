@@ -427,9 +427,9 @@ If we consider that one Bollinger Channel can have sub-channels with the same di
 
 The Designer organizes the workflow to build strategies following the framework implemented by the _Superalgos Protocol_. If you are not familiar with the protocol, please read either of the following articles:
 
-* [Superalgos Protocol V0.1 - the Short Version, for Experienced Traders](https://medium.com/@julian_superalgos/superalgos-protocol-v0-1-the-short-version-for-experienced-traders-86c3fa43f1c0).
+* [Superalgos Protocol V0.1 - the Short Version, for Experienced Traders](https://medium.com/superalgos/superalgos-protocol-v0-1-the-short-version-for-experienced-traders-86c3fa43f1c0).
 
-* [Superalgos Protocol V0.1 - the Long Version, for Beginner Traders](https://medium.com/@julian_superalgos/superalgos-protocol-v0-1-the-long-version-for-beginner-traders-f293f1cc6c13).
+* [Superalgos Protocol V0.1 - the Long Version, for Beginner Traders](https://medium.com/superalgos/superalgos-protocol-v0-1-the-long-version-for-beginner-traders-f293f1cc6c13).
 
 The Designer features a visual interface in which all elements encompassing strategies and other concepts are represented by icons organized in a hierarchical structure, as defined by the protocol. The hierarchy starts with Definitions, which in the future may have any number of Trading Systems, which in turn may have any number of Strategies.
 

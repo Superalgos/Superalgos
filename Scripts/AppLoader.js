@@ -63,7 +63,8 @@ function newAppLoader() {
                 'StrategySpace/Workspace/FunctionLibraries/NodeChildren.js', 
                 'StrategySpace/Workspace/FunctionLibraries/TaskFunctions.js',
                 'StrategySpace/Workspace/FunctionLibraries/SessionFunctions.js',
-
+                'StrategySpace/Workspace/FunctionLibraries/ShortcutKeys.js',
+                
                 'Utilities/RoundedCornersBackground.js',
 
                 'Panels/TimeControlPanel.js',

@@ -103,11 +103,11 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
 
 ## Before You Begin
 
-**This *Guetting Started Guide* will quickly show you the very basics of the app, so that you can rapidly see the app's potential. It will take you through a sequence of instructions that you need to follow to download and install the app, run it for the first time, import an existing strategy and run your first backtest.**
+**This *Getting Started Guide* will quickly show you the very basics of the app so that you can rapidly see the app's potential. It will take you through a sequence of instructions that you need to follow to download and install the app, run it for the first time, import an existing strategy and run your first backtest.**
 
 The following recommendations may make your life easier using this pre-release in alpha stage:
 
-* We highly recommend you use Chrome to run the app, so that you have a similar environment as developers in case you need help. 
+* We highly recommend you use Chrome to run the app so that you have a similar environment as developers in case you need help. 
 
 * You will benefit from having a decent Console / Command Line application for similar reasons: we hope you won't need it, but in case you do, it may save you lots of hassle and make a difference troubleshooting and getting help from the community. We recommend [Console Emulator Cmder](https://cmder.net/).
 
@@ -179,7 +179,7 @@ Go to the ```Superalgos Desktop App``` folder and double click on ```Superalgos.
 
 **1-B. In Mac systems, download and install Node JS**:
 
-Node.js is an open source server environment required for the app to run. Go to the [Node Js downloads page](https://nodejs.org/en/download/) and download the Mac installer. Run the installer and go through the process until Node Js is installed.
+Node.js is an open-source server environment required for the app to run. Go to the [Node Js downloads page](https://nodejs.org/en/download/) and download the Mac installer. Run the installer and go through the process until Node Js is installed.
 
 Now, use the Finder app to go to the ```Superalgos Desktop App``` folder and do a *secondary click* (tap the touchpad with two fingers) to open up the menu. Select *New Terminal Tab at Folder*. Once in the Terminal, type ```node run``` and hit *Enter*.
 
@@ -283,7 +283,7 @@ If you have a version of the Superalgos Desktop App and wish to upgrade to a new
 
 **3.** You will keep the ```Data-Storage``` folder intact and delete all the remaining folders within the ```Superalgos Desktop App``` folder. You do not need to get rid of the historic market data every time you upgrade your app. **Do not delete your ```Data-Storage``` folder**.
 
-**4.** Download the latest patch or latest release from the location advertised in the Official Announcement Channel.
+**4.** Download the latest patch or latest release from the location advertised on the Official Announcement Channel.
 
 > **WARNING**: Always beware of what random people may post in open Telegram groups or forums. Patches and releases will always be made available at the [Releases page](https://github.com/Superalgos/DesktopApp/releases) of this repository only.
 

@@ -64,6 +64,7 @@ function newAppLoader() {
                 'StrategySpace/Workspace/FunctionLibraries/TaskFunctions.js',
                 'StrategySpace/Workspace/FunctionLibraries/SessionFunctions.js',
                 'StrategySpace/Workspace/FunctionLibraries/ShortcutKeys.js',
+                'StrategySpace/Workspace/FunctionLibraries/OnFocus.js',
                 
                 'Utilities/RoundedCornersBackground.js',
 

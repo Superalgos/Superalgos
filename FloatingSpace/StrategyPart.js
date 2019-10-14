@@ -19,6 +19,7 @@ function newStrategyPart () {
     circularProgressBar: undefined,
     isExecuting: undefined,
     isRunning: undefined,
+    shortcutKey: undefined,
     run: run,
     stop: stop,
     getReadyToAttach: getReadyToAttach,

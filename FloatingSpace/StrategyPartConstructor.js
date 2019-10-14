@@ -73,6 +73,12 @@ function newStrategyPartConstructor () {
 
     floatingLayer.addFloatingObject(floatingObject)
 
+    if (payload.node.savedPayload !== undefined) {
+      if (payload.node.savedPayload.uiObject !== undefined) {
+        payload.uiObject.shortcutKey = payload.node.savedPayload.uiObject.shortcutKey
+      }
+    }
+
     return
   }
 

@@ -186,6 +186,7 @@ function newCanvas () {
   }
 
   function onKeyDown (event) {
+    event.preventDefault()
     if (event.altKey === true && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
       return
@@ -237,12 +238,27 @@ function newCanvas () {
     }
 
     if (event.ctrlKey === true) {
-      if (event.keyCode > 52 && event.keyCode < 100) {
+      if (event.keyCode >= 65 && event.keyCode <= 90) {
         let nodeOnFocus = canvas.strategySpace.workspace.getNodeThatIsOnFocus()
-        if (nodeOnFocus !== undefined) {
-          nodeOnFocus.payload.uiObject.shortcutKey = event.code
-          nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + event.code)
+        if (nodeOnFocus === undefined) {
+          return
         }
+
+        let nodeUsingThisKey = canvas.strategySpace.workspace.getNodeByShortcutKey(event.key)
+
+        if (nodeUsingThisKey !== undefined) {
+          if (nodeUsingThisKey.id === nodeOnFocus.id) {
+            nodeOnFocus.payload.uiObject.shortcutKey = ''
+            nodeOnFocus.payload.uiObject.setValue('Shortcut Key Removed ')
+            return
+          } else {
+            nodeOnFocus.payload.uiObject.setErrorMessage('Key already in use by ' + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name)
+            return
+          }
+        }
+
+        nodeOnFocus.payload.uiObject.shortcutKey = event.key
+        nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + event.key)
       }
       return
     }

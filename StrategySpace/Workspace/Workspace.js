@@ -11,6 +11,7 @@ function newWorkspace () {
     container: undefined,
     enabled: false,
     nodeChildren: undefined,
+    getNodeThatIsOnFocus: getNodeThatIsOnFocus,
     getNodeByShortcutKey: getNodeByShortcutKey,
     getAllTradingEngines: getAllTradingEngines,
     stopAllRunningTasks: stopAllRunningTasks,
@@ -197,7 +198,7 @@ function newWorkspace () {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
       if (rootNode.type === 'Definition') {
         let definition = rootNode
-        let node = functionLibraryShortcutKeys.getNodeByShortcutKey(searchingKey)
+        let node = functionLibraryShortcutKeys.getNodeByShortcutKey(rootNode, searchingKey)
         if (node !== undefined) { return node }
       }
     }
@@ -208,7 +209,7 @@ function newWorkspace () {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
       if (rootNode.type === 'Definition') {
         let definition = rootNode
-        let node = functionLibraryOnFocus.getNodeThatIsOnFocus()
+        let node = functionLibraryOnFocus.getNodeThatIsOnFocus(rootNode)
         if (node !== undefined) { return node }
       }
     }

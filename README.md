@@ -103,7 +103,7 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
 
 ## Before You Begin
 
-This *Guetting Started Guide* will quickly show you the very basics of the app, so that you can rapidly see the app's potential. It will take you through a sequence of instructions that you need to follow to download and install the app, run it for the first time, import an existing strategy and run your first backtest.
+**This *Guetting Started Guide* will quickly show you the very basics of the app, so that you can rapidly see the app's potential. It will take you through a sequence of instructions that you need to follow to download and install the app, run it for the first time, import an existing strategy and run your first backtest.**
 
 The following recommendations may make your life easier using this pre-release in alpha stage:
 
@@ -233,7 +233,7 @@ Do the same with the second Task Manager element.
 
 [ILLUSTRATION]
 
-> **NOTES ON MARKET DATA**: You just started the *Trading Engine* along with the *sensors* that extract live data from the exchange and the *indicators* that process raw trades data. These processes will remain running for as long as you keep the browser open running the app. The bots processing exchange data and building indicators datasets will work to bring your data up to date. In our experience, it may take between 10 to 20 minutes per day worth of Poloniex data to be processed. The time it will take for these processes to complete the job depends on several things:
+> **NOTES ON MARKET DATA**: You just started the *Trading Engine* along with the *sensors* that extract live data from the exchange and the *indicators* that process raw trades data. These processes will remain running for as long as you keep the browser open running the app. The bots processing exchange data and building indicators datasets will work to bring your data up to date. In our experience, it may take between 10 to 20 minutes per day's worth of Poloniex data to be processed. The time it will take for these processes to complete the job depends on several things:
 > * The date of the release tells you how many days you are behind with the data set you just downloaded.
 > * The speed and processing power of your machine will make a difference too.
 > * The average number of trades per day at the exchange determines the volume of data the app needs to retrieve and process.
@@ -245,7 +245,7 @@ Do the same with the second Task Manager element.
 | :---: | :---: | :---: |
 | ![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) | ![menu-tree-plus](https://user-images.githubusercontent.com/13994516/63041077-45c7c480-bec7-11e9-965c-38e4fd706c38.png) | ![session-backtesting](https://user-images.githubusercontent.com/13994516/66318052-e7452280-e91a-11e9-94a7-90ebe6ee6e62.png) |
 
-Go to the *Tests & Live Trades Tasks* Task Manager (hover over either of the Task Manager elements to see it's name) and expand the view of child elements by clicking on the *plus sign* icon.
+Go to the *Tests & Live Trades Tasks* Task Manager (hover over either of the Task Manager elements to see its name) and expand the view of child elements by clicking on the *plus sign* icon.
 
 Follow the tree of child elements until you find the *Backtesting Session* element.
 
@@ -255,7 +255,7 @@ Hover over the Backtesting Session element and click *Run*.
 
 You just started a backtesting session with a series of pre-configured parameters, including, for instance, the date range on which the backtesting session runs. Later on, you will learn how to adjust these parameters. 
 
-You will notice the element will display a date, signalling the progress of the session. The current session will backtest the strategy during the first nine months of 2019. It may take anything between 5 to 20 minutes (depending on your machine's processing power) to finish. You can tell the process finished calculating the backtesting session once the progress date dissapears.
+You will notice the element will display a date, signaling the progress of the session. The current session will backtest the strategy during the first nine months of 2019. It may take anything between 5 to 20 minutes (depending on your machine's processing power) to finish. You can tell the process finished calculating the backtesting session once the progress date disappears.
 
 Then, you may pull down the horizontal bar to go to the charts to see the results. Make sure you are standing in the 1 hr (one hour) time period. Notice the time box at the bottom of the charts:
 

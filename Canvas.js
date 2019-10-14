@@ -188,42 +188,63 @@ function newCanvas () {
   function onKeyDown (event) {
     if (event.altKey === true && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
+      return
     }
 
     if (event.altKey === true && event.code === 'ArrowDown') {
       thisObject.cockpitSpace.toBottom()
+      return
     }
 
     if (event.shiftKey === true && event.code === 'ArrowLeft') {
       canvas.chartSpace.oneScreenLeft()
+      return
     }
 
     if (event.shiftKey === true && event.code === 'ArrowRight') {
       canvas.chartSpace.oneScreenRight()
+      return
     }
 
     if (event.shiftKey === true && event.code === 'ArrowUp') {
       canvas.chartSpace.oneScreenUp()
+      return
     }
 
     if (event.shiftKey === true && event.code === 'ArrowDown') {
       canvas.chartSpace.oneScreenDown()
+      return
     }
 
     if (event.ctrlKey === true && event.code === 'ArrowLeft') {
       canvas.floatingSpace.oneScreenLeft()
+      return
     }
 
     if (event.ctrlKey === true && event.code === 'ArrowRight') {
       canvas.floatingSpace.oneScreenRight()
+      return
     }
 
     if (event.ctrlKey === true && event.code === 'ArrowUp') {
       canvas.floatingSpace.oneScreenUp()
+      return
     }
 
     if (event.ctrlKey === true && event.code === 'ArrowDown') {
       canvas.floatingSpace.oneScreenDown()
+      return
+    }
+
+    if (event.ctrlKey === true) {
+      if (event.keyCode > 52 && event.keyCode < 100) {
+        let nodeOnFocus = canvas.strategySpace.workspace.getNodeThatIsOnFocus()
+        if (nodeOnFocus !== undefined) {
+          nodeOnFocus.payload.uiObject.shortcutKey = event.code
+          nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + event.code)
+        }
+      }
+      return
     }
   }
 

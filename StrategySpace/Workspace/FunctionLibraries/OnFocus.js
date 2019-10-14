@@ -1,15 +1,15 @@
-function newShortcutKeys () {
+function newOnFocus () {
   thisObject = {
-    getNodeByShortcutKey: getNodeByShortcutKey
+    getNodeThatIsOnFocus: getNodeThatIsOnFocus
   }
   return thisObject
 
-  function getNodeByShortcutKey (node, searchingKey) {
+  function getNodeThatIsOnFocus (node) {
     if (node === undefined) { return }
     switch (node.type) {
       case 'Code':
         {
-          if (node.payload.uiObject.shortcutKey === searchingKey) {
+          if (node.payload.uiObject.isOnFocus === true) {
             return node
           } else {
             return
@@ -18,11 +18,11 @@ function newShortcutKeys () {
       case 'Condition':
         {
           let child
-          child = getNodeByShortcutKey(node.code, searchingKey)
+          child = getNodeThatIsOnFocus(node.code)
           if (child !== undefined) {
             return child
           }
-          if (node.payload.uiObject.shortcutKey === searchingKey) {
+          if (node.payload.uiObject.isOnFocus === true) {
             return node
           } else {
             return
@@ -31,12 +31,12 @@ function newShortcutKeys () {
       case 'Situation': {
         let child
         for (let m = 0; m < node.conditions.length; m++) {
-          child = getNodeByShortcutKey(node.conditions[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.conditions[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -44,7 +44,7 @@ function newShortcutKeys () {
       }
       case 'Formula':
         {
-          if (node.payload.uiObject.shortcutKey === searchingKey) {
+          if (node.payload.uiObject.isOnFocus === true) {
             return node
           } else {
             return
@@ -54,12 +54,12 @@ function newShortcutKeys () {
         {
           let child
           for (let m = 0; m < node.situations.length; m++) {
-            child = getNodeByShortcutKey(node.situations[m], searchingKey)
+            child = getNodeThatIsOnFocus(node.situations[m])
             if (child !== undefined) {
               return child
             }
           }
-          if (node.payload.uiObject.shortcutKey === searchingKey) {
+          if (node.payload.uiObject.isOnFocus === true) {
             return node
           } else {
             return
@@ -67,15 +67,15 @@ function newShortcutKeys () {
         }
       case 'Phase': {
         let child
-        child = getNodeByShortcutKey(node.formula, searchingKey)
+        child = getNodeThatIsOnFocus(node.formula)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.nextPhaseEvent, searchingKey)
+        child = getNodeThatIsOnFocus(node.nextPhaseEvent)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -84,12 +84,12 @@ function newShortcutKeys () {
       case 'Stop': {
         let child
         for (let m = 0; m < node.phases.length; m++) {
-          child = getNodeByShortcutKey(node.phases[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.phases[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -98,12 +98,12 @@ function newShortcutKeys () {
       case 'Take Profit': {
         let child
         for (let m = 0; m < node.phases.length; m++) {
-          child = getNodeByShortcutKey(node.phases[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.phases[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -112,12 +112,12 @@ function newShortcutKeys () {
       case 'Take Position Event': {
         let child
         for (let m = 0; m < node.situations.length; m++) {
-          child = getNodeByShortcutKey(node.situations[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.situations[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -126,12 +126,12 @@ function newShortcutKeys () {
       case 'Trigger On Event': {
         let child
         for (let m = 0; m < node.situations.length; m++) {
-          child = getNodeByShortcutKey(node.situations[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.situations[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -140,12 +140,12 @@ function newShortcutKeys () {
       case 'Trigger Off Event': {
         let child
         for (let m = 0; m < node.situations.length; m++) {
-          child = getNodeByShortcutKey(node.situations[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.situations[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -153,37 +153,37 @@ function newShortcutKeys () {
       }
       case 'Initial Definition': {
         let child
-        child = getNodeByShortcutKey(node.stopLoss, searchingKey)
+        child = getNodeThatIsOnFocus(node.stopLoss)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.takeProfit, searchingKey)
+        child = getNodeThatIsOnFocus(node.takeProfit)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.positionSize, searchingKey)
+        child = getNodeThatIsOnFocus(node.positionSize)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.positionRate, searchingKey)
+        child = getNodeThatIsOnFocus(node.positionRate)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
         }
       }
       case 'Open Execution': {
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
         }
       }
       case 'Close Execution': {
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -191,11 +191,11 @@ function newShortcutKeys () {
       }
       case 'Position Size': {
         let child
-        child = getNodeByShortcutKey(node.formula, searchingKey)
+        child = getNodeThatIsOnFocus(node.formula)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -203,11 +203,11 @@ function newShortcutKeys () {
       }
       case 'Position Rate': {
         let child
-        child = getNodeByShortcutKey(node.formula, searchingKey)
+        child = getNodeThatIsOnFocus(node.formula)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -215,19 +215,19 @@ function newShortcutKeys () {
       }
       case 'Trigger Stage': {
         let child
-        child = getNodeByShortcutKey(node.triggerOn, searchingKey)
+        child = getNodeThatIsOnFocus(node.triggerOn)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.triggerOff, searchingKey)
+        child = getNodeThatIsOnFocus(node.triggerOff)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.takePosition, searchingKey)
+        child = getNodeThatIsOnFocus(node.takePosition)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -235,15 +235,15 @@ function newShortcutKeys () {
       }
       case 'Open Stage': {
         let child
-        child = getNodeByShortcutKey(node.initialDefinition, searchingKey)
+        child = getNodeThatIsOnFocus(node.initialDefinition)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.openExecution, searchingKey)
+        child = getNodeThatIsOnFocus(node.openExecution)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -251,15 +251,15 @@ function newShortcutKeys () {
       }
       case 'Manage Stage': {
         let child
-        child = getNodeByShortcutKey(node.stopLoss, searchingKey)
+        child = getNodeThatIsOnFocus(node.stopLoss)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.takeProfit, searchingKey)
+        child = getNodeThatIsOnFocus(node.takeProfit)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -267,11 +267,11 @@ function newShortcutKeys () {
       }
       case 'Close Stage': {
         let child
-        child = getNodeByShortcutKey(node.closeExecution, searchingKey)
+        child = getNodeThatIsOnFocus(node.closeExecution)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -279,58 +279,58 @@ function newShortcutKeys () {
       }
       case 'Strategy': {
         let child
-        child = getNodeByShortcutKey(node.triggerStage, searchingKey)
+        child = getNodeThatIsOnFocus(node.triggerStage)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.openStage, searchingKey)
+        child = getNodeThatIsOnFocus(node.openStage)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.manageStage, searchingKey)
+        child = getNodeThatIsOnFocus(node.manageStage)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.closeStage, searchingKey)
+        child = getNodeThatIsOnFocus(node.closeStage)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
         }
       }
       case 'Base Asset': {
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
         }
       }
       case 'Time Range': {
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
         }
       }
       case 'Time Period': {
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
         }
       }
       case 'Slippage': {
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
         }
       }
       case 'Fee Structure': {
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -338,27 +338,27 @@ function newShortcutKeys () {
       }
       case 'Parameters': {
         let child
-        child = getNodeByShortcutKey(node.baseAsset, searchingKey)
+        child = getNodeThatIsOnFocus(node.baseAsset)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.timeRange, searchingKey)
+        child = getNodeThatIsOnFocus(node.timeRange)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.timePeriod, searchingKey)
+        child = getNodeThatIsOnFocus(node.timePeriod)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.slippage, searchingKey)
+        child = getNodeThatIsOnFocus(node.slippage)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.feeStructure, searchingKey)
+        child = getNodeThatIsOnFocus(node.feeStructure)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -366,17 +366,17 @@ function newShortcutKeys () {
       }
       case 'Trading System': {
         let child
-        child = getNodeByShortcutKey(node.parameters, searchingKey)
+        child = getNodeThatIsOnFocus(node.parameters)
         if (child !== undefined) {
           return child
         }
         for (let m = 0; m < node.strategies.length; m++) {
-          child = getNodeByShortcutKey(node.strategies[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.strategies[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -385,12 +385,12 @@ function newShortcutKeys () {
       case 'Personal Data': {
         let child
         for (let m = 0; m < node.exchangeAccounts.length; m++) {
-          child = getNodeByShortcutKey(node.exchangeAccounts[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.exchangeAccounts[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -399,32 +399,32 @@ function newShortcutKeys () {
       case 'Exchange Account': {
         let child
         for (let m = 0; m < node.assets.length; m++) {
-          child = getNodeByShortcutKey(node.assets[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.assets[m])
           if (child !== undefined) {
             return child
           }
         }
         for (let m = 0; m < node.keys.length; m++) {
-          child = getNodeByShortcutKey(node.keys[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.keys[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
         }
       }
       case 'Exchange Account Asset': {
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
         }
       }
       case 'Exchange Account Key': {
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -433,19 +433,19 @@ function newShortcutKeys () {
       case 'Layer Manager': {
         let child
         for (let m = 0; m < node.layers.length; m++) {
-          child = getNodeByShortcutKey(node.layers[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.layers[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
         }
       }
       case 'Layer': {
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -454,12 +454,12 @@ function newShortcutKeys () {
       case 'Task Manager': {
         let child
         for (let m = 0; m < node.tasks.length; m++) {
-          child = getNodeByShortcutKey(node.tasks[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.tasks[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -467,11 +467,11 @@ function newShortcutKeys () {
       }
       case 'Task': {
         let child
-        child = getNodeByShortcutKey(node.bot, searchingKey)
+        child = getNodeThatIsOnFocus(node.bot)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -480,12 +480,12 @@ function newShortcutKeys () {
       case 'Sensor': {
         let child
         for (let m = 0; m < node.processes.length; m++) {
-          child = getNodeByShortcutKey(node.processes[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.processes[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -494,12 +494,12 @@ function newShortcutKeys () {
       case 'Indicator': {
         let child
         for (let m = 0; m < node.processes.length; m++) {
-          child = getNodeByShortcutKey(node.processes[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.processes[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -508,12 +508,12 @@ function newShortcutKeys () {
       case 'Trading Engine': {
         let child
         for (let m = 0; m < node.processes.length; m++) {
-          child = getNodeByShortcutKey(node.processes[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.processes[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -521,11 +521,11 @@ function newShortcutKeys () {
       }
       case 'Process': {
         let child
-        child = getNodeByShortcutKey(node.session, searchingKey)
+        child = getNodeThatIsOnFocus(node.session)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -534,15 +534,15 @@ function newShortcutKeys () {
 
       case 'Backtesting Session': {
         let child
-        child = getNodeByShortcutKey(node.parameters, searchingKey)
+        child = getNodeThatIsOnFocus(node.parameters)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.layerManager, searchingKey)
+        child = getNodeThatIsOnFocus(node.layerManager)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -551,15 +551,15 @@ function newShortcutKeys () {
 
       case 'Live Trading Session': {
         let child
-        child = getNodeByShortcutKey(node.parameters, searchingKey)
+        child = getNodeThatIsOnFocus(node.parameters)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.layerManager, searchingKey)
+        child = getNodeThatIsOnFocus(node.layerManager)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -568,15 +568,15 @@ function newShortcutKeys () {
 
       case 'Fordward Testing Session': {
         let child
-        child = getNodeByShortcutKey(node.parameters, searchingKey)
+        child = getNodeThatIsOnFocus(node.parameters)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.layerManager, searchingKey)
+        child = getNodeThatIsOnFocus(node.layerManager)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -585,15 +585,15 @@ function newShortcutKeys () {
 
       case 'Paper Trading Session': {
         let child
-        child = getNodeByShortcutKey(node.parameters, searchingKey)
+        child = getNodeThatIsOnFocus(node.parameters)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.layerManager, searchingKey)
+        child = getNodeThatIsOnFocus(node.layerManager)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -603,12 +603,12 @@ function newShortcutKeys () {
       case 'Network Node': {
         let child
         for (let m = 0; m < node.taskManagers.length; m++) {
-          child = getNodeByShortcutKey(node.taskManagers[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.taskManagers[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -617,12 +617,12 @@ function newShortcutKeys () {
       case 'Network': {
         let child
         for (let m = 0; m < node.networkNodes.length; m++) {
-          child = getNodeByShortcutKey(node.networkNodes[m], searchingKey)
+          child = getNodeThatIsOnFocus(node.networkNodes[m])
           if (child !== undefined) {
             return child
           }
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return
@@ -630,19 +630,19 @@ function newShortcutKeys () {
       }
       case 'Definition': {
         let child
-        child = getNodeByShortcutKey(node.tradingSystem, searchingKey)
+        child = getNodeThatIsOnFocus(node.tradingSystem)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.personalData, searchingKey)
+        child = getNodeThatIsOnFocus(node.personalData)
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.network, searchingKey)
+        child = getNodeThatIsOnFocus(node.network)
         if (child !== undefined) {
           return child
         }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
+        if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
           return

@@ -11,6 +11,7 @@ function newWorkspace () {
     container: undefined,
     enabled: false,
     nodeChildren: undefined,
+    getNodeByShortcutKey: getNodeByShortcutKey,
     getAllTradingEngines: getAllTradingEngines,
     stopAllRunningTasks: stopAllRunningTasks,
     onMenuItemClick: onMenuItemClick,
@@ -49,6 +50,9 @@ function newWorkspace () {
   let functionLibraryWorkspaceNodes = newStringifyNode()
   let functionLibraryTaskFunctions = newTaskFunctions()
   let functionLibrarySessionFunctions = newSessionFunctions()
+  let functionLibraryShortcutKeys = newShortcutKeys()
+  let functionLibraryOnFocus = newOnFocus()
+
   thisObject.nodeChildren = newNodeChildren()
 
   return thisObject
@@ -186,6 +190,28 @@ function newWorkspace () {
       }
     }
     return tradingEngines
+  }
+
+  function getNodeByShortcutKey (searchingKey) {
+    for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
+      let rootNode = thisObject.workspaceNode.rootNodes[i]
+      if (rootNode.type === 'Definition') {
+        let definition = rootNode
+        let node = functionLibraryShortcutKeys.getNodeByShortcutKey(searchingKey)
+        if (node !== undefined) { return node }
+      }
+    }
+  }
+
+  function getNodeThatIsOnFocus () {
+    for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
+      let rootNode = thisObject.workspaceNode.rootNodes[i]
+      if (rootNode.type === 'Definition') {
+        let definition = rootNode
+        let node = functionLibraryOnFocus.getNodeThatIsOnFocus()
+        if (node !== undefined) { return node }
+      }
+    }
   }
 
   function spawn (nodeText, point) {

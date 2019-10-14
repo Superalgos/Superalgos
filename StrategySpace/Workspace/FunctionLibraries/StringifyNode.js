@@ -680,7 +680,8 @@ function newStringifyNode () {
         isTensed: (node.payload.floatingObject.isTensed && node.payload.floatingObject.tensedManually)
       },
       uiObject: {
-        isRunning: node.payload.uiObject.isRunning
+        isRunning: node.payload.uiObject.isRunning,
+        shortcutKey: node.payload.uiObject.shortcutKey
       }
     }
     return savedPayload

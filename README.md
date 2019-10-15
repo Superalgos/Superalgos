@@ -335,9 +335,13 @@ Notice the following three elements relative to the position of the mouse pointe
 2. To the right, the current rate. This is the rate (in this case USDT per BTC) at the mouse pointer position.
 3. Below, the current time period (or candle size if you wish). This is the currently displayed time period—not only for candles, but for any other object plotted across available layers.
 
-## Mouse Wheel Operations
+## Navigation
 
-There are many things you can do with your mouse wheel. 
+### Using your Mouse
+
+Left-click on the charts and drag to move accross the charts.
+
+There are many things you can do with your mouse wheel: 
 
 1. Scroll over the Layers Panel to access layers that may be out of reach downwards.
 1. Scroll on top of or next to the datetime to produce a horizontal scaling.
@@ -347,7 +351,7 @@ There are many things you can do with your mouse wheel.
 
 ![Mouse-Wheel](https://user-images.githubusercontent.com/13994516/58434568-a01d6a00-80bc-11e9-9a58-3edd4852f07c.gif)
 
-## Keyboard Shortcuts
+### Keyboard Navigation
 
 When on the charts, you may use the following key combinations:
 
@@ -457,11 +461,11 @@ Backing up your workspace is the best way to store trading systems, ready to be 
 
 ![definition](https://user-images.githubusercontent.com/13994516/63503991-deb29d00-c4d0-11e9-8c03-bf2e618f9ef6.png)
 
-Definitions include every single parameter describing your Trading Systems, as well as your Personal Data, including API Keys, and the management of processes running in the background. 
+Definitions include every single parameter describing your trading systems, as well as your *personal data* (including API Keys), and the management of processes running in the background. 
 
-You may also save Definitions by clicking _Save Changes_ on its element menu. Unlike the workspace, only elements that are attached to the hierachy belong to the Definitions.
+Pretty much like with every other element in the hierarchy, you may back up your definitions using the back up button on the definition's menu.
 
-Definitions is the top-level element in the hierarchy, with two children elements: Personal Data and Trading System. We will discuss Personal Data later on, when we cover [Live Trading](#live-trading).
+Definitions is the top-level element in the hierarchy, with three children elements: Trading System, Personal Data and Network. We will briefly discuss the *trading system* and leave the other two for later.
 
 ### Trading System
 
@@ -469,9 +473,9 @@ Definitions is the top-level element in the hierarchy, with two children element
 
 A *trading system* is a collection of strategies that conform to certain parameters. 
 
-> **TEMPORAL LIMITATION:** At present, only one Trading System is allowed at a time.
+> **TEMPORAL LIMITATION:** At present, only one trading system is allowed at a time per each definition. If you wish to have more than one trading system, then you will create a new definition to hold the new trading system.
 
-The one parameter that needs to be defined early on is the Base Asset, that is, the asset you wish to stand on when you are out of the market, with no open positions. We will review the rest of the Trading System parameters later on.
+The one parameter that needs to be defined early on is the *base asset*, that is, the asset you wish to stand on when you are out of the market, with no open positions. We will review the rest of the trading system parameters later on.
 
 | Parameters | Base Asset |
 | :---: | :---: |
@@ -498,6 +502,19 @@ Your Base Asset formula contains the following piece of code, which you may conf
 Before discussing [Working with Strategies](#working-with-strategies), let's review a few basic aspects of the Designer's Interface.
 
 ## Interface
+
+### Navigation
+
+Left-click on the black background and drag to move around the workspace.
+
+You may also use the following key combinations on your keyboard:
+
+1. <kbd>Ctrl</kbd> + <kbd>&#8592;</kbd> to pan to the left.
+1. <kbd>Ctrl</kbd> + <kbd>&#8594;</kbd> to pan to the right.
+1. <kbd>Ctrl</kbd> + <kbd>&#8593;</kbd> to pan upwards.
+1. <kbd>Ctrl</kbd> + <kbd>&#8595;</kbd> to pan downwards.
+
+> For Mac users, replace <kbd>Ctrl</kbd> with <kbd>Command</kbd>
 
 ### Element's Menu
 
@@ -543,6 +560,12 @@ Elements may be attached only to conceptually related parents. For instance, a *
 ![strategy](https://user-images.githubusercontent.com/13994516/63512399-0d863e80-c4e4-11e9-9690-bacadc185a27.png)
 
 As the Superalgos Protocol indicates, the definition of strategies is done in stages: ```Trigger > Open > Manage > Close```. We will review each stage, one by one, but let's first discuss the common elements among them.
+
+Becoming familiar with the Superalgos Protocol will significantly increase your understanding of how to build strategies, so we highly recommend reading either of the following articles:
+
+* [Superalgos Protocol V0.1 - the Short Version, for Experienced Traders](https://medium.com/superalgos/superalgos-protocol-v0-1-the-short-version-for-experienced-traders-86c3fa43f1c0).
+
+* [Superalgos Protocol V0.1 - the Long Version, for Beginner Traders](https://medium.com/superalgos/superalgos-protocol-v0-1-the-long-version-for-beginner-traders-f293f1cc6c13).
 
 The Designer provides a Graphic User Interface for traders to input the _rules_ and _formulas_ that determine the behavior of strategies. Traders need to define the rules to _trigger on_ and _trigger off_ each strategy, to _take a position_, to manage _take profit_ targets and _stops_.
 

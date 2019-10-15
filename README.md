@@ -793,6 +793,25 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 Before discussing the various forms of strategy testing and live trading available, it is important to explain the basic aspects of how those and other processes work.
 
+| Network | Network Node |
+| :---: | :---: |
+| ![network](https://user-images.githubusercontent.com/13994516/66855353-59ed7800-ef83-11e9-8de9-db40971faa7b.png) | ![network-node](https://user-images.githubusercontent.com/13994516/66855357-5a860e80-ef83-11e9-917d-95cd8394588b.png) |
+
+At the moment, the app manages data sets locally. However, in the future, it will also source data and services from a peer-to-peer network of nodes which will provide those services.
+
+For the time being, all you need to know is that the *network* is one of the direct children of a definition, and that the one *node* in the network is where you will manage the processes that run in your local machine.
+
+## Task Manager, Tasks and Bots
+
+| Task Manager | Task | Bot |
+| :---: | :---: | :---: |
+| ![situations](https://user-images.githubusercontent.com/13994516/63511799-72409980-c4e2-11e9-8f2a-5bc4a8d9d6ed.png) | ![conditions](https://user-images.githubusercontent.com/13994516/63511800-72d93000-c4e2-11e9-98a2-259c7f0edca2.png) | ![code](https://user-images.githubusercontent.com/13994516/63511802-72d93000-c4e2-11e9-9cbf-df75cc9bbe0b.png) |
+
+A *task manager* is an entity that controls any number of *tasks*. A task is an entity that controls any number of *bots*. There currently are three kinds of bots that you will run to provide you with the data and functions you need:
+
+
+The workspace templates 
+
 # Simulation
 
 A simulation is the visual representation over the charts of any of the forms of strategy testing available within the app: 

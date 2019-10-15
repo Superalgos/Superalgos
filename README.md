@@ -789,10 +789,17 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 **distanceToLast.closePosition:** The number of periods between the last Close Position and the current candle.
 
+# Network
+
+Before discussing the various forms of strategy testing and live trading available, it is important to explain the basic aspects of how those and other processes work.
 
 # Simulation
 
-A simulation is a combined backtesting plus paper trading operation, meaning that the simulation may run over both historic and up-to-date, live data. All actions performed by strategies are plotted directly over the charts, as explained in the [Private Layers](#private-layers) section.
+A simulation is the visual representation over the charts of any of the forms of strategy testing available within the app: 
+
+* **Backtesting:** testing over historic data;
+* **Paper-trading:** testing over a live data feed, without placing orders at the exchange (orders are simulated);
+* **Forward testing:** testing over a live data feed, placing actual orders at the exchange for a fraction of the defined *position size*.
 
 ## Running the First Simulation
 

@@ -17,6 +17,7 @@ function newFloatingSpace () {
     oneScreenDown: oneScreenDown,
     oneScreenLeft: oneScreenLeft,
     oneScreenRight: oneScreenRight,
+    positionAtNode: positionAtNode,
     fitIntoVisibleArea: fitIntoVisibleArea,
     isThisPointVisible: isThisPointVisible,
     makeVisible: makeVisible,
@@ -130,6 +131,17 @@ function newFloatingSpace () {
     let displaceVector = {
       x: -browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
       y: 0
+    }
+
+    thisObject.container.displace(displaceVector)
+  }
+
+  function positionAtNode (node) {
+    let position = thisObject.container.frame.frameThisPoint(node.payload.position)
+
+    let displaceVector = {
+      x: browserCanvas.width / 2 - position.x,
+      y: browserCanvas.height / 2 - position.y
     }
 
     thisObject.container.displace(displaceVector)

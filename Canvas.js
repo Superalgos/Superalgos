@@ -186,7 +186,6 @@ function newCanvas () {
   }
 
   function onKeyDown (event) {
-    event.preventDefault()
     if (event.altKey === true && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
       return
@@ -239,13 +238,17 @@ function newCanvas () {
 
     if (event.ctrlKey === true) {
       if (event.keyCode >= 65 && event.keyCode <= 90) {
+        event.preventDefault()
         let nodeOnFocus = canvas.strategySpace.workspace.getNodeThatIsOnFocus()
+        let nodeUsingThisKey = canvas.strategySpace.workspace.getNodeByShortcutKey(event.key)
+
         if (nodeOnFocus === undefined) {
+          /* Then we displace the whole workspace to center it at the node using this key */
+          nodeUsingThisKey = canvas.floatingSpace.positionAtNode(nodeUsingThisKey)
           return
         }
 
-        let nodeUsingThisKey = canvas.strategySpace.workspace.getNodeByShortcutKey(event.key)
-
+        /* If there is a node in focus, we try to assign the key to it. */
         if (nodeUsingThisKey !== undefined) {
           if (nodeUsingThisKey.id === nodeOnFocus.id) {
             nodeOnFocus.payload.uiObject.shortcutKey = ''

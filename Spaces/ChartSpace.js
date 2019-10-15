@@ -137,7 +137,7 @@ function newChartSpace () {
 
   function oneScreenLeft () {
     let displaceVector = {
-      x: -browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
+      x: browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
       y: 0
     }
 
@@ -146,7 +146,7 @@ function newChartSpace () {
 
   function oneScreenRight () {
     let displaceVector = {
-      x: +browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
+      x: -browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
       y: 0
     }
 

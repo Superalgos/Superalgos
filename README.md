@@ -431,9 +431,11 @@ The Designer organizes the workflow to build strategies following the framework 
 
 * [Superalgos Protocol V0.1 - the Long Version, for Beginner Traders](https://medium.com/superalgos/superalgos-protocol-v0-1-the-long-version-for-beginner-traders-f293f1cc6c13).
 
-The Designer features a visual interface in which all elements encompassing strategies and other concepts are represented by icons organized in a hierarchical structure, as defined by the protocol. The hierarchy starts with Definitions, which in the future may have any number of Trading Systems, which in turn may have any number of Strategies.
+The Designer features a visual interface in which all elements encompassing strategies and other concepts are represented by icons organized in a hierarchical structure, as defined by the protocol. 
 
-Elements are bound to each other in a tree-like structure, and tend to self-organize along the workspace. Dragging and dropping a sample workspace on the Designer is also the fastest way to get started with the Superalgos Desktop App.
+The hierarchy starts with a *definition*, which contains—among other things—a *trading system*. The trading system contains *strategies* which are described in *stages*.
+
+Elements are bound to each other in a tree-like structure, and tend to self-organize across the workspace. Dragging and dropping a sample workspace on the Designer is the fastest way to get started with the Superalgos Desktop App.
 
 ![Designer-Drag-Drop](https://user-images.githubusercontent.com/13994516/63524115-b724fa00-c4fb-11e9-9894-48f62be71c02.gif)
 
@@ -441,11 +443,13 @@ Elements are bound to each other in a tree-like structure, and tend to self-orga
 
 ![workspace](https://user-images.githubusercontent.com/13994516/63503989-de1a0680-c4d0-11e9-8c1a-36eb526fd7de.png)
 
-The workspace is a concept that refers to all the information available about:
+The workspace is a concept that refers to all the information available in the Designer, including:
 
-* Definitions, which may include API Keys.
-* Trading Systems, their Strategies, and their configurations.
+* Definitions, which are the top level of each hierarchy (you may have multiple definitions in your workspace).
+* Processes, trading systems, their strategies, and their configurations, which are child elements of definitions.
 * The position and status of all elements within the Designer, even those which are disconnected from the hierarchy.
+
+You may think of the workspace as your desktop. It is not part of the hierachical structure of information that describes your definitions. Instead, it contains definitions.
 
 Backing up your workspace is the best way to store trading systems, ready to be deployed. Your workspace is saved at the browser level every time you make a change, but still, you should back up your workspace once in a while so that you can go back to past versions.
 
@@ -453,7 +457,9 @@ Backing up your workspace is the best way to store trading systems, ready to be 
 
 ![definition](https://user-images.githubusercontent.com/13994516/63503991-deb29d00-c4d0-11e9-8c03-bf2e618f9ef6.png)
 
-Definitions include every single parameter describing your Trading Systems, as well as your Personal Data, including API Keys. Your Definitions are saved every time you click RESTART SIMULATION or RESTART LIVE TRADING. You may also save Definitions by clicking _Save Changes_ on its element menu. Unlike the workspace, only elements that are attached to the hierachy belong to the Definitions.
+Definitions include every single parameter describing your Trading Systems, as well as your Personal Data, including API Keys, and the management of processes running in the background. 
+
+You may also save Definitions by clicking _Save Changes_ on its element menu. Unlike the workspace, only elements that are attached to the hierachy belong to the Definitions.
 
 Definitions is the top-level element in the hierarchy, with two children elements: Personal Data and Trading System. We will discuss Personal Data later on, when we cover [Live Trading](#live-trading).
 

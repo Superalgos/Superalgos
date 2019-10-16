@@ -845,7 +845,7 @@ For the time being, all you need to know is that the *network* is one of the dir
 
 | Task Manager | Task | Sensor | Indicator | Trading Engine | Process |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-|  |  |  |  |  |  |
+| ![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) |  |  |  |  |  |
 
 A *task manager* is an entity that controls any number of *tasks*, and tasks are used to control *bots*, which in turn may run any number of *processes*. 
 
@@ -881,13 +881,15 @@ A simulation is the visual representation over the charts of any of the forms of
 
 * **Backtesting:** testing over historic data;
 * **Paper-trading:** testing over a live data feed, without placing orders at the exchange (orders are simulated);
-* **Forward testing:** testing over a live data feed, placing actual orders at the exchange for a fraction of the defined *position size* (we will cover forward testing later on).
+* **Forward testing:** testing over a live data feed, placing actual orders at the exchange for a fraction of the defined *position size*.
+
+We will cover *forward testing* when we discuss live trading. For the time being, we will focus on the first two steps of the strategy testing process.
 
 As explained in the previous chapter, the trading engine is the bot that handles testing sessions, and is controlled by a task and it's corresponding task manager. In order to run a testing session, you will set up the session under a process of the trading engine.
 
 [ILLUSTRATION]
 
-For your convenience, all our templates in the ```Quick-Start-Examples``` folder come with at least one backtesting and one paper-trading session set up. All you need to do is customize the *parameters* to your liking and, if you wish, add or remove layers to the *layer manager*.
+For your convenience, all our templates in the ```Quick-Start-Examples``` folder come with at least one backtesting and one paper-trading session set up. All you need to do is customize the *parameters* to your liking and, if you wish, add or remove layers to the *layer manager*, both child elements of each testing session.
 
 ## Parameters
 
@@ -939,7 +941,7 @@ To account for slippage during simulations, you may enter slippage values for th
 | :---: | :---: |
 | ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![slippage](https://user-images.githubusercontent.com/13994516/63638432-0d26a880-c688-11e9-9ab4-004c7b29345f.png) |
 
-Find the *Slippage* parameter under your Trading System and enter the desired values for each of the below:
+Simulations take *slippage* into account when the following piece of code is present and properly configured in your *Slippage* parameter:
 
 ```
 {
@@ -953,7 +955,7 @@ The number you enter is applied as a percentage of the price of the order and ad
 
 The result of slippage in simulations is taken into account by the graphic representation of each trade created by the Simulation Trades layer.
 
-> If the *Slippage* parameter is left empty or disconnected from your Trading System, slippage will not be computed during simulations.
+> If the *Slippage* parameter is left empty or disconnected both from your testing session and your Trading System, slippage will not be computed during simulations.
 
 ### Datetime Range
 

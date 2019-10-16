@@ -58,7 +58,7 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
     * [Bollinger Channels](#bollinger-channels)
     * [Bollinger SubChannels](#bollinger-subchannels)
     * [Internal](#internal)
-* [Simulation](#simulation)
+* [Simulations](#simulations)
   * [Running the First Simulation](#running-the-first-simulation)
   * [Exchange Fees](#exchange-fees)
   * [Slippage](#slippage)
@@ -801,15 +801,21 @@ Before discussing the various forms of strategy testing and live trading availab
 
 At the moment, the app manages data sets locally. However, in the future, it will also source data and services from a peer-to-peer network of nodes which will provide those services.
 
-For the time being, all you need to know is that the *network* is one of the direct children of a definition, and that the one *node* in the network is where you will manage the processes that run in your local machine.
+For the time being, all you need to know is that the *network* is one of the direct child elements of a definition, and that the one *node* in the network is where you will manage the processes that run in your local machine.
 
-## Task Manager, Tasks and Bots
+## Task Manager, Tasks, Bots and Processes
 
 | Task Manager | Task | Sensor | Indicator | Trading Engine |
 | :---: | :---: | :---: | :---: | :---: |
 |  |  |  |  |  |
 
-A *task manager* is an entity that controls any number of *tasks*, and tasks are used to control *bots*. In other words, a task manager starts and stops tasks, and tasks are the devices you will use to start and stop bots.
+A *task manager* is an entity that controls any number of *tasks*, and tasks are used to control *bots*, which in turn may run any number of *processes*. 
+
+In other words, a task manager starts and stops tasks, and tasks are the devices you will use to start and stop bots.
+
+Each bot may do more than one thing, thus, they may run one or more processes. Bots and processes are preconfigured so that you don't need to worry about their technical intricacies. 
+
+**All you need to do is the basic operation: starting and stopping them via the corresponding tasks whenever you need them.**
 
 There currently are three kinds of bots that you will run to provide you with the data and functions you need:
 
@@ -817,20 +823,19 @@ There currently are three kinds of bots that you will run to provide you with th
 * **Indicators:** they process data to produce more ellaborate datasets;
 * **Trading Engine:** it is the bot that reads a Superalgos Protocol file containing the details of trading strategies and interacts with the Superalgos Desktop App to run them as simulations (using a simulation plotter) or to trade live.
 
-Remember all of these elements (Network, Network Node, Task Manager, Tasks and Bots) are part of your definition. If you *do not* use one of the Quick-Start Examples workspaces supplied with the release, you will need to create all of these elements on your own, starting from the definition menu.
+> Remember all of these elements (Network, Network Node, Task Manager, Tasks and Bots) are part of your definition. If you *do not* use one of the Quick-Start Examples workspaces supplied with the release, you will need to create all of these elements on your own, starting from the definition menu. It is unlikely that you will be able to do this properly, so we highly reccommend you use one of the supplied templates.
 
-All workspaces in the ```Quick-Start-Examples``` folder include the Superalgos Network and a network node with two task managers, each with a name that you can see on top of the element when you hover the mouse pointer:
+All workspaces in the ```Quick-Start-Examples``` folder include the Superalgos Network and a network node with two task managers. Each task manager has a name, which becomes visible only upon hovering the mouse pointer:
 
-* **Keep Datasets Up-to-Date:** This task manager has several tasks, each controlling one of the bots required to keep the datasets in your machine up to date, including sensors and indicators. If you wish to have the data up-to-date, you need to *Start All Tasks* using the menu. This is also a pre-requisite for trading live, doing paper-trading and forward testing. 
+* **Keep Datasets Up-to-Date:** This task manager has several tasks, each controlling one of the bots required to keep the datasets in your machine up to date, including both sensors and indicators. If you wish to have the data up-to-date, you need to *Start All Tasks* using the menu. This is also a pre-requisite for trading live, doing paper-trading and forward testing.
 
-* **Tests & Live Trading:** This is the task manager you will use to set up your backtesting, paper-trading, forward testing and live testing sessions. 
+* **Tests & Live Trading:** This is the task manager you will use to run the trading engine, so that you can set up your backtesting, paper-trading, forward testing and live testing sessions. In our templates, you will always find at least two tasks, so that you may run live-trading sessions issolated from your tests. This means that you will run one instance of the trading engine for live-trading and any number of instances of the trading engine for your testing sessions.
+
+[ILLUSTRATION]
+
+# Testing and Simulations
 
 
-
-
-
-
-# Simulation
 
 A simulation is the visual representation over the charts of any of the forms of strategy testing available within the app: 
 

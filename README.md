@@ -789,6 +789,44 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 **distanceToLast.closePosition:** The number of periods between the last Close Position and the current candle.
 
+### Contitions and Formulas with Data from Different Time Periods
+
+When building your conditions and formulas, you may want to include analysis concerning a different time period than the one in which you intenddto run your simulation and live-trading.
+
+The variables explained above, written as described, always refer to the time period on which the simulation or live-trading is running. To refer to other time periods, you need to use a mechanism built-in the app, implementing the following syntax:
+
+```chart.at + time period + . + your variable```
+
+For example:
+
+```chart.at04hs.candle.close > chart.at04hs.candle.previous.close```
+
+The above statement compares the current 4 hours candle to the previous 4 hours candle, no matter what time period you are simulating in.
+
+| Time Period | Syntax |
+| :---: | :---: |
+| 1 min | ```chart.at01min.``` |
+| 2 min | ```chart.at02min.``` |
+| 3 min | ```chart.at03min.``` |
+| 4 min | ```chart.at04min.``` |
+| 5 min | ```chart.at05min.``` |
+| 10 min | ```chart.at10min.``` |
+| 15 min | ```chart.at15min.``` |
+| 20 min | ```chart.at20min.``` |
+| 30 min | ```chart.at30min.``` |
+| 40 min | ```chart.at40min.``` |
+| 45 min | ```chart.at45min.``` |
+| 1 h | ```chart.at01hs.``` |
+| 2 hs | ```chart.at02hs.``` |
+| 3 hs | ```chart.at03hs.``` |
+| 4 hs | ```chart.at04hs.``` |
+| 6 hs | ```chart.at06hs.``` |
+| 8 hs | ```chart.at08hs.``` |
+| 12 hs | ```chart.at12hs.``` |
+| 24 hs | ```chart.at24hs.``` |
+
+> **TECHNICAL LIMITATION**: When you are simulating and live-trading on time periods in the order of minutes (below 1 hour), you may access any other time period variables, as explained above. However, when you are simulating or live-trading in time periods of 1 hour and above, you may only access data of time periods of 1 hour and above.
+
 # Managing Processes
 
 Before discussing the various forms of strategy testing and live trading available, it is important to explain the basic aspects of how those and other processes work.
@@ -835,19 +873,35 @@ All workspaces in the ```Quick-Start-Examples``` folder include the Superalgos N
 
 # Testing and Simulations
 
-
+| Backtesting | Paper-Trading |
+| :---: | :---: |
+| ![session-backtesting](https://user-images.githubusercontent.com/13994516/66930152-7990a900-f034-11e9-8f97-2216e139cf40.png) | ![session-paper-trading](https://user-images.githubusercontent.com/13994516/66930155-7990a900-f034-11e9-9c87-0f5627c6f219.png) |
 
 A simulation is the visual representation over the charts of any of the forms of strategy testing available within the app: 
 
 * **Backtesting:** testing over historic data;
 * **Paper-trading:** testing over a live data feed, without placing orders at the exchange (orders are simulated);
-* **Forward testing:** testing over a live data feed, placing actual orders at the exchange for a fraction of the defined *position size*.
+* **Forward testing:** testing over a live data feed, placing actual orders at the exchange for a fraction of the defined *position size* (we will cover forward testing later on).
 
-## Running the First Simulation
+As explained in the previous chapter, the trading engine is the bot that handles testing sessions, and is controlled by a task and it's corresponding task manager. In order to run a testing session, you will set up the session under a process of the trading engine.
 
-In order to run a first simulation, you need to have a strategy in working order, as described in the [Starting a Strategy from Scratch](https://github.com/Superalgos/DesktopApp/blob/master/README.md#starting-a-strategy-from-scratch) section.
+[ILLUSTRATION]
 
-## Exchange Fees
+For your convenience, all our templates in the ```Quick-Start-Examples``` folder come with at least one backtesting and one paper-trading session set up. All you need to do is customize the *parameters* to your liking and, if you wish, add or remove layers to the *layer manager*.
+
+## Parameters
+
+| Parameters |
+| :---: |
+| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) |
+
+Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings.
+
+> If any of these parameters is missing from the configuration of the testing session, the app's fall-back mechanism will look for the parameters at the trading system level and use those settings instead.
+
+We covered the *Base Asset* parameter when explaining [trading systems](#trading-system). Let's now review the rest.
+
+### Exchange Fees
 
 Fees are a crucial part of the game. A strategy may work like a charm when you leave fees out of the equation but would lead you to bankruptcy in a live trading situation.
 
@@ -875,7 +929,7 @@ The trade hits the take profit target above the Position Rate level, however, du
 
 > If the *Fee Structure* parameter is left empty or disconnected from your Trading System, fees will not be computed during simulations.
 
-## Slippage
+### Slippage
 
 [Slippage](https://en.wikipedia.org/wiki/Slippage_(finance)) is another issue you need to be aware of to more realistically evaluate a Strategy. The price at which the Exchange will fill the order placed by the Execution Engine is seldom going to match the conditions of the simulation.
 
@@ -901,7 +955,7 @@ The result of slippage in simulations is taken into account by the graphic repre
 
 > If the *Slippage* parameter is left empty or disconnected from your Trading System, slippage will not be computed during simulations.
 
-## Datetime Range
+### Datetime Range
 
 | Parameters | Time Range |
 | :---: | :---: |
@@ -929,48 +983,9 @@ The Datetime Range parameter of your Trading System is used to control the perio
 
 **B.** If you do not enter a *finalDatetime*, then the forward-test will run for one year.
 
-## Time Period
+### Time Period
 
 Simulations run in the time period active at the moment of clicking the RESTART SIMULATION button. Only one time period may be active at any point in time: if you run a simulation in a different time period than a previous simulation, the previous one stops—however,  the previous simulation data is conserved and may be accessed again by going back to the corresponding time period.
-
-
-### Contitions and Formulas with Data from Different Time Periods
-
-When building your conditions and formulas, you may want to include analysis concerning a different time period than the one in which you intend to run your simulation and live-trading.
-
-The [Available Variables](#available-variables) explained above, written as described, always refer to the time period on which the simulation or live-trading is running. To refer to other time periods, you need to use a mechanism built-in the app, implementing the following syntax:
-
-```chart.at + time period + . + your variable```
-
-For example:
-
-```chart.at04hs.candle.close > chart.at04hs.candle.previous.close```
-
-The above statement compares the current 4 hours candle to the previous 4 hours candle, no matter what time period you are simulating in.
-
-| Time Period | Syntax |
-| :---: | :---: |
-| 1 min | ```chart.at01min.``` |
-| 2 min | ```chart.at02min.``` |
-| 3 min | ```chart.at03min.``` |
-| 4 min | ```chart.at04min.``` |
-| 5 min | ```chart.at05min.``` |
-| 10 min | ```chart.at10min.``` |
-| 15 min | ```chart.at15min.``` |
-| 20 min | ```chart.at20min.``` |
-| 30 min | ```chart.at30min.``` |
-| 40 min | ```chart.at40min.``` |
-| 45 min | ```chart.at45min.``` |
-| 1 h | ```chart.at01hs.``` |
-| 2 hs | ```chart.at02hs.``` |
-| 3 hs | ```chart.at03hs.``` |
-| 4 hs | ```chart.at04hs.``` |
-| 6 hs | ```chart.at06hs.``` |
-| 8 hs | ```chart.at08hs.``` |
-| 12 hs | ```chart.at12hs.``` |
-| 24 hs | ```chart.at24hs.``` |
-
-> **TECHNICAL LIMITATION**: When you are simulating and live-trading on time periods in the order of minutes (below 1 hour), you may access any other time period variables, as explained above. However, when you are simulating or live-trading in time periods of 1 hour and above, you may only access data of time periods of 1 hour and above.
 
 ## Simulation Processes
 

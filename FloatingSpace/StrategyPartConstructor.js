@@ -69,15 +69,14 @@ function newStrategyPartConstructor () {
 
     setFloatingObjectBasicProperties(floatingObject, payload)
 
-    payload.node.savedPayload = undefined
-
-    floatingLayer.addFloatingObject(floatingObject)
-
     if (payload.node.savedPayload !== undefined) {
       if (payload.node.savedPayload.uiObject !== undefined) {
         payload.uiObject.shortcutKey = payload.node.savedPayload.uiObject.shortcutKey
       }
     }
+    payload.node.savedPayload = undefined
+
+    floatingLayer.addFloatingObject(floatingObject)
 
     return
   }

@@ -649,7 +649,7 @@ function newProductCard () {
 
     if (thisObject.session !== undefined) {
       const MAX_LABEL_LENGTH = 30
-      if (thisObject.session.name > MAX_LABEL_LENGTH) {
+      if (thisObject.session.name.length > MAX_LABEL_LENGTH) {
         label = thisObject.session.name.substring(0, MAX_LABEL_LENGTH) + '...' + ' - ' + label
       } else {
         label = thisObject.session.name + ' - ' + label

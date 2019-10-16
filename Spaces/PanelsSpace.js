@@ -35,7 +35,7 @@ function newPanelsSpace () {
 
   }
 
-  function createNewPanel (pType, pParameters, pOwner) {
+  function createNewPanel (pType, pParameters, pOwner, pSession) {
     let panel
 
     switch (pType) {
@@ -59,6 +59,7 @@ function newPanelsSpace () {
           panel = getNewPlotterPanel(pParameters.devTeam, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelCodeName)
           panel.fitFunction = canvas.chartSpace.fitIntoVisibleArea
           panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
+          panel.session = pSession
           panel.initialize()
           break
         }

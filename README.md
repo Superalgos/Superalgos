@@ -789,9 +789,11 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 **distanceToLast.closePosition:** The number of periods between the last Close Position and the current candle.
 
-# Network
+# Managing Processes
 
 Before discussing the various forms of strategy testing and live trading available, it is important to explain the basic aspects of how those and other processes work.
+
+## Network
 
 | Network | Network Node |
 | :---: | :---: |
@@ -805,12 +807,28 @@ For the time being, all you need to know is that the *network* is one of the dir
 
 | Task Manager | Task | Bot |
 | :---: | :---: | :---: |
-| ![situations](https://user-images.githubusercontent.com/13994516/63511799-72409980-c4e2-11e9-8f2a-5bc4a8d9d6ed.png) | ![conditions](https://user-images.githubusercontent.com/13994516/63511800-72d93000-c4e2-11e9-98a2-259c7f0edca2.png) | ![code](https://user-images.githubusercontent.com/13994516/63511802-72d93000-c4e2-11e9-9cbf-df75cc9bbe0b.png) |
+|  |  |  |
 
-A *task manager* is an entity that controls any number of *tasks*. A task is an entity that controls any number of *bots*. There currently are three kinds of bots that you will run to provide you with the data and functions you need:
+A *task manager* is an entity that controls any number of *tasks*, and tasks are used to control *bots*. In other words, a task manager starts and stops tasks, and tasks are the devices you will use to start and stop bots.
+
+There currently are three kinds of bots that you will run to provide you with the data and functions you need:
+
+* **Sensors:** they extract raw data from the exchange;
+* **Indicators:** they process data to produce more ellaborate datasets;
+* **Trading Engine:** it is the bot that reads a Superalgos Protocol file containing the details of trading strategies and interacts with the Superalgos Desktop App to run them as simulations (using a simulation plotter) or to trade live.
+
+Remember all of these elements (Network, Network Node, Task Manager, Tasks and Bots) are part of your definition. If you do not use one of the Quick-Start Examples workspaces supplied with the release, you will need to create all of these elements on your own.
+
+All workspaces in the ```Quick-Start-Examples``` folder include two task managers, each with a name that you can see on top of the element when you hover the mouse pointer over the icon:
+
+* **Keep Datasets Up-to-Date:** This task manager has several tasks, each controlling one of the bots required to keep the datasets in your machine up to date, including sensors and indicators. If you wish to have the data up-to-date, you need to *Start All Tasks* using the menu. This is a pre-requisite for trading live, or even doing paper-trading and forward tests. 
+
+* **Tests & Live Trading:** This is the task manager you will use to set up your backtesting, paper-trading, forward testing and live testing sessions. 
 
 
-The workspace templates 
+
+
+
 
 # Simulation
 

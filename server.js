@@ -72,7 +72,7 @@ if (global.TASK_NODE !== undefined) {
 
 }
 else {  // I use this section to debug in standalone mode.
-    let argument = '{"type":"Task","name":"New Task","bot":{"type":"Trading Engine","code":{"team":"AAMasters","bot":"AAJason","repo":"AAJason-Trading-Engine-Bot"},"processes":[{"type":"Process","subType":"Trading Engine Process","name":"Trading Engine Process","code":{"process":"Multi-Period"},"session":{"type":"Live Trading Session","name":"New Live Trading Session","id":"1be42eb3-bfaf-432f-8da6-15f15d547f50"},"id":"16d02098-221f-4d83-9682-a5f83262bb74"}],"id":"72cdfb23-b7c6-4feb-ba2d-d56415d30162"},"id":"c6fb2087-d2a2-49a0-9790-2c4d1cb015d7"}'
+    let argument = '{"type":"Task","name":"New Task","bot":{"type":"Trading Engine","code":{"team":"AAMasters","bot":"AAJason","repo":"AAJason-Trading-Engine-Bot"},"processes":[{"type":"Process","subType":"Trading Engine Process","name":"Multi Period","code":{"process":"Multi-Period"},"session":{"type":"Backtesting Session","name":"30min + 6hs down, dev < 15","id":"715839bb-a76c-427f-a48f-5bf1b2184070"},"id":"18dfca43-5015-40d9-824d-09b59b670e32"},{"type":"Process","subType":"Trading Engine Process","name":"Multi Period","code":{"process":"Multi-Period"},"session":{"type":"Backtesting Session","name":"30min + 6hs down, dev < 20","id":"7a681e8d-7167-4edb-bb2f-90e12c7f5418"},"id":"5ccdbb76-4e45-4377-bc44-fd0f95e40deb"}],"id":"22b61a44-4fcc-4f6d-bb7c-4c2a24acbfbc"},"id":"9238ed0b-7cc6-4732-83e6-8ac8d52f6dd3"}'
     /* charly   argument = '{"type":"Task","name":"Brings Trades Records from the Exchange","bot":{"type":"Sensor","name":"Charly","processes":[{"type":"Process","name":"Live Trades","code":{"team":"AAMasters","bot":"AACharly","process":"Live-Trades"},"id":"5846ebc7-1979-4a80-9cc7-94bb4b8659dc"},{"type":"Process","name":"Hole Fixing","code":{"team":"AAMasters","bot":"AACharly","process":"Hole-Fixing"},"id":"31fc4f05-75d4-419a-9fb0-73e25e856f15"}]},"id":"5bfef4dc-54c1-44db-ace6-1ab27a86746e"}'
     // olivia argument = '{"type":"Task","name":"Generates 1 min to 24 hs Candles & Volumes","bot":{"type":"Indicator","name":"Olivia","processes":[{"type":"Process","name":"Daily","code":{"team":"AAMasters","bot":"AAOlivia","process":"Multi-Period-Daily"},"id":"68cc8e1b-e94a-477e-82d0-15ecc9f1b9e2"},{"type":"Process","name":"Market","code":{"team":"AAMasters","bot":"AAOlivia","process":"Multi-Period-Market"},"id":"e1ac5e3d-d491-4e90-baf4-d4e5b71a8b1a"}]},"id":"efe36e05-75ea-41b5-8d92-c6b27635c834"}'
     // bruce argument = ' {"type":"Task","name":"Converts Trades into 1 min Candles & Volumes","bot":{"type":"Indicator","name":"Bruce","processes":[{"type":"Process","name":"New Process","code":{"team":"AAMasters","bot":"AABruce","process":"Single-Period-Daily"},"id":"e184744f-5de0-41c1-ad4c-36960f4ced90"}]},"id":"42758590-a7bd-4712-a5c9-80a3a820c5b3"}'
@@ -152,6 +152,28 @@ global.STOP_TASK_GRACEFULLY = false;
 
 function bootLoader() {
 
+    /* Telegram Bot Initialization */
+
+    try {
+/*
+    const Telegraf = require('telegraf')
+
+    global.TELEGRAM_BOT = new Telegraf(process.env.TELEGRAM_BOT_TOKEN)
+    global.TELEGRAM_BOT.start((ctx) => ctx.reply('Welcome'))
+    global.TELEGRAM_BOT.help((ctx) => ctx.reply('Send me a sticker'))
+    global.TELEGRAM_BOT.on('sticker', (ctx) => ctx.reply('??'))
+    global.TELEGRAM_BOT.hears('hi', (ctx) => ctx.reply('Hey there'))
+    global.TELEGRAM_BOT.launch()
+    
+    const Telegram = require('telegraf/telegram')
+    global.TELEGRAM_API = new Telegram(process.env.TELEGRAM_BOT_TOKEN)
+    global.TELEGRAM_API.sendMessage(process.env.TELEGRAM_GROUP_ID, "Task Manager Started.")
+*/
+
+    } catch (err) {
+        console.log("[ERROR] Task Server -> server -> bootLoader -> Telegram Initialization Failed. -> Error = " + err.stack);
+    }
+
     /* Heartbeat sent to the UI */
 
     let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
@@ -166,7 +188,12 @@ function bootLoader() {
         let event = {
             seconds: (new Date()).getSeconds()
         }
+        /*
         global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
+        if (global.TELEGRAM_API !== undefined) {
+            global.TELEGRAM_API.sendMessage(process.env.TELEGRAM_GROUP_ID, "Task is Alive!")
+        }
+        */
     }
 
     for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {

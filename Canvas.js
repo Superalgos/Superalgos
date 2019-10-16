@@ -236,6 +236,14 @@ function newCanvas () {
       return
     }
 
+    if (event.code === 'Period') {
+      let nodeOnFocus = canvas.strategySpace.workspace.getNodeThatIsOnFocus()
+      if (nodeOnFocus !== undefined) {
+        nodeOnFocus.payload.uiObject.setValue('Id: ' + nodeOnFocus.id)
+        return
+      }
+    }
+
     if (event.ctrlKey === true) {
       if (event.keyCode >= 65 && event.keyCode <= 90) {
         event.preventDefault()

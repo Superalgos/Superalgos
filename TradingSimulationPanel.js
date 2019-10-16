@@ -5,6 +5,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         fitFunction: undefined,
         onEventRaised: onEventRaised,
         container: undefined,
+        session: undefined,
         draw: draw,
         getContainer: getContainer,
         initialize: initialize,
@@ -15,8 +16,8 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
     container.initialize();
     thisObject.container = container;
 
-    container.displacement.containerName = "Trading Simulation";
-    container.frame.containerName = "Trading Simulation";
+    container.displacement.containerName = "Simulation";
+    container.frame.containerName = "Simulation";
 
     let currentRecord;
     let lastRecord;
@@ -42,7 +43,16 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
     }
 
     function finalize() {
+        thisObject.session = undefined
 
+        thisObject.container.finalize()
+        thisObject.container = undefined
+        thisObject.fitFunction = undefined
+        thisObject.onEventRaised = undefined
+
+        currentRecord = undefined
+        lastRecord = undefined
+        panelTabButton = undefined
     }
 
     function getContainer(point) {
@@ -83,6 +93,16 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         plotCurrentRecordInfo();
 
         panelTabButton.draw()
+
+        /* Define panel name */
+        if (thisObject.session !== undefined) {
+            const MAX_LABEL_LENGTH = 25
+            if (thisObject.session.name.length > MAX_LABEL_LENGTH) {
+                container.frame.containerName = thisObject.session.name.substring(0, MAX_LABEL_LENGTH) + '...'
+            } else {
+                container.frame.containerName = thisObject.session.name
+            }
+        }
     }
 
 

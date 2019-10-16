@@ -843,15 +843,15 @@ For the time being, all you need to know is that the *network* is one of the dir
 
 ## Task Manager, Tasks, Bots and Processes
 
-| Task Manager | Task | Sensor | Indicator | Trading Engine |
-| :---: | :---: | :---: | :---: | :---: |
-|  |  |  |  |  |
+| Task Manager | Task | Sensor | Indicator | Trading Engine | Process |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+|  |  |  |  |  |  |
 
 A *task manager* is an entity that controls any number of *tasks*, and tasks are used to control *bots*, which in turn may run any number of *processes*. 
 
 In other words, a task manager starts and stops tasks, and tasks are the devices you will use to start and stop bots.
 
-Each bot may do more than one thing, thus, they may run one or more processes. Bots and processes are preconfigured so that you don't need to worry about their technical intricacies. 
+Each bot may perform more than one job, thus, they may run one or more processes. Bots and processes are preconfigured so that you don't need to worry about their technical intricacies. 
 
 **All you need to do is the basic operation: starting and stopping them via the corresponding tasks whenever you need them.**
 
@@ -927,7 +927,7 @@ To illustrate how fees affect your bottom line, take a look at the image below.
 
 The trade hits the take profit target above the Position Rate level, however, due to fees, the trade has a negative 0.32% ROI.
 
-> If the *Fee Structure* parameter is left empty or disconnected from your Trading System, fees will not be computed during simulations.
+> If the *Fee Structure* parameter is left empty or disconnected both from your testing session and your Trading System, fees will not be computed during simulations.
 
 ### Slippage
 

@@ -827,8 +827,12 @@
 
                                 n = 0;
 
-                                callTheBot();
-
+                                if (currentTimePeriod !== undefined) {
+                                    callTheBot();
+                                } else {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsDailyFiles -> periodsControlLoop -> Time Period not Recognized. Can not continue."  );
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
                             }
                         }
                         catch (err) {
@@ -842,7 +846,7 @@
                         try {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> callTheBot -> Entering function."); }
-                            
+                             
                             usertBot.start(
                                 multiPeriodDataFiles,
                                 currentTimePeriod,

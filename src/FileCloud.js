@@ -113,7 +113,19 @@ function newFileCloud () {
           }
 
           if (pSession !== undefined) {
-            filePath = filePath.replace('@Session', pSession.id)
+            let code
+            let sessionFolderName = pSession.id
+            if (pSession.code !== undefined) {
+              try {
+                code = JSON.parse(pSession.code)
+                if (code.folderName !== undefined) {
+                  sessionFolderName = code.folderName
+                }
+              } catch (err) {
+                sessionFolderName = pSession.id
+              }
+            }
+            filePath = filePath.replace('@Session', sessionFolderName)
           }
 
           if (pExchange !== undefined) {

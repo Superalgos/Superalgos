@@ -55,7 +55,7 @@
                         if (code.folderName === undefined) {
                             bot.SESSION.folderName = bot.SESSION.id
                         } else {
-                            bot.SESSION.folderName = bot.processNode.session.code.folderName
+                            bot.SESSION.folderName = code.folderName
                         }
                     } catch (err) {
                         bot.SESSION.folderName = bot.SESSION.id 

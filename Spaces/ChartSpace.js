@@ -141,7 +141,7 @@ function newChartSpace () {
       y: 0
     }
 
-    viewPort.displace(displaceVector)
+    viewPort.displace(displaceVector, true)
   }
 
   function oneScreenRight () {
@@ -150,7 +150,7 @@ function newChartSpace () {
       y: 0
     }
 
-    viewPort.displace(displaceVector)
+    viewPort.displace(displaceVector, true)
   }
 
   function fitIntoVisibleArea (point) {

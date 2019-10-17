@@ -600,6 +600,7 @@ function newPartsFromNodes () {
 
   function addProcess (node) {
     let process = {
+      name: 'New Process',
       code: '{}'
     }
 
@@ -629,7 +630,8 @@ function newPartsFromNodes () {
   function addBacktestingSession (node) {
     if (node.session === undefined) {
       node.session = {
-        name: 'New Backtesting Session'
+        name: 'New Backtesting Session',
+        code: '{}'
       }
       createPart('Backtesting Session', '', node.session, node, node)
     }
@@ -640,7 +642,8 @@ function newPartsFromNodes () {
   function addLiveTradingSession (node) {
     if (node.session === undefined) {
       node.session = {
-        name: 'New Live Trading Session'
+        name: 'New Live Trading Session',
+        code: '{}'
       }
       createPart('Live Trading Session', '', node.session, node, node)
     }
@@ -651,7 +654,8 @@ function newPartsFromNodes () {
   function addFordwardTestingSession (node) {
     if (node.session === undefined) {
       node.session = {
-        name: 'New Fordward Testing Session'
+        name: 'New Fordward Testing Session',
+        code: '{}'
       }
       createPart('Fordward Testing Session', '', node.session, node, node)
     }
@@ -662,7 +666,8 @@ function newPartsFromNodes () {
   function addPaperTradingSession (node) {
     if (node.session === undefined) {
       node.session = {
-        name: 'New Paper Trading Session'
+        name: 'New Paper Trading Session',
+        code: '{}'
       }
       createPart('Paper Trading Session', '', node.session, node, node)
     }

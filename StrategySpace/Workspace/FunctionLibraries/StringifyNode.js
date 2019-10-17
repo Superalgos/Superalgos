@@ -568,6 +568,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           parameters: prepareForStringify(node.parameters, removePersonalData),
           layerManager: prepareForStringify(node.layerManager, removePersonalData),
           savedPayload: getSavedPayload(node)
@@ -580,6 +581,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           parameters: prepareForStringify(node.parameters, removePersonalData),
           layerManager: prepareForStringify(node.layerManager, removePersonalData),
           savedPayload: getSavedPayload(node)
@@ -592,6 +594,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           parameters: prepareForStringify(node.parameters, removePersonalData),
           layerManager: prepareForStringify(node.layerManager, removePersonalData),
           savedPayload: getSavedPayload(node)
@@ -604,6 +607,7 @@ function newStringifyNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           parameters: prepareForStringify(node.parameters, removePersonalData),
           layerManager: prepareForStringify(node.layerManager, removePersonalData),
           savedPayload: getSavedPayload(node)

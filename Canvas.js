@@ -239,6 +239,11 @@ function newCanvas () {
     if (event.code === 'Period') {
       let nodeOnFocus = canvas.strategySpace.workspace.getNodeThatIsOnFocus()
       if (nodeOnFocus !== undefined) {
+        if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
+          if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
+            return
+          }
+        }
         nodeOnFocus.payload.uiObject.setValue('Id: ' + nodeOnFocus.id)
         return
       }
@@ -246,7 +251,6 @@ function newCanvas () {
 
     if (event.ctrlKey === true) {
       if (event.keyCode >= 65 && event.keyCode <= 90) {
-        event.preventDefault()
         let nodeOnFocus = canvas.strategySpace.workspace.getNodeThatIsOnFocus()
         let nodeUsingThisKey = canvas.strategySpace.workspace.getNodeByShortcutKey(event.key)
 
@@ -255,6 +259,14 @@ function newCanvas () {
           nodeUsingThisKey = canvas.floatingSpace.positionAtNode(nodeUsingThisKey)
           return
         }
+        if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
+          if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
+            return
+          }
+        }
+
+        /* From here we prevent the default behaviour */
+        event.preventDefault()
 
         /* If there is a node in focus, we try to assign the key to it. */
         if (nodeUsingThisKey !== undefined) {

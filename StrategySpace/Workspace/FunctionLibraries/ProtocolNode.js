@@ -4,7 +4,7 @@ function newProtocolNode () {
   }
   return thisObject
 
-  function getProtocolNode (node, removePersonalData, parseJSONStrings, includeIds) {
+  function getProtocolNode (node, removePersonalData, parseCode, includeIds) {
     if (node === undefined) { return }
     switch (node.type) {
       case 'Code':
@@ -26,7 +26,7 @@ function newProtocolNode () {
             type: node.type,
             subType: node.subType,
             name: node.name,
-            code: getProtocolNode(node.code, removePersonalData, parseJSONStrings, includeIds)
+            code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds)
           }
           if (includeIds) {
             condition.id = node.id
@@ -42,7 +42,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.conditions.length; m++) {
-          let condition = getProtocolNode(node.conditions[m], removePersonalData, parseJSONStrings, includeIds)
+          let condition = getProtocolNode(node.conditions[m], removePersonalData, parseCode, includeIds)
           situation.conditions.push(condition)
         }
         if (includeIds) {
@@ -72,7 +72,7 @@ function newProtocolNode () {
             situations: []
           }
           for (let m = 0; m < node.situations.length; m++) {
-            let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings, includeIds)
+            let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds)
             event.situations.push(situation)
           }
           if (includeIds) {
@@ -85,8 +85,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula, removePersonalData, parseJSONStrings, includeIds),
-          nextPhaseEvent: getProtocolNode(node.nextPhaseEvent, removePersonalData, parseJSONStrings, includeIds)
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds),
+          nextPhaseEvent: getProtocolNode(node.nextPhaseEvent, removePersonalData, parseCode, includeIds)
         }
         if (includeIds) {
           phase.id = node.id
@@ -102,7 +102,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = getProtocolNode(node.phases[m], removePersonalData, parseJSONStrings, includeIds)
+          let phase = getProtocolNode(node.phases[m], removePersonalData, parseCode, includeIds)
           stop.phases.push(phase)
         }
         if (includeIds) {
@@ -119,7 +119,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = getProtocolNode(node.phases[m], removePersonalData, parseJSONStrings, includeIds)
+          let phase = getProtocolNode(node.phases[m], removePersonalData, parseCode, includeIds)
           takeProfit.phases.push(phase)
         }
         if (includeIds) {
@@ -136,7 +136,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings, includeIds)
+          let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds)
           event.situations.push(situation)
         }
         if (includeIds) {
@@ -153,7 +153,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings, includeIds)
+          let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds)
           event.situations.push(situation)
         }
         if (includeIds) {
@@ -170,7 +170,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings, includeIds)
+          let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds)
           event.situations.push(situation)
         }
         if (includeIds) {
@@ -183,10 +183,10 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseJSONStrings, includeIds),
-          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseJSONStrings, includeIds),
-          positionSize: getProtocolNode(node.positionSize, removePersonalData, parseJSONStrings, includeIds),
-          positionRate: getProtocolNode(node.positionRate, removePersonalData, parseJSONStrings, includeIds)
+          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseCode, includeIds),
+          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseCode, includeIds),
+          positionSize: getProtocolNode(node.positionSize, removePersonalData, parseCode, includeIds),
+          positionRate: getProtocolNode(node.positionRate, removePersonalData, parseCode, includeIds)
         }
         if (includeIds) {
           object.id = node.id
@@ -220,7 +220,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula, removePersonalData, parseJSONStrings, includeIds)
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds)
         }
         if (includeIds) {
           object.id = node.id
@@ -232,7 +232,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula, removePersonalData, parseJSONStrings, includeIds)
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds)
         }
         if (includeIds) {
           object.id = node.id
@@ -244,9 +244,9 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerOn: getProtocolNode(node.triggerOn, removePersonalData, parseJSONStrings, includeIds),
-          triggerOff: getProtocolNode(node.triggerOff, removePersonalData, parseJSONStrings, includeIds),
-          takePosition: getProtocolNode(node.takePosition, removePersonalData, parseJSONStrings, includeIds)
+          triggerOn: getProtocolNode(node.triggerOn, removePersonalData, parseCode, includeIds),
+          triggerOff: getProtocolNode(node.triggerOff, removePersonalData, parseCode, includeIds),
+          takePosition: getProtocolNode(node.takePosition, removePersonalData, parseCode, includeIds)
         }
         if (includeIds) {
           stage.id = node.id
@@ -258,8 +258,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          initialDefinition: getProtocolNode(node.initialDefinition, removePersonalData, parseJSONStrings, includeIds),
-          openExecution: getProtocolNode(node.openExecution, removePersonalData, parseJSONStrings, includeIds)
+          initialDefinition: getProtocolNode(node.initialDefinition, removePersonalData, parseCode, includeIds),
+          openExecution: getProtocolNode(node.openExecution, removePersonalData, parseCode, includeIds)
         }
         if (includeIds) {
           stage.id = node.id
@@ -271,8 +271,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseJSONStrings, includeIds),
-          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseJSONStrings, includeIds)
+          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseCode, includeIds),
+          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseCode, includeIds)
         }
         if (includeIds) {
           stage.id = node.id
@@ -284,7 +284,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          closeExecution: getProtocolNode(node.closeExecution, removePersonalData, parseJSONStrings, includeIds)
+          closeExecution: getProtocolNode(node.closeExecution, removePersonalData, parseCode, includeIds)
         }
         if (includeIds) {
           stage.id = node.id
@@ -296,10 +296,10 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerStage: getProtocolNode(node.triggerStage, removePersonalData, parseJSONStrings, includeIds),
-          openStage: getProtocolNode(node.openStage, removePersonalData, parseJSONStrings, includeIds),
-          manageStage: getProtocolNode(node.manageStage, removePersonalData, parseJSONStrings, includeIds),
-          closeStage: getProtocolNode(node.closeStage, removePersonalData, parseJSONStrings, includeIds)
+          triggerStage: getProtocolNode(node.triggerStage, removePersonalData, parseCode, includeIds),
+          openStage: getProtocolNode(node.openStage, removePersonalData, parseCode, includeIds),
+          manageStage: getProtocolNode(node.manageStage, removePersonalData, parseCode, includeIds),
+          closeStage: getProtocolNode(node.closeStage, removePersonalData, parseCode, includeIds)
         }
         if (includeIds) {
           strategy.id = node.id
@@ -371,12 +371,12 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          baseAsset: getProtocolNode(node.baseAsset, removePersonalData, parseJSONStrings, includeIds),
-          timeRange: getProtocolNode(node.timeRange, removePersonalData, parseJSONStrings, includeIds),
-          timePeriod: getProtocolNode(node.timePeriod, removePersonalData, parseJSONStrings, includeIds),
-          slippage: getProtocolNode(node.slippage, removePersonalData, parseJSONStrings, includeIds),
-          feeStructure: getProtocolNode(node.feeStructure, removePersonalData, parseJSONStrings, includeIds),
-          key: getProtocolNode(node.key, removePersonalData, parseJSONStrings, includeIds)
+          baseAsset: getProtocolNode(node.baseAsset, removePersonalData, parseCode, includeIds),
+          timeRange: getProtocolNode(node.timeRange, removePersonalData, parseCode, includeIds),
+          timePeriod: getProtocolNode(node.timePeriod, removePersonalData, parseCode, includeIds),
+          slippage: getProtocolNode(node.slippage, removePersonalData, parseCode, includeIds),
+          feeStructure: getProtocolNode(node.feeStructure, removePersonalData, parseCode, includeIds),
+          key: getProtocolNode(node.key, removePersonalData, parseCode, includeIds)
         }
         if (includeIds) {
           object.id = node.id
@@ -389,11 +389,11 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           strategies: [],
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds)
         }
 
         for (let m = 0; m < node.strategies.length; m++) {
-          let strategy = getProtocolNode(node.strategies[m], removePersonalData, parseJSONStrings, includeIds)
+          let strategy = getProtocolNode(node.strategies[m], removePersonalData, parseCode, includeIds)
           tradingSystem.strategies.push(strategy)
         }
         if (includeIds) {
@@ -411,7 +411,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.exchangeAccounts.length; m++) {
-          let exchangeAccount = getProtocolNode(node.exchangeAccounts[m], removePersonalData, parseJSONStrings, includeIds)
+          let exchangeAccount = getProtocolNode(node.exchangeAccounts[m], removePersonalData, parseCode, includeIds)
           personalData.exchangeAccounts.push(exchangeAccount)
         }
         if (includeIds) {
@@ -430,11 +430,11 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.assets.length; m++) {
-          let asset = getProtocolNode(node.assets[m], removePersonalData, parseJSONStrings, includeIds)
+          let asset = getProtocolNode(node.assets[m], removePersonalData, parseCode, includeIds)
           exchangeAccount.assets.push(asset)
         }
         for (let m = 0; m < node.keys.length; m++) {
-          let key = getProtocolNode(node.keys[m], removePersonalData, parseJSONStrings, includeIds)
+          let key = getProtocolNode(node.keys[m], removePersonalData, parseCode, includeIds)
           exchangeAccount.keys.push(key)
         }
         if (includeIds) {
@@ -476,7 +476,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.layers.length; m++) {
-          let layer = getProtocolNode(node.layers[m], removePersonalData, parseJSONStrings, includeIds)
+          let layer = getProtocolNode(node.layers[m], removePersonalData, parseCode, includeIds)
           layerManager.layers.push(layer)
         }
         if (includeIds) {
@@ -505,7 +505,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.tasks.length; m++) {
-          let task = getProtocolNode(node.tasks[m], removePersonalData, parseJSONStrings, includeIds)
+          let task = getProtocolNode(node.tasks[m], removePersonalData, parseCode, includeIds)
           taskManager.tasks.push(task)
         }
         if (includeIds) {
@@ -518,7 +518,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          bot: getProtocolNode(node.bot, removePersonalData, parseJSONStrings, includeIds)
+          bot: getProtocolNode(node.bot, removePersonalData, parseCode, includeIds)
         }
         if (includeIds) {
           object.id = node.id
@@ -535,10 +535,10 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.processes.length; m++) {
-          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings, includeIds)
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds)
           bot.processes.push(process)
         }
-        if (parseJSONStrings) {
+        if (parseCode) {
           bot.code = JSON.parse(bot.code)
         }
         if (includeIds) {
@@ -556,10 +556,10 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.processes.length; m++) {
-          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings, includeIds)
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds)
           bot.processes.push(process)
         }
-        if (parseJSONStrings) {
+        if (parseCode) {
           bot.code = JSON.parse(bot.code)
         }
         if (includeIds) {
@@ -577,10 +577,10 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.processes.length; m++) {
-          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings, includeIds)
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds)
           bot.processes.push(process)
         }
-        if (parseJSONStrings) {
+        if (parseCode) {
           bot.code = JSON.parse(bot.code)
         }
         if (includeIds) {
@@ -594,9 +594,9 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          session: getProtocolNode(node.session, removePersonalData, parseJSONStrings, includeIds)
+          session: getProtocolNode(node.session, removePersonalData, parseCode, includeIds)
         }
-        if (parseJSONStrings) {
+        if (parseCode) {
           object.code = JSON.parse(object.code)
         }
         if (includeIds) {
@@ -610,8 +610,12 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseJSONStrings, includeIds)
+          code: node.code,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds)
+        }
+        if (parseCode) {
+          object.code = JSON.parse(object.code)
         }
         if (includeIds) {
           object.id = node.id
@@ -624,8 +628,12 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseJSONStrings, includeIds)
+          code: node.code,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds)
+        }
+        if (parseCode) {
+          object.code = JSON.parse(object.code)
         }
         if (includeIds) {
           object.id = node.id
@@ -638,8 +646,12 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseJSONStrings, includeIds)
+          code: node.code,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds)
+        }
+        if (parseCode) {
+          object.code = JSON.parse(object.code)
         }
         if (includeIds) {
           object.id = node.id
@@ -652,11 +664,12 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseJSONStrings, includeIds)
+          code: node.code,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds)
         }
-        if (includeIds) {
-          object.id = node.id
+        if (parseCode) {
+          object.code = JSON.parse(object.code)
         }
         if (includeIds) {
           object.id = node.id
@@ -673,7 +686,7 @@ function newProtocolNode () {
         }
         if (node.taskManagers !== undefined) {
           for (let m = 0; m < node.taskManagers.length; m++) {
-            let taskManager = getProtocolNode(node.taskManagers[m], removePersonalData, parseJSONStrings, includeIds)
+            let taskManager = getProtocolNode(node.taskManagers[m], removePersonalData, parseCode, includeIds)
             object.taskManagers.push(taskManager)
           }
         }
@@ -691,7 +704,7 @@ function newProtocolNode () {
         }
         if (node.networkNodes !== undefined) {
           for (let m = 0; m < node.networkNodes.length; m++) {
-            let networkNode = getProtocolNode(node.networkNodes[m], removePersonalData, parseJSONStrings, includeIds)
+            let networkNode = getProtocolNode(node.networkNodes[m], removePersonalData, parseCode, includeIds)
             object.networkNodes.push(networkNode)
           }
         }
@@ -705,9 +718,9 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData, parseJSONStrings, includeIds),
-          personalData: getProtocolNode(node.personalData, removePersonalData, parseJSONStrings, includeIds),
-          network: getProtocolNode(node.network, removePersonalData, parseJSONStrings, includeIds)
+          tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData, parseCode, includeIds),
+          personalData: getProtocolNode(node.personalData, removePersonalData, parseCode, includeIds),
+          network: getProtocolNode(node.network, removePersonalData, parseCode, includeIds)
         }
         if (includeIds) {
           object.id = node.id

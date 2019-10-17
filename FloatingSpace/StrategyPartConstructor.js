@@ -1022,6 +1022,11 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Backtesting Session': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -1043,7 +1048,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -70
           }
         )
         menuItemsInitialValues.push(
@@ -1056,7 +1061,22 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -30
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Session',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Session',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0,
+            dontShowAtFullscreen: true
           }
           )
         menuItemsInitialValues.push(
@@ -1072,7 +1092,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 30
           }
             )
         menuItemsInitialValues.push(
@@ -1086,12 +1106,17 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 70
           }
           )
         break
       }
       case 'Live Trading Session': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -1113,7 +1138,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -70
           }
         )
         menuItemsInitialValues.push(
@@ -1126,9 +1151,24 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -30
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Session',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Session',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0,
+            dontShowAtFullscreen: true
+          }
+            )
         menuItemsInitialValues.push(
           {
             action: 'Delete Live Trading Session',
@@ -1142,7 +1182,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 30
           }
             )
         menuItemsInitialValues.push(
@@ -1156,12 +1196,17 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 70
           }
                 )
         break
       }
       case 'Fordward Testing Session': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -1183,7 +1228,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -70
           }
         )
         menuItemsInitialValues.push(
@@ -1196,9 +1241,24 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -30
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Session',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Session',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0,
+            dontShowAtFullscreen: true
+          }
+            )
         menuItemsInitialValues.push(
           {
             action: 'Delete Fordward Testing Session',
@@ -1212,7 +1272,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 30
           }
             )
         menuItemsInitialValues.push(
@@ -1226,12 +1286,17 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 70
           }
                 )
         break
       }
       case 'Paper Trading Session': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -1253,7 +1318,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -70
           }
         )
         menuItemsInitialValues.push(
@@ -1266,9 +1331,24 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -30
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Session',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Session',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0,
+            dontShowAtFullscreen: true
+          }
+            )
         menuItemsInitialValues.push(
           {
             action: 'Delete Paper Trading Session',
@@ -1282,7 +1362,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 30
           }
             )
         menuItemsInitialValues.push(
@@ -1296,7 +1376,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 70
           }
                 )
         break

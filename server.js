@@ -212,7 +212,7 @@ function bootLoader() {
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].code.process === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'process' is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
+            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'process' at object Process is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
             continue
         }
 

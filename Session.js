@@ -36,12 +36,12 @@
 
             /* Listen to event to start or stop the session. */
             bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
-
+ 
             global.SYSTEM_EVENT_HANDLER.listenToEvent(bot.sessionKey, 'Run Session', undefined, undefined, undefined, runSession)
             global.SYSTEM_EVENT_HANDLER.listenToEvent(bot.sessionKey, 'Stop Session', undefined, undefined, undefined, stopSession)
 
             function runSession(message) {
-
+                console.log("runSession")
                 /* We are going to run the Definition comming at the event. */
                 bot.DEFINITION = JSON.parse(message.event.definition)
                 bot.SESSION = JSON.parse(message.event.session)
@@ -73,6 +73,14 @@
                         startLiveTrading(message)
                         break
                     }
+                    case 'Fordward Testing Session': {
+                        startFordwardTesting(message)
+                        break
+                    }
+                    case 'Paper Trading Session': {
+                        startPaperTrading(message)
+                        break
+                    }
                 }
                 bot.SESSION_STATUS = 'Idle'
                 bot.STOP_SESSION = false
@@ -84,13 +92,65 @@
 
             function startBackTesting(message) {
                 bot.startMode = "Backtest"
+                if (bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf() > (new Date()).valueOf()) {
+                    bot.VALUES_TO_USE.timeRange.finalDatetime = new Date()
+                }
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
-                bot.multiPeriodProcessDatetime = bot.VALUES_TO_USE.timeRange.initialDatetime
+                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
             }
 
             function startLiveTrading(message) {
 
+                setKeyToUse()
+
+                if (process.env.KEY === undefined || process.env.SECRET === undefined) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Live mode."); }
+                    return
+                }
+
+                bot.startMode = "Live"
+                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
+                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
+                }
+                bot.resumeExecution = false;
+                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
+                bot.hasTheBotJustStarted = true
+
+            }
+
+            function startFordwardTesting(message) {
+
+                setKeyToUse()
+
+                if (process.env.KEY === undefined || process.env.SECRET === undefined) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Forward Testing mode."); }
+                    return
+                }
+
+                bot.startMode = "Live"
+                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
+                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
+                }
+                bot.resumeExecution = false;
+                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
+                bot.hasTheBotJustStarted = true
+
+            }
+
+            function startPaperTrading(message) {
+                bot.startMode = "Backtest"
+                console.log("startPaperTrading")
+                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
+                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
+                }
+                bot.resumeExecution = false;
+                bot.hasTheBotJustStarted = true
+                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
+
+            }
+
+            function setKeyToUse() {
                 /* The last place where we can find a key to use is the key pool at the exchange account. */
                 if (bot.DEFINITION.personalData) {
                     if (bot.DEFINITION.personalData.exchangeAccounts) {
@@ -130,20 +190,6 @@
                         process.env.SECRET = key.code
                     }
                 }
-
-                if (process.env.KEY === undefined || process.env.SECRET === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Live mode."); }
-                    return
-                }
-
-                bot.startMode = "Live"
-                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf) {
-                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
-                }
-                bot.resumeExecution = false;
-                bot.multiPeriodProcessDatetime = bot.VALUES_TO_USE.timeRange.initialDatetime
-                bot.hasTheBotJustStarted = true
-
             }
 
             function setValuesToUse(message) {

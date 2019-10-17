@@ -160,6 +160,17 @@
 
                     contextVariables.dateEndOfMarket = new Date(thisReport.lastFile.valueOf());
 
+                    /* Validation that the data is not up-to-date. */
+
+                    if (bot.multiPeriodProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS > contextVariables.dateEndOfMarket.valueOf() && bot.SESSION.type !== "Backtesting Session") {
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> " + "Head of the market is @ " + contextVariables.dateEndOfMarket); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> You need to UPDATE your datasets in order to run a " + bot.SESSION.type) }
+
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+
+                    }
 
                     /* Finally we get our own Status Report. */
 

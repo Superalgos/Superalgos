@@ -69,7 +69,11 @@ exports.newDebugLog = function newDebugLog() {
             let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/"
 
             if (thisObject.bot.SESSION !== undefined) {
-                filePath = filePath + thisObject.bot.SESSION.id + "/" + executionDatetime;
+                if (thisObject.bot.SESSION.code.folderName === undefined) {
+                    filePath = filePath + thisObject.bot.SESSION.id + "/" + executionDatetime;
+                } else {
+                    filePath = filePath + thisObject.bot.SESSION.code.folderName + "/" + executionDatetime;
+                }
             } else {
                 filePath = filePath + executionDatetime;
             }

@@ -16,7 +16,8 @@
             /* Initialize this info so that everything is logged propeerly */
             bot.SESSION = {
                 name: bot.processNode.session.name,
-                id: bot.processNode.session.id
+                id: bot.processNode.session.id,
+                code: bot.processNode.session.code
             }
 
             /* Check if there is a session */

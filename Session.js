@@ -14,12 +14,19 @@
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             /* Initialize this info so that everything is logged propeerly */
+             
             bot.SESSION = {
                 name: bot.processNode.session.name,
-                id: bot.processNode.session.id,
-                code: bot.processNode.session.code
+                id: bot.processNode.session.id 
             }
 
+            /* Set the folderName for early logging */
+            if (bot.processNode.session.code.folderName === undefined) {
+                bot.SESSION.folderName = bot.SESSION.id
+            } else {
+                bot.SESSION.folderName = bot.processNode.session.code.folderName
+            }
+ 
             /* Check if there is a session */
             if (bot.processNode.session === undefined) {
                 parentLogger.write(MODULE_NAME, "[ERROR] initialize -> Cannot run without a Session.");
@@ -39,6 +46,21 @@
                 bot.DEFINITION = JSON.parse(message.event.definition)
                 bot.SESSION = JSON.parse(message.event.session)
                 bot.UI_CURRENT_VALUES = message.event.uiCurrentValues
+
+                /* Set the folderName for logging, reports, context and data output */
+                let code
+                if (bot.SESSION.code !== undefined) {
+                    try {
+                        code = JSON.parse(bot.SESSION.code) 
+                        if (code.folderName === undefined) {
+                            bot.SESSION.folderName = bot.SESSION.id
+                        } else {
+                            bot.SESSION.folderName = bot.processNode.session.code.folderName
+                        }
+                    } catch (err) {
+                        bot.SESSION.folderName = bot.SESSION.id 
+                    }
+                }
 
                 setValuesToUse(message)
 

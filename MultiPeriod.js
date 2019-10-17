@@ -986,7 +986,7 @@
                     let fileContent = JSON.stringify(dataRange);
 
                     let fileName = '/Data.Range.' + market.assetA + '_' + market.assetB + '.json';
-                    let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.id + "/" + pProductFolder + "/" + 'Multi-Period-Daily' + fileName;
+                    let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + pProductFolder + "/" + 'Multi-Period-Daily' + fileName;
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 

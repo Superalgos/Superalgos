@@ -51,7 +51,7 @@
             year = pYear;
 
             if (bot.SESSION !== undefined && pOwner.type === "Trading Engine") {
-                sessionPath = bot.SESSION.id + "/"
+                sessionPath = bot.SESSION.folderName + "/"
             }
 
             if (owner.dataSetSection === "Month") {

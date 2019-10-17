@@ -186,6 +186,15 @@ function newCanvas () {
   }
 
   function onKeyDown (event) {
+    let nodeOnFocus = canvas.strategySpace.workspace.getNodeThatIsOnFocus()
+    if (nodeOnFocus !== undefined) {
+      if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
+        if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
+          return
+        }
+      }
+    }
+
     if (event.altKey === true && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
       return
@@ -237,13 +246,7 @@ function newCanvas () {
     }
 
     if (event.code === 'Period') {
-      let nodeOnFocus = canvas.strategySpace.workspace.getNodeThatIsOnFocus()
       if (nodeOnFocus !== undefined) {
-        if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
-          if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
-            return
-          }
-        }
         nodeOnFocus.payload.uiObject.setValue('Id: ' + nodeOnFocus.id)
         return
       }
@@ -251,18 +254,12 @@ function newCanvas () {
 
     if (event.ctrlKey === true) {
       if (event.keyCode >= 65 && event.keyCode <= 90) {
-        let nodeOnFocus = canvas.strategySpace.workspace.getNodeThatIsOnFocus()
         let nodeUsingThisKey = canvas.strategySpace.workspace.getNodeByShortcutKey(event.key)
 
         if (nodeOnFocus === undefined) {
           /* Then we displace the whole workspace to center it at the node using this key */
           nodeUsingThisKey = canvas.floatingSpace.positionAtNode(nodeUsingThisKey)
           return
-        }
-        if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
-          if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
-            return
-          }
         }
 
         /* From here we prevent the default behaviour */

@@ -619,14 +619,19 @@
         }
     }
 
-    function onOffsetChanged() {
+    function onOffsetChanged(event) {
 
         try {
 
             if (INFO_LOG === true) { logger.write("[INFO] onOffsetChanged -> Entering function."); }
 
+            if (event !== undefined) {
+                if (event.recalculate === true) {
+                    recalculate()
+                    return
+                }
+            }
             if (Math.random() * 100 > 95) {
-
                 recalculate()
             };
 

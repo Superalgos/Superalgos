@@ -193,6 +193,11 @@ function newCanvas () {
           return
         }
       }
+      if (nodeOnFocus.payload.uiObject.partTitle !== undefined) {
+        if (nodeOnFocus.payload.uiObject.partTitle.editMode === true) {
+          return
+        }
+      }
     }
 
     if (event.altKey === true && event.code === 'ArrowUp') {

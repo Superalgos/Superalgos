@@ -42,14 +42,14 @@ function newStrategySpace () {
       ['Definition', 'text'],
       ['Network', 'network'],
       ['Network Node', 'network-node'],
-      ['Layer Manager', 'video-player'],
+      ['Layer Manager', 'layer-manager'],
       ['Layer', 'attractive'],
       ['Task Manager', 'task'],
       ['Task', 'timeline'],
-      ['Sensor', 'pipette'],
-      ['Indicator', 'vector'],
-      ['Trading Engine', 'brainstorming'],
-      ['Process', 'grid'],
+      ['Sensor', 'bot-sensor'],
+      ['Indicator', 'bot-indicator'],
+      ['Trading Engine', 'trading-engine'],
+      ['Process', 'process'],
       ['Backtesting Session', 'session-backtesting'],
       ['Live Trading Session', 'session-live-trading'],
       ['Fordward Testing Session', 'session-forward-testing'],
@@ -174,7 +174,12 @@ function newStrategySpace () {
       'session-backtesting',
       'session-forward-testing',
       'network',
-      'network-node'
+      'network-node',
+      'trading-engine',
+      'layer-manager',
+      'process',
+      'bot-indicator',
+      'bot-sensor'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

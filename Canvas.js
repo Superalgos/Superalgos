@@ -230,22 +230,22 @@ function newCanvas () {
       return
     }
 
-    if (event.ctrlKey === true && event.code === 'ArrowLeft') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft') {
       canvas.floatingSpace.oneScreenLeft()
       return
     }
 
-    if (event.ctrlKey === true && event.code === 'ArrowRight') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
       canvas.floatingSpace.oneScreenRight()
       return
     }
 
-    if (event.ctrlKey === true && event.code === 'ArrowUp') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
       canvas.floatingSpace.oneScreenUp()
       return
     }
 
-    if (event.ctrlKey === true && event.code === 'ArrowDown') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
       canvas.floatingSpace.oneScreenDown()
       return
     }
@@ -257,7 +257,7 @@ function newCanvas () {
       }
     }
 
-    if (event.ctrlKey === true) {
+    if ((event.ctrlKey === true || event.metaKey === true)) {
       if (event.keyCode >= 65 && event.keyCode <= 90) {
         let nodeUsingThisKey = canvas.strategySpace.workspace.getNodeByShortcutKey(event.key)
 

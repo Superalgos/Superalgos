@@ -278,11 +278,11 @@ Then, you may pull down the horizontal bar to go to the charts to see the result
 
 [ILLUSTRATION]
 
-If you are not at the 1 hr time period use the wheel of your mouse while pointing at the charts to zoom in, until you reach the the 1 hr time period. You do this so that you may see the results of the backtesting session, which in the case of the example strategies, are calculated and plotted over the charts at 1 hr.
+If you are not at the 1 hr time period use the wheel of your mouse while pointing at the charts to zoom in, until you reach the the 1 hr time period. You do this so that you may see the results of the backtesting session, which in the case of the example strategies, are calculated and plotted over the 1 hr charts.
 
 [ILLUSTRATION]
 
-You may now navigate the charts by clicking and dragging, or by zooming in and out with the wheel of your mouse. If you change the time period, you will not see the simulated data, as each time period may hold its own simulation.
+You may now navigate the charts by clicking and dragging, or by zooming in and out with the wheel of your mouse. If you change the time period, you will not see the simulated data, as each time period may hold its own set of simulations.
 
 Congratulations! You've run your first simulation!
 
@@ -290,11 +290,11 @@ The rest of this README file contains all the information you need to build your
 
 # Upgrading Your Existing Installation
 
-You should expect patches and even new releases to become available regularly. Appropriate notices will be placed on the [Official Superalgos Telegram Announcements Channel](https://t.me/superalgos), which will be forwarded to the several Community groups when this happens.
+You should expect patches and even new releases to become available regularly. Appropriate notices will be placed on the [Official Superalgos Telegram Announcements Channel](https://t.me/superalgos), which will be forwarded to the several Community groups.
 
 If you have a version of the Superalgos Desktop App and wish to upgrade to a new version you should do the following:
 
-**1.** Stop the app by closing your browser. Allow a minute or two until no activity stops before closing the Console/Command Line running the programs.
+**1.** Stop the app by closing your browser. Allow a minute or two until all activity stops before closing the Console/Command Line running the programs.
 
 **2.** Make sure you are not storing any personal files, such as your Workspace backups and so on in your ```Superalgos Desktop App``` folders. Move them to a different location if you are.
 
@@ -306,29 +306,39 @@ If you have a version of the Superalgos Desktop App and wish to upgrade to a new
 
 **5.** Extract/unpack the contents of the ZIP file directly into the ```Superalgos Desktop App``` folder. That's it. You are up and running with the new version. Simply start the app the same way you always do unless new instructions become available in this README file.
 
+**6.** Occasionally, the new version of the app may introduce changes that may require you to update your existing strategies. If that is the case, the announcement of the new release should explain how to proceed with your existing strategies.
+
 # Overview
 
 > **Watch the [Superalgos Platform Quick Getting Started Guide](https://www.youtube.com/watch?v=_apiM49udL0) video for a quick intro. The video is slightly outdated in that the Superalgos Desktop App (the client version of the Platform) does not require a login and does not feature a menu on top. Otherwise, the content is still valid.**
 
 The first time you run the app, you will see the following screen, split in half. The top half features the space used by the _Charting System_ and the bottom half features the _Designer_.
 
-Use the control in the center of the turquoise bar to pull the bar up and down in order to make more room to either application. 
+Use the control in the center of the turquoise bar to pull the bar up and down in order to make more room to either application.
+
+You may also use your keyboard as follows:
+
+1. <kbd>Alt</kbd> + <kbd>&#8593;</kbd> to close the Charts and open the Designer.
+1. <kbd>Alt</kbd> + <kbd>&#8595;</kbd> to close the Designer and open the Charts.
 
 ![Drag-Panels](https://user-images.githubusercontent.com/13994516/58413461-1ac49600-8079-11e9-9dd8-96f416e75b33.gif)
 <br/><br/>
-Pulling the bar to the very top of the screen causes the _Charting System_ to stop consuming resources in your local machine, and gives you an ample view of the _Designer_.
 
-The **_Designer_** allows you to manage your [Workspace](#workspace). The structure represented by the various icons nested in a hierarchy of elements is the representation of the logic behind your _Strategies_.
+> **Tip:** Pulling the bar to the very top of the screen causes the Charts to stop consuming resources in your machine, and gives you an ample view of the Designer.
+
+The Designer allows you to manage your [Workspace](#workspace). The structure represented by the various icons nested in a hierarchy of elements is the representation of the logic behind your _strategies_.
 
 ![image](https://user-images.githubusercontent.com/13994516/58325421-f32bbe80-7e29-11e9-9478-9e6e4a02ae47.png)
 <br/><br/>
-Pulling the bar to the very bottom of the screen causes the _Designer_ to stop consuming resources from your local machine, and offers a full-screen view of the _Charting System_.
 
-The **_Charting System_** plots indicators data along with the actions taken by the _Strategy Engine_ and the _Executor_, integrated with market data.
+> **Tip:** Pulling the bar to the very bottom of the screen causes the Designer to stop consuming resources from your machine, and offers a full-screen view of the Charts.
+
+The *_Charts_* plots indicators data along with the actions taken by strategies, integrated with market data.
 
 ![image](https://user-images.githubusercontent.com/13994516/58325972-c37db600-7e2b-11e9-9aa2-9f6faaf8dd94.png)
 <br/><br/>
-The **_Superalgos Protocol_** (also referred to as the _protocol_) determines the structure in which all the information regarding a trading system is stored and—at the same time—provides a clear guidance on how traders using the various tools developed and distributed by the Superalgos Project shall create and automate their strategies.
+
+The *Superalgos Protocol* (also referred to as the _protocol_) determines the structure in which all the information regarding a trading system is stored and—at the same time—provides a clear guidance on how traders using the various tools developed and distributed by the Superalgos Project shall create and automate their strategies.
 
 # Charts Interface
 

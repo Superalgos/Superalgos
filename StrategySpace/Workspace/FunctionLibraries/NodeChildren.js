@@ -397,6 +397,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.socialBots !== undefined) {
+      response.childrenCount++
+      if (parentNode.socialBots.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 
@@ -414,6 +420,12 @@ function newNodeChildren () {
     if (parentNode.layerManager !== undefined) {
       response.childrenCount++
       if (parentNode.layerManager.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.socialBots !== undefined) {
+      response.childrenCount++
+      if (parentNode.socialBots.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
@@ -437,6 +449,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.socialBots !== undefined) {
+      response.childrenCount++
+      if (parentNode.socialBots.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 
@@ -454,6 +472,12 @@ function newNodeChildren () {
     if (parentNode.layerManager !== undefined) {
       response.childrenCount++
       if (parentNode.layerManager.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.socialBots !== undefined) {
+      response.childrenCount++
+      if (parentNode.socialBots.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
@@ -818,6 +842,13 @@ function newNodeChildren () {
     }
     for (let i = 0; i < parentNode.situations.length; i++) {
       let child = parentNode.situations[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    for (let i = 0; i < parentNode.announcements.length; i++) {
+      let child = parentNode.announcements[i]
       response.childrenCount++
       if (child.id === childNode.id) {
         response.childIndex = response.childrenCount

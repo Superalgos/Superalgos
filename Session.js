@@ -136,6 +136,28 @@
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
                 bot.hasTheBotJustStarted = true
 
+                /* Reduce the balance */
+
+                let balancePercentage = 1 // This is the default value
+                try {
+                    let code = JSON.parse(bot.SESSION.code)
+
+                    if (code.balancePercentage !== undefined) {
+                        balancePercentage = code.balancePercentage
+                    }
+
+                } catch (err) {
+                    parentLogger.write(MODULE_NAME, "[WARN] initialize -> startFordwardTesting -> Invalid value por balancePercentage. Using Default.");
+                }
+
+                bot.VALUES_TO_USE.initialBalanceA = bot.VALUES_TO_USE.initialBalanceA * balancePercentage / 100
+                bot.VALUES_TO_USE.initialBalanceB = bot.VALUES_TO_USE.initialBalanceB * balancePercentage / 100
+                       
+                bot.VALUES_TO_USE.minimumBalanceA = bot.VALUES_TO_USE.minimumBalanceA * balancePercentage / 100
+                bot.VALUES_TO_USE.minimumBalanceB = bot.VALUES_TO_USE.minimumBalanceB * balancePercentage / 100
+               
+                bot.VALUES_TO_USE.maximumBalanceA = bot.VALUES_TO_USE.maximumBalanceA * balancePercentage / 100
+                bot.VALUES_TO_USE.maximumBalanceB = bot.VALUES_TO_USE.maximumBalanceB * balancePercentage / 100
             }
 
             function startPaperTrading(message) {
@@ -232,6 +254,16 @@
                         break
                     }
                     case 'Live Trading Session': {
+                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
+                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS)
+                        break
+                    }
+                    case 'Fordward Testing Session': {
+                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
+                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS)
+                        break
+                    }
+                    case 'Paper Trading Session': {
                         bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
                         bot.VALUES_TO_USE.timeRange.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS)
                         break

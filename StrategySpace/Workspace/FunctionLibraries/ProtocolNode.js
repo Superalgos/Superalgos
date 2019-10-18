@@ -502,7 +502,7 @@ function newProtocolNode () {
         if (includeIds) {
           socialBots.id = node.id
         }
-        return layerManager
+        return socialBots
       }
       case 'Telegram Bot': {
         let bot = {

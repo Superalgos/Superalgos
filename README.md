@@ -16,7 +16,7 @@ The minimum hardware setup for a virtual machine (VM) or virtual private server 
 
 The following recommendations may make your life easier using this pre-release in alpha stage:
 
-* We highly recommend you use Chrome to run the app so that you have a similar environment as developers in case you need help. 
+* We highly recommend you use Chrome to run the app so that you have a similar environment as developers in case you need help. We are not testing on any other browsers. 
 
 * You will benefit from having a decent Console / Command Line application for similar reasons: we hope you won't need it, but in case you do, it may save you lots of hassle and make a difference troubleshooting and getting help from the community. We recommend [Console Emulator Cmder](https://cmder.net/).
 
@@ -190,13 +190,15 @@ You should end up with the following folder structure:
 
 **1-A. In Windows systems, use the executable file to run the app**:
 
-Go to the ```Superalgos Desktop App``` folder and double click on ```Superalgos.exe```. Now, skip the Mac instructions and go directly to point 2 below.
+Go to the ```Superalgos Desktop App``` folder and double click on ```Superalgos.exe```. Now, skip the *other systems* instructions and go directly to point 2 below.
 
 **1-B. In other systems (Mac, Linux, etc.), download and install Node JS**:
 
-Node.js is an open-source server environment required for the app to run. Go to the [Node Js downloads page](https://nodejs.org/en/download/) and download the Mac installer. Run the installer and go through the process until Node Js is installed.
+Node.js is an open-source server environment required for the app to run. Go to the [Node Js downloads page](https://nodejs.org/en/download/) and download your system's installer. Run the installer and go through the process until Node Js is installed.
 
-Now, use the Finder app to go to the ```Superalgos Desktop App``` folder and do a *secondary click* (tap the touchpad with two fingers) to open up the menu. Select *New Terminal Tab at Folder*. Once in the Terminal, type ```node run``` and hit *Enter*.
+If you are on Mac, use the Finder app to go to the ```Superalgos Desktop App``` folder and do a *secondary click* (tap the touchpad with two fingers) to open up the menu. Select *New Terminal Tab at Folder*. Once in the Terminal, type ```node run``` and hit *Enter*.
+
+If you are on Linux, open a Terminal / Console, go to the ```Superalgos Desktop App``` folder, type ```node run``` and hit *Enter*.
 
 **2. Drag and drop an example workspace**: 
 
@@ -260,23 +262,23 @@ Do the same with the second Task Manager element.
 | :---: | :---: | :---: |
 | ![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) | ![menu-tree-plus](https://user-images.githubusercontent.com/13994516/63041077-45c7c480-bec7-11e9-965c-38e4fd706c38.png) | ![session-backtesting](https://user-images.githubusercontent.com/13994516/66318052-e7452280-e91a-11e9-94a7-90ebe6ee6e62.png) |
 
-Go to the *Tests & Live Trades Tasks* Task Manager (hover over either of the Task Manager elements to see its name) and expand the view of child elements by clicking on the *plus sign* icon.
+Go to the *Tests & Live Trading* Task Manager (hover over either of the Task Manager elements to see its name) and expand the view of child elements by clicking on the *plus sign* icon.
 
 Follow the tree of child elements until you find the *Backtesting Session* element.
 
-Hover over the Backtesting Session element and click *Run*. 
+Hover over the Backtesting Session element and click *Run* on the menu. 
 
 [ILLUSTRATION]
 
 You just started a backtesting session with a series of pre-configured parameters, including, for instance, the date range on which the backtesting session runs. Later on, you will learn how to adjust these parameters. 
 
-You will notice the element will display a date, signaling the progress of the session. The current session will backtest the strategy during the first nine months of 2019. It may take anything between 5 to 20 minutes (depending on your machine's processing power) to finish. You can tell the process finished calculating the backtesting session once the progress date disappears.
+You will notice the element will display a date, signaling the progress of the session. The current session will backtest the strategy during 2019. It may take anything between 5 to 20 minutes (depending on your machine's processing power) to finish. You can tell the process finished calculating the backtesting session once the progress date disappears.
 
 Then, you may pull down the horizontal bar to go to the charts to see the results. Make sure you are standing in the 1 hr (one hour) time period. Notice the time box at the bottom of the charts:
 
 [ILLUSTRATION]
 
-If you are not, use the wheel of your mouse while pointing at the charts to scroll into the 1 hr time period. You do this so that the backtest runs in the time period for which the strategy was designed.
+If you are not at the 1 hr time period use the wheel of your mouse while pointing at the charts to zoom in, until you reach the the 1 hr time period. You do this so that you may see the results of the backtesting session, which in the case of the example strategies, are calculated and plotted over the charts at 1 hr.
 
 [ILLUSTRATION]
 

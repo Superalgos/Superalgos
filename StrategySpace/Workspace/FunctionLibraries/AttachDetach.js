@@ -70,6 +70,33 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Social Bots': {
+        node.payload.parentNode.socialBots = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Telegram Bot': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.bots.length; i++) {
+          let bot = payload.parentNode.bots[i]
+          if (bot.id === node.id) {
+            payload.parentNode.bots.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Announcement': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.announcements.length; i++) {
+          let announcement = payload.parentNode.announcements[i]
+          if (announcement.id === node.id) {
+            payload.parentNode.announcements.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Layer Manager': {
         node.payload.parentNode.layerManager = undefined
         completeDetachment(node, rootNodes)
@@ -344,6 +371,27 @@ function newAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.networkNodes.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Social Bots': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.socialBots = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Telegram Bot': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.bots.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Announcement': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.announcements.push(node)
         completeAttachment(node, rootNodes)
       }
         break

@@ -961,13 +961,13 @@ The result of slippage in simulations is taken into account by the graphic repre
 
 | Time Range |
 | :---: |
-| ![time-range](https://user-images.githubusercontent.com/13994516/63638435-0dbf3f00-c688-11e9-8bbd-5e00906cdfa1.png) |
+| ![schedule](https://user-images.githubusercontent.com/13994516/67080564-ce980080-f195-11e9-9e1e-4f71dd433e57.png) |
 
-The Datetime Range parameter of your Trading System is used to control the period of time in which the simulation will be calculated. Depending on how you set up this parameter you will be either backtesting, paper-trading, or both at the same time.
+The Datetime Range parameter is used to control the period of time in which the simulation will be calculated.
 
 **1. Backtesting**: 
 
-**A.** To backtest a specific period of time in the past, introduce an *initialDatetime* and a *finalDatetime*:
+You will set an *initialDatetime* and a *finalDatetime*:
 
 ```
 {
@@ -976,39 +976,63 @@ The Datetime Range parameter of your Trading System is used to control the perio
 }
 ```
 
-**B.** If you set a *finalDatetime* in the past but not an *initialDatetime*, then the simulation will start at the point in time the charts are at when you click the START BACKTESTING button. That is, the *initialDatetime* is taken from the position of the charts.
+If you do not set an *initialDatetime* the app's fallback mechanism will try to get it from the parameters at the level of the trading system. In case there is no *initialDatetime*, the calculation will start at the current position of the charts.
+
+If you don't set a *finalDatetime* at the level of the testing session or the trading system, then calculations will run until the present time.
 
 **2. Paper-trading**: 
 
-**A.** To do a forward-test, enter the current date as the *initialDatetime* and the date up to which you wish to run the forward-test as the *finalDatetime*.
-
-**B.** If you do not enter a *finalDatetime*, then the forward-test will run for one year.
+Paper trading sessions only require a *finalDatetime*. If you do not set one either at the level of the session or the trading system then the session will run for one year.
 
 ### Time Period
 
 | Time Period |
 | :---: |
-| ![schedule](https://user-images.githubusercontent.com/13994516/67080564-ce980080-f195-11e9-9e1e-4f71dd433e57.png) |
+| ![time-period](https://user-images.githubusercontent.com/13994516/67087015-597ef800-f1a2-11e9-8a5e-712a13ef99d4.png) |
 
-Simulations run in the time period active at the moment of clicking the RESTART SIMULATION button. Only one time period may be active at any point in time: if you run a simulation in a different time period than a previous simulation, the previous one stops—however,  the previous simulation data is conserved and may be accessed again by going back to the corresponding time period.
+Testing sessions run in the time period specified in this parameter. 
 
-## Simulation Processes
+Available options at the sub-hour level are:
 
-Once you run a simulation, it keeps running for as long as the node.js processes are running at the console. When the simulation reaches the present time, it remains active, calculating dynamically as new data is retrieved from the exchange. 
+```
+01-min
+02-min
+03-min
+04-min
+05-min
+10-min
+15-min
+20-min
+30-min
+45-min
+```
 
-If you click RESTART SIMULATION, processes are stopped and restarted. This results in past simulation data for the same *time period* being deleted and new data being written as the calculations advance.
+Available options at larger time periods are:
 
-The simulation process is associated to the Definitions structure present at the moment of running the simulation. Changes you make in your Definitions afterwards are only taken into account when you restart the simulation.
-
-All of these considerations apply for Live Trading as well.
+```
+01-hs
+02-hs
+03-hs
+04-hs
+06-hs
+08-hs
+12-hs
+24-hs
+```
 
 ## Simulation Layers
 
-Back on the Charts, the following layers plot strategies' actions over the market data, providing a comprehensive set of visual clues showing how strategies would behave when trading.
+| Layer Manager |
+| :---: |
+| ![layer-manager](https://user-images.githubusercontent.com/13994516/67079737-00a86300-f194-11e9-85cb-2704afa30f04.png) |
 
-### Trading Simulation
+The layer manager allows you to determine which visualization layers will be available at the Layers Panel to plot the results of testing sessions over the charts.
 
-The Trading Simulation layer displays a backtest + forward test (paper trading) of whatever strategies you have created in the system. At sign up, you are provided with an initial set of strategies so that you can be up and running as quickly as possible. By activating the Trading Simulation layer you should be able to see something like this:
+Back on the charts, the following layers plot strategies' actions over the market data, providing a comprehensive set of visual clues showing how strategies would behave when trading.
+
+### Simulation
+
+The *Simulation* layer displays a backtest + forward test (paper trading) of whatever strategies you have created in the system. At sign up, you are provided with an initial set of strategies so that you can be up and running as quickly as possible. By activating the Trading Simulation layer you should be able to see something like this:
 
 ![Trading-Simulation](https://user-images.githubusercontent.com/13994516/58564550-6c158680-822d-11e9-8bb1-102912d4bfd0.gif)
 <br/><br/>
@@ -1032,21 +1056,21 @@ Notice the red horizontal bars indicating the _stop_ value for each period (cand
 
 ![Trading-Simulation-Stop](https://user-images.githubusercontent.com/13994516/58564450-3e304200-822d-11e9-8281-cc4b9cc22746.gif)
 
-### Simulation Conditions
+### Formulas and Conditions
 
-The Trading Conditions layer helps identify which _conditions_ are met at each candle. Notice how _conditions_ are highlighted as the cursor moves through different candles.
+The *ormulas and Conditions* layer helps identify which _conditions_ are met at each candle. Notice how _conditions_ are highlighted as the cursor moves through different candles.
 
 ![Trading-Simulation-Conditions](https://user-images.githubusercontent.com/13994516/58564448-3e304200-822d-11e9-967b-8c74fb8532fe.gif)
 
-### Simulation Strategies
+### Strategies
 
-The Simulation Strategies layer identifies trigger on and trigger off events, signaling the activation and deactivation of strategies.
+The *Strategies* layer identifies trigger on and trigger off events, signaling the activation and deactivation of strategies.
 
 ![Trading-Simulation-Strategies](https://user-images.githubusercontent.com/13994516/58565955-fd85f800-822f-11e9-9f95-9d0a477a4460.gif)
 
-### Simulation Trades
+### Trades
 
-The Simulation Trades layer marks trades with a triangle whose hypotenuse connects the price at the _take position_ event with the _exit_ price. When the trade is profitable, the triangle is green; when the _exit_ happens at a loss, the triangle is red.
+The *Trades* layer marks trades with a triangle whose hypotenuse connects the price at the _take position_ event with the _exit_ price. When the trade is profitable, the triangle is green; when the _exit_ happens at a loss, the triangle is red.
 
 ![Trading-Simulation-Trades](https://user-images.githubusercontent.com/13994516/58574801-1a76f700-8241-11e9-9144-0db81636dace.gif)
 

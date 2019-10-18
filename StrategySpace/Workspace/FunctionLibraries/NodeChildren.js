@@ -17,6 +17,15 @@ function newNodeChildren () {
       case 'Network Node': {
         return countChildrenNetworkNode(parentNode, childNode)
       }
+      case 'Social Bots': {
+        return countChildrenSocialBots(parentNode, childNode)
+      }
+      case 'Telegram Bot': {
+        return countChildrenTelegramBot(parentNode, childNode)
+      }
+      case 'Announcement': {
+        return countChildrenAnnouncement(parentNode, childNode)
+      }
       case 'Layer Manager': {
         return countChildrenLayerManager(parentNode, childNode)
       }
@@ -211,6 +220,46 @@ function newNodeChildren () {
           response.childIndex = response.childrenCount
         }
       }
+    }
+    return response
+  }
+
+  function countChildrenSocialBots (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.bots.length; i++) {
+      let child = parentNode.bots[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenTelegramBot (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.announcements.length; i++) {
+      let child = parentNode.announcements[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenAnnouncement (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
     }
     return response
   }

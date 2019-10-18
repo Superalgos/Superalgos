@@ -791,7 +791,7 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 ### Contitions and Formulas with Data from Different Time Periods
 
-When building your conditions and formulas, you may want to include analysis concerning a different time period than the one in which you intenddto run your simulation and live-trading.
+When building your conditions and formulas, you may want to include analysis concerning a different time period than the one in which you intend to run your simulation and live-trading.
 
 The variables explained above, written as described, always refer to the time period on which the simulation or live-trading is running. To refer to other time periods, you need to use a mechanism built-in the app, implementing the following syntax:
 
@@ -959,7 +959,7 @@ The result of slippage in simulations is taken into account by the graphic repre
 
 ### Datetime Range
 
-| Time Range |
+| Datetime Range |
 | :---: |
 | ![schedule](https://user-images.githubusercontent.com/13994516/67080564-ce980080-f195-11e9-9e1e-4f71dd433e57.png) |
 
@@ -1032,22 +1032,22 @@ Back on the charts, the following layers plot strategies' actions over the marke
 
 ### Simulation
 
-The *Simulation* layer displays a backtest + forward test (paper trading) of whatever strategies you have created in the system. At sign up, you are provided with an initial set of strategies so that you can be up and running as quickly as possible. By activating the Trading Simulation layer you should be able to see something like this:
+The *Simulation* layer displays the actions of strategies throughout the tested period. Actions include the *take position event* and the management of *stop* and *take profit* in phases. By activating the Simulation layer you should be able to see something like this:
 
 ![Trading-Simulation](https://user-images.githubusercontent.com/13994516/58564550-6c158680-822d-11e9-8bb1-102912d4bfd0.gif)
 <br/><br/>
 
-Notice Asset Balances in the bottom left corner of the screen. Asset A is your _base asset_.
+Notice Asset Balances in the bottom left corner of the screen. Asset A represents BTC while Asset B represents USDT.
 
 ![Trading-Simulation-Asset-Balances](https://user-images.githubusercontent.com/13994516/58564447-3e304200-822d-11e9-9e90-e4f02212de5a.gif)
 <br/><br/>
 
-The dashed line represents the duration of the trade at the price of the _take position_ event. Notice how the _base asset_ is exchanged for Asset B and back to the _base asset_ as the trade closes.
+The dashed line represents the duration of the trade at the price of the _take position_ event. Notice how one asset is exchanged for the other asset at the take position event, and exchanged back as the trade closes.
 
 ![Trading-Simulation-Trade-Duration](https://user-images.githubusercontent.com/13994516/58564452-3ec8d880-822d-11e9-8b4e-4cd892df69e7.gif)
 <br/><br/>
 
-Notice the green horizontal bars indicating the _take profit_ value for each period (candle). _Take profit_ is managed in _phases_, marked with the corresponding icons.
+Notice the green horizontal lines indicating the _take profit_ value for each period (candle). _Take profit_ is managed in _phases_, marked with the corresponding icons.
 
 ![Trading-Simulation-Take-Profit](https://user-images.githubusercontent.com/13994516/58564451-3ec8d880-822d-11e9-84c4-7e2147018297.gif)
 <br/><br/>
@@ -1058,7 +1058,7 @@ Notice the red horizontal bars indicating the _stop_ value for each period (cand
 
 ### Formulas and Conditions
 
-The *ormulas and Conditions* layer helps identify which _conditions_ are met at each candle. Notice how _conditions_ are highlighted as the cursor moves through different candles.
+The *Formulas and Conditions* layer helps identify which _conditions_ are met at each candle. Notice how _conditions_ are highlighted as the mouse pointer moves through different candles.
 
 ![Trading-Simulation-Conditions](https://user-images.githubusercontent.com/13994516/58564448-3e304200-822d-11e9-967b-8c74fb8532fe.gif)
 

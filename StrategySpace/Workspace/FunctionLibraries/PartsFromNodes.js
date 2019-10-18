@@ -596,7 +596,7 @@ function newPartsFromNodes () {
   function addTelegramBot (node) {
     let bot = {
       name: 'New Telegram Bot',
-      code: '{}',
+      code: '{ \n\"botToken\": \"Paste here the bot token obtained from Telegram Bot Father\",\n\"chatId\": Write here the chat or group id where the announcements are going to be sent to, as it is a number with no quotes please.\n}',
       announcements: []
     }
     node.bots.push(bot)
@@ -607,8 +607,8 @@ function newPartsFromNodes () {
 
   function addAnnouncement (node) {
     let announcement = {
-      name: 'New Announcement',
-      code: '{}'
+      name: 'Announcement via ' + node.type,
+      code: '{ \n\"text\": \"Write here what you want to announce.\",\n\"botType\": \"' + node.type + '\",\n\"botId\": \"' + node.id + '\"\n}'
     }
     node.announcements.push(announcement)
     createPart('Announcement', announcement.name, announcement, node, node, 'Announcement')

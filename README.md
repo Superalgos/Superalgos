@@ -6,7 +6,21 @@ This is a pre-release in alpha stage. The app is still under heavy development. 
 
 ![Illustration](https://user-images.githubusercontent.com/13994516/63528460-4550ae80-c503-11e9-8db6-22995e0b9c16.gif)
 
-## Setting the Right Expectations
+# System Requirements
+
+The Superalgos Desktop App is a web app, therefore, it is cross-platform. The team is testing mostly on Windows systems, but there are users on Mac and Linux systems as well.
+
+The minimum hardware setup recommended for actively using the app, designing strategies and interacting with the charts is 8 GB of RAM and a dual-core processor at 2.4 GHz.
+
+The minimum hardware setup for a virtual machine (VM) or virtual private server (VPS) destined to trade live and not intended for active use is 4 GB of RAM and a dual-core processor at 2.4 GHz. This is recommended to minimize deployment costs. Under this configuration, the app becomes slow to react to user input.  Under such configuration, you should start the live trading session and minimize the browser for lower CPU and memory consumption.
+
+The following recommendations may make your life easier using this pre-release in alpha stage:
+
+* We highly recommend you use Chrome to run the app so that you have a similar environment as developers in case you need help. 
+
+* You will benefit from having a decent Console / Command Line application for similar reasons: we hope you won't need it, but in case you do, it may save you lots of hassle and make a difference troubleshooting and getting help from the community. We recommend [Console Emulator Cmder](https://cmder.net/).
+
+# Setting the Right Expectations for this Alpha-stage Pre-release
 
 Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-superalgos-desktop-app.shtml#expectations) page to understand who this app is directed at, as well as what you can expect from the app in terms of user experience, current features and limitations.
 
@@ -104,23 +118,23 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
 
 ## Before You Begin
 
-**This *Getting Started Guide* will quickly show you the very basics of the app so that you can rapidly see the app's potential. It will take you through a sequence of instructions that you need to follow to download and install the app, run it for the first time, import an existing strategy and run your first backtest.**
+**This *Getting Started Guide* will quickly show you the very basics of the app so that you can rapidly grasp the app's potential. It will take you through a sequence of instructions that you need to follow to download and install the app, run it for the first time, import an existing strategy and run your first backtest.**
 
-The following recommendations may make your life easier using this pre-release in alpha stage:
+The app's vocation is to become a comprehensive trading automation system. This is not a simple plug-and-play bot. It is a platform that allows you to design and automate a wide variety of strategies, with great flexibility. 
 
-* We highly recommend you use Chrome to run the app so that you have a similar environment as developers in case you need help. 
+However, flexibility and fine user control over the way bots operate comes at a cost: the learning curve required to tap into it's full potential. That said, we do intend to make light use of the app as easy as possible, for instance, for loading existing strategies and trading live right off the bat. 
 
-* You will benefit from having a decent Console / Command Line application for similar reasons: we hope you won't need it, but in case you do, it may save you lots of hassle and make a difference troubleshooting and getting help from the community. We recommend [Console Emulator Cmder](https://cmder.net/).
+We will keep improving user experience with your feedback. 
 
 > Bear in mind that the app evolves fast. We do our best to keep this README up to date, however, some of the images illustrating these explanations may defer from what you will find in the app.
 
-> **WARNING: The Superalgos Desktop App is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you test with small amounts of money, the kind you can afford losing. Trade live at your own risk.**
+> **WARNING: The Superalgos Desktop App is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you forward test with small amounts of money, the kind you can afford losing. Trade live at your own risk.**
 
-## The Quick Version for Experienced PC Operators
+## Initial Setup: The Quick Version for Experienced PC Operators
 
 **1. Downloads**:
 
-Download the software package from the [latest software release](https://github.com/Superalgos/DesktopApp/releases/tag/v.0.0.3-alpha) (```Superalgos-Desktop-App.zip```) and extract the file in an accessible route (you will launch the app from these folders).
+Download the software package from the [latest software release](https://github.com/Superalgos/DesktopApp/releases/tag/v.0.0.3-alpha) (```Superalgos-Desktop-App.zip```) and extract the file in an accessible route (you will launch the app from the resulting folders).
 
 Download historic market data from the [latest data release](https://github.com/Superalgos/DesktopApp/releases/tag/data.poloniex.btc.usdt.2019.10.05) (```Poloniex.BTC.USDT.Historic.Data.zip```) and extract the file inside the ```Superalgos Desktop App``` folder generated by the software ZIP package.
 
@@ -134,7 +148,7 @@ You should end up with the following folder structure:
 
 > NOTE FOR DEVELOPERS: Instead of using the executable file to run the app, you may want to use ```node run``` from within the root ```Superalgos Desktop App``` folder, to run on your full Node Js installation.
 
-## The Extended Version for Regular Folks
+## Initial Setup: The Extended Version for Regular Folks
 
 ### Downloads
 

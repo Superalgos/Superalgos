@@ -43,7 +43,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.conditions.length; m++) {
           let condition = getProtocolNode(node.conditions[m], removePersonalData, parseCode, includeIds)
-          situation.conditions.push(condition)
+          if (condition !== undefined) {
+            situation.conditions.push(condition)
+          }
         }
         if (includeIds) {
           situation.id = node.id
@@ -74,11 +76,15 @@ function newProtocolNode () {
           }
           for (let m = 0; m < node.situations.length; m++) {
             let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds)
-            event.situations.push(situation)
+            if (situation !== undefined) {
+              event.situations.push(situation)
+            }
           }
           for (let m = 0; m < node.announcements.length; m++) {
             let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds)
-            event.announcements.push(announcement)
+            if (announcement !== undefined) {
+              event.announcements.push(announcement)
+            }
           }
           if (includeIds) {
             event.id = node.id
@@ -108,7 +114,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.phases.length; m++) {
           let phase = getProtocolNode(node.phases[m], removePersonalData, parseCode, includeIds)
-          stop.phases.push(phase)
+          if (phase !== undefined) {
+            stop.phases.push(phase)
+          }
         }
         if (includeIds) {
           stop.id = node.id
@@ -125,7 +133,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.phases.length; m++) {
           let phase = getProtocolNode(node.phases[m], removePersonalData, parseCode, includeIds)
-          takeProfit.phases.push(phase)
+          if (phase !== undefined) {
+            takeProfit.phases.push(phase)
+          }
         }
         if (includeIds) {
           takeProfit.id = node.id
@@ -143,11 +153,15 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.situations.length; m++) {
           let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds)
-          event.situations.push(situation)
+          if (situation !== undefined) {
+            event.situations.push(situation)
+          }
         }
         for (let m = 0; m < node.announcements.length; m++) {
           let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds)
-          event.announcements.push(announcement)
+          if (announcement !== undefined) {
+            event.announcements.push(announcement)
+          }
         }
         if (includeIds) {
           event.id = node.id
@@ -169,7 +183,9 @@ function newProtocolNode () {
         }
         for (let m = 0; m < node.announcements.length; m++) {
           let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds)
-          event.announcements.push(announcement)
+          if (announcement !== undefined) {
+            event.announcements.push(announcement)
+          }
         }
         if (includeIds) {
           event.id = node.id
@@ -187,11 +203,15 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.situations.length; m++) {
           let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds)
-          event.situations.push(situation)
+          if (situation !== undefined) {
+            event.situations.push(situation)
+          }
         }
         for (let m = 0; m < node.announcements.length; m++) {
           let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds)
-          event.announcements.push(announcement)
+          if (announcement !== undefined) {
+            event.announcements.push(announcement)
+          }
         }
         if (includeIds) {
           event.id = node.id
@@ -414,7 +434,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.strategies.length; m++) {
           let strategy = getProtocolNode(node.strategies[m], removePersonalData, parseCode, includeIds)
-          tradingSystem.strategies.push(strategy)
+          if (strategy !== undefined) {
+            tradingSystem.strategies.push(strategy)
+          }
         }
         if (includeIds) {
           tradingSystem.id = node.id
@@ -432,7 +454,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.exchangeAccounts.length; m++) {
           let exchangeAccount = getProtocolNode(node.exchangeAccounts[m], removePersonalData, parseCode, includeIds)
-          personalData.exchangeAccounts.push(exchangeAccount)
+          if (exchangeAccount !== undefined) {
+            personalData.exchangeAccounts.push(exchangeAccount)
+          }
         }
         if (includeIds) {
           personalData.id = node.id
@@ -451,11 +475,15 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.assets.length; m++) {
           let asset = getProtocolNode(node.assets[m], removePersonalData, parseCode, includeIds)
-          exchangeAccount.assets.push(asset)
+          if (asset !== undefined) {
+            exchangeAccount.assets.push(asset)
+          }
         }
         for (let m = 0; m < node.keys.length; m++) {
           let key = getProtocolNode(node.keys[m], removePersonalData, parseCode, includeIds)
-          exchangeAccount.keys.push(key)
+          if (key !== undefined) {
+            exchangeAccount.keys.push(key)
+          }
         }
         if (includeIds) {
           exchangeAccount.id = node.id
@@ -497,7 +525,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.bots.length; m++) {
           let bot = getProtocolNode(node.bots[m], removePersonalData, parseCode, includeIds)
-          socialBots.bots.push(bot)
+          if (bot !== undefined) {
+            socialBots.bots.push(bot)
+          }
         }
         if (includeIds) {
           socialBots.id = node.id
@@ -505,6 +535,7 @@ function newProtocolNode () {
         return socialBots
       }
       case 'Telegram Bot': {
+        if (removePersonalData === true) { return }
         let bot = {
           type: node.type,
           subType: node.subType,
@@ -515,7 +546,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.announcements.length; m++) {
           let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds)
-          bot.announcements.push(announcement)
+          if (announcement !== undefined) {
+            bot.announcements.push(announcement)
+          }
         }
         if (includeIds) {
           bot.id = node.id
@@ -544,7 +577,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.layers.length; m++) {
           let layer = getProtocolNode(node.layers[m], removePersonalData, parseCode, includeIds)
-          layerManager.layers.push(layer)
+          if (layer !== undefined) {
+            layerManager.layers.push(layer)
+          }
         }
         if (includeIds) {
           layerManager.id = node.id
@@ -573,7 +608,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.tasks.length; m++) {
           let task = getProtocolNode(node.tasks[m], removePersonalData, parseCode, includeIds)
-          taskManager.tasks.push(task)
+          if (task !== undefined) {
+            taskManager.tasks.push(task)
+          }
         }
         if (includeIds) {
           taskManager.id = node.id
@@ -603,7 +640,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.processes.length; m++) {
           let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds)
-          bot.processes.push(process)
+          if (process !== undefined) {
+            bot.processes.push(process)
+          }
         }
         if (parseCode) {
           bot.code = JSON.parse(bot.code)
@@ -624,7 +663,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.processes.length; m++) {
           let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds)
-          bot.processes.push(process)
+          if (process !== undefined) {
+            bot.processes.push(process)
+          }
         }
         if (parseCode) {
           bot.code = JSON.parse(bot.code)
@@ -645,7 +686,9 @@ function newProtocolNode () {
 
         for (let m = 0; m < node.processes.length; m++) {
           let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds)
-          bot.processes.push(process)
+          if (process !== undefined) {
+            bot.processes.push(process)
+          }
         }
         if (parseCode) {
           bot.code = JSON.parse(bot.code)
@@ -758,7 +801,9 @@ function newProtocolNode () {
         if (node.taskManagers !== undefined) {
           for (let m = 0; m < node.taskManagers.length; m++) {
             let taskManager = getProtocolNode(node.taskManagers[m], removePersonalData, parseCode, includeIds)
-            object.taskManagers.push(taskManager)
+            if (taskManager !== undefined) {
+              object.taskManagers.push(taskManager)
+            }
           }
         }
         if (includeIds) {
@@ -776,7 +821,9 @@ function newProtocolNode () {
         if (node.networkNodes !== undefined) {
           for (let m = 0; m < node.networkNodes.length; m++) {
             let networkNode = getProtocolNode(node.networkNodes[m], removePersonalData, parseCode, includeIds)
-            object.networkNodes.push(networkNode)
+            if (networkNode !== undefined) {
+              object.networkNodes.push(networkNode)
+            }
           }
         }
         if (includeIds) {

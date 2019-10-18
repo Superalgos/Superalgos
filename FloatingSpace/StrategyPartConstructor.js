@@ -3197,7 +3197,7 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Telegram Bot': {
-        level_4()
+        level_2()
         break
       }
       case 'Announcement': {

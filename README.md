@@ -26,9 +26,29 @@ The following recommendations may make your life easier using this pre-release i
 
 * You will benefit from having a decent Console / Command Line application for similar reasons: we hope you won't need it, but in case you do, it may save you lots of hassle and make a difference troubleshooting and getting help from the community. We recommend [Console Emulator Cmder](https://cmder.net/).
 
-# Setting the Right Expectations for this Alpha-stage Pre-release
+# Setting the Right Expectations
 
 Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-superalgos-desktop-app.shtml#expectations) page to understand who this app is directed at, as well as what you can expect from the app in terms of user experience, current features and limitations.
+
+Beyond the list of [Current Features & Limitations](https://superalgos.org/tools-superalgos-desktop-app.shtml#features_limitations) you will find in the website, what you will get is a client application that runs entirely on users' machines. This is to fulfill the design principle of a trustless deployment: you don't need to trust any third party with your Strategies, API Keys, personal information, or funds.
+
+Traders rely on data sets for backtesting. The app retrieves raw trades data directly from xxchanges and processes data to produce candles and a few indicators, which are stored in your local machine.
+
+The volume of trades data generated at exchanges is massive. Exchanges APIs impose limits on the bandwidth of data you may retrieve from your machine per unit of time. To save you from spending days or weeks running processes to retrieve the data you will need for backtesting, we include historic market data in our releases.
+
+This has a small non-monetary cost associated: the zip files you will download are a bit heavy and highly compressed. As a result, it may take 30 to 60 minutes for your machine to decompress the files. Also, a second small cost is that this adds a step in the process to fire up the app the first time.
+
+# Motivation
+
+Superalgos is pre-releasing an early alpha-stage version of the Superalgos Desktop App, in the hope that early adopters will help us shape the software and evolve it into a robust product. We try our best to make installation and operation easy, but at this point, the app is directed at tech-savvy individuals with a knack for learning a few PC operator tricks while installing and using the app.
+
+If you don't consider yourself an early adopter and usually go to your 10-year-old for advice on using your PC, you may still give it a shot. Developers and users in the [Community](https://t.me/superalgoscommunity) will be happy to give you a hand and get you up and running.
+
+We value highly all feedback. We are listening and actively participating in the various Superalgos Community group.
+
+We keep a wish list for new features in the form of [issues in this repository](https://github.com/Superalgos/DesktopApp/issues). If you are missing a key feature, feel free to open an issue using the ```improvement``` label.
+
+However, bear in mind that the app is at an early stage of development and that the current priority is stabilization and delivery of core features.
 
 # Table of Contents
 

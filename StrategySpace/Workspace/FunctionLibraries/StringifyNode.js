@@ -67,11 +67,18 @@ function newStringifyNode () {
             subType: node.subType,
             name: node.name,
             situations: [],
+            announcements: [],
             savedPayload: getSavedPayload(node)
           }
           for (let m = 0; m < node.situations.length; m++) {
             let situation = prepareForStringify(node.situations[m], removePersonalData)
             event.situations.push(situation)
+          }
+          if (node.announcements !== undefined) {
+            for (let m = 0; m < node.announcements.length; m++) {
+              let announcement = prepareForStringify(node.announcements[m], removePersonalData)
+              event.announcements.push(announcement)
+            }
           }
           return event
         }
@@ -128,12 +135,19 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           situations: [],
+          announcements: [],
           savedPayload: getSavedPayload(node)
         }
 
         for (let m = 0; m < node.situations.length; m++) {
           let situation = prepareForStringify(node.situations[m], removePersonalData)
           event.situations.push(situation)
+        }
+        if (node.announcements !== undefined) {
+          for (let m = 0; m < node.announcements.length; m++) {
+            let announcement = prepareForStringify(node.announcements[m], removePersonalData)
+            event.announcements.push(announcement)
+          }
         }
         return event
       }
@@ -144,12 +158,19 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           situations: [],
+          announcements: [],
           savedPayload: getSavedPayload(node)
         }
 
         for (let m = 0; m < node.situations.length; m++) {
           let situation = prepareForStringify(node.situations[m], removePersonalData)
           event.situations.push(situation)
+        }
+        if (node.announcements !== undefined) {
+          for (let m = 0; m < node.announcements.length; m++) {
+            let announcement = prepareForStringify(node.announcements[m], removePersonalData)
+            event.announcements.push(announcement)
+          }
         }
         return event
       }
@@ -160,12 +181,19 @@ function newStringifyNode () {
           subType: node.subType,
           name: node.name,
           situations: [],
+          announcements: [],
           savedPayload: getSavedPayload(node)
         }
 
         for (let m = 0; m < node.situations.length; m++) {
           let situation = prepareForStringify(node.situations[m], removePersonalData)
           event.situations.push(situation)
+        }
+        if (node.announcements !== undefined) {
+          for (let m = 0; m < node.announcements.length; m++) {
+            let announcement = prepareForStringify(node.announcements[m], removePersonalData)
+            event.announcements.push(announcement)
+          }
         }
         return event
       }
@@ -438,6 +466,54 @@ function newStringifyNode () {
         }
         return key
       }
+      case 'Social Bots': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          bots: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        if (node.announcements !== undefined) {
+          for (let m = 0; m < node.bots.length; m++) {
+            let bot = prepareForStringify(node.bots[m], removePersonalData)
+            object.bots.push(bot)
+          }
+        }
+        return object
+      }
+      case 'Telegram Bot': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          announcements: [],
+          savedPayload: getSavedPayload(node)
+        }
+
+        if (node.announcements !== undefined) {
+          for (let m = 0; m < node.announcements.length; m++) {
+            let announcement = prepareForStringify(node.announcements[m], removePersonalData)
+            object.announcements.push(announcement)
+          }
+        }
+        return object
+      }
+      case 'Announcement': {
+        let object = {
+          id: node.id,
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          savedPayload: getSavedPayload(node)
+        }
+        return object
+      }
       case 'Layer Manager': {
         let layerManager = {
           id: node.id,
@@ -571,6 +647,7 @@ function newStringifyNode () {
           code: node.code,
           parameters: prepareForStringify(node.parameters, removePersonalData),
           layerManager: prepareForStringify(node.layerManager, removePersonalData),
+          socialBots: prepareForStringify(node.socialBots, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -584,6 +661,7 @@ function newStringifyNode () {
           code: node.code,
           parameters: prepareForStringify(node.parameters, removePersonalData),
           layerManager: prepareForStringify(node.layerManager, removePersonalData),
+          socialBots: prepareForStringify(node.socialBots, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -597,6 +675,7 @@ function newStringifyNode () {
           code: node.code,
           parameters: prepareForStringify(node.parameters, removePersonalData),
           layerManager: prepareForStringify(node.layerManager, removePersonalData),
+          socialBots: prepareForStringify(node.socialBots, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object
@@ -610,6 +689,7 @@ function newStringifyNode () {
           code: node.code,
           parameters: prepareForStringify(node.parameters, removePersonalData),
           layerManager: prepareForStringify(node.layerManager, removePersonalData),
+          socialBots: prepareForStringify(node.socialBots, removePersonalData),
           savedPayload: getSavedPayload(node)
         }
         return object

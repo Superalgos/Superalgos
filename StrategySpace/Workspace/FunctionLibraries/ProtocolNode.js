@@ -69,7 +69,8 @@ function newProtocolNode () {
             type: node.type,
             subType: node.subType,
             name: node.name,
-            situations: []
+            situations: [],
+            announcements: []
           }
           for (let m = 0; m < node.situations.length; m++) {
             let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds)
@@ -136,7 +137,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          situations: []
+          situations: [],
+          announcements: []
         }
 
         for (let m = 0; m < node.situations.length; m++) {
@@ -157,7 +159,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          situations: []
+          situations: [],
+          announcements: []
         }
 
         for (let m = 0; m < node.situations.length; m++) {
@@ -178,7 +181,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          situations: []
+          situations: [],
+          announcements: []
         }
 
         for (let m = 0; m < node.situations.length; m++) {
@@ -675,7 +679,8 @@ function newProtocolNode () {
           name: node.name,
           code: node.code,
           parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds)
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds),
+          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds)
         }
         if (parseCode) {
           object.code = JSON.parse(object.code)
@@ -693,7 +698,8 @@ function newProtocolNode () {
           name: node.name,
           code: node.code,
           parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds)
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds),
+          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds)
         }
         if (parseCode) {
           object.code = JSON.parse(object.code)
@@ -711,7 +717,8 @@ function newProtocolNode () {
           name: node.name,
           code: node.code,
           parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds)
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds),
+          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds)
         }
         if (parseCode) {
           object.code = JSON.parse(object.code)
@@ -729,7 +736,8 @@ function newProtocolNode () {
           name: node.name,
           code: node.code,
           parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds)
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds),
+          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds)
         }
         if (parseCode) {
           object.code = JSON.parse(object.code)

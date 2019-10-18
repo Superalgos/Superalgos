@@ -510,6 +510,9 @@ function newPartsFromNodes () {
         if (node.layerManager !== undefined) {
           createPartFromNode(node.layerManager, node, node)
         }
+        if (node.socialBots !== undefined) {
+          createPartFromNode(node.socialBots, node, node)
+        }
         return
       }
       case 'Live Trading Session': {
@@ -519,6 +522,9 @@ function newPartsFromNodes () {
         }
         if (node.layerManager !== undefined) {
           createPartFromNode(node.layerManager, node, node)
+        }
+        if (node.socialBots !== undefined) {
+          createPartFromNode(node.socialBots, node, node)
         }
         return
       }
@@ -530,6 +536,9 @@ function newPartsFromNodes () {
         if (node.layerManager !== undefined) {
           createPartFromNode(node.layerManager, node, node)
         }
+        if (node.socialBots !== undefined) {
+          createPartFromNode(node.socialBots, node, node)
+        }
         return
       }
       case 'Paper Trading Session': {
@@ -539,6 +548,9 @@ function newPartsFromNodes () {
         }
         if (node.layerManager !== undefined) {
           createPartFromNode(node.layerManager, node, node)
+        }
+        if (node.socialBots !== undefined) {
+          createPartFromNode(node.socialBots, node, node)
         }
         return
       }

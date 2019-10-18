@@ -4,6 +4,9 @@ function newPartsFromNodes () {
     addDefinition: addDefinition,
     addNetwork: addNetwork,
     addNetworkNode: addNetworkNode,
+    addSocialBots: addSocialBots,
+    addTelegramBot: addTelegramBot,
+    addAnnouncement: addAnnouncement,
     addLayerManager: addLayerManager,
     addLayer: addLayer,
     addTaskManager: addTaskManager,
@@ -75,6 +78,13 @@ function newPartsFromNodes () {
           for (let m = 0; m < node.situations.length; m++) {
             let situation = node.situations[m]
             createPartFromNode(situation, node, node)
+          }
+          if (node.announcements === undefined) {
+            node.announcements = []
+          }
+          for (let m = 0; m < node.announcements.length; m++) {
+            let announcement = node.announcements[m]
+            createPartFromNode(announcement, node, node)
           }
           return
         }
@@ -158,6 +168,13 @@ function newPartsFromNodes () {
           let situation = node.situations[m]
           createPartFromNode(situation, event, event)
         }
+        if (node.announcements === undefined) {
+          node.announcements = []
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = node.announcements[m]
+          createPartFromNode(announcement, node, node)
+        }
         return
       }
       case 'Trigger On Event': {
@@ -167,6 +184,13 @@ function newPartsFromNodes () {
           let situation = node.situations[m]
           createPartFromNode(situation, event, event)
         }
+        if (node.announcements === undefined) {
+          node.announcements = []
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = node.announcements[m]
+          createPartFromNode(announcement, node, node)
+        }
         return
       }
       case 'Trigger Off Event': {
@@ -175,6 +199,13 @@ function newPartsFromNodes () {
         for (let m = 0; m < node.situations.length; m++) {
           let situation = node.situations[m]
           createPartFromNode(situation, event, event)
+        }
+        if (node.announcements === undefined) {
+          node.announcements = []
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = node.announcements[m]
+          createPartFromNode(announcement, node, node)
         }
         return
       }
@@ -377,6 +408,26 @@ function newPartsFromNodes () {
         }
         return
       }
+      case 'Social Bots': {
+        createPart('Social Bots', node.name, node, parentNode, chainParent, 'Social Bots')
+        for (let m = 0; m < node.bots.length; m++) {
+          let bot = node.bots[m]
+          createPartFromNode(bot, node, node)
+        }
+        return
+      }
+      case 'Telegram Bot': {
+        createPart('Telegram Bot', node.name, node, parentNode, chainParent, 'Telegram Bot')
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = node.announcements[m]
+          createPartFromNode(announcement, node, node)
+        }
+        return
+      }
+      case 'Announcement': {
+        createPart('Announcement', node.name, node, parentNode, chainParent, 'Announcement')
+        return
+      }
       case 'Layer Manager': {
         createPart('Layer Manager', node.name, node, parentNode, chainParent, 'Layer Manager')
         for (let m = 0; m < node.layers.length; m++) {
@@ -516,6 +567,41 @@ function newPartsFromNodes () {
     createPart('Network Node', networkNode.name, networkNode, node, node, 'Network Node')
 
     return networkNode
+  }
+
+  function addSocialBots (node) {
+    if (node.socialBots === undefined) {
+      node.socialBots = {
+        name: 'New Social Bots',
+        bots: []
+      }
+      createPart('Social Bots', node.socialBots.name, node.socialBots, node, node, 'Social Bots')
+    }
+
+    return node.socialBots
+  }
+
+  function addTelegramBot (node) {
+    let bot = {
+      name: 'New Telegram Bot',
+      code: '{}',
+      announcements: []
+    }
+    node.bots.push(bot)
+    createPart('Telegram Bot', bot.name, bot, node, node, 'Telegram Bot')
+
+    return bot
+  }
+
+  function addAnnouncement (node) {
+    let announcement = {
+      name: 'New Announcement',
+      code: '{}'
+    }
+    node.announcements.push(announcement)
+    createPart('Announcement', announcement.name, announcement, node, node, 'Announcement')
+
+    return announcement
   }
 
   function addLayerManager (node) {
@@ -925,19 +1011,22 @@ function newPartsFromNodes () {
   function addMissingEvents (node) {
     if (node.triggerOn === undefined) {
       node.triggerOn = {
-        situations: []
+        situations: [],
+        announcements: []
       }
       createPart('Trigger On Event', '', node.triggerOn, node, node)
     }
     if (node.triggerOff === undefined) {
       node.triggerOff = {
-        situations: []
+        situations: [],
+        announcements: []
       }
       createPart('Trigger Off Event', '', node.triggerOff, node, node)
     }
     if (node.takePosition === undefined) {
       node.takePosition = {
-        situations: []
+        situations: [],
+        announcements: []
       }
       createPart('Take Position Event', '', node.takePosition, node, node)
     }
@@ -1051,7 +1140,8 @@ function newPartsFromNodes () {
   function addNextPhaseEvent (node) {
     if (node.nextPhaseEvent === undefined) {
       node.nextPhaseEvent = {
-        situations: []
+        situations: [],
+        announcements: []
       }
       createPart('Next Phase Event', '', node.nextPhaseEvent, node, node)
     }

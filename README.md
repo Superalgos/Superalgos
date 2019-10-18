@@ -1,8 +1,14 @@
-# Superalgos Desktop App Documentation
+# Superalgos Desktop App
 
 The Superalgos Desktop App is the client application of the Superalgos Platform suite, and provides a visual environment for developing and automating crypto-trading strategies.
 
+The app's vocation is to become a comprehensive trading automation system. This is not a simple plug-and-play bot. It is a platform that allows you to design and automate a wide variety of strategies, with great flexibility. 
+
+However, flexibility and fine user control over the way bots operate come at a cost: the learning curve required to tap into the app's full potential. That said, we do intend to make light use of the app as easy as possible, for instance, for loading existing strategies and trading live right off the bat, with minimal input.
+
 This is a pre-release in alpha stage. The app is still under heavy development. We appreciate your help testing the app and reporting any errors you may experience.
+
+We will keep improving user experience with your feedback. 
 
 ![Illustration](https://user-images.githubusercontent.com/13994516/63528460-4550ae80-c503-11e9-8db6-22995e0b9c16.gif)
 
@@ -119,12 +125,6 @@ Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-supera
 ## Before You Begin
 
 **This *Getting Started Guide* will quickly show you the very basics of the app so that you can rapidly grasp the app's potential. It will take you through a sequence of instructions that you need to follow to download and install the app, run it for the first time, import an existing strategy and run your first backtest.**
-
-The app's vocation is to become a comprehensive trading automation system. This is not a simple plug-and-play bot. It is a platform that allows you to design and automate a wide variety of strategies, with great flexibility. 
-
-However, flexibility and fine user control over the way bots operate comes at a cost: the learning curve required to tap into it's full potential. That said, we do intend to make light use of the app as easy as possible, for instance, for loading existing strategies and trading live right off the bat. 
-
-We will keep improving user experience with your feedback. 
 
 > Bear in mind that the app evolves fast. We do our best to keep this README up to date, however, some of the images illustrating these explanations may defer from what you will find in the app.
 

@@ -4,7 +4,7 @@ function newNodeDeleter () {
     deleteNetwork: deleteNetwork,
     deleteNetworkNode: deleteNetworkNode,
     deleteSocialBots: deleteSocialBots,
-    deleteSocialBot: deleteTelegramBot,
+    deleteSocialBot: deleteSocialBot,
     deleteAnnouncement: deleteAnnouncement,
     deleteLayerManager: deleteLayerManager,
     deleteLayer: deleteLayer,

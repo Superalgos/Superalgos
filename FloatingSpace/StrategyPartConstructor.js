@@ -1214,7 +1214,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -70
+            angle: -75
           }
         )
         menuItemsInitialValues.push(
@@ -1227,9 +1227,35 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -30
+            angle: -40
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Parameters',
+            visible: true,
+            relatedStrategyPart: 'Parameters',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Social Bots',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Social Bots',
+            visible: true,
+            relatedStrategyPart: 'Social Bots',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
         menuItemsInitialValues.push(
           {
             action: 'Edit Session',
@@ -1241,7 +1267,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0,
+            angle: 20,
             dontShowAtFullscreen: true
           }
           )
@@ -1258,7 +1284,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 30
+            angle: 40
           }
             )
         menuItemsInitialValues.push(
@@ -1272,7 +1298,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 70
+            angle: 75
           }
           )
         break
@@ -1304,7 +1330,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -70
+            angle: -75
           }
         )
         menuItemsInitialValues.push(
@@ -1317,9 +1343,35 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -30
+            angle: -40
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Parameters',
+            visible: true,
+            relatedStrategyPart: 'Parameters',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Social Bots',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Social Bots',
+            visible: true,
+            relatedStrategyPart: 'Social Bots',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+                )
         menuItemsInitialValues.push(
           {
             action: 'Edit Session',
@@ -1331,7 +1383,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0,
+            angle: 20,
             dontShowAtFullscreen: true
           }
             )
@@ -1348,7 +1400,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 30
+            angle: 40
           }
             )
         menuItemsInitialValues.push(
@@ -1362,7 +1414,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 70
+            angle: 75
           }
                 )
         break
@@ -1394,7 +1446,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -70
+            angle: -75
           }
         )
         menuItemsInitialValues.push(
@@ -1407,9 +1459,35 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -30
+            angle: -40
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Parameters',
+            visible: true,
+            relatedStrategyPart: 'Parameters',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Social Bots',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Social Bots',
+            visible: true,
+            relatedStrategyPart: 'Social Bots',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+                )
         menuItemsInitialValues.push(
           {
             action: 'Edit Session',
@@ -1421,7 +1499,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0,
+            angle: 20,
             dontShowAtFullscreen: true
           }
             )
@@ -1438,7 +1516,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 30
+            angle: 40
           }
             )
         menuItemsInitialValues.push(
@@ -1452,7 +1530,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 70
+            angle: 75
           }
                 )
         break
@@ -1484,7 +1562,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -70
+            angle: -75
           }
         )
         menuItemsInitialValues.push(
@@ -1497,9 +1575,35 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -30
+            angle: -40
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Parameters',
+            visible: true,
+            relatedStrategyPart: 'Parameters',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Social Bots',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Social Bots',
+            visible: true,
+            relatedStrategyPart: 'Social Bots',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+                )
         menuItemsInitialValues.push(
           {
             action: 'Edit Session',
@@ -1511,7 +1615,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0,
+            angle: 20,
             dontShowAtFullscreen: true
           }
             )
@@ -1528,7 +1632,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 30
+            angle: 40
           }
             )
         menuItemsInitialValues.push(
@@ -1542,7 +1646,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 70
+            angle: 75
           }
                 )
         break
@@ -3133,19 +3237,19 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Backtesting Session': {
-        level_4()
+        level_2()
         break
       }
       case 'Live Trading Session': {
-        level_4()
+        level_2()
         break
       }
       case 'Fordward Testing Session': {
-        level_4()
+        level_2()
         break
       }
       case 'Paper Trading Session': {
-        level_4()
+        level_2()
         break
       }
       case 'Exchange Account': {

@@ -984,6 +984,12 @@ If you don't set a *finalDatetime* at the level of the testing session or the tr
 
 Paper trading sessions only require a *finalDatetime*. If you do not set one either at the level of the session or the trading system then the session will run for one year.
 
+```
+{
+"finalDatetime": "2020-09-25T00:00:00.000Z"
+}
+```
+
 ### Time Period
 
 | Time Period |
@@ -1074,9 +1080,33 @@ The *Trades* layer marks trades with a triangle whose hypotenuse connects the pr
 
 ![Trading-Simulation-Trades](https://user-images.githubusercontent.com/13994516/58574801-1a76f700-8241-11e9-9144-0db81636dace.gif)
 
-# Live Trading
+# Forward Testing and Live Trading
 
-Once you are happy with your strategy, running it as a fully automated bot to trade live is quite simple. Truth be told, your strategy running as a simulation is pretty much a trading bot already—only that orders don't go to the exchange.
+Once you are happy with your strategy after extensive backtesting and paper-trading sessions, running it as a fully automated bot to trade live is quite simple. Truth be told, your strategy running as a simulation is pretty much a trading bot already—only that orders don't go to the exchange.
+
+| Forward Testing | Live Trading |
+| :---: | :---: |
+| ![session-forward-testing](https://user-images.githubusercontent.com/13994516/67090258-eed1ba80-f1a9-11e9-9b00-d281d50d6eff.png) | ![session-live-trading](https://user-images.githubusercontent.com/13994516/67090259-eed1ba80-f1a9-11e9-896a-a8320f3e3f40.png) |
+
+It is recommended to forward test your strategy before commiting serious capital to live trading. Forward testing is usually the final testing phase before going live. It involves placing orders at the exchange for a fraction of the capital that you intend to use when trading live.
+
+Forward testing sessions and live trading sessions need to be configured under their corresponding tasks, pretty much like was explained for backtesting and paper-trading sessions.
+
+Let's review the few differences and some things you need to take into account:
+
+| Datetime Range |
+| :---: |
+| ![schedule](https://user-images.githubusercontent.com/13994516/67080564-ce980080-f195-11e9-9e1e-4f71dd433e57.png) |
+
+```
+{
+"finalDatetime": "2019-09-25T00:00:00.000Z"
+}
+```
+
+Like with paper trading sessions, you only require a *finalDatetime*. If you do not set one either at the level of the session or the trading system then the session will run for one year.
+
+> The **Exchange Rate** and **Slippage** parameters do not affect forward testing or live trading. However, those parameters are taken into account when creating simulation layers, which are also avaialbe during forward testing and live trading.
 
 ## Getting Started
 

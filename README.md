@@ -909,9 +909,9 @@ Fees are a crucial part of the game. A strategy may work like a charm when you l
 
 Simulations take fees into account when the following piece of code is present and properly configured in your *Fee Structure* parameter:
 
-| Parameters | Fee Structure |
-| :---: | :---: |
-| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![fee-structure](https://user-images.githubusercontent.com/13994516/63638434-0dbf3f00-c688-11e9-9b3e-7cb1ff7e4814.png) |
+| Fee Structure |
+| :---: |
+| ![fee-structure](https://user-images.githubusercontent.com/13994516/63638434-0dbf3f00-c688-11e9-9b3e-7cb1ff7e4814.png) |
 
 ```
 {
@@ -937,9 +937,9 @@ The trade hits the take profit target above the Position Rate level, however, du
 
 To account for slippage during simulations, you may enter slippage values for the three different occasions in which the Execution Engine will place orders: Take Position, Take Profit and Stop.
 
-| Parameters | Slippage |
-| :---: | :---: |
-| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![slippage](https://user-images.githubusercontent.com/13994516/63638432-0d26a880-c688-11e9-9ab4-004c7b29345f.png) |
+| Slippage |
+| :---: |
+| ![slippage](https://user-images.githubusercontent.com/13994516/63638432-0d26a880-c688-11e9-9ab4-004c7b29345f.png) |
 
 Simulations take *slippage* into account when the following piece of code is present and properly configured in your *Slippage* parameter:
 
@@ -959,10 +959,9 @@ The result of slippage in simulations is taken into account by the graphic repre
 
 ### Datetime Range
 
-| Parameters | Time Range |
-| :---: | :---: |
-| ![parameters](https://user-images.githubusercontent.com/13994516/63508921-3f46d780-c4db-11e9-970d-8d5e2ca5ebe3.png) | ![time-range](https://user-images.githubusercontent.com/13994516/63638435-0dbf3f00-c688-11e9-8bbd-5e00906cdfa1.png) |
-
+| Time Range |
+| :---: |
+| ![time-range](https://user-images.githubusercontent.com/13994516/63638435-0dbf3f00-c688-11e9-8bbd-5e00906cdfa1.png) |
 
 The Datetime Range parameter of your Trading System is used to control the period of time in which the simulation will be calculated. Depending on how you set up this parameter you will be either backtesting, paper-trading, or both at the same time.
 
@@ -986,6 +985,10 @@ The Datetime Range parameter of your Trading System is used to control the perio
 **B.** If you do not enter a *finalDatetime*, then the forward-test will run for one year.
 
 ### Time Period
+
+| Time Range |
+| :---: |
+| ![schedule](https://user-images.githubusercontent.com/13994516/67080564-ce980080-f195-11e9-9e1e-4f71dd433e57.png) |
 
 Simulations run in the time period active at the moment of clicking the RESTART SIMULATION button. Only one time period may be active at any point in time: if you run a simulation in a different time period than a previous simulation, the previous one stops—however,  the previous simulation data is conserved and may be accessed again by going back to the corresponding time period.
 

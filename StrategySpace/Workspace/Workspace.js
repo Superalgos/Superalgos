@@ -334,6 +334,21 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addNetworkNode(payload.node)
         }
         break
+      case 'Add Social Bots':
+        {
+          functionLibraryPartsFromNodes.addSocialBots(payload.node)
+        }
+        break
+      case 'Add Telegram Bot':
+        {
+          functionLibraryPartsFromNodes.addTelegramBot(payload.node)
+        }
+        break
+      case 'Add Announcement':
+        {
+          functionLibraryPartsFromNodes.addAnnouncement(payload.node)
+        }
+        break
       case 'Add Layer Manager':
         {
           functionLibraryPartsFromNodes.addLayerManager(payload.node)
@@ -500,6 +515,18 @@ function newWorkspace () {
       }
       case 'Delete Network Node': {
         functionLibraryNodeDeleter.deleteNetworkNode(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Social Bots': {
+        functionLibraryNodeDeleter.deleteSocialBots(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Social Bot': {
+        functionLibraryNodeDeleter.deleteSocialBot(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Announcement': {
+        functionLibraryNodeDeleter.deleteAnnouncement(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Layer Manager': {

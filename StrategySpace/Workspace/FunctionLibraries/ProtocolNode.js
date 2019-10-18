@@ -75,6 +75,10 @@ function newProtocolNode () {
             let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds)
             event.situations.push(situation)
           }
+          for (let m = 0; m < node.announcements.length; m++) {
+            let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds)
+            event.announcements.push(announcement)
+          }
           if (includeIds) {
             event.id = node.id
           }
@@ -139,6 +143,10 @@ function newProtocolNode () {
           let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds)
           event.situations.push(situation)
         }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds)
+          event.announcements.push(announcement)
+        }
         if (includeIds) {
           event.id = node.id
         }
@@ -156,6 +164,10 @@ function newProtocolNode () {
           let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds)
           event.situations.push(situation)
         }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds)
+          event.announcements.push(announcement)
+        }
         if (includeIds) {
           event.id = node.id
         }
@@ -172,6 +184,10 @@ function newProtocolNode () {
         for (let m = 0; m < node.situations.length; m++) {
           let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds)
           event.situations.push(situation)
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds)
+          event.announcements.push(announcement)
         }
         if (includeIds) {
           event.id = node.id
@@ -466,6 +482,53 @@ function newProtocolNode () {
           key.id = node.id
         }
         return key
+      }
+      case 'Social Bots': {
+        let socialBots = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          bots: []
+        }
+
+        for (let m = 0; m < node.bots.length; m++) {
+          let bot = getProtocolNode(node.bots[m], removePersonalData, parseCode, includeIds)
+          socialBots.bots.push(bot)
+        }
+        if (includeIds) {
+          socialBots.id = node.id
+        }
+        return layerManager
+      }
+      case 'Telegram Bot': {
+        let bot = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          announcements: []
+        }
+
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds)
+          bot.announcements.push(announcement)
+        }
+        if (includeIds) {
+          bot.id = node.id
+        }
+        return bot
+      }
+      case 'Announcement': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        return object
       }
       case 'Layer Manager': {
         let layerManager = {

@@ -59,6 +59,12 @@ function newOnFocus () {
               return child
             }
           }
+          for (let m = 0; m < node.announcements.length; m++) {
+            child = getNodeThatIsOnFocus(node.announcements[m])
+            if (child !== undefined) {
+              return child
+            }
+          }
           if (node.payload.uiObject.isOnFocus === true) {
             return node
           } else {
@@ -117,6 +123,12 @@ function newOnFocus () {
             return child
           }
         }
+        for (let m = 0; m < node.announcements.length; m++) {
+          child = getNodeThatIsOnFocus(node.announcements[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
         if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
@@ -131,6 +143,12 @@ function newOnFocus () {
             return child
           }
         }
+        for (let m = 0; m < node.announcements.length; m++) {
+          child = getNodeThatIsOnFocus(node.announcements[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
         if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
@@ -141,6 +159,12 @@ function newOnFocus () {
         let child
         for (let m = 0; m < node.situations.length; m++) {
           child = getNodeThatIsOnFocus(node.situations[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          child = getNodeThatIsOnFocus(node.announcements[m])
           if (child !== undefined) {
             return child
           }
@@ -424,6 +448,41 @@ function newOnFocus () {
         }
       }
       case 'Exchange Account Key': {
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Social Bots': {
+        let child
+        for (let m = 0; m < node.socialBots.length; m++) {
+          child = getNodeThatIsOnFocus(node.socialBots[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Telegram Bot': {
+        let child
+        for (let m = 0; m < node.announcements.length; m++) {
+          child = getNodeThatIsOnFocus(node.announcements[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Announcement': {
         if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {

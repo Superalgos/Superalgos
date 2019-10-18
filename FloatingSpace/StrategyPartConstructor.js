@@ -472,7 +472,7 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Telegram Bot',
+            action: 'Delete Social Bot',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,

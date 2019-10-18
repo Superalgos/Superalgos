@@ -284,7 +284,7 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Announcement':
-        compatibleType = '->' + 'Telegram Bot' + '->' + 'Trigger On Event' + '->' + 'Trigger Off Event' + '->' + 'Take Position Event' + '->'
+        compatibleType = '->' + 'Telegram Bot' + '->' + 'Trigger On Event' + '->' + 'Trigger Off Event' + '->' + 'Take Position Event' + '->' + 'Next Phase Event' + '->'
         compatibleSubType = undefined
         break
       case 'Task Manager':

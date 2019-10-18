@@ -986,7 +986,7 @@ The Datetime Range parameter of your Trading System is used to control the perio
 
 ### Time Period
 
-| Time Range |
+| Time Period |
 | :---: |
 | ![schedule](https://user-images.githubusercontent.com/13994516/67080564-ce980080-f195-11e9-9e1e-4f71dd433e57.png) |
 

@@ -59,6 +59,12 @@ function newShortcutKeys () {
               return child
             }
           }
+          for (let m = 0; m < node.announcements.length; m++) {
+            child = getNodeByShortcutKey(node.announcements[m], searchingKey)
+            if (child !== undefined) {
+              return child
+            }
+          }
           if (node.payload.uiObject.shortcutKey === searchingKey) {
             return node
           } else {
@@ -117,6 +123,12 @@ function newShortcutKeys () {
             return child
           }
         }
+        for (let m = 0; m < node.announcements.length; m++) {
+          child = getNodeByShortcutKey(node.announcements[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
         if (node.payload.uiObject.shortcutKey === searchingKey) {
           return node
         } else {
@@ -131,6 +143,12 @@ function newShortcutKeys () {
             return child
           }
         }
+        for (let m = 0; m < node.announcements.length; m++) {
+          child = getNodeByShortcutKey(node.announcements[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
         if (node.payload.uiObject.shortcutKey === searchingKey) {
           return node
         } else {
@@ -141,6 +159,12 @@ function newShortcutKeys () {
         let child
         for (let m = 0; m < node.situations.length; m++) {
           child = getNodeByShortcutKey(node.situations[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          child = getNodeByShortcutKey(node.announcements[m], searchingKey)
           if (child !== undefined) {
             return child
           }
@@ -424,6 +448,41 @@ function newShortcutKeys () {
         }
       }
       case 'Exchange Account Key': {
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Social Bots': {
+        let child
+        for (let m = 0; m < node.bots.length; m++) {
+          child = getNodeByShortcutKey(node.bots[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Telegram Bot': {
+        let child
+        for (let m = 0; m < node.announcements.length; m++) {
+          child = getNodeByShortcutKey(node.announcements[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Announcement': {
         if (node.payload.uiObject.shortcutKey === searchingKey) {
           return node
         } else {

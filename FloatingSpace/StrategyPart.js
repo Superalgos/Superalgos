@@ -275,6 +275,18 @@ function newStrategyPart () {
         compatibleType = '->' + 'Layer Manager' + '->'
         compatibleSubType = undefined
         break
+      case 'Social Bots':
+        compatibleType = '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Telegram Bot':
+        compatibleType = '->' + 'Social Bots' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Announcement':
+        compatibleType = '->' + 'Telegram Bot' + '->' + 'Trigger On Event' + '->' + 'Trigger Off Event' + '->' + 'Take Position Event' + '->'
+        compatibleSubType = undefined
+        break
       case 'Task Manager':
         compatibleType = '->' + 'Network Node' + '->'
         compatibleSubType = undefined

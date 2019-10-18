@@ -389,6 +389,172 @@ function newStrategyPartConstructor () {
         )
         break
       }
+      case 'Social Bots': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Telegram Bot',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Telegram Bot',
+            visible: true,
+            relatedStrategyPart: 'Telegram Bot',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Social Bots',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Social Bots',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+            )
+        break
+      }
+      case 'Telegram Bot': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Announcement',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Announcement',
+            visible: true,
+            relatedStrategyPart: 'Announcement',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Telegram Bot',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Telegram Bot',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Telegram Bot',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Telegram Bot',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+                )
+        break
+      }
+      case 'Announcement': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Announcement',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Announcement',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Announcement',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Announcement',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+                )
+        break
+      }
       case 'Layer Manager': {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -2920,6 +3086,18 @@ function newStrategyPartConstructor () {
       }
       case 'Network Node': {
         level_1()
+        break
+      }
+      case 'Social Bots': {
+        level_3()
+        break
+      }
+      case 'Telegram Bot': {
+        level_4()
+        break
+      }
+      case 'Announcement': {
+        level_4()
         break
       }
       case 'Layer Manager': {

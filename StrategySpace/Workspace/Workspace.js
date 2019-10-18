@@ -48,7 +48,7 @@ function newWorkspace () {
   let functionLibraryNodeDeleter = newNodeDeleter()
   let functionLibraryPartsFromNodes = newPartsFromNodes()
   let functionLibraryProtocolNode = newProtocolNode()
-  let functionLibraryWorkspaceNodes = newStringifyNode()
+  let functionLibraryStringifyNodes = newStringifyNode()
   let functionLibraryTaskFunctions = newTaskFunctions()
   let functionLibrarySessionFunctions = newSessionFunctions()
   let functionLibraryShortcutKeys = newShortcutKeys()
@@ -132,7 +132,7 @@ function newWorkspace () {
     let stringifyReadyNodes = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let node = functionLibraryWorkspaceNodes.prepareForStringify(rootNode, removePersonalData)
+      let node = functionLibraryStringifyNodes.prepareForStringify(rootNode, removePersonalData)
       if (node) {
         stringifyReadyNodes.push(node)
       }

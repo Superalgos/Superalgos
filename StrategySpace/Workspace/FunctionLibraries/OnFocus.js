@@ -456,8 +456,8 @@ function newOnFocus () {
       }
       case 'Social Bots': {
         let child
-        for (let m = 0; m < node.socialBots.length; m++) {
-          child = getNodeThatIsOnFocus(node.socialBots[m])
+        for (let m = 0; m < node.bots.length; m++) {
+          child = getNodeThatIsOnFocus(node.bots[m])
           if (child !== undefined) {
             return child
           }
@@ -601,6 +601,10 @@ function newOnFocus () {
         if (child !== undefined) {
           return child
         }
+        child = getNodeThatIsOnFocus(node.socialBots)
+        if (child !== undefined) {
+          return child
+        }
         if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
@@ -615,6 +619,10 @@ function newOnFocus () {
           return child
         }
         child = getNodeThatIsOnFocus(node.layerManager)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeThatIsOnFocus(node.socialBots)
         if (child !== undefined) {
           return child
         }
@@ -635,6 +643,10 @@ function newOnFocus () {
         if (child !== undefined) {
           return child
         }
+        child = getNodeThatIsOnFocus(node.socialBots)
+        if (child !== undefined) {
+          return child
+        }
         if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
@@ -649,6 +661,10 @@ function newOnFocus () {
           return child
         }
         child = getNodeThatIsOnFocus(node.layerManager)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeThatIsOnFocus(node.socialBots)
         if (child !== undefined) {
           return child
         }

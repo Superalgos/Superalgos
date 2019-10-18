@@ -261,7 +261,7 @@ function newCanvas () {
       if (event.keyCode >= 65 && event.keyCode <= 90) {
         let nodeUsingThisKey = canvas.strategySpace.workspace.getNodeByShortcutKey(event.key)
 
-        if (nodeOnFocus === undefined) {
+        if (nodeOnFocus === undefined && nodeUsingThisKey !== undefined) {
           /* Then we displace the whole workspace to center it at the node using this key */
           nodeUsingThisKey = canvas.floatingSpace.positionAtNode(nodeUsingThisKey)
           return
@@ -271,7 +271,7 @@ function newCanvas () {
         event.preventDefault()
 
         /* If there is a node in focus, we try to assign the key to it. */
-        if (nodeUsingThisKey !== undefined) {
+        if (nodeUsingThisKey !== undefined && nodeOnFocus !== undefined) {
           if (nodeUsingThisKey.id === nodeOnFocus.id) {
             nodeOnFocus.payload.uiObject.shortcutKey = ''
             nodeOnFocus.payload.uiObject.setValue('Shortcut Key Removed ')
@@ -281,9 +281,11 @@ function newCanvas () {
             return
           }
         }
-
-        nodeOnFocus.payload.uiObject.shortcutKey = event.key
-        nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + event.key)
+        /* If there is not node using this key and a node in focus, we assign this key to this node */
+        if (nodeUsingThisKey === undefined && nodeOnFocus !== undefined) {
+          nodeOnFocus.payload.uiObject.shortcutKey = event.key
+          nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + event.key)
+        }
       }
       return
     }

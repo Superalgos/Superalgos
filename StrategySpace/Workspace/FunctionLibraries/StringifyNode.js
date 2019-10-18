@@ -476,7 +476,7 @@ function newStringifyNode () {
           savedPayload: getSavedPayload(node)
         }
 
-        if (node.announcements !== undefined) {
+        if (node.bots !== undefined) {
           for (let m = 0; m < node.bots.length; m++) {
             let bot = prepareForStringify(node.bots[m], removePersonalData)
             object.bots.push(bot)

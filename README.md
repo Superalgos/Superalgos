@@ -178,7 +178,7 @@ You should end up with the following folder structure:
 
 Go to the ```Superalgos Desktop App``` folder and double click on ```Superalgos.exe```. Now, skip the Mac instructions and go directly to point 2 below.
 
-**1-B. In Mac systems, download and install Node JS**:
+**1-B. In other systems (Mac, Linux, etc.), download and install Node JS**:
 
 Node.js is an open-source server environment required for the app to run. Go to the [Node Js downloads page](https://nodejs.org/en/download/) and download the Mac installer. Run the installer and go through the process until Node Js is installed.
 
@@ -845,7 +845,8 @@ For the time being, all you need to know is that the *network* is one of the dir
 
 | Task Manager | Task | Sensor | Indicator | Trading Engine | Process |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| ![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) |  |  |  |  |  |
+| ![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) | 
+![timeline](https://user-images.githubusercontent.com/13994516/67079956-73b1d980-f194-11e9-89e0-9c8d1ea2ad1d.png) | ![bot-sensor](https://user-images.githubusercontent.com/13994516/67079734-000fcc80-f194-11e9-911d-2b537e4cb8f2.png) | ![bot-indicator](https://user-images.githubusercontent.com/13994516/67079733-000fcc80-f194-11e9-98d7-3426dd956d65.png) | ![trading-engine](https://user-images.githubusercontent.com/13994516/67079740-00a86300-f194-11e9-8609-793f66dd7378.png) | ![process](https://user-images.githubusercontent.com/13994516/67079738-00a86300-f194-11e9-9f59-a4cc4ce6d56c.png) |
 
 A *task manager* is an entity that controls any number of *tasks*, and tasks are used to control *bots*, which in turn may run any number of *processes*. 
 

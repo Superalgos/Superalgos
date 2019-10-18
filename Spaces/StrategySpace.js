@@ -62,8 +62,8 @@ function newStrategySpace () {
       ['Trading System', 'analysis'],
       ['Parameters', 'settings'],
       ['Base Asset', 'loading'],
-      ['Time Range', 'chronometer'],
-      ['Time Period', 'schedule'],
+      ['Time Range', 'schedule'],
+      ['Time Period', 'time-period'],
       ['Slippage', 'support'],
       ['Fee Structure', 'sitemap'],
       ['Strategy', 'quality'],
@@ -179,7 +179,8 @@ function newStrategySpace () {
       'layer-manager',
       'process',
       'bot-indicator',
-      'bot-sensor'
+      'bot-sensor',
+      'time-period'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

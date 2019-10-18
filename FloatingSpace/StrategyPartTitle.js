@@ -59,6 +59,16 @@ function newStrategyPartTitle () {
       case 'Network Node': {
         break
       }
+      case 'Social Bots': {
+        break
+      }
+      case 'Telegram Bot': {
+        break
+      }
+      case 'Announcement': {
+        thisObject.allwaysVisible = true
+        break
+      }
       case 'Layer Manager': {
         break
       }

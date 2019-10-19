@@ -1164,55 +1164,81 @@ Once you are happy with your strategy after extensive backtesting and paper-trad
 | :---: | :---: |
 | ![session-forward-testing](https://user-images.githubusercontent.com/13994516/67090258-eed1ba80-f1a9-11e9-9b00-d281d50d6eff.png) | ![session-live-trading](https://user-images.githubusercontent.com/13994516/67090259-eed1ba80-f1a9-11e9-896a-a8320f3e3f40.png) |
 
-It is recommended to forward test your strategy before commiting serious capital to live trading. Forward testing is usually the final testing phase before going live. It involves placing orders at the exchange for a fraction of the capital that you intend to use when trading live.
+It is recommended to forward test your strategy before commiting serious capital to live trading. Forward testing is usually the final testing phase before going live. It involves placing orders at the exchange for a fraction of the capital that you intend to use when trading live, and that is actually the only difference between a forward testing session and a live trading session.
 
-Forward testing sessions and live trading sessions need to be configured under their corresponding tasks, pretty much like was explained for backtesting and paper-trading sessions.
+Forward testing sessions and live trading sessions need to be configured under their corresponding tasks, pretty much like was explained for backtesting and paper-trading sessions, with a few minor nouances:
 
-Let's review the few differences and some things you need to take into account:
-
-| Datetime Range |
-| :---: |
-| ![schedule](https://user-images.githubusercontent.com/13994516/67080564-ce980080-f195-11e9-9e1e-4f71dd433e57.png) |
-
-```
-{
-"finalDatetime": "2019-09-25T00:00:00.000Z"
-}
-```
+**1. Datetime Range**
 
 Like with paper trading sessions, you only require a *finalDatetime*. If you do not set one either at the level of the session or the trading system then the session will run for one year.
 
+```
+{
+"finalDatetime": "2020-12-31T23:59:99.999Z"
+}
+```
+
 > The **Exchange Rate** and **Slippage** parameters do not affect forward testing or live trading. However, those parameters are taken into account when creating simulation layers, which are also avaialbe during forward testing and live trading.
+
+**2. Forward Testing Session Configuration**
+
+In the case of forward testing you will want to configure what is the percentage of your capital that you wish to use for testing. You do this by clicking the *Edit Session* option on the session's menu and entering the desired value in the code snipet:
+
+```
+{"balancePercentage": 1}
+```
+
+The number you enter is applied as a percentage of the *positionSize* you defined on the [Open Stage](#open-stage) of the strategy. For instance, ```"balancePercentage": 1``` means the position will be set for 1% of the defined *postionSize*.
+
+The following topics cover information that is common both to forward testing and live trading sessions.
 
 ## Getting Started
 
 All you need to do to start live-trading is:
 
-1. Get your API Keys from the exchange (see instructions for [Poloniex](#poloniex-api-keys)).
+1. Go to your definition and click *Add Personal Data* on the menu. In the new Personal Data element, click *Add Exchange Account*. In the Exchange Account element, click *Add Asset* and *Add Key*.
 
-2. Enter the public key and secret in the *Account Key* element attached to the *Exchange Account* element. Simply replace the *New Key* title with the *public key*, and enter the *secret* as the *Key Value*.<br/><br/>![Live-Trading-API-Key](https://user-images.githubusercontent.com/13994516/63278457-94020c80-c2a7-11e9-9436-340f2c60c999.gif)
+2. Get your API Key from the exchange (see instructions for [Poloniex](#poloniex-api-keys)).
+
+3. Enter the public key and secret in the *Account Key* element: simply replace the *New Key* title with the *public key*, and enter the *secret* as the *Key Value*.<br/><br/>![Live-Trading-API-Key](https://user-images.githubusercontent.com/13994516/63278457-94020c80-c2a7-11e9-9436-340f2c60c999.gif)
 <br/><br/>
 
-3. Make sure the following elements are present in your strategy. If they are not, simply add them: go to the _Open Stage_ element and select _Add Open Execution_ on the menu; do the same with the _Close Stage_, adding _Close Execution_). No need to configure anything, simply make sure the elements are there).
+4. Make sure the following elements are present in your strategy. If they are not, simply add them: go to the _Open Stage_ element and select _Add Open Execution_ on the menu; do the same with the _Close Stage_, adding _Close Execution_). No need to configure anything, simply make sure the elements are there).
 
 | Icon | Element | Stage |
 | :---: | :---: | :--- |
 | ![execution](https://user-images.githubusercontent.com/13994516/63542647-25c87e80-c521-11e9-899a-318bd6c62288.png) | Open Execution | Open Stage |
 | ![execution](https://user-images.githubusercontent.com/13994516/63542647-25c87e80-c521-11e9-899a-318bd6c62288.png) | Close Execution | Close Stage |
 
-4. Go back to the Charts and make sure they are positioned in the *time period* you wish to trade in.
+5. Go to the forward testing or live trading session and click *Run* on the menu.
 
 > **WARNING: The Superalgos Desktop App is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you test with small amounts of money, the kind you can afford losing. Also, make sure you understand the [Execution Limitations](#execution-limitations). Trade live at your own risk.**
 
-5. Click RESTART LIVE TRADING.
-
 ## Live Trading Process
 
-As soon as you click RESTART LIVE TRADING, your bot will be trading live. What happens is that you are still running a simulation—thus all the simulation layers keep plotting the same kind of information over the charts.
+As soon as you click *Run*, your bot will be forward testing or trading live. What happens is that you are still running a simulation—thus all the simulation layers keep plotting the same kind of information over the Charts.
 
 The difference is that orders will now go to the exchange.
 
-Your trading bot is executed every 30 to 60 seconds, depending on the capacity of your machine. This is something you need to consider when picking a time period to trade, as the time lag between the moment the candle closes at the exchange and the time your trading bot is executed, will be more or less significant.
+**For maximum efficiency, we recommend you run live trading sessions on the 01-min time period. Your bot will then be executed every 60 seconds to evaluate your strategy rules and decide if any action needs to be taken. This is important even if your strategy operates at a lower frequency, as running the live session at the 01-min time period guarantees that the engine will exit trades as soon as the last one-minute candle tags your stop or take profit target. On the contrary, if you run the live trading session at a time period higher than 01-min, slippage may be considerably greater.**
+
+For the above recommendation to be viable, then all of your conditions and formulas will need to be explicit in referencing the time period. Let's clarify what this means.
+
+Let's assume you wish to trade live with the [Weak-hands buster](https://github.com/Superalgos/Strategy-BTC-WeakHandsBuster) strategy, which operates mostly at the one hour time period.
+
+The first condition of the trigger on event is:
+
+```
+chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.movingAverage + chart.at01hs.bollingerBand.previous.deviation
+```
+
+The use of ```chart.at01hs.``` makes explicit that the candle to check is the one at the 01-hs time period, as explained in the chapter [Conditions and Formulas with Data from Different Time Periods](https://github.com/Superalgos/DesktopApp/blob/develop/README.md#contitions-and-formulas-with-data-from-different-time-periods).
+
+This makes the trading engine check the 01-hs time period, even if the bot is running every minute.
+
+If, on the contrary, the condition was ```candle.previous.max > bollingerBand.previous.movingAverage + bollingerBand.previous.deviation``` then the trading engine would be checking the candles at the 01-min chart, which is not what is intended.
+
+> **NOTE:** All strategies offered as examples in the ```Quick-Start-Examples``` folder are now set up according to the above criteria.
 
 ## Live Trading History Layer
 

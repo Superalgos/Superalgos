@@ -72,7 +72,7 @@ if (global.TASK_NODE !== undefined) {
 
 }
 else {  // I use this section to debug in standalone mode.
-    let argument = '{"type":"Task","name":"New Task","bot":{"type":"Trading Engine","code":{"team":"AAMasters","bot":"AAJason","repo":"AAJason-Trading-Engine-Bot"},"processes":[{"type":"Process","subType":"Trading Engine Process","name":"Multi Period","code":{"process":"Multi-Period"},"session":{"type":"Backtesting Session","name":"30min + 6hs down, dev < 15","id":"715839bb-a76c-427f-a48f-5bf1b2184070"},"id":"18dfca43-5015-40d9-824d-09b59b670e32"},{"type":"Process","subType":"Trading Engine Process","name":"Multi Period","code":{"process":"Multi-Period"},"session":{"type":"Backtesting Session","name":"30min + 6hs down, dev < 20","id":"7a681e8d-7167-4edb-bb2f-90e12c7f5418"},"id":"5ccdbb76-4e45-4377-bc44-fd0f95e40deb"}],"id":"22b61a44-4fcc-4f6d-bb7c-4c2a24acbfbc"},"id":"9238ed0b-7cc6-4732-83e6-8ac8d52f6dd3"}'
+    let argument = ' {"type":"Task","name":"Runs Backtests","bot":{"type":"Trading Engine","code":{"team":"AAMasters","bot":"AAJason","repo":"AAJason-Trading-Engine-Bot"},"processes":[{"type":"Process","subType":"Trading Engine Process","name":"Multi Period","code":{"process":"Multi-Period"},"session":{"type":"Backtesting Session","name":"20 Minutes","code":{"folderName":"Backtest-01"},"parameters":{"type":"Parameters","name":"Parameters","baseAsset":{"type":"Base Asset","name":"Base Asset","code":{"name":"BTC","initialBalance":0.001,"minimumBalance":0.0001,"maximumBalance":1},"id":"666f6f10-2f17-4f5e-951c-b532bdb574d2"},"timeRange":{"type":"Time Range","name":"Time Range","code":{"initialDatetime":"2019-09-01T00:00:00.000Z","finalDatetime":"2019-09-05T00:00:00.000Z"},"id":"172958dd-b268-4444-8163-70979538ea6e"},"timePeriod":{"type":"Time Period","name":"Time Period","code":"01-hs","id":"37ee839d-9a7c-410c-9251-c33b8f1b99f7"},"slippage":{"type":"Slippage","name":"Slippage","code":{"positionRate":0.1,"stopLoss":0.1,"takeProfit":0.1},"id":"86ebd973-6ad9-4070-aece-a87623f24c2e"},"feeStructure":{"type":"Fee Structure","name":"Fee Structure","code":{"maker":0.15,"taker":0.25},"id":"a0ec3f6f-6047-4740-87fe-393b1c714adb"},"key":{"type":"Exchange Account Key","name":"New Key","code":"Paste your exchange API secret key here and the put the key name as this key object title. Secret keys are filtered out and NOT exported when using the SHARE menu option on any object at your workspace. Secret keys ARE downloaded when using the download button.","id":"368f879d-e363-47c7-b55e-7b927d896b20"},"id":"09db5e1e-a7e8-468c-ad70-0d2ab1c8b8b8"},"layerManager":{"type":"Layer Manager","name":"New Layer Manager","layers":[{"type":"Layer","name":"Live","code":{"product":"Live-Trading-History"},"id":"0ec05e1c-230b-44a1-9f2c-fba0ea2ff9e2"},{"type":"Layer","name":"Trades","code":{"product":"Simulation-Trades"},"id":"6326e03a-96c0-4d21-b877-f2c6a0419fc5"},{"type":"Layer","name":"Strategies","code":{"product":"Simulation-Strategies"},"id":"bda1e06c-e569-4bd5-95fb-90154aafb003"},{"type":"Layer","name":"Simulation","code":{"product":"Trading-Simulation"},"id":"d58d8cd2-f125-4f0c-b241-08e2af8ac4be"},{"type":"Layer","name":"Formulas & Conditions","code":{"product":"Simulation-Conditions"},"id":"15dfeca0-acd9-40d3-afe0-4805654bf0d0"}],"id":"884c4dd7-4beb-43fb-bda5-d6097d58ae09"},"socialBots":{"type":"Social Bots","name":"New Social Bots","bots":[{"type":"Telegram Bot","name":"New Telegram Bot","code":{"botToken":"861966974:AAEx9Gfg4boBDX_ZzqNjxXSzIK4fweFwH9A","chatId":-330926442},"announcements":[],"id":"b7fdad03-d096-4e9c-b7f5-6bf6d697c3dd"}],"id":"281eb022-cf9f-4ac2-978b-c8358bee8fec"},"id":"121202ea-6735-4bf3-8a95-aaa55f00f6e7"},"id":"3f483482-d8a1-4755-ba50-7cac6296fa5f"}],"id":"25fe9099-b53d-4757-8a63-3f8a15875f33"},"id":"5b21d2d2-0f52-4408-83eb-ddaa844ec58c"}'
     /* charly   argument = '{"type":"Task","name":"Brings Trades Records from the Exchange","bot":{"type":"Sensor","name":"Charly","processes":[{"type":"Process","name":"Live Trades","code":{"team":"AAMasters","bot":"AACharly","process":"Live-Trades"},"id":"5846ebc7-1979-4a80-9cc7-94bb4b8659dc"},{"type":"Process","name":"Hole Fixing","code":{"team":"AAMasters","bot":"AACharly","process":"Hole-Fixing"},"id":"31fc4f05-75d4-419a-9fb0-73e25e856f15"}]},"id":"5bfef4dc-54c1-44db-ace6-1ab27a86746e"}'
     // olivia argument = '{"type":"Task","name":"Generates 1 min to 24 hs Candles & Volumes","bot":{"type":"Indicator","name":"Olivia","processes":[{"type":"Process","name":"Daily","code":{"team":"AAMasters","bot":"AAOlivia","process":"Multi-Period-Daily"},"id":"68cc8e1b-e94a-477e-82d0-15ecc9f1b9e2"},{"type":"Process","name":"Market","code":{"team":"AAMasters","bot":"AAOlivia","process":"Multi-Period-Market"},"id":"e1ac5e3d-d491-4e90-baf4-d4e5b71a8b1a"}]},"id":"efe36e05-75ea-41b5-8d92-c6b27635c834"}'
     // bruce argument = ' {"type":"Task","name":"Converts Trades into 1 min Candles & Volumes","bot":{"type":"Indicator","name":"Bruce","processes":[{"type":"Process","name":"New Process","code":{"team":"AAMasters","bot":"AABruce","process":"Single-Period-Daily"},"id":"e184744f-5de0-41c1-ad4c-36960f4ced90"}]},"id":"42758590-a7bd-4712-a5c9-80a3a820c5b3"}'
@@ -152,28 +152,6 @@ global.STOP_TASK_GRACEFULLY = false;
 
 function bootLoader() {
 
-    /* Telegram Bot Initialization */
-
-    try {
-/*
-    const Telegraf = require('telegraf')
-
-    global.TELEGRAM_BOT = new Telegraf(process.env.TELEGRAM_BOT_TOKEN)
-    global.TELEGRAM_BOT.start((ctx) => ctx.reply('Welcome'))
-    global.TELEGRAM_BOT.help((ctx) => ctx.reply('Send me a sticker'))
-    global.TELEGRAM_BOT.on('sticker', (ctx) => ctx.reply('??'))
-    global.TELEGRAM_BOT.hears('hi', (ctx) => ctx.reply('Hey there'))
-    global.TELEGRAM_BOT.launch()
-    
-    const Telegram = require('telegraf/telegram')
-    global.TELEGRAM_API = new Telegram(process.env.TELEGRAM_BOT_TOKEN)
-    global.TELEGRAM_API.sendMessage(process.env.TELEGRAM_GROUP_ID, "Task Manager Started.")
-*/
-
-    } catch (err) {
-        console.log("[ERROR] Task Server -> server -> bootLoader -> Telegram Initialization Failed. -> Error = " + err.stack);
-    }
-
     /* Heartbeat sent to the UI */
 
     let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
@@ -188,12 +166,7 @@ function bootLoader() {
         let event = {
             seconds: (new Date()).getSeconds()
         }
-        /*
-        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
-        if (global.TELEGRAM_API !== undefined) {
-            global.TELEGRAM_API.sendMessage(process.env.TELEGRAM_GROUP_ID, "Task is Alive!")
-        }
-        */
+         global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
     }
 
     for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {

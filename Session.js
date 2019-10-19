@@ -40,6 +40,9 @@
             global.SYSTEM_EVENT_HANDLER.listenToEvent(bot.sessionKey, 'Run Session', undefined, undefined, undefined, runSession)
             global.SYSTEM_EVENT_HANDLER.listenToEvent(bot.sessionKey, 'Stop Session', undefined, undefined, undefined, stopSession)
 
+            callBackFunction(global.DEFAULT_OK_RESPONSE)
+            return
+
             function runSession(message) {
                 console.log("runSession")
                 /* We are going to run the Definition comming at the event. */
@@ -62,6 +65,10 @@
                     }
                 }
 
+                /* Set up Social Bots */
+                setUpSocialBots()
+
+                /* Extract values from different sources and consolidate them under one structure that is going to be used later on. */
                 setValuesToUse(message)
 
                 switch (bot.SESSION.type) {
@@ -500,7 +507,76 @@
                 }
             }
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE)
+            function setUpSocialBots() {
+
+                if (bot.SESSION.socialBots !== undefined) {
+                    if (bot.SESSION.socialBots.bots !== undefined) {
+                        for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
+                            let socialBot = bot.SESSION.socialBots.bots[i]
+                            if (socialBot.type === "Telegram Bot") {
+                                try {
+                                    let code = JSON.parse(socialBot.code)
+                                    socialBot.botInstance = setUpTelegramBot(code.botToken, code.chatId)                                    
+                                } catch (err) {
+                                    parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> err = " + err.stack);
+                                }
+                            }
+                        }
+                    }
+
+                    function announce(announcement) {
+                        if (bot.SESSION.socialBots.bots !== undefined) {
+                            for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
+                                let socialBot = bot.SESSION.socialBots.bots[i]
+                                try {
+                                    let code = JSON.parse(announcement.code)
+                                    if (code.botId === undefined) {
+                                        code.botId = socialBot.id
+                                    }
+                                    if (socialBot.type === code.botType && socialBot.id === code.botId) {
+                                        if (socialBot.type === "Telegram Bot") {
+                                            socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text)
+                                        }
+                                    }
+                                } catch (err) {
+                                    parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> err = " + err.stack);
+                                }
+                            }
+                        }
+                    }
+
+                    bot.SESSION.socialBots.announce = announce
+                }
+            }
+
+            function setUpTelegramBot(botToken, chatId) {
+                /* Telegram Bot Initialization */
+                try {
+                    const Telegraf = require('telegraf')
+                    let telegramBot
+                    telegramBot = new Telegraf(botToken)
+                    telegramBot.start((ctx) => ctx.reply('Hi! I am a Telegram Bot powered by Superalgos'))
+                    telegramBot.help((ctx) => ctx.reply('Send me a sticker'))
+                    telegramBot.on('sticker', (ctx) => ctx.reply('??'))
+                    telegramBot.hears('hi', (ctx) => ctx.reply('Hey there'))
+                    telegramBot.launch()
+
+                    const Telegram = require('telegraf/telegram')
+                    let telegramAPI
+                    telegramAPI = new Telegram(botToken)
+                    telegramAPI.sendMessage(chatId, bot.SESSION.type + " '" + bot.SESSION.name + "' was Started.")
+
+                    let botInstance = {
+                        telegramBot: telegramBot,
+                        telegramAPI: telegramAPI,
+                        chatId: chatId
+                    }
+                    return botInstance
+                } catch (err) {
+                    parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpTelegramBot -> err = " + err.stack);
+                }
+
+            }
  
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);

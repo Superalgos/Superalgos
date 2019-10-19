@@ -736,6 +736,14 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 ![Designer-Drag-Drop](https://user-images.githubusercontent.com/13994516/63052820-a283a900-bee0-11e9-99b3-67273cba96a0.gif)
 
+### Working with Multiple Strategies
+
+When you have more than one strategy under the same trading system, all strategies share the *parameters* defined at the trading system level. This means that all strategies will work with the same *base asset* and share the same *initialCapital*.
+
+As a consequence, strategies within a trading system may never be triggered on at the same time. Under such setting, when a strategy is triggered on, it blocks the triggering of the rest of the strategies within the trading system.
+
+If you wish to have multiple strategies that work independently of each other, then you need to place them on different trading systems. At this point, the app supports only one trading system per definition. As a result, if you wish to have multiple independent strategies, then you need to have multiple definitions, each with one trading system.
+
 ## Available Variables
 
 ### Candles
@@ -921,7 +929,7 @@ There currently are three kinds of bots that you will run to provide you with th
 * **Indicators:** they process data to produce more ellaborate datasets;
 * **Trading Engine:** it is the bot that reads a Superalgos Protocol file containing the details of trading strategies and interacts with the Superalgos Desktop App to run them as simulations (using a simulation plotter) or to trade live.
 
-> Remember all of these elements (Network, Network Node, Task Manager, Tasks and Bots) are part of your definition. If you *do not* use one of the Quick-Start Examples workspaces supplied with the release, you will need to create all of these elements on your own, starting from the definition menu. It is unlikely that you will be able to do this properly, so we highly reccommend you use one of the supplied templates.
+> **NOTE:** Remember all of these elements (Network, Network Node, Task Manager, Tasks and Bots) are part of your definition. If you *do not* use one of the Quick-Start Examples workspaces supplied with the release, you will need to create all of these elements on your own, starting from the definition menu. It is unlikely that you will be able to do this properly, so we highly reccommend you use one of the supplied templates.
 
 All workspaces in the ```Quick-Start-Examples``` folder include the Superalgos Network and a network node with two task managers. Each task manager has a name, which becomes visible only upon hovering the mouse pointer:
 
@@ -930,6 +938,8 @@ All workspaces in the ```Quick-Start-Examples``` folder include the Superalgos N
 * **Tests & Live Trading:** This is the task manager you will use to run the trading engine, so that you can set up your backtesting, paper-trading, forward testing and live testing sessions. In our templates, you will always find at least two tasks, so that you may run live-trading sessions issolated from your tests. This means that you will run one instance of the trading engine for live-trading and any number of instances of the trading engine for your testing sessions.
 
 [ILLUSTRATION]
+
+> **PRO TIP:** The [Getting Started Guide](#getting-started-guide) instructed you to start all tasks on both of these task managers. However, once you become familiar with the app, you may want to start only individual tasks according to your specific needs.
 
 # Testing and Simulations
 
@@ -941,7 +951,7 @@ A simulation is the visual representation over the charts of any of the forms of
 
 * **Backtesting:** testing over historic data;
 * **Paper-trading:** testing over a live data feed, without placing orders at the exchange (orders are simulated);
-* **Forward testing:** testing over a live data feed, placing actual orders at the exchange for a fraction of the defined *position size*.
+* **Forward testing:** testing over a live data feed, placing actual orders at the exchange for a fraction of the defined *[positionSize](#internal)*.
 
 We will cover *forward testing* when we discuss live trading. For the time being, we will focus on the first two steps of the strategy testing process.
 
@@ -951,6 +961,10 @@ As explained in the previous chapter, the trading engine is the bot that handles
 
 For your convenience, all our templates in the ```Quick-Start-Examples``` folder come with at least one backtesting and one paper-trading session set up. All you need to do is customize the *parameters* to your liking and, if you wish, add or remove layers to the *layer manager*, both child elements of each testing session.
 
+> **PRO TIP**: The app allows for having multiple testing sessions. You may add and work with multiple sessions by backing up the existing session at the level of the process. Then drop the backup on the workspace, attach it to the trading engine and give the new session a new name.
+
+[ILLUSTRATION]
+
 ## Parameters
 
 | Parameters |
@@ -959,7 +973,7 @@ For your convenience, all our templates in the ```Quick-Start-Examples``` folder
 
 Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings.
 
-> If any of these parameters is missing from the configuration of the testing session, the app's fall-back mechanism will look for the parameters at the trading system level and use those settings instead.
+> If any of these parameters is missing from the configuration of the testing session, the app's fallback mechanism will look for the parameters at the trading system level and use those settings instead.
 
 We covered the *Base Asset* parameter when explaining [trading systems](#trading-system). Let's now review the rest.
 
@@ -989,11 +1003,11 @@ To illustrate how fees affect your bottom line, take a look at the image below.
 
 The trade hits the take profit target above the Position Rate level, however, due to fees, the trade has a negative 0.32% ROI.
 
-> If the *Fee Structure* parameter is left empty or disconnected both from your testing session and your Trading System, fees will not be computed during simulations.
+> **NOTE:** If the *Fee Structure* parameter is left empty or disconnected both from your testing session and your Trading System, fees will not be computed during simulations.
 
 ### Slippage
 
-[Slippage](https://en.wikipedia.org/wiki/Slippage_(finance)) is another issue you need to be aware of to more realistically evaluate a Strategy. The price at which the Exchange will fill the order placed by the Execution Engine is seldom going to match the conditions of the simulation.
+[Slippage](https://en.wikipedia.org/wiki/Slippage_(finance)) is another issue you need to be aware of to more realistically evaluate a strategy. The price at which the exchange will fill the order placed by the Execution Engine is seldom going to match the conditions of the simulation.
 
 To account for slippage during simulations, you may enter slippage values for the three different occasions in which the Execution Engine will place orders: Take Position, Take Profit and Stop.
 
@@ -1015,7 +1029,7 @@ The number you enter is applied as a percentage of the price of the order and ad
 
 The result of slippage in simulations is taken into account by the graphic representation of each trade created by the Simulation Trades layer.
 
-> If the *Slippage* parameter is left empty or disconnected both from your testing session and your Trading System, slippage will not be computed during simulations.
+> **NOTE:** If the *Slippage* parameter is left empty or disconnected both from your testing session and your Trading System, slippage will not be computed during simulations.
 
 ### Datetime Range
 
@@ -1108,6 +1122,8 @@ Notice Asset Balances in the bottom left corner of the screen. Asset A represent
 ![Trading-Simulation-Asset-Balances](https://user-images.githubusercontent.com/13994516/58564447-3e304200-822d-11e9-9e90-e4f02212de5a.gif)
 <br/><br/>
 
+> **NOTE:** For the time being, asset balances displayed on screen correspond to the Simulation layer that was turned on last.
+
 The dashed line represents the duration of the trade at the price of the _take position_ event. Notice how one asset is exchanged for the other asset at the take position event, and exchanged back as the trade closes.
 
 ![Trading-Simulation-Trade-Duration](https://user-images.githubusercontent.com/13994516/58564452-3ec8d880-822d-11e9-8b4e-4cd892df69e7.gif)
@@ -1124,7 +1140,7 @@ Notice the red horizontal bars indicating the _stop_ value for each period (cand
 
 ### Formulas and Conditions
 
-The *Formulas and Conditions* layer helps identify which _conditions_ are met at each candle. Notice how _conditions_ are highlighted as the mouse pointer moves through different candles.
+The *Formulas and Conditions* layer helps identify which conditions are met at each candle. Notice how conditions are highlighted as the mouse pointer moves through different candles.
 
 ![Trading-Simulation-Conditions](https://user-images.githubusercontent.com/13994516/58564448-3e304200-822d-11e9-967b-8c74fb8532fe.gif)
 

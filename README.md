@@ -332,7 +332,7 @@ If you have a version of the Superalgos Desktop App and wish to upgrade to a new
 
 > **Watch the [Superalgos Platform Quick Getting Started Guide](https://www.youtube.com/watch?v=_apiM49udL0) video for a quick intro. The video is slightly outdated in that the Superalgos Desktop App (the client version of the Platform) does not require a login and does not feature a menu on top. Otherwise, the content is still valid.**
 
-The first time you run the app, you will see the following screen, split in half. The top half features the space used by the _Charting System_ and the bottom half features the _Designer_.
+The first time you run the app, you will see the following screen, split in half. The top half features the space used by the _Charts_ and the bottom half features the _Designer_.
 
 Use the control in the center of the turquoise bar to pull the bar up and down in order to make more room to either application.
 
@@ -353,7 +353,7 @@ The Designer allows you to manage your [Workspace](#workspace). The structure re
 
 > **Tip:** Pulling the bar to the very bottom of the screen causes the Designer to stop consuming resources from your machine, and offers a full-screen view of the Charts.
 
-The *_Charts_* plots indicators data along with the actions taken by strategies, integrated with market data.
+The *_Charts_* shows indicators data along with the actions taken by strategies, integrated with market data.
 
 ![image](https://user-images.githubusercontent.com/13994516/58325972-c37db600-7e2b-11e9-9aa2-9f6faaf8dd94.png)
 <br/><br/>
@@ -408,7 +408,7 @@ When on the charts, you may use the following key combinations:
 
 ## Floating Panels
 
-To minimize a panel, click on the small triangle on the right of their title bar. This will automatically position the panel at the bottom of the screen. Clicking again restores the panel to its previous position.
+To minimize a panel, click on the small triangle on the right of its title bar. This will automatically position the panel at the bottom of the screen. Clicking again restores the panel to its previous position.
 
 You may also drag and drop the panels by right-clicking on the title bar.
 
@@ -416,7 +416,7 @@ You may also drag and drop the panels by right-clicking on the title bar.
 
 ## Layers
 
-The Superalgos Desktop App is an open system, meaning anyone can build layers for the _Charting System_. So far—with our current limited manpower—we have created several Indicator Layers described below, along with a few Simulation and Execution Layers described further down this document.
+The Superalgos Desktop App is an open system, meaning anyone can build layers for the Charts. So far—with our current limited manpower—we have created several indicator layers described below, along with a few simulation and execution Layers described further down this document.
 
 ### Indicator Layers
 
@@ -440,13 +440,13 @@ This is an unusual pattern proving any data set may be plotted on the charts (an
 
 #### Volume Stairs Patterns
 
-A similar concept, this time with volumes. Whenever a sequence of volume bars is found where each one is bigger than the previous one, they are bundled together in a "Stair". The same applies when they are going down (the next is smaller than the previous one). For a trading bot, this serves to identify if sell or buy volumes are raising or declining, if any.
+A similar concept, this time with volumes. Whenever a sequence of volume bars is found where each one is bigger than the previous one, they are bundled together in a "Stair". The same applies when they are going down (the next is smaller than the previous one). For a trading bot, this serves to identify if sell or buy volumes are raising or declining.
 
 ![Volume-Stairs](https://user-images.githubusercontent.com/13994516/58435908-1ae98380-80c3-11e9-8c0d-87a105b4e021.gif)
 
 #### Bollinger Bands
 
-This is the traditional [Bollinger Bands indicator](https://en.wikipedia.org/wiki/Bollinger_Bands). Bollinger Bands have a moving average, in our case calculated with the last 20 periods (the line in the middle of the bands). We are plotting the moving average with one color when it is going up, and with a different color when it's going down. The upper band is at 2 Standard Deviations from the center, pretty much like the lower band, also at 2 Standard Deviations. These are the most widely used Bollinger Bands settings.
+This is the traditional [Bollinger Bands indicator](https://en.wikipedia.org/wiki/Bollinger_Bands). Bollinger Bands have a moving average, in our case calculated with the last 20 periods (the line in the middle of the bands). We are plotting the moving average with one color when it is going up, and with a different color when it's going down. The upper band is at 2 Standard Deviations from the moving average, pretty much like the lower band, also at 2 Standard Deviations. These are the most widely used Bollinger Bands settings.
 
 ![Bollinger-Bands](https://user-images.githubusercontent.com/13994516/58435901-1a50ed00-80c3-11e9-853a-68d39ba7958b.gif)
 
@@ -463,13 +463,13 @@ The chart features lines at %B value 30 and 70 since those are the most common v
 
 #### Bollinger Channels
 
-This is a non-standard indicator derived from the Bollinger Bands. These types of channels are calculated using the Bollinger Bands moving average. Essentially an upward channel begins when the moving average turns from going down to going up, and the channel finishes when it turns from going up to down. A downward channel starts when the Bollinger Band moving average turns from going up to down, and it finishes when it starts going up again. Upward channels are plotted in green, while downward channels in red. Additional information can be found at the indicator's panel, like the number of periods contained at the channel.
+This is a non-standard indicator derived from the Bollinger Bands. These types of channels are calculated using the Bollinger Bands moving average. Essentially an upward channel begins when the moving average changes _direction_ from going down to going up, and the channel finishes when it turns from going up to down. A downward channel starts when the Bollinger Band moving average turns from going up to down, and it finishes when it starts going up again. Upward channels are plotted in green, while downward channels in red. Additional information can be found at the indicator's panel, like the number of periods contained at the channel.
 
 ![Bollinger-Channels](https://user-images.githubusercontent.com/13994516/58497359-146b1280-817c-11e9-9f4d-99fee41cd27f.gif)
 
 #### Bollinger Sub-Channels
 
-If we consider that one Bollinger Channel can have sub-channels with the same direction (up or down) but different slopes, then we get to the concept of Bollinger Sub-Channels. The most important property of a sub-channel is its slope. The possible values are: side, gentle, medium, high and extreme. With this information, a trading bot could easily ask if it is in a sub-channel with a certain slope and for how many periods. 
+If we consider that one Bollinger Channel can have sub-channels with the same direction (up or down) but different slopes, then we get to the concept of Bollinger Sub-Channels. The most important property of a sub-channel is its slope. The possible values are: Side, Gentle, Medium, High and Extreme. With this information, a trading bot could easily ask if it is in a sub-channel with a certain slope and for how many periods. The slope or inclination of the moving average may be an indication of momentum.
 
 ![Bollinger-Sub-Channels](https://user-images.githubusercontent.com/13994516/58497358-146b1280-817c-11e9-83df-219d0fffa9f0.gif)
 
@@ -511,7 +511,7 @@ Definitions include every single parameter describing your trading systems, as w
 
 Pretty much like with every other element in the hierarchy, you may back up your definitions using the back up button on the definition's menu.
 
-Definitions is the top-level element in the hierarchy, with three children elements: Trading System, Personal Data and Network. We will briefly discuss the *trading system* and leave the other two for later.
+A definition is the top-level element in the hierarchy, with three children elements: Trading System, Personal Data and Network. We will briefly discuss the *trading system* and leave the other two for later.
 
 ### Trading System
 
@@ -575,7 +575,7 @@ The following menu options are tools that will help you manipulate the arrangeme
 | --- | --- |
 | ![fix-pinned](https://user-images.githubusercontent.com/13994516/63041034-2df04080-bec7-11e9-88d3-8b7c1d42a666.png) | The element is pinned on a specific X-Y coordinate on the workspace. |
 | ![menu-fix-unpinned](https://user-images.githubusercontent.com/13994516/63041045-35afe500-bec7-11e9-8f21-c8b3b66d3a0b.png) | The element is free, not pinned. |
-| ![menu-mobility-freeze](https://user-images.githubusercontent.com/13994516/63041051-39436c00-bec7-11e9-8194-7cdd113147e4.png) | The element's connections with its parent and children are frozen. Connecting lines are blue. | 
+| ![menu-mobility-freeze](https://user-images.githubusercontent.com/13994516/63041051-39436c00-bec7-11e9-8194-7cdd113147e4.png) | The element's connections with its parent and children are frozen. Connecting lines are blue. If you freeze your definition, then the whole hierachy is frozen. | 
 | ![menu-mobility-unfreeze](https://user-images.githubusercontent.com/13994516/63041053-3b0d2f80-bec7-11e9-8b6f-ebe50dcb4d25.png) |  The element's connections are unfrozen. | 
 | ![menu-tensor-fixed-angles](https://user-images.githubusercontent.com/13994516/63041062-3fd1e380-bec7-11e9-814f-e8cabc90fd12.png) | The element is locked to a rotational symmetry in relation with the rest of the elements at the same level of the hierarchy, thus all angles between elements are equal. Connection lines are orange.| 
 | ![menu-tensor-free-angles](https://user-images.githubusercontent.com/13994516/63041066-42343d80-bec7-11e9-828e-b2d9a191fea2.png)  | The element is not locked in a rotational symmetry; instead, angles are free. Connection lines are yellow.| 
@@ -592,14 +592,28 @@ The rest of the menu options available in most elements are the following:
 
 ### Detachment and Attachment of Elements
 
-Elements in the workspace may be detached from its parent, carrying all children with it. When an element is detached, it is no longer taken into account in simulations or live trading. This feature enables testing different parameters, keeping alternatives handy in the same workspace.
+Elements in the workspace may be detached from its parent, carrying all children with it. When an element is detached, it is no longer taken into account in simulations or live trading, as it no longer belongs to the definition. This feature enables testing different parameters, keeping alternatives handy in the same workspace.
 
 ![Designer-Attach-Detach](https://user-images.githubusercontent.com/13994516/63227849-6d7e9b80-c1eb-11e9-9a02-6f760f383751.gif)
 <br/><br/>
 
 To detach an element, right-click on it and drag it away from the parent element. To attach an element, right-click on it and move it closer to the element you wish to attach it to. 
 
+> **NOTE**: Elements may not be detached or attached to frozen elements. You need to unfreeze them before attaching or detaching.
+
 Elements may be attached only to conceptually related parents. For instance, a *condition* may be attached to a *situation*, but it can not be attached to a *formula*.
+
+### Element Shortcuts
+
+You may define shortcuts for frequently-used elements with the following procedure:
+
+1. Hover the mouse pointer over the target element until the menu opens up.
+1. Click <kbd>Ctrl</kbd> + your preferred key to assign the shortcut.
+1. A sign will appear below the element confirming the assignation of the shortcut.
+
+> **NOTE**: For Mac users, replace <kbd>Ctrl</kbd> with <kbd>Command</kbd>
+
+Repeat the same procedure to remove a shortcut.
 
 ## Working with Strategies
 
@@ -613,7 +627,7 @@ Becoming familiar with the Superalgos Protocol will significantly increase your 
 
 * [Superalgos Protocol V0.1 - the Long Version, for Beginner Traders](https://medium.com/superalgos/superalgos-protocol-v0-1-the-long-version-for-beginner-traders-f293f1cc6c13).
 
-The Designer provides a Graphic User Interface for traders to input the _rules_ and _formulas_ that determine the behavior of strategies. Traders need to define the rules to _trigger on_ and _trigger off_ each strategy, to _take a position_, to manage _take profit_ targets and _stops_.
+The Designer provides a graphic user interface (GUI) for traders to input the _rules_ and _formulas_ that determine the behavior of strategies. Traders need to define the rules to _trigger on_ and _trigger off_ each strategy, to _take a position_, to manage _take profit_ targets and _stops_.
 
 ### Situations and Conditions
 
@@ -679,9 +693,9 @@ In the example above, _condition C_ would be _true_ if the whole candle falls wi
 >
 > Otherwise, the logic for building strategies as described in the video is still valid.
 
-Strategies within a specific Trading System respond to the parameters set for the corresponding Trading System. This means they all have the same Base Asset, and they all share the _initialCapital_ (see [Trading System](#trading-system) for further references).
+Strategies within a specific trading system respond to the parameters set for the corresponding trading system. This means they all have the same base asset, and they all share the _initialCapital_ (see [Trading System](#trading-system) for further references).
 
-To start a brand new strategy, go to the Trading System icon and click _Add Strategy_ on the menu. Several icons will pop up on the screen. As you work on each stage (```Trigger > Open > Manage > Close```), you may need to add the missing items corresponding to certain elements.
+To start a brand new strategy, go to the Trading System element and click _Add Strategy_ on the menu. Several icons will pop up on the screen. As you work on each stage (```Trigger > Open > Manage > Close```), you may need to add the missing items corresponding to certain elements.
 
 ![Designer-New-Strategy](https://user-images.githubusercontent.com/13994516/63052412-8df2e100-bedf-11e9-9ee9-9f4f4f61eeb3.gif)
 <br/><br/>
@@ -835,7 +849,7 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 **distanceToLast.closePosition:** The number of periods between the last Close Position and the current candle.
 
-### Contitions and Formulas with Data from Different Time Periods
+### Conditions and Formulas with Data from Different Time Periods
 
 When building your conditions and formulas, you may want to include analysis concerning a different time period than the one in which you intend to run your simulation and live-trading.
 

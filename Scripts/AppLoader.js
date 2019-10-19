@@ -59,7 +59,6 @@ function newAppLoader() {
                 'StrategySpace/Workspace/FunctionLibraries/AttachDetach.js',
                 'StrategySpace/Workspace/FunctionLibraries/NodeDeleter.js',
                 'StrategySpace/Workspace/FunctionLibraries/ProtocolNode.js',
-                'StrategySpace/Workspace/FunctionLibraries/StringifyNode.js',
                 'StrategySpace/Workspace/FunctionLibraries/NodeChildren.js', 
                 'StrategySpace/Workspace/FunctionLibraries/TaskFunctions.js',
                 'StrategySpace/Workspace/FunctionLibraries/SessionFunctions.js',

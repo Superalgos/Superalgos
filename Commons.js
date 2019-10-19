@@ -1183,6 +1183,8 @@
                                                 }
                                             }
 
+                                            checkAnnouncements(triggerStage.triggerOn)
+
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Switching to Trigger Stage because conditions at Trigger On Event were met."); }
                                             break;
                                         }
@@ -1258,6 +1260,8 @@
                                         }
                                     }
 
+                                    checkAnnouncements(triggerStage.triggerOff)
+
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Switching to No Stage because conditions at the Trigger Off Event were met."); }
                                     break;
                                 }
@@ -1316,6 +1320,8 @@
                                     }
 
                                     takePositionNow = true
+
+                                    checkAnnouncements(triggerStage.takePosition)
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Conditions at the Take Position Event were met."); }
                                     break;
@@ -1403,6 +1409,8 @@
                                         yesterday.strategyStage = strategyStage;
                                     }
                                 }
+
+                                checkAnnouncements(nextPhaseEvent)
                                 return;
                             }
                         }
@@ -1524,6 +1532,8 @@
                                         yesterday.strategyStage = strategyStage;
                                     }
                                 }
+
+                                checkAnnouncements(nextPhaseEvent)
                                 return;
                             }
                         }
@@ -2656,6 +2666,15 @@
                                     endRate: 0
                                 }
                             }
+                        }
+                    }
+                }
+
+                function checkAnnouncements(node) {
+                    if (node.announcements !== undefined) {
+                        for (let i = 0; i < node.announcements.length; i++) {
+                            let announcement = node.announcements[i]
+                            bot.SESSION.socialBots.announce(announcement)
                         }
                     }
                 }

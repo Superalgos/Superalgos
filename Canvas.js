@@ -286,8 +286,14 @@ function newCanvas () {
           nodeOnFocus.payload.uiObject.shortcutKey = event.key
           nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + event.key)
         }
+        return
       }
-      return
+    }
+
+    if (event.ctrlKey === true && nodeOnFocus !== undefined) {
+      if (nodeOnFocus.payload.uiObject.shortcutKey !== undefined && nodeOnFocus.payload.uiObject.shortcutKey !== '') {
+        nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + nodeOnFocus.payload.uiObject.shortcutKey)
+      }
     }
   }
 

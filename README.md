@@ -54,9 +54,9 @@ However, bear in mind that the app is at an early stage of development and that 
 
 * [Getting Started](#getting-started)
   * [Before You Begin](#before-you-begin)
-  * [The Quick Version for Experienced PC Operators](#the-quick-version-for-experienced-pc-operators)
-  * [The Extended Version for Regular Folks](#the-extended-version-for-regular-folks)
-    * [Downloads](#downloads/)
+  * [Initial Setup: The Quick Version for Experienced PC Operators](#initial-setup-the-quick-version-for-experienced-pc-operators)
+  * [Initial Setup: The Extended Version for Regular Folks](#initial-setup-the-extended-version-for-regular-folks)
+    * [Downloads](#downloads)
     * [Running the App](#running-the-app)
   * [Running Your First Backtest](#running-your-first-backtest)
 * [Upgrading Your Existing Installation](#upgrading-your-existing-installation)
@@ -64,8 +64,9 @@ However, bear in mind that the app is at an early stage of development and that 
 * [Charts Interface](#charts-interface)
   * [Layers Panel](#layers-panel)
   * [Main Elements](#main-elements)
-  * [Mouse Wheel Operations](#mouse-wheel-operations)
-  * [Keyboard Shortcuts](#keyboard-shortcuts)
+  * [Navigation](#navigation)
+    * [Using your Mouse](#using-your-mouse)
+    * [Keyboard Navigation](#keyboard-navigation)
   * [Floating Panels](#floating-panels)
   * [Layers](#layers)
     * [Indicator Layers](#indicator-layers)
@@ -82,8 +83,10 @@ However, bear in mind that the app is at an early stage of development and that 
   * [Definitions](#definitions)
     * [Trading System](#trading-system)
   * [Interface](#interface)
+    * [Navigation](navigation-1)
     * [Element's Menu](#elements-menu)
     * [Detachment and Attachment of Elements](#detachment-and-attachment-of-elements)
+    * [Element Shortcuts](#element-shortcuts)
   * [Working with Strategies](#working-with-strategies)
     * [Situations and Conditions](#situations-and-conditions)
       * [Comparison and Logical Operators](#comparison-and-logical-operators)
@@ -91,9 +94,10 @@ However, bear in mind that the app is at an early stage of development and that 
       * [Trigger Stage](#trigger-stage)
       * [Open Stage](#open-stage)
     * [Using an Existing Strategy](#using-an-existing-strategy)
+    * [Working with Multiple Strategies](#working-with-multiple-strategies)
   * [Available Variables](#available-variables)
     * [Candles](#candles)
-    * [Bollinger Band](#bollinger-band)
+    * [Bollinger Bands](#bollinger-band)
     * [Percentage Bandwidth](#percentage-bandwidth)
     * [Bollinger Channels](#bollinger-channels)
     * [Bollinger SubChannels](#bollinger-subchannels)
@@ -765,7 +769,7 @@ If you wish to have multiple strategies that work independently of each other, t
 
 > Previous Property: The _.previous_ property is a property common to all indicators. You may use the property on each of the indicators in a similar way.
 
-### Bollinger Band
+### Bollinger Bands
 
 **bollingerBand.movingAverage:** The value of the current moving average (20 periods).
 

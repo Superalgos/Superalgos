@@ -1980,7 +1980,7 @@
                             }
                         }
 
-                        /* This validation is disbled for now because we do not have the correct end date at this point.
+                        This validation is disbled for now because we do not have the correct end date at this point.
                         if (bot.VALUES_TO_USE.timeRange.finalDatetime !== undefined) {
                             if (candle.begin > bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because current candle begins after the end date. -> bot.VALUES_TO_USE.timeRange.finalDatetime = " + bot.VALUES_TO_USE.timeRange.finalDatetime); }
@@ -1988,7 +1988,7 @@
                                 return;
                             }
                         }
-                        */
+                        
 
                         /* Checking the status of current positions */
                         let positions = assistant.getPositions();

@@ -83,7 +83,7 @@ However, bear in mind that the app is at an early stage of development and that 
   * [Definitions](#definitions)
     * [Trading System](#trading-system)
   * [Interface](#interface)
-    * [Navigation](navigation-1)
+    * [Navigation](#navigation-1)
     * [Element's Menu](#elements-menu)
     * [Detachment and Attachment of Elements](#detachment-and-attachment-of-elements)
     * [Element Shortcuts](#element-shortcuts)

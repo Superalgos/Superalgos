@@ -1338,7 +1338,7 @@ An additional limitation is that there currently is no feature to break up order
 
 > **It is important that you fully understand the implications of these limitations if you are considering to trade live with the app at this stage, as you will need to adapt to the current state of affairs.**
 
-## Running Multiple Forward-Testing or Live-Trading Sessions from the Same Definition
+## Multiple Forward-Testing or Live-Trading Sessions from the Same Definition
 
 If for some reason you wish to run more than one forward-testing or live-trading session from within the same definition, you need to know that—due to restrictions on API use impossed by exchanges—you may not use the same API Key from different processes.
 

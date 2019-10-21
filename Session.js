@@ -24,7 +24,7 @@
             if (bot.processNode.session.code.folderName === undefined) {
                 bot.SESSION.folderName = bot.SESSION.id
             } else {
-                bot.SESSION.folderName = bot.processNode.session.code.folderName
+                bot.SESSION.folderName = bot.processNode.session.code.folderName + "-" + bot.SESSION.id
             }
  
             /* Check if there is a session */
@@ -53,15 +53,12 @@
                 /* Set the folderName for logging, reports, context and data output */
                 let code
                 if (bot.SESSION.code !== undefined) {
-                    try {
-                        code = JSON.parse(bot.SESSION.code) 
-                        if (code.folderName === undefined) {
-                            bot.SESSION.folderName = bot.SESSION.id
-                        } else {
-                            bot.SESSION.folderName = code.folderName
-                        }
-                    } catch (err) {
-                        bot.SESSION.folderName = bot.SESSION.id 
+        
+                    code = bot.SESSION.code
+                    if (code.folderName === undefined) {
+                        bot.SESSION.folderName = bot.SESSION.id
+                    } else {
+                        bot.SESSION.folderName = code.folderName + "-" + bot.SESSION.id
                     }
                 }
 

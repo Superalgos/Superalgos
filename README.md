@@ -125,6 +125,7 @@ However, bear in mind that the app is at an early stage of development and that 
   * [Live Trading Process](#live-trading-process)
   * [Live Trading History Layer](#live-trading-history-layer)
   * [Execution Limitations](#execution-limitations)
+  * [Multiple Forward-Testing or Live-Trading Sessions from the Same Definition](#multiple-forward-testing-or-live-trading-sessions-from-the-same-definition)
   * [Poloniex API Keys](#poloniex-api-keys)
 * [Advanced Use](#advanced-use)
   * [Working with Multiple Definitions](#working-with-multiple-definitions)

@@ -772,7 +772,7 @@ If you wish to have multiple strategies that work independently of each other, t
 * ```"Up"```: candle.close > candle.open (bullish candle)
 * ```"Side"```: candle.close = candle.open (neutral candle)
 
-**candle.previous:** Refers to the previous candle. You may use _candle.previous_ to fetch any of the variables of the previous candle (i.e.: _candle.previous.close_). You may also use as many _.previous_ modifiers as required to fetch values of more than one period behind the current one (i.e.: _candle.previous.previous.max_ returns the maximum value of two candles before the current one).
+**candle.previous:** This refers to the previous candle. You may use _candle.previous_ to fetch any of the variables of the previous candle (i.e.: _candle.previous.close_). You may also use as many _.previous_ modifiers as required to fetch values of more than one period behind the current one (i.e.: _candle.previous.previous.max_ returns the maximum value of two candles before the current one).
 
 > Previous Property: The _.previous_ property is a property common to all indicators. You may use the property on each of the indicators in a similar way.
 
@@ -818,9 +818,9 @@ If you wish to have multiple strategies that work independently of each other, t
 
 **bollingerSubChannel.direction:** Possible values are ```"Down"```, ```"Up"```, and ```"Side"```.
 
-**bollingerSubChannel.period:** The number of periods the sub channel spans at the moment the variable is being read. For instance, if a sub channel spans 10 candles and the variable is checked on the fourth candle, then _bollingerChannel.period_ = 4. Put in other words, it is the current span of the subchannel.
+**bollingerSubChannel.period:** The number of periods the subchannel spans at the moment the variable is being read. For instance, if a subchannel spans 10 candles and the variable is checked on the fourth candle, then _bollingerChannel.period_ = 4. Put in other words, it is the current span of the subchannel.
 
-**bollingerSubChannel.slope:** Indicates how steep the slope of the sub channel is. Possible values are ```"Side"```, ```"Gentle"```, ```"Medium"```, ```"Steep"```, ```"Extreme"``` (in order from lowest to highest).
+**bollingerSubChannel.slope:** Indicates how steep the slope of the subchannel is. Possible values are ```"Side"```, ```"Gentle"```, ```"Medium"```, ```"Steep"```, ```"Extreme"``` (in order from lowest to highest).
 
 ### Internal
 
@@ -916,9 +916,9 @@ Before discussing the various forms of strategy testing and live trading availab
 | :---: | :---: |
 | ![network](https://user-images.githubusercontent.com/13994516/66855353-59ed7800-ef83-11e9-8de9-db40971faa7b.png) | ![network-node](https://user-images.githubusercontent.com/13994516/66855357-5a860e80-ef83-11e9-917d-95cd8394588b.png) |
 
-At the moment, the app manages data sets locally. However, in the future, it will also source data and services from a peer-to-peer network of nodes which will provide those services.
+At the moment, the app manages data sets locally. However, in the future, it will also source data and services from a peer-to-peer network of nodes that will provide those services.
 
-For the time being, all you need to know is that the *network* is one of the direct child elements of a definition, and that the one *node* in the network is where you will manage the processes that run in your local machine.
+For the time being, all you need to know is that the *network* is one of the direct child elements of a definition and that the one *node* in the network is where you will manage the processes that run in your local machine.
 
 ## Task Manager, Tasks, Bots and Processes
 
@@ -937,16 +937,16 @@ Each bot may perform more than one job, thus, they may run one or more processes
 There currently are three kinds of bots that you will run to provide you with the data and functions you need:
 
 * **Sensors:** they extract raw data from the exchange;
-* **Indicators:** they process data to produce more ellaborate datasets;
+* **Indicators:** they process data to produce more elaborate datasets;
 * **Trading Engine:** it is the bot that reads a Superalgos Protocol file containing the details of trading strategies and interacts with the Superalgos Desktop App to run them as simulations (using a simulation plotter) or to trade live.
 
-> **NOTE:** Remember all of these elements (Network, Network Node, Task Manager, Tasks and Bots) are part of your definition. If you *do not* use one of the Quick-Start Examples workspaces supplied with the release, you will need to create all of these elements on your own, starting from the definition menu. It is unlikely that you will be able to do this properly, so we highly reccommend you use one of the supplied templates.
+> **NOTE:** Remember all of these elements (Network, Network Node, Task Manager, Tasks and Bots) are part of your definition. If you *do not* use one of the Quick-Start Examples workspaces supplied with the release, you will need to create all of these elements on your own, starting from the definition menu. It is unlikely that you will be able to do this properly, so we highly recommend you use one of the supplied templates.
 
 All workspaces in the ```Quick-Start-Examples``` folder include the Superalgos Network and a network node with two task managers. Each task manager has a name, which becomes visible only upon hovering the mouse pointer:
 
 * **Keep Datasets Up-to-Date:** This task manager has several tasks, each controlling one of the bots required to keep the datasets in your machine up to date, including both sensors and indicators. If you wish to have the data up-to-date, you need to *Start All Tasks* using the menu. This is also a pre-requisite for trading live, doing paper-trading and forward testing.
 
-* **Tests & Live Trading:** This is the task manager you will use to run the trading engine, so that you can set up your backtesting, paper-trading, forward testing and live testing sessions. In our templates, you will always find at least two tasks, so that you may run live-trading sessions issolated from your tests. This means that you will run one instance of the trading engine for live-trading and any number of instances of the trading engine for your testing sessions.
+* **Tests & Live Trading:** This is the task manager you will use to run the trading engine so that you can set up your backtesting, paper-trading, forward testing and live testing sessions. In our templates, you will always find at least two tasks, so that you may run live-trading sessions isolated from your tests. This means that you will run one instance of the trading engine for live-trading and any number of instances of the trading engine for your testing sessions.
 
 [ILLUSTRATION]
 

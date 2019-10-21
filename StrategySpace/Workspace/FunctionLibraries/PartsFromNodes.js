@@ -4,6 +4,9 @@ function newPartsFromNodes () {
     addDefinition: addDefinition,
     addNetwork: addNetwork,
     addNetworkNode: addNetworkNode,
+    addSocialBots: addSocialBots,
+    addTelegramBot: addTelegramBot,
+    addAnnouncement: addAnnouncement,
     addLayerManager: addLayerManager,
     addLayer: addLayer,
     addTaskManager: addTaskManager,
@@ -76,6 +79,13 @@ function newPartsFromNodes () {
             let situation = node.situations[m]
             createPartFromNode(situation, node, node)
           }
+          if (node.announcements === undefined) {
+            node.announcements = []
+          }
+          for (let m = 0; m < node.announcements.length; m++) {
+            let announcement = node.announcements[m]
+            createPartFromNode(announcement, node, node)
+          }
           return
         }
       case 'Phase': {
@@ -87,6 +97,13 @@ function newPartsFromNodes () {
         }
         if (node.nextPhaseEvent !== undefined) {
           createPartFromNode(node.nextPhaseEvent, phase, phase)
+        }
+        if (node.announcements === undefined) {
+          node.announcements = []
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = node.announcements[m]
+          createPartFromNode(announcement, node, node)
         }
         return
       }
@@ -158,6 +175,13 @@ function newPartsFromNodes () {
           let situation = node.situations[m]
           createPartFromNode(situation, event, event)
         }
+        if (node.announcements === undefined) {
+          node.announcements = []
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = node.announcements[m]
+          createPartFromNode(announcement, node, node)
+        }
         return
       }
       case 'Trigger On Event': {
@@ -167,6 +191,13 @@ function newPartsFromNodes () {
           let situation = node.situations[m]
           createPartFromNode(situation, event, event)
         }
+        if (node.announcements === undefined) {
+          node.announcements = []
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = node.announcements[m]
+          createPartFromNode(announcement, node, node)
+        }
         return
       }
       case 'Trigger Off Event': {
@@ -175,6 +206,13 @@ function newPartsFromNodes () {
         for (let m = 0; m < node.situations.length; m++) {
           let situation = node.situations[m]
           createPartFromNode(situation, event, event)
+        }
+        if (node.announcements === undefined) {
+          node.announcements = []
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = node.announcements[m]
+          createPartFromNode(announcement, node, node)
         }
         return
       }
@@ -294,6 +332,9 @@ function newPartsFromNodes () {
         if (node.feeStructure !== undefined) {
           createPartFromNode(node.feeStructure, node, node)
         }
+        if (node.key !== undefined) {
+          createPartFromNode(node.key, node, node)
+        }
         return
       }
       case 'Trading System': {
@@ -371,6 +412,29 @@ function newPartsFromNodes () {
             let taskManager = node.taskManagers[m]
             createPartFromNode(taskManager, node, node)
           }
+        }
+        return
+      }
+      case 'Social Bots': {
+        createPart('Social Bots', node.name, node, parentNode, chainParent, 'Social Bots')
+        for (let m = 0; m < node.bots.length; m++) {
+          let bot = node.bots[m]
+          createPartFromNode(bot, node, node)
+        }
+        return
+      }
+      case 'Telegram Bot': {
+        createPart('Telegram Bot', node.name, node, parentNode, chainParent, 'Telegram Bot')
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = node.announcements[m]
+          createPartFromNode(announcement, node, node)
+        }
+        return
+      }
+      case 'Announcement': {
+        createPart('Announcement', node.name, node, parentNode, chainParent, 'Announcement')
+        if (node.formula !== undefined) {
+          createPartFromNode(node.formula, node, node)
         }
         return
       }
@@ -456,6 +520,9 @@ function newPartsFromNodes () {
         if (node.layerManager !== undefined) {
           createPartFromNode(node.layerManager, node, node)
         }
+        if (node.socialBots !== undefined) {
+          createPartFromNode(node.socialBots, node, node)
+        }
         return
       }
       case 'Live Trading Session': {
@@ -465,6 +532,9 @@ function newPartsFromNodes () {
         }
         if (node.layerManager !== undefined) {
           createPartFromNode(node.layerManager, node, node)
+        }
+        if (node.socialBots !== undefined) {
+          createPartFromNode(node.socialBots, node, node)
         }
         return
       }
@@ -476,6 +546,9 @@ function newPartsFromNodes () {
         if (node.layerManager !== undefined) {
           createPartFromNode(node.layerManager, node, node)
         }
+        if (node.socialBots !== undefined) {
+          createPartFromNode(node.socialBots, node, node)
+        }
         return
       }
       case 'Paper Trading Session': {
@@ -485,6 +558,9 @@ function newPartsFromNodes () {
         }
         if (node.layerManager !== undefined) {
           createPartFromNode(node.layerManager, node, node)
+        }
+        if (node.socialBots !== undefined) {
+          createPartFromNode(node.socialBots, node, node)
         }
         return
       }
@@ -513,6 +589,41 @@ function newPartsFromNodes () {
     createPart('Network Node', networkNode.name, networkNode, node, node, 'Network Node')
 
     return networkNode
+  }
+
+  function addSocialBots (node) {
+    if (node.socialBots === undefined) {
+      node.socialBots = {
+        name: 'New Social Bots',
+        bots: []
+      }
+      createPart('Social Bots', node.socialBots.name, node.socialBots, node, node, 'Social Bots')
+    }
+
+    return node.socialBots
+  }
+
+  function addTelegramBot (node) {
+    let bot = {
+      name: 'New Telegram Bot',
+      code: '{ \n\"botToken\": \"Paste here the bot token obtained from Telegram Bot Father\",\n\"chatId\": Write here the chat or group id where the announcements are going to be sent to, as it is a number with no quotes please.\n}',
+      announcements: []
+    }
+    node.bots.push(bot)
+    createPart('Telegram Bot', bot.name, bot, node, node, 'Telegram Bot')
+
+    return bot
+  }
+
+  function addAnnouncement (node) {
+    let announcement = {
+      name: 'Announcement via ' + node.type,
+      code: '{ \n\"text\": \"Write here what you want to announce.\",\n\"botType\": \"' + node.type + '\",\n\"botId\": \"' + node.id + '\"\n}'
+    }
+    node.announcements.push(announcement)
+    createPart('Announcement', announcement.name, announcement, node, node, 'Announcement')
+
+    return announcement
   }
 
   function addLayerManager (node) {
@@ -597,6 +708,7 @@ function newPartsFromNodes () {
 
   function addProcess (node) {
     let process = {
+      name: 'New Process',
       code: '{}'
     }
 
@@ -626,7 +738,8 @@ function newPartsFromNodes () {
   function addBacktestingSession (node) {
     if (node.session === undefined) {
       node.session = {
-        name: 'New Backtesting Session'
+        name: 'New Backtesting Session',
+        code: '{}'
       }
       createPart('Backtesting Session', '', node.session, node, node)
     }
@@ -637,7 +750,8 @@ function newPartsFromNodes () {
   function addLiveTradingSession (node) {
     if (node.session === undefined) {
       node.session = {
-        name: 'New Live Trading Session'
+        name: 'New Live Trading Session',
+        code: '{}'
       }
       createPart('Live Trading Session', '', node.session, node, node)
     }
@@ -648,7 +762,8 @@ function newPartsFromNodes () {
   function addFordwardTestingSession (node) {
     if (node.session === undefined) {
       node.session = {
-        name: 'New Fordward Testing Session'
+        name: 'New Fordward Testing Session',
+        code: '{}'
       }
       createPart('Fordward Testing Session', '', node.session, node, node)
     }
@@ -659,7 +774,8 @@ function newPartsFromNodes () {
   function addPaperTradingSession (node) {
     if (node.session === undefined) {
       node.session = {
-        name: 'New Paper Trading Session'
+        name: 'New Paper Trading Session',
+        code: '{}'
       }
       createPart('Paper Trading Session', '', node.session, node, node)
     }
@@ -917,19 +1033,22 @@ function newPartsFromNodes () {
   function addMissingEvents (node) {
     if (node.triggerOn === undefined) {
       node.triggerOn = {
-        situations: []
+        situations: [],
+        announcements: []
       }
       createPart('Trigger On Event', '', node.triggerOn, node, node)
     }
     if (node.triggerOff === undefined) {
       node.triggerOff = {
-        situations: []
+        situations: [],
+        announcements: []
       }
       createPart('Trigger Off Event', '', node.triggerOff, node, node)
     }
     if (node.takePosition === undefined) {
       node.takePosition = {
-        situations: []
+        situations: [],
+        announcements: []
       }
       createPart('Take Position Event', '', node.takePosition, node, node)
     }
@@ -1043,7 +1162,8 @@ function newPartsFromNodes () {
   function addNextPhaseEvent (node) {
     if (node.nextPhaseEvent === undefined) {
       node.nextPhaseEvent = {
-        situations: []
+        situations: [],
+        announcements: []
       }
       createPart('Next Phase Event', '', node.nextPhaseEvent, node, node)
     }
@@ -1077,6 +1197,7 @@ function newPartsFromNodes () {
 
     let phase = {
       name: 'New Phase',
+      announcements: [],
       formula: {
         code: DEFAULT_FORMULA_TEXT
       },

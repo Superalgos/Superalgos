@@ -27,7 +27,7 @@ function newSessionFunctions () {
 
     /* Raise event to run the session */
     let event = {
-      session: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false, false, true)),
+      session: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false, true, true)),
       definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(thisNodeDefinition, false, true, true)),
       uiCurrentValues: getUICurrentValues()
     }

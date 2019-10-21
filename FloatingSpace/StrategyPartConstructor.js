@@ -69,6 +69,11 @@ function newStrategyPartConstructor () {
 
     setFloatingObjectBasicProperties(floatingObject, payload)
 
+    if (payload.node.savedPayload !== undefined) {
+      if (payload.node.savedPayload.uiObject !== undefined) {
+        payload.uiObject.shortcutKey = payload.node.savedPayload.uiObject.shortcutKey
+      }
+    }
     payload.node.savedPayload = undefined
 
     floatingLayer.addFloatingObject(floatingObject)
@@ -384,6 +389,186 @@ function newStrategyPartConstructor () {
         )
         break
       }
+      case 'Social Bots': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Telegram Bot',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Telegram Bot',
+            visible: true,
+            relatedStrategyPart: 'Telegram Bot',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Social Bots',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Social Bots',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+            )
+        break
+      }
+      case 'Telegram Bot': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Announcement',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Announcement',
+            visible: true,
+            relatedStrategyPart: 'Announcement',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Telegram Bot',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Telegram Bot',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Social Bot',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Telegram Bot',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+                )
+        break
+      }
+      case 'Announcement': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Formula',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Formula',
+            visible: true,
+            relatedStrategyPart: 'Formula',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+        )
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Announcement',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Announcement',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Announcement',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Announcement',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+                )
+        break
+      }
       case 'Layer Manager': {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -581,7 +766,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -65
+            angle: -75
           }
         )
         menuItemsInitialValues.push(
@@ -594,7 +779,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -30
+            angle: -35
           }
         )
         menuItemsInitialValues.push(
@@ -607,7 +792,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -10
+            angle: -12
           }
           )
         menuItemsInitialValues.push(
@@ -620,7 +805,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 10
+            angle: 12
           }
           )
         menuItemsInitialValues.push(
@@ -636,7 +821,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: +30
+            angle: +35
           }
             )
         menuItemsInitialValues.push(
@@ -650,7 +835,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 65
+            angle: 75
           }
                 )
         break
@@ -1017,6 +1202,11 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Backtesting Session': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -1038,7 +1228,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -75
           }
         )
         menuItemsInitialValues.push(
@@ -1051,7 +1241,48 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
+            angle: -40
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Parameters',
+            visible: true,
+            relatedStrategyPart: 'Parameters',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
             angle: -20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Social Bots',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Social Bots',
+            visible: true,
+            relatedStrategyPart: 'Social Bots',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Session',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Session',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20,
+            dontShowAtFullscreen: true
           }
           )
         menuItemsInitialValues.push(
@@ -1067,7 +1298,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }
             )
         menuItemsInitialValues.push(
@@ -1081,12 +1312,17 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 75
           }
           )
         break
       }
       case 'Live Trading Session': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -1108,7 +1344,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -75
           }
         )
         menuItemsInitialValues.push(
@@ -1121,9 +1357,50 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Parameters',
+            visible: true,
+            relatedStrategyPart: 'Parameters',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Social Bots',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Social Bots',
+            visible: true,
+            relatedStrategyPart: 'Social Bots',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+                )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Session',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Session',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20,
+            dontShowAtFullscreen: true
+          }
+            )
         menuItemsInitialValues.push(
           {
             action: 'Delete Live Trading Session',
@@ -1137,7 +1414,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }
             )
         menuItemsInitialValues.push(
@@ -1151,12 +1428,17 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 75
           }
                 )
         break
       }
       case 'Fordward Testing Session': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -1178,7 +1460,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -75
           }
         )
         menuItemsInitialValues.push(
@@ -1191,9 +1473,50 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Parameters',
+            visible: true,
+            relatedStrategyPart: 'Parameters',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Social Bots',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Social Bots',
+            visible: true,
+            relatedStrategyPart: 'Social Bots',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+                )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Session',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Session',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20,
+            dontShowAtFullscreen: true
+          }
+            )
         menuItemsInitialValues.push(
           {
             action: 'Delete Fordward Testing Session',
@@ -1207,7 +1530,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }
             )
         menuItemsInitialValues.push(
@@ -1221,12 +1544,17 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 75
           }
                 )
         break
       }
       case 'Paper Trading Session': {
+        strategyPart.codeEditor = newCodeEditor()
+        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
+        strategyPart.codeEditor.initialize()
+        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -1248,7 +1576,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -75
           }
         )
         menuItemsInitialValues.push(
@@ -1261,9 +1589,50 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -40
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Parameters',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Parameters',
+            visible: true,
+            relatedStrategyPart: 'Parameters',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Social Bots',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Social Bots',
+            visible: true,
+            relatedStrategyPart: 'Social Bots',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+                )
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Session',
+            actionFunction: strategyPart.codeEditor.activate,
+            label: 'Edit Session',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20,
+            dontShowAtFullscreen: true
+          }
+            )
         menuItemsInitialValues.push(
           {
             action: 'Delete Paper Trading Session',
@@ -1277,7 +1646,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }
             )
         menuItemsInitialValues.push(
@@ -1291,7 +1660,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 75
           }
                 )
         break
@@ -2837,6 +3206,18 @@ function newStrategyPartConstructor () {
         level_1()
         break
       }
+      case 'Social Bots': {
+        level_3()
+        break
+      }
+      case 'Telegram Bot': {
+        level_2()
+        break
+      }
+      case 'Announcement': {
+        level_4()
+        break
+      }
       case 'Layer Manager': {
         level_3()
         break
@@ -2870,19 +3251,19 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Backtesting Session': {
-        level_4()
+        level_2()
         break
       }
       case 'Live Trading Session': {
-        level_4()
+        level_2()
         break
       }
       case 'Fordward Testing Session': {
-        level_4()
+        level_2()
         break
       }
       case 'Paper Trading Session': {
-        level_4()
+        level_2()
         break
       }
       case 'Exchange Account': {

@@ -13,6 +13,11 @@ function newFloatingSpace () {
     strategyPartConstructor: undefined,
     noteSets: undefined,
     container: undefined,
+    oneScreenUp: oneScreenUp,
+    oneScreenDown: oneScreenDown,
+    oneScreenLeft: oneScreenLeft,
+    oneScreenRight: oneScreenRight,
+    positionAtNode: positionAtNode,
     fitIntoVisibleArea: fitIntoVisibleArea,
     isThisPointVisible: isThisPointVisible,
     makeVisible: makeVisible,
@@ -41,6 +46,8 @@ function newFloatingSpace () {
   thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
 
   let visible = false
+
+  const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
   return thisObject
 
   function finalize () {
@@ -91,6 +98,53 @@ function newFloatingSpace () {
     }
 
     return returnPoint
+  }
+
+  function oneScreenUp () {
+    let displaceVector = {
+      x: 0,
+      y: browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
+    }
+
+    thisObject.container.displace(displaceVector)
+  }
+
+  function oneScreenDown () {
+    let displaceVector = {
+      x: 0,
+      y: -browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
+    }
+
+    thisObject.container.displace(displaceVector)
+  }
+
+  function oneScreenLeft () {
+    let displaceVector = {
+      x: browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
+      y: 0
+    }
+
+    thisObject.container.displace(displaceVector)
+  }
+
+  function oneScreenRight () {
+    let displaceVector = {
+      x: -browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
+      y: 0
+    }
+
+    thisObject.container.displace(displaceVector)
+  }
+
+  function positionAtNode (node) {
+    let position = thisObject.container.frame.frameThisPoint(node.payload.position)
+
+    let displaceVector = {
+      x: browserCanvas.width / 2 - position.x,
+      y: (COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT) + (browserCanvas.height - (COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT)) / 2 - position.y
+    }
+
+    thisObject.container.displace(displaceVector)
   }
 
   function isThisPointVisible (point) {

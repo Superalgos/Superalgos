@@ -69,6 +69,8 @@ function newCanvas () {
       browserCanvas.removeEventListener('dragleave', onDragLeave, false)
       browserCanvas.removeEventListener('dragover', onDragOver, false)
       browserCanvas.removeEventListener('drop', onDragDrop, false)
+
+      browserCanvas.removeEventListener('keydown', onKeyDown, false)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
@@ -151,6 +153,11 @@ function newCanvas () {
 
   function addCanvasEvents () {
     try {
+      /* Keyboard events */
+      window.addEventListener('keydown', onKeyDown, true)
+
+      /* Mouse Events */
+
       browserCanvas.addEventListener('mousedown', onMouseDown, false)
       browserCanvas.addEventListener('mouseup', onMouseUp, false)
       browserCanvas.addEventListener('mousemove', onMouseMove, false)
@@ -175,6 +182,118 @@ function newCanvas () {
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] addCanvasEvents -> err = ' + err.stack) }
+    }
+  }
+
+  function onKeyDown (event) {
+    let nodeOnFocus = canvas.strategySpace.workspace.getNodeThatIsOnFocus()
+    if (nodeOnFocus !== undefined) {
+      if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
+        if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
+          return
+        }
+      }
+      if (nodeOnFocus.payload.uiObject.partTitle !== undefined) {
+        if (nodeOnFocus.payload.uiObject.partTitle.editMode === true) {
+          return
+        }
+      }
+    }
+
+    if (event.altKey === true && event.code === 'ArrowUp') {
+      thisObject.cockpitSpace.toTop()
+      return
+    }
+
+    if (event.altKey === true && event.code === 'ArrowDown') {
+      thisObject.cockpitSpace.toBottom()
+      return
+    }
+
+    if (event.shiftKey === true && event.code === 'ArrowLeft') {
+      canvas.chartSpace.oneScreenLeft()
+      return
+    }
+
+    if (event.shiftKey === true && event.code === 'ArrowRight') {
+      canvas.chartSpace.oneScreenRight()
+      return
+    }
+
+    if (event.shiftKey === true && event.code === 'ArrowUp') {
+      canvas.chartSpace.oneScreenUp()
+      return
+    }
+
+    if (event.shiftKey === true && event.code === 'ArrowDown') {
+      canvas.chartSpace.oneScreenDown()
+      return
+    }
+
+    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft') {
+      canvas.floatingSpace.oneScreenLeft()
+      return
+    }
+
+    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
+      canvas.floatingSpace.oneScreenRight()
+      return
+    }
+
+    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
+      canvas.floatingSpace.oneScreenUp()
+      return
+    }
+
+    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
+      canvas.floatingSpace.oneScreenDown()
+      return
+    }
+
+    if (event.code === 'Period') {
+      if (nodeOnFocus !== undefined) {
+        nodeOnFocus.payload.uiObject.setValue('Id: ' + nodeOnFocus.id)
+        return
+      }
+    }
+
+    if ((event.ctrlKey === true || event.metaKey === true)) {
+      if (event.keyCode >= 65 && event.keyCode <= 90) {
+        /* From here we prevent the default behaviour */
+        event.preventDefault()
+
+        let nodeUsingThisKey = canvas.strategySpace.workspace.getNodeByShortcutKey(event.key)
+
+        if (nodeOnFocus === undefined && nodeUsingThisKey !== undefined) {
+          /* Then we displace the whole workspace to center it at the node using this key */
+          nodeUsingThisKey = canvas.floatingSpace.positionAtNode(nodeUsingThisKey)
+          return
+        }
+
+        /* If there is a node in focus, we try to assign the key to it. */
+        if (nodeUsingThisKey !== undefined && nodeOnFocus !== undefined) {
+          if (nodeUsingThisKey.id === nodeOnFocus.id) {
+            nodeOnFocus.payload.uiObject.shortcutKey = ''
+            nodeOnFocus.payload.uiObject.setValue('Shortcut Key Removed ')
+            return
+          } else {
+            nodeOnFocus.payload.uiObject.setErrorMessage('Key already in use by ' + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name)
+            return
+          }
+        }
+        /* If there is not node using this key and a node in focus, we assign this key to this node */
+        if (nodeUsingThisKey === undefined && nodeOnFocus !== undefined) {
+          nodeOnFocus.payload.uiObject.shortcutKey = event.key
+          nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + event.key)
+        }
+        return
+      }
+    }
+
+    if (event.ctrlKey === true && nodeOnFocus !== undefined) {
+      if (nodeOnFocus.payload.uiObject.shortcutKey !== undefined && nodeOnFocus.payload.uiObject.shortcutKey !== '') {
+        nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + nodeOnFocus.payload.uiObject.shortcutKey)
+      }
     }
   }
 
@@ -709,4 +828,3 @@ function newCanvas () {
     }
   }
 }
-

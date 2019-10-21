@@ -149,14 +149,15 @@ function newViewPort () {
     }
   }
 
-  function displace (displaceVector) {
+  function displace (displaceVector, recalculate) {
     offset.x = offset.x + displaceVector.x
     offset.y = offset.y + displaceVector.y
 
     saveObjectState()
 
     let event = {
-      newOffset: offset
+      newOffset: offset,
+      recalculate: recalculate
     }
 
     thisObject.eventHandler.raiseEvent('Offset Changed', event)

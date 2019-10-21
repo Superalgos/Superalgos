@@ -17,6 +17,15 @@ function newNodeChildren () {
       case 'Network Node': {
         return countChildrenNetworkNode(parentNode, childNode)
       }
+      case 'Social Bots': {
+        return countChildrenSocialBots(parentNode, childNode)
+      }
+      case 'Telegram Bot': {
+        return countChildrenTelegramBot(parentNode, childNode)
+      }
+      case 'Announcement': {
+        return countChildrenAnnouncement(parentNode, childNode)
+      }
       case 'Layer Manager': {
         return countChildrenLayerManager(parentNode, childNode)
       }
@@ -215,6 +224,52 @@ function newNodeChildren () {
     return response
   }
 
+  function countChildrenSocialBots (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.bots.length; i++) {
+      let child = parentNode.bots[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenTelegramBot (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    for (let i = 0; i < parentNode.announcements.length; i++) {
+      let child = parentNode.announcements[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenAnnouncement (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.formula !== undefined) {
+      response.childrenCount++
+      if (parentNode.formula.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
   function countChildrenLayerManager (parentNode, childNode) {
     let response = {
       childrenCount: 0,
@@ -348,6 +403,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.socialBots !== undefined) {
+      response.childrenCount++
+      if (parentNode.socialBots.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 
@@ -365,6 +426,12 @@ function newNodeChildren () {
     if (parentNode.layerManager !== undefined) {
       response.childrenCount++
       if (parentNode.layerManager.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.socialBots !== undefined) {
+      response.childrenCount++
+      if (parentNode.socialBots.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
@@ -388,6 +455,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.socialBots !== undefined) {
+      response.childrenCount++
+      if (parentNode.socialBots.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 
@@ -405,6 +478,12 @@ function newNodeChildren () {
     if (parentNode.layerManager !== undefined) {
       response.childrenCount++
       if (parentNode.layerManager.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.socialBots !== undefined) {
+      response.childrenCount++
+      if (parentNode.socialBots.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
@@ -522,6 +601,12 @@ function newNodeChildren () {
     if (parentNode.feeStructure !== undefined) {
       response.childrenCount++
       if (parentNode.feeStructure.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.key !== undefined) {
+      response.childrenCount++
+      if (parentNode.key.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
@@ -768,6 +853,13 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    for (let i = 0; i < parentNode.announcements.length; i++) {
+      let child = parentNode.announcements[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 
@@ -825,6 +917,13 @@ function newNodeChildren () {
     if (parentNode.nextPhaseEvent !== undefined) {
       response.childrenCount++
       if (parentNode.nextPhaseEvent.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    for (let i = 0; i < parentNode.announcements.length; i++) {
+      let child = parentNode.announcements[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }

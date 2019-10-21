@@ -4,37 +4,43 @@ function newProtocolNode () {
   }
   return thisObject
 
-  function getProtocolNode (node, removePersonalData, parseJSONStrings, includeIds) {
+  function getProtocolNode (node, removePersonalData, parseCode, includeIds, includePayload) {
     if (node === undefined) { return }
     switch (node.type) {
       case 'Code':
         {
-          let code = {
+          let object = {
             type: node.type,
             subType: node.subType,
             name: node.name,
             code: node.code
           }
           if (includeIds) {
-            code.id = node.id
+            object.id = node.id
           }
-          return code
+          if (includePayload) {
+            object.savedPayload = getSavedPayload(node)
+          }
+          return object
         }
       case 'Condition':
         {
-          let condition = {
+          let object = {
             type: node.type,
             subType: node.subType,
             name: node.name,
-            code: getProtocolNode(node.code, removePersonalData, parseJSONStrings, includeIds)
+            code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload)
           }
           if (includeIds) {
-            condition.id = node.id
+            object.id = node.id
           }
-          return condition
+          if (includePayload) {
+            object.savedPayload = getSavedPayload(node)
+          }
+          return object
         }
       case 'Situation': {
-        let situation = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
@@ -42,59 +48,89 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.conditions.length; m++) {
-          let condition = getProtocolNode(node.conditions[m], removePersonalData, parseJSONStrings, includeIds)
-          situation.conditions.push(condition)
+          let condition = getProtocolNode(node.conditions[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (condition !== undefined) {
+            object.conditions.push(condition)
+          }
         }
         if (includeIds) {
-          situation.id = node.id
+          object.id = node.id
         }
-        return situation
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Formula':
         {
-          let formula = {
+          let object = {
             type: node.type,
             subType: node.subType,
             name: node.name,
             code: node.code
           }
           if (includeIds) {
-            formula.id = node.id
+            object.id = node.id
           }
-          return formula
+          if (includePayload) {
+            object.savedPayload = getSavedPayload(node)
+          }
+          return object
         }
       case 'Next Phase Event':
         {
-          let event = {
+          let object = {
             type: node.type,
             subType: node.subType,
             name: node.name,
-            situations: []
+            situations: [],
+            announcements: []
           }
           for (let m = 0; m < node.situations.length; m++) {
-            let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings, includeIds)
-            event.situations.push(situation)
+            let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds, includePayload)
+            if (situation !== undefined) {
+              object.situations.push(situation)
+            }
+          }
+          for (let m = 0; m < node.announcements.length; m++) {
+            let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload)
+            if (announcement !== undefined) {
+              object.announcements.push(announcement)
+            }
           }
           if (includeIds) {
-            event.id = node.id
+            object.id = node.id
           }
-          return event
+          if (includePayload) {
+            object.savedPayload = getSavedPayload(node)
+          }
+          return object
         }
       case 'Phase': {
-        let phase = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula, removePersonalData, parseJSONStrings, includeIds),
-          nextPhaseEvent: getProtocolNode(node.nextPhaseEvent, removePersonalData, parseJSONStrings, includeIds)
+          announcements: [],
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload),
+          nextPhaseEvent: getProtocolNode(node.nextPhaseEvent, removePersonalData, parseCode, includeIds, includePayload)
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (announcement !== undefined) {
+            object.announcements.push(announcement)
+          }
         }
         if (includeIds) {
-          phase.id = node.id
+          object.id = node.id
         }
-        return phase
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Stop': {
-        let stop = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
@@ -102,16 +138,21 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = getProtocolNode(node.phases[m], removePersonalData, parseJSONStrings, includeIds)
-          stop.phases.push(phase)
+          let phase = getProtocolNode(node.phases[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (phase !== undefined) {
+            object.phases.push(phase)
+          }
         }
         if (includeIds) {
-          stop.id = node.id
+          object.id = node.id
         }
-        return stop
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Take Profit': {
-        let takeProfit = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
@@ -119,77 +160,119 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = getProtocolNode(node.phases[m], removePersonalData, parseJSONStrings, includeIds)
-          takeProfit.phases.push(phase)
+          let phase = getProtocolNode(node.phases[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (phase !== undefined) {
+            object.phases.push(phase)
+          }
         }
         if (includeIds) {
-          takeProfit.id = node.id
+          object.id = node.id
         }
-        return takeProfit
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Take Position Event': {
-        let event = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          situations: []
+          situations: [],
+          announcements: []
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings, includeIds)
-          event.situations.push(situation)
+          let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (situation !== undefined) {
+            object.situations.push(situation)
+          }
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (announcement !== undefined) {
+            object.announcements.push(announcement)
+          }
         }
         if (includeIds) {
-          event.id = node.id
+          object.id = node.id
         }
-        return event
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Trigger On Event': {
-        let event = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          situations: []
+          situations: [],
+          announcements: []
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings, includeIds)
-          event.situations.push(situation)
+          let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds, includePayload)
+          object.situations.push(situation)
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (announcement !== undefined) {
+            object.announcements.push(announcement)
+          }
         }
         if (includeIds) {
-          event.id = node.id
+          object.id = node.id
         }
-        return event
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Trigger Off Event': {
-        let event = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          situations: []
+          situations: [],
+          announcements: []
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m], removePersonalData, parseJSONStrings, includeIds)
-          event.situations.push(situation)
+          let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (situation !== undefined) {
+            object.situations.push(situation)
+          }
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (announcement !== undefined) {
+            object.announcements.push(announcement)
+          }
         }
         if (includeIds) {
-          event.id = node.id
+          object.id = node.id
         }
-        return event
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Initial Definition': {
         let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseJSONStrings, includeIds),
-          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseJSONStrings, includeIds),
-          positionSize: getProtocolNode(node.positionSize, removePersonalData, parseJSONStrings, includeIds),
-          positionRate: getProtocolNode(node.positionRate, removePersonalData, parseJSONStrings, includeIds)
+          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseCode, includeIds, includePayload),
+          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseCode, includeIds, includePayload),
+          positionSize: getProtocolNode(node.positionSize, removePersonalData, parseCode, includeIds, includePayload),
+          positionRate: getProtocolNode(node.positionRate, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
           object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
         }
         return object
       }
@@ -202,6 +285,9 @@ function newProtocolNode () {
         if (includeIds) {
           object.id = node.id
         }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
         return object
       }
       case 'Close Execution': {
@@ -213,6 +299,9 @@ function newProtocolNode () {
         if (includeIds) {
           object.id = node.id
         }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
         return object
       }
       case 'Position Size': {
@@ -220,10 +309,13 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula, removePersonalData, parseJSONStrings, includeIds)
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
           object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
         }
         return object
       }
@@ -232,79 +324,97 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula, removePersonalData, parseJSONStrings, includeIds)
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
           object.id = node.id
         }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
         return object
       }
       case 'Trigger Stage': {
-        let stage = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerOn: getProtocolNode(node.triggerOn, removePersonalData, parseJSONStrings, includeIds),
-          triggerOff: getProtocolNode(node.triggerOff, removePersonalData, parseJSONStrings, includeIds),
-          takePosition: getProtocolNode(node.takePosition, removePersonalData, parseJSONStrings, includeIds)
+          triggerOn: getProtocolNode(node.triggerOn, removePersonalData, parseCode, includeIds, includePayload),
+          triggerOff: getProtocolNode(node.triggerOff, removePersonalData, parseCode, includeIds, includePayload),
+          takePosition: getProtocolNode(node.takePosition, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
-          stage.id = node.id
+          object.id = node.id
         }
-        return stage
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Open Stage': {
-        let stage = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          initialDefinition: getProtocolNode(node.initialDefinition, removePersonalData, parseJSONStrings, includeIds),
-          openExecution: getProtocolNode(node.openExecution, removePersonalData, parseJSONStrings, includeIds)
+          initialDefinition: getProtocolNode(node.initialDefinition, removePersonalData, parseCode, includeIds, includePayload),
+          openExecution: getProtocolNode(node.openExecution, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
-          stage.id = node.id
+          object.id = node.id
         }
-        return stage
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Manage Stage': {
-        let stage = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseJSONStrings, includeIds),
-          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseJSONStrings, includeIds)
+          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseCode, includeIds, includePayload),
+          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
-          stage.id = node.id
+          object.id = node.id
         }
-        return stage
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Close Stage': {
-        let stage = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          closeExecution: getProtocolNode(node.closeExecution, removePersonalData, parseJSONStrings, includeIds)
+          closeExecution: getProtocolNode(node.closeExecution, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
-          stage.id = node.id
+          object.id = node.id
         }
-        return stage
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Strategy': {
-        let strategy = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerStage: getProtocolNode(node.triggerStage, removePersonalData, parseJSONStrings, includeIds),
-          openStage: getProtocolNode(node.openStage, removePersonalData, parseJSONStrings, includeIds),
-          manageStage: getProtocolNode(node.manageStage, removePersonalData, parseJSONStrings, includeIds),
-          closeStage: getProtocolNode(node.closeStage, removePersonalData, parseJSONStrings, includeIds)
+          triggerStage: getProtocolNode(node.triggerStage, removePersonalData, parseCode, includeIds, includePayload),
+          openStage: getProtocolNode(node.openStage, removePersonalData, parseCode, includeIds, includePayload),
+          manageStage: getProtocolNode(node.manageStage, removePersonalData, parseCode, includeIds, includePayload),
+          closeStage: getProtocolNode(node.closeStage, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
-          strategy.id = node.id
+          object.id = node.id
         }
-        return strategy
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Base Asset': {
         let object = {
@@ -313,8 +423,14 @@ function newProtocolNode () {
           name: node.name,
           code: node.code
         }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
+        }
         if (includeIds) {
           object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
         }
         return object
       }
@@ -325,8 +441,14 @@ function newProtocolNode () {
           name: node.name,
           code: node.code
         }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
+        }
         if (includeIds) {
           object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
         }
         return object
       }
@@ -340,6 +462,9 @@ function newProtocolNode () {
         if (includeIds) {
           object.id = node.id
         }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
         return object
       }
       case 'Slippage': {
@@ -349,8 +474,14 @@ function newProtocolNode () {
           name: node.name,
           code: node.code
         }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
+        }
         if (includeIds) {
           object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
         }
         return object
       }
@@ -361,8 +492,14 @@ function newProtocolNode () {
           name: node.name,
           code: node.code
         }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
+        }
         if (includeIds) {
           object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
         }
         return object
       }
@@ -371,38 +508,47 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          baseAsset: getProtocolNode(node.baseAsset, removePersonalData, parseJSONStrings, includeIds),
-          timeRange: getProtocolNode(node.timeRange, removePersonalData, parseJSONStrings, includeIds),
-          timePeriod: getProtocolNode(node.timePeriod, removePersonalData, parseJSONStrings, includeIds),
-          slippage: getProtocolNode(node.slippage, removePersonalData, parseJSONStrings, includeIds),
-          feeStructure: getProtocolNode(node.feeStructure, removePersonalData, parseJSONStrings, includeIds)
+          baseAsset: getProtocolNode(node.baseAsset, removePersonalData, parseCode, includeIds, includePayload),
+          timeRange: getProtocolNode(node.timeRange, removePersonalData, parseCode, includeIds, includePayload),
+          timePeriod: getProtocolNode(node.timePeriod, removePersonalData, parseCode, includeIds, includePayload),
+          slippage: getProtocolNode(node.slippage, removePersonalData, parseCode, includeIds, includePayload),
+          feeStructure: getProtocolNode(node.feeStructure, removePersonalData, parseCode, includeIds, includePayload),
+          key: getProtocolNode(node.key, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
           object.id = node.id
         }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
         return object
       }
       case 'Trading System': {
-        let tradingSystem = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
           strategies: [],
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds)
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload)
         }
 
         for (let m = 0; m < node.strategies.length; m++) {
-          let strategy = getProtocolNode(node.strategies[m], removePersonalData, parseJSONStrings, includeIds)
-          tradingSystem.strategies.push(strategy)
+          let strategy = getProtocolNode(node.strategies[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (strategy !== undefined) {
+            object.strategies.push(strategy)
+          }
         }
         if (includeIds) {
-          tradingSystem.id = node.id
+          object.id = node.id
         }
-        return tradingSystem
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Personal Data': {
         if (removePersonalData === true) { return }
-        let personalData = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
@@ -410,17 +556,22 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.exchangeAccounts.length; m++) {
-          let exchangeAccount = getProtocolNode(node.exchangeAccounts[m], removePersonalData, parseJSONStrings, includeIds)
-          personalData.exchangeAccounts.push(exchangeAccount)
+          let exchangeAccount = getProtocolNode(node.exchangeAccounts[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (exchangeAccount !== undefined) {
+            object.exchangeAccounts.push(exchangeAccount)
+          }
         }
         if (includeIds) {
-          personalData.id = node.id
+          object.id = node.id
         }
-        return personalData
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Exchange Account': {
         if (removePersonalData === true) { return }
-        let exchangeAccount = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
@@ -429,45 +580,123 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.assets.length; m++) {
-          let asset = getProtocolNode(node.assets[m], removePersonalData, parseJSONStrings, includeIds)
-          exchangeAccount.assets.push(asset)
+          let asset = getProtocolNode(node.assets[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (asset !== undefined) {
+            object.assets.push(asset)
+          }
         }
         for (let m = 0; m < node.keys.length; m++) {
-          let key = getProtocolNode(node.keys[m], removePersonalData, parseJSONStrings, includeIds)
-          exchangeAccount.keys.push(key)
+          let key = getProtocolNode(node.keys[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (key !== undefined) {
+            object.keys.push(key)
+          }
         }
         if (includeIds) {
-          exchangeAccount.id = node.id
+          object.id = node.id
         }
-        return exchangeAccount
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Exchange Account Asset': {
         if (removePersonalData === true) { return }
-        let asset = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name
         }
         if (includeIds) {
-          asset.id = node.id
+          object.id = node.id
         }
-        return asset
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Exchange Account Key': {
         if (removePersonalData === true) { return }
-        let key = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
           code: node.code
         }
         if (includeIds) {
-          key.id = node.id
+          object.id = node.id
         }
-        return key
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Social Bots': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          bots: []
+        }
+
+        for (let m = 0; m < node.bots.length; m++) {
+          let bot = getProtocolNode(node.bots[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (bot !== undefined) {
+            object.bots.push(bot)
+          }
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Telegram Bot': {
+        if (removePersonalData === true) { return }
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          announcements: []
+        }
+
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (announcement !== undefined) {
+            object.announcements.push(announcement)
+          }
+        }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Announcement': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code,
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Layer Manager': {
-        let layerManager = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
@@ -475,13 +704,18 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.layers.length; m++) {
-          let layer = getProtocolNode(node.layers[m], removePersonalData, parseJSONStrings, includeIds)
-          layerManager.layers.push(layer)
+          let layer = getProtocolNode(node.layers[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (layer !== undefined) {
+            object.layers.push(layer)
+          }
         }
         if (includeIds) {
-          layerManager.id = node.id
+          object.id = node.id
         }
-        return layerManager
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Layer': {
         let object = {
@@ -490,13 +724,19 @@ function newProtocolNode () {
           name: node.name,
           code: node.code
         }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
+        }
         if (includeIds) {
           object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
         }
         return object
       }
       case 'Task Manager': {
-        let taskManager = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
@@ -504,28 +744,36 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.tasks.length; m++) {
-          let task = getProtocolNode(node.tasks[m], removePersonalData, parseJSONStrings, includeIds)
-          taskManager.tasks.push(task)
+          let task = getProtocolNode(node.tasks[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (task !== undefined) {
+            object.tasks.push(task)
+          }
         }
         if (includeIds) {
-          taskManager.id = node.id
+          object.id = node.id
         }
-        return taskManager
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Task': {
         let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          bot: getProtocolNode(node.bot, removePersonalData, parseJSONStrings, includeIds)
+          bot: getProtocolNode(node.bot, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
           object.id = node.id
         }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
         return object
       }
       case 'Sensor': {
-        let bot = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
@@ -534,19 +782,24 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.processes.length; m++) {
-          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings, includeIds)
-          bot.processes.push(process)
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (process !== undefined) {
+            object.processes.push(process)
+          }
         }
-        if (parseJSONStrings) {
-          bot.code = JSON.parse(bot.code)
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
         }
         if (includeIds) {
-          bot.id = node.id
+          object.id = node.id
         }
-        return bot
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Indicator': {
-        let bot = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
@@ -555,19 +808,24 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.processes.length; m++) {
-          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings, includeIds)
-          bot.processes.push(process)
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (process !== undefined) {
+            object.processes.push(process)
+          }
         }
-        if (parseJSONStrings) {
-          bot.code = JSON.parse(bot.code)
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
         }
         if (includeIds) {
-          bot.id = node.id
+          object.id = node.id
         }
-        return bot
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Trading Engine': {
-        let bot = {
+        let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
@@ -576,16 +834,21 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.processes.length; m++) {
-          let process = getProtocolNode(node.processes[m], removePersonalData, parseJSONStrings, includeIds)
-          bot.processes.push(process)
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (process !== undefined) {
+            object.processes.push(process)
+          }
         }
-        if (parseJSONStrings) {
-          bot.code = JSON.parse(bot.code)
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
         }
         if (includeIds) {
-          bot.id = node.id
+          object.id = node.id
         }
-        return bot
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
       }
       case 'Process': {
         let object = {
@@ -593,76 +856,103 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          session: getProtocolNode(node.session, removePersonalData, parseJSONStrings, includeIds)
+          session: getProtocolNode(node.session, removePersonalData, parseCode, includeIds, includePayload)
         }
-        if (parseJSONStrings) {
-          object.code = JSON.parse(object.code)
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
         }
         if (includeIds) {
           object.id = node.id
         }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
         return object
       }
-
       case 'Backtesting Session': {
         let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseJSONStrings, includeIds)
+          code: node.code,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds, includePayload),
+          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds, includePayload)
+        }
+        if (parseCode) {
+          object.code = JSON.parse(object.code)
         }
         if (includeIds) {
           object.id = node.id
         }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
         return object
       }
-
       case 'Live Trading Session': {
         let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseJSONStrings, includeIds)
+          code: node.code,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds, includePayload),
+          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds, includePayload)
+        }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
         }
         if (includeIds) {
           object.id = node.id
         }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
         return object
       }
-
       case 'Fordward Testing Session': {
         let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseJSONStrings, includeIds)
+          code: node.code,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds, includePayload),
+          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds, includePayload)
+        }
+        if (parseCode) {
+          object.code = JSON.parse(object.code)
         }
         if (includeIds) {
           object.id = node.id
         }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
         return object
       }
-
       case 'Paper Trading Session': {
         let object = {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseJSONStrings, includeIds),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseJSONStrings, includeIds)
+          code: node.code,
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds, includePayload),
+          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds, includePayload)
+        }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
         }
         if (includeIds) {
           object.id = node.id
         }
-        if (includeIds) {
-          object.id = node.id
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
         }
         return object
       }
-
       case 'Network Node': {
         let object = {
           type: node.type,
@@ -672,12 +962,17 @@ function newProtocolNode () {
         }
         if (node.taskManagers !== undefined) {
           for (let m = 0; m < node.taskManagers.length; m++) {
-            let taskManager = getProtocolNode(node.taskManagers[m], removePersonalData, parseJSONStrings, includeIds)
-            object.taskManagers.push(taskManager)
+            let taskManager = getProtocolNode(node.taskManagers[m], removePersonalData, parseCode, includeIds, includePayload)
+            if (taskManager !== undefined) {
+              object.taskManagers.push(taskManager)
+            }
           }
         }
         if (includeIds) {
           object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
         }
         return object
       }
@@ -690,12 +985,17 @@ function newProtocolNode () {
         }
         if (node.networkNodes !== undefined) {
           for (let m = 0; m < node.networkNodes.length; m++) {
-            let networkNode = getProtocolNode(node.networkNodes[m], removePersonalData, parseJSONStrings, includeIds)
-            object.networkNodes.push(networkNode)
+            let networkNode = getProtocolNode(node.networkNodes[m], removePersonalData, parseCode, includeIds, includePayload)
+            if (networkNode !== undefined) {
+              object.networkNodes.push(networkNode)
+            }
           }
         }
         if (includeIds) {
           object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
         }
         return object
       }
@@ -704,15 +1004,45 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData, parseJSONStrings, includeIds),
-          personalData: getProtocolNode(node.personalData, removePersonalData, parseJSONStrings, includeIds),
-          network: getProtocolNode(node.network, removePersonalData, parseJSONStrings, includeIds)
+          tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData, parseCode, includeIds, includePayload),
+          personalData: getProtocolNode(node.personalData, removePersonalData, parseCode, includeIds, includePayload),
+          network: getProtocolNode(node.network, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
           object.id = node.id
         }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
         return object
       }
     }
+  }
+
+  function getSavedPayload (node) {
+    if (node.payload === undefined) {
+      console.log(node)
+    }
+    let savedPayload = {
+      position: {
+        x: node.payload.position.x,
+        y: node.payload.position.y
+      },
+      targetPosition: {
+        x: node.payload.targetPosition.x,
+        y: node.payload.targetPosition.y
+      },
+      floatingObject: {
+        isPinned: node.payload.floatingObject.isPinned,
+        isFrozen: (node.payload.floatingObject.isFrozen && node.payload.floatingObject.frozenManually),
+        isCollapsed: (node.payload.floatingObject.isCollapsed && node.payload.floatingObject.collapsedManually),
+        isTensed: (node.payload.floatingObject.isTensed && node.payload.floatingObject.tensedManually)
+      },
+      uiObject: {
+        isRunning: node.payload.uiObject.isRunning,
+        shortcutKey: node.payload.uiObject.shortcutKey
+      }
+    }
+    return savedPayload
   }
 }

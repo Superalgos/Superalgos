@@ -56,10 +56,42 @@ function newAttachDetach () {
       }
       case 'Exchange Account Key': {
         let payload = node.payload
-        for (let i = 0; i < payload.parentNode.keys.length; i++) {
-          let key = payload.parentNode.keys[i]
-          if (key.id === node.id) {
-            payload.parentNode.keys.splice(i, 1)
+        if (payload.parentNode.keys !== undefined) {
+          for (let i = 0; i < payload.parentNode.keys.length; i++) {
+            let key = payload.parentNode.keys[i]
+            if (key.id === node.id) {
+              payload.parentNode.keys.splice(i, 1)
+            }
+          }
+        }
+        if (payload.parentNode.key !== undefined) {
+          payload.parentNode.key = undefined
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Social Bots': {
+        node.payload.parentNode.socialBots = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Telegram Bot': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.bots.length; i++) {
+          let bot = payload.parentNode.bots[i]
+          if (bot.id === node.id) {
+            payload.parentNode.bots.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Announcement': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.announcements.length; i++) {
+          let announcement = payload.parentNode.announcements[i]
+          if (announcement.id === node.id) {
+            payload.parentNode.announcements.splice(i, 1)
           }
         }
         completeDetachment(node, rootNodes)
@@ -342,6 +374,27 @@ function newAttachDetach () {
         completeAttachment(node, rootNodes)
       }
         break
+      case 'Social Bots': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.socialBots = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Telegram Bot': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.bots.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Announcement': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.announcements.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
       case 'Layer Manager': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
@@ -450,7 +503,11 @@ function newAttachDetach () {
       case 'Exchange Account Key': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.keys.push(node)
+        if (node.payload.parentNode.keys !== undefined) {
+          node.payload.parentNode.keys.push(node)
+        } else {
+          node.payload.parentNode.key = node
+        }
         completeAttachment(node, rootNodes)
       }
         break

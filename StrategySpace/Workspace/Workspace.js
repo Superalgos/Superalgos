@@ -11,6 +11,8 @@ function newWorkspace () {
     container: undefined,
     enabled: false,
     nodeChildren: undefined,
+    getNodeThatIsOnFocus: getNodeThatIsOnFocus,
+    getNodeByShortcutKey: getNodeByShortcutKey,
     getAllTradingEngines: getAllTradingEngines,
     stopAllRunningTasks: stopAllRunningTasks,
     onMenuItemClick: onMenuItemClick,
@@ -46,9 +48,11 @@ function newWorkspace () {
   let functionLibraryNodeDeleter = newNodeDeleter()
   let functionLibraryPartsFromNodes = newPartsFromNodes()
   let functionLibraryProtocolNode = newProtocolNode()
-  let functionLibraryWorkspaceNodes = newStringifyNode()
   let functionLibraryTaskFunctions = newTaskFunctions()
   let functionLibrarySessionFunctions = newSessionFunctions()
+  let functionLibraryShortcutKeys = newShortcutKeys()
+  let functionLibraryOnFocus = newOnFocus()
+
   thisObject.nodeChildren = newNodeChildren()
 
   return thisObject
@@ -127,7 +131,7 @@ function newWorkspace () {
     let stringifyReadyNodes = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let node = functionLibraryWorkspaceNodes.prepareForStringify(rootNode, removePersonalData)
+      let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true)
       if (node) {
         stringifyReadyNodes.push(node)
       }
@@ -186,6 +190,28 @@ function newWorkspace () {
       }
     }
     return tradingEngines
+  }
+
+  function getNodeByShortcutKey (searchingKey) {
+    for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
+      let rootNode = thisObject.workspaceNode.rootNodes[i]
+      if (rootNode.type === 'Definition') {
+        let definition = rootNode
+        let node = functionLibraryShortcutKeys.getNodeByShortcutKey(rootNode, searchingKey)
+        if (node !== undefined) { return node }
+      }
+    }
+  }
+
+  function getNodeThatIsOnFocus () {
+    for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
+      let rootNode = thisObject.workspaceNode.rootNodes[i]
+      if (rootNode.type === 'Definition') {
+        let definition = rootNode
+        let node = functionLibraryOnFocus.getNodeThatIsOnFocus(rootNode)
+        if (node !== undefined) { return node }
+      }
+    }
   }
 
   function spawn (nodeText, point) {
@@ -305,6 +331,21 @@ function newWorkspace () {
       case 'Add Network Node':
         {
           functionLibraryPartsFromNodes.addNetworkNode(payload.node)
+        }
+        break
+      case 'Add Social Bots':
+        {
+          functionLibraryPartsFromNodes.addSocialBots(payload.node)
+        }
+        break
+      case 'Add Telegram Bot':
+        {
+          functionLibraryPartsFromNodes.addTelegramBot(payload.node)
+        }
+        break
+      case 'Add Announcement':
+        {
+          functionLibraryPartsFromNodes.addAnnouncement(payload.node)
         }
         break
       case 'Add Layer Manager':
@@ -473,6 +514,18 @@ function newWorkspace () {
       }
       case 'Delete Network Node': {
         functionLibraryNodeDeleter.deleteNetworkNode(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Social Bots': {
+        functionLibraryNodeDeleter.deleteSocialBots(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Social Bot': {
+        functionLibraryNodeDeleter.deleteSocialBot(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Announcement': {
+        functionLibraryNodeDeleter.deleteAnnouncement(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Layer Manager': {

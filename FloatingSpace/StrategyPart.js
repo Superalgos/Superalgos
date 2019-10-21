@@ -19,6 +19,7 @@ function newStrategyPart () {
     circularProgressBar: undefined,
     isExecuting: undefined,
     isRunning: undefined,
+    shortcutKey: undefined,
     run: run,
     stop: stop,
     getReadyToAttach: getReadyToAttach,
@@ -223,7 +224,7 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Exchange Account Key':
-        compatibleType = '->' + 'Exchange Account' + '->'
+        compatibleType = '->' + 'Exchange Account' + '->' + 'Parameters' + '->'
         compatibleSubType = undefined
         break
       case 'Parameters':
@@ -272,6 +273,18 @@ function newStrategyPart () {
         break
       case 'Layer':
         compatibleType = '->' + 'Layer Manager' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Social Bots':
+        compatibleType = '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Telegram Bot':
+        compatibleType = '->' + 'Social Bots' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Announcement':
+        compatibleType = '->' + 'Telegram Bot' + '->' + 'Trigger On Event' + '->' + 'Trigger Off Event' + '->' + 'Take Position Event' + '->' + 'Next Phase Event' + '->' + '->' + 'Phase' + '->'
         compatibleSubType = undefined
         break
       case 'Task Manager':
@@ -376,7 +389,7 @@ function newStrategyPart () {
         compatibleSubType = undefined
         break
       case 'Formula':
-        compatibleType = '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase' + '->'
+        compatibleType = '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase' + '->' + 'Announcement' + '->'
         compatibleSubType = undefined
         break
       case 'Next Phase Event':

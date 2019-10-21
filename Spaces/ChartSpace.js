@@ -16,6 +16,10 @@ function newChartSpace () {
     visible: true,
     container: undefined,
     timeMachines: [],
+    oneScreenUp: oneScreenUp,
+    oneScreenDown: oneScreenDown,
+    oneScreenLeft: oneScreenLeft,
+    oneScreenRight: oneScreenRight,
     fitIntoVisibleArea: fitIntoVisibleArea,
     isThisPointVisible: isThisPointVisible,
     physics: physics,
@@ -34,6 +38,7 @@ function newChartSpace () {
 
   let canvasBrowserResizedEventSubscriptionId
 
+  const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
   return thisObject
 
   function finalize () {
@@ -110,6 +115,42 @@ function newChartSpace () {
   function resize () {
     thisObject.container.frame.width = browserCanvas.width
     thisObject.container.frame.height = COCKPIT_SPACE_POSITION
+  }
+
+  function oneScreenUp () {
+    let displaceVector = {
+      x: 0,
+      y: +browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
+    }
+
+    viewPort.displace(displaceVector)
+  }
+
+  function oneScreenDown () {
+    let displaceVector = {
+      x: 0,
+      y: -browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
+    }
+
+    viewPort.displace(displaceVector)
+  }
+
+  function oneScreenLeft () {
+    let displaceVector = {
+      x: browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
+      y: 0
+    }
+
+    viewPort.displace(displaceVector, true)
+  }
+
+  function oneScreenRight () {
+    let displaceVector = {
+      x: -browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
+      y: 0
+    }
+
+    viewPort.displace(displaceVector, true)
   }
 
   function fitIntoVisibleArea (point) {

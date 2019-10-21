@@ -3,6 +3,9 @@ function newNodeDeleter () {
     deleteDefinition: deleteDefinition,
     deleteNetwork: deleteNetwork,
     deleteNetworkNode: deleteNetworkNode,
+    deleteSocialBots: deleteSocialBots,
+    deleteSocialBot: deleteSocialBot,
+    deleteAnnouncement: deleteAnnouncement,
     deleteLayerManager: deleteLayerManager,
     deleteLayer: deleteLayer,
     deleteTaskManager: deleteTaskManager,
@@ -68,6 +71,18 @@ function newNodeDeleter () {
           }
           case 'Network Node': {
             deleteNetworkNode(rootNode, rootNodes)
+            break
+          }
+          case 'Social Bots': {
+            deleteSocialBots(rootNode, rootNodes)
+            break
+          }
+          case 'Telegram Bot': {
+            deleteSocialBot(rootNode, rootNodes)
+            break
+          }
+          case 'Announcement': {
+            deleteAnnouncement(rootNode, rootNodes)
             break
           }
           case 'Layer Manager': {
@@ -326,6 +341,59 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
+  function deleteSocialBots (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.socialBots = undefined
+    }
+    if (node.bots !== undefined) {
+      while (node.bots.length > 0) {
+        deleteSocialBot(node.bots[0], rootNodes)
+      }
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteSocialBot (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.bots.length; j++) {
+        let bot = payload.parentNode.bots[j]
+        if (bot.id === node.id) {
+          payload.parentNode.bots.splice(j, 1)
+        }
+      }
+    }
+    if (node.announcements !== undefined) {
+      while (node.announcements.length > 0) {
+        deleteAnnouncement(node.announcements[0], rootNodes)
+      }
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
+  function deleteAnnouncement (node, rootNodes) {
+    let payload = node.payload
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.announcements.length; j++) {
+        let announcement = payload.parentNode.announcements[j]
+        if (announcement.id === node.id) {
+          payload.parentNode.announcements.splice(j, 1)
+        }
+      }
+    }
+    if (node.formula !== undefined) {
+      deleteFormula(node.formula, rootNodes)
+    }
+    completeDeletion(node, rootNodes)
+    destroyPart(node)
+    cleanNode(node)
+  }
+
   function deleteLayerManager (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
@@ -461,6 +529,10 @@ function newNodeDeleter () {
     if (node.layerManager !== undefined) {
       deleteLayerManager(node.layerManager, rootNodes)
     }
+
+    if (node.socialBots !== undefined) {
+      deleteSocialBots(node.socialBots, rootNodes)
+    }
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
@@ -479,6 +551,10 @@ function newNodeDeleter () {
 
     if (node.layerManager !== undefined) {
       deleteLayerManager(node.layerManager, rootNodes)
+    }
+
+    if (node.socialBots !== undefined) {
+      deleteSocialBots(node.socialBots, rootNodes)
     }
     completeDeletion(node, rootNodes)
     destroyPart(node)
@@ -499,6 +575,10 @@ function newNodeDeleter () {
     if (node.layerManager !== undefined) {
       deleteLayerManager(node.layerManager, rootNodes)
     }
+
+    if (node.socialBots !== undefined) {
+      deleteSocialBots(node.socialBots, rootNodes)
+    }
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
@@ -517,6 +597,10 @@ function newNodeDeleter () {
 
     if (node.layerManager !== undefined) {
       deleteLayerManager(node.layerManager, rootNodes)
+    }
+
+    if (node.socialBots !== undefined) {
+      deleteSocialBots(node.socialBots, rootNodes)
     }
     completeDeletion(node, rootNodes)
     destroyPart(node)
@@ -586,11 +670,16 @@ function newNodeDeleter () {
   function deleteExchangeAccountKey (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
-      for (let j = 0; j < payload.parentNode.keys.length; j++) {
-        let key = payload.parentNode.keys[j]
-        if (key.id === node.id) {
-          payload.parentNode.keys.splice(j, 1)
+      if (payload.parentNode.keys !== undefined) {
+        for (let j = 0; j < payload.parentNode.keys.length; j++) {
+          let key = payload.parentNode.keys[j]
+          if (key.id === node.id) {
+            payload.parentNode.keys.splice(j, 1)
+          }
         }
+      }
+      if (payload.parentNode.key !== undefined) {
+        payload.parentNode.key = undefined
       }
     } else {
       completeDeletion(node, rootNodes)
@@ -642,6 +731,9 @@ function newNodeDeleter () {
     }
     if (node.feeStructure !== undefined) {
       deleteFeeStructure(node.feeStructure, rootNodes)
+    }
+    if (node.key !== undefined) {
+      deleteExchangeAccountKey(node.key, rootNodes)
     }
     destroyPart(node)
     cleanNode(node)
@@ -904,6 +996,11 @@ function newNodeDeleter () {
       }
     }
 
+    if (node.announcements !== undefined) {
+      while (node.announcements.length > 0) {
+        deleteAnnouncement(node.announcements[0], rootNodes)
+      }
+    }
     destroyPart(node)
     cleanNode(node)
   }
@@ -959,6 +1056,12 @@ function newNodeDeleter () {
 
     if (node.nextPhaseEvent !== undefined) {
       deleteEvent(node.nextPhaseEvent, rootNodes)
+    }
+
+    if (node.announcements !== undefined) {
+      while (node.announcements.length > 0) {
+        deleteAnnouncement(node.announcements[0], rootNodes)
+      }
     }
     destroyPart(node)
     cleanNode(node)

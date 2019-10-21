@@ -1170,6 +1170,10 @@ The *Trades* layer marks trades with a triangle whose hypotenuse connects the pr
 
 The app allows for having multiple testing sessions. You may add and work with multiple sessions by backing up the existing session at the level of the process. Then drop the backup on the workspace, attach it to the trading engine and give the new session a new name.
 
+The number of backtesting sessions you may run simultaneously is capped by your machine's capacity. Current tests indicate that a dual core processor at 2.4GHz may process up to 5 sessions at the same time without compromising the machine's performance.
+
+Running more sessions than the optimal number your machine may process efficiently may result in the the sessions taking more time to process than if they were run in a sequence.
+
 [ILLUSTRATION]
 
 ### Testing Logic Variations

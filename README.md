@@ -300,11 +300,11 @@ You will not see any immediate effect in your browser, but notice how your conso
 
 **3. Run your first backtest**:
 
-| Task | Backtesting Session |
-| :---: | :---: |
-| ![timeline](https://user-images.githubusercontent.com/13994516/67079956-73b1d980-f194-11e9-89e0-9c8d1ea2ad1d.png) | ![session-backtesting](https://user-images.githubusercontent.com/13994516/66318052-e7452280-e91a-11e9-94a7-90ebe6ee6e62.png) |
+| Task | Process | Backtesting Session |
+| :---: | :---: | :---: |
+| ![timeline](https://user-images.githubusercontent.com/13994516/67079956-73b1d980-f194-11e9-89e0-9c8d1ea2ad1d.png) |  ![process](https://user-images.githubusercontent.com/13994516/67079738-00a86300-f194-11e9-9f59-a4cc4ce6d56c.png) | ![session-backtesting](https://user-images.githubusercontent.com/13994516/66318052-e7452280-e91a-11e9-94a7-90ebe6ee6e62.png) |
 
-Now you will go back to the Node element and follow the line going up until you find another task manager. To the left, you will see an element called Task. You will hover over it and click *Run* on the menu.
+Now you will go back to the Node element and follow the line going up until you find another task manager. To the left, you will see an element called Task. You will hover over it and click *Run* on the menu. Notice how the *task*, along with the *process* further down the line start showing a progress ring indicating that they are running.
 
 Keep following the tree of child elements until you find the *Backtesting Session* element called *BCK Test 2019*. Hover the pointer to open the menu and click *Run*.
 

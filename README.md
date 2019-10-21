@@ -271,23 +271,28 @@ If you haven't yet, start by importing either ```Share - Workspace - Bull run ri
 | :---: | :---: |
 | ![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) | ![network-node](https://user-images.githubusercontent.com/13994516/66308204-ca065900-e906-11e9-8b66-80f7fa605f2d.png) |
 
-Open up the Designer section of the app by dragging the horizontal bar upwards and locate the two Task Manager elements connected to the Network Node element on the left-hand side of the screen.
+Open up the Designer section of the app by dragging the horizontal bar upwards. You may also use your keyboard <kbd>Alt</kbd> + <kbd>&#8593;</kbd>.
 
-> To move around the Designer, click on the black background and drag to pan in the desired direction.
+Now click and drag the dark background to pan towards the white semicircle in the bottom. That is your *definition*, which is the top level of the hierarchical structure the stores all the information you need to trade.
 
-Then, hover your mouse pointer over either of the Task Manager elements and click ```Run All Tasks``` in the menu. You will not see any immediate effect in your browser, but if you take a look at the Console, you will notice activity indicating that several processes are running.
+![Getting-Started-Guide-03-Move-to-Definition](https://user-images.githubusercontent.com/13994516/67234224-0d071700-f445-11e9-8c77-b00c0d4a39d1.gif)
 
-Do the same with the second Task Manager element.
+Now follow the dotted line to the left. You will find the *Superalgos Network* element, and further down the line, you will find the *Node* element. Then there is a fork, with one line going down and left, and another going up and left. Follow the one going down until you reach the *Task Manager* element. Hover the mouse pointer over the element and click *Run All Tasks* on the menu. Notice the name of the Task Manager showing on top of the icon when you hover you mouse: "**Keep Datasets Up-to-Date**"
 
-> Notice how each of the two Task Manager elements display a name when you hover your mouse pointer. 
+![Getting-Started-Guide-04-Task-Manager-1](https://user-images.githubusercontent.com/13994516/67234227-0d9fad80-f445-11e9-988d-deb6f3405950.gif)
 
-[ILLUSTRATION]
+You just started the *sensors* that extract live data from the exchange and the *indicators* that process raw trades data.
 
-> **NOTES ON MARKET DATA**: You just started the *Trading Engine* along with the *sensors* that extract live data from the exchange and the *indicators* that process raw trades data. These processes will remain running for as long as you keep the browser open running the app. The bots processing exchange data and building indicators datasets will work to bring your data up to date. In our experience, it may take between 10 to 20 minutes per day's worth of Poloniex data to be processed. The time it will take for these processes to complete the job depends on several things:
-> * The date of the release tells you how many days you are behind with the data set you just downloaded.
-> * The speed and processing power of your machine will make a difference too.
-> * The average number of trades per day at the exchange determines the volume of data the app needs to retrieve and process.
-> * The number of trades the exchange returns per each request determines the size of the pipeline the exchanges allow API users to use.
+These processes will remain running for as long as you keep the browser open running the app. The bots processing exchange data and building indicators datasets will work to bring your data up to date. In our experience, it may take between 10 to 20 minutes per day's worth of Poloniex data to be processed. The time it will take for these processes to complete the job depends on several things:
+
+* The date of the release tells you how many days you are behind with the data set you just downloaded.
+* The speed and processing power of your machine will make a difference too.
+* The average number of trades per day at the exchange determines the volume of data the app needs to retrieve and process.
+* The number of trades the exchange returns per each request determines the size of the pipeline the exchanges allow API users to use.
+
+You will not see any immediate effect in your browser, but notice how your console application is buzzing with activity:
+
+![Getting-Started-Guide-05-Console](https://user-images.githubusercontent.com/13994516/67233532-b8af6780-f443-11e9-98e0-8efec4a305fe.gif)
 
 **3. Run your first backtest**:
 
@@ -295,13 +300,11 @@ Do the same with the second Task Manager element.
 | :---: | :---: | :---: |
 | ![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) | ![menu-tree-plus](https://user-images.githubusercontent.com/13994516/63041077-45c7c480-bec7-11e9-965c-38e4fd706c38.png) | ![session-backtesting](https://user-images.githubusercontent.com/13994516/66318052-e7452280-e91a-11e9-94a7-90ebe6ee6e62.png) |
 
-Go to the *Tests & Live Trading* Task Manager (hover over either of the Task Manager elements to see its name) and expand the view of child elements by clicking on the *plus sign* icon.
+Now you will go back to the Node element and follow the line going up until you find another task manager. To the left, you will see an element called Task. You will hover over it and click *Run* on the menu.
 
-Follow the tree of child elements until you find the *Backtesting Session* element.
+Keep following the tree of child elements until you find the *Backtesting Session* element called *2019*. Hover the pointer to open the menu and click *Run*.
 
-Hover over the Backtesting Session element and click *Run* on the menu. 
-
-[ILLUSTRATION]
+![Getting-Started-Guide-06-Task-Manager-2](https://user-images.githubusercontent.com/13994516/67234228-0d9fad80-f445-11e9-9905-1e41e1735afc.gif)
 
 You just started a backtesting session with a series of pre-configured parameters, including, for instance, the date range on which the backtesting session runs. Later on, you will learn how to adjust these parameters. 
 

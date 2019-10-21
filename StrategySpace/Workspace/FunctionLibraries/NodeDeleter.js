@@ -1057,6 +1057,12 @@ function newNodeDeleter () {
     if (node.nextPhaseEvent !== undefined) {
       deleteEvent(node.nextPhaseEvent, rootNodes)
     }
+
+    if (node.announcements !== undefined) {
+      while (node.announcements.length > 0) {
+        deleteAnnouncement(node.announcements[0], rootNodes)
+      }
+    }
     destroyPart(node)
     cleanNode(node)
   }

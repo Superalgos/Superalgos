@@ -81,6 +81,12 @@ function newOnFocus () {
         if (child !== undefined) {
           return child
         }
+        for (let m = 0; m < node.announcements.length; m++) {
+          child = getNodeThatIsOnFocus(node.announcements[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
         if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {

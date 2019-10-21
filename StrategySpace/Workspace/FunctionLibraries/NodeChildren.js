@@ -920,6 +920,13 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    for (let i = 0; i < parentNode.announcements.length; i++) {
+      let child = parentNode.announcements[i]
+      response.childrenCount++
+      if (child.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     return response
   }
 

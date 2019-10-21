@@ -81,6 +81,12 @@ function newShortcutKeys () {
         if (child !== undefined) {
           return child
         }
+        for (let m = 0; m < node.announcements.length; m++) {
+          child = getNodeByShortcutKey(node.announcements[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
         if (node.payload.uiObject.shortcutKey === searchingKey) {
           return node
         } else {

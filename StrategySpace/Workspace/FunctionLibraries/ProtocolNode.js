@@ -111,8 +111,15 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          announcements: [],
           formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload),
           nextPhaseEvent: getProtocolNode(node.nextPhaseEvent, removePersonalData, parseCode, includeIds, includePayload)
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload)
+          if (announcement !== undefined) {
+            object.announcements.push(announcement)
+          }
         }
         if (includeIds) {
           object.id = node.id

@@ -98,6 +98,13 @@ function newPartsFromNodes () {
         if (node.nextPhaseEvent !== undefined) {
           createPartFromNode(node.nextPhaseEvent, phase, phase)
         }
+        if (node.announcements === undefined) {
+          node.announcements = []
+        }
+        for (let m = 0; m < node.announcements.length; m++) {
+          let announcement = node.announcements[m]
+          createPartFromNode(announcement, node, node)
+        }
         return
       }
       case 'Stop': {
@@ -1190,6 +1197,7 @@ function newPartsFromNodes () {
 
     let phase = {
       name: 'New Phase',
+      announcements: [],
       formula: {
         code: DEFAULT_FORMULA_TEXT
       },

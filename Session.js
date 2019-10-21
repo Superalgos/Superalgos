@@ -535,7 +535,11 @@
                                     }
                                     if (socialBot.type === code.botType && socialBot.id === code.botId) {
                                         if (socialBot.type === "Telegram Bot") {
-                                            socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text)
+                                            if (announcement.formulaValue !== undefined) {
+                                                socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue)
+                                            } else {
+                                                socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text)
+                                            }
                                         }
                                     }
                                 } catch (err) {

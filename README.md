@@ -1227,6 +1227,8 @@ In the case of forward testing you will want to configure what is the percentage
 {"balancePercentage": 1}
 ```
 
+[ILLUSTRATION]
+
 The number you enter is applied as a percentage of *balanceAssetA* or *balanceAssetB* (for BTC and USDT-based strategies respectively) to obtain the forward-testing balance that will be available to the *positionSize* formula you defined on the [Open Stage](#open-stage) of the strategy.
 
 For instance, ```"balancePercentage": 1``` means that 1% of your balance will be made available.

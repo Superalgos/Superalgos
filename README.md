@@ -1414,13 +1414,11 @@ Bear in mind that when the split tab is fully closed, errors will no longer show
 
 ## Market Data / Indicators Seem to be Outdated
 
-If you are running the app for the first time or you stopped running the app for some time, data will not be up to date. Every time you start the app, it will take some time for data to catch up with the present time. If you wish to make sure your bots are running, simply click RESTART SIMULATION, check if the processes are running in your console and eventually, refresh the concerned layers.
+If you are running the app for the first time or you stopped running the app for some time, data will not be up to date. Every time you start the app, it will take some time for data to catch up with the present time. 
 
-![Troubleshooting-Refresh-Layers](https://user-images.githubusercontent.com/13994516/63114415-18494c80-bf95-11e9-8755-0fb2cb293ea0.gif)
+To update your datasets until the present time, you need to *Run All Tasks* in your *Keep Datasets Up-to-Date* task manager, as explained on the [Task Manager, Tasks, Bots and Processes](#task-manager-tasks-bots-and-processes) section, and allow enough time for the processes to go through the missing data.
 
-## New Simulation Doesn't Seem to Match My New Settings
-
-When you are working with a strategy, changing conditions, formulas or any other parameters, you will likely be re-running simulations (RESTARTING BOTS) so that the bots take on the new settings. Every time you RESTART SIMULATION, the system waits for a little while and automatically refreshes the Simulation Layers. However, it may happen that the auto-refresh happens before the new data is made available by the bots, so you may wish to refresh the Simulation Layers manually if that seems to be the case.
+[ILLUSTRATION]
 
 # Reporting Bugs
 
@@ -1446,9 +1444,7 @@ These Node.js components provide the infrastructure required to run different ki
 
 * **Plotters**: create visual representations of data sets to render the information in a human-friendly manner, most likely over the charts.
 
-* **Simulation and Trading Bots**: read a Superalgos Protocol file containing the details of trading strategies and interact with the Superalgos Desktop App to run them as simulations (using a simulation plotter) or to trade live.
-
-When you click the RESTART SIMULATION button, several bots are executed in a specific order, taking into account dependencies, as defined in the ```CloneExecutor\sequence.json``` file. These processes run in a loop, retrieving data from the exchange, producing indicators, running simulations and trading live—online.
+* **Trading Engine**: read a Superalgos Protocol file containing the details of trading strategies and interact with the Superalgos Desktop App to run them as simulations (using a simulation plotter) or to trade live.
 
 ## How Algorithms Work
 
@@ -1456,7 +1452,7 @@ Bots mission is—in essence—creating _products_ that others can consume. To
 
 Each bot may have several processes, and processes don't necessarily have a one-to-one relationship with products. That is, a product can be the result of the work of one or more processes.
 
-Bot processes run when called by the app and stop when they finish the task at hand, to wake up again only when the sequence is completed and a new round of executions starts. 
+Bot processes run when called by the corresponding task and stop when they finish the task at hand, to wake up again after the interval defined in the bot's configuration file. 
 
 The data sets processes create are the actual _output_ of bots which are stored in the file system. But processes also produce and store a second valuable piece of information: _status reports_.
 
@@ -1481,7 +1477,7 @@ A _minutes file_ contains data corresponding to one single minute and is store
 A _file sequence_ consists of sequential information that is not necessarily structured on any particular timeframe. The process stores two types of files: the one ending in _.Sequence.json_ contains the number of files in the sequence, and the sequence is formed by multiple files ending in a sequential number _(e.g. 15.json)_.
 A _single file_ is pretty much just that: a data set that is stored in one file only.
 
-## Current Bots Sequence
+## Current Bots Dependencies
 
 Let's put all this in perspective by analyzing the processes, products, and dependencies of a few existing bots.
 
@@ -1519,7 +1515,7 @@ Let's take a look at another indicator, [Olivia](https://github.com/AAMasters/A
 
 ### Jason
 
-The last link in the chain usually comes in the form of user strategies handled by the simulation and trading engine—[Jason](https://github.com/AAMasters/AAJason-Trading-Engine-Bot)—consuming data from indicators to make trading decisions.
+The last link in the chain usually comes in the form of user strategies handled by the trading engine—[Jason](https://github.com/AAMasters/AAJason-Trading-Engine-Bot)—consuming data from indicators to make trading decisions.
 
 Of course, the main goal of a strategy is to perform profitable trading. However, notice that Jason has outputs too:
 
@@ -1530,6 +1526,8 @@ Of course, the main goal of a strategy is to perform profitable trading. However
 ## Outputs
 
 Each of these bots produces an output in the form of JSON files, which are stored under the ```\Data-Storage\aamasters\AAMasters``` folder, sorted by bot.
+
+### Sensors and Indicators Output
 
 The route for writting bot's output is built as follows:
 
@@ -1555,9 +1553,23 @@ _e.g.:_
 
 ![Technical-Outputs](https://user-images.githubusercontent.com/13994516/63342762-979b9f00-c34c-11e9-8975-4735f0778d35.gif)
 
+### Trading Engine Output
+
+The trading engine is a particular case, as it stores data from multiple simulation and live-trading sessions, including sessions from different definitions and even workspaces.
+
+To do this efficiently, the trading engine creates folders for storing the output and status reports of each session, naming each folder after the session ID, which is unique across definitions.
+
+If for some reason you wish to change the name of an output folder for something easier to read, you may include the following snipet under the *Edit Session* option in the menu of the corresponding session:
+
+```
+"folderName":"YourName"
+```
+
+> **NOTE:** Make sure you use a valid file system name, including only valid characters. Also, bear in mind that is you reuse the same name on different sessions, you may end up with unexpected outcomes.
+
 ## Status Reports
 
-In addition to outputting a data set, bots also store a Status Report. These reports keep crucial information that allows the same and other bots know what happened in the previous execution.
+In addition to outputting a data set, bots also store a Status Report. These reports keep crucial information that allows the same and other bots to know what happened in the previous execution.
 
 Status reports are stored in the Reports folder, at the same level in the structure as the Output folder.
 

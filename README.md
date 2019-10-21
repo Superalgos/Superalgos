@@ -1404,7 +1404,7 @@ The two definitions work independently from each other, from within the same wor
 
 ## On-screen Errors and Warnings
 
-It may happen that your simulation or live trading is not working as expected. The first thing to do in such case is look around within your workspace. Errors are signaled with a red circle surrounding the relevant element of the workspace. Hoover the mouse pointer over the element and you should get a description of what may be that is causing the unexpected behavior.
+It may happen that your simulation or live trading is not working as expected. The first thing to do in such a case is to look around within your workspace. Errors are signaled with a red circle surrounding the relevant element of the workspace. Hover the mouse pointer over the element and you should get a description of what is that is causing the unexpected behavior.
 
 ![On-screen-errors](https://user-images.githubusercontent.com/13994516/63213696-b52ff500-c10f-11e9-9bc1-741ecb0858ef.gif)
 <br/><br/>
@@ -1425,11 +1425,11 @@ To update your datasets until the present time, you need to *Run All Tasks* in y
 
 We highly appreciate bug reports. This is what you need to do:
 
-1. Make sure you are running the latest release and that you have upgraded to the latest patch. You may find information about releases and patches in the [releases](https://github.com/Superalgos/DesktopApp/releases) page. If you are not running the latest patch, please upgrade and test your issue again before reporting anything.
+1. Make sure you are running the latest release and that you have upgraded to the latest patch. You may find information about releases and patches on the [releases](https://github.com/Superalgos/DesktopApp/releases) page. If you are not running the latest patch, please upgrade and test your issue again before reporting anything.
 
-2. Go to the [Issues](https://github.com/Superalgos/DesktopApp/issues) page in this repository and take a moment to search for similar existing open issues. If you find someone has the same issue as you, you may find helpful to follow the thread and comment if you have any new information about the issue.
+2. Go to the [Issues](https://github.com/Superalgos/DesktopApp/issues) page in this repository and take a moment to search for similar existing open issues. If you find one similar to yours, you may find helpful to follow the thread and may contribute by  commenting and introducing new information about the issue.
 
-3. If there are no similar issues, then open a new one. Do your best to describe the problem as thoroughly as possible.<br/><br/>Developers will be interested in knowing how to reproduce the issue in their own systems, so please describe the process that leads to the issue as clearly as possible. Capturing a GIF video showing the steps that lead to the issue would be of great help! [LICEcap](https://www.cockos.com/licecap/) is a lightweight, simple app that can help you with that. If developers can reproduce the issue, half of the problem is solved already.<br/><br/>If the issue seems to happen under specific conditions, you might want to share your _Definitions_ with developers. To do this, go to the Definitions element in your workspace and select _Share_ in the menu. A file containing your strategy and other parameters, but NOT your API keys, will download to your browser's download folder. Upload this file to the issue only if you feel comfortable with sharing it openly. If not, then wait for developers to contact you.<br/><br/>Please make sure you enable Github notifications when someone responds to the issue, as developers may want to ask questions.<br/><br/>If the issue happens while using the app at the browser, then please include a screen capture of Chrome's Console. Open DevTools with the F12 key (when the browser is in focus) and click the Console tab, then go back and reproduce the issue. Take a screen capture of the Console and paste it along with your report.<br/><br/>Feel free to also include screen captures of the app itself if there is anything relevant you wish to show to developers.<br/><br/>![image](https://user-images.githubusercontent.com/13994516/63112941-c18e4380-bf91-11e9-95e2-6fb064d5aead.png)
+3. If there are no similar issues, then open a new one. Do your best to describe the problem as thoroughly as possible.<br/><br/>Developers will be interested in knowing how to reproduce the issue in their systems, so please describe the process that leads to the issue as clearly as possible. Capturing a GIF video showing the steps that lead to the issue would be of great help! [LICEcap](https://www.cockos.com/licecap/) is a lightweight, simple app that can help you with that. If developers can reproduce the issue, half of the problem is solved already.<br/><br/>If the issue seems to happen under specific conditions, you might want to share your _Definitions_ with developers. To do this, go to the Definitions element in your workspace and select _Share_ in the menu. A file containing your strategy and other parameters, but NOT your API keys, will download to your browser's download folder. Upload this file to the issue only if you feel comfortable with sharing it openly. If not, then wait for developers to contact you.<br/><br/>Please make sure you enable Github notifications when someone responds to the issue, as developers may want to ask questions.<br/><br/>If the issue happens while using the app at the browser, then please include a screen capture of Chrome's Console. Open DevTools with the F12 key (when the browser is in focus) and click the Console tab, then go back and reproduce the issue. Take a screen capture of the Console and paste it along with your report.<br/><br/>Feel free to also include screen captures of the app itself if there is anything relevant you wish to show to developers.<br/><br/>![image](https://user-images.githubusercontent.com/13994516/63112941-c18e4380-bf91-11e9-95e2-6fb064d5aead.png)
 
 # Technical Overview
 
@@ -1449,19 +1449,19 @@ These Node.js components provide the infrastructure required to run different ki
 
 ## How Algorithms Work
 
-Bots mission is—in essence—creating _products_ that others can consume. To do this, they run _processes_ which produce and store _data sets_.
+Bots' mission is—in essence—creating _products_ that others can consume. To do this, they run _processes_ that produce and store _data sets_.
 
 Each bot may have several processes, and processes don't necessarily have a one-to-one relationship with products. That is, a product can be the result of the work of one or more processes.
 
 Bot processes run when called by the corresponding task and stop when they finish the task at hand, to wake up again after the interval defined in the bot's configuration file. 
 
-The data sets processes create are the actual _output_ of bots which are stored in the file system. But processes also produce and store a second valuable piece of information: _status reports_.
+The data sets processes create are the actual _output_ of bots, and are stored in the file system. But processes also produce and store a second valuable piece of information: _status reports_.
 
 Status reports serve as temporal annotations that bots read every time they are called by the app to know what was done in the previous run and what the state of affairs is at present. Status reports are dynamic, and they change constantly, with updates after every single run of the associated process.
 
 ### Dependencies
 
-We established that bots produce products for others to consume. This _others_ include other algorithms, meaning that bots usually depend on the data sets produced by other bots. We call these _data dependencies_, which are declared on each bot configuration file.
+We established that bots produce products for others to consume. _Others_ include other algorithms, meaning that bots usually depend on the data sets produced by other bots. We call these _data dependencies_, which are declared on each bot configuration file.
 
 Bots consume their own status report and they might as well consume status reports from other algorithms. We call these _status dependencies_, which are too declared in each bot configuration file.
 
@@ -1522,7 +1522,7 @@ Of course, the main goal of a strategy is to perform profitable trading. However
 
 * Trading-Simulation, Simulation-Strategies, Simulation-Trades, and Simulation-Conditions, are data sets that the [Trading Simulation Plotter](https://github.com/AAMasters/Plotters-Trading-Simulation) reads to create a visual representation of strategies' actions over the charts.
 
-* Live Trading History, Trading-Execution and Trading-Process are data sets used to render live-trading activity over the charts.
+* Live Trading History, Trading-Execution, and Trading-Process are data sets used to render live-trading activity over the charts.
 
 ## Outputs
 
@@ -1530,7 +1530,7 @@ Each of these bots produces an output in the form of JSON files, which are store
 
 ### Sensors and Indicators Output
 
-The route for writting bot's output is built as follows:
+The route for writing bot's output is built as follows:
 
 ```Bot Name and version > the version of AACloud (an internal platform component) > the version of the data set > Output folder```
 
@@ -1560,13 +1560,13 @@ The trading engine is a particular case, as it stores data from multiple simulat
 
 To do this efficiently, the trading engine creates folders for storing the output and status reports of each session, naming each folder after the session ID, which is unique across definitions.
 
-If for some reason you wish to change the name of an output folder for something easier to read, you may include the following snipet under the *Edit Session* option in the menu of the corresponding session:
+If for some reason you wish to change the name of an output folder for something easier to read, you may include the following snippet under the *Edit Session* option in the menu of the corresponding session:
 
 ```
 "folderName":"YourName"
 ```
 
-You custom name will be displayed along with the session ID in the name of the folder, in the following format:
+Your custom name will be displayed along with the session ID in the name of the folder, in the following format:
 
 ```
 YourName - 3e139ae2-138c-42ac-99d6-e0cf9c7c6ee6

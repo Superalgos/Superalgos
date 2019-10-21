@@ -253,7 +253,7 @@
             yesterday.ROI = 0;
             yesterday.anualizedRateOfReturn = 0;
 
-            if (interExecutionMemory.roundtrips === undefined) {
+            if (interExecutionMemory.roundtrips === undefined) { // This just means that the inter execution memory was never used before.
 
                 /* Initialize the data structure we will use inter execution. */
 
@@ -320,6 +320,8 @@
                 interExecutionMemory.hitRatio = 0;
                 interExecutionMemory.ROI = 0;
                 interExecutionMemory.anualizedRateOfReturn = 0;
+
+                interExecutionMemory.announcements = []
 
             } else {
 
@@ -1980,7 +1982,7 @@
                             }
                         }
 
-                        This validation is disbled for now because we do not have the correct end date at this point.
+                        /*We wont take a position if we are past the final datetime */
                         if (bot.VALUES_TO_USE.timeRange.finalDatetime !== undefined) {
                             if (candle.begin > bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because current candle begins after the end date. -> bot.VALUES_TO_USE.timeRange.finalDatetime = " + bot.VALUES_TO_USE.timeRange.finalDatetime); }
@@ -2671,11 +2673,38 @@
                 }
 
                 function checkAnnouncements(node) {
-                    if (node.announcements !== undefined) {
+                    if (node.announcements !== undefined) {                        
                         for (let i = 0; i < node.announcements.length; i++) {
                             let announcement = node.announcements[i]
-                            bot.SESSION.socialBots.announce(announcement)
-                        }
+                            let key = node.type + "-" + announcement.name + "-" + announcement.id
+
+                            let lastPeriodAnnounced = -1
+                            let newAnnouncementRecord
+
+                            for (let j = 0; j < interExecutionMemory.announcements.length; j++) {
+                                let announcementRecord = interExecutionMemory.announcements[j]
+                                if (announcementRecord.key === key) {
+                                    lastPeriodAnnounced = announcementRecord.periods
+                                    newAnnouncementRecord = announcementRecord
+                                    break
+                                }
+                            }
+ 
+                            if (periods > lastPeriodAnnounced) {
+                                bot.SESSION.socialBots.announce(announcement)
+
+                                /* Next, we will remmeber this announcement was already done, so that it is not announced again in further processing of the same day. */
+                                if (newAnnouncementRecord !== undefined) {
+                                    newAnnouncementRecord.periods = periods
+                                } else {
+                                    newAnnouncementRecord = {
+                                        key: key,
+                                        periods: periods
+                                    }
+                                    interExecutionMemory.announcements.push(newAnnouncementRecord)
+                                }
+                            }                                
+                        }                        
                     }
                 }
             }

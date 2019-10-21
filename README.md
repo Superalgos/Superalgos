@@ -1338,6 +1338,16 @@ An additional limitation is that there currently is no feature to break up order
 
 > **It is important that you fully understand the implications of these limitations if you are considering to trade live with the app at this stage, as you will need to adapt to the current state of affairs.**
 
+## Running Multiple Forward-Testing or Live-Trading Sessions from the Same Definition
+
+If for some reason you wish to run more than one forward-testing or live-trading session from within the same definition, you need to know that—due to restrictions on API use impossed by exchanges—you may not use the same API Key from different processes.
+
+This means that you will need to create a different API Key for each session you wish to run. You will create the keys as explained on the [Getting Started](#getting-started-1) section above.
+
+However, in order to let the app know which API Key you wish to use in each session, you will move the corresponding API Key from the *Personal Data* branch to the *parameters* of the session. Simply detach the API Key element from the *Exchange Account* element and re-attach it to the session's *parameters*.
+
+[ILLUSTRATION]
+
 ## Poloniex API Keys
 
 This is how you create an API Key in Poloniex:

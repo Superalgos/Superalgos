@@ -1,12 +1,12 @@
 # Superalgos Desktop App
 
-The Superalgos Desktop App is the client application of the Superalgos Platform suite, and provides a visual environment for developing and automating crypto-trading strategies.
+The Superalgos Desktop App is the client application of the Superalgos Platform suite and provides a visual environment for developing and automating crypto-trading strategies.
 
 The app's vocation is to become a comprehensive trading automation system. This is not a simple plug-and-play bot. It is a platform that allows you to design and automate a wide variety of strategies, with great flexibility. 
 
 However, flexibility and fine user control over the way bots operate come at a cost: the learning curve required to tap into the app's full potential. That said, we do intend to make light use of the app as easy as possible, for instance, for loading existing strategies and trading live right off the bat, with minimal input.
 
-This is a pre-release in alpha stage. The app is still under heavy development. We appreciate your help testing the app and reporting any errors you may experience.
+This is a pre-release in alpha stage. The app is still under heavy development. We appreciate your help in testing the app and reporting any errors you may experience.
 
 We will keep improving user experience with your feedback. 
 
@@ -18,7 +18,7 @@ The Superalgos Desktop App is a web app, therefore, it is cross-platform. The te
 
 The minimum hardware setup recommended for actively using the app, designing strategies and interacting with the charts is 8 GB of RAM and a dual-core processor at 2.4 GHz.
 
-The minimum hardware setup for a virtual machine (VM) or virtual private server (VPS) destined to trade live and not intended for active use is 4 GB of RAM and a dual-core processor at 2.4 GHz. This is recommended to minimize deployment costs. Under this configuration, the app becomes slow to react to user input.  Under such configuration, you should start the live trading session and minimize the browser for lower CPU and memory consumption.
+The minimum hardware setup for a virtual machine (VM) or a virtual private server (VPS) destined to trade live and not intended for active use is 4 GB of RAM and a dual-core processor at 2.4 GHz. This is recommended to minimize deployment costs. Under this configuration, the app becomes slow to react to user input.  Under such configuration, you should start the live trading session and minimize the browser for lower CPU and memory consumption.
 
 The following recommendations may make your life easier using this pre-release in alpha stage:
 
@@ -30,9 +30,9 @@ The following recommendations may make your life easier using this pre-release i
 
 Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-superalgos-desktop-app.shtml#expectations) page to understand who this app is directed at, as well as what you can expect from the app in terms of user experience, current features and limitations.
 
-Beyond the list of [Current Features & Limitations](https://superalgos.org/tools-superalgos-desktop-app.shtml#features_limitations) you will find in the website, what you will get is a client application that runs entirely on users' machines. This is to fulfill the design principle of a trustless deployment: you don't need to trust any third party with your Strategies, API Keys, personal information, or funds.
+Beyond the list of [Current Features & Limitations](https://superalgos.org/tools-superalgos-desktop-app.shtml#features_limitations) you will find on the website, what you will get is a client application that runs entirely on users' machines. This is to fulfill the design principle of a trustless deployment: you don't need to trust any third party with your Strategies, API Keys, personal information, or funds.
 
-Traders rely on data sets for backtesting. The app retrieves raw trades data directly from xxchanges and processes data to produce candles and a few indicators, which are stored in your local machine.
+Traders rely on data sets for backtesting. The app retrieves raw trades data directly from exchanges and processes data to produce candles and a few indicators, which are stored in your local machine.
 
 The volume of trades data generated at exchanges is massive. Exchanges APIs impose limits on the bandwidth of data you may retrieve from your machine per unit of time. To save you from spending days or weeks running processes to retrieve the data you will need for backtesting, we include historic market data in our releases.
 
@@ -303,13 +303,13 @@ Hover over the Backtesting Session element and click *Run* on the menu.
 
 You just started a backtesting session with a series of pre-configured parameters, including, for instance, the date range on which the backtesting session runs. Later on, you will learn how to adjust these parameters. 
 
-You will notice the element will display a date, signaling the progress of the session. The current session will backtest the strategy during 2019. It may take anything between 5 to 20 minutes (depending on your machine's processing power) to finish. You can tell the process finished calculating the backtesting session once the progress date disappears.
+You will notice the element will display a date, signaling the progress of the session. The current session will backtest the strategy in 2019. It may take anything between 5 to 20 minutes (depending on your machine's processing power) to finish. You can tell the process finished calculating the backtesting session once the progress date disappears.
 
 Then, you may pull down the horizontal bar to go to the charts to see the results. Make sure you are standing in the 1 hr (one hour) time period. Notice the time box at the bottom of the charts:
 
 [ILLUSTRATION]
 
-If you are not at the 1 hr time period use the wheel of your mouse while pointing at the charts to zoom in, until you reach the the 1 hr time period. You do this so that you may see the results of the backtesting session, which in the case of the example strategies, are calculated and plotted over the 1 hr charts.
+If you are not at the 1 hr time period use the wheel of your mouse while pointing at the charts to zoom in until you reach the 1 hr time period. You do this so that you may see the results of the backtesting session, which in the case of the example strategies, are calculated and plotted over the 1 hr charts.
 
 [ILLUSTRATION]
 
@@ -345,7 +345,7 @@ If you have a version of the Superalgos Desktop App and wish to upgrade to a new
 
 The first time you run the app, you will see the following screen, split in half. The top half features the space used by the _Charts_ and the bottom half features the _Designer_.
 
-Use the control in the center of the turquoise bar to pull the bar up and down in order to make more room to either application.
+Use the control in the center of the turquoise bar to pull the bar up and down to make more room for either application.
 
 You may also use your keyboard as follows:
 
@@ -369,7 +369,7 @@ The *_Charts_* shows indicators data along with the actions taken by strategies,
 ![image](https://user-images.githubusercontent.com/13994516/58325972-c37db600-7e2b-11e9-9aa2-9f6faaf8dd94.png)
 <br/><br/>
 
-The *Superalgos Protocol* (also referred to as the _protocol_) determines the structure in which all the information regarding a trading system is stored and—at the same time—provides a clear guidance on how traders using the various tools developed and distributed by the Superalgos Project shall create and automate their strategies.
+The *Superalgos Protocol* (also referred to as the _protocol_) determines the structure in which all the information regarding a trading system is stored and—at the same time—provides clear guidance on how traders using the various tools developed and distributed by the Superalgos Project shall create and automate their strategies.
 
 # Charts Interface
 

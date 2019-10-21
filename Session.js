@@ -473,12 +473,8 @@
                         for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
                             let socialBot = bot.SESSION.socialBots.bots[i]
                             if (socialBot.type === "Telegram Bot") {
-                                try {
-                                    let code = JSON.parse(socialBot.code)
-                                    socialBot.botInstance = setUpTelegramBot(code.botToken, code.chatId)                                    
-                                } catch (err) {
-                                    parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> err = " + err.stack);
-                                }
+                                let code = socialBot.code
+                                socialBot.botInstance = setUpTelegramBot(code.botToken, code.chatId)                                    
                             }
                         }
                     }

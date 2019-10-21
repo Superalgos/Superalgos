@@ -958,7 +958,7 @@ All workspaces in the ```Quick-Start-Examples``` folder include the Superalgos N
 | :---: | :---: |
 | ![session-backtesting](https://user-images.githubusercontent.com/13994516/66930152-7990a900-f034-11e9-8f97-2216e139cf40.png) | ![session-paper-trading](https://user-images.githubusercontent.com/13994516/66930155-7990a900-f034-11e9-9c87-0f5627c6f219.png) |
 
-A simulation is the visual representation over the charts of any of the forms of strategy testing available within the app: 
+A simulation is a visual representation over the charts of any of the forms of strategy testing available within the app: 
 
 * **Backtesting:** testing over historic data;
 * **Paper-trading:** testing over a live data feed, without placing orders at the exchange (orders are simulated);
@@ -966,7 +966,7 @@ A simulation is the visual representation over the charts of any of the forms of
 
 We will cover *forward testing* when we discuss live trading. For the time being, we will focus on the first two steps of the strategy testing process.
 
-As explained in the previous chapter, the trading engine is the bot that handles testing sessions, and is controlled by a task and it's corresponding task manager. 
+As explained in the previous chapter, the trading engine is the bot that handles testing sessions and is controlled by a task and its corresponding task manager. 
 
 **To run a testing session, you will set up the session under a process of the trading engine and click *Run* on its menu.**
 
@@ -984,7 +984,7 @@ For your convenience, all our templates in the ```Quick-Start-Examples``` folder
 
 Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings.
 
-> If any of these parameters is missing from the configuration of the testing session, the app's fallback mechanism will look for the parameters at the trading system level and use those settings instead.
+> If any of these parameters are missing from the configuration of the testing session, the app's fallback mechanism will look for the parameters at the trading system level and use those settings instead.
 
 We covered the *Base Asset* parameter when explaining [trading systems](#trading-system). Let's now review the rest.
 
@@ -1036,7 +1036,7 @@ Simulations take *slippage* into account when the following piece of code is pre
 }
 ```
 
-The number you enter is applied as a percentage of the price of the order and added or substracted from the price depending on the circumstances, always working against you. For instance, ```"positionRate": 0.1``` means the position will be set at a price 0.1% higher if you stand on USDT or lower if you stand in BTC. 
+The number you enter is applied as a percentage of the price of the order and added or subtracted from the price depending on the circumstances, always working against you. For instance, ```"positionRate": 0.1``` means the position will be set at a price 0.1% higher if you stand on USDT or lower if you stand in BTC. 
 
 The result of slippage in simulations is taken into account by the graphic representation of each trade created by the Simulation Trades layer.
 
@@ -1133,7 +1133,7 @@ Notice Asset Balances in the bottom left corner of the screen. Asset A represent
 ![Trading-Simulation-Asset-Balances](https://user-images.githubusercontent.com/13994516/58564447-3e304200-822d-11e9-9e90-e4f02212de5a.gif)
 <br/><br/>
 
-> **NOTE:** For the time being, asset balances displayed on screen correspond to the Simulation layer that was turned on last.
+> **NOTE:** For the time being, asset balances displayed on-screen correspond to the Simulation layer that was turned on last.
 
 The dashed line represents the duration of the trade at the price of the _take position_ event. Notice how one asset is exchanged for the other asset at the take position event, and exchanged back as the trade closes.
 
@@ -1145,7 +1145,7 @@ Notice the green horizontal lines indicating the _take profit_ value for each pe
 ![Trading-Simulation-Take-Profit](https://user-images.githubusercontent.com/13994516/58564451-3ec8d880-822d-11e9-84c4-7e2147018297.gif)
 <br/><br/>
 
-Notice the red horizontal bars indicating the _stop_ value for each period (candle). Stop is managed in _phases_, marked with the corresponding icons.
+Notice the red horizontal lines indicating the _stop_ value for each period (candle). *Stop* is managed in _phases_ marked with the corresponding icons.
 
 ![Trading-Simulation-Stop](https://user-images.githubusercontent.com/13994516/58564450-3e304200-822d-11e9-8281-cc4b9cc22746.gif)
 
@@ -1171,9 +1171,9 @@ The *Trades* layer marks trades with a triangle whose hypotenuse connects the pr
 
 The app allows for having multiple testing sessions. You may add and work with multiple sessions by backing up the existing session at the level of the process. Then drop the backup on the workspace, attach it to the trading engine and give the new session a new name.
 
-The number of backtesting sessions you may run simultaneously is capped by your machine's capacity. Current tests indicate that a dual core processor at 2.4GHz may process up to 5 sessions at the same time without compromising the machine's performance.
+The number of backtesting sessions you may run simultaneously is capped by your machine's capacity. Current tests indicate that a dual-core processor at 2.4GHz may process up to 5 sessions at the same time without compromising the machine's performance.
 
-Running more sessions than the optimal number your machine may process efficiently may result in the the sessions taking more time to process than if they were run in a sequence.
+Running more sessions than the optimal number your machine may process efficiently may result in the sessions taking more time to process than if they were run in a sequence.
 
 [ILLUSTRATION]
 
@@ -1183,7 +1183,7 @@ Being able to run multiple backtesting sessions allows you to speed up the strat
 
 For instance, you may want to check how different variations of a condition in the *take position event* affect the results. To tests all variations at the same time, you would:
 
-1. Replicate a backtesting session backing up the correponding *process* element (along with its children) and dropping the backup on your workspace, as many times as you require, [attaching it](#detachment-and-attachment-of-elements) to an available trading engine.
+1. Replicate a backtesting session backing up the corresponding *process* element (along with its children) and dropping the backup on your workspace, as many times as you require, [attaching it](#detachment-and-attachment-of-elements) to an available trading engine.
 
 [ILLUSTRATION]
 
@@ -1199,7 +1199,7 @@ It is a known fact that testing and optimizing a strategy over a complete data s
 
 Being able to set up multiple backtesting operations allows you to segment your data set as you may consider appropriate, for instance, creating sessions to test only on odd months, every three or six months, or in a more random-like arrangement. 
 
-The system provides enough flexibility to accommodate different baacktesting criteria and styles. It is up to you how to set it up.
+The system provides enough flexibility to accommodate different backtesting criteria and styles. It is up to you how to set it up.
 
 # Forward Testing and Live Trading
 

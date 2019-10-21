@@ -125,7 +125,7 @@ However, bear in mind that the app is at an early stage of development and that 
   * [Live Trading Process](#live-trading-process)
   * [Live Trading History Layer](#live-trading-history-layer)
   * [Execution Limitations](#execution-limitations)
-  * [Multiple Forward-Testing or Live-Trading Sessions from the Same Definition](#multiple-forward-testing-or-live-trading-sessions-from-the-same-definition)
+  * [Multiple Forward-Testing or Live-Trading Sessions within the Same Definition](#multiple-forward-testing-or-live-trading-sessions-within-the-same-definition)
   * [Poloniex API Keys](#poloniex-api-keys)
 * [Advanced Use](#advanced-use)
   * [Working with Multiple Definitions](#working-with-multiple-definitions)
@@ -750,9 +750,9 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 When you have more than one strategy under the same trading system, all strategies share the *parameters* defined at the trading system level. This means that all strategies will work with the same *base asset* and share the same *initialCapital*.
 
-As a consequence, strategies within a trading system may never be triggered on at the same time. Under such setting, when a strategy is triggered on, it blocks the triggering of the rest of the strategies within the trading system.
+As a consequence, strategies within a trading system may never be triggered on at the same time. Under such setting, when a strategy is triggered on, it blocks the triggering of the rest of the strategies within the trading system until the strategy is triggered off.
 
-If you wish to have multiple strategies that work independently of each other, then you need to place them on different trading systems. At this point, the app supports only one trading system per definition. As a result, if you wish to have multiple independent strategies, then you need to have multiple definitions, each with one trading system.
+If you wish to have multiple strategies that work independently of each other, then you need to place them on different trading systems. At this point, the app supports only one trading system per definition. As a result, if you wish to have multiple independent strategies, then you need to have multiple definitions, each with one trading system. Learn how to do that in the [Working with Multiple Definitions](#working-with-multiple-definitions) section.
 
 ## Available Variables
 
@@ -1339,7 +1339,7 @@ An additional limitation is that there currently is no feature to break up order
 
 > **It is important that you fully understand the implications of these limitations if you are considering to trade live with the app at this stage, as you will need to adapt to the current state of affairs.**
 
-## Multiple Forward-Testing or Live-Trading Sessions from the Same Definition
+## Multiple Forward-Testing or Live-Trading Sessions within the Same Definition
 
 If for some reason you wish to run more than one forward-testing or live-trading session from within the same definition, you need to know that—due to restrictions on API use impossed by exchanges—you may not use the same API Key from different processes.
 
@@ -1348,6 +1348,8 @@ This means that you will need to create a different API Key for each session you
 However, in order to let the app know which API Key you wish to use in each session, you will move the corresponding API Key from the *Personal Data* branch to the *parameters* of the session. Simply detach the API Key element from the *Exchange Account* element and re-attach it to the session's *parameters*.
 
 [ILLUSTRATION]
+
+> **NOTE:** If you don't specify which API Key to use at the session level, the app's fallback mechanism will look for an API Key at the level of the Personal Data element. If more than one forward testing or live trading session end up using the same API Key, you should expect errors to occurr.
 
 ## Poloniex API Keys
 
@@ -1379,13 +1381,19 @@ Copy the *secret* to use it in the Superalgos Desktop App. Once you leave this s
 
 # Advanced Use
 
+This section covers app features that power users may find useful.
+
 ## Working with Multiple Definitions
 
-For the time being, the app does not allow having multiple trading systems under your Definition, however, you may have more than one Definition in your Workspace. This may also be useful is you wish to use different API keys for different strategies.
+For the time being, the app does not allow having multiple trading systems under the same definition, however, you may have more than one definition in your workspace.
 
-To add a Definition, drag and drop a Definition file, and select _Run_ in the menu, setting the execution focus on the new Definition, as indicated by the white ring surrounding the Definition element.
+This is actually what is required to be able to trade live with multiple trading systems at the same time from within a single instance of the app, in a single machine.
+
+You would usually work with each definition on separate workspaces. If you wish to bring one of your definitions to a workspace in which you already have a working definition, you just need to back up the target definition and drop the resulting file on your target workspace.
 
 ![Advanced-Multiple-Definitions](https://user-images.githubusercontent.com/13994516/63945104-14c4c380-ca73-11e9-940e-f3b3412e4bc6.gif)
+
+The two definitions work independently from each other, from within the same workspace. To trade live with both definitions at the same time, make sure you have a different API Keys configured in each definition, and run one live trading session on each of the definitions.
 
 # Troubleshooting
 

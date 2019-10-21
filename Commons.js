@@ -1445,6 +1445,8 @@
 
                     if (phase !== undefined) {
                         if (phase.formula !== undefined) {
+                            let previousValue = stopLoss
+
                             stopLoss = formulas.get(key)
 
                             if (processingDailyFiles) {
@@ -1452,7 +1454,11 @@
                                     yesterday.stopLoss = stopLoss
                                 }
                             }
-                        }
+
+                            if (stopLoss !== previousValue) {
+                                checkAnnouncements(phase)
+                            }
+                        } 
                     }
                 }
 
@@ -1568,11 +1574,18 @@
 
                     if (phase !== undefined) {
                         if (phase.formula !== undefined) {
+
+                            let previousValue = stopLoss
+
                             takeProfit = formulas.get(key)
                             if (processingDailyFiles) {
                                 if (positionedAtYesterday) {
                                     yesterday.takeProfit = takeProfit
                                 }
+                            }
+
+                            if (takeProfit !== previousValue) {
+                                checkAnnouncements(phase)
                             }
                         }
                     }

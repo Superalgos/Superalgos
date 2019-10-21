@@ -316,13 +316,19 @@ You will notice the element will display a date, signaling the progress of the s
 
 Then, you may pull down the horizontal bar to go to the charts to see the results. Make sure you are standing in the 1 hr (one hour) time period. Notice the time box at the bottom of the charts:
 
-[ILLUSTRATION]
+![Getting-Started-Guide-06-Go-to-Charts](https://user-images.githubusercontent.com/13994516/67237146-fc599f80-f44a-11e9-8da4-c95fc6295d52.gif)
 
 If you are not at the 1 hr time period use the wheel of your mouse while pointing at the charts to zoom in until you reach the 1 hr time period. You do this so that you may see the results of the backtesting session, which in the case of the example strategies, are calculated and plotted over the 1 hr charts.
 
-[ILLUSTRATION]
+![Getting-Started-Guide-07-Zoom-In](https://user-images.githubusercontent.com/13994516/67237088-d7fdc300-f44a-11e9-8ae5-d3fd394ffc22.gif)
+
+Now go the *Layers Panel* on the left-hand side of the screen and use the wheel of you mouse to scroll down until you find the Layers named "*BCK Test 2019*, and turn them on with a single click on each.
+
+![Getting-Started-Guide-08-Turn-on-Layers](https://user-images.githubusercontent.com/13994516/67237090-d8965980-f44a-11e9-86ba-3eb1e6980ae2.gif)
 
 You may now navigate the charts by clicking and dragging, or by zooming in and out with the wheel of your mouse. If you change the time period, you will not see the simulated data, as each time period may hold its own set of simulations.
+
+![Getting-Started-Guide-09-Navigate](https://user-images.githubusercontent.com/13994516/67237276-3e82e100-f44b-11e9-977f-a02da0857b38.gif)
 
 Congratulations! You've run your first simulation!
 

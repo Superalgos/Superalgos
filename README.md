@@ -231,6 +231,8 @@ If you are on Mac, use the Finder app to go to the ```Superalgos Desktop App``` 
 
 If you are on Linux, open a Terminal / Console, go to the ```Superalgos Desktop App``` folder, type ```node run``` and hit *Enter*.
 
+![Getting-Started-Guide-01-App-Launch](https://user-images.githubusercontent.com/13994516/67231207-2907ba00-f43f-11e9-83e8-e36cc844b0eb.gif)
+
 **2. Drag and drop an example workspace**: 
 
 The app will load on your default browser. You should either [set Chrome as your default browser](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en) before executing the file or simply close the non-Chrome browser, open Chrome and go to http://localhost:1337/.
@@ -241,7 +243,7 @@ Also, a Console/Command Line/Terminal window will open. The Console must be open
 
 Go to the ```Superalgos Desktop App/Quick-Start-Examples``` folder, drag your preferred example file and drop it on the _Designer_ (the area with a black background in the bottom half of the screen) to start with a working template.
 
-[ILLUSTRATION]
+![Getting-Started-Guide-02-Drop-Workspace](https://user-images.githubusercontent.com/13994516/67231208-2907ba00-f43f-11e9-82b4-d78c0ace4d0a.gif)
 
 **Available Quick Start Examples**:
 

@@ -681,9 +681,9 @@
                                 for (let k = 0; k < phase.announcements.length; k++) {
 
                                     let announcement = phase.announcements[k];
-                                    designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                                    designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].announcements[k].payload.uiObject.setErrorMessage(announcement.error)
                                     if (announcement.formula !== undefined) {
-                                        designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                                        designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
                                     }
                                 }
 
@@ -743,9 +743,9 @@
                                 for (let k = 0; k < phase.announcements.length; k++) {
 
                                     let announcement = phase.announcements[k];
-                                    designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                                    designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].announcements[k].payload.uiObject.setErrorMessage(announcement.error)
                                     if (announcement.formula !== undefined) {
-                                        designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                                        designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
                                     }
                                 }
 
@@ -817,9 +817,9 @@
                             for (let k = 0; k < phase.announcements.length; k++) {
 
                                 let announcement = phase.announcements[k];
-                                designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                                designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].announcements[k].payload.uiObject.setErrorMessage(announcement.error)
                                 if (announcement.formula !== undefined) {
-                                    designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                                    designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
                                 }
                             }
 
@@ -879,9 +879,9 @@
                             for (let k = 0; k < phase.announcements.length; k++) {
 
                                 let announcement = phase.announcements[k];
-                                designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                                designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].announcements[k].payload.uiObject.setErrorMessage(announcement.error)
                                 if (announcement.formula !== undefined) {
-                                    designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                                    designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
                                 }
                             }
 

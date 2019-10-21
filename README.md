@@ -378,9 +378,9 @@ The *Superalgos Protocol* (also referred to as the _protocol_) determines the st
 This panel includes different layers you may visualize by toggling them on and off with a single mouse click.
 The layer title bar can have 3 possible background colors:
 
-1. **Red**: layer is off.
-2. **Green**: layer is on.
-3. **Yellow**: layer is loading. If it stays yellow, it means it can't load fully.
+1. **Red**: the layer is off.
+2. **Green**: the layer is on.
+3. **Yellow**: the layer is loading; if it stays yellow, it means it can't load fully.
 
 ![Layers](https://user-images.githubusercontent.com/13994516/58434206-c04c2980-80ba-11e9-964b-8223ad99eb0b.gif)
 
@@ -390,13 +390,13 @@ Notice the following three elements relative to the position of the mouse pointe
 
 1. Above, the current datetime. This is the date and time at the mouse pointer position.
 2. To the right, the current rate. This is the rate (in this case USDT per BTC) at the mouse pointer position.
-3. Below, the current time period (or candle size if you wish). This is the currently displayed time period—not only for candles, but for any other object plotted across available layers.
+3. Below, the current time period (or candle size if you wish). This is the currently displayed time period—not only for candles but for any other object plotted across available layers.
 
 ## Navigation
 
 ### Using your Mouse
 
-Left-click on the charts and drag to move accross the charts.
+Left-click on the charts and drag to move across the charts.
 
 There are many things you can do with your mouse wheel: 
 
@@ -451,7 +451,7 @@ This is an unusual pattern proving any data set may be plotted on the charts (an
 
 #### Volume Stairs Patterns
 
-A similar concept, this time with volumes. Whenever a sequence of volume bars is found where each one is bigger than the previous one, they are bundled together in a "Stair". The same applies when they are going down (the next is smaller than the previous one). For a trading bot, this serves to identify if sell or buy volumes are raising or declining.
+A similar concept, this time with volumes. Whenever a sequence of volume bars is found where each one is bigger than the previous one, they are bundled together in a "Stair". The same applies when they are going down (the next is smaller than the previous one). For a trading bot, this serves to identify if sell or buy volumes are rising or declining.
 
 ![Volume-Stairs](https://user-images.githubusercontent.com/13994516/58435908-1ae98380-80c3-11e9-8c0d-87a105b4e021.gif)
 
@@ -463,12 +463,12 @@ This is the traditional [Bollinger Bands indicator](https://en.wikipedia.org/wik
 
 #### Percentage Bandwidth (%B)
 
-This is a well-known indicator that derives from the Bollinger Bands. In a nutshell it tells you how close the price is either to the upper band or the lower band at any point in time. When the price is in the middle of the bands (it is calculated with the close value of each candle), then %B is in the middle of its chart, at value 50. When the price touches the upper band, then %B is at 100, and finally when the price is at the lower band, then %B is at 0. 
+This is a well-known indicator that derives from the Bollinger Bands. In a nutshell, it tells you how close the price is either to the upper band or the lower band at any point in time. When the price is in the middle of the bands (it is calculated with the close value of each candle), then %B is in the middle of its chart, at value 50. When the price touches the upper band, then %B is at 100, and finally when the price is at the lower band, then %B is at 0. 
 
 ![Bollinger-Bands-Percentage-Bandwidth](https://user-images.githubusercontent.com/13994516/58435903-1a50ed00-80c3-11e9-90d5-e0d5293c76ad.gif)
 <br/><br/>
 
-The chart features lines at %B value 30 and 70 since those are the most common values for traders to forecast when a reversal may happen. In our chart, %B is the one represented at #1. We've found useful to add a moving average in order to smooth volatility a bit, and to be able to ask—at any time—if it is going up or down. The moving average calculated with the last 5 %B values is plotted as line #2. Finally we've also added a property called Bandwidth, which represents the separation of the upper band from the lower band. It is a measure of volatility and is plotted at #3.  
+The chart features lines at %B values 30 and 70 since those are the most common values for traders to forecast when a reversal may happen. In our chart, %B is the one represented at #1. We've found useful to add a moving average to smooth volatility a bit and to be able to ask—at any time—if it is going up or down. The moving average calculated with the last 5 %B values is plotted as line #2. Finally, we've also added a property called Bandwidth, which represents the separation of the upper band from the lower band. It is a measure of volatility and is plotted at #3.  
 
 ![image](https://user-images.githubusercontent.com/9479367/56834223-1c7c1d80-6871-11e9-9687-ae5dc12d0336.png)
 
@@ -480,7 +480,7 @@ This is a non-standard indicator derived from the Bollinger Bands. These types o
 
 #### Bollinger Sub-Channels
 
-If we consider that one Bollinger Channel can have sub-channels with the same direction (up or down) but different slopes, then we get to the concept of Bollinger Sub-Channels. The most important property of a sub-channel is its slope. The possible values are: Side, Gentle, Medium, High and Extreme. With this information, a trading bot could easily ask if it is in a sub-channel with a certain slope and for how many periods. The slope or inclination of the moving average may be an indication of momentum.
+If we consider that one Bollinger Channel can have sub-channels in the same direction (up or down) but different slopes, then we get to the concept of Bollinger Sub-Channels. The most important property of a sub-channel is its slope. The possible values are Side, Gentle, Medium, High and Extreme. With this information, a trading bot could easily ask if it is in a sub-channel with a certain slope and for how many periods. The slope or inclination of the moving average may be an indication of momentum.
 
 ![Bollinger-Sub-Channels](https://user-images.githubusercontent.com/13994516/58497358-146b1280-817c-11e9-83df-219d0fffa9f0.gif)
 

@@ -277,7 +277,7 @@ Now click and drag the dark background to pan towards the white semicircle in th
 
 ![Getting-Started-Guide-03-Move-to-Definition](https://user-images.githubusercontent.com/13994516/67234224-0d071700-f445-11e9-8c77-b00c0d4a39d1.gif)
 
-Now follow the dotted line to the left. You will find the *Superalgos Network* element, and further down the line, you will find the *Node* element. Then there is a fork, with one line going down and left, and another going up and left. Follow the one going down until you reach the *Task Manager* element. Hover the mouse pointer over the element and click *Run All Tasks* on the menu. Notice the name of the Task Manager showing on top of the icon when you hover you mouse: "**Keep Datasets Up-to-Date**"
+Now follow the dotted line to the left. You will find the *Superalgos Network* element, and further down the line, you will find the *Node* element. Then there is a fork, with one line going down and left, and another going up and left. Follow the one going down until you reach the *Task Manager* element. Hover the mouse pointer over the element and click *Run All Tasks* on the menu. Notice the name of the Task Manager showing on top of the icon when you hover you mouse: "*Keep Datasets Up-to-Date*"
 
 ![Getting-Started-Guide-04-Task-Manager-1](https://user-images.githubusercontent.com/13994516/67234227-0d9fad80-f445-11e9-988d-deb6f3405950.gif)
 
@@ -302,7 +302,7 @@ You will not see any immediate effect in your browser, but notice how your conso
 
 Now you will go back to the Node element and follow the line going up until you find another task manager. To the left, you will see an element called Task. You will hover over it and click *Run* on the menu.
 
-Keep following the tree of child elements until you find the *Backtesting Session* element called *2019*. Hover the pointer to open the menu and click *Run*.
+Keep following the tree of child elements until you find the *Backtesting Session* element called *BCK Test 2019*. Hover the pointer to open the menu and click *Run*.
 
 ![Getting-Started-Guide-06-Task-Manager-2](https://user-images.githubusercontent.com/13994516/67234228-0d9fad80-f445-11e9-9905-1e41e1735afc.gif)
 

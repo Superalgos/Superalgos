@@ -141,7 +141,7 @@ function newFloatingSpace () {
 
     let displaceVector = {
       x: browserCanvas.width / 2 - position.x,
-      y: browserCanvas.height / 2 - position.y
+      y: (COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT) + (browserCanvas.height - (COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT)) / 2 - position.y
     }
 
     thisObject.container.displace(displaceVector)

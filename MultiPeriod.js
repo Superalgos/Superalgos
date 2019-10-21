@@ -89,7 +89,7 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             let currentTimePeriod
-            let currentOutputPeriodLabel  
+            let currentOutputPeriodName  
 
             let market = global.MARKET;
             let botNeverRan = true;
@@ -297,7 +297,7 @@
 
                             if (bot.VALUES_TO_USE.timePeriod === outputPeriodLabel) {
                                 currentTimePeriod = global.marketFilesPeriods[n][0];
-                                currentOutputPeriodLabel = global.marketFilesPeriods[n][1];
+                                currentOutputPeriodName = global.marketFilesPeriods[n][1];
                             }
                             dependencyLoopBody();
 
@@ -598,7 +598,7 @@
 
                             if (bot.VALUES_TO_USE.timePeriod === outputPeriodLabel) {
                                 currentTimePeriod = global.dailyFilePeriods[n][0];
-                                currentOutputPeriodLabel = global.dailyFilePeriods[n][1];
+                                currentOutputPeriodName = global.dailyFilePeriods[n][1];
                             }
 
                             let dependencyIndex = 0;
@@ -850,7 +850,7 @@
                             usertBot.start(
                                 multiPeriodDataFiles,
                                 currentTimePeriod,
-                                currentOutputPeriodLabel,
+                                currentOutputPeriodName,
                                 bot.multiPeriodProcessDatetime,
                                 interExecutionMemoryArray[n],
                                 onBotFinished);
@@ -872,7 +872,7 @@
                                         writeMarketStatusReport(onMarketStatusReport)
 
                                     } else {
-                                        writeDataRanges(onWritten);
+                                        writeDataRanges(currentOutputPeriodName, onWritten);
                                     }
 
                                     function onWritten(err) {
@@ -953,7 +953,7 @@
                 }
             }
 
-            function writeDataRanges(callBack) {
+            function writeDataRanges(currentOutputPeriodName, callBack) {
 
                 try {
 
@@ -964,9 +964,9 @@
 
                     function productLoopBody() {
 
-                        let folderName = bot.products[productIndex].codeName;
+                        let product = bot.products[productIndex];
 
-                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodProcessDatetime, folderName, controlLoop);
+                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodProcessDatetime, product, currentOutputPeriodName, controlLoop);
                     }
 
                     function controlLoop() {
@@ -987,7 +987,7 @@
 
             }
 
-            function writeDataRange(pBegin, pEnd, pProductFolder, callBack) {
+            function writeDataRange(pBegin, pEnd, product, currentOutputPeriodName, callBack) {
 
                 try {
 
@@ -1001,7 +1001,7 @@
                     let fileContent = JSON.stringify(dataRange);
 
                     let fileName = '/Data.Range.' + market.assetA + '_' + market.assetB + '.json';
-                    let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + pProductFolder + "/" + 'Multi-Period-Daily' + fileName;
+                    let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + product.codeName + "/" + 'Multi-Period-Daily' + fileName;
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
@@ -1018,6 +1018,13 @@
                         if (LOG_FILE_CONTENT === true) {
                             logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
                         }
+
+                        let key = bot.devTeam + "-" + bot.codeName + "-" + product.codeName + "-" + currentOutputPeriodName
+                        let event = {
+                            dateRange: dataRange
+                        }
+                        console.log(key)
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Data Range Updated', event)
 
                         callBack(global.DEFAULT_OK_RESPONSE);
                     }

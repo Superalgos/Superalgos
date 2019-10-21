@@ -259,6 +259,9 @@ function newCanvas () {
 
     if ((event.ctrlKey === true || event.metaKey === true)) {
       if (event.keyCode >= 65 && event.keyCode <= 90) {
+        /* From here we prevent the default behaviour */
+        event.preventDefault()
+
         let nodeUsingThisKey = canvas.strategySpace.workspace.getNodeByShortcutKey(event.key)
 
         if (nodeOnFocus === undefined && nodeUsingThisKey !== undefined) {
@@ -266,9 +269,6 @@ function newCanvas () {
           nodeUsingThisKey = canvas.floatingSpace.positionAtNode(nodeUsingThisKey)
           return
         }
-
-        /* From here we prevent the default behaviour */
-        event.preventDefault()
 
         /* If there is a node in focus, we try to assign the key to it. */
         if (nodeUsingThisKey !== undefined && nodeOnFocus !== undefined) {

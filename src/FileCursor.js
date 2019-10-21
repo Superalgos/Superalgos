@@ -38,12 +38,15 @@ function newFileCursor () {
   let finalized = false
 
   let eventSubscriptionIdDatasetUpdated
+  let eventSubscriptionIdDataRangeUpdated
 
   return thisObject
 
   function finalize () {
     try {
       systemEventHandler.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated)
+      systemEventHandler.stopListening('Data Range Updated', eventSubscriptionIdDataRangeUpdated)
+
       thisObject.eventHandler = undefined
 
       market = undefined
@@ -87,16 +90,48 @@ function newFileCursor () {
       endDateRange = pEndDateRange
 
       let key = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + thisSet.codeName
-      systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponse, updateFiles)
+      systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponseDataSet, updateFiles)
 
+      key = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + pPeriodName
+      systemEventHandler.listenToEvent(key, 'Data Range Updated', undefined, key, onResponseDataRange, updateDataRange)
+      console.log(key)
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
 
-      function onResponse (message) {
+      function onResponseDataSet (message) {
         eventSubscriptionIdDatasetUpdated = message.eventSubscriptionId
+      }
+
+      function onResponseDataRange (message) {
+        eventSubscriptionIdDataRangeUpdated = message.eventSubscriptionId
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+    }
+  }
+
+  function updateDataRange (message) {
+    try {
+      if (finalized === true) { return }
+
+      if (message.event === undefined || message.event.dateRange === undefined) { return }
+
+      beginDateRange = new Date(message.event.dateRange.begin)
+      endDateRange = new Date(message.event.dateRange.end)
+
+      let minDate = beginDateRange.valueOf()
+      let maxDate = endDateRange.valueOf() + ONE_DAY_IN_MILISECONDS
+
+      for (let key of thisObject.files.keys()) {
+        let keyDate = new Date(key)
+
+        if (keyDate.valueOf() < minDate || keyDate.valueOf() > maxDate) {
+          thisObject.files.delete(key)
+          thisObject.eventHandler.raiseEvent('Files Updated')
+        }
+      }
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] updateDataRange -> err = ' + err.stack) }
     }
   }
 

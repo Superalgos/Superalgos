@@ -1209,9 +1209,9 @@ Once you are happy with your strategy after extensive backtesting and paper-trad
 | :---: | :---: |
 | ![session-forward-testing](https://user-images.githubusercontent.com/13994516/67090258-eed1ba80-f1a9-11e9-9b00-d281d50d6eff.png) | ![session-live-trading](https://user-images.githubusercontent.com/13994516/67090259-eed1ba80-f1a9-11e9-896a-a8320f3e3f40.png) |
 
-It is recommended to forward test your strategy before commiting serious capital to live trading. Forward testing is usually the final testing phase before going live. It involves placing orders at the exchange for a fraction of the capital that you intend to use when trading live, and that is actually the only difference between a forward testing session and a live trading session.
+It is recommended to forward test your strategy before committing serious capital to live-trading. Forward testing is usually the final testing phase before going live. It involves placing orders at the exchange for a fraction of the capital that you intend to use when trading live, and that is actually the only difference between a forward testing session and a live trading session.
 
-Forward testing sessions and live trading sessions need to be configured under their corresponding tasks, pretty much like was explained for backtesting and paper-trading sessions, with a few minor nouances:
+Forward testing sessions and live trading sessions need to be configured under their corresponding tasks, pretty much like was explained for backtesting and paper-trading sessions, with a few minor nuances:
 
 **1. Datetime Range**
 
@@ -1223,11 +1223,11 @@ Like with paper trading sessions, you only require a *finalDatetime*. If you do 
 }
 ```
 
-> The **Exchange Rate** and **Slippage** parameters do not affect forward testing or live trading. However, those parameters are taken into account when creating simulation layers, which are also avaialbe during forward testing and live trading.
+> The **Exchange Rate** and **Slippage** parameters do not affect forward testing or live trading. However, those parameters are taken into account when creating simulation layers, which are also available during forward-testing and live-trading.
 
 **2. Forward Testing Session Configuration**
 
-In the case of forward testing you will want to configure what is the percentage of your balance that you wish to use for testing. You do this by clicking the *Edit Session* option on the session's menu and entering the desired value in the code snipet:
+In the case of forward testing you will want to configure what is the percentage of your balance that you wish to use for testing. You do this by clicking the *Edit Session* option on the session's menu and entering the desired value in the code snippet:
 
 ```
 {"balancePercentage": 1}
@@ -1247,7 +1247,7 @@ If you set up your forward-testing session with ```"balancePercentage": 1```, th
 
 > **NOTE:** You need to take this into account at the time of defining your *positionSize* formula. If the formula is a constant, you may easily run out of balance, as only a fraction of the balance will be available for the strategy to use. It may be a good idea to set up your *positionSize* as a function of your available balance instead.
 
-In the same way as the balance is scaled down, the *minimumBalance* and *maximumBalance* are also scaled down accordingly.
+Just like the balance is scaled down, the *minimumBalance* and *maximumBalance* are also scaled down accordingly.
 
 ## Getting Started
 
@@ -1346,15 +1346,15 @@ An additional limitation is that there currently is no feature to break up order
 
 ## Multiple Forward-Testing or Live-Trading Sessions within the Same Definition
 
-If for some reason you wish to run more than one forward-testing or live-trading session from within the same definition, you need to know that—due to restrictions on API use impossed by exchanges—you may not use the same API Key from different processes.
+If for some reason you wish to run more than one forward-testing or live-trading session from within the same definition, you need to know that—due to restrictions on API use imposed by exchanges—you may not use the same API Key from different processes.
 
-This means that you will need to create a different API Key for each session you wish to run. You will create the keys as explained on the [Getting Started](#getting-started-1) section above.
+This means that you will need to create a different API Key for each session you wish to run. You will create the keys as explained in the [Getting Started](#getting-started-1) section above.
 
-However, in order to let the app know which API Key you wish to use in each session, you will move the corresponding API Key from the *Personal Data* branch to the *parameters* of the session. Simply detach the API Key element from the *Exchange Account* element and re-attach it to the session's *parameters*.
+However, to let the app know which API Key you wish to use in each session, you will move the corresponding API Key from the *Personal Data* branch to the *parameters* of the session. Simply detach the API Key element from the *Exchange Account* element and re-attach it to the session's *parameters*.
 
 [ILLUSTRATION]
 
-> **NOTE:** If you don't specify which API Key to use at the session level, the app's fallback mechanism will look for an API Key at the level of the Personal Data element. If more than one forward testing or live trading session end up using the same API Key, you should expect errors to occurr.
+> **NOTE:** If you don't specify which API Key to use at the session level, the app's fallback mechanism will look for an API Key at the level of the Personal Data element. If more than one forward-testing or live-trading session ends up using the same API Key, you should expect errors to occur.
 
 ## Poloniex API Keys
 
@@ -1365,7 +1365,7 @@ Go to the tools menu and select *API KEYS*...
 ![image](https://user-images.githubusercontent.com/13994516/63279745-da586b00-c2a9-11e9-9eaa-fd94c5cd96a5.png)
 <br/><br/>
 
-If you have never used the API before, chances are it is disabled at the exchange. So before actually creating an API Key you will need to enable them...
+If you have never used the API before, chances are it is disabled at the exchange. So before actually creating an API Key, you will need to enable them...
 
 ![image](https://user-images.githubusercontent.com/13994516/63279823-fcea8400-c2a9-11e9-929e-0b090ad6f31c.png)
 <br/><br/>

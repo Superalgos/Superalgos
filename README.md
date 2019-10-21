@@ -241,6 +241,10 @@ Also, a Console/Command Line/Terminal window will open. The Console must be open
 
 > Closing the Console/Command Line may cause your market data to become corrupt. The proper way of closing the application is closing your browser first, and allow a minute for processes to stop before closing the Console.
 
+| Workspace |
+| :---: |
+| ![workspace](https://user-images.githubusercontent.com/13994516/67235108-bd294f80-f446-11e9-8212-687786d84f80.png) |
+
 Go to the ```Superalgos Desktop App/Quick-Start-Examples``` folder, drag your preferred example file and drop it on the _Designer_ (the area with a black background in the bottom half of the screen) to start with a working template.
 
 ![Getting-Started-Guide-02-Drop-Workspace](https://user-images.githubusercontent.com/13994516/67231208-2907ba00-f43f-11e9-82b4-d78c0ace4d0a.gif)
@@ -267,9 +271,9 @@ If you haven't yet, start by importing either ```Share - Workspace - Bull run ri
 
 **2. Start processes**:
 
-| Task Manager | Network Node |
-| :---: | :---: |
-| ![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) | ![network-node](https://user-images.githubusercontent.com/13994516/66308204-ca065900-e906-11e9-8b66-80f7fa605f2d.png) |
+| Superalgos Network | Network Node | Task Manager |
+| :---: | :---: | :---: |
+| ![network](https://user-images.githubusercontent.com/13994516/66855353-59ed7800-ef83-11e9-8de9-db40971faa7b.png) | ![network-node](https://user-images.githubusercontent.com/13994516/66855357-5a860e80-ef83-11e9-917d-95cd8394588b.png) |![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) |
 
 Open up the Designer section of the app by dragging the horizontal bar upwards. You may also use your keyboard <kbd>Alt</kbd> + <kbd>&#8593;</kbd>.
 

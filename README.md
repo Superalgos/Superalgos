@@ -961,13 +961,13 @@ A simulation is the visual representation over the charts of any of the forms of
 
 We will cover *forward testing* when we discuss live trading. For the time being, we will focus on the first two steps of the strategy testing process.
 
-As explained in the previous chapter, the trading engine is the bot that handles testing sessions, and is controlled by a task and it's corresponding task manager. In order to run a testing session, you will set up the session under a process of the trading engine.
+As explained in the previous chapter, the trading engine is the bot that handles testing sessions, and is controlled by a task and it's corresponding task manager. 
+
+**To run a testing session, you will set up the session under a process of the trading engine and click *Run* on its menu.**
 
 [ILLUSTRATION]
 
 For your convenience, all our templates in the ```Quick-Start-Examples``` folder come with at least one backtesting and one paper-trading session set up. All you need to do is customize the *parameters* to your liking and, if you wish, add or remove layers to the *layer manager*, both child elements of each testing session.
-
-> **PRO TIP**: The app allows for having multiple testing sessions. You may add and work with multiple sessions by backing up the existing session at the level of the process. Then drop the backup on the workspace, attach it to the trading engine and give the new session a new name.
 
 [ILLUSTRATION]
 
@@ -1161,6 +1161,36 @@ The *Strategies* layer identifies trigger on and trigger off events, signaling t
 The *Trades* layer marks trades with a triangle whose hypotenuse connects the price at the _take position_ event with the _exit_ price. When the trade is profitable, the triangle is green; when the _exit_ happens at a loss, the triangle is red.
 
 ![Trading-Simulation-Trades](https://user-images.githubusercontent.com/13994516/58574801-1a76f700-8241-11e9-9144-0db81636dace.gif)
+
+## Advanced Backtesting
+
+The app allows for having multiple testing sessions. You may add and work with multiple sessions by backing up the existing session at the level of the process. Then drop the backup on the workspace, attach it to the trading engine and give the new session a new name.
+
+[ILLUSTRATION]
+
+### Testing Logic Variations
+
+Being able to run multiple backtesting sessions allows you to speed up the strategy tuning stage.
+
+For instance, you may want to check how different variations of a condition in the *take position event* affect the results. To tests all variations at the same time, you would:
+
+1. Replicate a backtesting session backing up the correponding *process* element (along with its children) and dropping the backup on your workspace, as many times as you require, [attaching it](#detachment-and-attachment-of-elements) to an available trading engine.
+
+[ILLUSTRATION]
+
+2. Rename each backtesting session with a significant name that is related to the different variations of the condition you wish to test.
+
+[ILLUSTRATION]
+
+3. Set up the first variation of the condition and run the corresponding backtesting session. Replace the first variation with the second one, and launch the second backtesting session. Repeat as many times as desired.
+
+### Testing on Non-Linear Date Ranges
+
+It is a known fact that testing and optimizing a strategy over a complete data set may lead to data-mining or [overfitting](https://en.wikipedia.org/wiki/Overfitting).
+
+Being able to set up multiple backtesting operations allows you to segment your data set as you may consider appropriate, for instance, creating sessions to test only on odd months, every three or six months, or in a more random-like arrangement. 
+
+The system provides enough flexibility to accommodate different baacktesting criteria and styles. It is up to you how to set it up.
 
 # Forward Testing and Live Trading
 

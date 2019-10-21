@@ -494,9 +494,9 @@ The Designer organizes the workflow to build strategies following the framework 
 
 The Designer features a visual interface in which all elements encompassing strategies and other concepts are represented by icons organized in a hierarchical structure, as defined by the protocol. 
 
-The hierarchy starts with a *definition*, which contains—among other things—a *trading system*. The trading system contains *strategies* which are described in *stages*.
+The hierarchy starts with a *definition*, which contains—among other things—a *trading system*. The trading system contains *strategies* described in *stages*.
 
-Elements are bound to each other in a tree-like structure, and tend to self-organize across the workspace. Dragging and dropping a sample workspace on the Designer is the fastest way to get started with the Superalgos Desktop App.
+Elements are bound to each other in a tree-like structure and tend to self-organize across the workspace. Dragging and dropping a sample workspace on the Designer is the fastest way to get started with the Superalgos Desktop App.
 
 ![Designer-Drag-Drop](https://user-images.githubusercontent.com/13994516/63524115-b724fa00-c4fb-11e9-9894-48f62be71c02.gif)
 
@@ -510,7 +510,7 @@ The workspace is a concept that refers to all the information available in the D
 * Processes, trading systems, their strategies, and their configurations, which are child elements of definitions.
 * The position and status of all elements within the Designer, even those which are disconnected from the hierarchy.
 
-You may think of the workspace as your desktop. It is not part of the hierachical structure of information that describes your definitions. Instead, it contains definitions.
+You may think of the workspace as your desktop. It is not part of the hierarchical structure of information that describes your definitions. Instead, it contains definitions.
 
 Backing up your workspace is the best way to store trading systems, ready to be deployed. Your workspace is saved at the browser level every time you make a change, but still, you should back up your workspace once in a while so that you can go back to past versions.
 
@@ -520,7 +520,7 @@ Backing up your workspace is the best way to store trading systems, ready to be 
 
 Definitions include every single parameter describing your trading systems, as well as your *personal data* (including API Keys), and the management of processes running in the background. 
 
-Pretty much like with every other element in the hierarchy, you may back up your definitions using the back up button on the definition's menu.
+Pretty much like with every other element in the hierarchy, you may back up your definitions using the backup button on the definition's menu.
 
 A definition is the top-level element in the hierarchy, with three children elements: Trading System, Personal Data and Network. We will briefly discuss the *trading system* and leave the other two for later.
 
@@ -575,7 +575,7 @@ You may also use the following key combinations on your keyboard:
 
 ### Element's Menu
 
-Hoovering the mouse pointer over elements causes a menu to pop up.
+Hovering the mouse pointer over elements causes a menu to pop up.
 
 ![Designer-Element-Menu](https://user-images.githubusercontent.com/13994516/63047274-621e2e00-bed4-11e9-90ff-614b279c9910.gif)
 <br/><br/>
@@ -586,10 +586,10 @@ The following menu options are tools that will help you manipulate the arrangeme
 | --- | --- |
 | ![fix-pinned](https://user-images.githubusercontent.com/13994516/63041034-2df04080-bec7-11e9-88d3-8b7c1d42a666.png) | The element is pinned on a specific X-Y coordinate on the workspace. |
 | ![menu-fix-unpinned](https://user-images.githubusercontent.com/13994516/63041045-35afe500-bec7-11e9-8f21-c8b3b66d3a0b.png) | The element is free, not pinned. |
-| ![menu-mobility-freeze](https://user-images.githubusercontent.com/13994516/63041051-39436c00-bec7-11e9-8194-7cdd113147e4.png) | The element's connections with its parent and children are frozen. Connecting lines are blue. If you freeze your definition, then the whole hierachy is frozen. | 
+| ![menu-mobility-freeze](https://user-images.githubusercontent.com/13994516/63041051-39436c00-bec7-11e9-8194-7cdd113147e4.png) | The element's connections with its parent and children are frozen. Connecting lines are blue. If you freeze your definition, then the whole hierarchy is frozen. | 
 | ![menu-mobility-unfreeze](https://user-images.githubusercontent.com/13994516/63041053-3b0d2f80-bec7-11e9-8b6f-ebe50dcb4d25.png) |  The element's connections are unfrozen. | 
-| ![menu-tensor-fixed-angles](https://user-images.githubusercontent.com/13994516/63041062-3fd1e380-bec7-11e9-814f-e8cabc90fd12.png) | The element is locked to a rotational symmetry in relation with the rest of the elements at the same level of the hierarchy, thus all angles between elements are equal. Connection lines are orange.| 
-| ![menu-tensor-free-angles](https://user-images.githubusercontent.com/13994516/63041066-42343d80-bec7-11e9-828e-b2d9a191fea2.png)  | The element is not locked in a rotational symmetry; instead, angles are free. Connection lines are yellow.| 
+| ![menu-tensor-fixed-angles](https://user-images.githubusercontent.com/13994516/63041062-3fd1e380-bec7-11e9-814f-e8cabc90fd12.png) | The element is locked to a rotational symmetry in relation to the rest of the elements at the same level of the hierarchy, thus all angles between elements are equal. The connection lines are orange.| 
+| ![menu-tensor-free-angles](https://user-images.githubusercontent.com/13994516/63041066-42343d80-bec7-11e9-828e-b2d9a191fea2.png)  | The element is not locked in a rotational symmetry; instead, angles are free. The connection lines are yellow.| 
 | ![menu-tree-minus](https://user-images.githubusercontent.com/13994516/63041070-44969780-bec7-11e9-9a42-3f13264b3ed2.png) | Clicking the _minus_ button contracts the branch of child elements. | 
 | ![menu-tree-plus](https://user-images.githubusercontent.com/13994516/63041077-45c7c480-bec7-11e9-965c-38e4fd706c38.png) | Clicking the _plus_ button expands the branch of child elements. | 
 
@@ -598,12 +598,12 @@ The rest of the menu options available in most elements are the following:
 | Icon | Action |
 | --- | --- |
 | ![menu-backup](https://user-images.githubusercontent.com/13994516/63045559-e66eb200-bed0-11e9-8f4d-6385147161fb.png) | **Backup**: Backs up the element along with all its children, including sensitive information such as API keys (in case of the Workspace and Personal Data elements), by downloading to the user's machine a JSON file containing the element's description. |
-| ![menu-delete](https://user-images.githubusercontent.com/13994516/63045560-e66eb200-bed0-11e9-8b67-feb72b4ab253.png) | **Delete**: Deletes the element and all it's children. A confirmation is required (an additional click). |
+| ![menu-delete](https://user-images.githubusercontent.com/13994516/63045560-e66eb200-bed0-11e9-8b67-feb72b4ab253.png) | **Delete**: Deletes the element and all its children. A confirmation is required (an additional click). |
 | ![menu-share](https://user-images.githubusercontent.com/13994516/63045561-e7074880-bed0-11e9-88a2-cf99a0ede94e.png) | **Share**: Downloads a JSON file—in a similar manner as with the Backup operation—with one big difference: no personal information is included in the description of the element, so that the file may be freely shared. |
 
 ### Detachment and Attachment of Elements
 
-Elements in the workspace may be detached from its parent, carrying all children with it. When an element is detached, it is no longer taken into account in simulations or live trading, as it no longer belongs to the definition. This feature enables testing different parameters, keeping alternatives handy in the same workspace.
+Elements in the workspace may be detached from its parent, carrying all children with it. When an element is detached, it is no longer taken into account in simulations or live trading, as it no longer belongs to the definition. This feature enables testing of different parameters, keeping alternatives handy in the same workspace.
 
 ![Designer-Attach-Detach](https://user-images.githubusercontent.com/13994516/63227849-6d7e9b80-c1eb-11e9-9a02-6f760f383751.gif)
 <br/><br/>

@@ -275,7 +275,7 @@ If you haven't yet, start by importing either ```Share - Workspace - Bull run ri
 | :---: | :---: | :---: | :---: |
 | ![text](https://user-images.githubusercontent.com/13994516/67235441-64a68200-f447-11e9-9a14-298f3cceb4f4.png) | ![network](https://user-images.githubusercontent.com/13994516/66855353-59ed7800-ef83-11e9-8de9-db40971faa7b.png) | ![network-node](https://user-images.githubusercontent.com/13994516/66855357-5a860e80-ef83-11e9-917d-95cd8394588b.png) |![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) |
 
-Open up the Designer section of the app by dragging the horizontal bar upwards. You may also use your keyboard <kbd>Alt</kbd> + <kbd>&#8593;</kbd>.
+Open up the Designer section of the app by dragging the horizontal bar upwards. You may also use <kbd>Alt</kbd> + <kbd>&#8593;</kbd> in your keyboard .
 
 Now click and drag the dark background to pan towards the white semicircle in the bottom. That is your *definition*, which is the top level of the hierarchical structure the stores all the information you need to trade.
 
@@ -300,9 +300,9 @@ You will not see any immediate effect in your browser, but notice how your conso
 
 **3. Run your first backtest**:
 
-| Task Manager | Expand | Backtesting Session |
-| :---: | :---: | :---: |
-| ![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) | ![menu-tree-plus](https://user-images.githubusercontent.com/13994516/63041077-45c7c480-bec7-11e9-965c-38e4fd706c38.png) | ![session-backtesting](https://user-images.githubusercontent.com/13994516/66318052-e7452280-e91a-11e9-94a7-90ebe6ee6e62.png) |
+| Task | Backtesting Session |
+| :---: | :---: |
+| ![timeline](https://user-images.githubusercontent.com/13994516/67079956-73b1d980-f194-11e9-89e0-9c8d1ea2ad1d.png) | ![session-backtesting](https://user-images.githubusercontent.com/13994516/66318052-e7452280-e91a-11e9-94a7-90ebe6ee6e62.png) |
 
 Now you will go back to the Node element and follow the line going up until you find another task manager. To the left, you will see an element called Task. You will hover over it and click *Run* on the menu.
 

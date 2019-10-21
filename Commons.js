@@ -1456,7 +1456,7 @@
                             }
 
                             if (stopLoss !== previousValue) {
-                                checkAnnouncements(phase)
+                                checkAnnouncements(phase, stopLoss)
                             }
                         } 
                     }
@@ -1585,7 +1585,7 @@
                             }
 
                             if (takeProfit !== previousValue) {
-                                checkAnnouncements(phase)
+                                checkAnnouncements(phase, takeProfit)
                             }
                         }
                     }
@@ -2685,14 +2685,20 @@
                     }
                 }
 
-                function checkAnnouncements(node) {
+                function checkAnnouncements(node, value) {
+                    /*
+                    Value is an optional parameter that represents the value that the announcement is monitoring for change.
+                    If we do receive this value, we will only make the annoucement if the variance is grater than the user pre-defined value
+                    for this variance.
+                    */
+
                     if (node.announcements !== undefined) {                        
                         for (let i = 0; i < node.announcements.length; i++) {
                             let announcement = node.announcements[i]
                             let key = node.type + "-" + announcement.name + "-" + announcement.id
 
                             let lastPeriodAnnounced = -1
-                            let newAnnouncementRecord
+                            let newAnnouncementRecord = {}
 
                             for (let j = 0; j < interExecutionMemory.announcements.length; j++) {
                                 let announcementRecord = interExecutionMemory.announcements[j]
@@ -2705,6 +2711,25 @@
  
                             if (periods > lastPeriodAnnounced) {
 
+                                /* The Value Variation is what tells us how much the value already announced must change in order to annouce it again. */
+                                let valueVariantion
+                                try {
+                                    let code = JSON.parse(announcement.code)
+                                    valueVariantion = code.valueVariantion
+                                } catch (err) {
+                                    announcement.error = err.message
+                                }
+
+                                if (newAnnouncementRecord.value !== undefined && valueVariantion !== undefined) {
+                                    let upperLimit = newAnnouncementRecord.value + newAnnouncementRecord.value * valueVariantion / 100
+                                    let lowerLimit = newAnnouncementRecord.value - newAnnouncementRecord.value * valueVariantion / 100
+                                    if (value > lowerLimit && value < upperLimit ) {
+                                        /* There is not enough variation to announce this again. */
+                                        return
+                                    }
+                                }
+
+                                /* Here we check if there is a formula attached to the annoucement, we evaluate it to get the annoucement text. */
                                 let formulaValue 
                                 if (announcement.formula !== undefined) {
                                     try {
@@ -2718,12 +2743,14 @@
                                 bot.SESSION.socialBots.announce(announcement)
 
                                 /* Next, we will remmeber this announcement was already done, so that it is not announced again in further processing of the same day. */
-                                if (newAnnouncementRecord !== undefined) {
+                                if (newAnnouncementRecord.periods !== undefined) {
                                     newAnnouncementRecord.periods = periods
+                                    newAnnouncementRecord.value = value
                                 } else {
                                     newAnnouncementRecord = {
                                         key: key,
-                                        periods: periods
+                                        periods: periods,
+                                        value: value
                                     }
                                     interExecutionMemory.announcements.push(newAnnouncementRecord)
                                 }

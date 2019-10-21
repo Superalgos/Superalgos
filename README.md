@@ -271,8 +271,9 @@ If you haven't yet, start by importing either ```Share - Workspace - Bull run ri
 
 **2. Start processes**:
 
-| Superalgos Network | Network Node | Task Manager |
-| :---: | :---: | :---: |
+| Definition | Superalgos Network | Network Node | Task Manager |
+| :---: | :---: | :---: | :---: |
+| ![text](https://user-images.githubusercontent.com/13994516/67235441-64a68200-f447-11e9-9a14-298f3cceb4f4.png)
 | ![network](https://user-images.githubusercontent.com/13994516/66855353-59ed7800-ef83-11e9-8de9-db40971faa7b.png) | ![network-node](https://user-images.githubusercontent.com/13994516/66855357-5a860e80-ef83-11e9-917d-95cd8394588b.png) |![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) |
 
 Open up the Designer section of the app by dragging the horizontal bar upwards. You may also use your keyboard <kbd>Alt</kbd> + <kbd>&#8593;</kbd>.

@@ -2691,6 +2691,17 @@
                             }
  
                             if (periods > lastPeriodAnnounced) {
+
+                                let formulaValue 
+                                if (announcement.formula !== undefined) {
+                                    try {
+                                        formulaValue = eval(announcement.formula.code);
+                                    } catch (err) {
+                                        announcement.formula.error = err.message
+                                    }
+                                }
+                                announcement.formulaValue = formulaValue
+
                                 bot.SESSION.socialBots.announce(announcement)
 
                                 /* Next, we will remmeber this announcement was already done, so that it is not announced again in further processing of the same day. */

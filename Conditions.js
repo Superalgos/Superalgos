@@ -588,6 +588,15 @@
                             designerTradingSystem.strategies[j].triggerStage.triggerOn.situations[k].payload.uiObject.setErrorMessage(triggerStage.triggerOn.situations[k].error)
                             processSituation(situation, designerTradingSystem.strategies[j].triggerStage.triggerOn.situations[k]);
                         }
+
+                        for (let k = 0; k < triggerStage.triggerOn.announcements.length; k++) {
+
+                            let announcement = triggerStage.triggerOn.announcements[k];
+                            designerTradingSystem.strategies[j].triggerStage.triggerOn.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                            if (announcement.formula !== undefined) {
+                                designerTradingSystem.strategies[j].triggerStage.triggerOn.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                            } 
+                        }
                     }
 
                     if (triggerStage.triggerOff !== undefined) {
@@ -598,6 +607,15 @@
                             designerTradingSystem.strategies[j].triggerStage.triggerOff.situations[k].payload.uiObject.setErrorMessage(triggerStage.triggerOff.situations[k].error)
                             processSituation(situation, designerTradingSystem.strategies[j].triggerStage.triggerOff.situations[k]);
                         }
+
+                        for (let k = 0; k < triggerStage.triggerOff.announcements.length; k++) {
+
+                            let announcement = triggerStage.triggerOff.announcements[k];
+                            designerTradingSystem.strategies[j].triggerStage.triggerOff.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                            if (announcement.formula !== undefined) {
+                                designerTradingSystem.strategies[j].triggerStage.triggerOff.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                            }
+                        }
                     }
 
                     if (triggerStage.takePosition !== undefined) {
@@ -607,6 +625,15 @@
                             let situation = triggerStage.takePosition.situations[k];
                             designerTradingSystem.strategies[j].triggerStage.takePosition.situations[k].payload.uiObject.setErrorMessage(triggerStage.takePosition.situations[k].error)
                             processSituation(situation, designerTradingSystem.strategies[j].triggerStage.takePosition.situations[k]);
+                        }
+
+                        for (let k = 0; k < triggerStage.takePosition.announcements.length; k++) {
+
+                            let announcement = triggerStage.takePosition.announcements[k];
+                            designerTradingSystem.strategies[j].triggerStage.takePosition.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                            if (announcement.formula !== undefined) {
+                                designerTradingSystem.strategies[j].triggerStage.takePosition.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                            }
                         }
                     }
                 }
@@ -661,6 +688,15 @@
 
                                         processSituation(situation, designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].nextPhaseEvent.situations[k]);
                                     }
+
+                                    for (let k = 0; k < nextPhaseEvent.announcements.length; k++) {
+
+                                        let announcement = nextPhaseEvent.announcements[k];
+                                        designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].nextPhaseEvent.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                                        if (announcement.formula !== undefined) {
+                                            designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].nextPhaseEvent.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -704,6 +740,15 @@
                                         let situation = nextPhaseEvent.situations[k];
 
                                         processSituation(situation, designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].nextPhaseEvent.situations[k]);
+                                    }
+
+                                    for (let k = 0; k < nextPhaseEvent.announcements.length; k++) {
+
+                                        let announcement = nextPhaseEvent.announcements[k];
+                                        designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].nextPhaseEvent.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                                        if (announcement.formula !== undefined) {
+                                            designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].nextPhaseEvent.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                                        }
                                     }
                                 }
                             }
@@ -761,6 +806,15 @@
 
                                     processSituation(situation, designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].nextPhaseEvent.situations[k]);
                                 }
+
+                                for (let k = 0; k < nextPhaseEvent.announcements.length; k++) {
+
+                                    let announcement = nextPhaseEvent.announcements[k];
+                                    designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].nextPhaseEvent.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                                    if (announcement.formula !== undefined) {
+                                        designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].nextPhaseEvent.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                                    }
+                                }
                             }
                         }
                     }
@@ -804,6 +858,15 @@
                                     let situation = nextPhaseEvent.situations[k];
 
                                     processSituation(situation, designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].nextPhaseEvent.situations[k]);
+                                }
+
+                                for (let k = 0; k < nextPhaseEvent.announcements.length; k++) {
+
+                                    let announcement = nextPhaseEvent.announcements[k];
+                                    designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].nextPhaseEvent.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                                    if (announcement.formula !== undefined) {
+                                        designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].nextPhaseEvent.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                                    }
                                 }
                             }
                         }

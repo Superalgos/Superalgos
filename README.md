@@ -132,13 +132,12 @@ However, bear in mind that the app is at an early stage of development and that 
 * [Troubleshooting](#troubleshooting)
   * [On-screen Errors and Warnings](#on-screen-errors-and-warnings)
   * [Market Data / Indicators Seem to be Outdated](#market-data--indicators-seem-to-be-outdated)
-  * [New Simulation Doesn't Seem to Match My New Settings](#new-simulation-doesnt-seem-to-match-my-new-settings)
 * [Reporting Bugs](#reporting-bugs)
 * [Technical Overview](#technical-overview)
   * [How Algorithms Work](#how-algorithms-work)
     * [Dependencies](#dependencies)
     * [Types of Data Sets](#types-of-data-sets)
-  * [Current Bots Sequence](#current-bots-sequence)
+  * [Current Bots Dependencies](#current-bots-dependencies)
     * [Charly](#charly)
     * [Bruce](#bruce)
     * [Olivia](#olivia)
@@ -147,6 +146,8 @@ However, bear in mind that the app is at an early stage of development and that 
     * [Paula](#paula)
     * [Jason](#jason)
   * [Outputs](#outputs)
+    * [Sensors and Indicators Output](#sensors-and-indicators-output)
+    * [Trading Engine Output](#trading-engine-output)
   * [Status Reports](#status-reports)
   * [Logs](#logs)
 
@@ -1565,7 +1566,17 @@ If for some reason you wish to change the name of an output folder for something
 "folderName":"YourName"
 ```
 
-> **NOTE:** Make sure you use a valid file system name, including only valid characters. Also, bear in mind that is you reuse the same name on different sessions, you may end up with unexpected outcomes.
+You custom name will be displayed along with the session ID in the name of the folder, in the following format:
+
+```
+YourName - 3e139ae2-138c-42ac-99d6-e0cf9c7c6ee6
+```
+
+If you wish to know which ID corresponds to a certain session without defining a custom name, you may obtain it by clicking <kbd>Ctrl</kbd> + <kbd>.</kbd> while hovering the mouse pointer over the target session element.
+
+[ILLUSTRATION]
+
+> **NOTE:** Replace <kbd>Ctrl</kbd> with <kbd>Command</kbd> in Mac systems.
 
 ## Status Reports
 
@@ -1574,6 +1585,8 @@ In addition to outputting a data set, bots also store a Status Report. These rep
 Status reports are stored in the Reports folder, at the same level in the structure as the Output folder.
 
 ![Technical-Status-Report](https://user-images.githubusercontent.com/13994516/63348840-63c77600-c35a-11e9-98ad-1d9f9e1b81f1.gif)
+
+> **NOTE:** The same considerations as explained for the [Trading Engine Output](#trading-engine-output) apply for trading engine storage of status reports.
 
 ## Logs
 
@@ -1587,3 +1600,5 @@ Log files contain detailed information about each execution of the bot. As such,
 Each folder may contain more than one file. Lighter files tend to include data about the initialization stage, while heavier files usually feature the data corresponding to the actual work the bot does.
 
 ![Technical-Logs](https://user-images.githubusercontent.com/13994516/63350228-4f38ad00-c35d-11e9-8074-bdd73ac68bd8.gif)
+
+> **NOTE:** The same considerations as explained for the [Trading Engine Output](#trading-engine-output) apply for trading engine storage of logs.

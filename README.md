@@ -648,7 +648,7 @@ The Designer provides a graphic user interface (GUI) for traders to input the _r
 
 The protocol calls these sets of rules _situations_, in the sense that you are trying to determine what is going on with the market and, if the 'situation' is right, certain _actions_ or _events_ should be triggered.
 
-In other words, you define _situations_ in which you wish a certain _event_ to happen (i.e.: trigger on the strategy, take a position, etc.) and each situation is described as a set of _conditions_ that need to be met in order for the _event_ to be triggered.
+In other words, you define _situations_ in which you wish a certain _event_ to happen (i.e.: trigger on the strategy, take a position, etc.) and each situation is described as a set of _conditions_ that need to be met for the _event_ to be triggered.
 
 ![Designer-Situation-Condition-Code](https://user-images.githubusercontent.com/13994516/63052184-fe4d3280-bede-11e9-87b0-7fb67964450c.gif)
 <br/><br/>
@@ -659,13 +659,13 @@ When ***all conditions*** within a _situation_ evaluate _true_, then the _situat
 
 On the other hand, when a certain event has multiple _situations_, then _situations_ are evaluated with the _OR_ operator (e.g. if either _situation 1_ OR _situation 2_ are true, then the event will be triggered.
 
-This set up of _conditions_ and _situations_ allows to take the same kind of action (trigger a certain event) upon the occurrence of different desireable scenarios, each described by one _situation_.
+This set up of _conditions_ and _situations_ allows taking the same kind of action (trigger a certain event) upon the occurrence of different desirable scenarios, each described by one _situation_.
 
-Put in other words, events may be triggered in different circumstance, meaning that you are free to define different _situations_ upon which the event would be triggered. In such case, when **any** of the _situations_ evaluate _true_, then the event shall be triggered.
+Put in other words, events may be triggered in different circumstances, meaning that you are free to define different _situations_ upon which the event would be triggered. In such a case, when **any** of the _situations_ evaluate _true_, then the event shall be triggered.
 
 #### Comparison and Logical Operators
 
-In order to define _conditions_ you will use _statements_ using any of the [available variables](#available-variables) that describe what is happening with the market. Remember, _conditions_ need to evaluate either _true_ or _false_.
+To define _conditions_ you will use _statements_ using any of the [available variables](#available-variables) that describe what is happening with the market. Remember, _conditions_ need to evaluate either _true_ or _false_.
 
 To create such statements you will use comparison and logical operators:
 
@@ -697,7 +697,7 @@ In the example above, _condition C_ would be _true_ if the whole candle falls wi
 
 ### Starting a Strategy from Scratch
 
-> In addition to the explanations available here, [a comprehensive video tutorial for building strategies](https://youtu.be/ZlkGkxSMsio) is available in our YouTube channel. The video is slightly outdated in the following aspects:
+> In addition to the explanations available here, [a comprehensive video tutorial for building strategies](https://youtu.be/ZlkGkxSMsio) is available on our YouTube channel. The video is slightly outdated in the following aspects:
 > * it doesn't take transaction fees into account when running simulations;
 > * the Superalgos Desktop App (the client version of the Platform) does not feature a menu on top;
 > * simulations are no longer run clicking a button on the horizontal bar.
@@ -729,21 +729,21 @@ To start a brand new strategy, go to the Trading System element and click _Add S
 
 | Icon | Element | Description |
 | :---: | :---: | :--- |
-| ![stage-open-position-size](https://user-images.githubusercontent.com/13994516/63513822-7e7b2580-c4e7-11e9-98d5-624bb5c3c2ab.png) | Position Size | A formula, determines how much capital is put in each trade. The formula may be a constant (a fixed numerical value), or may relate to relevant [available variables](#available-variables). The resulting value should not be higher than your available balance (*balanceAssetA* if you stand on BTC and *balanceAssetB* if you stand on USDT). *e.g.: ```assetBalanceB``` puts all your available balance in each trade, in case your _base asset_ is USDT.* |
-| ![stage-open-postion-rate](https://user-images.githubusercontent.com/13994516/63513820-7e7b2580-c4e7-11e9-94e5-237cd751d273.png) | Position Rate | A formula, at this point, not taken into account during live trading. We recommend you use ```candle.close``` in your formula until the *Execution Engine* allow users more control over execution (learn more about current [Execution Limitations](#execution-limitations)). |
+| ![stage-open-position-size](https://user-images.githubusercontent.com/13994516/63513822-7e7b2580-c4e7-11e9-98d5-624bb5c3c2ab.png) | Position Size | A formula, determines how much capital is put in each trade. The formula may be a constant (a fixed numerical value) or may relate to relevant [available variables](#available-variables). The resulting value should not be higher than your available balance (*balanceAssetA* if you stand on BTC and *balanceAssetB* if you stand on USDT). *e.g.: ```assetBalanceB``` puts all your available balance in each trade, in case your _base asset_ is USDT.* |
+| ![stage-open-postion-rate](https://user-images.githubusercontent.com/13994516/63513820-7e7b2580-c4e7-11e9-94e5-237cd751d273.png) | Position Rate | A formula, at this point, not taken into account during live trading. We recommend you use ```candle.close``` in your formula until the *Execution Engine* allows users more control over execution (learn more about current [Execution Limitations](#execution-limitations)). |
 
 In addition to *Position Rate* and *Position Size*, you also need to define the initial values for your *Stop* and *Take Profit*. The initial value is set as a formula on Phase 0 (refer to the Superalgos Protocol articles for an explanation on managing Stop and Take Profit in phases).
 
 | Icon | Element | Description |
 | :---: | :---: | :--- |
 | ![stage-open-stop](https://user-images.githubusercontent.com/13994516/63513824-7f13bc00-c4e7-11e9-8410-d40504334c72.png)<br/>![phase](https://user-images.githubusercontent.com/13994516/63513823-7f13bc00-c4e7-11e9-9d54-bef993401eb0.png) | Stop, Phase 0 | A formula, determines your initial *Stop* value. A likely scenario is relating your initial stop to the *positionRate* (the price at which the position was taken). *e.g.: ```positionRate - positionRate * 0.02``` sets your initial stop at 2% below the price at which you take the position.* |
-| ![stage-open-take-profit](https://user-images.githubusercontent.com/13994516/63513819-7e7b2580-c4e7-11e9-87c7-b604ef0df363.png)<br/>![phase](https://user-images.githubusercontent.com/13994516/63513823-7f13bc00-c4e7-11e9-9d54-bef993401eb0.png) | Take Profit, Phase 0 | A formula, determines your initial *Take Profit* value. Again, you may chose to relat your initial take profit to the *positionRate* or any other available variable. |
+| ![stage-open-take-profit](https://user-images.githubusercontent.com/13994516/63513819-7e7b2580-c4e7-11e9-87c7-b604ef0df363.png)<br/>![phase](https://user-images.githubusercontent.com/13994516/63513823-7f13bc00-c4e7-11e9-9d54-bef993401eb0.png) | Take Profit, Phase 0 | A formula, determines your initial *Take Profit* value. Again, you may choose to relate your initial take profit to the *positionRate* or any other available variable. |
   
 ### Using an Existing Strategy
 
 Thanks to the implementation of the Superalgos Protocol, all strategies built within the Superalgos Desktop App are portable. This means that people may use strategies built by other people or groups of people.
 
-You may import any element—formulas, conditions, situations, phases, stages, complete strategies, complete trading systems and even complete workspaces—simply by dragging and dropping them on the workspace.
+You may import any element—formulas, conditions, situations, phases, stages, complete strategies, complete trading systems, and even complete workspaces—simply by dragging and dropping them on the workspace.
 
 ![Designer-Drag-Drop](https://user-images.githubusercontent.com/13994516/63052820-a283a900-bee0-11e9-99b3-67273cba96a0.gif)
 
@@ -751,7 +751,7 @@ You may import any element—formulas, conditions, situations, phases, stages, c
 
 When you have more than one strategy under the same trading system, all strategies share the *parameters* defined at the trading system level. This means that all strategies will work with the same *base asset* and share the same *initialCapital*.
 
-As a consequence, strategies within a trading system may never be triggered on at the same time. Under such setting, when a strategy is triggered on, it blocks the triggering of the rest of the strategies within the trading system until the strategy is triggered off.
+As a consequence, strategies within a trading system may never be triggered on at the same time. Under such a setting, when a strategy is triggered on, it blocks the triggering of the rest of the strategies within the trading system until the strategy is triggered off.
 
 If you wish to have multiple strategies that work independently of each other, then you need to place them on different trading systems. At this point, the app supports only one trading system per definition. As a result, if you wish to have multiple independent strategies, then you need to have multiple definitions, each with one trading system. Learn how to do that in the [Working with Multiple Definitions](#working-with-multiple-definitions) section.
 

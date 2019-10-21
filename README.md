@@ -1241,11 +1241,13 @@ If you set up your forward-testing session with ```"balancePercentage": 1```, th
 
 > **NOTE:** You need to take this into account at the time of defining your *positionSize* formula. If the formula is a constant, you may easily run out of balance, as only a fraction of the balance will be available for the strategy to use. It may be a good idea to set up your *positionSize* as a function of your available balance instead.
 
-The following topics cover information that is common both to forward testing and live trading sessions.
+In the same way as the balance is scaled down, the *minimumBalance* and *maximumBalance* are also scaled down accordingly.
 
 ## Getting Started
 
-All you need to do to start live-trading is:
+The following topics cover information that is common both to forward testing and live trading sessions.
+
+All you need to do to start forward-testing or live-trading is:
 
 1. Go to your definition and click *Add Personal Data* on the menu. In the new Personal Data element, click *Add Exchange Account*. In the Exchange Account element, click *Add Asset* and *Add Key*.
 

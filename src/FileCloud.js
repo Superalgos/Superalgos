@@ -119,7 +119,7 @@ function newFileCloud () {
               try {
                 code = JSON.parse(pSession.code)
                 if (code.folderName !== undefined) {
-                  sessionFolderName = code.folderName
+                  sessionFolderName = code.folderName + '-' + pSession.id
                 }
               } catch (err) {
                 sessionFolderName = pSession.id

@@ -44,7 +44,7 @@
             return
 
             function runSession(message) {
-                console.log("runSession")
+ 
                 /* We are going to run the Definition comming at the event. */
                 bot.DEFINITION = JSON.parse(message.event.definition)
                 bot.SESSION = JSON.parse(message.event.session)
@@ -146,15 +146,9 @@
                 /* Reduce the balance */
 
                 let balancePercentage = 1 // This is the default value
-                try {
-                    let code = JSON.parse(bot.SESSION.code)
-
-                    if (code.balancePercentage !== undefined) {
-                        balancePercentage = code.balancePercentage
-                    }
-
-                } catch (err) {
-                    parentLogger.write(MODULE_NAME, "[WARN] initialize -> startFordwardTesting -> Invalid value por balancePercentage. Using Default.");
+              
+                if (bot.SESSION.code.balancePercentage !== undefined) {
+                    balancePercentage = bot.SESSION.code.balancePercentage
                 }
 
                 bot.VALUES_TO_USE.initialBalanceA = bot.VALUES_TO_USE.initialBalanceA * balancePercentage / 100
@@ -287,15 +281,109 @@
                         /* Base Asset and Initial Balances. */
                         {
                             if (tradingSystem.parameters.baseAsset !== undefined) {
-                                let code
-                                try {
-                                    code = JSON.parse(tradingSystem.parameters.baseAsset.code);
+                                let code = tradingSystem.parameters.baseAsset.code
+
+                                if (code.name !== undefined) {
+                                    bot.VALUES_TO_USE.baseAsset = code.name;
+                                }
+
+                                if (bot.VALUES_TO_USE.baseAsset === 'BTC') { 
+                                    if (code.initialBalance !== undefined) {
+                                        bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
+                                        bot.VALUES_TO_USE.initialBalanceB = 0
+                                    }
+                                    if (code.minimumBalance !== undefined) {
+                                        bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
+                                        bot.VALUES_TO_USE.minimumBalanceB = 0
+                                    }
+                                    if (code.maximumBalance !== undefined) {
+                                        bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
+                                        bot.VALUES_TO_USE.maximumBalanceB = 0
+                                    }
+                                } else {
+                                    if (code.initialBalance !== undefined) {
+                                        bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
+                                        bot.VALUES_TO_USE.initialBalanceA = 0
+                                    }
+                                    if (code.minimumBalance !== undefined) {
+                                        bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
+                                        bot.VALUES_TO_USE.minimumBalanceA = 0
+                                    }
+                                    if (code.maximumBalance !== undefined) {
+                                        bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
+                                        bot.VALUES_TO_USE.maximumBalanceA = 0
+                                    }
+                                }
+                            }
+                        }
+
+                        /* Time Period */
+                        if (tradingSystem.parameters.timePeriod !== undefined) {
+                            bot.VALUES_TO_USE.timePeriod = tradingSystem.parameters.timePeriod.code
+                        }
+
+                        /* Slippage */
+                        if (tradingSystem.parameters.slippage !== undefined) {
+                            if (tradingSystem.parameters.slippage.code !== undefined) {
+
+                                let code = tradingSystem.parameters.slippage.code
+
+                                if (code.positionRate !== undefined) {
+                                    bot.VALUES_TO_USE.slippage.positionRate = code.positionRate
+                                }
+                                if (code.stopLoss !== undefined) {
+                                    bot.VALUES_TO_USE.slippage.stopLoss = code.stopLoss
+                                }
+                                if (code.takeProfit !== undefined) {
+                                    bot.VALUES_TO_USE.slippage.takeProfit = code.takeProfit
+                                }
+                            }
+                        }
+
+                        /* Fee Structure */
+                        if (tradingSystem.parameters.feeStructure !== undefined) {
+                            if (tradingSystem.parameters.feeStructure.code !== undefined) {
+                     
+                                let code = tradingSystem.parameters.feeStructure.code
+
+                                if (code.maker !== undefined) {
+                                    bot.VALUES_TO_USE.feeStructure.maker = code.maker
+                                }
+                                if (code.taker !== undefined) {
+                                    bot.VALUES_TO_USE.feeStructure.taker = code.taker
+                                }
+                            }
+                        }
+
+                        /* Time Range */
+                        if (tradingSystem.parameters.timeRange !== undefined) {
+                            if (tradingSystem.parameters.timeRange.code !== undefined) {
+ 
+                                let code = tradingSystem.parameters.timeRange.code
+                                if (code.initialDatetime !== undefined) {
+                                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                }
+                                if (code.finalDatetime !== undefined) {
+                                    bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
+                                }
+                            }
+                        }
+                    }
+
+                    /* Applying Session Level Parameters */
+                    if (bot.SESSION !== undefined) {
+                        if (bot.SESSION.parameters !== undefined) {
+
+                            /* Base Asset and Initial Balances. */
+                            {
+                                if (bot.SESSION.parameters.baseAsset !== undefined) {
+                                    let code = bot.SESSION.parameters.baseAsset.code
 
                                     if (code.name !== undefined) {
                                         bot.VALUES_TO_USE.baseAsset = code.name;
                                     }
 
-                                    if (bot.VALUES_TO_USE.baseAsset === 'BTC') { 
+                                    if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                                         if (code.initialBalance !== undefined) {
                                             bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
                                             bot.VALUES_TO_USE.initialBalanceB = 0
@@ -322,121 +410,6 @@
                                             bot.VALUES_TO_USE.maximumBalanceA = 0
                                         }
                                     }
-                                } catch (err) {
-                                    tradingSystem.parameters.baseAsset.error = err.message
-                                }
-                            }
-                        }
-
-                        /* Time Period */
-                        if (tradingSystem.parameters.timePeriod !== undefined) {
-                            bot.VALUES_TO_USE.timePeriod = tradingSystem.parameters.timePeriod.code
-                        }
-
-                        /* Slippage */
-                        if (tradingSystem.parameters.slippage !== undefined) {
-                            if (tradingSystem.parameters.slippage.code !== undefined) {
-                                try {
-                                    let code = JSON.parse(tradingSystem.parameters.slippage.code)
-
-                                    if (code.positionRate !== undefined) {
-                                        bot.VALUES_TO_USE.slippage.positionRate = code.positionRate
-                                    }
-                                    if (code.stopLoss !== undefined) {
-                                        bot.VALUES_TO_USE.slippage.stopLoss = code.stopLoss
-                                    }
-                                    if (code.takeProfit !== undefined) {
-                                        bot.VALUES_TO_USE.slippage.takeProfit = code.takeProfit
-                                    }
-
-                                } catch (err) {
-                                    tradingSystem.parameters.slippage.error = err.message
-                                }
-                            }
-                        }
-
-                        /* Fee Structure */
-                        if (tradingSystem.parameters.feeStructure !== undefined) {
-                            if (tradingSystem.parameters.feeStructure.code !== undefined) {
-                                try {
-                                    let code = JSON.parse(tradingSystem.parameters.feeStructure.code)
-
-                                    if (code.maker !== undefined) {
-                                        bot.VALUES_TO_USE.feeStructure.maker = code.maker
-                                    }
-                                    if (code.taker !== undefined) {
-                                        bot.VALUES_TO_USE.feeStructure.taker = code.taker
-                                    }
-
-                                } catch (err) {
-                                    tradingSystem.parameters.feeStructure.error = err.message
-                                }
-                            }
-                        }
-
-                        /* Time Range */
-                        if (tradingSystem.parameters.timeRange !== undefined) {
-                            if (tradingSystem.parameters.timeRange.code !== undefined) {
-                                try {
-                                    let code = JSON.parse(tradingSystem.parameters.timeRange.code)
-                                    if (code.initialDatetime !== undefined) {
-                                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
-                                    }
-                                    if (code.finalDatetime !== undefined) {
-                                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
-                                    }
-                                } catch (err) {
-                                    tradingSystem.parameters.timeRange.error = err.message
-                                }
-                            }
-                        }
-                    }
-
-                    /* Applying Session Level Parameters */
-                    if (bot.SESSION !== undefined) {
-                        if (bot.SESSION.parameters !== undefined) {
-
-                            /* Base Asset and Initial Balances. */
-                            {
-                                if (bot.SESSION.parameters.baseAsset !== undefined) {
-                                    let code
-                                    try {
-                                        code = JSON.parse(bot.SESSION.parameters.baseAsset.code);
-
-                                        if (code.name !== undefined) {
-                                            bot.VALUES_TO_USE.baseAsset = code.name;
-                                        }
-
-                                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                                            if (code.initialBalance !== undefined) {
-                                                bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
-                                                bot.VALUES_TO_USE.initialBalanceB = 0
-                                            }
-                                            if (code.minimumBalance !== undefined) {
-                                                bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
-                                                bot.VALUES_TO_USE.minimumBalanceB = 0
-                                            }
-                                            if (code.maximumBalance !== undefined) {
-                                                bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
-                                                bot.VALUES_TO_USE.maximumBalanceB = 0
-                                            }
-                                        } else {
-                                            if (code.initialBalance !== undefined) {
-                                                bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
-                                                bot.VALUES_TO_USE.initialBalanceA = 0
-                                            }
-                                            if (code.minimumBalance !== undefined) {
-                                                bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
-                                                bot.VALUES_TO_USE.minimumBalanceA = 0
-                                            }
-                                            if (code.maximumBalance !== undefined) {
-                                                bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
-                                                bot.VALUES_TO_USE.maximumBalanceA = 0
-                                            }
-                                        }
-                                    } catch (err) {
-                                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Invalid Base Asset Value -> err = " + err.stack);
-                                    }
                                 }
                             }
 
@@ -448,21 +421,17 @@
                             /* Slippage */
                             if (bot.SESSION.parameters.slippage !== undefined) {
                                 if (bot.SESSION.parameters.slippage.code !== undefined) {
-                                    try {
-                                        let code = JSON.parse(bot.SESSION.parameters.slippage.code)
 
-                                        if (code.positionRate !== undefined) {
-                                            bot.VALUES_TO_USE.slippage.positionRate = code.positionRate
-                                        }
-                                        if (code.stopLoss !== undefined) {
-                                            bot.VALUES_TO_USE.slippage.stopLoss = code.stopLoss
-                                        }
-                                        if (code.takeProfit !== undefined) {
-                                            bot.VALUES_TO_USE.slippage.takeProfit = code.takeProfit
-                                        }
+                                    let code = bot.SESSION.parameters.slippage.code
 
-                                    } catch (err) {
-                                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Invalid Slippage Value -> err = " + err.stack);
+                                    if (code.positionRate !== undefined) {
+                                        bot.VALUES_TO_USE.slippage.positionRate = code.positionRate
+                                    }
+                                    if (code.stopLoss !== undefined) {
+                                        bot.VALUES_TO_USE.slippage.stopLoss = code.stopLoss
+                                    }
+                                    if (code.takeProfit !== undefined) {
+                                        bot.VALUES_TO_USE.slippage.takeProfit = code.takeProfit
                                     }
                                 }
                             }
@@ -470,18 +439,14 @@
                             /* Fee Structure */
                             if (bot.SESSION.parameters.feeStructure !== undefined) {
                                 if (bot.SESSION.parameters.feeStructure.code !== undefined) {
-                                    try {
-                                        let code = JSON.parse(bot.SESSION.parameters.feeStructure.code)
 
-                                        if (code.maker !== undefined) {
-                                            bot.VALUES_TO_USE.feeStructure.maker = code.maker
-                                        }
-                                        if (code.taker !== undefined) {
-                                            bot.VALUES_TO_USE.feeStructure.taker = code.taker
-                                        }
+                                    let code = bot.SESSION.parameters.feeStructure.code
 
-                                    } catch (err) {
-                                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Invalid Fee Structure Value -> err = " + err.stack);
+                                    if (code.maker !== undefined) {
+                                        bot.VALUES_TO_USE.feeStructure.maker = code.maker
+                                    }
+                                    if (code.taker !== undefined) {
+                                        bot.VALUES_TO_USE.feeStructure.taker = code.taker
                                     }
                                 }
                             }
@@ -489,16 +454,13 @@
                             /* Time Range */
                             if (bot.SESSION.parameters.timeRange !== undefined) {
                                 if (bot.SESSION.parameters.timeRange.code !== undefined) {
-                                    try {
-                                        let code = JSON.parse(bot.SESSION.parameters.timeRange.code)
-                                        if (code.initialDatetime !== undefined) {
-                                            bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
-                                        }
-                                        if (code.finalDatetime !== undefined) {
-                                            bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
-                                        }
-                                    } catch (err) {
-                                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Invalid Time Range Value -> err = " + err.stack);
+
+                                    let code = bot.SESSION.parameters.timeRange.code
+                                    if (code.initialDatetime !== undefined) {
+                                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                    }
+                                    if (code.finalDatetime !== undefined) {
+                                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
                                     }
                                 }
                             }

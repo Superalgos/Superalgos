@@ -678,6 +678,15 @@
                                     formulaValuesIndex++
                                 }
 
+                                for (let k = 0; k < phase.announcements.length; k++) {
+
+                                    let announcement = phase.announcements[k];
+                                    designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                                    if (announcement.formula !== undefined) {
+                                        designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                                    }
+                                }
+
                                 let nextPhaseEvent = phase.nextPhaseEvent;
                                 if (nextPhaseEvent !== undefined) {
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].nextPhaseEvent.payload.uiObject.setErrorMessage(openStage.initialDefinition.stopLoss.phases[p].nextPhaseEvent.error)
@@ -729,6 +738,15 @@
                                         designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
                                     }
                                     formulaValuesIndex++
+                                }
+
+                                for (let k = 0; k < phase.announcements.length; k++) {
+
+                                    let announcement = phase.announcements[k];
+                                    designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                                    if (announcement.formula !== undefined) {
+                                        designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                                    }
                                 }
 
                                 let nextPhaseEvent = phase.nextPhaseEvent;
@@ -796,6 +814,15 @@
                                 formulaValuesIndex++
                             }
 
+                            for (let k = 0; k < phase.announcements.length; k++) {
+
+                                let announcement = phase.announcements[k];
+                                designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                                if (announcement.formula !== undefined) {
+                                    designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                                }
+                            }
+
                             let nextPhaseEvent = phase.nextPhaseEvent;
                             if (nextPhaseEvent !== undefined) {
                                 designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].nextPhaseEvent.payload.uiObject.setErrorMessage(manageStage.stopLoss.phases[p].nextPhaseEvent.error)
@@ -847,6 +874,15 @@
                                     designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
                                 }
                                 formulaValuesIndex++
+                            }
+
+                            for (let k = 0; k < phase.announcements.length; k++) {
+
+                                let announcement = phase.announcements[k];
+                                designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.announcements[k].payload.uiObject.setErrorMessage(announcement.error)
+                                if (announcement.formula !== undefined) {
+                                    designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.announcements[k].formula.payload.uiObject.setErrorMessage(announcement.formula.error)
+                                }
                             }
 
                             let nextPhaseEvent = phase.nextPhaseEvent;

@@ -69,7 +69,7 @@ exports.newDebugLog = function newDebugLog() {
             let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/"
 
             if (thisObject.bot.SESSION !== undefined) {
-                filePath = filePath + thisObject.bot.SESSION.name + "/" + executionDatetime;
+                filePath = filePath + thisObject.bot.SESSION.folderName + "/" + executionDatetime;     
             } else {
                 filePath = filePath + executionDatetime;
             }
@@ -101,7 +101,7 @@ exports.newDebugLog = function newDebugLog() {
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
               
-                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = "+ err.stack);
+                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = "+ err.message);
                 
                         setTimeout(writeLog, 10000); // Lets retry until we make it.
                         return;

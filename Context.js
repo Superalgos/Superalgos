@@ -84,7 +84,7 @@
             statusDependencies = pStatusDependencies;
 
             if (bot.SESSION !== undefined) {
-                sessionPath = bot.SESSION.id + "/"
+                sessionPath = bot.SESSION.folderName + "/"
             } 
 
             /*

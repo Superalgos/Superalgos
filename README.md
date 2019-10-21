@@ -235,15 +235,15 @@ If you are on Linux, open a Terminal / Console, go to the ```Superalgos Desktop 
 
 **2. Drag and drop an example workspace**: 
 
+| Workspace |
+| :---: |
+| ![workspace](https://user-images.githubusercontent.com/13994516/67235108-bd294f80-f446-11e9-8212-687786d84f80.png) |
+
 The app will load on your default browser. You should either [set Chrome as your default browser](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en) before executing the file or simply close the non-Chrome browser, open Chrome and go to http://localhost:1337/.
 
 Also, a Console/Command Line/Terminal window will open. The Console must be open for as long as the app is running. Do not close the window or stop the processes running on it. You may minimize the Console if your Operating System allows you to do so.
 
 > Closing the Console/Command Line may cause your market data to become corrupt. The proper way of closing the application is closing your browser first, and allow a minute for processes to stop before closing the Console.
-
-| Workspace |
-| :---: |
-| ![workspace](https://user-images.githubusercontent.com/13994516/67235108-bd294f80-f446-11e9-8212-687786d84f80.png) |
 
 Go to the ```Superalgos Desktop App/Quick-Start-Examples``` folder, drag your preferred example file and drop it on the _Designer_ (the area with a black background in the bottom half of the screen) to start with a working template.
 
@@ -273,8 +273,7 @@ If you haven't yet, start by importing either ```Share - Workspace - Bull run ri
 
 | Definition | Superalgos Network | Network Node | Task Manager |
 | :---: | :---: | :---: | :---: |
-| ![text](https://user-images.githubusercontent.com/13994516/67235441-64a68200-f447-11e9-9a14-298f3cceb4f4.png)
-| ![network](https://user-images.githubusercontent.com/13994516/66855353-59ed7800-ef83-11e9-8de9-db40971faa7b.png) | ![network-node](https://user-images.githubusercontent.com/13994516/66855357-5a860e80-ef83-11e9-917d-95cd8394588b.png) |![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) |
+| ![text](https://user-images.githubusercontent.com/13994516/67235441-64a68200-f447-11e9-9a14-298f3cceb4f4.png) | ![network](https://user-images.githubusercontent.com/13994516/66855353-59ed7800-ef83-11e9-8de9-db40971faa7b.png) | ![network-node](https://user-images.githubusercontent.com/13994516/66855357-5a860e80-ef83-11e9-917d-95cd8394588b.png) |![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) |
 
 Open up the Designer section of the app by dragging the horizontal bar upwards. You may also use your keyboard <kbd>Alt</kbd> + <kbd>&#8593;</kbd>.
 

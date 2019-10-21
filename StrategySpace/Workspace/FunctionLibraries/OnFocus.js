@@ -483,6 +483,10 @@ function newOnFocus () {
         }
       }
       case 'Announcement': {
+        child = getNodeThatIsOnFocus(node.formula)
+        if (child !== undefined) {
+          return child
+        }
         if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {

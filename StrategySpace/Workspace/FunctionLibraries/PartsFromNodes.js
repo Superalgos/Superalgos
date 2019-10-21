@@ -426,6 +426,9 @@ function newPartsFromNodes () {
       }
       case 'Announcement': {
         createPart('Announcement', node.name, node, parentNode, chainParent, 'Announcement')
+        if (node.formula !== undefined) {
+          createPartFromNode(node.formula, node, node)
+        }
         return
       }
       case 'Layer Manager': {

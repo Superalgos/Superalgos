@@ -386,6 +386,9 @@ function newNodeDeleter () {
         }
       }
     }
+    if (node.formula !== undefined) {
+      deleteFormula(node.formula, rootNodes)
+    }
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)

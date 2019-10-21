@@ -677,7 +677,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          code: node.code
+          code: node.code,
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
           object.id = node.id

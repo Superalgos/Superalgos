@@ -483,6 +483,11 @@ function newShortcutKeys () {
         }
       }
       case 'Announcement': {
+        let child
+        child = getNodeByShortcutKey(node.formula, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
         if (node.payload.uiObject.shortcutKey === searchingKey) {
           return node
         } else {

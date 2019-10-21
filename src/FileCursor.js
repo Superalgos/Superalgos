@@ -94,7 +94,7 @@ function newFileCursor () {
 
       key = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + pPeriodName
       systemEventHandler.listenToEvent(key, 'Data Range Updated', undefined, key, onResponseDataRange, updateDataRange)
-      console.log(key)
+
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
 
       function onResponseDataSet (message) {

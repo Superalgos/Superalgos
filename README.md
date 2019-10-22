@@ -638,11 +638,9 @@ Elements may be attached only to conceptually related parents. For instance, a *
 
 You may define shortcuts for frequently-used elements with the following procedure:
 
-**1.** Hover the mouse pointer over the target element until the menu opens up.
-
-**1.** Click <kbd>Ctrl</kbd> + your preferred key to assign the shortcut.
-
-**1.** A sign will appear below the element confirming the assignation of the shortcut.
+1. Hover the mouse pointer over the target element until the menu opens up.
+1. Click <kbd>Ctrl</kbd> + your preferred key to assign the shortcut.
+1. A sign will appear below the element confirming the assignation of the shortcut.
 
 > **NOTE:** For Mac users, replace <kbd>Ctrl</kbd> with <kbd>Command</kbd>
 
@@ -1276,21 +1274,21 @@ The following topics cover information that is common both to forward testing an
 
 All you need to do to start forward-testing or live-trading is:
 
-1. Go to your definition and click *Add Personal Data* on the menu. In the new Personal Data element, click *Add Exchange Account*. In the Exchange Account element, click *Add Asset* and *Add Key*.
+**1.** Go to your definition and click *Add Personal Data* on the menu. In the new Personal Data element, click *Add Exchange Account*. In the Exchange Account element, click *Add Asset* and *Add Key*.
 
-2. Get your API Key from the exchange (see instructions for [Poloniex](#poloniex-api-keys)).
+**2.** Get your API Key from the exchange (see instructions for [Poloniex](#poloniex-api-keys)).
 
-3. Enter the public key and secret in the *Account Key* element: simply replace the *New Key* title with the *public key*, and enter the *secret* as the *Key Value*.<br/><br/>![Live-Trading-API-Key](https://user-images.githubusercontent.com/13994516/63278457-94020c80-c2a7-11e9-9436-340f2c60c999.gif)
+**3.** Enter the public key and secret in the *Account Key* element: simply replace the *New Key* title with the *public key*, and enter the *secret* as the *Key Value*.<br/><br/>![Live-Trading-API-Key](https://user-images.githubusercontent.com/13994516/63278457-94020c80-c2a7-11e9-9436-340f2c60c999.gif)
 <br/><br/>
 
-4. Make sure the following elements are present in your strategy. If they are not, simply add them: go to the _Open Stage_ element and select _Add Open Execution_ on the menu; do the same with the _Close Stage_, adding _Close Execution_). No need to configure anything, simply make sure the elements are there).
+**4.** Make sure the following elements are present in your strategy. If they are not, simply add them: go to the _Open Stage_ element and select _Add Open Execution_ on the menu; do the same with the _Close Stage_, adding _Close Execution_). No need to configure anything, simply make sure the elements are there).
 
 | Icon | Element | Stage |
 | :---: | :---: | :--- |
 | ![execution](https://user-images.githubusercontent.com/13994516/63542647-25c87e80-c521-11e9-899a-318bd6c62288.png) | Open Execution | Open Stage |
 | ![execution](https://user-images.githubusercontent.com/13994516/63542647-25c87e80-c521-11e9-899a-318bd6c62288.png) | Close Execution | Close Stage |
 
-5. Go to the forward testing or live trading session and click *Run* on the menu.
+**5.** Go to the forward testing or live trading session and click *Run* on the menu.
 
 > **WARNING: The Superalgos Desktop App is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you test with small amounts of money, the kind you can afford losing. Also, make sure you understand the [Execution Limitations](#execution-limitations). Trade live at your own risk.**
 
@@ -1448,11 +1446,11 @@ To update your datasets until the present time, you need to *Run All Tasks* in y
 
 We highly appreciate bug reports. This is what you need to do:
 
-1. Make sure you are running the latest release and that you have upgraded to the latest patch. You may find information about releases and patches on the [releases](https://github.com/Superalgos/DesktopApp/releases) page. If you are not running the latest patch, please upgrade and test your issue again before reporting anything.
+**1.** Make sure you are running the latest release and that you have upgraded to the latest patch. You may find information about releases and patches on the [releases](https://github.com/Superalgos/DesktopApp/releases) page. If you are not running the latest patch, please upgrade and test your issue again before reporting anything.
 
-2. Go to the [Issues](https://github.com/Superalgos/DesktopApp/issues) page in this repository and take a moment to search for similar existing open issues. If you find one similar to yours, you may find helpful to follow the thread and may contribute by  commenting and introducing new information about the issue.
+**2.** Go to the [Issues](https://github.com/Superalgos/DesktopApp/issues) page in this repository and take a moment to search for similar existing open issues. If you find one similar to yours, you may find helpful to follow the thread and may contribute by  commenting and introducing new information about the issue.
 
-3. If there are no similar issues, then open a new one. Do your best to describe the problem as thoroughly as possible.<br/><br/>Developers will be interested in knowing how to reproduce the issue in their systems, so please describe the process that leads to the issue as clearly as possible. Capturing a GIF video showing the steps that lead to the issue would be of great help! [LICEcap](https://www.cockos.com/licecap/) is a lightweight, simple app that can help you with that. If developers can reproduce the issue, half of the problem is solved already.<br/><br/>If the issue seems to happen under specific conditions, you might want to share your _Definitions_ with developers. To do this, go to the Definitions element in your workspace and select _Share_ in the menu. A file containing your strategy and other parameters, but NOT your API keys, will download to your browser's download folder. Upload this file to the issue only if you feel comfortable with sharing it openly. If not, then wait for developers to contact you.<br/><br/>Please make sure you enable Github notifications when someone responds to the issue, as developers may want to ask questions.<br/><br/>If the issue happens while using the app at the browser, then please include a screen capture of Chrome's Console. Open DevTools with the F12 key (when the browser is in focus) and click the Console tab, then go back and reproduce the issue. Take a screen capture of the Console and paste it along with your report.<br/><br/>Feel free to also include screen captures of the app itself if there is anything relevant you wish to show to developers.<br/><br/>![image](https://user-images.githubusercontent.com/13994516/63112941-c18e4380-bf91-11e9-95e2-6fb064d5aead.png)
+**3.** If there are no similar issues, then open a new one. Do your best to describe the problem as thoroughly as possible.<br/><br/>Developers will be interested in knowing how to reproduce the issue in their systems, so please describe the process that leads to the issue as clearly as possible. Capturing a GIF video showing the steps that lead to the issue would be of great help! [LICEcap](https://www.cockos.com/licecap/) is a lightweight, simple app that can help you with that. If developers can reproduce the issue, half of the problem is solved already.<br/><br/>If the issue seems to happen under specific conditions, you might want to share your _Definitions_ with developers. To do this, go to the Definitions element in your workspace and select _Share_ in the menu. A file containing your strategy and other parameters, but NOT your API keys, will download to your browser's download folder. Upload this file to the issue only if you feel comfortable with sharing it openly. If not, then wait for developers to contact you.<br/><br/>Please make sure you enable Github notifications when someone responds to the issue, as developers may want to ask questions.<br/><br/>If the issue happens while using the app at the browser, then please include a screen capture of Chrome's Console. Open DevTools with the F12 key (when the browser is in focus) and click the Console tab, then go back and reproduce the issue. Take a screen capture of the Console and paste it along with your report.<br/><br/>Feel free to also include screen captures of the app itself if there is anything relevant you wish to show to developers.<br/><br/>![image](https://user-images.githubusercontent.com/13994516/63112941-c18e4380-bf91-11e9-95e2-6fb064d5aead.png)
 
 # Technical Overview
 

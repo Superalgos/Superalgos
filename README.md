@@ -961,11 +961,13 @@ All workspaces in the ```Quick-Start-Examples``` folder include the Superalgos N
 
 * **Keep Datasets Up-to-Date:** This task manager has several tasks, each controlling one of the bots required to keep the datasets in your machine up to date, including both sensors and indicators. If you wish to have the data up-to-date, you need to *Start All Tasks* using the menu. This is also a pre-requisite for trading live, doing paper-trading and forward testing.
 
+![Network-01-Keep-Datasets-Up-to-Date](https://user-images.githubusercontent.com/13994516/67271884-be489400-f4bb-11e9-94d6-46a7244186d6.gif)
+
 * **Tests & Live Trading:** This is the task manager you will use to run the trading engine so that you can set up your backtesting, paper-trading, forward testing and live testing sessions. In our templates, you will always find at least two tasks, so that you may run live-trading sessions isolated from your tests. This means that you will run one instance of the trading engine for live-trading and any number of instances of the trading engine for your testing sessions.
 
-[ILLUSTRATION]
+![Network-02-Tests-Live-Trading](https://user-images.githubusercontent.com/13994516/67272045-0bc50100-f4bc-11e9-82b2-5f7c565e73e6.gif)
 
-> **PRO TIP:** The [Getting Started Guide](#getting-started-guide) instructed you to start all tasks on both of these task managers. However, once you become familiar with the app, you may want to start only individual tasks according to your specific needs.
+> **PRO TIP:** The [Getting Started Guide](#getting-started-guide) instructed you to start all tasks on the *Keep Datasets Up-to-Date* task manager, but only the required task to start a backtesting session on the *Tests & Live Trading* task manager. Once you become proficient with the app, you may want to start only individual tasks according to your specific needs.
 
 # Testing and Simulations
 
@@ -985,11 +987,11 @@ As explained in the previous chapter, the trading engine is the bot that handles
 
 **To run a testing session, you will set up the session under a process of the trading engine and click *Run* on its menu.**
 
-[ILLUSTRATION]
+![Network-03-Running-Backtest](https://user-images.githubusercontent.com/13994516/67272210-68c0b700-f4bc-11e9-8eb2-04a253451932.gif)
 
 For your convenience, all our templates in the ```Quick-Start-Examples``` folder come with at least one backtesting and one paper-trading session set up. All you need to do is customize the *parameters* to your liking and, if you wish, add or remove layers to the *layer manager*, both child elements of each testing session.
 
-[ILLUSTRATION]
+![Network-04-Parameters](https://user-images.githubusercontent.com/13994516/67272211-68c0b700-f4bc-11e9-82c4-570699faa673.gif)
 
 ## Parameters
 
@@ -1186,11 +1188,11 @@ The *Trades* layer marks trades with a triangle whose hypotenuse connects the pr
 
 The app allows for having multiple testing sessions. You may add and work with multiple sessions by backing up the existing session at the level of the process. Then drop the backup on the workspace, attach it to the trading engine and give the new session a new name.
 
+![Network-05-Multiple-Backtests](https://user-images.githubusercontent.com/13994516/67272829-90644f00-f4bd-11e9-9559-3f01233ecee8.gif)
+
 The number of backtesting sessions you may run simultaneously is capped by your machine's capacity. Current tests indicate that a dual-core processor at 2.4GHz may process up to 5 sessions at the same time without compromising the machine's performance.
 
 Running more sessions than the optimal number your machine may process efficiently may result in the sessions taking more time to process than if they were run in a sequence.
-
-[ILLUSTRATION]
 
 ### Testing Logic Variations
 
@@ -1198,15 +1200,11 @@ Being able to run multiple backtesting sessions allows you to speed up the strat
 
 For instance, you may want to check how different variations of a condition in the *take position event* affect the results. To tests all variations at the same time, you would:
 
-1. Replicate a backtesting session backing up the corresponding *process* element (along with its children) and dropping the backup on your workspace, as many times as you require, [attaching it](#detachment-and-attachment-of-elements) to an available trading engine.
+**1.** Replicate a backtesting session backing up the corresponding *process* element (along with its children) and dropping the backup on your workspace, as many times as you require, [attaching it](#detachment-and-attachment-of-elements) to an available trading engine.
 
-[ILLUSTRATION]
+**2.** Rename each backtesting session with a significant name that is related to the different variations of the condition you wish to test.
 
-2. Rename each backtesting session with a significant name that is related to the different variations of the condition you wish to test.
-
-[ILLUSTRATION]
-
-3. Set up the first variation of the condition and run the corresponding backtesting session. Replace the first variation with the second one, and launch the second backtesting session. Repeat as many times as desired.
+**3.** Set up the first variation of the condition and run the corresponding backtesting session. Replace the first variation with the second one, and launch the second backtesting session. Repeat as many times as desired.
 
 ### Testing on Non-Linear Date Ranges
 

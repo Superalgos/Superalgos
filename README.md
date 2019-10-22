@@ -404,6 +404,8 @@ Notice the following three elements relative to the position of the mouse pointe
 2. To the right, the current rate. This is the rate (in this case USDT per BTC) at the mouse pointer position.
 3. Below, the current time period (or candle size if you wish). This is the currently displayed time period—not only for candles but for any other object plotted across available layers.
 
+![Charts-01-Main-Elements](https://user-images.githubusercontent.com/13994516/67268983-141a3d80-f4b6-11e9-96cc-c0dc3d9188f7.gif)
+
 ## Navigation
 
 ### Using your Mouse
@@ -449,42 +451,41 @@ The Superalgos Desktop App is an open system, meaning anyone can build layers fo
 
 Typical candlesticks.
 
-![Candles](https://user-images.githubusercontent.com/13994516/58435905-1a50ed00-80c3-11e9-860a-bb4afc8e0f42.gif)
+![Charts-03-Layers-Candles](https://user-images.githubusercontent.com/13994516/67269992-0a91d500-f4b8-11e9-9c67-a2bf3607d913.gif)
 
 #### Volumes
 
 We innovated a bit placing the buy volume at the bottom (in green), and the sell volume at the top (in red).
 
-![Volumes](https://user-images.githubusercontent.com/13994516/58435907-1ae98380-80c3-11e9-90e5-de9052b166c4.gif)
+![Charts-04-Layers-Volumes](https://user-images.githubusercontent.com/13994516/67269993-0b2a6b80-f4b8-11e9-8951-a1fbf12652b8.gif)
 
 #### Candle Stairs Patterns
 
 This is an unusual pattern proving any data set may be plotted on the charts (and by extension, that anything can be added to the system). A Stair Pattern is defined as a set of candles going in the same direction, either up or down. You can think of these patterns as "Candle Channels", as they represent channels with an up or down direction based on underlying candles direction.
 
-![Candle-Stairs](https://user-images.githubusercontent.com/13994516/58435906-1ae98380-80c3-11e9-893e-1f8cd1b5c925.gif)
+![Charts-05-Layers-Candle-Stairs](https://user-images.githubusercontent.com/13994516/67270464-05815580-f4b9-11e9-8a8d-7d18b8c470d7.gif)
 
 #### Volume Stairs Patterns
 
 A similar concept, this time with volumes. Whenever a sequence of volume bars is found where each one is bigger than the previous one, they are bundled together in a "Stair". The same applies when they are going down (the next is smaller than the previous one). For a trading bot, this serves to identify if sell or buy volumes are rising or declining.
 
-![Volume-Stairs](https://user-images.githubusercontent.com/13994516/58435908-1ae98380-80c3-11e9-8c0d-87a105b4e021.gif)
+![Charts-06-Layers-Volume-Stairs](https://user-images.githubusercontent.com/13994516/67270466-0619ec00-f4b9-11e9-8f62-8c227696c0fc.gif)
 
 #### Bollinger Bands
 
 This is the traditional [Bollinger Bands indicator](https://en.wikipedia.org/wiki/Bollinger_Bands). Bollinger Bands have a moving average, in our case calculated with the last 20 periods (the line in the middle of the bands). We are plotting the moving average with one color when it is going up, and with a different color when it's going down. The upper band is at 2 Standard Deviations from the moving average, pretty much like the lower band, also at 2 Standard Deviations. These are the most widely used Bollinger Bands settings.
 
-![Bollinger-Bands](https://user-images.githubusercontent.com/13994516/58435901-1a50ed00-80c3-11e9-853a-68d39ba7958b.gif)
+![Charts-07-Bollinger-Bands](https://user-images.githubusercontent.com/13994516/67270467-0619ec00-f4b9-11e9-9482-fbec44f0bf83.gif)
 
 #### Percentage Bandwidth (%B)
 
 This is a well-known indicator that derives from the Bollinger Bands. In a nutshell, it tells you how close the price is either to the upper band or the lower band at any point in time. When the price is in the middle of the bands (it is calculated with the close value of each candle), then %B is in the middle of its chart, at value 50. When the price touches the upper band, then %B is at 100, and finally when the price is at the lower band, then %B is at 0. 
 
-![Bollinger-Bands-Percentage-Bandwidth](https://user-images.githubusercontent.com/13994516/58435903-1a50ed00-80c3-11e9-90d5-e0d5293c76ad.gif)
-<br/><br/>
+![Charts-08-Percentage-Bandwidth](https://user-images.githubusercontent.com/13994516/67270468-0619ec00-f4b9-11e9-9dd5-e1def0d8c246.gif)
 
 The chart features lines at %B values 30 and 70 since those are the most common values for traders to forecast when a reversal may happen. In our chart, %B is the one represented at #1. We've found useful to add a moving average to smooth volatility a bit and to be able to ask—at any time—if it is going up or down. The moving average calculated with the last 5 %B values is plotted as line #2. Finally, we've also added a property called Bandwidth, which represents the separation of the upper band from the lower band. It is a measure of volatility and is plotted at #3.  
 
-![image](https://user-images.githubusercontent.com/9479367/56834223-1c7c1d80-6871-11e9-9687-ae5dc12d0336.png)
+![Charts-09-Percentage-Bandwidth-Lines](https://user-images.githubusercontent.com/13994516/67270469-0619ec00-f4b9-11e9-8334-135bb54db1bf.gif)
 
 #### Bollinger Channels
 

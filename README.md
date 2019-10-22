@@ -196,7 +196,7 @@ You may extract/unpack the files in any location of your drive, however, we reco
 
 **3. Download the Data Package**:
 
-For your convenience and [the reasons explained](https://superalgos.org/tools-superalgos-desktop-app.shtml#expectations) in the Superalgos Desktop App page on the website, we maintain a downloadable market-data file that you can download, so that you may be up and running as quickly as possible.
+For your convenience and [the reasons explained above](#setting-the-right-expectations) in the Superalgos Desktop App page on the website, we maintain a downloadable market-data file that you can download, so that you may be up and running as quickly as possible.
 
 Go to the [latest Data release](https://github.com/Superalgos/DesktopApp/releases/tag/data.poloniex.btc.usdt.2019.10.05) and download ```Poloniex.BTC.USDT.Historic.Data.zip```.
 

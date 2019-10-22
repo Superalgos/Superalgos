@@ -1138,39 +1138,41 @@ The layer manager allows you to determine which visualization layers will be ava
 
 Back on the charts, the following layers plot strategies' actions over the market data, providing a comprehensive set of visual clues showing how strategies would behave when trading.
 
+> **NOTE:** The examples below illustrate the [*Weak-hands Buster*](https://github.com/Superalgos/Strategy-BTC-WeakHandsBuster) strategy, designed to sell BTC as prices start dropping and re-buy BTC as prices stabilize at a lower level.
+
 ### Simulation
 
 The *Simulation* layer displays the actions of strategies throughout the tested period. Actions include the *take position event* and the management of *stop* and *take profit* in phases. By activating the Simulation layer you should be able to see something like this:
 
-![Trading-Simulation](https://user-images.githubusercontent.com/13994516/58564550-6c158680-822d-11e9-8bb1-102912d4bfd0.gif)
-<br/><br/>
+![Simulation-Layers-01-Simulation-1](https://user-images.githubusercontent.com/13994516/67279788-040d5880-f4cc-11e9-9098-11496fac9c79.gif)
 
 Notice Asset Balances in the bottom left corner of the screen. Asset A represents BTC while Asset B represents USDT.
 
-![Trading-Simulation-Asset-Balances](https://user-images.githubusercontent.com/13994516/58564447-3e304200-822d-11e9-9e90-e4f02212de5a.gif)
-<br/><br/>
+![Simulation-Layers-02-Simulation-2](https://user-images.githubusercontent.com/13994516/67279789-040d5880-f4cc-11e9-9124-9076273e6dfd.gif)
 
 > **NOTE:** For the time being, asset balances displayed on-screen correspond to the Simulation layer that was turned on last.
 
 The dashed line represents the duration of the trade at the price of the _take position_ event. Notice how one asset is exchanged for the other asset at the take position event, and exchanged back as the trade closes.
 
-![Trading-Simulation-Trade-Duration](https://user-images.githubusercontent.com/13994516/58564452-3ec8d880-822d-11e9-8b4e-4cd892df69e7.gif)
-<br/><br/>
+![Simulation-Layers-03-Simulation-3](https://user-images.githubusercontent.com/13994516/67279791-040d5880-f4cc-11e9-9cac-db42c419ca0c.gif)
 
 Notice the green horizontal lines indicating the _take profit_ value for each period (candle). _Take profit_ is managed in _phases_, marked with the corresponding icons.
 
-![Trading-Simulation-Take-Profit](https://user-images.githubusercontent.com/13994516/58564451-3ec8d880-822d-11e9-84c4-7e2147018297.gif)
-<br/><br/>
+![Simulation-Layers-04-Simulation-4](https://user-images.githubusercontent.com/13994516/67279792-040d5880-f4cc-11e9-8487-cf390d78da92.gif)
 
 Notice the red horizontal lines indicating the _stop_ value for each period (candle). *Stop* is managed in _phases_ marked with the corresponding icons.
 
-![Trading-Simulation-Stop](https://user-images.githubusercontent.com/13994516/58564450-3e304200-822d-11e9-8281-cc4b9cc22746.gif)
+![Simulation-Layers-05-Simulation-5](https://user-images.githubusercontent.com/13994516/67279793-04a5ef00-f4cc-11e9-8ac1-32e98762bf5b.gif)
 
 ### Formulas and Conditions
 
 The *Formulas and Conditions* layer helps identify which conditions are met at each candle. Notice how conditions are highlighted as the mouse pointer moves through different candles.
 
-![Trading-Simulation-Conditions](https://user-images.githubusercontent.com/13994516/58564448-3e304200-822d-11e9-967b-8c74fb8532fe.gif)
+![Simulation-Layers-06-Conditions](https://user-images.githubusercontent.com/13994516/67279794-04a5ef00-f4cc-11e9-9c53-cf5694701b50.gif)
+
+It also allows to track the value of each formula, for instance, those used to dynamically manage take profit in phases.
+
+![Simulation-Layers-07-Formulas](https://user-images.githubusercontent.com/13994516/67279796-053e8580-f4cc-11e9-8688-4fea62c1f40b.gif)
 
 ### Strategies
 

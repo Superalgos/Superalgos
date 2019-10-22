@@ -275,13 +275,13 @@ If you haven't yet, start by importing either ```Share - Workspace - Bull run ri
 | :---: | :---: | :---: | :---: |
 | ![text](https://user-images.githubusercontent.com/13994516/67235441-64a68200-f447-11e9-9a14-298f3cceb4f4.png) | ![network](https://user-images.githubusercontent.com/13994516/66855353-59ed7800-ef83-11e9-8de9-db40971faa7b.png) | ![network-node](https://user-images.githubusercontent.com/13994516/66855357-5a860e80-ef83-11e9-917d-95cd8394588b.png) |![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) |
 
-Open up the Designer section of the app by dragging the horizontal bar upwards. You may also use <kbd>Alt</kbd> + <kbd>&#8593;</kbd> in your keyboard .
+Open up the Designer section of the app by dragging the horizontal bar upwards. You may also use <kbd>Alt</kbd> + <kbd>&#8593;</kbd> in your keyboard.
 
 Now click and drag the dark background to pan towards the white semicircle in the bottom. That is your *definition*, which is the top level of the hierarchical structure the stores all the information you need to trade.
 
 ![Getting-Started-Guide-03-Move-to-Definition](https://user-images.githubusercontent.com/13994516/67234224-0d071700-f445-11e9-8c77-b00c0d4a39d1.gif)
 
-Now follow the dotted line to the left. You will find the *Superalgos Network* element, and further down the line, you will find the *Node* element. Then there is a fork, with one line going down and left, and another going up and left. Follow the one going down until you reach the *Task Manager* element. Hover the mouse pointer over the element and click *Run All Tasks* on the menu. Notice the name of the Task Manager showing on top of the icon when you hover you mouse: "*Keep Datasets Up-to-Date*"
+Now follow the dotted line to the left. You will find the *Superalgos Network* element, and further down the line, you will find the *Node* element. Then there is a fork, with one line going down and left, and another going up and left. Follow the one going down until you reach the *Task Manager* element. Hover the mouse pointer over the element and click *Run All Tasks* on the menu. Notice the name of the Task Manager showing on top of the icon when you hover your mouse: "*Keep Datasets Up-to-Date*"
 
 ![Getting-Started-Guide-04-Task-Manager-1](https://user-images.githubusercontent.com/13994516/67234227-0d9fad80-f445-11e9-988d-deb6f3405950.gif)
 
@@ -322,7 +322,7 @@ If you are not at the 1 hr time period use the wheel of your mouse while pointin
 
 ![Getting-Started-Guide-07-Zoom-In](https://user-images.githubusercontent.com/13994516/67237088-d7fdc300-f44a-11e9-8ae5-d3fd394ffc22.gif)
 
-Now go the *Layers Panel* on the left-hand side of the screen and use the wheel of you mouse to scroll down until you find the Layers named "*BCK Test 2019*, and turn them on with a single click on each.
+Now go the *Layers Panel* on the left-hand side of the screen and use the wheel of your mouse to scroll down until you find the Layers named "*BCK Test 2019*, and turn them on with a single click on each.
 
 ![Getting-Started-Guide-08-Turn-on-Layers](https://user-images.githubusercontent.com/13994516/67237090-d8965980-f44a-11e9-86ba-3eb1e6980ae2.gif)
 

@@ -1247,8 +1247,7 @@ In the case of forward testing you will want to configure what is the percentage
 ```
 {"balancePercentage": 1}
 ```
-
-[ILLUSTRATION]
+![Live-Trading-02-Forward-Testing-Config](https://user-images.githubusercontent.com/13994516/67281056-e42b6400-f4ce-11e9-9f95-2a17b20db0c5.gif)
 
 The number you enter is applied as a percentage of *balanceAssetA* or *balanceAssetB* (for BTC and USDT-based strategies respectively) to obtain the forward-testing balance that will be available to the *positionSize* formula you defined on the [Open Stage](#open-stage) of the strategy.
 
@@ -1436,7 +1435,7 @@ If you are running the app for the first time or you stopped running the app for
 
 To update your datasets until the present time, you need to *Run All Tasks* in your *Keep Datasets Up-to-Date* task manager, as explained on the [Task Manager, Tasks, Bots and Processes](#task-manager-tasks-bots-and-processes) section, and allow enough time for the processes to go through the missing data.
 
-[ILLUSTRATION]
+![Troubleshooting-01-Start-all-tasks](https://user-images.githubusercontent.com/13994516/67281294-5b60f800-f4cf-11e9-8f22-27655ec9e2a6.gif)
 
 # Reporting Bugs
 
@@ -1591,7 +1590,7 @@ YourName - 3e139ae2-138c-42ac-99d6-e0cf9c7c6ee6
 
 If you wish to know which ID corresponds to a certain session without defining a custom name, you may obtain it by clicking <kbd>Ctrl</kbd> + <kbd>.</kbd> while hovering the mouse pointer over the target session element.
 
-[ILLUSTRATION]
+![Session-ID](https://user-images.githubusercontent.com/13994516/67281472-c1e61600-f4cf-11e9-85dc-d81d7b2d014b.gif)
 
 > **NOTE:** Replace <kbd>Ctrl</kbd> with <kbd>Command</kbd> in Mac systems.
 

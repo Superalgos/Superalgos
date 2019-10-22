@@ -230,11 +230,13 @@ If you are on Mac, use the Finder app to go to the ```Superalgos Desktop App``` 
 
 If you are on Linux, open a Terminal / Console, go to the ```Superalgos Desktop App``` folder, type ```node run``` and hit *Enter*.
 
-![Getting-Started-Guide-01-App-Launch](https://user-images.githubusercontent.com/13994516/67231207-2907ba00-f43f-11e9-83e8-e36cc844b0eb.gif)
-
 This is what you should see in your console after running the ```node run``` command:
 
 ![Consolo-start-up](https://user-images.githubusercontent.com/13994516/67315449-e6111980-f506-11e9-8988-96e61dc7f497.PNG)
+
+Also, your browser should load the app and show a the following screen:
+
+![Getting-Started-Guide-01-App-Launch](https://user-images.githubusercontent.com/13994516/67231207-2907ba00-f43f-11e9-83e8-e36cc844b0eb.gif)
 
 **2. Drag and drop an example workspace**: 
 

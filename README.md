@@ -365,8 +365,8 @@ Use the control in the center of the turquoise bar to pull the bar up and down t
 
 You may also use your keyboard as follows:
 
-**1.** <kbd>Alt</kbd> + <kbd>&#8593;</kbd> to close the Charts and open the Designer.
-**1.** <kbd>Alt</kbd> + <kbd>&#8595;</kbd> to close the Designer and open the Charts.
+1. <kbd>Alt</kbd> + <kbd>&#8593;</kbd> to close the Charts and open the Designer.
+1. <kbd>Alt</kbd> + <kbd>&#8595;</kbd> to close the Designer and open the Charts.
 
 ![Overview-01-Separator](https://user-images.githubusercontent.com/13994516/67267448-9d2f7580-f4b2-11e9-8f5c-123f8b0f360b.gif)
 
@@ -401,9 +401,9 @@ The layer title bar can have 3 possible background colors:
 
 Notice the following three elements relative to the position of the mouse pointer:
 
-1. Above, the current datetime. This is the date and time at the mouse pointer position.
-2. To the right, the current rate. This is the rate (in this case USDT per BTC) at the mouse pointer position.
-3. Below, the current time period (or candle size if you wish). This is the currently displayed time period—not only for candles but for any other object plotted across available layers.
+**1.** Above, the current datetime. This is the date and time at the mouse pointer position.
+**2.** To the right, the current rate. This is the rate (in this case USDT per BTC) at the mouse pointer position.
+**3.** Below, the current time period (or candle size if you wish). This is the currently displayed time period—not only for candles but for any other object plotted across available layers.
 
 ![Charts-01-Main-Elements](https://user-images.githubusercontent.com/13994516/67268983-141a3d80-f4b6-11e9-96cc-c0dc3d9188f7.gif)
 

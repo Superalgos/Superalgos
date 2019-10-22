@@ -402,7 +402,9 @@ The layer title bar can have 3 possible background colors:
 Notice the following three elements relative to the position of the mouse pointer:
 
 **1.** Above, the current datetime. This is the date and time at the mouse pointer position.
+
 **2.** To the right, the current rate. This is the rate (in this case USDT per BTC) at the mouse pointer position.
+
 **3.** Below, the current time period (or candle size if you wish). This is the currently displayed time period—not only for candles but for any other object plotted across available layers.
 
 ![Charts-01-Main-Elements](https://user-images.githubusercontent.com/13994516/67268983-141a3d80-f4b6-11e9-96cc-c0dc3d9188f7.gif)

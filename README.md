@@ -391,9 +391,11 @@ The *Superalgos Protocol* (also referred to as the _protocol_) determines the st
 This panel includes different layers you may visualize by toggling them on and off with a single mouse click.
 The layer title bar can have 3 possible background colors:
 
-1. **Red**: the layer is off.
-2. **Green**: the layer is on.
-3. **Yellow**: the layer is loading; if it stays yellow, it means it can't load fully.
+**1. Red**: the layer is off.
+
+**2. Green**: the layer is on.
+
+**3. Yellow**: the layer is loading; if it stays yellow, it means it can't load fully.
 
 ![Overview-04-Layers](https://user-images.githubusercontent.com/13994516/67267950-a836d580-f4b3-11e9-931b-81c8dff088ac.gif)
 
@@ -636,9 +638,11 @@ Elements may be attached only to conceptually related parents. For instance, a *
 
 You may define shortcuts for frequently-used elements with the following procedure:
 
-1. Hover the mouse pointer over the target element until the menu opens up.
-1. Click <kbd>Ctrl</kbd> + your preferred key to assign the shortcut.
-1. A sign will appear below the element confirming the assignation of the shortcut.
+**1.** Hover the mouse pointer over the target element until the menu opens up.
+
+**1.** Click <kbd>Ctrl</kbd> + your preferred key to assign the shortcut.
+
+**1.** A sign will appear below the element confirming the assignation of the shortcut.
 
 > **NOTE:** For Mac users, replace <kbd>Ctrl</kbd> with <kbd>Command</kbd>
 

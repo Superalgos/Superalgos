@@ -157,7 +157,7 @@ However, bear in mind that the app is at an early stage of development and that 
 
 **This *Getting Started Guide* will quickly show you the very basics of the app so that you can rapidly grasp the app's potential. It will take you through a sequence of instructions that you need to follow to download and install the app, run it for the first time, import an existing strategy and run your first backtest.**
 
-> Bear in mind that the app evolves fast. We do our best to keep this README up to date, however, some of the images illustrating these explanations may defer from what you will find in the app.
+> **NOTE:** Bear in mind that the app evolves fast. We do our best to keep this README up to date, however, some of the images illustrating these explanations may defer from what you will find in the app.
 
 > **WARNING: The Superalgos Desktop App is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you forward test with small amounts of money, the kind you can afford losing. Trade live at your own risk.**
 
@@ -173,11 +173,12 @@ You should end up with the following folder structure:
 
 ![image](https://user-images.githubusercontent.com/13994516/65512836-56158b00-deda-11e9-8d81-0dcd79efb480.png)
 
-> Make sure the data ended up as the ```Data-Storage``` folder, right inside the ```Superalgos Desktop App``` root folder.
+
+> **NOTE:** Make sure the data ended up as the ```Data-Storage``` folder, right inside the ```Superalgos Desktop App``` root folder.
 
 **2. Continue with [Running the App](#running-the-app)**
 
-> NOTE FOR DEVELOPERS: Instead of using the executable file to run the app, you may want to use ```node run``` from within the root ```Superalgos Desktop App``` folder, to run on your full Node Js installation.
+> **NOTE FOR DEVELOPERS:** Instead of using the executable file to run the app, you may want to use ```node run``` from within the root ```Superalgos Desktop App``` folder, to run on your full Node Js installation.
 
 ## Initial Setup: The Extended Version for Regular Folks
 
@@ -215,7 +216,7 @@ You should end up with the following folder structure:
 
 ![image](https://user-images.githubusercontent.com/13994516/65512836-56158b00-deda-11e9-8d81-0dcd79efb480.png)
 
-> Make sure the data ended up as the ```Data-Storage``` folder, right inside the ```Superalgos Desktop App``` root folder.
+> **NOTE:** Make sure the data ended up as the ```Data-Storage``` folder, right inside the ```Superalgos Desktop App``` root folder.
 
 ### Running the App
 
@@ -243,7 +244,7 @@ The app will load on your default browser. You should either [set Chrome as your
 
 Also, a Console/Command Line/Terminal window will open. The Console must be open for as long as the app is running. Do not close the window or stop the processes running on it. You may minimize the Console if your Operating System allows you to do so.
 
-> Closing the Console/Command Line may cause your market data to become corrupt. The proper way of closing the application is closing your browser first, and allow a minute for processes to stop before closing the Console.
+> **NOTE:** Closing the Console/Command Line may cause your market data to become corrupt. The proper way of closing the application is closing your browser first, and allow a minute for processes to stop before closing the Console.
 
 Go to the ```Superalgos Desktop App/Quick-Start-Examples``` folder, drag your preferred example file and drop it on the _Designer_ (the area with a black background in the bottom half of the screen) to start with a working template.
 
@@ -364,18 +365,18 @@ Use the control in the center of the turquoise bar to pull the bar up and down t
 
 You may also use your keyboard as follows:
 
-1. <kbd>Alt</kbd> + <kbd>&#8593;</kbd> to close the Charts and open the Designer.
-1. <kbd>Alt</kbd> + <kbd>&#8595;</kbd> to close the Designer and open the Charts.
+**1.** <kbd>Alt</kbd> + <kbd>&#8593;</kbd> to close the Charts and open the Designer.
+**1.** <kbd>Alt</kbd> + <kbd>&#8595;</kbd> to close the Designer and open the Charts.
 
 ![Overview-01-Separator](https://user-images.githubusercontent.com/13994516/67267448-9d2f7580-f4b2-11e9-8f5c-123f8b0f360b.gif)
 
-> **Tip:** Pulling the bar to the very top of the screen causes the Charts to stop consuming resources in your machine, and gives you an ample view of the Designer.
+> **TIP:** Pulling the bar to the very top of the screen causes the Charts to stop consuming resources in your machine, and gives you an ample view of the Designer.
 
 The Designer allows you to manage your [Workspace](#workspace). The structure represented by the various icons nested in a hierarchy of elements is the representation of the logic behind your _strategies_.
 
 ![Overview-02-Workspace](https://user-images.githubusercontent.com/13994516/67267449-9d2f7580-f4b2-11e9-9ae8-1eb1355de07d.gif)
 
-> **Tip:** Pulling the bar to the very bottom of the screen causes the Designer to stop consuming resources from your machine, and offers a full-screen view of the Charts.
+> **TIP:** Pulling the bar to the very bottom of the screen causes the Designer to stop consuming resources from your machine, and offers a full-screen view of the Charts.
 
 The *_Charts_* shows indicators data along with the actions taken by strategies, integrated with market data.
 
@@ -586,7 +587,7 @@ You may also use the following key combinations on your keyboard:
 1. <kbd>Ctrl</kbd> + <kbd>&#8593;</kbd> to pan upwards.
 1. <kbd>Ctrl</kbd> + <kbd>&#8595;</kbd> to pan downwards.
 
-> For Mac users, replace <kbd>Ctrl</kbd> with <kbd>Command</kbd>
+> **NOTE:** For Mac users, replace <kbd>Ctrl</kbd> with <kbd>Command</kbd>
 
 ### Element's Menu
 
@@ -625,7 +626,7 @@ Elements in the workspace may be detached from its parent, carrying all children
 
 To detach an element, right-click on it and drag it away from the parent element. To attach an element, right-click on it and move it closer to the element you wish to attach it to. 
 
-> **NOTE**: Elements may not be detached or attached to frozen elements. You need to unfreeze them before attaching or detaching.
+> **NOTE:** Elements may not be detached or attached to frozen elements. You need to unfreeze them before attaching or detaching.
 
 Elements may be attached only to conceptually related parents. For instance, a *condition* may be attached to a *situation*, but it can not be attached to a *formula*.
 
@@ -637,7 +638,7 @@ You may define shortcuts for frequently-used elements with the following procedu
 1. Click <kbd>Ctrl</kbd> + your preferred key to assign the shortcut.
 1. A sign will appear below the element confirming the assignation of the shortcut.
 
-> **NOTE**: For Mac users, replace <kbd>Ctrl</kbd> with <kbd>Command</kbd>
+> **NOTE:** For Mac users, replace <kbd>Ctrl</kbd> with <kbd>Command</kbd>
 
 Repeat the same procedure to remove a shortcut.
 
@@ -760,7 +761,7 @@ Thanks to the implementation of the Superalgos Protocol, all strategies built wi
 
 You may import any element—formulas, conditions, situations, phases, stages, complete strategies, complete trading systems, and even complete workspaces—simply by dragging and dropping them on the workspace.
 
-![Designer-01-Drop-Workspace](https://user-images.githubusercontent.com/13994516/67271115-34e49200-f4ba-11e9-9309-e9e7046384a0.gif)Using an Existing Strategy
+![Designer-01-Drop-Workspace](https://user-images.githubusercontent.com/13994516/67271115-34e49200-f4ba-11e9-9309-e9e7046384a0.gif)
 
 ### Working with Multiple Strategies
 
@@ -789,7 +790,7 @@ If you wish to have multiple strategies that work independently of each other, t
 
 **candle.previous:** This refers to the previous candle. You may use _candle.previous_ to fetch any of the variables of the previous candle (i.e.: _candle.previous.close_). You may also use as many _.previous_ modifiers as required to fetch values of more than one period behind the current one (i.e.: _candle.previous.previous.max_ returns the maximum value of two candles before the current one).
 
-> Previous Property: The _.previous_ property is a property common to all indicators. You may use the property on each of the indicators in a similar way.
+> **NOTE:** Previous Property: The _.previous_ property is a property common to all indicators. You may use the property on each of the indicators in a similar way.
 
 ### Bollinger Bands
 
@@ -806,7 +807,7 @@ If you wish to have multiple strategies that work independently of each other, t
 
 **bollingerBand.previous:** Use _.previous_ like with candles (see _candle.previous_ above).
 
->Learn more about the [Bollinger Band](https://en.wikipedia.org/wiki/Bollinger_bands)
+> **NOTE:** Learn more about the [Bollinger Band](https://en.wikipedia.org/wiki/Bollinger_bands)
 
 ### Percentage Bandwidth
 
@@ -1001,7 +1002,7 @@ For your convenience, all our templates in the ```Quick-Start-Examples``` folder
 
 Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings.
 
-> If any of these parameters are missing from the configuration of the testing session, the app's fallback mechanism will look for the parameters at the trading system level and use those settings instead.
+> **NOTE:** If any of these parameters are missing from the configuration of the testing session, the app's fallback mechanism will look for the parameters at the trading system level and use those settings instead.
 
 We covered the *Base Asset* parameter when explaining [trading systems](#trading-system). Let's now review the rest.
 
@@ -1238,7 +1239,7 @@ Like with paper trading sessions, you only require a *finalDatetime*. If you do 
 }
 ```
 
-> The **Exchange Rate** and **Slippage** parameters do not affect forward testing or live trading. However, those parameters are taken into account when creating simulation layers, which are also available during forward-testing and live-trading.
+> **NOTE:** The **Exchange Rate** and **Slippage** parameters do not affect forward testing or live trading. However, those parameters are taken into account when creating simulation layers, which are also available during forward-testing and live-trading.
 
 **2. Forward Testing Session Configuration**
 
@@ -1356,7 +1357,7 @@ Had there been a stop somewhere in the range of the sudden price drop, chances a
 
 An additional limitation is that there currently is no feature to break up orders,  therefore, the size of your orders and the likeliness of them getting filled depend on the liquidity of the market/exchange.
 
-> **It is important that you fully understand the implications of these limitations if you are considering to trade live with the app at this stage, as you will need to adapt to the current state of affairs.**
+> **NOTE: It is important that you fully understand the implications of these limitations if you are considering to trade live with the app at this stage, as you will need to adapt to the current state of affairs.**
 
 ## Multiple Forward-Testing or Live-Trading Sessions within the Same Definition
 

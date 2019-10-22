@@ -439,7 +439,7 @@ To minimize a panel, click on the small triangle on the right of its title bar. 
 
 You may also drag and drop the panels by right-clicking on the title bar.
 
-![Panels](https://user-images.githubusercontent.com/13994516/58580610-d0e0d900-824d-11e9-8c57-501eb9429ba6.gif)
+![Charts-02-Panels](https://user-images.githubusercontent.com/13994516/67281843-a0d1f500-f4d0-11e9-85ad-9843219953b4.gif)
 
 ## Layers
 

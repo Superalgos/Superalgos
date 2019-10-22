@@ -356,7 +356,7 @@ If you have a version of the Superalgos Desktop App and wish to upgrade to a new
 
 # Overview
 
-> **Watch the [Superalgos Platform Quick Getting Started Guide](https://www.youtube.com/watch?v=_apiM49udL0) video for a quick intro. The video is slightly outdated in that the Superalgos Desktop App (the client version of the Platform) does not require a login and does not feature a menu on top. Otherwise, the content is still valid.**
+> **Watch the [Superalgos Platform Quick Getting Started Guide video](https://www.youtube.com/watch?v=_apiM49udL0) for a quick intro. The video is slightly outdated in that the Superalgos Desktop App (the client version of the Platform) does not require a login and does not feature a menu on top. Otherwise, the content is still valid.**
 
 The first time you run the app, you will see the following screen, split in half. The top half features the space used by the _Charts_ and the bottom half features the _Designer_.
 
@@ -367,22 +367,19 @@ You may also use your keyboard as follows:
 1. <kbd>Alt</kbd> + <kbd>&#8593;</kbd> to close the Charts and open the Designer.
 1. <kbd>Alt</kbd> + <kbd>&#8595;</kbd> to close the Designer and open the Charts.
 
-![Drag-Panels](https://user-images.githubusercontent.com/13994516/58413461-1ac49600-8079-11e9-9dd8-96f416e75b33.gif)
-<br/><br/>
+![Overview-01-Separator](https://user-images.githubusercontent.com/13994516/67267448-9d2f7580-f4b2-11e9-8f5c-123f8b0f360b.gif)
 
 > **Tip:** Pulling the bar to the very top of the screen causes the Charts to stop consuming resources in your machine, and gives you an ample view of the Designer.
 
 The Designer allows you to manage your [Workspace](#workspace). The structure represented by the various icons nested in a hierarchy of elements is the representation of the logic behind your _strategies_.
 
-![image](https://user-images.githubusercontent.com/13994516/58325421-f32bbe80-7e29-11e9-9478-9e6e4a02ae47.png)
-<br/><br/>
+![Overview-02-Workspace](https://user-images.githubusercontent.com/13994516/67267449-9d2f7580-f4b2-11e9-9ae8-1eb1355de07d.gif)
 
 > **Tip:** Pulling the bar to the very bottom of the screen causes the Designer to stop consuming resources from your machine, and offers a full-screen view of the Charts.
 
 The *_Charts_* shows indicators data along with the actions taken by strategies, integrated with market data.
 
-![image](https://user-images.githubusercontent.com/13994516/58325972-c37db600-7e2b-11e9-9aa2-9f6faaf8dd94.png)
-<br/><br/>
+![Overview-03-Charts](https://user-images.githubusercontent.com/13994516/67267949-a79e3f00-f4b3-11e9-9c0b-0c4aecf2d37d.gif)
 
 The *Superalgos Protocol* (also referred to as the _protocol_) determines the structure in which all the information regarding a trading system is stored and—at the same time—provides clear guidance on how traders using the various tools developed and distributed by the Superalgos Project shall create and automate their strategies.
 
@@ -397,7 +394,7 @@ The layer title bar can have 3 possible background colors:
 2. **Green**: the layer is on.
 3. **Yellow**: the layer is loading; if it stays yellow, it means it can't load fully.
 
-![Layers](https://user-images.githubusercontent.com/13994516/58434206-c04c2980-80ba-11e9-964b-8223ad99eb0b.gif)
+![Overview-04-Layers](https://user-images.githubusercontent.com/13994516/67267950-a836d580-f4b3-11e9-931b-81c8dff088ac.gif)
 
 ## Main Elements
 
@@ -421,7 +418,7 @@ There are many things you can do with your mouse wheel:
 1. Scroll on top of or next to the time period to change the time period to available values. 
 1. Scroll elsewhere over the chart to zoom in and out. The App will not only zoom in and out of the chart, but also automatically adjust the time period to the most convenient one (for the current zoom level).
 
-![Mouse-Wheel](https://user-images.githubusercontent.com/13994516/58434568-a01d6a00-80bc-11e9-9a58-3edd4852f07c.gif)
+![Overview-05-Mouse-Use](https://user-images.githubusercontent.com/13994516/67268341-7a9e5c00-f4b4-11e9-848d-c520b4a8f1ff.gif)
 
 ### Keyboard Navigation
 
@@ -431,6 +428,8 @@ When on the charts, you may use the following key combinations:
 1. <kbd>Shift</kbd> + <kbd>&#8594;</kbd> to pan to the right.
 1. <kbd>Shift</kbd> + <kbd>&#8593;</kbd> to pan upwards.
 1. <kbd>Shift</kbd> + <kbd>&#8595;</kbd> to pan downwards.
+
+![Overview-06-Keyboard-Navigation](https://user-images.githubusercontent.com/13994516/67268342-7b36f280-f4b4-11e9-956d-109c65fdd5ba.gif)
 
 ## Floating Panels
 

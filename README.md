@@ -491,13 +491,13 @@ The chart features lines at %B values 30 and 70 since those are the most common 
 
 This is a non-standard indicator derived from the Bollinger Bands. These types of channels are calculated using the Bollinger Bands moving average. Essentially an upward channel begins when the moving average changes _direction_ from going down to going up, and the channel finishes when it turns from going up to down. A downward channel starts when the Bollinger Band moving average turns from going up to down, and it finishes when it starts going up again. Upward channels are plotted in green, while downward channels in red. Additional information can be found at the indicator's panel, like the number of periods contained at the channel.
 
-![Bollinger-Channels](https://user-images.githubusercontent.com/13994516/58497359-146b1280-817c-11e9-9f4d-99fee41cd27f.gif)
+![Charts-10-Bollinger-Channels](https://user-images.githubusercontent.com/13994516/67271113-34e49200-f4ba-11e9-8365-070738856f2a.gif)
 
 #### Bollinger Sub-Channels
 
 If we consider that one Bollinger Channel can have sub-channels in the same direction (up or down) but different slopes, then we get to the concept of Bollinger Sub-Channels. The most important property of a sub-channel is its slope. The possible values are Side, Gentle, Medium, High and Extreme. With this information, a trading bot could easily ask if it is in a sub-channel with a certain slope and for how many periods. The slope or inclination of the moving average may be an indication of momentum.
 
-![Bollinger-Sub-Channels](https://user-images.githubusercontent.com/13994516/58497358-146b1280-817c-11e9-83df-219d0fffa9f0.gif)
+![Charts-11-Bollinger-SubChannels](https://user-images.githubusercontent.com/13994516/67271114-34e49200-f4ba-11e9-90c8-77623de1dd04.gif)
 
 # Designer
 
@@ -513,7 +513,7 @@ The hierarchy starts with a *definition*, which contains—among other things—
 
 Elements are bound to each other in a tree-like structure and tend to self-organize across the workspace. Dragging and dropping a sample workspace on the Designer is the fastest way to get started with the Superalgos Desktop App.
 
-![Designer-Drag-Drop](https://user-images.githubusercontent.com/13994516/63524115-b724fa00-c4fb-11e9-9894-48f62be71c02.gif)
+![Designer-01-Drop-Workspace](https://user-images.githubusercontent.com/13994516/67271115-34e49200-f4ba-11e9-9309-e9e7046384a0.gif)
 
 ## Workspace
 
@@ -760,7 +760,7 @@ Thanks to the implementation of the Superalgos Protocol, all strategies built wi
 
 You may import any element—formulas, conditions, situations, phases, stages, complete strategies, complete trading systems, and even complete workspaces—simply by dragging and dropping them on the workspace.
 
-![Designer-Drag-Drop](https://user-images.githubusercontent.com/13994516/63052820-a283a900-bee0-11e9-99b3-67273cba96a0.gif)
+![Designer-01-Drop-Workspace](https://user-images.githubusercontent.com/13994516/67271115-34e49200-f4ba-11e9-9309-e9e7046384a0.gif)Using an Existing Strategy
 
 ### Working with Multiple Strategies
 

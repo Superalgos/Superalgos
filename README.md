@@ -232,6 +232,10 @@ If you are on Linux, open a Terminal / Console, go to the ```Superalgos Desktop 
 
 ![Getting-Started-Guide-01-App-Launch](https://user-images.githubusercontent.com/13994516/67231207-2907ba00-f43f-11e9-83e8-e36cc844b0eb.gif)
 
+This is what you should see in your console after running the ```node run``` command:
+
+![Consolo-start-up](https://user-images.githubusercontent.com/13994516/67315449-e6111980-f506-11e9-8988-96e61dc7f497.PNG)
+
 **2. Drag and drop an example workspace**: 
 
 | Workspace |

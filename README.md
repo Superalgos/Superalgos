@@ -28,8 +28,6 @@ The following recommendations may make your life easier using this pre-release i
 
 # Setting the Right Expectations
 
-Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-superalgos-desktop-app.shtml#expectations) page to understand who this app is directed at, as well as what you can expect from the app in terms of user experience, current features and limitations.
-
 Beyond the list of [Current Features & Limitations](https://superalgos.org/tools-superalgos-desktop-app.shtml#features_limitations) you will find on the website, what you will get is a client application that runs entirely on users' machines. This is to fulfill the design principle of a trustless deployment: you don't need to trust any third party with your Strategies, API Keys, personal information, or funds.
 
 Traders rely on data sets for backtesting. The app retrieves raw trades data directly from exchanges and processes data to produce candles and a few indicators, which are stored in your local machine.

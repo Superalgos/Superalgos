@@ -1178,13 +1178,13 @@ It also allows to track the value of each formula, for instance, those used to d
 
 The *Strategies* layer identifies trigger on and trigger off events, signaling the activation and deactivation of strategies.
 
-![Trading-Simulation-Strategies](https://user-images.githubusercontent.com/13994516/58565955-fd85f800-822f-11e9-9f95-9d0a477a4460.gif)
+![Simulation-Layers-08-Strategies](https://user-images.githubusercontent.com/13994516/67280186-dd035680-f4cc-11e9-82e8-e52706749f5a.gif)
 
 ### Trades
 
 The *Trades* layer marks trades with a triangle whose hypotenuse connects the price at the _take position_ event with the _exit_ price. When the trade is profitable, the triangle is green; when the _exit_ happens at a loss, the triangle is red.
 
-![Trading-Simulation-Trades](https://user-images.githubusercontent.com/13994516/58574801-1a76f700-8241-11e9-9144-0db81636dace.gif)
+![Simulation-Layers-09-Trades](https://user-images.githubusercontent.com/13994516/67280187-dd9bed00-f4cc-11e9-93be-74b497d8f7b5.gif)
 
 ## Advanced Backtesting
 
@@ -1367,7 +1367,9 @@ This means that you will need to create a different API Key for each session you
 
 However, to let the app know which API Key you wish to use in each session, you will move the corresponding API Key from the *Personal Data* branch to the *parameters* of the session. Simply detach the API Key element from the *Exchange Account* element and re-attach it to the session's *parameters*.
 
-[ILLUSTRATION]
+Alternatively, you may backup the API Key, delete the original one at the *Personal Data* level, import the one you just backed up by dropping it next to the live-trading session, and attaching it to its parameters.
+
+![Live-Trading-Multiple-Keys](https://user-images.githubusercontent.com/13994516/67280790-3ae46e00-f4ce-11e9-9dc5-14de8c560de2.gif)
 
 > **NOTE:** If you don't specify which API Key to use at the session level, the app's fallback mechanism will look for an API Key at the level of the Personal Data element. If more than one forward-testing or live-trading session ends up using the same API Key, you should expect errors to occur.
 

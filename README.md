@@ -128,6 +128,7 @@ However, bear in mind that the app is at an early stage of development and that 
 * [Advanced Use](#advanced-use)
   * [Working with Multiple Definitions](#working-with-multiple-definitions)
 * [Troubleshooting](#troubleshooting)
+  * [My System Gets Slow](#my-system-gets-slow)
   * [On-screen Errors and Warnings](#on-screen-errors-and-warnings)
   * [Market Data / Indicators Seem to be Outdated](#market-data--indicators-seem-to-be-outdated)
 * [Reporting Bugs](#reporting-bugs)
@@ -1441,7 +1442,7 @@ You may also want to switch off the layers you may not be using. Remember, every
 
 **2. Freeze your definition**
 
-| Icon | Icon |
+| Definition | Freeze |
 | :---: | :---: |
 | ![text](https://user-images.githubusercontent.com/13994516/67425255-f513cc80-f5d7-11e9-976a-1a200dfada80.png) | ![menu-mobility-freeze](https://user-images.githubusercontent.com/13994516/63041051-39436c00-bec7-11e9-8194-7cdd113147e4.png) |
 

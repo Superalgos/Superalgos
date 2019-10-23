@@ -1427,6 +1427,28 @@ The two definitions work independently from each other, from within the same wor
 
 # Troubleshooting
 
+## My System Gets Slow
+
+Dynamically rendering all the visual features we use on the app tends to put a significant load on the machine's processor. Depending on your machine's capacity, this may result in the system getting slow and sometimes even unresponsive.
+
+If you experience such symptoms, there are several things you can do to mitigate them:
+
+**1. Display less data on the Charts**
+
+If you are zooming out too far in the horizontal time scale with too many candles on the screen, try zooming-in a bit or changing time periods so that candle density decreases.
+
+You may also want to switch off the layers you may not be using. Remember, every piece of graphical information you see on screen represents data your system is reading from your disk and processing to display in a visual environment.
+
+**2. Freeze your definition**
+
+| Icon | Icon |
+| :---: | :---: |
+| ![text](https://user-images.githubusercontent.com/13994516/67425255-f513cc80-f5d7-11e9-976a-1a200dfada80.png) | ![menu-mobility-freeze](https://user-images.githubusercontent.com/13994516/63041051-39436c00-bec7-11e9-8194-7cdd113147e4.png) |
+
+The physics that govern elements in the Designer help the hierarchical structure of information to self-organize. This comes at a cost in terms of processing power.
+
+You will find that freezing your definition, which in turn freezes all elements in the hierarchy, contributes to reducing the load in your CPU.
+
 ## On-screen Errors and Warnings
 
 It may happen that your simulation or live trading is not working as expected. The first thing to do in such a case is to look around within your workspace. Errors are signaled with a red circle surrounding the relevant element of the workspace. Hover the mouse pointer over the element and you should get a description of what is that is causing the unexpected behavior.

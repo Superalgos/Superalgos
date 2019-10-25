@@ -118,13 +118,17 @@ function newCanvas () {
       animation.initialize()
 
       thisObject.animation = animation
+      /* Low Level Infraestructure First */
+      animation.addCallBackFunction('System Event Handler Physics', systemEventHandler.physics)
 
+      /* Spcaces Physics */
       animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
       animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
       animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
       animation.addCallBackFunction('Strategy Space Physics', thisObject.strategySpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
 
+      /* Spcaces Drawing */
       animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
       animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground)
       animation.addCallBackFunction('Chart Space Draw', thisObject.chartSpace.draw)

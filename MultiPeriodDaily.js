@@ -1,4 +1,4 @@
-﻿exports.newMultiPeriodDaily = function newMultiPeriodDaily(bot, logger, COMMONS, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE) {
+﻿exports.newMultiPeriodDaily = function newMultiPeriodDaily(bot, logger, COMMONS, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -21,7 +21,6 @@
 
     let usertBot;
 
-    const FILE_STORAGE = require('./FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
     let bootstrappingTheProcess = false 
@@ -61,7 +60,10 @@
 
             }
 
-            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, fileStorage);
+            let COMMONS_MODULE = require("./IndicatorBotCommons")
+            let USER_BOT_MODULE = require("./IndicatorBotDaily")
+
+            usertBot = USER_BOT_MODULE.newIndicatorBotDaily(bot, logger, COMMONS_MODULE, UTILITIES, FILE_STORAGE);
             usertBot.initialize(dataDependencies, callBackFunction, pAssistant);
 
         } catch (err) {

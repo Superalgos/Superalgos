@@ -77,6 +77,8 @@ else {  // I use this section to debug in standalone mode.
     // olivia argument = '{"type":"Task","name":"Generates 1 min to 24 hs Candles & Volumes","bot":{"type":"Indicator","name":"Olivia","processes":[{"type":"Process","name":"Daily","code":{"team":"AAMasters","bot":"AAOlivia","process":"Multi-Period-Daily"},"id":"68cc8e1b-e94a-477e-82d0-15ecc9f1b9e2"},{"type":"Process","name":"Market","code":{"team":"AAMasters","bot":"AAOlivia","process":"Multi-Period-Market"},"id":"e1ac5e3d-d491-4e90-baf4-d4e5b71a8b1a"}]},"id":"efe36e05-75ea-41b5-8d92-c6b27635c834"}'
     // bruce argument = ' {"type":"Task","name":"Converts Trades into 1 min Candles & Volumes","bot":{"type":"Indicator","name":"Bruce","processes":[{"type":"Process","name":"New Process","code":{"team":"AAMasters","bot":"AABruce","process":"Single-Period-Daily"},"id":"e184744f-5de0-41c1-ad4c-36960f4ced90"}]},"id":"42758590-a7bd-4712-a5c9-80a3a820c5b3"}'
     */
+    argument = '{"type":"Task","name":"Generates Bollinger Channels & Sub-Channels","bot":{"type":"Indicator","name":"Paula","code":{"team":"AAMasters","bot":"AAPaula"},"processes":[{"type":"Process","subType":"Indicator Process","name":"Daily","code":{"process":"Multi-Period-Daily"},"id":"81f0108b-8af9-4b22-94dd-81ef4a5c8065"},{"type":"Process","subType":"Indicator Process","name":"Market","code":{"process":"Multi-Period-Market"},"id":"6ddd81e2-d6db-4814-9c6c-96538a74824c"}],"id":"27564838-24b1-4814-af8c-ec65accb05d1"},"id":"aa0f2533-460c-464f-ad77-6ae4cadd1178"}'
+    
     try {
         global.TASK_NODE = JSON.parse(argument)
     } catch (err) {

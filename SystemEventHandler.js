@@ -100,8 +100,10 @@ function newSystemEventHandler () {
   function physics () {
     if (WEB_SOCKETS_CONNECTION !== undefined) {
       if (WEB_SOCKETS_CONNECTION.readyState === 3) { // Connection closed. May happen after computer goes to sleep.
-        setuptWebSockets()
-        if (INFO_LOG === true) { logger.write('[INFO] setuptWebSockets -> Found Web Sockets Connection Closed. Reconnected to WebSockets Server.') }
+        setuptWebSockets(onOpen)
+        function onOpen () {
+          if (INFO_LOG === true) { logger.write('[INFO] setuptWebSockets -> Found Web Sockets Connection Closed. Reconnected to WebSockets Server.') }
+        }
       }
     }
   }
@@ -119,10 +121,6 @@ function newSystemEventHandler () {
         if (callBackFunction !== undefined) {
           callBackFunction()
         }
-      }
-      WEB_SOCKETS_CONNECTION.onclose = () => {
-        setTimeout(setuptWebSockets, 1000)
-        if (INFO_LOG === true) { logger.write('[INFO] setuptWebSockets -> Web Sockets Connection was Closed. Reconnected to WebSockets Server. ') }
       }
       WEB_SOCKETS_CONNECTION.onmessage = e => {
         // console.log('Websoked Message Received: ' + e.data)

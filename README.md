@@ -1426,6 +1426,8 @@ You would usually work with each definition on separate workspaces. If you wish 
 
 The two definitions work independently from each other, from within the same workspace. To trade live with both definitions at the same time, make sure you have a different API Keys configured in each definition, and run one live trading session on each of the definitions.
 
+You may delete the "Keep Data Up-toDate" task manager from the second definition to avoid running duplicate instances of the processes handling sensors and indicators.
+
 # Troubleshooting
 
 ## My System Gets Slow

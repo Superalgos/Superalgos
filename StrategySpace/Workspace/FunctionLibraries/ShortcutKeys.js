@@ -547,7 +547,7 @@ function newShortcutKeys () {
           return
         }
       }
-      case 'Sensor': {
+      case 'Sensor Bot Instance': {
         let child
         for (let m = 0; m < node.processes.length; m++) {
           child = getNodeByShortcutKey(node.processes[m], searchingKey)

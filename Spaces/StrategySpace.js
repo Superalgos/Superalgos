@@ -49,7 +49,7 @@ function newStrategySpace () {
       ['Layer', 'attractive'],
       ['Task Manager', 'task'],
       ['Task', 'timeline'],
-      ['Sensor', 'bot-sensor'],
+      ['Sensor Bot Instance', 'bot-sensor'],
       ['Indicator', 'bot-indicator'],
       ['Trading Engine', 'trading-engine'],
       ['Process', 'process'],

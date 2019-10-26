@@ -465,8 +465,8 @@ function newPartsFromNodes () {
         }
         return
       }
-      case 'Sensor': {
-        createPart('Sensor', node.name, node, parentNode, chainParent, 'Sensor')
+      case 'Sensor Bot Instance': {
+        createPart('Sensor Bot Instance', node.name, node, parentNode, chainParent, 'Sensor Bot Instance')
         for (let m = 0; m < node.processes.length; m++) {
           let process = node.processes[m]
           createPartFromNode(process, node, node)
@@ -492,7 +492,7 @@ function newPartsFromNodes () {
       case 'Process': {
         if (parentNode !== undefined) {
           switch (parentNode.type) {
-            case 'Sensor': {
+            case 'Sensor Bot Instance': {
               node.subType = 'Sensor Process'
               break
             }
@@ -679,7 +679,7 @@ function newPartsFromNodes () {
         processes: [],
         code: '{}'
       }
-      createPart('Sensor', '', node.bot, node, node)
+      createPart('Sensor Bot Instance', '', node.bot, node, node)
     }
     return node.bot
   }
@@ -713,7 +713,7 @@ function newPartsFromNodes () {
     }
 
     switch (node.type) {
-      case 'Sensor': {
+      case 'Sensor Bot Instance': {
         process.subType = 'Sensor Process'
         process.name = 'Sensor Process'
         break

@@ -38,7 +38,7 @@ function newNodeChildren () {
       case 'Task': {
         return countChildrenTask(parentNode, childNode)
       }
-      case 'Sensor': {
+      case 'Sensor Bot Instance': {
         return countChildrenSensor(parentNode, childNode)
       }
       case 'Indicator': {

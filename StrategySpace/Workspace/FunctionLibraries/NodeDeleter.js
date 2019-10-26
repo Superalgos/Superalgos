@@ -101,7 +101,7 @@ function newNodeDeleter () {
             deleteTask(rootNode, rootNodes)
             break
           }
-          case 'Sensor': {
+          case 'Sensor Bot Instance': {
             deleteBot(rootNode, rootNodes)
             break
           }
@@ -1024,7 +1024,7 @@ function newNodeDeleter () {
 
     if (node.phases !== undefined) {
       while (node.phases.length > 0) {
-        deletePhase(node.phases[0])
+        deletePhase(node.phases[0], rootNodes)
       }
     }
 
@@ -1103,7 +1103,7 @@ function newNodeDeleter () {
       if (node.conditions !== undefined) {
         while (node.conditions.length > 0) {
           let condition = node.conditions[0]
-          deleteCondition(condition)
+          deleteCondition(condition, rootNodes)
         }
       }
 

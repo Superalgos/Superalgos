@@ -775,7 +775,7 @@ function newUiObjectConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Sensor',
             visible: true,
-            relatedUiObject: 'Sensor',
+            relatedUiObject: 'Sensor Bot Instance',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -840,7 +840,7 @@ function newUiObjectConstructor () {
                 )
         break
       }
-      case 'Sensor': {
+      case 'Sensor Bot Instance': {
         uiObject.codeEditor = newCodeEditor()
         uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
         uiObject.codeEditor.initialize()
@@ -3234,7 +3234,7 @@ function newUiObjectConstructor () {
         level_3()
         break
       }
-      case 'Sensor': {
+      case 'Sensor Bot Instance': {
         level_3()
         break
       }

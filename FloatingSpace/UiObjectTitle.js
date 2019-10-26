@@ -82,7 +82,7 @@ function newUiObjectTitle () {
       case 'Task': {
         break
       }
-      case 'Sensor': {
+      case 'Sensor Bot Instance': {
         thisObject.allwaysVisible = true
         break
       }

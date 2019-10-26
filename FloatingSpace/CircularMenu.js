@@ -72,7 +72,7 @@ function newCircularMenu () {
       menuItem.currentRadius = menuItemInitialValue.currentRadius
       menuItem.angle = menuItemInitialValue.angle
       menuItem.currentStatus = menuItemInitialValue.currentStatus
-      menuItem.relatedStrategyPart = menuItemInitialValue.relatedStrategyPart
+      menuItem.relatedUiObject = menuItemInitialValue.relatedUiObject
       menuItem.dontShowAtFullscreen = menuItemInitialValue.dontShowAtFullscreen
       menuItem.askConfirmation = menuItemInitialValue.askConfirmation
       menuItem.confirmationLabel = menuItemInitialValue.confirmationLabel

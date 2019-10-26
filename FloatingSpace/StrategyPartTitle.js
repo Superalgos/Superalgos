@@ -1,5 +1,5 @@
 
-function newStrategyPartTitle () {
+function newUiObjectTitle () {
   const MODULE_NAME = 'Strategy Part Title'
   const ERROR_LOG = true
 

@@ -52,7 +52,7 @@ function newNodeDeleter () {
   return thisObject
 
   function destroyPart (node) {
-    canvas.floatingSpace.uiObjectConstructor.destroyStrategyPart(node.payload)
+    canvas.floatingSpace.uiObjectConstructor.destroyUiObject(node.payload)
   }
 
   function deleteWorkspace (node, rootNodes) {

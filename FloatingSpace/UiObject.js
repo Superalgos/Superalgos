@@ -120,7 +120,7 @@ function newUiObject () {
 
 /* Initialize Part Title */
 
-    thisObject.partTitle = newStrategyPartTitle()
+    thisObject.partTitle = newUiObjectTitle()
     thisObject.partTitle.isVisibleFunction = thisObject.isVisibleFunction
     thisObject.partTitle.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
     thisObject.partTitle.initialize(thisObject.payload)

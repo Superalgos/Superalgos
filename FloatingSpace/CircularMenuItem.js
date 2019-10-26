@@ -33,7 +33,7 @@ function newCircularMenuItem () {
     angle: undefined,
     container: undefined,
     payload: undefined,
-    relatedStrategyPart: undefined,
+    relatedUiObject: undefined,
     dontShowAtFullscreen: undefined,
     internalClick: internalClick,
     physics: physics,
@@ -170,9 +170,9 @@ function newCircularMenuItem () {
       thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.secondaryIcon)
       thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.secondaryIcon)
     } else {
-      if (thisObject.relatedStrategyPart !== undefined) {
-        thisObject.iconOn = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
-        thisObject.iconOff = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
+      if (thisObject.relatedUiObject !== undefined) {
+        thisObject.iconOn = canvas.strategySpace.iconByPartType.get(thisObject.relatedUiObject)
+        thisObject.iconOff = canvas.strategySpace.iconByPartType.get(thisObject.relatedUiObject)
       } else {
         thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.iconPathOn)
         thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.iconPathOff)

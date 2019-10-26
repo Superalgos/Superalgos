@@ -1,6 +1,6 @@
 
 function uiObjectConstructor () {
-  const MODULE_NAME = 'Strategy Part Constructor'
+  const MODULE_NAME = 'UI Object Constructor'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
@@ -31,7 +31,7 @@ function uiObjectConstructor () {
     let floatingObject = newFloatingObject()
     floatingObject.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
     floatingObject.container.connectToParent(canvas.floatingSpace.container, false, false, false, false, false, false, false, false)
-    floatingObject.initialize('Strategy Part', payload)
+    floatingObject.initialize('UI Object', payload)
     payload.floatingObject = floatingObject
 
     if (payload.node.savedPayload !== undefined) {
@@ -59,7 +59,7 @@ function uiObjectConstructor () {
       }
     }
 
-    let strategyPart = newStrategyPart()
+    let strategyPart = newUiObject()
     payload.uiObject = strategyPart
     strategyPart.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
     strategyPart.isVisibleFunction = canvas.floatingSpace.isThisPointVisible

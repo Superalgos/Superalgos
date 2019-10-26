@@ -1,6 +1,6 @@
 
-function newStrategyPart () {
-  const MODULE_NAME = 'Strategy Part'
+function newUiObject () {
+  const MODULE_NAME = 'UI Object'
   const ERROR_LOG = true
 
   const logger = newWebDebugLog()

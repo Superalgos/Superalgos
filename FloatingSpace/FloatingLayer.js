@@ -293,7 +293,7 @@ function newFloatingLayer () {
 
                 break
               }
-              case 'Strategy Part': {
+              case 'UI Object': {
                 payload.targetPosition = floatingObject.payload.targetPosition
                 payload.visible = floatingObject.payload.visible
                 break
@@ -563,7 +563,7 @@ function newFloatingLayer () {
             payload.targetPosition = floatingObject2.payload.notes[floatingObject2.payloadNoteIndex].position
             break
           }
-          case 'Strategy Part': {
+          case 'UI Object': {
             payload.targetPosition = floatingObject2.payload.targetPosition
             break
           }

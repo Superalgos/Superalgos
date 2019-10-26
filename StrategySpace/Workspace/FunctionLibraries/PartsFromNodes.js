@@ -1298,6 +1298,6 @@ function newPartsFromNodes () {
     }
     node.payload = payload
     node.type = partType
-    canvas.floatingSpace.strategyPartConstructor.createStrategyPart(payload)
+    canvas.floatingSpace.uiObjectConstructor.createStrategyPart(payload)
   }
 }

@@ -1,5 +1,5 @@
 
-function uiObjectConstructor () {
+function newUiObjectConstructor () {
   const MODULE_NAME = 'UI Object Constructor'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
@@ -59,13 +59,13 @@ function uiObjectConstructor () {
       }
     }
 
-    let strategyPart = newUiObject()
-    payload.uiObject = strategyPart
-    strategyPart.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
-    strategyPart.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
-    let menuItemsInitialValues = getMenuItemsInitialValues(strategyPart, floatingObject, payload)
-    strategyPart.initialize(payload, menuItemsInitialValues)
-    strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true, true, true)
+    let uiObject = newUiObject()
+    payload.uiObject = uiObject
+    uiObject.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
+    uiObject.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
+    let menuItemsInitialValues = getMenuItemsInitialValues(uiObject, floatingObject, payload)
+    uiObject.initialize(payload, menuItemsInitialValues)
+    uiObject.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true, true, true)
 
     setFloatingObjectBasicProperties(floatingObject, payload)
 
@@ -162,7 +162,7 @@ function uiObjectConstructor () {
       )
   }
 
-  function getMenuItemsInitialValues (strategyPart, floatingObject, payload) {
+  function getMenuItemsInitialValues (uiObject, floatingObject, payload) {
     let menuItemsInitialValues = []
     switch (payload.node.type) {
       case 'Workspace': {
@@ -437,10 +437,10 @@ function uiObjectConstructor () {
         break
       }
       case 'Telegram Bot': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -458,7 +458,7 @@ function uiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Telegram Bot',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Telegram Bot',
             visible: true,
             iconPathOn: 'html',
@@ -503,10 +503,10 @@ function uiObjectConstructor () {
         break
       }
       case 'Announcement': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -525,7 +525,7 @@ function uiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Announcement',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Announcement',
             visible: true,
             iconPathOn: 'html',
@@ -617,15 +617,15 @@ function uiObjectConstructor () {
         break
       }
       case 'Layer': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Layer',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Layer',
             visible: true,
             iconPathOn: 'html',
@@ -841,10 +841,10 @@ function uiObjectConstructor () {
         break
       }
       case 'Sensor': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -863,7 +863,7 @@ function uiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Sensor',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Sensor',
             visible: true,
             iconPathOn: 'html',
@@ -908,10 +908,10 @@ function uiObjectConstructor () {
         break
       }
       case 'Indicator': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -930,7 +930,7 @@ function uiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Indicator',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Indicator',
             visible: true,
             iconPathOn: 'html',
@@ -975,10 +975,10 @@ function uiObjectConstructor () {
         break
       }
       case 'Trading Engine': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -997,7 +997,7 @@ function uiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Trading Engine',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Trading Engine',
             visible: true,
             iconPathOn: 'html',
@@ -1042,10 +1042,10 @@ function uiObjectConstructor () {
         break
       }
       case 'Process': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
 
@@ -1106,7 +1106,7 @@ function uiObjectConstructor () {
             menuItemsInitialValues.push(
               {
                 action: 'Edit Process',
-                actionFunction: strategyPart.codeEditor.activate,
+                actionFunction: uiObject.codeEditor.activate,
                 label: 'Edit Process',
                 visible: true,
                 iconPathOn: 'html',
@@ -1154,7 +1154,7 @@ function uiObjectConstructor () {
             menuItemsInitialValues.push(
               {
                 action: 'Edit Process',
-                actionFunction: strategyPart.codeEditor.activate,
+                actionFunction: uiObject.codeEditor.activate,
                 label: 'Edit Process',
                 visible: true,
                 iconPathOn: 'html',
@@ -1202,10 +1202,10 @@ function uiObjectConstructor () {
         break
       }
       case 'Backtesting Session': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -1273,7 +1273,7 @@ function uiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Session',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Session',
             visible: true,
             iconPathOn: 'html',
@@ -1318,10 +1318,10 @@ function uiObjectConstructor () {
         break
       }
       case 'Live Trading Session': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -1389,7 +1389,7 @@ function uiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Session',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Session',
             visible: true,
             iconPathOn: 'html',
@@ -1434,10 +1434,10 @@ function uiObjectConstructor () {
         break
       }
       case 'Fordward Testing Session': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -1505,7 +1505,7 @@ function uiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Session',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Session',
             visible: true,
             iconPathOn: 'html',
@@ -1550,10 +1550,10 @@ function uiObjectConstructor () {
         break
       }
       case 'Paper Trading Session': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -1621,7 +1621,7 @@ function uiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Session',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Session',
             visible: true,
             iconPathOn: 'html',
@@ -1765,16 +1765,16 @@ function uiObjectConstructor () {
         break
       }
       case 'Exchange Account Key': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Key Value',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Key Value',
             visible: true,
             iconPathOn: 'html',
@@ -1912,16 +1912,16 @@ function uiObjectConstructor () {
         break
       }
       case 'Base Asset': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Base Asset',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Base Asset',
             visible: true,
             iconPathOn: 'settings',
@@ -1965,16 +1965,16 @@ function uiObjectConstructor () {
         break
       }
       case 'Time Range': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Time Range',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Time Range',
             visible: true,
             iconPathOn: 'settings',
@@ -2018,16 +2018,16 @@ function uiObjectConstructor () {
         break
       }
       case 'Time Period': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Time Period',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Time Period',
             visible: true,
             iconPathOn: 'settings',
@@ -2071,16 +2071,16 @@ function uiObjectConstructor () {
         break
       }
       case 'Slippage': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Slippage',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Slippage',
             visible: true,
             iconPathOn: 'settings',
@@ -2124,16 +2124,16 @@ function uiObjectConstructor () {
         break
       }
       case 'Fee Structure': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Fee Structure',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Fee Structure',
             visible: true,
             iconPathOn: 'settings',
@@ -2929,16 +2929,16 @@ function uiObjectConstructor () {
         break
       }
       case 'Formula': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Formula',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Formula',
             visible: true,
             iconPathOn: 'html',
@@ -3124,16 +3124,16 @@ function uiObjectConstructor () {
         break
       }
       case 'Code': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Code',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Code',
             visible: true,
             iconPathOn: 'html',

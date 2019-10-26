@@ -18,12 +18,12 @@
         start: start
     };
 
-    let dataDependencies;
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
+    let processConfig;
 
     return thisObject;
 
-    function initialize(pDataDependencies, callBackFunction) {
+    function initialize(pProcessConfig, callBackFunction) {
 
         try {
 
@@ -32,7 +32,7 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            dataDependencies = pDataDependencies;
+            processConfig = pProcessConfig;
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
@@ -64,46 +64,88 @@
             commons.buildSubChannels(bands, subChannels, callBackFunction);
             commons.buildStandardSubChannels(bands, standardSubChannels, callBackFunction);
 
-            writeChannelsFile();
+            let dataDependency = {}
+ 
+            for (let i = 0; i < processConfig.dataDependencies.length; i++) {
+                let dependency = processConfig.dataDependencies[i]
+                let recordDefinition = processConfig.recordDefinition
+                let dependencyArray = commons.buildDependencyArray(dataFiles[i], recordDefinition);
+                dependencyArray = commons.addCalculatedProperties(dependencyArray, dependency.singularVariableName, timePeriod);
+                dataDependency[dependency.pluralVariableName] = dependencyArray
+            }
 
-            function writeChannelsFile() {
+            for (let i = 0; i < processConfig.updatesDatasets.length; i++) {
+                let product = processConfig.updatesDatasets[i].product
+                let dataset = processConfig.updatesDatasets[i].dataset
+                let recordDefinition = getRecordDefinition(product)
+                let records = commons.buildRecords(dataDependency, recordDefinition)                
+                let fileContent = generateFileContent(indicatorData, recordDefinition)
+                writeFile(product, dataset, fileContent)
+            }
+
+            let totalFilesWritten = 0
+            function anotherFileWritten() {
+                totalFilesWritten++
+                if (totalFilesWritten === processConfig.updatesDatasets.length) {
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                }          
+            }
+
+            function getRecordDefinition(product) {
+                for (let j = 0; j < bot.products.length; j++) {
+                    if (bot.products[j].codeName === product) {
+                        return bot.products[j].recordDefinition
+                    }
+                }
+            }
+
+            function generateFileContent(records, recordDefinition) {
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeChannelsFile -> Entering function."); }
-
-                    let separator = "";
-                    let fileRecordCounter = 0;
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> generateFileContent -> Entering function."); }
 
                     let fileContent = "";
+                    let recordSeparator = "";
 
-                    for (i = 0; i < channels.length; i++) {
-
-                        let channel = channels[i];
-
-                        fileContent = fileContent + separator + '[' +
-
-                            channel.begin + "," +
-                            channel.end + "," +
-                            '"' + channel.direction + '"' + "," +
-                            channel.period + "," +
-                            channel.firstMovingAverage + "," +
-                            channel.lastMovingAverage + "," +
-                            channel.firstDeviation + "," +
-                            channel.lastDeviation + "]";
-
-                        if (separator === "") { separator = ","; }
-
-                        fileRecordCounter++;
-
+                    for (let i = 0; i < records.length; i++) {
+                        let record = records[i];
+                        fileContent = fileContent + recordSeparator + '['
+                        let propertySeparator = ""
+                        for (let j = 0; j < recordDefinition.length; j++) {
+                            let property = recordDefinition[j]
+                            fileContent = fileContent + propertySeparator 
+                            if (property.isNumeric !== true) {
+                                fileContent = fileContent + '"'
+                            }
+                            fileContent = fileContent + record[property.name] 
+                            if (property.isNumeric !== true) {
+                                fileContent = fileContent + '"'
+                            }
+                            if (recordSeparator === "") { propertySeparator = ","; }
+                        }
+                        fileContent = fileContent + ']'
+                        if (recordSeparator === "") { recordSeparator = ","; }
                     }
-
                     fileContent = "[" + fileContent + "]";
+                    return fileContent
+                }
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> generateFileContent -> err = " + err.stack);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function writeFile(product, dataset, fileContent) {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFile -> Entering function."); }
 
                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                    let filePath = filePathRoot + "/Output/" + BOLLINGER_CHANNELS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
+                    let filePath = filePathRoot + "/Output/" + product + "/" + dataset + "/" + outputPeriodLabel;
                     filePath += '/' + fileName
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
@@ -112,254 +154,34 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeChannelsFile -> onFileCreated -> Entering function."); }
-                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeChannelsFile -> onFileCreated -> fileContent = " + fileContent); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFile -> onFileCreated -> Entering function."); }
+                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFile -> onFileCreated -> fileContent = " + fileContent); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeChannelsFile -> onFileCreated -> err = " + err.stack);
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeChannelsFile -> onFileCreated -> filePath = " + filePath);
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeChannelsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> err = " + err.stack);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> filePath = " + filePath);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
 
                                 callBackFunction(err);
                                 return;
 
                             }
 
-                            writeStandardChannelsFile();
+                            anotherFileWritten();
 
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeChannelsFile -> onFileCreated -> err = " + err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeChannelsFile -> err = " + err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
-
-            function writeStandardChannelsFile() {
-
-                try {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStandardChannelsFile -> Entering function."); }
-
-                    let separator = "";
-                    let fileRecordCounter = 0;
-
-                    let fileContent = "";
-
-                    for (i = 0; i < standardChannels.length; i++) {
-
-                        let channel = standardChannels[i];
-
-                        fileContent = fileContent + separator + '[' +
-
-                            channel.begin + "," +
-                            channel.end + "," +
-                            '"' + channel.direction + '"' + "," +
-                            channel.period + "]";
-
-                        if (separator === "") { separator = ","; }
-
-                        fileRecordCounter++;
-
-                    }
-
-                    fileContent = "[" + fileContent + "]";
-
-                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                    let filePath = filePathRoot + "/Output/" + BOLLINGER_STANDARD_CHANNELS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
-                    filePath += '/' + fileName
-
-                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
-
-                    function onFileCreated(err) {
-
-                        try {
-
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStandardChannelsFile -> onFileCreated -> Entering function."); }
-                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStandardChannelsFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeStandardChannelsFile -> onFileCreated -> err = " + err.stack);
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeStandardChannelsFile -> onFileCreated -> filePath = " + filePath);
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeStandardChannelsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
-
-                                callBackFunction(err);
-                                return;
-
-                            }
-
-                            writeSubChannelsFile();
-
-                        }
-                        catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeStandardChannelsFile -> onFileCreated -> err = " + err.stack);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                        }
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeStandardChannelsFile -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
-            function writeSubChannelsFile() {
-
-                try {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeSubChannelsFile -> Entering function."); }
-
-                    let separator = "";
-                    let fileRecordCounter = 0;
-
-                    let fileContent = "";
-
-                    for (i = 0; i < subChannels.length; i++) {
-
-                        let channel = subChannels[i];
-
-                        fileContent = fileContent + separator + '[' +
-
-                            channel.begin + "," +
-                            channel.end + "," +
-                            '"' + channel.direction + '"' + "," +
-                            '"' + channel.slope + '"' + "," +
-                            channel.period + "," +
-                            channel.firstMovingAverage + "," +
-                            channel.lastMovingAverage + "," +
-                            channel.firstDeviation + "," +
-                            channel.lastDeviation + "]";
-
-                        if (separator === "") { separator = ","; }
-
-                        fileRecordCounter++;
-
-                    }
-
-                    fileContent = "[" + fileContent + "]";
-
-                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                    let filePath = filePathRoot + "/Output/" + BOLLINGER_SUB_CHANNELS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
-                    filePath += '/' + fileName
-
-                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
-
-                    function onFileCreated(err) {
-
-                        try {
-
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeSubChannelsFile -> onFileCreated -> Entering function."); }
-                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeSubChannelsFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeSubChannelsFile -> onFileCreated -> err = " + err.stack);
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeSubChannelsFile -> onFileCreated -> filePath = " + filePath);
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeSubChannelsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
-
-                                callBackFunction(err);
-                                return;
-
-                            }
-
-                            writeStandardSubChannelsFile();
-
-                        }
-                        catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeSubChannelsFile -> onFileCreated -> err = " + err.stack);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                        }
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeSubChannelsFile -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
-            function writeStandardSubChannelsFile() {
-
-                try {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStandardSubChannelsFile -> Entering function."); }
-
-                    let separator = "";
-                    let fileRecordCounter = 0;
-
-                    let fileContent = "";
-
-                    for (i = 0; i < standardSubChannels.length; i++) {
-
-                        let channel = standardSubChannels[i];
-
-                        fileContent = fileContent + separator + '[' +
-
-                            channel.begin + "," +
-                            channel.end + "," +
-                            '"' + channel.direction + '"' + "," +
-                            '"' + channel.slope + '"' + "," +
-                            channel.period + "]";
-
-                        if (separator === "") { separator = ","; }
-
-                        fileRecordCounter++;
-
-                    }
-
-                    fileContent = "[" + fileContent + "]";
-
-                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                    let filePath = filePathRoot + "/Output/" + BOLLINGER_STANDARD_SUB_CHANNELS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + outputPeriodLabel;
-                    filePath += '/' + fileName
-
-                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
-
-                    function onFileCreated(err) {
-
-                        try {
-
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStandardSubChannelsFile -> onFileCreated -> Entering function."); }
-                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStandardSubChannelsFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeStandardSubChannelsFile -> onFileCreated -> err = " + err.stack);
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeStandardSubChannelsFile -> onFileCreated -> filePath = " + filePath);
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeStandardSubChannelsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
-
-                                callBackFunction(err);
-                                return;
-
-                            }
-
-                            callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                        }
-                        catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeSubChannelsFile -> onFileCreated -> err = " + err.stack);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                        }
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeSubChannelsFile -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);

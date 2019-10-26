@@ -146,7 +146,8 @@
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                             console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
-
+                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> filePath = " + filePath);
+                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> team = " + global.TASK_NODE.bot.code.team);
                             return;
                         }
 
@@ -173,7 +174,6 @@
 
                     botConfig.process = global.TASK_NODE.bot.processes[processIndex].code.process;
                     botConfig.debug = {};
-                    botConfig.processIndex = processIndex
                     botConfig.processNode = global.TASK_NODE.bot.processes[processIndex]
 
                     /* Loop Counter */
@@ -256,7 +256,7 @@
                                                     if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> startProcess -> Ready to start process."); }
 
                                                     switch (botConfig.type) {
-                                                        case 'Sensor': {
+                                                        case 'Sensor Bot': {
                                                             runSensorBot(newInstanceBotConfig, processConfig, padMonth, year);
                                                             break;
                                                         }
@@ -295,7 +295,7 @@
                                             };
 
                                             switch (botConfig.type) {
-                                                case 'Sensor': {
+                                                case 'Sensor Bot': {
                                                     runSensorBot(botConfig, processConfig, month, year);
                                                     break;
                                                 }
@@ -325,7 +325,7 @@
                                         }
 
                                         switch (botConfig.type) {
-                                            case 'Sensor': {
+                                            case 'Sensor Bot': {
                                                 runSensorBot(botConfig, processConfig, month, year);
                                                 break;
                                             }
@@ -355,7 +355,7 @@
                                         let year = (new Date()).getUTCFullYear();
 
                                         switch (botConfig.type) {
-                                            case 'Sensor': {
+                                            case 'Sensor Bot': {
                                                 runSensorBot(botConfig, processConfig, month, year);
                                                 break;
                                             }

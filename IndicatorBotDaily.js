@@ -20,12 +20,12 @@
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
-    let dataDependencies;
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
+    let processConfig;
 
     return thisObject;
 
-    function initialize(pDataDependencies, callBackFunction) {
+    function initialize(pProcessConfig, callBackFunction) {
 
         try {
 
@@ -34,7 +34,7 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            dataDependencies = pDataDependencies;
+            processConfig = pProcessConfig;
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
@@ -79,7 +79,7 @@
 
                     let fileContent = "";
 
-                    for (i = 0; i < channels.length; i++) {
+                    for (let i = 0; i < channels.length; i++) {
 
                         let channel = channels[i];
 

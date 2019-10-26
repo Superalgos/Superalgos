@@ -29,7 +29,7 @@
 
     return thisObject;
 
-    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, pAssistant, callBackFunction) {
+    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
 
         try {
 
@@ -64,7 +64,7 @@
             let USER_BOT_MODULE = require("./IndicatorBotDaily")
 
             usertBot = USER_BOT_MODULE.newIndicatorBotDaily(bot, logger, COMMONS_MODULE, UTILITIES, FILE_STORAGE);
-            usertBot.initialize(dataDependencies, callBackFunction, pAssistant);
+            usertBot.initialize(processConfig, callBackFunction);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);

@@ -12,10 +12,101 @@
         buildChannels: buildChannels,
         buildStandardChannels: buildStandardChannels,
         buildSubChannels: buildSubChannels,
-        buildStandardSubChannels: buildStandardSubChannels
+        buildStandardSubChannels: buildStandardSubChannels,
+        buildRecords: buildRecords
     };
 
     return thisObject;
+
+    function buildDependecyArray(dataFile, recordDefinition) {
+
+        let dependecyArray = []
+
+        for (let i = 0; i < dataFile.length; i++) {
+
+            let record = {}
+            for (let j = 0; j < recordDefinition.length; j++) {
+                let property = recordDefinition[j]
+                record[property.name] = dataFile[i][j]
+            }            
+
+            dependecyArray.push(record);
+        }
+       
+        return dependecyArray
+    }
+
+    function addCalculatedProperties(dependencyArray, variableName, timePeriod) {
+
+        let dependecyArray = []
+
+        /* This is Initialization Code */
+        let lastMovingAverage = 0;
+        const SIDE_TOLERANCE = 0.5 * timePeriod / ONE_DAY_IN_MILISECONDS;
+        const SMALL_SLOPE = 1.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
+        const MEDIUM_SLOPE = 2.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
+        const HIGH_SLOPE = 4.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
+        /* This is Initialization Code */
+
+        for (let i = 0; i < dataFile.length; i++) {
+
+            let indicator = {}
+            indicator[variableName] = dataFile[i]
+
+            /* This is Add Properties Code */
+            if (lastMovingAverage > indicator.bollingerBand.movingAverage) { indicator.bollingerBand.direction = 'Down'; }
+            if (lastMovingAverage < indicator.bollingerBand.movingAverage) { indicator.bollingerBand.direction = 'Up'; }
+            if (lastMovingAverage === indicator.bollingerBand.movingAverage) { indicator.bollingerBand.direction = 'Side'; }
+
+            let delta = Math.abs(indicator.bollingerBand.movingAverage - lastMovingAverage);
+
+            indicator.bollingerBand.slope = 'Extreme';
+            if (delta < indicator.bollingerBand.movingAverage * HIGH_SLOPE / 100) { indicator.bollingerBand.slope = 'Steep'; }
+            if (delta < indicator.bollingerBand.movingAverage * MEDIUM_SLOPE / 100) { indicator.bollingerBand.slope = 'Medium'; }
+            if (delta < indicator.bollingerBand.movingAverage * SMALL_SLOPE / 100) { indicator.bollingerBand.slope = 'Gentle'; }
+            if (delta < indicator.bollingerBand.movingAverage * SIDE_TOLERANCE / 100) { indicator.bollingerBand.slope = 'Side'; }
+
+            lastMovingAverage = indicator.bollingerBand.movingAverage;
+            /* This is Add Properties Code */
+
+            dependecyArray.push(indicator.bollingerBand);
+        }
+
+        return dependecyArray
+    }
+
+    function buildRecords(dataDependency, recordDefinition) {
+        let records = []
+        
+        /* Initialization Code */
+        let period = 1
+        /* Initialization Code */
+
+        for (let i = 0; i < dataDependency.bollinerBands.length; i++) {
+
+            /* Calculations Code*/
+            if (i === 0) {continue}
+            let currentBand = dataDependency.bollinerBands[i];
+            let previousBand = dataDependency.bollinerBands[i - 1];
+
+            if (currentBand.direction === previousBand.direction) {
+                period++
+            } else {
+                period = 1
+            }
+            /* Calculations Code*/
+
+            let record = {
+                begin: currentBand.begin, /* Property Formula Code */
+                end: currentBand.end, /* Property Formula Code */
+                direction: currentBand.direction, /* Property Formula Code */
+                period: period /* Property Formula Code */
+            };
+            records.push(record)
+        }
+        return records
+    }
+
 
     function buildBandsArray(dataFile, bands, timePeriod, callBackFunction) {
 

@@ -1,5 +1,5 @@
 
-function newStrategyPartConstructor () {
+function uiObjectConstructor () {
   const MODULE_NAME = 'Strategy Part Constructor'
   const ERROR_LOG = true
   const logger = newWebDebugLog()

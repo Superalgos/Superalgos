@@ -67,7 +67,7 @@ function newFloatingSpace () {
     thisObject.noteSets = newNoteSets()
     thisObject.noteSets.initialize(thisObject.floatingLayer)
 
-    thisObject.strategyPartConstructor = newStrategyPartConstructor()
+    thisObject.strategyPartConstructor = uiObjectConstructor()
     thisObject.strategyPartConstructor.initialize(thisObject.floatingLayer)
 
     thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)

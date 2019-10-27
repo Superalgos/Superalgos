@@ -568,14 +568,13 @@ function newUiObjectsFromNodes () {
   }
 
   function addNetwork (node) {
-    if (node.network === undefined) {
-      node.network = {
-        name: 'Superalgos'
-      }
-      createUiObject('Network', node.network.name, node.network, node, node, 'Network')
+    let network = {
+      name: 'Superalgos'
     }
+    node.rootNodes.push(network)
+    createUiObject('Network', network.name, network, node, undefined, 'Network')
 
-    return node.network
+    return network
   }
 
   function addNetworkNode (node) {

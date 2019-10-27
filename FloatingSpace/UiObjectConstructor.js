@@ -204,7 +204,18 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -10
+            angle: -20
+          },
+          {
+            action: 'Add Network',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Network',
+            visible: true,
+            relatedUiObject: 'Network',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
           },
           {
             action: 'Share Workspace',
@@ -216,7 +227,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 10
+            angle: 20
           }]
         break
       }
@@ -234,7 +245,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -30
           }
           )
         menuItemsInitialValues.push(
@@ -247,22 +258,9 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -10
           }
             )
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Network',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Network',
-            visible: true,
-            relatedUiObject: 'Network',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 0
-          }
-                )
         menuItemsInitialValues.push(
           {
             action: 'Delete Definition',
@@ -276,7 +274,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 10
           }
               )
         menuItemsInitialValues.push(
@@ -290,7 +288,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 30
           }
         )
         break

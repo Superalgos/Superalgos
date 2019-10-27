@@ -1034,7 +1034,7 @@ function newUiObject () {
 
       browserCanvasContext.fill()
 
-      if (thisObject.payload.node.type === 'Definition') {
+      if (thisObject.payload.node.type === 'Definition' || thisObject.payload.node.type === 'Network') {
         VISIBLE_RADIUS = thisObject.container.frame.radius * 2
         let OPACITY = 1
 

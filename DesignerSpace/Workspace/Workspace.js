@@ -148,16 +148,13 @@ function newWorkspace () {
   function stopAllRunningTasks () {
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      if (rootNode.type === 'Definition') {
-        let definition = rootNode
-        if (definition.network !== undefined) {
-          if (definition.network.networkNodes !== undefined) {
-            for (let j = 0; j < definition.network.networkNodes.length; j++) {
-              let networkNode = definition.network.networkNodes[j]
-              for (let i = 0; i < networkNode.taskManagers.length; i++) {
-                let taskManager = networkNode.taskManagers[i]
-                taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
-              }
+      if (rootNode.type === 'Network') {
+        if (rootNode.networkNodes !== undefined) {
+          for (let j = 0; j < rootNode.networkNodes.length; j++) {
+            let networkNode = rootNode.networkNodes[j]
+            for (let i = 0; i < networkNode.taskManagers.length; i++) {
+              let taskManager = networkNode.taskManagers[i]
+              taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
             }
           }
         }
@@ -169,19 +166,16 @@ function newWorkspace () {
     let tradingBotInstances = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      if (rootNode.type === 'Definition') {
-        let definition = rootNode
-        if (definition.network !== undefined) {
-          if (definition.network.networkNodes !== undefined) {
-            for (let j = 0; j < definition.network.networkNodes.length; j++) {
-              let networkNode = definition.network.networkNodes[j]
-              for (let i = 0; i < networkNode.taskManagers.length; i++) {
-                let taskManager = networkNode.taskManagers[i]
-                for (k = 0; k < taskManager.tasks.length; k++) {
-                  let task = taskManager.tasks[k]
-                  if (task.bot.type === 'Trading Bot Instance') {
-                    tradingBotInstances.push(task.bot)
-                  }
+      if (rootNode.type === 'Network') {
+        if (rootNode.networkNodes !== undefined) {
+          for (let j = 0; j < rootNode.networkNodes.length; j++) {
+            let networkNode = rootNode.networkNodes[j]
+            for (let i = 0; i < networkNode.taskManagers.length; i++) {
+              let taskManager = networkNode.taskManagers[i]
+              for (k = 0; k < taskManager.tasks.length; k++) {
+                let task = taskManager.tasks[k]
+                if (task.bot.type === 'Trading Bot Instance') {
+                  tradingBotInstances.push(task.bot)
                 }
               }
             }

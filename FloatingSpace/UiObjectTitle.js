@@ -1,6 +1,6 @@
 
 function newUiObjectTitle () {
-  const MODULE_NAME = 'Strategy Part Title'
+  const MODULE_NAME = 'UI Object Title'
   const ERROR_LOG = true
 
   const logger = newWebDebugLog()
@@ -215,7 +215,7 @@ function newUiObjectTitle () {
         break
       }
       default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Part Type not Recognized -> type = ' + payload.node.type) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> UI Object Type not Recognized -> type = ' + payload.node.type) }
       }
     }
 

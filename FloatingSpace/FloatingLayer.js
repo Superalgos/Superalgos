@@ -10,7 +10,7 @@
 
     2. Notes:         Notes are a rectangular area where some text is posted. It has a subject and a body.
 
-    3. Strategy Parts: These are small balls that represent parts of an strategy.
+    3. UI Objects: These are small balls that represent parts of an strategy.
     */
 
 function newFloatingLayer () {

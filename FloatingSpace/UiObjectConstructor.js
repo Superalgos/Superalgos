@@ -3178,7 +3178,7 @@ function newUiObjectConstructor () {
         break
       }
       default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> Part Type not Recognized -> type = ' + payload.node.type) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> UI Object Type not Recognized -> type = ' + payload.node.type) }
       }
     }
 
@@ -3395,7 +3395,7 @@ function newUiObjectConstructor () {
         break
       }
       default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Part Type not Recognized -> type = ' + payload.node.type) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> UI Object Type not Recognized -> type = ' + payload.node.type) }
         return
       }
     }

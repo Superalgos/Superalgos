@@ -1,6 +1,6 @@
 function newUiObjectsFromNodes () {
   thisObject = {
-    createPartFromNode: createPartFromNode,
+    createUiObjectFromNode: createUiObjectFromNode,
     addDefinition: addDefinition,
     addNetwork: addNetwork,
     addNetworkNode: addNetworkNode,
@@ -43,74 +43,74 @@ function newUiObjectsFromNodes () {
 
   return thisObject
 
-  function createPartFromNode (node, parentNode, chainParent) {
+  function createUiObjectFromNode (node, parentNode, chainParent) {
     switch (node.type) {
       case 'Code':
         {
-          createPart('Code', node.name, node, parentNode, chainParent, 'Code')
+          createUiObject('Code', node.name, node, parentNode, chainParent, 'Code')
           return
         }
       case 'Condition':
         {
-          createPart('Condition', node.name, node, parentNode, chainParent, 'Condition')
+          createUiObject('Condition', node.name, node, parentNode, chainParent, 'Condition')
           if (node.code !== undefined) {
-            createPartFromNode(node.code, node, node)
+            createUiObjectFromNode(node.code, node, node)
           }
           return
         }
       case 'Situation': {
         let situation = node
-        createPart('Situation', situation.name, situation, parentNode, chainParent, 'Situation')
+        createUiObject('Situation', situation.name, situation, parentNode, chainParent, 'Situation')
         for (let m = 0; m < node.conditions.length; m++) {
           let condition = node.conditions[m]
-          createPartFromNode(condition, situation, situation)
+          createUiObjectFromNode(condition, situation, situation)
         }
         return
       }
       case 'Formula':
         {
-          createPart('Formula', node.name, node, parentNode, chainParent, 'Formula')
+          createUiObject('Formula', node.name, node, parentNode, chainParent, 'Formula')
           return
         }
       case 'Next Phase Event':
         {
-          createPart('Next Phase Event', node.name, node, parentNode, chainParent, 'Next Phase Event')
+          createUiObject('Next Phase Event', node.name, node, parentNode, chainParent, 'Next Phase Event')
           for (let m = 0; m < node.situations.length; m++) {
             let situation = node.situations[m]
-            createPartFromNode(situation, node, node)
+            createUiObjectFromNode(situation, node, node)
           }
           if (node.announcements === undefined) {
             node.announcements = []
           }
           for (let m = 0; m < node.announcements.length; m++) {
             let announcement = node.announcements[m]
-            createPartFromNode(announcement, node, node)
+            createUiObjectFromNode(announcement, node, node)
           }
           return
         }
       case 'Phase': {
         let phase = node
-        createPart('Phase', phase.name, phase, parentNode, chainParent, phase.subType)
+        createUiObject('Phase', phase.name, phase, parentNode, chainParent, phase.subType)
 
         if (node.formula !== undefined) {
-          createPartFromNode(node.formula, phase, phase)
+          createUiObjectFromNode(node.formula, phase, phase)
         }
         if (node.nextPhaseEvent !== undefined) {
-          createPartFromNode(node.nextPhaseEvent, phase, phase)
+          createUiObjectFromNode(node.nextPhaseEvent, phase, phase)
         }
         if (node.announcements === undefined) {
           node.announcements = []
         }
         for (let m = 0; m < node.announcements.length; m++) {
           let announcement = node.announcements[m]
-          createPartFromNode(announcement, node, node)
+          createUiObjectFromNode(announcement, node, node)
         }
         return
       }
       case 'Stop': {
         let lastPhase
         let stop = node
-        createPart('Stop', stop.name, stop, parentNode, chainParent, 'Stop')
+        createUiObject('Stop', stop.name, stop, parentNode, chainParent, 'Stop')
         for (let m = 0; m < node.phases.length; m++) {
           let phase = node.phases[m]
           let thisChainParent
@@ -120,14 +120,14 @@ function newUiObjectsFromNodes () {
             thisChainParent = lastPhase
           }
           lastPhase = phase
-          createPartFromNode(phase, stop, thisChainParent)
+          createUiObjectFromNode(phase, stop, thisChainParent)
         }
         return
       }
       case 'Take Profit': {
         let lastPhase
         let takeProfit = node
-        createPart('Take Profit', takeProfit.name, takeProfit, parentNode, chainParent, 'Take Profit')
+        createUiObject('Take Profit', takeProfit.name, takeProfit, parentNode, chainParent, 'Take Profit')
         for (let m = 0; m < node.phases.length; m++) {
           let phase = node.phases[m]
           let thisChainParent
@@ -137,355 +137,355 @@ function newUiObjectsFromNodes () {
             thisChainParent = lastPhase
           }
           lastPhase = phase
-          createPartFromNode(phase, takeProfit, thisChainParent)
+          createUiObjectFromNode(phase, takeProfit, thisChainParent)
         }
         return
       }
       case 'Open Execution':
         {
-          createPart('Open Execution', node.name, node, parentNode, chainParent, 'Open Execution')
+          createUiObject('Open Execution', node.name, node, parentNode, chainParent, 'Open Execution')
           return
         }
       case 'Close Execution':
         {
-          createPart('Close Execution', node.name, node, parentNode, chainParent, 'Close Execution')
+          createUiObject('Close Execution', node.name, node, parentNode, chainParent, 'Close Execution')
           return
         }
       case 'Initial Definition': {
-        createPart('Initial Definition', node.name, node, parentNode, chainParent, 'Initial Definition')
+        createUiObject('Initial Definition', node.name, node, parentNode, chainParent, 'Initial Definition')
 
         if (node.stopLoss !== undefined) {
-          createPartFromNode(node.stopLoss, node, node)
+          createUiObjectFromNode(node.stopLoss, node, node)
         }
         if (node.takeProfit !== undefined) {
-          createPartFromNode(node.takeProfit, node, node)
+          createUiObjectFromNode(node.takeProfit, node, node)
         }
         if (node.positionSize !== undefined) {
-          createPartFromNode(node.positionSize, node, node)
+          createUiObjectFromNode(node.positionSize, node, node)
         }
         if (node.positionRate !== undefined) {
-          createPartFromNode(node.positionRate, node, node)
+          createUiObjectFromNode(node.positionRate, node, node)
         }
         return
       }
       case 'Take Position Event': {
         let event = node
-        createPart('Take Position Event', event.name, event, parentNode, chainParent, 'Take Position Event')
+        createUiObject('Take Position Event', event.name, event, parentNode, chainParent, 'Take Position Event')
         for (let m = 0; m < node.situations.length; m++) {
           let situation = node.situations[m]
-          createPartFromNode(situation, event, event)
+          createUiObjectFromNode(situation, event, event)
         }
         if (node.announcements === undefined) {
           node.announcements = []
         }
         for (let m = 0; m < node.announcements.length; m++) {
           let announcement = node.announcements[m]
-          createPartFromNode(announcement, node, node)
+          createUiObjectFromNode(announcement, node, node)
         }
         return
       }
       case 'Trigger On Event': {
         let event = node
-        createPart('Trigger On Event', event.name, event, parentNode, chainParent, 'Trigger On Event')
+        createUiObject('Trigger On Event', event.name, event, parentNode, chainParent, 'Trigger On Event')
         for (let m = 0; m < node.situations.length; m++) {
           let situation = node.situations[m]
-          createPartFromNode(situation, event, event)
+          createUiObjectFromNode(situation, event, event)
         }
         if (node.announcements === undefined) {
           node.announcements = []
         }
         for (let m = 0; m < node.announcements.length; m++) {
           let announcement = node.announcements[m]
-          createPartFromNode(announcement, node, node)
+          createUiObjectFromNode(announcement, node, node)
         }
         return
       }
       case 'Trigger Off Event': {
         let event = node
-        createPart('Trigger Off Event', event.name, event, parentNode, chainParent, 'Trigger Off Event')
+        createUiObject('Trigger Off Event', event.name, event, parentNode, chainParent, 'Trigger Off Event')
         for (let m = 0; m < node.situations.length; m++) {
           let situation = node.situations[m]
-          createPartFromNode(situation, event, event)
+          createUiObjectFromNode(situation, event, event)
         }
         if (node.announcements === undefined) {
           node.announcements = []
         }
         for (let m = 0; m < node.announcements.length; m++) {
           let announcement = node.announcements[m]
-          createPartFromNode(announcement, node, node)
+          createUiObjectFromNode(announcement, node, node)
         }
         return
       }
       case 'Position Size': {
-        createPart('Position Size', node.name, node, parentNode, chainParent, 'Position Size')
+        createUiObject('Position Size', node.name, node, parentNode, chainParent, 'Position Size')
         if (node.formula !== undefined) {
-          createPartFromNode(node.formula, node, node)
+          createUiObjectFromNode(node.formula, node, node)
         }
         return
       }
       case 'Position Rate': {
-        createPart('Position Rate', node.name, node, parentNode, chainParent, 'Position Rate')
+        createUiObject('Position Rate', node.name, node, parentNode, chainParent, 'Position Rate')
         if (node.formula !== undefined) {
-          createPartFromNode(node.formula, node, node)
+          createUiObjectFromNode(node.formula, node, node)
         }
         return
       }
       case 'Trigger Stage': {
         let stage = node
-        createPart('Trigger Stage', stage.name, stage, parentNode, chainParent, 'Trigger Stage')
+        createUiObject('Trigger Stage', stage.name, stage, parentNode, chainParent, 'Trigger Stage')
 
         if (node.triggerOn !== undefined) {
-          createPartFromNode(node.triggerOn, stage, stage)
+          createUiObjectFromNode(node.triggerOn, stage, stage)
         }
         if (node.triggerOff !== undefined) {
-          createPartFromNode(node.triggerOff, stage, stage)
+          createUiObjectFromNode(node.triggerOff, stage, stage)
         }
         if (node.takePosition !== undefined) {
-          createPartFromNode(node.takePosition, stage, stage)
+          createUiObjectFromNode(node.takePosition, stage, stage)
         }
         return
       }
       case 'Open Stage': {
         let stage = node
-        createPart('Open Stage', stage.name, stage, parentNode, chainParent, 'Open Stage')
+        createUiObject('Open Stage', stage.name, stage, parentNode, chainParent, 'Open Stage')
 
         if (node.initialDefinition !== undefined) {
-          createPartFromNode(node.initialDefinition, stage, stage)
+          createUiObjectFromNode(node.initialDefinition, stage, stage)
         }
         if (node.openExecution !== undefined) {
-          createPartFromNode(node.openExecution, stage, stage)
+          createUiObjectFromNode(node.openExecution, stage, stage)
         }
         return
       }
       case 'Manage Stage': {
         let stage = node
-        createPart('Manage Stage', stage.name, stage, parentNode, chainParent, 'Manage Stage')
+        createUiObject('Manage Stage', stage.name, stage, parentNode, chainParent, 'Manage Stage')
 
         if (node.stopLoss !== undefined) {
-          createPartFromNode(node.stopLoss, stage, stage)
+          createUiObjectFromNode(node.stopLoss, stage, stage)
         }
         if (node.takeProfit !== undefined) {
-          createPartFromNode(node.takeProfit, stage, stage)
+          createUiObjectFromNode(node.takeProfit, stage, stage)
         }
         return
       }
       case 'Close Stage': {
         let stage = node
-        createPart('Close Stage', stage.name, stage, parentNode, chainParent, 'Close Stage')
+        createUiObject('Close Stage', stage.name, stage, parentNode, chainParent, 'Close Stage')
 
         if (node.closeExecution !== undefined) {
-          createPartFromNode(node.closeExecution, stage, stage)
+          createUiObjectFromNode(node.closeExecution, stage, stage)
         }
         return
       }
       case 'Strategy': {
         let strategy = node
-        createPart('Strategy', strategy.name, strategy, parentNode, chainParent, 'Strategy')
+        createUiObject('Strategy', strategy.name, strategy, parentNode, chainParent, 'Strategy')
         if (node.triggerStage !== undefined) {
-          createPartFromNode(node.triggerStage, strategy, strategy)
+          createUiObjectFromNode(node.triggerStage, strategy, strategy)
         }
         if (node.openStage !== undefined) {
-          createPartFromNode(node.openStage, strategy, strategy)
+          createUiObjectFromNode(node.openStage, strategy, strategy)
         }
         if (node.manageStage !== undefined) {
-          createPartFromNode(node.manageStage, strategy, strategy)
+          createUiObjectFromNode(node.manageStage, strategy, strategy)
         }
         if (node.closeStage !== undefined) {
-          createPartFromNode(node.closeStage, strategy, strategy)
+          createUiObjectFromNode(node.closeStage, strategy, strategy)
         }
         return
       }
       case 'Base Asset': {
-        createPart('Base Asset', node.name, node, parentNode, chainParent, 'Base Asset')
+        createUiObject('Base Asset', node.name, node, parentNode, chainParent, 'Base Asset')
         return
       }
       case 'Time Range': {
-        createPart('Time Range', node.name, node, parentNode, chainParent, 'Time Range')
+        createUiObject('Time Range', node.name, node, parentNode, chainParent, 'Time Range')
         return
       }
       case 'Time Period': {
-        createPart('Time Period', node.name, node, parentNode, chainParent, 'Time Period')
+        createUiObject('Time Period', node.name, node, parentNode, chainParent, 'Time Period')
         return
       }
       case 'Slippage': {
-        createPart('Slippage', node.name, node, parentNode, chainParent, 'Slippage')
+        createUiObject('Slippage', node.name, node, parentNode, chainParent, 'Slippage')
         return
       }
       case 'Fee Structure': {
-        createPart('Fee Structure', node.name, node, parentNode, chainParent, 'Fee Structure')
+        createUiObject('Fee Structure', node.name, node, parentNode, chainParent, 'Fee Structure')
         return
       }
       case 'Parameters': {
-        createPart('Parameters', node.name, node, parentNode, chainParent, 'Parameters')
+        createUiObject('Parameters', node.name, node, parentNode, chainParent, 'Parameters')
         if (node.baseAsset !== undefined) {
-          createPartFromNode(node.baseAsset, node, node)
+          createUiObjectFromNode(node.baseAsset, node, node)
         }
         if (node.timeRange !== undefined) {
-          createPartFromNode(node.timeRange, node, node)
+          createUiObjectFromNode(node.timeRange, node, node)
         }
         if (node.timePeriod !== undefined) {
-          createPartFromNode(node.timePeriod, node, node)
+          createUiObjectFromNode(node.timePeriod, node, node)
         }
         if (node.slippage !== undefined) {
-          createPartFromNode(node.slippage, node, node)
+          createUiObjectFromNode(node.slippage, node, node)
         }
         if (node.feeStructure !== undefined) {
-          createPartFromNode(node.feeStructure, node, node)
+          createUiObjectFromNode(node.feeStructure, node, node)
         }
         if (node.key !== undefined) {
-          createPartFromNode(node.key, node, node)
+          createUiObjectFromNode(node.key, node, node)
         }
         return
       }
       case 'Trading System': {
         let tradingSystem = node
-        createPart('Trading System', tradingSystem.name, tradingSystem, parentNode, chainParent, 'Trading System')
+        createUiObject('Trading System', tradingSystem.name, tradingSystem, parentNode, chainParent, 'Trading System')
         for (let m = 0; m < node.strategies.length; m++) {
           let strategy = node.strategies[m]
-          createPartFromNode(strategy, tradingSystem, tradingSystem)
+          createUiObjectFromNode(strategy, tradingSystem, tradingSystem)
         }
         if (node.parameters !== undefined) {
-          createPartFromNode(node.parameters, node, node)
+          createUiObjectFromNode(node.parameters, node, node)
         }
         return
       }
       case 'Workspace': {
         let workspace = node
-        createPart('Workspace', workspace.name, workspace, parentNode, chainParent, 'Workspace')
+        createUiObject('Workspace', workspace.name, workspace, parentNode, chainParent, 'Workspace')
         return
       }
       case 'Personal Data': {
-        createPart('Personal Data', node.name, node, parentNode, chainParent, 'Personal Data')
+        createUiObject('Personal Data', node.name, node, parentNode, chainParent, 'Personal Data')
         for (let m = 0; m < node.exchangeAccounts.length; m++) {
           let exchangeAccount = node.exchangeAccounts[m]
-          createPartFromNode(exchangeAccount, node, node)
+          createUiObjectFromNode(exchangeAccount, node, node)
         }
         return
       }
       case 'Exchange Account': {
-        createPart('Exchange Account', node.name, node, parentNode, chainParent, 'Exchange Account')
+        createUiObject('Exchange Account', node.name, node, parentNode, chainParent, 'Exchange Account')
         for (let m = 0; m < node.assets.length; m++) {
           let asset = node.assets[m]
-          createPartFromNode(asset, node, node)
+          createUiObjectFromNode(asset, node, node)
         }
         for (let m = 0; m < node.keys.length; m++) {
           let key = node.keys[m]
-          createPartFromNode(key, node, node)
+          createUiObjectFromNode(key, node, node)
         }
         return
       }
       case 'Exchange Account Asset': {
-        createPart('Exchange Account Asset', node.name, node, parentNode, chainParent, 'Exchange Account Asset')
+        createUiObject('Exchange Account Asset', node.name, node, parentNode, chainParent, 'Exchange Account Asset')
         return
       }
       case 'Exchange Account Key': {
-        createPart('Exchange Account Key', node.name, node, parentNode, chainParent, 'Exchange Account Key')
+        createUiObject('Exchange Account Key', node.name, node, parentNode, chainParent, 'Exchange Account Key')
         return
       }
       case 'Definition': {
-        createPart('Definition', node.name, node, parentNode, chainParent, 'Definition')
+        createUiObject('Definition', node.name, node, parentNode, chainParent, 'Definition')
         if (node.tradingSystem !== undefined) {
-          createPartFromNode(node.tradingSystem, node, node)
+          createUiObjectFromNode(node.tradingSystem, node, node)
         }
         if (node.personalData !== undefined) {
-          createPartFromNode(node.personalData, node, node)
+          createUiObjectFromNode(node.personalData, node, node)
         }
         if (node.network !== undefined) {
-          createPartFromNode(node.network, node, node)
+          createUiObjectFromNode(node.network, node, node)
         }
         return
       }
       case 'Network': {
-        createPart('Network', node.name, node, parentNode, chainParent, 'Network')
+        createUiObject('Network', node.name, node, parentNode, chainParent, 'Network')
         if (node.networkNodes !== undefined) {
           for (let m = 0; m < node.networkNodes.length; m++) {
             let networkNode = node.networkNodes[m]
-            createPartFromNode(networkNode, node, node)
+            createUiObjectFromNode(networkNode, node, node)
           }
         }
         return
       }
       case 'Network Node': {
-        createPart('Network Node', node.name, node, parentNode, chainParent, 'Network Node')
+        createUiObject('Network Node', node.name, node, parentNode, chainParent, 'Network Node')
         if (node.taskManagers !== undefined) {
           for (let m = 0; m < node.taskManagers.length; m++) {
             let taskManager = node.taskManagers[m]
-            createPartFromNode(taskManager, node, node)
+            createUiObjectFromNode(taskManager, node, node)
           }
         }
         return
       }
       case 'Social Bots': {
-        createPart('Social Bots', node.name, node, parentNode, chainParent, 'Social Bots')
+        createUiObject('Social Bots', node.name, node, parentNode, chainParent, 'Social Bots')
         for (let m = 0; m < node.bots.length; m++) {
           let bot = node.bots[m]
-          createPartFromNode(bot, node, node)
+          createUiObjectFromNode(bot, node, node)
         }
         return
       }
       case 'Telegram Bot': {
-        createPart('Telegram Bot', node.name, node, parentNode, chainParent, 'Telegram Bot')
+        createUiObject('Telegram Bot', node.name, node, parentNode, chainParent, 'Telegram Bot')
         for (let m = 0; m < node.announcements.length; m++) {
           let announcement = node.announcements[m]
-          createPartFromNode(announcement, node, node)
+          createUiObjectFromNode(announcement, node, node)
         }
         return
       }
       case 'Announcement': {
-        createPart('Announcement', node.name, node, parentNode, chainParent, 'Announcement')
+        createUiObject('Announcement', node.name, node, parentNode, chainParent, 'Announcement')
         if (node.formula !== undefined) {
-          createPartFromNode(node.formula, node, node)
+          createUiObjectFromNode(node.formula, node, node)
         }
         return
       }
       case 'Layer Manager': {
-        createPart('Layer Manager', node.name, node, parentNode, chainParent, 'Layer Manager')
+        createUiObject('Layer Manager', node.name, node, parentNode, chainParent, 'Layer Manager')
         for (let m = 0; m < node.layers.length; m++) {
           let layer = node.layers[m]
-          createPartFromNode(layer, node, node)
+          createUiObjectFromNode(layer, node, node)
         }
         return
       }
       case 'Layer': {
-        createPart('Layer', node.name, node, parentNode, chainParent, 'Layer')
+        createUiObject('Layer', node.name, node, parentNode, chainParent, 'Layer')
         return
       }
       case 'Task Manager': {
-        createPart('Task Manager', node.name, node, parentNode, chainParent, 'Task Manager')
+        createUiObject('Task Manager', node.name, node, parentNode, chainParent, 'Task Manager')
         for (let m = 0; m < node.tasks.length; m++) {
           let task = node.tasks[m]
-          createPartFromNode(task, node, node)
+          createUiObjectFromNode(task, node, node)
         }
         return
       }
       case 'Task': {
-        createPart('Task', node.name, node, parentNode, chainParent, 'Task')
+        createUiObject('Task', node.name, node, parentNode, chainParent, 'Task')
         if (node.bot !== undefined) {
-          createPartFromNode(node.bot, node, node)
+          createUiObjectFromNode(node.bot, node, node)
         }
         return
       }
       case 'Sensor Bot Instance': {
-        createPart('Sensor Bot Instance', node.name, node, parentNode, chainParent, 'Sensor Bot Instance')
+        createUiObject('Sensor Bot Instance', node.name, node, parentNode, chainParent, 'Sensor Bot Instance')
         for (let m = 0; m < node.processes.length; m++) {
           let process = node.processes[m]
-          createPartFromNode(process, node, node)
+          createUiObjectFromNode(process, node, node)
         }
         return
       }
       case 'Indicator Bot Instance': {
-        createPart('Indicator Bot Instance', node.name, node, parentNode, chainParent, 'Indicator Bot Instance')
+        createUiObject('Indicator Bot Instance', node.name, node, parentNode, chainParent, 'Indicator Bot Instance')
         for (let m = 0; m < node.processes.length; m++) {
           let process = node.processes[m]
-          createPartFromNode(process, node, node)
+          createUiObjectFromNode(process, node, node)
         }
         return
       }
       case 'Trading Bot Instance': {
-        createPart('Trading Bot Instance', node.name, node, parentNode, chainParent, 'Trading Bot Instance')
+        createUiObject('Trading Bot Instance', node.name, node, parentNode, chainParent, 'Trading Bot Instance')
         for (let m = 0; m < node.processes.length; m++) {
           let process = node.processes[m]
-          createPartFromNode(process, node, node)
+          createUiObjectFromNode(process, node, node)
         }
         return
       }
@@ -506,61 +506,61 @@ function newUiObjectsFromNodes () {
             }
           }
         }
-        createPart('Process', node.name, node, parentNode, chainParent, 'Process')
+        createUiObject('Process', node.name, node, parentNode, chainParent, 'Process')
         if (node.session !== undefined) {
-          createPartFromNode(node.session, node, node)
+          createUiObjectFromNode(node.session, node, node)
         }
         return
       }
       case 'Backtesting Session': {
-        createPart('Backtesting Session', node.name, node, parentNode, chainParent, 'Backtesting Session')
+        createUiObject('Backtesting Session', node.name, node, parentNode, chainParent, 'Backtesting Session')
         if (node.parameters !== undefined) {
-          createPartFromNode(node.parameters, node, node)
+          createUiObjectFromNode(node.parameters, node, node)
         }
         if (node.layerManager !== undefined) {
-          createPartFromNode(node.layerManager, node, node)
+          createUiObjectFromNode(node.layerManager, node, node)
         }
         if (node.socialBots !== undefined) {
-          createPartFromNode(node.socialBots, node, node)
+          createUiObjectFromNode(node.socialBots, node, node)
         }
         return
       }
       case 'Live Trading Session': {
-        createPart('Live Trading Session', node.name, node, parentNode, chainParent, 'Live Trading Session')
+        createUiObject('Live Trading Session', node.name, node, parentNode, chainParent, 'Live Trading Session')
         if (node.parameters !== undefined) {
-          createPartFromNode(node.parameters, node, node)
+          createUiObjectFromNode(node.parameters, node, node)
         }
         if (node.layerManager !== undefined) {
-          createPartFromNode(node.layerManager, node, node)
+          createUiObjectFromNode(node.layerManager, node, node)
         }
         if (node.socialBots !== undefined) {
-          createPartFromNode(node.socialBots, node, node)
+          createUiObjectFromNode(node.socialBots, node, node)
         }
         return
       }
       case 'Fordward Testing Session': {
-        createPart('Fordward Testing Session', node.name, node, parentNode, chainParent, 'Fordward Testing Session')
+        createUiObject('Fordward Testing Session', node.name, node, parentNode, chainParent, 'Fordward Testing Session')
         if (node.parameters !== undefined) {
-          createPartFromNode(node.parameters, node, node)
+          createUiObjectFromNode(node.parameters, node, node)
         }
         if (node.layerManager !== undefined) {
-          createPartFromNode(node.layerManager, node, node)
+          createUiObjectFromNode(node.layerManager, node, node)
         }
         if (node.socialBots !== undefined) {
-          createPartFromNode(node.socialBots, node, node)
+          createUiObjectFromNode(node.socialBots, node, node)
         }
         return
       }
       case 'Paper Trading Session': {
-        createPart('Paper Trading Session', node.name, node, parentNode, chainParent, 'Paper Trading Session')
+        createUiObject('Paper Trading Session', node.name, node, parentNode, chainParent, 'Paper Trading Session')
         if (node.parameters !== undefined) {
-          createPartFromNode(node.parameters, node, node)
+          createUiObjectFromNode(node.parameters, node, node)
         }
         if (node.layerManager !== undefined) {
-          createPartFromNode(node.layerManager, node, node)
+          createUiObjectFromNode(node.layerManager, node, node)
         }
         if (node.socialBots !== undefined) {
-          createPartFromNode(node.socialBots, node, node)
+          createUiObjectFromNode(node.socialBots, node, node)
         }
         return
       }
@@ -572,7 +572,7 @@ function newUiObjectsFromNodes () {
       node.network = {
         name: 'Superalgos'
       }
-      createPart('Network', node.network.name, node.network, node, node, 'Network')
+      createUiObject('Network', node.network.name, node.network, node, node, 'Network')
     }
 
     return node.network
@@ -586,7 +586,7 @@ function newUiObjectsFromNodes () {
       node.networkNodes = []
     }
     node.networkNodes.push(networkNode)
-    createPart('Network Node', networkNode.name, networkNode, node, node, 'Network Node')
+    createUiObject('Network Node', networkNode.name, networkNode, node, node, 'Network Node')
 
     return networkNode
   }
@@ -597,7 +597,7 @@ function newUiObjectsFromNodes () {
         name: 'New Social Bots',
         bots: []
       }
-      createPart('Social Bots', node.socialBots.name, node.socialBots, node, node, 'Social Bots')
+      createUiObject('Social Bots', node.socialBots.name, node.socialBots, node, node, 'Social Bots')
     }
 
     return node.socialBots
@@ -610,7 +610,7 @@ function newUiObjectsFromNodes () {
       announcements: []
     }
     node.bots.push(bot)
-    createPart('Telegram Bot', bot.name, bot, node, node, 'Telegram Bot')
+    createUiObject('Telegram Bot', bot.name, bot, node, node, 'Telegram Bot')
 
     return bot
   }
@@ -621,7 +621,7 @@ function newUiObjectsFromNodes () {
       code: '{ \n\"text\": \"Write here what you want to announce.\",\n\"botType\": \"' + node.type + '\",\n\"botId\": \"' + node.id + '\"\n}'
     }
     node.announcements.push(announcement)
-    createPart('Announcement', announcement.name, announcement, node, node, 'Announcement')
+    createUiObject('Announcement', announcement.name, announcement, node, node, 'Announcement')
 
     return announcement
   }
@@ -632,7 +632,7 @@ function newUiObjectsFromNodes () {
         name: 'New Layer Manager',
         layers: []
       }
-      createPart('Layer Manager', node.layerManager.name, node.layerManager, node, node, 'Layer Manager')
+      createUiObject('Layer Manager', node.layerManager.name, node.layerManager, node, node, 'Layer Manager')
     }
 
     return node.layerManager
@@ -644,7 +644,7 @@ function newUiObjectsFromNodes () {
       code: '{}'
     }
     node.layers.push(layer)
-    createPart('Layer', layer.name, layer, node, node, 'Layer')
+    createUiObject('Layer', layer.name, layer, node, node, 'Layer')
 
     return layer
   }
@@ -658,7 +658,7 @@ function newUiObjectsFromNodes () {
       node.taskManagers = []
     }
     node.taskManagers.push(taskManager)
-    createPart('Task Manager', taskManager.name, taskManager, node, node, 'Task Manager')
+    createUiObject('Task Manager', taskManager.name, taskManager, node, node, 'Task Manager')
 
     return taskManager
   }
@@ -668,7 +668,7 @@ function newUiObjectsFromNodes () {
       name: 'New Task'
     }
     node.tasks.push(task)
-    createPart('Task', task.name, task, node, node, 'Task')
+    createUiObject('Task', task.name, task, node, node, 'Task')
 
     return task
   }
@@ -679,7 +679,7 @@ function newUiObjectsFromNodes () {
         processes: [],
         code: '{}'
       }
-      createPart('Sensor Bot Instance', '', node.bot, node, node)
+      createUiObject('Sensor Bot Instance', '', node.bot, node, node)
     }
     return node.bot
   }
@@ -690,7 +690,7 @@ function newUiObjectsFromNodes () {
         processes: [],
         code: '{}'
       }
-      createPart('Indicator Bot Instance', '', node.bot, node, node)
+      createUiObject('Indicator Bot Instance', '', node.bot, node, node)
     }
     return node.bot
   }
@@ -701,7 +701,7 @@ function newUiObjectsFromNodes () {
         processes: [],
         code: '{}'
       }
-      createPart('Trading Bot Instance', '', node.bot, node, node)
+      createUiObject('Trading Bot Instance', '', node.bot, node, node)
     }
     return node.bot
   }
@@ -730,7 +730,7 @@ function newUiObjectsFromNodes () {
       }
     }
     node.processes.push(process)
-    createPart('Process', process.name, process, node, node, 'Process')
+    createUiObject('Process', process.name, process, node, node, 'Process')
 
     return process
   }
@@ -741,7 +741,7 @@ function newUiObjectsFromNodes () {
         name: 'New Backtesting Session',
         code: '{}'
       }
-      createPart('Backtesting Session', '', node.session, node, node)
+      createUiObject('Backtesting Session', '', node.session, node, node)
     }
 
     return node.session
@@ -753,7 +753,7 @@ function newUiObjectsFromNodes () {
         name: 'New Live Trading Session',
         code: '{}'
       }
-      createPart('Live Trading Session', '', node.session, node, node)
+      createUiObject('Live Trading Session', '', node.session, node, node)
     }
 
     return node.session
@@ -765,7 +765,7 @@ function newUiObjectsFromNodes () {
         name: 'New Fordward Testing Session',
         code: '{}'
       }
-      createPart('Fordward Testing Session', '', node.session, node, node)
+      createUiObject('Fordward Testing Session', '', node.session, node, node)
     }
 
     return node.session
@@ -777,7 +777,7 @@ function newUiObjectsFromNodes () {
         name: 'New Paper Trading Session',
         code: '{}'
       }
-      createPart('Paper Trading Session', '', node.session, node, node)
+      createUiObject('Paper Trading Session', '', node.session, node, node)
     }
 
     return node.session
@@ -788,7 +788,7 @@ function newUiObjectsFromNodes () {
       name: 'New Definition'
     }
     node.rootNodes.push(definition)
-    createPart('Definition', definition.name, definition, node, undefined, 'Definition')
+    createUiObject('Definition', definition.name, definition, node, undefined, 'Definition')
 
     return definition
   }
@@ -798,7 +798,7 @@ function newUiObjectsFromNodes () {
       node.tradingSystem = {
         strategies: []
       }
-      createPart('Trading System', '', node.tradingSystem, node, node)
+      createUiObject('Trading System', '', node.tradingSystem, node, node)
     }
     return node.tradingSystem
   }
@@ -808,7 +808,7 @@ function newUiObjectsFromNodes () {
       node.personalData = {
         exchangeAccounts: []
       }
-      createPart('Personal Data', '', node.personalData, node, node)
+      createUiObject('Personal Data', '', node.personalData, node, node)
     }
 
     return node.personalData
@@ -822,7 +822,7 @@ function newUiObjectsFromNodes () {
       keys: []
     }
     personalData.exchangeAccounts.push(exchangeAccount)
-    createPart('Exchange Account', exchangeAccount.name, exchangeAccount, personalData, personalData, 'Exchange Account')
+    createUiObject('Exchange Account', exchangeAccount.name, exchangeAccount, personalData, personalData, 'Exchange Account')
 
     return exchangeAccount
   }
@@ -833,7 +833,7 @@ function newUiObjectsFromNodes () {
       name: 'New Asset'
     }
     exchangeAccount.assets.push(asset)
-    createPart('Exchange Account Asset', asset.name, asset, exchangeAccount, exchangeAccount, 'Account Asset')
+    createUiObject('Exchange Account Asset', asset.name, asset, exchangeAccount, exchangeAccount, 'Account Asset')
 
     return asset
   }
@@ -845,7 +845,7 @@ function newUiObjectsFromNodes () {
       code: 'Paste your exchange API secret key here and the put the key name as this key object title. Secret keys are filtered out and NOT exported when using the SHARE menu option on any object at your workspace. Secret keys ARE downloaded when using the download button.'
     }
     exchangeAccount.keys.push(key)
-    createPart('Exchange Account Key', key.name, key, exchangeAccount, exchangeAccount, 'Account Key')
+    createUiObject('Exchange Account Key', key.name, key, exchangeAccount, exchangeAccount, 'Account Key')
 
     return key
   }
@@ -896,22 +896,22 @@ function newUiObjectsFromNodes () {
     }
 
     strategyParent.strategies.push(strategy)
-    createPart('Strategy', strategy.name, strategy, strategyParent, strategyParent, 'Strategy')
-    createPart('Trigger Stage', '', strategy.triggerStage, strategy, strategy, 'Trigger Stage')
-    createPart('Open Stage', '', strategy.openStage, strategy, strategy, 'Open Stage')
-    createPart('Manage Stage', '', strategy.manageStage, strategy, strategy, 'Manage Stage')
-    createPart('Close Stage', '', strategy.closeStage, strategy, strategy, 'Close Stage')
-    createPart('Trigger On Event', '', strategy.triggerStage.triggerOn, strategy.triggerStage, strategy.triggerStage)
-    createPart('Trigger Off Event', '', strategy.triggerStage.triggerOff, strategy.triggerStage, strategy.triggerStage)
-    createPart('Take Position Event', '', strategy.triggerStage.takePosition, strategy.triggerStage, strategy.triggerStage)
-    createPart('Initial Definition', '', strategy.openStage.initialDefinition, strategy.openStage, strategy.openStage)
-    createPart('Position Size', '', strategy.openStage.initialDefinition.positionSize, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
-    createPart('Position Rate', '', strategy.openStage.initialDefinition.positionRate, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
-    createPart('Stop', '', strategy.manageStage.stopLoss, strategy.manageStage, strategy.manageStage)
-    createPart('Take Profit', '', strategy.manageStage.takeProfit, strategy.manageStage, strategy.manageStage)
-    createPart('Stop', 'Initial Stop', strategy.openStage.initialDefinition.stopLoss, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
-    createPart('Take Profit', 'Initial Take Profit', strategy.openStage.initialDefinition.takeProfit, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
-    createPart('Formula', '', strategy.triggerStage.positionSize.formula, strategy.triggerStage.positionSize, strategy.triggerStage.positionSize)
+    createUiObject('Strategy', strategy.name, strategy, strategyParent, strategyParent, 'Strategy')
+    createUiObject('Trigger Stage', '', strategy.triggerStage, strategy, strategy, 'Trigger Stage')
+    createUiObject('Open Stage', '', strategy.openStage, strategy, strategy, 'Open Stage')
+    createUiObject('Manage Stage', '', strategy.manageStage, strategy, strategy, 'Manage Stage')
+    createUiObject('Close Stage', '', strategy.closeStage, strategy, strategy, 'Close Stage')
+    createUiObject('Trigger On Event', '', strategy.triggerStage.triggerOn, strategy.triggerStage, strategy.triggerStage)
+    createUiObject('Trigger Off Event', '', strategy.triggerStage.triggerOff, strategy.triggerStage, strategy.triggerStage)
+    createUiObject('Take Position Event', '', strategy.triggerStage.takePosition, strategy.triggerStage, strategy.triggerStage)
+    createUiObject('Initial Definition', '', strategy.openStage.initialDefinition, strategy.openStage, strategy.openStage)
+    createUiObject('Position Size', '', strategy.openStage.initialDefinition.positionSize, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
+    createUiObject('Position Rate', '', strategy.openStage.initialDefinition.positionRate, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
+    createUiObject('Stop', '', strategy.manageStage.stopLoss, strategy.manageStage, strategy.manageStage)
+    createUiObject('Take Profit', '', strategy.manageStage.takeProfit, strategy.manageStage, strategy.manageStage)
+    createUiObject('Stop', 'Initial Stop', strategy.openStage.initialDefinition.stopLoss, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
+    createUiObject('Take Profit', 'Initial Take Profit', strategy.openStage.initialDefinition.takeProfit, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
+    createUiObject('Formula', '', strategy.triggerStage.positionSize.formula, strategy.triggerStage.positionSize, strategy.triggerStage.positionSize)
 
     return strategy
   }
@@ -921,7 +921,7 @@ function newUiObjectsFromNodes () {
       node.parameters = {
         name: 'Parameters'
       }
-      createPart('Parameters', '', node.parameters, node, node)
+      createUiObject('Parameters', '', node.parameters, node, node)
       addMissingParameters(node.parameters)
     }
 
@@ -934,35 +934,35 @@ function newUiObjectsFromNodes () {
         name: 'Base Asset',
         code: DEFAULT_CONFIG_TEXT
       }
-      createPart('Base Asset', '', node.baseAsset, node, node)
+      createUiObject('Base Asset', '', node.baseAsset, node, node)
     }
     if (node.timeRange === undefined) {
       node.timeRange = {
         name: 'Time Range',
         code: DEFAULT_CONFIG_TEXT
       }
-      createPart('Time Range', '', node.timeRange, node, node)
+      createUiObject('Time Range', '', node.timeRange, node, node)
     }
     if (node.timePeriod === undefined) {
       node.timePeriod = {
         name: 'Time Period',
         code: DEFAULT_CONFIG_TEXT
       }
-      createPart('Time Period', '', node.timePeriod, node, node)
+      createUiObject('Time Period', '', node.timePeriod, node, node)
     }
     if (node.slippage === undefined) {
       node.slippage = {
         name: 'Slippage',
         code: DEFAULT_CONFIG_TEXT
       }
-      createPart('Slippage', '', node.slippage, node, node)
+      createUiObject('Slippage', '', node.slippage, node, node)
     }
     if (node.feeStructure === undefined) {
       node.feeStructure = {
         name: 'Fee Structure',
         code: DEFAULT_CONFIG_TEXT
       }
-      createPart('Fee Structure', '', node.feeStructure, node, node)
+      createUiObject('Fee Structure', '', node.feeStructure, node, node)
     }
   }
 
@@ -984,11 +984,11 @@ function newUiObjectsFromNodes () {
           }
         }
       }
-      createPart('Trigger Stage', '', node.triggerStage, node, node, 'Trigger Stage')
-      createPart('Trigger On Event', '', node.triggerStage.triggerOn, node.triggerStage, node.triggerStage)
-      createPart('Trigger Off Event', '', node.triggerStage.triggerOff, node.triggerStage, node.triggerStage)
-      createPart('Take Position Event', '', node.triggerStage.takePosition, node.triggerStage, node.triggerStage)
-      createPart('Formula', '', node.triggerStage.positionSize.formula, node.triggerStage.positionSize, node.triggerStage.positionSize)
+      createUiObject('Trigger Stage', '', node.triggerStage, node, node, 'Trigger Stage')
+      createUiObject('Trigger On Event', '', node.triggerStage.triggerOn, node.triggerStage, node.triggerStage)
+      createUiObject('Trigger Off Event', '', node.triggerStage.triggerOff, node.triggerStage, node.triggerStage)
+      createUiObject('Take Position Event', '', node.triggerStage.takePosition, node.triggerStage, node.triggerStage)
+      createUiObject('Formula', '', node.triggerStage.positionSize.formula, node.triggerStage.positionSize, node.triggerStage.positionSize)
     }
     if (node.openStage === undefined) {
       node.openStage = {
@@ -1003,12 +1003,12 @@ function newUiObjectsFromNodes () {
           }
         }
       }
-      createPart('Open Stage', '', node.openStage, node, node, 'Open Stage')
-      createPart('Initial Definition', '', node.openStage.initialDefinition, node.openStage, node.openStage)
-      createPart('Stop', 'Initial Stop', node.openStage.initialDefinition.stopLoss, node.openStage.initialDefinition, node.openStage.initialDefinition)
-      createPart('Take Profit', 'Initial Take Profit', node.openStage.initialDefinition.takeProfit, node.openStage.initialDefinition, node.openStage.initialDefinition)
-      createPart('Position Size', 'Position Size', node.openStage.initialDefinition.positionSize, node.openStage.initialDefinition, node.openStage.initialDefinition)
-      createPart('Position Rate', 'Position Rate', node.openStage.initialDefinition.positionRate, node.openStage.initialDefinition, node.openStage.initialDefinition)
+      createUiObject('Open Stage', '', node.openStage, node, node, 'Open Stage')
+      createUiObject('Initial Definition', '', node.openStage.initialDefinition, node.openStage, node.openStage)
+      createUiObject('Stop', 'Initial Stop', node.openStage.initialDefinition.stopLoss, node.openStage.initialDefinition, node.openStage.initialDefinition)
+      createUiObject('Take Profit', 'Initial Take Profit', node.openStage.initialDefinition.takeProfit, node.openStage.initialDefinition, node.openStage.initialDefinition)
+      createUiObject('Position Size', 'Position Size', node.openStage.initialDefinition.positionSize, node.openStage.initialDefinition, node.openStage.initialDefinition)
+      createUiObject('Position Rate', 'Position Rate', node.openStage.initialDefinition.positionRate, node.openStage.initialDefinition, node.openStage.initialDefinition)
     }
     if (node.manageStage === undefined) {
       node.manageStage = {
@@ -1019,14 +1019,14 @@ function newUiObjectsFromNodes () {
           phases: []
         }
       }
-      createPart('Manage Stage', '', node.manageStage, node, node, 'Manage Stage')
-      createPart('Stop', '', node.manageStage.stopLoss, node.manageStage, node.manageStage)
-      createPart('Take Profit', '', node.manageStage.takeProfit, node.manageStage, node.manageStage)
+      createUiObject('Manage Stage', '', node.manageStage, node, node, 'Manage Stage')
+      createUiObject('Stop', '', node.manageStage.stopLoss, node.manageStage, node.manageStage)
+      createUiObject('Take Profit', '', node.manageStage.takeProfit, node.manageStage, node.manageStage)
     }
     if (node.closeStage === undefined) {
       node.closeStage = {
       }
-      createPart('Close Stage', '', node.closeStage, node, node, 'Close Stage')
+      createUiObject('Close Stage', '', node.closeStage, node, node, 'Close Stage')
     }
   }
 
@@ -1036,21 +1036,21 @@ function newUiObjectsFromNodes () {
         situations: [],
         announcements: []
       }
-      createPart('Trigger On Event', '', node.triggerOn, node, node)
+      createUiObject('Trigger On Event', '', node.triggerOn, node, node)
     }
     if (node.triggerOff === undefined) {
       node.triggerOff = {
         situations: [],
         announcements: []
       }
-      createPart('Trigger Off Event', '', node.triggerOff, node, node)
+      createUiObject('Trigger Off Event', '', node.triggerOff, node, node)
     }
     if (node.takePosition === undefined) {
       node.takePosition = {
         situations: [],
         announcements: []
       }
-      createPart('Take Position Event', '', node.takePosition, node, node)
+      createUiObject('Take Position Event', '', node.takePosition, node, node)
     }
   }
 
@@ -1061,14 +1061,14 @@ function newUiObjectsFromNodes () {
           phases: [],
           maxPhases: 1
         }
-        createPart('Stop', 'Initial Stop', node.stopLoss, node, node)
+        createUiObject('Stop', 'Initial Stop', node.stopLoss, node, node)
       }
       if (node.takeProfit === undefined) {
         node.takeProfit = {
           phases: [],
           maxPhases: 1
         }
-        createPart('Take Profit', 'Initial Take Profit', node.takeProfit, node, node)
+        createUiObject('Take Profit', 'Initial Take Profit', node.takeProfit, node, node)
       }
       if (node.positionSize === undefined) {
         node.positionSize = {
@@ -1077,8 +1077,8 @@ function newUiObjectsFromNodes () {
             code: DEFAULT_FORMULA_TEXT
           }
         }
-        createPart('Position Size', '', node.positionSize, node, node)
-        createPart('Formula', '', node.positionSize.formula, node.positionSize, node.positionSize)
+        createUiObject('Position Size', '', node.positionSize, node, node)
+        createUiObject('Formula', '', node.positionSize.formula, node.positionSize, node.positionSize)
       }
       if (node.positionRate === undefined) {
         node.positionRate = {
@@ -1087,21 +1087,21 @@ function newUiObjectsFromNodes () {
             code: DEFAULT_FORMULA_TEXT
           }
         }
-        createPart('Position Rate', '', node.positionRate, node, node)
-        createPart('Formula', '', node.positionRate.formula, node.positionRate, node.positionRate)
+        createUiObject('Position Rate', '', node.positionRate, node, node)
+        createUiObject('Formula', '', node.positionRate.formula, node.positionRate, node.positionRate)
       }
     } else {
       if (node.stopLoss === undefined) {
         node.stopLoss = {
           phases: []
         }
-        createPart('Stop', '', node.stopLoss, node, node)
+        createUiObject('Stop', '', node.stopLoss, node, node)
       }
       if (node.takeProfit === undefined) {
         node.takeProfit = {
           phases: []
         }
-        createPart('Take Profit', '', node.takeProfit, node, node)
+        createUiObject('Take Profit', '', node.takeProfit, node, node)
       }
     }
   }
@@ -1118,13 +1118,13 @@ function newUiObjectsFromNodes () {
           maxPhases: 1
         }
       }
-      createPart('Initial Definition', '', node.initialDefinition, node, node)
-      createPart('Stop', 'Initial Stop', node.initialDefinition.stopLoss, node.initialDefinition, node.initialDefinition)
-      createPart('Take Profit', 'Initial Take Profit', node.initialDefinition.takeProfit, node.initialDefinition, node.initialDefinition)
-      createPart('Position Size', '', node.initialDefinition.positionSize, node.initialDefinition, node.initialDefinition)
-      createPart('Formula', '', node.initialDefinition.positionSize.formula, node.initialDefinition.positionSize, node.initialDefinition.positionSize)
-      createPart('Position Rate', '', node.initialDefinition.positionRate, node.initialDefinition, node.initialDefinition)
-      createPart('Formula', '', node.initialDefinition.positionRate.formula, node.initialDefinition.positionRate, node.initialDefinition.positionRate)
+      createUiObject('Initial Definition', '', node.initialDefinition, node, node)
+      createUiObject('Stop', 'Initial Stop', node.initialDefinition.stopLoss, node.initialDefinition, node.initialDefinition)
+      createUiObject('Take Profit', 'Initial Take Profit', node.initialDefinition.takeProfit, node.initialDefinition, node.initialDefinition)
+      createUiObject('Position Size', '', node.initialDefinition.positionSize, node.initialDefinition, node.initialDefinition)
+      createUiObject('Formula', '', node.initialDefinition.positionSize.formula, node.initialDefinition.positionSize, node.initialDefinition.positionSize)
+      createUiObject('Position Rate', '', node.initialDefinition.positionRate, node.initialDefinition, node.initialDefinition)
+      createUiObject('Formula', '', node.initialDefinition.positionRate.formula, node.initialDefinition.positionRate, node.initialDefinition.positionRate)
     }
 
     return node.initialDefinition
@@ -1133,7 +1133,7 @@ function newUiObjectsFromNodes () {
   function addOpenExecution (node) {
     if (node.openExecution === undefined) {
       node.openExecution = {}
-      createPart('Open Execution', '', node.openExecution, node, node)
+      createUiObject('Open Execution', '', node.openExecution, node, node)
     }
 
     return node.openExecution
@@ -1142,7 +1142,7 @@ function newUiObjectsFromNodes () {
   function addCloseExecution (node) {
     if (node.closeExecution === undefined) {
       node.closeExecution = {}
-      createPart('Close Execution', '', node.closeExecution, node, node)
+      createUiObject('Close Execution', '', node.closeExecution, node, node)
     }
 
     return node.closeExecution
@@ -1153,7 +1153,7 @@ function newUiObjectsFromNodes () {
       node.formula = {
         code: DEFAULT_FORMULA_TEXT
       }
-      createPart('Formula', '', node.formula, node, node)
+      createUiObject('Formula', '', node.formula, node, node)
     }
 
     return node.formula
@@ -1165,7 +1165,7 @@ function newUiObjectsFromNodes () {
         situations: [],
         announcements: []
       }
-      createPart('Next Phase Event', '', node.nextPhaseEvent, node, node)
+      createUiObject('Next Phase Event', '', node.nextPhaseEvent, node, node)
     }
 
     return node.nextPhaseEvent
@@ -1176,7 +1176,7 @@ function newUiObjectsFromNodes () {
       node.code = {
         code: DEFAULT_CODE_TEXT
       }
-      createPart('Code', '', node.code, node, node)
+      createUiObject('Code', '', node.code, node, node)
     }
 
     return node.code
@@ -1212,9 +1212,9 @@ function newUiObjectsFromNodes () {
     } else {
       phaseChainParent = phaseParent
     }
-    createPart('Phase', phase.name, phase, phaseParent, phaseChainParent, 'Phase')
-    createPart('Formula', '', phase.formula, phase, phase, 'Formula')
-    createPart('Next Phase Event', '', phase.nextPhaseEvent, phase, phase)
+    createUiObject('Phase', phase.name, phase, phaseParent, phaseChainParent, 'Phase')
+    createUiObject('Formula', '', phase.formula, phase, phase, 'Formula')
+    createUiObject('Next Phase Event', '', phase.nextPhaseEvent, phase, phase)
 
     return phase
   }
@@ -1226,7 +1226,7 @@ function newUiObjectsFromNodes () {
       conditions: []
     }
     parentNode.situations.push(situation)
-    createPart('Situation', situation.name, situation, parentNode, parentNode, 'Situation')
+    createUiObject('Situation', situation.name, situation, parentNode, parentNode, 'Situation')
 
     return situation
   }
@@ -1241,16 +1241,16 @@ function newUiObjectsFromNodes () {
       }
     }
     situation.conditions.push(condition)
-    createPart('Condition', condition.name, condition, situation, situation, 'Condition')
-    createPart('Code', '', condition.code, condition, condition, 'Code')
+    createUiObject('Condition', condition.name, condition, situation, situation, 'Condition')
+    createUiObject('Code', '', condition.code, condition, condition, 'Code')
 
     return condition
   }
 
-  function createPart (partType, name, node, parentNode, chainParent, title) {
+  function createUiObject (uiObjectType, name, node, parentNode, chainParent, title) {
     let payload = {}
 
-    if (name === '' || name === undefined) { name = 'My ' + partType }
+    if (name === '' || name === undefined) { name = 'My ' + uiObjectType }
     if (node.savedPayload !== undefined) {
       payload.targetPosition = {
         x: node.savedPayload.targetPosition.x,
@@ -1266,7 +1266,7 @@ function newUiObjectsFromNodes () {
           x: spawnPosition.x,
           y: spawnPosition.y
         }
-        if (partType === 'Workspace' || partType === 'Trading System') {
+        if (uiObjectType === 'Workspace' || uiObjectType === 'Trading System') {
           payload.position = {
             x: spawnPosition.x,
             y: spawnPosition.y
@@ -1283,7 +1283,7 @@ function newUiObjectsFromNodes () {
     if (title !== undefined) {
       payload.subTitle = title
     } else {
-      payload.subTitle = partType
+      payload.subTitle = uiObjectType
     }
 
     payload.visible = true
@@ -1297,7 +1297,7 @@ function newUiObjectsFromNodes () {
       node.id = newUniqueId()
     }
     node.payload = payload
-    node.type = partType
+    node.type = uiObjectType
     canvas.floatingSpace.uiObjectConstructor.createUiObject(payload)
   }
 }

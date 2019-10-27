@@ -51,7 +51,7 @@ function newNodeDeleter () {
 
   return thisObject
 
-  function destroyPart (node) {
+  function destroyUiObject (node) {
     canvas.floatingSpace.uiObjectConstructor.destroyUiObject(node.payload)
   }
 
@@ -266,7 +266,7 @@ function newNodeDeleter () {
     }
 
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -296,7 +296,7 @@ function newNodeDeleter () {
     }
 
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -314,7 +314,7 @@ function newNodeDeleter () {
     }
 
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -337,7 +337,7 @@ function newNodeDeleter () {
     }
 
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -352,7 +352,7 @@ function newNodeDeleter () {
       }
     }
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -372,7 +372,7 @@ function newNodeDeleter () {
       }
     }
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -390,7 +390,7 @@ function newNodeDeleter () {
       deleteFormula(node.formula, rootNodes)
     }
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -405,7 +405,7 @@ function newNodeDeleter () {
       }
     }
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -420,7 +420,7 @@ function newNodeDeleter () {
       }
     }
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -440,7 +440,7 @@ function newNodeDeleter () {
       }
     }
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -458,7 +458,7 @@ function newNodeDeleter () {
       deleteBotInstance(node.bot, rootNodes)
     }
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -474,7 +474,7 @@ function newNodeDeleter () {
     }
 
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -511,7 +511,7 @@ function newNodeDeleter () {
     }
 
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -534,7 +534,7 @@ function newNodeDeleter () {
       deleteSocialBots(node.socialBots, rootNodes)
     }
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -557,7 +557,7 @@ function newNodeDeleter () {
       deleteSocialBots(node.socialBots, rootNodes)
     }
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -580,7 +580,7 @@ function newNodeDeleter () {
       deleteSocialBots(node.socialBots, rootNodes)
     }
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -603,7 +603,7 @@ function newNodeDeleter () {
       deleteSocialBots(node.socialBots, rootNodes)
     }
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -621,7 +621,7 @@ function newNodeDeleter () {
     }
 
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -647,7 +647,7 @@ function newNodeDeleter () {
     }
 
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -663,7 +663,7 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -684,7 +684,7 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -706,7 +706,7 @@ function newNodeDeleter () {
     }
 
     completeDeletion(node, rootNodes)
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -735,7 +735,7 @@ function newNodeDeleter () {
     if (node.key !== undefined) {
       deleteExchangeAccountKey(node.key, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -746,7 +746,7 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -757,7 +757,7 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -768,7 +768,7 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -779,7 +779,7 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -790,7 +790,7 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -818,7 +818,7 @@ function newNodeDeleter () {
     if (node.closeStage !== undefined) {
       deleteCloseStage(node.closeStage, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -838,7 +838,7 @@ function newNodeDeleter () {
     if (node.takePosition !== undefined) {
       deleteEvent(node.takePosition, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -857,7 +857,7 @@ function newNodeDeleter () {
       deleteOpenExecution(node.openExecution, rootNodes)
     }
 
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -874,7 +874,7 @@ function newNodeDeleter () {
     if (node.takeProfit !== undefined) {
       deleteManagedItem(node.takeProfit, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -888,7 +888,7 @@ function newNodeDeleter () {
     if (node.closeExecution !== undefined) {
       deleteCloseExecution(node.closeExecution, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -902,7 +902,7 @@ function newNodeDeleter () {
     if (node.formula !== undefined) {
       deleteFormula(node.formula, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -916,7 +916,7 @@ function newNodeDeleter () {
     if (node.formula !== undefined) {
       deleteFormula(node.formula, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -939,7 +939,7 @@ function newNodeDeleter () {
     if (node.positionRate !== undefined) {
       deletePositionSize(node.positionRate, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -950,7 +950,7 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -961,7 +961,7 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -1001,7 +1001,7 @@ function newNodeDeleter () {
         deleteAnnouncement(node.announcements[0], rootNodes)
       }
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -1028,7 +1028,7 @@ function newNodeDeleter () {
       }
     }
 
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -1063,7 +1063,7 @@ function newNodeDeleter () {
         deleteAnnouncement(node.announcements[0], rootNodes)
       }
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -1075,7 +1075,7 @@ function newNodeDeleter () {
       completeDeletion(node, rootNodes)
     }
 
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -1094,7 +1094,7 @@ function newNodeDeleter () {
 
           situation.conditions = []
           payload.parentNode.situations.splice(j, 1)
-          destroyPart(situation)
+          destroyUiObject(situation)
           cleanNode(situation)
           return
         }
@@ -1109,7 +1109,7 @@ function newNodeDeleter () {
 
       node.conditions = []
       completeDeletion(node, rootNodes)
-      destroyPart(node)
+      destroyUiObject(node)
       cleanNode(node)
     }
   }
@@ -1129,7 +1129,7 @@ function newNodeDeleter () {
     if (node.code !== undefined) {
       deleteCode(node.code, rootNodes)
     }
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 
@@ -1141,7 +1141,7 @@ function newNodeDeleter () {
       completeDeletion(node, rootNodes)
     }
 
-    destroyPart(node)
+    destroyUiObject(node)
     cleanNode(node)
   }
 

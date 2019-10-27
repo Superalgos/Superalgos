@@ -197,8 +197,8 @@ function newCanvas () {
           return
         }
       }
-      if (nodeOnFocus.payload.uiObject.partTitle !== undefined) {
-        if (nodeOnFocus.payload.uiObject.partTitle.editMode === true) {
+      if (nodeOnFocus.payload.uiObject.uiObjectTitle !== undefined) {
+        if (nodeOnFocus.payload.uiObject.uiObjectTitle.editMode === true) {
           return
         }
       }

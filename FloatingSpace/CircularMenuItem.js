@@ -171,8 +171,8 @@ function newCircularMenuItem () {
       thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.secondaryIcon)
     } else {
       if (thisObject.relatedUiObject !== undefined) {
-        thisObject.iconOn = canvas.designerSpace.iconByPartType.get(thisObject.relatedUiObject)
-        thisObject.iconOff = canvas.designerSpace.iconByPartType.get(thisObject.relatedUiObject)
+        thisObject.iconOn = canvas.designerSpace.iconByUiObjectType.get(thisObject.relatedUiObject)
+        thisObject.iconOff = canvas.designerSpace.iconByUiObjectType.get(thisObject.relatedUiObject)
       } else {
         thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.iconPathOn)
         thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.iconPathOff)

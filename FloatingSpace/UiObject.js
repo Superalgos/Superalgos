@@ -15,7 +15,7 @@ function newUiObject () {
     container: undefined,
     payload: undefined,
     codeEditor: undefined,
-    partTitle: undefined,
+    uiObjectTitle: undefined,
     circularProgressBar: undefined,
     isExecuting: undefined,
     isRunning: undefined,
@@ -95,8 +95,8 @@ function newUiObject () {
     thisObject.payload = undefined
     thisObject.menu.finalize()
     thisObject.menu = undefined
-    thisObject.partTitle.finalize()
-    thisObject.partTitle = undefined
+    thisObject.uiObjectTitle.finalize()
+    thisObject.uiObjectTitle = undefined
     thisObject.fitFunction = undefined
     thisObject.isVisibleFunction = undefined
 
@@ -118,14 +118,14 @@ function newUiObject () {
     thisObject.menu.initialize(menuItemsInitialValues, thisObject.payload)
     thisObject.menu.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
 
-/* Initialize Part Title */
+/* Initialize UI Object Title */
 
-    thisObject.partTitle = newUiObjectTitle()
-    thisObject.partTitle.isVisibleFunction = thisObject.isVisibleFunction
-    thisObject.partTitle.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
-    thisObject.partTitle.initialize(thisObject.payload)
+    thisObject.uiObjectTitle = newUiObjectTitle()
+    thisObject.uiObjectTitle.isVisibleFunction = thisObject.isVisibleFunction
+    thisObject.uiObjectTitle.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
+    thisObject.uiObjectTitle.initialize(thisObject.payload)
 
-/* Load Part Image */
+/* Load UI Object Image */
 
     iconPhysics()
 
@@ -145,7 +145,7 @@ function newUiObject () {
         if (container !== undefined) { return container }
       }
 
-      container = thisObject.partTitle.getContainer(point)
+      container = thisObject.uiObjectTitle.getContainer(point)
       if (container !== undefined) { return container }
 
       container = thisObject.menu.getContainer(point)
@@ -161,7 +161,7 @@ function newUiObject () {
 
   function physics () {
     thisObject.menu.physics()
-    thisObject.partTitle.physics()
+    thisObject.uiObjectTitle.physics()
 
     if (thisObject.codeEditor !== undefined) {
       thisObject.codeEditor.physics()
@@ -658,7 +658,7 @@ function newUiObject () {
   }
 
   function iconPhysics () {
-    icon = canvas.designerSpace.iconByPartType.get(thisObject.payload.node.type)
+    icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
     executingIcon = canvas.designerSpace.iconCollection.get('attractive')
   }
 
@@ -674,11 +674,11 @@ function newUiObject () {
   }
 
   function onDisplace (event) {
-    thisObject.partTitle.exitEditMode()
+    thisObject.uiObjectTitle.exitEditMode()
   }
 
   function onDragStarted (event) {
-    thisObject.partTitle.exitEditMode()
+    thisObject.uiObjectTitle.exitEditMode()
     if (thisObject.codeEditor !== undefined) {
       thisObject.codeEditor.deactivate()
     }
@@ -717,7 +717,7 @@ function newUiObject () {
     if (thisObject.isOnFocus === false) {
       drawValue()
       drawText()
-      thisObject.partTitle.draw()
+      thisObject.uiObjectTitle.draw()
     }
   }
 
@@ -762,7 +762,7 @@ function newUiObject () {
       drawErrorMessage()
       drawValue()
       drawText()
-      thisObject.partTitle.draw()
+      thisObject.uiObjectTitle.draw()
     }
   }
 

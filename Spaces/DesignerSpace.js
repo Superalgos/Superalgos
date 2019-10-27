@@ -6,7 +6,7 @@ function newDesignerSpace () {
     strategizerGateway: undefined,
     container: undefined,
     iconCollection: undefined,
-    iconByPartType: undefined,
+    iconByUiObjectType: undefined,
     workspace: undefined,
     physics: physics,
     draw: draw,
@@ -23,13 +23,13 @@ function newDesignerSpace () {
   container.isDraggeable = false
 
   thisObject.iconCollection = new Map()
-  thisObject.iconByPartType = new Map()
+  thisObject.iconByUiObjectType = new Map()
 
   return thisObject
 
   async function initialize () {
     loadIconCollection()
-    buildIconByPartTypeMap()
+    buildIconByUiObjectTypeMap()
 
     thisObject.strategizerGateway = newStrategizerGateway()
 
@@ -37,7 +37,7 @@ function newDesignerSpace () {
     thisObject.workspace.initialize()
   }
 
-  function buildIconByPartTypeMap () {
+  function buildIconByUiObjectTypeMap () {
     const relationshipArray = [
       ['Definition', 'text'],
       ['Network', 'network'],
@@ -95,7 +95,7 @@ function newDesignerSpace () {
     for (let i = 0; i < relationshipArray.length; i++) {
       let record = relationshipArray[i]
       let icon = thisObject.iconCollection.get(record[1])
-      thisObject.iconByPartType.set(record[0], icon)
+      thisObject.iconByUiObjectType.set(record[0], icon)
     }
   }
 

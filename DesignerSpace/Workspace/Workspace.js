@@ -78,15 +78,15 @@ function newWorkspace () {
       if (savedWorkspace === null || idAtStrategizer === null) {
         thisObject.workspaceNode.type = 'Workspace'
         thisObject.workspaceNode.name = 'My Workspace'
-        functionLibraryUiObjectsFromNodes.createPartFromNode(thisObject.workspaceNode, undefined, undefined)
+        functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.workspaceNode, undefined, undefined)
         spawnPosition.y = spawnPosition.y + 250
         initializeLoadingFromStrategizer()
       } else {
         thisObject.workspaceNode = JSON.parse(savedWorkspace)
-        functionLibraryUiObjectsFromNodes.createPartFromNode(thisObject.workspaceNode, undefined, undefined)
+        functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.workspaceNode, undefined, undefined)
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
           let rootNode = thisObject.workspaceNode.rootNodes[i]
-          functionLibraryUiObjectsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+          functionLibraryUiObjectsFromNodes.createUiObjectFromNode(rootNode, undefined, undefined)
         }
         thisObject.enabled = true
       }
@@ -100,7 +100,7 @@ function newWorkspace () {
     if (result === true) {
       thisObject.definition = canvas.designerSpace.strategizerGateway.strategizerData
       thisObject.workspaceNode.rootNodes.push(thisObject.definition)
-      functionLibraryUiObjectsFromNodes.createPartFromNode(thisObject.definition, undefined, undefined)
+      functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.definition, undefined, undefined)
 
       thisObject.enabled = true
     }
@@ -222,15 +222,15 @@ function newWorkspace () {
         stopAllRunningTasks()
         functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
         thisObject.workspaceNode = droppedNode
-        functionLibraryUiObjectsFromNodes.createPartFromNode(thisObject.workspaceNode, undefined, undefined)
+        functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.workspaceNode, undefined, undefined)
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
           let rootNode = thisObject.workspaceNode.rootNodes[i]
-          functionLibraryUiObjectsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+          functionLibraryUiObjectsFromNodes.createUiObjectFromNode(rootNode, undefined, undefined)
         }
       } else {
         let rootNode = functionLibraryProtocolNode.getProtocolNode(droppedNode)
         thisObject.workspaceNode.rootNodes.push(rootNode)
-        functionLibraryUiObjectsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+        functionLibraryUiObjectsFromNodes.createUiObjectFromNode(rootNode, undefined, undefined)
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] spawn -> err = ' + err.stack) }

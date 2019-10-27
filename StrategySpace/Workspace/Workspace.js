@@ -364,17 +364,17 @@ function newWorkspace () {
           functionLibraryPartsFromNodes.addTask(payload.node)
         }
         break
-      case 'Add Sensor':
+      case 'Add Sensor Bot Instance':
         {
           functionLibraryPartsFromNodes.addSensor(payload.node)
         }
         break
-      case 'Add Indicator':
+      case 'Add Indicator Bot Instance':
         {
           functionLibraryPartsFromNodes.addIndicator(payload.node)
         }
         break
-      case 'Add Trading Engine':
+      case 'Add Trading Bot Instance':
         {
           functionLibraryPartsFromNodes.addTradingEngine(payload.node)
         }
@@ -540,15 +540,15 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteTask(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
-      case 'Delete Sensor': {
+      case 'Delete Sensor Bot Instance': {
         functionLibraryNodeDeleter.deleteSensor(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
-      case 'Delete Indicator': {
+      case 'Delete Indicator Bot Instance': {
         functionLibraryNodeDeleter.deleteIndicator(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
-      case 'Delete Trading Engine': {
+      case 'Delete Trading Bot Instance': {
         functionLibraryNodeDeleter.deleteTradingEngine(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }

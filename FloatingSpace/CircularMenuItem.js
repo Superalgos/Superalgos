@@ -105,7 +105,7 @@ function newCircularMenuItem () {
     selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     if (thisObject.type === 'Icon & Text') {
-      thisObject.container.frame.width = 150
+      thisObject.container.frame.width = 185
     } else {
       thisObject.container.frame.width = 50
     }
@@ -328,7 +328,8 @@ function newCircularMenuItem () {
           container: thisObject.container,
           borderColor: UI_COLOR.DARK,
           backgroundColor: backgroundColorToUse,
-          castShadow: false
+          castShadow: false,
+          xOffset: 40
         }
 
         if (isMouseOver === true) {
@@ -374,7 +375,7 @@ function newCircularMenuItem () {
 
         if (thisObject.currentRadius >= thisObject.targetRadius) {
           labelPoint = {
-            x: menuPosition.x + thisObject.currentRadius + 10,
+            x: menuPosition.x + thisObject.currentRadius + 20,
             y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
           }
 
@@ -386,3 +387,4 @@ function newCircularMenuItem () {
     }
   }
 }
+

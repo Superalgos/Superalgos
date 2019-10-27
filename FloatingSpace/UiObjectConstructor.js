@@ -771,9 +771,9 @@ function newUiObjectConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Add Sensor',
+            action: 'Add Sensor Bot Instance',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Sensor',
+            label: 'Add Sensor Bot Instance',
             visible: true,
             relatedUiObject: 'Sensor Bot Instance',
             rawRadius: 8,
@@ -784,9 +784,9 @@ function newUiObjectConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Add Indicator',
+            action: 'Add Indicator Bot Instance',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Indicator',
+            label: 'Add Indicator Bot Instance',
             visible: true,
             relatedUiObject: 'Indicator Bot Instance',
             rawRadius: 8,
@@ -797,9 +797,9 @@ function newUiObjectConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Add Trading Engine',
+            action: 'Add Trading Bot Instance',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Trading Engine',
+            label: 'Add Trading Bot Instance',
             visible: true,
             relatedUiObject: 'Trading Bot Instance',
             rawRadius: 8,
@@ -862,9 +862,9 @@ function newUiObjectConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Edit Sensor',
+            action: 'Edit Sensor Bot Instance',
             actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Sensor',
+            label: 'Edit Sensor Bot Instance',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -877,11 +877,11 @@ function newUiObjectConstructor () {
             )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Sensor',
+            action: 'Delete Sensor Bot Instance',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Sensor',
+            label: 'Delete Sensor Bot Instance',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -929,9 +929,9 @@ function newUiObjectConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Edit Indicator',
+            action: 'Edit Indicator Bot Instance',
             actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Indicator',
+            label: 'Edit Indicator Bot Instance',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -944,11 +944,11 @@ function newUiObjectConstructor () {
             )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Indicator',
+            action: 'Delete Indicator Bot Instance',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Indicator',
+            label: 'Delete Indicator Bot Instance',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -996,9 +996,9 @@ function newUiObjectConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Edit Trading Engine',
+            action: 'Edit Trading Bot Instance',
             actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Trading Engine',
+            label: 'Edit Trading Bot Instance',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -1011,11 +1011,11 @@ function newUiObjectConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Trading Engine',
+            action: 'Delete Trading Bot Instance',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Trading Engine',
+            label: 'Delete Trading Bot Instance',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',

@@ -1,6 +1,7 @@
 function roundedCornersBackground (params) {
+  if (params.xOffset === undefined) { params.xOffset = 0 }
   borderPoint1 = {
-    x: params.cornerRadius,
+    x: params.cornerRadius + params.xOffset,
     y: params.cornerRadius
   }
 
@@ -15,7 +16,7 @@ function roundedCornersBackground (params) {
   }
 
   borderPoint4 = {
-    x: params.cornerRadius,
+    x: params.cornerRadius + params.xOffset,
     y: params.container.frame.height - params.cornerRadius
   }
 

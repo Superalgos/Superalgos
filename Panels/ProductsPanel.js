@@ -271,7 +271,7 @@ function newProductsPanel () {
     calculateVisbleProductCards()
 
     function synchronizeLayersAndProductCards () {
-        /* We will look into the ecosystem to know which Trading Engine bots are defined there. */
+        /* We will look into the ecosystem to know which Trading bots are defined there. */
       let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
       if (ecosystem === null || ecosystem === undefined) {
         ecosystem = getUserEcosystem()
@@ -300,7 +300,7 @@ function newProductsPanel () {
               if (bot.type !== 'Trading Bot Instance') { continue }
 
               if (devTeam.codeName === code.team && bot.codeName === code.bot) {
-                  /* We found an instance of the same Trading Engine we are currently looking at.
+                  /* We found an instance of the same Trading we are currently looking at.
                   Next thing to do is to see its layers to see if we can match it with the current product. */
 
                 for (let m = 0; m < tradingBotInstance.processes.length; m++) {

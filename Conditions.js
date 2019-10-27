@@ -505,7 +505,7 @@
                         formulaValues: conditionRecord.formulaValues
                     };
 
-                    sendRecordInfoToStrategySpace(currentRecord)
+                    sendRecordInfoToDesignerSpace(currentRecord)
                 }
             }
 
@@ -515,18 +515,18 @@
         }
     }
 
-    function sendRecordInfoToStrategySpace(currentRecord) {
+    function sendRecordInfoToDesignerSpace(currentRecord) {
 
         if (currentRecord === undefined) { return; }
         if (currentRecord.conditionsNames === undefined) { return; }
-        if (canvas.strategySpace.workspace === undefined) { return; }
+        if (canvas.designerSpace.workspace === undefined) { return; }
 
         /* We will get now the designer trading system */
         let designerTradingSystem
         let fileTradingSystem = currentRecord.conditionsNames;
 
-        for (let i = 0; i < canvas.strategySpace.workspace.workspaceNode.rootNodes.length; i++) {
-            let rootNode = canvas.strategySpace.workspace.workspaceNode.rootNodes[i]
+        for (let i = 0; i < canvas.designerSpace.workspace.workspaceNode.rootNodes.length; i++) {
+            let rootNode = canvas.designerSpace.workspace.workspaceNode.rootNodes[i]
             if (rootNode.type === 'Definition') {
                 if (rootNode.tradingSystem.id === fileTradingSystem.id) {
                     designerTradingSystem = rootNode.tradingSystem
@@ -960,7 +960,7 @@
             browserCanvasContext.fill();
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] sendRecordInfoToStrategySpace -> err = " + err.stack); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] sendRecordInfoToDesignerSpace -> err = " + err.stack); }
         }
     }
 

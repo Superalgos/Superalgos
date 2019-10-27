@@ -141,9 +141,9 @@
 
             /* Loading a few icons */
 
-            imageStopLossPhase = canvas.strategySpace.iconByPartType.get('Stop');
-            imageTakeProfitPhase = canvas.strategySpace.iconByPartType.get('Phase');
-            imageRecord = canvas.strategySpace.iconByPartType.get('Trading System');
+            imageStopLossPhase = canvas.designerSpace.iconByUiObjectType.get('Stop');
+            imageTakeProfitPhase = canvas.designerSpace.iconByUiObjectType.get('Phase');
+            imageRecord = canvas.designerSpace.iconByUiObjectType.get('Trading System');
 
             callBackFunction();
 

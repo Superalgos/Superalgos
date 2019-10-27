@@ -1,5 +1,5 @@
 
-function newStrategySpace () {
+function newDesignerSpace () {
   const MODULE_NAME = 'Strategy Space'
   let thisObject = {
     sidePanel: undefined,

@@ -1291,7 +1291,7 @@ function newUiObjectsFromNodes () {
     payload.node = node
     payload.parentNode = parentNode
     payload.chainParent = chainParent
-    payload.onMenuItemClick = canvas.strategySpace.workspace.onMenuItemClick
+    payload.onMenuItemClick = canvas.designerSpace.workspace.onMenuItemClick
 
     if (node.id === undefined) {
       node.id = newUniqueId()

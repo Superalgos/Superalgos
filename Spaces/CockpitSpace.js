@@ -45,7 +45,7 @@
      thisObject.container.frame.position.x = 0
 
      let INITIAL_POSITION
-     if (canvas.strategySpace.workspace.enabled === true) {
+     if (canvas.designerSpace.workspace.enabled === true) {
        let localStorage = window.localStorage.getItem(MODULE_NAME)
        if (localStorage !== null) {
          storage = JSON.parse(localStorage)
@@ -100,7 +100,7 @@
 
      thisObject.status = 'MIDDLE'
 
-     if (canvas.strategySpace.workspace.enabled === true) {
+     if (canvas.designerSpace.workspace.enabled === true) {
        thisObject.container.isDraggeable = true
      } else {
        thisObject.container.isDraggeable = false
@@ -109,10 +109,10 @@
      if (thisObject.container.frame.position.y > browserCanvas.height * 99.5 / 100 - COCKPIT_SPACE_HEIGHT) {
        thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
        thisObject.status = 'BOTTOM'
-       canvas.strategySpace.makeInvisible()
+       canvas.designerSpace.makeInvisible()
        canvas.floatingSpace.makeInvisible()
      } else {
-       canvas.strategySpace.makeVisible()
+       canvas.designerSpace.makeVisible()
        canvas.floatingSpace.makeVisible()
      }
 
@@ -184,7 +184,7 @@
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
-     if (canvas.strategySpace.workspace.enabled === true) {
+     if (canvas.designerSpace.workspace.enabled === true) {
        arrow()
      }
    }

@@ -96,9 +96,9 @@ function newWorkspace () {
   }
 
   async function initializeLoadingFromStrategizer () {
-    let result = await canvas.strategySpace.strategizerGateway.loadFromStrategyzer()
+    let result = await canvas.designerSpace.strategizerGateway.loadFromStrategyzer()
     if (result === true) {
-      thisObject.definition = canvas.strategySpace.strategizerGateway.strategizerData
+      thisObject.definition = canvas.designerSpace.strategizerGateway.strategizerData
       thisObject.workspaceNode.rootNodes.push(thisObject.definition)
       functionLibraryUiObjectsFromNodes.createPartFromNode(thisObject.definition, undefined, undefined)
 

@@ -167,15 +167,15 @@ function newCircularMenuItem () {
       temporaryStatus === STATUS_SECONDARY_WORK_FAILED
     ) && thisObject.secondaryAction !== undefined
       ) {
-      thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.secondaryIcon)
-      thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.secondaryIcon)
+      thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.secondaryIcon)
+      thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.secondaryIcon)
     } else {
       if (thisObject.relatedUiObject !== undefined) {
-        thisObject.iconOn = canvas.strategySpace.iconByPartType.get(thisObject.relatedUiObject)
-        thisObject.iconOff = canvas.strategySpace.iconByPartType.get(thisObject.relatedUiObject)
+        thisObject.iconOn = canvas.designerSpace.iconByPartType.get(thisObject.relatedUiObject)
+        thisObject.iconOff = canvas.designerSpace.iconByPartType.get(thisObject.relatedUiObject)
       } else {
-        thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.iconPathOn)
-        thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.iconPathOff)
+        thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.iconPathOn)
+        thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.iconPathOff)
       }
     }
 

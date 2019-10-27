@@ -278,7 +278,7 @@ function newProductsPanel () {
       }
 
         /* Then we get an Array of all instances of this bot placed at Definitions on the Workspace. */
-      let tradingBotInstances = canvas.strategySpace.workspace.getAllTradingBotInstances()
+      let tradingBotInstances = canvas.designerSpace.workspace.getAllTradingBotInstances()
 
         /* Here we will go through all the instances of trading engines and see their layers, to see
         if we can find a matching layer. */

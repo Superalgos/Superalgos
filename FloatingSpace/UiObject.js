@@ -549,7 +549,7 @@ function newUiObject () {
 
     if (previousDistance !== undefined) {
       if (ratio > THRESHOLD) {
-        canvas.strategySpace.workspace.detachNode(thisObject.payload.node)
+        canvas.designerSpace.workspace.detachNode(thisObject.payload.node)
       }
     }
   }
@@ -658,8 +658,8 @@ function newUiObject () {
   }
 
   function iconPhysics () {
-    icon = canvas.strategySpace.iconByPartType.get(thisObject.payload.node.type)
-    executingIcon = canvas.strategySpace.iconCollection.get('attractive')
+    icon = canvas.designerSpace.iconByPartType.get(thisObject.payload.node.type)
+    executingIcon = canvas.designerSpace.iconCollection.get('attractive')
   }
 
   function onFocus () {
@@ -692,7 +692,7 @@ function newUiObject () {
 
   function onDragFinished (event) {
     if (isAttaching === true) {
-      canvas.strategySpace.workspace.attachNode(thisObject.payload.node, attachToNode)
+      canvas.designerSpace.workspace.attachNode(thisObject.payload.node, attachToNode)
       attachToNode = undefined
       isAttaching = false
     }

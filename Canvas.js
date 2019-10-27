@@ -37,7 +37,7 @@ function newCanvas () {
     panelsSpace: undefined,
     cockpitSpace: undefined,
     bottomSpace: undefined,
-    strategySpace: undefined,
+    designerSpace: undefined,
     animation: undefined,
     initialize: initialize,
     finalize: finalize
@@ -90,8 +90,8 @@ function newCanvas () {
       thisObject.topSpace = newTopSpace()
       await thisObject.topSpace.initialize()
 
-      thisObject.strategySpace = newStrategySpace()
-      await thisObject.strategySpace.initialize()
+      thisObject.designerSpace = newDesignerSpace()
+      await thisObject.designerSpace.initialize()
 
       thisObject.cockpitSpace = newCockpitSpace()
       thisObject.cockpitSpace.initialize()
@@ -125,7 +125,7 @@ function newCanvas () {
       animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
       animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
       animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
-      animation.addCallBackFunction('Strategy Space Physics', thisObject.strategySpace.physics)
+      animation.addCallBackFunction('Strategy Space Physics', thisObject.designerSpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
 
       /* Spcaces Drawing */
@@ -136,7 +136,7 @@ function newCanvas () {
       animation.addCallBackFunction('ViewPort Animate', viewPort.animate)
       animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
-      animation.addCallBackFunction('Strategy Space Draw', thisObject.strategySpace.draw)
+      animation.addCallBackFunction('Strategy Space Draw', thisObject.designerSpace.draw)
       animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
       animation.start()
     } catch (err) {
@@ -190,7 +190,7 @@ function newCanvas () {
   }
 
   function onKeyDown (event) {
-    let nodeOnFocus = canvas.strategySpace.workspace.getNodeThatIsOnFocus()
+    let nodeOnFocus = canvas.designerSpace.workspace.getNodeThatIsOnFocus()
     if (nodeOnFocus !== undefined) {
       if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
         if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
@@ -266,7 +266,7 @@ function newCanvas () {
         /* From here we prevent the default behaviour */
         event.preventDefault()
 
-        let nodeUsingThisKey = canvas.strategySpace.workspace.getNodeByShortcutKey(event.key)
+        let nodeUsingThisKey = canvas.designerSpace.workspace.getNodeByShortcutKey(event.key)
 
         if (nodeOnFocus === undefined && nodeUsingThisKey !== undefined) {
           /* Then we displace the whole workspace to center it at the node using this key */
@@ -349,7 +349,7 @@ function newCanvas () {
             x: event.x,
             y: event.y
           }
-          thisObject.strategySpace.workspace.spawn(reader.result, mousePosition)
+          thisObject.designerSpace.workspace.spawn(reader.result, mousePosition)
         }
       }
     } catch (err) {
@@ -372,7 +372,7 @@ function newCanvas () {
 
             /* We check if the mouse is over an element of the Strategy Space / */
 
-      container = thisObject.strategySpace.getContainer(point)
+      container = thisObject.designerSpace.getContainer(point)
 
       if (container !== undefined && container.isDraggeable === true) {
         containerBeingDragged = container
@@ -478,7 +478,7 @@ function newCanvas () {
 
             /* We check if the mouse is over an element of the Strategy Space / */
 
-      container = thisObject.strategySpace.getContainer(point)
+      container = thisObject.designerSpace.getContainer(point)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)
@@ -607,8 +607,8 @@ function newCanvas () {
 
             /* We check if the mouse is over an element of the Strategy Space / */
 
-      if (thisObject.strategySpace !== undefined) {
-        container = thisObject.strategySpace.getContainer(point)
+      if (thisObject.designerSpace !== undefined) {
+        container = thisObject.designerSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
           containerFound()

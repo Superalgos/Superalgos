@@ -291,9 +291,6 @@ function newNodeDeleter () {
     if (node.personalData !== undefined) {
       deletePersonalData(node.personalData, rootNodes)
     }
-    if (node.network !== undefined) {
-      deleteNetwork(node.network, rootNodes)
-    }
 
     completeDeletion(node, rootNodes)
     destroyUiObject(node)

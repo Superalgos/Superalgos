@@ -181,12 +181,6 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
-    if (parentNode.network !== undefined) {
-      response.childrenCount++
-      if (parentNode.network.id === childNode.id) {
-        response.childIndex = response.childrenCount
-      }
-    }
     return response
   }
 

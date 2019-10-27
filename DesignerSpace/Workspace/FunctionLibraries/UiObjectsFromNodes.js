@@ -390,9 +390,6 @@ function newUiObjectsFromNodes () {
         if (node.personalData !== undefined) {
           createUiObjectFromNode(node.personalData, node, node)
         }
-        if (node.network !== undefined) {
-          createUiObjectFromNode(node.network, node, node)
-        }
         return
       }
       case 'Network': {

@@ -708,10 +708,6 @@ function newShortcutKeys () {
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.network, searchingKey)
-        if (child !== undefined) {
-          return child
-        }
         if (node.payload.uiObject.shortcutKey === searchingKey) {
           return node
         } else {

@@ -12,8 +12,6 @@ function newAttachDetach () {
         return
       }
       case 'Network': {
-        node.payload.parentNode.network = undefined
-        completeDetachment(node, rootNodes)
         return
       }
       case 'Network Node': {

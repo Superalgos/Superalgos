@@ -207,10 +207,6 @@ function newUiObject () {
         compatibleType = '->' + 'Definition' + '->'
         compatibleSubType = undefined
         break
-      case 'Network':
-        compatibleType = '->' + 'Definition' + '->'
-        compatibleSubType = undefined
-        break
       case 'Network Node':
         compatibleType = '->' + 'Network' + '->'
         compatibleSubType = undefined

@@ -1005,8 +1005,7 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData, parseCode, includeIds, includePayload),
-          personalData: getProtocolNode(node.personalData, removePersonalData, parseCode, includeIds, includePayload),
-          network: getProtocolNode(node.network, removePersonalData, parseCode, includeIds, includePayload)
+          personalData: getProtocolNode(node.personalData, removePersonalData, parseCode, includeIds, includePayload)
         }
         if (includeIds) {
           object.id = node.id

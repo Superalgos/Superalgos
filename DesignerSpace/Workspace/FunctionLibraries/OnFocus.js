@@ -723,10 +723,6 @@ function newOnFocus () {
         if (child !== undefined) {
           return child
         }
-        child = getNodeThatIsOnFocus(node.network)
-        if (child !== undefined) {
-          return child
-        }
         if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {

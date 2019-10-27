@@ -220,31 +220,31 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'StrategySpace': // This means the StrategySpace folder.
+    case 'DesignerSpace': // This means the DesignerSpace folder.
 
       {
         if (requestParameters[3] === undefined) {
-          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2], response)
+          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/DesignerSpace/' + requestParameters[2], response)
           return
         }
         if (requestParameters[4] === undefined) {
-          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2] + '/' + requestParameters[3], response)
+          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/DesignerSpace/' + requestParameters[2] + '/' + requestParameters[3], response)
           return
         }
         if (requestParameters[5] === undefined) {
-          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/StrategySpace/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response)
+          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/DesignerSpace/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response)
           return
         }
       }
       break
 
-    case 'ControlsToolBox': // This means the StrategySpace folder.
+    case 'ControlsToolBox': // This means the DesignerSpace folder.
       {
         respondWithFile(process.env.PATH_TO_CANVAS_APP + '/ControlsToolBox/' + requestParameters[2], response)
       }
       break
 
-    case 'Utilities': // This means the StrategySpace folder.
+    case 'Utilities': // This means the DesignerSpace folder.
       {
         respondWithFile(process.env.PATH_TO_CANVAS_APP + '/Utilities/' + requestParameters[2], response)
       }

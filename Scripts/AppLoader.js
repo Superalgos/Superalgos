@@ -52,18 +52,18 @@ function newAppLoader() {
                 'ChartsSpace/TimeMachine.js',
                 'ChartsSpace/TimeLineCoordinateSystem.js',
 
-                'StrategySpace/StrategizerGateway.js',
+                'DesignerSpace/StrategizerGateway.js',
 
-                'StrategySpace/Workspace/Workspace.js',
-                'StrategySpace/Workspace/FunctionLibraries/UiObjectsFromNodes.js',
-                'StrategySpace/Workspace/FunctionLibraries/AttachDetach.js',
-                'StrategySpace/Workspace/FunctionLibraries/NodeDeleter.js',
-                'StrategySpace/Workspace/FunctionLibraries/ProtocolNode.js',
-                'StrategySpace/Workspace/FunctionLibraries/NodeChildren.js', 
-                'StrategySpace/Workspace/FunctionLibraries/TaskFunctions.js',
-                'StrategySpace/Workspace/FunctionLibraries/SessionFunctions.js',
-                'StrategySpace/Workspace/FunctionLibraries/ShortcutKeys.js',
-                'StrategySpace/Workspace/FunctionLibraries/OnFocus.js',
+                'DesignerSpace/Workspace/Workspace.js',
+                'DesignerSpace/Workspace/FunctionLibraries/UiObjectsFromNodes.js',
+                'DesignerSpace/Workspace/FunctionLibraries/AttachDetach.js',
+                'DesignerSpace/Workspace/FunctionLibraries/NodeDeleter.js',
+                'DesignerSpace/Workspace/FunctionLibraries/ProtocolNode.js',
+                'DesignerSpace/Workspace/FunctionLibraries/NodeChildren.js', 
+                'DesignerSpace/Workspace/FunctionLibraries/TaskFunctions.js',
+                'DesignerSpace/Workspace/FunctionLibraries/SessionFunctions.js',
+                'DesignerSpace/Workspace/FunctionLibraries/ShortcutKeys.js',
+                'DesignerSpace/Workspace/FunctionLibraries/OnFocus.js',
                 
                 'Utilities/RoundedCornersBackground.js',
 
@@ -80,7 +80,7 @@ function newAppLoader() {
                 'Spaces/PanelsSpace.js',
                 'Spaces/ChartSpace.js',
                 'Spaces/FloatingSpace.js',
-                'Spaces/StrategySpace.js',
+                'Spaces/DesignerSpace.js',
 
                 'Files/SingleFile.js',
                 'Files/FileCloud.js',

@@ -105,7 +105,7 @@ function newNodeDeleter () {
             deleteBot(rootNode, rootNodes)
             break
           }
-          case 'Indicator': {
+          case 'Indicator Bot Instance': {
             deleteBot(rootNode, rootNodes)
             break
           }

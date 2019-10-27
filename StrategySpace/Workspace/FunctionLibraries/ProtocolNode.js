@@ -798,7 +798,7 @@ function newProtocolNode () {
         }
         return object
       }
-      case 'Indicator': {
+      case 'Indicator Bot Instance': {
         let object = {
           type: node.type,
           subType: node.subType,

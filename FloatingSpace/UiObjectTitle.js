@@ -86,7 +86,7 @@ function newUiObjectTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Indicator': {
+      case 'Indicator Bot Instance': {
         thisObject.allwaysVisible = true
         break
       }

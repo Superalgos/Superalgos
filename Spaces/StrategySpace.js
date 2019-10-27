@@ -50,7 +50,7 @@ function newStrategySpace () {
       ['Task Manager', 'task'],
       ['Task', 'timeline'],
       ['Sensor Bot Instance', 'bot-sensor'],
-      ['Indicator', 'bot-indicator'],
+      ['Indicator Bot Instance', 'bot-indicator'],
       ['Trading Engine', 'trading-engine'],
       ['Process', 'process'],
       ['Backtesting Session', 'session-backtesting'],

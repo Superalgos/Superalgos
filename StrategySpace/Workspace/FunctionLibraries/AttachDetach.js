@@ -140,7 +140,7 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
-      case 'Indicator': {
+      case 'Indicator Bot Instance': {
         node.payload.parentNode.bot = undefined
         completeDetachment(node, rootNodes)
         return
@@ -430,7 +430,7 @@ function newAttachDetach () {
         completeAttachment(node, rootNodes)
       }
         break
-      case 'Indicator': {
+      case 'Indicator Bot Instance': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.bot = node

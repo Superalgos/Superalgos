@@ -299,7 +299,7 @@ function newUiObject () {
         compatibleType = '->' + 'Task' + '->'
         compatibleSubType = undefined
         break
-      case 'Indicator':
+      case 'Indicator Bot Instance':
         compatibleType = '->' + 'Task' + '->'
         compatibleSubType = undefined
         break
@@ -314,7 +314,7 @@ function newUiObject () {
             break
           }
           case 'Indicator Process': {
-            compatibleType = '->' + 'Indicator' + '->'
+            compatibleType = '->' + 'Indicator Bot Instance' + '->'
             break
           }
           case 'Trading Engine Process': {
@@ -424,7 +424,7 @@ function newUiObject () {
         /* Discard objects with busy coonection ports */
         if (thisObject.payload.node.type === 'Task' && nearbyNode.task !== undefined) { continue }
         if (thisObject.payload.node.type === 'Sensor Bot Instance' && nearbyNode.bot !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Indicator' && nearbyNode.bot !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Indicator Bot Instance' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trading Engine' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Process' && nearbyNode.process !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }

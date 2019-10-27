@@ -788,7 +788,7 @@ function newUiObjectConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Indicator',
             visible: true,
-            relatedUiObject: 'Indicator',
+            relatedUiObject: 'Indicator Bot Instance',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -907,7 +907,7 @@ function newUiObjectConstructor () {
                     )
         break
       }
-      case 'Indicator': {
+      case 'Indicator Bot Instance': {
         uiObject.codeEditor = newCodeEditor()
         uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
         uiObject.codeEditor.initialize()
@@ -3238,7 +3238,7 @@ function newUiObjectConstructor () {
         level_3()
         break
       }
-      case 'Indicator': {
+      case 'Indicator Bot Instance': {
         level_3()
         break
       }

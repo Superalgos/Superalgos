@@ -55,7 +55,7 @@ function newAppLoader() {
                 'StrategySpace/StrategizerGateway.js',
 
                 'StrategySpace/Workspace/Workspace.js',
-                'StrategySpace/Workspace/FunctionLibraries/PartsFromNodes.js',
+                'StrategySpace/Workspace/FunctionLibraries/UiObjectsFromNodes.js',
                 'StrategySpace/Workspace/FunctionLibraries/AttachDetach.js',
                 'StrategySpace/Workspace/FunctionLibraries/NodeDeleter.js',
                 'StrategySpace/Workspace/FunctionLibraries/ProtocolNode.js',

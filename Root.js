@@ -260,7 +260,7 @@
                                                             runSensorBot(newInstanceBotConfig, processConfig, padMonth, year);
                                                             break;
                                                         }
-                                                        case 'Indicator': {
+                                                        case 'Indicator Bot': {
                                                             runIndicatorBot(newInstanceBotConfig, processConfig, padMonth, year);
                                                             break;
                                                         }
@@ -299,7 +299,7 @@
                                                     runSensorBot(botConfig, processConfig, month, year);
                                                     break;
                                                 }
-                                                case 'Indicator': {
+                                                case 'Indicator Bot': {
                                                     runIndicatorBot(botConfig, processConfig, month, year);
                                                     break;
                                                 }
@@ -329,11 +329,11 @@
                                                 runSensorBot(botConfig, processConfig, month, year);
                                                 break;
                                             }
-                                            case 'Indicator': {
+                                            case 'Indicator Bot': {
                                                 runIndicatorBot(botConfig, processConfig, month, year);
                                                 break;
                                             }
-                                            case 'Trading Engine': {
+                                            case 'Trading Bot': {
                                                 runTradingEngine(botConfig, processConfig);
                                                 break;
                                             }
@@ -383,7 +383,7 @@
                                         }
 
                                         switch (botConfig.type) {
-                                            case 'Trading Engine': {
+                                            case 'Trading Bot': {
                                                 runTradingEngine(botConfig, processConfig);
                                                 break;
                                             }

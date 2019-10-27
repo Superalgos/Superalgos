@@ -170,7 +170,7 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
-      case 'Process': {
+      case 'Process Instance': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.processes.length; i++) {
           let process = payload.parentNode.processes[i]
@@ -444,7 +444,7 @@ function newAttachDetach () {
         completeAttachment(node, rootNodes)
       }
         break
-      case 'Process': {
+      case 'Process Instance': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.processes.push(node)

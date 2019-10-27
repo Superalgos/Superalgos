@@ -853,7 +853,7 @@ function newUiObjectConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Process',
             visible: true,
-            relatedUiObject: 'Process',
+            relatedUiObject: 'Process Instance',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -920,7 +920,7 @@ function newUiObjectConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Process',
             visible: true,
-            relatedUiObject: 'Process',
+            relatedUiObject: 'Process Instance',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -987,7 +987,7 @@ function newUiObjectConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Process',
             visible: true,
-            relatedUiObject: 'Process',
+            relatedUiObject: 'Process Instance',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1041,7 +1041,7 @@ function newUiObjectConstructor () {
           )
         break
       }
-      case 'Process': {
+      case 'Process Instance': {
         uiObject.codeEditor = newCodeEditor()
         uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
         uiObject.codeEditor.initialize()
@@ -3246,7 +3246,7 @@ function newUiObjectConstructor () {
         level_3()
         break
       }
-      case 'Process': {
+      case 'Process Instance': {
         level_2()
         break
       }

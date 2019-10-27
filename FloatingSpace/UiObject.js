@@ -232,19 +232,19 @@ function newUiObject () {
         compatibleSubType = '->' + 'Trading Engine Process' + '->'
         break
       case 'Backtesting Session':
-        compatibleType = '->' + 'Process' + '->'
+        compatibleType = '->' + 'Process Instance' + '->'
         compatibleSubType = '->' + 'Trading Engine Process' + '->'
         break
       case 'Live Trading Session':
-        compatibleType = '->' + 'Process' + '->'
+        compatibleType = '->' + 'Process Instance' + '->'
         compatibleSubType = '->' + 'Trading Engine Process' + '->'
         break
       case 'Paper Trading Session':
-        compatibleType = '->' + 'Process' + '->'
+        compatibleType = '->' + 'Process Instance' + '->'
         compatibleSubType = '->' + 'Trading Engine Process' + '->'
         break
       case 'Fordward Testing Session':
-        compatibleType = '->' + 'Process' + '->'
+        compatibleType = '->' + 'Process Instance' + '->'
         compatibleSubType = '->' + 'Trading Engine Process' + '->'
         break
       case 'Base Asset':
@@ -307,7 +307,7 @@ function newUiObject () {
         compatibleType = '->' + 'Task' + '->'
         compatibleSubType = undefined
         break
-      case 'Process':
+      case 'Process Instance':
         switch (thisObject.payload.node.subType) {
           case 'Sensor Process': {
             compatibleType = '->' + 'Sensor Bot Instance' + '->'
@@ -426,7 +426,7 @@ function newUiObject () {
         if (thisObject.payload.node.type === 'Sensor Bot Instance' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Indicator Bot Instance' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trading Bot Instance' && nearbyNode.bot !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Process' && nearbyNode.process !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Process Instance' && nearbyNode.process !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }
         if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }
         if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }

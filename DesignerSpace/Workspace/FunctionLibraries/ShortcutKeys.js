@@ -589,7 +589,7 @@ function newShortcutKeys () {
           return
         }
       }
-      case 'Process': {
+      case 'Process Instance': {
         let child
         child = getNodeByShortcutKey(node.session, searchingKey)
         if (child !== undefined) {

@@ -489,7 +489,7 @@ function newUiObjectsFromNodes () {
         }
         return
       }
-      case 'Process': {
+      case 'Process Instance': {
         if (parentNode !== undefined) {
           switch (parentNode.type) {
             case 'Sensor Bot Instance': {
@@ -506,7 +506,7 @@ function newUiObjectsFromNodes () {
             }
           }
         }
-        createUiObject('Process', node.name, node, parentNode, chainParent, 'Process')
+        createUiObject('Process Instance', node.name, node, parentNode, chainParent, 'Process Instance')
         if (node.session !== undefined) {
           createUiObjectFromNode(node.session, node, node)
         }
@@ -730,7 +730,7 @@ function newUiObjectsFromNodes () {
       }
     }
     node.processes.push(process)
-    createUiObject('Process', process.name, process, node, node, 'Process')
+    createUiObject('Process Instance', process.name, process, node, node, 'Process Instance')
 
     return process
   }

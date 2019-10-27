@@ -93,7 +93,7 @@ function newUiObjectTitle () {
       case 'Trading Bot Instance': {
         break
       }
-      case 'Process': {
+      case 'Process Instance': {
         break
       }
       case 'Backtesting Session': {

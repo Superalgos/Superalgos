@@ -588,7 +588,7 @@ function newOnFocus () {
           return
         }
       }
-      case 'Process': {
+      case 'Process Instance': {
         let child
         child = getNodeThatIsOnFocus(node.session)
         if (child !== undefined) {

@@ -47,7 +47,7 @@ function newNodeChildren () {
       case 'Trading Bot Instance': {
         return countChildrenTradingBotInstance(parentNode, childNode)
       }
-      case 'Process': {
+      case 'Process Instance': {
         return countChildrenProcess(parentNode, childNode)
       }
       case 'Backtesting Session': {

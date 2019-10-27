@@ -113,7 +113,7 @@ function newNodeDeleter () {
             deleteBotInstance(rootNode, rootNodes)
             break
           }
-          case 'Process': {
+          case 'Process Instance': {
             deleteProcess(rootNode, rootNodes)
             break
           }

@@ -52,7 +52,7 @@ function newDesignerSpace () {
       ['Sensor Bot Instance', 'bot-sensor'],
       ['Indicator Bot Instance', 'bot-indicator'],
       ['Trading Bot Instance', 'trading-engine'],
-      ['Process', 'process'],
+      ['Process Instance', 'process'],
       ['Backtesting Session', 'session-backtesting'],
       ['Live Trading Session', 'session-live-trading'],
       ['Fordward Testing Session', 'session-forward-testing'],

@@ -850,7 +850,7 @@ function newProtocolNode () {
         }
         return object
       }
-      case 'Process': {
+      case 'Process Instance': {
         let object = {
           type: node.type,
           subType: node.subType,

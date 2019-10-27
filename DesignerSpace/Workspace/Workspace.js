@@ -379,9 +379,9 @@ function newWorkspace () {
           functionLibraryUiObjectsFromNodes.addTradingBotInstance(payload.node)
         }
         break
-      case 'Add Process':
+      case 'Add Process Instance':
         {
-          functionLibraryUiObjectsFromNodes.addProcess(payload.node)
+          functionLibraryUiObjectsFromNodes.addProcessInstance(payload.node)
         }
         break
       case 'Add Backtesting Session':
@@ -552,8 +552,8 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteTradingBotInstance(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
-      case 'Delete Process': {
-        functionLibraryNodeDeleter.deleteProcess(payload.node, thisObject.workspaceNode.rootNodes)
+      case 'Delete Process Instance': {
+        functionLibraryNodeDeleter.deleteProcessInstance(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Backtesting Session': {

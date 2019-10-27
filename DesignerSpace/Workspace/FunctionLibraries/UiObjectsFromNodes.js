@@ -14,7 +14,7 @@ function newUiObjectsFromNodes () {
     addSensorBotInstance: addSensorBotInstance,
     addIndicatorBotInstance: addIndicatorBotInstance,
     addTradingBotInstance: addTradingBotInstance,
-    addProcess: addProcess,
+    addProcessInstance: addProcessInstance,
     addBacktestingSession: addBacktestingSession,
     addLiveTradingSession: addLiveTradingSession,
     addFordwardTestingSession: addFordwardTestingSession,
@@ -493,15 +493,15 @@ function newUiObjectsFromNodes () {
         if (parentNode !== undefined) {
           switch (parentNode.type) {
             case 'Sensor Bot Instance': {
-              node.subType = 'Sensor Process'
+              node.subType = 'Sensor Process Instance'
               break
             }
             case 'Indicator Bot Instance': {
-              node.subType = 'Indicator Process'
+              node.subType = 'Indicator Process Instance'
               break
             }
             case 'Trading Bot Instance': {
-              node.subType = 'Trading Engine Process'
+              node.subType = 'Trading Process Instance'
               break
             }
           }
@@ -706,26 +706,26 @@ function newUiObjectsFromNodes () {
     return node.bot
   }
 
-  function addProcess (node) {
+  function addProcessInstance (node) {
     let process = {
-      name: 'New Process',
+      name: 'New Process Instance',
       code: '{}'
     }
 
     switch (node.type) {
       case 'Sensor Bot Instance': {
-        process.subType = 'Sensor Process'
-        process.name = 'Sensor Process'
+        process.subType = 'Sensor Process Instance'
+        process.name = 'Sensor Process Instance'
         break
       }
       case 'Indicator Bot Instance': {
-        process.subType = 'Indicator Process'
-        process.name = 'Indicator Process'
+        process.subType = 'Indicator Process Instance'
+        process.name = 'Indicator Process Instance'
         break
       }
       case 'Trading Bot Instance': {
-        process.subType = 'Trading Engine Process'
-        process.name = 'Trading Engine Process'
+        process.subType = 'Trading Process Instance'
+        process.name = 'Trading Process Instance'
         break
       }
     }

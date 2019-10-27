@@ -229,23 +229,23 @@ function newUiObject () {
         break
       case 'Parameters':
         compatibleType = '->' + 'Trading System' + '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
-        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        compatibleSubType = '->' + 'Trading Process Instance' + '->'
         break
       case 'Backtesting Session':
         compatibleType = '->' + 'Process Instance' + '->'
-        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        compatibleSubType = '->' + 'Trading Process Instance' + '->'
         break
       case 'Live Trading Session':
         compatibleType = '->' + 'Process Instance' + '->'
-        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        compatibleSubType = '->' + 'Trading Process Instance' + '->'
         break
       case 'Paper Trading Session':
         compatibleType = '->' + 'Process Instance' + '->'
-        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        compatibleSubType = '->' + 'Trading Process Instance' + '->'
         break
       case 'Fordward Testing Session':
         compatibleType = '->' + 'Process Instance' + '->'
-        compatibleSubType = '->' + 'Trading Engine Process' + '->'
+        compatibleSubType = '->' + 'Trading Process Instance' + '->'
         break
       case 'Base Asset':
         compatibleType = '->' + 'Parameters' + '->'
@@ -309,15 +309,15 @@ function newUiObject () {
         break
       case 'Process Instance':
         switch (thisObject.payload.node.subType) {
-          case 'Sensor Process': {
+          case 'Sensor Process Instance': {
             compatibleType = '->' + 'Sensor Bot Instance' + '->'
             break
           }
-          case 'Indicator Process': {
+          case 'Indicator Process Instance': {
             compatibleType = '->' + 'Indicator Bot Instance' + '->'
             break
           }
-          case 'Trading Engine Process': {
+          case 'Trading Process Instance': {
             compatibleType = '->' + 'Trading Bot Instance' + '->'
             break
           }

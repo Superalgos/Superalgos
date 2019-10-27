@@ -13,7 +13,7 @@ function newNodeDeleter () {
     deleteSensorBotInstance: deleteBotInstance,
     deleteIndicatorBotInstance: deleteBotInstance,
     deleteTradingBotInstance: deleteBotInstance,
-    deleteProcess: deleteProcess,
+    deleteProcessInstance: deleteProcessInstance,
     deletePersonalData: deletePersonalData,
     deleteExchangeAccount: deleteExchangeAccount,
     deleteExchangeAccountAsset: deleteExchangeAccountAsset,
@@ -114,7 +114,7 @@ function newNodeDeleter () {
             break
           }
           case 'Process Instance': {
-            deleteProcess(rootNode, rootNodes)
+            deleteProcessInstance(rootNode, rootNodes)
             break
           }
           case 'Personal Data': {
@@ -469,7 +469,7 @@ function newNodeDeleter () {
     }
     if (node.processes !== undefined) {
       while (node.processes.length > 0) {
-        deleteProcess(node.processes[0], rootNodes)
+        deleteProcessInstance(node.processes[0], rootNodes)
       }
     }
 
@@ -478,7 +478,7 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
-  function deleteProcess (node, rootNodes) {
+  function deleteProcessInstance (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       for (let j = 0; j < payload.parentNode.processes.length; j++) {

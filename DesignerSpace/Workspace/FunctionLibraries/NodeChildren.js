@@ -48,7 +48,7 @@ function newNodeChildren () {
         return countChildrenTradingBotInstance(parentNode, childNode)
       }
       case 'Process Instance': {
-        return countChildrenProcess(parentNode, childNode)
+        return countChildrenProcessInstance(parentNode, childNode)
       }
       case 'Backtesting Session': {
         return countBacktestingSession(parentNode, childNode)
@@ -372,7 +372,7 @@ function newNodeChildren () {
     return response
   }
 
-  function countChildrenProcess (parentNode, childNode) {
+  function countChildrenProcessInstance (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined

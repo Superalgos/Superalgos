@@ -849,9 +849,9 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Process',
+            action: 'Add Process Instance',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Process',
+            label: 'Add Process Instance',
             visible: true,
             relatedUiObject: 'Process Instance',
             rawRadius: 8,
@@ -916,9 +916,9 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Process',
+            action: 'Add Process Instance',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Process',
+            label: 'Add Process Instance',
             visible: true,
             relatedUiObject: 'Process Instance',
             rawRadius: 8,
@@ -983,9 +983,9 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Process',
+            action: 'Add Process Instance',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Process',
+            label: 'Add Process Instance',
             visible: true,
             relatedUiObject: 'Process Instance',
             rawRadius: 8,
@@ -1050,7 +1050,7 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
 
         switch (payload.node.subType) {
-          case 'Trading Engine Process': {
+          case 'Trading Process Instance': {
             menuItemsInitialValues.push(
               {
                 action: 'Add Backtesting Session',
@@ -1105,9 +1105,9 @@ function newUiObjectConstructor () {
                     )
             menuItemsInitialValues.push(
               {
-                action: 'Edit Process',
+                action: 'Edit Process Instance',
                 actionFunction: uiObject.codeEditor.activate,
-                label: 'Edit Process',
+                label: 'Edit Process Instance',
                 visible: true,
                 iconPathOn: 'html',
                 iconPathOff: 'html',
@@ -1120,11 +1120,11 @@ function newUiObjectConstructor () {
             )
             menuItemsInitialValues.push(
               {
-                action: 'Delete Process',
+                action: 'Delete Process Instance',
                 askConfirmation: true,
                 confirmationLabel: 'Confirm to Delete',
                 actionFunction: payload.onMenuItemClick,
-                label: 'Delete Process',
+                label: 'Delete Process Instance',
                 visible: true,
                 iconPathOn: 'delete',
                 iconPathOff: 'delete',
@@ -1153,9 +1153,9 @@ function newUiObjectConstructor () {
           default: {
             menuItemsInitialValues.push(
               {
-                action: 'Edit Process',
+                action: 'Edit Process Instance',
                 actionFunction: uiObject.codeEditor.activate,
-                label: 'Edit Process',
+                label: 'Edit Process Instance',
                 visible: true,
                 iconPathOn: 'html',
                 iconPathOff: 'html',
@@ -1168,11 +1168,11 @@ function newUiObjectConstructor () {
             )
             menuItemsInitialValues.push(
               {
-                action: 'Delete Process',
+                action: 'Delete Process Instance',
                 askConfirmation: true,
                 confirmationLabel: 'Confirm to Delete',
                 actionFunction: payload.onMenuItemClick,
-                label: 'Delete Process',
+                label: 'Delete Process Instance',
                 visible: true,
                 iconPathOn: 'delete',
                 iconPathOff: 'delete',

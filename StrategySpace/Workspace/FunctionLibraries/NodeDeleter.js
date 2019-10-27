@@ -10,9 +10,9 @@ function newNodeDeleter () {
     deleteLayer: deleteLayer,
     deleteTaskManager: deleteTaskManager,
     deleteTask: deleteTask,
-    deleteSensor: deleteBot,
-    deleteIndicator: deleteBot,
-    deleteTradingEngine: deleteBot,
+    deleteSensorBotInstance: deleteBotInstance,
+    deleteIndicatorBotInstance: deleteBotInstance,
+    deleteTradingBotInstance: deleteBotInstance,
     deleteProcess: deleteProcess,
     deletePersonalData: deletePersonalData,
     deleteExchangeAccount: deleteExchangeAccount,
@@ -102,15 +102,15 @@ function newNodeDeleter () {
             break
           }
           case 'Sensor Bot Instance': {
-            deleteBot(rootNode, rootNodes)
+            deleteBotInstance(rootNode, rootNodes)
             break
           }
           case 'Indicator Bot Instance': {
-            deleteBot(rootNode, rootNodes)
+            deleteBotInstance(rootNode, rootNodes)
             break
           }
           case 'Trading Bot Instance': {
-            deleteBot(rootNode, rootNodes)
+            deleteBotInstance(rootNode, rootNodes)
             break
           }
           case 'Process': {
@@ -455,14 +455,14 @@ function newNodeDeleter () {
       }
     }
     if (node.bot !== undefined) {
-      deleteBot(node.bot, rootNodes)
+      deleteBotInstance(node.bot, rootNodes)
     }
     completeDeletion(node, rootNodes)
     destroyPart(node)
     cleanNode(node)
   }
 
-  function deleteBot (node, rootNodes) {
+  function deleteBotInstance (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
       payload.parentNode.bot = undefined

@@ -13,7 +13,7 @@ function newWorkspace () {
     nodeChildren: undefined,
     getNodeThatIsOnFocus: getNodeThatIsOnFocus,
     getNodeByShortcutKey: getNodeByShortcutKey,
-    getAllTradingEngines: getAllTradingEngines,
+    getAllTradingBotInstances: getAllTradingBotInstances,
     stopAllRunningTasks: stopAllRunningTasks,
     onMenuItemClick: onMenuItemClick,
     physics: physics,
@@ -165,8 +165,8 @@ function newWorkspace () {
     }
   }
 
-  function getAllTradingEngines () {
-    let tradingEngines = []
+  function getAllTradingBotInstances () {
+    let tradingBotInstances = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
       if (rootNode.type === 'Definition') {
@@ -180,7 +180,7 @@ function newWorkspace () {
                 for (k = 0; k < taskManager.tasks.length; k++) {
                   let task = taskManager.tasks[k]
                   if (task.bot.type === 'Trading Bot Instance') {
-                    tradingEngines.push(task.bot)
+                    tradingBotInstances.push(task.bot)
                   }
                 }
               }
@@ -189,7 +189,7 @@ function newWorkspace () {
         }
       }
     }
-    return tradingEngines
+    return tradingBotInstances
   }
 
   function getNodeByShortcutKey (searchingKey) {
@@ -366,17 +366,17 @@ function newWorkspace () {
         break
       case 'Add Sensor Bot Instance':
         {
-          functionLibraryPartsFromNodes.addSensor(payload.node)
+          functionLibraryPartsFromNodes.addSensorBotInstance(payload.node)
         }
         break
       case 'Add Indicator Bot Instance':
         {
-          functionLibraryPartsFromNodes.addIndicator(payload.node)
+          functionLibraryPartsFromNodes.addIndicatorBotInstance(payload.node)
         }
         break
       case 'Add Trading Bot Instance':
         {
-          functionLibraryPartsFromNodes.addTradingEngine(payload.node)
+          functionLibraryPartsFromNodes.addTradingBotInstance(payload.node)
         }
         break
       case 'Add Process':
@@ -541,15 +541,15 @@ function newWorkspace () {
         break
       }
       case 'Delete Sensor Bot Instance': {
-        functionLibraryNodeDeleter.deleteSensor(payload.node, thisObject.workspaceNode.rootNodes)
+        functionLibraryNodeDeleter.deleteSensorBotInstance(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Indicator Bot Instance': {
-        functionLibraryNodeDeleter.deleteIndicator(payload.node, thisObject.workspaceNode.rootNodes)
+        functionLibraryNodeDeleter.deleteIndicatorBotInstance(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Trading Bot Instance': {
-        functionLibraryNodeDeleter.deleteTradingEngine(payload.node, thisObject.workspaceNode.rootNodes)
+        functionLibraryNodeDeleter.deleteTradingBotInstance(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Process': {

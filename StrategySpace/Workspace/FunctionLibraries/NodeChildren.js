@@ -39,13 +39,13 @@ function newNodeChildren () {
         return countChildrenTask(parentNode, childNode)
       }
       case 'Sensor Bot Instance': {
-        return countChildrenSensor(parentNode, childNode)
+        return countChildrenSensorBotInstance(parentNode, childNode)
       }
       case 'Indicator Bot Instance': {
-        return countChildrenIndicator(parentNode, childNode)
+        return countChildrenIndicatorBotInstance(parentNode, childNode)
       }
       case 'Trading Bot Instance': {
-        return countChildrenTradingEngine(parentNode, childNode)
+        return countChildrenTradingBotInstance(parentNode, childNode)
       }
       case 'Process': {
         return countChildrenProcess(parentNode, childNode)
@@ -324,7 +324,7 @@ function newNodeChildren () {
     return response
   }
 
-  function countChildrenSensor (parentNode, childNode) {
+  function countChildrenSensorBotInstance (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
@@ -340,7 +340,7 @@ function newNodeChildren () {
     return response
   }
 
-  function countChildrenIndicator (parentNode, childNode) {
+  function countChildrenIndicatorBotInstance (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined
@@ -356,7 +356,7 @@ function newNodeChildren () {
     return response
   }
 
-  function countChildrenTradingEngine (parentNode, childNode) {
+  function countChildrenTradingBotInstance (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined

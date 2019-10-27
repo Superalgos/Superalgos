@@ -11,9 +11,9 @@ function newPartsFromNodes () {
     addLayer: addLayer,
     addTaskManager: addTaskManager,
     addTask: addTask,
-    addSensor: addSensor,
-    addIndicator: addIndicator,
-    addTradingEngine: addTradingEngine,
+    addSensorBotInstance: addSensorBotInstance,
+    addIndicatorBotInstance: addIndicatorBotInstance,
+    addTradingBotInstance: addTradingBotInstance,
     addProcess: addProcess,
     addBacktestingSession: addBacktestingSession,
     addLiveTradingSession: addLiveTradingSession,
@@ -673,7 +673,7 @@ function newPartsFromNodes () {
     return task
   }
 
-  function addSensor (node) {
+  function addSensorBotInstance (node) {
     if (node.bot === undefined) {
       node.bot = {
         processes: [],
@@ -684,7 +684,7 @@ function newPartsFromNodes () {
     return node.bot
   }
 
-  function addIndicator (node) {
+  function addIndicatorBotInstance (node) {
     if (node.bot === undefined) {
       node.bot = {
         processes: [],
@@ -695,7 +695,7 @@ function newPartsFromNodes () {
     return node.bot
   }
 
-  function addTradingEngine (node) {
+  function addTradingBotInstance (node) {
     if (node.bot === undefined) {
       node.bot = {
         processes: [],

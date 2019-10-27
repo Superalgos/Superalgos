@@ -278,16 +278,16 @@ function newProductsPanel () {
       }
 
         /* Then we get an Array of all instances of this bot placed at Definitions on the Workspace. */
-      let tradingEngineInstances = canvas.strategySpace.workspace.getAllTradingEngines()
+      let tradingBotInstances = canvas.strategySpace.workspace.getAllTradingBotInstances()
 
         /* Here we will go through all the instances of trading engines and see their layers, to see
         if we can find a matching layer. */
 
-      for (let n = 0; n < tradingEngineInstances.length; n++) {
-        let tradingEngine = tradingEngineInstances[n]
+      for (let n = 0; n < tradingBotInstances.length; n++) {
+        let tradingBotInstance = tradingBotInstances[n]
         let code
         try {
-          code = JSON.parse(tradingEngine.code)
+          code = JSON.parse(tradingBotInstance.code)
         } catch (err) {
             // if we can not parse this, then we ignore this trading engine.
         }
@@ -303,8 +303,8 @@ function newProductsPanel () {
                   /* We found an instance of the same Trading Engine we are currently looking at.
                   Next thing to do is to see its layers to see if we can match it with the current product. */
 
-                for (let m = 0; m < tradingEngine.processes.length; m++) {
-                  let process = tradingEngine.processes[m]
+                for (let m = 0; m < tradingBotInstance.processes.length; m++) {
+                  let process = tradingBotInstance.processes[m]
                   if (process.session !== undefined) {
                     if (process.session.layerManager !== undefined) {
                       let layerManager = process.session.layerManager

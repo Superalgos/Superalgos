@@ -1,4 +1,4 @@
-function newPartsFromNodes () {
+function newUiObjectsFromNodes () {
   thisObject = {
     createPartFromNode: createPartFromNode,
     addDefinition: addDefinition,

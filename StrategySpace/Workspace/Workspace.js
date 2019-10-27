@@ -46,7 +46,7 @@ function newWorkspace () {
 
   let functionLibraryAttachDetach = newAttachDetach()
   let functionLibraryNodeDeleter = newNodeDeleter()
-  let functionLibraryPartsFromNodes = newPartsFromNodes()
+  let functionLibraryUiObjectsFromNodes = newUiObjectsFromNodes()
   let functionLibraryProtocolNode = newProtocolNode()
   let functionLibraryTaskFunctions = newTaskFunctions()
   let functionLibrarySessionFunctions = newSessionFunctions()
@@ -78,15 +78,15 @@ function newWorkspace () {
       if (savedWorkspace === null || idAtStrategizer === null) {
         thisObject.workspaceNode.type = 'Workspace'
         thisObject.workspaceNode.name = 'My Workspace'
-        functionLibraryPartsFromNodes.createPartFromNode(thisObject.workspaceNode, undefined, undefined)
+        functionLibraryUiObjectsFromNodes.createPartFromNode(thisObject.workspaceNode, undefined, undefined)
         spawnPosition.y = spawnPosition.y + 250
         initializeLoadingFromStrategizer()
       } else {
         thisObject.workspaceNode = JSON.parse(savedWorkspace)
-        functionLibraryPartsFromNodes.createPartFromNode(thisObject.workspaceNode, undefined, undefined)
+        functionLibraryUiObjectsFromNodes.createPartFromNode(thisObject.workspaceNode, undefined, undefined)
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
           let rootNode = thisObject.workspaceNode.rootNodes[i]
-          functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+          functionLibraryUiObjectsFromNodes.createPartFromNode(rootNode, undefined, undefined)
         }
         thisObject.enabled = true
       }
@@ -100,7 +100,7 @@ function newWorkspace () {
     if (result === true) {
       thisObject.definition = canvas.strategySpace.strategizerGateway.strategizerData
       thisObject.workspaceNode.rootNodes.push(thisObject.definition)
-      functionLibraryPartsFromNodes.createPartFromNode(thisObject.definition, undefined, undefined)
+      functionLibraryUiObjectsFromNodes.createPartFromNode(thisObject.definition, undefined, undefined)
 
       thisObject.enabled = true
     }
@@ -222,15 +222,15 @@ function newWorkspace () {
         stopAllRunningTasks()
         functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
         thisObject.workspaceNode = droppedNode
-        functionLibraryPartsFromNodes.createPartFromNode(thisObject.workspaceNode, undefined, undefined)
+        functionLibraryUiObjectsFromNodes.createPartFromNode(thisObject.workspaceNode, undefined, undefined)
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
           let rootNode = thisObject.workspaceNode.rootNodes[i]
-          functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+          functionLibraryUiObjectsFromNodes.createPartFromNode(rootNode, undefined, undefined)
         }
       } else {
         let rootNode = functionLibraryProtocolNode.getProtocolNode(droppedNode)
         thisObject.workspaceNode.rootNodes.push(rootNode)
-        functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+        functionLibraryUiObjectsFromNodes.createPartFromNode(rootNode, undefined, undefined)
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] spawn -> err = ' + err.stack) }
@@ -316,192 +316,192 @@ function newWorkspace () {
         break
       case 'Add Definition':
         {
-          functionLibraryPartsFromNodes.addDefinition(payload.node)
+          functionLibraryUiObjectsFromNodes.addDefinition(payload.node)
         }
         break
       case 'Add Network':
         {
-          functionLibraryPartsFromNodes.addNetwork(payload.node)
+          functionLibraryUiObjectsFromNodes.addNetwork(payload.node)
         }
         break
       case 'Add Network Node':
         {
-          functionLibraryPartsFromNodes.addNetworkNode(payload.node)
+          functionLibraryUiObjectsFromNodes.addNetworkNode(payload.node)
         }
         break
       case 'Add Social Bots':
         {
-          functionLibraryPartsFromNodes.addSocialBots(payload.node)
+          functionLibraryUiObjectsFromNodes.addSocialBots(payload.node)
         }
         break
       case 'Add Telegram Bot':
         {
-          functionLibraryPartsFromNodes.addTelegramBot(payload.node)
+          functionLibraryUiObjectsFromNodes.addTelegramBot(payload.node)
         }
         break
       case 'Add Announcement':
         {
-          functionLibraryPartsFromNodes.addAnnouncement(payload.node)
+          functionLibraryUiObjectsFromNodes.addAnnouncement(payload.node)
         }
         break
       case 'Add Layer Manager':
         {
-          functionLibraryPartsFromNodes.addLayerManager(payload.node)
+          functionLibraryUiObjectsFromNodes.addLayerManager(payload.node)
         }
         break
       case 'Add Layer':
         {
-          functionLibraryPartsFromNodes.addLayer(payload.node)
+          functionLibraryUiObjectsFromNodes.addLayer(payload.node)
         }
         break
       case 'Add Task Manager':
         {
-          functionLibraryPartsFromNodes.addTaskManager(payload.node)
+          functionLibraryUiObjectsFromNodes.addTaskManager(payload.node)
         }
         break
       case 'Add Task':
         {
-          functionLibraryPartsFromNodes.addTask(payload.node)
+          functionLibraryUiObjectsFromNodes.addTask(payload.node)
         }
         break
       case 'Add Sensor Bot Instance':
         {
-          functionLibraryPartsFromNodes.addSensorBotInstance(payload.node)
+          functionLibraryUiObjectsFromNodes.addSensorBotInstance(payload.node)
         }
         break
       case 'Add Indicator Bot Instance':
         {
-          functionLibraryPartsFromNodes.addIndicatorBotInstance(payload.node)
+          functionLibraryUiObjectsFromNodes.addIndicatorBotInstance(payload.node)
         }
         break
       case 'Add Trading Bot Instance':
         {
-          functionLibraryPartsFromNodes.addTradingBotInstance(payload.node)
+          functionLibraryUiObjectsFromNodes.addTradingBotInstance(payload.node)
         }
         break
       case 'Add Process':
         {
-          functionLibraryPartsFromNodes.addProcess(payload.node)
+          functionLibraryUiObjectsFromNodes.addProcess(payload.node)
         }
         break
       case 'Add Backtesting Session':
         {
-          functionLibraryPartsFromNodes.addBacktestingSession(payload.node)
+          functionLibraryUiObjectsFromNodes.addBacktestingSession(payload.node)
         }
         break
       case 'Add Live Trading Session':
         {
-          functionLibraryPartsFromNodes.addLiveTradingSession(payload.node)
+          functionLibraryUiObjectsFromNodes.addLiveTradingSession(payload.node)
         }
         break
       case 'Add Fordward Testing Session':
         {
-          functionLibraryPartsFromNodes.addFordwardTestingSession(payload.node)
+          functionLibraryUiObjectsFromNodes.addFordwardTestingSession(payload.node)
         }
         break
       case 'Add Paper Trading Session':
         {
-          functionLibraryPartsFromNodes.addPaperTradingSession(payload.node)
+          functionLibraryUiObjectsFromNodes.addPaperTradingSession(payload.node)
         }
         break
       case 'Add Strategy':
         {
-          functionLibraryPartsFromNodes.addStrategy(payload.node)
+          functionLibraryUiObjectsFromNodes.addStrategy(payload.node)
         }
         break
       case 'Add Parameters':
         {
-          functionLibraryPartsFromNodes.addParameters(payload.node)
+          functionLibraryUiObjectsFromNodes.addParameters(payload.node)
         }
         break
       case 'Add Missing Parameters':
         {
-          functionLibraryPartsFromNodes.addMissingParameters(payload.node)
+          functionLibraryUiObjectsFromNodes.addMissingParameters(payload.node)
         }
         break
       case 'Add Missing Stages':
         {
-          functionLibraryPartsFromNodes.addMissingStages(payload.node)
+          functionLibraryUiObjectsFromNodes.addMissingStages(payload.node)
         }
         break
       case 'Add Missing Events':
         {
-          functionLibraryPartsFromNodes.addMissingEvents(payload.node)
+          functionLibraryUiObjectsFromNodes.addMissingEvents(payload.node)
         }
         break
       case 'Add Missing Items':
         {
-          functionLibraryPartsFromNodes.addMissingItems(payload.node)
+          functionLibraryUiObjectsFromNodes.addMissingItems(payload.node)
         }
         break
       case 'Add Initial Definition':
         {
-          functionLibraryPartsFromNodes.addInitialDefinition(payload.node)
+          functionLibraryUiObjectsFromNodes.addInitialDefinition(payload.node)
         }
         break
       case 'Add Open Execution':
         {
-          functionLibraryPartsFromNodes.addOpenExecution(payload.node)
+          functionLibraryUiObjectsFromNodes.addOpenExecution(payload.node)
         }
         break
       case 'Add Close Execution':
         {
-          functionLibraryPartsFromNodes.addCloseExecution(payload.node)
+          functionLibraryUiObjectsFromNodes.addCloseExecution(payload.node)
         }
         break
       case 'Add Phase':
         {
-          functionLibraryPartsFromNodes.addPhase(payload.node)
+          functionLibraryUiObjectsFromNodes.addPhase(payload.node)
         }
         break
       case 'Add Formula':
         {
-          functionLibraryPartsFromNodes.addFormula(payload.node)
+          functionLibraryUiObjectsFromNodes.addFormula(payload.node)
         }
         break
       case 'Add Next Phase Event':
         {
-          functionLibraryPartsFromNodes.addNextPhaseEvent(payload.node)
+          functionLibraryUiObjectsFromNodes.addNextPhaseEvent(payload.node)
         }
         break
       case 'Add Situation':
         {
-          functionLibraryPartsFromNodes.addSituation(payload.node)
+          functionLibraryUiObjectsFromNodes.addSituation(payload.node)
         }
         break
       case 'Add Condition':
         {
-          functionLibraryPartsFromNodes.addCondition(payload.node)
+          functionLibraryUiObjectsFromNodes.addCondition(payload.node)
         }
         break
       case 'Add Code':
         {
-          functionLibraryPartsFromNodes.addCode(payload.node)
+          functionLibraryUiObjectsFromNodes.addCode(payload.node)
         }
         break
       case 'Add Exchange Account':
         {
-          functionLibraryPartsFromNodes.addExchangeAccount(payload.node)
+          functionLibraryUiObjectsFromNodes.addExchangeAccount(payload.node)
         }
         break
       case 'Add Exchange Account Asset':
         {
-          functionLibraryPartsFromNodes.addExchangeAccountAsset(payload.node)
+          functionLibraryUiObjectsFromNodes.addExchangeAccountAsset(payload.node)
         }
         break
       case 'Add Exchange Account Key':
         {
-          functionLibraryPartsFromNodes.addExchangeAccountKey(payload.node)
+          functionLibraryUiObjectsFromNodes.addExchangeAccountKey(payload.node)
         }
         break
       case 'Add Trading System':
         {
-          functionLibraryPartsFromNodes.addTradingSystem(payload.node)
+          functionLibraryUiObjectsFromNodes.addTradingSystem(payload.node)
         }
         break
       case 'Add Personal Data':
         {
-          functionLibraryPartsFromNodes.addPersonalData(payload.node)
+          functionLibraryUiObjectsFromNodes.addPersonalData(payload.node)
         }
         break
       case 'Delete Network': {

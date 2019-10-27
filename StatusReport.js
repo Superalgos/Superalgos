@@ -50,7 +50,7 @@
             month = pMonth;
             year = pYear;
 
-            if (bot.SESSION !== undefined && pOwner.type === "Trading Engine") {
+            if (bot.SESSION !== undefined && pOwner.type === "Trading Bot Instance") {
                 sessionPath = bot.SESSION.folderName + "/"
             }
 

@@ -48,7 +48,7 @@
     <Compile Include="Session.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TradingEngineProcessMainLoop.js">
+    <Compile Include="TradingBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="utils\logger.js">

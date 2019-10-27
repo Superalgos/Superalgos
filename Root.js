@@ -121,7 +121,7 @@
 
             const INDICATOR_BOT_MAIN_LOOP_MODULE = require('./IndicatorBotProcessMainLoop');
             const SENSOR_BOT_MAIN_LOOP_MODULE = require('./SensorBotProcessMainLoop');
-            const TRADING_ENGINE_MAIN_LOOP_MODULE = require('./TradingEngineProcessMainLoop');
+            const TRADING_ENGINE_MAIN_LOOP_MODULE = require('./TradingBotProcessMainLoop');
 
             /* Loop through all the processes configured to be run by this Node.js Instance. */
             /* Now we will read the config of the bot from the path we obtained at the Task Server config. */
@@ -334,7 +334,7 @@
                                                 break;
                                             }
                                             case 'Trading Bot': {
-                                                runTradingEngine(botConfig, processConfig);
+                                                runTradingBot(botConfig, processConfig);
                                                 break;
                                             }
                                             default: {
@@ -384,7 +384,7 @@
 
                                         switch (botConfig.type) {
                                             case 'Trading Bot': {
-                                                runTradingEngine(botConfig, processConfig);
+                                                runTradingBot(botConfig, processConfig);
                                                 break;
                                             }
                                             default: {
@@ -552,7 +552,7 @@
                         }
                     }
 
-                    function runTradingEngine(pBotConfig, pProcessConfig) {
+                    function runTradingBot(pBotConfig, pProcessConfig) {
 
                         global.TOTAL_PROCESS_INSTANCES_CREATED++
 
@@ -563,16 +563,16 @@
                             logger = DEBUG_MODULE.newDebugLog();
                             logger.bot = pBotConfig;
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingEngine -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> Entering function."); }
 
-                            let tradingEngineMainLoop = TRADING_ENGINE_MAIN_LOOP_MODULE.newTradingEngineProcessMainLoop(pBotConfig, logger);
-                            tradingEngineMainLoop.initialize(pProcessConfig, onInitializeReady);
+                            let tradingBotMainLoop = TRADING_ENGINE_MAIN_LOOP_MODULE.newTradingBotProcessMainLoop(pBotConfig, logger);
+                            tradingBotMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
                                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                    tradingEngineMainLoop.run(whenRunFinishes);
+                                    tradingBotMainLoop.run(whenRunFinishes);
 
                                     function whenRunFinishes(err) {
 
@@ -584,36 +584,36 @@
 
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                            logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
-                                            logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                                            logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                            logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                                            console.log(logDisplace + "Root : [INFO] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
-                                            console.log(logDisplace + "Root : [INFO] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                            console.log(logDisplace + "Root : [INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
+                                            console.log(logDisplace + "Root : [INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.persist();
 
                                         } else {
 
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bye.");
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bye.");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
                                             logger.persist();
                                         }
                                         setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                                     }
 
                                 } else {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> err = " + err.message);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> Failed to initialize the bot. ");
-                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> onInitializeReady -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> Failed to initialize the bot. ");
+                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> err = " + err.message);
                                     logger.persist();
                                     setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                                 }
                             }
                         }
                         catch (err) {
-                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingEngine -> err = " + err.stack);
+                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> err = " + err.stack);
                             setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                         }
                     }

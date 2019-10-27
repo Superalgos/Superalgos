@@ -1,8 +1,8 @@
-﻿exports.newTradingEngineProcessMainLoop = function newTradingEngineProcessMainLoop(bot, parentLogger) {
+﻿exports.newTradingBotProcessMainLoop = function newTradingBotProcessMainLoop(bot, parentLogger) {
 
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Trading Engine Process Main Loop";
+    const MODULE_NAME = "Trading Process Main Loop";
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;

@@ -179,7 +179,7 @@ function newWorkspace () {
                 let taskManager = networkNode.taskManagers[i]
                 for (k = 0; k < taskManager.tasks.length; k++) {
                   let task = taskManager.tasks[k]
-                  if (task.bot.type === 'Trading Engine') {
+                  if (task.bot.type === 'Trading Bot Instance') {
                     tradingEngines.push(task.bot)
                   }
                 }
@@ -195,22 +195,18 @@ function newWorkspace () {
   function getNodeByShortcutKey (searchingKey) {
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      if (rootNode.type === 'Definition') {
-        let definition = rootNode
-        let node = functionLibraryShortcutKeys.getNodeByShortcutKey(rootNode, searchingKey)
-        if (node !== undefined) { return node }
-      }
+      let definition = rootNode
+      let node = functionLibraryShortcutKeys.getNodeByShortcutKey(rootNode, searchingKey)
+      if (node !== undefined) { return node }
     }
   }
 
   function getNodeThatIsOnFocus () {
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      if (rootNode.type === 'Definition') {
-        let definition = rootNode
-        let node = functionLibraryOnFocus.getNodeThatIsOnFocus(rootNode)
-        if (node !== undefined) { return node }
-      }
+      let definition = rootNode
+      let node = functionLibraryOnFocus.getNodeThatIsOnFocus(rootNode)
+      if (node !== undefined) { return node }
     }
   }
 

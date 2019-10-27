@@ -574,7 +574,7 @@ function newOnFocus () {
           return
         }
       }
-      case 'Trading Engine': {
+      case 'Trading Bot Instance': {
         let child
         for (let m = 0; m < node.processes.length; m++) {
           child = getNodeThatIsOnFocus(node.processes[m])

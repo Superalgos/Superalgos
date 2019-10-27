@@ -44,7 +44,7 @@ function newNodeChildren () {
       case 'Indicator Bot Instance': {
         return countChildrenIndicator(parentNode, childNode)
       }
-      case 'Trading Engine': {
+      case 'Trading Bot Instance': {
         return countChildrenTradingEngine(parentNode, childNode)
       }
       case 'Process': {

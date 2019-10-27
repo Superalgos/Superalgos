@@ -297,7 +297,7 @@ function newProductsPanel () {
 
             for (let j = 0; j < devTeam.bots.length; j++) {
               let bot = devTeam.bots[j]
-              if (bot.type !== 'Trading Engine') { continue }
+              if (bot.type !== 'Trading Bot Instance') { continue }
 
               if (devTeam.codeName === code.team && bot.codeName === code.bot) {
                   /* We found an instance of the same Trading Engine we are currently looking at.

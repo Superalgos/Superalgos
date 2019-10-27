@@ -109,7 +109,7 @@ function newNodeDeleter () {
             deleteBot(rootNode, rootNodes)
             break
           }
-          case 'Trading Engine': {
+          case 'Trading Bot Instance': {
             deleteBot(rootNode, rootNodes)
             break
           }

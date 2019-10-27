@@ -481,8 +481,8 @@ function newPartsFromNodes () {
         }
         return
       }
-      case 'Trading Engine': {
-        createPart('Trading Engine', node.name, node, parentNode, chainParent, 'Trading Engine')
+      case 'Trading Bot Instance': {
+        createPart('Trading Bot Instance', node.name, node, parentNode, chainParent, 'Trading Bot Instance')
         for (let m = 0; m < node.processes.length; m++) {
           let process = node.processes[m]
           createPartFromNode(process, node, node)
@@ -500,7 +500,7 @@ function newPartsFromNodes () {
               node.subType = 'Indicator Process'
               break
             }
-            case 'Trading Engine': {
+            case 'Trading Bot Instance': {
               node.subType = 'Trading Engine Process'
               break
             }
@@ -701,7 +701,7 @@ function newPartsFromNodes () {
         processes: [],
         code: '{}'
       }
-      createPart('Trading Engine', '', node.bot, node, node)
+      createPart('Trading Bot Instance', '', node.bot, node, node)
     }
     return node.bot
   }
@@ -723,7 +723,7 @@ function newPartsFromNodes () {
         process.name = 'Indicator Process'
         break
       }
-      case 'Trading Engine': {
+      case 'Trading Bot Instance': {
         process.subType = 'Trading Engine Process'
         process.name = 'Trading Engine Process'
         break

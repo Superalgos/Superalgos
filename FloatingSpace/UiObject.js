@@ -303,7 +303,7 @@ function newUiObject () {
         compatibleType = '->' + 'Task' + '->'
         compatibleSubType = undefined
         break
-      case 'Trading Engine':
+      case 'Trading Bot Instance':
         compatibleType = '->' + 'Task' + '->'
         compatibleSubType = undefined
         break
@@ -318,7 +318,7 @@ function newUiObject () {
             break
           }
           case 'Trading Engine Process': {
-            compatibleType = '->' + 'Trading Engine' + '->'
+            compatibleType = '->' + 'Trading Bot Instance' + '->'
             break
           }
         }
@@ -425,7 +425,7 @@ function newUiObject () {
         if (thisObject.payload.node.type === 'Task' && nearbyNode.task !== undefined) { continue }
         if (thisObject.payload.node.type === 'Sensor Bot Instance' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Indicator Bot Instance' && nearbyNode.bot !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trading Engine' && nearbyNode.bot !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trading Bot Instance' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Process' && nearbyNode.process !== undefined) { continue }
         if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }
         if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }

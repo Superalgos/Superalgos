@@ -801,7 +801,7 @@ function newUiObjectConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Trading Engine',
             visible: true,
-            relatedUiObject: 'Trading Engine',
+            relatedUiObject: 'Trading Bot Instance',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -974,7 +974,7 @@ function newUiObjectConstructor () {
             )
         break
       }
-      case 'Trading Engine': {
+      case 'Trading Bot Instance': {
         uiObject.codeEditor = newCodeEditor()
         uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
         uiObject.codeEditor.initialize()
@@ -3242,7 +3242,7 @@ function newUiObjectConstructor () {
         level_3()
         break
       }
-      case 'Trading Engine': {
+      case 'Trading Bot Instance': {
         level_3()
         break
       }

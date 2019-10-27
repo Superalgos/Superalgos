@@ -51,7 +51,7 @@ function newStrategySpace () {
       ['Task', 'timeline'],
       ['Sensor Bot Instance', 'bot-sensor'],
       ['Indicator Bot Instance', 'bot-indicator'],
-      ['Trading Engine', 'trading-engine'],
+      ['Trading Bot Instance', 'trading-engine'],
       ['Process', 'process'],
       ['Backtesting Session', 'session-backtesting'],
       ['Live Trading Session', 'session-live-trading'],

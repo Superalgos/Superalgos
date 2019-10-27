@@ -90,7 +90,7 @@ function newUiObjectTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Trading Engine': {
+      case 'Trading Bot Instance': {
         break
       }
       case 'Process': {

@@ -1362,7 +1362,7 @@ function newUiObject () {
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
 
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
 
         browserCanvasContext.lineWidth = 10
         browserCanvasContext.setLineDash([readyToReferenceAttachDisplayCounter, readyToReferenceAttachDisplayCounter * 2])
@@ -1377,7 +1377,7 @@ function newUiObject () {
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
 
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', ' + OPACITY + ')'
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + OPACITY + ')'
 
         browserCanvasContext.lineWidth = 10
         browserCanvasContext.setLineDash([8, 20])

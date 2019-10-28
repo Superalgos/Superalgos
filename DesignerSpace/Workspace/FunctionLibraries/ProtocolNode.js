@@ -4,7 +4,7 @@ function newProtocolNode () {
   }
   return thisObject
 
-  function getProtocolNode (node, removePersonalData, parseCode, includeIds, includePayload) {
+  function getProtocolNode (node, removePersonalData, parseCode, includeIds, includePayload, includeReferences) {
     if (node === undefined) { return }
     switch (node.type) {
       case 'Code':
@@ -1012,6 +1012,14 @@ function newProtocolNode () {
         }
         if (includePayload) {
           object.savedPayload = getSavedPayload(node)
+        }
+        if (includeReferences) {
+          let referenceChildren = []
+          for (let i = 0; i < node.referenceChildren.length; i++) {
+            let child = node.referenceChildren[i]
+            referenceChildren.push(child.id)
+          }
+          object.referenceChildren = referenceChildren
         }
         return object
       }

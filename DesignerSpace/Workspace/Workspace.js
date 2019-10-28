@@ -142,7 +142,7 @@ function newWorkspace () {
     let stringifyReadyNodes = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true)
+      let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true, true)
       if (node) {
         stringifyReadyNodes.push(node)
       }

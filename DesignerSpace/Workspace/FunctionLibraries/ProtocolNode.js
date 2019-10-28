@@ -886,7 +886,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -907,7 +907,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -928,7 +928,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -949,7 +949,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1017,7 +1017,13 @@ function newProtocolNode () {
           let referenceChildren = []
           for (let i = 0; i < node.referenceChildren.length; i++) {
             let child = node.referenceChildren[i]
-            referenceChildren.push(child.id)
+            let referencedChild = {
+              type: child.type,
+              subType: child.subType,
+              name: child.name,
+              id: child.id
+            }
+            referenceChildren.push(referencedChild)
           }
           object.referenceChildren = referenceChildren
         }
@@ -1026,10 +1032,7 @@ function newProtocolNode () {
     }
   }
 
-  function getSavedPayload (node) {
-    if (node.payload === undefined) {
-      console.log(node)
-    }
+  function getSavedPayload (node, includeReferences) {
     let savedPayload = {
       position: {
         x: node.payload.position.x,
@@ -1048,6 +1051,16 @@ function newProtocolNode () {
       uiObject: {
         isRunning: node.payload.uiObject.isRunning,
         shortcutKey: node.payload.uiObject.shortcutKey
+      }
+    }
+    if (includeReferences) {
+      if (node.payload.referenceParent !== undefined) {
+        savedPayload.referenceParent = {
+          type: node.payload.referenceParent.type,
+          subType: node.payload.referenceParent.subType,
+          name: node.payload.referenceParent.name,
+          id: node.payload.referenceParent.id
+        }
       }
     }
     return savedPayload

@@ -1,5 +1,6 @@
 function newUiObjectsFromNodes () {
   thisObject = {
+    recreateWorkspace: recreateWorkspace,
     createUiObjectFromNode: createUiObjectFromNode,
     addDefinition: addDefinition,
     addNetwork: addNetwork,
@@ -41,7 +42,26 @@ function newUiObjectsFromNodes () {
     addCode: addCode
   }
 
+  let mapOfReferenceParents
+  let mapOfReferenceChildren
+
   return thisObject
+
+  function recreateWorkspace (node) {
+    mapOfReferenceParents = new Map()
+    mapOfReferenceChildren = new Map()
+    let workspace = node
+    createUiObject('Workspace', workspace.name, workspace, undefined, undefined, 'Workspace')
+    if (node.rootNodes !== undefined) {
+      for (let i = 0; i < node.rootNodes.length; i++) {
+        let rootNode = node.rootNodes[i]
+        createUiObjectFromNode(rootNode, undefined, undefined)
+      }
+    }
+    mapOfReferenceParents = undefined
+    mapOfReferenceChildren = undefined
+    return
+  }
 
   function createUiObjectFromNode (node, parentNode, chainParent) {
     switch (node.type) {
@@ -346,17 +366,6 @@ function newUiObjectsFromNodes () {
         }
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node)
-        }
-        return
-      }
-      case 'Workspace': {
-        let workspace = node
-        createUiObject('Workspace', workspace.name, workspace, parentNode, chainParent, 'Workspace')
-        if (node.rootNodes !== undefined) {
-          for (let i = 0; i < node.rootNodes.length; i++) {
-            let rootNode = node.rootNodes[i]
-            createUiObjectFromNode(rootNode, undefined, undefined)
-          }
         }
         return
       }

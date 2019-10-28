@@ -86,7 +86,7 @@ function newWorkspace () {
         initializeLoadingFromStrategizer()
       } else {
         thisObject.workspaceNode = JSON.parse(savedWorkspace)
-        functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.workspaceNode, undefined, undefined)
+        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
         thisObject.enabled = true
       }
     } catch (err) {
@@ -223,7 +223,7 @@ function newWorkspace () {
         stopAllRunningTasks()
         functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
         thisObject.workspaceNode = droppedNode
-        functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.workspaceNode, undefined, undefined)
+        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
       } else {
         let rootNode = functionLibraryProtocolNode.getProtocolNode(droppedNode)
         thisObject.workspaceNode.rootNodes.push(rootNode)

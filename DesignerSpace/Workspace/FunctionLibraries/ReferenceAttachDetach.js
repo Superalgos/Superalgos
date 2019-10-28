@@ -9,23 +9,19 @@ function newReferenceAttachDetach () {
   function referenceDetachNode (node, rootNodes) {
     switch (node.type) {
       case 'Backtesting Session': {
-        node.payload.parentNode.session = undefined
-        completeDetachment(node, rootNodes)
+        completeDetachment(node, attachToNode)
         return
       }
       case 'Live Trading Session': {
-        node.payload.parentNode.session = undefined
-        completeDetachment(node, rootNodes)
+        completeDetachment(node, attachToNode)
         return
       }
       case 'Fordward Testing Session': {
-        node.payload.parentNode.session = undefined
-        completeDetachment(node, rootNodes)
+        completeDetachment(node, attachToNode)
         return
       }
       case 'Paper Trading Session': {
-        node.payload.parentNode.session = undefined
-        completeDetachment(node, rootNodes)
+        completeDetachment(node, attachToNode)
         return
       }
     }
@@ -34,47 +30,34 @@ function newReferenceAttachDetach () {
   function referenceAttachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
       case 'Backtesting Session': {
-        node.payload.parentNode = attachToNode
-        node.payload.referenceParent = attachToNode
-        node.payload.parentNode.session = node
-        completeAttachment(node, rootNodes)
+        completeAttachment(node, attachToNode)
       }
         break
       case 'Live Trading Session': {
-        node.payload.parentNode = attachToNode
-        node.payload.referenceParent = attachToNode
-        node.payload.parentNode.session = node
-        completeAttachment(node, rootNodes)
+        completeAttachment(node, attachToNode)
       }
         break
       case 'Fordward Testing Session': {
-        node.payload.parentNode = attachToNode
-        node.payload.referenceParent = attachToNode
-        node.payload.parentNode.session = node
-        completeAttachment(node, rootNodes)
+        completeAttachment(node, attachToNode)
       }
         break
       case 'Paper Trading Session': {
-        node.payload.parentNode = attachToNode
-        node.payload.referenceParent = attachToNode
-        node.payload.parentNode.session = node
-        completeAttachment(node, rootNodes)
+        completeAttachment(node, attachToNode)
       }
         break
     }
   }
 
-  function completeDetachment (node, rootNodes) {
-    node.payload.parentNode = undefined
-    node.payload.referenceParent = undefined
-    rootNodes.push(node)
+  function completeAttachment (node, attachToNode) {
+    node.payload.referenceParent = attachToNode
+    attachToNode.referenceChildren.push(node)
   }
 
-  function completeAttachment (node, rootNodes) {
-    for (let i = 0; i < rootNodes.length; i++) {
-      let rootNode = rootNodes[i]
-      if (rootNode.id === node.id) {
-        rootNodes.splice(i, 1)
+  function completeDetachment (node, attachToNode) {
+    for (let i = 0; i < attachToNode.referenceChildren.length; i++) {
+      let child = attachToNode.referenceChildren[i]
+      if (child.id === node.id) {
+        attachToNode.referenceChildren.splice(i, 1)
         return
       }
     }

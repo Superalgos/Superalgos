@@ -604,64 +604,13 @@ function newUiObject () {
       let floatingObject = nearby[1]
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf('->' + nearbyNode.type + '->') >= 0) {
-        /* Discard objects with busy coonection ports */
-        if (thisObject.payload.node.type === 'Task' && nearbyNode.task !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Sensor Bot Instance' && nearbyNode.bot !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Indicator Bot Instance' && nearbyNode.bot !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trading Bot Instance' && nearbyNode.bot !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Process Instance' && nearbyNode.process !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Backtesting Session' && nearbyNode.session !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Live Trading Session' && nearbyNode.session !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Fordward Testing Session' && nearbyNode.session !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Paper Trading Session' && nearbyNode.session !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Base Asset' && nearbyNode.baseAsset !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Time Range' && nearbyNode.timeRange !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Time Period' && nearbyNode.timePeriod !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Slippage' && nearbyNode.slippage !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Fee Structure' && nearbyNode.feeStructure !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Open Stage' && nearbyNode.openStage !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Manage Stage' && nearbyNode.manageStage !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Close Stage' && nearbyNode.closeStage !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Position Size' && nearbyNode.positionSize !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Position Rate' && nearbyNode.positionRate !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Take Position Event' && nearbyNode.takePosition !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trigger Off Event' && nearbyNode.triggerOff !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trigger On Event' && nearbyNode.triggerOn !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Initial Definition' && nearbyNode.initialDefinition !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Open Execution' && nearbyNode.openExecution !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Close Execution' && nearbyNode.closeExecution !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Stop' && nearbyNode.stopLoss !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Take Profit' && nearbyNode.takeProfit !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Formula' && nearbyNode.formula !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Next Phase Event' && nearbyNode.nextPhaseEvent !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Code' && nearbyNode.code !== undefined) { continue }
         /* Here we check if the subtypes are compatible. */
         if (nearbyNode.subType !== undefined && compatibleSubType !== undefined) {
           if (compatibleSubType.indexOf('->' + nearbyNode.subType + '->') < 0) {
             continue
           }
         }
-        /* Discard Phases without partent */
-        if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
-        /* Control maxPhases */
-        if (thisObject.payload.node.type === 'Phase') {
-          if (nearbyNode.maxPhases !== undefined) {
-            if (nearbyNode.phases.length >= nearbyNode.maxPhases) {
-              continue
-            }
-          }
-        }
-        if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase') {
-          if (nearbyNode.payload.parentNode.maxPhases !== undefined) {
-            if (nearbyNode.payload.parentNode.phases.length >= nearbyNode.payload.parentNode.maxPhases) {
-              continue
-            }
-          }
-        }
+
         if (foundCompatible === false) {
           if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
             nearbyNode.payload.uiObject.getReadyToReferenceAttach()

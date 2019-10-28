@@ -390,6 +390,9 @@ function newUiObjectsFromNodes () {
         if (node.personalData !== undefined) {
           createUiObjectFromNode(node.personalData, node, node)
         }
+        if (node.referenceChildren === undefined) {
+          node.referenceChildren = []
+        }
         return
       }
       case 'Network': {
@@ -781,7 +784,8 @@ function newUiObjectsFromNodes () {
 
   function addDefinition (node) {
     let definition = {
-      name: 'New Definition'
+      name: 'New Definition',
+      referenceChildren: []
     }
     node.rootNodes.push(definition)
     createUiObject('Definition', definition.name, definition, node, undefined, 'Definition')

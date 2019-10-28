@@ -352,6 +352,12 @@ function newUiObjectsFromNodes () {
       case 'Workspace': {
         let workspace = node
         createUiObject('Workspace', workspace.name, workspace, parentNode, chainParent, 'Workspace')
+        if (node.rootNodes !== undefined) {
+          for (let i = 0; i < node.rootNodes.length; i++) {
+            let rootNode = node.rootNodes[i]
+            createUiObjectFromNode(rootNode, undefined, undefined)
+          }
+        }
         return
       }
       case 'Personal Data': {

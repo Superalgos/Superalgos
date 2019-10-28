@@ -87,10 +87,6 @@ function newWorkspace () {
       } else {
         thisObject.workspaceNode = JSON.parse(savedWorkspace)
         functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.workspaceNode, undefined, undefined)
-        for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
-          let rootNode = thisObject.workspaceNode.rootNodes[i]
-          functionLibraryUiObjectsFromNodes.createUiObjectFromNode(rootNode, undefined, undefined)
-        }
         thisObject.enabled = true
       }
     } catch (err) {
@@ -228,10 +224,6 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
         thisObject.workspaceNode = droppedNode
         functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.workspaceNode, undefined, undefined)
-        for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
-          let rootNode = thisObject.workspaceNode.rootNodes[i]
-          functionLibraryUiObjectsFromNodes.createUiObjectFromNode(rootNode, undefined, undefined)
-        }
       } else {
         let rootNode = functionLibraryProtocolNode.getProtocolNode(droppedNode)
         thisObject.workspaceNode.rootNodes.push(rootNode)

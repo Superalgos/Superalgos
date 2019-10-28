@@ -58,8 +58,24 @@ function newUiObjectsFromNodes () {
         createUiObjectFromNode(rootNode, undefined, undefined)
       }
     }
-    mapOfReferenceParents = undefined
+    /* We reconstruct here the reference relationships. */
+    for (const [key, childNode] of mapOfReferenceChildren) {
+      childNode.payload.referenceParent = mapOfReferenceParents.get(childNode.savedPayload.referenceParent.id)
+      childNode.savedPayload = undefined
+    }
+    for (const [key, parentNode] of mapOfReferenceParents) {
+      for (let i = 0; i < parentNode.savedPayload.referenceChildren.length; i++) {
+        let savedChild = parentNode.savedPayload.referenceChildren[i]
+        if (savedChild.id !== undefined) {
+          let referenceChild = mapOfReferenceChildren.get(savedChild.id)
+          parentNode.referenceChildren.push(referenceChild)
+        }
+      }
+      parentNode.savedPayload = undefined
+    }
     mapOfReferenceChildren = undefined
+    mapOfReferenceParents = undefined
+
     return
   }
 
@@ -398,6 +414,15 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Definition': {
+        let referenceChildren
+        if (mapOfReferenceParents !== undefined) {
+          if (node.savedPayload.referenceChildren !== undefined) {
+            if (node.savedPayload.referenceChildren.length > 0) {
+              mapOfReferenceParents.set(node.id, node)
+              referenceChildren = node.savedPayload.referenceChildren
+            }
+          }
+        }
         createUiObject('Definition', node.name, node, parentNode, chainParent, 'Definition')
         if (node.tradingSystem !== undefined) {
           createUiObjectFromNode(node.tradingSystem, node, node)
@@ -407,6 +432,11 @@ function newUiObjectsFromNodes () {
         }
         if (node.referenceChildren === undefined) {
           node.referenceChildren = []
+        }
+        if (referenceChildren !== undefined) {
+          node.savedPayload = {
+            referenceChildren: referenceChildren
+          }
         }
         return
       }
@@ -528,6 +558,15 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Backtesting Session': {
+        let referenceParent
+        if (mapOfReferenceChildren !== undefined) {
+          if (node.savedPayload.referenceParent !== undefined) {
+            if (node.savedPayload.referenceParent.id !== undefined) {
+              mapOfReferenceChildren.set(node.id, node)
+              referenceParent = node.savedPayload.referenceParent
+            }
+          }
+        }
         createUiObject('Backtesting Session', node.name, node, parentNode, chainParent, 'Backtesting Session')
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node)
@@ -538,9 +577,23 @@ function newUiObjectsFromNodes () {
         if (node.socialBots !== undefined) {
           createUiObjectFromNode(node.socialBots, node, node)
         }
+        if (referenceParent !== undefined) {
+          node.savedPayload = {
+            referenceParent: referenceParent
+          }
+        }
         return
       }
       case 'Live Trading Session': {
+        let referenceParent
+        if (mapOfReferenceChildren !== undefined) {
+          if (node.savedPayload.referenceParent !== undefined) {
+            if (node.savedPayload.referenceParent.id !== undefined) {
+              mapOfReferenceChildren.set(node.id, node)
+              referenceParent = node.savedPayload.referenceParent
+            }
+          }
+        }
         createUiObject('Live Trading Session', node.name, node, parentNode, chainParent, 'Live Trading Session')
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node)
@@ -551,9 +604,23 @@ function newUiObjectsFromNodes () {
         if (node.socialBots !== undefined) {
           createUiObjectFromNode(node.socialBots, node, node)
         }
+        if (referenceParent !== undefined) {
+          node.savedPayload = {
+            referenceParent: referenceParent
+          }
+        }
         return
       }
       case 'Fordward Testing Session': {
+        let referenceParent
+        if (mapOfReferenceChildren !== undefined) {
+          if (node.savedPayload.referenceParent !== undefined) {
+            if (node.savedPayload.referenceParent.id !== undefined) {
+              mapOfReferenceChildren.set(node.id, node)
+              referenceParent = node.savedPayload.referenceParent
+            }
+          }
+        }
         createUiObject('Fordward Testing Session', node.name, node, parentNode, chainParent, 'Fordward Testing Session')
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node)
@@ -564,9 +631,23 @@ function newUiObjectsFromNodes () {
         if (node.socialBots !== undefined) {
           createUiObjectFromNode(node.socialBots, node, node)
         }
+        if (referenceParent !== undefined) {
+          node.savedPayload = {
+            referenceParent: referenceParent
+          }
+        }
         return
       }
       case 'Paper Trading Session': {
+        let referenceParent
+        if (mapOfReferenceChildren !== undefined) {
+          if (node.savedPayload.referenceParent !== undefined) {
+            if (node.savedPayload.referenceParent.id !== undefined) {
+              mapOfReferenceChildren.set(node.id, node)
+              referenceParent = node.savedPayload.referenceParent
+            }
+          }
+        }
         createUiObject('Paper Trading Session', node.name, node, parentNode, chainParent, 'Paper Trading Session')
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node)
@@ -576,6 +657,11 @@ function newUiObjectsFromNodes () {
         }
         if (node.socialBots !== undefined) {
           createUiObjectFromNode(node.socialBots, node, node)
+        }
+        if (referenceParent !== undefined) {
+          node.savedPayload = {
+            referenceParent: referenceParent
+          }
         }
         return
       }

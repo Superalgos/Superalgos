@@ -1017,15 +1017,17 @@ function newProtocolNode () {
           let referenceChildren = []
           for (let i = 0; i < node.referenceChildren.length; i++) {
             let child = node.referenceChildren[i]
-            let referencedChild = {
-              type: child.type,
-              subType: child.subType,
-              name: child.name,
-              id: child.id
+            if (child !== undefined) {
+              let referencedChild = {
+                type: child.type,
+                subType: child.subType,
+                name: child.name,
+                id: child.id
+              }
+              referenceChildren.push(referencedChild)
             }
-            referenceChildren.push(referencedChild)
           }
-          object.referenceChildren = referenceChildren
+          object.savedPayload.referenceChildren = referenceChildren
         }
         return object
       }

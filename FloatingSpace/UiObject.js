@@ -676,7 +676,6 @@ function newUiObject () {
 
     if (thisObject.isOnFocus !== true) { return }
     if (thisObject.payload.referenceParent === undefined) { return }
-    if (thisObject.payload.parentNode === undefined) { return }
 
     let THRESHOLD = 1.15
 

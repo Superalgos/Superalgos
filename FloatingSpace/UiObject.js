@@ -65,8 +65,7 @@ function newUiObject () {
   let hasValue
   let valueCounter = 0
 
-  let previousDistance
-
+  let previousDistanceToChainParent
   let readyToChainAttachDisplayCounter = 5
   let readyToChainAttachDisplayIncrement = 0.1
   let readyToChainAttachCounter = 0
@@ -76,6 +75,7 @@ function newUiObject () {
   let isChainAttaching = false
   let chainAttachToNode
 
+  let previousDistanceToReferenceParent
   let readyToReferenceAttachDisplayCounter = 5
   let readyToReferenceAttachDisplayIncrement = 0.1
   let readyToReferenceAttachCounter = 0
@@ -543,12 +543,12 @@ function newUiObject () {
     if (rightDragging === false) { return }
 
     let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
-    let ratio = distanceToChainParent / previousDistance
-    if (previousDistance === 0) {
-      previousDistance = distanceToChainParent
+    let ratio = distanceToChainParent / previousDistanceToChainParent
+    if (previousDistanceToChainParent === 0) {
+      previousDistanceToChainParent = distanceToChainParent
       return
     }
-    previousDistance = distanceToChainParent
+    previousDistanceToChainParent = distanceToChainParent
 
     if (thisObject.isOnFocus !== true) { return }
     if (thisObject.payload.chainParent === undefined) { return }
@@ -556,7 +556,7 @@ function newUiObject () {
 
     let THRESHOLD = 1.15
 
-    if (previousDistance !== undefined) {
+    if (previousDistanceToChainParent !== undefined) {
       if (ratio > THRESHOLD) {
         canvas.designerSpace.workspace.chainDetachNode(thisObject.payload.node)
       }
@@ -664,14 +664,15 @@ function newUiObject () {
     if (isDragging !== true) { return }
     if (thisObject.payload.floatingObject.isFrozen === true) { return }
     if (rightDragging === false) { return }
+    if (thisObject.payload.referenceParent === undefined) { return }
 
-    let distanceToReferenceParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
-    let ratio = distanceToReferenceParent / previousDistance
-    if (previousDistance === 0) {
-      previousDistance = distanceToReferenceParent
+    let distanceToReferenceParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.referenceParent.payload.position.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.referenceParent.payload.position.y, 2))
+    let ratio = distanceToReferenceParent / previousDistanceToReferenceParent
+    if (previousDistanceToReferenceParent === 0) {
+      previousDistanceToReferenceParent = distanceToReferenceParent
       return
     }
-    previousDistance = distanceToReferenceParent
+    previousDistanceToReferenceParent = distanceToReferenceParent
 
     if (thisObject.isOnFocus !== true) { return }
     if (thisObject.payload.referenceParent === undefined) { return }
@@ -679,7 +680,7 @@ function newUiObject () {
 
     let THRESHOLD = 1.15
 
-    if (previousDistance !== undefined) {
+    if (previousDistanceToReferenceParent !== undefined) {
       if (ratio > THRESHOLD) {
         canvas.designerSpace.workspace.referenceDetachNode(thisObject.payload.node)
       }
@@ -820,6 +821,9 @@ function newUiObject () {
     } else {
       rightDragging = false
     }
+
+    previousDistanceToReferenceParent = undefined
+    previousDistanceToChainParent = undefined
   }
 
   function onDragFinished (event) {
@@ -959,8 +963,8 @@ function newUiObject () {
     if (thisObject.payload.referenceParent === undefined) { return }
 
     let targetPoint = {
-      x: thisObject.payload.targetPosition.x,
-      y: thisObject.payload.targetPosition.y
+      x: thisObject.payload.referenceParent.payload.position.x,
+      y: thisObject.payload.referenceParent.payload.position.y
     }
 
     let position = {
@@ -980,8 +984,8 @@ function newUiObject () {
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-      browserCanvasContext.setLineDash([1, 4])
-      browserCanvasContext.lineWidth = 1
+      browserCanvasContext.setLineDash([2, 20])
+      browserCanvasContext.lineWidth = 2
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
     }

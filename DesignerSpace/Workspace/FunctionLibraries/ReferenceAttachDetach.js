@@ -6,22 +6,22 @@ function newReferenceAttachDetach () {
 
   return thisObject
 
-  function referenceDetachNode (node, rootNodes) {
+  function referenceDetachNode (node) {
     switch (node.type) {
       case 'Backtesting Session': {
-        completeDetachment(node, attachToNode)
+        completeDetachment(node)
         return
       }
       case 'Live Trading Session': {
-        completeDetachment(node, attachToNode)
+        completeDetachment(node)
         return
       }
       case 'Fordward Testing Session': {
-        completeDetachment(node, attachToNode)
+        completeDetachment(node)
         return
       }
       case 'Paper Trading Session': {
-        completeDetachment(node, attachToNode)
+        completeDetachment(node)
         return
       }
     }
@@ -53,11 +53,12 @@ function newReferenceAttachDetach () {
     attachToNode.referenceChildren.push(node)
   }
 
-  function completeDetachment (node, attachToNode) {
-    for (let i = 0; i < attachToNode.referenceChildren.length; i++) {
-      let child = attachToNode.referenceChildren[i]
+  function completeDetachment (node) {
+    node.payload.referenceParent = undefined
+    for (let i = 0; i < node.payload.referenceParent.referenceChildren.length; i++) {
+      let child = node.payload.referenceParent.referenceChildren[i]
       if (child.id === node.id) {
-        attachToNode.referenceChildren.splice(i, 1)
+        node.payload.referenceParent.referenceChildren.splice(i, 1)
         return
       }
     }

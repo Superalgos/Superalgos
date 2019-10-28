@@ -118,7 +118,7 @@ function newWorkspace () {
   }
 
   function referenceDetachNode (node) {
-    functionLibraryReferenceAttachDetach.referenceDetachNode(node, thisObject.workspaceNode.rootNodes)
+    functionLibraryReferenceAttachDetach.referenceDetachNode(node)
   }
 
   function referenceAttachNode (node, attachToNode) {

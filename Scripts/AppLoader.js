@@ -56,7 +56,7 @@ function newAppLoader() {
 
                 'DesignerSpace/Workspace/Workspace.js',
                 'DesignerSpace/Workspace/FunctionLibraries/UiObjectsFromNodes.js',
-                'DesignerSpace/Workspace/FunctionLibraries/AttachDetach.js',
+                'DesignerSpace/Workspace/FunctionLibraries/ChainAttachDetach.js',
                 'DesignerSpace/Workspace/FunctionLibraries/NodeDeleter.js',
                 'DesignerSpace/Workspace/FunctionLibraries/ProtocolNode.js',
                 'DesignerSpace/Workspace/FunctionLibraries/NodeChildren.js', 

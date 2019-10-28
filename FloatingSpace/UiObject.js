@@ -24,6 +24,8 @@ function newUiObject () {
     stop: stop,
     getReadyToChainAttach: getReadyToChainAttach,
     showAvailabilityToChainAttach: showAvailabilityToChainAttach,
+    getReadyToReferenceAttach: getReadyToReferenceAttach,
+    showAvailabilityToReferenceAttach: showAvailabilityToReferenceAttach,
     highlight: highlight,
     setErrorMessage: setErrorMessage,
     setValue: setValue,
@@ -74,6 +76,15 @@ function newUiObject () {
   let isChainAttaching = false
   let chainAttachToNode
 
+  let readyToReferenceAttachDisplayCounter = 5
+  let readyToReferenceAttachDisplayIncrement = 0.1
+  let readyToReferenceAttachCounter = 0
+  let isReadyToReferenceAttach
+  let availableToReferenceAttachCounter = 0
+  let isAvailableToReferenceAttach
+  let isReferenceAttaching = false
+  let referenceAttachToNode
+
   let isDragging = false
 
   let errorMessage = ''
@@ -106,6 +117,7 @@ function newUiObject () {
 
     icon = undefined
     chainAttachToNode = undefined
+    referenceAttachToNode = undefined
   }
 
   function initialize (payload, menuItemsInitialValues) {
@@ -184,6 +196,8 @@ function newUiObject () {
     valuePhisycs()
     chainDetachingPhysics()
     chainAttachingPhysics()
+    referenceDetachingPhysics()
+    referenceAttachingPhysics()
   }
 
   function chainAttachingPhysics () {
@@ -549,6 +563,180 @@ function newUiObject () {
     }
   }
 
+  function referenceAttachingPhysics () {
+    referenceAttacchingCounters()
+
+    if (thisObject.isOnFocus !== true) { return }
+    if (isDragging !== true) { return }
+    if (rightDragging !== true) { return }
+    if (thisObject.payload.referenceParent !== undefined) { return }
+
+    let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
+    let compatibleType
+    let compatibleSubType
+    switch (thisObject.payload.node.type) {
+      case 'Backtesting Session':
+        compatibleType = '->' + 'Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Live Trading Session':
+        compatibleType = '->' + 'Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Paper Trading Session':
+        compatibleType = '->' + 'Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Fordward Testing Session':
+        compatibleType = '->' + 'Definition' + '->'
+        compatibleSubType = undefined
+        break
+      default:
+        return
+    }
+    let foundCompatible = false
+    referenceAttachToNode = undefined
+    isReferenceAttaching = false
+
+    for (let i = 0; i < nearbyFloatingObjects.length; i++) {
+      let nearby = nearbyFloatingObjects[i]
+      let distance = nearby[0]
+      let floatingObject = nearby[1]
+      let nearbyNode = floatingObject.payload.node
+      if (compatibleType.indexOf('->' + nearbyNode.type + '->') >= 0) {
+        /* Discard objects with busy coonection ports */
+        if (thisObject.payload.node.type === 'Task' && nearbyNode.task !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Sensor Bot Instance' && nearbyNode.bot !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Indicator Bot Instance' && nearbyNode.bot !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trading Bot Instance' && nearbyNode.bot !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Process Instance' && nearbyNode.process !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Backtesting Session' && nearbyNode.session !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Live Trading Session' && nearbyNode.session !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Fordward Testing Session' && nearbyNode.session !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Paper Trading Session' && nearbyNode.session !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Base Asset' && nearbyNode.baseAsset !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Time Range' && nearbyNode.timeRange !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Time Period' && nearbyNode.timePeriod !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Slippage' && nearbyNode.slippage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Fee Structure' && nearbyNode.feeStructure !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Open Stage' && nearbyNode.openStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Manage Stage' && nearbyNode.manageStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Close Stage' && nearbyNode.closeStage !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Position Size' && nearbyNode.positionSize !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Position Rate' && nearbyNode.positionRate !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Take Position Event' && nearbyNode.takePosition !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trigger Off Event' && nearbyNode.triggerOff !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Trigger On Event' && nearbyNode.triggerOn !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Initial Definition' && nearbyNode.initialDefinition !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Open Execution' && nearbyNode.openExecution !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Close Execution' && nearbyNode.closeExecution !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Stop' && nearbyNode.stopLoss !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Take Profit' && nearbyNode.takeProfit !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Formula' && nearbyNode.formula !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Next Phase Event' && nearbyNode.nextPhaseEvent !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Code' && nearbyNode.code !== undefined) { continue }
+        /* Here we check if the subtypes are compatible. */
+        if (nearbyNode.subType !== undefined && compatibleSubType !== undefined) {
+          if (compatibleSubType.indexOf('->' + nearbyNode.subType + '->') < 0) {
+            continue
+          }
+        }
+        /* Discard Phases without partent */
+        if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
+        /* Control maxPhases */
+        if (thisObject.payload.node.type === 'Phase') {
+          if (nearbyNode.maxPhases !== undefined) {
+            if (nearbyNode.phases.length >= nearbyNode.maxPhases) {
+              continue
+            }
+          }
+        }
+        if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase') {
+          if (nearbyNode.payload.parentNode.maxPhases !== undefined) {
+            if (nearbyNode.payload.parentNode.phases.length >= nearbyNode.payload.parentNode.maxPhases) {
+              continue
+            }
+          }
+        }
+        if (foundCompatible === false) {
+          if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
+            nearbyNode.payload.uiObject.getReadyToReferenceAttach()
+            isReferenceAttaching = true
+            referenceAttachToNode = nearbyNode
+            foundCompatible = true
+          }
+        }
+        nearbyNode.payload.uiObject.showAvailabilityToReferenceAttach()
+      }
+    }
+  }
+
+  function referenceAttacchingCounters () {
+    if (readyToReferenceAttachDisplayCounter > 15) {
+      readyToReferenceAttachDisplayIncrement = -0.25
+    }
+
+    if (readyToReferenceAttachDisplayCounter < 5) {
+      readyToReferenceAttachDisplayIncrement = 0.25
+    }
+
+    readyToReferenceAttachDisplayCounter = readyToReferenceAttachDisplayCounter + readyToReferenceAttachDisplayIncrement
+
+    readyToReferenceAttachCounter--
+    if (readyToReferenceAttachCounter <= 0) {
+      readyToReferenceAttachCounter = 0
+      isReadyToReferenceAttach = false
+    } else {
+      isReadyToReferenceAttach = true
+    }
+
+    availableToReferenceAttachCounter--
+    if (availableToReferenceAttachCounter <= 0) {
+      availableToReferenceAttachCounter = 0
+      isAvailableToReferenceAttach = false
+    } else {
+      isAvailableToReferenceAttach = true
+    }
+  }
+
+  function getReadyToReferenceAttach () {
+    readyToReferenceAttachCounter = 10
+  }
+
+  function showAvailabilityToReferenceAttach () {
+    availableToReferenceAttachCounter = 10
+  }
+
+  function referenceDetachingPhysics () {
+    if (isDragging !== true) { return }
+    if (thisObject.payload.floatingObject.isFrozen === true) { return }
+    if (rightDragging === false) { return }
+
+    let distanceToReferenceParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
+    let ratio = distanceToReferenceParent / previousDistance
+    if (previousDistance === 0) {
+      previousDistance = distanceToReferenceParent
+      return
+    }
+    previousDistance = distanceToReferenceParent
+
+    if (thisObject.isOnFocus !== true) { return }
+    if (thisObject.payload.referenceParent === undefined) { return }
+    if (thisObject.payload.parentNode === undefined) { return }
+
+    let THRESHOLD = 1.15
+
+    if (previousDistance !== undefined) {
+      if (ratio > THRESHOLD) {
+        canvas.designerSpace.workspace.referenceDetachNode(thisObject.payload.node)
+      }
+    }
+  }
+
   function highlightPhisycs () {
     highlightCounter--
     if (highlightCounter < 0) {
@@ -691,12 +879,18 @@ function newUiObject () {
       chainAttachToNode = undefined
       isChainAttaching = false
     }
+    if (isReferenceAttaching === true) {
+      canvas.designerSpace.workspace.referenceAttachNode(thisObject.payload.node, referenceAttachToNode)
+      referenceAttachToNode = undefined
+      isReferenceAttaching = false
+    }
     isDragging = false
   }
 
   function drawBackground () {
     if (thisObject.isOnFocus === false) {
-      drawConnectingLine()
+      drawReferenceLine()
+      drawChainLine()
 
       if (isDragging === false && thisObject.isOnFocus === true) {
         thisObject.menu.drawBackground()
@@ -731,7 +925,8 @@ function newUiObject () {
 
   function drawOnFocus () {
     if (thisObject.isOnFocus === true) {
-      drawConnectingLine()
+      drawReferenceLine()
+      drawChainLine()
 
       if (thisObject.codeEditor !== undefined) {
         thisObject.codeEditor.drawBackground()
@@ -761,7 +956,7 @@ function newUiObject () {
     }
   }
 
-  function drawConnectingLine () {
+  function drawChainLine () {
     if (thisObject.payload.chainParent === undefined) { return }
 
     let targetPoint = {
@@ -794,6 +989,50 @@ function newUiObject () {
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
       browserCanvasContext.setLineDash([3, 4])
       browserCanvasContext.lineWidth = 2
+      browserCanvasContext.stroke()
+      browserCanvasContext.setLineDash([0, 0])
+    }
+
+    if (thisObject.container.frame.radius > 0.5) {
+            /* Target Spot */
+
+      let radius = 1
+
+      browserCanvasContext.beginPath()
+      browserCanvasContext.arc(targetPoint.x, targetPoint.y, radius, 0, Math.PI * 2, true)
+      browserCanvasContext.closePath()
+      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+      browserCanvasContext.fill()
+    }
+  }
+
+  function drawReferenceLine () {
+    if (thisObject.payload.referenceParent === undefined) { return }
+
+    let targetPoint = {
+      x: thisObject.payload.targetPosition.x,
+      y: thisObject.payload.targetPosition.y
+    }
+
+    let position = {
+      x: 0,
+      y: 0
+    }
+
+    targetPoint = canvas.floatingSpace.container.frame.frameThisPoint(targetPoint)
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    if (thisObject.container.frame.radius > 1) {
+            /* Target Line */
+
+      let LINE_STYLE = UI_COLOR.GREY
+
+      browserCanvasContext.beginPath()
+      browserCanvasContext.moveTo(position.x, position.y)
+      browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
+      browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
+      browserCanvasContext.setLineDash([1, 4])
+      browserCanvasContext.lineWidth = 1
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
     }
@@ -1103,6 +1342,36 @@ function newUiObject () {
       if (isAvailableToChainAttach === true && isReadyToChainAttach === false) {
         VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
         let OPACITY = availableToChainAttachCounter / 10
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', ' + OPACITY + ')'
+
+        browserCanvasContext.lineWidth = 10
+        browserCanvasContext.setLineDash([8, 20])
+        browserCanvasContext.stroke()
+      }
+
+      if (isReadyToReferenceAttach === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 2 + readyToReferenceAttachDisplayCounter * 2
+        let OPACITY = readyToReferenceAttachCounter / 10
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
+
+        browserCanvasContext.lineWidth = 10
+        browserCanvasContext.setLineDash([readyToReferenceAttachDisplayCounter, readyToReferenceAttachDisplayCounter * 2])
+        browserCanvasContext.stroke()
+      }
+
+      if (isAvailableToReferenceAttach === true && isReadyToReferenceAttach === false) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
+        let OPACITY = availableToReferenceAttachCounter / 10
 
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)

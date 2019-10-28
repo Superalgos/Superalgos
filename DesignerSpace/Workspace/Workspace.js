@@ -20,6 +20,8 @@ function newWorkspace () {
     spawn: spawn,
     chainDetachNode: chainDetachNode,
     chainAttachNode: chainAttachNode,
+    referenceDetachNode: referenceDetachNode,
+    referenceAttachNode: referenceAttachNode,
     initialize: initialize,
     finalize: finalize
   }
@@ -44,6 +46,7 @@ function newWorkspace () {
   thisObject.workspaceNode = {}
   thisObject.workspaceNode.rootNodes = []
 
+  let functionLibraryReferenceAttachDetach = newReferenceAttachDetach()
   let functionLibraryChainAttachDetach = newChainAttachDetach()
   let functionLibraryNodeDeleter = newNodeDeleter()
   let functionLibraryUiObjectsFromNodes = newUiObjectsFromNodes()
@@ -112,6 +115,14 @@ function newWorkspace () {
 
   function chainAttachNode (node, attachToNode) {
     functionLibraryChainAttachDetach.chainAttachNode(node, attachToNode, thisObject.workspaceNode.rootNodes)
+  }
+
+  function referenceDetachNode (node) {
+    functionLibraryReferenceAttachDetach.referenceDetachNode(node, thisObject.workspaceNode.rootNodes)
+  }
+
+  function referenceAttachNode (node, attachToNode) {
+    functionLibraryReferenceAttachDetach.referenceAttachNode(node, attachToNode, thisObject.workspaceNode.rootNodes)
   }
 
   function physics () {

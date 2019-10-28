@@ -1,12 +1,12 @@
-function newAttachDetach () {
+function newChainAttachDetach () {
   thisObject = {
-    detachNode: detachNode,
-    attachNode: attachNode
+    chainDetachNode: chainDetachNode,
+    chainAttachNode: chainAttachNode
   }
 
   return thisObject
 
-  function detachNode (node, rootNodes) {
+  function chainDetachNode (node, rootNodes) {
     switch (node.type) {
       case 'Definition': {
         return
@@ -356,7 +356,7 @@ function newAttachDetach () {
     }
   }
 
-  function attachNode (node, attachToNode, rootNodes) {
+  function chainAttachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
       case 'Network': {
         node.payload.parentNode = attachToNode

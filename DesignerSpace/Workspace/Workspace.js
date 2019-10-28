@@ -18,8 +18,8 @@ function newWorkspace () {
     onMenuItemClick: onMenuItemClick,
     physics: physics,
     spawn: spawn,
-    detachNode: detachNode,
-    attachNode: attachNode,
+    chainDetachNode: chainDetachNode,
+    chainAttachNode: chainAttachNode,
     initialize: initialize,
     finalize: finalize
   }
@@ -44,7 +44,7 @@ function newWorkspace () {
   thisObject.workspaceNode = {}
   thisObject.workspaceNode.rootNodes = []
 
-  let functionLibraryAttachDetach = newAttachDetach()
+  let functionLibraryChainAttachDetach = newChainAttachDetach()
   let functionLibraryNodeDeleter = newNodeDeleter()
   let functionLibraryUiObjectsFromNodes = newUiObjectsFromNodes()
   let functionLibraryProtocolNode = newProtocolNode()
@@ -106,12 +106,12 @@ function newWorkspace () {
     }
   }
 
-  function detachNode (node) {
-    functionLibraryAttachDetach.detachNode(node, thisObject.workspaceNode.rootNodes)
+  function chainDetachNode (node) {
+    functionLibraryChainAttachDetach.chainDetachNode(node, thisObject.workspaceNode.rootNodes)
   }
 
-  function attachNode (node, attachToNode) {
-    functionLibraryAttachDetach.attachNode(node, attachToNode, thisObject.workspaceNode.rootNodes)
+  function chainAttachNode (node, attachToNode) {
+    functionLibraryChainAttachDetach.chainAttachNode(node, attachToNode, thisObject.workspaceNode.rootNodes)
   }
 
   function physics () {

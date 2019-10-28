@@ -22,8 +22,8 @@ function newUiObject () {
     shortcutKey: undefined,
     run: run,
     stop: stop,
-    getReadyToAttach: getReadyToAttach,
-    showAvailabilityToAttach: showAvailabilityToAttach,
+    getReadyToChainAttach: getReadyToChainAttach,
+    showAvailabilityToChainAttach: showAvailabilityToChainAttach,
     highlight: highlight,
     setErrorMessage: setErrorMessage,
     setValue: setValue,
@@ -65,17 +65,16 @@ function newUiObject () {
 
   let previousDistance
 
-  let readyToAttachDisplayCounter = 5
-  let readyToAttachDisplayIncrement = 0.1
+  let readyToChainAttachDisplayCounter = 5
+  let readyToChainAttachDisplayIncrement = 0.1
+  let readyToChainAttachCounter = 0
+  let isReadyToChainAttach
+  let availableToChainAttachCounter = 0
+  let isAvailableToChainAttach
+  let isChainAttaching = false
+  let chainAttachToNode
 
-  let readyToAttachCounter = 0
-  let isReadyToAttach
-  let availableToAttachCounter = 0
-  let isAvailableToAttach
-
-  let isAttaching = false
   let isDragging = false
-  let attachToNode
 
   let errorMessage = ''
   let currentValue = 0
@@ -106,7 +105,7 @@ function newUiObject () {
     }
 
     icon = undefined
-    attachToNode = undefined
+    chainAttachToNode = undefined
   }
 
   function initialize (payload, menuItemsInitialValues) {
@@ -183,12 +182,12 @@ function newUiObject () {
     highlightPhisycs()
     errorMessagePhisycs()
     valuePhisycs()
-    detachingPhysics()
-    attachingPhysics()
+    chainDetachingPhysics()
+    chainAttachingPhysics()
   }
 
-  function attachingPhysics () {
-    attacchingCounters()
+  function chainAttachingPhysics () {
+    chainAttacchingCounters()
 
     if (thisObject.isOnFocus !== true) { return }
     if (isDragging !== true) { return }
@@ -408,8 +407,8 @@ function newUiObject () {
         return
     }
     let foundCompatible = false
-    attachToNode = undefined
-    isAttaching = false
+    chainAttachToNode = undefined
+    isChainAttaching = false
 
     for (let i = 0; i < nearbyFloatingObjects.length; i++) {
       let nearby = nearbyFloatingObjects[i]
@@ -477,54 +476,54 @@ function newUiObject () {
         }
         if (foundCompatible === false) {
           if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
-            nearbyNode.payload.uiObject.getReadyToAttach()
-            isAttaching = true
-            attachToNode = nearbyNode
+            nearbyNode.payload.uiObject.getReadyToChainAttach()
+            isChainAttaching = true
+            chainAttachToNode = nearbyNode
             foundCompatible = true
           }
         }
-        nearbyNode.payload.uiObject.showAvailabilityToAttach()
+        nearbyNode.payload.uiObject.showAvailabilityToChainAttach()
       }
     }
   }
 
-  function attacchingCounters () {
-    if (readyToAttachDisplayCounter > 15) {
-      readyToAttachDisplayIncrement = -0.25
+  function chainAttacchingCounters () {
+    if (readyToChainAttachDisplayCounter > 15) {
+      readyToChainAttachDisplayIncrement = -0.25
     }
 
-    if (readyToAttachDisplayCounter < 5) {
-      readyToAttachDisplayIncrement = 0.25
+    if (readyToChainAttachDisplayCounter < 5) {
+      readyToChainAttachDisplayIncrement = 0.25
     }
 
-    readyToAttachDisplayCounter = readyToAttachDisplayCounter + readyToAttachDisplayIncrement
+    readyToChainAttachDisplayCounter = readyToChainAttachDisplayCounter + readyToChainAttachDisplayIncrement
 
-    readyToAttachCounter--
-    if (readyToAttachCounter <= 0) {
-      readyToAttachCounter = 0
-      isReadyToAttach = false
+    readyToChainAttachCounter--
+    if (readyToChainAttachCounter <= 0) {
+      readyToChainAttachCounter = 0
+      isReadyToChainAttach = false
     } else {
-      isReadyToAttach = true
+      isReadyToChainAttach = true
     }
 
-    availableToAttachCounter--
-    if (availableToAttachCounter <= 0) {
-      availableToAttachCounter = 0
-      isAvailableToAttach = false
+    availableToChainAttachCounter--
+    if (availableToChainAttachCounter <= 0) {
+      availableToChainAttachCounter = 0
+      isAvailableToChainAttach = false
     } else {
-      isAvailableToAttach = true
+      isAvailableToChainAttach = true
     }
   }
 
-  function getReadyToAttach () {
-    readyToAttachCounter = 10
+  function getReadyToChainAttach () {
+    readyToChainAttachCounter = 10
   }
 
-  function showAvailabilityToAttach () {
-    availableToAttachCounter = 10
+  function showAvailabilityToChainAttach () {
+    availableToChainAttachCounter = 10
   }
 
-  function detachingPhysics () {
+  function chainDetachingPhysics () {
     if (isDragging !== true) { return }
     if (thisObject.payload.floatingObject.isFrozen === true) { return }
     if (rightDragging === false) { return }
@@ -545,7 +544,7 @@ function newUiObject () {
 
     if (previousDistance !== undefined) {
       if (ratio > THRESHOLD) {
-        canvas.designerSpace.workspace.detachNode(thisObject.payload.node)
+        canvas.designerSpace.workspace.chainDetachNode(thisObject.payload.node)
       }
     }
   }
@@ -687,10 +686,10 @@ function newUiObject () {
   }
 
   function onDragFinished (event) {
-    if (isAttaching === true) {
-      canvas.designerSpace.workspace.attachNode(thisObject.payload.node, attachToNode)
-      attachToNode = undefined
-      isAttaching = false
+    if (isChainAttaching === true) {
+      canvas.designerSpace.workspace.chainAttachNode(thisObject.payload.node, chainAttachToNode)
+      chainAttachToNode = undefined
+      isChainAttaching = false
     }
     isDragging = false
   }
@@ -1086,9 +1085,9 @@ function newUiObject () {
         browserCanvasContext.stroke()
       }
 
-      if (isReadyToAttach === true) {
-        VISIBLE_RADIUS = thisObject.container.frame.radius * 2 + readyToAttachDisplayCounter * 2
-        let OPACITY = readyToAttachCounter / 10
+      if (isReadyToChainAttach === true) {
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 2 + readyToChainAttachDisplayCounter * 2
+        let OPACITY = readyToChainAttachCounter / 10
 
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
@@ -1097,13 +1096,13 @@ function newUiObject () {
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
 
         browserCanvasContext.lineWidth = 10
-        browserCanvasContext.setLineDash([readyToAttachDisplayCounter, readyToAttachDisplayCounter * 2])
+        browserCanvasContext.setLineDash([readyToChainAttachDisplayCounter, readyToChainAttachDisplayCounter * 2])
         browserCanvasContext.stroke()
       }
 
-      if (isAvailableToAttach === true && isReadyToAttach === false) {
+      if (isAvailableToChainAttach === true && isReadyToChainAttach === false) {
         VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
-        let OPACITY = availableToAttachCounter / 10
+        let OPACITY = availableToChainAttachCounter / 10
 
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)

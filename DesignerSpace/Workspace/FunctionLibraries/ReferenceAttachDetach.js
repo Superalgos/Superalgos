@@ -54,7 +54,6 @@ function newReferenceAttachDetach () {
   }
 
   function completeDetachment (node) {
-    node.payload.referenceParent = undefined
     for (let i = 0; i < node.payload.referenceParent.referenceChildren.length; i++) {
       let child = node.payload.referenceParent.referenceChildren[i]
       if (child.id === node.id) {
@@ -62,5 +61,6 @@ function newReferenceAttachDetach () {
         return
       }
     }
+    node.payload.referenceParent = undefined
   }
 }

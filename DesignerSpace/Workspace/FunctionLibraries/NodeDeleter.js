@@ -270,20 +270,8 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
-  function deleteDefinition (node, rootNodes, forced) {
+  function deleteDefinition (node, rootNodes) {
     let payload = node.payload
-
-    if (forced !== true) {
-      /* Can not delete if it is the last one */
-      let counter = 0
-      for (let i = 0; i < rootNodes.length; i++) {
-        let rootNode = rootNodes[i]
-        if (rootNode.type === node.type) {
-          counter++
-        }
-      }
-      if (counter <= 1) { return }
-    }
 
     if (node.tradingSystem !== undefined) {
       deleteTradingSystem(node.tradingSystem, rootNodes)
@@ -291,13 +279,16 @@ function newNodeDeleter () {
     if (node.personalData !== undefined) {
       deletePersonalData(node.personalData, rootNodes)
     }
-
+    for (let i = 0; i < node.referenceChildren.length; i++) {
+      let child = node.referenceChildren[i]
+      child.payload.referenceParent = undefined
+    }
     completeDeletion(node, rootNodes)
     destroyUiObject(node)
     cleanNode(node)
   }
 
-  function deleteNetwork (node, rootNodes, forced) {
+  function deleteNetwork (node, rootNodes) {
     let payload = node.payload
 
     if (payload.parentNode !== undefined) {
@@ -315,7 +306,7 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
-  function deleteNetworkNode (node, rootNodes, forced) {
+  function deleteNetworkNode (node, rootNodes) {
     let payload = node.payload
 
     if (payload.parentNode !== undefined) {
@@ -513,75 +504,22 @@ function newNodeDeleter () {
   }
 
   function deleteBacktestingSession (node, rootNodes) {
-    let payload = node.payload
-
-    if (payload.parentNode !== undefined) {
-      payload.parentNode.session = undefined
-    }
-
-    if (node.parameters !== undefined) {
-      deleteParameters(node.parameters, rootNodes)
-    }
-
-    if (node.layerManager !== undefined) {
-      deleteLayerManager(node.layerManager, rootNodes)
-    }
-
-    if (node.socialBots !== undefined) {
-      deleteSocialBots(node.socialBots, rootNodes)
-    }
-    completeDeletion(node, rootNodes)
-    destroyUiObject(node)
-    cleanNode(node)
+    deleteSession(node, rootNodes)
   }
 
   function deleteLiveTradingSession (node, rootNodes) {
-    let payload = node.payload
-
-    if (payload.parentNode !== undefined) {
-      payload.parentNode.session = undefined
-    }
-
-    if (node.parameters !== undefined) {
-      deleteParameters(node.parameters, rootNodes)
-    }
-
-    if (node.layerManager !== undefined) {
-      deleteLayerManager(node.layerManager, rootNodes)
-    }
-
-    if (node.socialBots !== undefined) {
-      deleteSocialBots(node.socialBots, rootNodes)
-    }
-    completeDeletion(node, rootNodes)
-    destroyUiObject(node)
-    cleanNode(node)
+    deleteSession(node, rootNodes)
   }
 
   function deleteFordwardTestingSession (node, rootNodes) {
-    let payload = node.payload
-
-    if (payload.parentNode !== undefined) {
-      payload.parentNode.session = undefined
-    }
-
-    if (node.parameters !== undefined) {
-      deleteParameters(node.parameters, rootNodes)
-    }
-
-    if (node.layerManager !== undefined) {
-      deleteLayerManager(node.layerManager, rootNodes)
-    }
-
-    if (node.socialBots !== undefined) {
-      deleteSocialBots(node.socialBots, rootNodes)
-    }
-    completeDeletion(node, rootNodes)
-    destroyUiObject(node)
-    cleanNode(node)
+    deleteSession(node, rootNodes)
   }
 
   function deletePaperTradingSession (node, rootNodes) {
+    deleteSession(node, rootNodes)
+  }
+
+  function deleteSession (node, rootNodes) {
     let payload = node.payload
 
     if (payload.parentNode !== undefined) {
@@ -599,6 +537,16 @@ function newNodeDeleter () {
     if (node.socialBots !== undefined) {
       deleteSocialBots(node.socialBots, rootNodes)
     }
+    if (node.payload.referenceParent !== undefined) {
+      for (let i = 0; i < node.payload.referenceParent.referenceChildren.length; i++) {
+        let child = node.payload.referenceParent.referenceChildren[i]
+        if (child.id === node.id) {
+          node.payload.referenceParent.referenceChildren.splice(i, 1)
+          return
+        }
+      }
+    }
+
     completeDeletion(node, rootNodes)
     destroyUiObject(node)
     cleanNode(node)

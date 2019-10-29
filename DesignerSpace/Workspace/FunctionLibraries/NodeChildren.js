@@ -14,6 +14,9 @@ function newNodeChildren () {
       case 'Network': {
         return countChildrenNetwork(parentNode, childNode)
       }
+      case 'Team': {
+        return countChildrenTeam(parentNode, childNode)
+      }
       case 'Network Node': {
         return countChildrenNetworkNode(parentNode, childNode)
       }
@@ -192,6 +195,50 @@ function newNodeChildren () {
     if (parentNode.networkNodes !== undefined) {
       for (let i = 0; i < parentNode.networkNodes.length; i++) {
         let child = parentNode.networkNodes[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    return response
+  }
+
+  function countChildrenTeam (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.sensorBots !== undefined) {
+      for (let i = 0; i < parentNode.sensorBots.length; i++) {
+        let child = parentNode.sensorBots[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    if (parentNode.indicatorBots !== undefined) {
+      for (let i = 0; i < parentNode.indicatorBots.length; i++) {
+        let child = parentNode.indicatorBots[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    if (parentNode.tradingBots !== undefined) {
+      for (let i = 0; i < parentNode.tradingBots.length; i++) {
+        let child = parentNode.tradingBots[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    if (parentNode.plotters !== undefined) {
+      for (let i = 0; i < parentNode.plotters.length; i++) {
+        let child = parentNode.plotters[i]
         response.childrenCount++
         if (child.id === childNode.id) {
           response.childIndex = response.childrenCount

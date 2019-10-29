@@ -18,12 +18,16 @@ function newSessionFunctions () {
       return
     }
 
+    if (node.payload.referenceParent === undefined) {
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      return
+    }
+
     node.payload.uiObject.run(callBackFunction)
 
     let key = node.name + '-' + node.type + '-' + node.id
 
-    let thisNodeDefinition = getDefinition(node)
-    if (thisNodeDefinition === undefined) { return }
+    let thisNodeDefinition = node.payload.referenceParent
 
     /* Raise event to run the session */
     let event = {
@@ -33,18 +37,6 @@ function newSessionFunctions () {
     }
 
     systemEventHandler.raiseEvent(key, 'Run Session', event)
-
-    function getDefinition (node) {
-      if (node.type === 'Definition') {
-        return node
-      }
-
-      if (node.payload.parentNode !== undefined) {
-        return getDefinition(node.payload.parentNode)
-      } else {
-        return
-      }
-    }
 
     function getUICurrentValues () {
       let dateAtScreenCorner = new Date(window.localStorage.getItem('Date @ Screen Corner'))

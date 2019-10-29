@@ -17,6 +17,60 @@ function newNodeChildren () {
       case 'Team': {
         return countChildrenTeam(parentNode, childNode)
       }
+      case 'Sensor Bot': {
+        return countChildrenSensorBot(parentNode, childNode)
+      }
+      case 'Indicator Bot': {
+        return countChildrenIndicatorBot(parentNode, childNode)
+      }
+      case 'Trading Bot': {
+        return countChildrenTradingBot(parentNode, childNode)
+      }
+      case 'Process Definition': {
+        return countChildrenProcessDefinition(parentNode, childNode)
+      }
+      case 'Calculations Procedure': {
+        return countChildrenCalculationsProcedure(parentNode, childNode)
+      }
+      case 'Data Building Procedure': {
+        return countChildrenDataBuildingProcedure(parentNode, childNode)
+      }
+      case 'Procedure Initialization': {
+        return countChildrenProcedureInitialization(parentNode, childNode)
+      }
+      case 'Procedure Loop': {
+        return countChildrenProcedureLoop(parentNode, childNode)
+      }
+      case 'Output Dataset': {
+        return countChildrenOutputDataset(parentNode, childNode)
+      }
+      case 'Status Dependency': {
+        return countChildrenStatusDependency(parentNode, childNode)
+      }
+      case 'Data Dependency': {
+        return countChildrenDataDependency(parentNode, childNode)
+      }
+      case 'Product Definition': {
+        return countChildrenProductDefinition(parentNode, childNode)
+      }
+      case 'Record Definition': {
+        return countChildrenRecordDefinition(parentNode, childNode)
+      }
+      case 'Record Property': {
+        return countChildrenRecordProperty(parentNode, childNode)
+      }
+      case 'Dataset Definition': {
+        return countChildrenDatasetDefinition(parentNode, childNode)
+      }
+      case 'Plotter': {
+        return countChildrenPlotter(parentNode, childNode)
+      }
+      case 'Plotter Module': {
+        return countChildrenPlotterModule(parentNode, childNode)
+      }
+      case 'Plotter Panel': {
+        return countChildrenPlotterPanel(parentNode, childNode)
+      }
       case 'Network Node': {
         return countChildrenNetworkNode(parentNode, childNode)
       }
@@ -243,6 +297,342 @@ function newNodeChildren () {
         if (child.id === childNode.id) {
           response.childIndex = response.childrenCount
         }
+      }
+    }
+    return response
+  }
+
+  function countChildrenSensorBot (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.processes !== undefined) {
+      for (let i = 0; i < parentNode.processes.length; i++) {
+        let child = parentNode.processes[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    if (parentNode.products !== undefined) {
+      for (let i = 0; i < parentNode.products.length; i++) {
+        let child = parentNode.products[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    return response
+  }
+
+  function countChildrenIndicatorBot (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.processes !== undefined) {
+      for (let i = 0; i < parentNode.processes.length; i++) {
+        let child = parentNode.processes[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    if (parentNode.products !== undefined) {
+      for (let i = 0; i < parentNode.products.length; i++) {
+        let child = parentNode.products[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    return response
+  }
+
+  function countChildrenTradingBot (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.processes !== undefined) {
+      for (let i = 0; i < parentNode.processes.length; i++) {
+        let child = parentNode.processes[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    if (parentNode.products !== undefined) {
+      for (let i = 0; i < parentNode.products.length; i++) {
+        let child = parentNode.products[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    return response
+  }
+
+  function countChildrenProcessDefinition (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.calculations !== undefined) {
+      response.childrenCount++
+      if (parentNode.calculations.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.dataBuilding !== undefined) {
+      response.childrenCount++
+      if (parentNode.dataBuilding.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+
+    if (parentNode.outputDatasets !== undefined) {
+      for (let i = 0; i < parentNode.outputDatasets.length; i++) {
+        let child = parentNode.outputDatasets[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    if (parentNode.statusDependencies !== undefined) {
+      for (let i = 0; i < parentNode.statusDependencies.length; i++) {
+        let child = parentNode.statusDependencies[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    if (parentNode.dataDependencies !== undefined) {
+      for (let i = 0; i < parentNode.dataDependencies.length; i++) {
+        let child = parentNode.dataDependencies[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    return response
+  }
+
+  function countChildrenCalculationsProcedure (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.initialization !== undefined) {
+      response.childrenCount++
+      if (parentNode.initialization.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.loop !== undefined) {
+      response.childrenCount++
+      if (parentNode.loop.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenDataBuildingProcedure (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.initialization !== undefined) {
+      response.childrenCount++
+      if (parentNode.initialization.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.loop !== undefined) {
+      response.childrenCount++
+      if (parentNode.loop.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenProcedureInitialization (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.code !== undefined) {
+      response.childrenCount++
+      if (parentNode.code.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenProcedureLoop (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.code !== undefined) {
+      response.childrenCount++
+      if (parentNode.code.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenOutputDataset (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenStatusDependency (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenDataDependency (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenProductDefinition (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.record !== undefined) {
+      response.childrenCount++
+      if (parentNode.record.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+
+    if (parentNode.datasets !== undefined) {
+      for (let i = 0; i < parentNode.datasets.length; i++) {
+        let child = parentNode.datasets[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    return response
+  }
+
+  function countChildrenRecordDefinition (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+
+    if (parentNode.properties !== undefined) {
+      for (let i = 0; i < parentNode.properties.length; i++) {
+        let child = parentNode.properties[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    return response
+  }
+
+  function countChildrenRecordProperty (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.formula !== undefined) {
+      response.childrenCount++
+      if (parentNode.formula.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    return response
+  }
+
+  function countChildrenDatasetDefinition (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
+  function countChildrenPlotter (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.modules !== undefined) {
+      for (let i = 0; i < parentNode.modules.length; i++) {
+        let child = parentNode.modules[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    return response
+  }
+
+  function countChildrenPlotterModule (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.code !== undefined) {
+      response.childrenCount++
+      if (parentNode.code.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.panels !== undefined) {
+      for (let i = 0; i < parentNode.panels.length; i++) {
+        let child = parentNode.panels[i]
+        response.childrenCount++
+        if (child.id === childNode.id) {
+          response.childIndex = response.childrenCount
+        }
+      }
+    }
+    return response
+  }
+
+  function countChildrenPlotterPanel (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    if (parentNode.code !== undefined) {
+      response.childrenCount++
+      if (parentNode.code.id === childNode.id) {
+        response.childIndex = response.childrenCount
       }
     }
     return response

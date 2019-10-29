@@ -3,6 +3,25 @@ function newNodeDeleter () {
     deleteDefinition: deleteDefinition,
     deleteNetwork: deleteNetwork,
     deleteNetworkNode: deleteNetworkNode,
+    deleteTeam: deleteTeam,
+    deleteSensorBot: deleteSensorBot,
+    deleteIndicatorBot: deleteIndicatorBot,
+    deleteTradingBot: deleteTradingBot,
+    deleteProcessDefinition: deleteProcessDefinition,
+    deleteCalculationsProcedure: deleteCalculationsProcedure,
+    deleteDataBuildingProcedure: deleteDataBuildingProcedure,
+    deleteProcedureInitialization: deleteProcedureInitialization,
+    deleteProcedureLoop: deleteProcedureLoop,
+    deleteOutputDataset: deleteOutputDataset,
+    deleteStatusDependency: deleteStatusDependency,
+    deleteDataDependency: deleteDataDependency,
+    deleteProductDefinition: deleteProductDefinition,
+    deleteRecordDefinition: deleteRecordDefinition,
+    deleteRecordProperty: deleteRecordProperty,
+    deleteDatasetDefinition: deleteDatasetDefinition,
+    deletePlotter: deletePlotter,
+    deletePlotterModule: deletePlotterModule,
+    deletePlotterPanel: deletePlotterPanel,
     deleteSocialBots: deleteSocialBots,
     deleteSocialBot: deleteSocialBot,
     deleteAnnouncement: deleteAnnouncement,
@@ -71,6 +90,82 @@ function newNodeDeleter () {
           }
           case 'Network Node': {
             deleteNetworkNode(rootNode, rootNodes)
+            break
+          }
+          case 'Team': {
+            deleteTeam(rootNode, rootNodes)
+            break
+          }
+          case 'Sensor Bot': {
+            deleteSensorBot(rootNode, rootNodes)
+            break
+          }
+          case 'Indicator Bot': {
+            deleteIndicatorBot(rootNode, rootNodes)
+            break
+          }
+          case 'Trading Bot': {
+            deleteTradingBot(rootNode, rootNodes)
+            break
+          }
+          case 'Process Definition': {
+            deleteProcessDefinition(rootNode, rootNodes)
+            break
+          }
+          case 'Calculations Procedure': {
+            deleteCalculationsProcedure(rootNode, rootNodes)
+            break
+          }
+          case 'Data Building Procedure': {
+            deleteDataBuildingProcedure(rootNode, rootNodes)
+            break
+          }
+          case 'Procedure Initialization': {
+            deleteProcedureInitialization(rootNode, rootNodes)
+            break
+          }
+          case 'Procedure Loop': {
+            deleteProcedureLoop(rootNode, rootNodes)
+            break
+          }
+          case 'Output Dataset': {
+            deleteOutputDataset(rootNode, rootNodes)
+            break
+          }
+          case 'Status Dependency': {
+            deleteStatusDependency(rootNode, rootNodes)
+            break
+          }
+          case 'Data Dependency': {
+            deleteDataDependency(rootNode, rootNodes)
+            break
+          }
+          case 'Product Definition': {
+            deleteProductDefinition(rootNode, rootNodes)
+            break
+          }
+          case 'Record Definition': {
+            deleteRecordDefinition(rootNode, rootNodes)
+            break
+          }
+          case 'Record Property': {
+            deleteRecordProperty(rootNode, rootNodes)
+            break
+          }
+          case 'Dataset Definition': {
+            deleteDatasetDefinition(rootNode, rootNodes)
+            break
+          }
+          case 'Plotter': {
+            deletePlotter(rootNode, rootNodes)
+            break
+          }
+          case 'Plotter Module': {
+            deletePlotterModule(rootNode, rootNodes)
+            break
+          }
+          case 'Plotter Panel': {
+            deletePlotterPanel(rootNode, rootNodes)
             break
           }
           case 'Social Bots': {
@@ -291,10 +386,6 @@ function newNodeDeleter () {
   function deleteNetwork (node, rootNodes) {
     let payload = node.payload
 
-    if (payload.parentNode !== undefined) {
-      payload.parentNode.network = undefined
-    }
-
     if (node.networkNodes !== undefined) {
       while (node.networkNodes.length > 0) {
         deleteNetworkNode(node.networkNodes[0], rootNodes)
@@ -322,6 +413,445 @@ function newNodeDeleter () {
       while (node.taskManagers.length > 0) {
         deleteTaskManager(node.taskManagers[0], rootNodes)
       }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteTeam (node, rootNodes) {
+    let payload = node.payload
+
+    if (node.sensorBots !== undefined) {
+      while (node.sensorBots.length > 0) {
+        deleteNetworkNode(node.sensorBots[0], rootNodes)
+      }
+    }
+
+    if (node.indicatorBots !== undefined) {
+      while (node.indicatorBots.length > 0) {
+        deleteNetworkNode(node.indicatorBots[0], rootNodes)
+      }
+    }
+
+    if (node.tradingBots !== undefined) {
+      while (node.tradingBots.length > 0) {
+        deleteNetworkNode(node.tradingBots[0], rootNodes)
+      }
+    }
+
+    if (node.plotters !== undefined) {
+      while (node.plotters.length > 0) {
+        deleteNetworkNode(node.plotters[0], rootNodes)
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteSensorBot (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.sensorBots.length; j++) {
+        let sensorBot = payload.parentNode.sensorBots[j]
+        if (sensorBot.id === node.id) {
+          payload.parentNode.sensorBots.splice(j, 1)
+        }
+      }
+    }
+
+    if (node.processes !== undefined) {
+      while (node.processes.length > 0) {
+        deleteNetworkNode(node.processes[0], rootNodes)
+      }
+    }
+
+    if (node.products !== undefined) {
+      while (node.products.length > 0) {
+        deleteNetworkNode(node.products[0], rootNodes)
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteIndicatorBot (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.indicatorBots.length; j++) {
+        let indicatorBot = payload.parentNode.indicatorBots[j]
+        if (indicatorBot.id === node.id) {
+          payload.parentNode.indicatorBots.splice(j, 1)
+        }
+      }
+    }
+
+    if (node.processes !== undefined) {
+      while (node.processes.length > 0) {
+        deleteNetworkNode(node.processes[0], rootNodes)
+      }
+    }
+
+    if (node.products !== undefined) {
+      while (node.products.length > 0) {
+        deleteNetworkNode(node.products[0], rootNodes)
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteTradingBot (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.tradingBots.length; j++) {
+        let tradingBot = payload.parentNode.tradingBots[j]
+        if (tradingBot.id === node.id) {
+          payload.parentNode.tradingBots.splice(j, 1)
+        }
+      }
+    }
+
+    if (node.processes !== undefined) {
+      while (node.processes.length > 0) {
+        deleteNetworkNode(node.processes[0], rootNodes)
+      }
+    }
+
+    if (node.products !== undefined) {
+      while (node.products.length > 0) {
+        deleteNetworkNode(node.products[0], rootNodes)
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteProcessDefinition (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.processes.length; j++) {
+        let process = payload.parentNode.processes[j]
+        if (process.id === node.id) {
+          payload.parentNode.processes.splice(j, 1)
+        }
+      }
+    }
+
+    if (node.calculations !== undefined) {
+      deleteParameters(node.calculations, rootNodes)
+    }
+
+    if (node.dataBuilding !== undefined) {
+      deleteParameters(node.dataBuilding, rootNodes)
+    }
+
+    if (node.outputDatasets !== undefined) {
+      while (node.outputDatasets.length > 0) {
+        deleteNetworkNode(node.outputDatasets[0], rootNodes)
+      }
+    }
+
+    if (node.statusDependencies !== undefined) {
+      while (node.statusDependencies.length > 0) {
+        deleteNetworkNode(node.statusDependencies[0], rootNodes)
+      }
+    }
+
+    if (node.dataDependencies !== undefined) {
+      while (node.dataDependencies.length > 0) {
+        deleteNetworkNode(node.dataDependencies[0], rootNodes)
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteCalculationsProcedure (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.calculations = undefined
+    }
+
+    if (node.initialization !== undefined) {
+      deleteParameters(node.initialization, rootNodes)
+    }
+
+    if (node.loop !== undefined) {
+      deleteParameters(node.loop, rootNodes)
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteDataBuildingProcedure (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.dataBuilding = undefined
+    }
+
+    if (node.initialization !== undefined) {
+      deleteParameters(node.initialization, rootNodes)
+    }
+
+    if (node.loop !== undefined) {
+      deleteParameters(node.loop, rootNodes)
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteProcedureInitialization (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.initialization = undefined
+    }
+
+    if (node.code !== undefined) {
+      deleteParameters(node.code, rootNodes)
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteProcedureLoop (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.loop = undefined
+    }
+
+    if (node.code !== undefined) {
+      deleteParameters(node.code, rootNodes)
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteOutputDataset (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.outputDatasets.length; j++) {
+        let outputDataset = payload.parentNode.outputDatasets[j]
+        if (outputDataset.id === node.id) {
+          payload.parentNode.outputDatasets.splice(j, 1)
+        }
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteStatusDependency (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.statusDependencies.length; j++) {
+        let statusDependency = payload.parentNode.statusDependencies[j]
+        if (statusDependency.id === node.id) {
+          payload.parentNode.statusDependencies.splice(j, 1)
+        }
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteDataDependency (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.dataDependencies.length; j++) {
+        let dataDependency = payload.parentNode.dataDependencies[j]
+        if (dataDependency.id === node.id) {
+          payload.parentNode.dataDependencies.splice(j, 1)
+        }
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteProductDefinition (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.products.length; j++) {
+        let product = payload.parentNode.products[j]
+        if (product.id === node.id) {
+          payload.parentNode.products.splice(j, 1)
+        }
+      }
+    }
+
+    if (node.record !== undefined) {
+      deleteParameters(node.record, rootNodes)
+    }
+
+    if (node.datasets !== undefined) {
+      while (node.datasets.length > 0) {
+        deleteNetworkNode(node.datasets[0], rootNodes)
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteRecordDefinition (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.record = undefined
+    }
+
+    if (node.properties !== undefined) {
+      while (node.properties.length > 0) {
+        deleteNetworkNode(node.properties[0], rootNodes)
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteRecordProperty (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.properties.length; j++) {
+        let property = payload.parentNode.properties[j]
+        if (property.id === node.id) {
+          payload.parentNode.properties.splice(j, 1)
+        }
+      }
+    }
+
+    if (node.formula !== undefined) {
+      deleteParameters(node.formula, rootNodes)
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteDatasetDefinition (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.datasets.length; j++) {
+        let dataset = payload.parentNode.datasets[j]
+        if (dataset.id === node.id) {
+          payload.parentNode.datasets.splice(j, 1)
+        }
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deletePlotter (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.plotters.length; j++) {
+        let plotter = payload.parentNode.plotters[j]
+        if (plotter.id === node.id) {
+          payload.parentNode.plotters.splice(j, 1)
+        }
+      }
+    }
+
+    if (node.modules !== undefined) {
+      while (node.modules.length > 0) {
+        deleteNetworkNode(node.modules[0], rootNodes)
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deletePlotterModule (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.modules.length; j++) {
+        let module = payload.parentNode.modules[j]
+        if (module.id === node.id) {
+          payload.parentNode.modules.splice(j, 1)
+        }
+      }
+    }
+
+    if (node.code !== undefined) {
+      deleteParameters(node.code, rootNodes)
+    }
+
+    if (node.panels !== undefined) {
+      while (node.panels.length > 0) {
+        deleteNetworkNode(node.panels[0], rootNodes)
+      }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deletePlotterPanel (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      for (let j = 0; j < payload.parentNode.panels.length; j++) {
+        let panel = payload.parentNode.panels[j]
+        if (panel.id === node.id) {
+          payload.parentNode.panels.splice(j, 1)
+        }
+      }
+    }
+
+    if (node.code !== undefined) {
+      deleteParameters(node.code, rootNodes)
     }
 
     completeDeletion(node, rootNodes)

@@ -204,7 +204,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -30
           },
           {
             action: 'Add Network',
@@ -215,7 +215,18 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -10
+          },
+          {
+            action: 'Add Team',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Team',
+            visible: true,
+            relatedUiObject: 'Team',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 10
           },
           {
             action: 'Share Workspace',
@@ -227,7 +238,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 30
           }]
         break
       }
@@ -289,6 +300,1033 @@ function newUiObjectConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 30
+          }
+        )
+        break
+      }
+      case 'Team': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Sensor Bot',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Sensor Bot',
+            visible: true,
+            relatedUiObject: 'Sensor Bot',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -70
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Indicator Bot',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Indicator Bot',
+            visible: true,
+            relatedUiObject: 'Indicator Bot',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Trading Bot',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Trading Bot',
+            visible: true,
+            relatedUiObject: 'Trading Bot',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -10
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Plotter',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Plotter',
+            visible: true,
+            relatedUiObject: 'Plotter',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 10
+          }
+                )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Team',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Team',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 30
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 70
+          }
+        )
+        break
+      }
+      case 'Sensor Bot': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Process Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process Definition',
+            visible: true,
+            relatedUiObject: 'Process Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Product Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Product Definition',
+            visible: true,
+            relatedUiObject: 'Product Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Sensor Bot',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Sensor Bot',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Indicator Bot': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Process Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process Definition',
+            visible: true,
+            relatedUiObject: 'Process Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Product Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Product Definition',
+            visible: true,
+            relatedUiObject: 'Product Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Indicator Bot',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Indicator Bot',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Trading Bot': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Process Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process Definition',
+            visible: true,
+            relatedUiObject: 'Process Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Product Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Product Definition',
+            visible: true,
+            relatedUiObject: 'Product Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Trading Bot',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Trading Bot',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Process Definition': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Calculations Procedure',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Calculations Procedure',
+            visible: true,
+            relatedUiObject: 'Calculations Procedure',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -75
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Data Building Procedure',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Data Building Procedure',
+            visible: true,
+            relatedUiObject: 'Data Building Procedure',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Output Dataset',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Output Dataset',
+            visible: true,
+            relatedUiObject: 'Output Dataset',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+                )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Status Dependency',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Status Dependency',
+            visible: true,
+            relatedUiObject: 'Status Dependency',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+                    )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Data Dependency',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Data Dependency',
+            visible: true,
+            relatedUiObject: 'Data Dependency',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+                        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Process Definition',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Process Definition',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 75
+          }
+        )
+        break
+      }
+      case 'Calculations Procedure': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Procedure Initialization',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Procedure Initialization',
+            visible: true,
+            relatedUiObject: 'Procedure Initialization',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Procedure Initialization',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Procedure Initialization',
+            visible: true,
+            relatedUiObject: 'Procedure Initialization',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Calculations Procedure',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Procedure',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Data Building Procedure': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Procedure Initialization',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Procedure Initialization',
+            visible: true,
+            relatedUiObject: 'Procedure Initialization',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Procedure Initialization',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Procedure Initialization',
+            visible: true,
+            relatedUiObject: 'Procedure Initialization',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Data Building Procedure',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Procedure',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Procedure Initialization': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Code',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Code',
+            visible: true,
+            relatedUiObject: 'Code',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Procedure Initialization',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Initialization',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Procedure Loop': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Code',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Code',
+            visible: true,
+            relatedUiObject: 'Code',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Procedure Loop',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Procedure Loop',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Output Dataset': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Output Dataset',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Output Dataset',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+        )
+        break
+      }
+      case 'Status Dependency': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Status Dependency',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Status Dependency',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+        )
+        break
+      }
+      case 'Data Dependency': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Data Dependency',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Data Dependency',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+        )
+        break
+      }
+      case 'Data Product Definition': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Record Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Record Definition',
+            visible: true,
+            relatedUiObject: 'Record Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Dataset Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Dataset Definition',
+            visible: true,
+            relatedUiObject: 'Dataset Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Product Definition',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Product Definition',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Record Definition': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Record Property',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Record Property',
+            visible: true,
+            relatedUiObject: 'Record Property',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Record Definition',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Record Definition',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Record Property': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Formula',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Formula',
+            visible: true,
+            relatedUiObject: 'Formula',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Record Property',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Record Property',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Dataset Definition': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Dataset Definition',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Dataset',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+        )
+        break
+      }
+      case 'Plotter': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Plotter Module',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Plotter Module',
+            visible: true,
+            relatedUiObject: 'Plotter Module',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Plotter',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Plotter',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Plotter Module': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Code',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Code',
+            visible: true,
+            relatedUiObject: 'Code',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Plotter Panel',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Plotter Panel',
+            visible: true,
+            relatedUiObject: 'Plotter Panel',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Plotter Module',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Plotter Module',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Plotter Panel': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Plotter Module',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Plotter Module',
+            visible: true,
+            relatedUiObject: 'Plotter Module',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Plotter Panel',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Plotter Panel',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }
         )
         break
@@ -3194,6 +4232,82 @@ function newUiObjectConstructor () {
       }
       case 'Definition': {
         level_0()
+        break
+      }
+      case 'Team': {
+        level_0()
+        break
+      }
+      case 'Sensor Bot': {
+        level_1()
+        break
+      }
+      case 'Indicator Bot': {
+        level_1()
+        break
+      }
+      case 'Trading Bot': {
+        level_1()
+        break
+      }
+      case 'Process Definition': {
+        level_2()
+        break
+      }
+      case 'Calculations Procedure': {
+        level_3()
+        break
+      }
+      case 'Data Building Procedure': {
+        level_3()
+        break
+      }
+      case 'Procedure Initialization': {
+        level_4()
+        break
+      }
+      case 'Procedure Loop': {
+        level_4()
+        break
+      }
+      case 'Output Dataset': {
+        level_3()
+        break
+      }
+      case 'Status Dependency': {
+        level_3()
+        break
+      }
+      case 'Data Dependency': {
+        level_3()
+        break
+      }
+      case 'Product Definition': {
+        level_2()
+        break
+      }
+      case 'Record Definition': {
+        level_3()
+        break
+      }
+      case 'Record Property': {
+        level_4()
+        break
+      }
+      case 'Dataset Definition': {
+        level_3()
+        break
+      }
+      case 'Plotter': {
+        level_1()
+        break
+      }
+      case 'Plotter Module': {
+        level_2()
+        break
+      }
+      case 'Plotter Panel': {
+        level_3()
         break
       }
       case 'Network': {

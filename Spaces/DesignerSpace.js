@@ -197,7 +197,7 @@ function newDesignerSpace () {
       'session-forward-testing',
       'network',
       'network-node',
-      'trading-engine',
+      'bot-trading',
       'layer-manager',
       'process',
       'bot-indicator',

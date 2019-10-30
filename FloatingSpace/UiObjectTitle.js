@@ -56,30 +56,12 @@ function newUiObjectTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Network Node': {
-        break
-      }
-      case 'Social Bots': {
-        break
-      }
-      case 'Telegram Bot': {
-        break
-      }
       case 'Announcement': {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Layer Manager': {
-        break
-      }
       case 'Layer': {
         thisObject.allwaysVisible = true
-        break
-      }
-      case 'Task Manager': {
-        break
-      }
-      case 'Task': {
         break
       }
       case 'Sensor Bot Instance': {
@@ -88,12 +70,6 @@ function newUiObjectTitle () {
       }
       case 'Indicator Bot Instance': {
         thisObject.allwaysVisible = true
-        break
-      }
-      case 'Trading Bot Instance': {
-        break
-      }
-      case 'Process Instance': {
         break
       }
       case 'Backtesting Session': {
@@ -112,18 +88,6 @@ function newUiObjectTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Personal Data': {
-        break
-      }
-      case 'Exchange Account': {
-        break
-      }
-      case 'Exchange Account Asset': {
-        break
-      }
-      case 'Exchange Account Key': {
-        break
-      }
       case 'Workspace': {
         thisObject.allwaysVisible = true
         break
@@ -132,90 +96,12 @@ function newUiObjectTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Parameters': {
-        break
-      }
-      case 'Base Asset': {
-        break
-      }
-      case 'Time Range': {
-        break
-      }
-      case 'Time Period': {
-        break
-      }
-      case 'Slippage': {
-        break
-      }
-      case 'Fee Structure': {
-        break
-      }
       case 'Strategy': {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Trigger Stage': {
-        break
-      }
-      case 'Open Stage': {
-        break
-      }
-      case 'Manage Stage': {
-        break
-      }
-      case 'Close Stage': {
-        break
-      }
-      case 'Position Size': {
-        break
-      }
-      case 'Position Rate': {
-        break
-      }
-      case 'Trigger On Event': {
-        break
-      }
-      case 'Trigger Off Event': {
-        break
-      }
-      case 'Take Position Event': {
-        break
-      }
-      case 'Initial Definition': {
-        break
-      }
-      case 'Open Execution': {
-        break
-      }
-      case 'Close Execution': {
-        break
-      }
-      case 'Stop': {
-        break
-      }
-      case 'Take Profit': {
-        break
-      }
-      case 'Phase': {
-        break
-      }
-      case 'Formula': {
-        break
-      }
-      case 'Next Phase Event': {
-        break
-      }
-      case 'Situation': {
-        break
-      }
-      case 'Condition': {
-        break
-      }
-      case 'Code': {
-        break
-      }
       default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> UI Object Type not Recognized -> type = ' + payload.node.type) }
+        thisObject.allwaysVisible = false
       }
     }
 

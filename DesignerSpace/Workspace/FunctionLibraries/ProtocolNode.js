@@ -1031,6 +1031,440 @@ function newProtocolNode () {
         }
         return object
       }
+      case 'Team': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          sensorBots: [],
+          indicatorBots: [],
+          tradingBots: [],
+          plotters: []
+        }
+        if (node.array1 !== undefined) {
+          for (let m = 0; m < node.sensorBots.length; m++) {
+            let sensorBot = getProtocolNode(node.sensorBots[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (sensorBot !== undefined) {
+              object.sensorBots.push(sensorBot)
+            }
+          }
+        }
+        if (node.indicatorBots !== undefined) {
+          for (let m = 0; m < node.indicatorBots.length; m++) {
+            let indicatorBot = getProtocolNode(node.indicatorBots[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (indicatorBot !== undefined) {
+              object.indicatorBots.push(indicatorBot)
+            }
+          }
+        }
+        if (node.tradingBots !== undefined) {
+          for (let m = 0; m < node.tradingBots.length; m++) {
+            let tradingBot = getProtocolNode(node.tradingBots[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (tradingBot !== undefined) {
+              object.tradingBots.push(tradingBot)
+            }
+          }
+        }
+        if (node.plotters !== undefined) {
+          for (let m = 0; m < node.plotters.length; m++) {
+            let plotter = getProtocolNode(node.plotters[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (plotter !== undefined) {
+              object.plotters.push(plotter)
+            }
+          }
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Sensor Bot': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          processes: [],
+          products: []
+        }
+        if (node.processes !== undefined) {
+          for (let m = 0; m < node.processes.length; m++) {
+            let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (process !== undefined) {
+              object.processes.push(process)
+            }
+          }
+        }
+        if (node.products !== undefined) {
+          for (let m = 0; m < node.products.length; m++) {
+            let product = getProtocolNode(node.products[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (product !== undefined) {
+              object.products.push(product)
+            }
+          }
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Indicator Bot': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          processes: [],
+          products: []
+        }
+        if (node.processes !== undefined) {
+          for (let m = 0; m < node.processes.length; m++) {
+            let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (process !== undefined) {
+              object.processes.push(process)
+            }
+          }
+        }
+        if (node.products !== undefined) {
+          for (let m = 0; m < node.products.length; m++) {
+            let product = getProtocolNode(node.products[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (product !== undefined) {
+              object.products.push(product)
+            }
+          }
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Trading Bot': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          processes: [],
+          products: []
+        }
+        if (node.processes !== undefined) {
+          for (let m = 0; m < node.processes.length; m++) {
+            let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (process !== undefined) {
+              object.processes.push(process)
+            }
+          }
+        }
+        if (node.products !== undefined) {
+          for (let m = 0; m < node.products.length; m++) {
+            let product = getProtocolNode(node.products[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (product !== undefined) {
+              object.products.push(product)
+            }
+          }
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Process Definition': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          calculations: getProtocolNode(node.calculations, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
+          dataBuilding: getProtocolNode(node.dataBuilding, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
+          outputDatasets: [],
+          statusDependencies: [],
+          dataDependencies: []
+        }
+        if (node.outputDatasets !== undefined) {
+          for (let m = 0; m < node.outputDatasets.length; m++) {
+            let outputDataset = getProtocolNode(node.outputDatasets[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (outputDataset !== undefined) {
+              object.outputDatasets.push(outputDataset)
+            }
+          }
+        }
+        if (node.statusDependencies !== undefined) {
+          for (let m = 0; m < node.statusDependencies.length; m++) {
+            let statusDependency = getProtocolNode(node.statusDependencies[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (statusDependency !== undefined) {
+              object.statusDependencies.push(statusDependency)
+            }
+          }
+        }
+        if (node.dataDependencies !== undefined) {
+          for (let m = 0; m < node.dataDependencies.length; m++) {
+            let dataDependency = getProtocolNode(node.dataDependencies[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (dataDependency !== undefined) {
+              object.dataDependencies.push(dataDependency)
+            }
+          }
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Calculations Procedure': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          initialization: getProtocolNode(node.initialization, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
+          loop: getProtocolNode(node.loop, removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Data Building Procedure': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          initialization: getProtocolNode(node.initialization, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
+          loop: getProtocolNode(node.loop, removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Procedure Initialization': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Procedure Loop': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Output Dataset': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Status Dependency': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Data Dependency': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Product Definition': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          record: getProtocolNode(node.record, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
+          datasets: []
+        }
+        if (node.datasets !== undefined) {
+          for (let m = 0; m < node.datasets.length; m++) {
+            let dataset = getProtocolNode(node.datasets[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (dataset !== undefined) {
+              object.datasets.push(dataset)
+            }
+          }
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Record Definition': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          properties: []
+        }
+        if (node.properties !== undefined) {
+          for (let m = 0; m < node.properties.length; m++) {
+            let property = getProtocolNode(node.properties[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (property !== undefined) {
+              object.properties.push(property)
+            }
+          }
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Record Property': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Dataset Definition': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: node.code
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Plotter': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          modules: []
+        }
+        if (node.modules !== undefined) {
+          for (let m = 0; m < node.modules.length; m++) {
+            let module = getProtocolNode(node.modules[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (module !== undefined) {
+              object.modules.push(module)
+            }
+          }
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Plotter Module': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
+          array1: [],
+          array2: []
+        }
+        if (node.panels !== undefined) {
+          for (let m = 0; m < node.panels.length; m++) {
+            let panel = getProtocolNode(node.panels[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+            if (panel !== undefined) {
+              object.panels.push(panel)
+            }
+          }
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+      case 'Plotter Panel': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node)
+        }
+        return object
+      }
+
     }
   }
 

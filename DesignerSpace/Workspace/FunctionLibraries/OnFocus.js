@@ -729,6 +729,305 @@ function newOnFocus () {
           return
         }
       }
+      case 'Team': {
+        let child
+
+        for (let m = 0; m < node.sensorBots.length; m++) {
+          child = getNodeThatIsOnFocus(node.sensorBots[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.indicatorBots.length; m++) {
+          child = getNodeThatIsOnFocus(node.indicatorBots[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.tradingBots.length; m++) {
+          child = getNodeThatIsOnFocus(node.tradingBots[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.plotters.length; m++) {
+          child = getNodeThatIsOnFocus(node.plotters[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Sensor Bot': {
+        let child
+        for (let m = 0; m < node.processes.length; m++) {
+          child = getNodeThatIsOnFocus(node.processes[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.products.length; m++) {
+          child = getNodeThatIsOnFocus(node.products[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Indicator Bot': {
+        let child
+        for (let m = 0; m < node.processes.length; m++) {
+          child = getNodeThatIsOnFocus(node.processes[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.products.length; m++) {
+          child = getNodeThatIsOnFocus(node.products[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Trading Bot': {
+        let child
+        for (let m = 0; m < node.processes.length; m++) {
+          child = getNodeThatIsOnFocus(node.processes[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.products.length; m++) {
+          child = getNodeThatIsOnFocus(node.products[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Process Definition': {
+        let child
+        child = getNodeThatIsOnFocus(node.calculations)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeThatIsOnFocus(node.dataBuilding)
+        if (child !== undefined) {
+          return child
+        }
+        for (let m = 0; m < node.outputDatasets.length; m++) {
+          child = getNodeThatIsOnFocus(node.outputDatasets[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.statusDependencies.length; m++) {
+          child = getNodeThatIsOnFocus(node.statusDependencies[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.dataDependencies.length; m++) {
+          child = getNodeThatIsOnFocus(node.dataDependencies[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Calculations Procedure': {
+        let child
+        child = getNodeThatIsOnFocus(node.initialization)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeThatIsOnFocus(node.loop)
+        if (child !== undefined) {
+          return child
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Data Building Procedure': {
+        let child
+        child = getNodeThatIsOnFocus(node.initialization)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeThatIsOnFocus(node.loop)
+        if (child !== undefined) {
+          return child
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Procedure Initialization': {
+        let child
+        child = getNodeThatIsOnFocus(node.code)
+        if (child !== undefined) {
+          return child
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Procedure Loop': {
+        let child
+        child = getNodeThatIsOnFocus(node.code)
+        if (child !== undefined) {
+          return child
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Output Dataset': {
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Status Dependency': {
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Data Dependency': {
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Product Definition': {
+        let child
+        child = getNodeThatIsOnFocus(node.record)
+        if (child !== undefined) {
+          return child
+        }
+        for (let m = 0; m < node.datasets.length; m++) {
+          child = getNodeThatIsOnFocus(node.datasets[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Record Definition': {
+        let child
+        for (let m = 0; m < node.properties.length; m++) {
+          child = getNodeThatIsOnFocus(node.yyy[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Record Property': {
+        let child
+        child = getNodeThatIsOnFocus(node.formula)
+        if (child !== undefined) {
+          return child
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Dataset Definition': {
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Plotter': {
+        let child
+        for (let m = 0; m < node.modules.length; m++) {
+          child = getNodeThatIsOnFocus(node.modules[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Plotter Module': {
+        let child
+        child = getNodeThatIsOnFocus(node.code)
+        if (child !== undefined) {
+          return child
+        }
+        for (let m = 0; m < node.panels.length; m++) {
+          child = getNodeThatIsOnFocus(node.panels[m])
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Plotter Panel': {
+        let child
+        child = getNodeThatIsOnFocus(node.code)
+        if (child !== undefined) {
+          return child
+        }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
     }
   }
 }

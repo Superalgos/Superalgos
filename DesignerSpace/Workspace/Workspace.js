@@ -316,6 +316,101 @@ function newWorkspace () {
           functionLibraryUiObjectsFromNodes.addDefinition(payload.node)
         }
         break
+      case 'Add Team':
+        {
+          functionLibraryUiObjectsFromNodes.addTeam(payload.node)
+        }
+        break
+      case 'Add Sensor Bot':
+        {
+          functionLibraryUiObjectsFromNodes.addSensorBot(payload.node)
+        }
+        break
+      case 'Add Indicator Bot':
+        {
+          functionLibraryUiObjectsFromNodes.addIndicatorBot(payload.node)
+        }
+        break
+      case 'Add Trading Bot':
+        {
+          functionLibraryUiObjectsFromNodes.addTradingBot(payload.node)
+        }
+        break
+      case 'Add Process Definition':
+        {
+          functionLibraryUiObjectsFromNodes.addProcessDefinition(payload.node)
+        }
+        break
+      case 'Add Calculations Procedure':
+        {
+          functionLibraryUiObjectsFromNodes.addCalculationsProcedure(payload.node)
+        }
+        break
+      case 'Add Data Building Procedure':
+        {
+          functionLibraryUiObjectsFromNodes.addDataBuildingProcedure(payload.node)
+        }
+        break
+      case 'Add Procedure Initialization':
+        {
+          functionLibraryUiObjectsFromNodes.addProcedureInitialization(payload.node)
+        }
+        break
+      case 'Add Procedure Loop':
+        {
+          functionLibraryUiObjectsFromNodes.addProcedureLoop(payload.node)
+        }
+        break
+      case 'Add Output Dataset':
+        {
+          functionLibraryUiObjectsFromNodes.addOutputDataset(payload.node)
+        }
+        break
+      case 'Add Status Dependency':
+        {
+          functionLibraryUiObjectsFromNodes.addStatusDependency(payload.node)
+        }
+        break
+      case 'Add Data Dependency':
+        {
+          functionLibraryUiObjectsFromNodes.addDataDependency(payload.node)
+        }
+        break
+      case 'Add Product Definition':
+        {
+          functionLibraryUiObjectsFromNodes.addProductDefinition(payload.node)
+        }
+        break
+      case 'Add Record Definition':
+        {
+          functionLibraryUiObjectsFromNodes.addRecordDefinition(payload.node)
+        }
+        break
+      case 'Add Record Property':
+        {
+          functionLibraryUiObjectsFromNodes.addRecordProperty(payload.node)
+        }
+        break
+      case 'Add Dataset Definition':
+        {
+          functionLibraryUiObjectsFromNodes.addDatasetDefinition(payload.node)
+        }
+        break
+      case 'Add Plotter':
+        {
+          functionLibraryUiObjectsFromNodes.addPlotter(payload.node)
+        }
+        break
+      case 'Add Plotter Module':
+        {
+          functionLibraryUiObjectsFromNodes.addPlotterModule(payload.node)
+        }
+        break
+      case 'Add Plotter Panel':
+        {
+          functionLibraryUiObjectsFromNodes.addPlotterPanel(payload.node)
+        }
+        break
       case 'Add Network':
         {
           functionLibraryUiObjectsFromNodes.addNetwork(payload.node)
@@ -501,6 +596,82 @@ function newWorkspace () {
           functionLibraryUiObjectsFromNodes.addPersonalData(payload.node)
         }
         break
+      case 'Delete Team': {
+        functionLibraryNodeDeleter.deleteTeam(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Sensor Bot': {
+        functionLibraryNodeDeleter.deleteSensorBot(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Indicator Bot': {
+        functionLibraryNodeDeleter.deleteIndicatorBot(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Trading Bot': {
+        functionLibraryNodeDeleter.deleteTradingBot(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Process Definition': {
+        functionLibraryNodeDeleter.deleteProcessDefinition(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Calculations Procedure': {
+        functionLibraryNodeDeleter.deleteCalculationsProcedure(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Data Building Procedure': {
+        functionLibraryNodeDeleter.deleteDataBuildingProcedure(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Procedure Initialization': {
+        functionLibraryNodeDeleter.deleteProcedureInitialization(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Procedure Loop': {
+        functionLibraryNodeDeleter.deleteProcedureLoop(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Output Dataset': {
+        functionLibraryNodeDeleter.deleteOutputDataset(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Status Dependency': {
+        functionLibraryNodeDeleter.deleteStatusDependency(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Data Dependency': {
+        functionLibraryNodeDeleter.deleteDataDependency(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Product Definition': {
+        functionLibraryNodeDeleter.deleteProductDefinition(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Record Definition': {
+        functionLibraryNodeDeleter.deleteRecordDefinition(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Record Property': {
+        functionLibraryNodeDeleter.deleteRecordProperty(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Dataset Definition': {
+        functionLibraryNodeDeleter.deleteDatasetDefinition(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Plotter': {
+        functionLibraryNodeDeleter.deletePlotter(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Plotter Module': {
+        functionLibraryNodeDeleter.deletePlotterModule(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Plotter Panel': {
+        functionLibraryNodeDeleter.deletePlotterPanel(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
       case 'Delete Network': {
         functionLibraryNodeDeleter.deleteNetwork(payload.node, thisObject.workspaceNode.rootNodes)
         break

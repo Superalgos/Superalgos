@@ -714,6 +714,305 @@ function newShortcutKeys () {
           return
         }
       }
+      case 'Team': {
+        let child
+        for (let m = 0; m < node.sensorBots.length; m++) {
+          child = getNodeByShortcutKey(node.sensorBots[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.indicatorBots.length; m++) {
+          child = getNodeByShortcutKey(node.indicatorBots[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.tradingBots.length; m++) {
+          child = getNodeByShortcutKey(node.tradingBots[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.plotters.length; m++) {
+          child = getNodeByShortcutKey(node.plotters[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Sensor Bot': {
+        let child
+        for (let m = 0; m < node.processes.length; m++) {
+          child = getNodeByShortcutKey(node.processes[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.products.length; m++) {
+          child = getNodeByShortcutKey(node.products[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Indicator Bot': {
+        let child
+        for (let m = 0; m < node.processes.length; m++) {
+          child = getNodeByShortcutKey(node.processes[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.products.length; m++) {
+          child = getNodeByShortcutKey(node.products[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Trading Bot': {
+        let child
+        for (let m = 0; m < node.processes.length; m++) {
+          child = getNodeByShortcutKey(node.processes[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.products.length; m++) {
+          child = getNodeByShortcutKey(node.products[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Process Definition': {
+        let child
+        child = getNodeByShortcutKey(node.calculations, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeByShortcutKey(node.dataBuilding, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        for (let m = 0; m < node.outputDatasets.length; m++) {
+          child = getNodeByShortcutKey(node.outputDatasets[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.statusDependencies.length; m++) {
+          child = getNodeByShortcutKey(node.statusDependencies[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        for (let m = 0; m < node.dataDependencies.length; m++) {
+          child = getNodeByShortcutKey(node.dataDependencies[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Calculations Procedure': {
+        let child
+        child = getNodeByShortcutKey(node.initialization, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeByShortcutKey(node.loop, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Data Building Procedure': {
+        let child
+        child = getNodeByShortcutKey(node.initialization, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeByShortcutKey(node.loop, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Procedure Initialization': {
+        let child
+        child = getNodeByShortcutKey(node.code, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Procedure Loop': {
+        let child
+        child = getNodeByShortcutKey(node.code, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Output Dataset': {
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Status Dependency': {
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Data Dependency': {
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Product Definition': {
+        let child
+        child = getNodeByShortcutKey(node.record, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        for (let m = 0; m < node.datasets.length; m++) {
+          child = getNodeByShortcutKey(node.datasets[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Record Definition': {
+        let child
+        for (let m = 0; m < node.properties.length; m++) {
+          child = getNodeByShortcutKey(node.properties[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Record Property': {
+        let child
+        child = getNodeByShortcutKey(node.formula, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Dataset Definition': {
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Plotter': {
+        let child
+        for (let m = 0; m < node.modules.length; m++) {
+          child = getNodeByShortcutKey(node.modules[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Plotter Module': {
+        let child
+        child = getNodeByShortcutKey(node.code, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        for (let m = 0; m < node.panels.length; m++) {
+          child = getNodeByShortcutKey(node.panels[m], searchingKey)
+          if (child !== undefined) {
+            return child
+          }
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Plotter Panel': {
+        let child
+        child = getNodeByShortcutKey(node.code, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+
     }
   }
 }

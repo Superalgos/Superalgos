@@ -1430,8 +1430,7 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
-          array1: [],
-          array2: []
+          panels: []
         }
         if (node.panels !== undefined) {
           for (let m = 0; m < node.panels.length; m++) {

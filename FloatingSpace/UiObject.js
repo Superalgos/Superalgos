@@ -212,6 +212,78 @@ function newUiObject () {
     let compatibleType
     let compatibleSubType
     switch (thisObject.payload.node.type) {
+      case 'Sensor Bot':
+        compatibleType = '->' + 'Team' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Indicator Bot':
+        compatibleType = '->' + 'Team' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Trading Bot':
+        compatibleType = '->' + 'Team' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Process Definition':
+        compatibleType = '->' + 'Sensor Bot' + '->' + 'Indicator Bot' + '->' + 'Trading Bot' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Calculations Procedure':
+        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Data Building Procedure':
+        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Procedure Initialization':
+        compatibleType = '->' + 'Calculations Procedure' + '->' + 'Data Building Procedure' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Procedure Loop':
+        compatibleType = '->' + 'Calculations Procedure' + '->' + 'Data Building Procedure' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Output Dataset':
+        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Status Dependency':
+        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Data Dependency':
+        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Product Definition':
+        compatibleType = '->' + 'Sensor Bot' + '->' + 'Indicator Bot' + '->' + 'Trading Bot' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Record Definition':
+        compatibleType = '->' + 'Product Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Record Property':
+        compatibleType = '->' + 'Record Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Dataset Definition':
+        compatibleType = '->' + 'Product Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Plotter':
+        compatibleType = '->' + 'Team' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Plotter Module':
+        compatibleType = '->' + 'Plotter' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Plotter Panel':
+        compatibleType = '->' + 'Plotter Module' + '->'
+        compatibleSubType = undefined
+        break
       case 'Trading System':
         compatibleType = '->' + 'Definition' + '->'
         compatibleSubType = undefined
@@ -431,6 +503,11 @@ function newUiObject () {
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf('->' + nearbyNode.type + '->') >= 0) {
         /* Discard objects with busy coonection ports */
+        if (thisObject.payload.node.type === 'Calculations Procedure' && nearbyNode.calculations !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Data Building Procedure' && nearbyNode.dataBuilding !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Procedure Initialization' && nearbyNode.initialization !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Procedure Loop' && nearbyNode.loop !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Record Definition' && nearbyNode.record !== undefined) { continue }
         if (thisObject.payload.node.type === 'Task' && nearbyNode.task !== undefined) { continue }
         if (thisObject.payload.node.type === 'Sensor Bot Instance' && nearbyNode.bot !== undefined) { continue }
         if (thisObject.payload.node.type === 'Indicator Bot Instance' && nearbyNode.bot !== undefined) { continue }

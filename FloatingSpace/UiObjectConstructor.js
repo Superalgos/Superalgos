@@ -316,7 +316,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -70
+            angle: -60
           }
           )
         menuItemsInitialValues.push(
@@ -385,7 +385,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 70
+            angle: 60
           }
         )
         break
@@ -402,7 +402,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -30
           }
           )
         menuItemsInitialValues.push(
@@ -415,7 +415,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -10
           }
             )
         menuItemsInitialValues.push(
@@ -431,7 +431,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 10
           }
               )
         menuItemsInitialValues.push(
@@ -445,7 +445,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 30
           }
         )
         break
@@ -462,7 +462,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -30
           }
           )
         menuItemsInitialValues.push(
@@ -475,7 +475,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -10
           }
             )
         menuItemsInitialValues.push(
@@ -491,7 +491,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 10
           }
               )
         menuItemsInitialValues.push(
@@ -505,7 +505,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 30
           }
         )
         break
@@ -522,7 +522,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -60
+            angle: -30
           }
           )
         menuItemsInitialValues.push(
@@ -535,7 +535,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -10
           }
             )
         menuItemsInitialValues.push(
@@ -551,7 +551,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 10
           }
               )
         menuItemsInitialValues.push(
@@ -565,7 +565,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 60
+            angle: 30
           }
         )
         break
@@ -1189,7 +1189,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -20
           }
             )
         menuItemsInitialValues.push(
@@ -1219,7 +1219,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 20
           }
         )
         break

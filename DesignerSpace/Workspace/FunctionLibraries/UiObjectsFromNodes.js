@@ -2,6 +2,25 @@ function newUiObjectsFromNodes () {
   thisObject = {
     recreateWorkspace: recreateWorkspace,
     createUiObjectFromNode: createUiObjectFromNode,
+    addTeam: addTeam,
+    addSensorBot: addSensorBot,
+    addIndicatorBot: addIndicatorBot,
+    addTradingBot: addTradingBot,
+    addProcessDefinition: addProcessDefinition,
+    addCalculationsProcedure: addCalculationsProcedure,
+    addDataBuildingProcedure: addDataBuildingProcedure,
+    addProcedureInitialization: addProcedureInitialization,
+    addProcedureLoop: addProcedureLoop,
+    addOutputDataset: addOutputDataset,
+    addStatusDependency: addStatusDependency,
+    addDataDependency: addDataDependency,
+    addProductDefinition: addProductDefinition,
+    addRecordDefinition: addRecordDefinition,
+    addRecordProperty: addRecordProperty,
+    addDatasetDefinition: addDatasetDefinition,
+    addPlotter: addPlotter,
+    addPlotterModule: addPlotterModule,
+    addPlotterPanel: addPlotterPanel,
     addDefinition: addDefinition,
     addNetwork: addNetwork,
     addNetworkNode: addNetworkNode,
@@ -665,7 +684,453 @@ function newUiObjectsFromNodes () {
         }
         return
       }
+
+      case 'Team': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        for (let m = 0; m < node.sensorBots.length; m++) {
+          let sensorBot = node.sensorBots[m]
+          createUiObjectFromNode(sensorBot, node, node)
+        }
+        for (let m = 0; m < node.indicatorBots.length; m++) {
+          let indicatorBot = node.indicatorBots[m]
+          createUiObjectFromNode(indicatorBot, node, node)
+        }
+        for (let m = 0; m < node.tradingBots.length; m++) {
+          let tradingBot = node.tradingBots[m]
+          createUiObjectFromNode(tradingBot, node, node)
+        }
+        for (let m = 0; m < node.plotters.length; m++) {
+          let plotter = node.plotters[m]
+          createUiObjectFromNode(plotter, node, node)
+        }
+        return
+      }
+      case 'Sensor Bot': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = node.processes[m]
+          createUiObjectFromNode(process, node, node)
+        }
+        for (let m = 0; m < node.products.length; m++) {
+          let product = node.products[m]
+          createUiObjectFromNode(product, node, node)
+        }
+        return
+      }
+      case 'Indicator Bot': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = node.processes[m]
+          createUiObjectFromNode(process, node, node)
+        }
+        for (let m = 0; m < node.products.length; m++) {
+          let product = node.products[m]
+          createUiObjectFromNode(product, node, node)
+        }
+        return
+      }
+      case 'Trading Bot': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        for (let m = 0; m < node.processes.length; m++) {
+          let process = node.processes[m]
+          createUiObjectFromNode(process, node, node)
+        }
+        for (let m = 0; m < node.products.length; m++) {
+          let product = node.products[m]
+          createUiObjectFromNode(product, node, node)
+        }
+        return
+      }
+      case 'Process Definition': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (node.calculations !== undefined) {
+          createUiObjectFromNode(node.calculations, node, node)
+        }
+        if (node.dataBuilding !== undefined) {
+          createUiObjectFromNode(node.dataBuilding, node, node)
+        }
+        for (let m = 0; m < node.outputDatasets.length; m++) {
+          let outputDataset = node.outputDatasets[m]
+          createUiObjectFromNode(outputDataset, node, node)
+        }
+        for (let m = 0; m < node.statusDependencies.length; m++) {
+          let statusDependency = node.statusDependencies[m]
+          createUiObjectFromNode(statusDependency, node, node)
+        }
+        for (let m = 0; m < node.dataDependencies.length; m++) {
+          let dataDependency = node.dataDependencies[m]
+          createUiObjectFromNode(dataDependency, node, node)
+        }
+        return
+      }
+      case 'Calculations Procedure': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (node.initialization !== undefined) {
+          createUiObjectFromNode(node.initialization, node, node)
+        }
+        if (node.loop !== undefined) {
+          createUiObjectFromNode(node.loop, node, node)
+        }
+        return
+      }
+      case 'Data Building Procedure': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (node.initialization !== undefined) {
+          createUiObjectFromNode(node.initialization, node, node)
+        }
+        if (node.loop !== undefined) {
+          createUiObjectFromNode(node.loop, node, node)
+        }
+        return
+      }
+      case 'Procedure Initialization': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (node.code !== undefined) {
+          createUiObjectFromNode(node.code, node, node)
+        }
+        return
+      }
+      case 'Procedure Loop': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (node.code !== undefined) {
+          createUiObjectFromNode(node.code, node, node)
+        }
+        return
+      }
+      case 'Output Dataset': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        return
+      }
+      case 'Status Dependency': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        return
+      }
+      case 'Data Dependency': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        return
+      }
+      case 'Product Definition': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (node.record !== undefined) {
+          createUiObjectFromNode(node.record, node, node)
+        }
+        for (let m = 0; m < node.datasets.length; m++) {
+          let dataset = node.datasets[m]
+          createUiObjectFromNode(dataset, node, node)
+        }
+        return
+      }
+      case 'Record Definition': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        for (let m = 0; m < node.properties.length; m++) {
+          let property = node.properties[m]
+          createUiObjectFromNode(property, node, node)
+        }
+        return
+      }
+      case 'Record Property': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (node.formula !== undefined) {
+          createUiObjectFromNode(node.formula, node, node)
+        }
+        return
+      }
+      case 'Dataset Definition': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        return
+      }
+      case 'Plotter': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        for (let m = 0; m < node.modules.length; m++) {
+          let module = node.modules[m]
+          createUiObjectFromNode(module, node, node)
+        }
+        return
+      }
+      case 'Plotter Module': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (node.code !== undefined) {
+          createUiObjectFromNode(node.code, node, node)
+        }
+        for (let m = 0; m < node.panels.length; m++) {
+          let panel = node.panels[m]
+          createUiObjectFromNode(panel, node, node)
+        }
+        return
+      }
+      case 'Plotter Panel': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (node.code !== undefined) {
+          createUiObjectFromNode(node.code, node, node)
+        }
+        return
+      }
     }
+  }
+
+  function addTeam (node) {
+    let team = {
+      name: 'New Team',
+      sensorBots: [],
+      indicatorBots: [],
+      tradingBots: [],
+      plotters: []
+    }
+    node.rootNodes.push(team)
+    createUiObject(node.type, network.name, network, node, undefined)
+
+    return team
+  }
+
+  function addSensorBot (node) {
+    let object = {
+      type: 'Sensor Bot',
+      name: 'New Sensor Bot',
+      processes: [],
+      products: []
+    }
+    if (node.sensorBots === undefined) {
+      node.sensorBots = []
+    }
+    node.sensorBots.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
+  }
+
+  function addIndicatorBot (node) {
+    let object = {
+      type: 'Indicator Bot',
+      name: 'New Indicator Bot',
+      processes: [],
+      products: []
+    }
+    if (node.indicatorBots === undefined) {
+      node.indicatorBots = []
+    }
+    node.indicatorBots.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
+  }
+
+  function addTradingBot (node) {
+    let object = {
+      type: 'Trading Bot',
+      name: 'New Trading Bot',
+      processes: [],
+      products: []
+    }
+    if (node.tradingBots === undefined) {
+      node.tradingBots = []
+    }
+    node.tradingBots.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
+  }
+
+  function addProcessDefinition (node) {
+    let object = {
+      type: 'Process Definition',
+      name: 'New Process Definition',
+      outputDatasets: [],
+      statusDependencies: [],
+      dataDependencies: []
+    }
+    if (node.processes === undefined) {
+      node.processes = []
+    }
+    node.processes.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
+  }
+
+  function addCalculationsProcedure (node) {
+    if (node.calculations === undefined) {
+      node.calculations = {
+        type: 'Calculations Procedure',
+        name: 'New Calculations Procedure'
+      }
+      createUiObject(node.calculations.type, node.calculations.name, node.calculations, node, node)
+    }
+    return node.calculations
+  }
+
+  function addDataBuildingProcedure (node) {
+    if (node.dataBuilding === undefined) {
+      node.dataBuilding = {
+        type: 'Data Building Procedure',
+        name: 'New Data Building Procedure'
+      }
+      createUiObject(node.dataBuilding.type, node.dataBuilding.name, node.dataBuilding, node, node)
+    }
+    return node.dataBuilding
+  }
+
+  function addProcedureInitialization (node) {
+    if (node.initialization === undefined) {
+      node.initialization = {
+        type: 'Procedure Initialization',
+        name: 'New Procedure Initialization'
+      }
+      createUiObject(node.initialization.type, node.initialization.name, node.initialization, node, node)
+    }
+    return node.initialization
+  }
+
+  function addProcedureLoop (node) {
+    if (node.loop === undefined) {
+      node.loop = {
+        type: 'Procedure Loop',
+        name: 'New Procedure Loop'
+      }
+      createUiObject(node.loop.type, node.loop.name, node.loop, node, node)
+    }
+    return node.loop
+  }
+
+  function addOutputDataset (node) {
+    let object = {
+      type: 'Output Dataset',
+      name: 'New Output Dataset'
+    }
+    if (node.outputDatasets === undefined) {
+      node.outputDatasets = []
+    }
+    node.outputDatasets.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
+  }
+
+  function addStatusDependency (node) {
+    let object = {
+      type: 'Status Dependency',
+      name: 'New Status Dependency'
+    }
+    if (node.statusDependencies === undefined) {
+      node.statusDependencies = []
+    }
+    node.statusDependencies.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
+  }
+
+  function addDataDependency (node) {
+    let object = {
+      type: 'Data Dependency',
+      name: 'New Data Dependency'
+    }
+    if (node.dataDependencies === undefined) {
+      node.dataDependencies = []
+    }
+    node.dataDependencies.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
+  }
+
+  function addProductDefinition (node) {
+    let object = {
+      type: 'Product Definition',
+      name: 'New Product Definition',
+      datasets: []
+    }
+    if (node.products === undefined) {
+      node.products = []
+    }
+    node.products.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
+  }
+
+  function addRecordDefinition (node) {
+    if (node.record === undefined) {
+      node.record = {
+        type: 'Record Definition',
+        name: 'New Record Definition',
+        properties: []
+      }
+      createUiObject(node.record.type, node.record.name, node.record, node, node)
+    }
+    return node.record
+  }
+
+  function addRecordProperty (node) {
+    let object = {
+      type: 'Record Property',
+      name: 'New Record Property'
+    }
+    if (node.properties === undefined) {
+      node.properties = []
+    }
+    node.properties.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
+  }
+
+  function addDatasetDefinition (node) {
+    let object = {
+      type: 'Dataset Definition',
+      name: 'New Dataset Definition',
+      code: '{}'
+    }
+    if (node.datasets === undefined) {
+      node.datasets = []
+    }
+    node.datasets.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
+  }
+
+  function addPlotter (node) {
+    let object = {
+      type: 'Plotter',
+      name: 'New Plotter',
+      modules: []
+    }
+    if (node.plotters === undefined) {
+      node.plotters = []
+    }
+    node.plotters.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
+  }
+
+  function addPlotterModule (node) {
+    let object = {
+      type: 'Plotter Module',
+      name: 'New Plotter Module',
+      panels: []
+    }
+    if (node.modules === undefined) {
+      node.modules = []
+    }
+    node.modules.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
+  }
+
+  function addPlotterPanel (node) {
+    let object = {
+      type: 'Plotter Panel',
+      name: 'New Plotter Panel'
+    }
+    if (node.panels === undefined) {
+      node.panels = []
+    }
+    node.panels.push(object)
+    createUiObject(object.type, object.name, object, node, node)
+
+    return object
   }
 
   function addNetwork (node) {

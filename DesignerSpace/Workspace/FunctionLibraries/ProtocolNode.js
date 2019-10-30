@@ -1041,7 +1041,7 @@ function newProtocolNode () {
           tradingBots: [],
           plotters: []
         }
-        if (node.array1 !== undefined) {
+        if (node.sensorBots !== undefined) {
           for (let m = 0; m < node.sensorBots.length; m++) {
             let sensorBot = getProtocolNode(node.sensorBots[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences)
             if (sensorBot !== undefined) {

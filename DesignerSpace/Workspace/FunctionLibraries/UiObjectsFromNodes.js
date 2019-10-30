@@ -871,14 +871,14 @@ function newUiObjectsFromNodes () {
   function addTeam (node) {
     let team = {
       name: 'New Team',
+      type: 'Team',
       sensorBots: [],
       indicatorBots: [],
       tradingBots: [],
       plotters: []
     }
     node.rootNodes.push(team)
-    createUiObject(node.type, network.name, network, node, undefined)
-
+    createUiObject(team.type, team.name, team, undefined, undefined)
     return team
   }
 

@@ -51,7 +51,7 @@ function newDesignerSpace () {
       ['Task', 'timeline'],
       ['Sensor Bot Instance', 'bot-sensor'],
       ['Indicator Bot Instance', 'bot-indicator'],
-      ['Trading Bot Instance', 'trading-engine'],
+      ['Trading Bot Instance', 'bot-trading'],
       ['Process Instance', 'process'],
       ['Backtesting Session', 'session-backtesting'],
       ['Live Trading Session', 'session-live-trading'],
@@ -89,7 +89,26 @@ function newDesignerSpace () {
       ['Next Phase Event', 'pantone'],
       ['Situation', 'pyramid'],
       ['Condition', 'testing'],
-      ['Code', 'html']
+      ['Code', 'html'],
+      ['Team', 'team'],
+      ['Sensor Bot', 'bot-sensor'],
+      ['Indicator Bot', 'bot-indicator'],
+      ['Trading Bot', 'bot-trading'],
+      ['Process Definition', 'process-definition'],
+      ['Calculations Procedure', 'calculations-procedure'],
+      ['Data Building Procedure', 'data-building-procedure'],
+      ['Procedure Initialization', 'procedure-initialization'],
+      ['Procedure Loop', 'procedure-loop'],
+      ['Output Dataset', 'output-dataset'],
+      ['Status Dependency', 'status-dependency'],
+      ['Data Dependency', 'data-dependency'],
+      ['Product Definition', 'product-definition'],
+      ['Record Definition', 'record-definition'],
+      ['Record Property', 'record-property'],
+      ['Dataset Definition', 'pyramid'],
+      ['Plotter', 'plotter'],
+      ['Plotter Module', 'plotter-module'],
+      ['Plotter Panel', 'pyramid']
     ]
 
     for (let i = 0; i < relationshipArray.length; i++) {
@@ -183,7 +202,21 @@ function newDesignerSpace () {
       'process',
       'bot-indicator',
       'bot-sensor',
-      'time-period'
+      'time-period',
+      'team',
+      'procedure-loop',
+      'calculations-procedure',
+      'data-building-procedure',
+      'procedure-initialization',
+      'process-definition',
+      'output-dataset',
+      'data-dependency',
+      'product-definition',
+      'plotter-module',
+      'status-dependency',
+      'record-property',
+      'record-definition',
+      'plotter'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

@@ -105,10 +105,10 @@ function newDesignerSpace () {
       ['Product Definition', 'product-definition'],
       ['Record Definition', 'record-definition'],
       ['Record Property', 'record-property'],
-      ['Dataset Definition', 'pyramid'],
+      ['Dataset Definition', 'dataset-definition'],
       ['Plotter', 'plotter'],
       ['Plotter Module', 'plotter-module'],
-      ['Plotter Panel', 'pyramid']
+      ['Plotter Panel', 'plotter-panel']
     ]
 
     for (let i = 0; i < relationshipArray.length; i++) {
@@ -216,7 +216,9 @@ function newDesignerSpace () {
       'status-dependency',
       'record-property',
       'record-definition',
-      'plotter'
+      'plotter',
+      'plotter-panel',
+      'dataset-definition'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

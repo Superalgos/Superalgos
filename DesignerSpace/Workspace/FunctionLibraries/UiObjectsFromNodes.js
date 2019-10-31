@@ -872,6 +872,7 @@ function newUiObjectsFromNodes () {
     let team = {
       name: 'New Team',
       type: 'Team',
+      code: '{}',
       sensorBots: [],
       indicatorBots: [],
       tradingBots: [],
@@ -886,6 +887,7 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Sensor Bot',
       name: 'New Sensor Bot',
+      code: '{}',
       processes: [],
       products: []
     }
@@ -902,6 +904,7 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Indicator Bot',
       name: 'New Indicator Bot',
+      code: '{}',
       processes: [],
       products: []
     }
@@ -918,6 +921,7 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Trading Bot',
       name: 'New Trading Bot',
+      code: '{}',
       processes: [],
       products: []
     }

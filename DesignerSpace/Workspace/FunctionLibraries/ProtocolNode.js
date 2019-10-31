@@ -1036,6 +1036,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           sensorBots: [],
           indicatorBots: [],
           tradingBots: [],
@@ -1086,6 +1087,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           processes: [],
           products: []
         }
@@ -1118,6 +1120,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           processes: [],
           products: []
         }
@@ -1150,6 +1153,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           processes: [],
           products: []
         }

@@ -532,21 +532,21 @@ function newChainAttachDetach () {
       case 'Sensor Bot': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.networkNodes.push(node)
+        node.payload.parentNode.sensorBots.push(node)
         completeAttachment(node, rootNodes)
       }
         break
       case 'Indicator Bot': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.networkNodes.push(node)
+        node.payload.parentNode.indicatorBots.push(node)
         completeAttachment(node, rootNodes)
       }
         break
       case 'Trading Bot': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.networkNodes.push(node)
+        node.payload.parentNode.tradingBots.push(node)
         completeAttachment(node, rootNodes)
       }
         break

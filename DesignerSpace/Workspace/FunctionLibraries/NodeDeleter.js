@@ -425,25 +425,25 @@ function newNodeDeleter () {
 
     if (node.sensorBots !== undefined) {
       while (node.sensorBots.length > 0) {
-        deleteNetworkNode(node.sensorBots[0], rootNodes)
+        deleteSensorBot(node.sensorBots[0], rootNodes)
       }
     }
 
     if (node.indicatorBots !== undefined) {
       while (node.indicatorBots.length > 0) {
-        deleteNetworkNode(node.indicatorBots[0], rootNodes)
+        deleteIndicatorBot(node.indicatorBots[0], rootNodes)
       }
     }
 
     if (node.tradingBots !== undefined) {
       while (node.tradingBots.length > 0) {
-        deleteNetworkNode(node.tradingBots[0], rootNodes)
+        deleteTradingBot(node.tradingBots[0], rootNodes)
       }
     }
 
     if (node.plotters !== undefined) {
       while (node.plotters.length > 0) {
-        deleteNetworkNode(node.plotters[0], rootNodes)
+        deletePlotter(node.plotters[0], rootNodes)
       }
     }
 
@@ -466,13 +466,13 @@ function newNodeDeleter () {
 
     if (node.processes !== undefined) {
       while (node.processes.length > 0) {
-        deleteNetworkNode(node.processes[0], rootNodes)
+        deleteProcessDefinition(node.processes[0], rootNodes)
       }
     }
 
     if (node.products !== undefined) {
       while (node.products.length > 0) {
-        deleteNetworkNode(node.products[0], rootNodes)
+        deleteProductDefinition(node.products[0], rootNodes)
       }
     }
 
@@ -495,13 +495,13 @@ function newNodeDeleter () {
 
     if (node.processes !== undefined) {
       while (node.processes.length > 0) {
-        deleteNetworkNode(node.processes[0], rootNodes)
+        deleteProcessDefinition(node.processes[0], rootNodes)
       }
     }
 
     if (node.products !== undefined) {
       while (node.products.length > 0) {
-        deleteNetworkNode(node.products[0], rootNodes)
+        deleteProductDefinition(node.products[0], rootNodes)
       }
     }
 
@@ -524,13 +524,13 @@ function newNodeDeleter () {
 
     if (node.processes !== undefined) {
       while (node.processes.length > 0) {
-        deleteNetworkNode(node.processes[0], rootNodes)
+        deleteProcessDefinition(node.processes[0], rootNodes)
       }
     }
 
     if (node.products !== undefined) {
       while (node.products.length > 0) {
-        deleteNetworkNode(node.products[0], rootNodes)
+        deleteProductDefinition(node.products[0], rootNodes)
       }
     }
 
@@ -552,28 +552,28 @@ function newNodeDeleter () {
     }
 
     if (node.calculations !== undefined) {
-      deleteParameters(node.calculations, rootNodes)
+      deleteCalculationsProcedure(node.calculations, rootNodes)
     }
 
     if (node.dataBuilding !== undefined) {
-      deleteParameters(node.dataBuilding, rootNodes)
+      deleteDataBuildingProcedure(node.dataBuilding, rootNodes)
     }
 
     if (node.outputDatasets !== undefined) {
       while (node.outputDatasets.length > 0) {
-        deleteNetworkNode(node.outputDatasets[0], rootNodes)
+        deleteOutputDataset(node.outputDatasets[0], rootNodes)
       }
     }
 
     if (node.statusDependencies !== undefined) {
       while (node.statusDependencies.length > 0) {
-        deleteNetworkNode(node.statusDependencies[0], rootNodes)
+        deleteStatusDependency(node.statusDependencies[0], rootNodes)
       }
     }
 
     if (node.dataDependencies !== undefined) {
       while (node.dataDependencies.length > 0) {
-        deleteNetworkNode(node.dataDependencies[0], rootNodes)
+        deleteDataDependency(node.dataDependencies[0], rootNodes)
       }
     }
 
@@ -590,11 +590,11 @@ function newNodeDeleter () {
     }
 
     if (node.initialization !== undefined) {
-      deleteParameters(node.initialization, rootNodes)
+      deleteProcedureInitialization(node.initialization, rootNodes)
     }
 
     if (node.loop !== undefined) {
-      deleteParameters(node.loop, rootNodes)
+      deleteProcedureLoop(node.loop, rootNodes)
     }
 
     completeDeletion(node, rootNodes)
@@ -610,11 +610,11 @@ function newNodeDeleter () {
     }
 
     if (node.initialization !== undefined) {
-      deleteParameters(node.initialization, rootNodes)
+      deleteProcedureInitialization(node.initialization, rootNodes)
     }
 
     if (node.loop !== undefined) {
-      deleteParameters(node.loop, rootNodes)
+      deleteProcedureLoop(node.loop, rootNodes)
     }
 
     completeDeletion(node, rootNodes)
@@ -646,7 +646,7 @@ function newNodeDeleter () {
     }
 
     if (node.code !== undefined) {
-      deleteParameters(node.code, rootNodes)
+      deleteCode(node.code, rootNodes)
     }
 
     completeDeletion(node, rootNodes)
@@ -718,12 +718,12 @@ function newNodeDeleter () {
     }
 
     if (node.record !== undefined) {
-      deleteParameters(node.record, rootNodes)
+      deleteRecordDefinition(node.record, rootNodes)
     }
 
     if (node.datasets !== undefined) {
       while (node.datasets.length > 0) {
-        deleteNetworkNode(node.datasets[0], rootNodes)
+        deleteDatasetDefinition(node.datasets[0], rootNodes)
       }
     }
 
@@ -741,7 +741,7 @@ function newNodeDeleter () {
 
     if (node.properties !== undefined) {
       while (node.properties.length > 0) {
-        deleteNetworkNode(node.properties[0], rootNodes)
+        deleteRecordProperty(node.properties[0], rootNodes)
       }
     }
 
@@ -763,7 +763,7 @@ function newNodeDeleter () {
     }
 
     if (node.formula !== undefined) {
-      deleteParameters(node.formula, rootNodes)
+      deleteFormula(node.formula, rootNodes)
     }
 
     completeDeletion(node, rootNodes)
@@ -802,7 +802,7 @@ function newNodeDeleter () {
 
     if (node.modules !== undefined) {
       while (node.modules.length > 0) {
-        deleteNetworkNode(node.modules[0], rootNodes)
+        deletePlotterModule(node.modules[0], rootNodes)
       }
     }
 
@@ -824,12 +824,12 @@ function newNodeDeleter () {
     }
 
     if (node.code !== undefined) {
-      deleteParameters(node.code, rootNodes)
+      deleteCode(node.code, rootNodes)
     }
 
     if (node.panels !== undefined) {
       while (node.panels.length > 0) {
-        deleteNetworkNode(node.panels[0], rootNodes)
+        deletePlotterPanel(node.panels[0], rootNodes)
       }
     }
 
@@ -851,7 +851,7 @@ function newNodeDeleter () {
     }
 
     if (node.code !== undefined) {
-      deleteParameters(node.code, rootNodes)
+      deleteCode(node.code, rootNodes)
     }
 
     completeDeletion(node, rootNodes)

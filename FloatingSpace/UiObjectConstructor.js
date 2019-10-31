@@ -571,7 +571,26 @@ function newUiObjectConstructor () {
         break
       }
       case 'Process Definition': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Process',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Process',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -80,
+            dontShowAtFullscreen: true
+          }
+        )
         menuItemsInitialValues.push(
           {
             action: 'Add Calculations Procedure',
@@ -582,7 +601,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -75
+            angle: -45
           }
           )
         menuItemsInitialValues.push(
@@ -595,7 +614,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -25
           }
             )
         menuItemsInitialValues.push(
@@ -608,7 +627,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -8
           }
                 )
         menuItemsInitialValues.push(
@@ -621,7 +640,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 8
           }
                     )
         menuItemsInitialValues.push(
@@ -634,7 +653,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 25
           }
                         )
         menuItemsInitialValues.push(
@@ -650,7 +669,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 45
           }
               )
         menuItemsInitialValues.push(
@@ -664,7 +683,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 75
+            angle: 80
           }
         )
         break
@@ -986,7 +1005,26 @@ function newUiObjectConstructor () {
         break
       }
       case 'Product Definition': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Product',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Product',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -45,
+            dontShowAtFullscreen: true
+          }
+        )
         menuItemsInitialValues.push(
           {
             action: 'Add Record Definition',
@@ -997,7 +1035,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -30
+            angle: -20
           }
           )
         menuItemsInitialValues.push(
@@ -1010,7 +1048,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -10
+            angle: 0
           }
             )
         menuItemsInitialValues.push(
@@ -1026,7 +1064,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 10
+            angle: 20
           }
               )
         menuItemsInitialValues.push(
@@ -1040,7 +1078,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 30
+            angle: 45
           }
         )
         break
@@ -1093,7 +1131,26 @@ function newUiObjectConstructor () {
         break
       }
       case 'Record Property': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Property',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Property',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -45,
+            dontShowAtFullscreen: true
+          }
+        )
         menuItemsInitialValues.push(
           {
             action: 'Add Formula',
@@ -1104,7 +1161,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -15
           }
             )
         menuItemsInitialValues.push(
@@ -1120,7 +1177,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 15
           }
               )
         menuItemsInitialValues.push(
@@ -1134,7 +1191,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 45
           }
         )
         break
@@ -4266,7 +4323,7 @@ function newUiObjectConstructor () {
         break
       }
       case 'Process Definition': {
-        level_2()
+        level_0()
         break
       }
       case 'Calculations Procedure': {

@@ -76,6 +76,14 @@ function newUiObjectTitle () {
         thisObject.allwaysVisible = true
         break
       }
+      case 'Dataset Definition': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Record Property': {
+        thisObject.allwaysVisible = true
+        break
+      }
       case 'Plotter': {
         thisObject.allwaysVisible = true
         break

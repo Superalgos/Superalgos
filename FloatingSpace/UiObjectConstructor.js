@@ -985,7 +985,7 @@ function newUiObjectConstructor () {
         )
         break
       }
-      case 'Data Product Definition': {
+      case 'Product Definition': {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {

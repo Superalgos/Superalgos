@@ -28,8 +28,6 @@ The following recommendations may make your life easier using this pre-release i
 
 # Setting the Right Expectations
 
-Please refer to the [Superalgos Desktop App](https://superalgos.org/tools-superalgos-desktop-app.shtml#expectations) page to understand who this app is directed at, as well as what you can expect from the app in terms of user experience, current features and limitations.
-
 Beyond the list of [Current Features & Limitations](https://superalgos.org/tools-superalgos-desktop-app.shtml#features_limitations) you will find on the website, what you will get is a client application that runs entirely on users' machines. This is to fulfill the design principle of a trustless deployment: you don't need to trust any third party with your Strategies, API Keys, personal information, or funds.
 
 Traders rely on data sets for backtesting. The app retrieves raw trades data directly from exchanges and processes data to produce candles and a few indicators, which are stored in your local machine.
@@ -130,6 +128,7 @@ However, bear in mind that the app is at an early stage of development and that 
 * [Advanced Use](#advanced-use)
   * [Working with Multiple Definitions](#working-with-multiple-definitions)
 * [Troubleshooting](#troubleshooting)
+  * [My System Gets Slow](#my-system-gets-slow)
   * [On-screen Errors and Warnings](#on-screen-errors-and-warnings)
   * [Market Data / Indicators Seem to be Outdated](#market-data--indicators-seem-to-be-outdated)
 * [Reporting Bugs](#reporting-bugs)
@@ -198,7 +197,7 @@ You may extract/unpack the files in any location of your drive, however, we reco
 
 **3. Download the Data Package**:
 
-For your convenience and [the reasons explained](https://superalgos.org/tools-superalgos-desktop-app.shtml#expectations) in the Superalgos Desktop App page on the website, we maintain a downloadable market-data file that you can download, so that you may be up and running as quickly as possible.
+For your convenience and [the reasons explained above](#setting-the-right-expectations) in the Superalgos Desktop App page on the website, we maintain a downloadable market-data file that you can download, so that you may be up and running as quickly as possible.
 
 Go to the [latest Data release](https://github.com/Superalgos/DesktopApp/releases/tag/data.poloniex.btc.usdt.2019.10.05) and download ```Poloniex.BTC.USDT.Historic.Data.zip```.
 
@@ -231,6 +230,12 @@ Node.js is an open-source server environment required for the app to run. Go to 
 If you are on Mac, use the Finder app to go to the ```Superalgos Desktop App``` folder and do a *secondary click* (tap the touchpad with two fingers) to open up the menu. Select *New Terminal Tab at Folder*. Once in the Terminal, type ```node run``` and hit *Enter*.
 
 If you are on Linux, open a Terminal / Console, go to the ```Superalgos Desktop App``` folder, type ```node run``` and hit *Enter*.
+
+This is what you should see in your console after running the ```node run``` command:
+
+![Consolo-start-up](https://user-images.githubusercontent.com/13994516/67315449-e6111980-f506-11e9-8988-96e61dc7f497.PNG)
+
+Also, your browser should load the app and show a the following screen:
 
 ![Getting-Started-Guide-01-App-Launch](https://user-images.githubusercontent.com/13994516/67231207-2907ba00-f43f-11e9-83e8-e36cc844b0eb.gif)
 
@@ -1421,7 +1426,31 @@ You would usually work with each definition on separate workspaces. If you wish 
 
 The two definitions work independently from each other, from within the same workspace. To trade live with both definitions at the same time, make sure you have a different API Keys configured in each definition, and run one live trading session on each of the definitions.
 
+You may delete the "Keep Data Up-toDate" task manager from the second definition to avoid running duplicate instances of the processes handling sensors and indicators.
+
 # Troubleshooting
+
+## My System Gets Slow
+
+Dynamically rendering all the visual features we use on the app tends to put a significant load on the machine's processor. Depending on your machine's capacity, this may result in the system getting slow and sometimes even unresponsive.
+
+If you experience such symptoms, there are several things you can do to mitigate them:
+
+**1. Display less data on the Charts**
+
+If you are zooming out too far in the horizontal time scale with too many candles on the screen, try zooming-in a bit or changing time periods so that candle density decreases.
+
+You may also want to switch off the layers you may not be using. Remember, every piece of graphical information you see on screen represents data your system is reading from your disk and processing to display in a visual environment.
+
+**2. Freeze your definition**
+
+| Definition | Freeze |
+| :---: | :---: |
+| ![text](https://user-images.githubusercontent.com/13994516/67425255-f513cc80-f5d7-11e9-976a-1a200dfada80.png) | ![menu-mobility-freeze](https://user-images.githubusercontent.com/13994516/63041051-39436c00-bec7-11e9-8194-7cdd113147e4.png) |
+
+The physics that govern elements in the Designer help the hierarchical structure of information to self-organize. This comes at a cost in terms of processing power.
+
+You will find that freezing your definition, which in turn freezes all elements in the hierarchy, contributes to reducing the load in your CPU.
 
 ## On-screen Errors and Warnings
 

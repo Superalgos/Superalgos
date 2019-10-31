@@ -686,11 +686,11 @@ function newUiObjectConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Add Procedure Initialization',
+            action: 'Add Procedure Loop',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Procedure Initialization',
+            label: 'Add Procedure Loop',
             visible: true,
-            relatedUiObject: 'Procedure Initialization',
+            relatedUiObject: 'Procedure Loop',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -746,11 +746,11 @@ function newUiObjectConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Add Procedure Initialization',
+            action: 'Add Procedure Loop',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Procedure Initialization',
+            label: 'Add Procedure Loop',
             visible: true,
-            relatedUiObject: 'Procedure Initialization',
+            relatedUiObject: 'Procedure Loop',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,

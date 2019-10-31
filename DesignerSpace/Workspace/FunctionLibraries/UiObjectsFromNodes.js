@@ -934,6 +934,7 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Process Definition',
       name: 'New Process Definition',
+      code: '{}',
       outputDatasets: [],
       statusDependencies: [],
       dataDependencies: []
@@ -1037,6 +1038,7 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Product Definition',
       name: 'New Product Definition',
+      code: '{}',
       datasets: []
     }
     if (node.products === undefined) {

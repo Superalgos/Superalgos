@@ -1182,6 +1182,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           calculations: getProtocolNode(node.calculations, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
           dataBuilding: getProtocolNode(node.dataBuilding, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
           outputDatasets: [],
@@ -1329,6 +1330,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           record: getProtocolNode(node.record, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
           datasets: []
         }
@@ -1376,6 +1378,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences)
         }
         if (includeIds) {

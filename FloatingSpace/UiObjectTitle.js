@@ -52,6 +52,42 @@ function newUiObjectTitle () {
         thisObject.allwaysVisible = true
         break
       }
+      case 'Team': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Sensor Bot': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Indicator Bot': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Trading Bot': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Process Definition': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Product Definition': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Plotter': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Plotter Module': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Plotter Panel': {
+        thisObject.allwaysVisible = true
+        break
+      }
       case 'Network': {
         thisObject.allwaysVisible = true
         break

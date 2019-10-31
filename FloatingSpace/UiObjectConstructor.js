@@ -1288,11 +1288,11 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Plotter Module',
+            action: 'Add Code',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Plotter Module',
+            label: 'Add Code',
             visible: true,
-            relatedUiObject: 'Plotter Module',
+            relatedUiObject: 'Code',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,

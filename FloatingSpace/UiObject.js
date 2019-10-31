@@ -470,7 +470,7 @@ function newUiObject () {
         compatibleSubType = undefined
         break
       case 'Formula':
-        compatibleType = '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase' + '->' + 'Announcement' + '->'
+        compatibleType = '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase' + '->' + 'Announcement' + '->' + 'Record Property' + '->'
         compatibleSubType = undefined
         break
       case 'Next Phase Event':
@@ -486,7 +486,7 @@ function newUiObject () {
         compatibleSubType = undefined
         break
       case 'Code':
-        compatibleType = '->' + 'Condition' + '->'
+        compatibleType = '->' + 'Condition' + '->' + 'Procedure Initialization' + '->' + 'Procedure Loop' + '->' + 'Plotter Module' + '->' + 'Plotter Panel' + '->'
         compatibleSubType = undefined
         break
       default:

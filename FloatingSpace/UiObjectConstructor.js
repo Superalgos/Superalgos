@@ -1147,6 +1147,21 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
+            action: 'Edit Definition',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Definition',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
             action: 'Delete Dataset Definition',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
@@ -1158,7 +1173,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 0
           }
               )
         menuItemsInitialValues.push(
@@ -1172,7 +1187,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 30
           }
         )
         break

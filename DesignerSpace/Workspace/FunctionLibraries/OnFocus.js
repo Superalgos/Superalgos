@@ -954,7 +954,7 @@ function newOnFocus () {
       case 'Record Definition': {
         let child
         for (let m = 0; m < node.properties.length; m++) {
-          child = getNodeThatIsOnFocus(node.yyy[m])
+          child = getNodeThatIsOnFocus(node.properties[m])
           if (child !== undefined) {
             return child
           }

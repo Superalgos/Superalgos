@@ -28,6 +28,10 @@ function newReferenceAttachDetach () {
         completeDetachment(node)
         return
       }
+      case 'Data Dependency': {
+        completeDetachment(node)
+        return
+      }
     }
   }
 
@@ -50,6 +54,10 @@ function newReferenceAttachDetach () {
       }
         break
       case 'Output Dataset': {
+        completeAttachment(node, attachToNode)
+      }
+        break
+      case 'Data Dependency': {
         completeAttachment(node, attachToNode)
       }
         break

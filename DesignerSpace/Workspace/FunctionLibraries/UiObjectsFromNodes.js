@@ -440,10 +440,8 @@ function newUiObjectsFromNodes () {
         if (mapOfReferenceParents !== undefined) {
           if (node.savedPayload.referenceChildren !== undefined) {
             referenceChildren = []
-            if (node.savedPayload.referenceChildren.length > 0) {
-              mapOfReferenceParents.set(node.id, node)
-              referenceChildren = node.savedPayload.referenceChildren
-            }
+            mapOfReferenceParents.set(node.id, node)
+            referenceChildren = node.savedPayload.referenceChildren
           }
         }
         createUiObject('Definition', node.name, node, parentNode, chainParent, 'Definition')
@@ -824,7 +822,21 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Data Dependency': {
+        let referenceParent
+        if (mapOfReferenceChildren !== undefined) {
+          if (node.savedPayload.referenceParent !== undefined) {
+            if (node.savedPayload.referenceParent.id !== undefined) {
+              mapOfReferenceChildren.set(node.id, node)
+              referenceParent = node.savedPayload.referenceParent
+            }
+          }
+        }
         createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (referenceParent !== undefined) {
+          node.savedPayload = {
+            referenceParent: referenceParent
+          }
+        }
         return
       }
       case 'Product Definition': {
@@ -858,10 +870,8 @@ function newUiObjectsFromNodes () {
         if (mapOfReferenceParents !== undefined) {
           if (node.savedPayload.referenceChildren !== undefined) {
             referenceChildren = []
-            if (node.savedPayload.referenceChildren.length > 0) {
-              mapOfReferenceParents.set(node.id, node)
-              referenceChildren = node.savedPayload.referenceChildren
-            }
+            mapOfReferenceParents.set(node.id, node)
+            referenceChildren = node.savedPayload.referenceChildren
           }
         }
         createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)

@@ -672,6 +672,10 @@ function newUiObject () {
         compatibleType = '->' + 'Dataset Definition' + '->'
         compatibleSubType = undefined
         break
+      case 'Data Dependency':
+        compatibleType = '->' + 'Dataset Definition' + '->'
+        compatibleSubType = undefined
+        break
       default:
         return
     }

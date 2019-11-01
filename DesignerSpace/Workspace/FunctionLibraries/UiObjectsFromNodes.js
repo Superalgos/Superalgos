@@ -796,7 +796,21 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Execution Started Event': {
+        let referenceParent
+        if (mapOfReferenceChildren !== undefined) {
+          if (node.savedPayload.referenceParent !== undefined) {
+            if (node.savedPayload.referenceParent.id !== undefined) {
+              mapOfReferenceChildren.set(node.id, node)
+              referenceParent = node.savedPayload.referenceParent
+            }
+          }
+        }
         createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (referenceParent !== undefined) {
+          node.savedPayload = {
+            referenceParent: referenceParent
+          }
+        }
         return
       }
       case 'Execution Finished Event': {

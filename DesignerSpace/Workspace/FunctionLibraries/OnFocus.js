@@ -871,6 +871,13 @@ function newOnFocus () {
           return
         }
       }
+      case 'Execution Started Event': {
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
       case 'Execution Finished Event': {
         if (node.payload.uiObject.isOnFocus === true) {
           return node

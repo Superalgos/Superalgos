@@ -785,6 +785,40 @@ function newUiObjectConstructor () {
         )
         break
       }
+      case 'Execution Started Event': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Execution Started Event',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Event',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 15
+          }
+        )
+        break
+      }
       case 'Execution Finished Event': {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -4458,6 +4492,10 @@ function newUiObjectConstructor () {
         break
       }
       case 'Status Report': {
+        level_3()
+        break
+      }
+      case 'Execution Started Event': {
         level_3()
         break
       }

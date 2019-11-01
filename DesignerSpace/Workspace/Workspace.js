@@ -351,6 +351,11 @@ function newWorkspace () {
           functionLibraryUiObjectsFromNodes.addStatusReport(payload.node)
         }
         break
+      case 'Add Execution Started Event':
+        {
+          functionLibraryUiObjectsFromNodes.addExecutionStartedEvent(payload.node)
+        }
+        break
       case 'Add Execution Finished Event':
         {
           functionLibraryUiObjectsFromNodes.addExecutionFinishedEvent(payload.node)
@@ -633,6 +638,10 @@ function newWorkspace () {
       }
       case 'Delete Status Report': {
         functionLibraryNodeDeleter.deleteStatusReport(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Execution Started Event': {
+        functionLibraryNodeDeleter.deleteExecutionStartedEvent(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Execution Finished Event': {

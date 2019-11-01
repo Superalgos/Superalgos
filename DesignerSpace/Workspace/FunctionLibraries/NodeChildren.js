@@ -32,6 +32,9 @@ function newNodeChildren () {
       case 'Status Rerport': {
         return countChildrenStatusRerport(parentNode, childNode)
       }
+      case 'Execution Started Event': {
+        return countChildrenExecutionStartedEvent(parentNode, childNode)
+      }
       case 'Execution Finished Event': {
         return countChildrenExecutionFinishedEvent(parentNode, childNode)
       }
@@ -454,6 +457,14 @@ function newNodeChildren () {
     return response
   }
 
+  function countChildrenExecutionStartedEvent (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    return response
+  }
+
   function countChildrenExecutionFinishedEvent (parentNode, childNode) {
     let response = {
       childrenCount: 0,
@@ -461,6 +472,7 @@ function newNodeChildren () {
     }
     return response
   }
+
   function countChildrenCalculationsProcedure (parentNode, childNode) {
     let response = {
       childrenCount: 0,

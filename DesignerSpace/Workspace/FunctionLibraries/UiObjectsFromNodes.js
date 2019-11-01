@@ -9,6 +9,7 @@ function newUiObjectsFromNodes () {
     addProcessDefinition: addProcessDefinition,
     addMissingProcessDefinitionItems: addMissingProcessDefinitionItems,
     addStatusReport: addStatusReport,
+    addExecutionStartedEvent: addExecutionStartedEvent,
     addExecutionFinishedEvent: addExecutionFinishedEvent,
     addCalculationsProcedure: addCalculationsProcedure,
     addDataBuildingProcedure: addDataBuildingProcedure,
@@ -791,6 +792,10 @@ function newUiObjectsFromNodes () {
         }
         return
       }
+      case 'Execution Started Event': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        return
+      }
       case 'Execution Finished Event': {
         let referenceChildren
         if (mapOfReferenceParents !== undefined) {
@@ -1069,6 +1074,17 @@ function newUiObjectsFromNodes () {
       createUiObject(node.statusReport.type, node.statusReport.name, node.statusReport, node, node)
     }
     return node.statusReport
+  }
+
+  function addExecutionStartedEvent (node) {
+    if (node.executionStartedEvent === undefined) {
+      node.executionStartedEvent = {
+        type: 'Execution Started Event',
+        name: 'New Execution Started Event'
+      }
+      createUiObject(node.executionStartedEvent.type, node.executionStartedEvent.name, node.executionStartedEvent, node, node)
+    }
+    return node.executionStartedEvent
   }
 
   function addExecutionFinishedEvent (node) {

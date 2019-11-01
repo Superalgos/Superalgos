@@ -62,12 +62,12 @@ function newChainAttachDetach () {
         return
       }
       case 'Status Report': {
-        node.payload.parentNode.calculations = undefined
+        node.payload.parentNode.statusReport = undefined
         completeDetachment(node, rootNodes)
         return
       }
       case 'Execution Finished Event': {
-        node.payload.parentNode.calculations = undefined
+        node.payload.parentNode.executionFinishedEvent = undefined
         completeDetachment(node, rootNodes)
         return
       }
@@ -570,14 +570,14 @@ function newChainAttachDetach () {
       case 'Status Report': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.calculations = node
+        node.payload.parentNode.statusReport = node
         completeAttachment(node, rootNodes)
       }
         break
       case 'Execution Finished Event': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.calculations = node
+        node.payload.parentNode.executionFinishedEvent = node
         completeAttachment(node, rootNodes)
       }
         break

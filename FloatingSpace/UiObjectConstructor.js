@@ -766,7 +766,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -10
+            angle: -15
           }
               )
         menuItemsInitialValues.push(
@@ -780,7 +780,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 10
+            angle: 15
           }
         )
         break
@@ -800,7 +800,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -10
+            angle: -15
           }
               )
         menuItemsInitialValues.push(
@@ -814,7 +814,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 10
+            angle: 15
           }
         )
         break

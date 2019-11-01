@@ -828,6 +828,10 @@ function newOnFocus () {
         if (child !== undefined) {
           return child
         }
+        child = getNodeThatIsOnFocus(node.executionStartedEvent)
+        if (child !== undefined) {
+          return child
+        }
         child = getNodeThatIsOnFocus(node.executionFinishedEvent)
         if (child !== undefined) {
           return child

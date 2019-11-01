@@ -752,6 +752,9 @@ function newUiObjectsFromNodes () {
         if (node.statusReport !== undefined) {
           createUiObjectFromNode(node.statusReport, node, node)
         }
+        if (node.executionStartedEvent !== undefined) {
+          createUiObjectFromNode(node.executionStartedEvent, node, node)
+        }
         if (node.executionFinishedEvent !== undefined) {
           createUiObjectFromNode(node.executionFinishedEvent, node, node)
         }
@@ -1059,6 +1062,7 @@ function newUiObjectsFromNodes () {
 
   function addMissingProcessDefinitionItems (node) {
     addStatusReport(node)
+    addExecutionStartedEvent(node)
     addExecutionFinishedEvent(node)
     addCalculationsProcedure(node)
     addDataBuildingProcedure(node)

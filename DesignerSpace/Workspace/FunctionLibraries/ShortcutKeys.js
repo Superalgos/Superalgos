@@ -812,6 +812,10 @@ function newShortcutKeys () {
         if (child !== undefined) {
           return child
         }
+        child = getNodeByShortcutKey(node.executionStartedEvent, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
         child = getNodeByShortcutKey(node.executionFinishedEvent, searchingKey)
         if (child !== undefined) {
           return child

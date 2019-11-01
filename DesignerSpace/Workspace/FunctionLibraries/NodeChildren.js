@@ -400,6 +400,12 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    if (parentNode.executionStartedEvent !== undefined) {
+      response.childrenCount++
+      if (parentNode.executionStartedEvent.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     if (parentNode.executionFinishedEvent !== undefined) {
       response.childrenCount++
       if (parentNode.executionFinishedEvent.id === childNode.id) {

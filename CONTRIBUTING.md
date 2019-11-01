@@ -10,10 +10,14 @@ Contributions are deemed _voluntary work_, irrespective of the incentives that m
 
 ## Getting Started
 
-First step is to download, install and start using the app. The release includes all source code which constitutes your development environment right out of the package.
+First step is to download, install and start using the app. The release includes all source code which constitutes your development environment right out of the package. The app runs uncompilled on the actual code.
 
-The priority at this moment is the stabilization of existing functionality. Your first contribution will be using and testing the app, and reporting any bugs you may find.
+* The priority at this moment is the stabilization of existing functionality. Your first contribution will be using and testing the app, and reporting any bugs you may find.
 
-You may debug and remove bugs yourself, and submit pull requests to the corresponding repositories. The name of the folder containing the code maps each of the repositories involved in the release.
+* You may debug and remove bugs yourself, and submit pull requests to the corresponding repositories. The name of the folder containing the code maps each of the repositories involved in the release.
+
+* Additionally, you may contribute helping improve the README and building the documentation in each of the repositories involved.
 
 As you engage with other developers and the Core Team, we will get to know you and develop a relationship, so that you may later participate in core development tasks.
+
+Please join the [Develop Telkegram Group](https://t.me/superalgosdevelop) and let us know about your progress.

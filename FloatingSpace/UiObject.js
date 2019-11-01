@@ -512,6 +512,7 @@ function newUiObject () {
       if (compatibleType.indexOf('->' + nearbyNode.type + '->') >= 0) {
         /* Discard objects with busy coonection ports */
         if (thisObject.payload.node.type === 'Status Report' && nearbyNode.statusReport !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Execution Finished Event' && nearbyNode.executionStartedEvent !== undefined) { continue }
         if (thisObject.payload.node.type === 'Execution Finished Event' && nearbyNode.executionFinishedEvent !== undefined) { continue }
         if (thisObject.payload.node.type === 'Calculations Procedure' && nearbyNode.calculations !== undefined) { continue }
         if (thisObject.payload.node.type === 'Data Building Procedure' && nearbyNode.dataBuilding !== undefined) { continue }
@@ -684,6 +685,14 @@ function newUiObject () {
         break
       case 'Data Dependency':
         compatibleType = '->' + 'Dataset Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Status Dependency':
+        compatibleType = '->' + 'Status Report' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Execution Started Event':
+        compatibleType = '->' + 'Execution Finished Event' + '->'
         compatibleSubType = undefined
         break
       default:

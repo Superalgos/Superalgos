@@ -775,11 +775,37 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Status Report': {
+        let referenceChildren
+        if (mapOfReferenceParents !== undefined) {
+          if (node.savedPayload.referenceChildren !== undefined) {
+            referenceChildren = []
+            mapOfReferenceParents.set(node.id, node)
+            referenceChildren = node.savedPayload.referenceChildren
+          }
+        }
         createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (referenceChildren !== undefined) {
+          node.savedPayload = {
+            referenceChildren: referenceChildren
+          }
+        }
         return
       }
       case 'Execution Finished Event': {
+        let referenceChildren
+        if (mapOfReferenceParents !== undefined) {
+          if (node.savedPayload.referenceChildren !== undefined) {
+            referenceChildren = []
+            mapOfReferenceParents.set(node.id, node)
+            referenceChildren = node.savedPayload.referenceChildren
+          }
+        }
         createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (referenceChildren !== undefined) {
+          node.savedPayload = {
+            referenceChildren: referenceChildren
+          }
+        }
         return
       }
       case 'Calculations Procedure': {
@@ -835,7 +861,21 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Status Dependency': {
+        let referenceParent
+        if (mapOfReferenceChildren !== undefined) {
+          if (node.savedPayload.referenceParent !== undefined) {
+            if (node.savedPayload.referenceParent.id !== undefined) {
+              mapOfReferenceChildren.set(node.id, node)
+              referenceParent = node.savedPayload.referenceParent
+            }
+          }
+        }
         createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (referenceParent !== undefined) {
+          node.savedPayload = {
+            referenceParent: referenceParent
+          }
+        }
         return
       }
       case 'Data Dependency': {
@@ -1023,7 +1063,8 @@ function newUiObjectsFromNodes () {
     if (node.statusReport === undefined) {
       node.statusReport = {
         type: 'Status Report',
-        name: 'New Status Report'
+        name: 'New Status Report',
+        referenceChildren: []
       }
       createUiObject(node.statusReport.type, node.statusReport.name, node.statusReport, node, node)
     }
@@ -1034,7 +1075,8 @@ function newUiObjectsFromNodes () {
     if (node.executionFinishedEvent === undefined) {
       node.executionFinishedEvent = {
         type: 'Execution Finished Event',
-        name: 'New Execution Finished Event'
+        name: 'New Execution Finished Event',
+        referenceChildren: []
       }
       createUiObject(node.executionFinishedEvent.type, node.executionFinishedEvent.name, node.executionFinishedEvent, node, node)
     }

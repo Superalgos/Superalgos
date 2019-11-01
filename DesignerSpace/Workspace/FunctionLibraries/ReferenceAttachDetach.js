@@ -32,6 +32,14 @@ function newReferenceAttachDetach () {
         completeDetachment(node)
         return
       }
+      case 'Status Dependency': {
+        completeDetachment(node)
+        return
+      }
+      case 'Execution Started Event': {
+        completeDetachment(node)
+        return
+      }
     }
   }
 
@@ -58,6 +66,14 @@ function newReferenceAttachDetach () {
       }
         break
       case 'Data Dependency': {
+        completeAttachment(node, attachToNode)
+      }
+        break
+      case 'Status Dependency': {
+        completeAttachment(node, attachToNode)
+      }
+        break
+      case 'Execution Started Event': {
         completeAttachment(node, attachToNode)
       }
         break

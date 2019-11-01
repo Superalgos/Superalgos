@@ -95,6 +95,8 @@ function newDesignerSpace () {
       ['Indicator Bot', 'bot-indicator'],
       ['Trading Bot', 'bot-trading'],
       ['Process Definition', 'process-definition'],
+      ['Status Report', 'text'],
+      ['Execution Finished Event', 'pantone'],
       ['Calculations Procedure', 'calculations-procedure'],
       ['Data Building Procedure', 'data-building-procedure'],
       ['Procedure Initialization', 'procedure-initialization'],

@@ -840,6 +840,20 @@ function newShortcutKeys () {
           return
         }
       }
+      case 'Status Report': {
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Execution Finished Procedure': {
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
       case 'Calculations Procedure': {
         let child
         child = getNodeByShortcutKey(node.initialization, searchingKey)

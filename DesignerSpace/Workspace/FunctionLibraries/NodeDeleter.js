@@ -8,6 +8,8 @@ function newNodeDeleter () {
     deleteIndicatorBot: deleteIndicatorBot,
     deleteTradingBot: deleteTradingBot,
     deleteProcessDefinition: deleteProcessDefinition,
+    deleteStatusReport: deleteStatusReport,
+    deleteExecutionFinishedEvent: deleteExecutionFinishedEvent,
     deleteCalculationsProcedure: deleteCalculationsProcedure,
     deleteDataBuildingProcedure: deleteDataBuildingProcedure,
     deleteProcedureInitialization: deleteProcedureInitialization,
@@ -110,6 +112,14 @@ function newNodeDeleter () {
           }
           case 'Process Definition': {
             deleteProcessDefinition(rootNode, rootNodes)
+            break
+          }
+          case 'Status Report': {
+            deleteStatusReport(rootNode, rootNodes)
+            break
+          }
+          case 'Execution Finished Event': {
+            deleteExecutionFinishedEvent(rootNode, rootNodes)
             break
           }
           case 'Calculations Procedure': {
@@ -575,6 +585,30 @@ function newNodeDeleter () {
       while (node.dataDependencies.length > 0) {
         deleteDataDependency(node.dataDependencies[0], rootNodes)
       }
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteStatusReport (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.statusReport = undefined
+    }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteExecutionFinishedEvent (node, rootNodes) {
+    let payload = node.payload
+
+    if (payload.parentNode !== undefined) {
+      payload.parentNode.executionFinishedEvent = undefined
     }
 
     completeDeletion(node, rootNodes)

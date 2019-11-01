@@ -341,6 +341,16 @@ function newWorkspace () {
           functionLibraryUiObjectsFromNodes.addProcessDefinition(payload.node)
         }
         break
+      case 'Add Status Report':
+        {
+          functionLibraryUiObjectsFromNodes.addStatusReport(payload.node)
+        }
+        break
+      case 'Add Execution Finished Event':
+        {
+          functionLibraryUiObjectsFromNodes.addExecutionFinishedEvent(payload.node)
+        }
+        break
       case 'Add Calculations Procedure':
         {
           functionLibraryUiObjectsFromNodes.addCalculationsProcedure(payload.node)
@@ -614,6 +624,14 @@ function newWorkspace () {
       }
       case 'Delete Process Definition': {
         functionLibraryNodeDeleter.deleteProcessDefinition(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Status Report': {
+        functionLibraryNodeDeleter.deleteStatusReport(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Execution Finished Event': {
+        functionLibraryNodeDeleter.deleteExecutionFinishedEvent(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Calculations Procedure': {

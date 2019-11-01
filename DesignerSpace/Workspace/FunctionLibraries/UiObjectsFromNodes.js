@@ -7,6 +7,8 @@ function newUiObjectsFromNodes () {
     addIndicatorBot: addIndicatorBot,
     addTradingBot: addTradingBot,
     addProcessDefinition: addProcessDefinition,
+    addStatusReport: addStatusReport,
+    addExecutionFinishedEvent: addExecutionFinishedEvent,
     addCalculationsProcedure: addCalculationsProcedure,
     addDataBuildingProcedure: addDataBuildingProcedure,
     addProcedureInitialization: addProcedureInitialization,
@@ -765,6 +767,14 @@ function newUiObjectsFromNodes () {
         }
         return
       }
+      case 'Status Report': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        return
+      }
+      case 'Execution Finished Event': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        return
+      }
       case 'Calculations Procedure': {
         createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
         if (node.initialization !== undefined) {
@@ -993,6 +1003,28 @@ function newUiObjectsFromNodes () {
     createUiObject(object.type, object.name, object, node, node)
 
     return object
+  }
+
+  function addStatusReport (node) {
+    if (node.statusReport === undefined) {
+      node.statusReport = {
+        type: 'Status Report',
+        name: 'New Status Report'
+      }
+      createUiObject(node.calculations.type, node.calculations.name, node.calculations, node, node)
+    }
+    return node.calculations
+  }
+
+  function addExecutionFinishedEvent (node) {
+    if (node.executionFinishedEvent === undefined) {
+      node.executionFinishedEvent = {
+        type: 'Execution Finished Event',
+        name: 'New Execution Finished Event'
+      }
+      createUiObject(node.calculations.type, node.calculations.name, node.calculations, node, node)
+    }
+    return node.calculations
   }
 
   function addCalculationsProcedure (node) {

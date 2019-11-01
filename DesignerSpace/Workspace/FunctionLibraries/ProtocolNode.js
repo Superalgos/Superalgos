@@ -1209,6 +1209,34 @@ function newProtocolNode () {
         }
         return object
       }
+      case 'Status Report': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node, includeReferences)
+        }
+        return object
+      }
+      case 'Execution Finished Event': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node, includeReferences)
+        }
+        return object
+      }
       case 'Calculations Procedure': {
         let object = {
           type: node.type,

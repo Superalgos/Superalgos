@@ -228,6 +228,14 @@ function newUiObject () {
         compatibleType = '->' + 'Sensor Bot' + '->' + 'Indicator Bot' + '->' + 'Trading Bot' + '->'
         compatibleSubType = undefined
         break
+      case 'Status Report':
+        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Execution Finished Event':
+        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleSubType = undefined
+        break
       case 'Calculations Procedure':
         compatibleType = '->' + 'Process Definition' + '->'
         compatibleSubType = undefined
@@ -503,6 +511,8 @@ function newUiObject () {
       let nearbyNode = floatingObject.payload.node
       if (compatibleType.indexOf('->' + nearbyNode.type + '->') >= 0) {
         /* Discard objects with busy coonection ports */
+        if (thisObject.payload.node.type === 'Status Report' && nearbyNode.statusReport !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Execution Finished Event' && nearbyNode.executionFinishedEvent !== undefined) { continue }
         if (thisObject.payload.node.type === 'Calculations Procedure' && nearbyNode.calculations !== undefined) { continue }
         if (thisObject.payload.node.type === 'Data Building Procedure' && nearbyNode.dataBuilding !== undefined) { continue }
         if (thisObject.payload.node.type === 'Procedure Initialization' && nearbyNode.initialization !== undefined) { continue }

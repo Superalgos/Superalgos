@@ -856,6 +856,20 @@ function newOnFocus () {
           return
         }
       }
+      case 'Status Report': {
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Execution Finished Event': {
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
       case 'Calculations Procedure': {
         let child
         child = getNodeThatIsOnFocus(node.initialization)

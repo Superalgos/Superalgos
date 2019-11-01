@@ -19,7 +19,7 @@ function newProtocolNode () {
             object.id = node.id
           }
           if (includePayload) {
-            object.savedPayload = getSavedPayload(node)
+            object.savedPayload = getSavedPayload(node, includeReferences)
           }
           return object
         }
@@ -35,7 +35,7 @@ function newProtocolNode () {
             object.id = node.id
           }
           if (includePayload) {
-            object.savedPayload = getSavedPayload(node)
+            object.savedPayload = getSavedPayload(node, includeReferences)
           }
           return object
         }
@@ -57,7 +57,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -73,7 +73,7 @@ function newProtocolNode () {
             object.id = node.id
           }
           if (includePayload) {
-            object.savedPayload = getSavedPayload(node)
+            object.savedPayload = getSavedPayload(node, includeReferences)
           }
           return object
         }
@@ -102,7 +102,7 @@ function newProtocolNode () {
             object.id = node.id
           }
           if (includePayload) {
-            object.savedPayload = getSavedPayload(node)
+            object.savedPayload = getSavedPayload(node, includeReferences)
           }
           return object
         }
@@ -125,7 +125,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -147,7 +147,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -169,7 +169,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -198,7 +198,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -225,7 +225,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -254,7 +254,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -272,7 +272,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -286,7 +286,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -300,7 +300,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -315,7 +315,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -330,7 +330,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -347,7 +347,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -363,7 +363,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -379,7 +379,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -394,7 +394,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -412,7 +412,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -430,7 +430,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -448,7 +448,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -463,7 +463,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -481,7 +481,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -499,7 +499,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -519,7 +519,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -542,7 +542,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -565,7 +565,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -595,7 +595,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -610,7 +610,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -626,7 +626,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -648,7 +648,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -675,7 +675,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -691,7 +691,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -713,7 +713,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -731,7 +731,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -753,7 +753,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -768,7 +768,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -794,7 +794,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -820,7 +820,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -846,7 +846,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -865,7 +865,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -972,7 +972,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -995,7 +995,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1011,23 +1011,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
-        }
-        if (includeReferences) {
-          let referenceChildren = []
-          for (let i = 0; i < node.referenceChildren.length; i++) {
-            let child = node.referenceChildren[i]
-            if (child !== undefined) {
-              let referencedChild = {
-                type: child.type,
-                subType: child.subType,
-                name: child.name,
-                id: child.id
-              }
-              referenceChildren.push(referencedChild)
-            }
-          }
-          object.savedPayload.referenceChildren = referenceChildren
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1078,7 +1062,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1111,7 +1095,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1144,7 +1128,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1177,7 +1161,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1221,7 +1205,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1237,7 +1221,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1253,7 +1237,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1268,7 +1252,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1283,7 +1267,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1297,7 +1281,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1311,7 +1295,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1325,7 +1309,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1350,7 +1334,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1373,7 +1357,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1389,7 +1373,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1404,7 +1388,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1427,7 +1411,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1451,7 +1435,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1466,7 +1450,7 @@ function newProtocolNode () {
           object.id = node.id
         }
         if (includePayload) {
-          object.savedPayload = getSavedPayload(node)
+          object.savedPayload = getSavedPayload(node, includeReferences)
         }
         return object
       }
@@ -1495,7 +1479,27 @@ function newProtocolNode () {
         shortcutKey: node.payload.uiObject.shortcutKey
       }
     }
+
     if (includeReferences) {
+      /* For the ones that have reference children, we include them. */
+      if (node.referenceChildren !== undefined) {
+        let referenceChildren = []
+        for (let i = 0; i < node.referenceChildren.length; i++) {
+          let child = node.referenceChildren[i]
+          if (child !== undefined) {
+            let referencedChild = {
+              type: child.type,
+              subType: child.subType,
+              name: child.name,
+              id: child.id
+            }
+            referenceChildren.push(referencedChild)
+          }
+        }
+        savedPayload.referenceChildren = referenceChildren
+      }
+
+      /* Next for the ones that have a reference parent, we include it */
       if (node.payload.referenceParent !== undefined) {
         savedPayload.referenceParent = {
           type: node.payload.referenceParent.type,

@@ -83,6 +83,9 @@ function newUiObjectsFromNodes () {
       childNode.savedPayload = undefined
     }
     for (const [key, parentNode] of mapOfReferenceParents) {
+      if (parentNode.referenceChildren === undefined) {
+        parentNode.referenceChildren = []
+      }
       for (let i = 0; i < parentNode.savedPayload.referenceChildren.length; i++) {
         let savedChild = parentNode.savedPayload.referenceChildren[i]
         if (savedChild.id !== undefined) {
@@ -436,6 +439,7 @@ function newUiObjectsFromNodes () {
         let referenceChildren
         if (mapOfReferenceParents !== undefined) {
           if (node.savedPayload.referenceChildren !== undefined) {
+            referenceChildren = []
             if (node.savedPayload.referenceChildren.length > 0) {
               mapOfReferenceParents.set(node.id, node)
               referenceChildren = node.savedPayload.referenceChildren
@@ -798,7 +802,21 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Output Dataset': {
+        let referenceParent
+        if (mapOfReferenceChildren !== undefined) {
+          if (node.savedPayload.referenceParent !== undefined) {
+            if (node.savedPayload.referenceParent.id !== undefined) {
+              mapOfReferenceChildren.set(node.id, node)
+              referenceParent = node.savedPayload.referenceParent
+            }
+          }
+        }
         createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (referenceParent !== undefined) {
+          node.savedPayload = {
+            referenceParent: referenceParent
+          }
+        }
         return
       }
       case 'Status Dependency': {
@@ -836,7 +854,22 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Dataset Definition': {
+        let referenceChildren
+        if (mapOfReferenceParents !== undefined) {
+          if (node.savedPayload.referenceChildren !== undefined) {
+            referenceChildren = []
+            if (node.savedPayload.referenceChildren.length > 0) {
+              mapOfReferenceParents.set(node.id, node)
+              referenceChildren = node.savedPayload.referenceChildren
+            }
+          }
+        }
         createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (referenceChildren !== undefined) {
+          node.savedPayload = {
+            referenceChildren: referenceChildren
+          }
+        }
         return
       }
       case 'Plotter': {
@@ -1084,7 +1117,8 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Dataset Definition',
       name: 'New Dataset Definition',
-      code: '{}'
+      code: '{}',
+      referenceChildren: []
     }
     if (node.datasets === undefined) {
       node.datasets = []

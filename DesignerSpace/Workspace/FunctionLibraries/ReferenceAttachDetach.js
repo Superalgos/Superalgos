@@ -24,6 +24,10 @@ function newReferenceAttachDetach () {
         completeDetachment(node)
         return
       }
+      case 'Output Dataset': {
+        completeDetachment(node)
+        return
+      }
     }
   }
 
@@ -42,6 +46,10 @@ function newReferenceAttachDetach () {
       }
         break
       case 'Paper Trading Session': {
+        completeAttachment(node, attachToNode)
+      }
+        break
+      case 'Output Dataset': {
         completeAttachment(node, attachToNode)
       }
         break

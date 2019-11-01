@@ -668,6 +668,10 @@ function newUiObject () {
         compatibleType = '->' + 'Definition' + '->'
         compatibleSubType = undefined
         break
+      case 'Output Dataset':
+        compatibleType = '->' + 'Dataset Definition' + '->'
+        compatibleSubType = undefined
+        break
       default:
         return
     }

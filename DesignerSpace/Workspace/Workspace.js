@@ -341,6 +341,11 @@ function newWorkspace () {
           functionLibraryUiObjectsFromNodes.addProcessDefinition(payload.node)
         }
         break
+      case 'Add Missing Process Definition Items':
+        {
+          functionLibraryUiObjectsFromNodes.addMissingProcessDefinitionItems(payload.node)
+        }
+        break
       case 'Add Status Report':
         {
           functionLibraryUiObjectsFromNodes.addStatusReport(payload.node)

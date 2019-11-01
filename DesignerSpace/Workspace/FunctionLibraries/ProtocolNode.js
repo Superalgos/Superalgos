@@ -1171,6 +1171,8 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
+          statusReport: getProtocolNode(node.statusReport, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
+          executionFinishedEvent: getProtocolNode(node.executionFinishedEvent, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
           calculations: getProtocolNode(node.calculations, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
           dataBuilding: getProtocolNode(node.dataBuilding, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
           outputDatasets: [],

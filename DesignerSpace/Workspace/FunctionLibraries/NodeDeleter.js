@@ -561,6 +561,14 @@ function newNodeDeleter () {
       }
     }
 
+    if (node.statusReport !== undefined) {
+      deleteStatusReport(node.statusReport, rootNodes)
+    }
+
+    if (node.executionFinishedEvent !== undefined) {
+      deleteExecutionFinishedEvent(node.executionFinishedEvent, rootNodes)
+    }
+
     if (node.calculations !== undefined) {
       deleteCalculationsProcedure(node.calculations, rootNodes)
     }

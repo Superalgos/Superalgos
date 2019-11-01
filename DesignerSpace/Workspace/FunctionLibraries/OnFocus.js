@@ -824,6 +824,14 @@ function newOnFocus () {
       }
       case 'Process Definition': {
         let child
+        child = getNodeThatIsOnFocus(node.statusReport)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeThatIsOnFocus(node.executionFinishedEvent)
+        if (child !== undefined) {
+          return child
+        }
         child = getNodeThatIsOnFocus(node.calculations)
         if (child !== undefined) {
           return child

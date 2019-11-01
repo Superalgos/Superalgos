@@ -7,6 +7,7 @@ function newUiObjectsFromNodes () {
     addIndicatorBot: addIndicatorBot,
     addTradingBot: addTradingBot,
     addProcessDefinition: addProcessDefinition,
+    addMissingProcessDefinitionItems: addMissingProcessDefinitionItems,
     addStatusReport: addStatusReport,
     addExecutionFinishedEvent: addExecutionFinishedEvent,
     addCalculationsProcedure: addCalculationsProcedure,
@@ -747,6 +748,12 @@ function newUiObjectsFromNodes () {
       }
       case 'Process Definition': {
         createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (node.statusReport !== undefined) {
+          createUiObjectFromNode(node.statusReport, node, node)
+        }
+        if (node.executionFinishedEvent !== undefined) {
+          createUiObjectFromNode(node.executionFinishedEvent, node, node)
+        }
         if (node.calculations !== undefined) {
           createUiObjectFromNode(node.calculations, node, node)
         }
@@ -1005,15 +1012,22 @@ function newUiObjectsFromNodes () {
     return object
   }
 
+  function addMissingProcessDefinitionItems (node) {
+    addStatusReport(node)
+    addExecutionFinishedEvent(node)
+    addCalculationsProcedure(node)
+    addDataBuildingProcedure(node)
+  }
+
   function addStatusReport (node) {
     if (node.statusReport === undefined) {
       node.statusReport = {
         type: 'Status Report',
         name: 'New Status Report'
       }
-      createUiObject(node.calculations.type, node.calculations.name, node.calculations, node, node)
+      createUiObject(node.statusReport.type, node.statusReport.name, node.statusReport, node, node)
     }
-    return node.calculations
+    return node.statusReport
   }
 
   function addExecutionFinishedEvent (node) {
@@ -1022,9 +1036,9 @@ function newUiObjectsFromNodes () {
         type: 'Execution Finished Event',
         name: 'New Execution Finished Event'
       }
-      createUiObject(node.calculations.type, node.calculations.name, node.calculations, node, node)
+      createUiObject(node.executionFinishedEvent.type, node.executionFinishedEvent.name, node.executionFinishedEvent, node, node)
     }
-    return node.calculations
+    return node.executionFinishedEvent
   }
 
   function addCalculationsProcedure (node) {

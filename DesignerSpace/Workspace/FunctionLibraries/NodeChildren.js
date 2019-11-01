@@ -391,6 +391,18 @@ function newNodeChildren () {
       childrenCount: 0,
       childIndex: undefined
     }
+    if (parentNode.statusReport !== undefined) {
+      response.childrenCount++
+      if (parentNode.statusReport.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.executionFinishedEvent !== undefined) {
+      response.childrenCount++
+      if (parentNode.executionFinishedEvent.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     if (parentNode.calculations !== undefined) {
       response.childrenCount++
       if (parentNode.calculations.id === childNode.id) {

@@ -808,6 +808,14 @@ function newShortcutKeys () {
       }
       case 'Process Definition': {
         let child
+        child = getNodeByShortcutKey(node.statusReport, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeByShortcutKey(node.executionFinishedEvent, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
         child = getNodeByShortcutKey(node.calculations, searchingKey)
         if (child !== undefined) {
           return child

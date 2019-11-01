@@ -663,36 +663,23 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -80,
+            angle: -70,
             dontShowAtFullscreen: true
           }
         )
         menuItemsInitialValues.push(
           {
-            action: 'Add Calculations Procedure',
+            action: 'Add Missing Process Definition Items',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Calculations Procedure',
+            label: 'Add Missing Items',
             visible: true,
             relatedUiObject: 'Calculations Procedure',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -45
+            angle: -40
           }
           )
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Data Building Procedure',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Data Building Procedure',
-            visible: true,
-            relatedUiObject: 'Data Building Procedure',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -25
-          }
-            )
         menuItemsInitialValues.push(
           {
             action: 'Add Output Dataset',
@@ -703,7 +690,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -8
+            angle: -20
           }
                 )
         menuItemsInitialValues.push(
@@ -716,7 +703,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 8
+            angle: 0
           }
                     )
         menuItemsInitialValues.push(
@@ -729,7 +716,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 25
+            angle: 20
           }
                         )
         menuItemsInitialValues.push(
@@ -745,7 +732,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 45
+            angle: 40
           }
               )
         menuItemsInitialValues.push(
@@ -759,7 +746,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 80
+            angle: 70
           }
         )
         break

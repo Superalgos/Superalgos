@@ -20,4 +20,4 @@ First step is to download, install and start using the app. The release includes
 
 As you engage with other developers and the Core Team, we will get to know you and develop a relationship, so that you may later participate in core development tasks.
 
-Please join the [Develop Telkegram Group](https://t.me/superalgosdevelop), let us know about your progress and ask any questions you may have.
+Please join the [Develop Telegram Group](https://t.me/superalgosdevelop), let us know about your progress and ask any questions you may have.

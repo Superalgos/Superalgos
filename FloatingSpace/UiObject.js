@@ -1130,18 +1130,6 @@ function newUiObject () {
       browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
       browserCanvasContext.fill()
     }
-/*
-    let VISIBLE_RADIUS = thisObject.container.frame.radius * 1
-
-    browserCanvasContext.beginPath()
-    browserCanvasContext.arc(position.x, position.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
-    browserCanvasContext.closePath()
-    browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-    browserCanvasContext.lineWidth = 2
-    browserCanvasContext.setLineDash([2, 20])
-    browserCanvasContext.stroke()
-    browserCanvasContext.setLineDash([0, 0])
-*/
   }
 
   function drawText () {
@@ -1369,11 +1357,17 @@ function newUiObject () {
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
-
         browserCanvasContext.lineWidth = 10
-        browserCanvasContext.setLineDash([4, 20])
+        browserCanvasContext.setLineDash([4, 16])
+        browserCanvasContext.stroke()
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+        browserCanvasContext.lineWidth = 1
+        browserCanvasContext.setLineDash([20, 20])
         browserCanvasContext.stroke()
       }
 
@@ -1419,62 +1413,102 @@ function newUiObject () {
       }
 
       if (isReadyToChainAttach === true) {
-        VISIBLE_RADIUS = thisObject.container.frame.radius * 2 + readyToChainAttachDisplayCounter * 2
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 2.5 + readyToChainAttachDisplayCounter - readyToChainAttachDisplayCounter / 2
         let OPACITY = readyToChainAttachCounter / 10
 
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
-
         browserCanvasContext.lineWidth = 10
-        browserCanvasContext.setLineDash([readyToChainAttachDisplayCounter, readyToChainAttachDisplayCounter * 2])
+        browserCanvasContext.setLineDash([10, 90])
+        browserCanvasContext.stroke()
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
+        browserCanvasContext.lineWidth = 5
+        browserCanvasContext.setLineDash([5, 45])
+        browserCanvasContext.stroke()
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
+        browserCanvasContext.lineWidth = 1
+        browserCanvasContext.setLineDash([2, 8])
         browserCanvasContext.stroke()
       }
 
       if (isAvailableToChainAttach === true && isReadyToChainAttach === false) {
-        VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 2.5
         let OPACITY = availableToChainAttachCounter / 10
 
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', ' + OPACITY + ')'
-
         browserCanvasContext.lineWidth = 10
-        browserCanvasContext.setLineDash([8, 20])
+        browserCanvasContext.setLineDash([8, 32])
+        browserCanvasContext.stroke()
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', ' + OPACITY + ')'
+        browserCanvasContext.lineWidth = 2
+        browserCanvasContext.setLineDash([3, 5])
         browserCanvasContext.stroke()
       }
 
       if (isReadyToReferenceAttach === true) {
-        VISIBLE_RADIUS = thisObject.container.frame.radius * 2 + readyToReferenceAttachDisplayCounter * 2
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 2.5 + readyToReferenceAttachDisplayCounter - readyToReferenceAttachDisplayCounter / 2
         let OPACITY = readyToReferenceAttachCounter / 10
 
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
-
         browserCanvasContext.lineWidth = 10
-        browserCanvasContext.setLineDash([readyToReferenceAttachDisplayCounter, readyToReferenceAttachDisplayCounter * 2])
+        browserCanvasContext.setLineDash([10, 90])
+        browserCanvasContext.stroke()
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+        browserCanvasContext.lineWidth = 5
+        browserCanvasContext.setLineDash([5, 45])
+        browserCanvasContext.stroke()
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+        browserCanvasContext.lineWidth = 1
+        browserCanvasContext.setLineDash([2, 8])
         browserCanvasContext.stroke()
       }
 
       if (isAvailableToReferenceAttach === true && isReadyToReferenceAttach === false) {
-        VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
+        VISIBLE_RADIUS = thisObject.container.frame.radius * 2.5
         let OPACITY = availableToReferenceAttachCounter / 10
 
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + OPACITY + ')'
-
         browserCanvasContext.lineWidth = 10
-        browserCanvasContext.setLineDash([8, 20])
+        browserCanvasContext.setLineDash([8, 32])
+        browserCanvasContext.stroke()
+
+        browserCanvasContext.beginPath()
+        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+        browserCanvasContext.closePath()
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + OPACITY + ')'
+        browserCanvasContext.lineWidth = 2
+        browserCanvasContext.setLineDash([3, 5])
         browserCanvasContext.stroke()
       }
     }

@@ -138,7 +138,7 @@
             })
 
             for (let i = 1; i < 15; i++) {
-                let strategyImage = canvas.strategySpace.iconByPartType.get('Strategy');
+                let strategyImage = canvas.designerSpace.iconByUiObjectType.get('Strategy');   
                 strategyImages.push(strategyImage);
             }
 

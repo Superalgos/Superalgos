@@ -699,6 +699,10 @@ function newUiObject () {
         compatibleType = '->' + 'Execution Finished Event' + '->'
         compatibleSubType = undefined
         break
+      case 'Process Instance':
+        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleSubType = undefined
+        break
       default:
         return
     }
@@ -1047,7 +1051,16 @@ function newUiObject () {
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-      browserCanvasContext.setLineDash([3, 4])
+      browserCanvasContext.setLineDash([3, 47])
+      browserCanvasContext.lineWidth = 4
+      browserCanvasContext.stroke()
+      browserCanvasContext.setLineDash([0, 0])
+
+      browserCanvasContext.beginPath()
+      browserCanvasContext.moveTo(position.x, position.y)
+      browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
+      browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
+      browserCanvasContext.setLineDash([1, 9])
       browserCanvasContext.lineWidth = 2
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
@@ -1082,17 +1095,26 @@ function newUiObject () {
     targetPoint = canvas.floatingSpace.container.frame.frameThisPoint(targetPoint)
     position = thisObject.container.frame.frameThisPoint(position)
 
+    let LINE_STYLE = UI_COLOR.GREY
+
     if (thisObject.container.frame.radius > 1) {
             /* Target Line */
-
-      let LINE_STYLE = UI_COLOR.GREY
 
       browserCanvasContext.beginPath()
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-      browserCanvasContext.setLineDash([2, 20])
-      browserCanvasContext.lineWidth = 2
+      browserCanvasContext.setLineDash([1, 9])
+      browserCanvasContext.lineWidth = 1
+      browserCanvasContext.stroke()
+      browserCanvasContext.setLineDash([0, 0])
+
+      browserCanvasContext.beginPath()
+      browserCanvasContext.moveTo(position.x, position.y)
+      browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
+      browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
+      browserCanvasContext.setLineDash([1, 9, 2, 8, 3, 7, 4, 6, 5, 5, 0, 100])
+      browserCanvasContext.lineWidth = 4
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
     }
@@ -1108,6 +1130,18 @@ function newUiObject () {
       browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
       browserCanvasContext.fill()
     }
+/*
+    let VISIBLE_RADIUS = thisObject.container.frame.radius * 1
+
+    browserCanvasContext.beginPath()
+    browserCanvasContext.arc(position.x, position.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+    browserCanvasContext.closePath()
+    browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
+    browserCanvasContext.lineWidth = 2
+    browserCanvasContext.setLineDash([2, 20])
+    browserCanvasContext.stroke()
+    browserCanvasContext.setLineDash([0, 0])
+*/
   }
 
   function drawText () {
@@ -1477,3 +1511,4 @@ function newUiObject () {
     }
   }
 }
+

@@ -204,6 +204,13 @@ function newCanvas () {
       }
     }
 
+    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true) { // Dev Tool
+      if (nodeOnFocus !== undefined) {
+        console.log(nodeOnFocus)
+      }
+      return
+    }
+
     if (event.altKey === true && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
       return

@@ -40,6 +40,10 @@ function newReferenceAttachDetach () {
         completeDetachment(node)
         return
       }
+      case 'Process Instance': {
+        completeDetachment(node)
+        return
+      }
     }
   }
 
@@ -74,6 +78,10 @@ function newReferenceAttachDetach () {
       }
         break
       case 'Execution Started Event': {
+        completeAttachment(node, attachToNode)
+      }
+        break
+      case 'Process Instance': {
         completeAttachment(node, attachToNode)
       }
         break

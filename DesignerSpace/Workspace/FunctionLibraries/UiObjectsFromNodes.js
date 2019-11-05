@@ -560,6 +560,15 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Process Instance': {
+        let referenceParent
+        if (mapOfReferenceChildren !== undefined) {
+          if (node.savedPayload.referenceParent !== undefined) {
+            if (node.savedPayload.referenceParent.id !== undefined) {
+              mapOfReferenceChildren.set(node.id, node)
+              referenceParent = node.savedPayload.referenceParent
+            }
+          }
+        }
         if (parentNode !== undefined) {
           switch (parentNode.type) {
             case 'Sensor Bot Instance': {
@@ -579,6 +588,11 @@ function newUiObjectsFromNodes () {
         createUiObject('Process Instance', node.name, node, parentNode, chainParent, 'Process Instance')
         if (node.session !== undefined) {
           createUiObjectFromNode(node.session, node, node)
+        }
+        if (referenceParent !== undefined) {
+          node.savedPayload = {
+            referenceParent: referenceParent
+          }
         }
         return
       }
@@ -748,6 +762,14 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Process Definition': {
+        let referenceChildren
+        if (mapOfReferenceParents !== undefined) {
+          if (node.savedPayload.referenceChildren !== undefined) {
+            referenceChildren = []
+            mapOfReferenceParents.set(node.id, node)
+            referenceChildren = node.savedPayload.referenceChildren
+          }
+        }
         createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
         if (node.statusReport !== undefined) {
           createUiObjectFromNode(node.statusReport, node, node)
@@ -775,6 +797,11 @@ function newUiObjectsFromNodes () {
         for (let m = 0; m < node.dataDependencies.length; m++) {
           let dataDependency = node.dataDependencies[m]
           createUiObjectFromNode(dataDependency, node, node)
+        }
+        if (referenceChildren !== undefined) {
+          node.savedPayload = {
+            referenceChildren: referenceChildren
+          }
         }
         return
       }
@@ -1063,7 +1090,8 @@ function newUiObjectsFromNodes () {
       code: '{}',
       outputDatasets: [],
       statusDependencies: [],
-      dataDependencies: []
+      dataDependencies: [],
+      referenceChildren: []
     }
     if (node.processes === undefined) {
       node.processes = []

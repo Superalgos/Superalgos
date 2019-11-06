@@ -42,7 +42,7 @@ function newDesignerSpace () {
       ['Definition', 'text'],
       ['Network', 'network'],
       ['Network Node', 'network-node'],
-      ['Social Bots', 'support'],
+      ['Social Bots', 'social-bot'],
       ['Telegram Bot', 'paper-plane'],
       ['Announcement', 'promotion'],
       ['Layer Manager', 'layer-manager'],
@@ -95,11 +95,11 @@ function newDesignerSpace () {
       ['Indicator Bot', 'bot-indicator'],
       ['Trading Bot', 'bot-trading'],
       ['Process Definition', 'process-definition'],
-      ['Process Output', 'image'],
-      ['Process Dependencies', 'headphones'],
-      ['Status Report', 'text'],
-      ['Execution Started Event', 'pantone'],
-      ['Execution Finished Event', 'pantone'],
+      ['Process Output', 'process-output'],
+      ['Process Dependencies', 'process-dependencies'],
+      ['Status Report', 'status-report'],
+      ['Execution Started Event', 'execution-started-event'],
+      ['Execution Finished Event', 'execution-finished-event'],
       ['Calculations Procedure', 'calculations-procedure'],
       ['Data Building Procedure', 'data-building-procedure'],
       ['Procedure Initialization', 'procedure-initialization'],
@@ -223,7 +223,13 @@ function newDesignerSpace () {
       'record-definition',
       'plotter',
       'plotter-panel',
-      'dataset-definition'
+      'dataset-definition',
+      'status-report',
+      'execution-finished-event',
+      'process-dependencies',
+      'process-output',
+      'social-bot',
+      'execution-started-event'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

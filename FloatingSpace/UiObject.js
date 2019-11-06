@@ -1081,6 +1081,7 @@ function newUiObject () {
 
   function drawReferenceLine () {
     if (thisObject.payload.referenceParent === undefined) { return }
+    if (thisObject.payload.referenceParent.payload.floatingObject.isParentCollapsed === true) { return }
 
     let targetPoint = {
       x: thisObject.payload.referenceParent.payload.position.x,
@@ -1545,4 +1546,3 @@ function newUiObject () {
     }
   }
 }
-

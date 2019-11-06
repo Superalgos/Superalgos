@@ -61,6 +61,16 @@ function newChainAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
+      case 'Process Output': {
+        node.payload.parentNode.processOutput = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Process Dependencies': {
+        node.payload.parentNode.processDependencies = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
       case 'Status Report': {
         node.payload.parentNode.statusReport = undefined
         completeDetachment(node, rootNodes)
@@ -569,6 +579,20 @@ function newChainAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.processes.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Process Output': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.processOutput = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Process Dependencies': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.processDependencies = node
         completeAttachment(node, rootNodes)
       }
         break

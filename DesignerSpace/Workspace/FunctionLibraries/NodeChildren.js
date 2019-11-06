@@ -29,6 +29,12 @@ function newNodeChildren () {
       case 'Process Definition': {
         return countChildrenProcessDefinition(parentNode, childNode)
       }
+      case 'Process Output': {
+        return countChildrenProcessOutput(parentNode, childNode)
+      }
+      case 'Process Dependencies': {
+        return countChildrenProcessDependencies(parentNode, childNode)
+      }
       case 'Status Rerport': {
         return countChildrenStatusRerport(parentNode, childNode)
       }
@@ -394,6 +400,18 @@ function newNodeChildren () {
       childrenCount: 0,
       childIndex: undefined
     }
+    if (parentNode.processOutput !== undefined) {
+      response.childrenCount++
+      if (parentNode.processOutput.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.processDependencies !== undefined) {
+      response.childrenCount++
+      if (parentNode.processDependencies.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
     if (parentNode.statusReport !== undefined) {
       response.childrenCount++
       if (parentNode.statusReport.id === childNode.id) {
@@ -424,7 +442,14 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
+    return response
+  }
 
+  function countChildrenProcessOutput (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
     if (parentNode.outputDatasets !== undefined) {
       for (let i = 0; i < parentNode.outputDatasets.length; i++) {
         let child = parentNode.outputDatasets[i]
@@ -433,6 +458,14 @@ function newNodeChildren () {
           response.childIndex = response.childrenCount
         }
       }
+    }
+    return response
+  }
+
+  function countChildrenProcessDependencies (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
     }
     if (parentNode.statusDependencies !== undefined) {
       for (let i = 0; i < parentNode.statusDependencies.length; i++) {

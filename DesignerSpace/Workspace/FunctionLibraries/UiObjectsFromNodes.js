@@ -8,6 +8,8 @@ function newUiObjectsFromNodes () {
     addTradingBot: addTradingBot,
     addProcessDefinition: addProcessDefinition,
     addMissingProcessDefinitionItems: addMissingProcessDefinitionItems,
+    addProcessOutput: addProcessOutput,
+    addProcessDependencies: addProcessDependencies,
     addStatusReport: addStatusReport,
     addExecutionStartedEvent: addExecutionStartedEvent,
     addExecutionFinishedEvent: addExecutionFinishedEvent,
@@ -771,6 +773,12 @@ function newUiObjectsFromNodes () {
           }
         }
         createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
+        if (node.processOutput !== undefined) {
+          createUiObjectFromNode(node.processOutput, node, node)
+        }
+        if (node.processDependencies !== undefined) {
+          createUiObjectFromNode(node.processDependencies, node, node)
+        }
         if (node.statusReport !== undefined) {
           createUiObjectFromNode(node.statusReport, node, node)
         }
@@ -786,10 +794,23 @@ function newUiObjectsFromNodes () {
         if (node.dataBuilding !== undefined) {
           createUiObjectFromNode(node.dataBuilding, node, node)
         }
+        if (referenceChildren !== undefined) {
+          node.savedPayload = {
+            referenceChildren: referenceChildren
+          }
+        }
+        return
+      }
+      case 'Process Output': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
         for (let m = 0; m < node.outputDatasets.length; m++) {
           let outputDataset = node.outputDatasets[m]
           createUiObjectFromNode(outputDataset, node, node)
         }
+        return
+      }
+      case 'Process Dependencies': {
+        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type)
         for (let m = 0; m < node.statusDependencies.length; m++) {
           let statusDependency = node.statusDependencies[m]
           createUiObjectFromNode(statusDependency, node, node)
@@ -797,11 +818,6 @@ function newUiObjectsFromNodes () {
         for (let m = 0; m < node.dataDependencies.length; m++) {
           let dataDependency = node.dataDependencies[m]
           createUiObjectFromNode(dataDependency, node, node)
-        }
-        if (referenceChildren !== undefined) {
-          node.savedPayload = {
-            referenceChildren: referenceChildren
-          }
         }
         return
       }
@@ -1088,9 +1104,6 @@ function newUiObjectsFromNodes () {
       type: 'Process Definition',
       name: 'New Process Definition',
       code: '{}',
-      outputDatasets: [],
-      statusDependencies: [],
-      dataDependencies: [],
       referenceChildren: []
     }
     if (node.processes === undefined) {
@@ -1103,11 +1116,38 @@ function newUiObjectsFromNodes () {
   }
 
   function addMissingProcessDefinitionItems (node) {
+    addProcessOutput(node)
+    addProcessDependencies(node)
     addStatusReport(node)
     addExecutionStartedEvent(node)
     addExecutionFinishedEvent(node)
     addCalculationsProcedure(node)
     addDataBuildingProcedure(node)
+  }
+
+  function addProcessOutput (node) {
+    if (node.processOutput === undefined) {
+      node.processOutput = {
+        type: 'Process Output',
+        name: 'New Process Output',
+        outputDatasets: []
+      }
+      createUiObject(node.processOutput.type, node.processOutput.name, node.processOutput, node, node)
+    }
+    return node.processOutput
+  }
+
+  function addProcessDependencies (node) {
+    if (node.processDependencies === undefined) {
+      node.processDependencies = {
+        type: 'Process Dependencies',
+        name: 'New Process Dependencies',
+        statusDependencies: [],
+        dataDependencies: []
+      }
+      createUiObject(node.processDependencies.type, node.processDependencies.name, node.processDependencies, node, node)
+    }
+    return node.processDependencies
   }
 
   function addStatusReport (node) {

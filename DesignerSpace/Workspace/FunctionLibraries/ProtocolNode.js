@@ -1171,14 +1171,28 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
+          processOutput: getProtocolNode(node.processOutput, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
+          processDependencies: getProtocolNode(node.processDependencies, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
           statusReport: getProtocolNode(node.statusReport, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
           executionStartedEvent: getProtocolNode(node.executionStartedEvent, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
           executionFinishedEvent: getProtocolNode(node.executionFinishedEvent, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
           calculations: getProtocolNode(node.calculations, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
-          dataBuilding: getProtocolNode(node.dataBuilding, removePersonalData, parseCode, includeIds, includePayload, includeReferences),
-          outputDatasets: [],
-          statusDependencies: [],
-          dataDependencies: []
+          dataBuilding: getProtocolNode(node.dataBuilding, removePersonalData, parseCode, includeIds, includePayload, includeReferences)
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node, includeReferences)
+        }
+        return object
+      }
+      case 'Process Output': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          outputDatasets: []
         }
         if (node.outputDatasets !== undefined) {
           for (let m = 0; m < node.outputDatasets.length; m++) {
@@ -1187,6 +1201,22 @@ function newProtocolNode () {
               object.outputDatasets.push(outputDataset)
             }
           }
+        }
+        if (includeIds) {
+          object.id = node.id
+        }
+        if (includePayload) {
+          object.savedPayload = getSavedPayload(node, includeReferences)
+        }
+        return object
+      }
+      case 'Process Dependencies': {
+        let object = {
+          type: node.type,
+          subType: node.subType,
+          name: node.name,
+          statusDependencies: [],
+          dataDependencies: []
         }
         if (node.statusDependencies !== undefined) {
           for (let m = 0; m < node.statusDependencies.length; m++) {

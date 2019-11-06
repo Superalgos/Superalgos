@@ -115,6 +115,14 @@ function newNodeDeleter () {
             deleteProcessDefinition(rootNode, rootNodes)
             break
           }
+          case 'Process Output': {
+            deleteProcessOutput(rootNode, rootNodes)
+            break
+          }
+          case 'Process Dependencies': {
+            deleteProcessDependencies(rootNode, rootNodes)
+            break
+          }
           case 'Status Report': {
             deleteStatusReport(rootNode, rootNodes)
             break
@@ -566,6 +574,14 @@ function newNodeDeleter () {
       }
     }
 
+    if (node.processOutput !== undefined) {
+      deleteProcessOutput(node.processOutput, rootNodes)
+    }
+
+    if (node.processDependencies !== undefined) {
+      deleteProcessDependencies(node.processDependencies, rootNodes)
+    }
+
     if (node.statusReport !== undefined) {
       deleteStatusReport(node.statusReport, rootNodes)
     }
@@ -586,11 +602,27 @@ function newNodeDeleter () {
       deleteDataBuildingProcedure(node.dataBuilding, rootNodes)
     }
 
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteProcessOutput (node, rootNodes) {
+    let payload = node.payload
+
     if (node.outputDatasets !== undefined) {
       while (node.outputDatasets.length > 0) {
         deleteOutputDataset(node.outputDatasets[0], rootNodes)
       }
     }
+
+    completeDeletion(node, rootNodes)
+    destroyUiObject(node)
+    cleanNode(node)
+  }
+
+  function deleteProcessDependencies (node, rootNodes) {
+    let payload = node.payload
 
     if (node.statusDependencies !== undefined) {
       while (node.statusDependencies.length > 0) {

@@ -346,6 +346,16 @@ function newWorkspace () {
           functionLibraryUiObjectsFromNodes.addMissingProcessDefinitionItems(payload.node)
         }
         break
+      case 'Add Process Output':
+        {
+          functionLibraryUiObjectsFromNodes.addProcessOutput(payload.node)
+        }
+        break
+      case 'Add Process Dependencies':
+        {
+          functionLibraryUiObjectsFromNodes.addProcessDependencies(payload.node)
+        }
+        break
       case 'Add Status Report':
         {
           functionLibraryUiObjectsFromNodes.addStatusReport(payload.node)
@@ -634,6 +644,14 @@ function newWorkspace () {
       }
       case 'Delete Process Definition': {
         functionLibraryNodeDeleter.deleteProcessDefinition(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Process Output': {
+        functionLibraryNodeDeleter.deleteProcessOutput(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Process Dependencies': {
+        functionLibraryNodeDeleter.deleteProcessDependencies(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Status Report': {

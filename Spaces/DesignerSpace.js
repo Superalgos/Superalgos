@@ -95,6 +95,8 @@ function newDesignerSpace () {
       ['Indicator Bot', 'bot-indicator'],
       ['Trading Bot', 'bot-trading'],
       ['Process Definition', 'process-definition'],
+      ['Process Output', 'image'],
+      ['Process Dependencies', 'headphones'],
       ['Status Report', 'text'],
       ['Execution Started Event', 'pantone'],
       ['Execution Finished Event', 'pantone'],

@@ -228,6 +228,14 @@ function newUiObject () {
         compatibleType = '->' + 'Sensor Bot' + '->' + 'Indicator Bot' + '->' + 'Trading Bot' + '->'
         compatibleSubType = undefined
         break
+      case 'Process Output':
+        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleSubType = undefined
+        break
+      case 'Process Dependencies':
+        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleSubType = undefined
+        break
       case 'Status Report':
         compatibleType = '->' + 'Process Definition' + '->'
         compatibleSubType = undefined
@@ -257,15 +265,15 @@ function newUiObject () {
         compatibleSubType = undefined
         break
       case 'Output Dataset':
-        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleType = '->' + 'Process Output' + '->'
         compatibleSubType = undefined
         break
       case 'Status Dependency':
-        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleType = '->' + 'Process Dependencies' + '->'
         compatibleSubType = undefined
         break
       case 'Data Dependency':
-        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleType = '->' + 'Process Dependencies' + '->'
         compatibleSubType = undefined
         break
       case 'Product Definition':

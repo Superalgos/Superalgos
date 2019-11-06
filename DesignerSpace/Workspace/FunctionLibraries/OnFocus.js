@@ -824,6 +824,14 @@ function newOnFocus () {
       }
       case 'Process Definition': {
         let child
+        child = getNodeThatIsOnFocus(node.processOutput)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeThatIsOnFocus(node.processDependencies)
+        if (child !== undefined) {
+          return child
+        }
         child = getNodeThatIsOnFocus(node.statusReport)
         if (child !== undefined) {
           return child
@@ -844,12 +852,28 @@ function newOnFocus () {
         if (child !== undefined) {
           return child
         }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Process Output': {
+        let child
         for (let m = 0; m < node.outputDatasets.length; m++) {
           child = getNodeThatIsOnFocus(node.outputDatasets[m])
           if (child !== undefined) {
             return child
           }
         }
+        if (node.payload.uiObject.isOnFocus === true) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Process Dependencies': {
+        let child
         for (let m = 0; m < node.statusDependencies.length; m++) {
           child = getNodeThatIsOnFocus(node.statusDependencies[m])
           if (child !== undefined) {

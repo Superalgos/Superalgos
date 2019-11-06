@@ -663,7 +663,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -70,
+            angle: -60,
             dontShowAtFullscreen: true
           }
         )
@@ -677,48 +677,9 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
-          }
-          )
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Output Dataset',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Output Dataset',
-            visible: true,
-            relatedUiObject: 'Output Dataset',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
             angle: -20
           }
-                )
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Status Dependency',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Status Dependency',
-            visible: true,
-            relatedUiObject: 'Status Dependency',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 0
-          }
-                    )
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Data Dependency',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Data Dependency',
-            visible: true,
-            relatedUiObject: 'Data Dependency',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 20
-          }
-                        )
+          )
         menuItemsInitialValues.push(
           {
             action: 'Delete Process Definition',
@@ -732,7 +693,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 20
           }
               )
         menuItemsInitialValues.push(
@@ -746,7 +707,114 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 70
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Process Output': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Output Dataset',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Output Dataset',
+            visible: true,
+            relatedUiObject: 'Output Dataset',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30
+          }
+                )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Process Output',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Process Output',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 30
+          }
+        )
+        break
+      }
+      case 'Process Dependencies': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Status Dependency',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Status Dependency',
+            visible: true,
+            relatedUiObject: 'Status Dependency',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+                    )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Data Dependency',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Data Dependency',
+            visible: true,
+            relatedUiObject: 'Data Dependency',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+                        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Process Dependencies',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Process Dependencies',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
           }
         )
         break
@@ -4488,7 +4556,15 @@ function newUiObjectConstructor () {
         break
       }
       case 'Process Definition': {
-        level_0()
+        level_2()
+        break
+      }
+      case 'Process Output': {
+        level_3()
+        break
+      }
+      case 'Process Dependencies': {
+        level_3()
         break
       }
       case 'Status Report': {

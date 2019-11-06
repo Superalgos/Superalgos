@@ -808,6 +808,14 @@ function newShortcutKeys () {
       }
       case 'Process Definition': {
         let child
+        child = getNodeByShortcutKey(node.processOutput, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeByShortcutKey(node.processDependencies, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
         child = getNodeByShortcutKey(node.statusReport, searchingKey)
         if (child !== undefined) {
           return child
@@ -828,12 +836,28 @@ function newShortcutKeys () {
         if (child !== undefined) {
           return child
         }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Process Output': {
+        let child
         for (let m = 0; m < node.outputDatasets.length; m++) {
           child = getNodeByShortcutKey(node.outputDatasets[m], searchingKey)
           if (child !== undefined) {
             return child
           }
         }
+        if (node.payload.uiObject.shortcutKey === searchingKey) {
+          return node
+        } else {
+          return
+        }
+      }
+      case 'Process Dependencies': {
+        let child
         for (let m = 0; m < node.statusDependencies.length; m++) {
           child = getNodeByShortcutKey(node.statusDependencies[m], searchingKey)
           if (child !== undefined) {

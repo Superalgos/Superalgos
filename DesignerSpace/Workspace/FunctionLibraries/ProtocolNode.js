@@ -1194,6 +1194,9 @@ function newProtocolNode () {
           calculations: getProtocolNode(node.calculations, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent),
           dataBuilding: getProtocolNode(node.dataBuilding, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent)
         }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
+        }
         if (includeIds) {
           object.id = node.id
         }
@@ -1432,6 +1435,9 @@ function newProtocolNode () {
             }
           }
         }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
+        }
         if (includeIds) {
           object.id = node.id
         }
@@ -1471,6 +1477,9 @@ function newProtocolNode () {
           code: node.code,
           formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent)
         }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
+        }
         if (includeIds) {
           object.id = node.id
         }
@@ -1485,6 +1494,9 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code
+        }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
         }
         if (includeIds) {
           object.id = node.id

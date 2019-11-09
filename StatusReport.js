@@ -59,43 +59,7 @@
                 timePath = "/" + year + "/" + month;
             }
 
-            if (owner.waitUntilNextUpdate === true) {
-
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> waitUntilNextUpdate -> Entering Code Block."); }
-
-                /* This forces this process to wait until the process that this one depends on, updates its status report. */
-
-                let extraCallerId = ''
-                if (pMonth) { extraCallerId = extraCallerId + '-' + pMonth }
-                if (pYear) { extraCallerId = extraCallerId + '-' + pYear }
-
-                let key = owner.devTeam + "-" + owner.bot + "-" + owner.process
-                let callerId = bot.devTeam + "-" + bot.codeName + "-" + bot.process + extraCallerId
-
-                let subscriptionIdStatusReport
-
-                global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Status Report Updated', undefined, callerId, responseCallBack, eventsCallBack)
-
-                function responseCallBack(message) {
-                    if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> responseCallBack -> message = " + JSON.stringify(message))
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    } else {
-                        subscriptionIdStatusReport = message.eventSubscriptionId
-                    }
-                }
-
-                function eventsCallBack() {
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> eventsCallBack -> Entering function."); }
-
-                    /* We continue the normal flow after we learn the dependent process has updated its status report. */
-                    global.SYSTEM_EVENT_HANDLER.stopListening(key, 'Status Report Updated', subscriptionIdStatusReport)
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                }
-            } else {
-                /* In this case, the Status Report does not depends on a process which needs to wait for. */
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
-            }
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);

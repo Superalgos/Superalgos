@@ -126,6 +126,10 @@ exports.newDebugLog = function newDebugLog() {
 
             if (thisObject.bot === undefined) { return; }
 
+            if (pModule === "") { // For debugging purposes
+                console.log(pMessage)
+            }
+
             let newDate = new Date();
             newDate = newDate.toISOString();
 

@@ -92,6 +92,13 @@
                     logErrors: true,
                     logContent: false,
                     intensiveLogging: false
+                },
+                "Process Execution Events": {
+                    logInfo: true,
+                    logWarnings: false,
+                    logErrors: true,
+                    logContent: false,
+                    intensiveLogging: false
                 }
             };
 

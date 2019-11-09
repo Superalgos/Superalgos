@@ -29,7 +29,7 @@ function newTaskFunctions () {
     let event = {
       taskId: node.id,
       taskName: node.name,
-      definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, true)) // <-  We need to do this workaround in order no to send unescaped charactars to the taskManager.
+      definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, true, true)) // <-  We need to do this workaround in order no to send unescaped charactars to the taskManager.
     }
     systemEventHandler.raiseEvent('Task Manager', 'Run Task', event)
   }

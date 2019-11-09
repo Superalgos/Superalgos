@@ -14,6 +14,7 @@ function newNodeDeleter () {
     deleteCalculationsProcedure: deleteCalculationsProcedure,
     deleteDataBuildingProcedure: deleteDataBuildingProcedure,
     deleteProcedureInitialization: deleteProcedureInitialization,
+    deleteProcessDependencies: deleteProcessDependencies,
     deleteProcedureLoop: deleteProcedureLoop,
     deleteOutputDataset: deleteOutputDataset,
     deleteStatusDependency: deleteStatusDependency,

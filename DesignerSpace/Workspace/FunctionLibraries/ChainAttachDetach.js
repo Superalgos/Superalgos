@@ -609,6 +609,7 @@ function newChainAttachDetach () {
         node.payload.parentNode.executionStartedEvent = node
         completeAttachment(node, rootNodes)
       }
+        break
       case 'Execution Finished Event': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode

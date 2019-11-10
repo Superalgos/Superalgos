@@ -217,8 +217,8 @@
                                 let event = {
                                     lastFile: thisObject.file.lastFile
                                 }
+                                global.SYSTEM_EVENT_HANDLER.createEventHandler(key, 'Dataset Updated')
                                 global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Dataset Updated', event)
-
                             }
                         }
                     }

@@ -104,6 +104,7 @@
                         let event = {
                             err: global.DEFAULT_OK_RESPONSE
                         }
+                        global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Started')
                         global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
                         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key + " Month: " + month + " Year: " + year + " Finished."); }
@@ -117,6 +118,7 @@
                 let event = {
                     err: global.DEFAULT_OK_RESPONSE
                 }
+                global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Started')
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> " + currentProcessKey + " Process Execution Started Month: " + month + " Year: " + year); }
@@ -140,6 +142,7 @@
                 err: global.DEFAULT_OK_RESPONSE
             }
 
+            global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Finished')
             global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished Month: " + month + " Year: " + year); }
 

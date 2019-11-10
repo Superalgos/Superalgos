@@ -125,7 +125,7 @@
                         Here we get the status report from the bot who knows which is the end of the market.
                     */
 
-                    let botWhoKnowsTheEndOfTheMarket = statusDependencies.config[processConfig.framework.endDate.takeItFromStatusDependency];
+                    let botWhoKnowsTheEndOfTheMarket = statusDependencies.nodeArray[processConfig.framework.endDate.takeItFromStatusDependency];
 
                     reportKey = botWhoKnowsTheEndOfTheMarket.devTeam + "-" + botWhoKnowsTheEndOfTheMarket.bot + "-" + botWhoKnowsTheEndOfTheMarket.process + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }

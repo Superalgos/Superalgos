@@ -128,7 +128,7 @@
                             We look first for the bot who knows the begining of the marke in order to get when the market starts.
                         */
 
-                        let botWhoKnowsTheBeginingOfTheMarket = statusDependencies.config[processConfig.framework.startDate.takeItFromStatusDependency];
+                        let botWhoKnowsTheBeginingOfTheMarket = statusDependencies.nodeArray[processConfig.framework.startDate.takeItFromStatusDependency];
 
                         reportKey = botWhoKnowsTheBeginingOfTheMarket.devTeam + "-" + botWhoKnowsTheBeginingOfTheMarket.bot + "-" + botWhoKnowsTheBeginingOfTheMarket.process + "-" + "dataSet.V1";
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
@@ -178,7 +178,7 @@
                           Here we get the status report from the bot who knows which is the end of the market.
                         */
 
-                        let botWhoKnowsTheEndOfTheMarket = statusDependencies.config[processConfig.framework.endDate.takeItFromStatusDependency];
+                        let botWhoKnowsTheEndOfTheMarket = statusDependencies.nodeArray[processConfig.framework.endDate.takeItFromStatusDependency];
 
                         reportKey = botWhoKnowsTheEndOfTheMarket.devTeam + "-" + botWhoKnowsTheEndOfTheMarket.bot + "-" + botWhoKnowsTheEndOfTheMarket.process + "-" + "dataSet.V1";
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }

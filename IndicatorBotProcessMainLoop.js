@@ -308,7 +308,7 @@
 
                             statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, logger, STATUS_REPORT, UTILITIES);
 
-                            statusDependencies.initialize(processConfig.statusDependencies, pMonth, pYear, onInizialized);
+                            statusDependencies.initialize(pMonth, pYear, onInizialized);
 
                             function onInizialized(err) {
 

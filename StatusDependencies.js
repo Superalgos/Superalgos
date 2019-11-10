@@ -2,11 +2,12 @@
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-
     const MODULE_NAME = "Status Dependencies";
 
+    let bot = BOT 
+
     let thisObject = {
-        config: undefined,
+        nodeArray: undefined,
         statusReports: new Map(),
         initialize: initialize,
         keys: []
@@ -14,28 +15,38 @@
 
     return thisObject;
 
-    function initialize(pStatusDependenciesConfig, pMonth, pYear, callBackFunction) {
+    function initialize(pMonth, pYear, callBackFunction) {
 
         try {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            thisObject.config = pStatusDependenciesConfig;
+            /* Basic Valdidations */
+            if (bot.processNode.referenceParent.processDependencies !== undefined) {
+                if (bot.processNode.referenceParent.processDependencies.statusDependencies !== undefined) {
+                    thisObject.nodeArray = bot.processNode.referenceParent.processDependencies.statusDependencies
+                } else {
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have status dependencies at all.");
+                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+                    return
+                }
+            } else {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have process dependencies, which means not status dependencies.");
+                callBackFunction(global.DEFAULT_OK_RESPONSE)
+                return
+            }
 
-            /*
+            /*For each dependency we will initialize the status report, and load it as part of this initialization process.*/
 
-            For each dependency declared at the bot config, we will initialize the status report, and load it as part of this initialization process.
-
-            */
             let alreadyCalledBack = false;
             let loadCount = 0;
 
-            for (let i = 0; i < pStatusDependenciesConfig.length; i++) {
+            for (let i = 0; i < thisObject.nodeArray.length; i++) {
 
                 let statusReportModule = STATUS_REPORT.newStatusReport(BOT, logger, UTILITIES);
 
                 logger.write(MODULE_NAME, "[INFO] initialize -> onInitilized -> Initializing Status Report # " + (i + 1));
-                statusReportModule.initialize(pStatusDependenciesConfig[i], pMonth, pYear, onInitilized);
+                statusReportModule.initialize(thisObject.nodeArray[i], pMonth, pYear, onInitilized);
 
                 function onInitilized(err) {
 
@@ -66,8 +77,7 @@
                         switch (err.message) {
                             case global.DEFAULT_OK_RESPONSE.message: {
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onLoad -> Execution finished well. -> bot = " + pStatusDependenciesConfig[i].bot); }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onLoad -> Execution finished well. -> process = " + pStatusDependenciesConfig[i].process); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onLoad -> Execution finished well. -> Status Dependency = " + JSON.stringify(thisObject.nodeArray[i])) }
 
                                 addReport();
                                 return;
@@ -75,8 +85,8 @@
                             case "Status Report was never created.": {
 
                                 logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> err = " + err.stack);
-                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> bot = " + pStatusDependenciesConfig[i].bot);
-                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> process = " + pStatusDependenciesConfig[i].process);
+                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> Status Dependency = " + JSON.stringify(thisObject.nodeArray[i]))
+
                                 addReport();
                                 return;
                             }
@@ -84,8 +94,8 @@
                             case "Status Report is corrupt.": {
 
                                 logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> err = " + err.stack);
-                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> bot = " + pStatusDependenciesConfig[i].bot);
-                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> process = " + pStatusDependenciesConfig[i].process);
+                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> Status Dependency = " + JSON.stringify(thisObject.nodeArray[i]))
+
                                 addReport();
                                 return;
                             }
@@ -117,10 +127,10 @@
 
                     let key;
 
-                    if (pStatusDependenciesConfig[i].dataSetSection === "Month") {
-                        key = pStatusDependenciesConfig[i].devTeam + "-" + pStatusDependenciesConfig[i].bot + "-" + pStatusDependenciesConfig[i].process + "-" + pStatusDependenciesConfig[i].dataSetVersion + "-" + pYear + "-" + pMonth;
+                    if (thisObject.nodeArray[i].processRunMonthly === true) {
+                        key = thisObject.nodeArray[i].devTeam + "-" + thisObject.nodeArray[i].bot + "-" + thisObject.nodeArray[i].process + "-" + thisObject.nodeArray[i].dataSetVersion + "-" + pYear + "-" + pMonth;
                     } else {
-                        key = pStatusDependenciesConfig[i].devTeam + "-" + pStatusDependenciesConfig[i].bot + "-" + pStatusDependenciesConfig[i].process + "-" + pStatusDependenciesConfig[i].dataSetVersion;
+                        key = thisObject.nodeArray[i].devTeam + "-" + thisObject.nodeArray[i].bot + "-" + thisObject.nodeArray[i].process + "-" + thisObject.nodeArray[i].dataSetVersion;
                     }
 
                     thisObject.keys.push(key);
@@ -128,7 +138,7 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Report added to Map. -> key = " + key); }
 
-                    if (loadCount === pStatusDependenciesConfig.length) {
+                    if (loadCount === thisObject.nodeArray.length) {
                         if (alreadyCalledBack === false) {
                             alreadyCalledBack = true
                             callBackFunction(global.DEFAULT_OK_RESPONSE);

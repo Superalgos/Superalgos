@@ -192,7 +192,7 @@
 
                             statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, logger, STATUS_REPORT, UTILITIES);
 
-                            statusDependencies.initialize(processConfig.statusDependencies, undefined, undefined, onInizialized);
+                            statusDependencies.initialize(undefined, undefined, onInizialized);
 
                             function onInizialized(err) {
 

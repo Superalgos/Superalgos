@@ -44,18 +44,85 @@
         try {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            logger.fileName = MODULE_NAME + "." + pOwner.bot + "." + pOwner.process;
-
             owner = pOwner;
             month = pMonth;
             year = pYear;
 
-            if (bot.SESSION !== undefined && pOwner.type === "Trading Bot Instance") {
+            /* Some very basic validations that we have all the information needed. */
+            if (owner.referenceParent === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Status Dependency without Reference Parent. Status Dependency = " + JSON.stringify(owner));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (owner.referenceParent.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Status Report not attached to a Process Definition. Status Report = " + JSON.stringify(owner.referenceParent));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (owner.referenceParent.parentNode.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Process Definition witn no codeName defined. Process Definition = " + JSON.stringify(owner.referenceParent.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (owner.referenceParent.parentNode.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Process Definition not attached to a Bot. Process Definition = " + JSON.stringify(owner.referenceParent.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (owner.referenceParent.parentNode.parentNode.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(owner.referenceParent.parentNode.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (owner.referenceParent.parentNode.parentNode.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Team. Bot = " + JSON.stringify(owner.referenceParent.parentNode.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (owner.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Team witn no codeName defined. Team = " + JSON.stringify(owner.referenceParent.parentNode.parentNode.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            /* Simplifying the access to basic info */
+            owner.bot = owner.referenceParent.parentNode.parentNode.code.codeName
+            owner.process = owner.referenceParent.parentNode.code.codeName
+            owner.type = owner.referenceParent.parentNode.parentNode.type
+            owner.devTeam = owner.referenceParent.parentNode.parentNode.parentNode.code.codeName
+
+            /* Let's see if the process is run monthly or not. */
+            if (owner.referenceParent.parentNode.code.startMode !== undefined) {
+                if (owner.referenceParent.parentNode.code.startMode.allMonths !== undefined) {
+                    if (owner.referenceParent.parentNode.code.startMode.oneMonth !== undefined) {
+                        if (owner.referenceParent.parentNode.code.startMode.allMonths.run === "true" || owner.referenceParent.parentNode.code.startMode.oneMonth.run === "true") {
+                            owner.processRunMonthly = true
+                        }
+                    }
+                }
+            }
+             
+            /* This stuff is still hardcoded and unresolved. */
+            owner.botVersion = {
+                "major": 1,
+                "minor": 0
+            }
+            owner.dataSetVersion = "dataSet.V1"
+
+            logger.fileName = MODULE_NAME + "." + owner.bot + "." + owner.process;
+
+            if (bot.SESSION !== undefined && owner.type === "Trading Bot Instance") {
                 sessionPath = bot.SESSION.folderName + "/"
             }
 
-            if (owner.dataSetSection === "Month") {
-                logger.fileName = MODULE_NAME + "." + pOwner.bot + "." + pOwner.process + "." + year + "." + month;
+            if (owner.processRunMonthly === true) {
+                logger.fileName = MODULE_NAME + "." + owner.bot + "." + owner.process + "." + year + "." + month;
                 timePath = "/" + year + "/" + month;
             }
 

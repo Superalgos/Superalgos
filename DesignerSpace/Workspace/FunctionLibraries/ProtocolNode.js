@@ -4,7 +4,7 @@ function newProtocolNode () {
   }
   return thisObject
 
-  function getProtocolNode (node, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent) {
+  function getProtocolNode (node, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren) {
     if (node === undefined) { return }
     switch (node.type) {
       case 'Code':
@@ -29,7 +29,7 @@ function newProtocolNode () {
             type: node.type,
             subType: node.subType,
             name: node.name,
-            code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+            code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           }
           if (includeIds) {
             object.id = node.id
@@ -48,7 +48,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.conditions.length; m++) {
-          let condition = getProtocolNode(node.conditions[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let condition = getProtocolNode(node.conditions[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (condition !== undefined) {
             object.conditions.push(condition)
           }
@@ -87,13 +87,13 @@ function newProtocolNode () {
             announcements: []
           }
           for (let m = 0; m < node.situations.length; m++) {
-            let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+            let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
             if (situation !== undefined) {
               object.situations.push(situation)
             }
           }
           for (let m = 0; m < node.announcements.length; m++) {
-            let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+            let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
             if (announcement !== undefined) {
               object.announcements.push(announcement)
             }
@@ -112,11 +112,11 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           announcements: [],
-          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          nextPhaseEvent: getProtocolNode(node.nextPhaseEvent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          nextPhaseEvent: getProtocolNode(node.nextPhaseEvent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         for (let m = 0; m < node.announcements.length; m++) {
-          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (announcement !== undefined) {
             object.announcements.push(announcement)
           }
@@ -138,7 +138,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = getProtocolNode(node.phases[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let phase = getProtocolNode(node.phases[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (phase !== undefined) {
             object.phases.push(phase)
           }
@@ -160,7 +160,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.phases.length; m++) {
-          let phase = getProtocolNode(node.phases[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let phase = getProtocolNode(node.phases[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (phase !== undefined) {
             object.phases.push(phase)
           }
@@ -183,13 +183,13 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (situation !== undefined) {
             object.situations.push(situation)
           }
         }
         for (let m = 0; m < node.announcements.length; m++) {
-          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (announcement !== undefined) {
             object.announcements.push(announcement)
           }
@@ -212,11 +212,11 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           object.situations.push(situation)
         }
         for (let m = 0; m < node.announcements.length; m++) {
-          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (announcement !== undefined) {
             object.announcements.push(announcement)
           }
@@ -239,13 +239,13 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.situations.length; m++) {
-          let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let situation = getProtocolNode(node.situations[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (situation !== undefined) {
             object.situations.push(situation)
           }
         }
         for (let m = 0; m < node.announcements.length; m++) {
-          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (announcement !== undefined) {
             object.announcements.push(announcement)
           }
@@ -263,10 +263,10 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          positionSize: getProtocolNode(node.positionSize, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          positionRate: getProtocolNode(node.positionRate, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          positionSize: getProtocolNode(node.positionSize, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          positionRate: getProtocolNode(node.positionRate, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -309,7 +309,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -324,7 +324,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -339,9 +339,9 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerOn: getProtocolNode(node.triggerOn, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          triggerOff: getProtocolNode(node.triggerOff, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          takePosition: getProtocolNode(node.takePosition, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          triggerOn: getProtocolNode(node.triggerOn, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          triggerOff: getProtocolNode(node.triggerOff, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          takePosition: getProtocolNode(node.takePosition, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -356,8 +356,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          initialDefinition: getProtocolNode(node.initialDefinition, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          openExecution: getProtocolNode(node.openExecution, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          initialDefinition: getProtocolNode(node.initialDefinition, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          openExecution: getProtocolNode(node.openExecution, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -372,8 +372,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          stopLoss: getProtocolNode(node.stopLoss, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          takeProfit: getProtocolNode(node.takeProfit, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -388,7 +388,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          closeExecution: getProtocolNode(node.closeExecution, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          closeExecution: getProtocolNode(node.closeExecution, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -403,10 +403,10 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          triggerStage: getProtocolNode(node.triggerStage, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          openStage: getProtocolNode(node.openStage, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          manageStage: getProtocolNode(node.manageStage, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          closeStage: getProtocolNode(node.closeStage, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          triggerStage: getProtocolNode(node.triggerStage, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          openStage: getProtocolNode(node.openStage, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          manageStage: getProtocolNode(node.manageStage, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          closeStage: getProtocolNode(node.closeStage, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -508,12 +508,12 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          baseAsset: getProtocolNode(node.baseAsset, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          timeRange: getProtocolNode(node.timeRange, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          timePeriod: getProtocolNode(node.timePeriod, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          slippage: getProtocolNode(node.slippage, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          feeStructure: getProtocolNode(node.feeStructure, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          key: getProtocolNode(node.key, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          baseAsset: getProtocolNode(node.baseAsset, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          timeRange: getProtocolNode(node.timeRange, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          timePeriod: getProtocolNode(node.timePeriod, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          slippage: getProtocolNode(node.slippage, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          feeStructure: getProtocolNode(node.feeStructure, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          key: getProtocolNode(node.key, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -529,11 +529,11 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           strategies: [],
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
 
         for (let m = 0; m < node.strategies.length; m++) {
-          let strategy = getProtocolNode(node.strategies[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let strategy = getProtocolNode(node.strategies[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (strategy !== undefined) {
             object.strategies.push(strategy)
           }
@@ -556,7 +556,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.exchangeAccounts.length; m++) {
-          let exchangeAccount = getProtocolNode(node.exchangeAccounts[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let exchangeAccount = getProtocolNode(node.exchangeAccounts[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (exchangeAccount !== undefined) {
             object.exchangeAccounts.push(exchangeAccount)
           }
@@ -580,13 +580,13 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.assets.length; m++) {
-          let asset = getProtocolNode(node.assets[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let asset = getProtocolNode(node.assets[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (asset !== undefined) {
             object.assets.push(asset)
           }
         }
         for (let m = 0; m < node.keys.length; m++) {
-          let key = getProtocolNode(node.keys[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let key = getProtocolNode(node.keys[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (key !== undefined) {
             object.keys.push(key)
           }
@@ -639,7 +639,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.bots.length; m++) {
-          let bot = getProtocolNode(node.bots[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let bot = getProtocolNode(node.bots[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (bot !== undefined) {
             object.bots.push(bot)
           }
@@ -663,7 +663,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.announcements.length; m++) {
-          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let announcement = getProtocolNode(node.announcements[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (announcement !== undefined) {
             object.announcements.push(announcement)
           }
@@ -685,7 +685,7 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -704,7 +704,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.layers.length; m++) {
-          let layer = getProtocolNode(node.layers[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let layer = getProtocolNode(node.layers[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (layer !== undefined) {
             object.layers.push(layer)
           }
@@ -744,7 +744,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.tasks.length; m++) {
-          let task = getProtocolNode(node.tasks[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let task = getProtocolNode(node.tasks[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (task !== undefined) {
             object.tasks.push(task)
           }
@@ -762,7 +762,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          bot: getProtocolNode(node.bot, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          bot: getProtocolNode(node.bot, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -782,7 +782,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.processes.length; m++) {
-          let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (process !== undefined) {
             object.processes.push(process)
           }
@@ -808,7 +808,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.processes.length; m++) {
-          let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (process !== undefined) {
             object.processes.push(process)
           }
@@ -834,7 +834,7 @@ function newProtocolNode () {
         }
 
         for (let m = 0; m < node.processes.length; m++) {
-          let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
           if (process !== undefined) {
             object.processes.push(process)
           }
@@ -856,7 +856,7 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          session: getProtocolNode(node.session, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          session: getProtocolNode(node.session, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (parseCode) {
           object.code = JSON.parse(node.code)
@@ -868,7 +868,7 @@ function newProtocolNode () {
           object.savedPayload = getSavedPayload(node, includeReferences)
         }
         if (followReferenceParent) {
-          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         return object
       }
@@ -878,9 +878,9 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (parseCode) {
           object.code = JSON.parse(object.code)
@@ -892,7 +892,7 @@ function newProtocolNode () {
           object.savedPayload = getSavedPayload(node, includeReferences)
         }
         if (followReferenceParent) {
-          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         return object
       }
@@ -902,9 +902,9 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (parseCode) {
           object.code = JSON.parse(node.code)
@@ -916,7 +916,7 @@ function newProtocolNode () {
           object.savedPayload = getSavedPayload(node, includeReferences)
         }
         if (followReferenceParent) {
-          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         return object
       }
@@ -926,9 +926,9 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (parseCode) {
           object.code = JSON.parse(object.code)
@@ -940,7 +940,7 @@ function newProtocolNode () {
           object.savedPayload = getSavedPayload(node, includeReferences)
         }
         if (followReferenceParent) {
-          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         return object
       }
@@ -950,9 +950,9 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          parameters: getProtocolNode(node.parameters, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          layerManager: getProtocolNode(node.layerManager, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          socialBots: getProtocolNode(node.socialBots, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (parseCode) {
           object.code = JSON.parse(node.code)
@@ -964,7 +964,7 @@ function newProtocolNode () {
           object.savedPayload = getSavedPayload(node, includeReferences)
         }
         if (followReferenceParent) {
-          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         return object
       }
@@ -977,7 +977,7 @@ function newProtocolNode () {
         }
         if (node.taskManagers !== undefined) {
           for (let m = 0; m < node.taskManagers.length; m++) {
-            let taskManager = getProtocolNode(node.taskManagers[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+            let taskManager = getProtocolNode(node.taskManagers[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
             if (taskManager !== undefined) {
               object.taskManagers.push(taskManager)
             }
@@ -1000,7 +1000,7 @@ function newProtocolNode () {
         }
         if (node.networkNodes !== undefined) {
           for (let m = 0; m < node.networkNodes.length; m++) {
-            let networkNode = getProtocolNode(node.networkNodes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+            let networkNode = getProtocolNode(node.networkNodes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
             if (networkNode !== undefined) {
               object.networkNodes.push(networkNode)
             }
@@ -1019,8 +1019,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          personalData: getProtocolNode(node.personalData, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          tradingSystem: getProtocolNode(node.tradingSystem, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          personalData: getProtocolNode(node.personalData, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -1041,37 +1041,47 @@ function newProtocolNode () {
           tradingBots: [],
           plotters: []
         }
-        if (node.sensorBots !== undefined) {
-          for (let m = 0; m < node.sensorBots.length; m++) {
-            let sensorBot = getProtocolNode(node.sensorBots[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
-            if (sensorBot !== undefined) {
-              object.sensorBots.push(sensorBot)
+        if (followAncestors) {
+          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+        }
+
+        if (excludeChildren !== true) {
+          if (node.sensorBots !== undefined) {
+            for (let m = 0; m < node.sensorBots.length; m++) {
+              let sensorBot = getProtocolNode(node.sensorBots[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+              if (sensorBot !== undefined) {
+                object.sensorBots.push(sensorBot)
+              }
+            }
+          }
+          if (node.indicatorBots !== undefined) {
+            for (let m = 0; m < node.indicatorBots.length; m++) {
+              let indicatorBot = getProtocolNode(node.indicatorBots[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+              if (indicatorBot !== undefined) {
+                object.indicatorBots.push(indicatorBot)
+              }
+            }
+          }
+          if (node.tradingBots !== undefined) {
+            for (let m = 0; m < node.tradingBots.length; m++) {
+              let tradingBot = getProtocolNode(node.tradingBots[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+              if (tradingBot !== undefined) {
+                object.tradingBots.push(tradingBot)
+              }
+            }
+          }
+          if (node.plotters !== undefined) {
+            for (let m = 0; m < node.plotters.length; m++) {
+              let plotter = getProtocolNode(node.plotters[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+              if (plotter !== undefined) {
+                object.plotters.push(plotter)
+              }
             }
           }
         }
-        if (node.indicatorBots !== undefined) {
-          for (let m = 0; m < node.indicatorBots.length; m++) {
-            let indicatorBot = getProtocolNode(node.indicatorBots[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
-            if (indicatorBot !== undefined) {
-              object.indicatorBots.push(indicatorBot)
-            }
-          }
-        }
-        if (node.tradingBots !== undefined) {
-          for (let m = 0; m < node.tradingBots.length; m++) {
-            let tradingBot = getProtocolNode(node.tradingBots[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
-            if (tradingBot !== undefined) {
-              object.tradingBots.push(tradingBot)
-            }
-          }
-        }
-        if (node.plotters !== undefined) {
-          for (let m = 0; m < node.plotters.length; m++) {
-            let plotter = getProtocolNode(node.plotters[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
-            if (plotter !== undefined) {
-              object.plotters.push(plotter)
-            }
-          }
+
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
         }
         if (includeIds) {
           object.id = node.id
@@ -1090,21 +1100,29 @@ function newProtocolNode () {
           processes: [],
           products: []
         }
-        if (node.processes !== undefined) {
-          for (let m = 0; m < node.processes.length; m++) {
-            let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
-            if (process !== undefined) {
-              object.processes.push(process)
+        if (followAncestors) {
+          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+        }
+        if (excludeChildren !== true) {
+          if (node.processes !== undefined) {
+            for (let m = 0; m < node.processes.length; m++) {
+              let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+              if (process !== undefined) {
+                object.processes.push(process)
+              }
+            }
+          }
+          if (node.products !== undefined) {
+            for (let m = 0; m < node.products.length; m++) {
+              let product = getProtocolNode(node.products[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+              if (product !== undefined) {
+                object.products.push(product)
+              }
             }
           }
         }
-        if (node.products !== undefined) {
-          for (let m = 0; m < node.products.length; m++) {
-            let product = getProtocolNode(node.products[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
-            if (product !== undefined) {
-              object.products.push(product)
-            }
-          }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
         }
         if (includeIds) {
           object.id = node.id
@@ -1123,21 +1141,30 @@ function newProtocolNode () {
           processes: [],
           products: []
         }
-        if (node.processes !== undefined) {
-          for (let m = 0; m < node.processes.length; m++) {
-            let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
-            if (process !== undefined) {
-              object.processes.push(process)
+        if (followAncestors) {
+          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+        }
+        if (excludeChildren !== true) {
+          /* Children are added only when not following ancestors */
+          if (node.processes !== undefined) {
+            for (let m = 0; m < node.processes.length; m++) {
+              let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+              if (process !== undefined) {
+                object.processes.push(process)
+              }
+            }
+          }
+          if (node.products !== undefined) {
+            for (let m = 0; m < node.products.length; m++) {
+              let product = getProtocolNode(node.products[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+              if (product !== undefined) {
+                object.products.push(product)
+              }
             }
           }
         }
-        if (node.products !== undefined) {
-          for (let m = 0; m < node.products.length; m++) {
-            let product = getProtocolNode(node.products[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
-            if (product !== undefined) {
-              object.products.push(product)
-            }
-          }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
         }
         if (includeIds) {
           object.id = node.id
@@ -1156,21 +1183,30 @@ function newProtocolNode () {
           processes: [],
           products: []
         }
-        if (node.processes !== undefined) {
-          for (let m = 0; m < node.processes.length; m++) {
-            let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
-            if (process !== undefined) {
-              object.processes.push(process)
+        if (followAncestors) {
+          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+        }
+        if (excludeChildren !== true) {
+          /* Children are added only when not following ancestors */
+          if (node.processes !== undefined) {
+            for (let m = 0; m < node.processes.length; m++) {
+              let process = getProtocolNode(node.processes[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+              if (process !== undefined) {
+                object.processes.push(process)
+              }
+            }
+          }
+          if (node.products !== undefined) {
+            for (let m = 0; m < node.products.length; m++) {
+              let product = getProtocolNode(node.products[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+              if (product !== undefined) {
+                object.products.push(product)
+              }
             }
           }
         }
-        if (node.products !== undefined) {
-          for (let m = 0; m < node.products.length; m++) {
-            let product = getProtocolNode(node.products[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
-            if (product !== undefined) {
-              object.products.push(product)
-            }
-          }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
         }
         if (includeIds) {
           object.id = node.id
@@ -1185,14 +1221,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          code: node.code,
-          processOutput: getProtocolNode(node.processOutput, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          processDependencies: getProtocolNode(node.processDependencies, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          statusReport: getProtocolNode(node.statusReport, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          executionStartedEvent: getProtocolNode(node.executionStartedEvent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          executionFinishedEvent: getProtocolNode(node.executionFinishedEvent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          calculations: getProtocolNode(node.calculations, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          dataBuilding: getProtocolNode(node.dataBuilding, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          code: node.code
         }
         if (parseCode) {
           object.code = JSON.parse(node.code)
@@ -1202,6 +1231,18 @@ function newProtocolNode () {
         }
         if (includePayload) {
           object.savedPayload = getSavedPayload(node, includeReferences)
+        }
+        if (followAncestors) {
+          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+        }
+        if (excludeChildren !== true) {
+          object.processOutput = getProtocolNode(node.processOutput, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+          object.processDependencies = getProtocolNode(node.processDependencies, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+          object.statusReport = getProtocolNode(node.statusReport, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+          object.executionStartedEvent = getProtocolNode(node.executionStartedEvent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+          object.executionFinishedEvent = getProtocolNode(node.executionFinishedEvent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+          object.calculations = getProtocolNode(node.calculations, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+          object.dataBuilding = getProtocolNode(node.dataBuilding, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         return object
       }
@@ -1214,7 +1255,7 @@ function newProtocolNode () {
         }
         if (node.outputDatasets !== undefined) {
           for (let m = 0; m < node.outputDatasets.length; m++) {
-            let outputDataset = getProtocolNode(node.outputDatasets[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+            let outputDataset = getProtocolNode(node.outputDatasets[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
             if (outputDataset !== undefined) {
               object.outputDatasets.push(outputDataset)
             }
@@ -1238,7 +1279,7 @@ function newProtocolNode () {
         }
         if (node.statusDependencies !== undefined) {
           for (let m = 0; m < node.statusDependencies.length; m++) {
-            let statusDependency = getProtocolNode(node.statusDependencies[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+            let statusDependency = getProtocolNode(node.statusDependencies[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
             if (statusDependency !== undefined) {
               object.statusDependencies.push(statusDependency)
             }
@@ -1246,7 +1287,7 @@ function newProtocolNode () {
         }
         if (node.dataDependencies !== undefined) {
           for (let m = 0; m < node.dataDependencies.length; m++) {
-            let dataDependency = getProtocolNode(node.dataDependencies[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+            let dataDependency = getProtocolNode(node.dataDependencies[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
             if (dataDependency !== undefined) {
               object.dataDependencies.push(dataDependency)
             }
@@ -1265,6 +1306,11 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name
+        }
+        if (includeParent) {
+          followAncestors = true
+          excludeChildren = true
+          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -1287,7 +1333,7 @@ function newProtocolNode () {
           object.savedPayload = getSavedPayload(node, includeReferences)
         }
         if (followReferenceParent) {
-          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         return object
       }
@@ -1319,8 +1365,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          initialization: getProtocolNode(node.initialization, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          loop: getProtocolNode(node.loop, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          initialization: getProtocolNode(node.initialization, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          loop: getProtocolNode(node.loop, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -1335,8 +1381,8 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          initialization: getProtocolNode(node.initialization, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
-          loop: getProtocolNode(node.loop, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          initialization: getProtocolNode(node.initialization, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
+          loop: getProtocolNode(node.loop, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -1351,7 +1397,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -1366,7 +1412,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id
@@ -1389,7 +1435,7 @@ function newProtocolNode () {
           object.savedPayload = getSavedPayload(node, includeReferences)
         }
         if (followReferenceParent) {
-          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         return object
       }
@@ -1406,7 +1452,7 @@ function newProtocolNode () {
           object.savedPayload = getSavedPayload(node, includeReferences)
         }
         if (followReferenceParent) {
-          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         return object
       }
@@ -1423,7 +1469,7 @@ function newProtocolNode () {
           object.savedPayload = getSavedPayload(node, includeReferences)
         }
         if (followReferenceParent) {
-          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         return object
       }
@@ -1433,12 +1479,12 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          record: getProtocolNode(node.record, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
+          record: getProtocolNode(node.record, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
           datasets: []
         }
         if (node.datasets !== undefined) {
           for (let m = 0; m < node.datasets.length; m++) {
-            let dataset = getProtocolNode(node.datasets[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+            let dataset = getProtocolNode(node.datasets[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
             if (dataset !== undefined) {
               object.datasets.push(dataset)
             }
@@ -1464,7 +1510,7 @@ function newProtocolNode () {
         }
         if (node.properties !== undefined) {
           for (let m = 0; m < node.properties.length; m++) {
-            let property = getProtocolNode(node.properties[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+            let property = getProtocolNode(node.properties[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
             if (property !== undefined) {
               object.properties.push(property)
             }
@@ -1484,7 +1530,7 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          formula: getProtocolNode(node.formula, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (parseCode) {
           object.code = JSON.parse(node.code)
@@ -1524,7 +1570,7 @@ function newProtocolNode () {
         }
         if (node.modules !== undefined) {
           for (let m = 0; m < node.modules.length; m++) {
-            let module = getProtocolNode(node.modules[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+            let module = getProtocolNode(node.modules[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
             if (module !== undefined) {
               object.modules.push(module)
             }
@@ -1543,12 +1589,12 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent),
+          code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
           panels: []
         }
         if (node.panels !== undefined) {
           for (let m = 0; m < node.panels.length; m++) {
-            let panel = getProtocolNode(node.panels[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+            let panel = getProtocolNode(node.panels[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
             if (panel !== undefined) {
               object.panels.push(panel)
             }
@@ -1567,7 +1613,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
-          code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent)
+          code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id

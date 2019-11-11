@@ -9,6 +9,7 @@
     let thisObject = {
         nodeArray: undefined,
         statusReports: new Map(),
+        reportsByMainUtility: new Map(),
         initialize: initialize,
         keys: []
     };
@@ -135,6 +136,10 @@
 
                     thisObject.keys.push(key);
                     thisObject.statusReports.set(key, statusReportModule);
+
+                    if (statusReportModule.mainUtility !== undefined) {
+                        thisObject.reportsByMainUtility.set(statusReportModule.mainUtility, statusReportModule)
+                    } 
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Report added to Map. -> key = " + key); }
 

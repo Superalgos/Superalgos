@@ -99,6 +99,13 @@
                     logErrors: true,
                     logContent: false,
                     intensiveLogging: false
+                },
+                "Process Output": {
+                    logInfo: true,
+                    logWarnings: false,
+                    logErrors: true,
+                    logContent: false,
+                    intensiveLogging: false
                 }
             };
 

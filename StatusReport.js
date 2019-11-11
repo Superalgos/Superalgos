@@ -13,6 +13,7 @@
     let bot = BOT;
 
     let thisObject = {
+        mainUtility: undefined,
         file: undefined,                    // Here we have the JSON object representing the file content.
         initialize: initialize,
         load: load,
@@ -107,7 +108,14 @@
                     }
                 }
             }
-             
+
+            /* We retrieve the report main utility */
+            if (owner.code !== undefined) {
+                if (owner.code.mainUtility !== undefined) {
+                    thisObject.mainUtility = owner.code.mainUtility
+                }
+            }
+
             /* This stuff is still hardcoded and unresolved. */
             owner.botVersion = {
                 "major": 1,
@@ -265,30 +273,6 @@
 
                 if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
                     logger.write(MODULE_NAME, "[INFO] save -> onFileCreated ->  Content written = " + fileContent);
-                }
-
-                /* Here we raise the event stating that this status report was updated. */
-                let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Status Report Updated')
-
-                /* We will also reaise the events for the datasets impacted by the process that just finished. */
-                for (let j = 0; j < bot.processes.length; j++) {
-                    let process = bot.processes[j]
-                    if (process.name === bot.process) {
-                        let updatesDatasets = process.updatesDatasets
-                        if (updatesDatasets !== undefined) {
-                            for (let i = 0; i < updatesDatasets.length; i++) {
-                                let updatedDataSet = updatesDatasets[i]
-
-                                key = bot.devTeam + "-" + bot.codeName + "-" + updatedDataSet.product + "-" + updatedDataSet.dataSet
-                                let event = {
-                                    lastFile: thisObject.file.lastFile
-                                }
-                                global.SYSTEM_EVENT_HANDLER.createEventHandler(key, 'Dataset Updated')
-                                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Dataset Updated', event)
-                            }
-                        }
-                    }
                 }
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);

@@ -130,7 +130,8 @@
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
                     const EXCHANGE_API = require('@superalgos/exchange-gateway');
                     const STATUS_DEPENDENCIES = require(ROOT_DIR + 'StatusDependencies');
-                    const PROCESS_EXECUTION_EVENTS = require(ROOT_DIR + 'ProcessExecutionEvents');                    
+                    const PROCESS_EXECUTION_EVENTS = require(ROOT_DIR + 'ProcessExecutionEvents'); 
+                    const PROCESS_OUTPUT = require(ROOT_DIR + 'ProcessOutput');   
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
@@ -143,6 +144,7 @@
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 4 modules we need to sucessfullly initialize first. */
 
+                    let processOutput
                     let processExecutionEvents
                     let userBot;
                     let statusDependencies;
@@ -158,7 +160,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeProcessExecutionEvents ->  Entering function."); }
 
-                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, parentLogger)
+                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, logger)
 
                             processExecutionEvents.initialize(pMonth, pYear, onInizialized);
 
@@ -577,7 +579,7 @@
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
                                             logger.write(MODULE_NAME, "[INFO] run -> loop -> startUserBot -> onFinished > Execution finished well.");
-                                            finishProcessExecutionEvents()
+                                            raiseEventsProcessOutput()
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
@@ -681,6 +683,81 @@
 
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> err = "+ err.stack);
+                            logger.persist();
+                            clearInterval(fixedTimeLoopIntervalHandle);
+                            clearTimeout(nextLoopTimeoutHandle);
+                            clearTimeout(checkLoopHealthHandle);
+                            bot.enableCheckLoopHealth = false;
+                            callBackFunction(err);
+                        }
+                    }
+
+                    function raiseEventsProcessOutput() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> raiseEventsProcessOutput ->  Entering function."); }
+
+                            processOutput = PROCESS_OUTPUT.newProcessOutput(bot, logger)
+
+                            processOutput.raiseEvents(statusDependencies, onFinished);
+
+                            function onFinished(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> raiseEventsProcessOutput ->  onFinished -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> raiseEventsProcessOutput -> onFinished -> Execution finished well.");
+                                            finishProcessExecutionEvents()
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> raiseEventsProcessOutput -> onFinished -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            processStopped()
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> raiseEventsProcessOutput -> onFinished -> Operation Failed. Aborting the process.");
+                                            logger.persist();
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
+                                            bot.enableCheckLoopHealth = false;
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> raiseEventsProcessOutput -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> raiseEventsProcessOutput -> onFinished -> Unhandled err.result received. -> err = " + err.message);
+
+                                            logger.persist();
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
+                                            bot.enableCheckLoopHealth = false;
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> raiseEventsProcessOutput -> onFinished -> err = " + err.stack);
+                                    logger.persist();
+                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                    clearTimeout(nextLoopTimeoutHandle);
+                                    clearTimeout(checkLoopHealthHandle);
+                                    bot.enableCheckLoopHealth = false;
+                                    callBackFunction(err);
+                                }
+                            }
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> raiseEventsProcessOutput -> err = " + err.stack);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);

@@ -1170,7 +1170,26 @@ function newUiObjectConstructor () {
         break
       }
       case 'Status Dependency': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Status Dependency',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Status Dependency',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40,
+            dontShowAtFullscreen: true
+          }
+        )
         menuItemsInitialValues.push(
           {
             action: 'Delete Status Dependency',
@@ -1184,7 +1203,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: 0
           }
               )
         menuItemsInitialValues.push(
@@ -1198,7 +1217,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 40
           }
         )
         break

@@ -1443,10 +1443,14 @@ function newProtocolNode () {
         let object = {
           type: node.type,
           subType: node.subType,
-          name: node.name
+          name: node.name,
+          code: node.code
         }
         if (includeIds) {
           object.id = node.id
+        }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
         }
         if (includePayload) {
           object.savedPayload = getSavedPayload(node, includeReferences)
@@ -1479,17 +1483,23 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          record: getProtocolNode(node.record, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren),
           datasets: []
         }
-        if (node.datasets !== undefined) {
-          for (let m = 0; m < node.datasets.length; m++) {
-            let dataset = getProtocolNode(node.datasets[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
-            if (dataset !== undefined) {
-              object.datasets.push(dataset)
+        if (followAncestors) {
+          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+        }
+        if (excludeChildren !== true) {
+          if (node.datasets !== undefined) {
+            for (let m = 0; m < node.datasets.length; m++) {
+              let dataset = getProtocolNode(node.datasets[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
+              if (dataset !== undefined) {
+                object.datasets.push(dataset)
+              }
             }
           }
+          object.record = getProtocolNode(node.record, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
+
         if (parseCode) {
           object.code = JSON.parse(node.code)
         }
@@ -1552,6 +1562,11 @@ function newProtocolNode () {
         }
         if (parseCode) {
           object.code = JSON.parse(node.code)
+        }
+        if (includeParent) {
+          followAncestors = true
+          excludeChildren = true
+          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren)
         }
         if (includeIds) {
           object.id = node.id

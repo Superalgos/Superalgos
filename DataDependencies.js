@@ -2,8 +2,9 @@
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-
     const MODULE_NAME = "Data Dependencies";
+
+    let bot = BOT 
 
     let thisObject = {
         nodeArray: undefined,
@@ -15,15 +16,28 @@
 
     return thisObject;
 
-    function initialize(pDataDependenciesConfig, callBackFunction) {
+    function initialize(callBackFunction) {
 
         try {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            thisObject.nodeArray = pDataDependenciesConfig;
+            /* Basic Valdidations */
+            if (bot.processNode.referenceParent.processDependencies !== undefined) {
+                if (bot.processNode.referenceParent.processDependencies.dataDependencies !== undefined) {
+                    thisObject.nodeArray = bot.processNode.referenceParent.processDependencies.dataDependencies
+                } else {
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have data dependencies at all.");
+                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+                    return
+                }
+            } else {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have process dependencies, which means not data dependencies.");
+                callBackFunction(global.DEFAULT_OK_RESPONSE)
+                return
+            }
 
-            if (thisObject.nodeArray === undefined) {
+            if (thisObject.nodeArray.length === 0) {
 
                 // We allow old indicators not to declare their data dependencies.
 
@@ -32,7 +46,7 @@
             }
             /*
 
-            For each dependency declared at the bot nodeArray, we will initialize a DataSet as part of this initialization process.
+            For each dependency declared at the nodeArray, we will initialize a DataSet as part of this initialization process.
 
             */
             let alreadyCalledBack = false;

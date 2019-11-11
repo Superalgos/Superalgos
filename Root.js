@@ -79,7 +79,7 @@
                     logContent: false,
                     intensiveLogging: false
                 },
-                "Data Set": {
+                "Dataset": {
                     logInfo: true,
                     logWarnings: false,
                     logErrors: true,

@@ -385,7 +385,7 @@
 
                             dataDependencies = DATA_DEPENDENCIES.newDataDependencies(bot, logger, DATA_SET);
 
-                            dataDependencies.initialize(processConfig.dataDependencies, onInizialized);
+                            dataDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
 

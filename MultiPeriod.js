@@ -42,11 +42,11 @@
             dataDependencies = pDataDependencies;
             processConfig = pProcessConfig;
 
-            for (let i = 0; i < dataDependencies.config.length; i++) {
+            for (let i = 0; i < dataDependencies.nodeArray.length; i++) {
 
                 let key;
                 let dataset;
-                let dependency = dataDependencies.config[i];
+                let dependency = dataDependencies.nodeArray[i];
 
                 key = dependency.devTeam + "-" +
                     dependency.bot + "-" +
@@ -307,7 +307,7 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsMarketFiles -> periodsLoopBody -> dependencyLoopBody -> Entering function."); }
 
-                                    let dependency = dataDependencies.config[dependencyIndex];
+                                    let dependency = dataDependencies.nodeArray[dependencyIndex];
                                     let dataset = datasets[dependencyIndex];
 
                                     getFile();
@@ -377,7 +377,7 @@
 
                                     dependencyIndex++;
 
-                                    if (dependencyIndex < dataDependencies.config.length) {
+                                    if (dependencyIndex < dataDependencies.nodeArray.length) {
 
                                         dependencyLoopBody();
 
@@ -611,7 +611,7 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> periodsLoopBody -> dependencyLoopBody -> Entering function."); }
 
-                                    let dependency = dataDependencies.config[dependencyIndex];
+                                    let dependency = dataDependencies.nodeArray[dependencyIndex];
                                     let dataset = datasets[dependencyIndex];
 
                                     let previousFile;
@@ -785,7 +785,7 @@
 
                                     dependencyIndex++;
 
-                                    if (dependencyIndex < dataDependencies.config.length) {
+                                    if (dependencyIndex < dataDependencies.nodeArray.length) {
 
                                         dependencyLoopBody();
 

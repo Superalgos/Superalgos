@@ -6,7 +6,7 @@
     const MODULE_NAME = "Data Dependencies";
 
     let thisObject = {
-        config: undefined,
+        nodeArray: undefined,
         dataSets: new Map(),
         initialize: initialize,
         keys: []
@@ -21,9 +21,9 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            thisObject.config = pDataDependenciesConfig;
+            thisObject.nodeArray = pDataDependenciesConfig;
 
-            if (thisObject.config === undefined) {
+            if (thisObject.nodeArray === undefined) {
 
                 // We allow old indicators not to declare their data dependencies.
 
@@ -32,17 +32,17 @@
             }
             /*
 
-            For each dependency declared at the bot config, we will initialize a DataSet as part of this initialization process.
+            For each dependency declared at the bot nodeArray, we will initialize a DataSet as part of this initialization process.
 
             */
             let alreadyCalledBack = false;
             let addCount = 0;
 
-            for (let i = 0; i < thisObject.config.length; i++) {
+            for (let i = 0; i < thisObject.nodeArray.length; i++) {
 
                 let dataSetModule = DATA_SET.newDataSet(BOT, logger);
 
-                dataSetModule.initialize(thisObject.config[i], onInitilized);
+                dataSetModule.initialize(thisObject.nodeArray[i], onInitilized);
 
                 function onInitilized(err) {
 
@@ -65,14 +65,14 @@
 
                     let key;
 
-                    key = thisObject.config[i].devTeam + "-" + thisObject.config[i].bot + "-" + thisObject.config[i].product + "-" + thisObject.config[i].dataSet + "-" + thisObject.config[i].dataSetVersion;
+                    key = thisObject.nodeArray[i].devTeam + "-" + thisObject.nodeArray[i].bot + "-" + thisObject.nodeArray[i].product + "-" + thisObject.nodeArray[i].dataSet + "-" + thisObject.nodeArray[i].dataSetVersion;
 
                     thisObject.keys.push(key);
                     thisObject.dataSets.set(key, dataSetModule);
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> addDataSet -> DataSet added to Map. -> key = " + key); }
 
-                    if (addCount === thisObject.config.length) {
+                    if (addCount === thisObject.nodeArray.length) {
                         if (alreadyCalledBack === false) {
                             alreadyCalledBack = true
                             callBackFunction(global.DEFAULT_OK_RESPONSE);

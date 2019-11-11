@@ -14,7 +14,7 @@
 
     let statusDependencies;
     let dataDependencies;
-    let storages = [];
+    let datasets = [];
     let dataFiles = [];
 
     let usertBot;
@@ -39,7 +39,7 @@
             for (let i = 0; i < dataDependencies.config.length; i++) {
 
                 let key;
-                let storage;
+                let dataset;
                 let dependency = dataDependencies.config[i];
 
                 key = dependency.devTeam + "-" +
@@ -48,9 +48,9 @@
                     dependency.dataSet + "-" +
                     dependency.dataSetVersion
 
-                storage = dataDependencies.dataSets.get(key);
+                dataset = dataDependencies.dataSets.get(key);
 
-                storages.push(storage);
+                datasets.push(dataset);
 
             }
 
@@ -67,7 +67,7 @@
     }
 
     function finalize() {
-        storages = undefined
+        datasets = undefined
         dataFiles = undefined
         statusDependencies = undefined
         dataDependencies = undefined
@@ -163,7 +163,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> Entering function."); }
 
                                     let dependency = dataDependencies.config[dependencyIndex];
-                                    let storage = storages[dependencyIndex];
+                                    let dataset = datasets[dependencyIndex];
 
                                     getFile();
 
@@ -182,7 +182,7 @@
                                             } else {
                                                 filePath = dependency.product + '/' + dependency.dataSet + "/" + dateForPath;
                                             }
-                                            storage.getTextFile(filePath, fileName, onFileReceived);
+                                            dataset.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 

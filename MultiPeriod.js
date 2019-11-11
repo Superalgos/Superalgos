@@ -16,7 +16,7 @@
 
     let statusDependencies;
     let dataDependencies;
-    let storages = [];
+    let datasets = [];
     let dataFiles = [];
     let multiPeriodDataFiles = new Map();
 
@@ -45,7 +45,7 @@
             for (let i = 0; i < dataDependencies.config.length; i++) {
 
                 let key;
-                let storage;
+                let dataset;
                 let dependency = dataDependencies.config[i];
 
                 key = dependency.devTeam + "-" +
@@ -54,9 +54,9 @@
                     dependency.dataSet + "-" +
                     dependency.dataSetVersion
 
-                storage = dataDependencies.dataSets.get(key);
+                dataset = dataDependencies.dataSets.get(key);
 
-                storages.push(storage);
+                datasets.push(dataset);
 
             }
 
@@ -70,7 +70,7 @@
     }
 
     function finalize() {
-        storages = undefined
+        datasets = undefined
         dataFiles = undefined
         multiPeriodDataFiles = undefined
         statusDependencies = undefined
@@ -308,7 +308,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsMarketFiles -> periodsLoopBody -> dependencyLoopBody -> Entering function."); }
 
                                     let dependency = dataDependencies.config[dependencyIndex];
-                                    let storage = storages[dependencyIndex];
+                                    let dataset = datasets[dependencyIndex];
 
                                     getFile();
 
@@ -328,7 +328,7 @@
 
                                             let filePath = dependency.product + '/' + dependency.dataSet + "/" + outputPeriodLabel;
 
-                                            storage.getTextFile(filePath, fileName, onFileReceived);
+                                            dataset.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -612,7 +612,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> periodsLoopBody -> dependencyLoopBody -> Entering function."); }
 
                                     let dependency = dataDependencies.config[dependencyIndex];
-                                    let storage = storages[dependencyIndex];
+                                    let dataset = datasets[dependencyIndex];
 
                                     let previousFile;
                                     let currentFile;
@@ -646,7 +646,7 @@
                                             }
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                            storage.getTextFile(filePath, fileName, onFileReceived);
+                                            dataset.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -722,7 +722,7 @@
                                             }
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                            storage.getTextFile(filePath, fileName, onFileReceived);
+                                            dataset.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 

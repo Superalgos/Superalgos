@@ -51,18 +51,53 @@
 
             let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies 
             for (let i = 0; i < dataDependencies.length; i++) {
+
                 let dataset = dataDependencies[i].referenceParent
+                let dataFile = dataFiles[i]
+                let jsonData        // Datafile converted into Json objects
+                let inputData       // Includes calculated properties
+                let variableName    // name of the variable for this product
+                let recordDefinition 
+
                 /*
                 For each dataset in our data dependencies, we should have da dataFile containing the records needed as an imput for this process.
                 What we need to do first is transform those records into JSON objects that can be used by user-defined formulas.
+                The first step does that but with the not calculated properties, the second step adds the calculated properties.
                 */
+
+                /* Basic validations to see if we have everything we need. */
+                if (dataset.parentNode.code.variableName === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Variable Name defined. Product Definition = " + JSON.stringify(dataset.parentNode));
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                }
                 if (dataset.parentNode.record === undefined) {
                     logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Record Definition. Product Definition = " + JSON.stringify(dataset.parentNode));
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return
                 }
-                dataset.inputData = commons.jsonifyDataFile(dataFiles[i], dataset.parentNode.record)
+                if (dataset.parentNode.calculations === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Calculations Procedure. Product Definition = " + JSON.stringify(dataset.parentNode));
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                }
+                if (dataset.parentNode.dataBuilding === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Data Building Procedure. Product Definition = " + JSON.stringify(dataset.parentNode));
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                }
+
+                recordDefinition = dataset.parentNode.record
+                variableName = dataset.parentNode.code.variableName
+                /* Transform the raw data into JSON objects */
+                jsonData = commons.jsonifyDataFile(dataFile, recordDefinition)
+                /* Add the calculated properties */
+                if (dataset.parentNode.calculations !== undefined) {
+                    inputData = commons.calculationsProcedure(jsonData, recordDefinition, dataset.parentNode.calculations, variableName, timePeriod) 
+                }
             }
+
+            /* During the next phase, we need to generate the data of the different products this process produces an output */
 
 
 

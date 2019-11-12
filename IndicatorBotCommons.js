@@ -32,7 +32,9 @@
             let record = {}
             for (let j = 0; j < recordDefinition.properties.length; j++) {
                 let property = recordDefinition.properties[j]
-                record[property.code.codeName] = dataFile[i][j]
+                if (property.code.isCalculated !== true) {
+                    record[property.code.codeName] = dataFile[i][j]
+                }
             }            
 
             jsonifiedArray.push(record);
@@ -41,51 +43,59 @@
         return jsonifiedArray
     }
 
-    function calculationsProcedure(dependencyArray, variableName, timePeriod) {
+    function calculationsProcedure(jsonArray, recordDefinition, calculationsProcedure, variableName, timePeriod) {
 
         /* 
             This function has as an input an array of JSON objects, and it adds calculated properties to
             complete the set of properties that will be available for Formulas.
         */
 
-        let dependecyArray = []
+        let system = { // These are the available system variables to be used in User Code and Formulas
+            timePeriod: timePeriod,
+            ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
+        }
+        let variable = {} // This is the structure where the user will define its own variables that will be shared amond different code blocks and formulas.
+        let resultingArray = []
 
         /* This is Initialization Code */
-        let lastMovingAverage = 0;
-        const SIDE_TOLERANCE = 0.5 * timePeriod / ONE_DAY_IN_MILISECONDS;
-        const SMALL_SLOPE = 1.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
-        const MEDIUM_SLOPE = 2.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
-        const HIGH_SLOPE = 4.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
-        /* This is Initialization Code */
-
-        for (let i = 0; i < dataFile.length; i++) {
-
-            let indicator = {}
-            indicator[variableName] = dataFile[i]
-
-            /* This is Add Properties Code */
-            if (lastMovingAverage > indicator.bollingerBand.movingAverage) { indicator.bollingerBand.direction = 'Down'; }
-            if (lastMovingAverage < indicator.bollingerBand.movingAverage) { indicator.bollingerBand.direction = 'Up'; }
-            if (lastMovingAverage === indicator.bollingerBand.movingAverage) { indicator.bollingerBand.direction = 'Side'; }
-
-            let delta = Math.abs(indicator.bollingerBand.movingAverage - lastMovingAverage);
-
-            indicator.bollingerBand.slope = 'Extreme';
-            if (delta < indicator.bollingerBand.movingAverage * HIGH_SLOPE / 100) { indicator.bollingerBand.slope = 'Steep'; }
-            if (delta < indicator.bollingerBand.movingAverage * MEDIUM_SLOPE / 100) { indicator.bollingerBand.slope = 'Medium'; }
-            if (delta < indicator.bollingerBand.movingAverage * SMALL_SLOPE / 100) { indicator.bollingerBand.slope = 'Gentle'; }
-            if (delta < indicator.bollingerBand.movingAverage * SIDE_TOLERANCE / 100) { indicator.bollingerBand.slope = 'Side'; }
-
-            lastMovingAverage = indicator.bollingerBand.movingAverage;
-            /* This is Add Properties Code */
-
-            dependecyArray.push(indicator.bollingerBand);
+        if (calculationsProcedure.initialization !== undefined) {
+            if (calculationsProcedure.initialization.code !== undefined) {
+                eval(calculationsProcedure.initialization.code.code)
+            }
         }
 
-        return dependecyArray
+        /* This is Initialization Code */
+        if (calculationsProcedure.loop !== undefined) {
+            if (calculationsProcedure.loop.code !== undefined) {
+                for (let i = 0; i < jsonArray.length; i++) {
+
+                    let indicator = {}
+                    indicator[variableName] = jsonArray[i]
+            
+                    /* This is Loop Code */
+                    eval(calculationsProcedure.loop.code.code)
+
+                    /* For each calculated property we apply its formula*/
+                    for (let j = 0; j < recordDefinition.properties.length; j++) {
+                        let property = recordDefinition.properties[j]
+                        if (property.code.isCalculated === true) {
+                            if (property.formula !== undefined) {
+                                if (property.formula.code !== undefined) {
+                                    let newValue = eval(property.formula.code)                                    
+                                    let currentRecord = indicator[variableName]
+                                    currentRecord[property.code.codeName] = newValue
+                                } 
+                            }
+                        }
+                    }  
+
+                    /* Adding the new element to the resulting array */
+                    resultingArray.push(indicator.bollingerBand);
+                }
+            }
+        }
+        return resultingArray
     }
-
-
 
     function addCalculatedProperties(dependencyArray, variableName, timePeriod) {
 

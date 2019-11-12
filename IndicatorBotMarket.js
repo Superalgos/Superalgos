@@ -48,6 +48,31 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             let market = global.MARKET;
+
+            let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies 
+            for (let i = 0; i < dataDependencies.length; i++) {
+                let dataset = dataDependencies[i].referenceParent
+                /*
+                For each dataset in our data dependencies, we should have da dataFile containing the records needed as an imput for this process.
+                What we need to do first is transform those records into JSON objects that can be used by user-defined formulas.
+                */
+                if (dataset.parentNode.record === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Record Definition. Product Definition = " + JSON.stringify(dataset.parentNode));
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                }
+                dataset.inputData = commons.jsonifyDataFile(dataFiles[i], dataset.parentNode.record)
+            }
+
+
+
+
+
+
+
+
+
+
             let dataFile;
 
             let bands = [];

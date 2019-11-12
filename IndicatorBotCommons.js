@@ -8,8 +8,8 @@
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
     let thisObject = {
-        buildBandsArray: buildBandsArray,
-        buildChannels: buildChannels,
+        jsonifyDataFile: jsonifyDataFile,
+        calculationsProcedure: calculationsProcedure,
         buildStandardChannels: buildStandardChannels,
         buildSubChannels: buildSubChannels,
         buildStandardSubChannels: buildStandardSubChannels,
@@ -18,23 +18,74 @@
 
     return thisObject;
 
-    function buildDependecyArray(dataFile, recordDefinition) {
+    function jsonifyDataFile(dataFile, recordDefinition) {
 
-        let dependecyArray = []
+        /*
+            This function has as an input the raw data on files and creates with it an array of JSON objects
+            with not calculated properties for later being consumed by Formulas
+        */
+
+        let jsonifiedArray = []
 
         for (let i = 0; i < dataFile.length; i++) {
 
             let record = {}
-            for (let j = 0; j < recordDefinition.length; j++) {
-                let property = recordDefinition[j]
-                record[property.name] = dataFile[i][j]
+            for (let j = 0; j < recordDefinition.properties.length; j++) {
+                let property = recordDefinition.properties[j]
+                record[property.code.codeName] = dataFile[i][j]
             }            
 
-            dependecyArray.push(record);
+            jsonifiedArray.push(record);
         }
        
+        return jsonifiedArray
+    }
+
+    function calculationsProcedure(dependencyArray, variableName, timePeriod) {
+
+        /* 
+            This function has as an input an array of JSON objects, and it adds calculated properties to
+            complete the set of properties that will be available for Formulas.
+        */
+
+        let dependecyArray = []
+
+        /* This is Initialization Code */
+        let lastMovingAverage = 0;
+        const SIDE_TOLERANCE = 0.5 * timePeriod / ONE_DAY_IN_MILISECONDS;
+        const SMALL_SLOPE = 1.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
+        const MEDIUM_SLOPE = 2.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
+        const HIGH_SLOPE = 4.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
+        /* This is Initialization Code */
+
+        for (let i = 0; i < dataFile.length; i++) {
+
+            let indicator = {}
+            indicator[variableName] = dataFile[i]
+
+            /* This is Add Properties Code */
+            if (lastMovingAverage > indicator.bollingerBand.movingAverage) { indicator.bollingerBand.direction = 'Down'; }
+            if (lastMovingAverage < indicator.bollingerBand.movingAverage) { indicator.bollingerBand.direction = 'Up'; }
+            if (lastMovingAverage === indicator.bollingerBand.movingAverage) { indicator.bollingerBand.direction = 'Side'; }
+
+            let delta = Math.abs(indicator.bollingerBand.movingAverage - lastMovingAverage);
+
+            indicator.bollingerBand.slope = 'Extreme';
+            if (delta < indicator.bollingerBand.movingAverage * HIGH_SLOPE / 100) { indicator.bollingerBand.slope = 'Steep'; }
+            if (delta < indicator.bollingerBand.movingAverage * MEDIUM_SLOPE / 100) { indicator.bollingerBand.slope = 'Medium'; }
+            if (delta < indicator.bollingerBand.movingAverage * SMALL_SLOPE / 100) { indicator.bollingerBand.slope = 'Gentle'; }
+            if (delta < indicator.bollingerBand.movingAverage * SIDE_TOLERANCE / 100) { indicator.bollingerBand.slope = 'Side'; }
+
+            lastMovingAverage = indicator.bollingerBand.movingAverage;
+            /* This is Add Properties Code */
+
+            dependecyArray.push(indicator.bollingerBand);
+        }
+
         return dependecyArray
     }
+
+
 
     function addCalculatedProperties(dependencyArray, variableName, timePeriod) {
 

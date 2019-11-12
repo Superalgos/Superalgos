@@ -430,18 +430,6 @@ function newNodeChildren () {
         response.childIndex = response.childrenCount
       }
     }
-    if (parentNode.calculations !== undefined) {
-      response.childrenCount++
-      if (parentNode.calculations.id === childNode.id) {
-        response.childIndex = response.childrenCount
-      }
-    }
-    if (parentNode.dataBuilding !== undefined) {
-      response.childrenCount++
-      if (parentNode.dataBuilding.id === childNode.id) {
-        response.childIndex = response.childrenCount
-      }
-    }
     return response
   }
 
@@ -623,6 +611,19 @@ function newNodeChildren () {
         if (child.id === childNode.id) {
           response.childIndex = response.childrenCount
         }
+      }
+    }
+
+    if (parentNode.calculations !== undefined) {
+      response.childrenCount++
+      if (parentNode.calculations.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.dataBuilding !== undefined) {
+      response.childrenCount++
+      if (parentNode.dataBuilding.id === childNode.id) {
+        response.childIndex = response.childrenCount
       }
     }
     return response

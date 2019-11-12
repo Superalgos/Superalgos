@@ -828,14 +828,6 @@ function newShortcutKeys () {
         if (child !== undefined) {
           return child
         }
-        child = getNodeByShortcutKey(node.calculations, searchingKey)
-        if (child !== undefined) {
-          return child
-        }
-        child = getNodeByShortcutKey(node.dataBuilding, searchingKey)
-        if (child !== undefined) {
-          return child
-        }
         if (node.payload.uiObject.shortcutKey === searchingKey) {
           return node
         } else {
@@ -978,6 +970,14 @@ function newShortcutKeys () {
           if (child !== undefined) {
             return child
           }
+        }
+        child = getNodeByShortcutKey(node.calculations, searchingKey)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeByShortcutKey(node.dataBuilding, searchingKey)
+        if (child !== undefined) {
+          return child
         }
         if (node.payload.uiObject.shortcutKey === searchingKey) {
           return node

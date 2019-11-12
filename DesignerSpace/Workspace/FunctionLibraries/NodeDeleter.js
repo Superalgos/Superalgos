@@ -595,14 +595,6 @@ function newNodeDeleter () {
       deleteExecutionFinishedEvent(node.executionFinishedEvent, rootNodes)
     }
 
-    if (node.calculations !== undefined) {
-      deleteCalculationsProcedure(node.calculations, rootNodes)
-    }
-
-    if (node.dataBuilding !== undefined) {
-      deleteDataBuildingProcedure(node.dataBuilding, rootNodes)
-    }
-
     completeDeletion(node, rootNodes)
     destroyUiObject(node)
     cleanNode(node)
@@ -821,6 +813,14 @@ function newNodeDeleter () {
       while (node.datasets.length > 0) {
         deleteDatasetDefinition(node.datasets[0], rootNodes)
       }
+    }
+
+    if (node.calculations !== undefined) {
+      deleteCalculationsProcedure(node.calculations, rootNodes)
+    }
+
+    if (node.dataBuilding !== undefined) {
+      deleteDataBuildingProcedure(node.dataBuilding, rootNodes)
     }
 
     completeDeletion(node, rootNodes)

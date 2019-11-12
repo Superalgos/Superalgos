@@ -1273,7 +1273,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -45,
+            angle: -60,
             dontShowAtFullscreen: true
           }
         )
@@ -1287,7 +1287,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -30
           }
           )
         menuItemsInitialValues.push(
@@ -1300,9 +1300,22 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: -10
           }
             )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Missing Product Definition Items',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Missing Items',
+            visible: true,
+            relatedUiObject: 'Calculations Procedure',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 10
+          }
+              )
         menuItemsInitialValues.push(
           {
             action: 'Delete Product Definition',
@@ -1316,7 +1329,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 30
           }
               )
         menuItemsInitialValues.push(
@@ -1330,7 +1343,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 45
+            angle: 60
           }
         )
         break

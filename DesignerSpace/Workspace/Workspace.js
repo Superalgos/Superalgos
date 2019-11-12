@@ -346,6 +346,11 @@ function newWorkspace () {
           functionLibraryUiObjectsFromNodes.addMissingProcessDefinitionItems(payload.node)
         }
         break
+      case 'Add Missing Product Definition Items':
+        {
+          functionLibraryUiObjectsFromNodes.addMissingProductDefinitionItems(payload.node)
+        }
+        break
       case 'Add Process Output':
         {
           functionLibraryUiObjectsFromNodes.addProcessOutput(payload.node)

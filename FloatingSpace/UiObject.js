@@ -249,11 +249,11 @@ function newUiObject () {
         compatibleSubType = undefined
         break
       case 'Calculations Procedure':
-        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleType = '->' + 'Product Definition' + '->'
         compatibleSubType = undefined
         break
       case 'Data Building Procedure':
-        compatibleType = '->' + 'Process Definition' + '->'
+        compatibleType = '->' + 'Product Definition' + '->'
         compatibleSubType = undefined
         break
       case 'Procedure Initialization':

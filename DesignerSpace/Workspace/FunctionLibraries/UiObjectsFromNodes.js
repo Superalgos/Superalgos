@@ -8,6 +8,7 @@ function newUiObjectsFromNodes () {
     addTradingBot: addTradingBot,
     addProcessDefinition: addProcessDefinition,
     addMissingProcessDefinitionItems: addMissingProcessDefinitionItems,
+    addMissingProductDefinitionItems: addMissingProductDefinitionItems,
     addProcessOutput: addProcessOutput,
     addProcessDependencies: addProcessDependencies,
     addStatusReport: addStatusReport,
@@ -788,12 +789,6 @@ function newUiObjectsFromNodes () {
         if (node.executionFinishedEvent !== undefined) {
           createUiObjectFromNode(node.executionFinishedEvent, node, node)
         }
-        if (node.calculations !== undefined) {
-          createUiObjectFromNode(node.calculations, node, node)
-        }
-        if (node.dataBuilding !== undefined) {
-          createUiObjectFromNode(node.dataBuilding, node, node)
-        }
         if (referenceChildren !== undefined) {
           node.savedPayload = {
             referenceChildren: referenceChildren
@@ -970,6 +965,12 @@ function newUiObjectsFromNodes () {
           let dataset = node.datasets[m]
           createUiObjectFromNode(dataset, node, node)
         }
+        if (node.calculations !== undefined) {
+          createUiObjectFromNode(node.calculations, node, node)
+        }
+        if (node.dataBuilding !== undefined) {
+          createUiObjectFromNode(node.dataBuilding, node, node)
+        }
         return
       }
       case 'Record Definition': {
@@ -1121,6 +1122,9 @@ function newUiObjectsFromNodes () {
     addStatusReport(node)
     addExecutionStartedEvent(node)
     addExecutionFinishedEvent(node)
+  }
+
+  function addMissingProductDefinitionItems (node) {
     addCalculationsProcedure(node)
     addDataBuildingProcedure(node)
   }

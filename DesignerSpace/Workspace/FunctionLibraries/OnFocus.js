@@ -844,14 +844,6 @@ function newOnFocus () {
         if (child !== undefined) {
           return child
         }
-        child = getNodeThatIsOnFocus(node.calculations)
-        if (child !== undefined) {
-          return child
-        }
-        child = getNodeThatIsOnFocus(node.dataBuilding)
-        if (child !== undefined) {
-          return child
-        }
         if (node.payload.uiObject.isOnFocus === true) {
           return node
         } else {
@@ -1001,6 +993,14 @@ function newOnFocus () {
           if (child !== undefined) {
             return child
           }
+        }
+        child = getNodeThatIsOnFocus(node.calculations)
+        if (child !== undefined) {
+          return child
+        }
+        child = getNodeThatIsOnFocus(node.dataBuilding)
+        if (child !== undefined) {
+          return child
         }
         if (node.payload.uiObject.isOnFocus === true) {
           return node

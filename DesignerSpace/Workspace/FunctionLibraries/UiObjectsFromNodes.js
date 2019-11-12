@@ -1303,7 +1303,8 @@ function newUiObjectsFromNodes () {
   function addRecordProperty (node) {
     let object = {
       type: 'Record Property',
-      name: 'New Record Property'
+      name: 'New Record Property',
+      code: '{}'
     }
     if (node.properties === undefined) {
       node.properties = []

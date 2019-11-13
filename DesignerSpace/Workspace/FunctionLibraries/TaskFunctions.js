@@ -24,13 +24,19 @@ function newTaskFunctions () {
       process.payload.uiObject.run()
     }
 
-    node.payload.uiObject.run(callBackFunction)
-
     let event = {
       taskId: node.id,
       taskName: node.name,
       definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, true, true)) // <-  We need to do this workaround in order no to send unescaped charactars to the taskManager.
     }
+
+    if (node.payload.parentNode === undefined) {
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      systemEventHandler.raiseEvent('Task Server', 'Debug Task Started', event)
+      return
+    }
+
+    node.payload.uiObject.run(callBackFunction)
     systemEventHandler.raiseEvent('Task Manager', 'Run Task', event)
   }
 

@@ -48,6 +48,8 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             let market = global.MARKET;
+            let products = {}
+            let mainDependency
 
             let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies 
             for (let i = 0; i < dataDependencies.length; i++) {
@@ -56,7 +58,7 @@
                 let dataFile = dataFiles[i]
                 let jsonData        // Datafile converted into Json objects
                 let inputData       // Includes calculated properties
-                let variableName    // name of the variable for this product
+                let singularVariableName    // name of the variable for this product
                 let recordDefinition 
 
                 /*
@@ -66,8 +68,13 @@
                 */
 
                 /* Basic validations to see if we have everything we need. */
-                if (dataset.parentNode.code.variableName === undefined) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Variable Name defined. Product Definition = " + JSON.stringify(dataset.parentNode));
+                if (dataset.parentNode.code.singularVariableName === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Single Variable Name defined. Product Definition = " + JSON.stringify(dataset.parentNode));
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                }
+                if (dataset.parentNode.code.pluralVariableName === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Plural Variable Name defined. Product Definition = " + JSON.stringify(dataset.parentNode));
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return
                 }
@@ -76,8 +83,52 @@
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return
                 }
-                if (dataset.parentNode.calculations === undefined) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Calculations Procedure. Product Definition = " + JSON.stringify(dataset.parentNode));
+
+                recordDefinition = dataset.parentNode.record
+                singularVariableName = dataset.parentNode.code.singularVariableName
+                /* Transform the raw data into JSON objects */
+                jsonData = commons.jsonifyDataFile(dataFile, recordDefinition)
+                /* Add the calculated properties */
+                if (dataset.parentNode.calculations !== undefined) {
+                    inputData = commons.calculationsProcedure(jsonData, recordDefinition, dataset.parentNode.calculations, singularVariableName, timePeriod)
+                } else {
+                    inputData = jsonData
+                }
+                products[dataset.parentNode.code.pluralVariableName] = inputData
+
+                /* The main dependency is defined as the first dependency processed. */
+                if (mainDependency === undefined) {
+                    mainDependency = inputData
+                }
+            }
+
+            /* During the next phase, we need to generate the data of the different products this process produces an output */
+            let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
+            for (let i = 0; i < outputDatasets.length; i++) {
+
+                let dataset = outputDatasets[i].referenceParent
+                let jsonData                // Just build data as Json objects
+                let outputData              // Data built as a result of applying user defined code and formulas at the Data Building Procedure
+                let singularVariableName    // name of the variable for this product
+                let recordDefinition
+
+                /*
+                For each dataset in our process output, we will build the information based on our input products.
+                */
+
+                /* Basic validations to see if we have everything we need. */
+                if (dataset.parentNode.code.singularVariableName === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Single Variable Name defined. Product Definition = " + JSON.stringify(dataset.parentNode));
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                }
+                if (dataset.parentNode.code.pluralVariableName === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Plural Variable Name defined. Product Definition = " + JSON.stringify(dataset.parentNode));
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                }
+                if (dataset.parentNode.record === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Record Definition. Product Definition = " + JSON.stringify(dataset.parentNode));
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return
                 }
@@ -88,16 +139,22 @@
                 }
 
                 recordDefinition = dataset.parentNode.record
-                variableName = dataset.parentNode.code.variableName
-                /* Transform the raw data into JSON objects */
-                jsonData = commons.jsonifyDataFile(dataFile, recordDefinition)
+                singularVariableName = dataset.parentNode.code.singularVariableName
+
+                /* Build the data */
+                jsonData = commons.dataBuildingProcedure(products, mainDependency, recordDefinition, dataset.parentNode.dataBuilding, singularVariableName, timePeriod)
+
                 /* Add the calculated properties */
                 if (dataset.parentNode.calculations !== undefined) {
-                    inputData = commons.calculationsProcedure(jsonData, recordDefinition, dataset.parentNode.calculations, variableName, timePeriod) 
+                    outputData = commons.calculationsProcedure(jsonData, recordDefinition, dataset.parentNode.calculations, singularVariableName, timePeriod)
+                } else {
+                    outputData = jsonData
                 }
+                products[dataset.parentNode.code.pluralVariableName] = outputData
             }
 
-            /* During the next phase, we need to generate the data of the different products this process produces an output */
+
+
 
 
 

@@ -10,10 +10,7 @@
     let thisObject = {
         jsonifyDataFile: jsonifyDataFile,
         calculationsProcedure: calculationsProcedure,
-        buildStandardChannels: buildStandardChannels,
-        buildSubChannels: buildSubChannels,
-        buildStandardSubChannels: buildStandardSubChannels,
-        buildRecords: buildRecords
+        dataBuildingProcedure: dataBuildingProcedure
     };
 
     return thisObject;
@@ -54,26 +51,39 @@
             timePeriod: timePeriod,
             ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
         }
-        let variable = {} // This is the structure where the user will define its own variables that will be shared amond different code blocks and formulas.
-        let resultingArray = []
+        let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
+        let results = []
 
         /* This is Initialization Code */
         if (calculationsProcedure.initialization !== undefined) {
             if (calculationsProcedure.initialization.code !== undefined) {
-                eval(calculationsProcedure.initialization.code.code)
+                try {
+                    eval(calculationsProcedure.initialization.code.code)
+                } catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Error = " + err.stack)
+                    logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Code = " + calculationsProcedure.initialization.code.code);
+                    throw("Error Executing User Code.")
+                }
             }
         }
 
         /* This is Initialization Code */
         if (calculationsProcedure.loop !== undefined) {
             if (calculationsProcedure.loop.code !== undefined) {
-                for (let i = 0; i < jsonArray.length; i++) {
+                for (let index = 0; index < jsonArray.length; index++) {
 
-                    let indicator = {}
-                    indicator[variableName] = jsonArray[i]
+                    let product = {}
+                    product[variableName] = jsonArray[index]
             
                     /* This is Loop Code */
-                    eval(calculationsProcedure.loop.code.code)
+                    try {
+                        eval(calculationsProcedure.loop.code.code)
+                    } catch (err) {
+                        logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> Error executing User Code. Error = " + err.stack)
+                        logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> Error executing User Code. product = " + JSON.stringify(product))
+                        logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> Error executing User Code. Code = " + calculationsProcedure.loop.code.code);
+                        throw ("Error Executing User Code.")
+                    }
 
                     /* For each calculated property we apply its formula*/
                     for (let j = 0; j < recordDefinition.properties.length; j++) {
@@ -81,8 +91,16 @@
                         if (property.code.isCalculated === true) {
                             if (property.formula !== undefined) {
                                 if (property.formula.code !== undefined) {
-                                    let newValue = eval(property.formula.code)                                    
-                                    let currentRecord = indicator[variableName]
+                                    let newValue
+                                    try {
+                                        newvalue = eval(property.formula.code) 
+                                    } catch (err) {
+                                        logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Error = " + err.stack)
+                                        logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. product = " + JSON.stringify(product))
+                                        logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Code = " + property.formula.code);
+                                        throw ("Error Executing User Code.")
+                                    }
+                                    let currentRecord = product[variableName]
                                     currentRecord[property.code.codeName] = newValue
                                 } 
                             }
@@ -90,440 +108,96 @@
                     }  
 
                     /* Adding the new element to the resulting array */
-                    resultingArray.push(indicator.bollingerBand);
+                    results.push(product[variableName]);
                 }
             }
         }
-        return resultingArray
+        return results
     }
 
-    function addCalculatedProperties(dependencyArray, variableName, timePeriod) {
+    function dataBuildingProcedure(products, mainDependency, recordDefinition, dataBuildingProcedure, variableName, timePeriod) {
 
-        let dependecyArray = []
+        /* 
+            This function has as an input the products object, with all the information
+            of all products calculated so far by the process. Based on that information
+            the function will evaluate user supplied code and formulas in order to build
+            a new set of information.
+        */
+
+        let system = { // These are the available system variables to be used in User Code and Formulas
+            timePeriod: timePeriod,
+            ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
+        }
+        let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
+        let results = []
 
         /* This is Initialization Code */
-        let lastMovingAverage = 0;
-        const SIDE_TOLERANCE = 0.5 * timePeriod / ONE_DAY_IN_MILISECONDS;
-        const SMALL_SLOPE = 1.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
-        const MEDIUM_SLOPE = 2.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
-        const HIGH_SLOPE = 4.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
+        if (dataBuildingProcedure.initialization !== undefined) {
+            if (dataBuildingProcedure.initialization.code !== undefined) {
+                try {
+                    eval(dataBuildingProcedure.initialization.code.code)
+                } catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> initialization -> Error executing User Code. Error = " + err.stack)
+                    logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> initialization -> Error executing User Code. Code = " + dataBuildingProcedure.initialization.code.code);
+                    throw ("Error Executing User Code.")
+                }
+            }
+        }
+
         /* This is Initialization Code */
+        if (dataBuildingProcedure.loop !== undefined) {
+            if (dataBuildingProcedure.loop.code !== undefined) {
+                for (let index = 0; index < mainDependency.length; index++) {
 
-        for (let i = 0; i < dataFile.length; i++) {
+                    let record = {
+                        previous: mainDependency[index-1],
+                        current: mainDependency[index],
+                        next: mainDependency[index+1]
+                    }
 
-            let indicator = {}
-            indicator[variableName] = dataFile[i]
+                    let product = {}
+                    product[variableName] = {}
 
-            /* This is Add Properties Code */
-            if (lastMovingAverage > indicator.bollingerBand.movingAverage) { indicator.bollingerBand.direction = 'Down'; }
-            if (lastMovingAverage < indicator.bollingerBand.movingAverage) { indicator.bollingerBand.direction = 'Up'; }
-            if (lastMovingAverage === indicator.bollingerBand.movingAverage) { indicator.bollingerBand.direction = 'Side'; }
+                    /* This is Loop Code */
+                    try {
+                        eval(dataBuildingProcedure.loop.code.code)
+                    } catch (err) {
+                        logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> Error executing User Code. Error = " + err.stack)
+                        logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> Error executing User Code. product = " + JSON.stringify(product))
+                        logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> Error executing User Code. Code = " + dataBuildingProcedure.loop.code.code);
+                        throw ("Error Executing User Code.")
+                    }
 
-            let delta = Math.abs(indicator.bollingerBand.movingAverage - lastMovingAverage);
-
-            indicator.bollingerBand.slope = 'Extreme';
-            if (delta < indicator.bollingerBand.movingAverage * HIGH_SLOPE / 100) { indicator.bollingerBand.slope = 'Steep'; }
-            if (delta < indicator.bollingerBand.movingAverage * MEDIUM_SLOPE / 100) { indicator.bollingerBand.slope = 'Medium'; }
-            if (delta < indicator.bollingerBand.movingAverage * SMALL_SLOPE / 100) { indicator.bollingerBand.slope = 'Gentle'; }
-            if (delta < indicator.bollingerBand.movingAverage * SIDE_TOLERANCE / 100) { indicator.bollingerBand.slope = 'Side'; }
-
-            lastMovingAverage = indicator.bollingerBand.movingAverage;
-            /* This is Add Properties Code */
-
-            dependecyArray.push(indicator.bollingerBand);
-        }
-
-        return dependecyArray
-    }
-
-    function buildRecords(dataDependency, recordDefinition) {
-        let records = []
-        
-        /* Initialization Code */
-        let period = 1
-        /* Initialization Code */
-
-        for (let i = 0; i < dataDependency.bollinerBands.length; i++) {
-
-            /* Calculations Code*/
-            if (i === 0) {continue}
-            let currentBand = dataDependency.bollinerBands[i];
-            let previousBand = dataDependency.bollinerBands[i - 1];
-
-            if (currentBand.direction === previousBand.direction) {
-                period++
-            } else {
-                period = 1
-            }
-            /* Calculations Code*/
-
-            let record = {
-                begin: currentBand.begin, /* Property Formula Code */
-                end: currentBand.end, /* Property Formula Code */
-                direction: currentBand.direction, /* Property Formula Code */
-                period: period /* Property Formula Code */
-            };
-            records.push(record)
-        }
-        return records
-    }
-
-
-    function buildBandsArray(dataFile, bands, timePeriod, callBackFunction) {
-
-        try {
-
-            let lastMovingAverage = 0;
-            const SIDE_TOLERANCE = 0.5 * timePeriod / ONE_DAY_IN_MILISECONDS;
-            const SMALL_SLOPE = 1.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
-            const MEDIUM_SLOPE = 2.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
-            const HIGH_SLOPE = 4.0 * timePeriod / ONE_DAY_IN_MILISECONDS;
-
-            for (let i = 0; i < dataFile.length; i++) {
-
-                let band = {
-                    begin: undefined,
-                    end: undefined,
-                    movingAverage: 10000000000000,
-                    standardDeviation: 0,
-                    deviation: undefined
-                };
-
-                band.begin = dataFile[i][0];
-                band.end = dataFile[i][1];
-
-                band.movingAverage = dataFile[i][2];
-                band.standardDeviation = dataFile[i][3];
-                band.deviation = dataFile[i][4];
-
-                if (lastMovingAverage > band.movingAverage) { band.direction = 'Down'; }
-                if (lastMovingAverage < band.movingAverage) { band.direction = 'Up'; }
-                if (lastMovingAverage === band.movingAverage) { band.direction = 'Side'; }
-
-                let delta = Math.abs(band.movingAverage - lastMovingAverage);
-
-                band.slope = 'Extreme';
-                if (delta < band.movingAverage * HIGH_SLOPE / 100) { band.slope = 'Steep'; }
-                if (delta < band.movingAverage * MEDIUM_SLOPE / 100) { band.slope = 'Medium'; }
-                if (delta < band.movingAverage * SMALL_SLOPE / 100) { band.slope = 'Gentle'; }
-                if (delta < band.movingAverage * SIDE_TOLERANCE / 100) { band.slope = 'Side'; }
-
-                bands.push(band);
-
-                lastMovingAverage = band.movingAverage;
-            }
-        }
-        catch (err) {
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    function buildChannels(bands, channels, callBackFunction) {
-
-        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildChannels -> Entering function."); }
-
-        try {
-
-            let channel;
-
-            for (let i = 0; i < bands.length; i++) {
-
-                let currentBand = bands[i];
-                let nextBand;
-
-                if (i < bands.length - 1) {
-                    nextBand = bands[i + 1];
-
-                    if (
-                        currentBand.direction === nextBand.direction) {
-
-                        if (channel === undefined) {
-
-                            channel = {
-                                begin: undefined,
-                                end: undefined,
-                                direction: undefined,
-                                period: 0,
-                                firstMovingAverage: 0,
-                                lastMovingAverage: 0,
-                                firstDeviation: 0,
-                                lastDeviation: 0
-                            };
-
-                            channel.direction = currentBand.direction;
-                            channel.period = 2;
-
-                            channel.begin = currentBand.begin;
-                            channel.end = nextBand.end;
-
-                            channel.firstMovingAverage = currentBand.movingAverage;
-                            channel.lastMovingAverage = nextBand.movingAverage;
-
-                            channel.firstDeviation = currentBand.deviation;
-                            channel.lastDeviation = nextBand.deviation;
-
-                        } else {
-
-                            channel.period++;
-                            channel.end = nextBand.end;
-                            channel.lastMovingAverage = nextBand.movingAverage;
-                            channel.lastDeviation = nextBand.deviation;
-
-                        }
-                    } else {
-
-                        if (channel !== undefined) {
-                            channels.push(channel);
-                            channel = undefined;
-                        } else {
-                            /* The channel has only one period */
-
-                            channel = {};
-
-                            channel.direction = currentBand.direction;
-                            channel.period = 1;
-
-                            channel.begin = currentBand.begin;
-                            channel.end = currentBand.end;
-
-                            channel.firstMovingAverage = currentBand.movingAverage;
-                            channel.lastMovingAverage = currentBand.movingAverage;
-
-                            channel.firstDeviation = currentBand.deviation;
-                            channel.lastDeviation = currentBand.deviation;
-
-                            channels.push(channel);
-                            channel = undefined;
+                    /* For each non-calculated property we apply its formula*/
+                    for (let j = 0; j < recordDefinition.properties.length; j++) {
+                        let property = recordDefinition.properties[j]
+                        if (property.code.isCalculated !== true) {
+                            if (property.formula !== undefined) {
+                                if (property.formula.code !== undefined) {
+                                    let newValue
+                                    try {
+                                        newvalue = eval(property.formula.code)
+                                    } catch (err) {
+                                        logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> formula -> Error executing User Code. Error = " + err.stack)
+                                        logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> formula -> Error executing User Code. product = " + JSON.stringify(product))
+                                        logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> formula -> Error executing User Code. Code = " + property.formula.code);
+                                        throw ("Error Executing User Code.")
+                                    }
+                                    let currentRecord = product[variableName]
+                                    currentRecord[property.code.codeName] = newValue
+                                }
+                            }
                         }
                     }
-                } else {
-                    if (channel !== undefined) {
-                        channel.period++;
-                        channel.end = currentBand.end;
-                        channel.lastMovingAverage = currentBand.movingAverage;
-                        channel.lastDeviation = currentBand.deviation;
-                        channels.push(channel);
-                        channel = undefined;
-                    } else {
-                        /* The channel has only one period */
 
-                        channel = {};
-
-                        channel.direction = currentBand.direction;
-                        channel.period = 1;
-
-                        channel.begin = currentBand.begin;
-                        channel.end = currentBand.end;
-
-                        channel.firstMovingAverage = currentBand.movingAverage;
-                        channel.lastMovingAverage = currentBand.movingAverage;
-
-                        channel.firstDeviation = currentBand.deviation;
-                        channel.lastDeviation = currentBand.deviation;
-
-                        channels.push(channel);
-                        channel = undefined;
+                    /* If within the code the new data structure was not yet pushed to the results array, we do it */
+                    if (dataBuildingProcedure.loop.code.code.indexOf('results.push') < 0) {
+                        /* Adding the new element to the resulting array */
+                        results.push(product[variableName]);
                     }
                 }
             }
         }
-        catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildChannels -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    function buildStandardChannels(bands, standardChannels, callBackFunction) {
-
-        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildStandardChannels -> Entering function."); }
-
-        try {
-
-            let period = 1
-
-            for (let i = 1; i < bands.length; i++) {
-
-                let channel;
-                let currentBand = bands[i];
-                let previousBand = bands[i - 1];
-
-                if (currentBand.direction === previousBand.direction) {
-                    period++
-                } else {
-                    period = 1
-                }
-
-                channel = {
-                    begin: currentBand.begin,
-                    end: currentBand.end,
-                    direction: currentBand.direction,
-                    period: period
-                };
-
-                standardChannels.push(channel)
-            }
-        }
-        catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildStandardChannels -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    function buildSubChannels(bands, subChannels, callBackFunction) {
-
-        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildSubChannels -> Entering function."); }
-
-        try {
-
-            let channel;
-
-            for (let i = 0; i < bands.length; i++) {
-
-                let currentBand = bands[i];
-                let nextBand;
-
-                if (i < bands.length - 1) {
-                    nextBand = bands[i + 1];
-
-                    if (
-                        currentBand.direction === nextBand.direction &&
-                        currentBand.slope === nextBand.slope) {
-
-                        if (channel === undefined) {
-
-                            channel = {
-                                begin: undefined,
-                                end: undefined,
-                                direction: undefined,
-                                slope: undefined,
-                                period: 0,
-                                firstMovingAverage: 0,
-                                lastMovingAverage: 0,
-                                firstDeviation: 0,
-                                lastDeviation: 0
-                            };
-
-                            channel.direction = currentBand.direction;
-                            channel.slope = currentBand.slope;
-                            channel.period = 2;
-
-                            channel.begin = currentBand.begin;
-                            channel.end = nextBand.end;
-
-                            channel.firstMovingAverage = currentBand.movingAverage;
-                            channel.lastMovingAverage = nextBand.movingAverage;
-
-                            channel.firstDeviation = currentBand.deviation;
-                            channel.lastDeviation = nextBand.deviation;
-
-                        } else {
-
-                            channel.period++;
-                            channel.end = nextBand.end;
-                            channel.lastMovingAverage = nextBand.movingAverage;
-                            channel.lastDeviation = nextBand.deviation;
-
-                        }
-                    } else {
-
-                        if (channel !== undefined) {
-                            subChannels.push(channel);
-                            channel = undefined;
-                        } else {
-                            /* The channel has only one period */
-
-                            channel = {};
-
-                            channel.direction = currentBand.direction;
-                            channel.slope = currentBand.slope;
-                            channel.period = 1;
-
-                            channel.begin = currentBand.begin;
-                            channel.end = currentBand.end;
-
-                            channel.firstMovingAverage = currentBand.movingAverage;
-                            channel.lastMovingAverage = currentBand.movingAverage;
-
-                            channel.firstDeviation = currentBand.deviation;
-                            channel.lastDeviation = currentBand.deviation;
-
-                            subChannels.push(channel);
-                            channel = undefined;
-                        }
-                    }
-
-                } else {
-                    if (channel !== undefined) {
-                        channel.period++;
-                        channel.end = currentBand.end;
-                        channel.lastMovingAverage = currentBand.movingAverage;
-                        channel.lastDeviation = currentBand.deviation;
-                        subChannels.push(channel);
-                        channel = undefined;
-                    } else {
-                        /* The channel has only one period */
-
-                        channel = {};
-
-                        channel.direction = currentBand.direction;
-                        channel.slope = currentBand.slope;
-                        channel.period = 1;
-
-                        channel.begin = currentBand.begin;
-                        channel.end = currentBand.end;
-
-                        channel.firstMovingAverage = currentBand.movingAverage;
-                        channel.lastMovingAverage = currentBand.movingAverage;
-
-                        channel.firstDeviation = currentBand.deviation;
-                        channel.lastDeviation = currentBand.deviation;
-
-                        subChannels.push(channel);
-                        channel = undefined;
-                    }
-                }
-            }
-        }
-        catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildSubChannels -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    function buildStandardSubChannels(bands, standardSubChannels, callBackFunction) {
-
-        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] buildStandardSubChannels -> Entering function."); }
-
-        try {
-
-            let period = 1
-
-            for (let i = 1; i < bands.length; i++) {
-
-                let channel;
-                let currentBand = bands[i];
-                let previousBand = bands[i - 1];
-
-                if (currentBand.direction === previousBand.direction && currentBand.slope === previousBand.slope) {
-                    period++
-                } else {
-                    period = 1
-                }
-
-                channel = {
-                    begin: currentBand.begin,
-                    end: currentBand.end,
-                    direction: currentBand.direction,
-                    slope: currentBand.slope,
-                    period: period
-                };
-
-                standardSubChannels.push(channel)
-            }
-        }
-        catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] buildStandardSubChannels -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
+        return results
     }
 };

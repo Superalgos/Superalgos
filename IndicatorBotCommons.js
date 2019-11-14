@@ -91,17 +91,16 @@
                         if (property.code.isCalculated === true) {
                             if (property.formula !== undefined) {
                                 if (property.formula.code !== undefined) {
-                                    let newValue
                                     try {
-                                        newvalue = eval(property.formula.code) 
+                                        let newValue = eval(property.formula.code) 
+                                        let currentRecord = product[variableName]
+                                        currentRecord[property.code.codeName] = newValue
                                     } catch (err) {
                                         logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Error = " + err.stack)
                                         logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. product = " + JSON.stringify(product))
                                         logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Code = " + property.formula.code);
                                         throw ("Error Executing User Code.")
                                     }
-                                    let currentRecord = product[variableName]
-                                    currentRecord[property.code.codeName] = newValue
                                 } 
                             }
                         }
@@ -174,17 +173,16 @@
                         if (property.code.isCalculated !== true) {
                             if (property.formula !== undefined) {
                                 if (property.formula.code !== undefined) {
-                                    let newValue
                                     try {
-                                        newvalue = eval(property.formula.code)
+                                        let newValue = eval(property.formula.code)
+                                        let currentRecord = product[variableName]
+                                        currentRecord[property.code.codeName] = newValue
                                     } catch (err) {
                                         logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> formula -> Error executing User Code. Error = " + err.stack)
                                         logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> formula -> Error executing User Code. product = " + JSON.stringify(product))
                                         logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> formula -> Error executing User Code. Code = " + property.formula.code);
                                         throw ("Error Executing User Code.")
                                     }
-                                    let currentRecord = product[variableName]
-                                    currentRecord[property.code.codeName] = newValue
                                 }
                             }
                         }

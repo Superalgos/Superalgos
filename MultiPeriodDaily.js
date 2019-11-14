@@ -127,12 +127,7 @@
                             We look first for the bot who knows the begining of the marke in order to get when the market starts.
                         */
 
-                        let botWhoKnowsTheBeginingOfTheMarket = statusDependencies.nodeArray[processConfig.framework.startDate.takeItFromStatusDependency];
-
-                        reportKey = botWhoKnowsTheBeginingOfTheMarket.devTeam + "-" + botWhoKnowsTheBeginingOfTheMarket.bot + "-" + botWhoKnowsTheBeginingOfTheMarket.process + "-" + "dataSet.V1";
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
-
-                        statusReport = statusDependencies.statusReports.get(reportKey);
+                        statusReport = statusDependencies.reportsByMainUtility.get("Market Starting Point")
 
                         if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                             logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
@@ -146,7 +141,7 @@
                             return;
                         }
 
-                        thisReport = statusDependencies.statusReports.get(reportKey).file;
+                        thisReport = statusReport.file;
 
                         if (thisReport.lastFile === undefined) {
                             logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
@@ -169,7 +164,7 @@
 
                         /* The ending date is fixed, we will end there. */
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> We have got a user defined endDate. -> endDate = " + processConfig.framework.endDate.fixedDate); }
-                        contextVariables.dateEndOfMarket = new Date(processConfig.framework.endDate.fixedDate);
+                        contextVariables.dateEndOfMarket = new Date(processConfig.framework.endDate.fixedDate); 
 
                     } else {
 
@@ -177,12 +172,7 @@
                           Here we get the status report from the bot who knows which is the end of the market.
                         */
 
-                        let botWhoKnowsTheEndOfTheMarket = statusDependencies.nodeArray[processConfig.framework.endDate.takeItFromStatusDependency];
-
-                        reportKey = botWhoKnowsTheEndOfTheMarket.devTeam + "-" + botWhoKnowsTheEndOfTheMarket.bot + "-" + botWhoKnowsTheEndOfTheMarket.process + "-" + "dataSet.V1";
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
-
-                        statusReport = statusDependencies.statusReports.get(reportKey);
+                        statusReport = statusDependencies.reportsByMainUtility.get("Market Ending Point")
 
                         if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                             logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
@@ -196,7 +186,7 @@
                             return;
                         }
 
-                        thisReport = statusDependencies.statusReports.get(reportKey).file;
+                        thisReport = statusReport.file;
 
                         if (thisReport.lastFile === undefined) {
                             logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);

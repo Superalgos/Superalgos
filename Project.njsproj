@@ -25,17 +25,9 @@
     <Compile Include="Assistant.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IndicatorBotCommons.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="IndicatorBotDaily.js">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="IndicatorBot.js" />
     <Compile Include="Integrations\Ecosystem.js" />
     <Compile Include="FileStorage.js" />
-    <Compile Include="IndicatorBotMarket.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="MultiPeriod.js">
       <SubType>Code</SubType>
     </Compile>

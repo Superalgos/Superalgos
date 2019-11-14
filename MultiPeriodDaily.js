@@ -19,7 +19,7 @@
     let datasets = [];
     let dataFiles = [];
 
-    let usertBot;
+    let botInstance;
 
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
@@ -46,7 +46,7 @@
 
                 let key;
                 let dataset;
-                let dependency = dataDependencies.config[i];
+                let dependency = dataDependencies.nodeArray[i];
 
                 key = dependency.devTeam + "-" +
                     dependency.bot + "-" +
@@ -60,11 +60,10 @@
 
             }
 
-            let COMMONS_MODULE = require("./IndicatorBotCommons")
-            let USER_BOT_MODULE = require("./IndicatorBotDaily")
+            let USER_BOT_MODULE = require("./IndicatorBot")
 
-            usertBot = USER_BOT_MODULE.newIndicatorBotDaily(bot, logger, COMMONS_MODULE, UTILITIES, FILE_STORAGE);
-            usertBot.initialize(processConfig, callBackFunction);
+            botInstance = USER_BOT_MODULE.newIndicatorBot(bot, logger, UTILITIES, FILE_STORAGE);
+            botInstance.initialize(callBackFunction);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
@@ -77,7 +76,7 @@
         dataFiles = undefined
         statusDependencies = undefined
         dataDependencies = undefined
-        usertBot = undefined
+        botInstance = undefined
         fileStorage = undefined
         processConfig = undefined
         thisObject = undefined
@@ -602,7 +601,7 @@
                                     const timePeriod = global.dailyFilePeriods[n][0];
                                     const outputPeriodLabel = global.dailyFilePeriods[n][1];
 
-                                    usertBot.start(
+                                    botInstance.start(
                                         dataFiles,
                                         timePeriod,
                                         outputPeriodLabel,

@@ -17,7 +17,7 @@
     let datasets = [];
     let dataFiles = [];
 
-    let usertBot;
+    let botInstance;
 
     let processConfig;
 
@@ -54,11 +54,10 @@
 
             }
 
-            let COMMONS_MODULE = require("./IndicatorBotCommons")
-            let USER_BOT_MODULE = require("./IndicatorBotMarket")
+            let USER_BOT_MODULE = require("./IndicatorBot")
 
-            usertBot = USER_BOT_MODULE.newIndicatorBotMarket(bot, logger, COMMONS_MODULE, UTILITIES, FILE_STORAGE);
-            usertBot.initialize(processConfig, callBackFunction);
+            botInstance = USER_BOT_MODULE.newIndicatorBot(bot, logger, UTILITIES, FILE_STORAGE);
+            botInstance.initialize(callBackFunction);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
@@ -71,7 +70,7 @@
         dataFiles = undefined
         statusDependencies = undefined
         dataDependencies = undefined
-        usertBot = undefined
+        botInstance = undefined
         processConfig = undefined
         thisObject = undefined
     }
@@ -256,12 +255,14 @@
                                     const timePeriod = global.marketFilesPeriods[n][0];
                                     const outputPeriodLabel = global.marketFilesPeriods[n][1];
 
-                                    usertBot.start(
+                                    botInstance.start(
                                         dataFiles,
                                         timePeriod,
                                         outputPeriodLabel,
+                                        undefined,
                                         contextVariables.dateBeginOfMarket,
                                         contextVariables.dateEndOfMarket,
+                                        undefined,
                                         onBotFinished);
 
                                     function onBotFinished(err) {

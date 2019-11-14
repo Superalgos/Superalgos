@@ -40,9 +40,16 @@
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             processConfig = pProcessConfig;
+
+            if (bot.definedByUI === true) {
+                /* The code of the bot is defined at the UI. No need to load a file with the code. */
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                return
+            }
+
             bot.resumeExecution = processConfig.framework.startDate.resumeExecution // We are inherating this from root, but from here we need it at bot
 
-            let filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name
+            let filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
             filePath += "/User.Bot.js"
 
             fileStorage.getTextFile(bot.devTeam, filePath, onBotDownloaded);
@@ -52,6 +59,7 @@
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err = " + err.message);
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> filePath = " + filePath);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }

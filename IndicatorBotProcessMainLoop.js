@@ -29,15 +29,21 @@
     return thisObject;
 
     function initialize(pProcessConfig, callBackFunction) {
-
-        /*  This function is exactly the same in the 3 modules representing the 2 different bot types loops. */
-
+ 
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             processConfig = pProcessConfig;
 
-            let filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name
+            if (bot.definedByUI === true) {
+                /* The code of the bot is defined at the UI. No need to load a file with the code. */
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                return
+            }
+
+            /* This bot is not ready for taking its code from the UI, then we need to load it from its repo. */
+
+            let filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
             filePath += "/User.Bot.js"
 
             fileStorage.getTextFile(bot.devTeam, filePath, onBotDownloaded);
@@ -47,6 +53,7 @@
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err = " + err.message);
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> filePath = " + filePath);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }

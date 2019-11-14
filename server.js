@@ -192,10 +192,6 @@ function bootLoader() {
         let key = global.TASK_NODE.bot.code.team + "-" + global.TASK_NODE.bot.code.bot + "-" + code.process
         global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
 
-        if (global.TASK_NODE.bot.code.repo === undefined) {
-            global.TASK_NODE.bot.code.repo = global.TASK_NODE.bot.code.bot + "-" + global.TASK_NODE.bot.type + "-Bot"
-        }
-
         startRoot(processIndex);
     }
 }

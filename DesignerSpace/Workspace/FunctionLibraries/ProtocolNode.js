@@ -1226,6 +1226,7 @@ function newProtocolNode () {
         if (parseCode) {
           object.code = JSON.parse(node.code)
         }
+
         if (includeIds) {
           object.id = node.id
         }
@@ -1241,6 +1242,12 @@ function newProtocolNode () {
           object.statusReport = getProtocolNode(node.statusReport, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
           object.executionStartedEvent = getProtocolNode(node.executionStartedEvent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
           object.executionFinishedEvent = getProtocolNode(node.executionFinishedEvent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
+        }
+
+        if (includeParent) {
+          followAncestors = true
+          excludeChildren = true
+          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
         }
         return object
       }

@@ -692,21 +692,19 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
-                    let productIndex = 0;
-                    productLoopBody();
+                    let outputDatasetIndex = -1;
+                    controlLoop();
 
                     function productLoopBody() {
-
-                        let folderName = bot.products[productIndex].codeName;
-
+                        let folderName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.code.codeName;
                         writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodDailyProcessDatetime, folderName, controlLoop);
                     }
 
                     function controlLoop() {
 
-                        productIndex++;
+                        outputDatasetIndex++;
 
-                        if (productIndex < bot.products.length) {
+                        if (outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length) {
                             productLoopBody();
                         } else {
                             callBack(global.DEFAULT_OK_RESPONSE);

@@ -21,9 +21,7 @@ exports.newDebugLog = function newDebugLog() {
     };
 
     let accumulatedLog = "[";
-
     let disableLogging;
-
     let internalLoopCounter = -1;
 
     return thisObject;
@@ -80,35 +78,32 @@ exports.newDebugLog = function newDebugLog() {
             }
 
             let fileName;
-
             if (internalLoopCounter >= 0) {
-
                 fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + "." + pad(internalLoopCounter, 4) + ".json";
-
             } else {
-
                 fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + ".json";
-
             }
 
             writeLog();
 
+            /* This is the implementation of the mechanism to auto-mantain logs. */
+            thisObject.bot.LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
+            if (thisObject.bot.LOGS_TO_DELETE_QUEUE.length > thisObject.bot.DELETE_QUEUE_SIZE) {
+                let fileToDelete = thisObject.bot.LOGS_TO_DELETE_QUEUE[0]
+                thisObject.bot.LOGS_TO_DELETE_QUEUE.splice(0,1)
+                fileStorage.deleteTextFile(thisObject.bot.devTeam, fileToDelete);
+            }
+             
             function writeLog() {
 
                 fileStorage.createTextFile(thisObject.bot.devTeam, filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated);
-
                 function onFileCreated(err) {
-
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-              
                         console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = "+ err.message);
-                
                         setTimeout(writeLog, 10000); // Lets retry until we make it.
                         return;
                     }
-
                     contentToPersist = "";
-                    //thisObject = {};
                 }
             }
         } catch (err) {

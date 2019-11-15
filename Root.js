@@ -177,20 +177,6 @@
                 return
             }
 
-            let basicInfo = {}
-
-            /* Simplifying the access to basic info */
-            basicInfo.process = processInstance.referenceParent.code.codeName
-            basicInfo.bot = processInstance.referenceParent.parentNode.code.codeName
-            basicInfo.devTeam = processInstance.referenceParent.parentNode.parentNode.code.codeName
-
-            /* This stuff is still hardcoded and unresolved. */
-            basicInfo.version = {
-                "major": 1,
-                "minor": 0
-            }
-            basicInfo.dataSetVersion = "dataSet.V1"
-
             /* Here we will check if we need to load the configuration and code of the bot from a file or we will take that from the UI. */
             if (processInstance.referenceParent.code.framework !== undefined) {
                 botConfig = processInstance.referenceParent.parentNode.code
@@ -248,11 +234,21 @@
                     botConfig.debug = {};
                     botConfig.processNode = global.TASK_NODE.bot.processes[processIndex]
 
+                    /* Simplifying the access to basic info */
+                    botConfig.devTeam = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName
+
+                    /* This stuff is still hardcoded and unresolved. */
+                    botConfig.version = {
+                        "major": 1,
+                        "minor": 0
+                    }
+                    botConfig.dataSetVersion = "dataSet.V1"
+
                     /* Loop Counter */
                     botConfig.loopCounter = 0;                   
 
                     /* File Path Root */
-                    botConfig.filePathRoot = basicInfo.devTeam + "/" + basicInfo.bot + "." + basicInfo.version.major + "." + basicInfo.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + basicInfo.dataSetVersion;
+                    botConfig.filePathRoot = botConfig.devTeam + "/" + botConfig.bot + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
                     /* Process Key */
                     botConfig.processKey = global.TASK_NODE.bot.processes[processIndex].name + '-' + global.TASK_NODE.bot.processes[processIndex].type + '-' + global.TASK_NODE.bot.processes[processIndex].id

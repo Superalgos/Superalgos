@@ -65,7 +65,7 @@ process.on('message', message => {
         */
         console.log('[INFO] Task Server -> server -> process.on -> Executing order received from Task Manager to Stop this Task. Nodejs process will be exited in less than 1 minute.')
         setTimeout(global.EXIT_NODE_PROCESS, 60000);
-    }
+    } 
 });
 
 global.EXIT_NODE_PROCESS = function exitProcess() {
@@ -117,7 +117,7 @@ We read the first string sent as an argument when the process was created by the
 of this Task and know exactly what to run within this server instance. 
 
 */
-global.TASK_NODE = process.argv[2]
+let taskId = process.argv[2] // reading what comes as an argument of the nodejs process.
 
 /* Setting up the global Event Handler */
 
@@ -128,22 +128,33 @@ global.SYSTEM_EVENT_HANDLER.initialize('Task Server', preLoader)
 global.STOP_TASK_GRACEFULLY = false;
 
 function preLoader() {
-    if (global.TASK_NODE !== undefined) {
-        /* The Task Manager sent the info via a process argument. */
+    if (taskId !== undefined) {
+        /* The Task Manager sent the info via a process argument. In this case we listen to an event with the Task Info that should be emitted at the UI */
         try {
-            global.TASK_NODE = JSON.parse(global.TASK_NODE)
-            console.log('[INFO] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE))
+            console.log('[Info] Task Server -> server -> preLoader -> Listening to starting event -> key = ' + 'Task Server - ' + taskId)
+            global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, undefined, undefined, eventReceived)
+            function eventReceived(message) {
+                global.TASK_NODE = message
+                global.TASK_NODE = JSON.parse(message.event.definition)
+                bootLoader()
+            }
         } catch (err) {
-            console.log('[ERROR] Task Server -> server -> preLoader -> vglobal.TASK_NODE -> ' + err.stack)
+            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
+            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE))
         }
-        bootLoader()
     }
-    else {  /* This process was started not by the Task Manager, but independently (most likely for debugging purposes). In this case we listen to an event with the Task Info */
-        console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
-        global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Server', 'Debug Task Started', undefined, undefined, undefined, startDebugging)
-        function startDebugging(message) {
-            global.TASK_NODE = JSON.parse(message.event.definition) 
-            bootLoader()
+    else {  /* This process was started not by the Task Manager, but independently (most likely for debugging purposes). In this case we listen to an event with the Task Info that should be emitted at the UI */
+        try { 
+            console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
+            global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Server', 'Debug Task Started', undefined, undefined, undefined, startDebugging)
+            function startDebugging(message) {
+                global.TASK_NODE = message
+                global.TASK_NODE = JSON.parse(message.event.definition) 
+                bootLoader()
+            }
+        } catch (err) {
+            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
+            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE))
         }
     }
 }

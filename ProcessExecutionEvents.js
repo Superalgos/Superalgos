@@ -22,6 +22,7 @@
     let month;
     let year;
     let currentProcessKey
+    let datetimeForLogs = ''
 
     return thisObject;
 
@@ -32,6 +33,10 @@
 
             month = pMonth;
             year = pYear;
+
+            if (month && year) {
+                datetimeForLogs = "Month: " + month + " Year: " + year 
+            }
 
             let name = 'Not Depends on any Process'
 
@@ -48,7 +53,7 @@
                             if (processThisDependsOn.code.monthlyInstances === true) {
                                 logger.fileName = MODULE_NAME + "." + name + "." + year + "." + month;
                             }
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + "Month: " + month + " Year: " + year + " depends on " + name); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + datetimeForLogs + " depends on " + name); }
                         }
                     }
                 }
@@ -107,7 +112,7 @@
                         global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Started')
                         global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key + " Month: " + month + " Year: " + year + " Finished."); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key + datetimeForLogs + " Finished."); }
                     }
 
                     callBackFunction(message.event.err);
@@ -121,7 +126,7 @@
                 global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Started')
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> " + currentProcessKey + " Process Execution Started Month: " + month + " Year: " + year); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> " + currentProcessKey + " Process Execution Started " + datetimeForLogs); }
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
             }
@@ -144,7 +149,7 @@
 
             global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Finished')
             global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished Month: " + month + " Year: " + year); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished " + datetimeForLogs); }
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 

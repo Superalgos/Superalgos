@@ -204,7 +204,7 @@
 
                             processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, logger)
 
-                            processExecutionEvents.initialize(pMonth, pYear, onInizialized);
+                            processExecutionEvents.initialize(undefined, undefined, onInizialized);
 
                             function onInizialized(err) {
 

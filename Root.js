@@ -142,43 +142,46 @@
 
             /* Some very basic validations that we have all the information needed. */
             if (processInstance.referenceParent === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start-> Process Instance without Reference Parent. Process Instance = " + JSON.stringify(processInstance));
+                console.log(logDisplace + "Root : [INFO] start ->  Process Instance without Reference Parent. Process Instance = " + JSON.stringify(processInstance));
                 global.EXIT_NODE_PROCESS()
                 return
             }
 
             if (processInstance.referenceParent.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start-> Process Definition witn no codeName defined. Process Definition = " + JSON.stringify(processInstance.referenceParent));
+                console.log(logDisplace + "Root : [INFO] start ->  Process Definition witn no codeName defined. Process Definition = " + JSON.stringify(processInstance.referenceParent));
                 global.EXIT_NODE_PROCESS()
                 return
             }
 
             if (processInstance.referenceParent.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start-> Process Definition not attached to a Bot Definition. Process Definition = " + JSON.stringify(processInstance.referenceParent));
+                console.log(logDisplace + "Root : [INFO] start ->  Process Definition not attached to a Bot Definition. Process Definition = " + JSON.stringify(processInstance.referenceParent));
                 global.EXIT_NODE_PROCESS()
                 return
             }
 
             if (processInstance.referenceParent.parentNode.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start-> Bot Definition witn no codeName defined. Bot Definition = " + JSON.stringify(processInstance.referenceParent.parentNode));
+                console.log(logDisplace + "Root : [INFO] start ->  Bot Definition witn no codeName defined. Bot Definition = " + JSON.stringify(processInstance.referenceParent.parentNode));
                 global.EXIT_NODE_PROCESS()
                 return
             }
 
             if (processInstance.referenceParent.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start-> Bot Definition not attached to a Team. Bot Definition = " + JSON.stringify(processInstance.referenceParent.parentNode));
+                console.log(logDisplace + "Root : [INFO] start ->  Bot Definition not attached to a Team. Bot Definition = " + JSON.stringify(processInstance.referenceParent.parentNode));
                 global.EXIT_NODE_PROCESS()
                 return
             }
 
             if (processInstance.referenceParent.parentNode.parentNode.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start-> Team witn no codeName defined. Team = " + JSON.stringify(processInstance.referenceParent.parentNode.parentNode));
+                console.log(logDisplace + "Root : [INFO] start ->  Team witn no codeName defined. Team = " + JSON.stringify(processInstance.referenceParent.parentNode.parentNode));
                 global.EXIT_NODE_PROCESS()
                 return
             }
 
             /* Here we will check if we need to load the configuration and code of the bot from a file or we will take that from the UI. */
-            if (processInstance.referenceParent.code.framework !== undefined) {
+            if (
+                processInstance.referenceParent.code.framework !== undefined &&
+                (processInstance.referenceParent.code.framework.name === 'Multi-Period-Market' || processInstance.referenceParent.code.framework.name === 'Multi-Period-Daily')
+                ) {
                 botConfig = processInstance.referenceParent.parentNode.code
                 botConfig.definedByUI = true
                 bootingBot(processIndex)

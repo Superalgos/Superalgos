@@ -45,8 +45,6 @@
 
             function runSession(message) {
 
-                console.log(message.event.definition)
-
                 /* We are going to run the Definition comming at the event. */
                 bot.DEFINITION = JSON.parse(message.event.definition)
                 bot.SESSION = JSON.parse(message.event.session)

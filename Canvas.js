@@ -204,11 +204,11 @@ function newCanvas () {
       }
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true) { // Dev Tool
+    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && event.shiftKey === true && event.keyCode === 123) { // Dev Tool when used with F12
       if (nodeOnFocus !== undefined) {
         console.log(nodeOnFocus)
+        return
       }
-      return
     }
 
     if (event.altKey === true && event.code === 'ArrowUp') {
@@ -268,7 +268,7 @@ function newCanvas () {
       }
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true)) {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true) {
       if (event.keyCode >= 65 && event.keyCode <= 90) {
         /* From here we prevent the default behaviour */
         event.preventDefault()
@@ -295,15 +295,15 @@ function newCanvas () {
         /* If there is not node using this key and a node in focus, we assign this key to this node */
         if (nodeUsingThisKey === undefined && nodeOnFocus !== undefined) {
           nodeOnFocus.payload.uiObject.shortcutKey = event.key
-          nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + event.key)
+          nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + event.key)
         }
         return
       }
     }
 
-    if (event.ctrlKey === true && nodeOnFocus !== undefined) {
+    if (event.ctrlKey === true && event.altKey === true && nodeOnFocus !== undefined) {
       if (nodeOnFocus.payload.uiObject.shortcutKey !== undefined && nodeOnFocus.payload.uiObject.shortcutKey !== '') {
-        nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + nodeOnFocus.payload.uiObject.shortcutKey)
+        nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + nodeOnFocus.payload.uiObject.shortcutKey)
       }
     }
   }

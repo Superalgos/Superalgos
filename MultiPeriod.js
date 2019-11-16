@@ -125,12 +125,7 @@
                         Here we get the status report from the bot who knows which is the end of the market.
                     */
 
-                    let botWhoKnowsTheEndOfTheMarket = statusDependencies.nodeArray[processConfig.framework.endDate.takeItFromStatusDependency];
-
-                    reportKey = botWhoKnowsTheEndOfTheMarket.devTeam + "-" + botWhoKnowsTheEndOfTheMarket.bot + "-" + botWhoKnowsTheEndOfTheMarket.process + "-" + "dataSet.V1";
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
-
-                    statusReport = statusDependencies.statusReports.get(reportKey);
+                    statusReport = statusDependencies.reportsByMainUtility.get("Market Ending Point")
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
@@ -144,7 +139,7 @@
                         return;
                     }
 
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+                    thisReport = statusReport.file;
 
                     if (thisReport.lastFile === undefined) {
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
@@ -174,10 +169,7 @@
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = bot.devTeam + "-" + bot.codeName + "-" + "Multi-Period" + "-" + "dataSet.V1";
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
-
-                    statusReport = statusDependencies.statusReports.get(reportKey);
+                    statusReport = statusDependencies.reportsByMainUtility.get("Self Reference")
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
@@ -191,7 +183,7 @@
                         return;
                     }
 
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+                    thisReport = statusReport.file;
 
                     if (thisReport.lastFile !== undefined) {
 
@@ -963,8 +955,8 @@
                     controlLoop();
 
                     function productLoopBody() {
-                        let folderName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.code.codeName;
-                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodDailyProcessDatetime, folderName, controlLoop);
+                        let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.code.codeName;
+                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodProcessDatetime, productCodeName, currentOutputPeriodName, controlLoop);
                     }
 
                     function controlLoop() {
@@ -985,7 +977,7 @@
 
             }
 
-            function writeDataRange(pBegin, pEnd, product, currentOutputPeriodName, callBack) {
+            function writeDataRange(pBegin, pEnd, productCodeName, currentOutputPeriodName, callBack) {
 
                 try {
 
@@ -999,7 +991,7 @@
                     let fileContent = JSON.stringify(dataRange);
 
                     let fileName = '/Data.Range.' + market.assetA + '_' + market.assetB + '.json';
-                    let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + product.codeName + "/" + 'Multi-Period-Daily' + fileName;
+                    let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + productCodeName + "/" + 'Multi-Period-Daily' + fileName;
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
@@ -1017,7 +1009,7 @@
                             logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
                         }
 
-                        let key = bot.devTeam + "-" + bot.codeName + "-" + product.codeName + "-" + currentOutputPeriodName
+                        let key = bot.devTeam + "-" + bot.codeName + "-" + productCodeName + "-" + currentOutputPeriodName
                         let event = {
                             dateRange: dataRange
                         }

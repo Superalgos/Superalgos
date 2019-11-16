@@ -205,10 +205,7 @@
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = bot.devTeam + "-" + bot.codeName + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
-
-                    statusReport = statusDependencies.statusReports.get(reportKey);
+                    statusReport = statusDependencies.reportsByMainUtility.get("Self Reference")
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
@@ -222,7 +219,7 @@
                         return;
                     }
 
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+                    thisReport = statusReport.file;
 
                     if (thisReport.lastFile !== undefined) {
 
@@ -696,8 +693,8 @@
                     controlLoop();
 
                     function productLoopBody() {
-                        let folderName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.code.codeName;
-                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodDailyProcessDatetime, folderName, controlLoop);
+                        let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.code.codeName;
+                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodDailyProcessDatetime, productCodeName, controlLoop);
                     }
 
                     function controlLoop() {
@@ -718,7 +715,7 @@
 
             }
 
-            function writeDataRange(pBegin, pEnd, pProductFolder, callBack) {
+            function writeDataRange(pBegin, pEnd, productCodeName, callBack) {
 
                 try {
 
@@ -732,7 +729,7 @@
                     let fileContent = JSON.stringify(dataRange);
 
                     let fileName = '/Data.Range.' + market.assetA + '_' + market.assetB + '.json';
-                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process + fileName;
+                    let filePath = bot.filePathRoot + "/Output/" + productCodeName + "/" + bot.process + fileName;
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 
